@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { get, set } from 'rc-util';
+import { set } from 'rc-util';
 import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
 import type { ColProps } from '../grid/col';
@@ -65,22 +65,16 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
     let mergedWrapperCol: ColProps = { ...(wrapperCol || formContext.wrapperCol || {}) };
     if (label === null && !wrapperCol && formLabelCol) {
       // base size
-      if ('span' in formLabelCol && formLabelCol.span !== 24) {
-        mergedWrapperCol.offset = mergedWrapperCol?.offset ?? formLabelCol.span;
+      if ('span' in formLabelCol && !('offset' in mergedWrapperCol) && formLabelCol.span !== 24) {
+        mergedWrapperCol.offset = formLabelCol.span;
       }
       // more size
       const list = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
       list.forEach((size) => {
-        if (
-          typeof formLabelCol[size] === 'object' &&
-          'span' in formLabelCol[size] &&
-          formLabelCol[size].span !== 24
-        ) {
-          mergedWrapperCol = set(
-            mergedWrapperCol,
-            [size, 'offset'],
-            get(mergedWrapperCol, [size, 'offset']) ?? formLabelCol[size].span,
-          );
+        const formObj = typeof formLabelCol[size] === 'object' ? formLabelCol[size] : {};
+        const mergedObj = typeof mergedWrapperCol[size] === 'object' ? mergedWrapperCol[size] : {};
+        if ('span' in formObj && !('offset' in mergedObj) && formObj.span !== 24) {
+          mergedWrapperCol = set(mergedWrapperCol, [size, 'offset'], formObj.span);
         }
       });
     }
