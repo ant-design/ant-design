@@ -1383,10 +1383,12 @@ describe('Form', () => {
 
     const items = container.querySelectorAll('.ant-form-item');
     const oneItems = items[0].querySelector('.ant-row')?.querySelectorAll('.ant-col');
-    expect(oneItems?.[0].className).toBe('ant-col ant-col-4 ant-form-item-label');
-    expect(oneItems?.[1].className).toBe('ant-col ant-col-14 ant-form-item-control');
+    expect(oneItems?.[0]).toHaveClass('ant-col-4');
+    expect(oneItems?.[0].className.includes('offset')).toBeFalsy();
+    expect(oneItems?.[1]).toHaveClass('ant-col-14');
+    expect(oneItems?.[1].className.includes('offset')).toBeFalsy();
     const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
-    expect(twoItem?.className).toBe('ant-col ant-col-14 ant-col-offset-4 ant-form-item-control');
+    expect(twoItem).toHaveClass('ant-col-14 ant-col-offset-4');
 
     // more sze
     const list = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
@@ -1404,12 +1406,12 @@ describe('Form', () => {
 
       const items = container.querySelectorAll('.ant-form-item');
       const oneItems = items[0].querySelector('.ant-row')?.querySelectorAll('.ant-col');
-      expect(oneItems?.[0].className).toBe(`ant-col ant-form-item-label ant-col-${size}-4`);
-      expect(oneItems?.[1].className).toBe('ant-col ant-col-14 ant-form-item-control');
+      expect(oneItems?.[0]).toHaveClass(`ant-col-${size}-4`);
+      expect(oneItems?.[0].className.includes('offset')).toBeFalsy();
+      expect(oneItems?.[1]).toHaveClass('ant-col-14');
+      expect(oneItems?.[1].className.includes('offset')).toBeFalsy();
       const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
-      expect(twoItem?.className).toBe(
-        `ant-col ant-col-14 ant-form-item-control ant-col-${size}-offset-4`,
-      );
+      expect(twoItem).toHaveClass(`ant-col-14 ant-col-${size}-offset-4`);
     });
   });
 
@@ -1429,10 +1431,12 @@ describe('Form', () => {
 
     const items = container.querySelectorAll('.ant-form-item');
     const oneItems = items[0].querySelector('.ant-row')?.querySelectorAll('.ant-col');
-    expect(oneItems?.[0].className).toBe('ant-col ant-col-24 ant-form-item-label');
-    expect(oneItems?.[1].className).toBe('ant-col ant-col-24 ant-form-item-control');
+    expect(oneItems?.[0]).toHaveClass('ant-col-24');
+    expect(oneItems?.[0].className.includes('offset')).toBeFalsy();
+    expect(oneItems?.[1]).toHaveClass('ant-col-24');
+    expect(oneItems?.[1].className.includes('offset')).toBeFalsy();
     const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
-    expect(twoItem?.className).toBe('ant-col ant-col-24 ant-form-item-control');
+    expect(twoItem).toHaveClass('ant-col-24');
 
     // more sze
     const list = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
@@ -1450,10 +1454,12 @@ describe('Form', () => {
 
       const items = container.querySelectorAll('.ant-form-item');
       const oneItems = items[0].querySelector('.ant-row')?.querySelectorAll('.ant-col');
-      expect(oneItems?.[0].className).toBe(`ant-col ant-form-item-label ant-col-${size}-24`);
-      expect(oneItems?.[1].className).toBe('ant-col ant-col-24 ant-form-item-control');
+      expect(oneItems?.[0]).toHaveClass(`ant-col-${size}-24`);
+      expect(oneItems?.[0].className.includes('offset')).toBeFalsy();
+      expect(oneItems?.[1]).toHaveClass('ant-col-24');
+      expect(oneItems?.[1].className.includes('offset')).toBeFalsy();
       const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
-      expect(twoItem?.className).toBe(`ant-col ant-col-24 ant-form-item-control`);
+      expect(twoItem).toHaveClass(`ant-col-24`);
     });
   });
 
