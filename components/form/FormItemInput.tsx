@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { set } from 'rc-util';
+import { get, set } from 'rc-util';
 import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
 import type { ColProps } from '../grid/col';
@@ -39,7 +39,7 @@ export interface FormItemInputProps {
   fieldId?: string;
   label?: React.ReactNode;
 }
-const gridMaxSpan = 24;
+const GRID_MAX = 24;
 
 const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (props) => {
   const {
@@ -63,27 +63,25 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
 
   const mergedWrapperCol = React.useMemo(() => {
     const formLabelCol = formContext.labelCol;
-    let mergedWrapperCol: ColProps = { ...(wrapperCol || formContext.wrapperCol || {}) };
+    let col: ColProps = { ...(wrapperCol || formContext.wrapperCol || {}) };
     if (label === null && !wrapperCol && formLabelCol) {
-      // base size
-      if (
-        'span' in formLabelCol &&
-        !('offset' in mergedWrapperCol) &&
-        formLabelCol.span !== gridMaxSpan
-      ) {
-        mergedWrapperCol.offset = formLabelCol.span;
-      }
-      // more size
-      const list = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+      const list = [undefined, 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+
       list.forEach((size) => {
-        const formObj = typeof formLabelCol[size] === 'object' ? formLabelCol[size] : {};
-        const mergedObj = typeof mergedWrapperCol[size] === 'object' ? mergedWrapperCol[size] : {};
-        if ('span' in formObj && !('offset' in mergedObj) && formObj.span !== gridMaxSpan) {
-          mergedWrapperCol = set(mergedWrapperCol, [size, 'offset'], formObj.span);
+        const _size = size ? [size] : [];
+
+        const formData = get(formLabelCol, _size);
+        const formObj = typeof formData === 'object' ? formData : {};
+
+        const mergedData = get(col, _size);
+        const mergedObj = typeof mergedData === 'object' ? mergedData : {};
+
+        if ('span' in formObj && !('offset' in mergedObj) && formObj.span < GRID_MAX) {
+          col = set(col, size ? [size, 'offset'] : ['offset'], formObj.span);
         }
       });
     }
-    return mergedWrapperCol;
+    return col;
   }, [wrapperCol, formContext]);
 
   const className = classNames(`${baseClassName}-control`, mergedWrapperCol.className);
