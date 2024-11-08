@@ -64,15 +64,14 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   const formContext = React.useContext(FormContext);
 
   const mergedWrapperCol = React.useMemo(() => {
-    const formLabelCol = formContext.labelCol;
     let col: ColProps = { ...(wrapperCol || formContext.wrapperCol || {}) };
-    if (label === null && !labelCol && !wrapperCol && formLabelCol) {
+    if (label === null && !labelCol && !wrapperCol && formContext.labelCol) {
       const list = [undefined, 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
 
       list.forEach((size) => {
         const _size = size ? [size] : [];
 
-        const formData = get(formLabelCol, _size);
+        const formData = get(formContext.labelCol, _size);
         const formObj = typeof formData === 'object' ? formData : {};
 
         const mergedData = get(col, _size);
