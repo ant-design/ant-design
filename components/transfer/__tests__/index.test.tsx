@@ -831,7 +831,6 @@ describe('Transfer', () => {
           ?.querySelector('input[type="checkbox"]')!,
       ).toBeChecked();
     });
-    // expect(handleSelectChange).toHaveBeenLastCalledWith(defaultCheckedKeys, []);
   });
 });
 
