@@ -1437,6 +1437,7 @@ describe('Form', () => {
     expect(oneItems?.[1].className.includes('offset')).toBeFalsy();
     const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
     expect(twoItem).toHaveClass('ant-col-24');
+    expect(twoItem?.className.includes('offset')).toBeFalsy();
 
     // more size
     const list = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
@@ -1460,6 +1461,7 @@ describe('Form', () => {
       expect(oneItems?.[1].className.includes('offset')).toBeFalsy();
       const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
       expect(twoItem).toHaveClass(`ant-col-24`);
+      expect(twoItem?.className.includes('offset')).toBeFalsy();
     });
   });
 
