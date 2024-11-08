@@ -39,6 +39,7 @@ export interface FormItemInputProps {
   fieldId?: string;
   label?: React.ReactNode;
 }
+const gridMaxSpan = 24;
 
 const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (props) => {
   const {
@@ -65,7 +66,11 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
     let mergedWrapperCol: ColProps = { ...(wrapperCol || formContext.wrapperCol || {}) };
     if (label === null && !wrapperCol && formLabelCol) {
       // base size
-      if ('span' in formLabelCol && !('offset' in mergedWrapperCol) && formLabelCol.span !== 24) {
+      if (
+        'span' in formLabelCol &&
+        !('offset' in mergedWrapperCol) &&
+        formLabelCol.span !== gridMaxSpan
+      ) {
         mergedWrapperCol.offset = formLabelCol.span;
       }
       // more size
@@ -73,7 +78,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
       list.forEach((size) => {
         const formObj = typeof formLabelCol[size] === 'object' ? formLabelCol[size] : {};
         const mergedObj = typeof mergedWrapperCol[size] === 'object' ? mergedWrapperCol[size] : {};
-        if ('span' in formObj && !('offset' in mergedObj) && formObj.span !== 24) {
+        if ('span' in formObj && !('offset' in mergedObj) && formObj.span !== gridMaxSpan) {
           mergedWrapperCol = set(mergedWrapperCol, [size, 'offset'], formObj.span);
         }
       });
