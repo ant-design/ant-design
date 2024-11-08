@@ -144,7 +144,7 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"
@@ -403,7 +403,7 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"
@@ -1926,7 +1926,7 @@ Array [
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  Simple Empty
+                  No data
                 </title>
                 <g
                   fill="none"
@@ -2098,7 +2098,7 @@ Array [
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  Simple Empty
+                  No data
                 </title>
                 <g
                   fill="none"
@@ -2279,7 +2279,7 @@ Array [
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  Simple Empty
+                  No data
                 </title>
                 <g
                   fill="none"
@@ -2518,7 +2518,7 @@ Array [
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  Simple Empty
+                  No data
                 </title>
                 <g
                   fill="none"
@@ -3911,7 +3911,7 @@ exports[`renders components/transfer/demo/custom-item.tsx correctly 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"
@@ -4084,7 +4084,7 @@ exports[`renders components/transfer/demo/custom-item.tsx correctly 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"
@@ -4621,7 +4621,7 @@ Array [
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  Simple Empty
+                  No data
                 </title>
                 <g
                   fill="none"
@@ -4777,7 +4777,7 @@ Array [
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  Simple Empty
+                  No data
                 </title>
                 <g
                   fill="none"
@@ -5732,7 +5732,7 @@ exports[`renders components/transfer/demo/search.tsx correctly 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"
@@ -5971,7 +5971,7 @@ exports[`renders components/transfer/demo/search.tsx correctly 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"
@@ -6091,7 +6091,7 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  Simple Empty
+                  No data
                 </title>
                 <g
                   fill="none"
@@ -6263,7 +6263,7 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  Simple Empty
+                  No data
                 </title>
                 <g
                   fill="none"
@@ -6444,7 +6444,7 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  Simple Empty
+                  No data
                 </title>
                 <g
                   fill="none"
@@ -6683,7 +6683,7 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  Simple Empty
+                  No data
                 </title>
                 <g
                   fill="none"
@@ -7749,7 +7749,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
                                     <title>
-                                      Simple Empty
+                                      No data
                                     </title>
                                     <g
                                       fill="none"
@@ -8239,7 +8239,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx correctly 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"

@@ -212,7 +212,7 @@ const InternalCompoundedButton = React.forwardRef<
         e.preventDefault();
         return;
       }
-      (props.onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)?.(e);
+      props.onClick?.(e);
     },
     [props.onClick, innerLoading, mergedDisabled],
   );
@@ -239,7 +239,7 @@ const InternalCompoundedButton = React.forwardRef<
 
   const sizeFullName = useSize((ctxSize) => customizeSize ?? compactSize ?? groupSize ?? ctxSize);
 
-  const sizeCls = sizeFullName ? sizeClassNameMap[sizeFullName] ?? '' : '';
+  const sizeCls = sizeFullName ? (sizeClassNameMap[sizeFullName] ?? '') : '';
 
   const iconType = innerLoading ? 'loading' : icon;
 

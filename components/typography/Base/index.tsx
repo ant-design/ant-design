@@ -462,7 +462,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               width={ellipsisWidth}
               onEllipsis={onJsEllipsis}
               expanded={expanded}
-              miscDeps={[copied, expanded, copyLoading, enableEdit, enableCopy]}
+              miscDeps={[copied, expanded, copyLoading, enableEdit, enableCopy, textLocale]}
             >
               {(node, canEllipsis) =>
                 wrapperDecorations(

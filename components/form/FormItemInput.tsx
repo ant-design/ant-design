@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { set } from 'rc-util';
+import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
 import type { ColProps } from '../grid/col';
 import Col from '../grid/col';
@@ -86,6 +87,16 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
     return rest;
   }, [formContext]);
 
+  const extraRef = React.useRef<HTMLDivElement>(null);
+  const [extraHeight, setExtraHeight] = React.useState<number>(0);
+  useLayoutEffect(() => {
+    if (extra && extraRef.current) {
+      setExtraHeight(extraRef.current.clientHeight);
+    } else {
+      setExtraHeight(0);
+    }
+  }, [extra]);
+
   const inputDom: React.ReactNode = (
     <div className={`${baseClassName}-control-input`}>
       <div className={`${baseClassName}-control-input-content`}>{children}</div>
@@ -94,20 +105,17 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   const formItemContext = React.useMemo(() => ({ prefixCls, status }), [prefixCls, status]);
   const errorListDom: React.ReactNode =
     marginBottom !== null || errors.length || warnings.length ? (
-      <div style={{ display: 'flex', flexWrap: 'nowrap' }}>
-        <FormItemPrefixContext.Provider value={formItemContext}>
-          <ErrorList
-            fieldId={fieldId}
-            errors={errors}
-            warnings={warnings}
-            help={help}
-            helpStatus={status}
-            className={`${baseClassName}-explain-connected`}
-            onVisibleChanged={onErrorVisibleChanged}
-          />
-        </FormItemPrefixContext.Provider>
-        {!!marginBottom && <div style={{ width: 0, height: marginBottom }} />}
-      </div>
+      <FormItemPrefixContext.Provider value={formItemContext}>
+        <ErrorList
+          fieldId={fieldId}
+          errors={errors}
+          warnings={warnings}
+          help={help}
+          helpStatus={status}
+          className={`${baseClassName}-explain-connected`}
+          onVisibleChanged={onErrorVisibleChanged}
+        />
+      </FormItemPrefixContext.Provider>
     ) : null;
 
   const extraProps: { id?: string } = {};
@@ -119,10 +127,21 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   // If extra = 0, && will goes wrong
   // 0&&error -> 0
   const extraDom: React.ReactNode = extra ? (
-    <div {...extraProps} className={`${baseClassName}-extra`}>
+    <div {...extraProps} className={`${baseClassName}-extra`} ref={extraRef}>
       {extra}
     </div>
   ) : null;
+
+  const additionalDom: React.ReactNode =
+    errorListDom || extraDom ? (
+      <div
+        className={`${baseClassName}-additional`}
+        style={marginBottom ? { minHeight: marginBottom + extraHeight } : {}}
+      >
+        {errorListDom}
+        {extraDom}
+      </div>
+    ) : null;
 
   const dom: React.ReactNode =
     formItemRender && formItemRender.mark === 'pro_table_render' && formItemRender.render ? (
@@ -130,8 +149,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
     ) : (
       <>
         {inputDom}
-        {errorListDom}
-        {extraDom}
+        {additionalDom}
       </>
     );
   return (

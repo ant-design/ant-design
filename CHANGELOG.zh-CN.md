@@ -15,6 +15,19 @@ tag: vVERSION
 
 ---
 
+## 5.21.6
+
+`2024-10-28`
+
+- 🐞 修复 Tree.DirectoryTree 交互区域不是整行的问题。[#51210](https://github.com/ant-design/ant-design/pull/51210)
+- 🐞 修复 Button 图标未垂直居中的问题。[#51381](https://github.com/ant-design/ant-design/pull/51381)
+- 🐞 修复 Input 组件 `variant` 设置 `borderless` 时，`disabled` 状态下指针样式未设置 `not-allowed` 的问题。[#51387](https://github.com/ant-design/ant-design/pull/51387) [@ustcfury](https://github.com/ustcfury)
+- Splitter
+  - 💄 优化 Splitter 在 SSR 下预渲染的样式。[#51378](https://github.com/ant-design/ant-design/pull/51378)
+  - 💄 增大 Splitter 折叠按钮点击区域，提高可用性。[#51383](https://github.com/ant-design/ant-design/pull/51383) [@aojunhao123](https://github.com/aojunhao123)
+- 💄 优化 Checkbox `indeterminate` 提升无障碍体验。[#51350](https://github.com/ant-design/ant-design/pull/51350) [@SpaNb4](https://github.com/SpaNb4)
+- 💄 优化 Empty 预设 svg 图片的 `title` 提升无障碍体验。[#51368](https://github.com/ant-design/ant-design/pull/51368)
+
 ## 5.21.5
 
 `2024-10-21`

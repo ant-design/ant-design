@@ -373,6 +373,24 @@ const GlobalStyle: React.FC = () => {
               }
             }
           }
+
+            /*
+              Api 表中某些属性用 del 标记，表示已废弃（但仍期望给开发者一个过渡期)用 css 标记出来。仅此而已。
+              有更多看法？移步讨论区: https://github.com/ant-design/ant-design/discussions/51298
+            */
+            tr:has(td:first-child > del) {
+              color: ${token.colorWarning} !important;
+              background-color: ${token.colorWarningBg} !important;
+              display: var(--antd-site-api-deprecated-display, none);
+
+              del {
+                color: ${token.colorWarning};
+              }
+
+              &:hover del {
+                text-decoration: none;
+              }
+            }
         }
 
         .grid-demo,
