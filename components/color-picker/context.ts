@@ -29,8 +29,8 @@ export interface PanelPickerContextProps {
   gradientDragging: boolean;
   /** The gradient Slider dragging changed */
   onGradientDragging: (dragging: boolean) => void;
-
   onClear?: () => void;
+  disabledFormat?: boolean;
 }
 
 export interface PanelPresetsContextProps {
