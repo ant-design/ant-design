@@ -42,6 +42,7 @@ demo:
 <code src="./demo/textarea-resize.tsx" debug>TextArea</code>
 <code src="./demo/debug-addon.tsx" debug>debug Pre / Post tab</code>
 <code src="./demo/component-token.tsx" debug>debug token</code>
+<code src="./demo/phone.tsx">Phone Input</code>
 
 ## API
 
@@ -157,6 +158,14 @@ Added in `5.16.0`.
 | --- | --- | --- | --- |
 | blur | Remove focus | - |  |
 | focus | Get focus | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | option - 4.10.0 |
+
+### Input.Phone
+
+| Name          | Description           | Parameters     | Version |
+| ------------- | --------------------- | -------------- | ------- | --- |
+| defaultValue  | default phone number  | string         | -       |     |
+| defaultRegion | default region code   | CountryCode    | -       |     |
+| customRegions | custom region options | CustomRegion[] | -       |     |
 
 ### Semantic DOM
 

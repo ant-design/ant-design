@@ -43,6 +43,7 @@ demo:
 <code src="./demo/textarea-resize.tsx" debug>文本域</code>
 <code src="./demo/debug-addon.tsx" debug>debug 前置/后置标签</code>
 <code src="./demo/component-token.tsx" debug>debug token</code>
+<code src="./demo/phone.tsx">电话输入</code>
 
 ## API
 
@@ -158,6 +159,14 @@ interface CountConfig {
 | --- | --- | --- | --- |
 | blur | 取消焦点 | - |  |
 | focus | 获取焦点 | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | option - 4.10.0 |
+
+### Input.Phone
+
+| 参数          | 说明           | 类型           | 默认值 | 版本 |
+| ------------- | -------------- | -------------- | ------ | ---- |
+| defaultValue  | 默电话号码     | string         | -      |      |
+| defaultRegion | 默认地区代码   | CountryCode    | -      |      |
+| customRegions | 自定义地区选项 | CustomRegion[] | -      |      |
 
 ### Semantic DOM
 

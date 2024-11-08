@@ -4,12 +4,14 @@ import OTP from './OTP';
 import Password from './Password';
 import Search from './Search';
 import TextArea from './TextArea';
+import { Phone } from './Phone';
 
 export type { GroupProps } from './Group';
 export type { InputProps, InputRef } from './Input';
 export type { PasswordProps } from './Password';
 export type { SearchProps } from './Search';
 export type { TextAreaProps } from './TextArea';
+export type { PhoneProps } from './Phone';
 
 type CompoundedComponent = typeof InternalInput & {
   Group: typeof Group;
@@ -17,6 +19,7 @@ type CompoundedComponent = typeof InternalInput & {
   TextArea: typeof TextArea;
   Password: typeof Password;
   OTP: typeof OTP;
+  Phone: typeof Phone;
 };
 
 const Input = InternalInput as CompoundedComponent;
@@ -26,5 +29,6 @@ Input.Search = Search;
 Input.TextArea = TextArea;
 Input.Password = Password;
 Input.OTP = OTP;
+Input.Phone = Phone;
 
 export default Input;
