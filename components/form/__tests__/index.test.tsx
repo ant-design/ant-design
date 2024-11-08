@@ -1390,7 +1390,7 @@ describe('Form', () => {
     const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
     expect(twoItem).toHaveClass('ant-col-14 ant-col-offset-4');
 
-    // more sze
+    // more size
     const list = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
     list.forEach((size) => {
       const { container } = render(
@@ -1438,7 +1438,7 @@ describe('Form', () => {
     const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
     expect(twoItem).toHaveClass('ant-col-24');
 
-    // more sze
+    // more size
     const list = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
     list.forEach((size) => {
       const { container } = render(
