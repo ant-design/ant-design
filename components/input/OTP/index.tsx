@@ -47,7 +47,8 @@ export interface OTPProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'on
 
   mask?: boolean | string;
 
-  type?: React.HTMLInputTypeAttribute;
+  type?:'alphanumeric'|'numeric';
+  allowedSymbols?:RegExp;
 }
 
 function strToArr(str: string) {
@@ -69,6 +70,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     autoFocus,
     mask,
     type,
+    allowedSymbols,
     ...restProps
   } = props;
 
@@ -217,6 +219,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     status: mergedStatus as InputStatus,
     mask,
     type,
+    allowedSymbols
   };
 
   return wrapCSSVar(
