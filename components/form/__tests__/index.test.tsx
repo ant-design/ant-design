@@ -1380,19 +1380,36 @@ describe('Form', () => {
       </Form>
     );
     const { container } = render(<App />);
-    expect(container.firstChild).toMatchSnapshot();
+
+    const items = container.querySelectorAll('.ant-form-item');
+    const oneItems = items[0].querySelector('.ant-row')?.querySelectorAll('.ant-col');
+    expect(oneItems?.[0].className).toBe('ant-col ant-col-4 ant-form-item-label');
+    expect(oneItems?.[1].className).toBe('ant-col ant-col-14 ant-form-item-control');
+    const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
+    expect(twoItem?.className).toBe('ant-col ant-col-14 ant-col-offset-4 ant-form-item-control');
 
     // more sze
     const list = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
     list.forEach((size) => {
       const { container } = render(
         <Form labelCol={{ [size]: { span: 4 } }} wrapperCol={{ span: 14 }}>
+          <Form.Item label="name" name="name">
+            <Input />
+          </Form.Item>
           <Form.Item label={null}>
             <Button>Submit</Button>
           </Form.Item>
         </Form>,
       );
-      expect(container.firstChild).toMatchSnapshot();
+
+      const items = container.querySelectorAll('.ant-form-item');
+      const oneItems = items[0].querySelector('.ant-row')?.querySelectorAll('.ant-col');
+      expect(oneItems?.[0].className).toBe(`ant-col ant-form-item-label ant-col-${size}-4`);
+      expect(oneItems?.[1].className).toBe('ant-col ant-col-14 ant-form-item-control');
+      const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
+      expect(twoItem?.className).toBe(
+        `ant-col ant-col-14 ant-form-item-control ant-col-${size}-offset-4`,
+      );
     });
   });
 
