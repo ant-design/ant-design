@@ -62,24 +62,17 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   const mergedWrapperCol = React.useMemo(() => {
     const mergedWrapperCol: ColProps = { ...(wrapperCol || formContext.wrapperCol || {}) };
     if (label === null && !wrapperCol && formContext.labelCol) {
+      // base size
       if ('span' in formContext.labelCol) {
         mergedWrapperCol.offset = formContext.labelCol.span;
-      } else if (typeof formContext.labelCol.xs === 'object' && 'span' in formContext.labelCol.xs) {
-        set(mergedWrapperCol, ['sx', 'offset'], formContext.labelCol.xs.span);
-      } else if (typeof formContext.labelCol.sm === 'object' && 'span' in formContext.labelCol.sm) {
-        set(mergedWrapperCol, ['sm', 'offset'], formContext.labelCol.sm.span);
-      } else if (typeof formContext.labelCol.md === 'object' && 'span' in formContext.labelCol.md) {
-        set(mergedWrapperCol, ['md', 'offset'], formContext.labelCol.md.span);
-      } else if (typeof formContext.labelCol.lg === 'object' && 'span' in formContext.labelCol.lg) {
-        set(mergedWrapperCol, ['lg', 'offset'], formContext.labelCol.lg.span);
-      } else if (typeof formContext.labelCol.xl === 'object' && 'span' in formContext.labelCol.xl) {
-        set(mergedWrapperCol, ['xl', 'offset'], formContext.labelCol.xl.span);
-      } else if (
-        typeof formContext.labelCol.xxl === 'object' &&
-        'span' in formContext.labelCol.xxl
-      ) {
-        set(mergedWrapperCol, ['xxl', 'offset'], formContext.labelCol.xxl.span);
       }
+      // more size
+      const list = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+      list.forEach((size) => {
+        if (typeof mergedWrapperCol[size] === 'object' && 'span' in mergedWrapperCol[size]) {
+          set(mergedWrapperCol, [size, 'offset'], mergedWrapperCol[size].span);
+        }
+      });
     }
     return mergedWrapperCol;
   }, [wrapperCol, formContext]);
