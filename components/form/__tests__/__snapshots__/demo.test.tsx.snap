@@ -8747,7 +8747,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
       class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
+        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16 ant-col-sm-offset-8"
       >
         <div
           class="ant-form-item-control-input"
