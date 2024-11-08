@@ -64,25 +64,25 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   const formContext = React.useContext(FormContext);
 
   const mergedWrapperCol = React.useMemo(() => {
-    let col: ColProps = { ...(wrapperCol || formContext.wrapperCol || {}) };
+    let mergedWrapper: ColProps = { ...(wrapperCol || formContext.wrapperCol || {}) };
     if (label === null && !labelCol && !wrapperCol && formContext.labelCol) {
       const list = [undefined, 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
 
       list.forEach((size) => {
         const _size = size ? [size] : [];
 
-        const formData = get(formContext.labelCol, _size);
-        const formObj = typeof formData === 'object' ? formData : {};
+        const formLabel = get(formContext.labelCol, _size);
+        const formLabelObj = typeof formLabel === 'object' ? formLabel : {};
 
-        const mergedData = get(col, _size);
-        const mergedObj = typeof mergedData === 'object' ? mergedData : {};
+        const wrapper = get(mergedWrapper, _size);
+        const wrapperObj = typeof wrapper === 'object' ? wrapper : {};
 
-        if ('span' in formObj && !('offset' in mergedObj) && formObj.span < GRID_MAX) {
-          col = set(col, [..._size, 'offset'], formObj.span);
+        if ('span' in formLabelObj && !('offset' in wrapperObj) && formLabelObj.span < GRID_MAX) {
+          mergedWrapper = set(mergedWrapper, [..._size, 'offset'], formLabelObj.span);
         }
       });
     }
-    return col;
+    return mergedWrapper;
   }, [wrapperCol, formContext]);
 
   const className = classNames(`${baseClassName}-control`, mergedWrapperCol.className);
