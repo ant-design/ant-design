@@ -490,7 +490,7 @@ describe('Button', () => {
       'geekblue',
       'lime',
       'gold',
-    ];
+    ] as const;
 
     colors.forEach((color) => {
       const { container } = render(
