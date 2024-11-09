@@ -64,7 +64,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
       ),
       icons,
       ...restPreviewProps,
-      rootClassName: rootClassName ? classNames(rootClassName, hashId, cssVarCls, rootCls) : mergedRootClassName,
+      rootClassName: classNames(mergedRootClassName, rootClassName),
       getContainer: getContainer ?? getContextPopupContainer,
       transitionName: getTransitionName(rootPrefixCls, 'zoom', _preview.transitionName),
       maskTransitionName: getTransitionName(rootPrefixCls, 'fade', _preview.maskTransitionName),
