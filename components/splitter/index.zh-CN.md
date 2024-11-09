@@ -27,6 +27,7 @@ tag: 5.21.0
 <code src="./demo/multiple.tsx">多面板</code>
 <code src="./demo/group.tsx">复杂组合</code>
 <code src="./demo/nested-in-tabs.tsx" debug>标签页中嵌套</code>
+<code src="./demo/lazy.tsx">懒加载</code>
 <code src="./demo/debug.tsx" debug>调试</code>
 
 ## API
@@ -43,6 +44,7 @@ tag: 5.21.0
 | onResizeStart | 开始拖拽之前回调 | `(sizes: number[]) => void` | -            | -    |
 | onResize      | 面板大小变化回调 | `(sizes: number[]) => void` | -            | -    |
 | onResizeEnd   | 拖拽结束回调     | `(sizes: number[]) => void` | -            | -    |
+| lazy          | 懒加载模式       | `boolean`                   | `false`      | -    |
 
 ### Panel
 

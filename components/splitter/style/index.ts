@@ -217,6 +217,18 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         [`> ${splitBarCls}`]: {
           width: 0,
 
+          // ======================= Preview =======================
+          [`${splitBarCls}-preview`]: {
+            position: 'absolute',
+            height: '100%',
+            width: splitBarSize,
+            background: token.colorPrimary,
+            opacity: 0.2,
+            pointerEvents: 'none',
+            transition: 'none',
+            zIndex: 1,
+          },
+
           // ======================= Dragger =======================
           [`${splitBarCls}-dragger`]: {
             cursor: 'col-resize',
@@ -271,6 +283,18 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
         [`> ${splitBarCls}`]: {
           height: 0,
+
+          // ======================= Preview =======================
+          [`${splitBarCls}-preview`]: {
+            position: 'absolute',
+            width: '100%',
+            height: splitBarSize,
+            background: token.colorPrimary,
+            opacity: 0.2,
+            pointerEvents: 'none',
+            transition: 'none',
+            zIndex: 1,
+          },
 
           // ======================= Dragger =======================
           [`${splitBarCls}-dragger`]: {

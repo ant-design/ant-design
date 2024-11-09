@@ -548,4 +548,104 @@ describe('Splitter', () => {
     fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
     expect(onResize).toHaveBeenCalledWith([0, 200]);
   });
+
+  describe('lazy', () => {
+    it('should only update after mouse up when lazy is true', async () => {
+      const onResize = jest.fn();
+      const onResizeEnd = jest.fn();
+
+      const { container } = render(
+        <SplitterDemo
+          items={[
+            {
+              defaultSize: '50%',
+              min: '30%',
+              max: '70%',
+            },
+            {
+              defaultSize: '50%',
+              min: '30%',
+              max: '70%',
+            },
+          ]}
+          onResize={onResize}
+          onResizeEnd={onResizeEnd}
+          lazy
+        />,
+      );
+
+      await resizeSplitter();
+
+      const draggerEle = container.querySelector('.ant-splitter-bar-dragger')!;
+
+      // Down
+      const downEvent = createEvent.mouseDown(draggerEle);
+      (downEvent as any).pageX = 0;
+      (downEvent as any).pageY = 0;
+
+      fireEvent(draggerEle, downEvent);
+
+      // Move
+      const moveEvent = createEvent.mouseMove(window);
+      (moveEvent as any).pageX = 1000;
+      (moveEvent as any).pageY = 40;
+      fireEvent(window, moveEvent);
+
+      expect(onResize).not.toHaveBeenCalled();
+
+      // Up
+      fireEvent.mouseUp(window);
+
+      expect(onResize).toHaveBeenCalledWith([70, 30]);
+    });
+
+    it('should work with touch events when lazy', async () => {
+      const onResize = jest.fn();
+      const onResizeEnd = jest.fn();
+
+      const { container } = render(
+        <SplitterDemo
+          items={[
+            {
+              defaultSize: '50%',
+              min: '20%',
+              max: '70%',
+            },
+            {
+              defaultSize: '50%',
+              min: '20%',
+              max: '70%',
+            },
+          ]}
+          onResize={onResize}
+          onResizeEnd={onResizeEnd}
+          lazy
+        />,
+      );
+
+      await resizeSplitter();
+
+      const dragger = container.querySelector('.ant-splitter-bar-dragger')!;
+
+      // Touch Start
+      const touchStart = createEvent.touchStart(dragger, {
+        touches: [{ pageX: 0, pageY: 0 }],
+      });
+      fireEvent(dragger, touchStart);
+
+      // Touch Move
+      const touchMove = createEvent.touchMove(window, {
+        touches: [{ pageX: 1000, pageY: 40 }],
+      });
+      fireEvent(window, touchMove);
+
+      // onResize should not be called during drag
+      expect(onResize).not.toHaveBeenCalled();
+
+      // Touch End
+      fireEvent.touchEnd(window);
+
+      expect(onResize).toHaveBeenCalledWith([70, 30]);
+    });
+  });
 });

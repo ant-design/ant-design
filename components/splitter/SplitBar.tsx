@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
@@ -20,6 +20,8 @@ export interface SplitBarProps {
   ariaNow: number;
   ariaMin: number;
   ariaMax: number;
+  lazy?: boolean;
+  containerSize: number;
 }
 
 function getValidNumber(num: number | undefined): number {
@@ -42,12 +44,16 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     onOffsetUpdate,
     onOffsetEnd,
     onCollapse,
+    lazy,
+    containerSize,
   } = props;
 
   const splitBarPrefixCls = `${prefixCls}-bar`;
 
   // ======================== Resize ========================
   const [startPos, setStartPos] = useState<[x: number, y: number] | null>(null);
+  const currentOffsetRef = useRef<[number, number]>([0, 0]);
+  const previewRef = useRef<HTMLDivElement>(null);
 
   const onMouseDown: React.MouseEventHandler<HTMLDivElement> = (e) => {
     if (resizable && e.currentTarget) {
@@ -64,6 +70,26 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     }
   };
 
+  // Updated constraint calculation
+  const getConstrainedOffset = (rawOffset: number) => {
+    const currentPos = (containerSize * ariaNow) / 100;
+    const newPos = currentPos + rawOffset;
+
+    // Calculate available space
+    const minAllowed = Math.max(0, (containerSize * ariaMin) / 100);
+    const maxAllowed = Math.min(containerSize, (containerSize * ariaMax) / 100);
+
+    // Constrain new position within bounds
+    if (newPos < minAllowed) {
+      return minAllowed - currentPos;
+    }
+    if (newPos > maxAllowed) {
+      return maxAllowed - currentPos;
+    }
+
+    return rawOffset;
+  };
+
   React.useEffect(() => {
     if (startPos) {
       const onMouseMove = (e: MouseEvent) => {
@@ -71,25 +97,64 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         const offsetX = pageX - startPos[0];
         const offsetY = pageY - startPos[1];
 
-        onOffsetUpdate(index, offsetX, offsetY);
+        if (lazy) {
+          currentOffsetRef.current = [offsetX, offsetY];
+
+          if (previewRef.current) {
+            previewRef.current.style.transform = vertical
+              ? `translateY(${getConstrainedOffset(offsetY)}px)`
+              : `translateX(${getConstrainedOffset(offsetX)}px)`;
+            previewRef.current.style.display = 'block';
+          }
+        } else {
+          onOffsetUpdate(index, offsetX, offsetY);
+        }
       };
 
       const onMouseUp = () => {
+        if (lazy) {
+          const [offsetX, offsetY] = currentOffsetRef.current;
+          onOffsetUpdate(index, offsetX, offsetY);
+          currentOffsetRef.current = [0, 0];
+          if (previewRef.current) {
+            previewRef.current.style.transform = '';
+            previewRef.current.style.display = 'none';
+          }
+        }
         setStartPos(null);
         onOffsetEnd();
       };
 
       const handleTouchMove = (e: TouchEvent) => {
-        if (e.touches.length === 1) {
-          const touch = e.touches[0];
-          const offsetX = touch.pageX - startPos[0];
-          const offsetY = touch.pageY - startPos[1];
+        if (e.touches.length !== 1) return;
 
+        const touch = e.touches[0];
+        const offsetX = touch.pageX - startPos[0];
+        const offsetY = touch.pageY - startPos[1];
+
+        if (lazy) {
+          currentOffsetRef.current = [offsetX, offsetY];
+          if (previewRef.current) {
+            previewRef.current.style.transform = vertical
+              ? `translateY(${getConstrainedOffset(offsetY)}px)`
+              : `translateX(${getConstrainedOffset(offsetX)}px)`;
+            previewRef.current.style.display = 'block';
+          }
+        } else {
           onOffsetUpdate(index, offsetX, offsetY);
         }
       };
 
       const handleTouchEnd = () => {
+        if (lazy) {
+          const [offsetX, offsetY] = currentOffsetRef.current;
+          onOffsetUpdate(index, offsetX, offsetY);
+          currentOffsetRef.current = [0, 0];
+          if (previewRef.current) {
+            previewRef.current.style.transform = '';
+            previewRef.current.style.display = 'none';
+          }
+        }
         setStartPos(null);
         onOffsetEnd();
       };
@@ -106,7 +171,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         window.removeEventListener('touchend', handleTouchEnd);
       };
     }
-  }, [startPos]);
+  }, [startPos, lazy]);
 
   // ======================== Render ========================
   const StartIcon = vertical ? UpOutlined : LeftOutlined;
@@ -120,6 +185,14 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       aria-valuemin={getValidNumber(ariaMin)}
       aria-valuemax={getValidNumber(ariaMax)}
     >
+      {lazy && (
+        <div
+          ref={previewRef}
+          className={`${splitBarPrefixCls}-preview`}
+          style={{ display: 'none' }}
+        />
+      )}
+
       <div
         className={classNames(`${splitBarPrefixCls}-dragger`, {
           [`${splitBarPrefixCls}-dragger-disabled`]: !resizable,
