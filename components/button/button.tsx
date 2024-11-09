@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import { composeRef } from 'rc-util/lib/ref';
 
+import { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
@@ -28,7 +29,7 @@ export type LegacyButtonType = ButtonType | 'danger';
 
 export interface BaseButtonProps {
   type?: ButtonType;
-  color?: ButtonColorType;
+  color?: LiteralUnion<ButtonColorType>;
   variant?: ButtonVariantType;
   icon?: React.ReactNode;
   iconPosition?: 'start' | 'end';
@@ -82,7 +83,7 @@ function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigTyp
   };
 }
 
-type ColorVariantPairType = [color?: ButtonColorType, variant?: ButtonVariantType];
+type ColorVariantPairType = [color?: LiteralUnion<ButtonColorType>, variant?: ButtonVariantType];
 
 const ButtonTypeMap: Partial<Record<ButtonType, ColorVariantPairType>> = {
   default: ['default', 'outlined'],
