@@ -50,6 +50,7 @@ group:
 | defaultFormat | 颜色格式默认的值 | `rgb` \| `hex` \| `hsb` | - | 5.9.0 |
 | disabled | 禁用颜色选择器 | boolean | - | |
 | disabledAlpha | 禁用透明度 | boolean | - | 5.8.0 |
+| disabledFormat | 禁用选择颜色格式 | boolean | - |
 | destroyTooltipOnHide | 关闭后是否销毁弹窗 | `boolean` | false | 5.7.0 |
 | format | 颜色格式 | `rgb` \| `hex` \| `hsb` | `hex` | |
 | mode | 选择器模式，用于配置单色与渐变 | `('single' \| 'gradient')[]` | `single` | 5.20.0 |

@@ -23,7 +23,7 @@ import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
-import { getPlaceholder, transPlacement2DropdownAlign, useIcons } from '../util';
+import { getPlaceholder, useIcons } from '../util';
 import {
   MONTH,
   MONTHPICKER,
@@ -160,7 +160,6 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
             ref={innerRef}
             placeholder={getPlaceholder(locale, mergedPicker, placeholder)}
             suffixIcon={suffixNode}
-            dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
             placement={placement}
             prevIcon={<span className={`${prefixCls}-prev-icon`} />}
             nextIcon={<span className={`${prefixCls}-next-icon`} />}

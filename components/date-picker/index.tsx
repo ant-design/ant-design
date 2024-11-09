@@ -8,7 +8,6 @@ import type {
   PickerProps,
   PickerPropsWithMultiple,
 } from './generatePicker/interface';
-import { transPlacement2DropdownAlign } from './util';
 
 export type DatePickerProps<ValueType = Dayjs | Dayjs> = PickerPropsWithMultiple<
   Dayjs,
@@ -30,24 +29,11 @@ export type DatePickerType = typeof DatePicker & {
   generatePicker: typeof generatePicker;
 };
 
-function postPureProps(props: DatePickerProps) {
-  const dropdownAlign = transPlacement2DropdownAlign(props.direction, props.placement);
-
-  dropdownAlign.overflow!.adjustY = false;
-  dropdownAlign.overflow!.adjustX = false;
-
-  return {
-    ...props,
-    dropdownAlign,
-    popupAlign: dropdownAlign,
-  };
-}
-
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(DatePicker, 'picker', null, postPureProps);
+const PurePanel = genPurePanel(DatePicker, 'picker', null);
 (DatePicker as DatePickerType)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
-const PureRangePanel = genPurePanel(DatePicker.RangePicker, 'picker', null, postPureProps);
+const PureRangePanel = genPurePanel(DatePicker.RangePicker, 'picker', null);
 (DatePicker as DatePickerType)._InternalRangePanelDoNotUseOrYouWillBeFired = PureRangePanel;
 (DatePicker as DatePickerType).generatePicker = generatePicker;
 

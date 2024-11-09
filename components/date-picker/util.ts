@@ -1,9 +1,6 @@
 import * as React from 'react';
-import type { AlignType } from '@rc-component/trigger';
 import type { PickerMode } from 'rc-picker/lib/interface';
 
-import type { SelectCommonPlacement } from '../_util/motion';
-import type { DirectionType } from '../config-provider';
 import useSelectIcons from '../select/useIcons';
 import type { PickerLocale, PickerProps } from './generatePicker';
 
@@ -59,53 +56,6 @@ export function getRangePlaceholder(
     return locale!.timePickerLocale.rangePlaceholder;
   }
   return locale.lang.rangePlaceholder;
-}
-
-export function transPlacement2DropdownAlign(
-  direction: DirectionType,
-  placement?: SelectCommonPlacement,
-): AlignType {
-  const overflow = {
-    adjustX: 1,
-    adjustY: 1,
-  };
-  switch (placement) {
-    case 'bottomLeft': {
-      return {
-        points: ['tl', 'bl'],
-        offset: [0, 4],
-        overflow,
-      };
-    }
-    case 'bottomRight': {
-      return {
-        points: ['tr', 'br'],
-        offset: [0, 4],
-        overflow,
-      };
-    }
-    case 'topLeft': {
-      return {
-        points: ['bl', 'tl'],
-        offset: [0, -4],
-        overflow,
-      };
-    }
-    case 'topRight': {
-      return {
-        points: ['br', 'tr'],
-        offset: [0, -4],
-        overflow,
-      };
-    }
-    default: {
-      return {
-        points: direction === 'rtl' ? ['tr', 'br'] : ['tl', 'bl'],
-        offset: [0, 4],
-        overflow,
-      };
-    }
-  }
 }
 
 export function useIcons(props: Pick<PickerProps, 'allowClear' | 'removeIcon'>, prefixCls: string) {

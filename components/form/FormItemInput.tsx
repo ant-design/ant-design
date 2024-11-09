@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { get, set } from 'rc-util';
 import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
 import type { ColProps } from '../grid/col';
@@ -31,17 +32,21 @@ interface FormItemInputMiscProps {
 }
 
 export interface FormItemInputProps {
+  labelCol?: ColProps;
   wrapperCol?: ColProps;
   extra?: React.ReactNode;
   status?: ValidateStatus;
   help?: React.ReactNode;
   fieldId?: string;
+  label?: React.ReactNode;
 }
+const GRID_MAX = 24;
 
 const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (props) => {
   const {
     prefixCls,
     status,
+    labelCol,
     wrapperCol,
     children,
     errors,
@@ -52,19 +57,41 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
     fieldId,
     marginBottom,
     onErrorVisibleChanged,
+    label,
   } = props;
   const baseClassName = `${prefixCls}-item`;
 
   const formContext = React.useContext(FormContext);
 
-  const mergedWrapperCol: ColProps = wrapperCol || formContext.wrapperCol || {};
+  const mergedWrapperCol = React.useMemo(() => {
+    let mergedWrapper: ColProps = { ...(wrapperCol || formContext.wrapperCol || {}) };
+    if (label === null && !labelCol && !wrapperCol && formContext.labelCol) {
+      const list = [undefined, 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+
+      list.forEach((size) => {
+        const _size = size ? [size] : [];
+
+        const formLabel = get(formContext.labelCol, _size);
+        const formLabelObj = typeof formLabel === 'object' ? formLabel : {};
+
+        const wrapper = get(mergedWrapper, _size);
+        const wrapperObj = typeof wrapper === 'object' ? wrapper : {};
+
+        if ('span' in formLabelObj && !('offset' in wrapperObj) && formLabelObj.span < GRID_MAX) {
+          mergedWrapper = set(mergedWrapper, [..._size, 'offset'], formLabelObj.span);
+        }
+      });
+    }
+    return mergedWrapper;
+  }, [wrapperCol, formContext]);
 
   const className = classNames(`${baseClassName}-control`, mergedWrapperCol.className);
 
   // Pass to sub FormItem should not with col info
-  const subFormContext = React.useMemo(() => ({ ...formContext }), [formContext]);
-  delete subFormContext.labelCol;
-  delete subFormContext.wrapperCol;
+  const subFormContext = React.useMemo(() => {
+    const { labelCol, wrapperCol, ...rest } = formContext;
+    return rest;
+  }, [formContext]);
 
   const extraRef = React.useRef<HTMLDivElement>(null);
   const [extraHeight, setExtraHeight] = React.useState<number>(0);

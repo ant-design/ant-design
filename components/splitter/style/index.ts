@@ -112,14 +112,14 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           zIndex: 1,
 
           // Hover background
-          '&:before': {
+          '&::before': {
             content: '""',
             background: controlItemBgHover,
             ...centerStyle,
           },
 
           // Spinner
-          '&:after': {
+          '&::after': {
             content: '""',
             background: colorFill,
             ...centerStyle,
@@ -127,7 +127,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
           // Hover
           [`&:hover:not(${splitBarCls}-dragger-active)`]: {
-            '&:before': {
+            '&::before': {
               background: controlItemBgActive,
             },
           },
@@ -136,7 +136,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           '&-active': {
             zIndex: 2,
 
-            '&:before': {
+            '&::before': {
               background: controlItemBgActiveHover,
             },
           },
@@ -147,12 +147,12 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
             '&, &:hover, &-active': {
               cursor: 'default',
-              '&:before': {
+              '&::before': {
                 background: controlItemBgHover,
               },
             },
 
-            '&:after': {
+            '&::after': {
               display: 'none',
             },
           },
@@ -223,12 +223,12 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
             height: '100%',
             width: splitTriggerSize,
 
-            '&:before': {
+            '&::before': {
               height: '100%',
               width: splitBarSize,
             },
 
-            '&:after': {
+            '&::after': {
               height: splitBarDraggableSize,
               width: splitBarSize,
             },
@@ -278,12 +278,12 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
             width: '100%',
             height: splitTriggerSize,
 
-            '&:before': {
+            '&::before': {
               width: '100%',
               height: splitBarSize,
             },
 
-            '&:after': {
+            '&::after': {
               width: splitBarDraggableSize,
               height: splitBarSize,
             },

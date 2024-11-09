@@ -18,6 +18,7 @@ interface ColorInputProps {
   disabledAlpha?: boolean;
   value?: AggregationColor;
   onChange?: (value: AggregationColor) => void;
+  disabledFormat?: boolean;
 }
 
 const selectOptions = [ColorFormat.hex, ColorFormat.hsb, ColorFormat.rgb].map((format) => ({
@@ -26,7 +27,8 @@ const selectOptions = [ColorFormat.hex, ColorFormat.hsb, ColorFormat.rgb].map((f
 }));
 
 const ColorInput: FC<ColorInputProps> = (props) => {
-  const { prefixCls, format, value, disabledAlpha, onFormatChange, onChange } = props;
+  const { prefixCls, format, value, disabledAlpha, onFormatChange, onChange, disabledFormat } =
+    props;
   const [colorFormat, setColorFormat] = useMergedState(ColorFormat.hex, {
     value: format,
     onChange: onFormatChange,
@@ -53,17 +55,19 @@ const ColorInput: FC<ColorInputProps> = (props) => {
 
   return (
     <div className={`${colorInputPrefixCls}-container`}>
-      <Select
-        value={colorFormat}
-        variant="borderless"
-        getPopupContainer={(current) => current}
-        popupMatchSelectWidth={68}
-        placement="bottomRight"
-        onChange={handleFormatChange}
-        className={`${prefixCls}-format-select`}
-        size="small"
-        options={selectOptions}
-      />
+      {!disabledFormat && (
+        <Select
+          value={colorFormat}
+          variant="borderless"
+          getPopupContainer={(current) => current}
+          popupMatchSelectWidth={68}
+          placement="bottomRight"
+          onChange={handleFormatChange}
+          className={`${prefixCls}-format-select`}
+          size="small"
+          options={selectOptions}
+        />
+      )}
       <div className={colorInputPrefixCls}>{steppersNode}</div>
       {!disabledAlpha && (
         <ColorAlphaInput prefixCls={prefixCls} value={value} onChange={onChange} />

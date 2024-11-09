@@ -93,6 +93,7 @@ const useStyle = createStyles(({ token, css }) => {
         .dumi-default-search-popover {
           inset-inline-start: ${token.paddingSM}px;
           inset-inline-end: unset;
+          z-index: 1;
           &::before {
             inset-inline-start: 100px;
             inset-inline-end: unset;

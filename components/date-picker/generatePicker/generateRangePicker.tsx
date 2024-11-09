@@ -23,7 +23,7 @@ import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
-import { getRangePlaceholder, transPlacement2DropdownAlign, useIcons } from '../util';
+import { getRangePlaceholder, useIcons } from '../util';
 import { TIME } from './constant';
 import type { RangePickerProps } from './interface';
 import useComponents from './useComponents';
@@ -117,7 +117,6 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
           }
           disabled={mergedDisabled}
           ref={innerRef as any} // Need to modify PickerRef
-          popupAlign={transPlacement2DropdownAlign(direction, placement)}
           placement={placement}
           placeholder={getRangePlaceholder(locale, picker, placeholder)}
           suffixIcon={suffixNode}

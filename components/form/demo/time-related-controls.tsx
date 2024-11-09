@@ -66,7 +66,7 @@ const App: React.FC = () => (
     <Form.Item name="time-picker" label="TimePicker" {...config}>
       <TimePicker />
     </Form.Item>
-    <Form.Item wrapperCol={{ xs: { span: 24, offset: 0 }, sm: { span: 16, offset: 8 } }}>
+    <Form.Item label={null}>
       <Button type="primary" htmlType="submit">
         Submit
       </Button>
