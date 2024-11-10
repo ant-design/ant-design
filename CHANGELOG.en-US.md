@@ -15,6 +15,27 @@ tag: vVERSION
 
 ---
 
+## 5.21.7
+
+`2024-11-10`
+
+- 🐞 Fix Image setting `ImageProps.preview.rootClassName` causing preview image class name to be missing. [#51538](https://github.com/ant-design/ant-design/pull/51538) [@dislido](https://github.com/dislido)
+- 🐞 Fix Input not being able to specify `inputMode`. [#51271](https://github.com/ant-design/ant-design/pull/51271) [@alan-rudzinski](https://github.com/alan-rudzinski)
+- 🐞 Fix last item in TimePicker panel column not scrolling to the top. [#51481](https://github.com/ant-design/ant-design/pull/51481) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Typography not updating immediately on ConfigProvider language switch. [#51453](https://github.com/ant-design/ant-design/pull/51453) [@thinkasany](https://github.com/thinkasany)
+- 🐞 Fix Upload `itemRender` call to `action.preview` causing a crash. [#51419](https://github.com/ant-design/ant-design/pull/51419) [@yoyo837](https://github.com/yoyo837)
+- 🐞 Fix Splitter pseudo-element notation issue. [#51536](https://github.com/ant-design/ant-design/pull/51536) [@dislido](https://github.com/dislido)
+- 💄 Fix DatePicker.RangePicker flicker style issue when mouse moves between cells. [#51533](https://github.com/ant-design/ant-design/pull/51533) [@afc163](https://github.com/afc163)
+- 💄 Fix styling issue with Menu title content. (#51425). [6a62d9e](https://github.com/ant-design/ant-design/commit/6a62d9e) [@ice](https://github.com/ice)
+- 💄 Fix Tree selected nodes missing padding styles. [#51492](https://github.com/ant-design/ant-design/pull/51492) [@zombieJ](https://github.com/zombieJ)
+- 🌐 Fix translation in Portuguese (pt_PT) localization files to improve accuracy and consistency. [#51501](https://github.com/ant-design/ant-design/pull/51501) [@alexandre-p-marques-alb](https://github.com/alexandre-p-marques-alb)
+- 🌐 Optimize uz_UZ Internationalization. [#51407](https://github.com/ant-design/ant-design/pull/51407) [@Zukhrik](https://github.com/Zukhrik)
+- TypeScript
+  - 🤖 Upload export type DraggerProps.[#51546](https://github.com/ant-design/ant-design/pull/51546) [@DBvc](https://github.com/DBvc)
+  - 🤖 Add defaultValue property to TimePicker.RangePicker example. [#51413](https://github.com/ant-design/ant-design/pull/51413) [@nathanlao](https://github.com/nathanlao)
+  - 🤖 Message optimizes the top type in message.config. [#51468](https://github.com/ant-design/ant-design/pull/51468) [@Fog3211](https://github.com/Fog3211)
+
+Translated with DeepL.com (free version)
 ## 5.21.6
 
 `2024-10-28`

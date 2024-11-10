@@ -15,6 +15,28 @@ tag: vVERSION
 
 ---
 
+
+## 5.21.7
+
+`2024-11-10`
+
+- 🐞 修复 Image 设置 `ImageProps.preview.rootClassName` 导致预览图类名丢失。[#51538](https://github.com/ant-design/ant-design/pull/51538) [@dislido](https://github.com/dislido)
+- 🐞 修复 Input 无法指定 `inputMode` 的问题。[#51271](https://github.com/ant-design/ant-design/pull/51271) [@alan-rudzinski](https://github.com/alan-rudzinski)
+- 🐞 修复 TimePicker 面板列的最后一项无法滚动到最上面的问题。[#51481](https://github.com/ant-design/ant-design/pull/51481) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Typography 在 ConfigProvider 语言切换时候没有立即更新。[#51453](https://github.com/ant-design/ant-design/pull/51453) [@thinkasany](https://github.com/thinkasany)
+- 🐞 修复 Upload `itemRender` 调用 `action.preview` 会导致崩溃的问题。[#51419](https://github.com/ant-design/ant-design/pull/51419) [@yoyo837](https://github.com/yoyo837)
+- 🐞 修复 Splitter 伪元素符号问题。[#51536](https://github.com/ant-design/ant-design/pull/51536) [@dislido](https://github.com/dislido)
+- 💄 修复 DatePicker.RangePicker 当鼠标移动到单元格之间时出现闪烁样式的问题。[#51533](https://github.com/ant-design/ant-design/pull/51533) [@afc163](https://github.com/afc163)
+- 💄 修复 Menu title 内容的样式问题。(#51425)。[6a62d9e](https://github.com/ant-design/ant-design/commit/6a62d9e) [@ice](https://github.com/ice)
+- 💄 修复 Tree 选中节点丢失 padding 样式的问题。[#51492](https://github.com/ant-design/ant-design/pull/51492) [@zombieJ](https://github.com/zombieJ)
+- 🌐 修正葡萄牙语 (pt_PT) 本地化文件中的翻译，以提高准确性和一致性。[#51501](https://github.com/ant-design/ant-design/pull/51501) [@alexandre-p-marques-alb](https://github.com/alexandre-p-marques-alb)
+- 🌐 优化 uz_UZ 国际化。[#51407](https://github.com/ant-design/ant-design/pull/51407) [@Zukhrik](https://github.com/Zukhrik)
+- TypeScript
+  - 🤖 Upload 导出类型 DraggerProps。[#51546](https://github.com/ant-design/ant-design/pull/51546) [@DBvc](https://github.com/DBvc)
+  - 🤖 将 defaultValue 属性添加到 TimePicker.RangePicker 示例中。[#51413](https://github.com/ant-design/ant-design/pull/51413) [@nathanlao](https://github.com/nathanlao)
+  - 🤖 Message 优化 message.config 中的top类型。[#51468](https://github.com/ant-design/ant-design/pull/51468) [@Fog3211](https://github.com/Fog3211)
+
+
 ## 5.21.6
 
 `2024-10-28`
