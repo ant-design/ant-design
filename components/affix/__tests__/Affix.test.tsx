@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
 import Affix from '..';
-import accessibilityTest from '../../../tests/shared/accessibilityTest';
+import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, triggerResize, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';

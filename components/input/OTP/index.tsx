@@ -24,7 +24,8 @@ export interface OTPRef {
   nativeElement: HTMLDivElement;
 }
 
-export interface OTPProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
+export interface OTPProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'onInput'> {
   prefixCls?: string;
   length?: number;
 
@@ -48,6 +49,8 @@ export interface OTPProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'on
   mask?: boolean | string;
 
   type?: React.HTMLInputTypeAttribute;
+
+  onInput?: (value: string[]) => void;
 }
 
 function strToArr(str: string) {
@@ -69,6 +72,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     autoFocus,
     mask,
     type,
+    onInput,
     inputMode,
     ...restProps
   } = props;
@@ -146,6 +150,10 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
 
   const triggerValueCellsChange = useEvent((nextValueCells: string[]) => {
     setValueCells(nextValueCells);
+
+    if (onInput) {
+      onInput(nextValueCells);
+    }
 
     // Trigger if all cells are filled
     if (
