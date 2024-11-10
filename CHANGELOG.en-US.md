@@ -35,7 +35,7 @@ tag: vVERSION
   - 🤖 Add defaultValue property to TimePicker.RangePicker example. [#51413](https://github.com/ant-design/ant-design/pull/51413) [@nathanlao](https://github.com/nathanlao)
   - 🤖 Message optimizes the top type in message.config. [#51468](https://github.com/ant-design/ant-design/pull/51468) [@Fog3211](https://github.com/Fog3211)
 
-Translated with DeepL.com (free version)
+
 ## 5.21.6
 
 `2024-10-28`
