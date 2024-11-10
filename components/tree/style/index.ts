@@ -146,6 +146,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
             border: `1px solid ${token.colorPrimary}`,
             opacity: 0,
             animationName: treeNodeFX,
+            bottom: treeNodePadding,
             animationDuration: token.motionDurationSlow,
             animationPlayState: 'running',
             animationFillMode: 'forwards',
@@ -172,7 +173,6 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           insetInlineStart: 0,
           width: '100%',
           top: '100%',
-          height: treeNodePadding,
         },
 
         // Disabled
