@@ -30,7 +30,7 @@ tag: vVERSION
   - 🆕 Table `expandedRowClassName` 支持 string 。[#51067](https://github.com/ant-design/ant-design/pull/51067) [@li-jia-nan](https://github.com/li-jia-nan)
 - Tree
   - 💄 修复 Tree 选中节点丢失 padding 样式的问题。[#51492](https://github.com/ant-design/ant-design/pull/51492) [@zombieJ](https://github.com/zombieJ)
-  - 🆕 Tree组件 Token增加`nodeHoverColor`和`nodeSelectedColor`支持。[#51367](https://github.com/ant-design/ant-design/pull/51367) [@zmbxy](https://github.com/zmbxy)
+  - 🆕 Tree 组件 Token 增加 `nodeHoverColor` 和 `nodeSelectedColor` 支持。[#51367](https://github.com/ant-design/ant-design/pull/51367) [@zmbxy](https://github.com/zmbxy)
   - 🆕 Tree 新增 `indentSize` token 用于自定义缩进宽度。[#51010](https://github.com/ant-design/ant-design/pull/51010) [@afc163](https://github.com/afc163)
 - DatePicker
   - 🆕 DatePicker 支持 `prefix` 属性。[#51335](https://github.com/ant-design/ant-design/pull/51335) [@guoyunhe](https://github.com/guoyunhe)
