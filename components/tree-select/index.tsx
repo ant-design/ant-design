@@ -31,6 +31,7 @@ import { useCompactItemContext } from '../space/Compact';
 import type { AntTreeNodeProps, TreeProps } from '../tree';
 import type { SwitcherIcon } from '../tree/Tree';
 import SwitcherIconCom from '../tree/utils/iconUtil';
+import { useToken } from '../theme/internal';
 import useStyle from './style';
 
 type RawValue = string | number;
@@ -97,7 +98,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     treeCheckable,
     multiple,
     listHeight = 256,
-    listItemHeight = 26,
+    listItemHeight: customListItemHeight,
     placement,
     notFoundContent,
     switcherIcon,
@@ -128,6 +129,9 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     popupMatchSelectWidth: contextPopupMatchSelectWidth,
     popupOverflow,
   } = React.useContext(ConfigContext);
+
+  const [, token] = useToken();
+  const listItemHeight = customListItemHeight ?? token?.controlHeightSM + token?.paddingXXS;
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('TreeSelect');
