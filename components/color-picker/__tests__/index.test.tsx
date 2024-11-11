@@ -948,4 +948,33 @@ describe('ColorPicker', () => {
     const onChangeColor = onChange.mock.calls[0][0];
     expect(onChangeColor.toHexString()).toBe('#2ddcb4');
   });
+
+  describe('should disable colorInput', () => {
+    it('Should defaultValue work with disabledFormat', async () => {
+      const { container } = render(<ColorPicker defaultValue="#000000" disabledFormat />);
+      expect(
+        container.querySelector('.ant-color-picker-color-block-inner')?.getAttribute('style'),
+      ).toEqual('background: rgb(0, 0, 0);');
+      fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
+      expect(container.querySelector('.ant-color-picker-input-container .ant-select')).toBeFalsy();
+    });
+
+    it('Should rgb input work with disabledFormat', async () => {
+      const { container } = render(<ColorPicker open format="rgb" disabledFormat />);
+      const rgbInputEls = container.querySelectorAll('.ant-color-picker-rgb-input input');
+      fireEvent.change(rgbInputEls[0], {
+        target: { value: 99 },
+      });
+      fireEvent.change(rgbInputEls[1], {
+        target: { value: 21 },
+      });
+      fireEvent.change(rgbInputEls[2], {
+        target: { value: 21 },
+      });
+      expect(
+        container.querySelector('.ant-color-picker-color-block-inner')?.getAttribute('style'),
+      ).toEqual('background: rgb(99, 21, 21);');
+      expect(container.querySelector('.ant-color-picker-input-container .ant-select')).toBeFalsy();
+    });
+  });
 });

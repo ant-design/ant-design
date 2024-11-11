@@ -11,6 +11,7 @@ import { ExpandableConfig, GetRowKey } from 'rc-table/lib/interface';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { AnyObject } from '../_util/type';
 import type { CheckboxProps } from '../checkbox';
+import type { DropdownProps } from '../dropdown';
 import type { PaginationProps } from '../pagination';
 import type { TooltipProps } from '../tooltip';
 import type { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
@@ -114,6 +115,19 @@ export interface FilterDropdownProps {
   visible: boolean;
 }
 
+// 非必要请勿导出
+interface CoverableDropdownProps
+  extends Omit<
+    DropdownProps,
+    | 'onOpenChange'
+    // === deprecated ===
+    | 'overlay'
+    | 'visible'
+    | 'onVisibleChange'
+  > {
+  onOpenChange?: (open: boolean) => void;
+}
+
 export interface ColumnType<RecordType = AnyObject>
   extends Omit<RcColumnType<RecordType>, 'title'> {
   title?: ColumnTitle<RecordType>;
@@ -144,17 +158,30 @@ export interface ColumnType<RecordType = AnyObject>
   filterMode?: 'menu' | 'tree';
   filterSearch?: FilterSearchType<ColumnFilterItem>;
   onFilter?: (value: React.Key | boolean, record: RecordType) => boolean;
-  filterDropdownOpen?: boolean;
-  onFilterDropdownOpenChange?: (visible: boolean) => void;
+  /**
+   * Can cover `<Dropdown>` props
+   * @since 5.22.0
+   */
+  filterDropdownProps?: CoverableDropdownProps;
   filterResetToDefaultFilteredValue?: boolean;
 
   // Responsive
   responsive?: Breakpoint[];
 
   // Deprecated
-  /** @deprecated Please use `filterDropdownOpen` instead */
+  /**
+   * @deprecated Please use `filterDropdownProps.open` instead.
+   * @since 4.23.0
+   */
+  filterDropdownOpen?: boolean;
+  /**
+   * @deprecated Please use `filterDropdownProps.onOpenChange` instead.
+   * @since 4.23.0
+   */
+  onFilterDropdownOpenChange?: (visible: boolean) => void;
+  /** @deprecated Please use `filterDropdownProps.open` instead. */
   filterDropdownVisible?: boolean;
-  /** @deprecated Please use `onFilterDropdownOpenChange` instead */
+  /** @deprecated Please use `filterDropdownProps.onOpenChange` instead */
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
 }
 
