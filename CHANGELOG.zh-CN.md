@@ -38,7 +38,7 @@ tag: vVERSION
 - Input.OTP
   - 🆕 在 `Input.OTP` 组件中，新增`onInput`事件，用于获取用户每一次输入的值。同时更新了相关文档说明。[#51289](https://github.com/ant-design/ant-design/pull/51289) [@aojunhao123](https://github.com/aojunhao123)
   - 🐞 修复 Input.OTP 无法指定 `inputMode` 的问题。[#51271](https://github.com/ant-design/ant-design/pull/51271) [@alan-rudzinski](https://github.com/alan-rudzinski)
-- 🆕 ColorPicker 支持 `disabledFormat`。[#51539](https://github.com/ant-design/ant-design/pull/51539) [@su-muzhi](https://github.com/su-muzhi)
+- 🆕 ColorPicker 支持 `disabledFormat` 属性以禁用格式切换器。[#51539](https://github.com/ant-design/ant-design/pull/51539) [@su-muzhi](https://github.com/su-muzhi)
 - 🆕 为 InputNumber 组件的 `focus` 方法增加 `cursor` 配置项以控制光标位置。[#51444](https://github.com/ant-design/ant-design/pull/51444) [@aojunhao123](https://github.com/aojunhao123)
 - 🆕 Cascader 新增 `disabled` 属性以禁用组件的所有一级目录项。[#51272](https://github.com/ant-design/ant-design/pull/51272) [@aojunhao123](https://github.com/aojunhao123)
 - 🆕 Descriptions 支持单行铺满。[#51365](https://github.com/ant-design/ant-design/pull/51365) [@crazyair](https://github.com/crazyair)
