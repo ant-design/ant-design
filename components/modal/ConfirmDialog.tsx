@@ -190,6 +190,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     focusTriggerAfterClose,
     onConfirm,
     styles,
+    mousePosition,
   } = props;
 
   if (process.env.NODE_ENV !== 'production') {
@@ -263,6 +264,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
       closeIcon={closeIcon}
       modalRender={modalRender}
       focusTriggerAfterClose={focusTriggerAfterClose}
+      mousePosition={mousePosition}
     >
       <ConfirmContent {...props} confirmPrefixCls={confirmPrefixCls} />
     </Modal>
