@@ -51,8 +51,8 @@ tag: vVERSION
 - 🐞 修复 Splitter 伪元素符号问题。[#51536](https://github.com/ant-design/ant-design/pull/51536) [@dislido](https://github.com/dislido)
 - 💄 优化 Collapse 可访问性属性和鼠标 hover 样式。[#51400](https://github.com/ant-design/ant-design/pull/51400) [@afc163](https://github.com/afc163)
 - 💄 修复 Menu title 内容的样式问题。[#51425](https://github.com/ant-design/ant-design/pull/51425) [@coding-ice](https://github.com/coding-ice)
-- 🇵🇹 locale 修正葡萄牙语 (pt_PT) 本地化文件中的翻译，以提高准确性和一致性。[#51501](https://github.com/ant-design/ant-design/pull/51501) [@alexandre-p-marques-alb](https://github.com/alexandre-p-marques-alb)
-- 🇺🇿 locale 优化 uz_UZ 国际化。[#51407](https://github.com/ant-design/ant-design/pull/51407) [@Zukhrik](https://github.com/Zukhrik)
+- 🇵🇹 修正葡萄牙语 (pt_PT) 本地化文件中的翻译，以提高准确性和一致性。[#51501](https://github.com/ant-design/ant-design/pull/51501) [@alexandre-p-marques-alb](https://github.com/alexandre-p-marques-alb)
+- 🇺🇿 优化 uz_UZ 国际化。[#51407](https://github.com/ant-design/ant-design/pull/51407) [@Zukhrik](https://github.com/Zukhrik)
 - TypeScript
   - 🤖 Upload 导出类型 DraggerProps。[#51546](https://github.com/ant-design/ant-design/pull/51546) [@DBvc](https://github.com/DBvc)
   - 🤖 将 defaultValue 属性添加到 TimePicker.RangePicker 示例中。[#51413](https://github.com/ant-design/ant-design/pull/51413) [@nathanlao](https://github.com/nathanlao)
