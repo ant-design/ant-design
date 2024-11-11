@@ -325,8 +325,8 @@ tag: vVERSION
 - 💄 Fix Descriptions overflowing the container in `bordered` mode. [#49946](https://github.com/ant-design/ant-design/pull/49946) [@leefinder](https://github.com/leefinder)
 - 🛠 MISC: Migrate common style tools to `@ant-design/cssinjs-utils`. [#50030](https://github.com/ant-design/ant-design/pull/50030) [@YumoImer](https://github.com/YumoImer)
 - 🌐 Locales
-  - 🇵🇱 Add DatePicker locales for pl_PL. [#50023](https://github.com/ant-design/ant-design/pull/50023) [@ang33l](https://github.com/ang33l)
-  - 🇧🇪🇫🇷 Add Modal Tour locales for fr_BE fr_FR. [#50058](https://github.com/ant-design/ant-design/pull/50058) [@JaccoGoris](https://github.com/JaccoGoris)
+  - 🇵🇱 Locale add DatePicker locales for pl_PL. [#50023](https://github.com/ant-design/ant-design/pull/50023) [@ang33l](https://github.com/ang33l)
+  - 🇧🇪🇫🇷 Locale add Modal Tour locales for fr_BE fr_FR. [#50058](https://github.com/ant-design/ant-design/pull/50058) [@JaccoGoris](https://github.com/JaccoGoris)
 
 ## 5.19.3
 
