@@ -33,7 +33,7 @@ tag: vVERSION
   - 🆕 Tree组件 Token增加`nodeHoverColor`和`nodeSelectedColor`支持。[#51367](https://github.com/ant-design/ant-design/pull/51367) [@zmbxy](https://github.com/zmbxy)
   - 🆕 Tree 新增 `indentSize` token 用于自定义缩进宽度。[#51010](https://github.com/ant-design/ant-design/pull/51010) [@afc163](https://github.com/afc163)
 - DatePicker
-  - 🆕 DatePicker 支持 prefix 属性。[#51335](https://github.com/ant-design/ant-design/pull/51335) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 DatePicker 支持 `prefix` 属性。[#51335](https://github.com/ant-design/ant-design/pull/51335) [@guoyunhe](https://github.com/guoyunhe)
   - 💄 修复 DatePicker.RangePicker 当鼠标移动到单元格之间时出现闪烁样式的问题。[#51533](https://github.com/ant-design/ant-design/pull/51533) [@afc163](https://github.com/afc163)
 - Input.OTP
   - 🆕 在 `Input.OTP` 组件中，新增`onInput`事件，用于获取用户每一次输入的值。同时更新了相关文档说明。[#51289](https://github.com/ant-design/ant-design/pull/51289) [@aojunhao123](https://github.com/aojunhao123)
