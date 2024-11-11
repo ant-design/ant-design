@@ -52,8 +52,8 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
 
   // ======================== Resize ========================
   const [startPos, setStartPos] = useState<[x: number, y: number] | null>(null);
+  const [previewStyle, setPreviewStyle] = useState<React.CSSProperties>();
   const currentOffsetRef = useRef<[number, number]>([0, 0]);
-  const previewRef = useRef<HTMLDivElement>(null);
 
   const onMouseDown: React.MouseEventHandler<HTMLDivElement> = (e) => {
     if (resizable && e.currentTarget) {
@@ -93,13 +93,16 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
 
         if (lazy) {
           currentOffsetRef.current = [offsetX, offsetY];
+          const constrainedOffset = vertical
+            ? getConstrainedOffset(offsetY)
+            : getConstrainedOffset(offsetX);
 
-          if (previewRef.current) {
-            previewRef.current.style.transform = vertical
-              ? `translateY(${getConstrainedOffset(offsetY)}px)`
-              : `translateX(${getConstrainedOffset(offsetX)}px)`;
-            previewRef.current.style.display = 'block';
-          }
+          setPreviewStyle({
+            display: 'block',
+            transform: vertical
+              ? `translateY(${constrainedOffset}px)`
+              : `translateX(${constrainedOffset}px)`,
+          });
         } else {
           onOffsetUpdate(index, offsetX, offsetY);
         }
@@ -108,12 +111,12 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       const onMouseUp = () => {
         if (lazy) {
           const [offsetX, offsetY] = currentOffsetRef.current;
-          onOffsetUpdate(index, offsetX, offsetY);
+          const constrainedOffset = vertical
+            ? getConstrainedOffset(offsetY)
+            : getConstrainedOffset(offsetX);
+          onOffsetUpdate(index, vertical ? 0 : constrainedOffset, vertical ? constrainedOffset : 0);
           currentOffsetRef.current = [0, 0];
-          if (previewRef.current) {
-            previewRef.current.style.transform = '';
-            previewRef.current.style.display = 'none';
-          }
+          setPreviewStyle({ display: 'none', transform: '' });
         }
         setStartPos(null);
         onOffsetEnd();
@@ -128,12 +131,16 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
 
         if (lazy) {
           currentOffsetRef.current = [offsetX, offsetY];
-          if (previewRef.current) {
-            previewRef.current.style.transform = vertical
-              ? `translateY(${getConstrainedOffset(offsetY)}px)`
-              : `translateX(${getConstrainedOffset(offsetX)}px)`;
-            previewRef.current.style.display = 'block';
-          }
+          const constrainedOffset = vertical
+            ? getConstrainedOffset(offsetY)
+            : getConstrainedOffset(offsetX);
+
+          setPreviewStyle({
+            display: 'block',
+            transform: vertical
+              ? `translateY(${constrainedOffset}px)`
+              : `translateX(${constrainedOffset}px)`,
+          });
         } else {
           onOffsetUpdate(index, offsetX, offsetY);
         }
@@ -142,12 +149,12 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       const handleTouchEnd = () => {
         if (lazy) {
           const [offsetX, offsetY] = currentOffsetRef.current;
-          onOffsetUpdate(index, offsetX, offsetY);
+          const constrainedOffset = vertical
+            ? getConstrainedOffset(offsetY)
+            : getConstrainedOffset(offsetX);
+          onOffsetUpdate(index, vertical ? 0 : constrainedOffset, vertical ? constrainedOffset : 0);
           currentOffsetRef.current = [0, 0];
-          if (previewRef.current) {
-            previewRef.current.style.transform = '';
-            previewRef.current.style.display = 'none';
-          }
+          setPreviewStyle({ display: 'none', transform: '' });
         }
         setStartPos(null);
         onOffsetEnd();
@@ -165,7 +172,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         window.removeEventListener('touchend', handleTouchEnd);
       };
     }
-  }, [startPos, lazy]);
+  }, [startPos, lazy, vertical, index, containerSize, ariaNow, ariaMin, ariaMax]);
 
   // ======================== Render ========================
   const StartIcon = vertical ? UpOutlined : LeftOutlined;
@@ -179,7 +186,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       aria-valuemin={getValidNumber(ariaMin)}
       aria-valuemax={getValidNumber(ariaMax)}
     >
-      {lazy && <div ref={previewRef} className={`${splitBarPrefixCls}-preview`} />}
+      {lazy && <div className={`${splitBarPrefixCls}-preview`} style={previewStyle} />}
 
       <div
         className={classNames(`${splitBarPrefixCls}-dragger`, {
