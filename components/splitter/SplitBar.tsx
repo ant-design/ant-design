@@ -79,15 +79,9 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     const minAllowed = Math.max(0, (containerSize * ariaMin) / 100);
     const maxAllowed = Math.min(containerSize, (containerSize * ariaMax) / 100);
 
-    // Constrain new position within bounds
-    if (newPos < minAllowed) {
-      return minAllowed - currentPos;
-    }
-    if (newPos > maxAllowed) {
-      return maxAllowed - currentPos;
-    }
-
-    return rawOffset;
+  // Constrain new position within bounds
+  const clampedPos = Math.max(minAllowed, Math.min(maxAllowed, newPos));
+  return clampedPos - currentPos;
   };
 
   React.useEffect(() => {
