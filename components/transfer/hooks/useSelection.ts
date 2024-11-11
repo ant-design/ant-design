@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEvent, useMergedState } from 'rc-util';
 
 import type { TransferKey } from '../interface';
 
@@ -16,12 +17,12 @@ function flattenKeys(keys: Set<TransferKey>) {
 export default function useSelection<T extends { key: TransferKey }>(
   leftDataSource: T[],
   rightDataSource: T[],
-  selectedKeys: TransferKey[] = EMPTY_KEYS,
+  selectedKeys?: TransferKey[],
 ): [
   sourceSelectedKeys: TransferKey[],
   targetSelectedKeys: TransferKey[],
-  setSourceSelectedKeys: React.Dispatch<React.SetStateAction<TransferKey[]>>,
-  setTargetSelectedKeys: React.Dispatch<React.SetStateAction<TransferKey[]>>,
+  setSourceSelectedKeys: (srcKeys: TransferKey[]) => void,
+  setTargetSelectedKeys: (srcKeys: TransferKey[]) => void,
 ] {
   // Prepare `dataSource` keys
   const [leftKeys, rightKeys] = React.useMemo(
@@ -33,26 +34,34 @@ export default function useSelection<T extends { key: TransferKey }>(
   );
 
   // Selected Keys
-  const [sourceSelectedKeys, setSourceSelectedKeys] = React.useState(() =>
-    filterKeys(selectedKeys, leftKeys),
+  const [mergedSelectedKeys, setMergedSelectedKeys] = useMergedState(EMPTY_KEYS, {
+    value: selectedKeys,
+  });
+
+  const sourceSelectedKeys = React.useMemo(
+    () => filterKeys(mergedSelectedKeys, leftKeys),
+    [mergedSelectedKeys, leftKeys],
   );
-  const [targetSelectedKeys, setTargetSelectedKeys] = React.useState(() =>
-    filterKeys(selectedKeys, rightKeys),
+  const targetSelectedKeys = React.useMemo(
+    () => filterKeys(mergedSelectedKeys, rightKeys),
+    [mergedSelectedKeys, rightKeys],
   );
 
-  // Fill selected keys
+  // // Reset when data changed
   React.useEffect(() => {
-    setSourceSelectedKeys(filterKeys(selectedKeys, leftKeys));
-    setTargetSelectedKeys(filterKeys(selectedKeys, rightKeys));
-  }, [selectedKeys]);
-
-  // Reset when data changed
-  React.useEffect(() => {
-    const sourceKeysToSelect = selectedKeys.length > 0 ? selectedKeys : sourceSelectedKeys;
-    setSourceSelectedKeys(filterKeys(sourceKeysToSelect, leftKeys));
-    const targetKeysToSelect = selectedKeys.length > 0 ? selectedKeys : targetSelectedKeys;
-    setTargetSelectedKeys(filterKeys(targetKeysToSelect, rightKeys));
+    setMergedSelectedKeys([
+      ...filterKeys(mergedSelectedKeys, leftKeys),
+      ...filterKeys(mergedSelectedKeys, rightKeys),
+    ]);
   }, [flattenKeys(leftKeys), flattenKeys(rightKeys)]);
+
+  // Update keys
+  const setSourceSelectedKeys = useEvent((nextSrcKeys: TransferKey[]) => {
+    setMergedSelectedKeys([...nextSrcKeys, ...targetSelectedKeys]);
+  });
+  const setTargetSelectedKeys = useEvent((nextTargetKeys: TransferKey[]) => {
+    setMergedSelectedKeys([...sourceSelectedKeys, ...nextTargetKeys]);
+  });
 
   return [
     // Keys
