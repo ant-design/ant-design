@@ -42577,8 +42577,14 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
   >
     <div>
       <div>
+        <span
+          aria-live="assertive"
+          style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+        >
+          light
+        </span>
         <div
-          class="config-select-tree"
+          class="config-select-tree config-select-tree-active-focused"
           role="tree"
         >
           <div>
@@ -42617,7 +42623,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
                 >
                   <div
                     aria-grabbed="false"
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-leaf-last"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last"
                     draggable="false"
                   >
                     <span
@@ -42781,8 +42787,14 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
   >
     <div>
       <div>
+        <span
+          aria-live="assertive"
+          style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+        >
+          light
+        </span>
         <div
-          class="config-select-tree"
+          class="config-select-tree config-select-tree-active-focused"
           role="tree"
         >
           <div>
@@ -42821,7 +42833,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
                 >
                   <div
                     aria-grabbed="false"
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-leaf-last"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last"
                     draggable="false"
                   >
                     <span
@@ -42920,8 +42932,14 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
   >
     <div>
       <div>
+        <span
+          aria-live="assertive"
+          style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+        >
+          light
+        </span>
         <div
-          class="config-select-tree"
+          class="config-select-tree config-select-tree-active-focused"
           role="tree"
         >
           <div>
@@ -42960,7 +42978,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
                 >
                   <div
                     aria-grabbed="false"
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-leaf-last"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last"
                     draggable="false"
                   >
                     <span
@@ -43059,8 +43077,14 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize small
   >
     <div>
       <div>
+        <span
+          aria-live="assertive"
+          style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+        >
+          light
+        </span>
         <div
-          class="config-select-tree"
+          class="config-select-tree config-select-tree-active-focused"
           role="tree"
         >
           <div>
@@ -43099,7 +43123,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize small
                 >
                   <div
                     aria-grabbed="false"
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-leaf-last"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last"
                     draggable="false"
                   >
                     <span
@@ -43198,8 +43222,14 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
   >
     <div>
       <div>
+        <span
+          aria-live="assertive"
+          style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+        >
+          light
+        </span>
         <div
-          class="ant-select-tree"
+          class="ant-select-tree ant-select-tree-active-focused"
           role="tree"
         >
           <div>
@@ -43238,7 +43268,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
                 >
                   <div
                     aria-grabbed="false"
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-active ant-select-tree-treenode-leaf-last"
                     draggable="false"
                   >
                     <span
@@ -43337,8 +43367,14 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
   >
     <div>
       <div>
+        <span
+          aria-live="assertive"
+          style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+        >
+          light
+        </span>
         <div
-          class="prefix-TreeSelect-tree"
+          class="prefix-TreeSelect-tree prefix-TreeSelect-tree-active-focused"
           role="tree"
         >
           <div>
@@ -43377,7 +43413,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
                 >
                   <div
                     aria-grabbed="false"
-                    class="prefix-TreeSelect-tree-treenode prefix-TreeSelect-tree-treenode-switcher-close prefix-TreeSelect-tree-treenode-leaf-last"
+                    class="prefix-TreeSelect-tree-treenode prefix-TreeSelect-tree-treenode-switcher-close prefix-TreeSelect-tree-treenode-active prefix-TreeSelect-tree-treenode-leaf-last"
                     draggable="false"
                   >
                     <span
