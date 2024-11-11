@@ -79,9 +79,9 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     const minAllowed = Math.max(0, (containerSize * ariaMin) / 100);
     const maxAllowed = Math.min(containerSize, (containerSize * ariaMax) / 100);
 
-  // Constrain new position within bounds
-  const clampedPos = Math.max(minAllowed, Math.min(maxAllowed, newPos));
-  return clampedPos - currentPos;
+    // Constrain new position within bounds
+    const clampedPos = Math.max(minAllowed, Math.min(maxAllowed, newPos));
+    return clampedPos - currentPos;
   };
 
   React.useEffect(() => {
@@ -179,13 +179,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       aria-valuemin={getValidNumber(ariaMin)}
       aria-valuemax={getValidNumber(ariaMax)}
     >
-      {lazy && (
-        <div
-          ref={previewRef}
-          className={`${splitBarPrefixCls}-preview`}
-          style={{ display: 'none' }}
-        />
-      )}
+      {lazy && <div ref={previewRef} className={`${splitBarPrefixCls}-preview`} />}
 
       <div
         className={classNames(`${splitBarPrefixCls}-dragger`, {

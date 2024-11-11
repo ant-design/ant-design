@@ -227,6 +227,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
             pointerEvents: 'none',
             transition: 'none',
             zIndex: 1,
+            display: 'none',
           },
 
           // ======================= Dragger =======================
@@ -294,6 +295,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
             pointerEvents: 'none',
             transition: 'none',
             zIndex: 1,
+            display: 'none',
           },
 
           // ======================= Dragger =======================
