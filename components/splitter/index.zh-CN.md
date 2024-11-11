@@ -38,13 +38,13 @@ tag: 5.21.0
 
 ### Splitter
 
-| 参数          | 说明             | 类型                        | 默认值       | 版本 |
-| ------------- | ---------------- | --------------------------- | ------------ | ---- |
-| layout        | 布局方向         | `horizontal` \| `vertical`  | `horizontal` | -    |
-| onResizeStart | 开始拖拽之前回调 | `(sizes: number[]) => void` | -            | -    |
-| onResize      | 面板大小变化回调 | `(sizes: number[]) => void` | -            | -    |
-| onResizeEnd   | 拖拽结束回调     | `(sizes: number[]) => void` | -            | -    |
-| lazy          | 延迟渲染模式     | `boolean`                   | `false`      | -    |
+| 参数          | 说明             | 类型                        | 默认值       | 版本   |
+| ------------- | ---------------- | --------------------------- | ------------ | ------ |
+| layout        | 布局方向         | `horizontal` \| `vertical`  | `horizontal` | -      |
+| onResizeStart | 开始拖拽之前回调 | `(sizes: number[]) => void` | -            | -      |
+| onResize      | 面板大小变化回调 | `(sizes: number[]) => void` | -            | -      |
+| onResizeEnd   | 拖拽结束回调     | `(sizes: number[]) => void` | -            | -      |
+| lazy          | 延迟渲染模式     | `boolean`                   | `false`      | 5.22.0 |
 
 ### Panel
 

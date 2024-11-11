@@ -41,7 +41,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onResizeStart | Callback before dragging starts | `(sizes: number[]) => void` | - | - |
 | onResize | Panel size change callback | `(sizes: number[]) => void` | - | - |
 | onResizeEnd | Drag end callback | `(sizes: number[]) => void` | - | - |
-| lazy | Lazy mode | `boolean` | `false` | - |
+| lazy | Lazy mode | `boolean` | `false` | 5.22.0 |
 
 ### Panel
 
