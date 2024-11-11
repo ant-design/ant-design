@@ -35,7 +35,7 @@ tag: vVERSION
   - 🆕 DatePicker supports prefix attribute. [#51335](https://github.com/ant-design/ant-design/pull/51335) [@guoyunhe](https://github.com/guoyunhe)
   - 💄 Fixed the issue of DatePicker.RangePicker flashing when the mouse moves between cells. [#51533](https://github.com/ant-design/ant-design/pull/51533) [@afc163](https://github.com/afc163)
 - Input.OTP
-  - 🆕 In the `Input.OTP` component, add `onInput` event to get the value of each user input. At the same time, the relevant documentation has been updated. [#51289](https://github.com/ant-design/ant-design/pull/51289) [@aojunhao123](https://github.com/aojunhao123)
+  - 🆕 In the Input.OTP component, add `onInput` event to get the value of each user input. At the same time, the relevant documentation has been updated. [#51289](https://github.com/ant-design/ant-design/pull/51289) [@aojunhao123](https://github.com/aojunhao123)
   - 🐞 Fixed the problem that Input.OTP cannot specify `inputMode`. [#51271](https://github.com/ant-design/ant-design/pull/51271) [@alan-rudzinski](https://github.com/alan-rudzinski)
 - 🆕 ColorPicker supports `disabledFormat`. [#51539](https://github.com/ant-design/ant-design/pull/51539) [@su-muzhi](https://github.com/su-muzhi)
 - 🆕 Add `cursor` configuration item to the `focus` method of InputNumber component to control the cursor position. [#51444](https://github.com/ant-design/ant-design/pull/51444) [@aojunhao123](https://github.com/aojunhao123)
