@@ -32,7 +32,7 @@ tag: vVERSION
   - 🆕 Tree component Token adds `nodeHoverColor` and `nodeSelectedColor` support. [#51367](https://github.com/ant-design/ant-design/pull/51367) [@zmbxy](https://github.com/zmbxy)
   - 🆕 Tree adds `indentSize` token for custom indent width. [#51010](https://github.com/ant-design/ant-design/pull/51010) [@afc163](https://github.com/afc163)
 - DatePicker
-  - 🆕 DatePicker supports prefix attribute. [#51335](https://github.com/ant-design/ant-design/pull/51335) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 DatePicker supports `prefix` attribute. [#51335](https://github.com/ant-design/ant-design/pull/51335) [@guoyunhe](https://github.com/guoyunhe)
   - 💄 Fixed the issue of DatePicker.RangePicker flashing when the mouse moves between cells. [#51533](https://github.com/ant-design/ant-design/pull/51533) [@afc163](https://github.com/afc163)
 - Input.OTP
   - 🆕 In the Input.OTP component, add `onInput` event to get the value of each user input. At the same time, the relevant documentation has been updated. [#51289](https://github.com/ant-design/ant-design/pull/51289) [@aojunhao123](https://github.com/aojunhao123)
