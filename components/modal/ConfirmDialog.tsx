@@ -173,11 +173,6 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
   const {
     close,
     zIndex,
-    afterClose,
-    open,
-    keyboard,
-    centered,
-    getContainer,
     maskStyle,
     direction,
     prefixCls,
@@ -185,12 +180,8 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     rootPrefixCls,
     bodyStyle,
     closable = false,
-    closeIcon,
-    modalRender,
-    focusTriggerAfterClose,
     onConfirm,
     styles,
-    mousePosition,
   } = props;
 
   if (process.env.NODE_ENV !== 'production') {
@@ -235,7 +226,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
   // ========================= Render =========================
   return (
     <Modal
-      prefixCls={prefixCls}
+      {...props}
       className={classString}
       wrapClassName={classNames(
         { [`${confirmPrefixCls}-centered`]: !!props.centered },
@@ -245,7 +236,6 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
         close?.({ triggerCancel: true });
         onConfirm?.(false);
       }}
-      open={open}
       title=""
       footer={null}
       transitionName={getTransitionName(rootPrefixCls || '', 'zoom', props.transitionName)}
@@ -256,15 +246,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
       styles={{ body: bodyStyle, mask: maskStyle, ...styles }}
       width={width}
       zIndex={mergedZIndex}
-      afterClose={afterClose}
-      keyboard={keyboard}
-      centered={centered}
-      getContainer={getContainer}
       closable={closable}
-      closeIcon={closeIcon}
-      modalRender={modalRender}
-      focusTriggerAfterClose={focusTriggerAfterClose}
-      mousePosition={mousePosition}
     >
       <ConfirmContent {...props} confirmPrefixCls={confirmPrefixCls} />
     </Modal>
