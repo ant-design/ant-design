@@ -534,6 +534,38 @@ describe('Form', () => {
       expect(scrollIntoView).toHaveBeenCalledTimes(3);
     });
 
+    it('should scrollToFirstError work with focus', async () => {
+      const onFinishFailed = jest.fn();
+      const focusSpy = jest.spyOn(HTMLElement.prototype, 'focus');
+
+      const { container } = render(
+        <Form scrollToFirstError={{ block: 'center', focus: true }} onFinishFailed={onFinishFailed}>
+          <Form.Item name="test" rules={[{ required: true }]}>
+            <input />
+          </Form.Item>
+          <Form.Item>
+            <Button htmlType="submit">Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(scrollIntoView).not.toHaveBeenCalled();
+      expect(focusSpy).not.toHaveBeenCalled();
+
+      fireEvent.submit(container.querySelector('form')!);
+      await waitFakeTimer();
+
+      const inputNode = document.getElementById('test');
+      expect(focusSpy).toHaveBeenCalledWith();
+      expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
+        block: 'center',
+        focus: true,
+        scrollMode: 'if-needed',
+      });
+
+      focusSpy.mockRestore();
+    });
+
     // https://github.com/ant-design/ant-design/issues/28869
     it('should work with Upload', async () => {
       const uploadRef = React.createRef<any>();
@@ -1333,6 +1365,104 @@ describe('Form', () => {
     );
     const { container } = render(<App />);
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('form.item should support label = null', () => {
+    // base size
+    const App: React.FC = () => (
+      <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }}>
+        <Form.Item label="name" name="name">
+          <Input />
+        </Form.Item>
+        <Form.Item label={null}>
+          <Button>Submit</Button>
+        </Form.Item>
+      </Form>
+    );
+    const { container } = render(<App />);
+
+    const items = container.querySelectorAll('.ant-form-item');
+    const oneItems = items[0].querySelector('.ant-row')?.querySelectorAll('.ant-col');
+    expect(oneItems?.[0]).toHaveClass('ant-col-4');
+    expect(oneItems?.[0].className.includes('offset')).toBeFalsy();
+    expect(oneItems?.[1]).toHaveClass('ant-col-14');
+    expect(oneItems?.[1].className.includes('offset')).toBeFalsy();
+    const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
+    expect(twoItem).toHaveClass('ant-col-14 ant-col-offset-4');
+
+    // more size
+    const list = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+    list.forEach((size) => {
+      const { container } = render(
+        <Form labelCol={{ [size]: { span: 4 } }} wrapperCol={{ span: 14 }}>
+          <Form.Item label="name" name="name">
+            <Input />
+          </Form.Item>
+          <Form.Item label={null}>
+            <Button>Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+
+      const items = container.querySelectorAll('.ant-form-item');
+      const oneItems = items[0].querySelector('.ant-row')?.querySelectorAll('.ant-col');
+      expect(oneItems?.[0]).toHaveClass(`ant-col-${size}-4`);
+      expect(oneItems?.[0].className.includes('offset')).toBeFalsy();
+      expect(oneItems?.[1]).toHaveClass('ant-col-14');
+      expect(oneItems?.[1].className.includes('offset')).toBeFalsy();
+      const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
+      expect(twoItem).toHaveClass(`ant-col-14 ant-col-${size}-offset-4`);
+    });
+  });
+
+  it('form.item should support label = null and labelCol.span = 24', () => {
+    // base size
+    const App: React.FC = () => (
+      <Form labelCol={{ span: 24 }} wrapperCol={{ span: 24 }}>
+        <Form.Item label="name" name="name">
+          <Input />
+        </Form.Item>
+        <Form.Item label={null}>
+          <Button>Submit</Button>
+        </Form.Item>
+      </Form>
+    );
+    const { container } = render(<App />);
+
+    const items = container.querySelectorAll('.ant-form-item');
+    const oneItems = items[0].querySelector('.ant-row')?.querySelectorAll('.ant-col');
+    expect(oneItems?.[0]).toHaveClass('ant-col-24');
+    expect(oneItems?.[0].className.includes('offset')).toBeFalsy();
+    expect(oneItems?.[1]).toHaveClass('ant-col-24');
+    expect(oneItems?.[1].className.includes('offset')).toBeFalsy();
+    const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
+    expect(twoItem).toHaveClass('ant-col-24');
+    expect(twoItem?.className.includes('offset')).toBeFalsy();
+
+    // more size
+    const list = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+    list.forEach((size) => {
+      const { container } = render(
+        <Form labelCol={{ [size]: { span: 24 } }} wrapperCol={{ span: 24 }}>
+          <Form.Item label="name" name="name">
+            <Input />
+          </Form.Item>
+          <Form.Item label={null}>
+            <Button>Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+
+      const items = container.querySelectorAll('.ant-form-item');
+      const oneItems = items[0].querySelector('.ant-row')?.querySelectorAll('.ant-col');
+      expect(oneItems?.[0]).toHaveClass(`ant-col-${size}-24`);
+      expect(oneItems?.[0].className.includes('offset')).toBeFalsy();
+      expect(oneItems?.[1]).toHaveClass('ant-col-24');
+      expect(oneItems?.[1].className.includes('offset')).toBeFalsy();
+      const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
+      expect(twoItem).toHaveClass(`ant-col-24`);
+      expect(twoItem?.className.includes('offset')).toBeFalsy();
+    });
   });
 
   it('_internalItemRender api test', () => {

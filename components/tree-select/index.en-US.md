@@ -24,7 +24,7 @@ demo:
 <code src="./demo/treeLine.tsx">Show Tree Line</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/status.tsx">Status</code>
-<code src="./demo/suffix.tsx" debug>Suffix</code>
+<code src="./demo/suffix.tsx" debug>Prefix and Suffix</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
@@ -57,6 +57,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | notFoundContent | Specify content to show when no result matches | ReactNode | `Not Found` |  |
 | placeholder | Placeholder of the select input | string | - |  |
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
+| prefix | The custom prefix | ReactNode | - | 5.22.0 |
 | searchValue | Work with `onSearch` to make search value controlled | string | - |  |
 | showCheckedStrategy | The way show selected item in box when `treeCheckable` set. **Default:** just show child nodes. **`TreeSelect.SHOW_ALL`:** show all checked treeNodes (include parent treeNode). **`TreeSelect.SHOW_PARENT`:** show checked treeNodes (just show parent treeNode) | `TreeSelect.SHOW_ALL` \| `TreeSelect.SHOW_PARENT` \| `TreeSelect.SHOW_CHILD` | `TreeSelect.SHOW_CHILD` |  |
 | showSearch | Support search or not | boolean | single: false \| multiple: true |  |
