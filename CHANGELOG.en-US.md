@@ -44,6 +44,7 @@ tag: vVERSION
 - 🆕 Select/TreeSelect/Cascader components add `prefix` property to support custom prefix. [#51186](https://github.com/ant-design/ant-design/pull/51186) [@guoyunhe](https://github.com/guoyunhe)
 - 🐞 Fix the problem that the preview image class name is lost when setting `ImageProps.preview.rootClassName` in Image. [#51538](https://github.com/ant-design/ant-design/pull/51538) [@dislido](https://github.com/dislido)
 - 🐞 Fixed the issue that the last item in the TimePicker panel column cannot be scrolled to the top. [#51481](https://github.com/ant-design/ant-design/pull/51481) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix TreeSelect dropdown height not enough. [#51567](https://github.com/ant-design/ant-design/pull/51567) [@afc163](https://github.com/afc163)
 - 🐞 Fixed the issue that Typography is not updated immediately when the ConfigProvider language is switched. [#51453](https://github.com/ant-design/ant-design/pull/51453) [@thinkasany](https://github.com/thinkasany)
 - 🐞 Fixed the issue that Upload `itemRender` calling `action.preview` will cause a crash. [#51419](https://github.com/ant-design/ant-design/pull/51419) [@yoyo837](https://github.com/yoyo837)
 - 🐞 Fixed Splitter pseudo-element symbol issue. [#51536](https://github.com/ant-design/ant-design/pull/51536) [@dislido](https://github.com/dislido)

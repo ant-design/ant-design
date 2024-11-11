@@ -45,6 +45,7 @@ tag: vVERSION
 - 🆕 Select/TreeSelect/Cascader 组件增加 `prefix` 属性以支持自定义前缀。[#51186](https://github.com/ant-design/ant-design/pull/51186) [@guoyunhe](https://github.com/guoyunhe)
 - 🐞 修复 Image 设置 `ImageProps.preview.rootClassName` 导致预览图类名丢失。[#51538](https://github.com/ant-design/ant-design/pull/51538) [@dislido](https://github.com/dislido)
 - 🐞 修复 TimePicker 面板列的最后一项无法滚动到最上面的问题。[#51481](https://github.com/ant-design/ant-design/pull/51481) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 TreeSelect 弹层高度不够的问题。[#51567](https://github.com/ant-design/ant-design/pull/51567) [@afc163](https://github.com/afc163)
 - 🐞 修复 Typography 在 ConfigProvider 语言切换时候没有立即更新。[#51453](https://github.com/ant-design/ant-design/pull/51453) [@thinkasany](https://github.com/thinkasany)
 - 🐞 修复 Upload `itemRender` 调用 `action.preview` 会导致崩溃的问题。[#51419](https://github.com/ant-design/ant-design/pull/51419) [@yoyo837](https://github.com/yoyo837)
 - 🐞 修复 Splitter 伪元素符号问题。[#51536](https://github.com/ant-design/ant-design/pull/51536) [@dislido](https://github.com/dislido)
