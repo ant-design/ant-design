@@ -66,7 +66,7 @@ const App: React.FC = () => (
         <Input placeholder="Input birth month" />
       </Form.Item>
     </Form.Item>
-    <Form.Item label=" " colon={false}>
+    <Form.Item label={null}>
       <Button type="primary" htmlType="submit">
         Submit
       </Button>
