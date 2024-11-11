@@ -73,6 +73,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     mask,
     type,
     onInput,
+    inputMode,
     ...restProps
   } = props;
 
@@ -225,6 +226,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     status: mergedStatus as InputStatus,
     mask,
     type,
+    inputMode,
   };
 
   return wrapCSSVar(
