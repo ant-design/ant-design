@@ -49,7 +49,7 @@ tag: vVERSION
 - 🐞 Fixed the issue that Upload `itemRender` calling `action.preview` will cause a crash. [#51419](https://github.com/ant-design/ant-design/pull/51419) [@yoyo837](https://github.com/yoyo837)
 - 🐞 Fixed Splitter pseudo-element symbol issue. [#51536](https://github.com/ant-design/ant-design/pull/51536) [@dislido](https://github.com/dislido)
 - 💄 Optimize Collapse accessibility attribute and mouse hover style. [#51400](https://github.com/ant-design/ant-design/pull/51400) [@afc163](https://github.com/afc163)
-- 💄 Fix styling issue of Menu title content. (#51425). [6a62d9e](https://github.com/ant-design/ant-design/commit/6a62d9e) [@ice](https://github.com/ice)
+- 💄 Fix styling issue of Menu title content. [6a62d9e](https://github.com/ant-design/ant-design/commit/6a62d9e) [@ice](https://github.com/ice)
 - 🌐 Fix translation in Portuguese (pt_PT) localization file for better accuracy and consistency. [#51501](https://github.com/ant-design/ant-design/pull/51501) [@alexandre-p-marques-alb](https://github.com/alexandre-p-marques-alb)
 - 🌐 Optimize uz_UZ internationalization. [#51407](https://github.com/ant-design/ant-design/pull/51407) [@Zukhrik](https://github.com/Zukhrik)
 - TypeScript
