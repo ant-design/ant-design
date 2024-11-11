@@ -44,7 +44,7 @@ tag: 5.21.0
 | onResizeStart | 开始拖拽之前回调 | `(sizes: number[]) => void` | -            | -    |
 | onResize      | 面板大小变化回调 | `(sizes: number[]) => void` | -            | -    |
 | onResizeEnd   | 拖拽结束回调     | `(sizes: number[]) => void` | -            | -    |
-| lazy          | 懒加载模式       | `boolean`                   | `false`      | -    |
+| lazy          | 延迟渲染模式     | `boolean`                   | `false`      | -    |
 
 ### Panel
 
