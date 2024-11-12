@@ -142,7 +142,8 @@ interface CountConfig {
 | size | 输入框大小 | `small` \| `middle` \| `large` | `middle` |  |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` |  |
 | value | 输入框内容 | string | - |  |
-| onChange | 当输入框内容全部填充时触发回调 | function(value: string) | - |  |
+| onChange | 当输入框内容全部填充时触发回调 | (value: string) => void | - |  |
+| onInput | 输入值变化时触发的回调 | (value: string[]) => void | - | `5.22.0` |
 
 #### VisibilityToggle
 

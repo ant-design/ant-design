@@ -635,12 +635,12 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
         },
 
         [`${componentCls}-title-content`]: {
-          display: 'inline-flex',
-          alignItems: 'center',
           transition: `color ${motionDurationSlow}`,
 
-          '> a:first-child': {
-            flexGrow: 1,
+          '&-with-extra': {
+            display: 'inline-flex',
+            alignItems: 'center',
+            width: '100%',
           },
 
           // https://github.com/ant-design/ant-design/issues/41143
@@ -653,7 +653,6 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
             marginInlineStart: 'auto',
             paddingInlineStart: token.padding,
             fontSize: token.fontSizeSM,
-            color: token.colorTextDescription,
           },
         },
 
