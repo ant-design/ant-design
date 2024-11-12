@@ -611,7 +611,7 @@ exports[`renders components/splitter/demo/lazy.tsx correctly 1`] = `
       >
         <div
           class="ant-splitter-bar-preview"
-          style="display:none"
+          style="display:none;transform:translateX(undefinedpx)"
         />
         <div
           class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
@@ -667,7 +667,7 @@ exports[`renders components/splitter/demo/lazy.tsx correctly 1`] = `
       >
         <div
           class="ant-splitter-bar-preview"
-          style="display:none"
+          style="display:none;transform:translateY(undefinedpx)"
         />
         <div
           class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
