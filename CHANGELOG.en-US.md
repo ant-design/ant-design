@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 5.22.0
 
-`2024-11-11`
+`2024-11-12`
 
 - Form
   - 🆕 Form.Item supports hiding labels. [#51524](https://github.com/ant-design/ant-design/pull/51524) [@crazyair](https://github.com/crazyair)
