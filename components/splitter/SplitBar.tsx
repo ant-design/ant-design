@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
@@ -170,6 +170,16 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     }
   }, [startPos, lazy, vertical, index, containerSize, ariaNow, ariaMin, ariaMax]);
 
+  const transformStyle = useMemo(() => {
+    if (vertical && constrainedOffset?.[1]) {
+      return `translateY(${constrainedOffset?.[1]}px)`;
+    }
+    if (!vertical && constrainedOffset?.[0]) {
+      return `translateX(${constrainedOffset?.[0]}px)`;
+    }
+    return undefined;
+  }, [vertical, constrainedOffset]);
+
   // ======================== Render ========================
   const StartIcon = vertical ? UpOutlined : LeftOutlined;
   const EndIcon = vertical ? DownOutlined : RightOutlined;
@@ -187,9 +197,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
           className={`${splitBarPrefixCls}-preview`}
           style={{
             display: constrainedOffset ? 'block' : 'none',
-            transform: vertical
-              ? `translateY(${constrainedOffset?.[1]}px)`
-              : `translateX(${constrainedOffset?.[0]}px)`,
+            transform: transformStyle,
           }}
         />
       )}
