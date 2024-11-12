@@ -24,7 +24,7 @@ const App: React.FC = () => (
       layout="vertical"
       style={{ height: 200, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
     >
-      <Splitter.Panel defaultSize="40%" min="20%" max="70%">
+      <Splitter.Panel defaultSize="40%" min="30%" max="70%">
         <Desc text="First" />
       </Splitter.Panel>
       <Splitter.Panel>
