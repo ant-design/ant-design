@@ -170,14 +170,14 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     }
   }, [startPos, lazy, vertical, index, containerSize, ariaNow, ariaMin, ariaMax]);
 
-  const transformStyle = useMemo(() => {
+  const transformStyle = useMemo<React.CSSProperties>(() => {
     if (vertical && constrainedOffset?.[1]) {
-      return `translateY(${constrainedOffset?.[1]}px)`;
+      return { transform: `translateY(${constrainedOffset?.[1]}px)` };
     }
     if (!vertical && constrainedOffset?.[0]) {
-      return `translateX(${constrainedOffset?.[0]}px)`;
+      return { transform: `translateX(${constrainedOffset?.[0]}px)` };
     }
-    return undefined;
+    return {};
   }, [vertical, constrainedOffset]);
 
   // ======================== Render ========================
@@ -194,11 +194,10 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     >
       {lazy && (
         <div
-          className={`${splitBarPrefixCls}-preview`}
-          style={{
-            display: constrainedOffset ? 'block' : 'none',
-            transform: transformStyle,
-          }}
+          className={classNames(`${splitBarPrefixCls}-preview`, {
+            [`${splitBarPrefixCls}-preview-active`]: !!constrainedOffset,
+          })}
+          style={transformStyle}
         />
       )}
 

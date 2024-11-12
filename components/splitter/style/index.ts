@@ -228,6 +228,10 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
             transition: 'none',
             zIndex: 1,
             display: 'none',
+
+            [`&${splitBarCls}-preview-active`]: {
+              display: 'block',
+            },
           },
 
           // ======================= Dragger =======================
@@ -296,6 +300,10 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
             transition: 'none',
             zIndex: 1,
             display: 'none',
+
+            [`&${splitBarCls}-preview-active`]: {
+              display: 'block',
+            },
           },
 
           // ======================= Dragger =======================
