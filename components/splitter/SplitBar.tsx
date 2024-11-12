@@ -170,12 +170,12 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     }
   }, [startPos, lazy, vertical, index, containerSize, ariaNow, ariaMin, ariaMax]);
 
-  const transformStyle = useMemo<React.CSSProperties>(() => {
+  const transformStyle = useMemo<Record<string, unknown>>(() => {
     if (vertical && constrainedOffset?.[1]) {
-      return { transform: `translateY(${constrainedOffset?.[1]}px)` };
+      return { '--ant-splitter-preview-translate': `${constrainedOffset?.[1]}px` };
     }
     if (!vertical && constrainedOffset?.[0]) {
-      return { transform: `translateX(${constrainedOffset?.[0]}px)` };
+      return { '--ant-splitter-preview-translate': `${constrainedOffset?.[0]}px` };
     }
     return {};
   }, [vertical, constrainedOffset]);

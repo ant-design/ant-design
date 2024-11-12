@@ -231,6 +231,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
             [`&${splitBarCls}-preview-active`]: {
               display: 'block',
+              transform: 'translateX(var(--ant-splitter-preview-translate))',
             },
           },
 
@@ -303,6 +304,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
             [`&${splitBarCls}-preview-active`]: {
               display: 'block',
+              transform: 'translateY(var(--ant-splitter-preview-translate))',
             },
           },
 
