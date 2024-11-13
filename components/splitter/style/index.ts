@@ -83,6 +83,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
     controlItemBgHover,
     controlItemBgActive,
     controlItemBgActiveHover,
+    prefixCls,
   } = token;
 
   const splitBarCls = `${componentCls}-bar`;
@@ -90,6 +91,8 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
   const splitPanelCls = `${componentCls}-panel`;
 
   const halfTriggerSize = token.calc(splitTriggerSize).div(2).equal();
+
+  const splitterBarPreviewTranslatePrefix = `${prefixCls}-bar-preview-translate`;
 
   const getSplitterBarPreviewStyle = (vertical = false): CSSObject => ({
     [`${splitBarCls}-preview`]: {
@@ -105,8 +108,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
       [`&${splitBarCls}-preview-active`]: {
         display: 'block',
-        transform:
-          'translate(var(--ant-splitter-bar-preview-translate-x), var(--ant-splitter-bar-preview-translate-y))',
+        transform: `translate(var(--${splitterBarPreviewTranslatePrefix}-x), var(--${splitterBarPreviewTranslatePrefix}-y))`,
       },
     },
   });
