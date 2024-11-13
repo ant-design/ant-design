@@ -1,9 +1,10 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import classNames from 'classnames';
+import { useEvent } from 'rc-util';
 
 export interface SplitBarProps {
   index: number;
@@ -53,7 +54,6 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   // ======================== Resize ========================
   const [startPos, setStartPos] = useState<[x: number, y: number] | null>(null);
   const [constrainedOffset, setConstrainedOffset] = useState<[x: number, y: number] | null>(null);
-  const currentOffsetRef = useRef<[number, number]>([0, 0]);
 
   const onMouseDown: React.MouseEventHandler<HTMLDivElement> = (e) => {
     if (resizable && e.currentTarget) {
@@ -84,19 +84,22 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     return clampedPos - currentPos;
   };
 
-  const handleLazyMove = (offsetX: number, offsetY: number) => {
-    currentOffsetRef.current = [offsetX, offsetY];
-    const constrainedOffset = getConstrainedOffset(vertical ? offsetY : offsetX);
-    setConstrainedOffset(vertical ? [0, constrainedOffset] : [constrainedOffset, 0]);
-  };
+  const handleLazyMove = useEvent((offsetX: number, offsetY: number) => {
+    const constrainedOffsetValue = getConstrainedOffset(vertical ? offsetY : offsetX);
+    setConstrainedOffset(vertical ? [0, constrainedOffsetValue] : [constrainedOffsetValue, 0]);
+  });
 
-  const handleLazyEnd = () => {
-    const [offsetX, offsetY] = currentOffsetRef.current;
-    const constrainedOffset = getConstrainedOffset(vertical ? offsetY : offsetX);
-    onOffsetUpdate(index, vertical ? 0 : constrainedOffset, vertical ? constrainedOffset : 0);
-    currentOffsetRef.current = [0, 0];
+  const handleLazyEnd = useEvent(() => {
+    const constrainedOffsetValue = getConstrainedOffset(
+      vertical ? (constrainedOffset?.[1] ?? 0) : (constrainedOffset?.[0] ?? 0),
+    );
+    onOffsetUpdate(
+      index,
+      vertical ? 0 : constrainedOffsetValue,
+      vertical ? constrainedOffsetValue : 0,
+    );
     setConstrainedOffset(null);
-  };
+  });
 
   React.useEffect(() => {
     if (startPos) {
