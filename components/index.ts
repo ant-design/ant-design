@@ -166,7 +166,7 @@ export type { TreeSelectProps } from './tree-select';
 export { default as Typography } from './typography';
 export type { TypographyProps } from './typography';
 export { default as Upload } from './upload';
-export type { UploadFile, UploadProps } from './upload';
+export type { UploadFile, UploadProps, DraggerProps } from './upload';
 export { default as version } from './version';
 export { default as Watermark } from './watermark';
 export type { WatermarkProps } from './watermark';

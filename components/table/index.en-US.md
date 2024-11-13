@@ -348,7 +348,7 @@ Here is the [CodeSandbox for TypeScript](https://codesandbox.io/s/serene-platfor
 
 ## Note
 
-According to the [React documentation](https://facebook.github.io/react/docs/lists-and-keys.html#keys), every child in an array should be assigned a unique key. The values inside the Table's `dataSource` and `columns` should follow this rule. By default, `dataSource[i].key` will be treated as the key value for `dataSource`.
+According to the [React documentation](https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key), every child in an array should be assigned a unique key. The values inside the Table's `dataSource` and `columns` should follow this rule. By default, `dataSource[i].key` will be treated as the key value for `dataSource`.
 
 ![console warning](https://os.alipayobjects.com/rmsportal/luLdLvhPOiRpyss.png)
 

@@ -79,23 +79,29 @@ const SingleNumber: React.FC<Readonly<SingleNumberProps>> = (props) => {
       unitNumberList.push(index);
     }
 
+    const unit = prevCount < count ? 1 : -1;
+
     // Fill with number unit nodes
     const prevIndex = unitNumberList.findIndex((n) => n % 10 === prevValue);
-    unitNodes = unitNumberList.map((n, index) => {
+
+    // Cut list
+    const cutUnitNumberList =
+      unit < 0 ? unitNumberList.slice(0, prevIndex + 1) : unitNumberList.slice(prevIndex);
+
+    unitNodes = cutUnitNumberList.map((n, index) => {
       const singleUnit = n % 10;
       return (
         <UnitNumber
           {...props}
           key={n}
           value={singleUnit}
-          offset={index - prevIndex}
+          offset={unit < 0 ? index - prevIndex : index}
           current={index === prevIndex}
         />
       );
     });
 
     // Calculate container offset value
-    const unit = prevCount < count ? 1 : -1;
     offsetStyle = {
       transform: `translateY(${-getOffset(prevValue, value, unit)}00%)`,
     };

@@ -40,11 +40,11 @@ describe('TreeSelect', () => {
     it('should `treeIcon` work', () => {
       const { container } = render(
         <TreeSelect treeIcon open>
-          <TreeNode value="parent 1" title="parent 1" icon={<span>Bamboo</span>} />
+          <TreeNode value="parent 1" title="parent 1" icon={<span className="bamboo" />} />
         </TreeSelect>,
       );
 
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container.querySelector('.ant-select-tree-treenode .bamboo')).toBeTruthy();
     });
   });
 

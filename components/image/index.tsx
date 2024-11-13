@@ -54,7 +54,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
       return preview;
     }
     const _preview = typeof preview === 'object' ? preview : {};
-    const { getContainer, closeIcon, ...restPreviewProps } = _preview;
+    const { getContainer, closeIcon, rootClassName, ...restPreviewProps } = _preview;
     return {
       mask: (
         <div className={`${prefixCls}-mask-info`}>
@@ -64,6 +64,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
       ),
       icons,
       ...restPreviewProps,
+      rootClassName: classNames(mergedRootClassName, rootClassName),
       getContainer: getContainer ?? getContextPopupContainer,
       transitionName: getTransitionName(rootPrefixCls, 'zoom', _preview.transitionName),
       maskTransitionName: getTransitionName(rootPrefixCls, 'fade', _preview.maskTransitionName),
