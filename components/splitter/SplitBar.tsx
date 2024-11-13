@@ -91,7 +91,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
 
   const handleLazyEnd = useEvent(() => {
     const constrainedOffsetValue = getConstrainedOffset(
-      vertical ? (constrainedOffset?.[1] ?? 0) : (constrainedOffset?.[0] ?? 0),
+      constrainedOffset?.[vertical ? 1 : 0] ?? 0,
     );
     onOffsetUpdate(
       index,
