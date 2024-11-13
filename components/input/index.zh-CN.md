@@ -122,6 +122,7 @@ interface CountConfig {
 | --- | --- | --- | --- | --- |
 | iconRender | 自定义切换按钮 | (visible) => ReactNode | (visible) => (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | 4.3.0 |
 | visibilityToggle | 是否显示切换按钮或者控制密码显隐 | boolean \| [VisibilityToggle](#visibilitytoggle) | true |  |
+| newPassword | 是否输入新密码 | boolean | false |  |
 
 ### Input.OTP
 
