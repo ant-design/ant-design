@@ -1,7 +1,7 @@
-import React, { Children, createRef, useContext, useEffect, useMemo, useState } from 'react';
+import React, { Children, createRef, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import { composeRef } from 'rc-util/lib/ref';
+import { composeRef, useComposeRef } from 'rc-util/lib/ref';
 
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -162,9 +162,9 @@ const InternalCompoundedButton = React.forwardRef<
 
   const [hasTwoCNChar, setHasTwoCNChar] = useState<boolean>(false);
 
-  const internalRef = createRef<HTMLButtonElement | HTMLAnchorElement>();
+  const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>();
 
-  const buttonRef = composeRef(ref, internalRef);
+  const mergedRef = useComposeRef(ref, buttonRef);
 
   const needInserted =
     Children.count(children) === 1 && !icon && !isUnBorderedButtonVariant(mergedVariant);
@@ -192,10 +192,10 @@ const InternalCompoundedButton = React.forwardRef<
 
   useEffect(() => {
     // FIXME: for HOC usage like <FormatMessage />
-    if (!buttonRef || !(buttonRef as any).current || !mergedInsertSpace) {
+    if (!mergedRef || !(mergedRef as any).current || !mergedInsertSpace) {
       return;
     }
-    const buttonText = (buttonRef as any).current.textContent;
+    const buttonText = (mergedRef as any).current.textContent;
     if (needInserted && isTwoCNChar(buttonText)) {
       if (!hasTwoCNChar) {
         setHasTwoCNChar(true);
@@ -203,7 +203,7 @@ const InternalCompoundedButton = React.forwardRef<
     } else if (hasTwoCNChar) {
       setHasTwoCNChar(false);
     }
-  }, [buttonRef]);
+  }, [mergedRef]);
 
   const handleClick = React.useCallback(
     (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
@@ -301,7 +301,7 @@ const InternalCompoundedButton = React.forwardRef<
         href={mergedDisabled ? undefined : linkButtonRestProps.href}
         style={fullStyle}
         onClick={handleClick}
-        ref={buttonRef as React.Ref<HTMLAnchorElement>}
+        ref={mergedRef as React.Ref<HTMLAnchorElement>}
         tabIndex={mergedDisabled ? -1 : 0}
       >
         {iconNode}
@@ -318,7 +318,7 @@ const InternalCompoundedButton = React.forwardRef<
       style={fullStyle}
       onClick={handleClick}
       disabled={mergedDisabled}
-      ref={buttonRef as React.Ref<HTMLButtonElement>}
+      ref={mergedRef as React.Ref<HTMLButtonElement>}
     >
       {iconNode}
       {kids}
