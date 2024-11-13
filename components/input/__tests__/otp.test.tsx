@@ -4,7 +4,7 @@ import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { createEvent, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 
 const { OTP } = Input;
 
@@ -190,5 +190,14 @@ describe('Input.OTP', () => {
 
     fireEvent.input(inputs[3], { target: { value: '4' } });
     expect(onInput).toHaveBeenCalledWith(['1', '2', '3', '4']);
+  });
+
+  it('disabled ctrl + z', () => {
+    const { container } = render(<OTP length={4} defaultValue="1234" />);
+    const inputEle = container.querySelector('input')!;
+    const event = createEvent.keyDown(inputEle, { key: 'z', ctrlKey: true });
+    fireEvent(inputEle, event);
+
+    expect(event.defaultPrevented).toBeTruthy();
   });
 });
