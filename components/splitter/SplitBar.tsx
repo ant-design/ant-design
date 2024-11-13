@@ -4,7 +4,7 @@ import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import classNames from 'classnames';
-import { useEvent } from 'rc-util';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 
 export interface SplitBarProps {
   index: number;
@@ -53,7 +53,10 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
 
   // ======================== Resize ========================
   const [startPos, setStartPos] = useState<[x: number, y: number] | null>(null);
-  const [constrainedOffset, setConstrainedOffset] = useState<[x: number, y: number] | null>(null);
+  const [constrainedOffset, setConstrainedOffset] = useState<number>(0);
+
+  const constrainedOffsetX = vertical ? 0 : constrainedOffset;
+  const constrainedOffsetY = vertical ? constrainedOffset : 0;
 
   const onMouseDown: React.MouseEventHandler<HTMLDivElement> = (e) => {
     if (resizable && e.currentTarget) {
@@ -86,19 +89,12 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
 
   const handleLazyMove = useEvent((offsetX: number, offsetY: number) => {
     const constrainedOffsetValue = getConstrainedOffset(vertical ? offsetY : offsetX);
-    setConstrainedOffset(vertical ? [0, constrainedOffsetValue] : [constrainedOffsetValue, 0]);
+    setConstrainedOffset(constrainedOffsetValue);
   });
 
   const handleLazyEnd = useEvent(() => {
-    const constrainedOffsetValue = getConstrainedOffset(
-      constrainedOffset?.[vertical ? 1 : 0] ?? 0,
-    );
-    onOffsetUpdate(
-      index,
-      vertical ? 0 : constrainedOffsetValue,
-      vertical ? constrainedOffsetValue : 0,
-    );
-    setConstrainedOffset(null);
+    onOffsetUpdate(index, constrainedOffsetX, constrainedOffsetY);
+    setConstrainedOffset(0);
   });
 
   React.useEffect(() => {
@@ -160,8 +156,8 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   }, [startPos, lazy, vertical, index, containerSize, ariaNow, ariaMin, ariaMax]);
 
   const transformStyle = {
-    [`--${splitBarPrefixCls}-preview-translate-x`]: `${constrainedOffset?.[0] ?? 0}px`,
-    [`--${splitBarPrefixCls}-preview-translate-y`]: `${constrainedOffset?.[1] ?? 0}px`,
+    [`--${splitBarPrefixCls}-preview-translate-x`]: `${constrainedOffsetX}px`,
+    [`--${splitBarPrefixCls}-preview-translate-y`]: `${constrainedOffsetY}px`,
   };
 
   // ======================== Render ========================
