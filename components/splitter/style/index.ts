@@ -92,7 +92,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
   const halfTriggerSize = token.calc(splitTriggerSize).div(2).equal();
 
-  const splitterBarPreviewTranslatePrefix = `${prefixCls}-bar-preview-translate`;
+  const splitterBarPreviewTranslateVar = `${prefixCls}-bar-preview-translate`;
 
   const getSplitterBarPreviewStyle = (vertical = false): CSSObject => ({
     [`${splitBarCls}-preview`]: {
@@ -108,7 +108,9 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
       [`&${splitBarCls}-preview-active`]: {
         display: 'block',
-        transform: `translate(var(--${splitterBarPreviewTranslatePrefix}-x), var(--${splitterBarPreviewTranslatePrefix}-y))`,
+        transform: vertical
+          ? `translateY(var(--${splitterBarPreviewTranslateVar}))`
+          : `translateX(var(--${splitterBarPreviewTranslateVar}))`,
       },
     },
   });
