@@ -93,14 +93,9 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
 
         if (lazy) {
           currentOffsetRef.current = [offsetX, offsetY];
-          const constrainedOffset = vertical
-            ? getConstrainedOffset(offsetY)
-            : getConstrainedOffset(offsetX);
+          const constrainedOffset = getConstrainedOffset(vertical ? offsetY : offsetX);
 
-          setConstrainedOffset([
-            vertical ? 0 : constrainedOffset,
-            vertical ? constrainedOffset : 0,
-          ]);
+          setConstrainedOffset(vertical ? [0, constrainedOffset] : [constrainedOffset, 0]);
         } else {
           onOffsetUpdate(index, offsetX, offsetY);
         }
@@ -109,9 +104,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       const onMouseUp = () => {
         if (lazy) {
           const [offsetX, offsetY] = currentOffsetRef.current;
-          const constrainedOffset = vertical
-            ? getConstrainedOffset(offsetY)
-            : getConstrainedOffset(offsetX);
+          const constrainedOffset = getConstrainedOffset(vertical ? offsetY : offsetX);
           onOffsetUpdate(index, vertical ? 0 : constrainedOffset, vertical ? constrainedOffset : 0);
           currentOffsetRef.current = [0, 0];
           setConstrainedOffset(null);
