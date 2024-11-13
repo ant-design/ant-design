@@ -26,6 +26,7 @@ export interface PasswordProps extends InputProps {
   readonly action?: 'click' | 'hover';
   visibilityToggle?: boolean | VisibilityToggle;
   iconRender?: (visible: boolean) => React.ReactNode;
+  newPassword?: boolean;
 }
 
 const actionMap: Record<PropertyKey, keyof React.DOMAttributes<HTMLSpanElement>> = {
@@ -40,7 +41,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     disabled: customDisabled,
     action = 'click',
     visibilityToggle = true,
-    iconRender = defaultIconRender,
+    iconRender = defaultIconRender
   } = props;
 
   // ===================== Disabled =====================
@@ -108,6 +109,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     prefixCls: customizePrefixCls,
     inputPrefixCls: customizeInputPrefixCls,
     size,
+    newPassword = false,
     ...restProps
   } = props;
 
@@ -122,7 +124,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
   });
 
   const omittedProps: InputProps = {
-    ...omit(restProps, ['suffix', 'iconRender', 'visibilityToggle']),
+    ...omit(restProps, ['suffix', 'iconRender', 'visibilityToggle', 'autoComplete']),
     type: visible ? 'text' : 'password',
     className: inputClassName,
     prefixCls: inputPrefixCls,
@@ -133,7 +135,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     omittedProps.size = size;
   }
 
-  return <Input ref={composeRef(ref, inputRef)} {...omittedProps} />;
+  return <Input ref={composeRef(ref, inputRef)} autoComplete={newPassword ? 'new-password' : 'current-password'} {...omittedProps} />;
 });
 
 if (process.env.NODE_ENV !== 'production') {
