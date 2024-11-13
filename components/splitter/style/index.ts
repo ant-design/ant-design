@@ -94,26 +94,15 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
   const splitterBarPreviewTranslateVar = `${prefixCls}-bar-preview-translate`;
 
-  const getSplitterBarPreviewStyle = (vertical = false): CSSObject => ({
-    [`${splitBarCls}-preview`]: {
-      position: 'absolute',
-      height: vertical ? splitBarSize : '100%',
-      width: vertical ? '100%' : splitBarSize,
-      background: token.colorPrimary,
-      opacity: 0.2,
-      pointerEvents: 'none',
-      transition: 'none',
-      zIndex: 1,
-      display: 'none',
-
-      [`&${splitBarCls}-preview-active`]: {
-        display: 'block',
-        transform: vertical
-          ? `translateY(var(--${splitterBarPreviewTranslateVar}))`
-          : `translateX(var(--${splitterBarPreviewTranslateVar}))`,
-      },
-    },
-  });
+  const splitterBarPreviewStyle: CSSObject = {
+    position: 'absolute',
+    background: token.colorPrimary,
+    opacity: 0.2,
+    pointerEvents: 'none',
+    transition: 'none',
+    zIndex: 1,
+    display: 'none',
+  };
 
   return {
     [componentCls]: {
@@ -241,7 +230,17 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         [`> ${splitBarCls}`]: {
           width: 0,
 
-          ...getSplitterBarPreviewStyle(),
+          // ======================= Preview =======================
+          [`${splitBarCls}-preview`]: {
+            height: '100%',
+            width: splitBarSize,
+            ...splitterBarPreviewStyle,
+
+            [`&${splitBarCls}-preview-active`]: {
+              display: 'block',
+              transform: `translateX(var(--${splitterBarPreviewTranslateVar}))`,
+            },
+          },
 
           // ======================= Dragger =======================
           [`${splitBarCls}-dragger`]: {
@@ -298,7 +297,17 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         [`> ${splitBarCls}`]: {
           height: 0,
 
-          ...getSplitterBarPreviewStyle(true),
+          // ======================= Preview =======================
+          [`${splitBarCls}-preview`]: {
+            height: splitBarSize,
+            width: '100%',
+            ...splitterBarPreviewStyle,
+
+            [`&${splitBarCls}-preview-active`]: {
+              display: 'block',
+              transform: `translateY(var(--${splitterBarPreviewTranslateVar}))`,
+            },
+          },
 
           // ======================= Dragger =======================
           [`${splitBarCls}-dragger`]: {
