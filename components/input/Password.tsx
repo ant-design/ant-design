@@ -26,7 +26,7 @@ export interface PasswordProps extends InputProps {
   readonly action?: 'click' | 'hover';
   visibilityToggle?: boolean | VisibilityToggle;
   iconRender?: (visible: boolean) => React.ReactNode;
-  newPassword?: boolean;
+  isNew?: boolean;
 }
 
 const actionMap: Record<PropertyKey, keyof React.DOMAttributes<HTMLSpanElement>> = {
@@ -109,7 +109,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     prefixCls: customizePrefixCls,
     inputPrefixCls: customizeInputPrefixCls,
     size,
-    newPassword = false,
+    isNew = false,
     ...restProps
   } = props;
 
@@ -135,7 +135,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     omittedProps.size = size;
   }
 
-  return <Input ref={composeRef(ref, inputRef)} autoComplete={newPassword ? 'new-password' : 'current-password'} {...omittedProps} />;
+  return <Input ref={composeRef(ref, inputRef)} autoComplete={isNew ? 'new-password' : 'current-password'} {...omittedProps} />;
 });
 
 if (process.env.NODE_ENV !== 'production') {
