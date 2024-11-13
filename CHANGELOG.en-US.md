@@ -15,6 +15,18 @@ tag: vVERSION
 
 ---
 
+## 5.22.1
+
+`2024-11-13`
+
+- 🛠 Adjust DatePicker.RangePicker to not allow switching to the next field by clicking the input when `needConfirm` and the user has not submitted the date. [#51591](https://github.com/ant-design/ant-design/pull/51591) [@zombieJ](https://github.com/zombieJ)
+- 🛠 Lock Input.OTP `ctrl + z` operation to avoid data not correct. [#51609](https://github.com/ant-design/ant-design/pull/51609) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Select `tags` or `multiple` mode display issue. [#51605](https://github.com/ant-design/ant-design/pull/51605) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 Fix Badge `count` motion missing in Safari. [#51598](https://github.com/ant-design/ant-design/pull/51598) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Tabs with `centered` the tabs can not fully display. [#51571](https://github.com/ant-design/ant-design/pull/51571) [@DDDDD12138](https://github.com/DDDDD12138)
+- 🐞 Fix Transfer with controlled `dataSource` & `selectedKeys` sometime miss sync checked state. [#51523](https://github.com/ant-design/ant-design/pull/51523) [@IsKaros](https://github.com/IsKaros)
+- 🐞 Revert Button `display` `inline-flex` back to `inline-block` to resolve Icon align issue. [#51588](https://github.com/ant-design/ant-design/pull/51588) [@Wxh16144](https://github.com/Wxh16144)
+
 ## 5.22.0
 
 `2024-11-12`
