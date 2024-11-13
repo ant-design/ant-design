@@ -122,17 +122,15 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
 
       const handleTouchMove = (e: TouchEvent) => {
         if (e.touches.length !== 1) {
-          return;
-        }
+          const touch = e.touches[0];
+          const offsetX = touch.pageX - startPos[0];
+          const offsetY = touch.pageY - startPos[1];
 
-        const touch = e.touches[0];
-        const offsetX = touch.pageX - startPos[0];
-        const offsetY = touch.pageY - startPos[1];
-
-        if (lazy) {
-          handleLazyMove(offsetX, offsetY);
-        } else {
-          onOffsetUpdate(index, offsetX, offsetY);
+          if (lazy) {
+            handleLazyMove(offsetX, offsetY);
+          } else {
+            onOffsetUpdate(index, offsetX, offsetY);
+          }
         }
       };
 
