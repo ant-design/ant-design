@@ -91,6 +91,26 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
   const halfTriggerSize = token.calc(splitTriggerSize).div(2).equal();
 
+  const getSplitterBarPreviewStyle = (vertical = false): CSSObject => ({
+    [`${splitBarCls}-preview`]: {
+      position: 'absolute',
+      height: vertical ? splitBarSize : '100%',
+      width: vertical ? '100%' : splitBarSize,
+      background: token.colorPrimary,
+      opacity: 0.2,
+      pointerEvents: 'none',
+      transition: 'none',
+      zIndex: 1,
+      display: 'none',
+
+      [`&${splitBarCls}-preview-active`]: {
+        display: 'block',
+        transform:
+          'translate(var(--ant-splitter-bar-preview-translate-x), var(--ant-splitter-bar-preview-translate-y))',
+      },
+    },
+  });
+
   return {
     [componentCls]: {
       ...resetComponent(token),
@@ -217,23 +237,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         [`> ${splitBarCls}`]: {
           width: 0,
 
-          // ======================= Preview =======================
-          [`${splitBarCls}-preview`]: {
-            position: 'absolute',
-            height: '100%',
-            width: splitBarSize,
-            background: token.colorPrimary,
-            opacity: 0.2,
-            pointerEvents: 'none',
-            transition: 'none',
-            zIndex: 1,
-            display: 'none',
-
-            [`&${splitBarCls}-preview-active`]: {
-              display: 'block',
-              transform: 'translateX(var(--ant-splitter-preview-translate))',
-            },
-          },
+          ...getSplitterBarPreviewStyle(),
 
           // ======================= Dragger =======================
           [`${splitBarCls}-dragger`]: {
@@ -290,23 +294,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         [`> ${splitBarCls}`]: {
           height: 0,
 
-          // ======================= Preview =======================
-          [`${splitBarCls}-preview`]: {
-            position: 'absolute',
-            width: '100%',
-            height: splitBarSize,
-            background: token.colorPrimary,
-            opacity: 0.2,
-            pointerEvents: 'none',
-            transition: 'none',
-            zIndex: 1,
-            display: 'none',
-
-            [`&${splitBarCls}-preview-active`]: {
-              display: 'block',
-              transform: 'translateY(var(--ant-splitter-preview-translate))',
-            },
-          },
+          ...getSplitterBarPreviewStyle(true),
 
           // ======================= Dragger =======================
           [`${splitBarCls}-dragger`]: {

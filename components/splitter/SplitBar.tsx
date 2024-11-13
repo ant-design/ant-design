@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
@@ -84,6 +84,20 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     return clampedPos - currentPos;
   };
 
+  const handleLazyMove = (offsetX: number, offsetY: number) => {
+    currentOffsetRef.current = [offsetX, offsetY];
+    const constrainedOffset = getConstrainedOffset(vertical ? offsetY : offsetX);
+    setConstrainedOffset(vertical ? [0, constrainedOffset] : [constrainedOffset, 0]);
+  };
+
+  const handleLazyEnd = () => {
+    const [offsetX, offsetY] = currentOffsetRef.current;
+    const constrainedOffset = getConstrainedOffset(vertical ? offsetY : offsetX);
+    onOffsetUpdate(index, vertical ? 0 : constrainedOffset, vertical ? constrainedOffset : 0);
+    currentOffsetRef.current = [0, 0];
+    setConstrainedOffset(null);
+  };
+
   React.useEffect(() => {
     if (startPos) {
       const onMouseMove = (e: MouseEvent) => {
@@ -92,10 +106,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         const offsetY = pageY - startPos[1];
 
         if (lazy) {
-          currentOffsetRef.current = [offsetX, offsetY];
-          const constrainedOffset = getConstrainedOffset(vertical ? offsetY : offsetX);
-
-          setConstrainedOffset(vertical ? [0, constrainedOffset] : [constrainedOffset, 0]);
+          handleLazyMove(offsetX, offsetY);
         } else {
           onOffsetUpdate(index, offsetX, offsetY);
         }
@@ -103,33 +114,23 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
 
       const onMouseUp = () => {
         if (lazy) {
-          const [offsetX, offsetY] = currentOffsetRef.current;
-          const constrainedOffset = getConstrainedOffset(vertical ? offsetY : offsetX);
-          onOffsetUpdate(index, vertical ? 0 : constrainedOffset, vertical ? constrainedOffset : 0);
-          currentOffsetRef.current = [0, 0];
-          setConstrainedOffset(null);
+          handleLazyEnd();
         }
         setStartPos(null);
         onOffsetEnd();
       };
 
       const handleTouchMove = (e: TouchEvent) => {
-        if (e.touches.length !== 1) return;
+        if (e.touches.length !== 1) {
+          return;
+        }
 
         const touch = e.touches[0];
         const offsetX = touch.pageX - startPos[0];
         const offsetY = touch.pageY - startPos[1];
 
         if (lazy) {
-          currentOffsetRef.current = [offsetX, offsetY];
-          const constrainedOffset = vertical
-            ? getConstrainedOffset(offsetY)
-            : getConstrainedOffset(offsetX);
-
-          setConstrainedOffset([
-            vertical ? 0 : constrainedOffset,
-            vertical ? constrainedOffset : 0,
-          ]);
+          handleLazyMove(offsetX, offsetY);
         } else {
           onOffsetUpdate(index, offsetX, offsetY);
         }
@@ -137,13 +138,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
 
       const handleTouchEnd = () => {
         if (lazy) {
-          const [offsetX, offsetY] = currentOffsetRef.current;
-          const constrainedOffset = vertical
-            ? getConstrainedOffset(offsetY)
-            : getConstrainedOffset(offsetX);
-          onOffsetUpdate(index, vertical ? 0 : constrainedOffset, vertical ? constrainedOffset : 0);
-          currentOffsetRef.current = [0, 0];
-          setConstrainedOffset(null);
+          handleLazyEnd();
         }
         setStartPos(null);
         onOffsetEnd();
@@ -163,15 +158,10 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     }
   }, [startPos, lazy, vertical, index, containerSize, ariaNow, ariaMin, ariaMax]);
 
-  const transformStyle = useMemo<Record<string, unknown>>(() => {
-    if (vertical && constrainedOffset?.[1]) {
-      return { '--ant-splitter-preview-translate': `${constrainedOffset?.[1]}px` };
-    }
-    if (!vertical && constrainedOffset?.[0]) {
-      return { '--ant-splitter-preview-translate': `${constrainedOffset?.[0]}px` };
-    }
-    return {};
-  }, [vertical, constrainedOffset]);
+  const transformStyle = {
+    [`--${splitBarPrefixCls}-preview-translate-x`]: `${constrainedOffset?.[0] ?? 0}px`,
+    [`--${splitBarPrefixCls}-preview-translate-y`]: `${constrainedOffset?.[1] ?? 0}px`,
+  };
 
   // ======================== Render ========================
   const StartIcon = vertical ? UpOutlined : LeftOutlined;
