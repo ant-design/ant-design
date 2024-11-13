@@ -8,8 +8,8 @@ import type {
   AliasToken,
   FullToken,
   GenerateStyle,
-  GetDefaultToken,
   GenStyleFn,
+  GetDefaultToken,
 } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genFormValidateMotionStyle from './explain';
@@ -339,6 +339,11 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
       // =                           Explain                          =
       // ==============================================================
       [formItemCls]: {
+        '&-additional': {
+          display: 'flex',
+          flexDirection: 'column',
+        },
+
         '&-explain, &-extra': {
           clear: 'both',
           color: token.colorTextDescription,

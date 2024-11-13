@@ -60,6 +60,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     getPopupContainer,
     autoAdjustOverflow = true,
     destroyTooltipOnHide,
+    disabledFormat,
     ...rest
   } = props;
 
@@ -248,6 +249,7 @@ const ColorPicker: CompoundedComponent = (props) => {
             onActive={setActiveIndex}
             gradientDragging={gradientDragging}
             onGradientDragging={setGradientDragging}
+            disabledFormat={disabledFormat}
           />
         </ContextIsolator>
       }

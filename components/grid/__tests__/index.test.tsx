@@ -214,14 +214,14 @@ describe('Grid', () => {
   // https://github.com/ant-design/ant-design/issues/39690
   it('Justify and align properties should reactive for Row', () => {
     const ReactiveTest = () => {
-      const [justify, setjustify] = useState<any>('start');
+      const [justify, setJustify] = useState<any>('start');
       return (
         <>
           <Row justify={justify} align="bottom">
             <div>button1</div>
             <div>button</div>
           </Row>
-          <span onClick={() => setjustify('end')} />
+          <span onClick={() => setJustify('end')} />
         </>
       );
     };

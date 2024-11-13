@@ -15,6 +15,61 @@ tag: vVERSION
 
 ---
 
+## 5.22.1
+
+`2024-11-13`
+
+- 🛠 Adjust DatePicker.RangePicker to not allow switching to the next field by clicking the input when `needConfirm` and the user has not submitted the date. [#51591](https://github.com/ant-design/ant-design/pull/51591) [@zombieJ](https://github.com/zombieJ)
+- 🛠 Lock Input.OTP `ctrl + z` operation to avoid data not correct. [#51609](https://github.com/ant-design/ant-design/pull/51609) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Select `tags` or `multiple` mode display issue. [#51605](https://github.com/ant-design/ant-design/pull/51605) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 Fix Badge `count` motion missing in Safari. [#51598](https://github.com/ant-design/ant-design/pull/51598) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Tabs with `centered` the tabs can not fully display. [#51571](https://github.com/ant-design/ant-design/pull/51571) [@DDDDD12138](https://github.com/DDDDD12138)
+- 🐞 Fix Transfer with controlled `dataSource` & `selectedKeys` sometime miss sync checked state. [#51523](https://github.com/ant-design/ant-design/pull/51523) [@IsKaros](https://github.com/IsKaros)
+- 🐞 Revert Button `display` `inline-flex` back to `inline-block` to resolve Icon align issue. [#51588](https://github.com/ant-design/ant-design/pull/51588) [@Wxh16144](https://github.com/Wxh16144)
+
+## 5.22.0
+
+`2024-11-12`
+
+- Form
+  - 🆕 Form.Item supports hiding labels. [#51524](https://github.com/ant-design/ant-design/pull/51524) [@crazyair](https://github.com/crazyair)
+  - 🐞 Form removes the div used to expand the error height, wraps errorDom and extraDom with a div, and sets a minimum height for the div. [#51254](https://github.com/ant-design/ant-design/pull/51254) [@hongzzz](https://github.com/hongzzz)
+  - 🐞 Fix the problem that `onValuesChange` is still triggered when the Form field triggers change but the value does not change. [#51437](https://github.com/ant-design/ant-design/pull/51437) [@crazyair](https://github.com/crazyair)
+  - 🆕 Form supports the focus property in scrollToFirstError when form validation fails. [#51231](https://github.com/ant-design/ant-design/pull/51231) [@nathanlao](https://github.com/nathanlao)
+- Table
+  - 🆕 Table column filter drop-down box supports `filterDropdownProps`. [#51297](https://github.com/ant-design/ant-design/pull/51297) [@Wxh16144](https://github.com/Wxh16144)
+  - 🆕 Table `expandedRowClassName` supports string . [#51067](https://github.com/ant-design/ant-design/pull/51067) [@li-jia-nan](https://github.com/li-jia-nan)
+- Tree
+  - 💄 Fix the problem of missing padding style for selected nodes in Tree. [#51492](https://github.com/ant-design/ant-design/pull/51492) [@zombieJ](https://github.com/zombieJ)
+  - 🆕 Tree component Token adds `nodeHoverColor` and `nodeSelectedColor` support. [#51367](https://github.com/ant-design/ant-design/pull/51367) [@zmbxy](https://github.com/zmbxy)
+  - 🆕 Tree adds `indentSize` token for custom indent width. [#51010](https://github.com/ant-design/ant-design/pull/51010) [@afc163](https://github.com/afc163)
+- DatePicker
+  - 🆕 DatePicker supports prefix attribute. [#51335](https://github.com/ant-design/ant-design/pull/51335) [@guoyunhe](https://github.com/guoyunhe)
+  - 💄 Fixed the issue of DatePicker.RangePicker flashing when the mouse moves between cells. [#51533](https://github.com/ant-design/ant-design/pull/51533) [@afc163](https://github.com/afc163)
+- Input.OTP
+  - 🆕 In the `Input.OTP` component, add `onInput` event to get the value of each user input. At the same time, the relevant documentation has been updated. [#51289](https://github.com/ant-design/ant-design/pull/51289) [@aojunhao123](https://github.com/aojunhao123)
+  - 🐞 Fixed the problem that Input.OTP cannot specify `inputMode`. [#51271](https://github.com/ant-design/ant-design/pull/51271) [@alan-rudzinski](https://github.com/alan-rudzinski)
+- 🆕 ColorPicker supports `disabledFormat`. [#51539](https://github.com/ant-design/ant-design/pull/51539) [@su-muzhi](https://github.com/su-muzhi)
+- 🆕 Add `cursor` configuration item to the `focus` method of InputNumber component to control the cursor position. [#51444](https://github.com/ant-design/ant-design/pull/51444) [@aojunhao123](https://github.com/aojunhao123)
+- 🆕 Cascader adds `disabled` attribute to disable all first-level directory items of the component. [#51272](https://github.com/ant-design/ant-design/pull/51272) [@aojunhao123](https://github.com/aojunhao123)
+- 🆕 Descriptions supports single-line spreading. [#51365](https://github.com/ant-design/ant-design/pull/51365) [@crazyair](https://github.com/crazyair)
+- 🆕 Select/TreeSelect/Cascader components add `prefix` property to support custom prefix. [#51186](https://github.com/ant-design/ant-design/pull/51186) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 Fix the problem that the preview image class name is lost when setting `ImageProps.preview.rootClassName` in Image. [#51538](https://github.com/ant-design/ant-design/pull/51538) [@dislido](https://github.com/dislido)
+- 🐞 Fixed the issue that the last item in the TimePicker panel column cannot be scrolled to the top. [#51481](https://github.com/ant-design/ant-design/pull/51481) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix TreeSelect dropdown height not enough. [#51567](https://github.com/ant-design/ant-design/pull/51567) [@afc163](https://github.com/afc163)
+- 🐞 Fixed the issue that Typography is not updated immediately when the ConfigProvider language is switched. [#51453](https://github.com/ant-design/ant-design/pull/51453) [@thinkasany](https://github.com/thinkasany)
+- 🐞 Fixed the issue that Upload `itemRender` calling `action.preview` will cause a crash. [#51419](https://github.com/ant-design/ant-design/pull/51419) [@yoyo837](https://github.com/yoyo837)
+- 🐞 Fixed Splitter pseudo-element symbol issue. [#51536](https://github.com/ant-design/ant-design/pull/51536) [@dislido](https://github.com/dislido)
+- 💄 Optimize Collapse accessibility attribute and mouse hover style. [#51400](https://github.com/ant-design/ant-design/pull/51400) [@afc163](https://github.com/afc163)
+- 💄 Fix styling issue of Menu title content. [#51425](https://github.com/ant-design/ant-design/pull/51425) [@coding-ice](https://github.com/coding-ice)
+- 🇵🇹 Fix translation in Portuguese (pt_PT) localization file for better accuracy and consistency. [#51501](https://github.com/ant-design/ant-design/pull/51501) [@alexandre-p-marques-alb](https://github.com/alexandre-p-marques-alb)
+- 🇺🇿 Optimize uz_UZ internationalization. [#51407](https://github.com/ant-design/ant-design/pull/51407) [@Zukhrik](https://github.com/Zukhrik)
+- TypeScript
+  - 🤖 Upload exports type DraggerProps. [#51546](https://github.com/ant-design/ant-design/pull/51546) [@DBvc](https://github.com/DBvc)
+  - 🤖 Add defaultValue property to TimePicker.RangePicker example. [#51413](https://github.com/ant-design/ant-design/pull/51413) [@nathanlao](https://github.com/nathanlao)
+  - 🤖 Message Optimize the top type in message.config. [#51468](https://github.com/ant-design/ant-design/pull/51468) [@Fog3211](https://github.com/Fog3211)
+  - 🤖 Optimize the TS definition of Tree and TreeSelect. [#51251](https://github.com/ant-design/ant-design/pull/51251) [@afc163](https://github.com/afc163)
+
 ## 5.21.6
 
 `2024-10-28`

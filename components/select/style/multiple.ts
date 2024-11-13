@@ -17,6 +17,7 @@ type SelectItemToken = Pick<
   | 'calc'
   | 'inputPaddingHorizontalBase'
   | 'INTERNAL_FIXED_ITEM_MARGIN'
+  | 'selectAffixPadding'
 >;
 
 /**
@@ -208,8 +209,8 @@ const genSelectionStyle = (
       // ========================= Selector =========================
       [`${componentCls}-selector`]: {
         display: 'flex',
-        flexWrap: 'wrap',
         alignItems: 'center',
+        width: '100%',
         height: '100%',
         // Multiple is little different that horizontal is follow the vertical
         paddingInline: multipleSelectorUnit.basePadding,
@@ -229,6 +230,11 @@ const genSelectionStyle = (
           visibility: 'hidden',
           content: '"\\a0"',
         },
+      },
+
+      [`${componentCls}-selection-wrap`]: {
+        width: '100%',
+        overflow: 'hidden',
       },
 
       // ======================== Selections ========================
@@ -289,6 +295,13 @@ const genSelectionStyle = (
         insetInlineEnd: token.inputPaddingHorizontalBase,
         transform: 'translateY(-50%)',
         transition: `all ${token.motionDurationSlow}`,
+      },
+
+      [`${componentCls}-prefix`]: {
+        height: multipleSelectorUnit.itemHeight,
+        lineHeight: unit(multipleSelectorUnit.itemLineHeight),
+        marginInlineStart: `calc(${unit(token.inputPaddingHorizontalBase)} - ${unit(multipleSelectorUnit.basePadding)})`,
+        marginInlineEnd: token.selectAffixPadding,
       },
     },
   };
