@@ -10,5 +10,8 @@
     "_nodeModulesRegexes": ["rc-.*"]
   },
   "hmr": false,
-  "devtool": false
+  "devtool": false,
+  "experimental": {
+    "magicComment": true
+  }
 }
