@@ -599,7 +599,7 @@ exports[`renders components/splitter/demo/lazy.tsx extend context correctly 1`] 
       >
         <div
           class="ant-splitter-bar-preview"
-          style="--ant-splitter-bar-preview-translate: 0px;"
+          style="--ant-splitter-bar-preview-offset: 0px;"
         />
         <div
           class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
@@ -655,7 +655,7 @@ exports[`renders components/splitter/demo/lazy.tsx extend context correctly 1`] 
       >
         <div
           class="ant-splitter-bar-preview"
-          style="--ant-splitter-bar-preview-translate: 0px;"
+          style="--ant-splitter-bar-preview-offset: 0px;"
         />
         <div
           class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"

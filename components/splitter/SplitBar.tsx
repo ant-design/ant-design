@@ -156,7 +156,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   }, [startPos, lazy, vertical, index, containerSize, ariaNow, ariaMin, ariaMax]);
 
   const transformStyle = {
-    [`--${splitBarPrefixCls}-preview-translate`]: `${constrainedOffset}px`,
+    [`--${splitBarPrefixCls}-preview-offset`]: `${constrainedOffset}px`,
   };
 
   // ======================== Render ========================
