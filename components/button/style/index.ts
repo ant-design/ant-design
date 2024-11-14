@@ -258,7 +258,7 @@ const genPresetColorStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
 
         ...genSolidButtonStyle(
           token,
-          token.solidTextColor,
+          token.colorTextLightSolid,
           darkColor,
           {
             background: hoverColor,
