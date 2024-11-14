@@ -42,10 +42,6 @@ export const genDirectoryStyle = ({
       zIndex: 1,
     },
 
-    [`&:not(:has(${treeCls}-checkbox)) ${treeCls}-switcher`]: {
-      marginInlineEnd: 0,
-    },
-
     // ============= Selected =============
     '&-selected': {
       [`${treeCls}-switcher, ${treeCls}-draggable-icon`]: {

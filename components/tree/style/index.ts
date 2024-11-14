@@ -252,6 +252,14 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         visibility: 'hidden',
       },
 
+      // Switcher + Checkbox
+      [`&:has(${treeCls}-checkbox) ${treeCls}-switcher`]: {
+        marginInlineEnd: token
+          .calc(token.calc(titleHeight).sub(token.controlInteractiveSize))
+          .div(2)
+          .equal(),
+      },
+
       // >>> Switcher
       [`${treeCls}-switcher`]: {
         ...getSwitchStyle(prefixCls, token),
@@ -264,10 +272,6 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         cursor: 'pointer',
         userSelect: 'none',
         transition: `all ${token.motionDurationSlow}`,
-        marginInlineEnd: token
-          .calc(token.calc(titleHeight).sub(token.controlInteractiveSize))
-          .div(2)
-          .equal(),
 
         '&-noop': {
           cursor: 'unset',
