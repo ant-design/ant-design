@@ -283,10 +283,11 @@ ${fullReport}
   let fullVersionMd = reportMdStr;
 
   let diffCount = 0;
-  const commentReportLimit = 8;
 
   // Summary
   const badCount = badCases.length;
+  const commentReportLimit = isLocalEnv ? badCount : 8;
+
   const changedCount = filter(badCases, { type: 'changed' }).length;
   const removedCount = filter(badCases, { type: 'removed' }).length;
   const addedCount = filter(badCases, { type: 'added' }).length;
