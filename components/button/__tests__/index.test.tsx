@@ -1,5 +1,6 @@
 import React, { Suspense, useRef, useState } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
+import { PresetColors } from 'antd/es/theme/interface';
 import { resetWarned } from 'rc-util/lib/warning';
 
 import Button, { ButtonVariantType } from '..';
@@ -476,23 +477,7 @@ describe('Button', () => {
   });
 
   it('should render preset colors correctly', () => {
-    const colors = [
-      'blue',
-      'purple',
-      'cyan',
-      'green',
-      'magenta',
-      'pink',
-      'red',
-      'orange',
-      'yellow',
-      'volcano',
-      'geekblue',
-      'lime',
-      'gold',
-    ] as const;
-
-    colors.forEach((color) => {
+    PresetColors.forEach((color) => {
       const { container } = render(
         <Button color={color} variant="solid">
           {color}
