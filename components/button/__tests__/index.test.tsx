@@ -474,4 +474,10 @@ describe('Button', () => {
       '--ant-button-solid-text-color': '#000',
     });
   });
+
+  it('autoFocus should work', () => {
+    const { container } = render(<Button autoFocus>button</Button>);
+
+    expect(container.querySelector('button')).toBe(document.activeElement);
+  });
 });

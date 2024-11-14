@@ -58,7 +58,13 @@ jobs:
             if (comment.body.includes('VISUAL_DIFF_FAILED')) {
               hasDiffFailed = true;
             }
-            if (comment.body.includes('- [x] Visual diff is acceptable')) {
+
+            // https://regex101.com/r/kLjudz/1
+            const RE = /(?<=\>\s\[!IMPORTANT\].*?- \[ \])/s;
+            if (
+              comment.body.includes('- [x] Visual diff is acceptable') &&
+              comment.body.match(RE) == null /** 检查 IMPORTANT 是否存在未勾选的 */
+            ) {
               hasMemberApprove = true;
             }
           }
