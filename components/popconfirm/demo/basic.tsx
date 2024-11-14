@@ -20,9 +20,6 @@ const App: React.FC = () => (
     onCancel={cancel}
     okText="Yes"
     cancelText="No"
-    okButtonProps={{
-      autoFocus: true,
-    }}
   >
     <Button danger>Delete</Button>
   </Popconfirm>
