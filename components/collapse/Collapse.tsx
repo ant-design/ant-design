@@ -167,9 +167,8 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       prefixCls={prefixCls}
       className={collapseClassName}
       style={{ ...collapse?.style, ...style }}
-    >
-      {items}
-    </RcCollapse>,
+      items={items}
+    />
   );
 });
 
