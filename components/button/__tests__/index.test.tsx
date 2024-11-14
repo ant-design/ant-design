@@ -1,6 +1,5 @@
 import React, { Suspense, useRef, useState } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
-import { PresetColors } from 'antd/es/theme/interface';
 import { resetWarned } from 'rc-util/lib/warning';
 
 import Button, { ButtonVariantType } from '..';
@@ -10,6 +9,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import theme from '../../theme';
+import { PresetColors } from '../../theme/interface';
 import type { BaseButtonProps } from '../button';
 
 describe('Button', () => {
