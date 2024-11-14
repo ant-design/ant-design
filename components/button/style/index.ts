@@ -250,11 +250,13 @@ const genPresetColorStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
     const lightHoverColor = token[`${colorKey}2`];
     const lightBorderColor = token[`${colorKey}3`];
     const activeColor = token[`${colorKey}7`];
+    const boxShadow = `0 ${token.controlOutlineWidth} 0 ${token.controlOutline}`;
 
     return {
       ...prev,
       [`&${componentCls}-color-${colorKey}`]: {
         color: darkColor,
+        boxShadow,
 
         ...genSolidButtonStyle(
           token,
