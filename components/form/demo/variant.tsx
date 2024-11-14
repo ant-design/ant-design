@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Button,
   Cascader,
@@ -11,7 +11,6 @@ import {
   TreeSelect,
   Segmented,
 } from 'antd';
-import type { FormProps } from 'antd';
 
 const { RangePicker } = DatePicker;
 
@@ -27,18 +26,15 @@ const formItemLayout = {
 };
 
 const App: React.FC = () => {
-  const [componentVariant, setComponentVariant] = useState<FormProps['variant']>('filled');
-
-  const onFormVariantChange = ({ variant }: { variant: FormProps['variant'] }) => {
-    setComponentVariant(variant);
-  };
+  const [form] = Form.useForm();
+  const variant = Form.useWatch('variant', form);
   return (
     <Form
       {...formItemLayout}
-      onValuesChange={onFormVariantChange}
-      variant={componentVariant}
+      form={form}
+      variant={variant || 'filled'}
       style={{ maxWidth: 600 }}
-      initialValues={{ variant: componentVariant }}
+      initialValues={{ variant: 'filled' }}
     >
       <Form.Item label="Form variant" name="variant">
         <Segmented options={['outlined', 'filled', 'borderless']} />

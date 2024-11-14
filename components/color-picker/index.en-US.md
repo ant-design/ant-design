@@ -52,7 +52,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | disabledFormat | Disable format of color | boolean | - |
 | destroyTooltipOnHide | Whether destroy popover when hidden | `boolean` | false | 5.7.0 |
 | format | Format of color | `rgb` \| `hex` \| `hsb` | `hex` | |
-| mode | Configure single or gradient color | `('single' \| 'gradient')[]` | `single` | 5.20.0 |
+| mode | Configure single or gradient color | `'single' \| 'gradient' \| ('single' \| 'gradient')[]` | `single` | 5.20.0 |
 | open | Whether to show popup | boolean | - | |
 | presets | Preset colors | `{ label: ReactNode, colors: Array<string \| Color>, defaultOpen?: boolean }[]` | - | `defaultOpen: 5.11.0` |
 | placement | Placement of popup | The design of the [placement](/components/tooltip/#api) parameter is the same as the `Tooltips` component. | `bottomLeft` | |
