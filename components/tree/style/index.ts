@@ -120,7 +120,6 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
     nodeHoverBg,
     colorTextQuaternary,
   } = token;
-  const treeCheckBoxMarginHorizontal = token.marginXXS;
 
   return {
     [treeCls]: {
@@ -327,14 +326,6 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
             content: '""',
           },
         },
-      },
-
-      // >>> Checkbox
-      [`${treeCls}-checkbox`]: {
-        top: 'initial',
-        marginInlineEnd: treeCheckBoxMarginHorizontal,
-        alignSelf: 'flex-start',
-        marginTop: token.marginXXS,
       },
 
       // >>> Title
