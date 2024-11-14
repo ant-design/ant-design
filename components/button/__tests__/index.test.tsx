@@ -2,7 +2,7 @@ import React, { Suspense, useRef, useState } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import { resetWarned } from 'rc-util/lib/warning';
 
-import Button, { ButtonVariantType } from '..';
+import Button, { _ButtonVariantTypes } from '..';
 import type { GetRef } from '../../_util/type';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -476,28 +476,17 @@ describe('Button', () => {
     });
   });
 
-  it('should render preset colors correctly', () => {
+  it('should render preset colors and variants correctly', () => {
     PresetColors.forEach((color) => {
-      const { container } = render(
-        <Button color={color} variant="solid">
-          {color}
-        </Button>,
-      );
-      expect(container.firstChild).toHaveClass(`ant-btn-color-${color}`);
-    });
-  });
-
-  it('should handle default color variants', () => {
-    const variants = ['solid', 'outlined', 'dashed', 'filled', 'text', 'link'];
-
-    variants.forEach((variant) => {
-      const { container } = render(
-        <Button color="default" variant={variant as ButtonVariantType}>
-          {variant}
-        </Button>,
-      );
-      expect(container.firstChild).toHaveClass(`ant-btn-color-default`);
-      expect(container.firstChild).toHaveClass(`ant-btn-variant-${variant}`);
+      _ButtonVariantTypes.forEach((variant) => {
+        const { container } = render(
+          <Button color={color} variant={variant}>
+            {color}
+          </Button>,
+        );
+        expect(container.firstChild).toHaveClass(`ant-btn-color-${color}`);
+        expect(container.firstChild).toHaveClass(`ant-btn-variant-${variant}`);
+      });
     });
   });
 });
