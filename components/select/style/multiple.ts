@@ -232,6 +232,11 @@ const genSelectionStyle = (
         },
       },
 
+      [`${componentCls}-selection-wrap`]: {
+        width: '100%',
+        overflow: 'hidden',
+      },
+
       // ======================== Selections ========================
       [`${componentCls}-selection-item`]: {
         height: multipleSelectorUnit.itemHeight,
