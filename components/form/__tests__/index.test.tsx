@@ -2459,4 +2459,60 @@ describe('Form', () => {
     fireEvent.click(container.querySelector('input')!);
     expect(container.querySelector('input')?.checked).toBeTruthy();
   });
+
+  it('not warning for react key', async () => {
+    const MockInput = (props: { onChange?: (value: number[]) => void }) => (
+      <Input
+        onChange={({ target: { value } }) => {
+          props.onChange?.(value.split(',').map(Number));
+        }}
+      />
+    );
+
+    const { container } = render(
+      <Form>
+        <Form.Item>
+          <Form.Item
+            name="test"
+            rules={[
+              {
+                type: 'array',
+                defaultField: {
+                  type: 'number',
+                  min: 10,
+                  message: 'LESS_THAN_10',
+                },
+              },
+            ]}
+          >
+            <MockInput />
+          </Form.Item>
+        </Form.Item>
+      </Form>,
+    );
+
+    function expectErrors(errors: string[]) {
+      expect(container.querySelectorAll('.ant-form-item-explain-error')).toHaveLength(
+        errors.length,
+      );
+      errors.forEach((error, index) => {
+        expect(container.querySelectorAll('.ant-form-item-explain-error')[index]).toHaveTextContent(
+          error,
+        );
+      });
+    }
+
+    // user type something and clear
+    await changeValue(0, '1');
+    expectErrors(['LESS_THAN_10']);
+
+    await changeValue(0, '1,1');
+    expectErrors(['LESS_THAN_10', 'LESS_THAN_10']);
+
+    await changeValue(0, '1');
+    expectErrors(['LESS_THAN_10']);
+
+    await changeValue(0, '100');
+    expectErrors([]);
+  });
 });
