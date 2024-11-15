@@ -489,4 +489,10 @@ describe('Button', () => {
       });
     });
   });
+
+  it('autoFocus should work', () => {
+    const { container } = render(<Button autoFocus>button</Button>);
+
+    expect(container.querySelector('button')).toBe(document.activeElement);
+  });
 });
