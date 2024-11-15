@@ -17,7 +17,7 @@ const genButtonCompactStyle: GenerateStyle<ButtonToken> = (token) => {
           '& + &::before': {
             position: 'absolute',
             top: calc(lineWidth).mul(-1).equal(),
-            inline: 0,
+            insetInline: 0,
             backgroundColor: colorPrimaryHover,
             content: '""',
             [vertical ? 'height' : 'width']: lineWidth,
