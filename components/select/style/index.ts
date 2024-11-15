@@ -20,6 +20,7 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
   return {
     position: 'relative',
     transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
+    paddingInline: token.inputPaddingHorizontalBase,
 
     input: {
       cursor: 'pointer',
@@ -71,6 +72,10 @@ const getSearchInputWithoutBorderStyle: GenerateStyle<SelectToken, CSSObject> = 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
   const { antCls, componentCls, inputPaddingHorizontalBase, iconCls } = token;
+  const inputPaddingHorizontalSM = token
+    .calc(token.controlPaddingHorizontalSM)
+    .sub(token.lineWidth)
+    .equal();
 
   return {
     [componentCls]: {
@@ -184,6 +189,18 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
       },
     },
 
+    [`${componentCls}${componentCls}-sm`]: {
+      [`&:not(${componentCls}-customize-input) ${componentCls}-selector`]: {
+        paddingInline: inputPaddingHorizontalSM,
+      },
+    },
+
+    [`${componentCls}${componentCls}-lg`]: {
+      [`&:not(${componentCls}-customize-input) ${componentCls}-selector`]: {
+        paddingInline: inputPaddingHorizontalBase,
+      },
+    },
+
     // ========================= Feedback ==========================
     [`${componentCls}-has-feedback`]: {
       [`${componentCls}-clear`]: {
@@ -253,6 +270,7 @@ export default genStyleHooks(
       rootPrefixCls,
       inputPaddingHorizontalBase: token.calc(token.paddingSM).sub(1).equal(),
       multipleSelectItemHeight: token.multipleItemHeight,
+      multipleWrapMarginInlienStart: token.calc(0).sub(token.paddingXS).equal(),
       selectHeight: token.controlHeight,
     });
 

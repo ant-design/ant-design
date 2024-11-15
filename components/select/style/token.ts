@@ -135,6 +135,7 @@ export interface SelectorToken {
   inputPaddingHorizontalBase: number | string;
   multipleSelectItemHeight: number;
   selectHeight: number;
+  multipleWrapMarginInlienStart: number | string;
 }
 
 export interface SelectToken extends FullToken<'Select'>, SelectorToken {
@@ -190,7 +191,7 @@ export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
   );
 
   // FIXED_ITEM_MARGIN is a hardcode calculation since calc not support rounding
-  const INTERNAL_FIXED_ITEM_MARGIN = Math.floor(paddingXXS / 2);
+  const INTERNAL_FIXED_ITEM_MARGIN = Math.floor(paddingXXS / 2) + 1;
 
   return {
     INTERNAL_FIXED_ITEM_MARGIN,
@@ -220,5 +221,6 @@ export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
     activeBorderColor: colorPrimary,
     activeOutlineColor: controlOutline,
     selectAffixPadding: paddingXXS,
+    multipleWrapMarginInlienStart: -token.paddingXS,
   };
 };

@@ -12,6 +12,7 @@ type SelectItemToken = Pick<
   | 'multipleSelectorBgDisabled'
   | 'multipleItemColorDisabled'
   | 'multipleItemBorderColorDisabled'
+  | 'multipleWrapMarginInlienStart'
   | 'selectHeight'
   | 'lineWidth'
   | 'calc'
@@ -66,17 +67,6 @@ export const getMultipleSelectorUnit = (
   };
 };
 
-const getSelectItemStyle = (token: SelectItemToken): number | string => {
-  const { multipleSelectItemHeight, selectHeight, lineWidth } = token;
-  const selectItemDist = token
-    .calc(selectHeight)
-    .sub(multipleSelectItemHeight)
-    .div(2)
-    .sub(lineWidth)
-    .equal();
-  return selectItemDist;
-};
-
 /**
  * Get the `rc-overflow` needed style.
  * It's a share style which means not affected by `size`.
@@ -90,6 +80,7 @@ export const genOverflowStyle = (
     | 'borderRadiusSM'
     | 'motionDurationSlow'
     | 'paddingXS'
+    | 'paddingXXS'
     | 'multipleItemColorDisabled'
     | 'multipleItemBorderColorDisabled'
     | 'colorIcon'
@@ -103,6 +94,7 @@ export const genOverflowStyle = (
     borderRadiusSM,
     motionDurationSlow,
     paddingXS,
+    paddingXXS,
     multipleItemColorDisabled,
     multipleItemBorderColorDisabled,
     colorIcon,
@@ -143,7 +135,7 @@ export const genOverflowStyle = (
         borderRadius: borderRadiusSM,
         cursor: 'default',
         transition: `font-size ${motionDurationSlow}, line-height ${motionDurationSlow}, height ${motionDurationSlow}`,
-        marginInlineEnd: token.calc(INTERNAL_FIXED_ITEM_MARGIN).mul(2).equal(),
+        marginInlineEnd: paddingXXS,
         paddingInlineStart: paddingXS,
         paddingInlineEnd: token.calc(paddingXS).div(2).equal(),
 
@@ -195,7 +187,6 @@ const genSelectionStyle = (
   const selectOverflowPrefixCls = `${componentCls}-selection-overflow`;
 
   const selectItemHeight = token.multipleSelectItemHeight;
-  const selectItemDist = getSelectItemStyle(token);
 
   const suffixCls = suffix ? `${componentCls}-${suffix}` : '';
 
@@ -233,8 +224,18 @@ const genSelectionStyle = (
       },
 
       [`${componentCls}-selection-wrap`]: {
-        width: '100%',
+        position: 'relative',
+        flex: '1 1 auto',
         overflow: 'hidden',
+
+        // when there is no prefix
+        '&:first-child': {
+          marginInlineStart: token.multipleWrapMarginInlienStart,
+
+          [`${componentCls}-selection-search, ${componentCls}-selection-placeholder`]: {
+            marginInlineStart: token.paddingXS,
+          },
+        },
       },
 
       // ======================== Selections ========================
@@ -259,7 +260,6 @@ const genSelectionStyle = (
         display: 'inline-flex',
         position: 'relative',
         maxWidth: '100%',
-        marginInlineStart: token.calc(token.inputPaddingHorizontalBase).sub(selectItemDist).equal(),
 
         [`
           &-input,
@@ -291,16 +291,15 @@ const genSelectionStyle = (
       [`${componentCls}-selection-placeholder`]: {
         position: 'absolute',
         top: '50%',
-        insetInlineStart: token.inputPaddingHorizontalBase,
-        insetInlineEnd: token.inputPaddingHorizontalBase,
+        insetInline: 0,
         transform: 'translateY(-50%)',
         transition: `all ${token.motionDurationSlow}`,
       },
 
       [`${componentCls}-prefix`]: {
+        flex: '0 0 auto',
         height: multipleSelectorUnit.itemHeight,
         lineHeight: unit(multipleSelectorUnit.itemLineHeight),
-        marginInlineStart: `calc(${unit(token.inputPaddingHorizontalBase)} - ${unit(multipleSelectorUnit.basePadding)})`,
         marginInlineEnd: token.selectAffixPadding,
       },
     },
@@ -346,6 +345,7 @@ const genMultipleStyle = (token: SelectToken): CSSInterpolation => {
     multipleSelectItemHeight: token.multipleItemHeightSM,
     borderRadius: token.borderRadiusSM,
     borderRadiusSM: token.borderRadiusXS,
+    multipleWrapMarginInlienStart: token.calc(0).sub(token.paddingXXS).equal(),
   });
 
   const largeToken = mergeToken<SelectToken>(token, {
@@ -354,6 +354,7 @@ const genMultipleStyle = (token: SelectToken): CSSInterpolation => {
     multipleSelectItemHeight: token.multipleItemHeightLG,
     borderRadius: token.borderRadiusLG,
     borderRadiusSM: token.borderRadius,
+    multipleWrapMarginInlienStart: token.calc(0).sub(token.paddingXS).equal(),
   });
 
   return [

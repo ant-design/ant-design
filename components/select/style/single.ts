@@ -63,6 +63,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         },
 
         [`${componentCls}-prefix`]: {
+          flex: '0 0 auto',
           marginInlineEnd: selectAffixPadding,
         },
 
@@ -101,7 +102,6 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         [`${componentCls}-selector`]: {
           width: '100%',
           height: '100%',
-          padding: `0 ${unit(inputPaddingHorizontalBase)}`,
 
           [`${componentCls}-selection-search-input`]: {
             height: selectHeightWithoutBorder,
@@ -165,10 +165,6 @@ export default function genSingleStyle(token: SelectToken): CSSInterpolation {
     {
       [`${componentCls}-single${componentCls}-sm`]: {
         [`&:not(${componentCls}-customize-input)`]: {
-          [`${componentCls}-selector`]: {
-            padding: `0 ${unit(inputPaddingHorizontalSM)}`,
-          },
-
           // With arrow should provides `padding-right` to show the arrow
           [`&${componentCls}-show-arrow ${componentCls}-selection-search`]: {
             insetInlineEnd: token
