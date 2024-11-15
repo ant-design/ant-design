@@ -1,5 +1,5 @@
 // Style as inline component
-import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 
 import { genCompactItemStyle } from '../../style/compact-item';
 import { genCompactItemVerticalStyle } from '../../style/compact-item-vertical';
@@ -9,47 +9,25 @@ import type { ButtonToken } from './token';
 import { prepareComponentToken, prepareToken } from './token';
 
 const genButtonCompactStyle: GenerateStyle<ButtonToken> = (token) => {
-  const { componentCls, calc } = token;
-
-  return {
-    [componentCls]: {
-      // Special styles for Primary Button
-      [`&-compact-item${componentCls}-primary`]: {
-        [`&:not([disabled]) + ${componentCls}-compact-item${componentCls}-primary:not([disabled])`]:
-          {
-            position: 'relative',
-
-            '&:before': {
-              position: 'absolute',
-              top: calc(token.lineWidth).mul(-1).equal(),
-              insetInlineStart: calc(token.lineWidth).mul(-1).equal(),
-              width: token.lineWidth,
-              height: `calc(100% + ${unit(token.lineWidth)} * 2)`,
-              backgroundColor: token.colorPrimaryHover,
-              content: '""',
-            },
+  const { componentCls, colorPrimaryHover, lineWidth, calc } = token;
+  const getCompactBorderStyle = (vertical?: boolean) =>
+    ({
+      [`${componentCls}-compact${vertical ? '-vertical' : ''}-item${componentCls}-primary:not([disabled])`]:
+        {
+          '& + &::before': {
+            position: 'absolute',
+            top: calc(lineWidth).mul(-1).equal(),
+            backgroundColor: colorPrimaryHover,
+            content: '""',
+            width: vertical ? '100%' : lineWidth,
+            height: vertical ? lineWidth : '100%',
           },
-      },
-      // Special styles for Primary Button
-      '&-compact-vertical-item': {
-        [`&${componentCls}-primary`]: {
-          [`&:not([disabled]) + ${componentCls}-compact-vertical-item${componentCls}-primary:not([disabled])`]:
-            {
-              position: 'relative',
-
-              '&:before': {
-                position: 'absolute',
-                top: calc(token.lineWidth).mul(-1).equal(),
-                insetInlineStart: calc(token.lineWidth).mul(-1).equal(),
-                width: `calc(100% + ${unit(token.lineWidth)} * 2)`,
-                height: token.lineWidth,
-                backgroundColor: token.colorPrimaryHover,
-                content: '""',
-              },
-            },
         },
-      },
-    },
+    }) as CSSObject;
+  // Special styles for Primary Button
+  return {
+    ...getCompactBorderStyle(),
+    ...getCompactBorderStyle(true),
   };
 };
 
