@@ -186,7 +186,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
 
     // ========================= Feedback ==========================
     [`${componentCls}-status`]: {
-      [`&-error, &-warning, &-success, &-validating`]: {
+      '&-error, &-warning, &-success, &-validating': {
         [`&${componentCls}-has-feedback`]: {
           [`${componentCls}-clear`]: {
             insetInlineEnd: token
