@@ -17,10 +17,10 @@ const genButtonCompactStyle: GenerateStyle<ButtonToken> = (token) => {
           '& + &::before': {
             position: 'absolute',
             top: calc(lineWidth).mul(-1).equal(),
-            [vertical ? 'insetInline' : 'insetBlock']: 0,
+            insetInlineStart: 0,
             backgroundColor: colorPrimaryHover,
             content: '""',
-            [vertical ? 'height' : 'width']: lineWidth,
+            [vertical ? 'width' : 'height']: '100%',
           },
         },
     }) as CSSObject;
