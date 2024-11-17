@@ -10,17 +10,19 @@ import { prepareComponentToken, prepareToken } from './token';
 
 const genButtonCompactStyle: GenerateStyle<ButtonToken> = (token) => {
   const { componentCls, colorPrimaryHover, lineWidth, calc } = token;
+  const insetOffset = calc(lineWidth).mul(-1).equal();
   const getCompactBorderStyle = (vertical?: boolean) =>
     ({
       [`${componentCls}-compact${vertical ? '-vertical' : ''}-item${componentCls}-primary:not([disabled])`]:
         {
           '& + &::before': {
             position: 'absolute',
-            top: calc(lineWidth).mul(-1).equal(),
-            insetInlineStart: 0,
+            top: vertical ? insetOffset : 0,
+            insetInlineStart: vertical ? 0 : insetOffset,
             backgroundColor: colorPrimaryHover,
             content: '""',
-            [vertical ? 'width' : 'height']: '100%',
+            width: vertical ? '100%' : lineWidth,
+            height: vertical ? lineWidth : '100%',
           },
         },
     }) as CSSObject;
