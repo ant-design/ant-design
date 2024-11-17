@@ -52,7 +52,9 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
     let timeoutId: ReturnType<typeof setTimeout> | null = null;
     if (autoFocus) {
       timeoutId = setTimeout(() => {
-        buttonRef.current?.focus();
+        buttonRef.current?.focus({
+          preventScroll: true,
+        });
       });
     }
     return () => {

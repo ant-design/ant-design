@@ -133,7 +133,7 @@ jobs:
           bunx nyc report --reporter text -t coverage --report-dir coverage
           rm -rf persist-coverage
       - name: Upload coverage to codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v5
         with:
           # use own token to upload coverage reports
           token: ${{ secrets.CODECOV_TOKEN }}
