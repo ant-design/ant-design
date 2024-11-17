@@ -33,6 +33,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       height: cellHeight,
       transform: 'translateY(-50%)',
       content: '""',
+      pointerEvents: 'none',
     },
 
     // >>> Default
@@ -464,10 +465,8 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
             },
           },
 
-          '&:hover td': {
-            '&:before': {
-              background: cellHoverBg,
-            },
+          '&:hover td:before': {
+            background: cellHoverBg,
           },
 
           '&-range-start td, &-range-end td, &-selected td, &-hover td': {

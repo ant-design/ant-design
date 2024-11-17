@@ -242,9 +242,13 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
           },
 
           [`${menuCls}-title-content`]: {
-            display: 'flex',
-            alignItems: 'center',
             flex: 'auto',
+
+            '&-with-extra': {
+              display: 'inline-flex',
+              alignItems: 'center',
+              width: '100%',
+            },
 
             '> a': {
               color: 'inherit',

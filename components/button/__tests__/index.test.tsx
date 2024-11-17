@@ -476,6 +476,12 @@ describe('Button', () => {
     });
   });
 
+  it('autoFocus should work', () => {
+    const { container } = render(<Button autoFocus>button</Button>);
+
+    expect(container.querySelector('button')).toBe(document.activeElement);
+  });
+
   it('should render preset colors and variants correctly', () => {
     PresetColors.forEach((color) => {
       _ButtonVariantTypes.forEach((variant) => {

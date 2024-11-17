@@ -42,8 +42,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       },
 
       '> span': {
-        // https://github.com/ant-design/ant-design/issues/51380
-        display: 'inline-flex',
+        display: 'inline-block',
       },
 
       [`${componentCls}-icon`]: {

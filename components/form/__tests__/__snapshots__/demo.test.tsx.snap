@@ -7127,9 +7127,13 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-form-item-extra"
+          class="ant-form-item-additional"
         >
-          We must make sure that your are a human.
+          <div
+            class="ant-form-item-extra"
+          >
+            We must make sure that your are a human.
+          </div>
         </div>
       </div>
     </div>
@@ -8675,7 +8679,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
       class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
+        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16 ant-col-sm-offset-8"
       >
         <div
           class="ant-form-item-control-input"
@@ -10307,10 +10311,14 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-form-item-extra"
-          id="validate_other_upload_extra"
+          class="ant-form-item-additional"
         >
-          longgggggggggggggggggggggggggggggggggg
+          <div
+            class="ant-form-item-extra"
+            id="validate_other_upload_extra"
+          >
+            longgggggggggggggggggggggggggggggggggg
+          </div>
         </div>
       </div>
     </div>
