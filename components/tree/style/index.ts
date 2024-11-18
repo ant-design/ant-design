@@ -253,7 +253,10 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
       },
 
       // Switcher + Checkbox
-      [`&:has(${treeCls}-checkbox) ${treeCls}-switcher`]: {
+      [`
+        &:has(${treeCls}-checkbox) ${treeCls}-switcher,
+        ${treeCls}-checkbox
+      `]: {
         marginInlineEnd: token
           .calc(token.calc(titleHeight).sub(token.controlInteractiveSize))
           .div(2)
