@@ -38,12 +38,8 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         pointerEvents: 'none',
       },
 
-      '> span': {
-        display: 'inline-block',
-      },
-
-      [`${componentCls}-icon`]: {
-        lineHeight: 1,
+      [`> span, ${componentCls}-icon`]: {
+        display: 'inline-flex',
       },
 
       '> a': {
