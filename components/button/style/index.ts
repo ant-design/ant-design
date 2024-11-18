@@ -449,12 +449,11 @@ const genDangerousStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
 
 const genPresetColorStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   color: token.colorPrimary,
-
-  boxShadow: token.primaryShadow,
+  boxShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlOutline}`,
 
   ...genSolidButtonStyle(
     token,
-    token.solidTextColor,
+    token.dangerColor,
     token.colorPrimary,
     {
       background: token.colorPrimaryHover,
@@ -470,13 +469,11 @@ const genPresetColorStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
     token.colorBgContainer,
     {
       color: token.colorPrimaryTextHover,
-      borderColor: token.colorPrimaryHover,
-      background: token.colorBgContainer,
+      borderColor: token.colorPrimaryBorderHover,
     },
     {
       color: token.colorPrimaryTextActive,
       borderColor: token.colorPrimaryActive,
-      background: token.colorBgContainer,
     },
   ),
 
