@@ -67,7 +67,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | maxTagCount | Max tag count to show. `responsive` will cost render performance | number \| `responsive` | - | 4.17.0 |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode \| function(omittedValues) | - | 4.17.0 |
 | maxTagTextLength | Max tag text length to show | number | - | 4.17.0 |
-| notFoundContent | Specify content to show when no result matches | string | `Not Found` |  |
+| notFoundContent | Specify content to show when no result matches | ReactNode | `Not Found` |  |
 | open | Set visible of cascader popup | boolean | - | 4.17.0 |
 | options | The data options of cascade | [Option](#option)\[] | - |  |
 | placeholder | The input placeholder | string | - |  |
