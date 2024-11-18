@@ -19,12 +19,11 @@ tag: vVERSION
 
 `2024-11-18`
 
-- 💄 优化 Button 的样式。[#51646](https://github.com/ant-design/ant-design/pull/51646) [@afc163](https://github.com/afc163)
 - 🐞 修复 Input.OTP 组件在有非法输入时仍会切换到下一个输入框的问题。[#51664](https://github.com/ant-design/ant-design/pull/51664) [@thecodesalim](https://github.com/thecodesalim)
-- 🐞 调整 Modal 确认函数，使其在弹出后聚焦确认按钮时，不要滚动窗体。[#51647](https://github.com/ant-design/ant-design/pull/51647) [@zombieJ](https://github.com/zombieJ)
-- 🐞 修复 Form `rules` 生成多条相同错误时，会报 React 渲染错误的问题。[#51636](https://github.com/ant-design/ant-design/pull/51636) [@zombieJ](https://github.com/zombieJ)
-- 🐞 调整 Button 使用 `useEffect` 来触发 `autoFocus` 逻辑以解决一些异步渲染场景下，Button 无法自动聚焦的问题。[#51624](https://github.com/ant-design/ant-design/pull/51624) [@zombieJ](https://github.com/zombieJ)
-- 🌐 添加了俄语翻译支持。[#51619](https://github.com/ant-design/ant-design/pull/51619) [@avvakumovid](https://github.com/avvakumovid)
+- 🐞 调整 Modal 确认函数，使其在弹出后聚焦确认按钮时不要滚动窗体。[#51647](https://github.com/ant-design/ant-design/pull/51647) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Form `rules` 生成多条相同错误时会报 React 渲染错误的问题。[#51636](https://github.com/ant-design/ant-design/pull/51636) [@zombieJ](https://github.com/zombieJ)
+- 🐞 调整 Button 使用 `useEffect` 来触发 `autoFocus` 逻辑，以解决一些异步渲染场景下 Button 无法自动聚焦的问题。[#51624](https://github.com/ant-design/ant-design/pull/51624) [@zombieJ](https://github.com/zombieJ)
+- 🇷🇺 添加了俄语翻译支持。[#51619](https://github.com/ant-design/ant-design/pull/51619) [@avvakumovid](https://github.com/avvakumovid)
 
 ## 5.22.1
 
