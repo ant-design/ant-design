@@ -32,7 +32,7 @@ demo:
 <code src="./demo/search.tsx">搜索</code>
 <code src="./demo/lazy.tsx">动态加载选项</code>
 <code src="./demo/fields-name.tsx">自定义字段名</code>
-<code src="./demo/suffix.tsx" debug>前后缀</code>
+<code src="./demo/suffix.tsx" version="5.22.0">前后缀</code>
 <code src="./demo/custom-dropdown.tsx">扩展菜单</code>
 <code src="./demo/placement.tsx">弹出位置</code>
 <code src="./demo/status.tsx">自定义状态</code>

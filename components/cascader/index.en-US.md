@@ -31,7 +31,7 @@ demo:
 <code src="./demo/search.tsx">Search</code>
 <code src="./demo/lazy.tsx">Load Options Lazily</code>
 <code src="./demo/fields-name.tsx">Custom Field Names</code>
-<code src="./demo/suffix.tsx" debug>Prefix and Suffix</code>
+<code src="./demo/suffix.tsx" version="5.22.0">Prefix and Suffix</code>
 <code src="./demo/custom-dropdown.tsx">Custom dropdown</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/status.tsx">Status</code>

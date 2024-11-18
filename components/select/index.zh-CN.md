@@ -53,7 +53,7 @@ return (
 <code src="./demo/label-in-value.tsx">获得选项的文本</code>
 <code src="./demo/automatic-tokenization.tsx">自动分词</code>
 <code src="./demo/select-users.tsx">搜索用户</code>
-<code src="./demo/suffix.tsx" debug>前后缀</code>
+<code src="./demo/suffix.tsx" version="5.22.0">前后缀</code>
 <code src="./demo/custom-dropdown-menu.tsx">扩展菜单</code>
 <code src="./demo/hide-selected.tsx">隐藏已选择选项</code>
 <code src="./demo/variant.tsx" version="5.13.0">多种形态</code>
