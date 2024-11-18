@@ -26,7 +26,7 @@ demo:
 <code src="./demo/placement.tsx">弹出位置</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/maxCount.tsx" version="5.23.0">最大选中数量</code>
-<code src="./demo/suffix.tsx" debug>前后缀</code>
+<code src="./demo/suffix.tsx" version="5.22.0">前后缀</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 

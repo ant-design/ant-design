@@ -25,7 +25,7 @@ demo:
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/maxCount.tsx" version="5.23.0">Max Count</code>
-<code src="./demo/suffix.tsx" debug>Prefix and Suffix</code>
+<code src="./demo/suffix.tsx" version="5.22.0">Prefix and Suffix</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
