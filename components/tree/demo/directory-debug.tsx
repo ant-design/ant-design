@@ -44,23 +44,22 @@ const DemoThree = () => (
 
 const BasicDemo = () => <DirectoryTree {...sharedProps} multiple treeData={treeData} />;
 
+const NormalDemo = () => <Tree {...sharedProps} defaultSelectedKeys={['0-1']} />;
+
+const NormalCheckDemo = () => <Tree {...sharedProps} checkable defaultSelectedKeys={['0-1']} />;
+
+const NormalDragDemo = () => <Tree {...sharedProps} draggable defaultSelectedKeys={['0-1-0']} />;
+
 const App = () => (
-  <div style={{ height: 500 }}>
-    <Flex
-      wrap
-      gap="large"
-      style={{
-        transformOrigin: 'top left',
-        // 方便视觉回归
-        transform: 'scale(2)',
-      }}
-    >
-      <DemoOne />
-      <DemoTwo />
-      <DemoThree />
-      <BasicDemo />
-    </Flex>
-  </div>
+  <Flex wrap gap="large">
+    <DemoOne />
+    <DemoTwo />
+    <DemoThree />
+    <BasicDemo />
+    <NormalDemo />
+    <NormalCheckDemo />
+    <NormalDragDemo />
+  </Flex>
 );
 
 export default App;
