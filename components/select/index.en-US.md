@@ -52,7 +52,7 @@ return (
 <code src="./demo/label-in-value.tsx">Get value of selected item</code>
 <code src="./demo/automatic-tokenization.tsx">Automatic tokenization</code>
 <code src="./demo/select-users.tsx">Search and Select Users</code>
-<code src="./demo/suffix.tsx" debug>Prefix and Suffix</code>
+<code src="./demo/suffix.tsx" version="5.22.0">Prefix and Suffix</code>
 <code src="./demo/custom-dropdown-menu.tsx">Custom dropdown</code>
 <code src="./demo/hide-selected.tsx">Hide Already Selected</code>
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
