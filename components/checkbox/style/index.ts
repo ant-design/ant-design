@@ -89,6 +89,9 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         // Ref: https://github.com/ant-design/ant-design/issues/41564
         alignSelf: 'center',
 
+        display: 'inline-flex',
+        alignItems: 'center',
+
         // Wrapper > Checkbox > input
         [`${checkboxCls}-input`]: {
           position: 'absolute',
