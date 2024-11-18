@@ -1,8 +1,8 @@
 import { presetPalettes } from '@ant-design/colors';
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
-import { getDesignToken } from 'antd-token-previewer';
 import { ThemeConfig } from 'antd/es/config-provider';
+import getDesignToken from 'antd/es/theme/getDesignToken';
 
 import { genFocusStyle } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
