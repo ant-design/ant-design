@@ -1,9 +1,12 @@
+import { presetPalettes } from '@ant-design/colors';
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
+import { ThemeConfig } from 'antd/es/config-provider';
+import getDesignToken from 'antd/es/theme/getDesignToken';
 
 import { genFocusStyle } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
-import { genStyleHooks, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken, PresetColors } from '../../theme/internal';
 import type { ButtonVariantType } from '../buttonHelpers';
 import genGroupStyle from './group';
 import type { ButtonToken, ComponentToken } from './token';
@@ -444,13 +447,117 @@ const genDangerousStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   ),
 });
 
+const genPresetColorStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
+  color: token.colorPrimary,
+
+  boxShadow: token.primaryShadow,
+
+  ...genSolidButtonStyle(
+    token,
+    token.solidTextColor,
+    token.colorPrimary,
+    {
+      background: token.colorPrimaryHover,
+    },
+    {
+      background: token.colorPrimaryActive,
+    },
+  ),
+
+  ...genOutlinedDashedButtonStyle(
+    token,
+    token.colorPrimary,
+    token.colorBgContainer,
+    {
+      color: token.colorPrimaryTextHover,
+      borderColor: token.colorPrimaryHover,
+      background: token.colorBgContainer,
+    },
+    {
+      color: token.colorPrimaryTextActive,
+      borderColor: token.colorPrimaryActive,
+      background: token.colorBgContainer,
+    },
+  ),
+
+  ...genDashedButtonStyle(token),
+
+  ...genFilledButtonStyle(
+    token,
+    token.colorPrimaryBg,
+    {
+      background: token.colorPrimaryBgHover,
+    },
+    {
+      background: token.colorPrimaryBorder,
+    },
+  ),
+
+  ...genTextLinkButtonStyle(
+    token,
+    token.colorPrimary,
+    'text',
+    {
+      color: token.colorPrimaryTextHover,
+      background: token.colorPrimaryBg,
+    },
+    {
+      color: token.colorPrimaryTextActive,
+      background: token.colorPrimaryBorder,
+    },
+  ),
+
+  ...genTextLinkButtonStyle(
+    token,
+    token.colorPrimary,
+    'link',
+    {
+      color: token.colorPrimaryTextHover,
+    },
+    {
+      color: token.colorPrimaryTextActive,
+    },
+  ),
+
+  ...genGhostButtonStyle(
+    token.componentCls,
+    token.ghostBg,
+    token.colorPrimary,
+    token.colorPrimary,
+    token.colorTextDisabled,
+    token.colorBorder,
+    {
+      color: token.colorPrimaryHover,
+      borderColor: token.colorPrimaryHover,
+    },
+    {
+      color: token.colorPrimaryActive,
+      borderColor: token.colorPrimaryActive,
+    },
+  ),
+});
+
 const genColorButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const { componentCls } = token;
+
+  const presetColorStyle: Record<string, CSSObject> = {};
+  PresetColors.forEach((color) => {
+    const config: ThemeConfig = {
+      token: {
+        colorPrimary: presetPalettes[color].primary,
+      },
+    };
+
+    const designToken = getDesignToken(config);
+    const className = `${componentCls}-color-${color}`;
+    presetColorStyle[className] = genPresetColorStyle({ ...token, ...designToken });
+  });
 
   return {
     [`${componentCls}-color-default`]: genDefaultButtonStyle(token),
     [`${componentCls}-color-primary`]: genPrimaryButtonStyle(token),
     [`${componentCls}-color-dangerous`]: genDangerousStyle(token),
+    ...presetColorStyle,
   };
 };
 
