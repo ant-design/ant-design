@@ -25,6 +25,7 @@ demo:
 <code src="./demo/line.tsx">连接线</code>
 <code src="./demo/customized-icon.tsx">自定义图标</code>
 <code src="./demo/directory.tsx">目录</code>
+<code src="./demo/directory-debug.tsx" debug>目录 Debug</code>
 <code src="./demo/switcher-icon.tsx">自定义展开/折叠图标</code>
 <code src="./demo/virtual-scroll.tsx">虚拟滚动</code>
 <code src="./demo/drag-debug.tsx" debug>Drag Debug</code>
