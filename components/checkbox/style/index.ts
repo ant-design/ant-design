@@ -135,12 +135,12 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
             content: '""',
             transition: `all ${token.motionDurationFast} ${token.motionEaseInBack}, opacity ${token.motionDurationFast}`,
           },
-        },
 
-        // Wrapper > Checkbox + Text
-        '& + span': {
-          paddingInlineStart: token.paddingXS,
-          paddingInlineEnd: token.paddingXS,
+          // Checkbox > inner + Text
+          '& + span': {
+            paddingInlineStart: token.paddingXS,
+            paddingInlineEnd: token.paddingXS,
+          },
         },
       },
     },
