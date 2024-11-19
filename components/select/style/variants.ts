@@ -196,7 +196,7 @@ const genBorderlessStyle = (token: SelectToken): CSSObject => ({
   '&-borderless': {
     [`${token.componentCls}-selector`]: {
       background: 'transparent',
-      borderColor: 'transparent',
+      border: `${unit(token.lineWidth)} ${token.lineType} transparent`,
     },
 
     [`&${token.componentCls}-disabled`]: {
