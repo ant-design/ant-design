@@ -105,6 +105,27 @@ const App: React.FC = () => (
         options={options}
         showSearch
         allowClear
+        status="error"
+      />
+      <Select
+        style={{ width: 100 }}
+        prefix="Hi"
+        options={options}
+        showSearch
+        allowClear
+        status="warning"
+        variant="filled"
+        defaultValue="Bamboo"
+      />
+      <Select
+        style={{ width: 100 }}
+        prefix="Hi"
+        options={options}
+        showSearch
+        allowClear
+        status="error"
+        variant="borderless"
+        defaultValue="Bamboo"
       />
       <Form style={{ width: 200 }} layout="vertical">
         <Form.Item
