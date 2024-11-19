@@ -70,6 +70,31 @@ const App: React.FC = () => (
         },
       ]}
     />
+    <Select
+      prefix="Hello World"
+      mode="multiple"
+      allowClear
+      placeholder="Select"
+      style={{ minWidth: 200, height: 200 }}
+      defaultValue={['long']}
+      options={options}
+    />
+    <Select
+      mode="multiple"
+      style={{ width: 200 }}
+      placeholder="请选择"
+      maxTagCount="responsive"
+      prefix="城市"
+      options={options}
+    />
+    <Select
+      style={{ width: 200 }}
+      placeholder="请选择"
+      prefix="城市"
+      options={options}
+      showSearch
+      allowClear
+    />
   </Space>
 );
 

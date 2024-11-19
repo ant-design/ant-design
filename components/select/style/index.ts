@@ -146,6 +146,22 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         },
       },
 
+      // ========================== Wrap ===========================
+      [`${componentCls}-selection-wrap`]: {
+        display: 'flex',
+        width: '100%',
+        position: 'relative',
+        overflow: 'hidden',
+        alignSelf: 'flex-start',
+      },
+
+      // ========================= Prefix ==========================
+      [`${componentCls}-prefix`]: {
+        flex: 'none',
+        marginInlineEnd: token.selectAffixPadding,
+        alignSelf: 'center',
+      },
+
       // ========================== Clear ==========================
       [`${componentCls}-clear`]: {
         position: 'absolute',
