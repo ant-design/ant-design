@@ -25,7 +25,10 @@ tag: vVERSION
 - 🐞 调整 Button 使用 `useEffect` 来触发 `autoFocus` 逻辑，以解决一些异步渲染场景下 Button 无法自动聚焦的问题。[#51624](https://github.com/ant-design/ant-design/pull/51624) [@zombieJ](https://github.com/zombieJ)
 - 🐞 修复 Button 中使用自定义三方图标库时图标未居中的问题。[#51652](https://github.com/ant-design/ant-design/pull/51652) [@afc163](https://github.com/afc163)
 - 🐞 修复 Table 组件 `getCheckboxProps` 中的事件处理器被内部选择逻辑覆盖的问题。[#51661](https://github.com/ant-design/ant-design/pull/51661) [@Zyf665](https://github.com/Zyf665)
-- 🇷🇺 添加了俄语翻译支持。[#51619](https://github.com/ant-design/ant-design/pull/51619) [@avvakumovid](https://github.com/avvakumovid)
+- 🐞 修复 Tree 组件的 `onCheck` 和 `onSelect` 事件没有被正确触发的问题。[#51448](https://github.com/ant-design/ant-design/pull/51448) [@Wxh16144](https://github.com/Wxh16144)
+- 🌐 本地化
+  - 🇷🇺 添加了俄语翻译支持。[#51619](https://github.com/ant-design/ant-design/pull/51619) [@avvakumovid](https://github.com/avvakumovid)
+  - 🇮🇹 为 TimePicker 添加了意大利语翻译。[#51685](https://github.com/ant-design/ant-design/pull/51685) [@LorenzoCardinali](https://github.com/LorenzoCardinali)
 
 ## 5.22.1
 
