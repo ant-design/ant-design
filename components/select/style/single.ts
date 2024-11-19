@@ -90,6 +90,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         [`${componentCls}-selector`]: {
           width: '100%',
           height: '100%',
+          alignItems: 'center',
           padding: `0 ${unit(inputPaddingHorizontalBase)}`,
 
           [`${componentCls}-selection-search-input`]: {
