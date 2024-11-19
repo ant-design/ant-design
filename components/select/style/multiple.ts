@@ -249,9 +249,14 @@ const genSelectionStyle = (
       },
 
       // ========================== Input ==========================
-      [`${selectOverflowPrefixCls}-item + ${selectOverflowPrefixCls}-item`]: {
+      [`${selectOverflowPrefixCls}-item + ${selectOverflowPrefixCls}-item,
+        ${componentCls}-prefix + ${componentCls}-selection-wrap
+      `]: {
         [`${componentCls}-selection-search`]: {
           marginInlineStart: 0,
+        },
+        [`${componentCls}-selection-placeholder`]: {
+          insetInlineStart: 0,
         },
       },
 
@@ -260,7 +265,6 @@ const genSelectionStyle = (
       [`${selectOverflowPrefixCls}-item-suffix`]: {
         minHeight: multipleSelectorUnit.itemHeight,
         marginBlock: INTERNAL_FIXED_ITEM_MARGIN,
-        // minHeight: '100%',
       },
 
       [`${componentCls}-selection-search`]: {
@@ -299,7 +303,10 @@ const genSelectionStyle = (
       [`${componentCls}-selection-placeholder`]: {
         position: 'absolute',
         top: '50%',
-        insetInlineStart: token.inputPaddingHorizontalBase,
+        insetInlineStart: token
+          .calc(token.inputPaddingHorizontalBase)
+          .sub(multipleSelectorUnit.basePadding)
+          .equal(),
         insetInlineEnd: token.inputPaddingHorizontalBase,
         transform: 'translateY(-50%)',
         transition: `all ${token.motionDurationSlow}`,
