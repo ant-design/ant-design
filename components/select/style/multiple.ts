@@ -249,6 +249,13 @@ const genSelectionStyle = (
       },
 
       // ========================== Input ==========================
+      [`${componentCls}-prefix`]: {
+        marginInlineStart: token
+          .calc(token.inputPaddingHorizontalBase)
+          .sub(multipleSelectorUnit.basePadding)
+          .equal(),
+      },
+
       [`${selectOverflowPrefixCls}-item + ${selectOverflowPrefixCls}-item,
         ${componentCls}-prefix + ${componentCls}-selection-wrap
       `]: {
