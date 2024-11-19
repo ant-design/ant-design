@@ -62,5 +62,17 @@
     "https://github.com/ant-design/ant-design/issues/50960",
     "https://github.com/ant-design/ant-design/issues/50969"
   ],
-  "5.22.0": ["https://github.com/ant-design/ant-design/issues/51601"]
+  "5.21.6": [
+    "https://github.com/ant-design/ant-design/issues/51420",
+    "https://github.com/ant-design/ant-design/issues/51430"
+  ],
+  "5.22.0": [
+    "https://github.com/ant-design/ant-design/issues/51601",
+    "https://github.com/ant-design/ant-design/issues/51420",
+    "https://github.com/ant-design/ant-design/issues/51430"
+  ],
+  "5.22.1": [
+    "https://github.com/ant-design/ant-design/issues/51420",
+    "https://github.com/ant-design/ant-design/issues/51430"
+  ]
 }
