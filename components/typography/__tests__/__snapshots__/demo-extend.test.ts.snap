@@ -889,7 +889,7 @@ Array [
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked"
     >
-      <span
+      <label
         class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
@@ -901,7 +901,7 @@ Array [
         <span
           class="ant-radio-inner"
         />
-      </span>
+      </label>
       <span>
         icon
       </span>
@@ -909,7 +909,7 @@ Array [
     <label
       class="ant-radio-wrapper"
     >
-      <span
+      <label
         class="ant-radio ant-wave-target"
       >
         <input
@@ -920,7 +920,7 @@ Array [
         <span
           class="ant-radio-inner"
         />
-      </span>
+      </label>
       <span>
         text
       </span>
@@ -928,7 +928,7 @@ Array [
     <label
       class="ant-radio-wrapper"
     >
-      <span
+      <label
         class="ant-radio ant-wave-target"
       >
         <input
@@ -939,7 +939,7 @@ Array [
         <span
           class="ant-radio-inner"
         />
-      </span>
+      </label>
       <span>
         both
       </span>

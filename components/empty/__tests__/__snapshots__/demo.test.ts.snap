@@ -344,10 +344,10 @@ Array [
           <div
             class="ant-transfer-list-header"
           >
-            <label
+            <div
               class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
             >
-              <span
+              <label
                 class="ant-checkbox ant-wave-target ant-checkbox-disabled"
               >
                 <input
@@ -358,8 +358,8 @@ Array [
                 <span
                   class="ant-checkbox-inner"
                 />
-              </span>
-            </label>
+              </label>
+            </div>
             <span
               aria-label="down"
               class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
@@ -495,10 +495,10 @@ Array [
           <div
             class="ant-transfer-list-header"
           >
-            <label
+            <div
               class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
             >
-              <span
+              <label
                 class="ant-checkbox ant-wave-target ant-checkbox-disabled"
               >
                 <input
@@ -509,8 +509,8 @@ Array [
                 <span
                   class="ant-checkbox-inner"
                 />
-              </span>
-            </label>
+              </label>
+            </div>
             <span
               aria-label="down"
               class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"

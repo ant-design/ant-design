@@ -752,10 +752,10 @@ exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
           <div
             class="ant-form-item-control-input-content"
           >
-            <label
+            <div
               class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item"
             >
-              <span
+              <label
                 class="ant-checkbox ant-wave-target ant-checkbox-checked"
               >
                 <input
@@ -767,11 +767,11 @@ exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
                 <span
                   class="ant-checkbox-inner"
                 />
-              </span>
-              <span>
-                Remember me
-              </span>
-            </label>
+                <span>
+                  Remember me
+                </span>
+              </label>
+            </div>
           </div>
         </div>
       </div>
@@ -2354,10 +2354,10 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
 
 exports[`renders components/form/demo/disabled.tsx extend context correctly 1`] = `
 Array [
-  <label
+  <div
     class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
   >
-    <span
+    <label
       class="ant-checkbox ant-wave-target ant-checkbox-checked"
     >
       <input
@@ -2368,11 +2368,11 @@ Array [
       <span
         class="ant-checkbox-inner"
       />
-    </span>
-    <span>
-      Form disabled
-    </span>
-  </label>,
+      <span>
+        Form disabled
+      </span>
+    </label>
+  </div>,
   <form
     class="ant-form ant-form-horizontal"
     style="max-width: 600px;"
@@ -2403,10 +2403,10 @@ Array [
             <div
               class="ant-form-item-control-input-content"
             >
-              <label
+              <div
                 class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item"
               >
-                <span
+                <label
                   class="ant-checkbox ant-wave-target ant-checkbox-disabled"
                 >
                   <input
@@ -2418,11 +2418,11 @@ Array [
                   <span
                     class="ant-checkbox-inner"
                   />
-                </span>
-                <span>
-                  Checkbox
-                </span>
-              </label>
+                  <span>
+                    Checkbox
+                  </span>
+                </label>
+              </div>
             </div>
           </div>
         </div>
@@ -2459,7 +2459,7 @@ Array [
                 <label
                   class="ant-radio-wrapper ant-radio-wrapper-disabled ant-radio-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio ant-wave-target ant-radio-disabled"
                   >
                     <input
@@ -2471,7 +2471,7 @@ Array [
                     <span
                       class="ant-radio-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                      Apple 
                   </span>
@@ -2479,7 +2479,7 @@ Array [
                 <label
                   class="ant-radio-wrapper ant-radio-wrapper-disabled ant-radio-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio ant-wave-target ant-radio-disabled"
                   >
                     <input
@@ -2491,7 +2491,7 @@ Array [
                     <span
                       class="ant-radio-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                      Pear 
                   </span>
@@ -7300,10 +7300,10 @@ exports[`renders components/form/demo/dynamic-rule.tsx extend context correctly 
           <div
             class="ant-form-item-control-input-content"
           >
-            <label
+            <div
               class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
             >
-              <span
+              <label
                 class="ant-checkbox ant-wave-target"
               >
                 <input
@@ -7313,11 +7313,11 @@ exports[`renders components/form/demo/dynamic-rule.tsx extend context correctly 
                 <span
                   class="ant-checkbox-inner"
                 />
-              </span>
-              <span>
-                Nickname is required
-              </span>
-            </label>
+                <span>
+                  Nickname is required
+                </span>
+              </label>
+            </div>
           </div>
         </div>
       </div>
@@ -8865,7 +8865,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
               <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
               >
-                <span
+                <label
                   class="ant-radio-button ant-radio-button-checked"
                 >
                   <input
@@ -8877,7 +8877,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
                   <span
                     class="ant-radio-button-inner"
                   />
-                </span>
+                </label>
                 <span>
                   Horizontal
                 </span>
@@ -8885,7 +8885,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
               <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
               >
-                <span
+                <label
                   class="ant-radio-button"
                 >
                   <input
@@ -8896,7 +8896,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
                   <span
                     class="ant-radio-button-inner"
                   />
-                </span>
+                </label>
                 <span>
                   Vertical
                 </span>
@@ -8904,7 +8904,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
               <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
               >
-                <span
+                <label
                   class="ant-radio-button"
                 >
                   <input
@@ -8915,7 +8915,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
                   <span
                     class="ant-radio-button-inner"
                   />
-                </span>
+                </label>
                 <span>
                   Inline
                 </span>
@@ -9465,10 +9465,10 @@ exports[`renders components/form/demo/login.tsx extend context correctly 1`] = `
             <div
               class="ant-flex ant-flex-align-center ant-flex-justify-space-between"
             >
-              <label
+              <div
                 class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item"
               >
-                <span
+                <label
                   class="ant-checkbox ant-wave-target ant-checkbox-checked"
                 >
                   <input
@@ -9480,11 +9480,11 @@ exports[`renders components/form/demo/login.tsx extend context correctly 1`] = `
                   <span
                     class="ant-checkbox-inner"
                   />
-                </span>
-                <span>
-                  Remember me
-                </span>
-              </label>
+                  <span>
+                    Remember me
+                  </span>
+                </label>
+              </div>
               <a
                 href=""
               >
@@ -11253,10 +11253,10 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
           <div
             class="ant-form-item-control-input-content"
           >
-            <label
+            <div
               class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
             >
-              <span
+              <label
                 class="ant-checkbox ant-wave-target"
               >
                 <input
@@ -11267,16 +11267,16 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                 <span
                   class="ant-checkbox-inner"
                 />
-              </span>
-              <span>
-                I have read the 
-                <a
-                  href=""
-                >
-                  agreement
-                </a>
-              </span>
-            </label>
+                <span>
+                  I have read the 
+                  <a
+                    href=""
+                  >
+                    agreement
+                  </a>
+                </span>
+              </label>
+            </div>
           </div>
         </div>
       </div>
@@ -11358,7 +11358,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
               <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
               >
-                <span
+                <label
                   class="ant-radio-button"
                 >
                   <input
@@ -11369,7 +11369,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
                   <span
                     class="ant-radio-button-inner"
                   />
-                </span>
+                </label>
                 <span>
                   Default
                 </span>
@@ -11377,7 +11377,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
               <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
               >
-                <span
+                <label
                   class="ant-radio-button ant-radio-button-checked"
                 >
                   <input
@@ -11389,7 +11389,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
                   <span
                     class="ant-radio-button-inner"
                   />
-                </span>
+                </label>
                 <span>
                   Optional
                 </span>
@@ -11397,7 +11397,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
               <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
               >
-                <span
+                <label
                   class="ant-radio-button"
                 >
                   <input
@@ -11408,7 +11408,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
                   <span
                     class="ant-radio-button-inner"
                   />
-                </span>
+                </label>
                 <span>
                   Hidden
                 </span>
@@ -11416,7 +11416,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
               <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
               >
-                <span
+                <label
                   class="ant-radio-button"
                 >
                   <input
@@ -11427,7 +11427,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
                   <span
                     class="ant-radio-button-inner"
                   />
-                </span>
+                </label>
                 <span>
                   Customize
                 </span>
@@ -11671,7 +11671,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
               <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
               >
-                <span
+                <label
                   class="ant-radio-button"
                 >
                   <input
@@ -11682,7 +11682,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                   <span
                     class="ant-radio-button-inner"
                   />
-                </span>
+                </label>
                 <span>
                   Small
                 </span>
@@ -11690,7 +11690,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
               <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
               >
-                <span
+                <label
                   class="ant-radio-button ant-radio-button-checked"
                 >
                   <input
@@ -11702,7 +11702,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                   <span
                     class="ant-radio-button-inner"
                   />
-                </span>
+                </label>
                 <span>
                   Default
                 </span>
@@ -11710,7 +11710,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
               <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
               >
-                <span
+                <label
                   class="ant-radio-button"
                 >
                   <input
@@ -11721,7 +11721,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                   <span
                     class="ant-radio-button-inner"
                   />
-                </span>
+                </label>
                 <span>
                   Large
                 </span>
@@ -22215,7 +22215,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
               <label
                 class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
               >
-                <span
+                <label
                   class="ant-radio ant-wave-target"
                 >
                   <input
@@ -22226,7 +22226,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                   <span
                     class="ant-radio-inner"
                   />
-                </span>
+                </label>
                 <span>
                   item 1
                 </span>
@@ -22234,7 +22234,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
               <label
                 class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
               >
-                <span
+                <label
                   class="ant-radio ant-wave-target"
                 >
                   <input
@@ -22245,7 +22245,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                   <span
                     class="ant-radio-inner"
                   />
-                </span>
+                </label>
                 <span>
                   item 2
                 </span>
@@ -22253,7 +22253,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
               <label
                 class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
               >
-                <span
+                <label
                   class="ant-radio ant-wave-target"
                 >
                   <input
@@ -22264,7 +22264,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                   <span
                     class="ant-radio-inner"
                   />
-                </span>
+                </label>
                 <span>
                   item 3
                 </span>
@@ -22309,7 +22309,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
               <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
               >
-                <span
+                <label
                   class="ant-radio-button"
                 >
                   <input
@@ -22320,7 +22320,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                   <span
                     class="ant-radio-button-inner"
                   />
-                </span>
+                </label>
                 <span>
                   item 1
                 </span>
@@ -22328,7 +22328,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
               <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
               >
-                <span
+                <label
                   class="ant-radio-button"
                 >
                   <input
@@ -22339,7 +22339,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                   <span
                     class="ant-radio-button-inner"
                   />
-                </span>
+                </label>
                 <span>
                   item 2
                 </span>
@@ -22347,7 +22347,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
               <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
               >
-                <span
+                <label
                   class="ant-radio-button"
                 >
                   <input
@@ -22358,7 +22358,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                   <span
                     class="ant-radio-button-inner"
                   />
-                </span>
+                </label>
                 <span>
                   item 3
                 </span>
@@ -22405,11 +22405,11 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 <div
                   class="ant-col ant-col-8"
                 >
-                  <label
+                  <div
                     class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item"
                     style="line-height: 32px;"
                   >
-                    <span
+                    <label
                       class="ant-checkbox ant-wave-target ant-checkbox-checked"
                     >
                       <input
@@ -22421,20 +22421,20 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                       <span
                         class="ant-checkbox-inner"
                       />
-                    </span>
-                    <span>
-                      A
-                    </span>
-                  </label>
+                      <span>
+                        A
+                      </span>
+                    </label>
+                  </div>
                 </div>
                 <div
                   class="ant-col ant-col-8"
                 >
-                  <label
+                  <div
                     class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item"
                     style="line-height: 32px;"
                   >
-                    <span
+                    <label
                       class="ant-checkbox ant-wave-target ant-checkbox-checked ant-checkbox-disabled"
                     >
                       <input
@@ -22447,20 +22447,20 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                       <span
                         class="ant-checkbox-inner"
                       />
-                    </span>
-                    <span>
-                      B
-                    </span>
-                  </label>
+                      <span>
+                        B
+                      </span>
+                    </label>
+                  </div>
                 </div>
                 <div
                   class="ant-col ant-col-8"
                 >
-                  <label
+                  <div
                     class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
                     style="line-height: 32px;"
                   >
-                    <span
+                    <label
                       class="ant-checkbox ant-wave-target"
                     >
                       <input
@@ -22471,20 +22471,20 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                       <span
                         class="ant-checkbox-inner"
                       />
-                    </span>
-                    <span>
-                      C
-                    </span>
-                  </label>
+                      <span>
+                        C
+                      </span>
+                    </label>
+                  </div>
                 </div>
                 <div
                   class="ant-col ant-col-8"
                 >
-                  <label
+                  <div
                     class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
                     style="line-height: 32px;"
                   >
-                    <span
+                    <label
                       class="ant-checkbox ant-wave-target"
                     >
                       <input
@@ -22495,20 +22495,20 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                       <span
                         class="ant-checkbox-inner"
                       />
-                    </span>
-                    <span>
-                      D
-                    </span>
-                  </label>
+                      <span>
+                        D
+                      </span>
+                    </label>
+                  </div>
                 </div>
                 <div
                   class="ant-col ant-col-8"
                 >
-                  <label
+                  <div
                     class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
                     style="line-height: 32px;"
                   >
-                    <span
+                    <label
                       class="ant-checkbox ant-wave-target"
                     >
                       <input
@@ -22519,20 +22519,20 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                       <span
                         class="ant-checkbox-inner"
                       />
-                    </span>
-                    <span>
-                      E
-                    </span>
-                  </label>
+                      <span>
+                        E
+                      </span>
+                    </label>
+                  </div>
                 </div>
                 <div
                   class="ant-col ant-col-8"
                 >
-                  <label
+                  <div
                     class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
                     style="line-height: 32px;"
                   >
-                    <span
+                    <label
                       class="ant-checkbox ant-wave-target"
                     >
                       <input
@@ -22543,11 +22543,11 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                       <span
                         class="ant-checkbox-inner"
                       />
-                    </span>
-                    <span>
-                      F
-                    </span>
-                  </label>
+                      <span>
+                        F
+                      </span>
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>

@@ -3235,10 +3235,10 @@ exports[`renders components/input-number/demo/keyboard.tsx extend context correc
   <div
     class="ant-space-item"
   >
-    <label
+    <div
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
@@ -3249,11 +3249,11 @@ exports[`renders components/input-number/demo/keyboard.tsx extend context correc
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-      <span>
-        Toggle keyboard
-      </span>
-    </label>
+        <span>
+          Toggle keyboard
+        </span>
+      </label>
+    </div>
   </div>
 </div>
 `;

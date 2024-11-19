@@ -2565,10 +2565,10 @@ Array [
   <div
     class="ant-checkbox-group"
   >
-    <label
+    <div
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
@@ -2580,15 +2580,15 @@ Array [
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-      <span>
-        left
-      </span>
-    </label>
-    <label
+        <span>
+          left
+        </span>
+      </label>
+    </div>
+    <div
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
@@ -2600,11 +2600,11 @@ Array [
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-      <span>
-        right
-      </span>
-    </label>
+        <span>
+          right
+        </span>
+      </label>
+    </div>
   </div>,
   <br />,
   <br />,
@@ -3596,7 +3596,7 @@ Array [
         <label
           class="ant-radio-button-wrapper"
         >
-          <span
+          <label
             class="ant-radio-button"
           >
             <input
@@ -3607,7 +3607,7 @@ Array [
             <span
               class="ant-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             top
           </span>
@@ -3615,7 +3615,7 @@ Array [
         <label
           class="ant-radio-button-wrapper"
         >
-          <span
+          <label
             class="ant-radio-button"
           >
             <input
@@ -3626,7 +3626,7 @@ Array [
             <span
               class="ant-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             bottom
           </span>
@@ -3634,7 +3634,7 @@ Array [
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
         >
-          <span
+          <label
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
@@ -3646,7 +3646,7 @@ Array [
             <span
               class="ant-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             left
           </span>
@@ -3654,7 +3654,7 @@ Array [
         <label
           class="ant-radio-button-wrapper"
         >
-          <span
+          <label
             class="ant-radio-button"
           >
             <input
@@ -3665,7 +3665,7 @@ Array [
             <span
               class="ant-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             right
           </span>
@@ -3796,7 +3796,7 @@ exports[`renders components/tabs/demo/size.tsx correctly 1`] = `
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
     >
-      <span
+      <label
         class="ant-radio-button ant-radio-button-checked"
       >
         <input
@@ -3808,7 +3808,7 @@ exports[`renders components/tabs/demo/size.tsx correctly 1`] = `
         <span
           class="ant-radio-button-inner"
         />
-      </span>
+      </label>
       <span>
         Small
       </span>
@@ -3816,7 +3816,7 @@ exports[`renders components/tabs/demo/size.tsx correctly 1`] = `
     <label
       class="ant-radio-button-wrapper"
     >
-      <span
+      <label
         class="ant-radio-button"
       >
         <input
@@ -3827,7 +3827,7 @@ exports[`renders components/tabs/demo/size.tsx correctly 1`] = `
         <span
           class="ant-radio-button-inner"
         />
-      </span>
+      </label>
       <span>
         Middle
       </span>
@@ -3835,7 +3835,7 @@ exports[`renders components/tabs/demo/size.tsx correctly 1`] = `
     <label
       class="ant-radio-button-wrapper"
     >
-      <span
+      <label
         class="ant-radio-button"
       >
         <input
@@ -3846,7 +3846,7 @@ exports[`renders components/tabs/demo/size.tsx correctly 1`] = `
         <span
           class="ant-radio-button-inner"
         />
-      </span>
+      </label>
       <span>
         Large
       </span>
@@ -4087,7 +4087,7 @@ exports[`renders components/tabs/demo/slide.tsx correctly 1`] = `
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
     >
-      <span
+      <label
         class="ant-radio-button ant-radio-button-checked"
       >
         <input
@@ -4099,7 +4099,7 @@ exports[`renders components/tabs/demo/slide.tsx correctly 1`] = `
         <span
           class="ant-radio-button-inner"
         />
-      </span>
+      </label>
       <span>
         Horizontal
       </span>
@@ -4107,7 +4107,7 @@ exports[`renders components/tabs/demo/slide.tsx correctly 1`] = `
     <label
       class="ant-radio-button-wrapper"
     >
-      <span
+      <label
         class="ant-radio-button"
       >
         <input
@@ -4118,7 +4118,7 @@ exports[`renders components/tabs/demo/slide.tsx correctly 1`] = `
         <span
           class="ant-radio-button-inner"
         />
-      </span>
+      </label>
       <span>
         Vertical
       </span>

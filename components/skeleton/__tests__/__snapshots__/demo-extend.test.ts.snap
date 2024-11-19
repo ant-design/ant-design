@@ -426,7 +426,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                     <label
                       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
                     >
-                      <span
+                      <label
                         class="ant-radio-button ant-radio-button-checked"
                       >
                         <input
@@ -438,7 +438,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         <span
                           class="ant-radio-button-inner"
                         />
-                      </span>
+                      </label>
                       <span>
                         Default
                       </span>
@@ -446,7 +446,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                     <label
                       class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                     >
-                      <span
+                      <label
                         class="ant-radio-button"
                       >
                         <input
@@ -457,7 +457,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         <span
                           class="ant-radio-button-inner"
                         />
-                      </span>
+                      </label>
                       <span>
                         Large
                       </span>
@@ -465,7 +465,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                     <label
                       class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                     >
-                      <span
+                      <label
                         class="ant-radio-button"
                       >
                         <input
@@ -476,7 +476,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         <span
                           class="ant-radio-button-inner"
                         />
-                      </span>
+                      </label>
                       <span>
                         Small
                       </span>
@@ -522,7 +522,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                     <label
                       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
                     >
-                      <span
+                      <label
                         class="ant-radio-button ant-radio-button-checked"
                       >
                         <input
@@ -534,7 +534,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         <span
                           class="ant-radio-button-inner"
                         />
-                      </span>
+                      </label>
                       <span>
                         Default
                       </span>
@@ -542,7 +542,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                     <label
                       class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                     >
-                      <span
+                      <label
                         class="ant-radio-button"
                       >
                         <input
@@ -553,7 +553,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         <span
                           class="ant-radio-button-inner"
                         />
-                      </span>
+                      </label>
                       <span>
                         Square
                       </span>
@@ -561,7 +561,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                     <label
                       class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                     >
-                      <span
+                      <label
                         class="ant-radio-button"
                       >
                         <input
@@ -572,7 +572,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         <span
                           class="ant-radio-button-inner"
                         />
-                      </span>
+                      </label>
                       <span>
                         Round
                       </span>
@@ -580,7 +580,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                     <label
                       class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                     >
-                      <span
+                      <label
                         class="ant-radio-button"
                       >
                         <input
@@ -591,7 +591,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         <span
                           class="ant-radio-button-inner"
                         />
-                      </span>
+                      </label>
                       <span>
                         Circle
                       </span>
@@ -637,7 +637,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                     <label
                       class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                     >
-                      <span
+                      <label
                         class="ant-radio-button"
                       >
                         <input
@@ -648,7 +648,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         <span
                           class="ant-radio-button-inner"
                         />
-                      </span>
+                      </label>
                       <span>
                         Square
                       </span>
@@ -656,7 +656,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                     <label
                       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
                     >
-                      <span
+                      <label
                         class="ant-radio-button ant-radio-button-checked"
                       >
                         <input
@@ -668,7 +668,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         <span
                           class="ant-radio-button-inner"
                         />
-                      </span>
+                      </label>
                       <span>
                         Circle
                       </span>

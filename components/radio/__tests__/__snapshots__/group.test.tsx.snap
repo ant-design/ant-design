@@ -7,7 +7,7 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
   <label
     class="my-radio-wrapper"
   >
-    <span
+    <label
       class="my-radio ant-wave-target"
     >
       <input
@@ -18,7 +18,7 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
       <span
         class="my-radio-inner"
       />
-    </span>
+    </label>
     <span>
       Apple
     </span>
@@ -27,7 +27,7 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
     class="my-radio-wrapper"
     style="font-size: 12px;"
   >
-    <span
+    <label
       class="my-radio ant-wave-target"
     >
       <input
@@ -38,7 +38,7 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
       <span
         class="my-radio-inner"
       />
-    </span>
+    </label>
     <span>
       Orange
     </span>

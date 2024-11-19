@@ -131,7 +131,7 @@ exports[`renders components/drawer/demo/extra.tsx correctly 1`] = `
       <label
         class="ant-radio-wrapper"
       >
-        <span
+        <label
           class="ant-radio ant-wave-target"
         >
           <input
@@ -142,7 +142,7 @@ exports[`renders components/drawer/demo/extra.tsx correctly 1`] = `
           <span
             class="ant-radio-inner"
           />
-        </span>
+        </label>
         <span>
           top
         </span>
@@ -150,7 +150,7 @@ exports[`renders components/drawer/demo/extra.tsx correctly 1`] = `
       <label
         class="ant-radio-wrapper ant-radio-wrapper-checked"
       >
-        <span
+        <label
           class="ant-radio ant-wave-target ant-radio-checked"
         >
           <input
@@ -162,7 +162,7 @@ exports[`renders components/drawer/demo/extra.tsx correctly 1`] = `
           <span
             class="ant-radio-inner"
           />
-        </span>
+        </label>
         <span>
           right
         </span>
@@ -170,7 +170,7 @@ exports[`renders components/drawer/demo/extra.tsx correctly 1`] = `
       <label
         class="ant-radio-wrapper"
       >
-        <span
+        <label
           class="ant-radio ant-wave-target"
         >
           <input
@@ -181,7 +181,7 @@ exports[`renders components/drawer/demo/extra.tsx correctly 1`] = `
           <span
             class="ant-radio-inner"
           />
-        </span>
+        </label>
         <span>
           bottom
         </span>
@@ -189,7 +189,7 @@ exports[`renders components/drawer/demo/extra.tsx correctly 1`] = `
       <label
         class="ant-radio-wrapper"
       >
-        <span
+        <label
           class="ant-radio ant-wave-target"
         >
           <input
@@ -200,7 +200,7 @@ exports[`renders components/drawer/demo/extra.tsx correctly 1`] = `
           <span
             class="ant-radio-inner"
           />
-        </span>
+        </label>
         <span>
           left
         </span>
@@ -305,7 +305,7 @@ exports[`renders components/drawer/demo/placement.tsx correctly 1`] = `
       <label
         class="ant-radio-wrapper"
       >
-        <span
+        <label
           class="ant-radio ant-wave-target"
         >
           <input
@@ -316,7 +316,7 @@ exports[`renders components/drawer/demo/placement.tsx correctly 1`] = `
           <span
             class="ant-radio-inner"
           />
-        </span>
+        </label>
         <span>
           top
         </span>
@@ -324,7 +324,7 @@ exports[`renders components/drawer/demo/placement.tsx correctly 1`] = `
       <label
         class="ant-radio-wrapper"
       >
-        <span
+        <label
           class="ant-radio ant-wave-target"
         >
           <input
@@ -335,7 +335,7 @@ exports[`renders components/drawer/demo/placement.tsx correctly 1`] = `
           <span
             class="ant-radio-inner"
           />
-        </span>
+        </label>
         <span>
           right
         </span>
@@ -343,7 +343,7 @@ exports[`renders components/drawer/demo/placement.tsx correctly 1`] = `
       <label
         class="ant-radio-wrapper"
       >
-        <span
+        <label
           class="ant-radio ant-wave-target"
         >
           <input
@@ -354,7 +354,7 @@ exports[`renders components/drawer/demo/placement.tsx correctly 1`] = `
           <span
             class="ant-radio-inner"
           />
-        </span>
+        </label>
         <span>
           bottom
         </span>
@@ -362,7 +362,7 @@ exports[`renders components/drawer/demo/placement.tsx correctly 1`] = `
       <label
         class="ant-radio-wrapper ant-radio-wrapper-checked"
       >
-        <span
+        <label
           class="ant-radio ant-wave-target ant-radio-checked"
         >
           <input
@@ -374,7 +374,7 @@ exports[`renders components/drawer/demo/placement.tsx correctly 1`] = `
           <span
             class="ant-radio-inner"
           />
-        </span>
+        </label>
         <span>
           left
         </span>

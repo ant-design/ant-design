@@ -93,10 +93,10 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                     <div
                       class="ant-table-selection"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -107,8 +107,8 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                       <div
                         class="ant-table-selection-extra"
                       >
@@ -208,10 +208,10 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -221,8 +221,8 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -237,10 +237,10 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -250,8 +250,8 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -266,10 +266,10 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -279,8 +279,8 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -295,10 +295,10 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -308,8 +308,8 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -444,10 +444,10 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                     <div
                       class="ant-table-selection"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -458,8 +458,8 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                       <div
                         class="ant-table-selection-extra"
                       >
@@ -559,10 +559,10 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -572,8 +572,8 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -588,10 +588,10 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -601,8 +601,8 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -617,10 +617,10 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -630,8 +630,8 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -646,10 +646,10 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -659,8 +659,8 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -795,10 +795,10 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                     <div
                       class="ant-table-selection"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -809,8 +809,8 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </div>
                   </th>
                   <th
@@ -831,10 +831,10 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -844,8 +844,8 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -860,10 +860,10 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -873,8 +873,8 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -889,10 +889,10 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -902,8 +902,8 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -918,10 +918,10 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -931,8 +931,8 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"

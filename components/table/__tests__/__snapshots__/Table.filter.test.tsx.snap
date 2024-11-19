@@ -578,10 +578,10 @@ exports[`Table.filter renders menu correctly 1`] = `
       <span
         class="ant-dropdown-menu-title-content"
       >
-        <label
+        <div
           class="ant-checkbox-wrapper"
         >
-          <span
+          <label
             class="ant-checkbox ant-wave-target"
           >
             <input
@@ -591,8 +591,8 @@ exports[`Table.filter renders menu correctly 1`] = `
             <span
               class="ant-checkbox-inner"
             />
-          </span>
-        </label>
+          </label>
+        </div>
         <span>
           Boy
         </span>
@@ -607,10 +607,10 @@ exports[`Table.filter renders menu correctly 1`] = `
       <span
         class="ant-dropdown-menu-title-content"
       >
-        <label
+        <div
           class="ant-checkbox-wrapper"
         >
-          <span
+          <label
             class="ant-checkbox ant-wave-target"
           >
             <input
@@ -620,8 +620,8 @@ exports[`Table.filter renders menu correctly 1`] = `
             <span
               class="ant-checkbox-inner"
             />
-          </span>
-        </label>
+          </label>
+        </div>
         <span>
           Girl
         </span>
@@ -721,7 +721,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
         <label
           class="ant-radio-wrapper"
         >
-          <span
+          <label
             class="ant-radio ant-wave-target"
           >
             <input
@@ -731,7 +731,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
             <span
               class="ant-radio-inner"
             />
-          </span>
+          </label>
         </label>
         <span>
           Boy
@@ -750,7 +750,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
         <label
           class="ant-radio-wrapper"
         >
-          <span
+          <label
             class="ant-radio ant-wave-target"
           >
             <input
@@ -760,7 +760,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
             <span
               class="ant-radio-inner"
             />
-          </span>
+          </label>
         </label>
         <span>
           Girl

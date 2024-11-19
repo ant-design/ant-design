@@ -1749,7 +1749,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked"
         >
-          <span
+          <label
             class="config-radio-button config-radio-button-checked"
           >
             <input
@@ -1761,7 +1761,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             <span
               class="config-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Month
           </span>
@@ -1769,7 +1769,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         <label
           class="config-radio-button-wrapper"
         >
-          <span
+          <label
             class="config-radio-button"
           >
             <input
@@ -1780,7 +1780,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             <span
               class="config-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Year
           </span>
@@ -2634,7 +2634,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         <label
           class="config-radio-button-wrapper"
         >
-          <span
+          <label
             class="config-radio-button"
           >
             <input
@@ -2645,7 +2645,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             <span
               class="config-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Month
           </span>
@@ -2653,7 +2653,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked"
         >
-          <span
+          <label
             class="config-radio-button config-radio-button-checked"
           >
             <input
@@ -2665,7 +2665,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             <span
               class="config-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Year
           </span>
@@ -3051,7 +3051,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked config-radio-button-wrapper-disabled"
         >
-          <span
+          <label
             class="config-radio-button config-radio-button-checked config-radio-button-disabled"
           >
             <input
@@ -3064,7 +3064,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             <span
               class="config-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Month
           </span>
@@ -3072,7 +3072,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-disabled"
         >
-          <span
+          <label
             class="config-radio-button config-radio-button-disabled"
           >
             <input
@@ -3084,7 +3084,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             <span
               class="config-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Year
           </span>
@@ -3939,7 +3939,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-disabled"
         >
-          <span
+          <label
             class="config-radio-button config-radio-button-disabled"
           >
             <input
@@ -3951,7 +3951,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             <span
               class="config-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Month
           </span>
@@ -3959,7 +3959,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked config-radio-button-wrapper-disabled"
         >
-          <span
+          <label
             class="config-radio-button config-radio-button-checked config-radio-button-disabled"
           >
             <input
@@ -3972,7 +3972,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             <span
               class="config-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Year
           </span>
@@ -4356,7 +4356,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked"
         >
-          <span
+          <label
             class="config-radio-button config-radio-button-checked"
           >
             <input
@@ -4368,7 +4368,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             <span
               class="config-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Month
           </span>
@@ -4376,7 +4376,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
         <label
           class="config-radio-button-wrapper"
         >
-          <span
+          <label
             class="config-radio-button"
           >
             <input
@@ -4387,7 +4387,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             <span
               class="config-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Year
           </span>
@@ -5241,7 +5241,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
         <label
           class="config-radio-button-wrapper"
         >
-          <span
+          <label
             class="config-radio-button"
           >
             <input
@@ -5252,7 +5252,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             <span
               class="config-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Month
           </span>
@@ -5260,7 +5260,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked"
         >
-          <span
+          <label
             class="config-radio-button config-radio-button-checked"
           >
             <input
@@ -5272,7 +5272,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             <span
               class="config-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Year
           </span>
@@ -5656,7 +5656,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked"
         >
-          <span
+          <label
             class="config-radio-button config-radio-button-checked"
           >
             <input
@@ -5668,7 +5668,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
             <span
               class="config-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Month
           </span>
@@ -5676,7 +5676,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
         <label
           class="config-radio-button-wrapper"
         >
-          <span
+          <label
             class="config-radio-button"
           >
             <input
@@ -5687,7 +5687,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
             <span
               class="config-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Year
           </span>
@@ -6541,7 +6541,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
         <label
           class="config-radio-button-wrapper"
         >
-          <span
+          <label
             class="config-radio-button"
           >
             <input
@@ -6552,7 +6552,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
             <span
               class="config-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Month
           </span>
@@ -6560,7 +6560,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked"
         >
-          <span
+          <label
             class="config-radio-button config-radio-button-checked"
           >
             <input
@@ -6572,7 +6572,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
             <span
               class="config-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Year
           </span>
@@ -6956,7 +6956,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked"
         >
-          <span
+          <label
             class="config-radio-button config-radio-button-checked"
           >
             <input
@@ -6968,7 +6968,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             <span
               class="config-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Month
           </span>
@@ -6976,7 +6976,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
         <label
           class="config-radio-button-wrapper"
         >
-          <span
+          <label
             class="config-radio-button"
           >
             <input
@@ -6987,7 +6987,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             <span
               class="config-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Year
           </span>
@@ -7841,7 +7841,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
         <label
           class="config-radio-button-wrapper"
         >
-          <span
+          <label
             class="config-radio-button"
           >
             <input
@@ -7852,7 +7852,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             <span
               class="config-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Month
           </span>
@@ -7860,7 +7860,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked"
         >
-          <span
+          <label
             class="config-radio-button config-radio-button-checked"
           >
             <input
@@ -7872,7 +7872,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             <span
               class="config-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Year
           </span>
@@ -8256,7 +8256,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
         >
-          <span
+          <label
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
@@ -8268,7 +8268,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             <span
               class="ant-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Month
           </span>
@@ -8276,7 +8276,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
         <label
           class="ant-radio-button-wrapper"
         >
-          <span
+          <label
             class="ant-radio-button"
           >
             <input
@@ -8287,7 +8287,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             <span
               class="ant-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Year
           </span>
@@ -9141,7 +9141,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
         <label
           class="ant-radio-button-wrapper"
         >
-          <span
+          <label
             class="ant-radio-button"
           >
             <input
@@ -9152,7 +9152,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             <span
               class="ant-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Month
           </span>
@@ -9160,7 +9160,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
         >
-          <span
+          <label
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
@@ -9172,7 +9172,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             <span
               class="ant-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Year
           </span>
@@ -9556,7 +9556,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
         >
-          <span
+          <label
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
@@ -9568,7 +9568,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             <span
               class="ant-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Month
           </span>
@@ -9576,7 +9576,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
         <label
           class="ant-radio-button-wrapper"
         >
-          <span
+          <label
             class="ant-radio-button"
           >
             <input
@@ -9587,7 +9587,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             <span
               class="ant-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Year
           </span>
@@ -10441,7 +10441,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
         <label
           class="ant-radio-button-wrapper"
         >
-          <span
+          <label
             class="ant-radio-button"
           >
             <input
@@ -10452,7 +10452,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             <span
               class="ant-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Month
           </span>
@@ -10460,7 +10460,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
         >
-          <span
+          <label
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
@@ -10472,7 +10472,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             <span
               class="ant-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Year
           </span>
@@ -12182,10 +12182,10 @@ exports[`ConfigProvider components Checkbox configProvider 1`] = `
 <div
   class="config-checkbox-group"
 >
-  <label
+  <div
     class="config-checkbox-wrapper"
   >
-    <span
+    <label
       class="config-checkbox ant-wave-target"
     >
       <input
@@ -12195,11 +12195,11 @@ exports[`ConfigProvider components Checkbox configProvider 1`] = `
       <span
         class="config-checkbox-inner"
       />
-    </span>
-    <span>
-      Bamboo
-    </span>
-  </label>
+      <span>
+        Bamboo
+      </span>
+    </label>
+  </div>
 </div>
 `;
 
@@ -12207,10 +12207,10 @@ exports[`ConfigProvider components Checkbox configProvider componentDisabled 1`]
 <div
   class="config-checkbox-group"
 >
-  <label
+  <div
     class="config-checkbox-wrapper config-checkbox-wrapper-disabled"
   >
-    <span
+    <label
       class="config-checkbox ant-wave-target config-checkbox-disabled"
     >
       <input
@@ -12221,11 +12221,11 @@ exports[`ConfigProvider components Checkbox configProvider componentDisabled 1`]
       <span
         class="config-checkbox-inner"
       />
-    </span>
-    <span>
-      Bamboo
-    </span>
-  </label>
+      <span>
+        Bamboo
+      </span>
+    </label>
+  </div>
 </div>
 `;
 
@@ -12233,10 +12233,10 @@ exports[`ConfigProvider components Checkbox configProvider componentSize large 1
 <div
   class="config-checkbox-group"
 >
-  <label
+  <div
     class="config-checkbox-wrapper"
   >
-    <span
+    <label
       class="config-checkbox ant-wave-target"
     >
       <input
@@ -12246,11 +12246,11 @@ exports[`ConfigProvider components Checkbox configProvider componentSize large 1
       <span
         class="config-checkbox-inner"
       />
-    </span>
-    <span>
-      Bamboo
-    </span>
-  </label>
+      <span>
+        Bamboo
+      </span>
+    </label>
+  </div>
 </div>
 `;
 
@@ -12258,10 +12258,10 @@ exports[`ConfigProvider components Checkbox configProvider componentSize middle 
 <div
   class="config-checkbox-group"
 >
-  <label
+  <div
     class="config-checkbox-wrapper"
   >
-    <span
+    <label
       class="config-checkbox ant-wave-target"
     >
       <input
@@ -12271,11 +12271,11 @@ exports[`ConfigProvider components Checkbox configProvider componentSize middle 
       <span
         class="config-checkbox-inner"
       />
-    </span>
-    <span>
-      Bamboo
-    </span>
-  </label>
+      <span>
+        Bamboo
+      </span>
+    </label>
+  </div>
 </div>
 `;
 
@@ -12283,10 +12283,10 @@ exports[`ConfigProvider components Checkbox configProvider componentSize small 1
 <div
   class="config-checkbox-group"
 >
-  <label
+  <div
     class="config-checkbox-wrapper"
   >
-    <span
+    <label
       class="config-checkbox ant-wave-target"
     >
       <input
@@ -12296,11 +12296,11 @@ exports[`ConfigProvider components Checkbox configProvider componentSize small 1
       <span
         class="config-checkbox-inner"
       />
-    </span>
-    <span>
-      Bamboo
-    </span>
-  </label>
+      <span>
+        Bamboo
+      </span>
+    </label>
+  </div>
 </div>
 `;
 
@@ -12308,10 +12308,10 @@ exports[`ConfigProvider components Checkbox normal 1`] = `
 <div
   class="ant-checkbox-group"
 >
-  <label
+  <div
     class="ant-checkbox-wrapper"
   >
-    <span
+    <label
       class="ant-checkbox ant-wave-target"
     >
       <input
@@ -12321,11 +12321,11 @@ exports[`ConfigProvider components Checkbox normal 1`] = `
       <span
         class="ant-checkbox-inner"
       />
-    </span>
-    <span>
-      Bamboo
-    </span>
-  </label>
+      <span>
+        Bamboo
+      </span>
+    </label>
+  </div>
 </div>
 `;
 
@@ -12333,10 +12333,10 @@ exports[`ConfigProvider components Checkbox prefixCls 1`] = `
 <div
   class="prefix-Checkbox-group"
 >
-  <label
+  <div
     class="prefix-Checkbox-wrapper"
   >
-    <span
+    <label
       class="prefix-Checkbox ant-wave-target"
     >
       <input
@@ -12346,11 +12346,11 @@ exports[`ConfigProvider components Checkbox prefixCls 1`] = `
       <span
         class="prefix-Checkbox-inner"
       />
-    </span>
-    <span>
-      Bamboo
-    </span>
-  </label>
+      <span>
+        Bamboo
+      </span>
+    </label>
+  </div>
 </div>
 `;
 
@@ -22168,7 +22168,7 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
     <label
       class="config-radio-wrapper config-radio-wrapper-checked"
     >
-      <span
+      <label
         class="config-radio ant-wave-target config-radio-checked"
       >
         <input
@@ -22179,7 +22179,7 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
         <span
           class="config-radio-inner"
         />
-      </span>
+      </label>
       <span>
         Bamboo
       </span>
@@ -22191,7 +22191,7 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
     <label
       class="config-radio-button-wrapper config-radio-button-wrapper-checked"
     >
-      <span
+      <label
         class="config-radio-button config-radio-button-checked"
       >
         <input
@@ -22202,7 +22202,7 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
         <span
           class="config-radio-button-inner"
         />
-      </span>
+      </label>
       <span>
         Light
       </span>
@@ -22219,7 +22219,7 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
     <label
       class="config-radio-wrapper config-radio-wrapper-checked config-radio-wrapper-disabled"
     >
-      <span
+      <label
         class="config-radio ant-wave-target config-radio-checked config-radio-disabled"
       >
         <input
@@ -22231,7 +22231,7 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
         <span
           class="config-radio-inner"
         />
-      </span>
+      </label>
       <span>
         Bamboo
       </span>
@@ -22243,7 +22243,7 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
     <label
       class="config-radio-button-wrapper config-radio-button-wrapper-checked config-radio-button-wrapper-disabled"
     >
-      <span
+      <label
         class="config-radio-button config-radio-button-checked config-radio-button-disabled"
       >
         <input
@@ -22255,7 +22255,7 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
         <span
           class="config-radio-button-inner"
         />
-      </span>
+      </label>
       <span>
         Light
       </span>
@@ -22272,7 +22272,7 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
     <label
       class="config-radio-wrapper config-radio-wrapper-checked"
     >
-      <span
+      <label
         class="config-radio ant-wave-target config-radio-checked"
       >
         <input
@@ -22283,7 +22283,7 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
         <span
           class="config-radio-inner"
         />
-      </span>
+      </label>
       <span>
         Bamboo
       </span>
@@ -22295,7 +22295,7 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
     <label
       class="config-radio-button-wrapper config-radio-button-wrapper-checked"
     >
-      <span
+      <label
         class="config-radio-button config-radio-button-checked"
       >
         <input
@@ -22306,7 +22306,7 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
         <span
           class="config-radio-button-inner"
         />
-      </span>
+      </label>
       <span>
         Light
       </span>
@@ -22323,7 +22323,7 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
     <label
       class="config-radio-wrapper config-radio-wrapper-checked"
     >
-      <span
+      <label
         class="config-radio ant-wave-target config-radio-checked"
       >
         <input
@@ -22334,7 +22334,7 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
         <span
           class="config-radio-inner"
         />
-      </span>
+      </label>
       <span>
         Bamboo
       </span>
@@ -22346,7 +22346,7 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
     <label
       class="config-radio-button-wrapper config-radio-button-wrapper-checked"
     >
-      <span
+      <label
         class="config-radio-button config-radio-button-checked"
       >
         <input
@@ -22357,7 +22357,7 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
         <span
           class="config-radio-button-inner"
         />
-      </span>
+      </label>
       <span>
         Light
       </span>
@@ -22374,7 +22374,7 @@ exports[`ConfigProvider components Radio configProvider componentSize small 1`] 
     <label
       class="config-radio-wrapper config-radio-wrapper-checked"
     >
-      <span
+      <label
         class="config-radio ant-wave-target config-radio-checked"
       >
         <input
@@ -22385,7 +22385,7 @@ exports[`ConfigProvider components Radio configProvider componentSize small 1`] 
         <span
           class="config-radio-inner"
         />
-      </span>
+      </label>
       <span>
         Bamboo
       </span>
@@ -22397,7 +22397,7 @@ exports[`ConfigProvider components Radio configProvider componentSize small 1`] 
     <label
       class="config-radio-button-wrapper config-radio-button-wrapper-checked"
     >
-      <span
+      <label
         class="config-radio-button config-radio-button-checked"
       >
         <input
@@ -22408,7 +22408,7 @@ exports[`ConfigProvider components Radio configProvider componentSize small 1`] 
         <span
           class="config-radio-button-inner"
         />
-      </span>
+      </label>
       <span>
         Light
       </span>
@@ -22425,7 +22425,7 @@ exports[`ConfigProvider components Radio normal 1`] = `
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked"
     >
-      <span
+      <label
         class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
@@ -22436,7 +22436,7 @@ exports[`ConfigProvider components Radio normal 1`] = `
         <span
           class="ant-radio-inner"
         />
-      </span>
+      </label>
       <span>
         Bamboo
       </span>
@@ -22448,7 +22448,7 @@ exports[`ConfigProvider components Radio normal 1`] = `
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
     >
-      <span
+      <label
         class="ant-radio-button ant-radio-button-checked"
       >
         <input
@@ -22459,7 +22459,7 @@ exports[`ConfigProvider components Radio normal 1`] = `
         <span
           class="ant-radio-button-inner"
         />
-      </span>
+      </label>
       <span>
         Light
       </span>
@@ -22476,7 +22476,7 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
     <label
       class="prefix-Radio-wrapper prefix-Radio-wrapper-checked"
     >
-      <span
+      <label
         class="prefix-Radio ant-wave-target prefix-Radio-checked"
       >
         <input
@@ -22487,7 +22487,7 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
         <span
           class="prefix-Radio-inner"
         />
-      </span>
+      </label>
       <span>
         Bamboo
       </span>
@@ -22499,7 +22499,7 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
     <label
       class="prefix-Radio-button-wrapper prefix-Radio-button-wrapper-checked"
     >
-      <span
+      <label
         class="prefix-Radio-button prefix-Radio-button-checked"
       >
         <input
@@ -22510,7 +22510,7 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
         <span
           class="prefix-Radio-button-inner"
         />
-      </span>
+      </label>
       <span>
         Light
       </span>
@@ -26922,10 +26922,10 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                               <span
                                 class="config-dropdown-menu-title-content"
                               >
-                                <label
+                                <div
                                   class="config-checkbox-wrapper"
                                 >
-                                  <span
+                                  <label
                                     class="config-checkbox ant-wave-target"
                                   >
                                     <input
@@ -26935,8 +26935,8 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                     <span
                                       class="config-checkbox-inner"
                                     />
-                                  </span>
-                                </label>
+                                  </label>
+                                </div>
                                 <span>
                                   Joe
                                 </span>
@@ -27229,10 +27229,10 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                               <span
                                 class="config-dropdown-menu-title-content"
                               >
-                                <label
+                                <div
                                   class="config-checkbox-wrapper config-checkbox-wrapper-disabled"
                                 >
-                                  <span
+                                  <label
                                     class="config-checkbox ant-wave-target config-checkbox-disabled"
                                   >
                                     <input
@@ -27243,8 +27243,8 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                                     <span
                                       class="config-checkbox-inner"
                                     />
-                                  </span>
-                                </label>
+                                  </label>
+                                </div>
                                 <span>
                                   Joe
                                 </span>
@@ -27538,10 +27538,10 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                               <span
                                 class="config-dropdown-menu-title-content"
                               >
-                                <label
+                                <div
                                   class="config-checkbox-wrapper"
                                 >
-                                  <span
+                                  <label
                                     class="config-checkbox ant-wave-target"
                                   >
                                     <input
@@ -27551,8 +27551,8 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                                     <span
                                       class="config-checkbox-inner"
                                     />
-                                  </span>
-                                </label>
+                                  </label>
+                                </div>
                                 <span>
                                   Joe
                                 </span>
@@ -27845,10 +27845,10 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                               <span
                                 class="config-dropdown-menu-title-content"
                               >
-                                <label
+                                <div
                                   class="config-checkbox-wrapper"
                                 >
-                                  <span
+                                  <label
                                     class="config-checkbox ant-wave-target"
                                   >
                                     <input
@@ -27858,8 +27858,8 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                                     <span
                                       class="config-checkbox-inner"
                                     />
-                                  </span>
-                                </label>
+                                  </label>
+                                </div>
                                 <span>
                                   Joe
                                 </span>
@@ -28152,10 +28152,10 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                               <span
                                 class="config-dropdown-menu-title-content"
                               >
-                                <label
+                                <div
                                   class="config-checkbox-wrapper"
                                 >
-                                  <span
+                                  <label
                                     class="config-checkbox ant-wave-target"
                                   >
                                     <input
@@ -28165,8 +28165,8 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                                     <span
                                       class="config-checkbox-inner"
                                     />
-                                  </span>
-                                </label>
+                                  </label>
+                                </div>
                                 <span>
                                   Joe
                                 </span>
@@ -28459,10 +28459,10 @@ exports[`ConfigProvider components Table normal 1`] = `
                               <span
                                 class="ant-dropdown-menu-title-content"
                               >
-                                <label
+                                <div
                                   class="ant-checkbox-wrapper"
                                 >
-                                  <span
+                                  <label
                                     class="ant-checkbox ant-wave-target"
                                   >
                                     <input
@@ -28472,8 +28472,8 @@ exports[`ConfigProvider components Table normal 1`] = `
                                     <span
                                       class="ant-checkbox-inner"
                                     />
-                                  </span>
-                                </label>
+                                  </label>
+                                </div>
                                 <span>
                                   Joe
                                 </span>
@@ -28766,10 +28766,10 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                               <span
                                 class="ant-dropdown-menu-title-content"
                               >
-                                <label
+                                <div
                                   class="ant-checkbox-wrapper"
                                 >
-                                  <span
+                                  <label
                                     class="ant-checkbox ant-wave-target"
                                   >
                                     <input
@@ -28779,8 +28779,8 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                     <span
                                       class="ant-checkbox-inner"
                                     />
-                                  </span>
-                                </label>
+                                  </label>
+                                </div>
                                 <span>
                                   Joe
                                 </span>
@@ -39445,10 +39445,10 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
     <div
       class="config-transfer-list-header"
     >
-      <label
+      <div
         class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
-        <span
+        <label
           class="config-checkbox ant-wave-target config-checkbox-disabled"
         >
           <input
@@ -39459,8 +39459,8 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
           <span
             class="config-checkbox-inner"
           />
-        </span>
-      </label>
+        </label>
+      </div>
       <span
         aria-label="down"
         class="anticon anticon-down config-dropdown-trigger config-transfer-list-header-dropdown"
@@ -39615,10 +39615,10 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
     <div
       class="config-transfer-list-header"
     >
-      <label
+      <div
         class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
-        <span
+        <label
           class="config-checkbox ant-wave-target config-checkbox-disabled"
         >
           <input
@@ -39629,8 +39629,8 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
           <span
             class="config-checkbox-inner"
           />
-        </span>
-      </label>
+        </label>
+      </div>
       <span
         aria-label="down"
         class="anticon anticon-down config-dropdown-trigger config-transfer-list-header-dropdown"
@@ -39730,10 +39730,10 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
     <div
       class="config-transfer-list-header"
     >
-      <label
+      <div
         class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
-        <span
+        <label
           class="config-checkbox ant-wave-target config-checkbox-disabled"
         >
           <input
@@ -39744,8 +39744,8 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
           <span
             class="config-checkbox-inner"
           />
-        </span>
-      </label>
+        </label>
+      </div>
       <span
         aria-label="down"
         class="anticon anticon-down config-dropdown-trigger config-transfer-list-header-dropdown"
@@ -39900,10 +39900,10 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
     <div
       class="config-transfer-list-header"
     >
-      <label
+      <div
         class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
-        <span
+        <label
           class="config-checkbox ant-wave-target config-checkbox-disabled"
         >
           <input
@@ -39914,8 +39914,8 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
           <span
             class="config-checkbox-inner"
           />
-        </span>
-      </label>
+        </label>
+      </div>
       <span
         aria-label="down"
         class="anticon anticon-down config-dropdown-trigger config-transfer-list-header-dropdown"
@@ -40015,10 +40015,10 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
     <div
       class="config-transfer-list-header"
     >
-      <label
+      <div
         class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
-        <span
+        <label
           class="config-checkbox ant-wave-target config-checkbox-disabled"
         >
           <input
@@ -40029,8 +40029,8 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
           <span
             class="config-checkbox-inner"
           />
-        </span>
-      </label>
+        </label>
+      </div>
       <span
         aria-label="down"
         class="anticon anticon-down config-dropdown-trigger config-transfer-list-header-dropdown"
@@ -40185,10 +40185,10 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
     <div
       class="config-transfer-list-header"
     >
-      <label
+      <div
         class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
-        <span
+        <label
           class="config-checkbox ant-wave-target config-checkbox-disabled"
         >
           <input
@@ -40199,8 +40199,8 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
           <span
             class="config-checkbox-inner"
           />
-        </span>
-      </label>
+        </label>
+      </div>
       <span
         aria-label="down"
         class="anticon anticon-down config-dropdown-trigger config-transfer-list-header-dropdown"
@@ -40300,10 +40300,10 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
     <div
       class="config-transfer-list-header"
     >
-      <label
+      <div
         class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
-        <span
+        <label
           class="config-checkbox ant-wave-target config-checkbox-disabled"
         >
           <input
@@ -40314,8 +40314,8 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
           <span
             class="config-checkbox-inner"
           />
-        </span>
-      </label>
+        </label>
+      </div>
       <span
         aria-label="down"
         class="anticon anticon-down config-dropdown-trigger config-transfer-list-header-dropdown"
@@ -40470,10 +40470,10 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
     <div
       class="config-transfer-list-header"
     >
-      <label
+      <div
         class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
-        <span
+        <label
           class="config-checkbox ant-wave-target config-checkbox-disabled"
         >
           <input
@@ -40484,8 +40484,8 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
           <span
             class="config-checkbox-inner"
           />
-        </span>
-      </label>
+        </label>
+      </div>
       <span
         aria-label="down"
         class="anticon anticon-down config-dropdown-trigger config-transfer-list-header-dropdown"
@@ -40585,10 +40585,10 @@ exports[`ConfigProvider components Transfer configProvider componentSize small 1
     <div
       class="config-transfer-list-header"
     >
-      <label
+      <div
         class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
-        <span
+        <label
           class="config-checkbox ant-wave-target config-checkbox-disabled"
         >
           <input
@@ -40599,8 +40599,8 @@ exports[`ConfigProvider components Transfer configProvider componentSize small 1
           <span
             class="config-checkbox-inner"
           />
-        </span>
-      </label>
+        </label>
+      </div>
       <span
         aria-label="down"
         class="anticon anticon-down config-dropdown-trigger config-transfer-list-header-dropdown"
@@ -40755,10 +40755,10 @@ exports[`ConfigProvider components Transfer configProvider componentSize small 1
     <div
       class="config-transfer-list-header"
     >
-      <label
+      <div
         class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
-        <span
+        <label
           class="config-checkbox ant-wave-target config-checkbox-disabled"
         >
           <input
@@ -40769,8 +40769,8 @@ exports[`ConfigProvider components Transfer configProvider componentSize small 1
           <span
             class="config-checkbox-inner"
           />
-        </span>
-      </label>
+        </label>
+      </div>
       <span
         aria-label="down"
         class="anticon anticon-down config-dropdown-trigger config-transfer-list-header-dropdown"
@@ -40870,10 +40870,10 @@ exports[`ConfigProvider components Transfer normal 1`] = `
     <div
       class="ant-transfer-list-header"
     >
-      <label
+      <div
         class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
-        <span
+        <label
           class="ant-checkbox ant-wave-target ant-checkbox-disabled"
         >
           <input
@@ -40884,8 +40884,8 @@ exports[`ConfigProvider components Transfer normal 1`] = `
           <span
             class="ant-checkbox-inner"
           />
-        </span>
-      </label>
+        </label>
+      </div>
       <span
         aria-label="down"
         class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
@@ -41040,10 +41040,10 @@ exports[`ConfigProvider components Transfer normal 1`] = `
     <div
       class="ant-transfer-list-header"
     >
-      <label
+      <div
         class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
-        <span
+        <label
           class="ant-checkbox ant-wave-target ant-checkbox-disabled"
         >
           <input
@@ -41054,8 +41054,8 @@ exports[`ConfigProvider components Transfer normal 1`] = `
           <span
             class="ant-checkbox-inner"
           />
-        </span>
-      </label>
+        </label>
+      </div>
       <span
         aria-label="down"
         class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
@@ -41155,10 +41155,10 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
     <div
       class="prefix-Transfer-list-header"
     >
-      <label
+      <div
         class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled prefix-Transfer-list-checkbox"
       >
-        <span
+        <label
           class="ant-checkbox ant-wave-target ant-checkbox-disabled"
         >
           <input
@@ -41169,8 +41169,8 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
           <span
             class="ant-checkbox-inner"
           />
-        </span>
-      </label>
+        </label>
+      </div>
       <span
         aria-label="down"
         class="anticon anticon-down ant-dropdown-trigger prefix-Transfer-list-header-dropdown"
@@ -41325,10 +41325,10 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
     <div
       class="prefix-Transfer-list-header"
     >
-      <label
+      <div
         class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled prefix-Transfer-list-checkbox"
       >
-        <span
+        <label
           class="ant-checkbox ant-wave-target ant-checkbox-disabled"
         >
           <input
@@ -41339,8 +41339,8 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
           <span
             class="ant-checkbox-inner"
           />
-        </span>
-      </label>
+        </label>
+      </div>
       <span
         aria-label="down"
         class="anticon anticon-down ant-dropdown-trigger prefix-Transfer-list-header-dropdown"

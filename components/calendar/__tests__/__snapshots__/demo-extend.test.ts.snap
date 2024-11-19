@@ -777,7 +777,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
       >
-        <span
+        <label
           class="ant-radio-button ant-radio-button-checked"
         >
           <input
@@ -789,7 +789,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
           <span
             class="ant-radio-button-inner"
           />
-        </span>
+        </label>
         <span>
           Month
         </span>
@@ -797,7 +797,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
       <label
         class="ant-radio-button-wrapper"
       >
-        <span
+        <label
           class="ant-radio-button"
         >
           <input
@@ -808,7 +808,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
           <span
             class="ant-radio-button-inner"
           />
-        </span>
+        </label>
         <span>
           Year
         </span>
@@ -2370,7 +2370,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
         >
-          <span
+          <label
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
@@ -2382,7 +2382,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
             <span
               class="ant-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Month
           </span>
@@ -2390,7 +2390,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
         <label
           class="ant-radio-button-wrapper"
         >
-          <span
+          <label
             class="ant-radio-button"
           >
             <input
@@ -2401,7 +2401,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
             <span
               class="ant-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Year
           </span>
@@ -3962,7 +3962,7 @@ Array [
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
         >
-          <span
+          <label
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
@@ -3974,7 +3974,7 @@ Array [
             <span
               class="ant-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Month
           </span>
@@ -3982,7 +3982,7 @@ Array [
         <label
           class="ant-radio-button-wrapper"
         >
-          <span
+          <label
             class="ant-radio-button"
           >
             <input
@@ -3993,7 +3993,7 @@ Array [
             <span
               class="ant-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Year
           </span>
@@ -5548,7 +5548,7 @@ Array [
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
         >
-          <span
+          <label
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
@@ -5560,7 +5560,7 @@ Array [
             <span
               class="ant-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Month
           </span>
@@ -5568,7 +5568,7 @@ Array [
         <label
           class="ant-radio-button-wrapper"
         >
-          <span
+          <label
             class="ant-radio-button"
           >
             <input
@@ -5579,7 +5579,7 @@ Array [
             <span
               class="ant-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Year
           </span>
@@ -6391,7 +6391,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
             <label
               class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
             >
-              <span
+              <label
                 class="ant-radio-button ant-radio-button-checked"
               >
                 <input
@@ -6403,7 +6403,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                 <span
                   class="ant-radio-button-inner"
                 />
-              </span>
+              </label>
               <span>
                 Month
               </span>
@@ -6411,7 +6411,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
             <label
               class="ant-radio-button-wrapper"
             >
-              <span
+              <label
                 class="ant-radio-button"
               >
                 <input
@@ -6422,7 +6422,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                 <span
                   class="ant-radio-button-inner"
                 />
-              </span>
+              </label>
               <span>
                 Year
               </span>
@@ -8782,7 +8782,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
       >
-        <span
+        <label
           class="ant-radio-button ant-radio-button-checked"
         >
           <input
@@ -8794,7 +8794,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
           <span
             class="ant-radio-button-inner"
           />
-        </span>
+        </label>
         <span>
           Month
         </span>
@@ -8802,7 +8802,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
       <label
         class="ant-radio-button-wrapper"
       >
-        <span
+        <label
           class="ant-radio-button"
         >
           <input
@@ -8813,7 +8813,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
           <span
             class="ant-radio-button-inner"
           />
-        </span>
+        </label>
         <span>
           Year
         </span>
@@ -10785,7 +10785,7 @@ Array [
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
         >
-          <span
+          <label
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
@@ -10797,7 +10797,7 @@ Array [
             <span
               class="ant-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Month
           </span>
@@ -10805,7 +10805,7 @@ Array [
         <label
           class="ant-radio-button-wrapper"
         >
-          <span
+          <label
             class="ant-radio-button"
           >
             <input
@@ -10816,7 +10816,7 @@ Array [
             <span
               class="ant-radio-button-inner"
             />
-          </span>
+          </label>
           <span>
             Year
           </span>

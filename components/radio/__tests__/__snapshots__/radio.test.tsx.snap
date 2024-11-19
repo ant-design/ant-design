@@ -4,7 +4,7 @@ exports[`Radio rtl render component should be rendered correctly in RTL directio
 <label
   class="ant-radio-wrapper ant-radio-wrapper-rtl"
 >
-  <span
+  <label
     class="ant-radio ant-wave-target"
   >
     <input
@@ -14,7 +14,7 @@ exports[`Radio rtl render component should be rendered correctly in RTL directio
     <span
       class="ant-radio-inner"
     />
-  </span>
+  </label>
 </label>
 `;
 
@@ -28,7 +28,7 @@ exports[`Radio rtl render component should be rendered correctly in RTL directio
 <label
   class="ant-radio-button-wrapper ant-radio-button-wrapper-rtl"
 >
-  <span
+  <label
     class="ant-radio-button"
   >
     <input
@@ -38,7 +38,7 @@ exports[`Radio rtl render component should be rendered correctly in RTL directio
     <span
       class="ant-radio-button-inner"
     />
-  </span>
+  </label>
 </label>
 `;
 
@@ -46,7 +46,7 @@ exports[`Radio should render correctly 1`] = `
 <label
   class="ant-radio-wrapper customized"
 >
-  <span
+  <label
     class="ant-radio ant-wave-target"
   >
     <input
@@ -56,7 +56,7 @@ exports[`Radio should render correctly 1`] = `
     <span
       class="ant-radio-inner"
     />
-  </span>
+  </label>
   <span>
     Test
   </span>

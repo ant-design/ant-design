@@ -10,10 +10,10 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
     <div
       class="ant-transfer-list-header"
     >
-      <label
+      <div
         class="ant-checkbox-wrapper ant-checkbox-rtl ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
-        <span
+        <label
           class="ant-checkbox ant-wave-target ant-checkbox-disabled"
         >
           <input
@@ -24,8 +24,8 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
           <span
             class="ant-checkbox-inner"
           />
-        </span>
-      </label>
+        </label>
+      </div>
       <span
         aria-label="down"
         class="anticon anticon-down ant-dropdown-trigger ant-dropdown-rtl ant-transfer-list-header-dropdown"
@@ -180,10 +180,10 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
     <div
       class="ant-transfer-list-header"
     >
-      <label
+      <div
         class="ant-checkbox-wrapper ant-checkbox-rtl ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
-        <span
+        <label
           class="ant-checkbox ant-wave-target ant-checkbox-disabled"
         >
           <input
@@ -194,8 +194,8 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
           <span
             class="ant-checkbox-inner"
           />
-        </span>
-      </label>
+        </label>
+      </div>
       <span
         aria-label="down"
         class="anticon anticon-down ant-dropdown-trigger ant-dropdown-rtl ant-transfer-list-header-dropdown"
@@ -295,10 +295,10 @@ exports[`Transfer should render correctly 1`] = `
     <div
       class="ant-transfer-list-header"
     >
-      <label
+      <div
         class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-transfer-list-checkbox"
       >
-        <span
+        <label
           class="ant-checkbox ant-wave-target ant-checkbox-checked"
         >
           <input
@@ -309,8 +309,8 @@ exports[`Transfer should render correctly 1`] = `
           <span
             class="ant-checkbox-inner"
           />
-        </span>
-      </label>
+        </label>
+      </div>
       <span
         aria-label="down"
         class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
@@ -349,10 +349,10 @@ exports[`Transfer should render correctly 1`] = `
         <li
           class="ant-transfer-list-content-item ant-transfer-list-content-item-checked"
         >
-          <label
+          <div
             class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-transfer-list-checkbox"
           >
-            <span
+            <label
               class="ant-checkbox ant-wave-target ant-checkbox-checked"
             >
               <input
@@ -363,8 +363,8 @@ exports[`Transfer should render correctly 1`] = `
               <span
                 class="ant-checkbox-inner"
               />
-            </span>
-          </label>
+            </label>
+          </div>
           <span
             class="ant-transfer-list-content-item-text"
           />
@@ -372,10 +372,10 @@ exports[`Transfer should render correctly 1`] = `
         <li
           class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
         >
-          <label
+          <div
             class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
           >
-            <span
+            <label
               class="ant-checkbox ant-wave-target ant-checkbox-disabled"
             >
               <input
@@ -386,8 +386,8 @@ exports[`Transfer should render correctly 1`] = `
               <span
                 class="ant-checkbox-inner"
               />
-            </span>
-          </label>
+            </label>
+          </div>
           <span
             class="ant-transfer-list-content-item-text"
           />
@@ -462,10 +462,10 @@ exports[`Transfer should render correctly 1`] = `
     <div
       class="ant-transfer-list-header"
     >
-      <label
+      <div
         class="ant-checkbox-wrapper ant-transfer-list-checkbox"
       >
-        <span
+        <label
           class="ant-checkbox ant-wave-target"
         >
           <input
@@ -475,8 +475,8 @@ exports[`Transfer should render correctly 1`] = `
           <span
             class="ant-checkbox-inner"
           />
-        </span>
-      </label>
+        </label>
+      </div>
       <span
         aria-label="down"
         class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
@@ -515,10 +515,10 @@ exports[`Transfer should render correctly 1`] = `
         <li
           class="ant-transfer-list-content-item"
         >
-          <label
+          <div
             class="ant-checkbox-wrapper ant-transfer-list-checkbox"
           >
-            <span
+            <label
               class="ant-checkbox ant-wave-target"
             >
               <input
@@ -528,8 +528,8 @@ exports[`Transfer should render correctly 1`] = `
               <span
                 class="ant-checkbox-inner"
               />
-            </span>
-          </label>
+            </label>
+          </div>
           <span
             class="ant-transfer-list-content-item-text"
           />
@@ -550,10 +550,10 @@ exports[`Transfer should show sorted targetKey 1`] = `
     <div
       class="ant-transfer-list-header"
     >
-      <label
+      <div
         class="ant-checkbox-wrapper ant-transfer-list-checkbox"
       >
-        <span
+        <label
           class="ant-checkbox ant-wave-target"
         >
           <input
@@ -563,8 +563,8 @@ exports[`Transfer should show sorted targetKey 1`] = `
           <span
             class="ant-checkbox-inner"
           />
-        </span>
-      </label>
+        </label>
+      </div>
       <span
         aria-label="down"
         class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
@@ -604,10 +604,10 @@ exports[`Transfer should show sorted targetKey 1`] = `
           class="ant-transfer-list-content-item"
           title="a"
         >
-          <label
+          <div
             class="ant-checkbox-wrapper ant-transfer-list-checkbox"
           >
-            <span
+            <label
               class="ant-checkbox ant-wave-target"
             >
               <input
@@ -617,8 +617,8 @@ exports[`Transfer should show sorted targetKey 1`] = `
               <span
                 class="ant-checkbox-inner"
               />
-            </span>
-          </label>
+            </label>
+          </div>
           <span
             class="ant-transfer-list-content-item-text"
           >
@@ -696,10 +696,10 @@ exports[`Transfer should show sorted targetKey 1`] = `
     <div
       class="ant-transfer-list-header"
     >
-      <label
+      <div
         class="ant-checkbox-wrapper ant-transfer-list-checkbox"
       >
-        <span
+        <label
           class="ant-checkbox ant-wave-target"
         >
           <input
@@ -709,8 +709,8 @@ exports[`Transfer should show sorted targetKey 1`] = `
           <span
             class="ant-checkbox-inner"
           />
-        </span>
-      </label>
+        </label>
+      </div>
       <span
         aria-label="down"
         class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
@@ -750,10 +750,10 @@ exports[`Transfer should show sorted targetKey 1`] = `
           class="ant-transfer-list-content-item"
           title="c"
         >
-          <label
+          <div
             class="ant-checkbox-wrapper ant-transfer-list-checkbox"
           >
-            <span
+            <label
               class="ant-checkbox ant-wave-target"
             >
               <input
@@ -763,8 +763,8 @@ exports[`Transfer should show sorted targetKey 1`] = `
               <span
                 class="ant-checkbox-inner"
               />
-            </span>
-          </label>
+            </label>
+          </div>
           <span
             class="ant-transfer-list-content-item-text"
           >
@@ -775,10 +775,10 @@ exports[`Transfer should show sorted targetKey 1`] = `
           class="ant-transfer-list-content-item"
           title="b"
         >
-          <label
+          <div
             class="ant-checkbox-wrapper ant-transfer-list-checkbox"
           >
-            <span
+            <label
               class="ant-checkbox ant-wave-target"
             >
               <input
@@ -788,8 +788,8 @@ exports[`Transfer should show sorted targetKey 1`] = `
               <span
                 class="ant-checkbox-inner"
               />
-            </span>
-          </label>
+            </label>
+          </div>
           <span
             class="ant-transfer-list-content-item-text"
           >
@@ -812,10 +812,10 @@ exports[`Transfer should support render value and label in item 1`] = `
     <div
       class="ant-transfer-list-header"
     >
-      <label
+      <div
         class="ant-checkbox-wrapper ant-transfer-list-checkbox"
       >
-        <span
+        <label
           class="ant-checkbox ant-wave-target"
         >
           <input
@@ -825,8 +825,8 @@ exports[`Transfer should support render value and label in item 1`] = `
           <span
             class="ant-checkbox-inner"
           />
-        </span>
-      </label>
+        </label>
+      </div>
       <span
         aria-label="down"
         class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
@@ -866,10 +866,10 @@ exports[`Transfer should support render value and label in item 1`] = `
           class="ant-transfer-list-content-item"
           title="title value"
         >
-          <label
+          <div
             class="ant-checkbox-wrapper ant-transfer-list-checkbox"
           >
-            <span
+            <label
               class="ant-checkbox ant-wave-target"
             >
               <input
@@ -879,8 +879,8 @@ exports[`Transfer should support render value and label in item 1`] = `
               <span
                 class="ant-checkbox-inner"
               />
-            </span>
-          </label>
+            </label>
+          </div>
           <span
             class="ant-transfer-list-content-item-text"
           >
@@ -958,10 +958,10 @@ exports[`Transfer should support render value and label in item 1`] = `
     <div
       class="ant-transfer-list-header"
     >
-      <label
+      <div
         class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
-        <span
+        <label
           class="ant-checkbox ant-wave-target ant-checkbox-disabled"
         >
           <input
@@ -972,8 +972,8 @@ exports[`Transfer should support render value and label in item 1`] = `
           <span
             class="ant-checkbox-inner"
           />
-        </span>
-      </label>
+        </label>
+      </div>
       <span
         aria-label="down"
         class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
@@ -1073,10 +1073,10 @@ exports[`immutable data dataSource is frozen 1`] = `
     <div
       class="ant-transfer-list-header"
     >
-      <label
+      <div
         class="ant-checkbox-wrapper ant-transfer-list-checkbox"
       >
-        <span
+        <label
           class="ant-checkbox ant-wave-target"
         >
           <input
@@ -1086,8 +1086,8 @@ exports[`immutable data dataSource is frozen 1`] = `
           <span
             class="ant-checkbox-inner"
           />
-        </span>
-      </label>
+        </label>
+      </div>
       <span
         aria-label="down"
         class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
@@ -1126,10 +1126,10 @@ exports[`immutable data dataSource is frozen 1`] = `
         <li
           class="ant-transfer-list-content-item"
         >
-          <label
+          <div
             class="ant-checkbox-wrapper ant-transfer-list-checkbox"
           >
-            <span
+            <label
               class="ant-checkbox ant-wave-target"
             >
               <input
@@ -1139,8 +1139,8 @@ exports[`immutable data dataSource is frozen 1`] = `
               <span
                 class="ant-checkbox-inner"
               />
-            </span>
-          </label>
+            </label>
+          </div>
           <span
             class="ant-transfer-list-content-item-text"
           />
@@ -1216,10 +1216,10 @@ exports[`immutable data dataSource is frozen 1`] = `
     <div
       class="ant-transfer-list-header"
     >
-      <label
+      <div
         class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
-        <span
+        <label
           class="ant-checkbox ant-wave-target ant-checkbox-disabled"
         >
           <input
@@ -1230,8 +1230,8 @@ exports[`immutable data dataSource is frozen 1`] = `
           <span
             class="ant-checkbox-inner"
           />
-        </span>
-      </label>
+        </label>
+      </div>
       <span
         aria-label="down"
         class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"

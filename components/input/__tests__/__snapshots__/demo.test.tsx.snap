@@ -1147,7 +1147,7 @@ Array [
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
     >
-      <span
+      <label
         class="ant-radio-button ant-radio-button-checked"
       >
         <input
@@ -1159,7 +1159,7 @@ Array [
         <span
           class="ant-radio-button-inner"
         />
-      </span>
+      </label>
       <span>
         Hangzhou
       </span>
@@ -1167,7 +1167,7 @@ Array [
     <label
       class="ant-radio-button-wrapper"
     >
-      <span
+      <label
         class="ant-radio-button"
       >
         <input
@@ -1178,7 +1178,7 @@ Array [
         <span
           class="ant-radio-button-inner"
         />
-      </span>
+      </label>
       <span>
         Shanghai
       </span>

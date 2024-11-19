@@ -127,10 +127,10 @@ exports[`Form form should support disabled 1`] = `
           <div
             class="ant-form-item-control-input-content"
           >
-            <label
+            <div
               class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item"
             >
-              <span
+              <label
                 class="ant-checkbox ant-wave-target ant-checkbox-disabled"
               >
                 <input
@@ -142,11 +142,11 @@ exports[`Form form should support disabled 1`] = `
                 <span
                   class="ant-checkbox-inner"
                 />
-              </span>
-              <span>
-                disabled
-              </span>
-            </label>
+                <span>
+                  disabled
+                </span>
+              </label>
+            </div>
           </div>
         </div>
       </div>
@@ -183,7 +183,7 @@ exports[`Form form should support disabled 1`] = `
               <label
                 class="ant-radio-wrapper ant-radio-wrapper-disabled ant-radio-wrapper-in-form-item"
               >
-                <span
+                <label
                   class="ant-radio ant-wave-target ant-radio-disabled"
                 >
                   <input
@@ -195,7 +195,7 @@ exports[`Form form should support disabled 1`] = `
                   <span
                     class="ant-radio-inner"
                   />
-                </span>
+                </label>
                 <span>
                   Apple
                 </span>
@@ -203,7 +203,7 @@ exports[`Form form should support disabled 1`] = `
               <label
                 class="ant-radio-wrapper ant-radio-wrapper-disabled ant-radio-wrapper-in-form-item"
               >
-                <span
+                <label
                   class="ant-radio ant-wave-target ant-radio-disabled"
                 >
                   <input
@@ -215,7 +215,7 @@ exports[`Form form should support disabled 1`] = `
                   <span
                     class="ant-radio-inner"
                   />
-                </span>
+                </label>
                 <span>
                   Pear
                 </span>

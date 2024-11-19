@@ -1401,7 +1401,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button ant-radio-button-checked"
                   >
                     <input
@@ -1413,7 +1413,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     Large
                   </span>
@@ -1421,7 +1421,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button"
                   >
                     <input
@@ -1432,7 +1432,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     Middle
                   </span>
@@ -1440,7 +1440,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button"
                   >
                     <input
@@ -1451,7 +1451,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     Small
                   </span>
@@ -1493,7 +1493,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button ant-radio-button-checked"
                   >
                     <input
@@ -1504,7 +1504,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     Unset
                   </span>
@@ -1512,7 +1512,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button"
                   >
                     <input
@@ -1523,7 +1523,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     Scroll
                   </span>
@@ -1531,7 +1531,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button"
                   >
                     <input
@@ -1542,7 +1542,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     Fixed Columns
                   </span>
@@ -1584,7 +1584,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button ant-radio-button-checked"
                   >
                     <input
@@ -1595,7 +1595,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     Unset
                   </span>
@@ -1603,7 +1603,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button"
                   >
                     <input
@@ -1614,7 +1614,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     Fixed
                   </span>
@@ -1656,7 +1656,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button"
                   >
                     <input
@@ -1667,7 +1667,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     TopLeft
                   </span>
@@ -1675,7 +1675,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button"
                   >
                     <input
@@ -1686,7 +1686,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     TopCenter
                   </span>
@@ -1694,7 +1694,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button"
                   >
                     <input
@@ -1705,7 +1705,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     TopRight
                   </span>
@@ -1713,7 +1713,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button ant-radio-button-checked"
                   >
                     <input
@@ -1725,7 +1725,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     None
                   </span>
@@ -1767,7 +1767,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button"
                   >
                     <input
@@ -1778,7 +1778,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     BottomLeft
                   </span>
@@ -1786,7 +1786,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button"
                   >
                     <input
@@ -1797,7 +1797,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     BottomCenter
                   </span>
@@ -1805,7 +1805,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button ant-radio-button-checked"
                   >
                     <input
@@ -1817,7 +1817,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     BottomRight
                   </span>
@@ -1825,7 +1825,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button"
                   >
                     <input
@@ -1836,7 +1836,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     None
                   </span>
@@ -1891,10 +1891,10 @@ Array [
                       <div
                         class="ant-table-selection"
                       >
-                        <label
+                        <div
                           class="ant-checkbox-wrapper"
                         >
-                          <span
+                          <label
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
@@ -1905,8 +1905,8 @@ Array [
                             <span
                               class="ant-checkbox-inner"
                             />
-                          </span>
-                        </label>
+                          </label>
+                        </div>
                       </div>
                     </th>
                     <th
@@ -2102,10 +2102,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -2115,8 +2115,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -2204,10 +2204,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -2217,8 +2217,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -2306,10 +2306,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -2319,8 +2319,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -2408,10 +2408,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -2421,8 +2421,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -2510,10 +2510,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -2523,8 +2523,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -2612,10 +2612,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -2625,8 +2625,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -2714,10 +2714,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -2727,8 +2727,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -2816,10 +2816,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -2829,8 +2829,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -2918,10 +2918,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -2931,8 +2931,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -3020,10 +3020,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -3033,8 +3033,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -5271,7 +5271,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button ant-radio-button-checked"
                   >
                     <input
@@ -5283,7 +5283,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     Large
                   </span>
@@ -5291,7 +5291,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button"
                   >
                     <input
@@ -5302,7 +5302,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     Middle
                   </span>
@@ -5310,7 +5310,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button"
                   >
                     <input
@@ -5321,7 +5321,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     Small
                   </span>
@@ -5363,7 +5363,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button ant-radio-button-checked"
                   >
                     <input
@@ -5374,7 +5374,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     Unset
                   </span>
@@ -5382,7 +5382,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button"
                   >
                     <input
@@ -5393,7 +5393,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     Scroll
                   </span>
@@ -5401,7 +5401,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button"
                   >
                     <input
@@ -5412,7 +5412,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     Fixed Columns
                   </span>
@@ -5454,7 +5454,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button ant-radio-button-checked"
                   >
                     <input
@@ -5465,7 +5465,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     Unset
                   </span>
@@ -5473,7 +5473,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button"
                   >
                     <input
@@ -5484,7 +5484,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     Fixed
                   </span>
@@ -5526,7 +5526,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button"
                   >
                     <input
@@ -5537,7 +5537,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     TopLeft
                   </span>
@@ -5545,7 +5545,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button"
                   >
                     <input
@@ -5556,7 +5556,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     TopCenter
                   </span>
@@ -5564,7 +5564,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button"
                   >
                     <input
@@ -5575,7 +5575,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     TopRight
                   </span>
@@ -5583,7 +5583,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button ant-radio-button-checked"
                   >
                     <input
@@ -5595,7 +5595,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     None
                   </span>
@@ -5637,7 +5637,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button"
                   >
                     <input
@@ -5648,7 +5648,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     BottomLeft
                   </span>
@@ -5656,7 +5656,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button"
                   >
                     <input
@@ -5667,7 +5667,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     BottomCenter
                   </span>
@@ -5675,7 +5675,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button ant-radio-button-checked"
                   >
                     <input
@@ -5687,7 +5687,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     BottomRight
                   </span>
@@ -5695,7 +5695,7 @@ Array [
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                 >
-                  <span
+                  <label
                     class="ant-radio-button"
                   >
                     <input
@@ -5706,7 +5706,7 @@ Array [
                     <span
                       class="ant-radio-button-inner"
                     />
-                  </span>
+                  </label>
                   <span>
                     None
                   </span>
@@ -5761,10 +5761,10 @@ Array [
                       <div
                         class="ant-table-selection"
                       >
-                        <label
+                        <div
                           class="ant-checkbox-wrapper"
                         >
-                          <span
+                          <label
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
@@ -5775,8 +5775,8 @@ Array [
                             <span
                               class="ant-checkbox-inner"
                             />
-                          </span>
-                        </label>
+                          </label>
+                        </div>
                       </div>
                     </th>
                     <th
@@ -5972,10 +5972,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -5985,8 +5985,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -6074,10 +6074,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -6087,8 +6087,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -6176,10 +6176,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -6189,8 +6189,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -6278,10 +6278,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -6291,8 +6291,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -6380,10 +6380,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -6393,8 +6393,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -6482,10 +6482,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -6495,8 +6495,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -6584,10 +6584,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -6597,8 +6597,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -6686,10 +6686,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -6699,8 +6699,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -6788,10 +6788,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -6801,8 +6801,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -6890,10 +6890,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -6903,8 +6903,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -15531,10 +15531,10 @@ Array [
   <div
     class="ant-checkbox-group"
   >
-    <label
+    <div
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
@@ -15546,15 +15546,15 @@ Array [
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-      <span>
-        Column 1
-      </span>
-    </label>
-    <label
+        <span>
+          Column 1
+        </span>
+      </label>
+    </div>
+    <div
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
@@ -15566,15 +15566,15 @@ Array [
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-      <span>
-        Column 2
-      </span>
-    </label>
-    <label
+        <span>
+          Column 2
+        </span>
+      </label>
+    </div>
+    <div
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
@@ -15586,15 +15586,15 @@ Array [
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-      <span>
-        Column 3
-      </span>
-    </label>
-    <label
+        <span>
+          Column 3
+        </span>
+      </label>
+    </div>
+    <div
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
@@ -15606,15 +15606,15 @@ Array [
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-      <span>
-        Column 4
-      </span>
-    </label>
-    <label
+        <span>
+          Column 4
+        </span>
+      </label>
+    </div>
+    <div
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
@@ -15626,15 +15626,15 @@ Array [
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-      <span>
-        Column 5
-      </span>
-    </label>
-    <label
+        <span>
+          Column 5
+        </span>
+      </label>
+    </div>
+    <div
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
@@ -15646,15 +15646,15 @@ Array [
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-      <span>
-        Column 6
-      </span>
-    </label>
-    <label
+        <span>
+          Column 6
+        </span>
+      </label>
+    </div>
+    <div
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
@@ -15666,15 +15666,15 @@ Array [
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-      <span>
-        Column 7
-      </span>
-    </label>
-    <label
+        <span>
+          Column 7
+        </span>
+      </label>
+    </div>
+    <div
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
@@ -15686,11 +15686,11 @@ Array [
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-      <span>
-        Column 8
-      </span>
-    </label>
+        <span>
+          Column 8
+        </span>
+      </label>
+    </div>
   </div>,
   <div
     class="ant-table-wrapper"
@@ -19756,10 +19756,10 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
                     <div
                       class="ant-table-selection"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -19770,8 +19770,8 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </div>
                   </th>
                   <th
@@ -19812,10 +19812,10 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -19825,8 +19825,8 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -19861,10 +19861,10 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -19874,8 +19874,8 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -19910,10 +19910,10 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -19923,8 +19923,8 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -19959,10 +19959,10 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -19972,8 +19972,8 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -20080,7 +20080,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
       <label
         class="ant-radio-wrapper ant-radio-wrapper-checked"
       >
-        <span
+        <label
           class="ant-radio ant-wave-target ant-radio-checked"
         >
           <input
@@ -20092,7 +20092,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
           <span
             class="ant-radio-inner"
           />
-        </span>
+        </label>
         <span>
           topLeft
         </span>
@@ -20100,7 +20100,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
       <label
         class="ant-radio-wrapper"
       >
-        <span
+        <label
           class="ant-radio ant-wave-target"
         >
           <input
@@ -20111,7 +20111,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
           <span
             class="ant-radio-inner"
           />
-        </span>
+        </label>
         <span>
           topCenter
         </span>
@@ -20119,7 +20119,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
       <label
         class="ant-radio-wrapper"
       >
-        <span
+        <label
           class="ant-radio ant-wave-target"
         >
           <input
@@ -20130,7 +20130,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
           <span
             class="ant-radio-inner"
           />
-        </span>
+        </label>
         <span>
           topRight
         </span>
@@ -20138,7 +20138,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
       <label
         class="ant-radio-wrapper"
       >
-        <span
+        <label
           class="ant-radio ant-wave-target"
         >
           <input
@@ -20149,7 +20149,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
           <span
             class="ant-radio-inner"
           />
-        </span>
+        </label>
         <span>
           none
         </span>
@@ -20163,7 +20163,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
     <label
       class="ant-radio-wrapper"
     >
-      <span
+      <label
         class="ant-radio ant-wave-target"
       >
         <input
@@ -20174,7 +20174,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
         <span
           class="ant-radio-inner"
         />
-      </span>
+      </label>
       <span>
         bottomLeft
       </span>
@@ -20182,7 +20182,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
     <label
       class="ant-radio-wrapper"
     >
-      <span
+      <label
         class="ant-radio ant-wave-target"
       >
         <input
@@ -20193,7 +20193,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
         <span
           class="ant-radio-inner"
         />
-      </span>
+      </label>
       <span>
         bottomCenter
       </span>
@@ -20201,7 +20201,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked"
     >
-      <span
+      <label
         class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
@@ -20213,7 +20213,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
         <span
           class="ant-radio-inner"
         />
-      </span>
+      </label>
       <span>
         bottomRight
       </span>
@@ -20221,7 +20221,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
     <label
       class="ant-radio-wrapper"
     >
-      <span
+      <label
         class="ant-radio ant-wave-target"
       >
         <input
@@ -20232,7 +20232,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
         <span
           class="ant-radio-inner"
         />
-      </span>
+      </label>
       <span>
         none
       </span>
@@ -21639,7 +21639,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked"
     >
-      <span
+      <label
         class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
@@ -21651,7 +21651,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
         <span
           class="ant-radio-inner"
         />
-      </span>
+      </label>
       <span>
         Checkbox
       </span>
@@ -21659,7 +21659,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
     <label
       class="ant-radio-wrapper"
     >
-      <span
+      <label
         class="ant-radio ant-wave-target"
       >
         <input
@@ -21670,7 +21670,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
         <span
           class="ant-radio-inner"
         />
-      </span>
+      </label>
       <span>
         radio
       </span>
@@ -21717,10 +21717,10 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                       <div
                         class="ant-table-selection"
                       >
-                        <label
+                        <div
                           class="ant-checkbox-wrapper"
                         >
-                          <span
+                          <label
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
@@ -21731,8 +21731,8 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                             <span
                               class="ant-checkbox-inner"
                             />
-                          </span>
-                        </label>
+                          </label>
+                        </div>
                       </div>
                     </th>
                     <th
@@ -21765,10 +21765,10 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -21779,8 +21779,8 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -21807,10 +21807,10 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -21821,8 +21821,8 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -21849,10 +21849,10 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -21863,8 +21863,8 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -21891,10 +21891,10 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target ant-checkbox-disabled"
                         >
                           <input
@@ -21906,8 +21906,8 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -22071,10 +22071,10 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                       <div
                         class="ant-table-selection"
                       >
-                        <label
+                        <div
                           class="ant-checkbox-wrapper"
                         >
-                          <span
+                          <label
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
@@ -22085,8 +22085,8 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                             <span
                               class="ant-checkbox-inner"
                             />
-                          </span>
-                        </label>
+                          </label>
+                        </div>
                       </div>
                     </th>
                     <th
@@ -22119,10 +22119,10 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -22132,8 +22132,8 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -22158,10 +22158,10 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -22171,8 +22171,8 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -22197,10 +22197,10 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -22210,8 +22210,8 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -22236,10 +22236,10 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -22249,8 +22249,8 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -22275,10 +22275,10 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -22288,8 +22288,8 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -22314,10 +22314,10 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -22327,8 +22327,8 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -22353,10 +22353,10 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -22366,8 +22366,8 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -22392,10 +22392,10 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -22405,8 +22405,8 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -22431,10 +22431,10 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -22444,8 +22444,8 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -22470,10 +22470,10 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -22483,8 +22483,8 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -22674,10 +22674,10 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                     <div
                       class="ant-table-selection"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -22688,8 +22688,8 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                       <div
                         class="ant-table-selection-extra"
                       >
@@ -22749,10 +22749,10 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -22762,8 +22762,8 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -22788,10 +22788,10 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -22801,8 +22801,8 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -22827,10 +22827,10 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -22840,8 +22840,8 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -22866,10 +22866,10 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -22879,8 +22879,8 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -22905,10 +22905,10 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -22918,8 +22918,8 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -22944,10 +22944,10 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -22957,8 +22957,8 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -22983,10 +22983,10 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -22996,8 +22996,8 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -23022,10 +23022,10 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -23035,8 +23035,8 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -23061,10 +23061,10 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -23074,8 +23074,8 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -23100,10 +23100,10 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -23113,8 +23113,8 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -23303,10 +23303,10 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                     <div
                       class="ant-table-selection"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -23317,8 +23317,8 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </div>
                   </th>
                   <th
@@ -23343,10 +23343,10 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                     false
                     <!-- -->
                     : 
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -23356,8 +23356,8 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -23386,10 +23386,10 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                     false
                     <!-- -->
                     : 
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -23399,8 +23399,8 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -23429,10 +23429,10 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                     false
                     <!-- -->
                     : 
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -23442,8 +23442,8 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -23472,10 +23472,10 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                     false
                     <!-- -->
                     : 
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -23485,8 +23485,8 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -23515,10 +23515,10 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                     false
                     <!-- -->
                     : 
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -23528,8 +23528,8 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -23793,10 +23793,10 @@ Array [
                       <div
                         class="ant-table-selection"
                       >
-                        <label
+                        <div
                           class="ant-checkbox-wrapper"
                         >
-                          <span
+                          <label
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
@@ -23807,8 +23807,8 @@ Array [
                             <span
                               class="ant-checkbox-inner"
                             />
-                          </span>
-                        </label>
+                          </label>
+                        </div>
                       </div>
                     </th>
                     <th
@@ -23841,10 +23841,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -23854,8 +23854,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -23883,10 +23883,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -23896,8 +23896,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -23925,10 +23925,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -23938,8 +23938,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -23967,10 +23967,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -23980,8 +23980,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -24009,10 +24009,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -24022,8 +24022,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -24051,10 +24051,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -24064,8 +24064,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -24093,10 +24093,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -24106,8 +24106,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -24135,10 +24135,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -24148,8 +24148,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -24177,10 +24177,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -24190,8 +24190,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -24219,10 +24219,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -24232,8 +24232,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -24261,10 +24261,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -24274,8 +24274,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -24303,10 +24303,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -24316,8 +24316,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -24345,10 +24345,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -24358,8 +24358,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -24387,10 +24387,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -24400,8 +24400,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -24429,10 +24429,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -24442,8 +24442,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -24471,10 +24471,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -24484,8 +24484,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -24513,10 +24513,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -24526,8 +24526,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -24555,10 +24555,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -24568,8 +24568,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -24597,10 +24597,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -24610,8 +24610,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -24639,10 +24639,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -24652,8 +24652,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -24681,10 +24681,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -24694,8 +24694,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -24723,10 +24723,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -24736,8 +24736,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -24765,10 +24765,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -24778,8 +24778,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -24807,10 +24807,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -24820,8 +24820,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -24849,10 +24849,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -24862,8 +24862,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -24891,10 +24891,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -24904,8 +24904,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -24933,10 +24933,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -24946,8 +24946,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -24975,10 +24975,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -24988,8 +24988,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25017,10 +25017,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -25030,8 +25030,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25059,10 +25059,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -25072,8 +25072,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25101,10 +25101,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -25114,8 +25114,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25143,10 +25143,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -25156,8 +25156,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25185,10 +25185,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -25198,8 +25198,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25227,10 +25227,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -25240,8 +25240,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25269,10 +25269,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -25282,8 +25282,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25311,10 +25311,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -25324,8 +25324,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25353,10 +25353,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -25366,8 +25366,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25395,10 +25395,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -25408,8 +25408,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25437,10 +25437,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -25450,8 +25450,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25479,10 +25479,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -25492,8 +25492,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25521,10 +25521,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -25534,8 +25534,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25563,10 +25563,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -25576,8 +25576,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25605,10 +25605,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -25618,8 +25618,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25647,10 +25647,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -25660,8 +25660,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25689,10 +25689,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -25702,8 +25702,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25731,10 +25731,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -25744,8 +25744,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25773,10 +25773,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -25786,8 +25786,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25815,10 +25815,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -25828,8 +25828,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25857,10 +25857,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -25870,8 +25870,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25899,10 +25899,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -25912,8 +25912,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25983,10 +25983,10 @@ exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
                     <div
                       class="ant-table-selection"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -25997,8 +25997,8 @@ exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                       <div
                         class="ant-table-selection-extra"
                       >
@@ -26058,10 +26058,10 @@ exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -26071,8 +26071,8 @@ exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -26097,10 +26097,10 @@ exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -26110,8 +26110,8 @@ exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -26136,10 +26136,10 @@ exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-                    <label
+                    <div
                       class="ant-checkbox-wrapper"
                     >
-                      <span
+                      <label
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
@@ -26149,8 +26149,8 @@ exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
                         <span
                           class="ant-checkbox-inner"
                         />
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -28574,10 +28574,10 @@ Array [
                       <div
                         class="ant-table-selection"
                       >
-                        <label
+                        <div
                           class="ant-checkbox-wrapper"
                         >
-                          <span
+                          <label
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
@@ -28588,8 +28588,8 @@ Array [
                             <span
                               class="ant-checkbox-inner"
                             />
-                          </span>
-                        </label>
+                          </label>
+                        </div>
                       </div>
                     </th>
                     <th
@@ -28622,10 +28622,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -28635,8 +28635,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-with-append"
@@ -28671,10 +28671,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -28684,8 +28684,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-with-append"
@@ -28884,10 +28884,10 @@ Array [
                       <div
                         class="ant-table-selection"
                       >
-                        <label
+                        <div
                           class="ant-checkbox-wrapper"
                         >
-                          <span
+                          <label
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
@@ -28898,8 +28898,8 @@ Array [
                             <span
                               class="ant-checkbox-inner"
                             />
-                          </span>
-                        </label>
+                          </label>
+                        </div>
                       </div>
                     </th>
                     <th
@@ -28939,10 +28939,10 @@ Array [
                       class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
                       style="position:sticky;left:0"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -28952,8 +28952,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
@@ -28995,10 +28995,10 @@ Array [
                       class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
                       style="position:sticky;left:0"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -29008,8 +29008,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
@@ -29051,10 +29051,10 @@ Array [
                       class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
                       style="position:sticky;left:0"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -29064,8 +29064,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
@@ -29107,10 +29107,10 @@ Array [
                       class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
                       style="position:sticky;left:0"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -29120,8 +29120,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
@@ -29163,10 +29163,10 @@ Array [
                       class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
                       style="position:sticky;left:0"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -29176,8 +29176,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
@@ -29219,10 +29219,10 @@ Array [
                       class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
                       style="position:sticky;left:0"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -29232,8 +29232,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
@@ -29275,10 +29275,10 @@ Array [
                       class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
                       style="position:sticky;left:0"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -29288,8 +29288,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
@@ -29331,10 +29331,10 @@ Array [
                       class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
                       style="position:sticky;left:0"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -29344,8 +29344,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
@@ -29387,10 +29387,10 @@ Array [
                       class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
                       style="position:sticky;left:0"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -29400,8 +29400,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
@@ -29638,10 +29638,10 @@ Array [
                       <div
                         class="ant-table-selection"
                       >
-                        <label
+                        <div
                           class="ant-checkbox-wrapper"
                         >
-                          <span
+                          <label
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
@@ -29652,8 +29652,8 @@ Array [
                             <span
                               class="ant-checkbox-inner"
                             />
-                          </span>
-                        </label>
+                          </label>
+                        </div>
                       </div>
                     </th>
                     <th
@@ -29686,10 +29686,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -29699,8 +29699,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-with-append"
@@ -29735,10 +29735,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -29748,8 +29748,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-with-append"
@@ -29784,10 +29784,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -29797,8 +29797,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-with-append"
@@ -29833,10 +29833,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -29846,8 +29846,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-with-append"
@@ -29882,10 +29882,10 @@ Array [
                     <td
                       class="ant-table-cell ant-table-selection-column"
                     >
-                      <label
+                      <div
                         class="ant-checkbox-wrapper"
                       >
-                        <span
+                        <label
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
@@ -29895,8 +29895,8 @@ Array [
                           <span
                             class="ant-checkbox-inner"
                           />
-                        </span>
-                      </label>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-with-append"

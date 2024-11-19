@@ -7,10 +7,10 @@ exports[`Transfer.List should render correctly 1`] = `
   <div
     class="ant-transfer-list-header"
   >
-    <label
+    <div
       class="ant-checkbox-wrapper ant-transfer-list-checkbox"
     >
-      <span
+      <label
         class="ant-checkbox ant-checkbox-indeterminate ant-wave-target"
       >
         <input
@@ -20,8 +20,8 @@ exports[`Transfer.List should render correctly 1`] = `
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-    </label>
+      </label>
+    </div>
     <span
       aria-label="down"
       class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
@@ -59,10 +59,10 @@ exports[`Transfer.List should render correctly 1`] = `
       <li
         class="ant-transfer-list-content-item ant-transfer-list-content-item-checked"
       >
-        <label
+        <div
           class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-transfer-list-checkbox"
         >
-          <span
+          <label
             class="ant-checkbox ant-wave-target ant-checkbox-checked"
           >
             <input
@@ -73,8 +73,8 @@ exports[`Transfer.List should render correctly 1`] = `
             <span
               class="ant-checkbox-inner"
             />
-          </span>
-        </label>
+          </label>
+        </div>
         <span
           class="ant-transfer-list-content-item-text"
         />
@@ -82,10 +82,10 @@ exports[`Transfer.List should render correctly 1`] = `
       <li
         class="ant-transfer-list-content-item"
       >
-        <label
+        <div
           class="ant-checkbox-wrapper ant-transfer-list-checkbox"
         >
-          <span
+          <label
             class="ant-checkbox ant-wave-target"
           >
             <input
@@ -95,8 +95,8 @@ exports[`Transfer.List should render correctly 1`] = `
             <span
               class="ant-checkbox-inner"
             />
-          </span>
-        </label>
+          </label>
+        </div>
         <span
           class="ant-transfer-list-content-item-text"
         />
@@ -104,10 +104,10 @@ exports[`Transfer.List should render correctly 1`] = `
       <li
         class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
       >
-        <label
+        <div
           class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
         >
-          <span
+          <label
             class="ant-checkbox ant-wave-target ant-checkbox-disabled"
           >
             <input
@@ -118,8 +118,8 @@ exports[`Transfer.List should render correctly 1`] = `
             <span
               class="ant-checkbox-inner"
             />
-          </span>
-        </label>
+          </label>
+        </div>
         <span
           class="ant-transfer-list-content-item-text"
         />

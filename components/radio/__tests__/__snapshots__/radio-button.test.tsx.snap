@@ -4,7 +4,7 @@ exports[`Radio Button rtl render component should be rendered correctly in RTL d
 <label
   class="ant-radio-button-wrapper ant-radio-button-wrapper-rtl"
 >
-  <span
+  <label
     class="ant-radio-button"
   >
     <input
@@ -14,7 +14,7 @@ exports[`Radio Button rtl render component should be rendered correctly in RTL d
     <span
       class="ant-radio-button-inner"
     />
-  </span>
+  </label>
 </label>
 `;
 
@@ -22,7 +22,7 @@ exports[`Radio Button should render correctly 1`] = `
 <label
   class="ant-radio-button-wrapper customized"
 >
-  <span
+  <label
     class="ant-radio-button"
   >
     <input
@@ -32,7 +32,7 @@ exports[`Radio Button should render correctly 1`] = `
     <span
       class="ant-radio-button-inner"
     />
-  </span>
+  </label>
   <span>
     Test
   </span>
@@ -46,7 +46,7 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
   <label
     class="my-radio-wrapper"
   >
-    <span
+    <label
       class="my-radio ant-wave-target"
     >
       <input
@@ -57,7 +57,7 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
       <span
         class="my-radio-inner"
       />
-    </span>
+    </label>
     <span>
       Apple
     </span>
@@ -66,7 +66,7 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
     class="my-radio-wrapper"
     style="font-size: 12px;"
   >
-    <span
+    <label
       class="my-radio ant-wave-target"
     >
       <input
@@ -77,7 +77,7 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
       <span
         class="my-radio-inner"
       />
-    </span>
+    </label>
     <span>
       Orange
     </span>

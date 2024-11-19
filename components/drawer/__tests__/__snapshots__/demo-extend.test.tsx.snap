@@ -495,7 +495,7 @@ Array [
         <label
           class="ant-radio-wrapper"
         >
-          <span
+          <label
             class="ant-radio ant-wave-target"
           >
             <input
@@ -506,7 +506,7 @@ Array [
             <span
               class="ant-radio-inner"
             />
-          </span>
+          </label>
           <span>
             top
           </span>
@@ -514,7 +514,7 @@ Array [
         <label
           class="ant-radio-wrapper ant-radio-wrapper-checked"
         >
-          <span
+          <label
             class="ant-radio ant-wave-target ant-radio-checked"
           >
             <input
@@ -526,7 +526,7 @@ Array [
             <span
               class="ant-radio-inner"
             />
-          </span>
+          </label>
           <span>
             right
           </span>
@@ -534,7 +534,7 @@ Array [
         <label
           class="ant-radio-wrapper"
         >
-          <span
+          <label
             class="ant-radio ant-wave-target"
           >
             <input
@@ -545,7 +545,7 @@ Array [
             <span
               class="ant-radio-inner"
             />
-          </span>
+          </label>
           <span>
             bottom
           </span>
@@ -553,7 +553,7 @@ Array [
         <label
           class="ant-radio-wrapper"
         >
-          <span
+          <label
             class="ant-radio ant-wave-target"
           >
             <input
@@ -564,7 +564,7 @@ Array [
             <span
               class="ant-radio-inner"
             />
-          </span>
+          </label>
           <span>
             left
           </span>
@@ -3145,7 +3145,7 @@ Array [
         <label
           class="ant-radio-wrapper"
         >
-          <span
+          <label
             class="ant-radio ant-wave-target"
           >
             <input
@@ -3156,7 +3156,7 @@ Array [
             <span
               class="ant-radio-inner"
             />
-          </span>
+          </label>
           <span>
             top
           </span>
@@ -3164,7 +3164,7 @@ Array [
         <label
           class="ant-radio-wrapper"
         >
-          <span
+          <label
             class="ant-radio ant-wave-target"
           >
             <input
@@ -3175,7 +3175,7 @@ Array [
             <span
               class="ant-radio-inner"
             />
-          </span>
+          </label>
           <span>
             right
           </span>
@@ -3183,7 +3183,7 @@ Array [
         <label
           class="ant-radio-wrapper"
         >
-          <span
+          <label
             class="ant-radio ant-wave-target"
           >
             <input
@@ -3194,7 +3194,7 @@ Array [
             <span
               class="ant-radio-inner"
             />
-          </span>
+          </label>
           <span>
             bottom
           </span>
@@ -3202,7 +3202,7 @@ Array [
         <label
           class="ant-radio-wrapper ant-radio-wrapper-checked"
         >
-          <span
+          <label
             class="ant-radio ant-wave-target ant-radio-checked"
           >
             <input
@@ -3214,7 +3214,7 @@ Array [
             <span
               class="ant-radio-inner"
             />
-          </span>
+          </label>
           <span>
             left
           </span>
