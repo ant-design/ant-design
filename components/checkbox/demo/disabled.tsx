@@ -3,11 +3,11 @@ import { Checkbox } from 'antd';
 
 const App: React.FC = () => (
   <>
-    <Checkbox defaultChecked={false} disabled />
+    <Checkbox defaultChecked={false} disabled aria-label="disabled" />
     <br />
-    <Checkbox indeterminate disabled />
+    <Checkbox indeterminate disabled aria-label="indeterminate" />
     <br />
-    <Checkbox defaultChecked disabled />
+    <Checkbox defaultChecked disabled aria-label="defaultChecked" />
   </>
 );
 

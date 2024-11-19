@@ -4,7 +4,7 @@ exports[`renders components/checkbox/demo/basic.tsx extend context correctly 1`]
 <div
   class="ant-checkbox-wrapper"
 >
-  <span
+  <label
     class="ant-checkbox ant-wave-target"
   >
     <input
@@ -14,10 +14,10 @@ exports[`renders components/checkbox/demo/basic.tsx extend context correctly 1`]
     <span
       class="ant-checkbox-inner"
     />
-  </span>
-  <span>
-    Checkbox
-  </span>
+    <span>
+      Checkbox
+    </span>
+  </label>
 </div>
 `;
 
@@ -28,7 +28,7 @@ Array [
   <div
     class="ant-checkbox-wrapper"
   >
-    <span
+    <label
       class="ant-checkbox ant-checkbox-indeterminate ant-wave-target"
     >
       <input
@@ -38,10 +38,10 @@ Array [
       <span
         class="ant-checkbox-inner"
       />
-    </span>
-    <span>
-      Check all
-    </span>
+      <span>
+        Check all
+      </span>
+    </label>
   </div>,
   <div
     class="ant-divider ant-divider-horizontal"
@@ -53,7 +53,7 @@ Array [
     <div
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
@@ -65,15 +65,15 @@ Array [
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-      <span>
-        Apple
-      </span>
+        <span>
+          Apple
+        </span>
+      </label>
     </div>
     <div
       class="ant-checkbox-wrapper ant-checkbox-group-item"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target"
       >
         <input
@@ -84,15 +84,15 @@ Array [
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-      <span>
-        Pear
-      </span>
+        <span>
+          Pear
+        </span>
+      </label>
     </div>
     <div
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
@@ -104,10 +104,10 @@ Array [
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-      <span>
-        Orange
-      </span>
+        <span>
+          Orange
+        </span>
+      </label>
     </div>
   </div>,
 ]
@@ -123,7 +123,7 @@ Array [
   <div
     class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
   >
-    <span
+    <label
       class="ant-checkbox ant-wave-target ant-checkbox-checked"
     >
       <input
@@ -134,10 +134,10 @@ Array [
       <span
         class="ant-checkbox-inner"
       />
-    </span>
-    <span>
-      Checked-Enabled
-    </span>
+      <span>
+        Checked-Enabled
+      </span>
+    </label>
   </div>,
   <p />,
   <p>
@@ -173,7 +173,7 @@ Array [
   <div
     class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
   >
-    <span
+    <label
       class="ant-checkbox ant-wave-target ant-checkbox-checked"
     >
       <input
@@ -184,12 +184,12 @@ Array [
       <span
         class="ant-checkbox-inner"
       />
-    </span>
+    </label>
   </div>,
   <div
     class="ant-checkbox-wrapper"
   >
-    <span
+    <label
       class="ant-checkbox ant-wave-target"
     >
       <input
@@ -199,12 +199,12 @@ Array [
       <span
         class="ant-checkbox-inner"
       />
-    </span>
+    </label>
   </div>,
   <div
     class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
   >
-    <span
+    <label
       class="ant-checkbox ant-wave-target ant-checkbox-checked"
     >
       <input
@@ -215,12 +215,12 @@ Array [
       <span
         class="ant-checkbox-inner"
       />
-    </span>
+    </label>
   </div>,
   <div
     class="ant-checkbox-wrapper"
   >
-    <span
+    <label
       class="ant-checkbox ant-wave-target"
     >
       <input
@@ -230,7 +230,7 @@ Array [
       <span
         class="ant-checkbox-inner"
       />
-    </span>
+    </label>
   </div>,
 ]
 `;
@@ -244,7 +244,7 @@ exports[`renders components/checkbox/demo/debug-disable-popover.tsx extend conte
   <div
     class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled"
   >
-    <span
+    <label
       class="ant-checkbox ant-wave-target ant-checkbox-checked ant-checkbox-disabled"
     >
       <input
@@ -256,7 +256,7 @@ exports[`renders components/checkbox/demo/debug-disable-popover.tsx extend conte
       <span
         class="ant-checkbox-inner"
       />
-    </span>
+    </label>
   </div>
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
@@ -284,71 +284,7 @@ exports[`renders components/checkbox/demo/debug-disable-popover.tsx extend conte
 </div>
 `;
 
-exports[`renders components/checkbox/demo/debug-disable-popover.tsx extend context correctly 2`] = `
-[
-  "The above error occurred in the <input> component:
-
-    at input
-    at span
-    at /Users/zcy/Documents/GitHubProject/ant-design/node_modules/rc-checkbox/lib/index.js:22:32
-    at div
-    at Wave (/Users/zcy/Documents/GitHubProject/ant-design/components/_util/wave/index.ts:19:5)
-    at customizePrefixCls (/Users/zcy/Documents/GitHubProject/ant-design/components/checkbox/Checkbox.tsx:65:16)
-    at children (/Users/zcy/Documents/GitHubProject/ant-design/components/config-provider/MotionWrapper.tsx:11:11)
-    at ProviderChildren (/Users/zcy/Documents/GitHubProject/ant-design/components/config-provider/index.tsx:136:5)
-    at ConfigProvider (/Users/zcy/Documents/GitHubProject/ant-design/components/config-provider/index.tsx:440:25)
-    at div
-    at div
-    at App
-    at children (/Users/zcy/Documents/GitHubProject/ant-design/node_modules/@ant-design/cssinjs/lib/StyleContext.js:65:24)
-    at children (/Users/zcy/Documents/GitHubProject/ant-design/components/config-provider/MotionWrapper.tsx:11:11)
-    at ProviderChildren (/Users/zcy/Documents/GitHubProject/ant-design/components/config-provider/index.tsx:136:5)
-    at ConfigProvider (/Users/zcy/Documents/GitHubProject/ant-design/components/config-provider/index.tsx:440:25)
-
-Consider adding an error boundary to your tree to customize error handling behavior.
-Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.",
-  "The above error occurred in the <input> component:
-
-    at input
-    at span
-    at /Users/zcy/Documents/GitHubProject/ant-design/node_modules/rc-checkbox/lib/index.js:22:32
-    at div
-    at Wave (/Users/zcy/Documents/GitHubProject/ant-design/components/_util/wave/index.ts:19:5)
-    at customizePrefixCls (/Users/zcy/Documents/GitHubProject/ant-design/components/checkbox/Checkbox.tsx:65:16)
-    at div
-    at _reactNode (/Users/zcy/Documents/GitHubProject/ant-design/components/space/Item.tsx:5:1)
-    at div
-    at useContext (/Users/zcy/Documents/GitHubProject/ant-design/components/space/index.tsx:34:69)
-    at div
-    at App
-    at children (/Users/zcy/Documents/GitHubProject/ant-design/node_modules/@ant-design/cssinjs/lib/StyleContext.js:65:24)
-    at children (/Users/zcy/Documents/GitHubProject/ant-design/components/config-provider/MotionWrapper.tsx:11:11)
-    at ProviderChildren (/Users/zcy/Documents/GitHubProject/ant-design/components/config-provider/index.tsx:136:5)
-    at ConfigProvider (/Users/zcy/Documents/GitHubProject/ant-design/components/config-provider/index.tsx:440:25)
-
-Consider adding an error boundary to your tree to customize error handling behavior.
-Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.",
-  "The above error occurred in the <input> component:
-
-    at input
-    at span
-    at /Users/zcy/Documents/GitHubProject/ant-design/node_modules/rc-checkbox/lib/index.js:22:32
-    at div
-    at Wave (/Users/zcy/Documents/GitHubProject/ant-design/components/_util/wave/index.ts:19:5)
-    at customizePrefixCls (/Users/zcy/Documents/GitHubProject/ant-design/components/checkbox/Checkbox.tsx:65:16)
-    at div
-    at div
-    at App
-    at children (/Users/zcy/Documents/GitHubProject/ant-design/node_modules/@ant-design/cssinjs/lib/StyleContext.js:65:24)
-    at children (/Users/zcy/Documents/GitHubProject/ant-design/components/config-provider/MotionWrapper.tsx:11:11)
-    at ProviderChildren (/Users/zcy/Documents/GitHubProject/ant-design/components/config-provider/index.tsx:136:5)
-    at ConfigProvider (/Users/zcy/Documents/GitHubProject/ant-design/components/config-provider/index.tsx:440:25)
-
-Consider adding an error boundary to your tree to customize error handling behavior.
-Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.",
-  "Warning: [antd: Checkbox] \`value\` is not a valid prop, do you mean \`checked\`?",
-]
-`;
+exports[`renders components/checkbox/demo/debug-disable-popover.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/checkbox/demo/debug-line.tsx extend context correctly 1`] = `
 <div>
@@ -362,7 +298,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
       <div
         class="ant-checkbox-wrapper"
       >
-        <span
+        <label
           class="ant-checkbox ant-wave-target"
         >
           <input
@@ -373,7 +309,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
           <span
             class="ant-checkbox-inner"
           />
-        </span>
+        </label>
       </div>
     </div>
     <div
@@ -389,7 +325,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
       <div
         class="ant-checkbox-wrapper"
       >
-        <span
+        <label
           class="ant-checkbox ant-wave-target"
         >
           <input
@@ -400,10 +336,10 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
           <span
             class="ant-checkbox-inner"
           />
-        </span>
-        <span>
-          Little
-        </span>
+          <span>
+            Little
+          </span>
+        </label>
       </div>
     </div>
   </div>
@@ -417,7 +353,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
       <label
         class="ant-radio-wrapper"
       >
-        <span
+        <label
           class="ant-radio ant-wave-target"
         >
           <input
@@ -428,7 +364,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
           <span
             class="ant-radio-inner"
           />
-        </span>
+        </label>
       </label>
     </div>
     <div
@@ -444,7 +380,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
       <label
         class="ant-radio-wrapper"
       >
-        <span
+        <label
           class="ant-radio ant-wave-target"
         >
           <input
@@ -455,7 +391,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
           <span
             class="ant-radio-inner"
           />
-        </span>
+        </label>
         <span>
           Little
         </span>
@@ -468,7 +404,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
     <div
       class="ant-checkbox-wrapper"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target"
       >
         <input
@@ -479,7 +415,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
         <span
           class="ant-checkbox-inner"
         />
-      </span>
+      </label>
     </div>
     <div>
       Bamboo
@@ -487,7 +423,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
     <div
       class="ant-checkbox-wrapper"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target"
       >
         <input
@@ -498,10 +434,10 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-      <span>
-        Little
-      </span>
+        <span>
+          Little
+        </span>
+      </label>
     </div>
   </div>
   <div
@@ -510,7 +446,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
     <label
       class="ant-radio-wrapper"
     >
-      <span
+      <label
         class="ant-radio ant-wave-target"
       >
         <input
@@ -521,7 +457,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
         <span
           class="ant-radio-inner"
         />
-      </span>
+      </label>
     </label>
     <div>
       Bamboo
@@ -529,7 +465,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
     <label
       class="ant-radio-wrapper"
     >
-      <span
+      <label
         class="ant-radio ant-wave-target"
       >
         <input
@@ -540,7 +476,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
         <span
           class="ant-radio-inner"
         />
-      </span>
+      </label>
       <span>
         Little
       </span>
@@ -550,7 +486,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
     <div
       class="ant-checkbox-wrapper"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target"
       >
         <input
@@ -560,17 +496,17 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-      <span>
-        Aligned
-      </span>
+        <span>
+          Aligned
+        </span>
+      </label>
     </div>
   </div>
   <div>
     <div
       class="ant-checkbox-wrapper"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target"
       >
         <input
@@ -580,14 +516,14 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-      <span>
-        <span
-          style="font-size: 32px;"
-        >
-          Aligned
+        <span>
+          <span
+            style="font-size: 32px;"
+          >
+            Aligned
+          </span>
         </span>
-      </span>
+      </label>
     </div>
   </div>
 </div>
@@ -604,10 +540,11 @@ Array [
   <div
     class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
   >
-    <span
+    <label
       class="ant-checkbox ant-wave-target ant-checkbox-disabled"
     >
       <input
+        aria-label="disabled"
         class="ant-checkbox-input"
         disabled=""
         type="checkbox"
@@ -615,16 +552,17 @@ Array [
       <span
         class="ant-checkbox-inner"
       />
-    </span>
+    </label>
   </div>,
   <br />,
   <div
     class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
   >
-    <span
+    <label
       class="ant-checkbox ant-checkbox-indeterminate ant-wave-target ant-checkbox-disabled"
     >
       <input
+        aria-label="indeterminate"
         class="ant-checkbox-input"
         disabled=""
         type="checkbox"
@@ -632,16 +570,17 @@ Array [
       <span
         class="ant-checkbox-inner"
       />
-    </span>
+    </label>
   </div>,
   <br />,
   <div
     class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
   >
-    <span
+    <label
       class="ant-checkbox ant-wave-target ant-checkbox-checked ant-checkbox-disabled"
     >
       <input
+        aria-label="defaultChecked"
         checked=""
         class="ant-checkbox-input"
         disabled=""
@@ -650,55 +589,12 @@ Array [
       <span
         class="ant-checkbox-inner"
       />
-    </span>
+    </label>
   </div>,
 ]
 `;
 
-exports[`renders components/checkbox/demo/disabled.tsx extend context correctly 2`] = `
-[
-  "The above error occurred in the <input> component:
-
-    at input
-    at span
-    at /Users/zcy/Documents/GitHubProject/ant-design/node_modules/rc-checkbox/lib/index.js:22:32
-    at div
-    at Wave (/Users/zcy/Documents/GitHubProject/ant-design/components/_util/wave/index.ts:19:5)
-    at customizePrefixCls (/Users/zcy/Documents/GitHubProject/ant-design/components/checkbox/Checkbox.tsx:65:16)
-    at div
-    at /Users/zcy/Documents/GitHubProject/ant-design/components/checkbox/group.tsx:19:3
-    at App
-    at children (/Users/zcy/Documents/GitHubProject/ant-design/node_modules/@ant-design/cssinjs/lib/StyleContext.js:65:24)
-    at children (/Users/zcy/Documents/GitHubProject/ant-design/components/config-provider/MotionWrapper.tsx:11:11)
-    at ProviderChildren (/Users/zcy/Documents/GitHubProject/ant-design/components/config-provider/index.tsx:136:5)
-    at ConfigProvider (/Users/zcy/Documents/GitHubProject/ant-design/components/config-provider/index.tsx:440:25)
-
-Consider adding an error boundary to your tree to customize error handling behavior.
-Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.",
-  "The above error occurred in the <input> component:
-
-    at input
-    at span
-    at /Users/zcy/Documents/GitHubProject/ant-design/node_modules/rc-checkbox/lib/index.js:22:32
-    at div
-    at Wave (/Users/zcy/Documents/GitHubProject/ant-design/components/_util/wave/index.ts:19:5)
-    at customizePrefixCls (/Users/zcy/Documents/GitHubProject/ant-design/components/checkbox/Checkbox.tsx:65:16)
-    at div
-    at useContext (/Users/zcy/Documents/GitHubProject/ant-design/components/grid/col.tsx:52:45)
-    at div
-    at contentStyle (/Users/zcy/Documents/GitHubProject/ant-design/components/grid/Row.tsx:49:13)
-    at div
-    at /Users/zcy/Documents/GitHubProject/ant-design/components/checkbox/group.tsx:19:3
-    at App
-    at children (/Users/zcy/Documents/GitHubProject/ant-design/node_modules/@ant-design/cssinjs/lib/StyleContext.js:65:24)
-    at children (/Users/zcy/Documents/GitHubProject/ant-design/components/config-provider/MotionWrapper.tsx:11:11)
-    at ProviderChildren (/Users/zcy/Documents/GitHubProject/ant-design/components/config-provider/index.tsx:136:5)
-    at ConfigProvider (/Users/zcy/Documents/GitHubProject/ant-design/components/config-provider/index.tsx:440:25)
-
-Consider adding an error boundary to your tree to customize error handling behavior.
-Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.",
-]
-`;
+exports[`renders components/checkbox/demo/disabled.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/checkbox/demo/group.tsx extend context correctly 1`] = `
 Array [
@@ -708,7 +604,7 @@ Array [
     <div
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
@@ -720,15 +616,15 @@ Array [
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-      <span>
-        Apple
-      </span>
+        <span>
+          Apple
+        </span>
+      </label>
     </div>
     <div
       class="ant-checkbox-wrapper ant-checkbox-group-item"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target"
       >
         <input
@@ -739,15 +635,15 @@ Array [
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-      <span>
-        Pear
-      </span>
+        <span>
+          Pear
+        </span>
+      </label>
     </div>
     <div
       class="ant-checkbox-wrapper ant-checkbox-group-item"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target"
       >
         <input
@@ -758,10 +654,10 @@ Array [
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-      <span>
-        Orange
-      </span>
+        <span>
+          Orange
+        </span>
+      </label>
     </div>
   </div>,
   <br />,
@@ -772,7 +668,7 @@ Array [
     <div
       class="ant-checkbox-wrapper ant-checkbox-group-item"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target"
       >
         <input
@@ -783,15 +679,15 @@ Array [
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-      <span>
-        Apple
-      </span>
+        <span>
+          Apple
+        </span>
+      </label>
     </div>
     <div
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
@@ -803,15 +699,15 @@ Array [
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-      <span>
-        Pear
-      </span>
+        <span>
+          Pear
+        </span>
+      </label>
     </div>
     <div
       class="ant-checkbox-wrapper ant-checkbox-group-item"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target"
       >
         <input
@@ -822,10 +718,10 @@ Array [
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-      <span>
-        Orange
-      </span>
+        <span>
+          Orange
+        </span>
+      </label>
     </div>
   </div>,
   <br />,
@@ -836,7 +732,7 @@ Array [
     <div
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled ant-checkbox-group-item"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target ant-checkbox-checked ant-checkbox-disabled"
       >
         <input
@@ -849,15 +745,15 @@ Array [
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-      <span>
-        Apple
-      </span>
+        <span>
+          Apple
+        </span>
+      </label>
     </div>
     <div
       class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target ant-checkbox-disabled"
       >
         <input
@@ -869,15 +765,15 @@ Array [
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-      <span>
-        Pear
-      </span>
+        <span>
+          Pear
+        </span>
+      </label>
     </div>
     <div
       class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item"
     >
-      <span
+      <label
         class="ant-checkbox ant-wave-target ant-checkbox-disabled"
       >
         <input
@@ -889,10 +785,10 @@ Array [
         <span
           class="ant-checkbox-inner"
         />
-      </span>
-      <span>
-        Orange
-      </span>
+        <span>
+          Orange
+        </span>
+      </label>
     </div>
   </div>,
 ]
@@ -914,7 +810,7 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
       <div
         class="ant-checkbox-wrapper"
       >
-        <span
+        <label
           class="ant-checkbox ant-wave-target"
         >
           <input
@@ -925,10 +821,10 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
           <span
             class="ant-checkbox-inner"
           />
-        </span>
-        <span>
-          A
-        </span>
+          <span>
+            A
+          </span>
+        </label>
       </div>
     </div>
     <div
@@ -937,7 +833,7 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
       <div
         class="ant-checkbox-wrapper"
       >
-        <span
+        <label
           class="ant-checkbox ant-wave-target"
         >
           <input
@@ -948,10 +844,10 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
           <span
             class="ant-checkbox-inner"
           />
-        </span>
-        <span>
-          B
-        </span>
+          <span>
+            B
+          </span>
+        </label>
       </div>
     </div>
     <div
@@ -960,7 +856,7 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
       <div
         class="ant-checkbox-wrapper"
       >
-        <span
+        <label
           class="ant-checkbox ant-wave-target"
         >
           <input
@@ -971,10 +867,10 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
           <span
             class="ant-checkbox-inner"
           />
-        </span>
-        <span>
-          C
-        </span>
+          <span>
+            C
+          </span>
+        </label>
       </div>
     </div>
     <div
@@ -983,7 +879,7 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
       <div
         class="ant-checkbox-wrapper"
       >
-        <span
+        <label
           class="ant-checkbox ant-wave-target"
         >
           <input
@@ -994,10 +890,10 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
           <span
             class="ant-checkbox-inner"
           />
-        </span>
-        <span>
-          D
-        </span>
+          <span>
+            D
+          </span>
+        </label>
       </div>
     </div>
     <div
@@ -1006,7 +902,7 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
       <div
         class="ant-checkbox-wrapper"
       >
-        <span
+        <label
           class="ant-checkbox ant-wave-target"
         >
           <input
@@ -1017,10 +913,10 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
           <span
             class="ant-checkbox-inner"
           />
-        </span>
-        <span>
-          E
-        </span>
+          <span>
+            E
+          </span>
+        </label>
       </div>
     </div>
   </div>
