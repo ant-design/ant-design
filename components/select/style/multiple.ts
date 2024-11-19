@@ -238,6 +238,16 @@ const genSelectionStyle = (
         lineHeight: unit(multipleSelectorUnit.itemLineHeight),
       },
 
+      // ========================== Wrap ===========================
+      [`${componentCls}-selection-wrap`]: {
+        alignSelf: 'flex-start',
+
+        '&:after': {
+          minHeight: multipleSelectorUnit.itemHeight,
+          marginBlock: INTERNAL_FIXED_ITEM_MARGIN,
+        },
+      },
+
       // ========================== Input ==========================
       [`${selectOverflowPrefixCls}-item + ${selectOverflowPrefixCls}-item`]: {
         [`${componentCls}-selection-search`]: {
@@ -246,9 +256,11 @@ const genSelectionStyle = (
       },
 
       // https://github.com/ant-design/ant-design/issues/44754
+      // Same as `wrap:after`
       [`${selectOverflowPrefixCls}-item-suffix`]: {
         minHeight: multipleSelectorUnit.itemHeight,
         marginBlock: INTERNAL_FIXED_ITEM_MARGIN,
+        // minHeight: '100%',
       },
 
       [`${componentCls}-selection-search`]: {

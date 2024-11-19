@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cascader, Select, Space, TreeSelect, Typography } from 'antd';
+import { AutoComplete, Cascader, Form, Select, Space, TreeSelect, Typography } from 'antd';
 
 const options = [
   { value: 'long', label: <Typography>long, long, long piece of text</Typography> },
@@ -95,6 +95,28 @@ const App: React.FC = () => (
       showSearch
       allowClear
     />
+    <Form style={{ width: 200 }} layout="vertical">
+      <Form.Item
+        label="Label"
+        name="bamboo"
+        initialValue="Bamboo"
+        style={{
+          boxShadow: '0 0 0 1px red',
+        }}
+      >
+        <Select options={options} allowClear placeholder="bamboo" />
+      </Form.Item>
+      <Form.Item
+        label="Label"
+        name="bamboo"
+        initialValue="Bamboo"
+        style={{
+          boxShadow: '0 0 0 1px red',
+        }}
+      >
+        <AutoComplete options={options} allowClear placeholder="bamboo" />
+      </Form.Item>
+    </Form>
   </Space>
 );
 

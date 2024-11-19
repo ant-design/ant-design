@@ -152,14 +152,19 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         width: '100%',
         position: 'relative',
         overflow: 'hidden',
-        alignSelf: 'flex-start',
+
+        // https://github.com/ant-design/ant-design/issues/51669
+        '&:after': {
+          content: '"\\a0"',
+          width: 0,
+          overflow: 'hidden',
+        },
       },
 
       // ========================= Prefix ==========================
       [`${componentCls}-prefix`]: {
         flex: 'none',
         marginInlineEnd: token.selectAffixPadding,
-        alignSelf: 'center',
       },
 
       // ========================== Clear ==========================
