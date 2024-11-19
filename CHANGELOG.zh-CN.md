@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 5.22.2
 
-`2024-11-18`
+`2024-11-19`
 
 - 🐞 修复 Input.OTP 组件在有非法输入时仍会切换到下一个输入框的问题。[#51664](https://github.com/ant-design/ant-design/pull/51664) [@thecodesalim](https://github.com/thecodesalim)
 - 🐞 调整 Modal 确认函数，使其在弹出后聚焦确认按钮时不要滚动窗体。[#51647](https://github.com/ant-design/ant-design/pull/51647) [@zombieJ](https://github.com/zombieJ)
