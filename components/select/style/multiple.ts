@@ -243,7 +243,7 @@ const genSelectionStyle = (
         alignSelf: 'flex-start',
 
         '&:after': {
-          minHeight: multipleSelectorUnit.itemHeight,
+          lineHeight: unit(selectItemHeight),
           marginBlock: INTERNAL_FIXED_ITEM_MARGIN,
         },
       },
