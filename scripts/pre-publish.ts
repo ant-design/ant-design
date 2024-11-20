@@ -150,6 +150,7 @@ const runPrePublish = async () => {
     owner,
     repo,
     ref: sha,
+    filter: 'all',
   });
   showMessage(`远程分支 CI 状态(${check_runs.length})：`, 'succeed');
   check_runs = check_runs.filter((run) =>
