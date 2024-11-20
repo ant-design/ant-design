@@ -121,7 +121,7 @@
     "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.11",
     "rc-cascader": "~3.30.0",
-    "rc-checkbox": "~3.3.0",
+    "rc-checkbox": "~3.5.0",
     "rc-collapse": "~3.9.0",
     "rc-dialog": "~9.6.0",
     "rc-drawer": "~7.2.0",
