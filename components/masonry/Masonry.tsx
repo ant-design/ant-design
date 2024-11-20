@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef } from 'react';
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 
 import useResponsiveObserver, { responsiveArray, ScreenMap } from '../_util/responsiveObserver';
@@ -14,17 +14,17 @@ const Masonry: React.FC<MasonryProps> = ({
   sequential = false,
   children,
 }) => {
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('masonry', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const gutterRef = React.useRef<Gutter | [Gutter, Gutter]>(gutter);
+  const gutterRef = useRef<Gutter | [Gutter, Gutter]>(gutter);
 
-  const [containerHeight, setContainerHeight] = React.useState(0);
+  const [containerHeight, setContainerHeight] = useState(0);
 
-  const [screens, setScreens] = React.useState<ScreenMap>({
+  const [screens, setScreens] = useState<ScreenMap>({
     xs: true,
     sm: true,
     md: true,
@@ -37,8 +37,7 @@ const Masonry: React.FC<MasonryProps> = ({
 
   const itemPrefixCls = `${prefixCls}-item`;
 
-  // ================================== Effect ==================================
-  React.useEffect(() => {
+  useEffect(() => {
     const token = responsiveObserver.subscribe((screen) => {
       const currentGutter = gutterRef.current || 0;
       const gutterHasResponsive =
@@ -53,7 +52,6 @@ const Masonry: React.FC<MasonryProps> = ({
     return () => responsiveObserver.unsubscribe(token);
   }, []);
 
-  // ================================== Render ==================================
   const gutters = ((): [Gap, Gap] => {
     const normalizedGutter = Array.isArray(gutter) ? gutter : [gutter, undefined];
     return normalizedGutter.map((g): Gap => {
