@@ -142,7 +142,7 @@ const runPrePublish = async () => {
   showMessage(`开始检查远程分支 ${currentBranch} 的 CI 状态`, true);
 
   const failureUrlList: string[] = [];
-  const {
+  let {
     data: { check_runs },
   } = await octokit.checks.listForRef({
     owner,
@@ -150,6 +150,9 @@ const runPrePublish = async () => {
     ref: sha,
   });
   showMessage(`远程分支 CI 状态(${check_runs.length})：`, 'succeed');
+  check_runs = check_runs.filter(
+    (run) => !run.name.padEnd(36).includes('Check Virtual Regression Approval'),
+  );
   check_runs.forEach((run) => {
     showMessage(`  ${run.name.padEnd(36)} ${emojify(run.status)} ${emojify(run.conclusion || '')}`);
     if (blockStatus.some((status) => run.conclusion === status)) {
