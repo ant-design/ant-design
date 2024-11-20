@@ -232,27 +232,46 @@ const genSelectionStyle = (
         },
       },
 
-      [`${componentCls}-selection-wrap`]: {
-        width: '100%',
-        overflow: 'hidden',
-      },
-
       // ======================== Selections ========================
       [`${componentCls}-selection-item`]: {
         height: multipleSelectorUnit.itemHeight,
         lineHeight: unit(multipleSelectorUnit.itemLineHeight),
       },
 
+      // ========================== Wrap ===========================
+      [`${componentCls}-selection-wrap`]: {
+        alignSelf: 'flex-start',
+
+        '&:after': {
+          lineHeight: unit(selectItemHeight),
+          marginBlock: INTERNAL_FIXED_ITEM_MARGIN,
+        },
+      },
+
       // ========================== Input ==========================
-      [`${selectOverflowPrefixCls}-item + ${selectOverflowPrefixCls}-item`]: {
+      [`${componentCls}-prefix`]: {
+        marginInlineStart: token
+          .calc(token.inputPaddingHorizontalBase)
+          .sub(multipleSelectorUnit.basePadding)
+          .equal(),
+      },
+
+      [`${selectOverflowPrefixCls}-item + ${selectOverflowPrefixCls}-item,
+        ${componentCls}-prefix + ${componentCls}-selection-wrap
+      `]: {
         [`${componentCls}-selection-search`]: {
           marginInlineStart: 0,
+        },
+        [`${componentCls}-selection-placeholder`]: {
+          insetInlineStart: 0,
         },
       },
 
       // https://github.com/ant-design/ant-design/issues/44754
+      // Same as `wrap:after`
       [`${selectOverflowPrefixCls}-item-suffix`]: {
-        height: '100%',
+        minHeight: multipleSelectorUnit.itemHeight,
+        marginBlock: INTERNAL_FIXED_ITEM_MARGIN,
       },
 
       [`${componentCls}-selection-search`]: {
@@ -291,17 +310,13 @@ const genSelectionStyle = (
       [`${componentCls}-selection-placeholder`]: {
         position: 'absolute',
         top: '50%',
-        insetInlineStart: token.inputPaddingHorizontalBase,
+        insetInlineStart: token
+          .calc(token.inputPaddingHorizontalBase)
+          .sub(multipleSelectorUnit.basePadding)
+          .equal(),
         insetInlineEnd: token.inputPaddingHorizontalBase,
         transform: 'translateY(-50%)',
         transition: `all ${token.motionDurationSlow}`,
-      },
-
-      [`${componentCls}-prefix`]: {
-        height: multipleSelectorUnit.itemHeight,
-        lineHeight: unit(multipleSelectorUnit.itemLineHeight),
-        marginInlineStart: `calc(${unit(token.inputPaddingHorizontalBase)} - ${unit(multipleSelectorUnit.basePadding)})`,
-        marginInlineEnd: token.selectAffixPadding,
       },
     },
   };

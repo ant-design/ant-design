@@ -13,6 +13,7 @@ const genBaseOutlinedStyle = (
     hoverBorderHover: string;
     activeBorderColor: string;
     activeOutlineColor: string;
+    color: string;
   },
 ): CSSObject => {
   const { componentCls, antCls, controlOutlineWidth } = token;
@@ -33,6 +34,9 @@ const genBaseOutlinedStyle = (
           boxShadow: `0 0 0 ${unit(controlOutlineWidth)} ${options.activeOutlineColor}`,
           outline: 0,
         },
+        [`${componentCls}-prefix`]: {
+          color: options.color,
+        },
       },
   };
 };
@@ -45,6 +49,7 @@ const genOutlinedStatusStyle = (
     hoverBorderHover: string;
     activeBorderColor: string;
     activeOutlineColor: string;
+    color: string;
   },
 ): CSSObject => ({
   [`&${token.componentCls}-status-${options.status}`]: {
@@ -59,6 +64,7 @@ const genOutlinedStyle = (token: SelectToken): CSSObject => ({
       hoverBorderHover: token.hoverBorderColor,
       activeBorderColor: token.activeBorderColor,
       activeOutlineColor: token.activeOutlineColor,
+      color: token.colorText,
     }),
 
     ...genOutlinedStatusStyle(token, {
@@ -67,6 +73,7 @@ const genOutlinedStyle = (token: SelectToken): CSSObject => ({
       hoverBorderHover: token.colorErrorHover,
       activeBorderColor: token.colorError,
       activeOutlineColor: token.colorErrorOutline,
+      color: token.colorError,
     }),
 
     ...genOutlinedStatusStyle(token, {
@@ -75,6 +82,7 @@ const genOutlinedStyle = (token: SelectToken): CSSObject => ({
       hoverBorderHover: token.colorWarningHover,
       activeBorderColor: token.colorWarning,
       activeOutlineColor: token.colorWarningOutline,
+      color: token.colorWarning,
     }),
 
     [`&${token.componentCls}-disabled`]: {
@@ -188,7 +196,7 @@ const genBorderlessStyle = (token: SelectToken): CSSObject => ({
   '&-borderless': {
     [`${token.componentCls}-selector`]: {
       background: 'transparent',
-      borderColor: 'transparent',
+      border: `${unit(token.lineWidth)} ${token.lineType} transparent`,
     },
 
     [`&${token.componentCls}-disabled`]: {
@@ -204,13 +212,13 @@ const genBorderlessStyle = (token: SelectToken): CSSObject => ({
 
     // Status
     [`&${token.componentCls}-status-error`]: {
-      [`${token.componentCls}-selection-item`]: {
+      [`${token.componentCls}-prefix, ${token.componentCls}-selection-item`]: {
         color: token.colorError,
       },
     },
 
     [`&${token.componentCls}-status-warning`]: {
-      [`${token.componentCls}-selection-item`]: {
+      [`${token.componentCls}-prefix, ${token.componentCls}-selection-item`]: {
         color: token.colorWarning,
       },
     },

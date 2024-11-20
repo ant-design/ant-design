@@ -208,7 +208,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     const nextCells = patchValue(index, txt);
 
     const nextIndex = Math.min(index + txt.length, length - 1);
-    if (nextIndex !== index) {
+    if (nextIndex !== index  && nextCells[index] !== undefined) {
       refs.current[nextIndex]?.focus();
     }
 

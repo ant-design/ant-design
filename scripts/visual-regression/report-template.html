@@ -29,6 +29,11 @@
       border-collapse: collapse;
     }
 
+    table > thead {
+      position: sticky;
+      top: 0;
+    }
+
     th,
     td {
       padding: 8px;
@@ -61,11 +66,20 @@
         border: 0;
       }
 
+      table > thead {
+        position: unset;
+      }
+
       th,
       td {
+        width: 100%;
         display: block;
         padding: 6px;
         border: none;
+      }
+
+      td:last-child {
+        border-bottom: 3px dashed darkgray;
       }
 
       th {

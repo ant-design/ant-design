@@ -120,7 +120,6 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
     nodeHoverBg,
     colorTextQuaternary,
   } = token;
-  const treeCheckBoxMarginHorizontal = token.marginXXS;
 
   return {
     [treeCls]: {
@@ -256,6 +255,14 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         visibility: 'hidden',
       },
 
+      // Switcher / Checkbox
+      [`${treeCls}-switcher, ${treeCls}-checkbox`]: {
+        marginInlineEnd: token
+          .calc(token.calc(titleHeight).sub(token.controlInteractiveSize))
+          .div(2)
+          .equal(),
+      },
+
       // >>> Switcher
       [`${treeCls}-switcher`]: {
         ...getSwitchStyle(prefixCls, token),
@@ -263,15 +270,10 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         flex: 'none',
         alignSelf: 'stretch',
         width: titleHeight,
-        margin: 0,
         textAlign: 'center',
         cursor: 'pointer',
         userSelect: 'none',
         transition: `all ${token.motionDurationSlow}`,
-        marginInlineEnd: token
-          .calc(token.calc(titleHeight).sub(token.controlInteractiveSize))
-          .div(2)
-          .equal(),
 
         '&-noop': {
           cursor: 'unset',
@@ -330,14 +332,6 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
             content: '""',
           },
         },
-      },
-
-      // >>> Checkbox
-      [`${treeCls}-checkbox`]: {
-        top: 'initial',
-        marginInlineEnd: treeCheckBoxMarginHorizontal,
-        alignSelf: 'flex-start',
-        marginTop: token.marginXXS,
       },
 
       // >>> Title

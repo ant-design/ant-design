@@ -24,6 +24,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 <code src="./demo/line.tsx">Tree with line</code>
 <code src="./demo/customized-icon.tsx">Customize Icon</code>
 <code src="./demo/directory.tsx">directory</code>
+<code src="./demo/directory-debug.tsx" debug>Directory Debug</code>
 <code src="./demo/switcher-icon.tsx">Customize collapse/expand icon</code>
 <code src="./demo/virtual-scroll.tsx">Virtual scroll</code>
 <code src="./demo/drag-debug.tsx" debug>Drag Debug</code>

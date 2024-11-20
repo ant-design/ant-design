@@ -146,6 +146,26 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         },
       },
 
+      // ========================== Wrap ===========================
+      [`${componentCls}-selection-wrap`]: {
+        display: 'flex',
+        width: '100%',
+        position: 'relative',
+
+        // https://github.com/ant-design/ant-design/issues/51669
+        '&:after': {
+          content: '"\\a0"',
+          width: 0,
+          overflow: 'hidden',
+        },
+      },
+
+      // ========================= Prefix ==========================
+      [`${componentCls}-prefix`]: {
+        flex: 'none',
+        marginInlineEnd: token.selectAffixPadding,
+      },
+
       // ========================== Clear ==========================
       [`${componentCls}-clear`]: {
         position: 'absolute',
