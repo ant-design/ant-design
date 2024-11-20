@@ -246,7 +246,7 @@ const genPresetColorStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
   return PresetColors.reduce<CSSObject>((prev: CSSObject, colorKey: PresetColorKey) => {
     const darkColor = token[`${colorKey}6`];
     const lightColor = token[`${colorKey}1`];
-    const hoverColor = token[`${colorKey}4`];
+    const hoverColor = token[`${colorKey}5`];
     const lightHoverColor = token[`${colorKey}2`];
     const lightBorderColor = token[`${colorKey}3`];
     const activeColor = token[`${colorKey}7`];
