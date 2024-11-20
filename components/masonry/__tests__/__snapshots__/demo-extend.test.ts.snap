@@ -1,0 +1,294 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders components/masonry/demo/DemoItem.tsx extend context correctly 1`] = `
+<div
+  style="background: rgb(240, 240, 240); border-radius: 4px; padding: 4px;"
+/>
+`;
+
+exports[`renders components/masonry/demo/DemoItem.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/masonry/demo/basic.tsx extend context correctly 1`] = `
+<div
+  class="ant-masonry"
+  style="--ant-masonry-height: 440px;"
+>
+  <div
+    style="height: 150px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    1
+  </div>
+  <div
+    style="height: 30px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 2; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    2
+  </div>
+  <div
+    style="height: 90px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 3; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    3
+  </div>
+  <div
+    style="height: 70px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 4; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    4
+  </div>
+  <div
+    style="height: 110px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 2; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    5
+  </div>
+  <div
+    style="height: 150px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 4; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    6
+  </div>
+  <div
+    style="height: 130px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 3; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    7
+  </div>
+  <div
+    style="height: 80px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    8
+  </div>
+  <div
+    style="height: 50px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 2; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    9
+  </div>
+  <div
+    style="height: 90px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 2; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    10
+  </div>
+  <div
+    style="height: 100px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 3; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    11
+  </div>
+  <div
+    style="height: 150px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 4; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    12
+  </div>
+  <div
+    style="height: 30px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    13
+  </div>
+  <div
+    style="height: 50px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    14
+  </div>
+  <div
+    style="height: 80px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 2; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    15
+  </div>
+  <div
+    class="ant-masonry-item-line-break"
+    data-type="line-break"
+    style="--ant-masonry-item-order: 1;"
+  />
+  <div
+    class="ant-masonry-item-line-break"
+    data-type="line-break"
+    style="--ant-masonry-item-order: 2;"
+  />
+  <div
+    class="ant-masonry-item-line-break"
+    data-type="line-break"
+    style="--ant-masonry-item-order: 3;"
+  />
+  <div
+    class="ant-masonry-item-line-break"
+    data-type="line-break"
+    style="--ant-masonry-item-order: 4;"
+  />
+</div>
+`;
+
+exports[`renders components/masonry/demo/basic.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/masonry/demo/responsive.tsx extend context correctly 1`] = `
+<div
+  class="ant-masonry"
+  style="--ant-masonry-height: 1615px;"
+>
+  <div
+    style="height: 120px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(100% - 8px); --ant-masonry-item-margin: 4px 4px;"
+  >
+    1
+  </div>
+  <div
+    style="height: 45px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(100% - 8px); --ant-masonry-item-margin: 4px 4px;"
+  >
+    2
+  </div>
+  <div
+    style="height: 85px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(100% - 8px); --ant-masonry-item-margin: 4px 4px;"
+  >
+    3
+  </div>
+  <div
+    style="height: 160px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(100% - 8px); --ant-masonry-item-margin: 4px 4px;"
+  >
+    4
+  </div>
+  <div
+    style="height: 95px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(100% - 8px); --ant-masonry-item-margin: 4px 4px;"
+  >
+    5
+  </div>
+  <div
+    style="height: 140px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(100% - 8px); --ant-masonry-item-margin: 4px 4px;"
+  >
+    6
+  </div>
+  <div
+    style="height: 75px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(100% - 8px); --ant-masonry-item-margin: 4px 4px;"
+  >
+    7
+  </div>
+  <div
+    style="height: 110px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(100% - 8px); --ant-masonry-item-margin: 4px 4px;"
+  >
+    8
+  </div>
+  <div
+    style="height: 65px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(100% - 8px); --ant-masonry-item-margin: 4px 4px;"
+  >
+    9
+  </div>
+  <div
+    style="height: 130px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(100% - 8px); --ant-masonry-item-margin: 4px 4px;"
+  >
+    10
+  </div>
+  <div
+    style="height: 90px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(100% - 8px); --ant-masonry-item-margin: 4px 4px;"
+  >
+    11
+  </div>
+  <div
+    style="height: 145px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(100% - 8px); --ant-masonry-item-margin: 4px 4px;"
+  >
+    12
+  </div>
+  <div
+    style="height: 55px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(100% - 8px); --ant-masonry-item-margin: 4px 4px;"
+  >
+    13
+  </div>
+  <div
+    style="height: 100px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(100% - 8px); --ant-masonry-item-margin: 4px 4px;"
+  >
+    14
+  </div>
+  <div
+    style="height: 80px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(100% - 8px); --ant-masonry-item-margin: 4px 4px;"
+  >
+    15
+  </div>
+  <div
+    class="ant-masonry-item-line-break"
+    data-type="line-break"
+    style="--ant-masonry-item-order: 1;"
+  />
+</div>
+`;
+
+exports[`renders components/masonry/demo/responsive.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/masonry/demo/sequential.tsx extend context correctly 1`] = `
+<div
+  class="ant-masonry"
+  style="--ant-masonry-height: 423px;"
+>
+  <div
+    style="height: 135px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    1
+  </div>
+  <div
+    style="height: 60px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 2; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    2
+  </div>
+  <div
+    style="height: 105px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 3; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    3
+  </div>
+  <div
+    style="height: 180px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 4; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    4
+  </div>
+  <div
+    style="height: 75px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    5
+  </div>
+  <div
+    style="height: 85px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 2; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    6
+  </div>
+  <div
+    style="height: 115px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 3; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    7
+  </div>
+  <div
+    style="height: 70px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 4; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    8
+  </div>
+  <div
+    style="height: 165px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    9
+  </div>
+  <div
+    style="height: 40px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 2; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    10
+  </div>
+  <div
+    style="height: 120px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 3; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    11
+  </div>
+  <div
+    style="height: 90px; background: rgb(240, 240, 240); border-radius: 4px; padding: 4px; --ant-masonry-item-order: 4; --ant-masonry-item-width: calc(25% - 16px); --ant-masonry-item-margin: 8px 8px;"
+  >
+    12
+  </div>
+  <div
+    class="ant-masonry-item-line-break"
+    data-type="line-break"
+    style="--ant-masonry-item-order: 1;"
+  />
+  <div
+    class="ant-masonry-item-line-break"
+    data-type="line-break"
+    style="--ant-masonry-item-order: 2;"
+  />
+  <div
+    class="ant-masonry-item-line-break"
+    data-type="line-break"
+    style="--ant-masonry-item-order: 3;"
+  />
+  <div
+    class="ant-masonry-item-line-break"
+    data-type="line-break"
+    style="--ant-masonry-item-order: 4;"
+  />
+</div>
+`;
+
+exports[`renders components/masonry/demo/sequential.tsx extend context correctly 2`] = `[]`;

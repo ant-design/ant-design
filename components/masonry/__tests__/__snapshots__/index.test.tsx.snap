@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Masonry should render correctly 1`] = `
+<div
+  class="ant-masonry"
+  style="--ant-masonry-height: 480px;"
+>
+  <div
+    style="height: 150px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(33.333333333333336% - 0px); --ant-masonry-item-margin: 0px 0px;"
+  >
+    1
+  </div>
+  <div
+    style="height: 30px; --ant-masonry-item-order: 2; --ant-masonry-item-width: calc(33.333333333333336% - 0px); --ant-masonry-item-margin: 0px 0px;"
+  >
+    2
+  </div>
+  <div
+    style="height: 90px; --ant-masonry-item-order: 3; --ant-masonry-item-width: calc(33.333333333333336% - 0px); --ant-masonry-item-margin: 0px 0px;"
+  >
+    3
+  </div>
+  <div
+    style="height: 70px; --ant-masonry-item-order: 2; --ant-masonry-item-width: calc(33.333333333333336% - 0px); --ant-masonry-item-margin: 0px 0px;"
+  >
+    4
+  </div>
+  <div
+    style="height: 110px; --ant-masonry-item-order: 3; --ant-masonry-item-width: calc(33.333333333333336% - 0px); --ant-masonry-item-margin: 0px 0px;"
+  >
+    5
+  </div>
+  <div
+    style="height: 150px; --ant-masonry-item-order: 2; --ant-masonry-item-width: calc(33.333333333333336% - 0px); --ant-masonry-item-margin: 0px 0px;"
+  >
+    6
+  </div>
+  <div
+    style="height: 130px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(33.333333333333336% - 0px); --ant-masonry-item-margin: 0px 0px;"
+  >
+    7
+  </div>
+  <div
+    style="height: 80px; --ant-masonry-item-order: 3; --ant-masonry-item-width: calc(33.333333333333336% - 0px); --ant-masonry-item-margin: 0px 0px;"
+  >
+    8
+  </div>
+  <div
+    style="height: 50px; --ant-masonry-item-order: 2; --ant-masonry-item-width: calc(33.333333333333336% - 0px); --ant-masonry-item-margin: 0px 0px;"
+  >
+    9
+  </div>
+  <div
+    style="height: 90px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(33.333333333333336% - 0px); --ant-masonry-item-margin: 0px 0px;"
+  >
+    10
+  </div>
+  <div
+    style="height: 100px; --ant-masonry-item-order: 3; --ant-masonry-item-width: calc(33.333333333333336% - 0px); --ant-masonry-item-margin: 0px 0px;"
+  >
+    11
+  </div>
+  <div
+    style="height: 150px; --ant-masonry-item-order: 2; --ant-masonry-item-width: calc(33.333333333333336% - 0px); --ant-masonry-item-margin: 0px 0px;"
+  >
+    12
+  </div>
+  <div
+    style="height: 30px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(33.333333333333336% - 0px); --ant-masonry-item-margin: 0px 0px;"
+  >
+    13
+  </div>
+  <div
+    style="height: 50px; --ant-masonry-item-order: 3; --ant-masonry-item-width: calc(33.333333333333336% - 0px); --ant-masonry-item-margin: 0px 0px;"
+  >
+    14
+  </div>
+  <div
+    style="height: 80px; --ant-masonry-item-order: 1; --ant-masonry-item-width: calc(33.333333333333336% - 0px); --ant-masonry-item-margin: 0px 0px;"
+  >
+    15
+  </div>
+  <div
+    class="ant-masonry-item-line-break"
+    data-type="line-break"
+    style="--ant-masonry-item-order: 1;"
+  />
+  <div
+    class="ant-masonry-item-line-break"
+    data-type="line-break"
+    style="--ant-masonry-item-order: 2;"
+  />
+  <div
+    class="ant-masonry-item-line-break"
+    data-type="line-break"
+    style="--ant-masonry-item-order: 3;"
+  />
+</div>
+`;
