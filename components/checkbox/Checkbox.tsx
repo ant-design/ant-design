@@ -155,7 +155,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   );
   return wrapCSSVar(
     <Wave component="Checkbox" disabled={mergedDisabled}>
-      <div
+      <label
         className={classString}
         style={{ ...checkbox?.style, ...style }}
         onMouseEnter={onMouseEnter}
@@ -170,7 +170,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
           ref={mergedRef}
         />
         {children !== undefined && <span>{children}</span>}
-      </div>
+      </label>
     </Wave>,
   );
 };

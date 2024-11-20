@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders components/checkbox/demo/basic.tsx extend context correctly 1`] = `
-<div
+<label
   class="ant-checkbox-wrapper"
 >
   <span
@@ -18,14 +18,14 @@ exports[`renders components/checkbox/demo/basic.tsx extend context correctly 1`]
   <span>
     Checkbox
   </span>
-</div>
+</label>
 `;
 
 exports[`renders components/checkbox/demo/basic.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/checkbox/demo/check-all.tsx extend context correctly 1`] = `
 Array [
-  <div
+  <label
     class="ant-checkbox-wrapper"
   >
     <span
@@ -42,7 +42,7 @@ Array [
     <span>
       Check all
     </span>
-  </div>,
+  </label>,
   <div
     class="ant-divider ant-divider-horizontal"
     role="separator"
@@ -50,7 +50,7 @@ Array [
   <div
     class="ant-checkbox-group"
   >
-    <div
+    <label
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
     >
       <span
@@ -69,8 +69,8 @@ Array [
       <span>
         Apple
       </span>
-    </div>
-    <div
+    </label>
+    <label
       class="ant-checkbox-wrapper ant-checkbox-group-item"
     >
       <span
@@ -88,8 +88,8 @@ Array [
       <span>
         Pear
       </span>
-    </div>
-    <div
+    </label>
+    <label
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
     >
       <span
@@ -108,7 +108,7 @@ Array [
       <span>
         Orange
       </span>
-    </div>
+    </label>
   </div>,
 ]
 `;
@@ -119,27 +119,27 @@ exports[`renders components/checkbox/demo/controller.tsx extend context correctl
 Array [
   <p
     style="margin-bottom: 20px;"
-  />,
-  <div
-    class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
   >
-    <span
-      class="ant-checkbox ant-wave-target ant-checkbox-checked"
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
     >
-      <input
-        checked=""
-        class="ant-checkbox-input"
-        type="checkbox"
-      />
       <span
-        class="ant-checkbox-inner"
-      />
-    </span>
-    <span>
-      Checked-Enabled
-    </span>
-  </div>,
-  <p />,
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checked-Enabled
+      </span>
+    </label>
+  </p>,
   <p>
     <button
       class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
@@ -162,15 +162,11 @@ Array [
 ]
 `;
 
-exports[`renders components/checkbox/demo/controller.tsx extend context correctly 2`] = `
-[
-  "Warning: validateDOMNesting(...): %s cannot appear as a descendant of <%s>.%s",
-]
-`;
+exports[`renders components/checkbox/demo/controller.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/checkbox/demo/custom-line-width.tsx extend context correctly 1`] = `
 Array [
-  <div
+  <label
     class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
   >
     <span
@@ -185,8 +181,8 @@ Array [
         class="ant-checkbox-inner"
       />
     </span>
-  </div>,
-  <div
+  </label>,
+  <label
     class="ant-checkbox-wrapper"
   >
     <span
@@ -200,8 +196,8 @@ Array [
         class="ant-checkbox-inner"
       />
     </span>
-  </div>,
-  <div
+  </label>,
+  <label
     class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
   >
     <span
@@ -216,8 +212,8 @@ Array [
         class="ant-checkbox-inner"
       />
     </span>
-  </div>,
-  <div
+  </label>,
+  <label
     class="ant-checkbox-wrapper"
   >
     <span
@@ -231,7 +227,7 @@ Array [
         class="ant-checkbox-inner"
       />
     </span>
-  </div>,
+  </label>,
 ]
 `;
 
@@ -241,7 +237,7 @@ exports[`renders components/checkbox/demo/debug-disable-popover.tsx extend conte
 <div
   style="padding: 56px;"
 >
-  <div
+  <label
     class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled"
   >
     <span
@@ -257,7 +253,7 @@ exports[`renders components/checkbox/demo/debug-disable-popover.tsx extend conte
         class="ant-checkbox-inner"
       />
     </span>
-  </div>
+  </label>
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -295,7 +291,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
     <div
       class="ant-space-item"
     >
-      <div
+      <label
         class="ant-checkbox-wrapper"
       >
         <span
@@ -310,7 +306,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
             class="ant-checkbox-inner"
           />
         </span>
-      </div>
+      </label>
     </div>
     <div
       class="ant-space-item"
@@ -322,7 +318,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
     <div
       class="ant-space-item"
     >
-      <div
+      <label
         class="ant-checkbox-wrapper"
       >
         <span
@@ -340,7 +336,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
         <span>
           Little
         </span>
-      </div>
+      </label>
     </div>
   </div>
   <div
@@ -401,7 +397,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
   <div
     style="border: 1px solid red; margin-bottom: 16px; display: flex; align-items: center;"
   >
-    <div
+    <label
       class="ant-checkbox-wrapper"
     >
       <span
@@ -416,11 +412,11 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
           class="ant-checkbox-inner"
         />
       </span>
-    </div>
+    </label>
     <div>
       Bamboo
     </div>
-    <div
+    <label
       class="ant-checkbox-wrapper"
     >
       <span
@@ -438,7 +434,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
       <span>
         Little
       </span>
-    </div>
+    </label>
   </div>
   <div
     style="border: 1px solid red; margin-bottom: 16px; display: flex; align-items: center;"
@@ -483,7 +479,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
     </label>
   </div>
   <div>
-    <div
+    <label
       class="ant-checkbox-wrapper"
     >
       <span
@@ -500,10 +496,10 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
       <span>
         Aligned
       </span>
-    </div>
+    </label>
   </div>
   <div>
-    <div
+    <label
       class="ant-checkbox-wrapper"
     >
       <span
@@ -524,7 +520,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
           Aligned
         </span>
       </span>
-    </div>
+    </label>
   </div>
 </div>
 `;
@@ -537,7 +533,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
 
 exports[`renders components/checkbox/demo/disabled.tsx extend context correctly 1`] = `
 Array [
-  <div
+  <label
     class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
   >
     <span
@@ -552,9 +548,9 @@ Array [
         class="ant-checkbox-inner"
       />
     </span>
-  </div>,
+  </label>,
   <br />,
-  <div
+  <label
     class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
   >
     <span
@@ -569,9 +565,9 @@ Array [
         class="ant-checkbox-inner"
       />
     </span>
-  </div>,
+  </label>,
   <br />,
-  <div
+  <label
     class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
   >
     <span
@@ -587,7 +583,7 @@ Array [
         class="ant-checkbox-inner"
       />
     </span>
-  </div>,
+  </label>,
 ]
 `;
 
@@ -598,7 +594,7 @@ Array [
   <div
     class="ant-checkbox-group"
   >
-    <div
+    <label
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
     >
       <span
@@ -617,8 +613,8 @@ Array [
       <span>
         Apple
       </span>
-    </div>
-    <div
+    </label>
+    <label
       class="ant-checkbox-wrapper ant-checkbox-group-item"
     >
       <span
@@ -636,8 +632,8 @@ Array [
       <span>
         Pear
       </span>
-    </div>
-    <div
+    </label>
+    <label
       class="ant-checkbox-wrapper ant-checkbox-group-item"
     >
       <span
@@ -655,14 +651,14 @@ Array [
       <span>
         Orange
       </span>
-    </div>
+    </label>
   </div>,
   <br />,
   <br />,
   <div
     class="ant-checkbox-group"
   >
-    <div
+    <label
       class="ant-checkbox-wrapper ant-checkbox-group-item"
     >
       <span
@@ -680,8 +676,8 @@ Array [
       <span>
         Apple
       </span>
-    </div>
-    <div
+    </label>
+    <label
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
     >
       <span
@@ -700,8 +696,8 @@ Array [
       <span>
         Pear
       </span>
-    </div>
-    <div
+    </label>
+    <label
       class="ant-checkbox-wrapper ant-checkbox-group-item"
     >
       <span
@@ -719,14 +715,14 @@ Array [
       <span>
         Orange
       </span>
-    </div>
+    </label>
   </div>,
   <br />,
   <br />,
   <div
     class="ant-checkbox-group"
   >
-    <div
+    <label
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled ant-checkbox-group-item"
     >
       <span
@@ -746,8 +742,8 @@ Array [
       <span>
         Apple
       </span>
-    </div>
-    <div
+    </label>
+    <label
       class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item"
     >
       <span
@@ -766,8 +762,8 @@ Array [
       <span>
         Pear
       </span>
-    </div>
-    <div
+    </label>
+    <label
       class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item"
     >
       <span
@@ -786,7 +782,7 @@ Array [
       <span>
         Orange
       </span>
-    </div>
+    </label>
   </div>,
 ]
 `;
@@ -804,7 +800,7 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
     <div
       class="ant-col ant-col-8"
     >
-      <div
+      <label
         class="ant-checkbox-wrapper"
       >
         <span
@@ -822,12 +818,12 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
         <span>
           A
         </span>
-      </div>
+      </label>
     </div>
     <div
       class="ant-col ant-col-8"
     >
-      <div
+      <label
         class="ant-checkbox-wrapper"
       >
         <span
@@ -845,12 +841,12 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
         <span>
           B
         </span>
-      </div>
+      </label>
     </div>
     <div
       class="ant-col ant-col-8"
     >
-      <div
+      <label
         class="ant-checkbox-wrapper"
       >
         <span
@@ -868,12 +864,12 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
         <span>
           C
         </span>
-      </div>
+      </label>
     </div>
     <div
       class="ant-col ant-col-8"
     >
-      <div
+      <label
         class="ant-checkbox-wrapper"
       >
         <span
@@ -891,12 +887,12 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
         <span>
           D
         </span>
-      </div>
+      </label>
     </div>
     <div
       class="ant-col ant-col-8"
     >
-      <div
+      <label
         class="ant-checkbox-wrapper"
       >
         <span
@@ -914,7 +910,7 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
         <span>
           E
         </span>
-      </div>
+      </label>
     </div>
   </div>
 </div>

@@ -20,10 +20,10 @@ describe('Checkbox', () => {
       <Checkbox onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />,
     );
 
-    fireEvent.mouseEnter(container.querySelector('.ant-checkbox-wrapper')!);
+    fireEvent.mouseEnter(container.querySelector('label')!);
     expect(onMouseEnter).toHaveBeenCalled();
 
-    fireEvent.mouseLeave(container.querySelector('.ant-checkbox-wrapper')!);
+    fireEvent.mouseLeave(container.querySelector('label')!);
     expect(onMouseLeave).toHaveBeenCalled();
   });
 
