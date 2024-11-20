@@ -92,6 +92,10 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         userSelect: 'none',
         ...textEllipsis,
 
+        [`${componentCls}-selection-item:hover`]: {
+          backgroundColor: '#b0e8a0', // Lighter color on hover
+        },
+
         // https://github.com/ant-design/ant-design/issues/40421
         [`> ${antCls}-typography`]: {
           display: 'inline',

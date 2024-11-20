@@ -160,7 +160,7 @@ export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
     zIndexPopupBase,
     colorText,
     fontWeightStrong,
-    controlItemBgActive,
+    // controlItemBgActive,
     controlItemBgHover,
     colorBgContainer,
     colorFillSecondary,
@@ -172,6 +172,9 @@ export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
     colorPrimary,
     controlOutline,
   } = token;
+
+  // Define a new constant for the selected option background color
+  const dropdownOptionSelectedBg = '#1668dc';
 
   // Item height default use `controlHeight - 2 * paddingXXS`,
   // but some case `paddingXXS=0`.
@@ -198,7 +201,7 @@ export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
     zIndexPopup: zIndexPopupBase + 50,
     optionSelectedColor: colorText,
     optionSelectedFontWeight: fontWeightStrong,
-    optionSelectedBg: controlItemBgActive,
+    optionSelectedBg: dropdownOptionSelectedBg /* controlItemBgActive */,
     optionActiveBg: controlItemBgHover,
     optionPadding: `${(controlHeight - fontSize * lineHeight) / 2}px ${controlPaddingHorizontal}px`,
     optionFontSize: fontSize,
