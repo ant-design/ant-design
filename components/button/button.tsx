@@ -1,7 +1,7 @@
-import React, { Children, createRef, useContext, useEffect, useMemo, useState } from 'react';
+import React, { Children, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import { composeRef } from 'rc-util/lib/ref';
+import { useComposeRef } from 'rc-util/lib/ref';
 
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -22,7 +22,7 @@ import { isTwoCNChar, isUnBorderedButtonVariant, spaceChildren } from './buttonH
 import IconWrapper from './IconWrapper';
 import LoadingIcon from './LoadingIcon';
 import useStyle from './style';
-import CompactCmp from './style/compactCmp';
+import Compact from './style/compact';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
@@ -119,6 +119,7 @@ const InternalCompoundedButton = React.forwardRef<
     classNames: customClassNames,
     style: customStyle = {},
     autoInsertSpace,
+    autoFocus,
     ...rest
   } = props;
 
@@ -162,13 +163,15 @@ const InternalCompoundedButton = React.forwardRef<
 
   const [hasTwoCNChar, setHasTwoCNChar] = useState<boolean>(false);
 
-  const internalRef = createRef<HTMLButtonElement | HTMLAnchorElement>();
+  const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>();
 
-  const buttonRef = composeRef(ref, internalRef);
+  const mergedRef = useComposeRef(ref, buttonRef);
 
   const needInserted =
     Children.count(children) === 1 && !icon && !isUnBorderedButtonVariant(mergedVariant);
 
+  // ========================= Effect =========================
+  // Loading
   useEffect(() => {
     let delayTimer: ReturnType<typeof setTimeout> | null = null;
     if (loadingOrDelay.delay > 0) {
@@ -190,12 +193,13 @@ const InternalCompoundedButton = React.forwardRef<
     return cleanupTimer;
   }, [loadingOrDelay]);
 
+  // Two chinese characters check
   useEffect(() => {
     // FIXME: for HOC usage like <FormatMessage />
-    if (!buttonRef || !(buttonRef as any).current || !mergedInsertSpace) {
+    if (!buttonRef.current || !mergedInsertSpace) {
       return;
     }
-    const buttonText = (buttonRef as any).current.textContent;
+    const buttonText = buttonRef.current.textContent || '';
     if (needInserted && isTwoCNChar(buttonText)) {
       if (!hasTwoCNChar) {
         setHasTwoCNChar(true);
@@ -203,8 +207,16 @@ const InternalCompoundedButton = React.forwardRef<
     } else if (hasTwoCNChar) {
       setHasTwoCNChar(false);
     }
-  }, [buttonRef]);
+  });
 
+  // Auto focus
+  useEffect(() => {
+    if (autoFocus && buttonRef.current) {
+      buttonRef.current.focus();
+    }
+  }, []);
+
+  // ========================= Events =========================
   const handleClick = React.useCallback(
     (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
       // FIXME: https://github.com/ant-design/ant-design/issues/30207
@@ -217,6 +229,7 @@ const InternalCompoundedButton = React.forwardRef<
     [props.onClick, innerLoading, mergedDisabled],
   );
 
+  // ========================== Warn ==========================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Button');
 
@@ -233,6 +246,7 @@ const InternalCompoundedButton = React.forwardRef<
     );
   }
 
+  // ========================== Size ==========================
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
@@ -245,6 +259,7 @@ const InternalCompoundedButton = React.forwardRef<
 
   const linkButtonRestProps = omit(rest as ButtonProps & { navigate: any }, ['navigate']);
 
+  // ========================= Render =========================
   const classes = classNames(
     prefixCls,
     hashId,
@@ -301,7 +316,7 @@ const InternalCompoundedButton = React.forwardRef<
         href={mergedDisabled ? undefined : linkButtonRestProps.href}
         style={fullStyle}
         onClick={handleClick}
-        ref={buttonRef as React.Ref<HTMLAnchorElement>}
+        ref={mergedRef as React.Ref<HTMLAnchorElement>}
         tabIndex={mergedDisabled ? -1 : 0}
       >
         {iconNode}
@@ -318,12 +333,11 @@ const InternalCompoundedButton = React.forwardRef<
       style={fullStyle}
       onClick={handleClick}
       disabled={mergedDisabled}
-      ref={buttonRef as React.Ref<HTMLButtonElement>}
+      ref={mergedRef as React.Ref<HTMLButtonElement>}
     >
       {iconNode}
       {kids}
-      {/* Styles: compact */}
-      {!!compactItemClassnames && <CompactCmp key="compact" prefixCls={prefixCls} />}
+      {compactItemClassnames && <Compact prefixCls={prefixCls} />}
     </button>
   );
 
