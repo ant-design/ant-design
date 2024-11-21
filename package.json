@@ -181,6 +181,7 @@
     "@qixian.cs/github-contributors-list": "^2.0.2",
     "@size-limit/file": "^11.1.6",
     "@stackblitz/sdk": "^1.11.0",
+    "@swc/types": "0.1.15",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.2",
     "@testing-library/react": "^16.0.1",
