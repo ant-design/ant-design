@@ -343,11 +343,5 @@
   "title": "Ant Design",
   "tnpm": {
     "mode": "npm"
-  },
-  "overrides": {
-    "@swc/types": "0.1.12"
-  },
-  "resolutions": {
-    "@swc/types": "0.1.12"
   }
 }
