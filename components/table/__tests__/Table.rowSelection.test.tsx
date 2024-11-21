@@ -1905,4 +1905,76 @@ describe('Table.rowSelection', () => {
       );
     });
   });
+
+  it('should trigger both custom and internal checkbox events', () => {
+    const onClickMock = jest.fn();
+    const onChangeMock = jest.fn();
+
+    const getCheckboxProps = () => ({
+      onClick: onClickMock,
+      onChange: onChangeMock,
+    });
+
+    const { container } = render(
+      <Table
+        rowSelection={{
+          type: 'checkbox',
+          getCheckboxProps,
+        }}
+        columns={columns}
+        dataSource={data}
+      />,
+    );
+
+    const firstRowCheckbox = container.querySelector('tbody tr:first-child input[type="checkbox"]');
+    expect(firstRowCheckbox).toBeTruthy();
+
+    fireEvent.click(firstRowCheckbox!);
+
+    expect(onClickMock).toHaveBeenCalled();
+    expect(onClickMock.mock.calls.length).toBe(1);
+
+    expect(onChangeMock).toHaveBeenCalled();
+    expect(onChangeMock.mock.calls.length).toBe(1);
+
+    const changeEvent = onChangeMock.mock.calls[0][0];
+    expect(changeEvent).toHaveProperty('target');
+    expect(changeEvent.target).toHaveProperty('checked');
+  });
+
+  it('should trigger both custom and internal radio events', () => {
+    const onClickMock = jest.fn();
+    const onChangeMock = jest.fn();
+
+    const getCheckboxProps = () => ({
+      onClick: onClickMock,
+      onChange: onChangeMock,
+    });
+
+    const { container } = render(
+      <Table
+        rowSelection={{
+          type: 'radio',
+          getCheckboxProps,
+        }}
+        columns={columns}
+        dataSource={data}
+      />,
+    );
+
+    const firstRowRadio = container.querySelector('tbody tr:first-child input[type="radio"]');
+    expect(firstRowRadio).toBeTruthy();
+
+    fireEvent.click(firstRowRadio!);
+
+    expect(onClickMock).toHaveBeenCalled();
+    expect(onClickMock.mock.calls.length).toBe(1);
+
+    expect(onChangeMock).toHaveBeenCalled();
+    expect(onChangeMock.mock.calls.length).toBe(1);
+
+    const changeEvent = onChangeMock.mock.calls[0][0];
+    expect(changeEvent).toHaveProperty('target');
+    expect(changeEvent.target).toHaveProperty('checked');
+  });
 });

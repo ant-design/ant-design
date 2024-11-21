@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.22.1",
+  "version": "5.22.2",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -343,5 +343,11 @@
   "title": "Ant Design",
   "tnpm": {
     "mode": "npm"
+  },
+  "overrides": {
+    "@swc/types": "0.1.12"
+  },
+  "resolutions": {
+    "@swc/types": "0.1.12"
   }
 }
