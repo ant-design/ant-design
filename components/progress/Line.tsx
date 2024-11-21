@@ -34,7 +34,7 @@ export const sortGradient = (gradients: StringGradients) => {
   let tempArr: { key: number; value?: string }[] = [];
   Object.keys(gradients).forEach((key) => {
     const formattedKey = parseFloat(key.replace(/%/g, ''));
-    if (!isNaN(formattedKey)) {
+    if (!Number.isNaN(formattedKey)) {
       tempArr.push({ key: formattedKey, value: gradients[key] });
     }
   });
