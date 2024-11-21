@@ -19,6 +19,7 @@ tag: vVERSION
 
 `2024-11-21`
 
+- 🐞 Fix Input.OTP focus from advancing when previous input is empty. [#51732](https://github.com/ant-design/ant-design/pull/51732) [@ChristopherJamesL](https://github.com/ChristopherJamesL)
 - 🐞 Fix Input.OTP focus from advancing when previous input is empty. [#51664](https://github.com/ant-design/ant-design/pull/51664) [@thecodesalim](https://github.com/thecodesalim)
 - 🐞 Adjust Modal function call not to scroll the confirm button when it get auto focused. [#51647](https://github.com/ant-design/ant-design/pull/51647) [@zombieJ](https://github.com/zombieJ)
 - 🐞 Fix Form `rules` with same error content will cause React render warning. [#51636](https://github.com/ant-design/ant-design/pull/51636) [@zombieJ](https://github.com/zombieJ)
