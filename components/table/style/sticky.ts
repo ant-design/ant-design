@@ -24,6 +24,7 @@ const genStickyStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       [`${componentCls}-sticky`]: {
         '&-holder': {
           position: 'sticky',
+          top: 0, // Ensure sticky header stays at the top
           zIndex: zIndexTableSticky,
           background: token.colorBgContainer,
         },
