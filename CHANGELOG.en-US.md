@@ -15,6 +15,12 @@ tag: vVERSION
 
 ---
 
+## 5.22.3
+
+`2024-11-20`
+
+- 🐞 Fix select component's selected options background color. [#51718](https://github.com/ant-design/ant-design/pull/51718) [@ChristopherJamesL](https://github.com/ChristopherJamesL)
+
 ## 5.22.2
 
 `2024-11-19`
