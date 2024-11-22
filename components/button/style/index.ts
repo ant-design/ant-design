@@ -40,12 +40,8 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         pointerEvents: 'none',
       },
 
-      '> span': {
-        display: 'inline-block',
-      },
-
-      [`${componentCls}-icon`]: {
-        lineHeight: 1,
+      [`> span, ${componentCls}-icon`]: {
+        display: 'inline-flex',
       },
 
       '> a': {
@@ -622,10 +618,11 @@ const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation =>
     buttonPaddingHorizontal,
     iconCls,
     buttonPaddingVertical,
+    motionDurationSlow,
+    motionEaseInOut,
+    buttonIconOnlyFontSize,
+    opacityLoading,
   } = token;
-
-  const iconOnlyCls = `${componentCls}-icon-only`;
-
   return [
     {
       [prefixCls]: {
@@ -635,7 +632,7 @@ const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation =>
         padding: `${unit(buttonPaddingVertical!)} ${unit(buttonPaddingHorizontal!)}`,
         borderRadius,
 
-        [`&${iconOnlyCls}`]: {
+        [`&${componentCls}-icon-only`]: {
           width: controlHeight,
           paddingInline: 0,
 
@@ -649,22 +646,21 @@ const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation =>
           },
 
           [iconCls]: {
-            fontSize: token.buttonIconOnlyFontSize,
+            fontSize: buttonIconOnlyFontSize,
           },
         },
 
         // Loading
         [`&${componentCls}-loading`]: {
-          opacity: token.opacityLoading,
+          opacity: opacityLoading,
           cursor: 'default',
         },
 
         [`${componentCls}-loading-icon`]: {
-          transition: `width ${token.motionDurationSlow} ${token.motionEaseInOut}, opacity ${token.motionDurationSlow} ${token.motionEaseInOut}`,
+          transition: `width ${motionDurationSlow} ${motionEaseInOut}, opacity ${motionDurationSlow} ${motionEaseInOut}`,
         },
       },
     },
-
     // Shape - patch prefixCls again to override solid border radius style
     {
       [`${componentCls}${componentCls}-circle${prefixCls}`]: genCircleButtonStyle(token),
