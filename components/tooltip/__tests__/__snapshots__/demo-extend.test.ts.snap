@@ -15,6 +15,7 @@ Array [
         class="ant-segmented-item ant-segmented-item-selected"
       >
         <input
+          aria-hidden="true"
           checked=""
           class="ant-segmented-item-input"
           type="radio"
@@ -32,6 +33,7 @@ Array [
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
@@ -48,6 +50,7 @@ Array [
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
