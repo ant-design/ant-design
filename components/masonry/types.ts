@@ -3,6 +3,13 @@ import { Breakpoint } from 'antd-style';
 
 export type Gap = number | undefined;
 export type Gutter = number | undefined | Partial<Record<Breakpoint, number>>;
+export type Key = string | number;
+
+export interface MasonryItem {
+  key?: Key;
+  height?: number;
+  render: () => ReactNode;
+}
 
 export interface MasonryProps {
   /** Number of columns in the masonry grid layout */
@@ -14,8 +21,7 @@ export interface MasonryProps {
   /** When true, items are placed sequentially */
   sequential?: boolean;
 
-  /** Child elements to be arranged in the masonry layout */
-  children: ReactNode;
+  items: MasonryItem[];
 
   prefixCls?: string;
 }
