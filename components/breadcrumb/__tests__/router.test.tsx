@@ -44,7 +44,7 @@ describe('react router', () => {
     expect(location1).toEqual(location2);
   });
 
-  it('react router 3', () => {
+  it('react router legacy', () => {
     const routes = [
       {
         name: 'home',
