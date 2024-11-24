@@ -35,12 +35,8 @@ const MasonryItem = ({ item, style, index, prefixCls }: MasonryItemProps) => {
       const imageLoadPromises = Array.from(images).map(
         (img) =>
           new Promise((resolve) => {
-            if (img.complete) {
-              resolve(null);
-            } else {
-              img.addEventListener('load', resolve, { once: true });
-              img.addEventListener('error', resolve, { once: true });
-            }
+            img.addEventListener('load', resolve, { once: true });
+            img.addEventListener('error', resolve, { once: true });
           }),
       );
 
