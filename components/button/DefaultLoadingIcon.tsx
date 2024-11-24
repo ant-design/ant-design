@@ -23,7 +23,7 @@ const InnerLoadingIcon = forwardRef<HTMLSpanElement, InnerLoadingIconProps>((pro
   );
 });
 
-export type LoadingIconProps = {
+export type DefaultLoadingIconProps = {
   prefixCls: string;
   existIcon: boolean;
   loading?: boolean | object;
@@ -43,7 +43,7 @@ const getRealWidth = (node: HTMLElement): React.CSSProperties => ({
   transform: 'scale(1)',
 });
 
-const LoadingIcon: React.FC<LoadingIconProps> = (props) => {
+const DefaultLoadingIcon: React.FC<DefaultLoadingIconProps> = (props) => {
   const { prefixCls, loading, existIcon, className, style } = props;
   const visible = !!loading;
 
@@ -78,4 +78,4 @@ const LoadingIcon: React.FC<LoadingIconProps> = (props) => {
   );
 };
 
-export default LoadingIcon;
+export default DefaultLoadingIcon;
