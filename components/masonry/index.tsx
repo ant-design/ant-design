@@ -1,4 +1,4 @@
 import Masonry from './Masonry';
 
-export type { MasonryProps } from './types';
+export type { MasonryProps } from './interface';
 export default Masonry;
