@@ -24,4 +24,6 @@ export interface MasonryProps {
   items: MasonryItem[];
 
   prefixCls?: string;
+
+  keepAspectRatio?: boolean;
 }
