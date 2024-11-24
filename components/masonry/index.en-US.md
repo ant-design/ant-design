@@ -23,14 +23,35 @@ A masonry layout component for displaying content with different heights.
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/sequential.tsx">Sequential</code>
 <code src="./demo/responsive.tsx">Responsive</code>
+<code src="./demo/image.tsx">Image</code>
+<code src="./demo/update.tsx">Update</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ### Masonry
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | columns | Number of columns, can be a fixed number or responsive config | `number \| { xs?: number; sm?: number; md?: number }` | - |
-| gutter | Gap between items, can be a fixed number, responsive config, or [horizontal, vertical] config | `number \| { xs?: number; sm?: number; md?: number } \| [number, number]` | `0` |
+| gutter | Gap between items, can be a fixed number, responsive config, or [horizontal, vertical] config | `Gap` \| `[Gap, Gap]` | `0` |
 | sequential | When true, items are placed sequentially (left-to-right, top-to-bottom) | `boolean` | `false` |
-| children | Child elements | `React.ReactNode` | - |
+| items | Masonry items | `MasonryItem[]` | - |
+| keepAspectRatio | When true, the height of the items will be adjusted to keep the aspect ratio | `boolean` | `false` |
+
+### MasonryItem
+
+| Property | Description       | Type                    | Default |
+| -------- | ----------------- | ----------------------- | ------- |
+| key      | Unique identifier | `string` \| `number`    | -       |
+| height   | Height            | `number`                | -       |
+| render   | Render function   | `() => React.ReactNode` | -       |
+
+### Gap
+
+Gap is the spacing between items, can be a fixed number, or responsive config.
+
+```ts
+type Gap = number | undefined | Partial<Record<'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl', number>>;
+```

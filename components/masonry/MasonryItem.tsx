@@ -1,7 +1,7 @@
 import React, { useMemo, useRef } from 'react';
 import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
-import type { MasonryItem as MasonryItemType } from './types';
+import type { MasonryItem as MasonryItemType } from './interface';
 
 interface MasonryItemProps {
   item: MasonryItemType;
