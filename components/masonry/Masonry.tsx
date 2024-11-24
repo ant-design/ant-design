@@ -1,10 +1,20 @@
-import React, { CSSProperties, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  CSSProperties,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import classNames from 'classnames';
+import ResizeObserver from 'rc-resize-observer';
 import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
 import useResponsiveObserver, { responsiveArray, ScreenMap } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import MasonryItem from './MasonryItem';
 import useStyle from './style';
 import { Gap, Gutter, MasonryProps } from './types';
 
@@ -18,6 +28,7 @@ const Masonry: React.FC<MasonryProps> = ({
   gutter = 0,
   sequential = false,
   items,
+  keepAspectRatio = false,
 }) => {
   const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('masonry', customizePrefixCls);
@@ -58,9 +69,12 @@ const Masonry: React.FC<MasonryProps> = ({
     return () => responsiveObserver.unsubscribe(token);
   }, []);
 
-  const gutters = ((): [Gap, Gap] => {
+  const { horizontalGutter = 0, verticalGutter = 0 } = useMemo((): {
+    horizontalGutter: Gap | undefined;
+    verticalGutter: Gap | undefined;
+  } => {
     const normalizedGutter = Array.isArray(gutter) ? gutter : [gutter, undefined];
-    return normalizedGutter.map((g): Gap => {
+    const [horizontalGutter, verticalGutter] = normalizedGutter.map((g): Gap => {
       if (typeof g !== 'object') {
         return g;
       }
@@ -72,10 +86,12 @@ const Masonry: React.FC<MasonryProps> = ({
 
       return matchingBreakpoint ? (g[matchingBreakpoint] as number) : undefined;
     }) as [Gap, Gap];
-  })();
 
-  const horizontalGutter = gutters[0] ?? 0;
-  const verticalGutter = gutters[1] ?? gutters[0] ?? 0;
+    return {
+      horizontalGutter: horizontalGutter ?? 0,
+      verticalGutter: verticalGutter ?? horizontalGutter ?? 0,
+    };
+  }, [gutter, screens]);
 
   const currentColumns = useMemo<number>(() => {
     if (typeof columns === 'number') return columns;
@@ -92,63 +108,110 @@ const Masonry: React.FC<MasonryProps> = ({
     return columns.xxl ?? columns.xl ?? columns.lg ?? columns.md ?? columns.sm ?? columns.xs ?? 1;
   }, [columns, screens]);
 
-  useLayoutEffect(() => {
+  const updatePosition = useCallback(() => {
     if (containerRef.current) {
       const columnHeights = new Array(currentColumns).fill(0);
-      const containerWidth = containerRef.current.clientWidth;
+      const curContainerWidth = containerRef.current.clientWidth;
       const eachItemWidth = getNearestNumber(
-        (containerWidth - horizontalGutter * (currentColumns - 1)) / currentColumns,
+        (curContainerWidth - horizontalGutter * (currentColumns - 1)) / currentColumns,
       );
       const newItemLayouts: CSSProperties[] = [];
 
       const containerElements = containerRef.current.querySelectorAll(`[data-${itemPrefixCls}]`);
 
+      let skip = false;
       containerElements.forEach((element, index) => {
-        // Get original dimensions before any scaling
-        const elementHeight = element.clientHeight;
-        const elementWidth = eachItemWidth;
+        if (skip) {
+          return;
+        }
 
-        // Calculate aspect ratio of original content
+        const elementHeight = parseFloat(element.getAttribute('data-height') || '0');
+        const elementWidth = parseFloat(element.getAttribute('data-width') || '0');
+
+        if (elementHeight === 0) {
+          skip = true;
+          return;
+        }
+
         const aspectRatio = elementWidth / elementHeight;
-
-        // Calculate new height based on target width while preserving aspect ratio
-        const adjustedHeight = getNearestNumber(eachItemWidth / aspectRatio);
+        const adjustedHeight = keepAspectRatio
+          ? getNearestNumber(eachItemWidth / aspectRatio)
+          : getNearestNumber(elementHeight);
 
         let columnIndex: number;
-        if (sequential) {
+        const existingColumn = element.getAttribute('data-column');
+
+        if (existingColumn !== null) {
+          // If item already has a column assigned, keep it there
+          columnIndex = parseInt(existingColumn, 10);
+        } else if (sequential) {
           columnIndex = index % currentColumns;
         } else {
           columnIndex = columnHeights.indexOf(Math.min(...columnHeights));
         }
+
+        // Store column assignment on the element
+        element.setAttribute('data-column', columnIndex.toString());
 
         columnHeights[columnIndex] += adjustedHeight + verticalGutter;
 
         newItemLayouts.push({
           [`--${itemPrefixCls}-width`]: `${eachItemWidth}px`,
           [`--${itemPrefixCls}-height`]: `${adjustedHeight}px`,
-          [`--${itemPrefixCls}-translate-x`]: `${columnIndex * (eachItemWidth + horizontalGutter)}px`,
-          [`--${itemPrefixCls}-translate-y`]: `${columnHeights[columnIndex] - adjustedHeight - verticalGutter}px`,
+          [`--${itemPrefixCls}-translate-x`]: `${getNearestNumber(columnIndex * (eachItemWidth + horizontalGutter))}px`,
+          [`--${itemPrefixCls}-translate-y`]: `${getNearestNumber(columnHeights[columnIndex] - adjustedHeight - verticalGutter)}px`,
         });
       });
 
-      setItemLayouts(newItemLayouts);
-      setContainerHeight(Math.max(...columnHeights));
+      if (!skip) {
+        setItemLayouts(newItemLayouts);
+        setContainerHeight(Math.max(...columnHeights));
+      }
     }
-  }, [currentColumns, horizontalGutter, verticalGutter]);
+  }, [currentColumns, horizontalGutter, verticalGutter, sequential, items]);
+
+  useLayoutEffect(() => {
+    if (containerRef.current) {
+      const images = containerRef.current.getElementsByTagName('img');
+      const imageLoadPromises = Array.from(images).map(
+        (img) =>
+          new Promise((resolve) => {
+            img.addEventListener('load', resolve, { once: true });
+            img.addEventListener('error', resolve, { once: true });
+          }),
+      );
+
+      // Update height after all images are loaded
+      Promise.all(imageLoadPromises).then(updatePosition);
+
+      // Cleanup
+      return () => {
+        Array.from(images).forEach((img) => {
+          img.removeEventListener('load', updatePosition);
+          img.removeEventListener('error', updatePosition);
+        });
+      };
+    }
+  }, []);
+
+  useLayoutEffect(() => {
+    updatePosition();
+  }, [currentColumns, horizontalGutter, verticalGutter, sequential, items]);
 
   return wrapCSSVar(
-    <div ref={containerRef} className={mansoryCls} style={{ height: containerHeight }}>
-      {items.map((item, index) => (
-        <div
-          key={item.key ?? index}
-          style={itemLayouts[index]}
-          className={itemPrefixCls}
-          {...{ [`data-${itemPrefixCls}`]: item.key }}
-        >
-          {item.render()}
-        </div>
-      ))}
-    </div>,
+    <ResizeObserver onResize={updatePosition}>
+      <div ref={containerRef} className={mansoryCls} style={{ height: containerHeight }}>
+        {items.map((item, index) => (
+          <MasonryItem
+            key={item.key ?? index}
+            item={item}
+            index={index}
+            style={itemLayouts[index]}
+            prefixCls={prefixCls}
+          />
+        ))}
+      </div>
+    </ResizeObserver>,
   );
 };
 
