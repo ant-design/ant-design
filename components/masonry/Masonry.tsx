@@ -30,7 +30,7 @@ const Masonry: React.FC<MasonryProps> = ({
   items,
   keepAspectRatio = false,
 }) => {
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls, direction } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('masonry', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
@@ -159,7 +159,9 @@ const Masonry: React.FC<MasonryProps> = ({
         newItemLayouts.push({
           [`--${itemPrefixCls}-width`]: `${eachItemWidth}px`,
           [`--${itemPrefixCls}-height`]: `${adjustedHeight}px`,
-          [`--${itemPrefixCls}-translate-x`]: `${getNearestNumber(columnIndex * (eachItemWidth + horizontalGutter))}px`,
+          [`--${itemPrefixCls}-translate-x`]: `${
+            direction === 'rtl' ? '-' : ''
+          }${getNearestNumber(columnIndex * (eachItemWidth + horizontalGutter))}px`,
           [`--${itemPrefixCls}-translate-y`]: `${getNearestNumber(columnHeights[columnIndex] - adjustedHeight - verticalGutter)}px`,
         });
       });
