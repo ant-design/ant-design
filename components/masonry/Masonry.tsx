@@ -125,8 +125,8 @@ const Masonry: React.FC<MasonryProps> = ({
           return;
         }
 
-        const elementHeight = parseFloat(element.getAttribute('data-height') || '0');
-        const elementWidth = parseFloat(element.getAttribute('data-width') || '0');
+        const elementHeight = parseFloat(element.getAttribute('data-height')!);
+        const elementWidth = parseFloat(element.getAttribute('data-width')!);
 
         if (elementHeight === 0) {
           skip = true;
@@ -134,6 +134,7 @@ const Masonry: React.FC<MasonryProps> = ({
         }
 
         const aspectRatio = elementWidth / elementHeight;
+
         const adjustedHeight = keepAspectRatio
           ? getNearestNumber(eachItemWidth / aspectRatio)
           : getNearestNumber(elementHeight);
@@ -200,7 +201,12 @@ const Masonry: React.FC<MasonryProps> = ({
 
   return wrapCSSVar(
     <ResizeObserver onResize={updatePosition}>
-      <div ref={containerRef} className={mansoryCls} style={{ height: containerHeight }}>
+      <div
+        ref={containerRef}
+        data-testid="masonry-container"
+        className={mansoryCls}
+        style={{ height: containerHeight }}
+      >
         {items.map((item, index) => (
           <MasonryItem
             key={item.key ?? index}
