@@ -22,7 +22,7 @@ export const genMasonryStyle: GenerateStyle<MasonryToken> = (token: MasonryToken
       [`& > ${componentCls}-item`]: {
         boxSizing: 'border-box',
         transform: `translate(var(--${prefixCls}-item-translate-x), var(--${prefixCls}-item-translate-y))`,
-        left: 0,
+        insetInlineStart: 0,
         top: 0,
         position: 'absolute',
         width: `var(--${prefixCls}-item-width)`,
