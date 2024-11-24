@@ -14,9 +14,9 @@ import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 import useResponsiveObserver, { responsiveArray, ScreenMap } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import { Gap, Gutter, MasonryProps } from './interface';
 import MasonryItem from './MasonryItem';
 import useStyle from './style';
-import { Gap, Gutter, MasonryProps } from './types';
 
 const getNearestNumber = (value: number) => {
   return Math.round((value + Number.EPSILON) * 100) / 100;
