@@ -31,7 +31,7 @@ const App: React.FC = () => {
           Loading
         </Button>
         <Button type="primary" icon={<PoweroffOutlined />} loading />
-        <Button type="primary" loadingIcon={<SyncOutlined spin />} loading>
+        <Button type="primary" loading={{ icon: <SyncOutlined spin /> }}>
           Loading Icon
         </Button>
       </Flex>
@@ -56,8 +56,7 @@ const App: React.FC = () => {
         <Button
           type="primary"
           icon={<PoweroffOutlined />}
-          loading={loadings[3]}
-          loadingIcon={<SyncOutlined spin />}
+          loading={loadings[3] && { icon: <SyncOutlined spin /> }}
           onClick={() => enterLoading(3)}
         >
           Loading Icon

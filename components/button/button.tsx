@@ -20,7 +20,7 @@ import type {
 } from './buttonHelpers';
 import { isTwoCNChar, isUnBorderedButtonVariant, spaceChildren } from './buttonHelpers';
 import IconWrapper from './IconWrapper';
-import DefaultLoadingIcon from './LoadingIcon';
+import DefaultLoadingIcon from './DefaultLoadingIcon';
 import useStyle from './style';
 import Compact from './style/compact';
 
@@ -35,8 +35,7 @@ export interface BaseButtonProps {
   shape?: ButtonShape;
   size?: SizeType;
   disabled?: boolean;
-  loading?: boolean | { delay?: number };
-  loadingIcon?: React.ReactNode;
+  loading?: boolean | { delay?: number; icon?: React.ReactNode };
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
@@ -99,7 +98,6 @@ const InternalCompoundedButton = React.forwardRef<
 >((props, ref) => {
   const {
     loading = false,
-    loadingIcon,
     prefixCls: customizePrefixCls,
     color,
     variant,
@@ -301,9 +299,9 @@ const InternalCompoundedButton = React.forwardRef<
       <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
         {icon}
       </IconWrapper>
-    ) : loadingIcon ? (
+    ) : typeof loading === 'object' && loading.icon ? (
       <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
-        {loadingIcon}
+        {loading.icon}
       </IconWrapper>
     ) : (
       <DefaultLoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={innerLoading} />
