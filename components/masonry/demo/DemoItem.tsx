@@ -11,6 +11,7 @@ const DemoItem: React.FC<{ height: number; children: React.ReactNode }> = ({
         background: '#f0f0f0',
         borderRadius: 4,
         padding: 4,
+        width: '100%',
       }}
     >
       {children}
