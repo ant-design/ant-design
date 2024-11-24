@@ -171,7 +171,13 @@ const Masonry: React.FC<MasonryProps> = ({
         setContainerHeight(Math.max(...columnHeights));
       }
     }
-  }, [currentColumns, horizontalGutter, verticalGutter, sequential, items]);
+  }, [
+    currentColumns,
+    horizontalGutter,
+    verticalGutter,
+    sequential,
+    items.map((item, index) => item.key ?? index).join(','),
+  ]);
 
   useLayoutEffect(() => {
     if (containerRef.current) {
@@ -199,7 +205,13 @@ const Masonry: React.FC<MasonryProps> = ({
 
   useLayoutEffect(() => {
     updatePosition();
-  }, [currentColumns, horizontalGutter, verticalGutter, sequential, items]);
+  }, [
+    currentColumns,
+    horizontalGutter,
+    verticalGutter,
+    sequential,
+    items.map((item, index) => item.key ?? index).join(','),
+  ]);
 
   return wrapCSSVar(
     <ResizeObserver onResize={updatePosition}>
