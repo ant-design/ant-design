@@ -14,27 +14,21 @@ export const genMasonryStyle: GenerateStyle<MasonryToken> = (token: MasonryToken
   return {
     [componentCls]: {
       width: '100%',
-      display: 'flex',
-      flexDirection: 'column',
-      flexWrap: 'wrap',
-      alignItems: 'flex-start',
-      boxSizing: 'border-box',
       minHeight: 0,
       position: 'relative',
-      height: `var(--${prefixCls}-height)`,
+      margin: '0 auto',
+      boxSizing: 'border-box',
 
-      '& > *': {
+      [`& > ${componentCls}-item`]: {
         boxSizing: 'border-box',
+        transform: `translate(var(--${prefixCls}-item-translate-x), var(--${prefixCls}-item-translate-y))`,
+        left: 0,
+        top: 0,
+        position: 'absolute',
         width: `var(--${prefixCls}-item-width)`,
-        margin: `var(--${prefixCls}-item-margin)`,
-        order: `var(--${prefixCls}-item-order)`,
-
-        [`&${componentCls}-item-line-break`]: {
-          flexBasis: '100%',
-          width: 0,
-          height: 0,
-          margin: 0,
-        },
+        height: `var(--${prefixCls}-item-height)`,
+        overflow: 'hidden',
+        transition: 'transform 0.1s ease-out',
       },
     },
   };
