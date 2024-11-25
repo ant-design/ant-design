@@ -20,6 +20,6 @@ jobs:
         if: github.event.issue.state == 'open' && github.actor == github.event.issue.user.login
         uses: actions-cool/issues-helper@v3
         with:
-          actions: 'remove-labels'
+          actions: remove-labels
           issue-number: ${{ github.event.issue.number }}
           labels: 'Inactive, needs-more-info'

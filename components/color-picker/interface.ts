@@ -85,7 +85,8 @@ export type ColorPickerProps = Omit<
   [key: `data-${string}`]: string;
   onOpenChange?: (open: boolean) => void;
   onFormatChange?: (format?: ColorFormatType) => void;
-  onChange?: (value: AggregationColor, hex: string) => void;
+  onChange?: (value: AggregationColor, css: string) => void;
   onClear?: () => void;
   onChangeComplete?: (value: AggregationColor) => void;
+  disabledFormat?: boolean;
 } & Pick<PopoverProps, 'getPopupContainer' | 'autoAdjustOverflow' | 'destroyTooltipOnHide'>;

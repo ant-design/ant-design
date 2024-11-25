@@ -180,12 +180,6 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
                 boxShadow: 'none',
               },
             },
-
-          '&-open, &-focused': {
-            [`${antCls}-select-selector`]: {
-              color: token.colorPrimary,
-            },
-          },
         },
 
         // https://github.com/ant-design/ant-design/issues/31333
@@ -427,6 +421,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
     // ========================= Input =========================
     [`${componentCls}-clear-icon`]: {
       margin: 0,
+      lineHeight: 0,
       color: token.colorTextQuaternary,
       fontSize: token.fontSizeIcon,
       verticalAlign: -1,
@@ -466,6 +461,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
   } = token;
 
   const affixCls = `${componentCls}-affix-wrapper`;
+  const affixClsDisabled = `${componentCls}-affix-wrapper-disabled`;
 
   return {
     [affixCls]: {
@@ -549,6 +545,17 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 
         '&:hover': {
           color: colorIconHover,
+        },
+      },
+    },
+    [affixClsDisabled]: {
+      // password disabled
+      [`${iconCls}${componentCls}-password-icon`]: {
+        color: colorIcon,
+        cursor: 'not-allowed',
+
+        '&:hover': {
+          color: colorIcon,
         },
       },
     },
@@ -644,8 +651,6 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
     [searchPrefixCls]: {
       [componentCls]: {
         '&:hover, &:focus': {
-          borderColor: token.colorPrimaryHover,
-
           [`+ ${componentCls}-group-addon ${searchPrefixCls}-button:not(${antCls}-btn-primary)`]: {
             borderInlineStartColor: token.colorPrimaryHover,
           },
@@ -653,6 +658,7 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       },
 
       [`${componentCls}-affix-wrapper`]: {
+        height: token.controlHeight,
         borderRadius: 0,
       },
 
@@ -674,8 +680,6 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
             paddingTop: 0,
             paddingBottom: 0,
             borderStartStartRadius: 0,
-            borderStartEndRadius: token.borderRadius,
-            borderEndEndRadius: token.borderRadius,
             borderEndStartRadius: 0,
             boxShadow: 'none',
           },
@@ -709,12 +713,16 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         },
       },
 
-      [`&-large ${searchPrefixCls}-button`]: {
-        height: token.controlHeightLG,
+      '&-large': {
+        [`${componentCls}-affix-wrapper, ${searchPrefixCls}-button`]: {
+          height: token.controlHeightLG,
+        },
       },
 
-      [`&-small ${searchPrefixCls}-button`]: {
-        height: token.controlHeightSM,
+      '&-small': {
+        [`${componentCls}-affix-wrapper, ${searchPrefixCls}-button`]: {
+          height: token.controlHeightSM,
+        },
       },
 
       '&-rtl': {

@@ -25,13 +25,13 @@ jobs:
       - name: build site
         run: bun run predeploy
         env:
-          NODE_OPTIONS: "--max_old_space_size=4096"
+          NODE_OPTIONS: --max_old_space_size=4096
 
       - name: build dist and bundle analyzer report
         run: bun run dist
         env:
           ANALYZER: 1
-          NODE_OPTIONS: "--max_old_space_size=4096"
+          NODE_OPTIONS: --max_old_space_size=4096
 
       - name: Get version
         id: publish-version
@@ -57,7 +57,7 @@ jobs:
         run: |
           export DEPLOY_DOMAIN=ant-design-${{ steps.publish-version.outputs.VERSION }}.surge.sh
           cp report.html ./_site
-          npx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+          bunx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
       - name: Create Commit Comment
         uses: peter-evans/commit-comment@v3

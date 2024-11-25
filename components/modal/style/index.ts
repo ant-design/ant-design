@@ -287,6 +287,10 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
             textRendering: 'auto',
           },
 
+          '&:disabled': {
+            pointerEvents: 'none',
+          },
+
           '&:hover': {
             color: token.modalCloseIconHoverColor,
             backgroundColor: token.colorBgTextHover,

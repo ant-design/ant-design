@@ -15,6 +15,9 @@ const genBaseStyle: GenerateStyle<AppToken> = (token) => {
       fontSize,
       lineHeight,
       fontFamily,
+      [`&${componentCls}-rtl`]: {
+        direction: 'rtl',
+      },
     },
   };
 };

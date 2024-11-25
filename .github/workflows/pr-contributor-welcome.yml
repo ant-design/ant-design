@@ -36,7 +36,7 @@ jobs:
 
             🎉 感谢您的贡献！如果您还没有加入钉钉社区群，请扫描下方二维码加入我们（加群时请提供此 PR 链接）。
 
-            <img src="https://github.com/ant-design/ant-design/assets/5378891/e24c6080-bf38-4523-b1cd-f6c43ad7375f" height="200" />
+            <img src="https://github.com/user-attachments/assets/cfee105e-8731-481f-a336-92b79a84d35a" height="200" />
 
             <!-- WELCOME_CONTRIBUTION -->
-          body-include: '<!-- WELCOME_CONTRIBUTION -->'
+          body-include: <!-- WELCOME_CONTRIBUTION -->

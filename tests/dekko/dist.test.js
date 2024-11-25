@@ -13,5 +13,4 @@ $('dist')
   .hasFile('antd.min.js.map')
   .hasFile('reset.css');
 
-// eslint-disable-next-line no-console
 console.log(chalk.green('✨ `dist` directory is valid.'));

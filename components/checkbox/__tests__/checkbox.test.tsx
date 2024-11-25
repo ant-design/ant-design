@@ -37,4 +37,30 @@ describe('Checkbox', () => {
     );
     errorSpy.mockRestore();
   });
+
+  // https://github.com/ant-design/ant-design/issues/50768
+  it('onFocus / onBlur', () => {
+    const onBlur = jest.fn();
+    const onFocus = jest.fn();
+
+    const { container } = render(<Checkbox onBlur={onBlur} onFocus={onFocus} />);
+    const inputEl = container.querySelector('input')!;
+
+    fireEvent.focus(inputEl);
+    fireEvent.blur(inputEl);
+
+    expect(onFocus).toHaveBeenCalledTimes(1);
+    expect(onBlur).toHaveBeenCalledTimes(1);
+  });
+
+  it('should reflect indeterminate state correctly', () => {
+    const { rerender, container } = render(<Checkbox indeterminate />);
+
+    const checkboxInput = container.querySelector('input')!;
+    expect(checkboxInput.indeterminate).toBe(true);
+
+    rerender(<Checkbox indeterminate={false} />);
+
+    expect(checkboxInput.indeterminate).toBe(false);
+  });
 });

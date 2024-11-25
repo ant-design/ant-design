@@ -14,10 +14,12 @@ An enterprise-class UI design language and React UI library.
 
 [Changelog](./CHANGELOG.en-US.md) · [Report Bug][github-issues-url] · [Request Feature][github-issues-url] · English · [中文](./README-zh_CN.md)
 
-![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+## ❤️ Sponsors and Backers [![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)](https://opencollective.com/ant-design#support) [![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen)](https://opencollective.com/ant-design#support)
 
-[npm-image]: http://img.shields.io/npm/v/antd.svg?style=flat-square
-[npm-url]: http://npmjs.org/package/antd
+[![](https://opencollective.com/ant-design/tiers/sponsors.svg?avatarHeight=72)](https://opencollective.com/ant-design/contribute/sponsors-218/checkout) [![](https://opencollective.com/ant-design/tiers/backers.svg?avatarHeight=72)](https://opencollective.com/ant-design/contribute/backers-217/checkout)
+
+[npm-image]: https://img.shields.io/npm/v/antd.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/antd
 [github-action-image]: https://github.com/ant-design/ant-design/workflows/%E2%9C%85%20test/badge.svg
 [github-action-url]: https://github.com/ant-design/ant-design/actions?query=workflow%3A%22%E2%9C%85+test%22
 [codecov-image]: https://img.shields.io/codecov/c/github/ant-design/ant-design/master.svg?style=flat-square
@@ -61,7 +63,7 @@ An enterprise-class UI design language and React UI library.
 - Server-side Rendering
 - [Electron](https://www.electronjs.org/)
 
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Electron |
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)<br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)<br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)<br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)<br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)<br>Electron |
 | --- | --- | --- | --- | --- |
 | Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
@@ -96,32 +98,28 @@ export default () => (
 
 - [Home page](https://ant.design/)
 - [Components Overview](https://ant.design/components/overview)
-- [Ant Design Pro](http://pro.ant.design/)
 - [Change Log](CHANGELOG.en-US.md)
-- [rc-components](http://react-component.github.io/)
-- [Mobile UI](http://mobile.ant.design)
-- [Mini Program UI](http://mini.ant.design)
-- [Ant Design Pro Components](https://procomponents.ant.design)
+- [rc-components](https://react-component.github.io/)
+- [🆕 Ant Design X](https://x.ant.design/index-cn)
+- [Ant Design Pro](https://pro.ant.design/)
+- [Pro Components](https://procomponents.ant.design)
+- [Ant Design Mobile](https://mobile.ant.design)
+- [Ant Design Mini](https://mini.ant.design)
 - [Ant Design Charts](https://charts.ant.design)
-- [Ant Design Icons](https://github.com/ant-design/ant-design-icons)
-- [Ant Design Colors](https://github.com/ant-design/ant-design-colors)
+- [Ant Design Web3](https://web3.ant.design)
 - [Landing Pages](https://landing.ant.design)
-- [Motion](https://motion.ant.design)
-- [Scaffold Market](http://scaffold.ant.design)
+- [Ant Motion](https://motion.ant.design)
+- [Scaffold Market](https://scaffold.ant.design)
 - [Developer Instruction](https://github.com/ant-design/ant-design/wiki/Development)
 - [Versioning Release Note](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [FAQ](https://ant.design/docs/react/faq)
-- [Stackblitz Demo](https://u.ant.design/reproduce) for bug reports
+- [Online Playground](https://u.ant.design/reproduce) for bug reports
 - [Customize Theme](https://ant.design/docs/react/customize-theme)
 - [How to Apply for Being A Collaborator](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 
 ## ⌨️ Development
 
-Use Gitpod, a free online dev environment for GitHub.
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ant-design/ant-design)
-
-Or use opensumi.run, a free online pure front-end dev environment.
+Use [opensumi.run](https://opensumi.run), a free online pure front-end dev environment.
 
 [![opensumi.run](https://custom-icon-badges.demolab.com/badge/opensumi-run-blue.svg?logo=opensumi)](https://opensumi.run/ide/ant-design/ant-design)
 
@@ -136,7 +134,7 @@ $ npm start
 
 Open your browser and visit http://127.0.0.1:8001 , see more at [Development](https://github.com/ant-design/ant-design/wiki/Development).
 
-## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
 
 <table>
 <tr>
@@ -175,10 +173,10 @@ We warmly invite contributions from everyone. Before you get started, please tak
 
 For collaborators, adhere to our [Pull Request Principle](https://github.com/ant-design/ant-design/wiki/PR-principle) and utilize our [Pull Request Template](https://github.com/ant-design/ant-design/wiki/PR-principle#pull-request-template) when creating a Pull Request.
 
+## Issue funding
+
+We use [Polar.sh](https://polar.sh/ant-design) and [Issuehunt](https://issuehunt.io/repos/3452688) to up-vote and promote specific features that you would like to see and implement. Check our backlog and help us:
+
+<a href="https://polar.sh/ant-design"><img src="https://polar.sh/embed/fund-our-backlog.svg?org=ant-design" /></a>
+
 [![Let's fund issues in this repository](https://raw.githubusercontent.com/BoostIO/issuehunt-materials/master/v1/issuehunt-button-v1.svg)](https://issuehunt.io/repos/34526884)
-
-## ❤️ Sponsors and Backers [![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)](https://opencollective.com/ant-design#support) [![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen)](https://opencollective.com/ant-design#support)
-
-[![](https://opencollective.com/ant-design/tiers/sponsors.svg?avatarHeight=36)](https://opencollective.com/ant-design#support)
-
-[![](https://opencollective.com/ant-design/tiers/backers.svg?avatarHeight=36)](https://opencollective.com/ant-design#support)

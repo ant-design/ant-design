@@ -53,12 +53,7 @@ const useStyle = createStyles(({ token, css }) => {
           > ${antCls}-menu-item-group
           > ${antCls}-menu-item-group-list
           > ${antCls}-menu-item {
-          padding-inline-start: 40px !important;
-
-          ${antCls}-row-rtl & {
-            padding-inline-end: 40px !important;
-            padding-inline-start: ${token.padding}px !important;
-          }
+          padding-inline: 36px 12px !important;
         }
 
         // Nest Category > Type > Article
@@ -96,19 +91,19 @@ const useStyle = createStyles(({ token, css }) => {
     `,
     mainMenu: css`
       z-index: 1;
-
-      .main-menu-inner {
-        position: sticky;
-        top: ${token.headerHeight + token.contentMarginTop}px;
-        width: 100%;
-        height: 100%;
-        max-height: calc(100vh - ${token.headerHeight + token.contentMarginTop}px);
-        overflow: hidden;
-        scrollbar-width: thin;
-        scrollbar-color: unset;
+      position: sticky;
+      top: ${token.headerHeight + token.contentMarginTop}px;
+      width: 100%;
+      height: 100%;
+      max-height: calc(100vh - ${token.headerHeight + token.contentMarginTop}px);
+      overflow: hidden;
+      scrollbar-width: thin;
+      scrollbar-gutter: stable;
+      .ant-menu {
+        padding: 0 4px;
       }
 
-      &:hover .main-menu-inner {
+      &:hover {
         overflow-y: auto;
       }
     `,
@@ -144,7 +139,7 @@ const Sidebar: React.FC = () => {
     <MobileMenu key="Mobile-menu">{menuChild}</MobileMenu>
   ) : (
     <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} className={styles.mainMenu}>
-      <section className="main-menu-inner">{menuChild}</section>
+      {menuChild}
     </Col>
   );
 };

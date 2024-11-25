@@ -57,10 +57,10 @@ jobs:
       - uses: actions-cool/ci-notice@v1
         if: ${{ failure() }}
         with:
-          notice-types: 'dingding'
+          notice-types: dingding
           # Exit directly with non-zero to trigger the failure logic of ci-notice.
           ci: |
             echo "❌ CI Mock Project Build Failed"
             exit 1
           dingding-token: ${{ secrets.DINGDING_BOT_COLLABORATOR_TOKEN }}
-          notice-title: 'CI Mock Project Build Failed'
+          notice-title: CI Mock Project Build Failed

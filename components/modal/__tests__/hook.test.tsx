@@ -397,13 +397,12 @@ describe('Modal.hook', () => {
 
     for (let i = 10; i > 0; i -= 1) {
       rerender(<Demo count={i} />);
-      // eslint-disable-next-line no-await-in-loop
+
       await waitFakeTimer();
 
       expect(document.body.querySelector('.ant-btn-primary')!.textContent).toEqual('确 定');
       fireEvent.click(document.body.querySelector('.ant-btn-primary')!);
 
-      // eslint-disable-next-line no-await-in-loop
       await waitFakeTimer();
     }
 

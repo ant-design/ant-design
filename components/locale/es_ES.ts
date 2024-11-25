@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/es_ES';
 
 import type { Locale } from '.';
@@ -35,6 +34,11 @@ const localeValues: Locale = {
     triggerDesc: 'Click para ordenar en orden descendente',
     triggerAsc: 'Click para ordenar en orden ascendente',
     cancelSort: 'Click para cancelar ordenamiento',
+  },
+  Tour: {
+    Next: 'Siguiente',
+    Previous: 'Anterior',
+    Finish: 'Finalizar',
   },
   Modal: {
     okText: 'Aceptar',

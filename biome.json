@@ -1,5 +1,6 @@
 {
   "files": {
+    "ignoreUnknown": true,
     "ignore": [
       ".dumi/tmp*",
       ".dumi/scripts/clarity.js",
@@ -56,7 +57,11 @@
         "noAccumulatingSpread": "off"
       },
       "a11y": {
-        "useKeyWithClickEvents": "off"
+        "noAriaHiddenOnFocusable": "off",
+        "noLabelWithoutControl": "off",
+        "useFocusableInteractive": "off",
+        "useKeyWithClickEvents": "off",
+        "useSemanticElements": "off"
       }
     }
   },

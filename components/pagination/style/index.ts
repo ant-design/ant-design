@@ -398,7 +398,6 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
           display: 'block',
           margin: 'auto',
           color: token.colorTextDisabled,
-          fontFamily: 'Arial, Helvetica, sans-serif',
           letterSpacing: token.paginationEllipsisLetterSpacing,
           textAlign: 'center',
           textIndent: token.paginationEllipsisTextIndent,
@@ -446,7 +445,6 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
     },
 
     [`${componentCls}-prev, ${componentCls}-next`]: {
-      fontFamily: 'Arial, Helvetica, sans-serif',
       outline: 0,
 
       button: {

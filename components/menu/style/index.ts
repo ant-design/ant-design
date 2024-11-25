@@ -424,7 +424,7 @@ const genMenuItemStyle = (token: MenuToken): CSSObject => {
       transition: [
         `border-color ${motionDurationSlow}`,
         `background ${motionDurationSlow}`,
-        `padding ${motionDurationSlow} ${motionEaseInOut}`,
+        `padding calc(${motionDurationSlow} + 0.1s) ${motionEaseInOut}`,
       ].join(','),
 
       [`${componentCls}-item-icon, ${iconCls}`]: {
@@ -637,10 +637,22 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
         [`${componentCls}-title-content`]: {
           transition: `color ${motionDurationSlow}`,
 
+          '&-with-extra': {
+            display: 'inline-flex',
+            alignItems: 'center',
+            width: '100%',
+          },
+
           // https://github.com/ant-design/ant-design/issues/41143
           [`> ${antCls}-typography-ellipsis-single-line`]: {
             display: 'inline',
             verticalAlign: 'unset',
+          },
+
+          [`${componentCls}-item-extra`]: {
+            marginInlineStart: 'auto',
+            paddingInlineStart: token.padding,
+            fontSize: token.fontSizeSM,
           },
         },
 

@@ -50,9 +50,10 @@ group:
 | defaultFormat | 颜色格式默认的值 | `rgb` \| `hex` \| `hsb` | - | 5.9.0 |
 | disabled | 禁用颜色选择器 | boolean | - | |
 | disabledAlpha | 禁用透明度 | boolean | - | 5.8.0 |
+| disabledFormat | 禁用选择颜色格式 | boolean | - |
 | destroyTooltipOnHide | 关闭后是否销毁弹窗 | `boolean` | false | 5.7.0 |
 | format | 颜色格式 | `rgb` \| `hex` \| `hsb` | `hex` | |
-| mode | 选择器模式，用于配置单色与渐变 | `('single' \| 'gradient')[]` | `single` | 5.20.0 |
+| mode | 选择器模式，用于配置单色与渐变 | `'single' \| 'gradient' \| ('single' \| 'gradient')[]` | `single` | 5.20.0 |
 | open | 是否显示弹出窗口 | boolean | - | |
 | presets | 预设的颜色 | `{ label: ReactNode, colors: Array<string \| Color>, defaultOpen?: boolean }[]` | - | `defaultOpen: 5.11.0` |
 | placement | 弹出窗口的位置 | 同 `Tooltips` 组件的 [placement](/components/tooltip-cn/#api) 参数设计 | `bottomLeft` | |
@@ -61,8 +62,8 @@ group:
 | size | 设置触发器大小 | `large` \| `middle` \| `small` | `middle` | 5.7.0 |
 | trigger | 颜色选择器的触发模式 | `hover` \| `click` | `click` | |
 | value | 颜色的值 | string \| `Color` | - | |
-| onChange | 颜色变化的回调 | `(value: Color, hex: string) => void` | - | |
-| onChangeComplete | 颜色选择完成的回调  | `(value: Color) => void` | - | 5.7.0 |
+| onChange | 颜色变化的回调 | `(value: Color, css: string) => void` | - | |
+| onChangeComplete | 颜色选择完成的回调，通过 `onChangeComplete` 对 `value` 受控时拖拽不会改变展示颜色 | `(value: Color) => void` | - | 5.7.0 |
 | onFormatChange | 颜色格式变化的回调 | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - | |
 | onOpenChange | 当 `open` 被改变时的回调 | `(open: boolean) => void` | - | |
 | onClear | 清除的回调 | `() => void` | - | 5.6.0 |

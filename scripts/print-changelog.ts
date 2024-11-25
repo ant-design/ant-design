@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable no-await-in-loop, no-console */
 import { spawn } from 'child_process';
 import path from 'path';
 import { input, select } from '@inquirer/prompts';

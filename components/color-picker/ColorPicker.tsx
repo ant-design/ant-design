@@ -60,6 +60,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     getPopupContainer,
     autoAdjustOverflow = true,
     destroyTooltipOnHide,
+    disabledFormat,
     ...rest
   } = props;
 
@@ -108,7 +109,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     }
   };
 
-  const onInternalChange: ColorPickerPanelProps['onChange'] = (data, pickColor) => {
+  const onInternalChange: ColorPickerPanelProps['onChange'] = (data, changeFromPickerDrag) => {
     let color: AggregationColor = generateColor(data as AggregationColor);
 
     // ignore alpha color
@@ -125,7 +126,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     }
 
     // Only for drag-and-drop color picking
-    if (!pickColor) {
+    if (!changeFromPickerDrag) {
       onInternalChangeComplete(color);
     }
   };
@@ -248,6 +249,7 @@ const ColorPicker: CompoundedComponent = (props) => {
             onActive={setActiveIndex}
             gradientDragging={gradientDragging}
             onGradientDragging={setGradientDragging}
+            disabledFormat={disabledFormat}
           />
         </ContextIsolator>
       }

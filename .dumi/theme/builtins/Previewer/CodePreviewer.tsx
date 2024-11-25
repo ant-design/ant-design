@@ -108,7 +108,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     clientOnly,
     pkgDependencyList,
   } = props;
-  const { showDebug, codeType } = useContext(DemoContext);
+  const { codeType } = useContext(DemoContext);
 
   const { pkg } = useSiteData();
   const location = useLocation();
@@ -420,6 +420,26 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 </a>
               </Tooltip>
             )}
+            <form
+              className="code-box-code-action"
+              action="https://codesandbox.io/api/v1/sandboxes/define"
+              method="POST"
+              target="_blank"
+              ref={codeSandboxIconRef}
+              onClick={() => {
+                track({ type: 'codesandbox', demo: asset.id });
+                codeSandboxIconRef.current?.submit();
+              }}
+            >
+              <input
+                type="hidden"
+                name="parameters"
+                value={compress(JSON.stringify(codesanboxPrefillConfig))}
+              />
+              <Tooltip title={<FormattedMessage id="app.demo.codesandbox" />}>
+                <CodeSandboxIcon className="code-box-codesandbox" />
+              </Tooltip>
+            </form>
             {showRiddleButton ? (
               <form
                 className="code-box-code-action"
@@ -472,28 +492,6 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 <CodePenIcon className="code-box-codepen" />
               </Tooltip>
             </form>
-            {showDebug && (
-              <form
-                className="code-box-code-action"
-                action="https://codesandbox.io/api/v1/sandboxes/define"
-                method="POST"
-                target="_blank"
-                ref={codeSandboxIconRef}
-                onClick={() => {
-                  track({ type: 'codesandbox', demo: asset.id });
-                  codeSandboxIconRef.current?.submit();
-                }}
-              >
-                <input
-                  type="hidden"
-                  name="parameters"
-                  value={compress(JSON.stringify(codesanboxPrefillConfig))}
-                />
-                <Tooltip title={<FormattedMessage id="app.demo.codesandbox" />}>
-                  <CodeSandboxIcon className="code-box-codesandbox" />
-                </Tooltip>
-              </form>
-            )}
             <Tooltip title={<FormattedMessage id="app.demo.separate" />}>
               <a
                 className="code-box-code-action"

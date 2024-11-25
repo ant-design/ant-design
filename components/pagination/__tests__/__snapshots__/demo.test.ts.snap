@@ -564,27 +564,31 @@ exports[`renders components/pagination/demo/all.tsx correctly 1`] = `
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="undefined_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-label="Page Size"
-            aria-owns="undefined_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            role="combobox"
-            type="search"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="10 / page"
-        >
-          10 / page
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-label="Page Size"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              role="combobox"
+              type="search"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="10 / page"
+          >
+            10 / page
+          </span>
         </span>
       </div>
       <span
@@ -939,27 +943,31 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <span
@@ -1174,28 +1182,32 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              disabled=""
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                disabled=""
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <span
@@ -1375,27 +1387,31 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <span
@@ -1621,28 +1637,32 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              disabled=""
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                disabled=""
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <span
@@ -1943,27 +1963,31 @@ exports[`renders components/pagination/demo/itemRender.tsx correctly 1`] = `
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="undefined_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-label="Page Size"
-            aria-owns="undefined_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            role="combobox"
-            type="search"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="10 / page"
-        >
-          10 / page
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-label="Page Size"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              role="combobox"
+              type="search"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="10 / page"
+          >
+            10 / page
+          </span>
         </span>
       </div>
       <span
@@ -2181,27 +2205,31 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <span
@@ -2427,28 +2455,32 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              disabled=""
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                disabled=""
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <span
@@ -2753,27 +2785,31 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <span
@@ -3082,28 +3118,32 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              disabled=""
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                disabled=""
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <span
@@ -3382,27 +3422,31 @@ exports[`renders components/pagination/demo/more.tsx correctly 1`] = `
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="undefined_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-label="Page Size"
-            aria-owns="undefined_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            role="combobox"
-            type="search"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="10 / page"
-        >
-          10 / page
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-label="Page Size"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              role="combobox"
+              type="search"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="10 / page"
+          >
+            10 / page
+          </span>
         </span>
       </div>
       <span
@@ -3832,27 +3876,31 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="20 / page"
-          >
-            20 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="20 / page"
+            >
+              20 / page
+            </span>
           </span>
         </div>
         <span
@@ -4023,27 +4071,31 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="20 / page"
-          >
-            20 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="20 / page"
+            >
+              20 / page
+            </span>
           </span>
         </div>
         <span
@@ -4262,27 +4314,31 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <span
@@ -4497,28 +4553,32 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              disabled=""
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                disabled=""
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <span
@@ -4733,27 +4793,31 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <span
@@ -4968,28 +5032,32 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              disabled=""
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                disabled=""
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <span

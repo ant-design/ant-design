@@ -4,7 +4,7 @@ name: Preview Deploy
 
 on:
   workflow_run:
-    workflows: ["Preview Build"]
+    workflows: [Preview Build]
     types:
       - completed
 
@@ -104,7 +104,7 @@ jobs:
           body: |
             [<img width="300" alt="Preview is ready" src="https://user-images.githubusercontent.com/5378891/72400743-23dbb200-3785-11ea-9d13-1a2d92743846.png">](https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh)
             <!-- AUTO_PREVIEW_HOOK -->
-          body-include: '<!-- AUTO_PREVIEW_HOOK -->'
+          body-include: <!-- AUTO_PREVIEW_HOOK -->
           number: ${{ steps.pr.outputs.id }}
 
       - name: failed comment
@@ -115,7 +115,7 @@ jobs:
           body: |
             [<img width="300" alt="Preview failed" src="https://user-images.githubusercontent.com/5378891/75333447-1e63a280-58c1-11ea-975d-235367fd1522.png">](https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh)
             <!-- AUTO_PREVIEW_HOOK -->
-          body-include: '<!-- AUTO_PREVIEW_HOOK -->'
+          body-include: <!-- AUTO_PREVIEW_HOOK -->
           number: ${{ steps.pr.outputs.id }}
 
       - name: Check surge deploy result and exit if failed

@@ -53,7 +53,7 @@ return (
 <code src="./demo/label-in-value.tsx">获得选项的文本</code>
 <code src="./demo/automatic-tokenization.tsx">自动分词</code>
 <code src="./demo/select-users.tsx">搜索用户</code>
-<code src="./demo/suffix.tsx" debug>后缀图标</code>
+<code src="./demo/suffix.tsx" version="5.22.0">前后缀</code>
 <code src="./demo/custom-dropdown-menu.tsx">扩展菜单</code>
 <code src="./demo/hide-selected.tsx">隐藏已选择选项</code>
 <code src="./demo/variant.tsx" version="5.13.0">多种形态</code>
@@ -112,6 +112,7 @@ return (
 | optionRender | 自定义渲染下拉选项 | (option: FlattenOptionData\<BaseOptionType\> , info: { index: number }) => React.ReactNode | - | 5.11.0 |
 | placeholder | 选择框默认文本 | string | - |  |
 | placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
+| prefix | 自定义前缀 | ReactNode | - | 5.22.0 |
 | removeIcon | 自定义的多选框清除图标 | ReactNode | - |  |
 | searchValue | 控制搜索文本 | string | - |  |
 | showSearch | 配置是否可搜索 | boolean | 单选为 false，多选为 true |  |
@@ -119,7 +120,7 @@ return (
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | 自定义的选择框后缀图标。以防止图标被用于其他交互，替换的图标默认不会响应展开、收缩事件，可以通过添加 `pointer-events: none` 样式透传。 | ReactNode | `<DownOutlined />` |  |
 | tagRender | 自定义 tag 内容 render，仅在 `mode` 为 `multiple` 或 `tags` 时生效 | (props) => ReactNode | - |  |
-| labelRender | 自定义当前选中的 label 内容 render | (label: ReactNode) => ReactNode | - | 5.15.0 |
+| labelRender | 自定义当前选中的 label 内容 render （LabelInValueType的定义见 [LabelInValueType](https://github.com/react-component/select/blob/b39c28aa2a94e7754ebc570f200ab5fd33bd31e7/src/Select.tsx#L70)） | (props: LabelInValueType) => ReactNode | - | 5.15.0 |
 | tokenSeparators | 自动分词的分隔符，仅在 `mode="tags"` 时生效 | string\[] | - |  |
 | value | 指定当前选中的条目，多选时为一个数组。（value 数组引用未变化时，Select 不会更新） | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
