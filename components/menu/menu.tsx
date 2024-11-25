@@ -88,13 +88,6 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
       'usage',
       '`inlineCollapsed` should only be used when `mode` is inline.',
     );
-
-    warning(
-      !(props.siderCollapsed !== undefined && 'inlineCollapsed' in props),
-      'usage',
-      '`inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
-    );
-
     warning.deprecated('items' in props && !props.children, 'children', 'items');
   }
 
@@ -116,10 +109,10 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   // ======================== Collapsed ========================
   // Inline Collapsed
   const mergedInlineCollapsed = React.useMemo(() => {
-    if (siderCollapsed !== undefined) {
-      return siderCollapsed;
+    if (inlineCollapsed !== undefined) {
+      return inlineCollapsed;
     }
-    return inlineCollapsed;
+    return siderCollapsed;
   }, [inlineCollapsed, siderCollapsed]);
 
   const defaultMotions: MenuProps['defaultMotions'] = {
