@@ -38,6 +38,7 @@ demo:
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/panel.tsx" version=">= 5.10.0">面板使用</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 
