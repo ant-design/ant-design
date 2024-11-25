@@ -18,6 +18,7 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 <code src="./demo/notice-calendar.tsx" clientOnly>Notice Calendar</code>
 <code src="./demo/card.tsx" clientOnly>Card</code>
 <code src="./demo/select.tsx" clientOnly>Selectable Calendar</code>
+<code src="./demo/week-number.tsx" clientOnly>Week number</code>
 <code src="./demo/lunar.tsx" clientOnly>Lunar Calendar</code>
 <code src="./demo/customize-header.tsx" clientOnly>Customize Header</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
@@ -45,6 +46,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | defaultValue | The date selected by default | [dayjs](https://day.js.org/) | - |  |
 | disabledDate | Function that specifies the dates that cannot be selected, `currentDate` is same dayjs object as `value` prop which you shouldn't mutate it](https://github.com/ant-design/ant-design/issues/30987) | (currentDate: Dayjs) => boolean | - |  |
 | fullscreen | Whether to display in full-screen | boolean | true |  |
+| showWeekNumber | Whether to display week number on first week day cell | boolean | false |  |
 | headerRender | Render custom header in panel | function(object:{value: Dayjs, type: string, onChange: f(), onTypeChange: f()}) | - |  |
 | locale | The calendar's locale | object | [(default)](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
 | mode | The display mode of the calendar | `month` \| `year` | `month` |  |

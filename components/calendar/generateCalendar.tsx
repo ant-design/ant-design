@@ -9,7 +9,9 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import Flex from '../flex';
 import { useLocale } from '../locale';
+import Typography from '../typography';
 import CalendarHeader from './Header';
 import enUS from './locale/en_US';
 import useStyle from './style';
@@ -49,6 +51,7 @@ export interface CalendarProps<DateType> {
   defaultValue?: DateType;
   mode?: CalendarMode;
   fullscreen?: boolean;
+  showWeekNumber?: boolean;
   onChange?: (date: DateType) => void;
   onPanelChange?: (date: DateType, mode: CalendarMode) => void;
   onSelect?: (date: DateType, selectInfo: SelectInfo) => void;
@@ -89,6 +92,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       mode,
       validRange,
       fullscreen = true,
+      showWeekNumber = false,
       onChange,
       onPanelChange,
       onSelect,
@@ -182,6 +186,26 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
           return dateFullCellRender(date);
         }
 
+        let weekNumberNode: React.ReactNode | undefined;
+        if (
+          showWeekNumber &&
+          fullscreen &&
+          generateConfig.locale.getWeekFirstDay(info.locale!.locale) ===
+            generateConfig.getWeekDay(date)
+        ) {
+          const checkIsSameMonth = isSameMonth(
+            date,
+            value || generateConfig.getNow(),
+            generateConfig,
+          );
+          const weekNumber = generateConfig.locale.getWeek(info.locale!.locale, date);
+          weekNumberNode = checkIsSameMonth ? (
+            <Typography.Text type="secondary">{weekNumber}</Typography.Text>
+          ) : (
+            weekNumber
+          );
+        }
+
         return (
           <div
             className={classNames(`${prefixCls}-cell-inner`, `${calendarPrefixCls}-date`, {
@@ -189,7 +213,14 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
             })}
           >
             <div className={`${calendarPrefixCls}-date-value`}>
-              {String(generateConfig.getDate(date)).padStart(2, '0')}
+              {showWeekNumber && fullscreen && weekNumberNode ? (
+                <Flex justify="space-between" align="center">
+                  <div>{weekNumberNode}</div>
+                  <div>{String(generateConfig.getDate(date)).padStart(2, '0')}</div>
+                </Flex>
+              ) : (
+                <div>{String(generateConfig.getDate(date)).padStart(2, '0')}</div>
+              )}
             </div>
             <div className={`${calendarPrefixCls}-date-content`}>
               {cellRender ? cellRender(date, info) : dateCellRender?.(date)}
