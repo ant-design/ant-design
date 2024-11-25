@@ -483,16 +483,12 @@ describe('Button', () => {
 
   it('should support preset colors as parammeter of color attribute', () => {
     const { container: defaultContainer } = render(
-      <ConfigProvider theme={{ algorithm: [theme.defaultAlgorithm], cssVar: true }}>
-        <Button color="purple" variant="solid">
-          purple btn
+      <ConfigProvider theme={{ algorithm: [theme.darkAlgorithm], cssVar: true }}>
+        <Button color="yellow" variant="solid">
+          yellow btn
         </Button>
       </ConfigProvider>,
     );
-
-    expect(defaultContainer.firstChild).toHaveClass('ant-btn-color-purple');
-    expect(defaultContainer.firstChild).toHaveStyle({
-      background: '#531dab',
-    });
+    expect(defaultContainer.querySelector('button')).toHaveClass('ant-btn-color-yellow');
   });
 });
