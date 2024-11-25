@@ -1,11 +1,12 @@
 import React, { useMemo } from 'react';
 import type { MenuProps } from 'antd';
-import { Space, Tag, version } from 'antd';
+import { Flex, Tag, version } from 'antd';
 import { createStyles } from 'antd-style';
 import classnames from 'classnames';
 import { useFullSidebarData, useSidebarData } from 'dumi';
 
 import Link from '../theme/common/Link';
+import coverImg from './coverImg.json';
 import useLocation from './useLocation';
 
 function isVersionNumber(value?: string) {
@@ -42,13 +43,28 @@ interface MenuItemLabelProps {
 const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
   const { styles } = useStyle();
   const { before, after, link, title, subtitle, search, tag, className } = props;
+  const imgSrc = coverImg[title as keyof typeof coverImg];
   if (!before && !after) {
     return (
       <Link to={`${link}${search}`} className={classnames(className, { [styles.link]: tag })}>
-        <Space>
+        <Flex gap="small" justify="flex-start" align="center">
+          {imgSrc && (
+            <img
+              alt="cover"
+              src={imgSrc.light}
+              style={{
+                width: 32,
+                height: 32,
+                display: 'block',
+                border: '1px solid #f0f0f0',
+                boxSizing: 'border-box',
+                borderRadius: 4,
+              }}
+            />
+          )}
           <span>{title}</span>
           {subtitle && <span className={styles.subtitle}>{subtitle}</span>}
-        </Space>
+        </Flex>
         {tag && (
           <Tag
             bordered={false}

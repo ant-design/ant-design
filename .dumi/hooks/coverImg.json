@@ -1,0 +1,258 @@
+{
+  "Affix": {
+    "light": "",
+    "dark": ""
+  },
+  "Alert": {
+    "light": "",
+    "dark": ""
+  },
+  "Anchor": {
+    "light": "",
+    "dark": ""
+  },
+  "Avatar": {
+    "light": "",
+    "dark": ""
+  },
+  "BackTop": {
+    "light": "",
+    "dark": ""
+  },
+  "Badge": {
+    "light": "",
+    "dark": ""
+  },
+  "Button": {
+    "light": "",
+    "dark": ""
+  },
+  "Breadcrumb": {
+    "light": "",
+    "dark": ""
+  },
+  "Card": {
+    "light": "",
+    "dark": ""
+  },
+  "Carousel": {
+    "light": "",
+    "dark": ""
+  },
+  "Cascader": {
+    "light": "",
+    "dark": ""
+  },
+  "Checkbox": {
+    "light": "",
+    "dark": ""
+  },
+  "ColorPicker": {
+    "light": "",
+    "dark": ""
+  },
+  "Collapse": {
+    "light": "",
+    "dark": ""
+  },
+  "DatePicker": {
+    "light": "",
+    "dark": ""
+  },
+  "Descriptions": {
+    "light": "",
+    "dark": ""
+  },
+  "Divider": {
+    "light": "",
+    "dark": ""
+  },
+  "Drawer": {
+    "light": "",
+    "dark": ""
+  },
+  "Dropdown": {
+    "light": "",
+    "dark": ""
+  },
+  "Empty": {
+    "light": "",
+    "dark": ""
+  },
+  "Flex": {
+    "light": "",
+    "dark": ""
+  },
+  "FloatButton": {
+    "light": "",
+    "dark": ""
+  },
+  "Form": {
+    "light": "",
+    "dark": ""
+  },
+  "Grid": {
+    "light": "",
+    "dark": ""
+  },
+  "Image": {
+    "light": "",
+    "dark": ""
+  },
+  "Input": {
+    "light": "",
+    "dark": ""
+  },
+  "InputNumber": {
+    "light": "",
+    "dark": ""
+  },
+  "Layout": {
+    "light": "",
+    "dark": ""
+  },
+  "List": {
+    "light": "",
+    "dark": ""
+  },
+  "Mentions": {
+    "light": "",
+    "dark": ""
+  },
+  "Notification": {
+    "light": "",
+    "dark": ""
+  },
+  "Pagination": {
+    "light": "",
+    "dark": ""
+  },
+  "Popover": {
+    "light": "",
+    "dark": ""
+  },
+  "Popconfirm": {
+    "light": "",
+    "dark": ""
+  },
+  "Rate": {
+    "light": "",
+    "dark": ""
+  },
+  "Radio": {
+    "light": "",
+    "dark": ""
+  },
+  "Result": {
+    "light": "",
+    "dark": ""
+  },
+  "Segmented": {
+    "light": "",
+    "dark": ""
+  },
+  "Select": {
+    "light": "",
+    "dark": ""
+  },
+  "Skeleton": {
+    "light": "",
+    "dark": ""
+  },
+  "Slider": {
+    "light": "",
+    "dark": ""
+  },
+  "Spin": {
+    "light": "",
+    "dark": ""
+  },
+  "Statistic": {
+    "light": "",
+    "dark": ""
+  },
+  "Switch": {
+    "light": "",
+    "dark": ""
+  },
+  "Splitter": {
+    "light": "",
+    "dark": ""
+  },
+  "Tag": {
+    "light": "",
+    "dark": ""
+  },
+  "Tree": {
+    "light": "",
+    "dark": ""
+  },
+  "TreeSelect": {
+    "light": "",
+    "dark": ""
+  },
+  "Typography": {
+    "light": "",
+    "dark": ""
+  },
+  "Timeline": {
+    "light": "",
+    "dark": ""
+  },
+  "Transfer": {
+    "light": "",
+    "dark": ""
+  },
+  "Tabs": {
+    "light": "",
+    "dark": ""
+  },
+  "Calendar": {
+    "light": "",
+    "dark": ""
+  },
+  "Steps": {
+    "light": "",
+    "dark": ""
+  },
+  "Menu": {
+    "light": "",
+    "dark": ""
+  },
+  "Modal": {
+    "light": "",
+    "dark": ""
+  },
+  "Message": {
+    "light": "",
+    "dark": ""
+  },
+  "Upload": {
+    "light": "",
+    "dark": ""
+  },
+  "Table": {
+    "light": "",
+    "dark": ""
+  },
+  "Space": {
+    "light": "",
+    "dark": ""
+  },
+  "Progress": {
+    "light": "",
+    "dark": ""
+  },
+  "Tour": {
+    "light": "",
+    "dark": ""
+  },
+  "QRCode": {
+    "light": "",
+    "dark": ""
+  },
+  "App": {
+    "light": "",
+    "dark": ""
+  }
+}
