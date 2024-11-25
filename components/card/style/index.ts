@@ -32,6 +32,11 @@ export interface ComponentToken {
    */
   headerHeightSM: number | string;
   /**
+   * @desc 小号卡片内边距
+   * @descEN Padding of small card
+   */
+  cardPaddingSM: number | string;
+  /**
    * @desc 操作区背景色
    * @descEN Background color of card actions
    */
@@ -64,11 +69,6 @@ interface CardToken extends FullToken<'Card'> {
    * @descEN Padding of card header
    */
   cardHeadPadding: number;
-  /**
-   * @desc 小号卡片内边距
-   * @descEN Padding of small card
-   */
-  cardPaddingSM: number;
   /**
    * @desc 卡片基础内边距
    * @descEN Padding of base card
@@ -442,6 +442,7 @@ export const prepareComponentToken: GetDefaultToken<'Card'> = (token) => ({
   actionsLiMargin: `${token.paddingSM}px 0`,
   tabsMarginBottom: -token.padding - token.lineWidth,
   extraColor: token.colorText,
+  cardPaddingSM: token.paddingSM, // Fixed padding.
 });
 
 // ============================== Export ==============================
@@ -453,7 +454,6 @@ export default genStyleHooks(
       cardHeadPadding: token.padding,
       cardPaddingBase: token.paddingLG,
       cardActionsIconSize: token.fontSize,
-      cardPaddingSM: 12, // Fixed padding.
     });
 
     return [
