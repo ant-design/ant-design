@@ -549,7 +549,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | fields | Validate rule for child elements, valid when `type` is `array` or `object` | Record&lt;string, [rule](#rule)> |  |
 | len | Length of string, number, array | number |  |
 | max | `type` required: max length of `string`, `number`, `array` | number |  |
-| message | Error message. Will auto generate by [template](#validatemessages) if not provided | string |  |
+| message | Error message. Will auto generate by [template](#validatemessages) if not provided | string \| ReactElement |  |
 | min | `type` required: min length of `string`, `number`, `array` | number |  |
 | pattern | Regex pattern | RegExp |  |
 | required | Required field | boolean |  |

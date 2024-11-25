@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PoweroffOutlined } from '@ant-design/icons';
+import { PoweroffOutlined, SyncOutlined } from '@ant-design/icons';
 import { Button, Flex } from 'antd';
 
 const App: React.FC = () => {
@@ -31,6 +31,9 @@ const App: React.FC = () => {
           Loading
         </Button>
         <Button type="primary" icon={<PoweroffOutlined />} loading />
+        <Button type="primary" loading={{ icon: <SyncOutlined spin /> }}>
+          Loading Icon
+        </Button>
       </Flex>
       <Flex gap="small" wrap>
         <Button type="primary" loading={loadings[0]} onClick={() => enterLoading(0)}>
@@ -50,6 +53,14 @@ const App: React.FC = () => {
           loading={loadings[2]}
           onClick={() => enterLoading(2)}
         />
+        <Button
+          type="primary"
+          icon={<PoweroffOutlined />}
+          loading={loadings[3] && { icon: <SyncOutlined spin /> }}
+          onClick={() => enterLoading(3)}
+        >
+          Loading Icon
+        </Button>
       </Flex>
     </Flex>
   );
