@@ -35,7 +35,7 @@ export interface ComponentToken {
    * @desc 小号卡片内边距
    * @descEN Padding of small card
    */
-  cardPaddingSM: number | string;
+  cardPaddingSM: number;
   /**
    * @desc 操作区背景色
    * @descEN Background color of card actions
