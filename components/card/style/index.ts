@@ -442,7 +442,7 @@ export const prepareComponentToken: GetDefaultToken<'Card'> = (token) => ({
   actionsLiMargin: `${token.paddingSM}px 0`,
   tabsMarginBottom: -token.padding - token.lineWidth,
   extraColor: token.colorText,
-  cardPaddingSM: token.paddingSM, // Fixed padding.
+  cardPaddingSM: 12, // Fixed padding.
 });
 
 // ============================== Export ==============================
