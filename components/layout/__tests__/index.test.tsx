@@ -6,7 +6,6 @@ import Layout from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
-import Button from '../../button';
 import Menu from '../../menu';
 
 const { Sider, Content, Footer, Header } = Layout;
@@ -286,9 +285,9 @@ describe('Sider', () => {
       return (
         <Layout style={{ minHeight: '100vh' }}>
           <Layout.Sider collapsed={collapsed}>
-            <Button type="primary" onClick={toggleCollapsed}>
+            <button type="button" onClick={toggleCollapsed}>
               "trigger"
-            </Button>
+            </button>
             <Menu
               theme="dark"
               inlineCollapsed={collapsed}
