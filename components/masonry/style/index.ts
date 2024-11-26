@@ -28,7 +28,7 @@ export const genMasonryStyle: GenerateStyle<MasonryToken> = (token: MasonryToken
         width: `var(--${prefixCls}-item-width)`,
         height: `var(--${prefixCls}-item-height)`,
         overflow: 'hidden',
-        transition: 'transform 0.1s ease-out',
+        transition: `transform ${token.motionDurationFast} ${token.motionEaseOut}`,
       },
     },
   };
