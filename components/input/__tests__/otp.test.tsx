@@ -200,4 +200,35 @@ describe('Input.OTP', () => {
 
     expect(event.defaultPrevented).toBeTruthy();
   });
+
+  it('renders separator between input fields', () => {
+    const { container } = render(
+      <OTP
+        length={4}
+        separator={(index) => (
+          <span key={index} className="custom-separator">
+            |
+          </span>
+        )}
+      />,
+    );
+
+    const separators = container.querySelectorAll('.custom-separator');
+    expect(separators.length).toBe(4);
+
+    separators.forEach((separator) => {
+      expect(separator.textContent).toBe('|');
+    });
+
+    const inputsAndSeparators = Array.from(container.children[0].children);
+    expect(inputsAndSeparators.length).toBe(8);
+
+    inputsAndSeparators.forEach((element, index) => {
+      if (index % 2 === 1) {
+        expect(element.className).toContain('custom-separator');
+      } else {
+        expect(element.tagName).toBe('INPUT');
+      }
+    });
+  });
 });
