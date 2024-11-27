@@ -36,9 +36,8 @@ export const isBright = (value: AggregationColor, bgColorToken: string) => {
 };
 
 const genCollapsePanelKey = (item: PresetsItem, index: number) => {
-  return React.isValidElement(item.label)
-    ? `panel-${item.label.key ?? index}`
-    : `panel-${item.label ?? index}`;
+  const mergedKey = React.isValidElement(item.label) ? (item.label.key ?? index) : index;
+  return `panel-${mergedKey}`;
 };
 
 const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color, onChange }) => {

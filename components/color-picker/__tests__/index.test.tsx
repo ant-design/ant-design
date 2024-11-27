@@ -949,6 +949,19 @@ describe('ColorPicker', () => {
     expect(onChangeColor.toHexString()).toBe('#2ddcb4');
   });
 
+  it('the same key', async () => {
+    expect(() => {
+      render(
+        <ColorPicker
+          presets={[
+            { label: <span>aaa</span>, colors: ['#000'] },
+            { label: <span>bbb</span>, colors: ['#fff'] },
+          ]}
+        />,
+      );
+    }).not.toThrow();
+  });
+
   describe('should disable colorInput', () => {
     it('Should defaultValue work with disabledFormat', async () => {
       const { container } = render(<ColorPicker defaultValue="#000000" disabledFormat />);
