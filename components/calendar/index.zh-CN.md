@@ -47,7 +47,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 | defaultValue | 默认展示的日期 | [dayjs](https://day.js.org/) | - |  |
 | disabledDate | 不可选择的日期，参数为当前 `value`，注意使用时[不要直接修改](https://github.com/ant-design/ant-design/issues/30987) | (currentDate: Dayjs) => boolean | - |  |
 | fullscreen | 是否全屏显示 | boolean | true |  |
-| showWeek | 是否在第一个星期几单元格上显示周数 | boolean | false |  |
+| showWeek | Calendar 下展示当前周 | boolean | false | 5.23.0 |
 | headerRender | 自定义头部内容 | function(object:{value: Dayjs, type: string, onChange: f(), onTypeChange: f()}) | - |  |
 | locale | 国际化配置 | object | [(默认配置)](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
 | mode | 初始模式 | `month` \| `year` | `month` |  |
