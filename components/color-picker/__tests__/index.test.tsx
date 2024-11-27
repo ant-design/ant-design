@@ -954,17 +954,20 @@ describe('ColorPicker', () => {
     expect(onChangeColor.toHexString()).toBe('#2ddcb4');
   });
 
-  it('the same key', async () => {
-    expect(() => {
-      render(
-        <ColorPicker
-          presets={[
-            { label: <span>aaa</span>, colors: ['#000'], key: 1 },
-            { label: <span>bbb</span>, colors: ['#fff'], key: 2 },
-          ]}
-        />,
-      );
-    }).not.toThrow();
+  it('test the same key', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(
+      <ColorPicker
+        open
+        presets={[
+          { label: <span>aaa</span>, colors: ['#333'], key: 'a', defaultOpen: true },
+          { label: <span>bbb</span>, colors: ['#666'], key: 'b', defaultOpen: true },
+          { label: <span>ccc</span>, colors: ['#999'], key: 'c', defaultOpen: true },
+        ]}
+      />,
+    );
+    expect(errorSpy).not.toHaveBeenCalled();
+    errorSpy.mockRestore();
   });
 
   describe('should disable colorInput', () => {
