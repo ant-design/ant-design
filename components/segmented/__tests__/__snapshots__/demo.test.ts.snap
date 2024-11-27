@@ -13,6 +13,7 @@ exports[`renders components/segmented/demo/basic.tsx correctly 1`] = `
       class="ant-segmented-item ant-segmented-item-selected"
     >
       <input
+        aria-hidden="true"
         checked=""
         class="ant-segmented-item-input"
         type="radio"
@@ -30,6 +31,7 @@ exports[`renders components/segmented/demo/basic.tsx correctly 1`] = `
       class="ant-segmented-item"
     >
       <input
+        aria-hidden="true"
         class="ant-segmented-item-input"
         type="radio"
       />
@@ -46,6 +48,7 @@ exports[`renders components/segmented/demo/basic.tsx correctly 1`] = `
       class="ant-segmented-item"
     >
       <input
+        aria-hidden="true"
         class="ant-segmented-item-input"
         type="radio"
       />
@@ -62,6 +65,7 @@ exports[`renders components/segmented/demo/basic.tsx correctly 1`] = `
       class="ant-segmented-item"
     >
       <input
+        aria-hidden="true"
         class="ant-segmented-item-input"
         type="radio"
       />
@@ -78,6 +82,7 @@ exports[`renders components/segmented/demo/basic.tsx correctly 1`] = `
       class="ant-segmented-item"
     >
       <input
+        aria-hidden="true"
         class="ant-segmented-item-input"
         type="radio"
       />
@@ -107,6 +112,7 @@ exports[`renders components/segmented/demo/block.tsx correctly 1`] = `
       class="ant-segmented-item ant-segmented-item-selected"
     >
       <input
+        aria-hidden="true"
         checked=""
         class="ant-segmented-item-input"
         type="radio"
@@ -124,6 +130,7 @@ exports[`renders components/segmented/demo/block.tsx correctly 1`] = `
       class="ant-segmented-item"
     >
       <input
+        aria-hidden="true"
         class="ant-segmented-item-input"
         type="radio"
       />
@@ -140,6 +147,7 @@ exports[`renders components/segmented/demo/block.tsx correctly 1`] = `
       class="ant-segmented-item"
     >
       <input
+        aria-hidden="true"
         class="ant-segmented-item-input"
         type="radio"
       />
@@ -169,6 +177,7 @@ exports[`renders components/segmented/demo/componentToken.tsx correctly 1`] = `
       class="ant-segmented-item ant-segmented-item-selected"
     >
       <input
+        aria-hidden="true"
         checked=""
         class="ant-segmented-item-input"
         type="radio"
@@ -186,6 +195,7 @@ exports[`renders components/segmented/demo/componentToken.tsx correctly 1`] = `
       class="ant-segmented-item"
     >
       <input
+        aria-hidden="true"
         class="ant-segmented-item-input"
         type="radio"
       />
@@ -202,6 +212,7 @@ exports[`renders components/segmented/demo/componentToken.tsx correctly 1`] = `
       class="ant-segmented-item"
     >
       <input
+        aria-hidden="true"
         class="ant-segmented-item-input"
         type="radio"
       />
@@ -218,6 +229,7 @@ exports[`renders components/segmented/demo/componentToken.tsx correctly 1`] = `
       class="ant-segmented-item"
     >
       <input
+        aria-hidden="true"
         class="ant-segmented-item-input"
         type="radio"
       />
@@ -234,6 +246,7 @@ exports[`renders components/segmented/demo/componentToken.tsx correctly 1`] = `
       class="ant-segmented-item"
     >
       <input
+        aria-hidden="true"
         class="ant-segmented-item-input"
         type="radio"
       />
@@ -263,6 +276,7 @@ exports[`renders components/segmented/demo/controlled.tsx correctly 1`] = `
       class="ant-segmented-item ant-segmented-item-selected"
     >
       <input
+        aria-hidden="true"
         checked=""
         class="ant-segmented-item-input"
         type="radio"
@@ -280,6 +294,7 @@ exports[`renders components/segmented/demo/controlled.tsx correctly 1`] = `
       class="ant-segmented-item"
     >
       <input
+        aria-hidden="true"
         class="ant-segmented-item-input"
         type="radio"
       />
@@ -296,6 +311,7 @@ exports[`renders components/segmented/demo/controlled.tsx correctly 1`] = `
       class="ant-segmented-item"
     >
       <input
+        aria-hidden="true"
         class="ant-segmented-item-input"
         type="radio"
       />
@@ -326,6 +342,7 @@ Array [
         class="ant-segmented-item ant-segmented-item-selected"
       >
         <input
+          aria-hidden="true"
           checked=""
           class="ant-segmented-item-input"
           type="radio"
@@ -343,6 +360,7 @@ Array [
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
@@ -359,6 +377,7 @@ Array [
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
@@ -386,6 +405,7 @@ Array [
         class="ant-segmented-item ant-segmented-item-selected"
       >
         <input
+          aria-hidden="true"
           checked=""
           class="ant-segmented-item-input"
           type="radio"
@@ -403,6 +423,7 @@ Array [
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
@@ -419,6 +440,7 @@ Array [
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
@@ -452,6 +474,7 @@ exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
         class="ant-segmented-item ant-segmented-item-selected"
       >
         <input
+          aria-hidden="true"
           checked=""
           class="ant-segmented-item-input"
           type="radio"
@@ -481,6 +504,7 @@ exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
@@ -513,6 +537,7 @@ exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
@@ -568,6 +593,7 @@ exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
         class="ant-segmented-item ant-segmented-item-selected"
       >
         <input
+          aria-hidden="true"
           checked=""
           class="ant-segmented-item-input"
           type="radio"
@@ -593,6 +619,7 @@ exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
@@ -617,6 +644,7 @@ exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
@@ -641,6 +669,7 @@ exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
@@ -682,6 +711,7 @@ exports[`renders components/segmented/demo/disabled.tsx correctly 1`] = `
         class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-disabled"
       >
         <input
+          aria-hidden="true"
           checked=""
           class="ant-segmented-item-input"
           disabled=""
@@ -700,6 +730,7 @@ exports[`renders components/segmented/demo/disabled.tsx correctly 1`] = `
         class="ant-segmented-item ant-segmented-item-disabled"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           disabled=""
           type="radio"
@@ -717,6 +748,7 @@ exports[`renders components/segmented/demo/disabled.tsx correctly 1`] = `
         class="ant-segmented-item ant-segmented-item-disabled"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           disabled=""
           type="radio"
@@ -744,6 +776,7 @@ exports[`renders components/segmented/demo/disabled.tsx correctly 1`] = `
         class="ant-segmented-item ant-segmented-item-selected"
       >
         <input
+          aria-hidden="true"
           checked=""
           class="ant-segmented-item-input"
           type="radio"
@@ -761,6 +794,7 @@ exports[`renders components/segmented/demo/disabled.tsx correctly 1`] = `
         class="ant-segmented-item ant-segmented-item-disabled"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           disabled=""
           type="radio"
@@ -778,6 +812,7 @@ exports[`renders components/segmented/demo/disabled.tsx correctly 1`] = `
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
@@ -794,6 +829,7 @@ exports[`renders components/segmented/demo/disabled.tsx correctly 1`] = `
         class="ant-segmented-item ant-segmented-item-disabled"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           disabled=""
           type="radio"
@@ -811,6 +847,7 @@ exports[`renders components/segmented/demo/disabled.tsx correctly 1`] = `
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
@@ -844,6 +881,7 @@ exports[`renders components/segmented/demo/dynamic.tsx correctly 1`] = `
         class="ant-segmented-item ant-segmented-item-selected"
       >
         <input
+          aria-hidden="true"
           checked=""
           class="ant-segmented-item-input"
           type="radio"
@@ -861,6 +899,7 @@ exports[`renders components/segmented/demo/dynamic.tsx correctly 1`] = `
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
@@ -877,6 +916,7 @@ exports[`renders components/segmented/demo/dynamic.tsx correctly 1`] = `
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
@@ -915,6 +955,7 @@ exports[`renders components/segmented/demo/icon-only.tsx correctly 1`] = `
       class="ant-segmented-item ant-segmented-item-selected"
     >
       <input
+        aria-hidden="true"
         checked=""
         class="ant-segmented-item-input"
         type="radio"
@@ -953,6 +994,7 @@ exports[`renders components/segmented/demo/icon-only.tsx correctly 1`] = `
       class="ant-segmented-item"
     >
       <input
+        aria-hidden="true"
         class="ant-segmented-item-input"
         type="radio"
       />
@@ -1006,6 +1048,7 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
         class="ant-segmented-item ant-segmented-item-selected"
       >
         <input
+          aria-hidden="true"
           checked=""
           class="ant-segmented-item-input"
           type="radio"
@@ -1023,6 +1066,7 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
@@ -1039,6 +1083,7 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
@@ -1055,6 +1100,7 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
@@ -1071,6 +1117,7 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
@@ -1097,6 +1144,7 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
         class="ant-segmented-item ant-segmented-item-selected"
       >
         <input
+          aria-hidden="true"
           checked=""
           class="ant-segmented-item-input"
           type="radio"
@@ -1114,6 +1162,7 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
@@ -1130,6 +1179,7 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
@@ -1146,6 +1196,7 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
@@ -1162,6 +1213,7 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
@@ -1188,6 +1240,7 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
         class="ant-segmented-item ant-segmented-item-selected"
       >
         <input
+          aria-hidden="true"
           checked=""
           class="ant-segmented-item-input"
           type="radio"
@@ -1205,6 +1258,7 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
@@ -1221,6 +1275,7 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
@@ -1237,6 +1292,7 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
@@ -1253,6 +1309,7 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
         class="ant-segmented-item"
       >
         <input
+          aria-hidden="true"
           class="ant-segmented-item-input"
           type="radio"
         />
@@ -1288,6 +1345,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
           class="ant-segmented-item ant-segmented-item-selected"
         >
           <input
+            aria-hidden="true"
             checked=""
             class="ant-segmented-item-input"
             type="radio"
@@ -1305,6 +1363,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
           class="ant-segmented-item"
         >
           <input
+            aria-hidden="true"
             class="ant-segmented-item-input"
             type="radio"
           />
@@ -1321,6 +1380,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
           class="ant-segmented-item"
         >
           <input
+            aria-hidden="true"
             class="ant-segmented-item-input"
             type="radio"
           />
@@ -1358,6 +1418,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
           class="ant-segmented-item ant-segmented-item-selected"
         >
           <input
+            aria-hidden="true"
             checked=""
             class="ant-segmented-item-input"
             type="radio"
@@ -1375,6 +1436,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
           class="ant-segmented-item"
         >
           <input
+            aria-hidden="true"
             class="ant-segmented-item-input"
             type="radio"
           />
@@ -1391,6 +1453,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
           class="ant-segmented-item"
         >
           <input
+            aria-hidden="true"
             class="ant-segmented-item-input"
             type="radio"
           />
@@ -1427,6 +1490,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
           class="ant-segmented-item ant-segmented-item-selected"
         >
           <input
+            aria-hidden="true"
             checked=""
             class="ant-segmented-item-input"
             type="radio"
@@ -1444,6 +1508,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
           class="ant-segmented-item"
         >
           <input
+            aria-hidden="true"
             class="ant-segmented-item-input"
             type="radio"
           />
@@ -1460,6 +1525,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
           class="ant-segmented-item"
         >
           <input
+            aria-hidden="true"
             class="ant-segmented-item-input"
             type="radio"
           />
@@ -1555,6 +1621,7 @@ exports[`renders components/segmented/demo/vertical.tsx correctly 1`] = `
       class="ant-segmented-item ant-segmented-item-selected"
     >
       <input
+        aria-hidden="true"
         checked=""
         class="ant-segmented-item-input"
         type="radio"
@@ -1593,6 +1660,7 @@ exports[`renders components/segmented/demo/vertical.tsx correctly 1`] = `
       class="ant-segmented-item"
     >
       <input
+        aria-hidden="true"
         class="ant-segmented-item-input"
         type="radio"
       />
@@ -1643,6 +1711,7 @@ exports[`renders components/segmented/demo/with-icon.tsx correctly 1`] = `
       class="ant-segmented-item ant-segmented-item-selected"
     >
       <input
+        aria-hidden="true"
         checked=""
         class="ant-segmented-item-input"
         type="radio"
@@ -1684,6 +1753,7 @@ exports[`renders components/segmented/demo/with-icon.tsx correctly 1`] = `
       class="ant-segmented-item"
     >
       <input
+        aria-hidden="true"
         class="ant-segmented-item-input"
         type="radio"
       />
@@ -1718,6 +1788,110 @@ exports[`renders components/segmented/demo/with-icon.tsx correctly 1`] = `
         <span>
           Kanban
         </span>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`renders components/segmented/demo/with-name.tsx correctly 1`] = `
+<div
+  aria-label="segmented control"
+  class="ant-segmented"
+  role="listbox"
+>
+  <div
+    class="ant-segmented-group"
+  >
+    <label
+      class="ant-segmented-item ant-segmented-item-selected"
+    >
+      <input
+        aria-hidden="true"
+        checked=""
+        class="ant-segmented-item-input"
+        name="group"
+        type="radio"
+      />
+      <div
+        aria-selected="true"
+        class="ant-segmented-item-label"
+        role="option"
+        title="Daily"
+      >
+        Daily
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        aria-hidden="true"
+        class="ant-segmented-item-input"
+        name="group"
+        type="radio"
+      />
+      <div
+        aria-selected="false"
+        class="ant-segmented-item-label"
+        role="option"
+        title="Weekly"
+      >
+        Weekly
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        aria-hidden="true"
+        class="ant-segmented-item-input"
+        name="group"
+        type="radio"
+      />
+      <div
+        aria-selected="false"
+        class="ant-segmented-item-label"
+        role="option"
+        title="Monthly"
+      >
+        Monthly
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        aria-hidden="true"
+        class="ant-segmented-item-input"
+        name="group"
+        type="radio"
+      />
+      <div
+        aria-selected="false"
+        class="ant-segmented-item-label"
+        role="option"
+        title="Quarterly"
+      >
+        Quarterly
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        aria-hidden="true"
+        class="ant-segmented-item-input"
+        name="group"
+        type="radio"
+      />
+      <div
+        aria-selected="false"
+        class="ant-segmented-item-label"
+        role="option"
+        title="Yearly"
+      >
+        Yearly
       </div>
     </label>
   </div>
