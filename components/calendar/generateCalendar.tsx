@@ -51,7 +51,7 @@ export interface CalendarProps<DateType> {
   defaultValue?: DateType;
   mode?: CalendarMode;
   fullscreen?: boolean;
-  showWeekNumber?: boolean;
+  showWeek?: boolean;
   onChange?: (date: DateType) => void;
   onPanelChange?: (date: DateType, mode: CalendarMode) => void;
   onSelect?: (date: DateType, selectInfo: SelectInfo) => void;
@@ -92,7 +92,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       mode,
       validRange,
       fullscreen = true,
-      showWeekNumber = false,
+      showWeek = false,
       onChange,
       onPanelChange,
       onSelect,
@@ -188,16 +188,12 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
 
         let weekNumberNode: React.ReactNode | undefined;
         if (
-          showWeekNumber &&
+          showWeek &&
           fullscreen &&
           generateConfig.locale.getWeekFirstDay(info.locale!.locale) ===
             generateConfig.getWeekDay(date)
         ) {
-          const checkIsSameMonth = isSameMonth(
-            date,
-            value || generateConfig.getNow(),
-            generateConfig,
-          );
+          const checkIsSameMonth = isSameMonth(date, mergedValue || today, generateConfig);
           const weekNumber = generateConfig.locale.getWeek(info.locale!.locale, date);
           weekNumberNode = checkIsSameMonth ? (
             <Typography.Text type="secondary">{weekNumber}</Typography.Text>
@@ -213,13 +209,13 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
             })}
           >
             <div className={`${calendarPrefixCls}-date-value`}>
-              {showWeekNumber && fullscreen && weekNumberNode ? (
+              {showWeek && fullscreen && weekNumberNode ? (
                 <Flex justify="space-between" align="center">
                   <div>{weekNumberNode}</div>
                   <div>{String(generateConfig.getDate(date)).padStart(2, '0')}</div>
                 </Flex>
               ) : (
-                <div>{String(generateConfig.getDate(date)).padStart(2, '0')}</div>
+                String(generateConfig.getDate(date)).padStart(2, '0')
               )}
             </div>
             <div className={`${calendarPrefixCls}-date-content`}>
@@ -228,7 +224,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
           </div>
         );
       },
-      [dateFullCellRender, dateCellRender, cellRender, fullCellRender],
+      [dateFullCellRender, dateCellRender, cellRender, fullCellRender, mergedValue],
     );
 
     const monthRender = React.useCallback(

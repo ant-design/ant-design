@@ -46,7 +46,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | defaultValue | The date selected by default | [dayjs](https://day.js.org/) | - |  |
 | disabledDate | Function that specifies the dates that cannot be selected, `currentDate` is same dayjs object as `value` prop which you shouldn't mutate it](https://github.com/ant-design/ant-design/issues/30987) | (currentDate: Dayjs) => boolean | - |  |
 | fullscreen | Whether to display in full-screen | boolean | true |  |
-| showWeekNumber | Whether to display week number on first week day cell | boolean | false |  |
+| showWeek | Whether to display week number on first week day cell | boolean | false |  |
 | headerRender | Render custom header in panel | function(object:{value: Dayjs, type: string, onChange: f(), onTypeChange: f()}) | - |  |
 | locale | The calendar's locale | object | [(default)](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
 | mode | The display mode of the calendar | `month` \| `year` | `month` |  |
