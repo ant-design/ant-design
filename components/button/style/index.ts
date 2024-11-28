@@ -40,6 +40,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
 
       [`> span, ${componentCls}-icon`]: {
         display: 'inline-block',
+        lineHeight: 0,
 
         svg: {
           verticalAlign: 'top',
