@@ -51,10 +51,10 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
 
   const activeKeys = useMemo(
     () =>
-      presetsValue.reduce<string[]>((acc, preset, i) => {
+      presetsValue.reduce<string[]>((acc, preset, index) => {
         const { defaultOpen = true } = preset;
         if (defaultOpen) {
-          acc.push(genCollapsePanelKey(preset, i));
+          acc.push(genCollapsePanelKey(preset, index));
         }
         return acc;
       }, []),
@@ -65,8 +65,8 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
     onChange?.(colorValue);
   };
 
-  const items = presetsValue.map<NonNullable<CollapseProps['items']>[number]>((preset, i) => ({
-    key: genCollapsePanelKey(preset, i),
+  const items = presetsValue.map<NonNullable<CollapseProps['items']>[number]>((preset, index) => ({
+    key: genCollapsePanelKey(preset, index),
     label: <div className={`${colorPresetsPrefixCls}-label`}>{preset?.label}</div>,
     children: (
       <div className={`${colorPresetsPrefixCls}-items`}>
