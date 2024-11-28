@@ -39,6 +39,8 @@ import type {
   ModalConfig,
   NotificationConfig,
   PaginationConfig,
+  PopconfirmConfig,
+  PopoverConfig,
   PopupOverflow,
   RangePickerConfig,
   SelectConfig,
@@ -51,6 +53,7 @@ import type {
   Theme,
   ThemeConfig,
   TimePickerConfig,
+  TooltipConfig,
   TourConfig,
   TransferConfig,
   TreeSelectConfig,
@@ -235,6 +238,9 @@ export interface ConfigProviderProps {
    */
   wave?: WaveConfig;
   tour?: TourConfig;
+  tooltip?: TooltipConfig;
+  popconfirm?: PopconfirmConfig;
+  popover?: PopoverConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -393,6 +399,9 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     variant,
     inputNumber,
     treeSelect,
+    tooltip,
+    popconfirm,
+    popover,
   } = props;
 
   // =================================== Context ===================================
@@ -493,6 +502,9 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     variant,
     inputNumber,
     treeSelect,
+    tooltip,
+    popconfirm,
+    popover,
   };
 
   if (process.env.NODE_ENV !== 'production') {

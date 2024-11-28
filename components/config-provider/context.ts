@@ -34,6 +34,9 @@ import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
 import type { TreeSelectProps } from '../tree-select';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
+import type { TooltipProps } from '../tooltip';
+import type { PopconfirmProps } from '../popconfirm';
+import type { PopoverProps } from '../popover';
 
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
@@ -132,6 +135,12 @@ export type CollapseConfig = ComponentStyleConfig & Pick<CollapseProps, 'expandI
 export type MenuConfig = ComponentStyleConfig & Pick<MenuProps, 'expandIcon'>;
 
 export type TourConfig = Pick<TourProps, 'closeIcon'>;
+
+export type TooltipConfig = Pick<TooltipProps, 'className' | 'style'>;
+
+export type PopconfirmConfig = Pick<PopconfirmProps, 'className' | 'style'>;
+
+export type PopoverConfig = Pick<PopoverProps, 'className' | 'style'>;
 
 export type ModalConfig = ComponentStyleConfig &
   Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon' | 'closable'>;
@@ -289,6 +298,9 @@ export interface ConfigConsumerProps {
   timeline?: ComponentStyleConfig;
   timePicker?: TimePickerConfig;
   tour?: TourConfig;
+  tooltip?: TooltipConfig;
+  popover?: PopoverConfig;
+  popconfirm?: PopconfirmConfig;
   upload?: ComponentStyleConfig;
   notification?: NotificationConfig;
   tree?: ComponentStyleConfig;

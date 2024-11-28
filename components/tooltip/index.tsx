@@ -153,6 +153,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     direction,
+    tooltip,
   } = React.useContext(ConfigContext);
 
   // ============================== Ref ===============================
@@ -296,6 +297,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     rootClassName,
     hashId,
     cssVarCls,
+    tooltip?.className,
   );
 
   // ============================ zIndex ============================
@@ -311,7 +313,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       mouseLeaveDelay={mouseLeaveDelay}
       prefixCls={prefixCls}
       overlayClassName={customOverlayClassName}
-      overlayStyle={{ ...arrowContentStyle, ...overlayStyle }}
+      overlayStyle={{ ...arrowContentStyle, ...overlayStyle, ...tooltip?.style }}
       getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
       ref={tooltipRef}
       builtinPlacements={tooltipPlacements}

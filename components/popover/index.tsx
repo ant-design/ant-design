@@ -38,13 +38,13 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     overlayStyle = {},
     ...otherProps
   } = props;
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, popover } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
   const rootPrefixCls = getPrefixCls();
 
-  const overlayCls = classNames(overlayClassName, hashId, cssVarCls);
+  const overlayCls = classNames(overlayClassName, hashId, cssVarCls, popover?.className);
   const [open, setOpen] = useMergedState(false, {
     value: props.open ?? props.visible,
     defaultValue: props.defaultOpen ?? props.defaultVisible,
@@ -77,7 +77,7 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
       trigger={trigger}
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
-      overlayStyle={overlayStyle}
+      overlayStyle={{ ...overlayStyle, ...popover?.style }}
       {...otherProps}
       prefixCls={prefixCls}
       overlayClassName={overlayCls}
