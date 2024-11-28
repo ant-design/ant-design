@@ -38,7 +38,7 @@ export interface PresetsItem {
    * The key of the panel
    * @since 5.23.0
    */
-  key: React.Key;
+  key?: React.Key;
 }
 
 export type TriggerType = 'click' | 'hover';
