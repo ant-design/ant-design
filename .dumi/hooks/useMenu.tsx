@@ -5,6 +5,7 @@ import { createStyles } from 'antd-style';
 import classnames from 'classnames';
 import { useFullSidebarData, useSidebarData } from 'dumi';
 
+import SiteContext from '../../.dumi/theme/slots/SiteContext';
 import Link from '../theme/common/Link';
 import coverImg from './coverImg.json';
 import useLocation from './useLocation';
@@ -27,6 +28,13 @@ const useStyle = createStyles(({ css, token }) => ({
     font-size: ${token.fontSizeSM}px;
     opacity: 0.8;
   `,
+  coverImg: css`
+    width: 32px;
+    height: 32px;
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid #f0f0f0;
+  `,
 }));
 
 interface MenuItemLabelProps {
@@ -43,25 +51,15 @@ interface MenuItemLabelProps {
 const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
   const { styles } = useStyle();
   const { before, after, link, title, subtitle, search, tag, className } = props;
-  const imgSrc = coverImg[title as keyof typeof coverImg];
+  const { theme } = React.useContext(SiteContext);
+  const imgSrc = theme.includes('dark')
+    ? coverImg[title as keyof typeof coverImg]?.dark
+    : coverImg[title as keyof typeof coverImg]?.light;
   if (!before && !after) {
     return (
       <Link to={`${link}${search}`} className={classnames(className, { [styles.link]: tag })}>
         <Flex gap="small" justify="flex-start" align="center">
-          {imgSrc && (
-            <img
-              alt="cover"
-              src={imgSrc.light}
-              style={{
-                width: 32,
-                height: 32,
-                display: 'block',
-                border: '1px solid #f0f0f0',
-                boxSizing: 'border-box',
-                borderRadius: 4,
-              }}
-            />
-          )}
+          {imgSrc && <img alt="cover" src={imgSrc} className={styles.coverImg} />}
           <span>{title}</span>
           {subtitle && <span className={styles.subtitle}>{subtitle}</span>}
         </Flex>
