@@ -77,7 +77,7 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
       trigger={trigger}
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
-      overlayStyle={{ ...overlayStyle, ...popover?.style }}
+      overlayStyle={{ ...popover?.style, ...overlayStyle }}
       {...otherProps}
       prefixCls={prefixCls}
       overlayClassName={overlayCls}

@@ -91,6 +91,14 @@ interface LegacyTooltipProps
 }
 
 export interface AbstractTooltipProps extends LegacyTooltipProps {
+  styles?: {
+    root?: React.CSSProperties;
+    inner?: React.CSSProperties;
+  };
+  classNames?: {
+    root?: string;
+    inner?: string;
+  };
   style?: React.CSSProperties;
   className?: string;
   rootClassName?: string;
@@ -313,7 +321,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       mouseLeaveDelay={mouseLeaveDelay}
       prefixCls={prefixCls}
       overlayClassName={customOverlayClassName}
-      overlayStyle={{ ...arrowContentStyle, ...overlayStyle, ...tooltip?.style }}
+      overlayStyle={{ ...arrowContentStyle, ...tooltip?.style, ...overlayStyle }}
       getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
       ref={tooltipRef}
       builtinPlacements={tooltipPlacements}
