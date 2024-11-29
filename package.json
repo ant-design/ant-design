@@ -343,5 +343,11 @@
   "title": "Ant Design",
   "tnpm": {
     "mode": "npm"
+  },
+  "overrides": {
+    "nwsapi": "2.2.13"
+  },
+  "resolutions": {
+    "nwsapi": "2.2.13"
   }
 }
