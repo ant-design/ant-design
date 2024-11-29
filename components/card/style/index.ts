@@ -35,7 +35,7 @@ export interface ComponentToken {
    * @desc 小号卡片内边距
    * @descEN Padding of small card
    */
-  cardPaddingSM: number;
+  bodyPaddingSM: number;
   /**
    * @desc 操作区背景色
    * @descEN Background color of card actions
@@ -400,13 +400,13 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
 // ============================== Size ==============================
 const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { componentCls, cardPaddingSM, headerHeightSM, headerFontSizeSM } = token;
+  const { componentCls, bodyPaddingSM, headerHeightSM, headerFontSizeSM } = token;
 
   return {
     [`${componentCls}-small`]: {
       [`> ${componentCls}-head`]: {
         minHeight: headerHeightSM,
-        padding: `0 ${unit(cardPaddingSM)}`,
+        padding: `0 ${unit(bodyPaddingSM)}`,
         fontSize: headerFontSizeSM,
 
         [`> ${componentCls}-head-wrapper`]: {
@@ -417,7 +417,7 @@ const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       },
 
       [`> ${componentCls}-body`]: {
-        padding: cardPaddingSM,
+        padding: bodyPaddingSM,
       },
     },
     [`${componentCls}-small${componentCls}-contain-tabs`]: {
@@ -442,7 +442,7 @@ export const prepareComponentToken: GetDefaultToken<'Card'> = (token) => ({
   actionsLiMargin: `${token.paddingSM}px 0`,
   tabsMarginBottom: -token.padding - token.lineWidth,
   extraColor: token.colorText,
-  cardPaddingSM: 12, // Fixed padding.
+  bodyPaddingSM: 12, // Fixed padding.
 });
 
 // ============================== Export ==============================
