@@ -40,7 +40,7 @@ export interface ComponentToken {
    * @desc 小号卡片头部内边距
    * @descEN Padding of small card head
    */
-  headPaddingSM: number;
+  headerPaddingSM: number;
   /**
    * @desc 卡片内边距
    * @descEN Padding of card body
@@ -50,7 +50,7 @@ export interface ComponentToken {
    * @desc 卡片头部内边距
    * @descEN Padding of card head
    */
-  headPadding: number;
+  headerPadding: number;
   /**
    * @desc 操作区背景色
    * @descEN Background color of card actions
@@ -100,7 +100,7 @@ interface CardToken extends FullToken<'Card'> {
 
 // ============================== Head ==============================
 const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { antCls, componentCls, headerHeight, headPadding, tabsMarginBottom } = token;
+  const { antCls, componentCls, headerHeight, headerPadding, tabsMarginBottom } = token;
 
   return {
     display: 'flex',
@@ -108,7 +108,7 @@ const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     flexDirection: 'column',
     minHeight: headerHeight,
     marginBottom: -1, // Fix card grid overflow bug: https://gw.alipayobjects.com/zos/rmsportal/XonYxBikwpgbqIQBeuhk.png
-    padding: `0 ${unit(headPadding)}`,
+    padding: `0 ${unit(headerPadding)}`,
     color: token.colorTextHeading,
     fontWeight: token.fontWeightStrong,
     fontSize: token.headerFontSize,
@@ -274,11 +274,11 @@ const genCardMetaStyle: GenerateStyle<CardToken> = (token): CSSObject => ({
 
 // ============================== Inner ==============================
 const genCardTypeInnerStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { componentCls, colorFillAlter, headPadding, bodyPadding } = token;
+  const { componentCls, colorFillAlter, headerPadding, bodyPadding } = token;
 
   return {
     [`${componentCls}-head`]: {
-      padding: `0 ${unit(headPadding)}`,
+      padding: `0 ${unit(headerPadding)}`,
       background: colorFillAlter,
 
       '&-title': {
@@ -415,13 +415,13 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
 // ============================== Size ==============================
 const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { componentCls, bodyPaddingSM, headPaddingSM, headerHeightSM, headerFontSizeSM } = token;
+  const { componentCls, bodyPaddingSM, headerPaddingSM, headerHeightSM, headerFontSizeSM } = token;
 
   return {
     [`${componentCls}-small`]: {
       [`> ${componentCls}-head`]: {
         minHeight: headerHeightSM,
-        padding: `0 ${unit(headPaddingSM)}`,
+        padding: `0 ${unit(headerPaddingSM)}`,
         fontSize: headerFontSizeSM,
 
         [`> ${componentCls}-head-wrapper`]: {
@@ -458,9 +458,9 @@ export const prepareComponentToken: GetDefaultToken<'Card'> = (token) => ({
   tabsMarginBottom: -token.padding - token.lineWidth,
   extraColor: token.colorText,
   bodyPaddingSM: 12, // Fixed padding.
-  headPaddingSM: 12,
-  bodyPadding: 24,
-  headPadding: 24,
+  headerPaddingSM: 12,
+  bodyPadding: token.bodyPadding ?? token.paddingLG,
+  headerPadding: token.headerPadding ?? token.paddingLG,
 });
 
 // ============================== Export ==============================

@@ -9,8 +9,8 @@ export default () => (
         Card: {
           headerBg: '#e6f4ff',
           bodyPaddingSM: 22,
-          headPaddingSM: 20,
-          headPadding: 18,
+          headerPaddingSM: 20,
+          headerPadding: 18,
           bodyPadding: 26,
           headerFontSize: 20,
           headerFontSizeSM: 20,
