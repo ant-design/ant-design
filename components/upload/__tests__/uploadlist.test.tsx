@@ -73,7 +73,7 @@ describe('Upload List', () => {
     open = jest.spyOn(window, 'open').mockImplementation(() => null);
     mockWidthGet.mockImplementation(() => size.width);
     mockHeightGet.mockImplementation(() => size.height);
-    mockSrcSet.mockImplementation(() => {
+    mockSrcSet.mockImplementation(function fn() {
       // @ts-ignore
       this.onload?.();
     });
@@ -1626,8 +1626,8 @@ describe('Upload List', () => {
         <Upload fileList={list as UploadProps['defaultFileList']} listType="picture-card" />,
       );
       expect(wrapper.querySelectorAll('.ant-upload-select').length).toBe(1);
-      expect(wrapper.querySelectorAll<HTMLDivElement>('.ant-upload-select')[0]?.style.display).toBe(
-        'none',
+      expect(wrapper.querySelector<HTMLDivElement>('.ant-upload-select')).toHaveClass(
+        'ant-upload-hide',
       );
       unmount();
     });
@@ -1651,8 +1651,8 @@ describe('Upload List', () => {
         />,
       );
       expect(wrapper.querySelectorAll('.ant-upload-select').length).toBe(1);
-      expect(wrapper.querySelectorAll<HTMLDivElement>('.ant-upload-select')[0]?.style.display).toBe(
-        'none',
+      expect(wrapper.querySelector<HTMLDivElement>('.ant-upload-select')).toHaveClass(
+        'ant-upload-hide',
       );
       unmount();
     });
