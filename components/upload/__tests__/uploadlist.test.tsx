@@ -73,12 +73,9 @@ describe('Upload List', () => {
     open = jest.spyOn(window, 'open').mockImplementation(() => null);
     mockWidthGet.mockImplementation(() => size.width);
     mockHeightGet.mockImplementation(() => size.height);
-    mockSrcSet.mockImplementation(function fn() {
+    mockSrcSet.mockImplementation(() => {
       // @ts-ignore
-      if (this.onload) {
-        // @ts-ignore
-        this.onload();
-      }
+      this.onload?.();
     });
 
     mockGetCanvasContext.mockReturnValue({
