@@ -99,6 +99,11 @@ export interface FilterConfirmProps {
   closeDropdown: boolean;
 }
 
+export interface FilterRestProps {
+  confirm?: boolean;
+  closeDropdown?: boolean;
+}
+
 export interface FilterDropdownProps {
   prefixCls: string;
   setSelectedKeys: (selectedKeys: React.Key[]) => void;
@@ -108,7 +113,7 @@ export interface FilterDropdownProps {
    * {closeDropdown: true}
    */
   confirm: (param?: FilterConfirmProps) => void;
-  clearFilters?: () => void;
+  clearFilters?: (param?: FilterRestProps) => void;
   filters?: ColumnFilterItem[];
   /** Only close filterDropdown */
   close: () => void;

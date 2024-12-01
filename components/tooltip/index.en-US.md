@@ -54,8 +54,8 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 | mouseEnterDelay | Delay in seconds, before tooltip is shown on mouse enter | number | 0.1 |  |
 | mouseLeaveDelay | Delay in seconds, before tooltip is hidden on mouse leave | number | 0.1 |  |
 | overlayClassName | Class name of the tooltip card | string | - |  |
-| overlayStyle | Style of the tooltip card | object | - |  |
-| overlayInnerStyle | Style of the tooltip inner content | object | - |  |
+| overlayStyle | Style of the tooltip card | React.CSSProperties | - |  |
+| overlayInnerStyle | Style of the tooltip inner content | React.CSSProperties | - |  |
 | placement | The position of the tooltip relative to the target, which can be one of `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string | `top` |  |
 | trigger | Tooltip trigger mode. Could be multiple by passing an array | `hover` \| `focus` \| `click` \| `contextMenu` \| Array&lt;string> | `hover` |  |
 | open | Whether the floating tooltip card is open or not. Use `visible` under 4.23.0 ([why?](/docs/react/faq#why-open)) | boolean | false | 4.23.0 |

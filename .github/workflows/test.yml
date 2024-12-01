@@ -171,6 +171,7 @@ jobs:
         run: bun run dist
         env:
           NODE_OPTIONS: --max_old_space_size=4096
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
           CI: 1
 
       - name: check build files

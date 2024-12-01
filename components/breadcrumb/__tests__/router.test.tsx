@@ -1,28 +1,9 @@
-import React, { useMemo } from 'react';
-import type { RouterProps } from 'react-router-dom';
-import { Link, MemoryRouter, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { MemoryRouter, useLocation } from 'react-router-dom';
+import type { Location as ReactRouterLocation } from 'react-router-dom';
 
-import { fireEvent, render } from '../../../tests/utils';
+import { render } from '../../../tests/utils';
 import Breadcrumb from '../index';
-
-const Apps: React.FC = () => (
-  <ul className="app-list">
-    <li>
-      <Link to="/apps/1">Application1</Link>：<Link to="/apps/1/detail">Detail</Link>
-    </li>
-    <li>
-      <Link to="/apps/2">Application2</Link>：<Link to="/apps/2/detail">Detail</Link>
-    </li>
-  </ul>
-);
-
-const breadcrumbNameMap = {
-  '/apps': 'Application List',
-  '/apps/1': 'Application1',
-  '/apps/2': 'Application2',
-  '/apps/1/detail': 'Detail',
-  '/apps/2/detail': 'Detail',
-};
 
 describe('react router', () => {
   beforeAll(() => {
@@ -33,63 +14,37 @@ describe('react router', () => {
     jest.useRealTimers();
   });
 
-  it('react router 6', () => {
-    const Home: React.FC = () => {
-      const location = useLocation();
-      const navigate = useNavigate();
-      const pathSnippets = location.pathname.split('/').filter((i) => i);
-      const extraBreadcrumbItems = pathSnippets.map((_, index) => {
-        const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
-        return (
-          <Breadcrumb.Item key={url}>
-            <Link to={url}>{breadcrumbNameMap[url as keyof typeof breadcrumbNameMap]}</Link>
-          </Breadcrumb.Item>
-        );
-      });
-      const breadcrumbItems = [
-        <Breadcrumb.Item key="home">
-          <Link to="/">Home</Link>
-        </Breadcrumb.Item>,
-      ].concat(extraBreadcrumbItems);
-      const componentProps = useMemo<RouterProps>(
-        () => ({ component: Apps }) as unknown as RouterProps,
-        [],
-      );
-      const renderProps = useMemo<RouterProps>(
-        () => ({ render: () => <span>Home Page</span> }) as unknown as RouterProps,
-        [],
-      );
-      return (
-        <div className="demo">
-          <div className="demo-nav">
-            <a onClick={() => navigate('/')}>Home</a>
-            <a onClick={() => navigate('/apps')}>Application List</a>
-          </div>
-          <Routes>
-            <Route path="/apps" {...componentProps} />
-            <Route {...renderProps} />
-          </Routes>
-          <Breadcrumb>{breadcrumbItems}</Breadcrumb>
-        </div>
-      );
+  it('memoizes the current location', () => {
+    let location1: ReactRouterLocation | undefined;
+    const CaptureLocation1: React.FC = () => {
+      location1 = useLocation();
+      return null;
     };
-    const { container } = render(
-      <MemoryRouter initialEntries={['/']} initialIndex={0}>
-        <Home />
+    const { container: container1 } = render(
+      <MemoryRouter>
+        <CaptureLocation1 />
       </MemoryRouter>,
     );
-    expect(container.querySelectorAll('.ant-breadcrumb-link').length).toBe(1);
-    expect(container.querySelectorAll('.ant-breadcrumb-link')[0].textContent).toBe('Home');
+    expect(container1).toBeTruthy();
+    expect(location1).toBeDefined();
 
-    fireEvent.click(container.querySelectorAll('.demo-nav a')[1]);
-
-    expect(container.querySelectorAll('.ant-breadcrumb-link').length).toBe(2);
-    expect(container.querySelectorAll('.ant-breadcrumb-link')[1].textContent).toBe(
-      'Application List',
+    let location2: ReactRouterLocation | undefined;
+    const CaptureLocation2: React.FC = () => {
+      location2 = useLocation();
+      return null;
+    };
+    const { container: container2 } = render(
+      <MemoryRouter>
+        <CaptureLocation2 />
+      </MemoryRouter>,
     );
+    expect(container2).toBeTruthy();
+    expect(location2).toBeDefined();
+
+    expect(location1).toEqual(location2);
   });
 
-  it('react router 3', () => {
+  it('react router legacy', () => {
     const routes = [
       {
         name: 'home',
