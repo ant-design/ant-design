@@ -8,6 +8,7 @@ exports[`renders components/skeleton/demo/active.tsx correctly 1`] = `
     class="ant-skeleton-content"
   >
     <h3
+      aria-label="title is loading"
       class="ant-skeleton-title"
       style="width:38%"
     />
@@ -32,6 +33,7 @@ exports[`renders components/skeleton/demo/basic.tsx correctly 1`] = `
     class="ant-skeleton-content"
   >
     <h3
+      aria-label="title is loading"
       class="ant-skeleton-title"
       style="width:38%"
     />
@@ -95,6 +97,7 @@ exports[`renders components/skeleton/demo/complex.tsx correctly 1`] = `
     class="ant-skeleton-content"
   >
     <h3
+      aria-label="title is loading"
       class="ant-skeleton-title"
       style="width:50%"
     />
@@ -118,6 +121,7 @@ exports[`renders components/skeleton/demo/componentToken.tsx correctly 1`] = `
     class="ant-skeleton-content"
   >
     <h3
+      aria-label="title is loading"
       class="ant-skeleton-title"
       style="width:38%"
     />
@@ -727,6 +731,7 @@ Array [
                 class="ant-skeleton-content"
               >
                 <h3
+                  aria-label="title is loading"
                   class="ant-skeleton-title"
                   style="width:50%"
                 />
@@ -756,6 +761,7 @@ Array [
                 class="ant-skeleton-content"
               >
                 <h3
+                  aria-label="title is loading"
                   class="ant-skeleton-title"
                   style="width:50%"
                 />
@@ -785,6 +791,7 @@ Array [
                 class="ant-skeleton-content"
               >
                 <h3
+                  aria-label="title is loading"
                   class="ant-skeleton-title"
                   style="width:50%"
                 />

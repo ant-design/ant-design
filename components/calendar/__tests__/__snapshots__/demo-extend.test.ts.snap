@@ -8,6 +8,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
     class="ant-picker-calendar-header"
   >
     <div
+      aria-label="year-select"
       class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
     >
       <div
@@ -24,6 +25,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="year-select"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -458,6 +460,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
       </span>
     </div>
     <div
+      aria-label="month-select"
       class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
     >
       <div
@@ -474,6 +477,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="month-select"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -1601,6 +1605,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
       class="ant-picker-calendar-header"
     >
       <div
+        aria-label="year-select"
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
       >
         <div
@@ -1617,6 +1622,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                 aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
+                aria-label="year-select"
                 aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
@@ -2051,6 +2057,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
         </span>
       </div>
       <div
+        aria-label="month-select"
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
       >
         <div
@@ -2067,6 +2074,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                 aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
+                aria-label="month-select"
                 aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
@@ -3193,6 +3201,7 @@ Array [
       class="ant-picker-calendar-header"
     >
       <div
+        aria-label="year-select"
         class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
       >
         <div
@@ -3209,6 +3218,7 @@ Array [
                 aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
+                aria-label="year-select"
                 aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
@@ -3643,6 +3653,7 @@ Array [
         </span>
       </div>
       <div
+        aria-label="month-select"
         class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
       >
         <div
@@ -3659,6 +3670,7 @@ Array [
                 aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
+                aria-label="month-select"
                 aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
@@ -4779,6 +4791,7 @@ Array [
       class="ant-picker-calendar-header"
     >
       <div
+        aria-label="year-select"
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
       >
         <div
@@ -4795,6 +4808,7 @@ Array [
                 aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
+                aria-label="year-select"
                 aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
@@ -5229,6 +5243,7 @@ Array [
         </span>
       </div>
       <div
+        aria-label="month-select"
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
       >
         <div
@@ -5245,6 +5260,7 @@ Array [
                 aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
+                aria-label="month-select"
                 aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
@@ -8013,6 +8029,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
     class="ant-picker-calendar-header"
   >
     <div
+      aria-label="year-select"
       class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
     >
       <div
@@ -8029,6 +8046,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="year-select"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -8463,6 +8481,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
       </span>
     </div>
     <div
+      aria-label="month-select"
       class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
     >
       <div
@@ -8479,6 +8498,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="month-select"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -10016,6 +10036,7 @@ Array [
       class="ant-picker-calendar-header"
     >
       <div
+        aria-label="year-select"
         class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
       >
         <div
@@ -10032,6 +10053,7 @@ Array [
                 aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
+                aria-label="year-select"
                 aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
@@ -10466,6 +10488,7 @@ Array [
         </span>
       </div>
       <div
+        aria-label="month-select"
         class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
       >
         <div
@@ -10482,6 +10505,7 @@ Array [
                 aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
+                aria-label="month-select"
                 aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"

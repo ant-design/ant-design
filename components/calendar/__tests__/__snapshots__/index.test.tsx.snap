@@ -8,6 +8,7 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
     class="ant-picker-calendar-header"
   >
     <div
+      aria-label="year-select"
       class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
     >
       <div
@@ -24,6 +25,7 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="year-select"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -72,6 +74,7 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
       </span>
     </div>
     <div
+      aria-label="month-select"
       class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
     >
       <div
@@ -88,6 +91,7 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="month-select"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -960,6 +964,7 @@ exports[`Calendar Calendar should support locale 1`] = `
     class="ant-picker-calendar-header"
   >
     <div
+      aria-label="year-select"
       class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
     >
       <div
@@ -976,6 +981,7 @@ exports[`Calendar Calendar should support locale 1`] = `
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="year-select"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -1024,6 +1030,7 @@ exports[`Calendar Calendar should support locale 1`] = `
       </span>
     </div>
     <div
+      aria-label="month-select"
       class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
     >
       <div
@@ -1040,6 +1047,7 @@ exports[`Calendar Calendar should support locale 1`] = `
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="month-select"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -1912,6 +1920,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
     class="ant-picker-calendar-header"
   >
     <div
+      aria-label="year-select"
       class="ant-select ant-select-rtl ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
     >
       <div
@@ -1928,6 +1937,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="year-select"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -1976,6 +1986,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
       </span>
     </div>
     <div
+      aria-label="month-select"
       class="ant-select ant-select-rtl ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
     >
       <div
@@ -1992,6 +2003,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="month-select"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -2864,6 +2876,7 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
     class="ant-picker-calendar-header"
   >
     <div
+      aria-label="year-select"
       class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
     >
       <div
@@ -2880,6 +2893,7 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="year-select"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -2928,6 +2942,7 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
       </span>
     </div>
     <div
+      aria-label="month-select"
       class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
     >
       <div
@@ -2944,6 +2959,7 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="month-select"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"

@@ -86,6 +86,7 @@ exports[`Skeleton avatar shape 1`] = `
     class="ant-skeleton-content"
   >
     <h3
+      aria-label="title is loading"
       class="ant-skeleton-title"
       style="width: 50%;"
     />
@@ -114,6 +115,7 @@ exports[`Skeleton avatar shape 2`] = `
     class="ant-skeleton-content"
   >
     <h3
+      aria-label="title is loading"
       class="ant-skeleton-title"
       style="width: 50%;"
     />
@@ -142,6 +144,7 @@ exports[`Skeleton avatar size 1`] = `
     class="ant-skeleton-content"
   >
     <h3
+      aria-label="title is loading"
       class="ant-skeleton-title"
       style="width: 50%;"
     />
@@ -170,6 +173,7 @@ exports[`Skeleton avatar size 2`] = `
     class="ant-skeleton-content"
   >
     <h3
+      aria-label="title is loading"
       class="ant-skeleton-title"
       style="width: 50%;"
     />
@@ -198,6 +202,7 @@ exports[`Skeleton avatar size 3`] = `
     class="ant-skeleton-content"
   >
     <h3
+      aria-label="title is loading"
       class="ant-skeleton-title"
       style="width: 50%;"
     />
@@ -227,6 +232,7 @@ exports[`Skeleton avatar size 4`] = `
     class="ant-skeleton-content"
   >
     <h3
+      aria-label="title is loading"
       class="ant-skeleton-title"
       style="width: 50%;"
     />
@@ -416,6 +422,7 @@ exports[`Skeleton paragraph rows 1`] = `
     class="ant-skeleton-content"
   >
     <h3
+      aria-label="title is loading"
       class="ant-skeleton-title"
       style="width: 38%;"
     />
@@ -442,6 +449,7 @@ exports[`Skeleton paragraph width 1`] = `
     class="ant-skeleton-content"
   >
     <h3
+      aria-label="title is loading"
       class="ant-skeleton-title"
       style="width: 38%;"
     />
@@ -466,6 +474,7 @@ exports[`Skeleton paragraph width 2`] = `
     class="ant-skeleton-content"
   >
     <h3
+      aria-label="title is loading"
       class="ant-skeleton-title"
       style="width: 38%;"
     />
@@ -492,6 +501,7 @@ exports[`Skeleton rtl render component should be rendered correctly in RTL direc
     class="ant-skeleton-content"
   >
     <h3
+      aria-label="title is loading"
       class="ant-skeleton-title"
       style="width: 38%;"
     />
@@ -518,6 +528,7 @@ exports[`Skeleton should round title and paragraph 1`] = `
     class="ant-skeleton-content"
   >
     <h3
+      aria-label="title is loading"
       class="ant-skeleton-title"
       style="width: 38%;"
     />
@@ -549,6 +560,7 @@ exports[`Skeleton should square avatar 1`] = `
     class="ant-skeleton-content"
   >
     <h3
+      aria-label="title is loading"
       class="ant-skeleton-title"
     />
   </div>
@@ -564,6 +576,7 @@ exports[`Skeleton should support style 1`] = `
     class="ant-skeleton-content"
   >
     <h3
+      aria-label="title is loading"
       class="ant-skeleton-title"
       style="width: 38%;"
     />
@@ -588,6 +601,7 @@ exports[`Skeleton should without avatar and paragraph 1`] = `
     class="ant-skeleton-content"
   >
     <h3
+      aria-label="title is loading"
       class="ant-skeleton-title"
     />
   </div>
@@ -602,6 +616,7 @@ exports[`Skeleton title width 1`] = `
     class="ant-skeleton-content"
   >
     <h3
+      aria-label="title is loading"
       class="ant-skeleton-title"
       style="width: 93%;"
     />

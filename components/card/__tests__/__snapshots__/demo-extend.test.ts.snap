@@ -1384,6 +1384,7 @@ Array [
           >
             <a
               href="#"
+              role="tab"
             >
               More
             </a>

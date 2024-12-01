@@ -67,7 +67,11 @@ const App: React.FC = () => {
         style={{ width: '100%' }}
         tabList={tabListNoTitle}
         activeTabKey={activeTabKey2}
-        tabBarExtraContent={<a href="#">More</a>}
+        tabBarExtraContent={
+          <a role="tab" href="#">
+            More
+          </a>
+        }
         onTabChange={onTab2Change}
         tabProps={{
           size: 'middle',

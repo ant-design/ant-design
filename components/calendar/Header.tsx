@@ -47,6 +47,7 @@ function YearSelect<DateType>(props: SharedProps<DateType>) {
       size={fullscreen ? undefined : 'small'}
       options={options}
       value={year}
+      aria-label="year-select"
       className={`${prefixCls}-year-select`}
       onChange={(numYear) => {
         let newDate = generateConfig.setYear(value, numYear);
@@ -108,6 +109,7 @@ function MonthSelect<DateType>(props: SharedProps<DateType>) {
     <Select
       size={fullscreen ? undefined : 'small'}
       className={`${prefixCls}-month-select`}
+      aria-label="month-select"
       value={month}
       options={options}
       onChange={(newMonth) => {

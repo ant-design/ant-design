@@ -10,8 +10,11 @@ export interface SkeletonTitleProps {
 }
 
 const Title: React.FC<SkeletonTitleProps> = ({ prefixCls, className, width, style }) => (
-  // biome-ignore lint/a11y/useHeadingContent: HOC here
-  <h3 className={classNames(prefixCls, className)} style={{ width, ...style }} />
+  <h3
+    className={classNames(prefixCls, className)}
+    style={{ width, ...style }}
+    aria-label="title is loading"
+  />
 );
 
 export default Title;

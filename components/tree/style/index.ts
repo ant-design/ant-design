@@ -191,11 +191,14 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         },
 
         // Disabled
-        [`&-disabled ${treeCls}-node-content-wrapper`]: {
-          color: token.colorTextDisabled,
-          cursor: 'not-allowed',
-          '&:hover': {
-            background: 'transparent',
+        '&-disabled': {
+          // >>> Title
+          [`${treeCls}-node-content-wrapper`]: {
+            color: token.colorTextDisabled,
+            cursor: 'not-allowed',
+            '&:hover': {
+              background: 'transparent',
+            },
           },
         },
 
