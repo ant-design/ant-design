@@ -1627,7 +1627,7 @@ describe('Upload List', () => {
       );
       expect(wrapper.querySelectorAll('.ant-upload-select').length).toBe(1);
       expect(wrapper.querySelector<HTMLDivElement>('.ant-upload-select')).toHaveClass(
-        'ant-upload-hide',
+        'ant-upload-hidden',
       );
       unmount();
     });
@@ -1652,7 +1652,7 @@ describe('Upload List', () => {
       );
       expect(wrapper.querySelectorAll('.ant-upload-select').length).toBe(1);
       expect(wrapper.querySelector<HTMLDivElement>('.ant-upload-select')).toHaveClass(
-        'ant-upload-hide',
+        'ant-upload-hidden',
       );
       unmount();
     });
