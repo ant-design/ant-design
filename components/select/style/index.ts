@@ -205,13 +205,17 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
     },
 
     // ========================= Feedback ==========================
-    [`${componentCls}-has-feedback`]: {
-      [`${componentCls}-clear`]: {
-        insetInlineEnd: token
-          .calc(inputPaddingHorizontalBase)
-          .add(token.fontSize)
-          .add(token.paddingXS)
-          .equal(),
+    [`${componentCls}-status`]: {
+      '&-error, &-warning, &-success, &-validating': {
+        [`&${componentCls}-has-feedback`]: {
+          [`${componentCls}-clear`]: {
+            insetInlineEnd: token
+              .calc(inputPaddingHorizontalBase)
+              .add(token.fontSize)
+              .add(token.paddingXS)
+              .equal(),
+          },
+        },
       },
     },
   };
