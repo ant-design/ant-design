@@ -1,4 +1,4 @@
-<Antd component="Alert" message="The following APIs are shared by Tooltip, Popconfirm, Popover." type="info"></Antd>
+<Antd component="Alert" message="The following APIs are shared by Tooltip, Popconfirm, Popover." type="info" banner="true"></Antd>
 
 <!-- prettier-ignore -->
 | Property | Description | Type | Default | Version |

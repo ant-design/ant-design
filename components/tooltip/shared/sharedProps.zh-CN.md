@@ -1,4 +1,4 @@
-<Antd component="Alert" message="以下 API 为 Tooltip、Popconfirm、Popover 共享的 API。" type="info"></Antd>
+<Antd component="Alert" message="以下 API 为 Tooltip、Popconfirm、Popover 共享的 API。" type="info" banner="true"></Antd>
 
 <!-- prettier-ignore -->
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
