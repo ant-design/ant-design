@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
+import type { Breakpoint } from '../_util/responsiveObserver';
 import type { LiteralUnion } from '../_util/type';
 import { ConfigContext } from '../config-provider';
 import RowContext from './RowContext';
@@ -20,19 +21,15 @@ export interface ColSize {
   pull?: ColSpanType;
 }
 
-export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ColProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    Partial<Record<Breakpoint, ColSpanType | ColSize>> {
   flex?: FlexType;
   span?: ColSpanType;
   order?: ColSpanType;
   offset?: ColSpanType;
   push?: ColSpanType;
   pull?: ColSpanType;
-  xs?: ColSpanType | ColSize;
-  sm?: ColSpanType | ColSize;
-  md?: ColSpanType | ColSize;
-  lg?: ColSpanType | ColSize;
-  xl?: ColSpanType | ColSize;
-  xxl?: ColSpanType | ColSize;
   prefixCls?: string;
 }
 
