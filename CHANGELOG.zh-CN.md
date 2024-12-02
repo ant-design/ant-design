@@ -15,6 +15,20 @@ tag: vVERSION
 
 ---
 
+## 5.22.3
+
+`2024-12-02`
+
+- 🐞 修复 Select 清除按钮在 Form.Item 中位置可能错误的问题。[#51649](https://github.com/ant-design/ant-design/pull/51649) [@dislido](https://github.com/dislido)
+- 🐞 修复 InputNumber `handleVisible` token 不生效的问题。[#51728](https://github.com/ant-design/ant-design/pull/51728) [@dengfuping](https://github.com/dengfuping)
+- 🐞 修复 ColorPicker 的 `presets` 属性中的 `label` 字段传入 `ReactNode` 会报错的问题。[#51808](https://github.com/ant-design/ant-design/pull/51808) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 修复 Menu 的 `inlineCollapsed` 属性在 Layout 中不生效的问题。[#51775](https://github.com/ant-design/ant-design/pull/51775) [@coderz-w](https://github.com/coderz-w)
+- 🐞 修复 Table `onHeaderCell` 提供的 `style` 无法被覆盖的问题。[#51793](https://github.com/ant-design/ant-design/pull/51793) [@Wxh16144](https://github.com/Wxh16144)
+- ⌨️ 优化 Collapse 组件的可访问性。[#51836](https://github.com/ant-design/ant-design/pull/51836) [@aojunhao123](https://github.com/aojunhao123)
+- TypeScript
+  - 🤖 增加 Table 属性中 `clearFilters` 函数的入参类型。[#51754](https://github.com/ant-design/ant-design/pull/51754) [@fubd](https://github.com/fubd)
+  - 🤖 修复 Form 设置 `preserve` 为 `false` 时，Form.List 中嵌套的字段卸载会丢失值的问题。[#51796](https://github.com/ant-design/ant-design/pull/51796) [@zombieJ](https://github.com/zombieJ)
+
 ## 5.22.2
 
 `2024-11-21`
