@@ -264,6 +264,8 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     mouseLeaveDelay = 0.1,
     overlayStyle,
     rootClassName,
+    styles,
+    classNames: tooltipClassNames,
     ...otherProps
   } = props;
 
@@ -293,10 +295,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
   // Color
   const colorInfo = parseColor(prefixCls, color);
   const arrowContentStyle = colorInfo.arrowStyle;
-  const formattedOverlayInnerStyle: React.CSSProperties = {
-    ...overlayInnerStyle,
-    ...colorInfo.overlayStyle,
-  };
 
   const customOverlayClassName = classNames(
     overlayClassName,
@@ -308,7 +306,10 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     hashId,
     cssVarCls,
     tooltip?.className,
+    tooltip?.classNames?.root,
   );
+
+  const innerClassnames = classNames(tooltip?.classNames?.inner, tooltipClassNames?.inner);
 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Tooltip', otherProps.zIndex);
@@ -322,8 +323,22 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
       prefixCls={prefixCls}
-      overlayClassName={customOverlayClassName}
-      overlayStyle={{ ...arrowContentStyle, ...tooltip?.style, ...overlayStyle }}
+      classNames={{ root: customOverlayClassName, inner: innerClassnames }}
+      styles={{
+        root: {
+          ...arrowContentStyle,
+          ...tooltip?.styles?.root,
+          ...tooltip?.style,
+          ...overlayStyle,
+          ...styles?.root,
+        },
+        inner: {
+          ...tooltip?.styles?.inner,
+          ...overlayInnerStyle,
+          ...styles?.inner,
+          ...colorInfo.overlayStyle,
+        },
+      }}
       getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
       ref={tooltipRef}
       builtinPlacements={tooltipPlacements}
@@ -331,7 +346,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       visible={tempOpen}
       onVisibleChange={onOpenChange}
       afterVisibleChange={afterOpenChange ?? afterVisibleChange}
-      overlayInnerStyle={formattedOverlayInnerStyle}
       arrowContent={<span className={`${prefixCls}-arrow-content`} />}
       motion={{
         motionName: getTransitionName(rootPrefixCls, 'zoom-big-fast', props.transitionName),

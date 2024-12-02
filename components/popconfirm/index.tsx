@@ -51,6 +51,7 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     overlayStyle,
     overlayInnerStyle,
     styles,
+    classNames: PopconfirmClassNames,
     ...restProps
   } = props;
 
@@ -86,7 +87,14 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
   };
 
   const prefixCls = getPrefixCls('popconfirm', customizePrefixCls);
-  const overlayClassNames = classNames(prefixCls, overlayClassName, popconfirm?.className);
+  const overlayClassNames = classNames(
+    prefixCls,
+    overlayClassName,
+    popconfirm?.className,
+    popconfirm?.classNames?.root,
+    PopconfirmClassNames?.root,
+  );
+  const innerClassNames = classNames(PopconfirmClassNames?.inner, popconfirm?.classNames?.inner);
 
   const [wrapCSSVar] = useStyle(prefixCls);
 
@@ -98,7 +106,7 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
       onOpenChange={onInternalOpenChange}
       open={open}
       ref={ref}
-      overlayClassName={overlayClassNames}
+      classNames={{ root: overlayClassNames, inner: innerClassNames }}
       styles={{
         root: {
           ...popconfirm?.styles?.root,
