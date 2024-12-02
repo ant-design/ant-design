@@ -15,6 +15,21 @@ tag: vVERSION
 
 ---
 
+## 5.22.3
+
+`2024-12-02`
+
+- 🐞 Fix Select clear button may has incorrect position within Form.item. [#51649](https://github.com/ant-design/ant-design/pull/51649) [@dislido](https://github.com/dislido)
+- 🐞 Fix InputNumber `handleVisible` token not work as expected. [#51728](https://github.com/ant-design/ant-design/pull/51728) [@dengfuping](https://github.com/dengfuping)
+- 🐞 Fix ColorPicker error when pass `ReactNode` to `label` field of `presets` property. [#51808](https://github.com/ant-design/ant-design/pull/51808) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix Menu `inlineCollapsed` property not works bug within Layout. [#51775](https://github.com/ant-design/ant-design/pull/51775) [@coderz-w](https://github.com/coderz-w)
+- 💄 Improve Table header column order of merging inline styles. [#51793](https://github.com/ant-design/ant-design/pull/51793) [@Wxh16144](https://github.com/Wxh16144)
+- ⌨️ Improve Collapse accessibility. [#51836](https://github.com/ant-design/ant-design/pull/51836) [@aojunhao123](https://github.com/aojunhao123)
+
+- TypeScript
+  - 🤖 Add Table argument type for `clearFilters` function property. [#51754](https://github.com/ant-design/ant-design/pull/51754) [@fubd](https://github.com/fubd)
+  - 🤖 Fix Form.List with nest field will miss value with remove when set Form `preserve` to `false`. [#51796](https://github.com/ant-design/ant-design/pull/51796) [@zombieJ](https://github.com/zombieJ)
+
 ## 5.22.2
 
 `2024-11-21`
