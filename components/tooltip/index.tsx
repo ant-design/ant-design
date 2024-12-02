@@ -307,6 +307,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     cssVarCls,
     tooltip?.className,
     tooltip?.classNames?.root,
+    tooltipClassNames?.root,
   );
 
   const innerClassnames = classNames(tooltip?.classNames?.inner, tooltipClassNames?.inner);
