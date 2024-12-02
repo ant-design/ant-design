@@ -137,4 +137,32 @@ describe('Popover', () => {
       expect(popup).toBe(null);
     });
   });
+  it('should apply custom styles to Popover', () => {
+    const customClassNames = {
+      inner: 'custom-inner',
+      root: 'custom-root',
+    };
+
+    const customStyles = {
+      inner: { color: 'red' },
+      root: { backgroundColor: 'blue' },
+    };
+
+    const { container } = render(
+      <Popover classNames={customClassNames} overlay={<div />} styles={customStyles} visible>
+        <button type="button">button</button>
+      </Popover>,
+    );
+
+    const PopoverElement = container.querySelector('.ant-popover') as HTMLElement;
+    const PopoverInnerElement = container.querySelector('.ant-popover-inner') as HTMLElement;
+
+    // 验证 classNames
+    expect(PopoverElement.classList).toContain('custom-root');
+    expect(PopoverInnerElement.classList).toContain('custom-inner');
+
+    // 验证 styles
+    expect(PopoverElement.style.backgroundColor).toBe('blue');
+    expect(PopoverInnerElement.style.color).toBe('red');
+  });
 });

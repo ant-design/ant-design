@@ -27,14 +27,20 @@ const App: React.FC = () => (
       popconfirm={{
         className: 'cutsom-popconfirm-test',
         style: { background: 'red' },
+        styles: { inner: { color: 'blue' }, root: { color: 'green' } },
+        classNames: { root: 'custom-root', inner: 'custom-inner' },
       }}
       tooltip={{
         className: 'cutsom-popconfirm-test',
         style: { background: 'red' },
+        styles: { inner: { color: 'blue' }, root: { color: 'green' } },
+        classNames: { root: 'custom-root', inner: 'custom-inner' },
       }}
       popover={{
         className: 'cutsom-popconfirm-test',
         style: { background: 'red' },
+        styles: { inner: { color: 'blue' }, root: { color: 'green' } },
+        classNames: { root: 'custom-root', inner: 'custom-inner' },
       }}
     >
       <Popconfirm

@@ -216,7 +216,7 @@ exports[`renders components/popconfirm/demo/config-debug.tsx extend context corr
   </button>
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm cutsom-popconfirm-test cutsom-popconfirm-test cutsom-popconfirm-test ant-popover-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; background: red;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; background: red; color: green;"
   >
     <div
       class="ant-popover-arrow"
@@ -228,6 +228,7 @@ exports[`renders components/popconfirm/demo/config-debug.tsx extend context corr
       <div
         class="ant-popover-inner"
         role="tooltip"
+        style="color: blue;"
       >
         <div
           class="ant-popover-inner-content"
@@ -333,7 +334,7 @@ exports[`renders components/popconfirm/demo/config-debug.tsx extend context corr
   </button>
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big cutsom-popconfirm-test cutsom-popconfirm-test ant-popover-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; background: red;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; background: red; color: green;"
   >
     <div
       class="ant-popover-arrow"
@@ -345,6 +346,7 @@ exports[`renders components/popconfirm/demo/config-debug.tsx extend context corr
       <div
         class="ant-popover-inner"
         role="tooltip"
+        style="color: blue;"
       >
         <div
           class="ant-popover-title"

@@ -49,6 +49,8 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     onOpenChange,
     onVisibleChange,
     overlayStyle,
+    overlayInnerStyle,
+    styles,
     ...restProps
   } = props;
 
@@ -97,7 +99,19 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
       open={open}
       ref={ref}
       overlayClassName={overlayClassNames}
-      overlayStyle={{ ...popconfirm?.style, ...overlayStyle }}
+      styles={{
+        root: {
+          ...popconfirm?.styles?.root,
+          ...popconfirm?.style,
+          ...styles?.root,
+          ...overlayStyle,
+        },
+        inner: {
+          ...popconfirm?.styles?.inner,
+          ...styles?.inner,
+          ...overlayStyle,
+        },
+      }}
       content={
         <Overlay
           okType={okType}

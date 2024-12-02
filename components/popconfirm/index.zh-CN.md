@@ -53,6 +53,10 @@ demo:
 
 更多属性请参考 [Tooltip](/components/tooltip-cn/#api)。
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## 主题变量（Design Token）
 
 <ComponentTokenTable component="Popconfirm"></ComponentTokenTable>

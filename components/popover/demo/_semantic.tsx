@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tooltip } from 'antd';
+import { Popover } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -19,16 +19,22 @@ const BlockList: React.FC<React.PropsWithChildren> = (props: any) => {
   const divRef = React.useRef<HTMLDivElement>(null);
 
   return (
-    <div ref={divRef} style={{ position: 'absolute', height: 100 }}>
-      <Tooltip
+    <div
+      ref={divRef}
+      style={{
+        position: 'absolute',
+        height: 100,
+      }}
+    >
+      <Popover
         title="prompt text"
         open
         placement="bottom"
         getPopupContainer={() => divRef.current}
         {...props}
       >
-        <span>Tooltip will show on mouse enter.</span>
-      </Tooltip>
+        <span>Content</span>
+      </Popover>
     </div>
   );
 };

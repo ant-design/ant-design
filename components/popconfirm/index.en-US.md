@@ -51,6 +51,10 @@ Common props ref：[Common props](/docs/react/common-props)
 
 Consult [Tooltip's documentation](/components/tooltip/#api) to find more APIs.
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Popconfirm"></ComponentTokenTable>
