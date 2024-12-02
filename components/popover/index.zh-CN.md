@@ -40,7 +40,9 @@ demo:
 | content | 卡片内容 | ReactNode \| () => ReactNode | -      |      |
 | title   | 卡片标题 | ReactNode \| () => ReactNode | -      |      |
 
-更多属性请参考 [Tooltip](/components/tooltip-cn/#api)。
+<!-- 共同的 API -->
+
+<embed src="../tooltip/shared/sharedProps.zh-CN.md"></embed>
 
 ## 注意
 
