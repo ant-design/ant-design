@@ -24,27 +24,28 @@ const App: React.FC = () => (
       button={{
         className: 'test-test',
       }}
-      popconfirm={{
-        className: 'cutsom-popconfirm-test',
-        style: { background: 'red' },
-        styles: { inner: { color: 'blue', borderRadius: 20 }, root: { color: 'green' } },
-        classNames: { root: 'custom-root', inner: 'custom-inner' },
-      }}
       tooltip={{
         className: 'cutsom-tooltip-test',
         style: { background: 'yellow' },
         styles: { inner: { color: 'red', borderRadius: 50 }, root: { color: 'green' } },
         classNames: { root: 'custom-root', inner: 'custom-inner' },
       }}
-      popover={{
-        className: 'cutsom-popover-test',
-        style: { background: 'green' },
-        styles: {
-          inner: { color: 'green', borderRadius: 100, background: 'red' },
-          root: { color: 'green' },
-        },
-        classNames: { root: 'custom-root', inner: 'custom-inner' },
-      }}
+      // wait for other Pull Request using
+      // popover={{
+      //   className: 'cutsom-popover-test',
+      //   style: { background: 'green' },
+      //   styles: {
+      //     inner: { color: 'green', borderRadius: 100, background: 'red' },
+      //     root: { color: 'green' },
+      //   },
+      //   classNames: { root: 'custom-root', inner: 'custom-inner' },
+      // }}
+      // popconfirm={{
+      //   className: 'cutsom-popconfirm-test',
+      //   style: { background: 'red' },
+      //   styles: { inner: { color: 'blue', borderRadius: 20 }, root: { color: 'green' } },
+      //   classNames: { root: 'custom-root', inner: 'custom-inner' },
+      // }}
     >
       <Popconfirm
         title="Delete the task"
