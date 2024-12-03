@@ -26,7 +26,7 @@ export interface BreadcrumbItemType {
    */
   path?: string;
   title?: React.ReactNode;
-  /* @deprecated Please use `title` instead */
+  /** @deprecated Please use `title` instead */
   breadcrumbName?: string;
   menu?: BreadcrumbItemProps['menu'];
   /** @deprecated Please use `menu` instead */
