@@ -13744,7 +13744,11 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders components/select/demo/responsive.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/select/demo/responsive.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Tooltip] \`overlayStyle\` is deprecated. Please use \`styles={{ root: {} }}\` instead.",
+]
+`;
 
 exports[`renders components/select/demo/search.tsx extend context correctly 1`] = `
 <div

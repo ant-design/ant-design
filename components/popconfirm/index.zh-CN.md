@@ -29,6 +29,7 @@ demo:
 <code src="./demo/promise.tsx">基于 Promise 的异步关闭</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
+<code src="./demo/config-debug.tsx" debug>ConfigProvider</code>
 
 ## API
 
@@ -51,6 +52,10 @@ demo:
 | onPopupClick | 弹出气泡点击事件 | function(e) | - | 5.5.0 |
 
 更多属性请参考 [Tooltip](/components/tooltip-cn/#api)。
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 
