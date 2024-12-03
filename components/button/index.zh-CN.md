@@ -77,7 +77,7 @@ group:
 | htmlType | 设置 `button` 原生的 `type` 值，可选值请参考 [HTML 标准](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#type) | `submit` \| `reset` \| `button` | `button` |  |
 | icon | 设置按钮的图标组件 | ReactNode | - |  |
 | iconPosition | 设置按钮图标组件的位置 | `start` \| `end` | `start` | 5.17.0 |
-| loading | 设置按钮载入状态 | boolean \| { delay: number } | false |  |
+| loading | 设置按钮载入状态 | boolean \| { delay: number, icon: ReactNode } | false | icon: 5.23.0 |
 | shape | 设置按钮形状 | `default` \| `circle` \| `round` | `default` |  |
 | size | 设置按钮大小 | `large` \| `middle` \| `small` | `middle` |  |
 | styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.4.0 |
