@@ -48,6 +48,10 @@ export interface DescriptionsProps {
   colon?: boolean;
   labelStyle?: React.CSSProperties;
   contentStyle?: React.CSSProperties;
+  styles?: {
+    label?: React.CSSProperties;
+    content?: React.CSSProperties;
+  };
   items?: DescriptionsItemType[];
   id?: string;
 }
@@ -68,6 +72,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     size: customizeSize,
     labelStyle,
     contentStyle,
+    styles,
     items,
     ...restProps
   } = props;
@@ -99,8 +104,8 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
 
   // ======================== Render ========================
   const contextValue = React.useMemo(
-    () => ({ labelStyle, contentStyle }),
-    [labelStyle, contentStyle],
+    () => ({ labelStyle, contentStyle, styles: { ...descriptions?.styles, ...styles } }),
+    [labelStyle, contentStyle, JSON.stringify(styles), JSON.stringify(descriptions?.styles)],
   );
 
   return wrapCSSVar(

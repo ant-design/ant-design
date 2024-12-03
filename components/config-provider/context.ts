@@ -118,6 +118,10 @@ export interface ThemeConfig {
 export interface ComponentStyleConfig {
   className?: string;
   style?: React.CSSProperties;
+  styles?: {
+    label?: React.CSSProperties;
+    content?: React.CSSProperties;
+  };
 }
 
 export interface TableConfig extends ComponentStyleConfig {

@@ -12,8 +12,14 @@ export interface CellProps {
   className?: string;
   component: string;
   style?: React.CSSProperties;
+  /** @deprecated Please use `styles={{ label: {} }}` instead */
   labelStyle?: React.CSSProperties;
+  /** @deprecated Please use `styles={{ content: {} }}` instead */
   contentStyle?: React.CSSProperties;
+  styles?: {
+    label?: React.CSSProperties;
+    content?: React.CSSProperties;
+  };
   bordered?: boolean;
   label?: React.ReactNode;
   content?: React.ReactNode;
@@ -35,6 +41,7 @@ const Cell: React.FC<CellProps> = (props) => {
     content,
     colon,
     type,
+    styles,
   } = props;
 
   const Component = component as keyof JSX.IntrinsicElements;
@@ -52,8 +59,8 @@ const Cell: React.FC<CellProps> = (props) => {
         style={style}
         colSpan={span}
       >
-        {notEmpty(label) && <span style={labelStyle}>{label}</span>}
-        {notEmpty(content) && <span style={contentStyle}>{content}</span>}
+        {notEmpty(label) && <span style={{ ...labelStyle, ...styles?.label }}>{label}</span>}
+        {notEmpty(content) && <span style={{ ...labelStyle, ...styles?.content }}>{content}</span>}
       </Component>
     );
   }
@@ -70,13 +77,16 @@ const Cell: React.FC<CellProps> = (props) => {
             className={classNames(`${itemPrefixCls}-item-label`, {
               [`${itemPrefixCls}-item-no-colon`]: !colon,
             })}
-            style={labelStyle}
+            style={{ ...labelStyle, ...styles?.label }}
           >
             {label}
           </span>
         )}
         {(content || content === 0) && (
-          <span className={classNames(`${itemPrefixCls}-item-content`)} style={contentStyle}>
+          <span
+            className={classNames(`${itemPrefixCls}-item-content`)}
+            style={{ ...contentStyle, ...styles?.content }}
+          >
             {content}
           </span>
         )}

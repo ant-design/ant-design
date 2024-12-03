@@ -230,13 +230,11 @@ exports[`Descriptions number 0 should render correct 1`] = `
             >
               <span
                 class="ant-descriptions-item-label"
-                style="color: red;"
               >
                 0
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="color: red;"
               >
                 0
               </span>
