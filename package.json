@@ -231,7 +231,7 @@
     "cross-fetch": "^4.0.0",
     "dekko": "^0.2.1",
     "dotenv": "^16.4.5",
-    "dumi": "~2.4.13",
+    "dumi": "~2.4.14",
     "dumi-plugin-color-chunk": "^1.1.2",
     "eslint": "^9.13.0",
     "eslint-plugin-compat": "^6.0.1",

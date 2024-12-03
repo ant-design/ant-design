@@ -31,6 +31,7 @@ demo:
 <code src="./demo/badge.tsx" debug>测试 Badge 的样式</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
+<code src="./demo/debug-upload.tsx" debug>Upload Debug</code>
 <!-- prettier-ignore-end -->
 
 ## API
