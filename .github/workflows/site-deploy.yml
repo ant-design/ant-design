@@ -50,6 +50,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-site
     steps:
+      - uses: oven-sh/setup-bun@v2
+
       - name: download site artifact
         uses: actions/download-artifact@v4
         with:
