@@ -138,7 +138,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     prefixCls: customizePrefixCls,
     openClassName,
     getTooltipContainer,
-    overlayClassName,
     color,
     overlayInnerStyle,
     children,
@@ -265,6 +264,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     mouseLeaveDelay = 0.1,
     overlayStyle,
     rootClassName,
+    overlayClassName,
     styles,
     classNames: tooltipClassNames,
     ...otherProps
