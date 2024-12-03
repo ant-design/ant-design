@@ -111,12 +111,23 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
       const targetElement = containerRef.current?.querySelector<HTMLElement>(`.${targetClassName}`);
       const containerRect = containerRef.current?.getBoundingClientRect();
       const targetRect = targetElement?.getBoundingClientRect();
-      setMarkPos([
-        (targetRect?.left || 0) - (containerRect?.left || 0),
-        (targetRect?.top || 0) - (containerRect?.top || 0),
-        targetRect?.width || 0,
-        targetRect?.height || 0,
-      ]);
+
+      if (targetClassName === 'semantic-mark-inner') {
+        setMarkPos([
+          (targetRect?.left || 0) - (containerRect?.left || 0) + 12,
+          (targetRect?.top || 0) - (containerRect?.top || 0) + 12,
+          targetRect?.width! - 24 || 0,
+          targetRect?.height! - 24 || 0,
+        ]);
+      } else {
+        setMarkPos([
+          (targetRect?.left || 0) - (containerRect?.left || 0),
+          (targetRect?.top || 0) - (containerRect?.top || 0),
+          targetRect?.width || 0,
+          targetRect?.height || 0,
+        ]);
+      }
+
       timerRef.current = setTimeout(() => {
         setPositionMotion(true);
       }, 10);

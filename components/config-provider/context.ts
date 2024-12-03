@@ -34,6 +34,7 @@ import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
 import type { TreeSelectProps } from '../tree-select';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
+import type { TooltipProps } from '../tooltip';
 
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
@@ -176,6 +177,8 @@ export type SelectConfig = ComponentStyleConfig & Pick<SelectProps, 'showSearch'
 
 export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'classNames' | 'styles'>;
 
+export type TooltipConfig = Pick<TooltipProps, 'className' | 'style' | 'styles' | 'classNames'>;
+
 export type SpinConfig = ComponentStyleConfig & Pick<SpinProps, 'indicator'>;
 
 export type InputNumberConfig = ComponentStyleConfig & Pick<InputNumberProps, 'variant'>;
@@ -289,6 +292,7 @@ export interface ConfigConsumerProps {
   timeline?: ComponentStyleConfig;
   timePicker?: TimePickerConfig;
   tour?: TourConfig;
+  tooltip?: TooltipConfig;
   upload?: ComponentStyleConfig;
   notification?: NotificationConfig;
   tree?: ComponentStyleConfig;
