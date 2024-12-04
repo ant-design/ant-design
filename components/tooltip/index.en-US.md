@@ -61,6 +61,12 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 | open | Whether the floating tooltip card is open or not. Use `visible` under 4.23.0 ([why?](/docs/react/faq#why-open)) | boolean | false | 4.23.0 |
 | zIndex | Config `z-index` of Tooltip | number | - |  |
 | onOpenChange | Callback executed when visibility of the tooltip card is changed | (open: boolean) => void | - | 4.23.0 |
+| classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.23.0 |
+| styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.23.0 |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 
