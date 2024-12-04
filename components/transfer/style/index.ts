@@ -1,7 +1,7 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import { resetComponent, resetIcon, textEllipsis, operationUnit } from '../../style';
+import { operationUnit, resetComponent, resetIcon, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
@@ -147,6 +147,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     height: listHeight,
     border: `${unit(lineWidth)} ${lineType} ${colorBorder}`,
     borderRadius: token.borderRadiusLG,
+    overflow: 'hidden',
 
     '&-with-pagination': {
       width: listWidthLG,
