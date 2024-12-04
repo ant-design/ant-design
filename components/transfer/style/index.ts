@@ -147,7 +147,6 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     height: listHeight,
     border: `${unit(lineWidth)} ${lineType} ${colorBorder}`,
     borderRadius: token.borderRadiusLG,
-    overflow: 'hidden',
 
     '&-with-pagination': {
       width: listWidthLG,
@@ -222,6 +221,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       padding: 0,
       overflow: 'auto',
       listStyle: 'none',
+      borderRadius: `0 0 ${unit(borderRadiusLG)} ${unit(borderRadiusLG)}`,
 
       '&-item': {
         display: 'flex',
