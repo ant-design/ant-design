@@ -189,7 +189,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       ['onVisibleChange', 'onOpenChange'],
       ['afterVisibleChange', 'afterOpenChange'],
       ['arrowPointAtCenter', 'arrow={{ pointAtCenter: true }}'],
-      // todo: 目前还不能警告，因为 popover 和 popconfirm 还在使用，得等那些合并了再来处理
+      // todo: Warnings are not available yet, because popover and popconfirm are still in use. Wait until they are merged before processing.
       // ['overlayStyle', 'styles={{ root: {} }}'],
       // ['overlayInnerStyle', 'styles={{ inner: {} }}'],
     ].forEach(([deprecatedName, newName]) => {

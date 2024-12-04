@@ -1,23 +1,6 @@
 import React from 'react';
-import type { PopconfirmProps } from 'antd';
-import { Button, ConfigProvider, message, Popconfirm, Popover, Tooltip } from 'antd';
+import { ConfigProvider, Tooltip } from 'antd';
 
-const confirm: PopconfirmProps['onConfirm'] = (e) => {
-  console.log(e);
-  message.success('Click on Yes');
-};
-
-const cancel: PopconfirmProps['onCancel'] = (e) => {
-  console.log(e);
-  message.error('Click on No');
-};
-
-const content = (
-  <div>
-    <p>Content</p>
-    <p>Content</p>
-  </div>
-);
 const App: React.FC = () => (
   <div>
     <ConfigProvider
@@ -30,39 +13,10 @@ const App: React.FC = () => (
         styles: { inner: { color: 'red', borderRadius: 50 }, root: { color: 'green' } },
         classNames: { root: 'custom-root', inner: 'custom-inner' },
       }}
-      // wait for other Pull Request using
-      // popover={{
-      //   className: 'cutsom-popover-test',
-      //   style: { background: 'green' },
-      //   styles: {
-      //     inner: { color: 'green', borderRadius: 100, background: 'red' },
-      //     root: { color: 'green' },
-      //   },
-      //   classNames: { root: 'custom-root', inner: 'custom-inner' },
-      // }}
-      // popconfirm={{
-      //   className: 'cutsom-popconfirm-test',
-      //   style: { background: 'red' },
-      //   styles: { inner: { color: 'blue', borderRadius: 20 }, root: { color: 'green' } },
-      //   classNames: { root: 'custom-root', inner: 'custom-inner' },
-      // }}
     >
-      <Popconfirm
-        title="Delete the task"
-        description="Are you sure to delete this task?"
-        onConfirm={confirm}
-        onCancel={cancel}
-        okText="Yes"
-        cancelText="No"
-      >
-        <Button danger>Delete</Button>
-      </Popconfirm>
       <Tooltip title="prompt text">
         <span>Tooltip will show on mouse enter.</span>
       </Tooltip>
-      <Popover content={content} title="Title">
-        <Button type="primary">Hover me</Button>
-      </Popover>
     </ConfigProvider>
   </div>
 );
