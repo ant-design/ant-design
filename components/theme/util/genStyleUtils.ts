@@ -6,7 +6,6 @@ import { ConfigContext } from '../../config-provider/context';
 import { genCommonStyle, genLinkStyle } from '../../style';
 import type { AliasToken, ComponentTokenMap, SeedToken } from '../interface';
 import useLocalToken, { unitless } from '../useToken';
-import useResetIconStyle from './useResetIconStyle';
 
 export const { genStyleHooks, genComponentStyleHook, genSubStyleComponent } = genStyleUtils<
   ComponentTokenMap,
@@ -28,11 +27,7 @@ export const { genStyleHooks, genComponentStyleHook, genSubStyleComponent } = ge
     return { theme, realToken, hashId, token, cssVar };
   },
   useCSP: () => {
-    const { csp, iconPrefixCls } = useContext(ConfigContext);
-
-    // Generate style for icons
-    useResetIconStyle(iconPrefixCls, csp);
-
+    const { csp } = useContext(ConfigContext);
     return csp ?? {};
   },
   getResetStyles: (token) => [{ '&': genLinkStyle(token) }],
