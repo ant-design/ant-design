@@ -15,7 +15,7 @@ export function convertLegacyProps(
   return { type };
 }
 
-export function isString(str: any): str is string {
+export function isString(str: unknown): str is string {
   return typeof str === 'string';
 }
 
