@@ -221,7 +221,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       padding: 0,
       overflow: 'auto',
       listStyle: 'none',
-      borderRadius: `0 0 ${unit(borderRadiusLG)} ${unit(borderRadiusLG)}`,
+      borderRadius: `0 0 ${unit(token.calc(borderRadiusLG).sub(lineWidth).equal())} ${unit(token.calc(borderRadiusLG).sub(lineWidth).equal())}`,
 
       '&-item': {
         display: 'flex',
