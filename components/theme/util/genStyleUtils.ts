@@ -6,6 +6,7 @@ import { ConfigContext } from '../../config-provider/context';
 import { genCommonStyle, genLinkStyle } from '../../style';
 import type { AliasToken, ComponentTokenMap, SeedToken } from '../interface';
 import useLocalToken, { unitless } from '../useToken';
+import { genIconStyle } from './useResetIconStyle';
 
 export const { genStyleHooks, genComponentStyleHook, genSubStyleComponent } = genStyleUtils<
   ComponentTokenMap,
@@ -30,7 +31,7 @@ export const { genStyleHooks, genComponentStyleHook, genSubStyleComponent } = ge
     const { csp } = useContext(ConfigContext);
     return csp ?? {};
   },
-  getResetStyles: (token) => [{ '&': genLinkStyle(token) }],
+  getResetStyles: (token) => [{ '&': genLinkStyle(token) }, genIconStyle()],
   getCommonStyle: genCommonStyle,
   getCompUnitless: (() => unitless) as GetCompUnitless<ComponentTokenMap, AliasToken>,
 });
