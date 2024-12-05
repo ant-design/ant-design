@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button, Flex, Tooltip } from 'antd';
 
+const zeroWidthEle = <div />;
+
 const App: React.FC = () => (
   <Flex vertical gap={72} align="flex-start">
     <span />
@@ -12,10 +14,10 @@ const App: React.FC = () => (
     >
       <Button>Point at center</Button>
     </Tooltip>
-    <Tooltip open title="." placement="topLeft">
+    <Tooltip open title={zeroWidthEle} placement="topLeft">
       <Button>Min Width</Button>
     </Tooltip>
-    <Tooltip open title="." placement="top">
+    <Tooltip open title={zeroWidthEle} placement="top">
       <Button>Min Width</Button>
     </Tooltip>
   </Flex>
