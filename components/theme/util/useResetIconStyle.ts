@@ -16,14 +16,14 @@ export const genIconStyle = (iconPrefixCls = defaultIconPrefixCls): CSSObject =>
 });
 
 const useResetIconStyle = (iconPrefixCls: string, csp?: CSPConfig) => {
-  const [theme, token, hashId] = useToken();
+  const [theme, token] = useToken();
 
   // Generate style for icons
   return useStyleRegister(
     {
       theme,
       token,
-      hashId,
+      hashId: '',
       path: ['ant-design-icons', iconPrefixCls],
       nonce: () => csp?.nonce!,
       layer: {
