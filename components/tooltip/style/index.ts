@@ -30,6 +30,7 @@ interface TooltipToken extends FullToken<'Tooltip'> {
 
 const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
   const {
+    calc,
     componentCls, // ant-tooltip
     tooltipMaxWidth,
     tooltipColor,
@@ -40,7 +41,14 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     boxShadowSecondary,
     paddingSM,
     paddingXS,
+    arrowOffsetHorizontal,
   } = token;
+
+  // minWidth = arrowOffsetHorizontal + arrowWidth + borderRadius
+  const innerMinWidth = calc(tooltipBorderRadius)
+    .add(token.sizePopupArrow)
+    .add(arrowOffsetHorizontal)
+    .equal();
 
   return [
     {
@@ -65,7 +73,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
 
         // Wrapper for the tooltip content
         [`${componentCls}-inner`]: {
-          minWidth: '1em',
+          minWidth: innerMinWidth,
           minHeight: controlHeight,
           padding: `${unit(token.calc(paddingSM).div(2).equal())} ${unit(paddingXS)}`,
           color: tooltipColor,
