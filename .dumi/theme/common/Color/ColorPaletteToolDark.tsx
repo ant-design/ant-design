@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { Col, ColorPicker, Row } from 'antd';
-import { FormattedMessage } from 'dumi';
 import type { Color } from 'antd/es/color-picker';
+import { FormattedMessage } from 'dumi';
 
 import useLocale from '../../../hooks/useLocale';
 import ColorPatterns from './ColorPatterns';
@@ -34,7 +34,7 @@ const ColorPaletteTool: React.FC = () => {
     setPrimaryColorInstance(color);
   };
 
-  const handleChangeBackgroundColor = (_, hex: string) => {
+  const handleChangeBackgroundColor = (_: Color, hex: string) => {
     setBackgroundColor(hex);
   };
 
