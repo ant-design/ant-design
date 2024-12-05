@@ -1,11 +1,12 @@
 import { useStyleRegister } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
+import { defaultIconPrefixCls } from '../../config-provider';
 import type { CSPConfig } from '../../config-provider';
 import { resetIcon } from '../../style';
 import useToken from '../useToken';
 
-export const genIconStyle = (iconPrefixCls = 'anticon'): CSSObject => ({
+export const genIconStyle = (iconPrefixCls = defaultIconPrefixCls): CSSObject => ({
   [`.${iconPrefixCls}`]: {
     ...resetIcon(),
     [`.${iconPrefixCls} .${iconPrefixCls}-icon`]: {
