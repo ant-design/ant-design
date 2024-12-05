@@ -1117,6 +1117,7 @@ Array [
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only"
         href="https://www.google.com"
         tabindex="0"
+        target="_blank"
       >
         <span
           class="ant-btn-icon"
@@ -1843,6 +1844,7 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
       href="https://www.google.com"
       tabindex="0"
+      target="_blank"
     >
       <span
         class="ant-btn-icon"
@@ -2271,6 +2273,7 @@ Array [
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-icon-end"
         href="https://www.google.com"
         tabindex="0"
+        target="_blank"
       >
         <span
           class="ant-btn-icon"
