@@ -34,7 +34,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
 
   const className = classNames(`${prefixCls}-content-item`, {
     [`${prefixCls}-content-item-disabled`]: disabled || item.disabled,
-    [`${prefixCls}-content-item-checked`]: checked,
+    [`${prefixCls}-content-item-checked`]: checked && !item.disabled,
   });
 
   let title: string | undefined;

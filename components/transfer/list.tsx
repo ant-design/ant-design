@@ -187,8 +187,12 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     return [filterItems, filterRenderItems] as const;
   }, [dataSource, filterValue]);
 
+  const checkedActiveItems = useMemo<RecordType[]>(() => {
+    return filteredItems.filter((item) => checkedKeys.includes(item.key) && !item.disabled);
+  }, [checkedKeys, filteredItems]);
+
   const checkStatus = useMemo<string>(() => {
-    if (checkedKeys.length === 0) {
+    if (checkedActiveItems.length === 0) {
       return 'none';
     }
     const checkedKeysMap = groupKeysMap(checkedKeys);
@@ -196,7 +200,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
       return 'all';
     }
     return 'part';
-  }, [checkedKeys, filteredItems]);
+  }, [checkedKeys, checkedActiveItems]);
 
   const listBody = useMemo<React.ReactNode>(() => {
     const search = showSearch ? (
@@ -254,7 +258,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
 
   const checkBox = (
     <Checkbox
-      disabled={dataSource.length === 0 || disabled}
+      disabled={dataSource.filter((d) => !d.disabled).length === 0 || disabled}
       checked={checkStatus === 'all'}
       indeterminate={checkStatus === 'part'}
       className={`${prefixCls}-checkbox`}
@@ -380,7 +384,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
           </>
         ) : null}
         <span className={`${prefixCls}-header-selected`}>
-          {getSelectAllLabel(checkedKeys.length, filteredItems.length)}
+          {getSelectAllLabel(checkedActiveItems.length, filteredItems.length)}
         </span>
         <span className={`${prefixCls}-header-title`}>{titleText}</span>
       </div>
