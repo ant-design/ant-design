@@ -42,13 +42,17 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     paddingSM,
     paddingXS,
     arrowOffsetHorizontal,
+    sizePopupArrow,
   } = token;
 
-  // minWidth = arrowOffsetHorizontal + arrowWidth + borderRadius
-  const innerMinWidth = calc(tooltipBorderRadius)
-    .add(token.sizePopupArrow)
+  // arrowOffsetHorizontal + arrowWidth + borderRadius
+  const edgeAlignMinWidth = calc(tooltipBorderRadius)
+    .add(sizePopupArrow)
     .add(arrowOffsetHorizontal)
     .equal();
+
+  // borderRadius * 2 + arrowWidth
+  const centerAlignMinWidth = calc(tooltipBorderRadius).mul(2).add(sizePopupArrow).equal();
 
   return [
     {
@@ -73,7 +77,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
 
         // Wrapper for the tooltip content
         [`${componentCls}-inner`]: {
-          minWidth: innerMinWidth,
+          minWidth: centerAlignMinWidth,
           minHeight: controlHeight,
           padding: `${unit(token.calc(paddingSM).div(2).equal())} ${unit(paddingXS)}`,
           color: tooltipColor,
@@ -84,6 +88,16 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
           borderRadius: tooltipBorderRadius,
           boxShadow: boxShadowSecondary,
           boxSizing: 'border-box',
+        },
+
+        // Align placement should have another min width
+        [[
+          `&-placement-topLeft`,
+          `&-placement-topRight`,
+          `&-placement-bottomLeft`,
+          `&-placement-bottomRight`,
+        ].join(',')]: {
+          minWidth: edgeAlignMinWidth,
         },
 
         // Limit left and right placement radius

@@ -15,6 +15,9 @@ const App: React.FC = () => (
     <Tooltip open title="." placement="topLeft">
       <Button>Min Width</Button>
     </Tooltip>
+    <Tooltip open title="." placement="top">
+      <Button>Min Width</Button>
+    </Tooltip>
   </Flex>
 );
 
