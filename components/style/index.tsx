@@ -1,6 +1,4 @@
 import { unit } from '@ant-design/cssinjs';
-import { defaultIconPrefixCls } from '../config-provider';
-
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { AliasToken } from '../theme/internal';
 
@@ -145,7 +143,7 @@ export const genFocusStyle = (token: AliasToken): CSSObject => ({
   },
 });
 
-export const genIconStyle = (iconPrefixCls = defaultIconPrefixCls): CSSObject => ({
+export const genIconStyle = (iconPrefixCls: string): CSSObject => ({
   [`.${iconPrefixCls}`]: {
     ...resetIcon(),
     [`.${iconPrefixCls} .${iconPrefixCls}-icon`]: {
