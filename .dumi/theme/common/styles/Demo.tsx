@@ -347,12 +347,12 @@ const GlobalDemoStyles: React.FC = () => {
           display: flex;
           align-items: center;
           column-gap: ${token.marginXS}px;
+        }
 
-          ${antCls}-btn {
-            opacity: 0.6;
-            &.icon-enabled {
-             background: ${token.colorFillSecondary};
-             opacity: 1;
+        ${antCls}-btn {
+          &.icon-enabled {
+            background-color: ${token.colorFillSecondary};
+            opacity: 1;
             ${iconCls} {
               color: ${token.colorTextBase};
               font-weight: bold;

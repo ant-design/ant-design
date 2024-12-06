@@ -1,5 +1,5 @@
 import React from 'react';
-import { SearchOutlined, MinusSquareOutlined } from '@ant-design/icons';
+import { MinusSquareOutlined, SearchOutlined } from '@ant-design/icons';
 import { Button, ConfigProvider, Divider, Flex, Radio, Tooltip } from 'antd';
 import type { ConfigProviderProps } from 'antd';
 
@@ -52,7 +52,7 @@ const App: React.FC = () => {
             <Button type="dashed" icon={<SearchOutlined />}>
               Search
             </Button>
-            <Button icon={<SearchOutlined />} href="https://www.google.com" />
+            <Button icon={<SearchOutlined />} href="https://www.google.com" target="_blank" />
             <Button>
               <SearchOutlined />
               Search

@@ -663,6 +663,17 @@ describe('Transfer', () => {
     expect(getByText('1 of 2')).toBeTruthy();
   });
 
+  it('should disable transfer operation button when some items are set to selected but also disabled', () => {
+    const dataSource = listDisabledProps.dataSource.map((d) => ({
+      ...d,
+      disabled: true,
+    }));
+    const { container } = render(<Transfer {...listDisabledProps} dataSource={dataSource} />);
+    expect(
+      container.querySelectorAll<HTMLDivElement>('.ant-transfer-operation button').item(0),
+    ).toBeDisabled();
+  });
+
   describe('pagination', () => {
     it('boolean', async () => {
       const { getByTitle } = render(<Transfer {...listDisabledProps} pagination />);

@@ -120,10 +120,6 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
             flex: 'auto',
           },
 
-          '&:focus': {
-            outline: 'none',
-          },
-
           // >>>>> Arrow
           [`${componentCls}-expand-icon`]: {
             height: fontHeight,

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { Suspense, useContext } from 'react';
 import { BugOutlined, CodeOutlined, ExperimentOutlined } from '@ant-design/icons';
 import { ConfigProvider, Tooltip, Button } from 'antd';
 import classNames from 'classnames';
@@ -113,7 +113,9 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
         </Tooltip>
       </span>
       <ConfigProvider theme={{ cssVar: enableCssVar, hashed: !enableCssVar }}>
-        <DumiDemoGrid items={demos} />
+        <Suspense>
+          <DumiDemoGrid items={demos} />
+        </Suspense>
       </ConfigProvider>
     </div>
   );
