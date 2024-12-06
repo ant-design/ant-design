@@ -12,9 +12,9 @@ const useStyle = createStyles(({ token, css }) => {
 
   return {
     asideContainer: css`
-      font-family: Avenir, ${fontFamily}, sans-serif;
       min-height: 100%;
       padding-bottom: ${marginXXL} !important;
+      font-family: Avenir, ${fontFamily}, sans-serif;
       padding: 0 4px;
 
       &${antCls}-menu-inline {
