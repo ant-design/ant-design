@@ -156,13 +156,13 @@ exports[`site test Component components/pagination en Page 1`] = `1`;
 
 exports[`site test Component components/pagination zh Page 1`] = `1`;
 
-exports[`site test Component components/popconfirm en Page 1`] = `1`;
+exports[`site test Component components/popconfirm en Page 1`] = `2`;
 
-exports[`site test Component components/popconfirm zh Page 1`] = `1`;
+exports[`site test Component components/popconfirm zh Page 1`] = `2`;
 
-exports[`site test Component components/popover en Page 1`] = `1`;
+exports[`site test Component components/popover en Page 1`] = `2`;
 
-exports[`site test Component components/popover zh Page 1`] = `1`;
+exports[`site test Component components/popover zh Page 1`] = `2`;
 
 exports[`site test Component components/progress en Page 1`] = `4`;
 
