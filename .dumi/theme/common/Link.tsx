@@ -8,8 +8,9 @@ export interface LinkProps {
   className?: string;
   onClick?: MouseEventHandler;
   component?: React.ComponentType<any>;
+  children?: React.ReactNode;
 }
 
-const Link = (props: LinkProps) => <DumiLink {...props} prefetch />;
+const Link: React.FC<LinkProps> = (props) => <DumiLink {...props} prefetch />;
 
 export default Link;
