@@ -139,6 +139,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     colorText,
     controlItemBgActiveHover,
   } = token;
+  const contentBorderRadius = unit(token.calc(borderRadiusLG).sub(lineWidth).equal());
 
   return {
     display: 'flex',
@@ -221,7 +222,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       padding: 0,
       overflow: 'auto',
       listStyle: 'none',
-      borderRadius: `0 0 ${unit(token.calc(borderRadiusLG).sub(lineWidth).equal())} ${unit(token.calc(borderRadiusLG).sub(lineWidth).equal())}`,
+      borderRadius: `0 0 ${contentBorderRadius} ${contentBorderRadius}`,
 
       '&-item': {
         display: 'flex',
