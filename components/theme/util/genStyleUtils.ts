@@ -3,10 +3,9 @@ import { genStyleUtils } from '@ant-design/cssinjs-utils';
 import type { GetCompUnitless } from '@ant-design/cssinjs-utils/es/util/genStyleUtils';
 
 import { ConfigContext } from '../../config-provider/context';
-import { genCommonStyle, genLinkStyle } from '../../style';
+import { genCommonStyle, genLinkStyle, genIconStyle } from '../../style';
 import type { AliasToken, ComponentTokenMap, SeedToken } from '../interface';
 import useLocalToken, { unitless } from '../useToken';
-import { genIconStyle } from './useResetIconStyle';
 
 export const { genStyleHooks, genComponentStyleHook, genSubStyleComponent } = genStyleUtils<
   ComponentTokenMap,

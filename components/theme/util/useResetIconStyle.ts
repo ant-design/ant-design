@@ -1,19 +1,8 @@
 import { useStyleRegister } from '@ant-design/cssinjs';
-import type { CSSObject } from '@ant-design/cssinjs';
 
-import { defaultIconPrefixCls } from '../../config-provider';
 import type { CSPConfig } from '../../config-provider';
-import { resetIcon } from '../../style';
+import { genIconStyle } from '../../style';
 import useToken from '../useToken';
-
-export const genIconStyle = (iconPrefixCls = defaultIconPrefixCls): CSSObject => ({
-  [`.${iconPrefixCls}`]: {
-    ...resetIcon(),
-    [`.${iconPrefixCls} .${iconPrefixCls}-icon`]: {
-      display: 'block',
-    },
-  },
-});
 
 const useResetIconStyle = (iconPrefixCls: string, csp?: CSPConfig) => {
   const [theme, token] = useToken();
