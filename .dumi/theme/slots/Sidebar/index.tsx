@@ -12,9 +12,10 @@ const useStyle = createStyles(({ token, css }) => {
 
   return {
     asideContainer: css`
-      min-height: 100%;
-      padding-bottom: 48px;
       font-family: Avenir, ${fontFamily}, sans-serif;
+      min-height: 100%;
+      padding-bottom: 48px !important;
+      padding: 0 4px;
 
       &${antCls}-menu-inline {
         ${antCls}-menu-submenu-title h4,
@@ -94,14 +95,10 @@ const useStyle = createStyles(({ token, css }) => {
       position: sticky;
       top: ${token.headerHeight + token.contentMarginTop}px;
       width: 100%;
-      height: 100%;
       max-height: calc(100vh - ${token.headerHeight + token.contentMarginTop}px);
       overflow: hidden;
       scrollbar-width: thin;
       scrollbar-gutter: stable;
-      .ant-menu {
-        padding: 0 4px;
-      }
 
       &:hover {
         overflow-y: auto;
