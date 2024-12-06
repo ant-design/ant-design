@@ -7263,6 +7263,8 @@ Array [
         >
           <a
             href="https://www.antgroup.com"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             1st menu item
           </a>
@@ -7296,6 +7298,8 @@ Array [
         >
           <a
             href="https://www.aliyun.com"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             2nd menu item
           </a>

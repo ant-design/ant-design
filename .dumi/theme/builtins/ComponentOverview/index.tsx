@@ -243,7 +243,7 @@ const Overview: React.FC = () => {
                         {cardContent}
                       </a>
                     ) : (
-                      <Link to={url} prefetch key={component.title}>
+                      <Link to={url} key={component.title}>
                         {cardContent}
                       </Link>
                     );
