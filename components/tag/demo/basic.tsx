@@ -11,7 +11,13 @@ const App: React.FC = () => (
   <>
     <Tag>Tag 1</Tag>
     <Tag>
-      <a href="https://github.com/ant-design/ant-design/issues/1862">Link</a>
+      <a
+        href="https://github.com/ant-design/ant-design/issues/1862"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Link
+      </a>
     </Tag>
     <Tag closeIcon onClose={preventDefault}>
       Prevent Default

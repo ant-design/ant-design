@@ -8,10 +8,22 @@ const App: React.FC = () => (
   >
     <Flex gap="4px 0" wrap>
       <Tag>
-        <a href="https://github.com/ant-design/ant-design/issues/1862">Link</a>
+        <a
+          href="https://github.com/ant-design/ant-design/issues/1862"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Link
+        </a>
       </Tag>
       <Tag bordered={false}>
-        <a href="https://github.com/ant-design/ant-design/issues/1862">Link</a>
+        <a
+          href="https://github.com/ant-design/ant-design/issues/1862"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Link
+        </a>
       </Tag>
       <Tag closable color="magenta">
         Tag 2
