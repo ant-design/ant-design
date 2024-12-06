@@ -67,6 +67,7 @@ const App: React.FC = () => {
       <List
         pagination={{ position, align }}
         dataSource={data}
+        rowKey="title"
         renderItem={(item, index) => (
           <List.Item>
             <List.Item.Meta
