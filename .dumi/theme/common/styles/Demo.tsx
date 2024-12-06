@@ -350,9 +350,8 @@ const GlobalDemoStyles: React.FC = () => {
         }
 
         ${antCls}-btn {
-          opacity: 0.6;
           &.icon-enabled {
-            background: ${token.colorFillSecondary};
+            background-color: ${token.colorFillSecondary};
             opacity: 1;
             ${iconCls} {
               color: ${token.colorTextBase};
