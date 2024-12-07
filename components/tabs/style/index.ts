@@ -944,7 +944,7 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
             _skip_check_: true,
             value: cardGutter,
           },
-          padding: `${unit(token.paddingXXS * 1.5)} ${unit(token.paddingXS)}`,
+          padding: `${token.paddingXXS * 1.5}px ${token.paddingXS}px`,
           background: 'transparent',
           border: `${unit(token.lineWidth)} ${token.lineType} ${colorBorderSecondary}`,
           borderRadius: `${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)} 0 0`,
