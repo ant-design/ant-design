@@ -5,8 +5,9 @@ Array [
   <div
     aria-label="segmented control"
     class="ant-segmented"
-    role="listbox"
+    role="radiogroup"
     style="margin-bottom:24px"
+    tabindex="0"
   >
     <div
       class="ant-segmented-group"
@@ -22,7 +23,6 @@ Array [
         <div
           aria-selected="true"
           class="ant-segmented-item-label"
-          role="option"
           title="Show"
         >
           Show
@@ -38,7 +38,6 @@ Array [
         <div
           aria-selected="false"
           class="ant-segmented-item-label"
-          role="option"
           title="Hide"
         >
           Hide
@@ -54,7 +53,6 @@ Array [
         <div
           aria-selected="false"
           class="ant-segmented-item-label"
-          role="option"
           title="Center"
         >
           Center
