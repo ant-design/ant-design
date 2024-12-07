@@ -389,8 +389,7 @@ exports[`renders components/qr-code/demo/download.tsx extend context correctly 1
     <div
       aria-label="segmented control"
       class="ant-segmented"
-      role="radiogroup"
-      tabindex="0"
+      role="listbox"
     >
       <div
         class="ant-segmented-group"
@@ -406,6 +405,7 @@ exports[`renders components/qr-code/demo/download.tsx extend context correctly 1
           <div
             aria-selected="true"
             class="ant-segmented-item-label"
+            role="option"
             title="canvas"
           >
             canvas
@@ -421,6 +421,7 @@ exports[`renders components/qr-code/demo/download.tsx extend context correctly 1
           <div
             aria-selected="false"
             class="ant-segmented-item-label"
+            role="option"
             title="svg"
           >
             svg
@@ -478,8 +479,7 @@ Array [
   <div
     aria-label="segmented control"
     class="ant-segmented"
-    role="radiogroup"
-    tabindex="0"
+    role="listbox"
   >
     <div
       class="ant-segmented-group"
@@ -495,6 +495,7 @@ Array [
         <div
           aria-selected="true"
           class="ant-segmented-item-label"
+          role="option"
           title="L"
         >
           L
@@ -510,6 +511,7 @@ Array [
         <div
           aria-selected="false"
           class="ant-segmented-item-label"
+          role="option"
           title="M"
         >
           M
@@ -525,6 +527,7 @@ Array [
         <div
           aria-selected="false"
           class="ant-segmented-item-label"
+          role="option"
           title="Q"
         >
           Q
@@ -540,6 +543,7 @@ Array [
         <div
           aria-selected="false"
           class="ant-segmented-item-label"
+          role="option"
           title="H"
         >
           H

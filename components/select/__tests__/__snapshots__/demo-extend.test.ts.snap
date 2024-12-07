@@ -8507,6 +8507,7 @@ Array [
             <div>
               <div
                 class="ant-select-tree"
+                role="tree"
               >
                 <div>
                   <input
@@ -8531,7 +8532,6 @@ Array [
                 </div>
                 <div
                   class="ant-select-tree-list"
-                  role="tree"
                   style="position: relative;"
                 >
                   <div
@@ -8544,10 +8544,9 @@ Array [
                         style="display: flex; flex-direction: column;"
                       >
                         <div
-                          aria-expanded="true"
+                          aria-grabbed="false"
                           class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                           draggable="false"
-                          role="treeitem"
                         >
                           <span
                             aria-hidden="true"
@@ -8588,10 +8587,9 @@ Array [
                           </span>
                         </div>
                         <div
-                          aria-expanded="false"
+                          aria-grabbed="false"
                           class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
                           draggable="false"
-                          role="treeitem"
                         >
                           <span
                             aria-hidden="true"
@@ -8620,10 +8618,9 @@ Array [
                           </span>
                         </div>
                         <div
-                          aria-expanded="false"
+                          aria-grabbed="false"
                           class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
                           draggable="false"
-                          role="treeitem"
                         >
                           <span
                             aria-hidden="true"
@@ -8652,10 +8649,9 @@ Array [
                           </span>
                         </div>
                         <div
-                          aria-expanded="false"
+                          aria-grabbed="false"
                           class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                           draggable="false"
-                          role="treeitem"
                         >
                           <span
                             aria-hidden="true"

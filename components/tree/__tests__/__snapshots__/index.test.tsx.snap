@@ -3,6 +3,7 @@
 exports[`Tree icon and switcherIcon of Tree with showLine should render correctly 1`] = `
 <div
   class="ant-tree ant-tree-show-line"
+  role="tree"
 >
   <div>
     <input
@@ -27,7 +28,6 @@ exports[`Tree icon and switcherIcon of Tree with showLine should render correctl
   </div>
   <div
     class="ant-tree-list"
-    role="tree"
     style="position: relative;"
   >
     <div
@@ -39,10 +39,9 @@ exports[`Tree icon and switcherIcon of Tree with showLine should render correctl
           style="display: flex; flex-direction: column;"
         >
           <div
-            aria-expanded="false"
+            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
             draggable="false"
-            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -70,10 +69,9 @@ exports[`Tree icon and switcherIcon of Tree with showLine should render correctl
             </span>
           </div>
           <div
-            aria-expanded="false"
+            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
             draggable="false"
-            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -99,10 +97,9 @@ exports[`Tree icon and switcherIcon of Tree with showLine should render correctl
             </span>
           </div>
           <div
-            aria-expanded="false"
+            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
             draggable="false"
-            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -158,6 +155,7 @@ exports[`Tree icon and switcherIcon of Tree with showLine should render correctl
 exports[`Tree showLine is object type should render correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide ant-tree-show-line"
+  role="tree"
 >
   <div>
     <input
@@ -182,7 +180,6 @@ exports[`Tree showLine is object type should render correctly 1`] = `
   </div>
   <div
     class="ant-tree-list"
-    role="tree"
     style="position: relative;"
   >
     <div
@@ -194,10 +191,9 @@ exports[`Tree showLine is object type should render correctly 1`] = `
           style="display: flex; flex-direction: column;"
         >
           <div
-            aria-expanded="true"
+            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
             draggable="false"
-            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -241,10 +237,9 @@ exports[`Tree showLine is object type should render correctly 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="true"
+            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open"
             draggable="false"
-            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -292,10 +287,9 @@ exports[`Tree showLine is object type should render correctly 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="false"
+            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
             draggable="false"
-            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -327,10 +321,9 @@ exports[`Tree showLine is object type should render correctly 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="false"
+            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
             draggable="false"
-            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -362,10 +355,9 @@ exports[`Tree showLine is object type should render correctly 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="false"
+            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
             draggable="false"
-            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -397,10 +389,9 @@ exports[`Tree showLine is object type should render correctly 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="false"
+            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
             draggable="false"
-            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -448,10 +439,9 @@ exports[`Tree showLine is object type should render correctly 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="false"
+            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
             draggable="false"
-            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -508,6 +498,7 @@ exports[`Tree showLine is object type should render correctly 1`] = `
 exports[`Tree support switcherLoadingIcon prop when loadData 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide"
+  role="tree"
 >
   <div>
     <input
@@ -532,7 +523,6 @@ exports[`Tree support switcherLoadingIcon prop when loadData 1`] = `
   </div>
   <div
     class="ant-tree-list"
-    role="tree"
     style="position: relative;"
   >
     <div
@@ -544,10 +534,9 @@ exports[`Tree support switcherLoadingIcon prop when loadData 1`] = `
           style="display: flex; flex-direction: column;"
         >
           <div
-            aria-expanded="true"
+            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
             draggable="false"
-            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -570,10 +559,9 @@ exports[`Tree support switcherLoadingIcon prop when loadData 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="true"
+            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-loading"
             draggable="false"
-            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -605,10 +593,9 @@ exports[`Tree support switcherLoadingIcon prop when loadData 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="true"
+            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-loading ant-tree-treenode-leaf-last"
             draggable="false"
-            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -649,6 +636,7 @@ exports[`Tree support switcherLoadingIcon prop when loadData 1`] = `
 exports[`Tree switcherIcon in Tree could be string 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide"
+  role="tree"
 >
   <div>
     <input
@@ -673,7 +661,6 @@ exports[`Tree switcherIcon in Tree could be string 1`] = `
   </div>
   <div
     class="ant-tree-list"
-    role="tree"
     style="position: relative;"
   >
     <div
@@ -685,10 +672,9 @@ exports[`Tree switcherIcon in Tree could be string 1`] = `
           style="display: flex; flex-direction: column;"
         >
           <div
-            aria-expanded="true"
+            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
             draggable="false"
-            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -711,10 +697,9 @@ exports[`Tree switcherIcon in Tree could be string 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="false"
+            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
             draggable="false"
-            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -739,10 +724,9 @@ exports[`Tree switcherIcon in Tree could be string 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="false"
+            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
             draggable="false"
-            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -776,6 +760,7 @@ exports[`Tree switcherIcon in Tree could be string 1`] = `
 exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide"
+  role="tree"
 >
   <div>
     <input
@@ -800,7 +785,6 @@ exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
   </div>
   <div
     class="ant-tree-list"
-    role="tree"
     style="position: relative;"
   >
     <div
@@ -812,10 +796,9 @@ exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
           style="display: flex; flex-direction: column;"
         >
           <div
-            aria-expanded="true"
+            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
             draggable="false"
-            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -838,10 +821,9 @@ exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="false"
+            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
             draggable="false"
-            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -868,10 +850,9 @@ exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="false"
+            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
             draggable="false"
-            role="treeitem"
           >
             <span
               aria-hidden="true"

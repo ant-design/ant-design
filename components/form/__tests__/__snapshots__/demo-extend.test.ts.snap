@@ -2757,6 +2757,7 @@ Array [
                     <div>
                       <div
                         class="ant-select-tree"
+                        role="tree"
                       >
                         <div>
                           <input
@@ -2781,7 +2782,6 @@ Array [
                         </div>
                         <div
                           class="ant-select-tree-list"
-                          role="tree"
                           style="position: relative;"
                         >
                           <div
@@ -2794,10 +2794,9 @@ Array [
                                 style="display: flex; flex-direction: column;"
                               >
                                 <div
-                                  aria-expanded="false"
+                                  aria-grabbed="false"
                                   class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                                   draggable="false"
-                                  role="treeitem"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -11985,6 +11984,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                   <div>
                     <div
                       class="ant-select-tree"
+                      role="tree"
                     >
                       <div>
                         <input
@@ -12009,7 +12009,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                       </div>
                       <div
                         class="ant-select-tree-list"
-                        role="tree"
                         style="position: relative;"
                       >
                         <div
@@ -12022,10 +12021,9 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                               style="display: flex; flex-direction: column;"
                             >
                               <div
-                                aria-expanded="false"
+                                aria-grabbed="false"
                                 class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                                 draggable="false"
-                                role="treeitem"
                               >
                                 <span
                                   aria-hidden="true"
@@ -28336,6 +28334,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   <div>
                     <div
                       class="ant-select-tree"
+                      role="tree"
                     >
                       <div>
                         <input
@@ -28360,7 +28359,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       </div>
                       <div
                         class="ant-select-tree-list"
-                        role="tree"
                         style="position: relative;"
                       >
                         <div
@@ -28373,10 +28371,9 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                               style="display: flex; flex-direction: column;"
                             >
                               <div
-                                aria-expanded="false"
+                                aria-grabbed="false"
                                 class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                                 draggable="false"
-                                role="treeitem"
                               >
                                 <span
                                   aria-hidden="true"
@@ -30841,8 +30838,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
               aria-label="segmented control"
               class="ant-segmented"
               id="variant"
-              role="radiogroup"
-              tabindex="0"
+              role="listbox"
             >
               <div
                 class="ant-segmented-group"
@@ -30857,6 +30853,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                   <div
                     aria-selected="false"
                     class="ant-segmented-item-label"
+                    role="option"
                     title="outlined"
                   >
                     outlined
@@ -30873,6 +30870,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                   <div
                     aria-selected="true"
                     class="ant-segmented-item-label"
+                    role="option"
                     title="filled"
                   >
                     filled
@@ -30888,6 +30886,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                   <div
                     aria-selected="false"
                     class="ant-segmented-item-label"
+                    role="option"
                     title="borderless"
                   >
                     borderless
