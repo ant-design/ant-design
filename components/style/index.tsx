@@ -1,6 +1,5 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
-
 import type { AliasToken } from '../theme/internal';
 
 export const textEllipsis: CSSObject = {
@@ -141,6 +140,15 @@ export const genFocusOutline = (token: AliasToken): CSSObject => ({
 export const genFocusStyle = (token: AliasToken): CSSObject => ({
   '&:focus-visible': {
     ...genFocusOutline(token),
+  },
+});
+
+export const genIconStyle = (iconPrefixCls: string): CSSObject => ({
+  [`.${iconPrefixCls}`]: {
+    ...resetIcon(),
+    [`.${iconPrefixCls} .${iconPrefixCls}-icon`]: {
+      display: 'block',
+    },
   },
 });
 
