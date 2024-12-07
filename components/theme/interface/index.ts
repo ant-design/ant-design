@@ -3,6 +3,7 @@ import type { CSSInterpolation, DerivativeFunc } from '@ant-design/cssinjs';
 import type { AnyObject } from '../../_util/type';
 import type { AliasToken } from './alias';
 import type { MapToken } from './maps';
+import { PresetColorKey } from './presetColors';
 import type { SeedToken } from './seeds';
 
 export type MappingAlgorithm = DerivativeFunc<SeedToken, MapToken>;
@@ -43,3 +44,8 @@ export type GenerateStyle<
   ComponentToken extends AnyObject = AliasToken,
   ReturnType = CSSInterpolation,
 > = (token: ComponentToken) => ReturnType;
+
+export type GenerateStyleWithPresetColors<
+  ComponentToken extends AnyObject = AliasToken,
+  ReturnType = CSSInterpolation,
+> = (token: ComponentToken, color: Exclude<PresetColorKey, 'pink'>) => ReturnType;
