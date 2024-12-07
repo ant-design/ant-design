@@ -58,6 +58,14 @@ const App: React.FC = () => {
               Search
             </Button>
           </Flex>
+
+          <div>
+            <Button>One</Button>
+            <Button>Two</Button>
+            <Button icon={<SearchOutlined />}>Search</Button>
+            <Button icon={<SearchOutlined />} />
+          </div>
+
           <Flex
             gap="small"
             style={{

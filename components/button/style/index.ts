@@ -38,8 +38,11 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         pointerEvents: 'none',
       },
 
-      [`> span, ${componentCls}-icon`]: {
-        display: 'inline-flex',
+      [`&${componentCls}-icon-only > ${componentCls}-icon`]: {
+        svg: {
+          // for SVG icon, see https://blog.prototypr.io/align-svg-icons-to-text-and-say-goodbye-to-font-icons-d44b3d7b26b4
+          verticalAlign: '-0.125em',
+        },
       },
 
       '> a': {
