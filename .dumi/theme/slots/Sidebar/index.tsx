@@ -8,14 +8,14 @@ import useMenu from '../../../hooks/useMenu';
 import SiteContext from '../SiteContext';
 
 const useStyle = createStyles(({ token, css }) => {
-  const { antCls, fontFamily, colorSplit, marginXXL } = token;
+  const { antCls, fontFamily, colorSplit, marginXXL, paddingXXS } = token;
 
   return {
     asideContainer: css`
       min-height: 100%;
       padding-bottom: ${marginXXL}px !important;
       font-family: Avenir, ${fontFamily}, sans-serif;
-      padding: 0 4px;
+      padding: 0 ${paddingXXS}px;
 
       &${antCls}-menu-inline {
         ${antCls}-menu-submenu-title h4,
