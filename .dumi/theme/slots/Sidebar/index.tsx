@@ -13,7 +13,7 @@ const useStyle = createStyles(({ token, css }) => {
   return {
     asideContainer: css`
       min-height: 100%;
-      padding-bottom: ${marginXXL} !important;
+      padding-bottom: ${marginXXL}px !important;
       font-family: Avenir, ${fontFamily}, sans-serif;
       padding: 0 4px;
 
