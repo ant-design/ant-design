@@ -156,6 +156,11 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
           color: token.itemSelectedColor,
         },
 
+        '&-focused': {
+          borderRadius: token.borderRadius,
+          boxShadow: `0 0 0 2px ${token.colorPrimary}`,
+        },
+
         '&::after': {
           content: '""',
           position: 'absolute',
