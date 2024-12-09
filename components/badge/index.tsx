@@ -29,6 +29,7 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   className?: string;
   rootClassName?: string;
   status?: PresetStatusColorType;
+  statusTitle?: string;
   color?: LiteralUnion<PresetColorKey>;
   text?: React.ReactNode;
   size?: 'default' | 'small';
@@ -56,6 +57,7 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
     count = null,
     overflowCount = 99,
     dot = false,
+    statusTitle,
     size = 'default',
     title,
     offset,
@@ -135,7 +137,6 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
   const titleNode =
     title ??
     (typeof livingCount === 'string' || typeof livingCount === 'number' ? livingCount : undefined);
-
   // >>> Status Text
   const statusTextNode =
     isHidden || !text ? null : <span className={`${prefixCls}-status-text`}>{text}</span>;
@@ -190,6 +191,7 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
         style={{ ...styles?.root, ...badge?.styles?.root, ...mergedStyle }}
       >
         <span
+          title={statusTitle}
           className={statusCls}
           style={{ ...styles?.indicator, ...badge?.styles?.indicator, ...statusStyle }}
         />
