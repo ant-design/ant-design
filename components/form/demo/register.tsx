@@ -224,13 +224,8 @@ const App: React.FC = () => {
         label="Website"
         rules={[{ required: true, message: 'Please input website!' }]}
       >
-        <AutoComplete
-          options={websiteOptions}
-          onChange={onWebsiteChange}
-          placeholder="website"
-          onDropdownVisibleChange={console.error}
-        >
-          <Input onKeyDown={console.error} />
+        <AutoComplete options={websiteOptions} onChange={onWebsiteChange} placeholder="website">
+          <Input />
         </AutoComplete>
       </Form.Item>
 
