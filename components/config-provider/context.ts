@@ -198,7 +198,7 @@ export interface ListConfig extends ComponentStyleConfig {
   item?: Pick<ListItemProps, 'classNames' | 'styles'>;
 }
 
-export const Variants = ['outlined', 'borderless', 'filled'] as const;
+export const Variants = ['outlined', 'borderless', 'filled', 'underlined'] as const;
 
 export type Variant = (typeof Variants)[number];
 
