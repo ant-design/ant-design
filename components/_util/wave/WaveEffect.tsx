@@ -142,6 +142,7 @@ const showWaveEffect: ShowWaveEffect = (target, info) => {
 
   // Skip if not support `render` since `rc-util` render not support React 19
   // TODO: remove this check in v6
+  /* istanbul ignore next */
   if (!render) {
     return;
   }
