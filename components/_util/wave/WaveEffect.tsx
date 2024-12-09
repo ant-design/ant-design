@@ -140,6 +140,12 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
 const showWaveEffect: ShowWaveEffect = (target, info) => {
   const { component } = info;
 
+  // Skip if not support `render` since `rc-util` render not support React 19
+  // TODO: remove this check in v6
+  if (!render) {
+    return;
+  }
+
   // Skip for unchecked checkbox
   if (component === 'Checkbox' && !target.querySelector<HTMLInputElement>('input')?.checked) {
     return;
