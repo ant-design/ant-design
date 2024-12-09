@@ -26,7 +26,7 @@ tag: vVERSION
 - 🐞 修复点击 Upload 下的 Radio 或 Checkbox 会触发两次弹窗的问题。[#51874](https://github.com/ant-design/ant-design/pull/51874)
 - 💄 修复 Menu 在使用 `collapsedIconSize` 时图标对齐的问题。[#51863](https://github.com/ant-design/ant-design/pull/51863) [@Gnomeek](https://github.com/Gnomeek)
 - 💄 修复 Tabs 组件在 `type="editable-card"` 时样式不正确的问题。[#51935](https://github.com/ant-design/ant-design/pull/51935) [@aojunhao123](https://github.com/aojunhao123)
-- 💄 修复 Sider 组件在 `zero-width` 模式下触发器样式优先级不足的问题。[#51936](https://github.com/ant-design/ant-design/pull/51936) [@aojunhao123](https://github.com/aojunhao123)
+- 💄 修复 Layout.Sider 组件在 `zero-width` 模式下触发器样式优先级不足的问题。[#51936](https://github.com/ant-design/ant-design/pull/51936) [@aojunhao123](https://github.com/aojunhao123)
 - 💄 MISC: 修复 icon 样式被重复创建的问题。[#51897](https://github.com/ant-design/ant-design/pull/51897) [@YumoImer](https://github.com/YumoImer)
 - 💄 MISC: 行内样式重构为 cssinjs。[#51843](https://github.com/ant-design/ant-design/pull/51843)
 
