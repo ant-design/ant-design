@@ -14,7 +14,8 @@ export default function useItemRef() {
 
   function getRef(name: InternalNamePath, children: any) {
     // Outer caller already check the `supportRef`
-    const childrenRef: React.Ref<React.ReactElement> = getNodeRef(children);
+    const childrenRef: React.Ref<React.ReactElement> =
+      children && typeof children === 'object' && getNodeRef(children);
 
     const nameStr = name.join('_');
     if (cacheRef.current.name !== nameStr || cacheRef.current.originRef !== childrenRef) {
