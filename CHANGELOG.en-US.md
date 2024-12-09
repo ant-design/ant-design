@@ -15,6 +15,21 @@ tag: vVERSION
 
 ---
 
+## 5.22.4
+
+`2024-12-09`
+
+- Transfer
+  - 🐞 Fix the background overflow when Transfer selects the last item on the current page. [#51884](https://github.com/ant-design/ant-design/pull/51884) [@ayangweb](https://github.com/ayangweb)
+  - 🐞 Fix Transfer toggle button being enabled when all items are disabled. [#51784](https://github.com/ant-design/ant-design/pull/51784) [@WwwHhhYran](https://github.com/WwwHhhYran)
+- 🐞 Fix the arrow would be outside the container when the Tooltip content was too small. [#51904](https://github.com/ant-design/ant-design/pull/51904)
+- 🐞 Fix where clicking the Radio or Checkbox under Upload would trigger the popup window twice. [#51874](https://github.com/ant-design/ant-design/pull/51874)
+- 💄 Fix Menu icon alignment when using `collapsedIconSize`. [#51863](https://github.com/ant-design/ant-design/pull/51863) [@Gnomeek](https://github.com/Gnomeek)
+- 💄 Fix incorrect styling of Tabs component when `type="editable-card"`. [#51935](https://github.com/ant-design/ant-design/pull/51935) [@aojunhao123](https://github.com/aojunhao123)
+- 💄 Fix insufficient trigger style priority in Layout.Sider component in `zero-width` mode. [#51936](https://github.com/ant-design/ant-design/pull/51936) [@aojunhao123](https://github.com/aojunhao123)
+- 💄 MISC: Fix the icon styles were created repeatedly. [#51897](https://github.com/ant-design/ant-design/pull/51897) [@YumoImer](https://github.com/YumoImer)
+- 💄 MISC: Inline styles refactored to cssinjs. [#51843](https://github.com/ant-design/ant-design/pull/51843)
+
 ## 5.22.3
 
 `2024-12-02`
