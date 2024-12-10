@@ -116,7 +116,7 @@ describe('FloatButtonGroup', () => {
     fireEvent.click(container.querySelector('.ant-float-btn-group')!);
     expect(onClick).toHaveBeenCalled();
     expect(onClick2).not.toHaveBeenCalled();
-   });
+  });
 
   it('warning if set `open` but not set `trigger`', () => {
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
