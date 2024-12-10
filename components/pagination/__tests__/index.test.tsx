@@ -104,4 +104,13 @@ describe('Pagination', () => {
       expect(container.querySelector('.ant-pagination-end')).toBeTruthy();
     });
   });
+
+  it('showSizeChanger support showSearch=false', () => {
+    const { container } = render(
+      <Pagination defaultCurrent={1} total={500} showSizeChanger={{ showSearch: false }} />,
+    );
+
+    // Expect `input` is `readonly`
+    expect(container.querySelector('.ant-select input')).toHaveAttribute('readonly');
+  });
 });
