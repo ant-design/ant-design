@@ -11,14 +11,15 @@ import enUS from 'rc-pagination/lib/locale/en_US';
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
-import type { SelectProps } from '../select';
 import { useLocale } from '../locale';
+import type { SelectProps } from '../select';
+import Select from '../select';
 import { useToken } from '../theme/internal';
-import { MiddleSelect, MiniSelect } from './Select';
 import useStyle from './style';
 import BorderedStyle from './style/bordered';
+import useShowSizeChanger from './useShowSizeChanger';
 
-export interface PaginationProps extends RcPaginationProps {
+export interface PaginationProps extends Omit<RcPaginationProps, 'showSizeChanger'> {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
   size?: 'default' | 'small';
   responsive?: boolean;
@@ -46,7 +47,6 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     style,
     size: customizeSize,
     locale: customLocale,
-    selectComponentClass,
     responsive,
     showSizeChanger,
     ...restProps
@@ -60,8 +60,59 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   // Style
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
-  const mergedShowSizeChanger = showSizeChanger ?? pagination.showSizeChanger;
+  // ============================== Size ==============================
+  const mergedSize = useSize(customizeSize);
 
+  const isSmall = mergedSize === 'small' || !!(xs && !mergedSize && responsive);
+
+  // ============================= Locale =============================
+  const [contextLocale] = useLocale('Pagination', enUS);
+
+  const locale = { ...contextLocale, ...customLocale };
+
+  // ========================== Size Changer ==========================
+  const [propShowSizeChanger, propSizeChangerSelectProps] = useShowSizeChanger(showSizeChanger);
+  const [contextShowSizeChanger, contextSizeChangerSelectProps] = useShowSizeChanger(
+    pagination.showSizeChanger,
+  );
+
+  const mergedShowSizeChanger = propShowSizeChanger ?? contextShowSizeChanger;
+  const mergedShowSizeChangerSelectProps =
+    propSizeChangerSelectProps ?? contextSizeChangerSelectProps;
+
+  // Render size changer
+  const sizeChangerRender: RcPaginationProps['sizeChangerRender'] = (info) => {
+    const {
+      disabled,
+      size: pageSize,
+      onSizeChange,
+      'aria-label': ariaLabel,
+      className: sizeChangerClassName,
+      options,
+    } = info;
+
+    const { className: propSizeChangerClassName, onChange: propSizeChangerOnChange } =
+      mergedShowSizeChangerSelectProps || {};
+
+    return (
+      <Select
+        disabled={disabled}
+        showSearch
+        aria-label={ariaLabel}
+        options={options}
+        {...mergedShowSizeChangerSelectProps}
+        value={pageSize}
+        onChange={(nextSize, option) => {
+          onSizeChange?.(nextSize);
+          propSizeChangerOnChange?.(nextSize, option);
+        }}
+        size={isSmall ? 'small' : 'middle'}
+        className={classNames(sizeChangerClassName, propSizeChangerClassName)}
+      />
+    );
+  };
+
+  // ============================= Render =============================
   const iconsProps = React.useMemo<Record<PropertyKey, React.ReactNode>>(() => {
     const ellipsis = <span className={`${prefixCls}-item-ellipsis`}>•••</span>;
     const prevIcon = (
@@ -103,14 +154,6 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     return { prevIcon, nextIcon, jumpPrevIcon, jumpNextIcon };
   }, [direction, prefixCls]);
 
-  const [contextLocale] = useLocale('Pagination', enUS);
-
-  const locale = { ...contextLocale, ...customLocale };
-
-  const mergedSize = useSize(customizeSize);
-
-  const isSmall = mergedSize === 'small' || !!(xs && !mergedSize && responsive);
-
   const selectPrefixCls = getPrefixCls('select', customizeSelectPrefixCls);
 
   const extendedClassName = classNames(
@@ -139,9 +182,9 @@ const Pagination: React.FC<PaginationProps> = (props) => {
         prefixCls={prefixCls}
         selectPrefixCls={selectPrefixCls}
         className={extendedClassName}
-        selectComponentClass={selectComponentClass || (isSmall ? MiniSelect : MiddleSelect)}
         locale={locale}
         showSizeChanger={mergedShowSizeChanger}
+        sizeChangerRender={sizeChangerRender}
       />
     </>,
   );

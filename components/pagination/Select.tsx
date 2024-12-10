@@ -8,7 +8,9 @@ type CompoundedComponent = React.FC<SelectProps> & {
 };
 
 const MiniSelect: CompoundedComponent = (props) => <Select showSearch {...props} size="small" />;
-const MiddleSelect: CompoundedComponent = (props) => <Select showSearch {...props} size="middle" />;
+const MiddleSelect: CompoundedComponent = (props) => {
+  return <Select showSearch {...props} size="middle" />;
+};
 
 MiniSelect.Option = Select.Option;
 MiddleSelect.Option = Select.Option;
