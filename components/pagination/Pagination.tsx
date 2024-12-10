@@ -8,6 +8,7 @@ import type { PaginationLocale, PaginationProps as RcPaginationProps } from 'rc-
 import RcPagination from 'rc-pagination';
 import enUS from 'rc-pagination/lib/locale/en_US';
 
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
@@ -27,6 +28,8 @@ export interface PaginationProps extends Omit<RcPaginationProps, 'showSizeChange
   totalBoundaryShowSizeChanger?: number;
   rootClassName?: string;
   showSizeChanger?: boolean | SelectProps;
+  /** @deprecated Not official support. Will be removed in next major version. */
+  selectComponentClass?: any;
 }
 
 export type PaginationPosition = 'top' | 'bottom' | 'both';
@@ -49,6 +52,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     locale: customLocale,
     responsive,
     showSizeChanger,
+    selectComponentClass,
     ...restProps
   } = props;
   const { xs } = useBreakpoint(responsive);
@@ -80,6 +84,8 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   const mergedShowSizeChangerSelectProps =
     propSizeChangerSelectProps ?? contextSizeChangerSelectProps;
 
+  const SizeChanger: typeof Select = selectComponentClass || Select;
+
   // Render size changer
   const sizeChangerRender: RcPaginationProps['sizeChangerRender'] = (info) => {
     const {
@@ -95,9 +101,11 @@ const Pagination: React.FC<PaginationProps> = (props) => {
       mergedShowSizeChangerSelectProps || {};
 
     return (
-      <Select
+      <SizeChanger
         disabled={disabled}
         showSearch
+        popupMatchSelectWidth={false}
+        getPopupContainer={(triggerNode) => triggerNode.parentNode}
         aria-label={ariaLabel}
         options={options}
         {...mergedShowSizeChangerSelectProps}
@@ -111,6 +119,16 @@ const Pagination: React.FC<PaginationProps> = (props) => {
       />
     );
   };
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Pagination');
+
+    warning(
+      !selectComponentClass,
+      'usage',
+      '`selectComponentClass` is not official api which will be removed.',
+    );
+  }
 
   // ============================= Render =============================
   const iconsProps = React.useMemo<Record<PropertyKey, React.ReactNode>>(() => {
