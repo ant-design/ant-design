@@ -20,7 +20,8 @@ import useStyle from './style';
 import BorderedStyle from './style/bordered';
 import useShowSizeChanger from './useShowSizeChanger';
 
-export interface PaginationProps extends Omit<RcPaginationProps, 'showSizeChanger'> {
+export interface PaginationProps
+  extends Omit<RcPaginationProps, 'showSizeChanger' | 'pageSizeOptions'> {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
   size?: 'default' | 'small';
   responsive?: boolean;
@@ -30,6 +31,8 @@ export interface PaginationProps extends Omit<RcPaginationProps, 'showSizeChange
   showSizeChanger?: boolean | SelectProps;
   /** @deprecated Not official support. Will be removed in next major version. */
   selectComponentClass?: any;
+  /** `string` type will be removed in next major version. */
+  pageSizeOptions?: (string | number)[];
 }
 
 export type PaginationPosition = 'top' | 'bottom' | 'both';
@@ -100,6 +103,13 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     const { className: propSizeChangerClassName, onChange: propSizeChangerOnChange } =
       mergedShowSizeChangerSelectProps || {};
 
+    // Origin Select is using Select.Option,
+    // So it make the option value must be string
+    // Just for compatible
+    const selectedValue = options.find(
+      (option) => String(option.value) === String(pageSize),
+    )?.value;
+
     return (
       <SizeChanger
         disabled={disabled}
@@ -109,7 +119,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
         aria-label={ariaLabel}
         options={options}
         {...mergedShowSizeChangerSelectProps}
-        value={pageSize}
+        value={selectedValue}
         onChange={(nextSize, option) => {
           onSizeChange?.(nextSize);
           propSizeChangerOnChange?.(nextSize, option);
