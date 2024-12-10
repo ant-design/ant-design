@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import extendsObject from '../_util/extendsObject';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import useSize from '../config-provider/hooks/useSize';
@@ -120,6 +121,8 @@ function InternalList<T>(
 
   const onPaginationShowSizeChange = triggerPaginationEvent('onShowSizeChange');
 
+  const warning = devUseWarning('List');
+
   const renderInnerItem = (item: T, index: number) => {
     if (!renderItem) return null;
 
@@ -130,14 +133,24 @@ function InternalList<T>(
     } else if (rowKey) {
       key = item[rowKey];
     } else {
-      key = (item as any).key;
+      key = (item as any)?.key;
     }
 
+    const node = renderItem(item, index);
+    key ??= React.isValidElement(node) ? node.key : undefined;
+
     if (!key) {
+      if (process.env.NODE_ENV !== 'production') {
+        warning(
+          false,
+          'usage',
+          'Each record in list should have a unique `key` prop, or set `rowKey` to an unique primary key.',
+        );
+      }
       key = `list-item-${index}`;
     }
 
-    return <React.Fragment key={key}>{renderItem(item, index)}</React.Fragment>;
+    return <React.Fragment key={key}>{node}</React.Fragment>;
   };
 
   const isSomethingAfterLastItem = () => !!(loadMore || pagination || footer);
