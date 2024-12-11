@@ -940,12 +940,11 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
 
         [`${componentCls}-nav-add`]: {
           minWidth: cardHeight,
-          minHeight: cardHeight,
           marginLeft: {
             _skip_check_: true,
             value: cardGutter,
           },
-          padding: `0 ${unit(token.paddingXS)}`,
+          padding: `${unit(token.paddingXS)}`,
           background: 'transparent',
           border: `${unit(token.lineWidth)} ${token.lineType} ${colorBorderSecondary}`,
           borderRadius: `${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)} 0 0`,
