@@ -56,6 +56,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     responsive,
     showSizeChanger,
     selectComponentClass,
+    pageSizeOptions,
     ...restProps
   } = props;
   const { xs } = useBreakpoint(responsive);
@@ -78,6 +79,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   const locale = { ...contextLocale, ...customLocale };
 
   // ========================== Size Changer ==========================
+  // Merge the props showSizeChanger
   const [propShowSizeChanger, propSizeChangerSelectProps] = useShowSizeChanger(showSizeChanger);
   const [contextShowSizeChanger, contextSizeChangerSelectProps] = useShowSizeChanger(
     pagination.showSizeChanger,
@@ -88,6 +90,11 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     propSizeChangerSelectProps ?? contextSizeChangerSelectProps;
 
   const SizeChanger: typeof Select = selectComponentClass || Select;
+
+  // Generate options
+  const mergedPageSizeOptions = React.useMemo(() => {
+    return pageSizeOptions ? pageSizeOptions.map((option) => Number(option)) : undefined;
+  }, [pageSizeOptions]);
 
   // Render size changer
   const sizeChangerRender: RcPaginationProps['sizeChangerRender'] = (info) => {
@@ -211,6 +218,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
         selectPrefixCls={selectPrefixCls}
         className={extendedClassName}
         locale={locale}
+        pageSizeOptions={mergedPageSizeOptions}
         showSizeChanger={mergedShowSizeChanger}
         sizeChangerRender={sizeChangerRender}
       />
