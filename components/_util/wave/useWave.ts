@@ -28,7 +28,13 @@ const useWave = (
     const { showEffect } = wave || {};
 
     // Customize wave effect
-    (showEffect || showWaveEffect)(targetNode, { className, token, component, event, hashId });
+    (showEffect || showWaveEffect)(targetNode, {
+      className,
+      token,
+      component,
+      event,
+      hashId,
+    });
   });
 
   const rafId = React.useRef<number>();

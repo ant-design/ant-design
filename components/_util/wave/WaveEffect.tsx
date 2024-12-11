@@ -2,9 +2,10 @@ import * as React from 'react';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import raf from 'rc-util/lib/raf';
-import { render, unmount } from 'rc-util/lib/React/render';
 import { composeRef } from 'rc-util/lib/ref';
 
+import { getReactRender, type UnmountType } from '../../config-provider/UnstableContext';
+import { GetRef } from '../type';
 import { TARGET_CLS } from './interface';
 import type { ShowWaveEffect } from './interface';
 import { getTargetWaveColor } from './util';
@@ -19,10 +20,23 @@ export interface WaveEffectProps {
   component?: string;
 }
 
-const WaveEffect: React.FC<WaveEffectProps> = (props) => {
+const WaveEffect = React.forwardRef<
+  { setUnmount: (unmount: UnmountType) => void },
+  WaveEffectProps
+>((props, ref) => {
   const { className, target, component } = props;
   const divRef = React.useRef<HTMLDivElement>(null);
 
+  // ====================== Refs ======================
+  const unmountRef = React.useRef<UnmountType>();
+
+  React.useImperativeHandle(ref, () => ({
+    setUnmount: (unmount) => {
+      unmountRef.current = unmount;
+    },
+  }));
+
+  // ===================== Effect =====================
   const [color, setWaveColor] = React.useState<string | null>(null);
   const [borderRadius, setBorderRadius] = React.useState<number[]>([]);
   const [left, setLeft] = React.useState(0);
@@ -119,7 +133,7 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
       onAppearEnd={(_, event) => {
         if (event.deadline || (event as TransitionEvent).propertyName === 'opacity') {
           const holder = divRef.current?.parentElement!;
-          unmount(holder).then(() => {
+          unmountRef.current?.().then(() => {
             holder?.remove();
           });
         }
@@ -135,17 +149,10 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
       )}
     </CSSMotion>
   );
-};
+});
 
 const showWaveEffect: ShowWaveEffect = (target, info) => {
   const { component } = info;
-
-  // Skip if not support `render` since `rc-util` render not support React 19
-  // TODO: remove this check in v6
-  /* istanbul ignore next */
-  if (!render) {
-    return;
-  }
 
   // Skip for unchecked checkbox
   if (component === 'Checkbox' && !target.querySelector<HTMLInputElement>('input')?.checked) {
@@ -159,7 +166,14 @@ const showWaveEffect: ShowWaveEffect = (target, info) => {
   holder.style.top = '0px';
   target?.insertBefore(holder, target?.firstChild);
 
-  render(<WaveEffect {...info} target={target} />, holder);
+  const reactRender = getReactRender();
+
+  const waveRef = React.createRef<GetRef<typeof WaveEffect>>();
+  const unmountCallback = reactRender(
+    <WaveEffect {...info} ref={waveRef} target={target} />,
+    holder,
+  );
+  waveRef.current?.setUnmount(unmountCallback);
 };
 
 export default showWaveEffect;
