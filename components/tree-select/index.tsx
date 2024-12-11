@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import type { BaseSelectRef } from 'rc-select';
 import type { Placement } from 'rc-select/lib/BaseSelect';
 import type { TreeSelectProps as RcTreeSelectProps } from 'rc-tree-select';
-import type { DataNode } from 'rc-tree-select/lib/interface';
 import RcTreeSelect, { SHOW_ALL, SHOW_CHILD, SHOW_PARENT, TreeNode } from 'rc-tree-select';
+import type { DataNode } from 'rc-tree-select/lib/interface';
 import omit from 'rc-util/lib/omit';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
@@ -28,10 +28,10 @@ import useSelectStyle from '../select/style';
 import useIcons from '../select/useIcons';
 import useShowArrow from '../select/useShowArrow';
 import { useCompactItemContext } from '../space/Compact';
+import { useToken } from '../theme/internal';
 import type { AntTreeNodeProps, TreeProps } from '../tree';
 import type { SwitcherIcon } from '../tree/Tree';
 import SwitcherIconCom from '../tree/utils/iconUtil';
-import { useToken } from '../theme/internal';
 import useStyle from './style';
 
 type RawValue = string | number;
