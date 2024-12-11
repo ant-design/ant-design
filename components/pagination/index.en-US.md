@@ -47,7 +47,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | hideOnSinglePage | Whether to hide pager on single page | boolean | false |  |
 | itemRender | To customize item's innerHTML | (page, type: 'page' \| 'prev' \| 'next', originalElement) => React.ReactNode | - |  |
 | pageSize | Number of data items per page | number | - |  |
-| pageSizeOptions | Specify the sizeChanger options | string\[] \| number\[] | \[`10`, `20`, `50`, `100`] |  |
+| pageSizeOptions | Specify the sizeChanger options | number\[] | \[`10`, `20`, `50`, `100`] |  |
 | responsive | If `size` is not specified, `Pagination` would resize according to the width of the window | boolean | - |  |
 | showLessItems | Show less page items | boolean | false |  |
 | showQuickJumper | Determine whether you can jump to pages directly | boolean \| { goButton: ReactNode } | false |  |
