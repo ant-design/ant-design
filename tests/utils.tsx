@@ -32,7 +32,7 @@ export const sleep = async (timeout = 0) => {
 const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>) =>
   render(ui, { wrapper: StrictMode, ...options });
 
-export function renderHook<T>(func: () => T): { result: React.RefObject<T> } {
+export function renderHook<T>(func: () => T): { result: React.RefObject<T | null> } {
   const result = createRef<T>();
 
   const Demo: React.FC = () => {
