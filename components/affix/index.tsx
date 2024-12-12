@@ -74,6 +74,7 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
   const affixPrefixCls = getPrefixCls('affix', prefixCls);
 
   const [lastAffix, setLastAffix] = React.useState(false);
+  const lastAffixRef = React.useRef(lastAffix);
   const [affixStyle, setAffixStyle] = React.useState<React.CSSProperties>();
   const [placeholderStyle, setPlaceholderStyle] = React.useState<React.CSSProperties>();
 
@@ -147,7 +148,7 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
 
       newState.lastAffix = !!newState.affixStyle;
 
-      if (lastAffix !== newState.lastAffix) {
+      if (lastAffixRef.current !== newState.lastAffix) {
         onChange?.(newState.lastAffix);
       }
 
@@ -241,6 +242,10 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
   React.useEffect(() => {
     updatePosition();
   }, [target, offsetTop, offsetBottom]);
+
+  React.useEffect(() => {
+    lastAffixRef.current = lastAffix;
+  }, [lastAffix]);
 
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(affixPrefixCls);
 
