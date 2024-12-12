@@ -14,6 +14,11 @@ jobs:
   build-site:
     runs-on: ubuntu-latest
     if: (startsWith(github.ref, 'refs/tags/') && (contains(github.ref_name, '-') == false)) || github.event_name == 'workflow_dispatch'
+
+    # https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#example-defining-outputs-for-a-job
+    outputs:
+      formatted_version: ${{ steps.shared-formatted_version.outputs.VERSION }}
+
     steps:
       - name: checkout
         uses: actions/checkout@v4
@@ -46,6 +51,11 @@ jobs:
           path: _site/
           retention-days: 1 # Not need to keep for too long
 
+      - name: Format version
+        if: ${{ always() }}
+        id: shared-formatted_version
+        run: echo "VERSION=$(echo ${{ github.ref_name }} | sed 's/\./-/g')" >> $GITHUB_OUTPUT
+
   deploy-to-pages:
     runs-on: ubuntu-latest
     needs: build-site
@@ -57,10 +67,6 @@ jobs:
         with:
           name: real-site
           path: _site
-
-      - name: Get version
-        id: publish-version
-        run: echo "VERSION=$(echo ${{ github.ref_name }} | sed 's/\./-/g')" >> $GITHUB_OUTPUT
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
@@ -81,15 +87,15 @@ jobs:
 
       - name: Deploy to Surge (with TAG)
         run: |
-          export DEPLOY_DOMAIN=ant-design-${{ steps.publish-version.outputs.VERSION }}.surge.sh
+          export DEPLOY_DOMAIN=ant-design-${{ needs.build-site.outputs.formatted_version }}.surge.sh
           bunx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
       - name: Create Commit Comment
         uses: peter-evans/commit-comment@v3
         with:
           body: |
-            - Documentation site for this release: https://ant-design-${{ steps.publish-version.outputs.VERSION }}.surge.sh
-            - Webpack bundle analyzer report page: https://ant-design-${{ steps.publish-version.outputs.VERSION }}.surge.sh/report.html
+            - Documentation site for this release: https://ant-design-${{ needs.build-site.outputs.formatted_version }}.surge.sh
+            - Webpack bundle analyzer report page: https://ant-design-${{ needs.build-site.outputs.formatted_version }}.surge.sh/report.html
 
   # https://github.com/ant-design/ant-design/pull/49213/files#r1625446496
   upload-to-release:
@@ -107,8 +113,7 @@ jobs:
       - name: Tarball site
         run: |
           cd ./_site
-          VERSION=$(echo ${{ github.ref_name }} | sed 's/\./-/g')
-          tar -czf ../website.tar.gz --transform 's|^|antd-${VERSION}-website/|' .
+          tar -czf ../website.tar.gz --transform 's|^|antd-${{ needs.build-site.outputs.formatted_version }}-website/|' .
           cd ..
 
       - name: Upload to Release
