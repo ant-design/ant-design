@@ -111,7 +111,14 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
           />
         );
       return cloneElement(icon, () => ({
-        className: classNames((icon as React.ReactElement)?.props?.className, `${prefixCls}-arrow`),
+        className: classNames(
+          (
+            icon as React.ReactElement<{
+              className?: string;
+            }>
+          )?.props?.className,
+          `${prefixCls}-arrow`,
+        ),
       }));
     },
     [mergedExpandIcon, prefixCls],
@@ -140,12 +147,19 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
   const items = React.useMemo<React.ReactNode[] | null>(
     () =>
       children
-        ? toArray(children).map<React.ReactNode>((child, index) => {
-            if (child.props?.disabled) {
+        ? toArray(children).map((child, index) => {
+            const { disabled, collapsible } =
+              (
+                child as React.ReactElement<{
+                  disabled?: boolean;
+                  collapsible?: CollapsibleType;
+                }>
+              ).props || {};
+
+            if (disabled) {
               const key = child.key ?? String(index);
-              const { disabled, collapsible } = child.props;
               const childProps: Omit<CollapseProps, 'items'> & { key: React.Key } = {
-                ...omit(child.props, ['disabled']),
+                ...omit(child.props as any, ['disabled']),
                 key,
                 collapsible: collapsible ?? (disabled ? 'disabled' : undefined),
               };

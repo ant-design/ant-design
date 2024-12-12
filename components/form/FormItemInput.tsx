@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type { JSX } from 'react';
 import classNames from 'classnames';
 import { get, set } from 'rc-util';
 import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';

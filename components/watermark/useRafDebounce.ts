@@ -7,7 +7,7 @@ import raf from 'rc-util/lib/raf';
  */
 export default function useRafDebounce(callback: VoidFunction) {
   const executeRef = React.useRef(false);
-  const rafRef = React.useRef<number>();
+  const rafRef = React.useRef<number>(null);
 
   const wrapperCallback = useEvent(callback);
 

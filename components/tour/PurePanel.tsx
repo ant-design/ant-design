@@ -35,7 +35,10 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     closeIconRender: (icon) =>
       React.isValidElement(icon)
         ? cloneElement(icon, {
-            className: classNames(icon.props.className, `${prefixCls}-close-icon`),
+            className: classNames(
+              (icon as React.ReactElement<{ className?: string }>).props.className,
+              `${prefixCls}-close-icon`,
+            ),
           })
         : icon,
   });

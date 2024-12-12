@@ -59,3 +59,13 @@ if (typeof window !== 'undefined') {
 
 global.requestAnimationFrame = global.requestAnimationFrame || global.setTimeout;
 global.cancelAnimationFrame = global.cancelAnimationFrame || global.clearTimeout;
+
+if (typeof MessageChannel === 'undefined') {
+  (global as any).MessageChannel = function MessageChannel() {
+    const port1: any = {};
+    const port2: any = {};
+    port1.postMessage = port2.onmessage = () => {};
+    port2.postMessage = port1.onmessage = () => {};
+    return { port1, port2 };
+  };
+}

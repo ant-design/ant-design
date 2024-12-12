@@ -105,7 +105,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   // ========================= Responsive =========================
-  const responsiveHandlerRef = useRef<(mql: MediaQueryListEvent | MediaQueryList) => void>();
+  const responsiveHandlerRef = useRef<(mql: MediaQueryListEvent | MediaQueryList) => void>(null);
   responsiveHandlerRef.current = (mql: MediaQueryListEvent | MediaQueryList) => {
     setBelow(mql.matches);
     onBreakpoint?.(mql.matches);

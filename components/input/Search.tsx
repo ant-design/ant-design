@@ -98,7 +98,11 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     button = cloneElement(enterButtonAsElement, {
       onMouseDown,
       onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
-        enterButtonAsElement?.props?.onClick?.(e);
+        (
+          enterButtonAsElement as React.ReactElement<{
+            onClick?: React.MouseEventHandler<HTMLButtonElement>;
+          }>
+        )?.props?.onClick?.(e);
         onSearch(e);
       },
       key: 'enterButton',

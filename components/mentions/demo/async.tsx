@@ -5,7 +5,7 @@ import debounce from 'lodash/debounce';
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [users, setUsers] = useState<{ login: string; avatar_url: string }[]>([]);
-  const ref = useRef<string>();
+  const ref = useRef<string>(null);
 
   const loadGithubUsers = (key: string) => {
     if (!key) {

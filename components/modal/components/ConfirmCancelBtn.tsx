@@ -11,12 +11,7 @@ export interface ConfirmCancelBtnProps
     'cancelButtonProps' | 'isSilent' | 'rootPrefixCls' | 'close' | 'onConfirm' | 'onCancel'
   > {
   autoFocusButton?: false | 'ok' | 'cancel' | null;
-  cancelTextLocale?:
-    | string
-    | number
-    | true
-    | React.ReactElement<any, string | React.JSXElementConstructor<any>>
-    | Iterable<React.ReactNode>;
+  cancelTextLocale?: React.ReactNode;
   mergedOkCancel?: boolean;
 }
 

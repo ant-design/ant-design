@@ -27,7 +27,7 @@ const DraggableTabNode: React.FC<Readonly<DraggableTabPaneProps>> = ({ className
     cursor: 'move',
   };
 
-  return React.cloneElement(props.children as React.ReactElement, {
+  return React.cloneElement(props.children as React.ReactElement<any>, {
     ref: setNodeRef,
     style,
     ...attributes,
@@ -62,7 +62,10 @@ const App: React.FC = () => {
           <SortableContext items={items.map((i) => i.key)} strategy={horizontalListSortingStrategy}>
             <DefaultTabBar {...tabBarProps}>
               {(node) => (
-                <DraggableTabNode {...node.props} key={node.key}>
+                <DraggableTabNode
+                  {...(node as React.ReactElement<DraggableTabPaneProps>).props}
+                  key={node.key}
+                >
                   {node}
                 </DraggableTabNode>
               )}
