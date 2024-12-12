@@ -136,7 +136,13 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     return cloneElement(mergedIcon, {
       className: classNames(
         `${prefixCls}-submenu-expand-icon`,
-        React.isValidElement<any>(mergedIcon) ? mergedIcon.props?.className : undefined,
+        React.isValidElement<any>(mergedIcon)
+          ? (
+              mergedIcon as React.ReactElement<{
+                className?: string;
+              }>
+            ).props?.className
+          : undefined,
       ),
     });
   }, [expandIcon, overrideObj?.expandIcon, menu?.expandIcon, prefixCls]);

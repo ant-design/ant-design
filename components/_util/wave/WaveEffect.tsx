@@ -28,7 +28,7 @@ const WaveEffect = React.forwardRef<
   const divRef = React.useRef<HTMLDivElement>(null);
 
   // ====================== Refs ======================
-  const unmountRef = React.useRef<UnmountType>();
+  const unmountRef = React.useRef<UnmountType>(null);
 
   React.useImperativeHandle(ref, () => ({
     setUnmount: (unmount) => {

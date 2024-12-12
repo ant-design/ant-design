@@ -37,7 +37,7 @@ const useWave = (
     });
   });
 
-  const rafId = React.useRef<number>();
+  const rafId = React.useRef<number>(null);
 
   // Merge trigger event into one for each frame
   const showDebounceWave: ShowWave = (event) => {

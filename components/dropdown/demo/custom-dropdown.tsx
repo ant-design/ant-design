@@ -52,7 +52,12 @@ const App: React.FC = () => {
       menu={{ items }}
       dropdownRender={(menu) => (
         <div style={contentStyle}>
-          {React.cloneElement(menu as React.ReactElement, { style: menuStyle })}
+          {React.cloneElement(
+            menu as React.ReactElement<{
+              style: React.CSSProperties;
+            }>,
+            { style: menuStyle },
+          )}
           <Divider style={{ margin: 0 }} />
           <Space style={{ padding: 8 }}>
             <Button type="primary">Click me!</Button>
