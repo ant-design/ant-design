@@ -66,6 +66,8 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
         flexDirection: 'column',
         flex: 'auto',
         rowGap: token.marginXS,
+        // https://github.com/ant-design/ant-design/issues/51912
+        maxWidth: `calc(100% - ${unit(token.calc(token.marginSM).equal())})`,
       },
 
       // https://github.com/ant-design/ant-design/issues/48159
