@@ -1,7 +1,7 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import { genFocusStyle, resetComponent, textEllipsis } from '../../style';
+import { genFocusOutline, genFocusStyle, resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genMotionStyle from './motion';
@@ -165,8 +165,16 @@ const genCardStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
           background: token.colorBgContainer,
         },
 
+        [`${componentCls}-tab-focus`]: {
+          ...genFocusOutline(token, -3),
+        },
+
         [`${componentCls}-ink-bar`]: {
           visibility: 'hidden',
+        },
+
+        [`& ${componentCls}-tab${componentCls}-tab-focus ${componentCls}-tab-btn`]: {
+          outline: 'none',
         },
       },
 
@@ -687,7 +695,6 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
         '&:focus:not(:focus-visible), &:active': {
           color: itemActiveColor,
         },
-        ...genFocusStyle(token),
       },
       '&-btn': {
         outline: 'none',
@@ -724,6 +731,10 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
       [`&${tabCls}-active ${tabCls}-btn`]: {
         color: itemSelectedColor,
         textShadow: token.tabsActiveTextShadow,
+      },
+
+      [`&${tabCls}-focus ${tabCls}-btn`]: {
+        ...genFocusOutline(token),
       },
 
       [`&${tabCls}-disabled`]: {
@@ -961,7 +972,7 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
             color: itemActiveColor,
           },
 
-          ...genFocusStyle(token),
+          ...genFocusStyle(token, -3),
         },
       },
 
