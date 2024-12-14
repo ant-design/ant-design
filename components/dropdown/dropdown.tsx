@@ -8,6 +8,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
+import isPrimitive from '../_util/isPrimitive';
 import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';
 import genPurePanel from '../_util/PurePanel';
@@ -175,7 +176,9 @@ const Dropdown: CompoundedComponent = (props) => {
 
   const [, token] = useToken();
 
-  const child = React.Children.only(children) as React.ReactElement<any>;
+  const child = React.Children.only(
+    isPrimitive(children) ? <span>{children}</span> : children,
+  ) as React.ReactElement;
 
   const dropdownTrigger = cloneElement(child, {
     className: classNames(

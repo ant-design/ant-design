@@ -352,6 +352,17 @@ describe('Dropdown', () => {
     expect(container3.querySelector('button')).not.toHaveAttribute('disabled');
   });
 
+  it('should support Primitive', () => {
+    expect(() => {
+      render(<Dropdown>antd</Dropdown>);
+      render(<Dropdown>{123}</Dropdown>);
+      render(<Dropdown>{undefined}</Dropdown>);
+      render(<Dropdown>{true}</Dropdown>);
+      render(<Dropdown>{false}</Dropdown>);
+      render(<Dropdown>{null}</Dropdown>);
+    }).not.toThrow();
+  });
+
   it('menu item with extra prop', () => {
     const text = '⌘P';
     const { container } = render(
