@@ -257,7 +257,7 @@ const ComponentsList: React.FC = () => {
             style={{ width: 400 }}
             message="Ant Design 5.0"
             description={locale.sampleContent}
-            closable
+            closable={{ closeIcon: true, disabled: true }}
           />
         ),
       },

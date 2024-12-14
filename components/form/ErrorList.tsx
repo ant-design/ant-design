@@ -78,6 +78,17 @@ const ErrorList: React.FC<ErrorListProps> = ({
     ];
   }, [help, helpStatus, debounceErrors, debounceWarnings]);
 
+  const filledKeyFullKeyList = React.useMemo<ErrorEntity[]>(() => {
+    const keysCount: Record<string, number> = {};
+    fullKeyList.forEach(({ key }) => {
+      keysCount[key] = (keysCount[key] || 0) + 1;
+    });
+    return fullKeyList.map((entity, index) => ({
+      ...entity,
+      key: keysCount[entity.key] > 1 ? `${entity.key}-fallback-${index}` : entity.key,
+    }));
+  }, [fullKeyList]);
+
   const helpProps: { id?: string } = {};
 
   if (fieldId) {
@@ -88,7 +99,7 @@ const ErrorList: React.FC<ErrorListProps> = ({
     <CSSMotion
       motionDeadline={collapseMotion.motionDeadline}
       motionName={`${prefixCls}-show-help`}
-      visible={!!fullKeyList.length}
+      visible={!!filledKeyFullKeyList.length}
       onVisibleChanged={onVisibleChanged}
     >
       {(holderProps) => {
@@ -109,7 +120,7 @@ const ErrorList: React.FC<ErrorListProps> = ({
             role="alert"
           >
             <CSSMotionList
-              keys={fullKeyList}
+              keys={filledKeyFullKeyList}
               {...initCollapseMotion(prefixCls)}
               motionName={`${prefixCls}-show-help-item`}
               component={false}

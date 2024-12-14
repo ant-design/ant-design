@@ -404,8 +404,12 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const mergedStatus = getMergedStatus(status, customStatus);
   const mergedPagination = !children && pagination;
 
-  const leftActive = targetSelectedKeys.length > 0;
-  const rightActive = sourceSelectedKeys.length > 0;
+  const leftActive =
+    rightDataSource.filter((d) => targetSelectedKeys.includes(d.key as TransferKey) && !d.disabled)
+      .length > 0;
+  const rightActive =
+    leftDataSource.filter((d) => sourceSelectedKeys.includes(d.key as TransferKey) && !d.disabled)
+      .length > 0;
 
   const cls = classNames(
     prefixCls,

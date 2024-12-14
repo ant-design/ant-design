@@ -1,7 +1,7 @@
 import React from 'react';
 import type { FormRef } from 'rc-field-form/lib/interface';
 
-import Form from '..';
+import Form, { FormInstance } from '..';
 import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
 import type { InputRef } from '../../input';
@@ -93,5 +93,22 @@ describe('Form.Ref', () => {
     const { container } = render(<Form ref={formRef} />);
 
     expect(container.querySelector('.ant-form')).toBe(formRef.current?.nativeElement);
+  });
+
+  // TODO: this is no need to test in React 19
+  it('not crash if not support Ref', () => {
+    const NoRefComp = () => <div />;
+
+    const formRef = React.createRef<FormInstance>();
+    render(
+      <Form ref={formRef}>
+        <Form.Item name="bamboo" label="Bamboo">
+          <NoRefComp />
+        </Form.Item>
+      </Form>,
+    );
+
+    const ele = formRef.current?.getFieldInstance('bamboo');
+    expect(ele).toBeFalsy();
   });
 });
