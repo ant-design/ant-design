@@ -1003,7 +1003,7 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
       },
 
       [`${componentCls}-tabpane`]: {
-        outline: 'none',
+        ...genFocusStyle(token),
         '&-hidden': {
           display: 'none',
         },
