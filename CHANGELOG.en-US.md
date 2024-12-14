@@ -15,6 +15,19 @@ tag: vVERSION
 
 ---
 
+## 5.22.5
+
+`2024-12-15`
+
+- 🛠 Refactor Wave/Menu/Form `ref` check logic to resolve React 19 `ref` conflict (Note, this is not finally support React 19 but we will resolve step by step in future version). [#51952](https://github.com/ant-design/ant-design/pull/51952) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Dropdown cannot accept ReactNode as `children`. [#50174](https://github.com/ant-design/ant-design/pull/50174) [@coding-ice](https://github.com/coding-ice)
+- 🐞 Fix Carousel cannot display correctly in Modal without icon. [#51988](https://github.com/ant-design/ant-design/pull/51988) [@quan060798](https://github.com/quan060798)
+- 🐞 Fix Select label overflow issue. [#52011](https://github.com/ant-design/ant-design/pull/52011) [@OysterD3](https://github.com/OysterD3)
+- 🐞 Fix Form `setFieldValue` not reset field validation. [#51993](https://github.com/ant-design/ant-design/pull/51993) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Pagination with setting `showSizeChanger.showSearch` not working. [#51962](https://github.com/ant-design/ant-design/pull/51962) [@zombieJ](https://github.com/zombieJ)
+- 🇰🇷 Improve Korean locales for DatePicker. [#51983](https://github.com/ant-design/ant-design/pull/51983) [@DevLeti](https://github.com/DevLeti)
+- 🤖 Export `CheckboxChangeEvent` from antd. [#52008](https://github.com/ant-design/ant-design/pull/52008) [@SpecLad](https://github.com/SpecLad)
+
 ## 5.22.4
 
 `2024-12-09`
