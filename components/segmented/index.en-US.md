@@ -20,6 +20,7 @@ This component is available since `antd@4.20.0`.
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/vertical.tsx" version="5.21.0">Vertical Direction</code>
 <code src="./demo/block.tsx">Block Segmented</code>
 <code src="./demo/disabled.tsx">Disabled</code>
 <code src="./demo/controlled.tsx">Controlled mode</code>
@@ -46,9 +47,11 @@ Common props ref：[Common props](/docs/react/common-props)
 | onChange | The callback function that is triggered when the state changes | function(value: string \| number) |  |  |
 | options | Set children optional | string\[] \| number\[] \| SegmentedItemType\[] | [] |  |
 | size | The size of the Segmented. | `large` \| `middle` \| `small` | `middle` |  |
+| vertical | Orientation | boolean | `false` | 5.21.0 |
 | value | Currently selected value | string \| number |  |  |
 
 ### SegmentedItemType
+
 
 | Property  | Description  | Type  | Default | Version |
 | --- | --- | --- | --- | --- |

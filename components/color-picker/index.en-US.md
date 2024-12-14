@@ -49,9 +49,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | defaultFormat | Default format of color | `rgb` \| `hex` \| `hsb` | - | 5.9.0 |
 | disabled | Disable ColorPicker | boolean | - | |
 | disabledAlpha | Disable Alpha | boolean | - | 5.8.0 |
+| disabledFormat | Disable format of color | boolean | - |
 | destroyTooltipOnHide | Whether destroy popover when hidden | `boolean` | false | 5.7.0 |
 | format | Format of color | `rgb` \| `hex` \| `hsb` | `hex` | |
-| mode | Configure single or gradient color | `('single' \| 'gradient')[]` | `single` | 5.20.0 |
+| mode | Configure single or gradient color | `'single' \| 'gradient' \| ('single' \| 'gradient')[]` | `single` | 5.20.0 |
 | open | Whether to show popup | boolean | - | |
 | presets | Preset colors | `{ label: ReactNode, colors: Array<string \| Color>, defaultOpen?: boolean }[]` | - | `defaultOpen: 5.11.0` |
 | placement | Placement of popup | The design of the [placement](/components/tooltip/#api) parameter is the same as the `Tooltips` component. | `bottomLeft` | |
@@ -61,7 +62,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | trigger | ColorPicker trigger mode | `hover` \| `click` | `click` | |
 | value | Value of color | string \| `Color` | - | |
 | onChange | Callback when `value` is changed | `(value: Color, css: string) => void` | - | |
-| onChangeComplete | Called when color pick ends   | `(value: Color) => void` | - | 5.7.0 |
+| onChangeComplete | Called when color pick ends. Will not change the display color when `value` controlled by `onChangeComplete` | `(value: Color) => void` | - | 5.7.0 |
 | onFormatChange | Callback when `format` is changed | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - | |
 | onOpenChange | Callback when `open` is changed | `(open: boolean) => void` | - | |
 | onClear | Called when clear | `() => void` | - | 5.6.0 |

@@ -19,6 +19,6 @@ jobs:
       - name: verify-version
         uses: actions-cool/verify-package-version@v1
         with:
-          title-include-content: 'docs'
+          title-include-content: docs
           title-include-version: true
           open-comment: true

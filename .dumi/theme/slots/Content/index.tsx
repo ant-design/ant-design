@@ -18,7 +18,6 @@ const DocAnchor = React.lazy(() => import('./DocAnchor'));
 const DocMeta = React.lazy(() => import('./DocMeta'));
 const Footer = React.lazy(() => import('../Footer'));
 const PrevAndNext = React.lazy(() => import('../../common/PrevAndNext'));
-const ComponentChangelog = React.lazy(() => import('../../common/ComponentChangelog'));
 const EditButton = React.lazy(() => import('../../common/EditButton'));
 
 const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
@@ -70,11 +69,6 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
                   )}
                 </Space>
               </Typography.Title>
-              {pathname.startsWith('/components/') && (
-                <InViewSuspense fallback={null}>
-                  <ComponentChangelog pathname={pathname} />
-                </InViewSuspense>
-              )}
             </Flex>
           ) : null}
           <InViewSuspense fallback={null}>
@@ -100,9 +94,11 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
               juejinLink={meta.frontmatter.juejin_url}
             />
           </InViewSuspense>
-          <InViewSuspense fallback={<div style={{ height: 50, marginTop: 120 }} />}>
-            <Contributors filename={meta.frontmatter.filename} />
-          </InViewSuspense>
+          <div style={{ marginTop: 120 }}>
+            <InViewSuspense fallback={<div style={{ height: 50 }} />}>
+              <Contributors filename={meta.frontmatter.filename} />
+            </InViewSuspense>
+          </div>
         </article>
         <InViewSuspense fallback={null}>
           <PrevAndNext rtl={isRTL} />

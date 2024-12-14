@@ -1,17 +1,17 @@
 import * as React from 'react';
-import { useEvent } from 'rc-util';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 import raf from 'rc-util/lib/raf';
 
 import { ConfigContext } from '../../config-provider';
 import useToken from '../../theme/useToken';
 import { TARGET_CLS } from './interface';
-import type { ShowWave } from './interface';
+import type { ShowWave, WaveComponent } from './interface';
 import showWaveEffect from './WaveEffect';
 
 const useWave = (
   nodeRef: React.RefObject<HTMLElement>,
   className: string,
-  component?: 'Tag' | 'Button' | 'Checkbox' | 'Radio' | 'Switch',
+  component?: WaveComponent,
 ) => {
   const { wave } = React.useContext(ConfigContext);
   const [, token, hashId] = useToken();

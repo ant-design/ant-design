@@ -14,7 +14,7 @@ exports[`renderEmpty should render Cascader empty 1`] = `
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>
-        Simple Empty
+        No data
       </title>
       <g
         fill="none"
@@ -65,7 +65,7 @@ exports[`renderEmpty should render List empty 1`] = `
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>
-        Simple Empty
+        No data
       </title>
       <g
         fill="none"
@@ -116,7 +116,7 @@ exports[`renderEmpty should render Mentions empty 1`] = `
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>
-        Simple Empty
+        No data
       </title>
       <g
         fill="none"
@@ -167,7 +167,7 @@ exports[`renderEmpty should render Select empty 1`] = `
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>
-        Simple Empty
+        No data
       </title>
       <g
         fill="none"
@@ -218,7 +218,7 @@ exports[`renderEmpty should render Table empty 1`] = `
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>
-        Simple Empty
+        No data
       </title>
       <g
         fill="none"
@@ -271,7 +271,7 @@ exports[`renderEmpty should render Transfer empty 1`] = `
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>
-        Simple Empty
+        No data
       </title>
       <g
         fill="none"
@@ -322,7 +322,7 @@ exports[`renderEmpty should render TreeSelect empty 1`] = `
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>
-        Simple Empty
+        No data
       </title>
       <g
         fill="none"
@@ -373,7 +373,7 @@ exports[`renderEmpty should return empty when componentName is not matched 1`] =
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>
-        empty image
+        No data
       </title>
       <g
         fill="none"

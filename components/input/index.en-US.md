@@ -54,6 +54,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | addonAfter | The label text displayed after (on the right side of) the input field | ReactNode | - |  |
 | addonBefore | The label text displayed before (on the left side of) the input field | ReactNode | - |  |
 | allowClear | If allow to remove input content with clear icon | boolean \| { clearIcon: ReactNode } | false |  |
+| ~~bordered~~ | Whether has border style | boolean | true | 4.5.0 |
 | classNames | Semantic DOM class | Record<[SemanticDOM](#input-1), string> | - | 5.4.0 |
 | count | Character count config | [CountConfig](#countconfig) | - | 5.10.0 |
 | defaultValue | The initial input content | string | - |  |
@@ -140,7 +141,8 @@ Added in `5.16.0`.
 | size | The size of the input box | `small` \| `middle` \| `large` | `middle` |  |
 | variant | Variants of Input | `outlined` \| `borderless` \| `filled` | `outlined` |  |
 | value | The input content value | string | - |  |
-| onChange | Trigger when all the fields are filled | function(value: string) | - |  |
+| onChange | Trigger when all the fields are filled | (value: string) => void | - |  |
+| onInput | Trigger when the input value changes | (value: string[]) => void | - | `5.22.0` |
 
 #### VisibilityToggle
 

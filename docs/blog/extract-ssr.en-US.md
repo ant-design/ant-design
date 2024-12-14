@@ -95,7 +95,7 @@ renderToString(
 const styleText = extractStyle(cache);
 ```
 
-Of course, this is a little cumbersome for developers. So we extracted a three-party package to achieve this requirement:
+Of course, this is a little cumbersome for developers. So we extracted a third-party package to achieve this requirement:
 
 ```tsx
 import { extractStyle } from '@ant-design/static-style-extract';

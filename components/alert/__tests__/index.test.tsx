@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { resetWarned } from 'rc-util/lib/warning';
 
 import Alert from '..';
-import accessibilityTest from '../../../tests/shared/accessibilityTest';
+import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, render, screen, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
@@ -84,7 +84,6 @@ describe('Alert', () => {
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     expect(warnSpy).toHaveBeenCalledTimes(0);
     // @ts-expect-error
-    // eslint-disable-next-line react/jsx-no-undef
     const ThrowError = () => <NotExisted />;
     render(
       <ErrorBoundary>

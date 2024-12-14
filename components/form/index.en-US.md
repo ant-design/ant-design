@@ -80,7 +80,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | name | Form name. Will be the prefix of Field `id` | string | - |  |
 | preserve | Keep field value even when field removed. You can get the preserve field value by `getFieldsValue(true)` | boolean | true | 4.4.0 |
 | requiredMark | Required mark style. Can use required mark or optional mark. You can not config to single Form.Item since this is a Form level config | boolean \| `optional` \| ((label: ReactNode, info: { required: boolean }) => ReactNode) | true | `renderProps`: 5.9.0 |
-| scrollToFirstError | Auto scroll to first failed field when submit | boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) | false |  |
+| scrollToFirstError | Auto scroll to first failed field when submit | boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) \| { focus: boolean } | false |  |
 | size | Set field component size (antd components only) | `small` \| `middle` \| `large` | - |  |
 | validateMessages | Validation prompt template, description [see below](#validatemessages) | [ValidateMessages](https://github.com/ant-design/ant-design/blob/6234509d18bac1ac60fbb3f92a5b2c6a6361295a/components/locale/en_US.ts#L88-L134) | - |  |
 | validateTrigger | Config field validate trigger | string \| string\[] | `onChange` | 4.3.0 |
@@ -136,8 +136,8 @@ Form field component for data bidirectional binding, validation, layout, and so 
 | hidden | Whether to hide Form.Item (still collect and validate value) | boolean | false | 4.4.0 |
 | htmlFor | Set sub label `htmlFor` | string | - |  |
 | initialValue | Config sub default value. Form `initialValues` get higher priority when conflict | string | - | 4.2.0 |
-| label | Label text | ReactNode | - |  |
-| labelAlign | The text align of label | `left` \| `right` | `right` |  |
+| label | Label text. When there is no need for a label but it needs to be aligned with a colon, it can be set to null | ReactNode | - | null: 5.22.0 |
+| labelAlign | The text align of label, | `left` \| `right` | `right` |  |
 | labelCol | The layout of label. You can set `span` `offset` to something like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` same as with `<Col>`. You can set `labelCol` on Form which will not affect nest Item. If both exists, use Item first | [object](/components/grid/#col) | - |  |
 | messageVariables | The default validate field info, description [see below](#messagevariables) | Record&lt;string, string> | - | 4.7.0 |
 | name | Field name, support array | [NamePath](#namepath) | - |  |
@@ -549,7 +549,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | fields | Validate rule for child elements, valid when `type` is `array` or `object` | Record&lt;string, [rule](#rule)> |  |
 | len | Length of string, number, array | number |  |
 | max | `type` required: max length of `string`, `number`, `array` | number |  |
-| message | Error message. Will auto generate by [template](#validatemessages) if not provided | string |  |
+| message | Error message. Will auto generate by [template](#validatemessages) if not provided | string \| ReactElement |  |
 | min | `type` required: min length of `string`, `number`, `array` | number |  |
 | pattern | Regex pattern | RegExp |  |
 | required | Required field | boolean |  |

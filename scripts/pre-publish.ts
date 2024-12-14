@@ -1,4 +1,3 @@
-/* eslint-disable camelcase, no-async-promise-executor */
 import fs from 'node:fs';
 import runScript from '@npmcli/run-script';
 import { Octokit } from '@octokit/rest';
@@ -18,6 +17,8 @@ const blockStatus = ['failure', 'cancelled', 'timed_out'] as const;
 
 const spinner = { interval: 80, frames: ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'] };
 const spinnies = new Spinnies({ spinner });
+
+const IGNORE_ACTIONS = ['Check Virtual Regression Approval', 'issue-remove-inactive'];
 
 let spinniesId = 0;
 
@@ -143,14 +144,18 @@ const runPrePublish = async () => {
   showMessage(`开始检查远程分支 ${currentBranch} 的 CI 状态`, true);
 
   const failureUrlList: string[] = [];
-  const {
+  let {
     data: { check_runs },
   } = await octokit.checks.listForRef({
     owner,
     repo,
     ref: sha,
+    filter: 'all',
   });
   showMessage(`远程分支 CI 状态(${check_runs.length})：`, 'succeed');
+  check_runs = check_runs.filter((run) =>
+    IGNORE_ACTIONS.every((action) => !run.name.includes(action)),
+  );
   check_runs.forEach((run) => {
     showMessage(`  ${run.name.padEnd(36)} ${emojify(run.status)} ${emojify(run.conclusion || '')}`);
     if (blockStatus.some((status) => run.conclusion === status)) {

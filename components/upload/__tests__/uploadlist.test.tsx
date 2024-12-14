@@ -75,10 +75,7 @@ describe('Upload List', () => {
     mockHeightGet.mockImplementation(() => size.height);
     mockSrcSet.mockImplementation(function fn() {
       // @ts-ignore
-      if (this.onload) {
-        // @ts-ignore
-        this.onload();
-      }
+      this.onload?.();
     });
 
     mockGetCanvasContext.mockReturnValue({
@@ -682,6 +679,53 @@ describe('Upload List', () => {
     await waitFakeTimer();
     expect(handleChange).toHaveBeenCalledTimes(2);
 
+    unmount();
+  });
+
+  it('should support showXxxIcon functions', () => {
+    const list = [
+      {
+        name: 'image',
+        status: 'uploading',
+        uid: '-4',
+        url: 'https://cdn.xxx.com/aaa',
+        response: {
+          protected: true,
+        },
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-5',
+        url: 'https://cdn.xxx.com/aaa',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-5',
+        url: 'https://cdn.xxx.com/aaa',
+        response: {
+          protected: true,
+        },
+      },
+    ];
+
+    const { container: wrapper, unmount } = render(
+      <Upload
+        defaultFileList={list as UploadProps['defaultFileList']}
+        showUploadList={{
+          showRemoveIcon: (file) => file.response?.protected,
+          showDownloadIcon: (file) => file.response?.protected,
+          showPreviewIcon: (file) => file.response?.protected,
+          removeIcon: <i>RM</i>,
+          downloadIcon: <i>DL</i>,
+          previewIcon: <i>PV</i>,
+        }}
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(wrapper.firstChild).toMatchSnapshot();
     unmount();
   });
 
@@ -1582,8 +1626,8 @@ describe('Upload List', () => {
         <Upload fileList={list as UploadProps['defaultFileList']} listType="picture-card" />,
       );
       expect(wrapper.querySelectorAll('.ant-upload-select').length).toBe(1);
-      expect(wrapper.querySelectorAll<HTMLDivElement>('.ant-upload-select')[0]?.style.display).toBe(
-        'none',
+      expect(wrapper.querySelector<HTMLDivElement>('.ant-upload-select')).toHaveClass(
+        'ant-upload-hidden',
       );
       unmount();
     });
@@ -1607,8 +1651,8 @@ describe('Upload List', () => {
         />,
       );
       expect(wrapper.querySelectorAll('.ant-upload-select').length).toBe(1);
-      expect(wrapper.querySelectorAll<HTMLDivElement>('.ant-upload-select')[0]?.style.display).toBe(
-        'none',
+      expect(wrapper.querySelector<HTMLDivElement>('.ant-upload-select')).toHaveClass(
+        'ant-upload-hidden',
       );
       unmount();
     });

@@ -4,7 +4,7 @@ name: 👁️ Visual Regression Persist Finish
 
 on:
   workflow_run:
-    workflows: ["👁️ Visual Regression Persist Start"]
+    workflows: [👁️ Visual Regression Persist Start]
     types:
       - completed
 
@@ -65,7 +65,7 @@ jobs:
 
       # We need get persist key first
       - name: Download Visual Regression Ref
-        uses: dawidd6/action-download-artifact@v6
+        uses: dawidd6/action-download-artifact@v7
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -79,7 +79,7 @@ jobs:
 
       - name: Download Visual-Regression Artifact
         if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-success) }}
-        uses: dawidd6/action-download-artifact@v6
+        uses: dawidd6/action-download-artifact@v7
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}

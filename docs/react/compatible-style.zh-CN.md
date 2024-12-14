@@ -65,7 +65,7 @@ export default () => (
 ## CSS 逻辑属性
 
 - 支持版本：`>=5.0.0`
-- MDN 文档：[:where](https://developer.mozilla.org/en-US/docs/Web/CSS/:where)
+- MDN 文档：[CSS Logical Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties)
 - 浏览器兼容性：[caniuse](https://caniuse.com/css-logical-props)
 - Chrome 最低支持版本：89
 - 默认启用：是

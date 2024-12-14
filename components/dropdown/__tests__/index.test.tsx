@@ -362,4 +362,18 @@ describe('Dropdown', () => {
       render(<Dropdown>{null}</Dropdown>);
     }).not.toThrow();
   });
+
+  it('menu item with extra prop', () => {
+    const text = '⌘P';
+    const { container } = render(
+      <Dropdown menu={{ items: [{ label: 'profile', key: 1, extra: text }] }} open>
+        <a />
+      </Dropdown>,
+    );
+
+    expect(
+      container.querySelector('.ant-dropdown-menu-title-content-with-extra'),
+    ).toBeInTheDocument();
+    expect(container.querySelector('.ant-dropdown-menu-item-extra')?.textContent).toBe(text);
+  });
 });

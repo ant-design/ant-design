@@ -1,5 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
-
 import Pagination from 'rc-pagination/lib/locale/ru_RU';
 
 import type { Locale } from '.';
@@ -82,6 +80,7 @@ const localeValues: Locale = {
     copy: 'Копировать',
     copied: 'Скопировано',
     expand: 'Раскрыть',
+    collapse: 'Свернуть',
   },
   Form: {
     optional: '(необязательно)',
@@ -139,6 +138,12 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'QR-код устарел',
     refresh: 'Обновить',
+  },
+  ColorPicker: {
+    presetEmpty: 'Пустой',
+    transparent: 'Прозрачный',
+    singleColor: 'Один цвет',
+    gradientColor: 'Градиент',
   },
 };
 

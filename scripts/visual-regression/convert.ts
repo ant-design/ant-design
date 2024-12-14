@@ -1,5 +1,3 @@
-/* eslint-disable compat/compat */
-/* eslint-disable no-console, no-await-in-loop, import/no-extraneous-dependencies, no-restricted-syntax */
 import rehypeFigure from '@microflash/rehype-figure';
 import rehypeStringify from 'rehype-stringify';
 import { remark } from 'remark';

@@ -20,6 +20,7 @@ function doMouseMove(
   start: number,
   end: number,
   element: string | HTMLElement = 'ant-color-picker-handler',
+  fireMouseUp = true,
 ) {
   const ele =
     element instanceof HTMLElement ? element : container.getElementsByClassName(element)[0];
@@ -44,8 +45,10 @@ function doMouseMove(
     fireEvent(document, mouseMove);
   }
 
-  const mouseUp = createEvent.mouseUp(document);
-  fireEvent(document, mouseUp);
+  if (fireMouseUp) {
+    const mouseUp = createEvent.mouseUp(document);
+    fireEvent(document, mouseUp);
+  }
 }
 
 describe('ColorPicker', () => {
@@ -878,5 +881,116 @@ describe('ColorPicker', () => {
     });
 
     spyRect.mockRestore();
+  });
+
+  describe('controlled with `onChangeComplete`', () => {
+    let spyRect: ReturnType<typeof spyElementPrototypes>;
+
+    beforeEach(() => {
+      spyRect = spyElementPrototypes(HTMLElement, {
+        getBoundingClientRect: () => ({
+          x: 0,
+          y: 100,
+          width: 100,
+          height: 100,
+        }),
+      });
+    });
+
+    afterEach(() => {
+      spyRect.mockRestore();
+    });
+
+    it('lock value', async () => {
+      const onChange = jest.fn();
+      const onChangeComplete = jest.fn();
+      const { container } = render(
+        <ColorPicker value="#F00" open onChange={onChange} onChangeComplete={onChangeComplete} />,
+      );
+
+      doMouseMove(container, 0, 50, 'ant-color-picker-slider-handle', false);
+
+      expect(onChange).toHaveBeenCalledWith(
+        expect.anything(),
+        // Safe to change with any value but (255/0/0)
+        'rgb(0,255,255)',
+      );
+      expect(onChangeComplete).not.toHaveBeenCalled();
+
+      // Inline Color Block (locked)
+      expect(container.querySelectorAll('.ant-color-picker-color-block-inner')[0]).toHaveStyle({
+        background: 'rgb(255, 0, 0)',
+      });
+
+      // Popup Color Block (follow operation)
+      expect(container.querySelectorAll('.ant-color-picker-color-block-inner')[1]).toHaveStyle({
+        background: 'rgb(0, 255, 255)',
+      });
+
+      // Mouse up
+      fireEvent.mouseUp(document);
+
+      // Lock color back
+      expect(container.querySelectorAll('.ant-color-picker-color-block-inner')[1]).toHaveStyle({
+        background: 'rgb(255, 0, 0)',
+      });
+    });
+  });
+
+  it('input precision', async () => {
+    const onChange = jest.fn();
+    const { container } = render(<ColorPicker open onChange={onChange} />);
+
+    fireEvent.change(container.querySelector('.ant-color-picker-hex-input input')!, {
+      target: { value: '2ddcb4' },
+    });
+
+    const onChangeColor = onChange.mock.calls[0][0];
+    expect(onChangeColor.toHexString()).toBe('#2ddcb4');
+  });
+
+  it('test the same key', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(
+      <ColorPicker
+        open
+        presets={[
+          { label: <span>aaa</span>, colors: ['#333'], defaultOpen: true },
+          { label: <span>bbb</span>, colors: ['#666'], defaultOpen: true },
+          { label: <span>ccc</span>, colors: ['#999'], defaultOpen: true },
+        ]}
+      />,
+    );
+    expect(errorSpy).not.toHaveBeenCalled();
+    errorSpy.mockRestore();
+  });
+
+  describe('should disable colorInput', () => {
+    it('Should defaultValue work with disabledFormat', async () => {
+      const { container } = render(<ColorPicker defaultValue="#000000" disabledFormat />);
+      expect(
+        container.querySelector('.ant-color-picker-color-block-inner')?.getAttribute('style'),
+      ).toEqual('background: rgb(0, 0, 0);');
+      fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
+      expect(container.querySelector('.ant-color-picker-input-container .ant-select')).toBeFalsy();
+    });
+
+    it('Should rgb input work with disabledFormat', async () => {
+      const { container } = render(<ColorPicker open format="rgb" disabledFormat />);
+      const rgbInputEls = container.querySelectorAll('.ant-color-picker-rgb-input input');
+      fireEvent.change(rgbInputEls[0], {
+        target: { value: 99 },
+      });
+      fireEvent.change(rgbInputEls[1], {
+        target: { value: 21 },
+      });
+      fireEvent.change(rgbInputEls[2], {
+        target: { value: 21 },
+      });
+      expect(
+        container.querySelector('.ant-color-picker-color-block-inner')?.getAttribute('style'),
+      ).toEqual('background: rgb(99, 21, 21);');
+      expect(container.querySelector('.ant-color-picker-input-container .ant-select')).toBeFalsy();
+    });
   });
 });

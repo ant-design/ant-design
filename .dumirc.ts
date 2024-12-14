@@ -1,6 +1,7 @@
 import path from 'path';
 import { defineConfig } from 'dumi';
 import * as fs from 'fs-extra';
+import os from 'node:os';
 
 import rehypeAntd from './.dumi/rehypeAntd';
 import remarkAntd from './.dumi/remarkAntd';
@@ -8,7 +9,11 @@ import { version } from './package.json';
 
 export default defineConfig({
   plugins: ['dumi-plugin-color-chunk'],
+
+  // For <Link prefetch />
+  routePrefetch: {},
   manifest: {},
+
   conventionRoutes: {
     // to avoid generate routes for .dumi/pages/index/components/xx
     exclude: [/index\/components\//],
@@ -21,7 +26,7 @@ export default defineConfig({
       : false,
   hash: true,
   mfsu: false,
-  mako: {},
+  mako: ['Darwin', 'Linux'].includes(os.type()) ? {} : false,
   crossorigin: {},
   runtimePublicPath: {},
   outputPath: '_site',
@@ -57,9 +62,12 @@ export default defineConfig({
   analytics: {
     ga_v2: 'UA-72788897-1',
   },
-  analyze: process.env.NODE_ENV === 'production' ? false : {
-    analyzerPort: 'auto',
-  },
+  analyze:
+    process.env.NODE_ENV === 'production'
+      ? false
+      : {
+          analyzerPort: 'auto',
+        },
   links: [
     {
       rel: 'prefetch',

@@ -82,7 +82,6 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-  /* eslint-disable no-console */
   // Hack error to remove act warning
   const originError = console.error;
   console.error = (...args) => {
@@ -93,7 +92,6 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
     originError(...args);
   };
-  /* eslint-enable */
 
   beforeEach(() => {
     jest.useFakeTimers();
@@ -341,7 +339,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         Modal[type]?.({
           title: 'title',
           content: 'content',
-          onOk: (_) => null, // eslint-disable-line no-unused-vars
+          onOk: (_) => null,
         });
         await waitFakeTimer();
         expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);

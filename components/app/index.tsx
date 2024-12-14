@@ -35,10 +35,13 @@ const App: React.FC<AppProps> & { useApp: () => useAppProps } = (props) => {
     style,
     component = 'div',
   } = props;
-  const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
+  const { direction, getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('app', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
-  const customClassName = classNames(hashId, prefixCls, className, rootClassName, cssVarCls);
+
+  const customClassName = classNames(hashId, prefixCls, className, rootClassName, cssVarCls, {
+    [`${prefixCls}-rtl`]: direction === 'rtl',
+  });
 
   const appConfig = useContext<AppConfig>(AppConfigContext);
 
@@ -74,6 +77,7 @@ const App: React.FC<AppProps> & { useApp: () => useAppProps } = (props) => {
 
   // ============================ Render ============================
   const Component = component === false ? React.Fragment : component;
+
   const rootProps: AppProps = {
     className: customClassName,
     style,

@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/tr_TR';
 
 import type { Locale } from '.';
@@ -22,6 +21,7 @@ const localeValues: Locale = {
     filterConfirm: 'Tamam',
     filterReset: 'Sıfırla',
     filterEmptyText: 'Filtre yok',
+    filterCheckall: 'Tümünü seç',
     selectAll: 'Tüm sayfayı seç',
     selectInvert: 'Tersini seç',
     selectionAll: 'Tümünü seç',

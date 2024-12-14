@@ -679,7 +679,7 @@ exports[`Table.filter renders menu correctly 1`] = `
     class="ant-table-filter-dropdown-btns"
   >
     <button
-      class="ant-btn ant-btn-link ant-btn-sm"
+      class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
       disabled=""
       type="button"
     >
@@ -688,7 +688,7 @@ exports[`Table.filter renders menu correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
       type="button"
     >
       <span>
@@ -819,7 +819,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
     class="ant-table-filter-dropdown-btns"
   >
     <button
-      class="ant-btn ant-btn-link ant-btn-sm"
+      class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
       disabled=""
       type="button"
     >
@@ -828,7 +828,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
       type="button"
     >
       <span>
@@ -837,4 +837,127 @@ exports[`Table.filter renders radio filter correctly 1`] = `
     </button>
   </div>
 </div>
+`;
+
+exports[`Table.filter should support filterDropdownProps dropdownRender 1`] = `
+<FilterDropdownMenuWrapper
+  className="ant-table-filter-dropdown"
+>
+  <React.Fragment>
+    <React.Fragment>
+      <FilterSearch
+        filterSearch={false}
+        locale={
+          {
+            "cancelSort": "Click to cancel sorting",
+            "collapse": "Collapse row",
+            "emptyText": "No data",
+            "expand": "Expand row",
+            "filterCheckall": "Select all items",
+            "filterConfirm": "OK",
+            "filterEmptyText": "No filters",
+            "filterReset": "Reset",
+            "filterSearchPlaceholder": "Search in filters",
+            "filterTitle": "Filter menu",
+            "selectAll": "Select current page",
+            "selectInvert": "Invert current page",
+            "selectNone": "Clear all data",
+            "selectionAll": "Select all data",
+            "sortTitle": "Sort",
+            "triggerAsc": "Click to sort ascending",
+            "triggerDesc": "Click to sort descending",
+          }
+        }
+        onChange={[Function]}
+        tablePrefixCls="ant-table"
+        value=""
+      />
+      <Menu
+        className=""
+        items={
+          [
+            {
+              "key": "boy",
+              "label": <React.Fragment>
+                <Checkbox
+                  checked={false}
+                />
+                <span>
+                  Boy
+                </span>
+              </React.Fragment>,
+            },
+            {
+              "key": "girl",
+              "label": <React.Fragment>
+                <Checkbox
+                  checked={false}
+                />
+                <span>
+                  Girl
+                </span>
+              </React.Fragment>,
+            },
+            {
+              "children": [
+                {
+                  "key": "designer",
+                  "label": <React.Fragment>
+                    <Checkbox
+                      checked={false}
+                    />
+                    <span>
+                      Designer
+                    </span>
+                  </React.Fragment>,
+                },
+                {
+                  "key": "coder",
+                  "label": <React.Fragment>
+                    <Checkbox
+                      checked={false}
+                    />
+                    <span>
+                      Coder
+                    </span>
+                  </React.Fragment>,
+                },
+              ],
+              "key": "title",
+              "label": "Title",
+              "popupClassName": "ant-table-filter-dropdown-submenu",
+            },
+          ]
+        }
+        multiple={true}
+        onDeselect={[Function]}
+        onOpenChange={[Function]}
+        onSelect={[Function]}
+        openKeys={[]}
+        prefixCls="ant-dropdown-menu"
+        selectable={true}
+        selectedKeys={[]}
+      />
+    </React.Fragment>
+    <div
+      className="ant-table-filter-dropdown-btns"
+    >
+      <Button
+        disabled={true}
+        onClick={[Function]}
+        size="small"
+        type="link"
+      >
+        Reset
+      </Button>
+      <Button
+        onClick={[Function]}
+        size="small"
+        type="primary"
+      >
+        OK
+      </Button>
+    </div>
+  </React.Fragment>
+</FilterDropdownMenuWrapper>
 `;

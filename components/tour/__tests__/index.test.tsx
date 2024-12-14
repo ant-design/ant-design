@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unstable-nested-components */
 import React, { useEffect, useRef } from 'react';
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 

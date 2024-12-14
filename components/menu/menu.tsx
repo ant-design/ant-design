@@ -4,7 +4,7 @@ import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import classNames from 'classnames';
 import type { MenuProps as RcMenuProps, MenuRef as RcMenuRef } from 'rc-menu';
 import RcMenu from 'rc-menu';
-import { useEvent } from 'rc-util';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 import omit from 'rc-util/lib/omit';
 
 import initCollapseMotion from '../_util/motion';
@@ -88,13 +88,6 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
       'usage',
       '`inlineCollapsed` should only be used when `mode` is inline.',
     );
-
-    warning(
-      !(props.siderCollapsed !== undefined && 'inlineCollapsed' in props),
-      'usage',
-      '`inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
-    );
-
     warning.deprecated('items' in props && !props.children, 'children', 'items');
   }
 
@@ -115,12 +108,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
 
   // ======================== Collapsed ========================
   // Inline Collapsed
-  const mergedInlineCollapsed = React.useMemo(() => {
-    if (siderCollapsed !== undefined) {
-      return siderCollapsed;
-    }
-    return inlineCollapsed;
-  }, [inlineCollapsed, siderCollapsed]);
+  const mergedInlineCollapsed = inlineCollapsed ?? siderCollapsed;
 
   const defaultMotions: MenuProps['defaultMotions'] = {
     horizontal: { motionName: `${rootPrefixCls}-slide-up` },

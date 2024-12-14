@@ -20,7 +20,7 @@ title: 社区精选组件
 | 富文本编辑器 | [react-quill](https://github.com/zenoamaro/react-quill) |
 | JSON 编辑器 | [vanilla-jsoneditor](https://github.com/josdejong/svelte-jsoneditor) |
 | JSON 显示器 | [react-json-view](https://github.com/mac-s-g/react-json-view) |
-| 拾色器 | [react-colorful](https://github.com/omgovich/react-colorful) [react-color](http://casesandberg.github.io/react-color/) |
+| 拾色器 | [react-colorful](https://github.com/omgovich/react-colorful) [react-color](https://casesandberg.github.io/react-color/) |
 | 响应式 | [react-responsive](https://github.com/contra/react-responsive) |
 | 复制到剪贴板 | [react-copy-to-clipboard](https://github.com/nkbt/react-copy-to-clipboard) |
 | 页面 meta 属性 | [react-helmet-async](https://github.com/staylor/react-helmet-async) |
@@ -32,7 +32,7 @@ title: 社区精选组件
 | Markdown 渲染 | [react-markdown](https://remarkjs.github.io/react-markdown/) |
 | 无限滚动 | [rc-virtual-list](https://github.com/react-component/virtual-list/) [react-infinite-scroll-component](https://github.com/ankeetmaini/react-infinite-scroll-component) |
 | 地图 | [google-map-react](https://github.com/istarkov/google-map-react) [@uiw/react-amap 高德地图](https://github.com/uiwjs/react-amap) |
-| 视频播放 | [react-player](https://github.com/CookPete/react-player) [video-react](https://github.com/video-react/video-react) [video.js](http://docs.videojs.com/tutorial-react.html) |
+| 视频播放 | [react-player](https://github.com/CookPete/react-player) [video-react](https://github.com/video-react/video-react) [video.js](https://docs.videojs.com/tutorial-react.html) |
 | 右键菜单 | [react-contexify](https://github.com/fkhadra/react-contexify) |
 | Emoji | [emoji-mart](https://github.com/missive/emoji-mart) |
 | 分割面板 | [react-split-pane](https://github.com/tomkp/react-split-pane) [react-resizable-panels](https://github.com/bvaughn/react-resizable-panels) |

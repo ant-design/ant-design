@@ -16,8 +16,8 @@ jobs:
     steps:
       - uses: actions-cool/pr-welcome@v1
         with:
-          refuse-issue-label: '🎱 Collaborate PR only'
-          need-creator-authority: 'write'
+          refuse-issue-label: 🎱 Collaborate PR only
+          need-creator-authority: write
           comment: |
             Hi @${{ github.event.pull_request.user.login }}. The issue mentioned in this PR needs to be confirmed with the designer or core team. Thank you for your contribution! 😊
 

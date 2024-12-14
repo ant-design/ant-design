@@ -31,7 +31,7 @@ There is a special design interaction in Ant Design, which is the click wave eff
 - <img alt="Radio" height="70" src="https://github.com/react-component/picker/assets/5378891/9f4edaa8-26f7-468c-bcf3-1ce80163bf0e" />
 - <img alt="Switch" height="84" src="https://github.com/react-component/picker/assets/5378891/16abcee6-32d0-4075-bc4c-440d8aade067" />
 
-In the past major versions, this wave effect could not be modified. If want to turn it off, developers even need to do some "magic code" to achieve it. So when the designer proposed a happy work theme, as a developer, we think this is a good time to make some changes.
+In the past major versions, this wave effect could not be modified. If developers want to turn it off, they even need to do some "magic code" to achieve it. So when the designer proposed a happy work theme, as a developer, we think this is a good time to make some changes.
 
 ### Wave component
 

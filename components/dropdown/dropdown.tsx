@@ -3,7 +3,7 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import type { AlignType } from '@rc-component/trigger';
 import classNames from 'classnames';
 import RcDropdown from 'rc-dropdown';
-import { useEvent } from 'rc-util';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 
@@ -23,8 +23,7 @@ import { OverrideProvider } from '../menu/OverrideContext';
 import { useToken } from '../theme/internal';
 import useStyle from './style';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const Placements = [
+const _Placements = [
   'topLeft',
   'topCenter',
   'topRight',
@@ -35,7 +34,7 @@ const Placements = [
   'bottom',
 ] as const;
 
-type Placement = (typeof Placements)[number];
+type Placement = (typeof _Placements)[number];
 type DropdownPlacement = Exclude<Placement, 'topCenter' | 'bottomCenter'>;
 
 type OverlayFunc = () => React.ReactElement;
