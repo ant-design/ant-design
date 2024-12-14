@@ -45,7 +45,7 @@ function addPluginsForProduction(config) {
         analyzerMode: 'static',
         openAnalyzer: false,
         reportFilename: '../report.html',
-      })
+      }),
     );
   }
   if (newConfig.mode === 'production' && !process.env.PRODUCTION_ONLY) {
@@ -53,7 +53,7 @@ function addPluginsForProduction(config) {
       new DuplicatePackageCheckerPlugin({
         verbose: true,
         emitError: true,
-      })
+      }),
     );
   }
 
@@ -65,7 +65,7 @@ function addPluginsForProduction(config) {
     }),
     new CircularDependencyPlugin({
       failOnError: true,
-    })
+    }),
   );
 
   return newConfig;
