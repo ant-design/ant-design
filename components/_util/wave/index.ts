@@ -1,7 +1,7 @@
 import React, { useContext, useRef } from 'react';
 import classNames from 'classnames';
 import isVisible from 'rc-util/lib/Dom/isVisible';
-import { composeRef, supportRef } from 'rc-util/lib/ref';
+import { composeRef, getNodeRef, supportRef } from 'rc-util/lib/ref';
 
 import type { ConfigConsumerProps } from '../../config-provider';
 import { ConfigContext } from '../../config-provider';
@@ -64,7 +64,7 @@ const Wave: React.FC<WaveProps> = (props) => {
     return children ?? null;
   }
 
-  const ref = supportRef(children) ? composeRef((children as any).ref, containerRef) : containerRef;
+  const ref = supportRef(children) ? composeRef(getNodeRef(children), containerRef) : containerRef;
 
   return cloneElement(children, { ref });
 };

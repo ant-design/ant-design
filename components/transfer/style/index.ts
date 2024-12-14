@@ -1,7 +1,7 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import { resetComponent, resetIcon, textEllipsis, operationUnit } from '../../style';
+import { operationUnit, resetComponent, resetIcon, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
@@ -139,6 +139,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     colorText,
     controlItemBgActiveHover,
   } = token;
+  const contentBorderRadius = unit(token.calc(borderRadiusLG).sub(lineWidth).equal());
 
   return {
     display: 'flex',
@@ -221,6 +222,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       padding: 0,
       overflow: 'auto',
       listStyle: 'none',
+      borderRadius: `0 0 ${contentBorderRadius} ${contentBorderRadius}`,
 
       '&-item': {
         display: 'flex',

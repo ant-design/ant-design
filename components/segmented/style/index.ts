@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
-import { resetComponent, textEllipsis } from '../../style';
+import { genFocusOutline, resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
@@ -154,6 +154,10 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         '&-selected': {
           ...getItemSelectedStyle(token),
           color: token.itemSelectedColor,
+        },
+
+        '&-focused': {
+          ...genFocusOutline(token),
         },
 
         '&::after': {

@@ -9,7 +9,11 @@ import { version } from './package.json';
 
 export default defineConfig({
   plugins: ['dumi-plugin-color-chunk'],
+
+  // For <Link prefetch />
+  routePrefetch: {},
   manifest: {},
+
   conventionRoutes: {
     // to avoid generate routes for .dumi/pages/index/components/xx
     exclude: [/index\/components\//],

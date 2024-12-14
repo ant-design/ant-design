@@ -49,7 +49,9 @@ Common props ref：[Common props](/docs/react/common-props)
 | onConfirm | A callback of confirmation | function(e) | - |  |
 | onPopupClick | A callback of popup click | function(e) | - | 5.5.0 |
 
-Consult [Tooltip's documentation](/components/tooltip/#api) to find more APIs.
+<!-- Common API -->
+
+<embed src="../tooltip/shared/sharedProps.en-US.md"></embed>
 
 ## Design Token
 
