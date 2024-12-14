@@ -14,6 +14,7 @@ const Steps: React.FC<ProgressStepsProps> = (props) => {
   const {
     size,
     steps,
+    stepRound = 'round,
     percent = 0,
     strokeWidth = 8,
     strokeColor,
@@ -21,7 +22,7 @@ const Steps: React.FC<ProgressStepsProps> = (props) => {
     prefixCls,
     children,
   } = props;
-  const current = Math.round(steps * (percent / 100));
+  const current = Math[stepRound](steps * (percent / 100));
   const stepWidth = size === 'small' ? 2 : 14;
   const mergedSize = size ?? [stepWidth, strokeWidth];
   const [width, height] = getSize(mergedSize, 'step', { steps, strokeWidth });
