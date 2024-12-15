@@ -57,7 +57,7 @@ const ErrorList: React.FC<ErrorListProps> = ({
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const collapseMotion: CSSMotionProps = React.useMemo(
+  const collapseMotion = React.useMemo<CSSMotionProps>(
     () => initCollapseMotion(prefixCls),
     [prefixCls],
   );
