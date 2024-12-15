@@ -1,4 +1,4 @@
-name: Auto Unassign
+name: Issue Inactivity Reminder
 
 on:
   schedule:
@@ -8,14 +8,14 @@ permissions:
   issues: write # Need write permission to modify issue assignees
 
 jobs:
-  unassign_job:
+  reminder_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Unassign inactive issues
+      - name: Send reminders for inactive issues
         uses: actions/github-script@v6
         with:
           script: |
-            const daysBeforeUnassign = 14; 
+            const daysBeforeReminder = 14; 
             let page = 1;
             const perPage = 100;
 
@@ -48,29 +48,20 @@ jobs:
                 });
 
                 const hasLinkedPR = timeline.some(event => 
-                  event.event === 'cross-referenced' && event.source?.issue?.pull_request || // PR referenced this issue
                   event.event === 'connected' || // PR connected via keywords
                   event.event === 'referenced' && event.commit_id // Connected via commit
                 );
 
-                if (daysInactive >= daysBeforeUnassign && !hasLinkedPR) {
+                if (daysInactive >= daysBeforeReminder && !hasLinkedPR) {
                   const assigneesMentions = issue.assignees
                     .map(user => `@${user.login}`)
                     .join(' ');
                     
-                  // Remove assignees
-                  await github.rest.issues.removeAssignees({
-                    owner: context.repo.owner,
-                    repo: context.repo.repo,
-                    issue_number: issue.number,
-                    assignees: issue.assignees.map(user => user.login),
-                  });
-
                   await github.rest.issues.createComment({
                     owner: context.repo.owner,
                     repo: context.repo.repo,
                     issue_number: issue.number,
-                    body: `${assigneesMentions} Assignees have been automatically removed since no PR was linked to this issue within 14 days. Please contact maintainers for reassignment if you wish to continue working on this issue.`,
+                    body: `${assigneesMentions} 这个 issue 已经超过 14 天没有更新或关联 PR。如果您仍在处理这个 issue，请更新进度；如果您无法继续处理，请联系维护者重新分配。\n\nThis issue has been inactive for more than 14 days without any updates or linked PR. If you are still working on this issue, please provide a progress update. If you are unable to continue, please contact the maintainers for reassignment.`,
                   });
                 }
               }
