@@ -16,5 +16,5 @@
 
 html {
   scrollbar-width: thin;
-  scrollbar-color: unset;
+  scrollbar-color: #eaeaea transparent;
 }

@@ -306,4 +306,38 @@ describe('ColorPicker.gradient', () => {
 
     expect(container.querySelector('.ant-color-picker-gradient-slider')).toBeTruthy();
   });
+
+  // This test case may easily break by jsdom update
+  // https://github.com/ant-design/ant-design/issues/51159
+  it('change color 2 should not be color 1', () => {
+    const { container } = render(
+      <ColorPicker
+        mode={['gradient']}
+        open
+        defaultValue={[
+          {
+            color: '#FF0000',
+            percent: 0,
+          },
+          {
+            color: '#0000FF',
+            percent: 100,
+          },
+        ]}
+      />,
+    );
+
+    // Select second one
+    const handle2 = container.querySelector<HTMLElement>('.ant-slider-handle-2')!;
+    doDrag(container, 0, 0, handle2, true);
+
+    // Drag in the color panel
+    const panelHandle = container.querySelector('.ant-color-picker-saturation')!;
+    const mouseDown = createEvent.mouseDown(panelHandle);
+    fireEvent(panelHandle, mouseDown);
+
+    expect(handle2).not.toHaveStyle({
+      backgroundColor: 'rgb(255,0,0)',
+    });
+  });
 });

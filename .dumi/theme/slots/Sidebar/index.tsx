@@ -8,13 +8,14 @@ import useMenu from '../../../hooks/useMenu';
 import SiteContext from '../SiteContext';
 
 const useStyle = createStyles(({ token, css }) => {
-  const { antCls, fontFamily, colorSplit } = token;
+  const { antCls, fontFamily, colorSplit, marginXXL, paddingXXS } = token;
 
   return {
     asideContainer: css`
       min-height: 100%;
-      padding-bottom: 48px;
+      padding-bottom: ${marginXXL}px !important;
       font-family: Avenir, ${fontFamily}, sans-serif;
+      padding: 0 ${paddingXXS}px;
 
       &${antCls}-menu-inline {
         ${antCls}-menu-submenu-title h4,
@@ -91,18 +92,13 @@ const useStyle = createStyles(({ token, css }) => {
     `,
     mainMenu: css`
       z-index: 1;
-        position: sticky;
-        top: ${token.headerHeight + token.contentMarginTop}px;
-        width: 100%;
-        height: 100%;
-        max-height: calc(100vh - ${token.headerHeight + token.contentMarginTop}px);
-        overflow: hidden;
-        scrollbar-width: thin;
-        scrollbar-color: unset;
-
-        .ant-menu {
-          padding: 0 4px;
-        }
+      position: sticky;
+      top: ${token.headerHeight + token.contentMarginTop}px;
+      width: 100%;
+      max-height: calc(100vh - ${token.headerHeight + token.contentMarginTop}px);
+      overflow: hidden;
+      scrollbar-width: thin;
+      scrollbar-gutter: stable;
 
       &:hover {
         overflow-y: auto;

@@ -1,0 +1,79 @@
+name: Auto Unassign
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # Run at 00:00 every day
+
+permissions:
+  issues: write # Need write permission to modify issue assignees
+
+jobs:
+  unassign_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Unassign inactive issues
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const daysBeforeUnassign = 14; 
+            let page = 1;
+            const perPage = 100;
+
+            while (true) {
+              const { data: issues } = await github.rest.issues.listForRepo({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                state: 'open',
+                assignee: '*', // Filter assigned issues
+                per_page: perPage,
+                page: page,
+              });
+
+              if (issues.length === 0) {
+                break;
+              }
+
+              const now = new Date();
+
+              for (const issue of issues) {
+                if (issue.pull_request) continue;
+
+                const updatedAt = new Date(issue.updated_at);
+                const daysInactive = (now - updatedAt) / (1000 * 60 * 60 * 24);
+
+                const { data: timeline } = await github.rest.issues.listEventsForTimeline({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issue.number,
+                });
+
+                const hasLinkedPR = timeline.some(event => 
+                  event.event === 'cross-referenced' && event.source?.issue?.pull_request || // PR referenced this issue
+                  event.event === 'connected' || // PR connected via keywords
+                  event.event === 'referenced' && event.commit_id // Connected via commit
+                );
+
+                if (daysInactive >= daysBeforeUnassign && !hasLinkedPR) {
+                  const assigneesMentions = issue.assignees
+                    .map(user => `@${user.login}`)
+                    .join(' ');
+                    
+                  // Remove assignees
+                  await github.rest.issues.removeAssignees({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: issue.number,
+                    assignees: issue.assignees.map(user => user.login),
+                  });
+
+                  await github.rest.issues.createComment({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: issue.number,
+                    body: `${assigneesMentions} Assignees have been automatically removed since no PR was linked to this issue within 14 days. Please contact maintainers for reassignment if you wish to continue working on this issue.`,
+                  });
+                }
+              }
+
+              page += 1;
+            }

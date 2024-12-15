@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { useEvent } from 'rc-util';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import { getMergedStatus } from '../../_util/statusUtils';
@@ -24,7 +24,8 @@ export interface OTPRef {
   nativeElement: HTMLDivElement;
 }
 
-export interface OTPProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
+export interface OTPProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'onInput'> {
   prefixCls?: string;
   length?: number;
 
@@ -48,6 +49,8 @@ export interface OTPProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'on
   mask?: boolean | string;
 
   type?: React.HTMLInputTypeAttribute;
+
+  onInput?: (value: string[]) => void;
 }
 
 function strToArr(str: string) {
@@ -69,6 +72,8 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     autoFocus,
     mask,
     type,
+    onInput,
+    inputMode,
     ...restProps
   } = props;
 
@@ -146,6 +151,10 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   const triggerValueCellsChange = useEvent((nextValueCells: string[]) => {
     setValueCells(nextValueCells);
 
+    if (onInput) {
+      onInput(nextValueCells);
+    }
+
     // Trigger if all cells are filled
     if (
       onChange &&
@@ -199,7 +208,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     const nextCells = patchValue(index, txt);
 
     const nextIndex = Math.min(index + txt.length, length - 1);
-    if (nextIndex !== index) {
+    if (nextIndex !== index && nextCells[index] !== undefined) {
       refs.current[nextIndex]?.focus();
     }
 
@@ -217,6 +226,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     status: mergedStatus as InputStatus,
     mask,
     type,
+    inputMode,
   };
 
   return wrapCSSVar(

@@ -4,16 +4,20 @@ import type { ItemType } from './useItems';
 import type { ResizableInfo } from './useResizable';
 import { getPtg } from './useSizes';
 
+/**
+ * Handle user drag resize logic.
+ */
 export default function useResize(
   items: ItemType[],
   resizableInfos: ResizableInfo[],
   percentSizes: number[],
-  containerSize: number,
+  containerSize: number | undefined,
   updateSizes: (sizes: number[]) => void,
 ) {
   const limitSizes = items.map((item) => [item.min, item.max]);
 
-  const ptg2px = (ptg: number) => ptg * containerSize;
+  const mergedContainerSize = containerSize || 0;
+  const ptg2px = (ptg: number) => ptg * mergedContainerSize;
 
   // ======================== Resize ========================
   function getLimitSize(str: string | number | undefined, defaultLimit: number) {
@@ -79,8 +83,8 @@ export default function useResize(
     // Get boundary
     const startMinSize = getLimitSize(limitSizes[mergedIndex][0], 0);
     const endMinSize = getLimitSize(limitSizes[nextIndex][0], 0);
-    const startMaxSize = getLimitSize(limitSizes[mergedIndex][1], containerSize);
-    const endMaxSize = getLimitSize(limitSizes[nextIndex][1], containerSize);
+    const startMaxSize = getLimitSize(limitSizes[mergedIndex][1], mergedContainerSize);
+    const endMaxSize = getLimitSize(limitSizes[nextIndex][1], mergedContainerSize);
 
     let mergedOffset = offset;
 
@@ -129,9 +133,9 @@ export default function useResize(
       const totalSize = currentSize + targetSize;
 
       const currentSizeMin = getLimitSize(limitSizes[currentIndex][0], 0);
-      const currentSizeMax = getLimitSize(limitSizes[currentIndex][1], containerSize);
+      const currentSizeMax = getLimitSize(limitSizes[currentIndex][1], mergedContainerSize);
       const targetSizeMin = getLimitSize(limitSizes[targetIndex][0], 0);
-      const targetSizeMax = getLimitSize(limitSizes[targetIndex][1], containerSize);
+      const targetSizeMax = getLimitSize(limitSizes[targetIndex][1], mergedContainerSize);
 
       const limitStart = Math.max(currentSizeMin, totalSize - targetSizeMax);
       const limitEnd = Math.min(currentSizeMax, totalSize - targetSizeMin);

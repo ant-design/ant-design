@@ -1,15 +1,9 @@
-import React, { useContext } from 'react';
-import {
-  BugFilled,
-  BugOutlined,
-  CodeFilled,
-  CodeOutlined,
-  ExperimentFilled,
-  ExperimentOutlined,
-} from '@ant-design/icons';
-import { ConfigProvider, Tooltip } from 'antd';
+import React, { Suspense, useContext } from 'react';
+import { BugOutlined, CodeOutlined, ExperimentOutlined } from '@ant-design/icons';
+import { ConfigProvider, Tooltip, Button } from 'antd';
 import classNames from 'classnames';
 import { DumiDemoGrid, FormattedMessage } from 'dumi';
+import { css, Global } from '@emotion/react';
 
 import useLayoutState from '../../../hooks/useLayoutState';
 import useLocale from '../../../hooks/useLocale';
@@ -32,10 +26,6 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
 
   const [expandAll, setExpandAll] = useLayoutState(false);
   const [enableCssVar, setEnableCssVar] = useLayoutState(true);
-
-  const expandTriggerClass = classNames('code-box-expand-trigger', {
-    'code-box-expand-trigger-active': expandAll,
-  });
 
   const handleVisibleToggle = () => {
     setShowDebug?.(!showDebug);
@@ -78,39 +68,54 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
         'demo-wrapper-show-debug': showDebug,
       })}
     >
+      <Global
+        styles={css`
+          :root {
+            --antd-site-api-deprecated-display: ${showDebug ? 'table-row' : 'none'};
+          }
+        `}
+      />
       <span className="all-code-box-controls">
         <Tooltip
           title={
             <FormattedMessage id={`app.component.examples.${expandAll ? 'collapse' : 'expand'}`} />
           }
         >
-          {expandAll ? (
-            <CodeFilled className={expandTriggerClass} onClick={handleExpandToggle} />
-          ) : (
-            <CodeOutlined className={expandTriggerClass} onClick={handleExpandToggle} />
-          )}
+          <Button
+            type="text"
+            size="small"
+            icon={<CodeOutlined />}
+            onClick={handleExpandToggle}
+            className={expandAll ? 'icon-enabled' : ''}
+          />
         </Tooltip>
         <Tooltip
           title={
             <FormattedMessage id={`app.component.examples.${showDebug ? 'hide' : 'visible'}`} />
           }
         >
-          {showDebug ? (
-            <BugFilled className={expandTriggerClass} onClick={handleVisibleToggle} />
-          ) : (
-            <BugOutlined className={expandTriggerClass} onClick={handleVisibleToggle} />
-          )}
+          <Button
+            type="text"
+            size="small"
+            icon={<BugOutlined />}
+            onClick={handleVisibleToggle}
+            className={showDebug ? 'icon-enabled' : ''}
+          />
         </Tooltip>
         <Tooltip title={enableCssVar ? locale.disableCssVar : locale.enableCssVar}>
-          {enableCssVar ? (
-            <ExperimentFilled className={expandTriggerClass} onClick={handleCssVarToggle} />
-          ) : (
-            <ExperimentOutlined className={expandTriggerClass} onClick={handleCssVarToggle} />
-          )}
+          <Button
+            type="text"
+            size="small"
+            icon={<ExperimentOutlined />}
+            onClick={handleCssVarToggle}
+            className={enableCssVar ? 'icon-enabled' : ''}
+          />
         </Tooltip>
       </span>
       <ConfigProvider theme={{ cssVar: enableCssVar, hashed: !enableCssVar }}>
-        <DumiDemoGrid items={demos} />
+        <Suspense>
+          <DumiDemoGrid items={demos} />
+        </Suspense>
       </ConfigProvider>
     </div>
   );

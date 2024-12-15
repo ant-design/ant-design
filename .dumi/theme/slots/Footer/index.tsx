@@ -102,6 +102,11 @@ const Footer: React.FC = () => {
       title: <FormattedMessage id="app.footer.resources" />,
       items: [
         {
+          title: 'Ant Design X',
+          url: isZhCN ? 'https://ant-design-x.antgroup.com' : 'https://x.ant.design',
+          openExternal: true,
+        },
+        {
           title: 'Ant Design Charts',
           url: isZhCN ? 'https://ant-design-charts.antgroup.com' : 'https://charts.ant.design',
           openExternal: true,
@@ -112,7 +117,7 @@ const Footer: React.FC = () => {
           openExternal: true,
         },
         {
-          title: 'Ant Design Pro Components',
+          title: 'Pro Components',
           url: 'https://procomponents.ant.design',
           openExternal: true,
         },
@@ -124,6 +129,11 @@ const Footer: React.FC = () => {
         {
           title: 'Ant Design Mini',
           url: isZhCN ? 'https://ant-design-mini.antgroup.com/' : 'https://mini.ant.design',
+          openExternal: true,
+        },
+        {
+          title: 'Ant Design Web3',
+          url: isZhCN ? 'https://web3.antdigital.dev' : 'https://web3.ant.design',
           openExternal: true,
         },
         {
@@ -154,12 +164,6 @@ const Footer: React.FC = () => {
           title: 'qiankun',
           description: <FormattedMessage id="app.footer.qiankun" />,
           url: 'https://qiankun.umijs.org',
-          openExternal: true,
-        },
-        {
-          title: 'ahooks',
-          description: <FormattedMessage id="app.footer.hooks" />,
-          url: 'https://github.com/alibaba/hooks',
           openExternal: true,
         },
         {

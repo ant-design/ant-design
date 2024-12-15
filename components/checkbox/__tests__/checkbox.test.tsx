@@ -5,12 +5,20 @@ import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 
 describe('Checkbox', () => {
   focusTest(Checkbox, { refFocus: true });
   mountTest(Checkbox);
   rtlTest(Checkbox);
+
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
+  });
 
   it('responses hover events', () => {
     const onMouseEnter = jest.fn();
@@ -51,5 +59,48 @@ describe('Checkbox', () => {
 
     expect(onFocus).toHaveBeenCalledTimes(1);
     expect(onBlur).toHaveBeenCalledTimes(1);
+  });
+
+  it('should reflect indeterminate state correctly', () => {
+    const { rerender, container } = render(<Checkbox indeterminate />);
+
+    const checkboxInput = container.querySelector('input')!;
+    expect(checkboxInput.indeterminate).toBe(true);
+
+    rerender(<Checkbox indeterminate={false} />);
+
+    expect(checkboxInput.indeterminate).toBe(false);
+  });
+
+  it('event bubble should not trigger twice', () => {
+    const onClick = jest.fn();
+    const onRootClick = jest.fn();
+
+    const { container } = render(
+      <div onClick={onRootClick}>
+        <Checkbox onClick={onClick} />
+      </div>,
+    );
+
+    // Click on label
+    fireEvent.click(container.querySelector('label')!);
+    expect(onClick).toHaveBeenCalledTimes(1);
+    expect(onRootClick).toHaveBeenCalledTimes(1);
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    // Click on input
+    fireEvent.click(container.querySelector('input')!);
+    expect(onClick).toHaveBeenCalledTimes(2);
+    expect(onRootClick).toHaveBeenCalledTimes(2);
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    // Click on input again
+    fireEvent.click(container.querySelector('input')!);
+    expect(onClick).toHaveBeenCalledTimes(3);
+    expect(onRootClick).toHaveBeenCalledTimes(3);
   });
 });
