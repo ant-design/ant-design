@@ -14,4 +14,12 @@ export interface FlexProps<P = AnyObject> extends React.HTMLAttributes<HTMLEleme
   gap?: React.CSSProperties['gap'] | SizeType;
   children: React.ReactNode;
   component?: CustomComponent<P>;
+  columns?: number;
+  spacing?: number;
+  /**
+   * Allows using sequential order rather than adding to shortest column
+   *
+   * @default false
+   */
+  sequential?: boolean;
 }
