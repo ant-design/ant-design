@@ -825,6 +825,7 @@ Mentions 提及
 | `@tabs-title-font-size` | `titleFontSize` | - |
 | `@tabs-title-font-size-lg` | `titleFontSizeLG` | - |
 | `@tabs-title-font-size-sm` | `titleFontSizeSM` | - |
+| `@tabs-title-hover-close-icon` | `titleHoverCloseIcon` | - |
 | `@tabs-ink-bar-color` | `inkBarColor` | - |
 | `@tabs-bar-margin` | `horizontalMargin` | - |
 | `@tabs-horizontal-gutter` | `horizontalItemGutter` | - |
