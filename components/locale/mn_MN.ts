@@ -21,7 +21,7 @@ const localeValues: Locale = {
     filterConfirm: 'Тийм',
     filterReset: 'Цэвэрлэх',
     filterEmptyText: 'Шүүлтүүр байхгүй',
-    filterCheckall: 'Бүх зүйлийг сонгоно уу',
+    filterCheckAll: 'Бүх зүйлийг сонгоно уу',
     filterSearchPlaceholder: 'Шүүлтүүрээс хайх',
     emptyText: 'Өгөгдөл алга',
     selectAll: 'Бүгдийг сонгох',
