@@ -175,7 +175,10 @@ const Dropdown: CompoundedComponent = (props) => {
 
   const [, token] = useToken();
 
-  const child = React.Children.only(children) as React.ReactElement<any>;
+  const child = React.Children.only(children) as React.ReactElement<{
+    className?: string;
+    disabled?: boolean;
+  }>;
 
   const dropdownTrigger = cloneElement(child, {
     className: classNames(
