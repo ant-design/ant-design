@@ -8,7 +8,7 @@ import classNames from 'classnames';
 import { CONTAINER_MAX_OFFSET } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
-import type { ThemeConfig } from '../config-provider';
+import type { CSPConfig, ThemeConfig } from '../config-provider';
 import ConfigProvider from '../config-provider';
 import { useLocale } from '../locale';
 import useToken from '../theme/useToken';
@@ -46,6 +46,7 @@ export interface ConfirmDialogProps extends ModalFuncProps {
    * Do not throw if is await mode
    */
   isSilent?: () => boolean;
+  csp?: CSPConfig;
 }
 
 export function ConfirmContent(
@@ -270,7 +271,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
 };
 
 const ConfirmDialogWrapper: React.FC<ConfirmDialogProps> = (props) => {
-  const { rootPrefixCls, iconPrefixCls, direction, theme } = props;
+  const { rootPrefixCls, iconPrefixCls, direction, theme, csp } = props;
 
   return (
     <ConfigProvider
@@ -278,6 +279,7 @@ const ConfirmDialogWrapper: React.FC<ConfirmDialogProps> = (props) => {
       iconPrefixCls={iconPrefixCls}
       direction={direction}
       theme={theme}
+      csp={csp}
     >
       <ConfirmDialog {...props} />
     </ConfigProvider>

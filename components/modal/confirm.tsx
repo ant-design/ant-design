@@ -49,6 +49,7 @@ const ConfirmDialogWrapper: React.FC<ConfirmDialogProps> = (props) => {
   return (
     <ConfirmDialog
       {...props}
+      csp={config.csp}
       rootPrefixCls={rootPrefixCls}
       prefixCls={prefixCls}
       iconPrefixCls={config.iconPrefixCls}
