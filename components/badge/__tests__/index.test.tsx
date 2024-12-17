@@ -50,7 +50,12 @@ describe('Badge', () => {
     const { container } = render(<Comp />);
 
     fireEvent.click(container.querySelector('button')!);
-    await waitFakeTimer();
+    await act(async () => {
+      await Promise.resolve();
+    });
+    await act(async () => {
+      jest.advanceTimersByTime(1000);
+    });
 
     expect(errSpy).not.toHaveBeenCalled();
     errSpy.mockRestore();

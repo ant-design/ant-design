@@ -6,7 +6,12 @@ console.log('Current React Version:', React.version);
 
 const originConsoleErr = console.error;
 
-const ignoreWarns = ['validateDOMNesting', 'on an unmounted component', 'not wrapped in act'];
+const ignoreWarns = [
+  'validateDOMNesting',
+  'on an unmounted component',
+  'not wrapped in act',
+  'You called act',
+];
 
 // Hack off React warning to avoid too large log in CI.
 console.error = (...args) => {
