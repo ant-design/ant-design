@@ -17,7 +17,7 @@ export interface WaveEffectProps {
   className: string;
   target: HTMLElement;
   component?: string;
-  registerUnmount: () => UnmountType;
+  registerUnmount: () => UnmountType | null;
 }
 
 const WaveEffect = (props: WaveEffectProps) => {
@@ -163,8 +163,14 @@ const showWaveEffect: ShowWaveEffect = (target, info) => {
 
   const reactRender = getReactRender();
 
-  const unmountCallback = reactRender(
-    <WaveEffect {...info} target={target} registerUnmount={() => unmountCallback} />,
+  let unmountCallback: UnmountType | null = null;
+
+  function registerUnmount() {
+    return unmountCallback;
+  }
+
+  unmountCallback = reactRender(
+    <WaveEffect {...info} target={target} registerUnmount={registerUnmount} />,
     holder,
   );
 };
