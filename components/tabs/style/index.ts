@@ -723,6 +723,7 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
         '&:hover': {
           color: token.colorTextHeading,
         },
+        ...genFocusStyle(token),
       },
       '&:hover': {
         color: itemHoverColor,
