@@ -88,4 +88,17 @@ export async function waitFakeTimer(advanceTime = 1000, times = 20) {
   }
 }
 
+/**
+ * Same as `waitFakeTimer` but to resolve React 19.
+ * `act` warning
+ */
+export async function waitFakeTimer19(advanceTime = 1000) {
+  await act(async () => {
+    await Promise.resolve();
+  });
+  await act(async () => {
+    jest.advanceTimersByTime(advanceTime);
+  });
+}
+
 export * from '@testing-library/react';

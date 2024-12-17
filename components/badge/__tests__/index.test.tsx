@@ -3,7 +3,7 @@ import React from 'react';
 import type { GetRef } from '../../_util/type';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer19 } from '../../../tests/utils';
 import Tooltip from '../../tooltip';
 import Badge from '../index';
 
@@ -50,12 +50,7 @@ describe('Badge', () => {
     const { container } = render(<Comp />);
 
     fireEvent.click(container.querySelector('button')!);
-    await act(async () => {
-      await Promise.resolve();
-    });
-    await act(async () => {
-      jest.advanceTimersByTime(1000);
-    });
+    await waitFakeTimer19();
 
     expect(errSpy).not.toHaveBeenCalled();
     errSpy.mockRestore();
