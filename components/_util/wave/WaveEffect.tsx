@@ -172,7 +172,7 @@ const showWaveEffect: ShowWaveEffect = (target, info) => {
   const unmountCallback = reactRender(
     <WaveEffect {...info} ref={waveRef} target={target} />,
     holder,
-  );
+  );console.log('==>', unmountCallback);
   waveRef.current?.setUnmount(unmountCallback);
 };
 
