@@ -30,7 +30,12 @@ export { default as Cascader } from './cascader';
 export type { CascaderProps, CascaderAutoProps } from './cascader';
 export type { CascaderPanelProps, CascaderPanelAutoProps } from './cascader/Panel';
 export { default as Checkbox } from './checkbox';
-export type { CheckboxOptionType, CheckboxProps, CheckboxRef } from './checkbox';
+export type {
+  CheckboxChangeEvent,
+  CheckboxOptionType,
+  CheckboxProps,
+  CheckboxRef,
+} from './checkbox';
 export { default as Col } from './col';
 export type { ColProps } from './col';
 export { default as Collapse } from './collapse';
