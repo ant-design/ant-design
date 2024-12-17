@@ -27,7 +27,7 @@ const WaveEffect = (props: WaveEffectProps) => {
   // ====================== Refs ======================
   const unmountRef = React.useRef<UnmountType>(null);
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     unmountRef.current = registerUnmount();
   }, []);
 
