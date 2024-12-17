@@ -66,6 +66,7 @@ Array [
     class="ant-tabs ant-tabs-top"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -101,7 +102,7 @@ Array [
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Little
             </div>
@@ -116,7 +117,7 @@ Array [
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Light
             </div>
@@ -209,6 +210,7 @@ exports[`renders components/tabs/demo/basic.tsx extend context correctly 1`] = `
   class="ant-tabs ant-tabs-top"
 >
   <div
+    aria-orientation="horizontal"
     class="ant-tabs-nav"
     role="tablist"
   >
@@ -244,7 +246,7 @@ exports[`renders components/tabs/demo/basic.tsx extend context correctly 1`] = `
             class="ant-tabs-tab-btn"
             id="rc-tabs-test-tab-2"
             role="tab"
-            tabindex="0"
+            tabindex="-1"
           >
             Tab 2
           </div>
@@ -259,7 +261,7 @@ exports[`renders components/tabs/demo/basic.tsx extend context correctly 1`] = `
             class="ant-tabs-tab-btn"
             id="rc-tabs-test-tab-3"
             role="tab"
-            tabindex="0"
+            tabindex="-1"
           >
             Tab 3
           </div>
@@ -350,6 +352,7 @@ exports[`renders components/tabs/demo/card.tsx extend context correctly 1`] = `
   class="ant-tabs ant-tabs-top ant-tabs-card"
 >
   <div
+    aria-orientation="horizontal"
     class="ant-tabs-nav"
     role="tablist"
   >
@@ -385,7 +388,7 @@ exports[`renders components/tabs/demo/card.tsx extend context correctly 1`] = `
             class="ant-tabs-tab-btn"
             id="rc-tabs-test-tab-2"
             role="tab"
-            tabindex="0"
+            tabindex="-1"
           >
             Tab 2
           </div>
@@ -400,7 +403,7 @@ exports[`renders components/tabs/demo/card.tsx extend context correctly 1`] = `
             class="ant-tabs-tab-btn"
             id="rc-tabs-test-tab-3"
             role="tab"
-            tabindex="0"
+            tabindex="-1"
           >
             Tab 3
           </div>
@@ -494,6 +497,7 @@ exports[`renders components/tabs/demo/card-top.tsx extend context correctly 1`] 
     class="ant-tabs ant-tabs-top ant-tabs-card"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -529,7 +533,7 @@ exports[`renders components/tabs/demo/card-top.tsx extend context correctly 1`] 
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab Title 2
             </div>
@@ -544,7 +548,7 @@ exports[`renders components/tabs/demo/card-top.tsx extend context correctly 1`] 
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab Title 3
             </div>
@@ -644,6 +648,7 @@ exports[`renders components/tabs/demo/centered.tsx extend context correctly 1`] 
   class="ant-tabs ant-tabs-top ant-tabs-centered"
 >
   <div
+    aria-orientation="horizontal"
     class="ant-tabs-nav"
     role="tablist"
   >
@@ -679,7 +684,7 @@ exports[`renders components/tabs/demo/centered.tsx extend context correctly 1`] 
             class="ant-tabs-tab-btn"
             id="rc-tabs-test-tab-2"
             role="tab"
-            tabindex="0"
+            tabindex="-1"
           >
             Tab 2
           </div>
@@ -694,7 +699,7 @@ exports[`renders components/tabs/demo/centered.tsx extend context correctly 1`] 
             class="ant-tabs-tab-btn"
             id="rc-tabs-test-tab-3"
             role="tab"
-            tabindex="0"
+            tabindex="-1"
           >
             Tab 3
           </div>
@@ -787,6 +792,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
     style="margin-bottom: 32px;"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -822,7 +828,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -837,7 +843,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 3
             </div>
@@ -936,6 +942,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
     style="margin-bottom: 32px;"
   >
     <div
+      aria-orientation="vertical"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -971,7 +978,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -986,7 +993,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 3
             </div>
@@ -1085,6 +1092,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
     style="margin-bottom: 32px;"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -1120,7 +1128,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -1135,7 +1143,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 3
             </div>
@@ -1234,6 +1242,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
     style="margin-bottom: 32px;"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -1269,7 +1278,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -1284,7 +1293,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 3
             </div>
@@ -1382,6 +1391,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
     class="ant-tabs ant-tabs-top ant-tabs-card ant-tabs-centered"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -1419,7 +1429,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -1520,6 +1530,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
     class="ant-tabs ant-tabs-top ant-tabs-small ant-tabs-card ant-tabs-centered"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -1557,7 +1568,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -1658,6 +1669,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
     class="ant-tabs ant-tabs-top ant-tabs-large ant-tabs-card ant-tabs-centered"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -1695,7 +1707,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -1815,6 +1827,7 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context corr
     class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-card ant-tabs-editable-card"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -1877,14 +1890,14 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context corr
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
             <button
               aria-label="remove"
               class="ant-tabs-tab-remove"
-              tabindex="0"
+              tabindex="-1"
               type="button"
             >
               <span
@@ -2055,6 +2068,7 @@ Array [
     class="ant-tabs ant-tabs-top"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -2090,7 +2104,7 @@ Array [
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -2105,7 +2119,7 @@ Array [
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 3
             </div>
@@ -2200,6 +2214,7 @@ exports[`renders components/tabs/demo/custom-tab-bar.tsx extend context correctl
     style="z-index: 1;"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
       style="background: rgb(255, 255, 255);"
@@ -2236,7 +2251,7 @@ exports[`renders components/tabs/demo/custom-tab-bar.tsx extend context correctl
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -2251,7 +2266,7 @@ exports[`renders components/tabs/demo/custom-tab-bar.tsx extend context correctl
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 3
             </div>
@@ -2345,6 +2360,7 @@ exports[`renders components/tabs/demo/custom-tab-bar-node.tsx extend context cor
   class="ant-tabs ant-tabs-top"
 >
   <div
+    aria-orientation="horizontal"
     class="ant-tabs-nav"
     role="tablist"
   >
@@ -2392,7 +2408,7 @@ exports[`renders components/tabs/demo/custom-tab-bar-node.tsx extend context cor
             class="ant-tabs-tab-btn"
             id="rc-tabs-test-tab-2"
             role="tab"
-            tabindex="0"
+            tabindex="-1"
           >
             Tab 2
           </div>
@@ -2413,7 +2429,7 @@ exports[`renders components/tabs/demo/custom-tab-bar-node.tsx extend context cor
             class="ant-tabs-tab-btn"
             id="rc-tabs-test-tab-3"
             role="tab"
-            tabindex="0"
+            tabindex="-1"
           >
             Tab 3
           </div>
@@ -2519,6 +2535,7 @@ exports[`renders components/tabs/demo/disabled.tsx extend context correctly 1`] 
   class="ant-tabs ant-tabs-top"
 >
   <div
+    aria-orientation="horizontal"
     class="ant-tabs-nav"
     role="tablist"
   >
@@ -2569,7 +2586,7 @@ exports[`renders components/tabs/demo/disabled.tsx extend context correctly 1`] 
             class="ant-tabs-tab-btn"
             id="rc-tabs-test-tab-3"
             role="tab"
-            tabindex="0"
+            tabindex="-1"
           >
             Tab 3
           </div>
@@ -2660,6 +2677,7 @@ exports[`renders components/tabs/demo/editable-card.tsx extend context correctly
   class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-card ant-tabs-editable-card"
 >
   <div
+    aria-orientation="horizontal"
     class="ant-tabs-nav"
     role="tablist"
   >
@@ -2722,14 +2740,14 @@ exports[`renders components/tabs/demo/editable-card.tsx extend context correctly
             class="ant-tabs-tab-btn"
             id="rc-tabs-test-tab-2"
             role="tab"
-            tabindex="0"
+            tabindex="-1"
           >
             Tab 2
           </div>
           <button
             aria-label="remove"
             class="ant-tabs-tab-remove"
-            tabindex="0"
+            tabindex="-1"
             type="button"
           >
             <span
@@ -2764,7 +2782,7 @@ exports[`renders components/tabs/demo/editable-card.tsx extend context correctly
             class="ant-tabs-tab-btn"
             id="rc-tabs-test-tab-3"
             role="tab"
-            tabindex="0"
+            tabindex="-1"
           >
             Tab 3
           </div>
@@ -2912,6 +2930,7 @@ Array [
     class="ant-tabs ant-tabs-top"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -2947,7 +2966,7 @@ Array [
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -2962,7 +2981,7 @@ Array [
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 3
             </div>
@@ -3116,6 +3135,7 @@ Array [
     class="ant-tabs ant-tabs-top"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -3163,7 +3183,7 @@ Array [
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -3178,7 +3198,7 @@ Array [
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 3
             </div>
@@ -3282,6 +3302,7 @@ exports[`renders components/tabs/demo/icon.tsx extend context correctly 1`] = `
   class="ant-tabs ant-tabs-top"
 >
   <div
+    aria-orientation="horizontal"
     class="ant-tabs-nav"
     role="tablist"
   >
@@ -3302,7 +3323,7 @@ exports[`renders components/tabs/demo/icon.tsx extend context correctly 1`] = `
             class="ant-tabs-tab-btn"
             id="rc-tabs-test-tab-1"
             role="tab"
-            tabindex="0"
+            tabindex="-1"
           >
             <span
               class="ant-tabs-tab-icon"
@@ -4117,6 +4138,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     class="ant-tabs ant-tabs-top"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -4152,7 +4174,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -4234,6 +4256,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
             style="height: 300px;"
           >
             <div
+              aria-orientation="horizontal"
               class="ant-tabs-nav"
               role="tablist"
             >
@@ -4254,7 +4277,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-0"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 0
                     </div>
@@ -4284,7 +4307,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-2"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 2
                     </div>
@@ -4299,7 +4322,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-3"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 3
                     </div>
@@ -4314,7 +4337,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-4"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 4
                     </div>
@@ -4329,7 +4352,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-5"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 5
                     </div>
@@ -4344,7 +4367,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-6"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 6
                     </div>
@@ -4359,7 +4382,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-7"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 7
                     </div>
@@ -4374,7 +4397,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-8"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 8
                     </div>
@@ -4389,7 +4412,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-9"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 9
                     </div>
@@ -4404,7 +4427,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-10"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 10
                     </div>
@@ -4419,7 +4442,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-11"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 11
                     </div>
@@ -4434,7 +4457,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-12"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 12
                     </div>
@@ -4449,7 +4472,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-13"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 13
                     </div>
@@ -4464,7 +4487,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-14"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 14
                     </div>
@@ -4479,7 +4502,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-15"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 15
                     </div>
@@ -4494,7 +4517,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-16"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 16
                     </div>
@@ -4509,7 +4532,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-17"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 17
                     </div>
@@ -4524,7 +4547,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-18"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 18
                     </div>
@@ -4539,7 +4562,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-19"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 19
                     </div>
@@ -4731,6 +4754,7 @@ Array [
     class="ant-tabs ant-tabs-left"
   >
     <div
+      aria-orientation="vertical"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -4766,7 +4790,7 @@ Array [
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -4781,7 +4805,7 @@ Array [
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 3
             </div>
@@ -4938,6 +4962,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
     style="margin-bottom: 32px;"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -4973,7 +4998,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -4988,7 +5013,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 3
             </div>
@@ -5075,6 +5100,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
     style="margin-bottom: 32px;"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -5110,7 +5136,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Card Tab 2
             </div>
@@ -5125,7 +5151,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Card Tab 3
             </div>
@@ -5211,6 +5237,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
     class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-small ant-tabs-card ant-tabs-editable-card"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -5273,14 +5300,14 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
             <button
               aria-label="remove"
               class="ant-tabs-tab-remove"
-              tabindex="0"
+              tabindex="-1"
               type="button"
             >
               <span
@@ -5315,14 +5342,14 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 3
             </div>
             <button
               aria-label="remove"
               class="ant-tabs-tab-remove"
-              tabindex="0"
+              tabindex="-1"
               type="button"
             >
               <span
@@ -5536,6 +5563,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
     style="height: 220px;"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -5557,7 +5585,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-0"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-0
             </div>
@@ -5589,7 +5617,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-2
             </div>
@@ -5605,7 +5633,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-3
             </div>
@@ -5621,7 +5649,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-4"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-4
             </div>
@@ -5637,7 +5665,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-5"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-5
             </div>
@@ -5653,7 +5681,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-6"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-6
             </div>
@@ -5669,7 +5697,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-7"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-7
             </div>
@@ -5685,7 +5713,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-8"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-8
             </div>
@@ -5701,7 +5729,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-9"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-9
             </div>
@@ -5717,7 +5745,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-10"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-10
             </div>
@@ -5733,7 +5761,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-11"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-11
             </div>
@@ -5749,7 +5777,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-12"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-12
             </div>
@@ -5765,7 +5793,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-13"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-13
             </div>
@@ -5781,7 +5809,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-14"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-14
             </div>
@@ -5797,7 +5825,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-15"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-15
             </div>
@@ -5813,7 +5841,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-16"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-16
             </div>
@@ -5829,7 +5857,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-17"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-17
             </div>
@@ -5845,7 +5873,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-18"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-18
             </div>
@@ -5861,7 +5889,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-19"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-19
             </div>
@@ -5877,7 +5905,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-20"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-20
             </div>
@@ -5893,7 +5921,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-21"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-21
             </div>
@@ -5909,7 +5937,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-22"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-22
             </div>
@@ -5925,7 +5953,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-23"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-23
             </div>
@@ -5941,7 +5969,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-24"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-24
             </div>
@@ -5957,7 +5985,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-25"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-25
             </div>
@@ -5973,7 +6001,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-26"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-26
             </div>
@@ -5989,7 +6017,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-27"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-27
             </div>
@@ -6020,7 +6048,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-29"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-29
             </div>
