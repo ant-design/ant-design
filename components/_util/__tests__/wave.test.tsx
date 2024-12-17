@@ -102,14 +102,13 @@ describe('Wave component', () => {
     waitRaf();
     expect(document.querySelector('.ant-wave')).toBeTruthy();
 
-    console.log('-> 1');
     // Match deadline
     await waitFakeTimer();
-    console.log('-> 2');
 
     expect(document.querySelector('.ant-wave')).toBeFalsy();
 
     expect(errorSpy).not.toHaveBeenCalled();
+    errorSpy.mockRestore();
 
     unmount();
   });

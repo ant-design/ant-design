@@ -5,7 +5,6 @@ import raf from 'rc-util/lib/raf';
 import { composeRef } from 'rc-util/lib/ref';
 
 import { getReactRender, type UnmountType } from '../../config-provider/UnstableContext';
-import { GetRef } from '../type';
 import { TARGET_CLS } from './interface';
 import type { ShowWaveEffect } from './interface';
 import { getTargetWaveColor } from './util';
@@ -18,23 +17,19 @@ export interface WaveEffectProps {
   className: string;
   target: HTMLElement;
   component?: string;
+  registerUnmount: () => UnmountType;
 }
 
-const WaveEffect = React.forwardRef<
-  { setUnmount: (unmount: UnmountType) => void },
-  WaveEffectProps
->((props, ref) => {
-  const { className, target, component } = props;
+const WaveEffect = (props: WaveEffectProps) => {
+  const { className, target, component, registerUnmount } = props;
   const divRef = React.useRef<HTMLDivElement>(null);
 
   // ====================== Refs ======================
   const unmountRef = React.useRef<UnmountType>(null);
 
-  React.useImperativeHandle(ref, () => ({
-    setUnmount: (unmount) => {
-      unmountRef.current = unmount;
-    },
-  }));
+  React.useLayoutEffect(() => {
+    unmountRef.current = registerUnmount();
+  }, []);
 
   // ===================== Effect =====================
   const [color, setWaveColor] = React.useState<string | null>(null);
@@ -149,7 +144,7 @@ const WaveEffect = React.forwardRef<
       )}
     </CSSMotion>
   );
-});
+};
 
 const showWaveEffect: ShowWaveEffect = (target, info) => {
   const { component } = info;
@@ -168,12 +163,10 @@ const showWaveEffect: ShowWaveEffect = (target, info) => {
 
   const reactRender = getReactRender();
 
-  const waveRef = React.createRef<GetRef<typeof WaveEffect>>();
   const unmountCallback = reactRender(
-    <WaveEffect {...info} ref={waveRef} target={target} />,
+    <WaveEffect {...info} target={target} registerUnmount={() => unmountCallback} />,
     holder,
-  );console.log('==>', unmountCallback);
-  waveRef.current?.setUnmount(unmountCallback);
+  );
 };
 
 export default showWaveEffect;
