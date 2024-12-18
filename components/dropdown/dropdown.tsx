@@ -178,7 +178,10 @@ const Dropdown: CompoundedComponent = (props) => {
 
   const child = React.Children.only(
     isPrimitive(children) ? <span>{children}</span> : children,
-  ) as React.ReactElement;
+  ) as React.ReactElement<{
+    className?: string;
+    disabled?: boolean;
+  }>;
 
   const dropdownTrigger = cloneElement(child, {
     className: classNames(
