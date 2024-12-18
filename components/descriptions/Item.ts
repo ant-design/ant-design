@@ -11,6 +11,8 @@ export interface DescriptionsItemProps {
   span?: number;
 }
 
+// JSX Structure Syntactic Sugar. Never reach the render code.
+/* istanbul ignore next */
 const DescriptionsItem: React.FC<DescriptionsItemProps> = ({ children }) =>
   children as React.JSX.Element;
 

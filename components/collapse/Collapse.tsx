@@ -144,32 +144,33 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     leavedClassName: `${prefixCls}-content-hidden`,
   };
 
-  const items = React.useMemo<React.ReactNode[] | null>(
-    () =>
-      children
-        ? toArray(children).map((child, index) => {
-            const { disabled, collapsible } =
-              (
-                child as React.ReactElement<{
-                  disabled?: boolean;
-                  collapsible?: CollapsibleType;
-                }>
-              ).props || {};
+  const items = React.useMemo<React.ReactNode[] | null>(() => {
+    if (children) {
+      return toArray(children).map((child, index) => {
+        const childProps =
+          (
+            child as React.ReactElement<{
+              disabled?: boolean;
+              collapsible?: CollapsibleType;
+            }>
+          ).props || {};
 
-            if (disabled) {
-              const key = child.key ?? String(index);
-              const childProps: Omit<CollapseProps, 'items'> & { key: React.Key } = {
-                ...omit(child.props as any, ['disabled']),
-                key,
-                collapsible: collapsible ?? (disabled ? 'disabled' : undefined),
-              };
-              return cloneElement(child, childProps);
-            }
-            return child;
-          })
-        : null,
-    [children],
-  );
+        const { disabled, collapsible } = childProps;
+
+        if (disabled) {
+          const key = child.key ?? String(index);
+          const childProps: Omit<CollapseProps, 'items'> & { key: React.Key } = {
+            ...omit(child.props as any, ['disabled']),
+            key,
+            collapsible: collapsible ?? (disabled ? 'disabled' : undefined),
+          };
+          return cloneElement(child, childProps);
+        }
+        return child;
+      });
+    }
+    return null;
+  }, [children]);
 
   return wrapCSSVar(
     // @ts-ignore
