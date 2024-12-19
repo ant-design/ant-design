@@ -28935,6 +28935,7 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
   class="config-tabs config-tabs-top"
 >
   <div
+    aria-orientation="horizontal"
     class="config-tabs-nav"
     role="tablist"
   >
@@ -29025,6 +29026,7 @@ exports[`ConfigProvider components Tabs configProvider componentDisabled 1`] = `
   class="config-tabs config-tabs-top"
 >
   <div
+    aria-orientation="horizontal"
     class="config-tabs-nav"
     role="tablist"
   >
@@ -29115,6 +29117,7 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
   class="config-tabs config-tabs-top config-tabs-large"
 >
   <div
+    aria-orientation="horizontal"
     class="config-tabs-nav"
     role="tablist"
   >
@@ -29205,6 +29208,7 @@ exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] 
   class="config-tabs config-tabs-top config-tabs-middle"
 >
   <div
+    aria-orientation="horizontal"
     class="config-tabs-nav"
     role="tablist"
   >
@@ -29295,6 +29299,7 @@ exports[`ConfigProvider components Tabs configProvider componentSize small 1`] =
   class="config-tabs config-tabs-top config-tabs-small"
 >
   <div
+    aria-orientation="horizontal"
     class="config-tabs-nav"
     role="tablist"
   >
@@ -29385,6 +29390,7 @@ exports[`ConfigProvider components Tabs normal 1`] = `
   class="ant-tabs ant-tabs-top"
 >
   <div
+    aria-orientation="horizontal"
     class="ant-tabs-nav"
     role="tablist"
   >
@@ -29475,6 +29481,7 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
   class="prefix-Tabs prefix-Tabs-top"
 >
   <div
+    aria-orientation="horizontal"
     class="prefix-Tabs-nav"
     role="tablist"
   >
