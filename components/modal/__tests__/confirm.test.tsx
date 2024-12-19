@@ -18,6 +18,18 @@ const { confirm } = Modal;
 
 jest.mock('rc-motion');
 
+// TODO: Remove this. Mock for React 19
+jest.mock('react-dom', () => {
+  const realReactDOM = jest.requireActual('react-dom');
+
+  if (realReactDOM.version.startsWith('19')) {
+    const realReactDOMClient = jest.requireActual('react-dom/client');
+    realReactDOM.createRoot = realReactDOMClient.createRoot;
+  }
+
+  return realReactDOM;
+});
+
 (global as any).injectPromise = false;
 (global as any).rejectPromise = null;
 

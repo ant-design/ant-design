@@ -2,9 +2,9 @@ import * as React from 'react';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import raf from 'rc-util/lib/raf';
-import { render, unmount } from 'rc-util/lib/React/render';
 import { composeRef } from 'rc-util/lib/ref';
 
+import { getReactRender, type UnmountType } from '../../config-provider/UnstableContext';
 import { TARGET_CLS } from './interface';
 import type { ShowWaveEffect } from './interface';
 import { getTargetWaveColor } from './util';
@@ -17,12 +17,21 @@ export interface WaveEffectProps {
   className: string;
   target: HTMLElement;
   component?: string;
+  registerUnmount: () => UnmountType | null;
 }
 
-const WaveEffect: React.FC<WaveEffectProps> = (props) => {
-  const { className, target, component } = props;
+const WaveEffect = (props: WaveEffectProps) => {
+  const { className, target, component, registerUnmount } = props;
   const divRef = React.useRef<HTMLDivElement>(null);
 
+  // ====================== Refs ======================
+  const unmountRef = React.useRef<UnmountType>(null);
+
+  React.useEffect(() => {
+    unmountRef.current = registerUnmount();
+  }, []);
+
+  // ===================== Effect =====================
   const [color, setWaveColor] = React.useState<string | null>(null);
   const [borderRadius, setBorderRadius] = React.useState<number[]>([]);
   const [left, setLeft] = React.useState(0);
@@ -119,7 +128,7 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
       onAppearEnd={(_, event) => {
         if (event.deadline || (event as TransitionEvent).propertyName === 'opacity') {
           const holder = divRef.current?.parentElement!;
-          unmount(holder).then(() => {
+          unmountRef.current?.().then(() => {
             holder?.remove();
           });
         }
@@ -140,13 +149,6 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
 const showWaveEffect: ShowWaveEffect = (target, info) => {
   const { component } = info;
 
-  // Skip if not support `render` since `rc-util` render not support React 19
-  // TODO: remove this check in v6
-  /* istanbul ignore next */
-  if (!render) {
-    return;
-  }
-
   // Skip for unchecked checkbox
   if (component === 'Checkbox' && !target.querySelector<HTMLInputElement>('input')?.checked) {
     return;
@@ -159,7 +161,18 @@ const showWaveEffect: ShowWaveEffect = (target, info) => {
   holder.style.top = '0px';
   target?.insertBefore(holder, target?.firstChild);
 
-  render(<WaveEffect {...info} target={target} />, holder);
+  const reactRender = getReactRender();
+
+  let unmountCallback: UnmountType | null = null;
+
+  function registerUnmount() {
+    return unmountCallback;
+  }
+
+  unmountCallback = reactRender(
+    <WaveEffect {...info} target={target} registerUnmount={registerUnmount} />,
+    holder,
+  );
 };
 
 export default showWaveEffect;

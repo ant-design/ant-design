@@ -306,7 +306,7 @@ const ComponentChangelog: React.FC<Readonly<React.PropsWithChildren>> = (props) 
   return (
     <>
       {isValidElement(children) &&
-        cloneElement(children as React.ReactElement, {
+        cloneElement(children as React.ReactElement<any>, {
           onClick: () => setShow(true),
         })}
       <Drawer

@@ -4,7 +4,7 @@ import { Flex, Spin, Switch } from 'antd';
 const App: React.FC = () => {
   const [auto, setAuto] = React.useState(false);
   const [percent, setPercent] = React.useState(-50);
-  const timerRef = React.useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = React.useRef<ReturnType<typeof setTimeout>>(null);
 
   React.useEffect(() => {
     timerRef.current = setTimeout(() => {
@@ -13,7 +13,7 @@ const App: React.FC = () => {
         return nextPercent > 150 ? -50 : nextPercent;
       });
     }, 100);
-    return () => clearTimeout(timerRef.current);
+    return () => clearTimeout(timerRef.current!);
   }, [percent]);
 
   const mergedPercent = auto ? 'auto' : percent;

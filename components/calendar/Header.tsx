@@ -153,7 +153,7 @@ export interface CalendarHeaderProps<DateType> {
 }
 function CalendarHeader<DateType>(props: CalendarHeaderProps<DateType>) {
   const { prefixCls, fullscreen, mode, onChange, onModeChange } = props;
-  const divRef = React.useRef<HTMLDivElement>(null);
+  const divRef = React.useRef<HTMLDivElement>(null!);
 
   const formItemInputContext = useContext(FormItemInputContext);
   const mergedFormItemInputContext = useMemo(

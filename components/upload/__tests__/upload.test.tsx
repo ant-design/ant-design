@@ -38,7 +38,7 @@ describe('Upload', () => {
 
   // https://github.com/react-component/upload/issues/36
   it('should get refs inside Upload in componentDidMount', () => {
-    let ref: React.RefObject<HTMLInputElement>;
+    let ref: React.RefObject<HTMLInputElement | null>;
     const App: React.FC = () => {
       const inputRef = useRef<HTMLInputElement>(null);
       useEffect(() => {

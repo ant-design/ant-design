@@ -128,7 +128,11 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
       onClick: (e: React.MouseEvent<HTMLElement>) => {
         callback();
         if (React.isValidElement(customIcon)) {
-          customIcon.props.onClick?.(e);
+          (
+            customIcon as React.ReactElement<{
+              onClick: React.MouseEventHandler<HTMLElement>;
+            }>
+          ).props.onClick?.(e);
         }
       },
       className: `${prefixCls}-list-item-action`,
@@ -140,7 +144,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
       <Button
         {...btnProps}
         icon={cloneElement(customIcon, {
-          ...customIcon.props,
+          ...(customIcon as React.ReactElement<object>).props,
           onClick: () => {},
         })}
       />

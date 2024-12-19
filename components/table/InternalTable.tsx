@@ -222,7 +222,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   }, [rawData]);
 
   const internalRefs: NonNullable<RcTableProps['internalRefs']> = {
-    body: React.useRef<HTMLDivElement>(),
+    body: React.useRef<HTMLDivElement>(null),
   } as NonNullable<RcTableProps['internalRefs']>;
 
   // ============================ Width =============================

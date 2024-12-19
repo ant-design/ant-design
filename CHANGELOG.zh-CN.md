@@ -15,6 +15,19 @@ tag: vVERSION
 
 ---
 
+## 5.22.5
+
+`2024-12-15`
+
+- 🛠 重构 Wave/Menu/Form `ref` 检查逻辑以解决 React 19 `ref` 部分冲突（注：该更新不会完全解决 React 19 兼容问题，后续将会持续更新）。[#51952](https://github.com/ant-design/ant-design/pull/51952) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Dropdown `children` 不支持传入 ReactNode 的问题。[#50174](https://github.com/ant-design/ant-design/pull/50174) [@coding-ice](https://github.com/coding-ice)
+- 🐞 修复 Carousel 某些情况下在 Modal 中无法正确展示的问题。[#51988](https://github.com/ant-design/ant-design/pull/51988) [@quan060798](https://github.com/quan060798)
+- 🐞 修复 Select 选中文本溢出的问题 。[#52011](https://github.com/ant-design/ant-design/pull/52011) [@OysterD3](https://github.com/OysterD3)
+- 🐞 修复 Form `setFieldValue` 没有重置字段校验信息的问题。[#51993](https://github.com/ant-design/ant-design/pull/51993) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Pagination 配置 `showSizeChanger.showSearch` 无效的问题。[#51962](https://github.com/ant-design/ant-design/pull/51962) [@zombieJ](https://github.com/zombieJ)
+- 🇰🇷 优化 DatePicker 韩语本地化文案。[#51983](https://github.com/ant-design/ant-design/pull/51983) [@DevLeti](https://github.com/DevLeti)
+- 🤖 从 antd 里导出 `CheckboxChangeEvent` 类型。[#52008](https://github.com/ant-design/ant-design/pull/52008) [@SpecLad](https://github.com/SpecLad)
+
 ## 5.22.4
 
 `2024-12-09`

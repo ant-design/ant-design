@@ -121,7 +121,7 @@ const App: React.FC = () => {
     const displayHoliday = h?.getTarget() === h?.getDay() ? h?.getName() : undefined;
     if (info.type === 'date') {
       return React.cloneElement(info.originNode, {
-        ...info.originNode.props,
+        ...(info.originNode as React.ReactElement<any>).props,
         className: classNames(styles.dateCell, {
           [styles.current]: selectDate.isSame(date, 'date'),
           [styles.today]: date.isSame(dayjs(), 'date'),

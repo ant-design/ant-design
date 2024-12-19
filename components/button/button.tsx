@@ -163,7 +163,7 @@ const InternalCompoundedButton = React.forwardRef<
 
   const [hasTwoCNChar, setHasTwoCNChar] = useState<boolean>(false);
 
-  const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>();
+  const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
 
   const mergedRef = useComposeRef(ref, buttonRef);
 

@@ -4,7 +4,7 @@ import raf from 'rc-util/lib/raf';
 export default function useRafLock(): [state: boolean, setState: (nextState: boolean) => void] {
   const [state, setState] = React.useState(false);
 
-  const rafRef = React.useRef<number>();
+  const rafRef = React.useRef<number>(null);
   const cleanup = () => {
     raf.cancel(rafRef.current!);
   };

@@ -51,7 +51,7 @@ export const Footer: React.FC<
   const [locale] = useLocale('Modal', getConfirmLocale());
 
   // ================== Locale Text ==================
-  const okTextLocale = okText || locale?.okText;
+  const okTextLocale: React.ReactNode = okText || locale?.okText;
   const cancelTextLocale = cancelText || locale?.cancelText;
 
   // ================= Context Value =================

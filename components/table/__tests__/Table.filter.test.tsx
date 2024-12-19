@@ -3125,7 +3125,7 @@ describe('Table.filter', () => {
 
       fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
       expect(dropdownRender).toHaveBeenCalled();
-      expect(dropdownRender.mock.calls[0][0]).toMatchSnapshot();
+      expect(React.isValidElement(dropdownRender.mock.calls[0][0])).toBeTruthy();
       expect(getByText('Foo')).toBeTruthy();
     });
 

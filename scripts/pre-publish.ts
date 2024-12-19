@@ -240,7 +240,7 @@ const runPrePublish = async () => {
 
   // 从 OSS 下载产物
   const downloadOSSPromise = Promise.resolve().then(async () => {
-    const url = `https://antd-visual-diff.oss-cn-shanghai.aliyuncs.com/${sha}/oss-artifacts.zip`;
+    const url = `https://antd-visual-diff.oss-accelerate.aliyuncs.com/${sha}/oss-artifacts.zip`;
 
     showMessage(`准备从远程 OSS 下载构建产物`, true, '[OSS]');
 

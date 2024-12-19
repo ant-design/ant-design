@@ -88,12 +88,12 @@ const App: React.FC = () => {
   const [showFooter, setShowFooter] = useState(true);
   const [rowSelection, setRowSelection] = useState<TableRowSelection<DataType> | undefined>({});
   const [hasData, setHasData] = useState(true);
-  const [tableLayout, setTableLayout] = useState();
+  const [tableLayout, setTableLayout] = useState<string>('unset');
   const [top, setTop] = useState<TablePaginationPosition>('none');
   const [bottom, setBottom] = useState<TablePaginationPosition>('bottomRight');
   const [ellipsis, setEllipsis] = useState(false);
   const [yScroll, setYScroll] = useState(false);
-  const [xScroll, setXScroll] = useState<string>();
+  const [xScroll, setXScroll] = useState<string>('unset');
 
   const handleBorderChange = (enable: boolean) => {
     setBordered(enable);
@@ -151,7 +151,7 @@ const App: React.FC = () => {
   if (yScroll) {
     scroll.y = 240;
   }
-  if (xScroll) {
+  if (xScroll !== 'unset') {
     scroll.x = '100vw';
   }
 
@@ -171,7 +171,7 @@ const App: React.FC = () => {
     footer: showFooter ? defaultFooter : undefined,
     rowSelection,
     scroll,
-    tableLayout,
+    tableLayout: tableLayout === 'unset' ? undefined : (tableLayout as TableProps['tableLayout']),
   };
 
   return (
@@ -216,14 +216,14 @@ const App: React.FC = () => {
         </Form.Item>
         <Form.Item label="Table Scroll">
           <Radio.Group value={xScroll} onChange={handleXScrollChange}>
-            <Radio.Button value={undefined}>Unset</Radio.Button>
+            <Radio.Button value="unset">Unset</Radio.Button>
             <Radio.Button value="scroll">Scroll</Radio.Button>
             <Radio.Button value="fixed">Fixed Columns</Radio.Button>
           </Radio.Group>
         </Form.Item>
         <Form.Item label="Table Layout">
           <Radio.Group value={tableLayout} onChange={handleTableLayoutChange}>
-            <Radio.Button value={undefined}>Unset</Radio.Button>
+            <Radio.Button value="unset">Unset</Radio.Button>
             <Radio.Button value="fixed">Fixed</Radio.Button>
           </Radio.Group>
         </Form.Item>

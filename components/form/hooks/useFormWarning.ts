@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import * as React from 'react';
 
 import { devUseWarning } from '../../_util/warning';
 import type { FormProps } from '../Form';
@@ -8,7 +8,7 @@ const names: Record<string, number> = {};
 export default function useFormWarning({ name }: FormProps) {
   const warning = devUseWarning('Form');
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (name) {
       names[name] = (names[name] || 0) + 1;
 
