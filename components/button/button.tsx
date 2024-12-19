@@ -170,6 +170,17 @@ const InternalCompoundedButton = React.forwardRef<
   const needInserted =
     Children.count(children) === 1 && !icon && !isUnBorderedButtonVariant(mergedVariant);
 
+  // ========================= Mount ==========================
+  // Record for mount status.
+  // This will help to no to show the animation of loading on the first mount.
+  const isMountRef = useRef(true);
+  React.useEffect(() => {
+    isMountRef.current = false;
+    return () => {
+      isMountRef.current = true;
+    };
+  }, []);
+
   // ========================= Effect =========================
   // Loading
   useEffect(() => {
@@ -264,6 +275,7 @@ const InternalCompoundedButton = React.forwardRef<
     prefixCls,
     hashId,
     cssVarCls,
+    `${prefixCls}-icon-${iconPosition}`,
     {
       [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
       // line(253 - 254): Compatible with versions earlier than 5.21.0
@@ -278,7 +290,6 @@ const InternalCompoundedButton = React.forwardRef<
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && mergedInsertSpace && !innerLoading,
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-icon-end`]: iconPosition === 'end',
     },
     compactItemClassnames,
     className,
@@ -300,7 +311,12 @@ const InternalCompoundedButton = React.forwardRef<
         {icon}
       </IconWrapper>
     ) : (
-      <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={innerLoading} />
+      <LoadingIcon
+        existIcon={!!icon}
+        prefixCls={prefixCls}
+        loading={innerLoading}
+        mount={isMountRef.current}
+      />
     );
 
   const kids =
