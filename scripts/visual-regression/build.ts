@@ -82,7 +82,7 @@ const readPngs = (dir: string) => fs.readdirSync(dir).filter((n) => n.endsWith('
 
 const prettyList = (list: string[]) => list.map((i) => ` * ${i}`).join('\n');
 
-const ossDomain = `https://${ALI_OSS_BUCKET}.oss-cn-shanghai.aliyuncs.com`;
+const ossDomain = `https://${ALI_OSS_BUCKET}.oss-accelerate.aliyuncs.com`;
 
 async function downloadFile(url: string, destPath: string) {
   const response = await fetch(url);
