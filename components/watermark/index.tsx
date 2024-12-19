@@ -228,7 +228,10 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
         appendWatermark(watermarkInfo[0], watermarkInfo[1], holder);
       });
     }
-  }, [watermarkInfo, targetElements]);
+    // The current useEffect dependencies [watermarkInfo?.[0], watermarkInfo?.[1], targetElements] include the reference type watermarkInfo. 
+    // This might trigger unnecessary side effects. 
+    // To ensure precise dependency tracking and avoid unnecessary renders caused by changes in reference types, the content should be destructured accordingly.
+  }, [watermarkInfo?.[0], watermarkInfo?.[1], targetElements]);
 
   // ============================ Observe =============================
   const onMutate = useEvent((mutations: MutationRecord[]) => {
