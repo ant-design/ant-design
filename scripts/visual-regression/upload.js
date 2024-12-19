@@ -123,7 +123,7 @@ async function boot() {
   }
 
   const client = new OSS({
-    endpoint: 'oss-cn-shanghai.aliyuncs.com',
+    endpoint: 'oss-accelerate.aliyuncs.com',
     accessKeyId: process.env.ALI_OSS_AK_ID,
     accessKeySecret: process.env.ALI_OSS_AK_SECRET,
     bucket: ALI_OSS_BUCKET,
