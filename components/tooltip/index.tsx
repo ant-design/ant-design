@@ -93,11 +93,11 @@ interface LegacyTooltipProps
 export interface AbstractTooltipProps extends LegacyTooltipProps {
   styles?: {
     root?: React.CSSProperties;
-    inner?: React.CSSProperties;
+    body?: React.CSSProperties;
   };
   classNames?: {
     root?: string;
-    inner?: string;
+    body?: string;
   };
   style?: React.CSSProperties;
   className?: string;
@@ -191,7 +191,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       ['arrowPointAtCenter', 'arrow={{ pointAtCenter: true }}'],
       // todo: Warnings are not available yet, because popover and popconfirm are still in use. Wait until they are merged before processing.
       // ['overlayStyle', 'styles={{ root: {} }}'],
-      // ['overlayInnerStyle', 'styles={{ inner: {} }}'],
+      // ['overlayInnerStyle', 'styles={{ body: {} }}'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
@@ -311,7 +311,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     tooltipClassNames?.root,
   );
 
-  const innerClassnames = classNames(tooltip?.classNames?.inner, tooltipClassNames?.inner);
+  const bodyClassnames = classNames(tooltip?.classNames?.body, tooltipClassNames?.body);
 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Tooltip', otherProps.zIndex);
@@ -325,7 +325,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
       prefixCls={prefixCls}
-      classNames={{ root: rootClassNames, inner: innerClassnames }}
+      classNames={{ root: rootClassNames, body: bodyClassnames }}
       styles={{
         root: {
           ...arrowContentStyle,
@@ -334,10 +334,10 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
           ...overlayStyle,
           ...styles?.root,
         },
-        inner: {
-          ...tooltip?.styles?.inner,
+        body: {
+          ...tooltip?.styles?.body,
           ...overlayInnerStyle,
-          ...styles?.inner,
+          ...styles?.body,
           ...colorInfo.overlayStyle,
         },
       }}

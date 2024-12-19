@@ -10,8 +10,8 @@ const App: React.FC = () => (
       tooltip={{
         className: 'cutsom-tooltip-test',
         style: { background: 'yellow' },
-        styles: { inner: { color: 'red', borderRadius: 50 }, root: { color: 'green' } },
-        classNames: { root: 'custom-root', inner: 'custom-inner' },
+        styles: { body: { color: 'red', borderRadius: 50 }, root: { color: 'green' } },
+        classNames: { root: 'custom-root', body: 'custom-body' },
       }}
     >
       <Tooltip title="prompt text">

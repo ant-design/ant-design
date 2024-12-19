@@ -7,11 +7,11 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 const locales = {
   cn: {
     root: '根节点',
-    inner: '内部元素',
+    body: '内容元素',
   },
   en: {
     root: 'Root element',
-    inner: 'inner element',
+    body: 'Body element',
   },
 };
 
@@ -39,7 +39,7 @@ const App: React.FC = () => {
     <SemanticPreview
       semantics={[
         { name: 'root', desc: locale.root, version: '5.23.0' },
-        { name: 'inner', desc: locale.inner, version: '5.23.0' },
+        { name: 'body', desc: locale.body, version: '5.23.0' },
       ]}
     >
       <BlockList />

@@ -603,12 +603,12 @@ describe('Tooltip', () => {
 
   it('should apply custom styles to Tooltip', () => {
     const customClassNames = {
-      inner: 'custom-inner',
+      body: 'custom-body',
       root: 'custom-root',
     };
 
     const customStyles = {
-      inner: { color: 'red' },
+      body: { color: 'red' },
       root: { backgroundColor: 'blue' },
     };
 
@@ -619,14 +619,14 @@ describe('Tooltip', () => {
     );
 
     const tooltipElement = container.querySelector('.ant-tooltip') as HTMLElement;
-    const tooltipInnerElement = container.querySelector('.ant-tooltip-inner') as HTMLElement;
+    const tooltipBodyElement = container.querySelector('.ant-tooltip-inner') as HTMLElement;
 
     // 验证 classNames
     expect(tooltipElement.classList).toContain('custom-root');
-    expect(tooltipInnerElement.classList).toContain('custom-inner');
+    expect(tooltipBodyElement.classList).toContain('custom-body');
 
     // 验证 styles
     expect(tooltipElement.style.backgroundColor).toBe('blue');
-    expect(tooltipInnerElement.style.color).toBe('red');
+    expect(tooltipBodyElement.style.color).toBe('red');
   });
 });
