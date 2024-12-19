@@ -35,6 +35,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       userSelect: 'none',
       touchAction: 'manipulation',
       color: token.colorText,
+      verticalAlign: 'middle',
 
       '&:disabled > *': {
         pointerEvents: 'none',
