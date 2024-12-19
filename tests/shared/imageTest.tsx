@@ -144,9 +144,9 @@ export default function imageTest(
       // Do inject open trigger
       if (openTriggerClassName) {
         element = (
-          <TriggerMockContext value={{ popupVisible: true }}>
+          <TriggerMockContext.Provider value={{ popupVisible: true }}>
             {element}
-          </TriggerMockContext>
+          </TriggerMockContext.Provider>
         );
       }
 
