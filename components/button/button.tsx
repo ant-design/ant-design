@@ -275,7 +275,6 @@ const InternalCompoundedButton = React.forwardRef<
     prefixCls,
     hashId,
     cssVarCls,
-    `${prefixCls}-icon-${iconPosition}`,
     {
       [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
       // line(253 - 254): Compatible with versions earlier than 5.21.0
@@ -290,6 +289,7 @@ const InternalCompoundedButton = React.forwardRef<
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && mergedInsertSpace && !innerLoading,
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-icon-end`]: iconPosition === 'end',
     },
     compactItemClassnames,
     className,

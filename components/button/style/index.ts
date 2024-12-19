@@ -95,7 +95,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       },
 
       // iconPosition
-      '&-icon-start': {
+      [`&:not(${componentCls}-icon-end)`]: {
         [`${componentCls}-loading-icon-motion`]: {
           '&-appear-start, &-enter-start': {
             marginInlineEnd: calc(marginXS).mul(-1).equal(),

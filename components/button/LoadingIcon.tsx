@@ -77,7 +77,6 @@ const LoadingIcon: React.FC<LoadingIconProps> = (props) => {
             className={classNames(className, motionCls)}
             style={mergedStyle}
             ref={ref}
-            // iconClassName={motionCls}
           />
         );
       }}

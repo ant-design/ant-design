@@ -128,11 +128,10 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
   >
     <span
       class="ant-btn-icon ant-btn-loading-icon"
-      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+        class="anticon anticon-loading anticon-spin"
         role="img"
       >
         <svg
@@ -160,11 +159,10 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
   >
     <span
       class="ant-btn-icon ant-btn-loading-icon"
-      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+        class="anticon anticon-loading anticon-spin"
         role="img"
       >
         <svg
@@ -190,11 +188,10 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
   >
     <span
       class="ant-btn-icon ant-btn-loading-icon"
-      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+        class="anticon anticon-loading anticon-spin"
         role="img"
       >
         <svg
@@ -222,11 +219,10 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
   >
     <span
       class="ant-btn-icon ant-btn-loading-icon"
-      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+        class="anticon anticon-loading anticon-spin"
         role="img"
       >
         <svg
@@ -281,11 +277,10 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
   >
     <span
       class="ant-btn-icon ant-btn-loading-icon"
-      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+        class="anticon anticon-loading anticon-spin"
         role="img"
       >
         <svg
@@ -2305,11 +2300,10 @@ Array [
       >
         <span
           class="ant-btn-icon ant-btn-loading-icon"
-          style="width: 0px; opacity: 0; transform: scale(0);"
         >
           <span
             aria-label="loading"
-            class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+            class="anticon anticon-loading anticon-spin"
             role="img"
           >
             <svg
@@ -2761,11 +2755,10 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
     >
       <span
         class="ant-btn-icon ant-btn-loading-icon"
-        style="width: 0px; opacity: 0; transform: scale(0);"
       >
         <span
           aria-label="loading"
-          class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+          class="anticon anticon-loading anticon-spin"
           role="img"
         >
           <svg
@@ -2793,11 +2786,10 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
     >
       <span
         class="ant-btn-icon ant-btn-loading-icon"
-        style="width: 0px; opacity: 0; transform: scale(0);"
       >
         <span
           aria-label="loading"
-          class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+          class="anticon anticon-loading anticon-spin"
           role="img"
         >
           <svg
@@ -2856,7 +2848,15 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
       type="button"
     >
       <span>
-        Click me!
+        Icon Start
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-end"
+      type="button"
+    >
+      <span>
+        Icon End
       </span>
     </button>
     <button
@@ -2887,7 +2887,7 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
         </span>
       </span>
       <span>
-        Click me!
+        Icon Replace
       </span>
     </button>
     <button
