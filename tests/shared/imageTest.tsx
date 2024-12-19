@@ -144,9 +144,9 @@ export default function imageTest(
       // Do inject open trigger
       if (openTriggerClassName) {
         element = (
-          <TriggerMockContext.Provider value={{ popupVisible: true }}>
+          <TriggerMockContext value={{ popupVisible: true }}>
             {element}
-          </TriggerMockContext.Provider>
+          </TriggerMockContext>
         );
       }
 
@@ -206,9 +206,9 @@ export default function imageTest(
 
         // loooooong image
         rcWarning(
-          bodyHeight < 2048, // Expected height
+          bodyHeight < 4096, // Expected height
           `[IMAGE TEST] [${identifier}] may cause screenshots to be very long and unacceptable.
-            Please consider using \`onlyViewport: ["filename.tsx"]\`, read more: https://github.com/ant-design/ant-design/pull/2333`,
+            Please consider using \`onlyViewport: ["filename.tsx"]\`, read more: https://github.com/ant-design/ant-design/pull/52053`,
         );
 
         await page.setViewport({ width: 800, height: bodyHeight });
