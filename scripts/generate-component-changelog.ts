@@ -45,6 +45,7 @@ const miscKeys = [
   'Design Token',
   'MISC:',
   '杂项：',
+  'antd',
   '@ant-design/cssinjs',
   '@ant-design/icons',
   'rc-motion',
@@ -79,7 +80,6 @@ const miscKeys = [
   '🇲🇳',
   '🇳🇵',
   '🇪🇬',
-  '🇪🇸',
   '🇦🇿',
 ];
 

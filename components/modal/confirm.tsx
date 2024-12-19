@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { render as reactRender, unmount as reactUnmount } from 'rc-util/lib/React/render';
 
 import warning from '../_util/warning';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
+import { getReactRender, UnmountType } from '../config-provider/UnstableContext';
 import type { ConfirmDialogProps } from './ConfirmDialog';
 import ConfirmDialog from './ConfirmDialog';
 import destroyFns from './destroyFns';
@@ -71,6 +71,8 @@ export default function confirm(config: ModalFuncProps) {
   let currentConfig = { ...config, close, open: true } as any;
   let timeoutId: ReturnType<typeof setTimeout>;
 
+  let reactUnmount: UnmountType;
+
   function destroy(...args: any[]) {
     const triggerCancel = args.some((param) => param?.triggerCancel);
     if (triggerCancel) {
@@ -84,7 +86,7 @@ export default function confirm(config: ModalFuncProps) {
       }
     }
 
-    reactUnmount(container);
+    reactUnmount();
   }
 
   function render(props: any) {
@@ -102,7 +104,9 @@ export default function confirm(config: ModalFuncProps) {
 
       const dom = <ConfirmDialogWrapper {...props} />;
 
-      reactRender(
+      const reactRender = getReactRender();
+
+      reactUnmount = reactRender(
         <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={iconPrefixCls} theme={theme}>
           {global.holderRender ? global.holderRender(dom) : dom}
         </ConfigProvider>,

@@ -151,6 +151,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         display: 'flex',
         width: '100%',
         position: 'relative',
+        minWidth: 0,
 
         // https://github.com/ant-design/ant-design/issues/51669
         '&:after': {
