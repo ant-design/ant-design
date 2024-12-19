@@ -52,14 +52,13 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### SegmentedItemType
 
-
-| Property  | Description  | Type  | Default | Version |
-| --- | --- | --- | --- | --- |
-| label | Display text for Segmented item  | ReactNode | - |  |
-| value | Value for Segmented item  | string \| number | - |  |
-| icon  | Display icon for Segmented item  | ReactNode | - |  |
-| disabled | Disabled state of segmented item | boolean | false |  |
-| className | The additional css class | string | - |  |
+| Property  | Description                      | Type             | Default | Version |
+| --------- | -------------------------------- | ---------------- | ------- | ------- |
+| label     | Display text for Segmented item  | ReactNode        | -       |         |
+| value     | Value for Segmented item         | string \| number | -       |         |
+| icon      | Display icon for Segmented item  | ReactNode        | -       |         |
+| disabled  | Disabled state of segmented item | boolean          | false   |         |
+| className | The additional css class         | string           | -       |         |
 
 ## Design Token
 
