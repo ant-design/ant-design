@@ -2,7 +2,7 @@ import React, { Suspense, useContext } from 'react';
 import { BugOutlined, CodeOutlined, ExperimentOutlined } from '@ant-design/icons';
 import { ConfigProvider, Tooltip, Button } from 'antd';
 import classNames from 'classnames';
-import { DumiDemoGrid, FormattedMessage } from 'dumi';
+import { DumiDemoGrid, FormattedMessage, DumiDemo } from 'dumi';
 import { css, Global } from '@emotion/react';
 
 import useLayoutState from '../../../hooks/useLayoutState';
@@ -114,7 +114,14 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
       </span>
       <ConfigProvider theme={{ cssVar: enableCssVar, hashed: !enableCssVar }}>
         <Suspense>
-          <DumiDemoGrid items={demos} />
+          <DumiDemoGrid
+            items={demos}
+            demoRender={(item) => (
+              <Suspense>
+                <DumiDemo key={item.demo.id} {...item} />
+              </Suspense>
+            )}
+          />
         </Suspense>
       </ConfigProvider>
     </div>
