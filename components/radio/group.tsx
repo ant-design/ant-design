@@ -19,6 +19,8 @@ import useStyle from './style';
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
+  const defaultName = React.useMemo(() => `ant_radio_${Math.random().toString(36).slice(2)}`, []);
+
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -31,7 +33,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     style,
     id,
     optionType,
-    name,
+    name = defaultName,
     defaultValue,
     value: customizedValue,
     block = false,
