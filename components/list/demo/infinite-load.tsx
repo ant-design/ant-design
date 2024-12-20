@@ -62,6 +62,7 @@ const App: React.FC = () => {
       >
         <List
           dataSource={data}
+          rowKey="email"
           renderItem={(item) => (
             <List.Item key={item.email}>
               <List.Item.Meta
