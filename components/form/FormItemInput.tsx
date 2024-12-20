@@ -11,7 +11,6 @@ import ErrorList from './ErrorList';
 import type { ValidateStatus } from './FormItem';
 import FallbackCmp from './style/fallbackCmp';
 
-
 /** @internal */
 type InternalItemRender = {
   mark: string;
@@ -22,9 +21,11 @@ type InternalItemRender = {
       errorList: JSX.Element | null;
       extra: JSX.Element | null;
     },
-  ) => React.ReactNode
-  prepare: <T = Parameters<InternalItemRender['render']>[1]>(params: T) => T
-}
+  ) => React.ReactNode;
+  prepare: (
+    ...params: Parameters<InternalItemRender['render']>
+  ) => Parameters<InternalItemRender['render']>[1];
+};
 
 interface FormItemInputMiscProps {
   prefixCls: string;
@@ -35,7 +36,7 @@ interface FormItemInputMiscProps {
   onErrorVisibleChanged?: (visible: boolean) => void;
   /** @internal do not use in any of your production. */
   _internalItemRender?: InternalItemRender;
-};
+}
 
 export interface FormItemInputProps {
   labelCol?: ColProps;
@@ -147,24 +148,22 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   let innerRender: InternalItemRender['render'] = (_, { input, errorList, extra }) => (
     <>
       {input}
-      {
-        errorList || extra ? (
-          <div
-            className={`${baseClassName}-additional`}
-            style={marginBottom ? { minHeight: marginBottom + extraHeight } : {}}
-          >
-            {errorList}
-            {extra}
-          </div>
-        ) : null
-      }
+      {errorList || extra ? (
+        <div
+          className={`${baseClassName}-additional`}
+          style={marginBottom ? { minHeight: marginBottom + extraHeight } : {}}
+        >
+          {errorList}
+          {extra}
+        </div>
+      ) : null}
     </>
-  )
+  );
 
   // It is just for `pro-components`
   if (formItemRender?.mark === 'pro_table_render') {
     if (typeof formItemRender?.prepare === 'function') {
-      innerRender = (_, ...args) => innerRender(_, formItemRender.prepare(...args))
+      innerRender = (...args) => innerRender(args[0], formItemRender.prepare(...args));
     } else if (typeof formItemRender?.render === 'function') {
       innerRender = formItemRender.render;
     }
@@ -173,13 +172,11 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   return (
     <FormContext.Provider value={subFormContext}>
       <Col {...mergedWrapperCol} className={className}>
-        {
-          innerRender(props, {
-            input: inputDom,
-            errorList: errorListDom,
-            extra: extraDom
-          })
-        }
+        {innerRender(props, {
+          input: inputDom,
+          errorList: errorListDom,
+          extra: extraDom,
+        })}
       </Col>
       <FallbackCmp prefixCls={prefixCls} />
     </FormContext.Provider>
