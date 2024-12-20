@@ -15,11 +15,13 @@ import type {
 } from './interface';
 import Radio from './radio';
 import useStyle from './style';
+import { useStableId } from './useStableId';
 
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
-  const defaultName = React.useMemo(() => `ant_radio_${Math.random().toString(36).slice(2)}`, []);
+  const stableId = useStableId();
+  const defaultName = React.useMemo(() => stableId, [stableId]);
 
   const {
     prefixCls: customizePrefixCls,
