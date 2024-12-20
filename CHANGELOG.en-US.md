@@ -15,9 +15,51 @@ tag: vVERSION
 
 ---
 
+## 5.22.5
+
+`2024-12-15`
+
+- 🛠 Refactor Wave/Menu/Form `ref` check logic to resolve React 19 `ref` conflict (Note, this is not finally support React 19 but we will resolve step by step in future version). [#51952](https://github.com/ant-design/ant-design/pull/51952) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Dropdown cannot accept ReactNode as `children`. [#50174](https://github.com/ant-design/ant-design/pull/50174) [@coding-ice](https://github.com/coding-ice)
+- 🐞 Fix Carousel cannot display correctly in Modal without icon. [#51988](https://github.com/ant-design/ant-design/pull/51988) [@quan060798](https://github.com/quan060798)
+- 🐞 Fix Select label overflow issue. [#52011](https://github.com/ant-design/ant-design/pull/52011) [@OysterD3](https://github.com/OysterD3)
+- 🐞 Fix Form `setFieldValue` not reset field validation. [#51993](https://github.com/ant-design/ant-design/pull/51993) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Pagination with setting `showSizeChanger.showSearch` not working. [#51962](https://github.com/ant-design/ant-design/pull/51962) [@zombieJ](https://github.com/zombieJ)
+- 🇰🇷 Improve Korean locales for DatePicker. [#51983](https://github.com/ant-design/ant-design/pull/51983) [@DevLeti](https://github.com/DevLeti)
+- 🤖 Export `CheckboxChangeEvent` from antd. [#52008](https://github.com/ant-design/ant-design/pull/52008) [@SpecLad](https://github.com/SpecLad)
+
+## 5.22.4
+
+`2024-12-09`
+
+- Transfer
+  - 🐞 Fix the background overflow when Transfer selects the last item on the current page. [#51884](https://github.com/ant-design/ant-design/pull/51884) [@ayangweb](https://github.com/ayangweb)
+  - 🐞 Fix Transfer toggle button being enabled when all items are disabled. [#51784](https://github.com/ant-design/ant-design/pull/51784) [@WwwHhhYran](https://github.com/WwwHhhYran)
+- 🐞 Fix the arrow would be outside the container when the Tooltip content was too small. [#51904](https://github.com/ant-design/ant-design/pull/51904)
+- 🐞 Fix where clicking the Radio or Checkbox under Upload would trigger the popup window twice. [#51874](https://github.com/ant-design/ant-design/pull/51874)
+- 💄 Fix Menu icon alignment when using `collapsedIconSize`. [#51863](https://github.com/ant-design/ant-design/pull/51863) [@Gnomeek](https://github.com/Gnomeek)
+- 💄 Fix incorrect styling of Tabs component when `type="editable-card"`. [#51935](https://github.com/ant-design/ant-design/pull/51935) [@aojunhao123](https://github.com/aojunhao123)
+- 💄 Fix insufficient trigger style priority in Layout.Sider component in `zero-width` mode. [#51936](https://github.com/ant-design/ant-design/pull/51936) [@aojunhao123](https://github.com/aojunhao123)
+- 💄 MISC: Fix the icon styles were created repeatedly. [#51897](https://github.com/ant-design/ant-design/pull/51897) [@YumoImer](https://github.com/YumoImer)
+- 💄 MISC: Inline styles refactored to cssinjs. [#51843](https://github.com/ant-design/ant-design/pull/51843)
+
+## 5.22.3
+
+`2024-12-02`
+
+- 🐞 Fix Select clear button may has incorrect position within Form.item. [#51649](https://github.com/ant-design/ant-design/pull/51649) [@dislido](https://github.com/dislido)
+- 🐞 Fix InputNumber `handleVisible` token not work as expected. [#51728](https://github.com/ant-design/ant-design/pull/51728) [@dengfuping](https://github.com/dengfuping)
+- 🐞 Fix ColorPicker error when pass `ReactNode` to `label` field of `presets` property. [#51808](https://github.com/ant-design/ant-design/pull/51808) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix Menu `inlineCollapsed` property not works bug within Layout. [#51775](https://github.com/ant-design/ant-design/pull/51775) [@coderz-w](https://github.com/coderz-w)
+- 🐞 Fix Table `onHeaderCell` provided part `style` can not override. [#51793](https://github.com/ant-design/ant-design/pull/51793) [@Wxh16144](https://github.com/Wxh16144)
+- ⌨️ Improve Collapse accessibility. [#51836](https://github.com/ant-design/ant-design/pull/51836) [@aojunhao123](https://github.com/aojunhao123)
+- TypeScript
+  - 🤖 Add Table argument type for `clearFilters` function property. [#51754](https://github.com/ant-design/ant-design/pull/51754) [@fubd](https://github.com/fubd)
+  - 🤖 Fix Form.List with nest field will miss value with remove when set Form `preserve` to `false`. [#51796](https://github.com/ant-design/ant-design/pull/51796) [@zombieJ](https://github.com/zombieJ)
+
 ## 5.22.2
 
-`2024-11-20`
+`2024-11-21`
 
 - 🐞 Fix Input.OTP focus from advancing when previous input is empty. [#51664](https://github.com/ant-design/ant-design/pull/51664) [@thecodesalim](https://github.com/thecodesalim)
 - 🐞 Adjust Modal function call not to scroll the confirm button when it get auto focused. [#51647](https://github.com/ant-design/ant-design/pull/51647) [@zombieJ](https://github.com/zombieJ)
@@ -26,6 +68,8 @@ tag: vVERSION
 - 🐞 Fix Button custom icon not center-aligned. [#51652](https://github.com/ant-design/ant-design/pull/51652) [@afc163](https://github.com/afc163)
 - 🐞 Fix Table `getCheckboxProps` event handlers being overridden by internal selection logic. [#51661](https://github.com/ant-design/ant-design/pull/51661) [@Zyf665](https://github.com/Zyf665)
 - 🐞 Fix Tree that `onCheck` and `onSelect` were not properly triggered. [#51448](https://github.com/ant-design/ant-design/pull/51448) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix vertical alignment of clear icon in Input component. [#51700](https://github.com/ant-design/ant-design/pull/51700) [@jynxio](https://github.com/jynxio)
+- 🐞 Fix Select with `prefix` style issue with color, line break, status error. [#51694](https://github.com/ant-design/ant-design/pull/51694) [@zombieJ](https://github.com/zombieJ)
 - 🌐 Localization
   - 🇷🇺 Add support for Russian translation. [#51619](https://github.com/ant-design/ant-design/pull/51619) [@avvakumovid](https://github.com/avvakumovid)
   - 🇮🇹 Add support for Italian translation in TimePicker. [#51685](https://github.com/ant-design/ant-design/pull/51685) [@LorenzoCardinali](https://github.com/LorenzoCardinali)

@@ -59,7 +59,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     ...otherProps
   } = props;
   const { getPrefixCls, direction, carousel } = React.useContext(ConfigContext);
-  const slickRef = React.useRef<any>();
+  const slickRef = React.useRef<any>(null);
 
   const goTo = (slide: number, dontAnimate = false) => {
     slickRef.current.slickGoTo(slide, dontAnimate);

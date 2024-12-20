@@ -161,7 +161,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         // ======================= Collapse =======================
         [`${splitBarCls}-collapse-bar`]: {
           ...centerStyle,
-          zIndex: 1,
+          zIndex: token.zIndexPopupBase,
           background: controlItemBgHover,
           fontSize: token.fontSizeSM,
           borderRadius: token.borderRadiusXS,

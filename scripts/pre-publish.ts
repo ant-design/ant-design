@@ -18,6 +18,8 @@ const blockStatus = ['failure', 'cancelled', 'timed_out'] as const;
 const spinner = { interval: 80, frames: ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'] };
 const spinnies = new Spinnies({ spinner });
 
+const IGNORE_ACTIONS = ['Check Virtual Regression Approval', 'issue-remove-inactive'];
+
 let spinniesId = 0;
 
 // `spinnies` 为按条目进度，需要做简单的封装变成接近 `ora` 的形态
@@ -148,10 +150,11 @@ const runPrePublish = async () => {
     owner,
     repo,
     ref: sha,
+    filter: 'all',
   });
   showMessage(`远程分支 CI 状态(${check_runs.length})：`, 'succeed');
-  check_runs = check_runs.filter(
-    (run) => !run.name.padEnd(36).includes('Check Virtual Regression Approval'),
+  check_runs = check_runs.filter((run) =>
+    IGNORE_ACTIONS.every((action) => !run.name.includes(action)),
   );
   check_runs.forEach((run) => {
     showMessage(`  ${run.name.padEnd(36)} ${emojify(run.status)} ${emojify(run.conclusion || '')}`);
@@ -237,7 +240,7 @@ const runPrePublish = async () => {
 
   // 从 OSS 下载产物
   const downloadOSSPromise = Promise.resolve().then(async () => {
-    const url = `https://antd-visual-diff.oss-cn-shanghai.aliyuncs.com/${sha}/oss-artifacts.zip`;
+    const url = `https://antd-visual-diff.oss-accelerate.aliyuncs.com/${sha}/oss-artifacts.zip`;
 
     showMessage(`准备从远程 OSS 下载构建产物`, true, '[OSS]');
 

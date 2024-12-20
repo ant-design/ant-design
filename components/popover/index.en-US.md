@@ -39,7 +39,9 @@ Common props ref：[Common props](/docs/react/common-props)
 | content | Content of the card | ReactNode \| () => ReactNode | -             |         |
 | title   | Title of the card   | ReactNode \| () => ReactNode | -             |         |
 
-Consult [Tooltip's documentation](/components/tooltip/#api) to find more APIs.
+<!-- Common API -->
+
+<embed src="../tooltip/shared/sharedProps.en-US.md"></embed>
 
 ## Note
 
