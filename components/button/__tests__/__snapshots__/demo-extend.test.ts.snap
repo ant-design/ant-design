@@ -307,12 +307,37 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
 
 exports[`renders components/button/demo/chinese-chars-loading.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/button/demo/chinese-space.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+>
+  <button
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      确定
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      确 定
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders components/button/demo/chinese-space.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/button/demo/color-variant.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
 >
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <button
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-solid ant-btn-sm"
@@ -364,7 +389,7 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
     </button>
   </div>
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <button
       class="ant-btn ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
@@ -416,7 +441,7 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
     </button>
   </div>
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <button
       class="ant-btn ant-btn-default ant-btn-color-dangerous ant-btn-variant-solid ant-btn-sm"
@@ -589,7 +614,7 @@ exports[`renders components/button/demo/debug-block.tsx extend context correctly
 
 exports[`renders components/button/demo/debug-color-variant.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
 >
   <div
     class="ant-flex ant-flex-gap-small"
@@ -3091,31 +3116,6 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
 `;
 
 exports[`renders components/button/demo/multiple.tsx extend context correctly 2`] = `[]`;
-
-exports[`renders components/button/demo/noSpace.tsx extend context correctly 1`] = `
-<div
-  class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
->
-  <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-    type="button"
-  >
-    <span>
-      确定
-    </span>
-  </button>
-  <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-    type="button"
-  >
-    <span>
-      确 定
-    </span>
-  </button>
-</div>
-`;
-
-exports[`renders components/button/demo/noSpace.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/button/demo/size.tsx extend context correctly 1`] = `
 Array [
