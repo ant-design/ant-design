@@ -1495,7 +1495,7 @@ describe('Form', () => {
     });
 
     it('`prepare` should work', () => {
-      const mockPrepare = jest.fn().mockImplementation((props, doms) => {
+      const mockPrepare = jest.fn().mockImplementation((_, doms) => {
         return {
           ...doms,
           extra: (
