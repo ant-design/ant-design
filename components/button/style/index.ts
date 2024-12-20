@@ -48,12 +48,12 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         pointerEvents: 'none',
       },
 
-      [`> span, ${componentCls}-icon`]: {
+      '> span': {
         display: 'inline-flex',
         alignSelf: 'baseline',
       },
 
-      [`${componentCls}-icon`]: {
+      [`> ${componentCls}-icon, > ${iconCls}`]: {
         alignSelf: 'center',
       },
 
@@ -61,9 +61,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         color: 'currentColor',
       },
 
-      '&:not(:disabled)': {
-        ...genFocusStyle(token),
-      },
+      '&:not(:disabled)': genFocusStyle(token),
 
       [`&${componentCls}-two-chinese-chars::first-letter`]: {
         letterSpacing: '0.34em',
