@@ -163,7 +163,8 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   // It is just for `pro-components`
   if (formItemRender?.mark === 'pro_table_render') {
     if (typeof formItemRender?.prepare === 'function') {
-      innerRender = (...args) => innerRender(args[0], formItemRender.prepare(...args));
+      const _clonedInnerRender = innerRender;
+      innerRender = (...args) => _clonedInnerRender(args[0], formItemRender.prepare(...args));
     } else if (typeof formItemRender?.render === 'function') {
       innerRender = formItemRender.render;
     }
