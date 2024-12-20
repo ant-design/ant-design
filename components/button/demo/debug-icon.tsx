@@ -58,10 +58,15 @@ const App: React.FC = () => {
               Search
             </Button>
           </Flex>
+          <Divider plain>👇🏻 https://github.com/ant-design/ant-design/issues/51811 👇🏻</Divider>
+          <div>
+            <Button>without icon</Button>
+            <Button icon={<SearchOutlined />}>with icon</Button>
+          </div>
+          <Divider plain>👇🏻 https://github.com/ant-design/ant-design/issues/51380 👇🏻</Divider>
           <Flex
             gap="small"
             style={{
-              // https://github.com/ant-design/ant-design/issues/51380 // 视觉回归测试
               transform: 'scale(3)',
               transformOrigin: 'left top',
             }}
