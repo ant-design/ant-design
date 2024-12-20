@@ -48,7 +48,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         pointerEvents: 'none',
       },
 
-      '> span': {
+      '> span:not(:only-child)': {
         display: 'inline-flex',
         alignSelf: 'baseline',
       },
