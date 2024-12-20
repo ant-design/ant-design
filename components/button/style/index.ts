@@ -50,6 +50,11 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
 
       [`> span, ${componentCls}-icon`]: {
         display: 'inline-flex',
+        alignSelf: 'baseline',
+      },
+
+      [`${componentCls}-icon`]: {
+        alignSelf: 'center',
       },
 
       '> a': {
