@@ -21,7 +21,7 @@ const localeValues: Locale = {
     filterConfirm: 'OK',
     filterReset: 'Скинути',
     filterEmptyText: 'Фільтри відсутні',
-    filterCheckall: 'Обрати всі',
+    filterCheckAll: 'Обрати всі',
     filterSearchPlaceholder: 'Пошук у фільтрах',
     emptyText: 'Даних немає',
     selectAll: 'Обрати всі на сторінці',
