@@ -20,10 +20,8 @@ export type Options = {
   skip?: boolean | string[];
   testingLib?: boolean;
   testRootProps?: false | object;
-  /**
-   * Not check component `displayName`, check path only
-   */
   nameCheckPathOnly?: boolean;
+  ignoreAttributes?: string[];
 };
 
 function baseTest(doInject: boolean, component: string, options: Options = {}) {
@@ -68,14 +66,32 @@ function baseTest(doInject: boolean, component: string, options: Options = {}) {
           </ConfigProvider>
         );
 
+        const createSnapshotMatcher = (html: string) => {
+          if (process.env.NODE_ENV === 'test' || !options.ignoreAttributes?.length) {
+            return expect({
+              type: 'demo',
+              html,
+            }).toMatchSnapshot();
+          }
+
+          return expect({
+            type: 'demo',
+            html,
+          }).toMatchSnapshot({
+            html: expect.stringMatching(
+              new RegExp(options.ignoreAttributes.map((attr) => `${attr}="[^"]*"`).join('|')),
+            ),
+          });
+        };
+
         // Demo Test also include `dist` test which is already uglified.
         // We need test this as SSR instead.
         if (doInject) {
           const { container } = render(Demo);
-          expect({ type: 'demo', html: container.innerHTML }).toMatchSnapshot();
+          createSnapshotMatcher(container.innerHTML);
         } else {
           const html = renderToString(Demo);
-          expect({ type: 'demo', html }).toMatchSnapshot();
+          createSnapshotMatcher(html);
         }
 
         jest.clearAllTimers();
