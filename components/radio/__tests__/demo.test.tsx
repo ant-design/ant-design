@@ -2,9 +2,7 @@ import * as React from 'react';
 
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
-demoTest('radio', {
-  ignoreAttributes: ['name'],
-});
+demoTest('radio');
 
 rootPropsTest(
   'radio',
