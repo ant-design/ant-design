@@ -1683,7 +1683,8 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
             <input
               class="ant-input"
               placeholder="input search text"
-              type="text"
+              role="searchbox"
+              type="search"
               value=""
             />
             <span
@@ -2714,7 +2715,8 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         >
           <input
             class="ant-input"
-            type="text"
+            role="searchbox"
+            type="search"
             value="0571"
           />
           <span
@@ -2794,7 +2796,8 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         >
           <input
             class="ant-input"
-            type="text"
+            role="searchbox"
+            type="search"
             value="26888888"
           />
           <span
@@ -4192,7 +4195,8 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
         <input
           class="ant-input ant-input-outlined"
           placeholder="input search text"
-          type="text"
+          role="searchbox"
+          type="search"
           value=""
         />
         <span
@@ -4246,7 +4250,8 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
           <input
             class="ant-input"
             placeholder="input search text"
-            type="text"
+            role="searchbox"
+            type="search"
             value=""
           />
           <span
@@ -4336,7 +4341,8 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
           <input
             class="ant-input"
             placeholder="input search text"
-            type="text"
+            role="searchbox"
+            type="search"
             value=""
           />
           <span
@@ -4417,7 +4423,8 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
         <input
           class="ant-input ant-input-outlined"
           placeholder="input search text"
-          type="text"
+          role="searchbox"
+          type="search"
           value=""
         />
         <span
@@ -4470,7 +4477,8 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
           <input
             class="ant-input ant-input-lg"
             placeholder="input search text"
-            type="text"
+            role="searchbox"
+            type="search"
             value=""
           />
           <span
@@ -4534,7 +4542,8 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
           <input
             class="ant-input ant-input-lg"
             placeholder="input search text"
-            type="text"
+            role="searchbox"
+            type="search"
             value=""
           />
           <span
@@ -4591,7 +4600,8 @@ Array [
       <input
         class="ant-input ant-input-outlined"
         placeholder="input search loading default"
-        type="text"
+        role="searchbox"
+        type="search"
         value=""
       />
       <span
@@ -4639,7 +4649,8 @@ Array [
       <input
         class="ant-input ant-input-outlined"
         placeholder="input search loading with enterButton"
-        type="text"
+        role="searchbox"
+        type="search"
         value=""
       />
       <span
@@ -4687,7 +4698,8 @@ Array [
       <input
         class="ant-input ant-input-lg ant-input-outlined"
         placeholder="input search text"
-        type="text"
+        role="searchbox"
+        type="search"
         value=""
       />
       <span
