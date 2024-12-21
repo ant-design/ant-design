@@ -16125,7 +16125,8 @@ exports[`ConfigProvider components Input configProvider 1`] = `
       >
         <input
           class="config-input config-input-outlined"
-          type="text"
+          role="searchbox"
+          type="search"
           value=""
         />
         <span
@@ -16225,7 +16226,8 @@ exports[`ConfigProvider components Input configProvider componentDisabled 1`] = 
         <input
           class="config-input config-input-disabled config-input-outlined"
           disabled=""
-          type="text"
+          role="searchbox"
+          type="search"
           value=""
         />
         <span
@@ -16326,7 +16328,8 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
       >
         <input
           class="config-input config-input-lg config-input-outlined"
-          type="text"
+          role="searchbox"
+          type="search"
           value=""
         />
         <span
@@ -16424,7 +16427,8 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
       >
         <input
           class="config-input config-input-outlined"
-          type="text"
+          role="searchbox"
+          type="search"
           value=""
         />
         <span
@@ -16522,7 +16526,8 @@ exports[`ConfigProvider components Input configProvider componentSize small 1`] 
       >
         <input
           class="config-input config-input-sm config-input-outlined"
-          type="text"
+          role="searchbox"
+          type="search"
           value=""
         />
         <span
@@ -16620,7 +16625,8 @@ exports[`ConfigProvider components Input normal 1`] = `
       >
         <input
           class="ant-input ant-input-outlined"
-          type="text"
+          role="searchbox"
+          type="search"
           value=""
         />
         <span
@@ -16718,7 +16724,8 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
       >
         <input
           class="ant-input ant-input-outlined"
-          type="text"
+          role="searchbox"
+          type="search"
           value=""
         />
         <span

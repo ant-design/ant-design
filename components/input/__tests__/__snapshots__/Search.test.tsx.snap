@@ -9,7 +9,8 @@ exports[`Input.Search rtl render component should be rendered correctly in RTL d
   >
     <input
       class="ant-input ant-input-rtl ant-input-outlined"
-      type="text"
+      role="searchbox"
+      type="search"
       value=""
     />
     <span
@@ -60,7 +61,8 @@ exports[`Input.Search should support ReactNode suffix without error 1`] = `
     >
       <input
         class="ant-input"
-        type="text"
+        role="searchbox"
+        type="search"
         value=""
       />
       <span
@@ -116,7 +118,8 @@ exports[`Input.Search should support addonAfter 1`] = `
   >
     <input
       class="ant-input ant-input-outlined"
-      type="text"
+      role="searchbox"
+      type="search"
       value=""
     />
     <span
@@ -167,7 +170,8 @@ exports[`Input.Search should support addonAfter 2`] = `
   >
     <input
       class="ant-input ant-input-outlined"
-      type="text"
+      role="searchbox"
+      type="search"
       value=""
     />
     <span
@@ -221,7 +225,8 @@ exports[`Input.Search should support addonAfter and suffix for loading 1`] = `
     >
       <input
         class="ant-input"
-        type="text"
+        role="searchbox"
+        type="search"
         value=""
       />
       <span
@@ -279,7 +284,8 @@ exports[`Input.Search should support addonAfter and suffix for loading 2`] = `
     >
       <input
         class="ant-input"
-        type="text"
+        role="searchbox"
+        type="search"
         value=""
       />
       <span
@@ -334,7 +340,8 @@ exports[`Input.Search should support custom Button 1`] = `
   >
     <input
       class="ant-input ant-input-outlined"
-      type="text"
+      role="searchbox"
+      type="search"
       value=""
     />
     <span
@@ -362,7 +369,8 @@ exports[`Input.Search should support custom button 1`] = `
   >
     <input
       class="ant-input ant-input-outlined"
-      type="text"
+      role="searchbox"
+      type="search"
       value=""
     />
     <span
@@ -387,7 +395,8 @@ exports[`Input.Search should support invalid addonAfter 1`] = `
   >
     <input
       class="ant-input ant-input-outlined"
-      type="text"
+      role="searchbox"
+      type="search"
       value=""
     />
     <span
@@ -438,7 +447,8 @@ exports[`Input.Search should support invalid suffix 1`] = `
     >
       <input
         class="ant-input"
-        type="text"
+        role="searchbox"
+        type="search"
         value=""
       />
       <span
@@ -490,7 +500,8 @@ exports[`Input.Search should support loading 1`] = `
   >
     <input
       class="ant-input ant-input-outlined"
-      type="text"
+      role="searchbox"
+      type="search"
       value=""
     />
     <span
@@ -538,7 +549,8 @@ exports[`Input.Search should support loading 2`] = `
   >
     <input
       class="ant-input ant-input-outlined"
-      type="text"
+      role="searchbox"
+      type="search"
       value=""
     />
     <span

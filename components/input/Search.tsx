@@ -150,6 +150,13 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     className,
   );
 
+  const newProps: InputProps = {
+    className: cls,
+    type: 'search',
+    role: 'searchbox',
+    ...restProps,
+  };
+
   const handleOnCompositionStart: React.CompositionEventHandler<HTMLInputElement> = (e) => {
     composedRef.current = true;
     onCompositionStart?.(e);
@@ -164,7 +171,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     <Input
       ref={composeRef<InputRef>(inputRef, ref)}
       onPressEnter={onPressEnter}
-      {...restProps}
+      {...newProps}
       size={size}
       onCompositionStart={handleOnCompositionStart}
       onCompositionEnd={handleOnCompositionEnd}
@@ -172,7 +179,6 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
       addonAfter={button}
       suffix={suffix}
       onChange={onChange}
-      className={cls}
       disabled={disabled}
     />
   );
