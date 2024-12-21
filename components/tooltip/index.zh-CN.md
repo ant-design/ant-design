@@ -30,6 +30,7 @@ demo:
 <code src="./demo/debug.tsx" debug>Debug</code>
 <code src="./demo/disabled.tsx">禁用</code>
 <code src="./demo/disabled-children.tsx" debug>禁用子元素</code>
+<code src="./demo/config-debug.tsx" debug>ConfigProvider</code>
 
 ## API
 
@@ -42,6 +43,10 @@ demo:
 ### 共同的 API
 
 <embed src="./shared/sharedProps.zh-CN.md"></embed>
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

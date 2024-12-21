@@ -41,6 +41,10 @@ Common props ref：[Common props](/docs/react/common-props)
 
 <embed src="./shared/sharedProps.en-US.md"></embed>
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Tooltip"></ComponentTokenTable>

@@ -116,7 +116,7 @@ const MenuItem: GenericComponent = (props) => {
       <Tooltip
         {...tooltipProps}
         placement={direction === 'rtl' ? 'left' : 'right'}
-        overlayClassName={`${prefixCls}-inline-collapsed-tooltip`}
+        classNames={{ root: `${prefixCls}-inline-collapsed-tooltip` }}
       >
         {returnNode}
       </Tooltip>
