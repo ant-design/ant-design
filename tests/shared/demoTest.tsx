@@ -67,21 +67,21 @@ function baseTest(doInject: boolean, component: string, options: Options = {}) {
         );
 
         const createSnapshotMatcher = (html: string) => {
-          if (process.env.NODE_ENV === 'test' || !options.ignoreAttributes?.length) {
+          if (process.env.NODE_ENV === 'production' && options.ignoreAttributes?.length) {
             return expect({
               type: 'demo',
               html,
-            }).toMatchSnapshot();
+            }).toMatchSnapshot({
+              html: expect.stringMatching(
+                new RegExp(options.ignoreAttributes.map((attr) => `${attr}="[^"]*"`).join('|')),
+              ),
+            });
           }
 
           return expect({
             type: 'demo',
             html,
-          }).toMatchSnapshot({
-            html: expect.stringMatching(
-              new RegExp(options.ignoreAttributes.map((attr) => `${attr}="[^"]*"`).join('|')),
-            ),
-          });
+          }).toMatchSnapshot();
         };
 
         // Demo Test also include `dist` test which is already uglified.
