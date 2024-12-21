@@ -120,6 +120,7 @@ type Options = {
 export default function accessibilityDemoTest(component: string, options: Options = {}) {
   // If skip is true, return immediately without executing any tests
   if (options.skip === true) {
+    // eslint-disable-next-line jest/no-disabled-tests
     describe.skip(`${component} demo a11y`, () => {
       it('skipped', () => {});
     });

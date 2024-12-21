@@ -11378,11 +11378,10 @@ Array [
         >
           <span
             class="ant-btn-icon ant-btn-loading-icon"
-            style="width: 0px; opacity: 0; transform: scale(0);"
           >
             <span
               aria-label="loading"
-              class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+              class="anticon anticon-loading anticon-spin"
               role="img"
             >
               <svg
