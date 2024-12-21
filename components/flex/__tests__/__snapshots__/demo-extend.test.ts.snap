@@ -227,6 +227,7 @@ exports[`renders components/flex/demo/basic.tsx extend context correctly 1`] = `
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="horizontal"
         />
@@ -246,6 +247,7 @@ exports[`renders components/flex/demo/basic.tsx extend context correctly 1`] = `
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="vertical"
         />
@@ -379,6 +381,7 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="small"
         />
@@ -398,6 +401,7 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="middle"
         />
@@ -417,6 +421,7 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="large"
         />
@@ -436,6 +441,7 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="customize"
         />

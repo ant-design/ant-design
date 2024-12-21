@@ -4505,6 +4505,7 @@ Array [
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="small"
         />
@@ -4524,6 +4525,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="middle"
         />
@@ -4543,6 +4545,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="large"
         />
@@ -4562,6 +4565,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="customize"
         />

@@ -3622,6 +3622,7 @@ Array [
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="top"
             />
@@ -3641,6 +3642,7 @@ Array [
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="bottom"
             />
@@ -3661,6 +3663,7 @@ Array [
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="left"
             />
@@ -3680,6 +3683,7 @@ Array [
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="right"
             />
@@ -3824,6 +3828,7 @@ exports[`renders components/tabs/demo/size.tsx correctly 1`] = `
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="small"
         />
@@ -3843,6 +3848,7 @@ exports[`renders components/tabs/demo/size.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="middle"
         />
@@ -3862,6 +3868,7 @@ exports[`renders components/tabs/demo/size.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="large"
         />
@@ -4367,6 +4374,7 @@ exports[`renders components/tabs/demo/slide.tsx correctly 1`] = `
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="top"
         />
@@ -4386,6 +4394,7 @@ exports[`renders components/tabs/demo/slide.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="left"
         />

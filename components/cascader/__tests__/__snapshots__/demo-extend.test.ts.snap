@@ -2199,6 +2199,7 @@ Array [
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="topLeft"
         />
@@ -2218,6 +2219,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="topRight"
         />
@@ -2237,6 +2239,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="bottomLeft"
         />
@@ -2256,6 +2259,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="bottomRight"
         />
