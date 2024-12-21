@@ -5801,7 +5801,6 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
             <input
               class="ant-input"
               placeholder="input search text"
-              role="searchbox"
               type="search"
               value=""
             />
@@ -7022,7 +7021,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         >
           <input
             class="ant-input"
-            role="searchbox"
             type="search"
             value="0571"
           />
@@ -7103,7 +7101,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         >
           <input
             class="ant-input"
-            role="searchbox"
             type="search"
             value="26888888"
           />
@@ -10872,7 +10869,6 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
         <input
           class="ant-input ant-input-outlined"
           placeholder="input search text"
-          role="searchbox"
           type="search"
           value=""
         />
@@ -10927,7 +10923,6 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           <input
             class="ant-input"
             placeholder="input search text"
-            role="searchbox"
             type="search"
             value=""
           />
@@ -11018,7 +11013,6 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           <input
             class="ant-input"
             placeholder="input search text"
-            role="searchbox"
             type="search"
             value=""
           />
@@ -11100,7 +11094,6 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
         <input
           class="ant-input ant-input-outlined"
           placeholder="input search text"
-          role="searchbox"
           type="search"
           value=""
         />
@@ -11154,7 +11147,6 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           <input
             class="ant-input ant-input-lg"
             placeholder="input search text"
-            role="searchbox"
             type="search"
             value=""
           />
@@ -11219,7 +11211,6 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           <input
             class="ant-input ant-input-lg"
             placeholder="input search text"
-            role="searchbox"
             type="search"
             value=""
           />
@@ -11279,7 +11270,6 @@ Array [
       <input
         class="ant-input ant-input-outlined"
         placeholder="input search loading default"
-        role="searchbox"
         type="search"
         value=""
       />
@@ -11328,7 +11318,6 @@ Array [
       <input
         class="ant-input ant-input-outlined"
         placeholder="input search loading with enterButton"
-        role="searchbox"
         type="search"
         value=""
       />
@@ -11377,7 +11366,6 @@ Array [
       <input
         class="ant-input ant-input-lg ant-input-outlined"
         placeholder="input search text"
-        role="searchbox"
         type="search"
         value=""
       />

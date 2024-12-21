@@ -151,10 +151,10 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   );
 
   const newProps: InputProps = {
-    className: cls,
-    type: 'search',
-    role: 'searchbox',
     ...restProps,
+    className: cls,
+    prefixCls: inputPrefixCls,
+    type: 'search',
   };
 
   const handleOnCompositionStart: React.CompositionEventHandler<HTMLInputElement> = (e) => {
@@ -175,7 +175,6 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
       size={size}
       onCompositionStart={handleOnCompositionStart}
       onCompositionEnd={handleOnCompositionEnd}
-      prefixCls={inputPrefixCls}
       addonAfter={button}
       suffix={suffix}
       onChange={onChange}

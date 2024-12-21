@@ -901,7 +901,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <input
             class="ant-input ant-input-outlined"
-            role="searchbox"
             type="search"
             value="0571"
           />
@@ -951,7 +950,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           >
             <input
               class="ant-input"
-              role="searchbox"
               type="search"
               value="26888888"
             />
@@ -1029,7 +1027,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <input
             class="ant-input ant-input-outlined"
-            role="searchbox"
             type="search"
             value="+1"
           />
@@ -10921,7 +10918,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <input
             class="ant-input ant-input-outlined"
-            role="searchbox"
             type="search"
             value=""
           />
@@ -10967,7 +10963,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <input
             class="ant-input ant-input-outlined"
-            role="searchbox"
             type="search"
             value=""
           />
@@ -14529,7 +14524,6 @@ Array [
             <input
               class="ant-input ant-input-outlined"
               placeholder="Search"
-              role="searchbox"
               type="search"
               value=""
             />
