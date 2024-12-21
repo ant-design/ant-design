@@ -136,6 +136,7 @@ exports[`renders components/drawer/demo/extra.tsx correctly 1`] = `
         >
           <input
             class="ant-radio-input"
+            name="test-id"
             type="radio"
             value="top"
           />
@@ -156,6 +157,7 @@ exports[`renders components/drawer/demo/extra.tsx correctly 1`] = `
           <input
             checked=""
             class="ant-radio-input"
+            name="test-id"
             type="radio"
             value="right"
           />
@@ -175,6 +177,7 @@ exports[`renders components/drawer/demo/extra.tsx correctly 1`] = `
         >
           <input
             class="ant-radio-input"
+            name="test-id"
             type="radio"
             value="bottom"
           />
@@ -194,6 +197,7 @@ exports[`renders components/drawer/demo/extra.tsx correctly 1`] = `
         >
           <input
             class="ant-radio-input"
+            name="test-id"
             type="radio"
             value="left"
           />
@@ -310,6 +314,7 @@ exports[`renders components/drawer/demo/placement.tsx correctly 1`] = `
         >
           <input
             class="ant-radio-input"
+            name="test-id"
             type="radio"
             value="top"
           />
@@ -329,6 +334,7 @@ exports[`renders components/drawer/demo/placement.tsx correctly 1`] = `
         >
           <input
             class="ant-radio-input"
+            name="test-id"
             type="radio"
             value="right"
           />
@@ -348,6 +354,7 @@ exports[`renders components/drawer/demo/placement.tsx correctly 1`] = `
         >
           <input
             class="ant-radio-input"
+            name="test-id"
             type="radio"
             value="bottom"
           />
@@ -368,6 +375,7 @@ exports[`renders components/drawer/demo/placement.tsx correctly 1`] = `
           <input
             checked=""
             class="ant-radio-input"
+            name="test-id"
             type="radio"
             value="left"
           />

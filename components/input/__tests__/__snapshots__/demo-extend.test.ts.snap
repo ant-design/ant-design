@@ -5245,6 +5245,7 @@ Array [
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="a"
         />
@@ -5264,6 +5265,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="b"
         />

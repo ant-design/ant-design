@@ -12,6 +12,7 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
     >
       <input
         class="my-radio-input"
+        name="test-id"
         type="radio"
         value="Apple"
       />
@@ -32,6 +33,7 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
     >
       <input
         class="my-radio-input"
+        name="test-id"
         type="radio"
         value="Orange"
       />

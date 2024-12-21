@@ -513,6 +513,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="default"
         />
@@ -532,6 +533,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="middle"
         />
@@ -551,6 +553,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="small"
         />
@@ -1604,6 +1607,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="default"
         />
@@ -1623,6 +1627,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="middle"
         />
@@ -1642,6 +1647,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="small"
         />
@@ -2060,6 +2066,7 @@ Array [
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="horizontal"
         />
@@ -2079,6 +2086,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="vertical"
         />

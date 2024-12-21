@@ -783,6 +783,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
           <input
             checked=""
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="month"
           />
@@ -802,6 +803,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="year"
           />
@@ -2376,6 +2378,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -2395,6 +2398,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -3968,6 +3972,7 @@ Array [
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -3987,6 +3992,7 @@ Array [
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -5554,6 +5560,7 @@ Array [
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -5573,6 +5580,7 @@ Array [
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -6397,6 +6405,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                 <input
                   checked=""
                   class="ant-radio-button-input"
+                  name="test-id"
                   type="radio"
                   value="month"
                 />
@@ -6416,6 +6425,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
               >
                 <input
                   class="ant-radio-button-input"
+                  name="test-id"
                   type="radio"
                   value="year"
                 />
@@ -8788,6 +8798,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
           <input
             checked=""
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="month"
           />
@@ -8807,6 +8818,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="year"
           />
@@ -10791,6 +10803,7 @@ Array [
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -10810,6 +10823,7 @@ Array [
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -12383,6 +12397,7 @@ Array [
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -12402,6 +12417,7 @@ Array [
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -14026,6 +14042,7 @@ Array [
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -14045,6 +14062,7 @@ Array [
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />

@@ -895,6 +895,7 @@ Array [
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="icon"
         />
@@ -914,6 +915,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="text"
         />
@@ -933,6 +935,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="both"
         />

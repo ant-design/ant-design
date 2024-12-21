@@ -432,6 +432,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         <input
                           checked=""
                           class="ant-radio-button-input"
+                          name="test-id"
                           type="radio"
                           value="default"
                         />
@@ -451,6 +452,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                       >
                         <input
                           class="ant-radio-button-input"
+                          name="test-id"
                           type="radio"
                           value="large"
                         />
@@ -470,6 +472,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                       >
                         <input
                           class="ant-radio-button-input"
+                          name="test-id"
                           type="radio"
                           value="small"
                         />
@@ -528,6 +531,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         <input
                           checked=""
                           class="ant-radio-button-input"
+                          name="test-id"
                           type="radio"
                           value="default"
                         />
@@ -547,6 +551,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                       >
                         <input
                           class="ant-radio-button-input"
+                          name="test-id"
                           type="radio"
                           value="square"
                         />
@@ -566,6 +571,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                       >
                         <input
                           class="ant-radio-button-input"
+                          name="test-id"
                           type="radio"
                           value="round"
                         />
@@ -585,6 +591,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                       >
                         <input
                           class="ant-radio-button-input"
+                          name="test-id"
                           type="radio"
                           value="circle"
                         />
@@ -642,6 +649,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                       >
                         <input
                           class="ant-radio-button-input"
+                          name="test-id"
                           type="radio"
                           value="square"
                         />
@@ -662,6 +670,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         <input
                           checked=""
                           class="ant-radio-button-input"
+                          name="test-id"
                           type="radio"
                           value="circle"
                         />

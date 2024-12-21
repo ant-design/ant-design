@@ -145,6 +145,7 @@ exports[`renders components/calendar/demo/basic.tsx correctly 1`] = `
           <input
             checked=""
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="month"
           />
@@ -164,6 +165,7 @@ exports[`renders components/calendar/demo/basic.tsx correctly 1`] = `
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="year"
           />
@@ -1098,6 +1100,7 @@ exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -1117,6 +1120,7 @@ exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -2050,6 +2054,7 @@ Array [
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -2069,6 +2074,7 @@ Array [
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -2998,6 +3004,7 @@ Array [
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -3017,6 +3024,7 @@ Array [
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -3839,6 +3847,7 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
                 <input
                   checked=""
                   class="ant-radio-button-input"
+                  name="test-id"
                   type="radio"
                   value="month"
                 />
@@ -3858,6 +3867,7 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
               >
                 <input
                   class="ant-radio-button-input"
+                  name="test-id"
                   type="radio"
                   value="year"
                 />
@@ -4928,6 +4938,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
           <input
             checked=""
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="month"
           />
@@ -4947,6 +4958,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="year"
           />
@@ -6291,6 +6303,7 @@ Array [
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -6310,6 +6323,7 @@ Array [
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -7243,6 +7257,7 @@ Array [
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -7262,6 +7277,7 @@ Array [
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -8248,6 +8264,7 @@ Array [
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -8267,6 +8284,7 @@ Array [
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
