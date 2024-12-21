@@ -343,9 +343,9 @@
     "mode": "npm"
   },
   "overrides": {
-    "nwsapi": "2.2.13"
+    "nwsapi": "2.2.16"
   },
   "resolutions": {
-    "nwsapi": "2.2.13"
+    "nwsapi": "2.2.16"
   }
 }
