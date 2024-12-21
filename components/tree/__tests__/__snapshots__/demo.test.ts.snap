@@ -4245,7 +4245,7 @@ exports[`renders components/tree/demo/search.tsx correctly 1`] = `
       <input
         class="ant-input ant-input-outlined"
         placeholder="Search"
-        type="text"
+        type="search"
         value=""
       />
       <span
