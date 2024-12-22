@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 5.22.6
 
-`2024-12-22`
+`2024-12-23`
 
 - 🐞 修复 Splitter 组件 折叠图标层级过低问题。[#52065](https://github.com/ant-design/ant-design/pull/52065) [@wanpan11](https://github.com/wanpan11)
 - 🐞 修复 Button 启用 `loading` 时，动画不够顺滑的问题。[#52059](https://github.com/ant-design/ant-design/pull/52059) [@zombieJ](https://github.com/zombieJ)
