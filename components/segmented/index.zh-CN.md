@@ -53,7 +53,7 @@ demo:
 | size | 控件尺寸 | `large` \| `middle` \| `small` | `middle` |  |
 | vertical | 排列方向 | boolean | `false` | 5.21.0 |
 | value | 当前选中的值 | string \| number |  |  |
-| name | Segmented 下所有 `input[type="radio"]` 的 `name` 属性 | string |  | 5.23.0 |
+| name | Segmented 下所有 `input[type="radio"]` 的 `name` 属性。若未设置，则将回退到随机生成的名称 | string |  | 5.23.0 |
 
 ### SegmentedItemType
 
