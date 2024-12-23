@@ -4,9 +4,6 @@ import { ConfigProvider, Tooltip } from 'antd';
 const App: React.FC = () => (
   <div>
     <ConfigProvider
-      button={{
-        className: 'test-test',
-      }}
       tooltip={{
         className: 'cutsom-tooltip-test',
         style: { background: 'yellow' },
