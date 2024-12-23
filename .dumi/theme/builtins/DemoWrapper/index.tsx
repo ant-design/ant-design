@@ -8,6 +8,7 @@ import { css, Global } from '@emotion/react';
 import useLayoutState from '../../../hooks/useLayoutState';
 import useLocale from '../../../hooks/useLocale';
 import DemoContext from '../../slots/DemoContext';
+import DemoFallback from '../Previewer/DemoFallback';
 
 const locales = {
   cn: {
@@ -113,16 +114,14 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
         </Tooltip>
       </span>
       <ConfigProvider theme={{ cssVar: enableCssVar, hashed: !enableCssVar }}>
-        <Suspense>
-          <DumiDemoGrid
-            items={demos}
-            demoRender={(item) => (
-              <Suspense>
-                <DumiDemo key={item.demo.id} {...item} />
-              </Suspense>
-            )}
-          />
-        </Suspense>
+        <DumiDemoGrid
+          items={demos}
+          demoRender={(item) => (
+            <Suspense fallback={<DemoFallback />}>
+              <DumiDemo key={item.demo.id} {...item} />
+            </Suspense>
+          )}
+        />
       </ConfigProvider>
     </div>
   );
