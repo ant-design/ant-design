@@ -112,21 +112,12 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
       const containerRect = containerRef.current?.getBoundingClientRect();
       const targetRect = targetElement?.getBoundingClientRect();
 
-      if (targetClassName === 'semantic-mark-body') {
-        setMarkPos([
-          (targetRect?.left || 0) - (containerRect?.left || 0) + 8,
-          (targetRect?.top || 0) - (containerRect?.top || 0) + 12,
-          targetRect?.width! - 16 || 0,
-          targetRect?.height! - 24 || 0,
-        ]);
-      } else {
-        setMarkPos([
-          (targetRect?.left || 0) - (containerRect?.left || 0),
-          (targetRect?.top || 0) - (containerRect?.top || 0),
-          targetRect?.width || 0,
-          targetRect?.height || 0,
-        ]);
-      }
+      setMarkPos([
+        (targetRect?.left || 0) - (containerRect?.left || 0),
+        (targetRect?.top || 0) - (containerRect?.top || 0),
+        targetRect?.width || 0,
+        targetRect?.height || 0,
+      ]);
 
       timerRef.current = setTimeout(() => {
         setPositionMotion(true);
