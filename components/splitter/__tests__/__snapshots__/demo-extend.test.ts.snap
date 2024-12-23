@@ -769,6 +769,7 @@ exports[`renders components/splitter/demo/nested-in-tabs.tsx extend context corr
   class="ant-tabs ant-tabs-top"
 >
   <div
+    aria-orientation="horizontal"
     class="ant-tabs-nav"
     role="tablist"
   >
@@ -804,7 +805,7 @@ exports[`renders components/splitter/demo/nested-in-tabs.tsx extend context corr
             class="ant-tabs-tab-btn"
             id="rc-tabs-test-tab-2"
             role="tab"
-            tabindex="0"
+            tabindex="-1"
           >
             Splitter Tab
           </div>

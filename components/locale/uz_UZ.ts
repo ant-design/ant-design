@@ -32,7 +32,7 @@ const localeValues: Locale = {
     selectAll: 'Barchasini tanlash',
     selectInvert: 'Tanlovni aylantirish',
     selectNone: "Barcha ma'lumotlarni tozalang",
-    selectionAll: "Barchasini tanlash",
+    selectionAll: 'Barchasini tanlash',
     sortTitle: 'Tartiblash',
     expand: 'Satirni yozish',
     collapse: "Satirni yig'ish",
@@ -47,7 +47,7 @@ const localeValues: Locale = {
   },
   Modal: {
     okText: 'OK',
-    cancelText: "Yopish",
+    cancelText: 'Yopish',
     justOkText: 'OK',
   },
   Popconfirm: {

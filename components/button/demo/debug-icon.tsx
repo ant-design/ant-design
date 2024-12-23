@@ -1,5 +1,5 @@
 import React from 'react';
-import { SearchOutlined, MinusSquareOutlined } from '@ant-design/icons';
+import { MinusSquareOutlined, SearchOutlined } from '@ant-design/icons';
 import { Button, ConfigProvider, Divider, Flex, Radio, Tooltip } from 'antd';
 import type { ConfigProviderProps } from 'antd';
 
@@ -52,16 +52,21 @@ const App: React.FC = () => {
             <Button type="dashed" icon={<SearchOutlined />}>
               Search
             </Button>
-            <Button icon={<SearchOutlined />} href="https://www.google.com" />
+            <Button icon={<SearchOutlined />} href="https://www.google.com" target="_blank" />
             <Button>
               <SearchOutlined />
               Search
             </Button>
           </Flex>
+          <Divider plain>👇🏻 https://github.com/ant-design/ant-design/issues/51811 👇🏻</Divider>
+          <div>
+            <Button>without icon</Button>
+            <Button icon={<SearchOutlined />}>with icon</Button>
+          </div>
+          <Divider plain>👇🏻 https://github.com/ant-design/ant-design/issues/51380 👇🏻</Divider>
           <Flex
             gap="small"
             style={{
-              // https://github.com/ant-design/ant-design/issues/51380 // 视觉回归测试
               transform: 'scale(3)',
               transformOrigin: 'left top',
             }}

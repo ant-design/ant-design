@@ -901,7 +901,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <input
             class="ant-input ant-input-outlined"
-            type="text"
+            type="search"
             value="0571"
           />
           <span
@@ -950,7 +950,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           >
             <input
               class="ant-input"
-              type="text"
+              type="search"
               value="26888888"
             />
             <span
@@ -1027,7 +1027,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <input
             class="ant-input ant-input-outlined"
-            type="text"
+            type="search"
             value="+1"
           />
           <span
@@ -10924,7 +10924,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <input
             class="ant-input ant-input-outlined"
-            type="text"
+            type="search"
             value=""
           />
           <span
@@ -10969,7 +10969,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <input
             class="ant-input ant-input-outlined"
-            type="text"
+            type="search"
             value=""
           />
           <span
@@ -14530,7 +14530,7 @@ Array [
             <input
               class="ant-input ant-input-outlined"
               placeholder="Search"
-              type="text"
+              type="search"
               value=""
             />
             <span
@@ -16665,6 +16665,7 @@ Array [
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="small"
         />
@@ -16684,6 +16685,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="middle"
         />
@@ -16703,6 +16705,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="large"
         />
@@ -16722,6 +16725,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="customize"
         />

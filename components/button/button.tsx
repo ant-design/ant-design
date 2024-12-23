@@ -163,12 +163,23 @@ const InternalCompoundedButton = React.forwardRef<
 
   const [hasTwoCNChar, setHasTwoCNChar] = useState<boolean>(false);
 
-  const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>();
+  const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
 
   const mergedRef = useComposeRef(ref, buttonRef);
 
   const needInserted =
     Children.count(children) === 1 && !icon && !isUnBorderedButtonVariant(mergedVariant);
+
+  // ========================= Mount ==========================
+  // Record for mount status.
+  // This will help to no to show the animation of loading on the first mount.
+  const isMountRef = useRef(true);
+  React.useEffect(() => {
+    isMountRef.current = false;
+    return () => {
+      isMountRef.current = true;
+    };
+  }, []);
 
   // ========================= Effect =========================
   // Loading
@@ -304,7 +315,12 @@ const InternalCompoundedButton = React.forwardRef<
         {loading.icon}
       </IconWrapper>
     ) : (
-      <DefaultLoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={innerLoading} />
+      <DefaultLoadingIcon
+        existIcon={!!icon}
+        prefixCls={prefixCls}
+        loading={innerLoading}
+        mount={isMountRef.current}
+      />
     );
 
   const kids =

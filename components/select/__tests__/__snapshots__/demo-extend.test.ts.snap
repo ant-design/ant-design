@@ -11674,6 +11674,7 @@ Array [
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="topLeft"
         />
@@ -11693,6 +11694,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="topRight"
         />
@@ -11712,6 +11714,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="bottomLeft"
         />
@@ -11731,6 +11734,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="bottomRight"
         />
@@ -11921,6 +11925,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="topLeft"
             />
@@ -11940,6 +11945,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="topRight"
             />
@@ -11959,6 +11965,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="bottomLeft"
             />
@@ -11978,6 +11985,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="bottomRight"
             />
@@ -14449,6 +14457,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="large"
         />
@@ -14469,6 +14478,7 @@ Array [
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="middle"
         />
@@ -14488,6 +14498,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="small"
         />
