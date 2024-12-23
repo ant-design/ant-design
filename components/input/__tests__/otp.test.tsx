@@ -169,7 +169,7 @@ describe('Input.OTP', () => {
   });
 
   it('support type', () => {
-    const { container } = render(<OTP type="number" />);
-    expect(container.querySelector('input')).toHaveAttribute('type', 'number');
+    const { container } = render(<OTP type="numeric" />);
+    expect(container.querySelector('input')).toHaveAttribute('type', 'text');
   });
 });

@@ -136,6 +136,7 @@ interface CountConfig {
 | disabled | 是否禁用 | boolean | false |  |
 | formatter | 格式化展示，留空字段会被 ` ` 填充 | (value: string) => string | - |  |
 | mask | 自定义展示，和 `formatter` 的区别是不会修改原始值 | boolean \| string | `false` | `5.17.0` |
+| type | 输入框类型 | 'alphanumeric' \| 'numeric' | undefined |  |
 | length | 输入元素数量 | number | 6 |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - |  |
 | size | 输入框大小 | `small` \| `middle` \| `large` | `middle` |  |

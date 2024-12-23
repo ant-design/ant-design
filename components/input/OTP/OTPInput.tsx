@@ -24,7 +24,7 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
     if (type && types.includes(type)) {
       switch (type) {
         case "alphanumeric":
-          result = /^[0-9a-zA-Z]+$/g.test(e.target.value);
+          result = /^[0-9a-z]+$/gi.test(e.target.value);
           break;
         case "numeric":
           result = /^\d+$/g.test(e.target.value)
