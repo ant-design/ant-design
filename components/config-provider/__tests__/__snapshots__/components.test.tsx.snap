@@ -1755,6 +1755,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             <input
               checked=""
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -1774,6 +1775,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           >
             <input
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -2639,6 +2641,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           >
             <input
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -2659,6 +2662,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             <input
               checked=""
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -3058,6 +3062,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
               checked=""
               class="config-radio-button-input"
               disabled=""
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -3078,6 +3083,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             <input
               class="config-radio-button-input"
               disabled=""
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -3945,6 +3951,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             <input
               class="config-radio-button-input"
               disabled=""
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -3966,6 +3973,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
               checked=""
               class="config-radio-button-input"
               disabled=""
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -4362,6 +4370,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             <input
               checked=""
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -4381,6 +4390,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           >
             <input
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -5246,6 +5256,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           >
             <input
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -5266,6 +5277,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             <input
               checked=""
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -5662,6 +5674,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
             <input
               checked=""
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -5681,6 +5694,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
           >
             <input
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -6546,6 +6560,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
           >
             <input
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -6566,6 +6581,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
             <input
               checked=""
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -6962,6 +6978,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             <input
               checked=""
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -6981,6 +6998,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
           >
             <input
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -7846,6 +7864,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
           >
             <input
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -7866,6 +7885,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             <input
               checked=""
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -8262,6 +8282,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -8281,6 +8302,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -9146,6 +9168,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -9166,6 +9189,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -9562,6 +9586,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -9581,6 +9606,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -10446,6 +10472,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -10466,6 +10493,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -22174,6 +22202,7 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
         <input
           checked=""
           class="config-radio-input"
+          name="test-id"
           type="radio"
         />
         <span
@@ -22197,6 +22226,7 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
         <input
           checked=""
           class="config-radio-button-input"
+          name="test-id"
           type="radio"
         />
         <span
@@ -22226,6 +22256,7 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
           checked=""
           class="config-radio-input"
           disabled=""
+          name="test-id"
           type="radio"
         />
         <span
@@ -22250,6 +22281,7 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
           checked=""
           class="config-radio-button-input"
           disabled=""
+          name="test-id"
           type="radio"
         />
         <span
@@ -22278,6 +22310,7 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
         <input
           checked=""
           class="config-radio-input"
+          name="test-id"
           type="radio"
         />
         <span
@@ -22301,6 +22334,7 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
         <input
           checked=""
           class="config-radio-button-input"
+          name="test-id"
           type="radio"
         />
         <span
@@ -22329,6 +22363,7 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
         <input
           checked=""
           class="config-radio-input"
+          name="test-id"
           type="radio"
         />
         <span
@@ -22352,6 +22387,7 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
         <input
           checked=""
           class="config-radio-button-input"
+          name="test-id"
           type="radio"
         />
         <span
@@ -22380,6 +22416,7 @@ exports[`ConfigProvider components Radio configProvider componentSize small 1`] 
         <input
           checked=""
           class="config-radio-input"
+          name="test-id"
           type="radio"
         />
         <span
@@ -22403,6 +22440,7 @@ exports[`ConfigProvider components Radio configProvider componentSize small 1`] 
         <input
           checked=""
           class="config-radio-button-input"
+          name="test-id"
           type="radio"
         />
         <span
@@ -22431,6 +22469,7 @@ exports[`ConfigProvider components Radio normal 1`] = `
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
         />
         <span
@@ -22454,6 +22493,7 @@ exports[`ConfigProvider components Radio normal 1`] = `
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
         />
         <span
@@ -22482,6 +22522,7 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
         <input
           checked=""
           class="prefix-Radio-input"
+          name="test-id"
           type="radio"
         />
         <span
@@ -22505,6 +22546,7 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
         <input
           checked=""
           class="prefix-Radio-button-input"
+          name="test-id"
           type="radio"
         />
         <span
