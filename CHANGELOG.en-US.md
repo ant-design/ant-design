@@ -19,6 +19,7 @@ tag: vVERSION
 
 `2024-12-23`
 
+- 🐞 Align Button with and without icons consistently. [#52070](https://github.com/ant-design/ant-design/pull/52070)
 - 🐞 Fix Splitter collapsible icon `z-index` too low. [#52065](https://github.com/ant-design/ant-design/pull/52065) [@wanpan11](https://github.com/wanpan11)
 - 🐞 Fix Button motion not smooth when set `loading`. [#52059](https://github.com/ant-design/ant-design/pull/52059) [@zombieJ](https://github.com/zombieJ)
 - 🐞 Fix Button issue where solid default button text disappears on hover in dark mode. [#52024](https://github.com/ant-design/ant-design/pull/52024) [@DDDDD12138](https://github.com/DDDDD12138)
