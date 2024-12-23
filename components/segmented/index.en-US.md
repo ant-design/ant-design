@@ -50,7 +50,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | size | The size of the Segmented. | `large` \| `middle` \| `small` | `middle` |  |
 | vertical | Orientation | boolean | `false` | 5.21.0 |
 | value | Currently selected value | string \| number |  |  |
-| name | The `name` property of all `input[type="radio"]` children | string |  | 5.23.0 |
+| name | The `name` property of all `input[type="radio"]` children. if not set, it will fallback to a randomly generated name | string |  | 5.23.0 |
 
 ### SegmentedItemType
 

@@ -1690,6 +1690,7 @@ Array [
       >
         <input
           class="ant-segmented-item-input"
+          name="test-id"
           type="radio"
         />
         <div
@@ -1706,6 +1707,7 @@ Array [
         <input
           checked=""
           class="ant-segmented-item-input"
+          name="test-id"
           type="radio"
         />
         <div
@@ -1721,6 +1723,7 @@ Array [
       >
         <input
           class="ant-segmented-item-input"
+          name="test-id"
           type="radio"
         />
         <div

@@ -401,6 +401,7 @@ exports[`renders components/qr-code/demo/download.tsx extend context correctly 1
           <input
             checked=""
             class="ant-segmented-item-input"
+            name="test-id"
             type="radio"
           />
           <div
@@ -416,6 +417,7 @@ exports[`renders components/qr-code/demo/download.tsx extend context correctly 1
         >
           <input
             class="ant-segmented-item-input"
+            name="test-id"
             type="radio"
           />
           <div
@@ -490,6 +492,7 @@ Array [
         <input
           checked=""
           class="ant-segmented-item-input"
+          name="test-id"
           type="radio"
         />
         <div
@@ -505,6 +508,7 @@ Array [
       >
         <input
           class="ant-segmented-item-input"
+          name="test-id"
           type="radio"
         />
         <div
@@ -520,6 +524,7 @@ Array [
       >
         <input
           class="ant-segmented-item-input"
+          name="test-id"
           type="radio"
         />
         <div
@@ -535,6 +540,7 @@ Array [
       >
         <input
           class="ant-segmented-item-input"
+          name="test-id"
           type="radio"
         />
         <div
