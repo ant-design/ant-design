@@ -1,4 +1,9 @@
-export class Cache<ValueType = string, KeyType = string> {
+type KeyType = string;
+export class Cache<ValueType = string> {
+  cacheStore: {
+    // @ts-ignore
+    [key: KeyType]: ValueType;
+  } = {};
   constructor() {
     // The current Cache is implemented as a simple Map, which appears to be a potential memory leak.
     // Consider switching to a limited-space cache.
@@ -20,11 +25,11 @@ export class Cache<ValueType = string, KeyType = string> {
   }
 
   get(key: KeyType): ValueType {
-    return this.cacheStore[key];
+    return this.cacheStore[key as string];
   }
 
   set(key: KeyType, value: ValueType): ValueType {
-    this.cacheStore.set(key, value);
+    this.cacheStore[key] = value;
     return value;
   }
 }
