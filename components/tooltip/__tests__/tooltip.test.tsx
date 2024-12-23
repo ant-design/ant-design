@@ -215,6 +215,7 @@ describe('Tooltip', () => {
         mouseLeaveDelay={0}
         placement="bottomLeft"
         arrowPointAtCenter
+        overlayClassName="point-center-element"
       >
         <button type="button">Hello world!</button>
       </Tooltip>,

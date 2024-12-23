@@ -192,6 +192,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       // todo: Warnings are not available yet, because popover and popconfirm are still in use. Wait until they are merged before processing.
       // ['overlayStyle', 'styles={{ root: {} }}'],
       // ['overlayInnerStyle', 'styles={{ body: {} }}'],
+      // ['overlayClassName', 'classNames={{ root: {} }}'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
