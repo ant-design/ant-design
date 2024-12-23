@@ -15,6 +15,34 @@ tag: vVERSION
 
 ---
 
+## 5.22.5
+
+`2024-12-15`
+
+- 🛠 重构 Wave/Menu/Form `ref` 检查逻辑以解决 React 19 `ref` 部分冲突（注：该更新不会完全解决 React 19 兼容问题，后续将会持续更新）。[#51952](https://github.com/ant-design/ant-design/pull/51952) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Dropdown `children` 不支持传入 ReactNode 的问题。[#50174](https://github.com/ant-design/ant-design/pull/50174) [@coding-ice](https://github.com/coding-ice)
+- 🐞 修复 Carousel 某些情况下在 Modal 中无法正确展示的问题。[#51988](https://github.com/ant-design/ant-design/pull/51988) [@quan060798](https://github.com/quan060798)
+- 🐞 修复 Select 选中文本溢出的问题 。[#52011](https://github.com/ant-design/ant-design/pull/52011) [@OysterD3](https://github.com/OysterD3)
+- 🐞 修复 Form `setFieldValue` 没有重置字段校验信息的问题。[#51993](https://github.com/ant-design/ant-design/pull/51993) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Pagination 配置 `showSizeChanger.showSearch` 无效的问题。[#51962](https://github.com/ant-design/ant-design/pull/51962) [@zombieJ](https://github.com/zombieJ)
+- 🇰🇷 优化 DatePicker 韩语本地化文案。[#51983](https://github.com/ant-design/ant-design/pull/51983) [@DevLeti](https://github.com/DevLeti)
+- 🤖 从 antd 里导出 `CheckboxChangeEvent` 类型。[#52008](https://github.com/ant-design/ant-design/pull/52008) [@SpecLad](https://github.com/SpecLad)
+
+## 5.22.4
+
+`2024-12-09`
+
+- Transfer
+  - 🐞 修复 Transfer 选中当前页最后一项时背景溢出的问题。[#51884](https://github.com/ant-design/ant-design/pull/51884) [@ayangweb](https://github.com/ayangweb)
+  - 🐞 修正 Transfer 切换按钮当所有 item 禁用时依然可用的问题。[#51784](https://github.com/ant-design/ant-design/pull/51784) [@WwwHhhYran](https://github.com/WwwHhhYran)
+- 🐞 修复 Tooltip 内容过少时，箭头会在容器外的问题。[#51904](https://github.com/ant-design/ant-design/pull/51904)
+- 🐞 修复点击 Upload 下的 Radio 或 Checkbox 会触发两次弹窗的问题。[#51874](https://github.com/ant-design/ant-design/pull/51874)
+- 💄 修复 Menu 在使用 `collapsedIconSize` 时图标对齐的问题。[#51863](https://github.com/ant-design/ant-design/pull/51863) [@Gnomeek](https://github.com/Gnomeek)
+- 💄 修复 Tabs 组件在 `type="editable-card"` 时样式不正确的问题。[#51935](https://github.com/ant-design/ant-design/pull/51935) [@aojunhao123](https://github.com/aojunhao123)
+- 💄 修复 Layout.Sider 组件在 `zero-width` 模式下触发器样式优先级不足的问题。[#51936](https://github.com/ant-design/ant-design/pull/51936) [@aojunhao123](https://github.com/aojunhao123)
+- 💄 MISC: 修复 icon 样式被重复创建的问题。[#51897](https://github.com/ant-design/ant-design/pull/51897) [@YumoImer](https://github.com/YumoImer)
+- 💄 MISC: 行内样式重构为 cssinjs。[#51843](https://github.com/ant-design/ant-design/pull/51843)
+
 ## 5.22.3
 
 `2024-12-02`

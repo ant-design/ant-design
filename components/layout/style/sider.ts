@@ -69,7 +69,7 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
         transition: `all ${motionDurationMid}`,
       },
 
-      '&-zero-width': {
+      [`${antCls}-layout &-zero-width`]: {
         '> *': {
           overflow: 'hidden',
         },

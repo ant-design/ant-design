@@ -15,6 +15,34 @@ tag: vVERSION
 
 ---
 
+## 5.22.5
+
+`2024-12-15`
+
+- 🛠 Refactor Wave/Menu/Form `ref` check logic to resolve React 19 `ref` conflict (Note, this is not finally support React 19 but we will resolve step by step in future version). [#51952](https://github.com/ant-design/ant-design/pull/51952) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Dropdown cannot accept ReactNode as `children`. [#50174](https://github.com/ant-design/ant-design/pull/50174) [@coding-ice](https://github.com/coding-ice)
+- 🐞 Fix Carousel cannot display correctly in Modal without icon. [#51988](https://github.com/ant-design/ant-design/pull/51988) [@quan060798](https://github.com/quan060798)
+- 🐞 Fix Select label overflow issue. [#52011](https://github.com/ant-design/ant-design/pull/52011) [@OysterD3](https://github.com/OysterD3)
+- 🐞 Fix Form `setFieldValue` not reset field validation. [#51993](https://github.com/ant-design/ant-design/pull/51993) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Pagination with setting `showSizeChanger.showSearch` not working. [#51962](https://github.com/ant-design/ant-design/pull/51962) [@zombieJ](https://github.com/zombieJ)
+- 🇰🇷 Improve Korean locales for DatePicker. [#51983](https://github.com/ant-design/ant-design/pull/51983) [@DevLeti](https://github.com/DevLeti)
+- 🤖 Export `CheckboxChangeEvent` from antd. [#52008](https://github.com/ant-design/ant-design/pull/52008) [@SpecLad](https://github.com/SpecLad)
+
+## 5.22.4
+
+`2024-12-09`
+
+- Transfer
+  - 🐞 Fix the background overflow when Transfer selects the last item on the current page. [#51884](https://github.com/ant-design/ant-design/pull/51884) [@ayangweb](https://github.com/ayangweb)
+  - 🐞 Fix Transfer toggle button being enabled when all items are disabled. [#51784](https://github.com/ant-design/ant-design/pull/51784) [@WwwHhhYran](https://github.com/WwwHhhYran)
+- 🐞 Fix the arrow would be outside the container when the Tooltip content was too small. [#51904](https://github.com/ant-design/ant-design/pull/51904)
+- 🐞 Fix where clicking the Radio or Checkbox under Upload would trigger the popup window twice. [#51874](https://github.com/ant-design/ant-design/pull/51874)
+- 💄 Fix Menu icon alignment when using `collapsedIconSize`. [#51863](https://github.com/ant-design/ant-design/pull/51863) [@Gnomeek](https://github.com/Gnomeek)
+- 💄 Fix incorrect styling of Tabs component when `type="editable-card"`. [#51935](https://github.com/ant-design/ant-design/pull/51935) [@aojunhao123](https://github.com/aojunhao123)
+- 💄 Fix insufficient trigger style priority in Layout.Sider component in `zero-width` mode. [#51936](https://github.com/ant-design/ant-design/pull/51936) [@aojunhao123](https://github.com/aojunhao123)
+- 💄 MISC: Fix the icon styles were created repeatedly. [#51897](https://github.com/ant-design/ant-design/pull/51897) [@YumoImer](https://github.com/YumoImer)
+- 💄 MISC: Inline styles refactored to cssinjs. [#51843](https://github.com/ant-design/ant-design/pull/51843)
+
 ## 5.22.3
 
 `2024-12-02`
