@@ -51,7 +51,7 @@ const App: React.FC = () => {
   const { styles: originalClsStyle } = useOriginalClsStyle();
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="small">
       {/* link color */}
       <Flex gap="small">
         <ConfigProvider theme={{ token: { colorPrimary: 'red' } }}>

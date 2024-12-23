@@ -128,11 +128,10 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
   >
     <span
       class="ant-btn-icon ant-btn-loading-icon"
-      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+        class="anticon anticon-loading anticon-spin"
         role="img"
       >
         <svg
@@ -160,11 +159,10 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
   >
     <span
       class="ant-btn-icon ant-btn-loading-icon"
-      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+        class="anticon anticon-loading anticon-spin"
         role="img"
       >
         <svg
@@ -190,11 +188,10 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
   >
     <span
       class="ant-btn-icon ant-btn-loading-icon"
-      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+        class="anticon anticon-loading anticon-spin"
         role="img"
       >
         <svg
@@ -222,11 +219,10 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
   >
     <span
       class="ant-btn-icon ant-btn-loading-icon"
-      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+        class="anticon anticon-loading anticon-spin"
         role="img"
       >
         <svg
@@ -281,11 +277,10 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
   >
     <span
       class="ant-btn-icon ant-btn-loading-icon"
-      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+        class="anticon anticon-loading anticon-spin"
         role="img"
       >
         <svg
@@ -312,12 +307,37 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
 
 exports[`renders components/button/demo/chinese-chars-loading.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/button/demo/chinese-space.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+>
+  <button
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      确定
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      确 定
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders components/button/demo/chinese-space.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/button/demo/color-variant.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
 >
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <button
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-solid ant-btn-sm"
@@ -369,7 +389,7 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
     </button>
   </div>
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <button
       class="ant-btn ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
@@ -421,7 +441,7 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
     </button>
   </div>
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <button
       class="ant-btn ant-btn-default ant-btn-color-dangerous ant-btn-variant-solid ant-btn-sm"
@@ -750,7 +770,7 @@ exports[`renders components/button/demo/debug-block.tsx extend context correctly
 
 exports[`renders components/button/demo/debug-color-variant.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
 >
   <div
     class="ant-flex ant-flex-gap-small"
@@ -1329,6 +1349,67 @@ Array [
           Search
         </span>
       </button>
+    </div>
+    <div
+      class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain"
+      role="separator"
+    >
+      <span
+        class="ant-divider-inner-text"
+      >
+        👇🏻 https://github.com/ant-design/ant-design/issues/51811 👇🏻
+      </span>
+    </div>
+    <div>
+      <button
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg"
+        type="button"
+      >
+        <span>
+          without icon
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="search"
+            class="anticon anticon-search"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="search"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span>
+          with icon
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain"
+      role="separator"
+    >
+      <span
+        class="ant-divider-inner-text"
+      >
+        👇🏻 https://github.com/ant-design/ant-design/issues/51380 👇🏻
+      </span>
     </div>
     <div
       class="ant-flex ant-flex-gap-small"
@@ -2466,11 +2547,10 @@ Array [
       >
         <span
           class="ant-btn-icon ant-btn-loading-icon"
-          style="width: 0px; opacity: 0; transform: scale(0);"
         >
           <span
             aria-label="loading"
-            class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+            class="anticon anticon-loading anticon-spin"
             role="img"
           >
             <svg
@@ -2861,7 +2941,7 @@ exports[`renders components/button/demo/linear-gradient.tsx extend context corre
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg acss-9mi5l3"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg acss-wkbm77"
       type="button"
     >
       <span
@@ -2896,7 +2976,7 @@ exports[`renders components/button/demo/linear-gradient.tsx extend context corre
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg acss-9mi5l3"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg acss-wkbm77"
       type="button"
     >
       <span>
@@ -2922,11 +3002,10 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
     >
       <span
         class="ant-btn-icon ant-btn-loading-icon"
-        style="width: 0px; opacity: 0; transform: scale(0);"
       >
         <span
           aria-label="loading"
-          class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+          class="anticon anticon-loading anticon-spin"
           role="img"
         >
           <svg
@@ -2954,11 +3033,10 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
     >
       <span
         class="ant-btn-icon ant-btn-loading-icon"
-        style="width: 0px; opacity: 0; transform: scale(0);"
       >
         <span
           aria-label="loading"
-          class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+          class="anticon anticon-loading anticon-spin"
           role="img"
         >
           <svg
@@ -3048,7 +3126,15 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
       type="button"
     >
       <span>
-        Click me!
+        Icon Start
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-end"
+      type="button"
+    >
+      <span>
+        Icon End
       </span>
     </button>
     <button
@@ -3079,7 +3165,7 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
         </span>
       </span>
       <span>
-        Click me!
+        Icon Replace
       </span>
     </button>
     <button
@@ -3314,31 +3400,6 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
 `;
 
 exports[`renders components/button/demo/multiple.tsx extend context correctly 2`] = `[]`;
-
-exports[`renders components/button/demo/noSpace.tsx extend context correctly 1`] = `
-<div
-  class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
->
-  <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-    type="button"
-  >
-    <span>
-      确定
-    </span>
-  </button>
-  <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-    type="button"
-  >
-    <span>
-      确 定
-    </span>
-  </button>
-</div>
-`;
-
-exports[`renders components/button/demo/noSpace.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/button/demo/size.tsx extend context correctly 1`] = `
 Array [
