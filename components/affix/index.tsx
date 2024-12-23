@@ -80,7 +80,7 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
   const status = React.useRef<AffixStatus>(AFFIX_STATUS_NONE);
 
   const prevTarget = React.useRef<Window | HTMLElement | null>(null);
-  const prevListener = React.useRef<EventListener>();
+  const prevListener = React.useRef<EventListener>(null);
 
   const placeholderNodeRef = React.useRef<HTMLDivElement>(null);
   const fixedNodeRef = React.useRef<HTMLDivElement>(null);

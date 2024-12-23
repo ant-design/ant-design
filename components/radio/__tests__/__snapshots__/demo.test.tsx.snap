@@ -15,6 +15,7 @@ exports[`renders components/radio/demo/badge.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="1"
         />
@@ -56,6 +57,7 @@ exports[`renders components/radio/demo/badge.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="2"
         />
@@ -176,6 +178,7 @@ exports[`renders components/radio/demo/component-token.tsx correctly 1`] = `
           <input
             checked=""
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="a"
           />
@@ -195,6 +198,7 @@ exports[`renders components/radio/demo/component-token.tsx correctly 1`] = `
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="b"
           />
@@ -214,6 +218,7 @@ exports[`renders components/radio/demo/component-token.tsx correctly 1`] = `
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="c"
           />
@@ -233,6 +238,7 @@ exports[`renders components/radio/demo/component-token.tsx correctly 1`] = `
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="d"
           />
@@ -262,6 +268,7 @@ exports[`renders components/radio/demo/component-token.tsx correctly 1`] = `
             checked=""
             class="ant-radio-button-input"
             disabled=""
+            name="test-id"
             type="radio"
             value="a"
           />
@@ -282,6 +289,7 @@ exports[`renders components/radio/demo/component-token.tsx correctly 1`] = `
           <input
             class="ant-radio-button-input"
             disabled=""
+            name="test-id"
             type="radio"
             value="b"
           />
@@ -302,6 +310,7 @@ exports[`renders components/radio/demo/component-token.tsx correctly 1`] = `
           <input
             class="ant-radio-button-input"
             disabled=""
+            name="test-id"
             type="radio"
             value="c"
           />
@@ -322,6 +331,7 @@ exports[`renders components/radio/demo/component-token.tsx correctly 1`] = `
           <input
             class="ant-radio-button-input"
             disabled=""
+            name="test-id"
             type="radio"
             value="d"
           />
@@ -350,6 +360,7 @@ exports[`renders components/radio/demo/component-token.tsx correctly 1`] = `
           <input
             checked=""
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="a"
           />
@@ -369,6 +380,7 @@ exports[`renders components/radio/demo/component-token.tsx correctly 1`] = `
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="b"
           />
@@ -388,6 +400,7 @@ exports[`renders components/radio/demo/component-token.tsx correctly 1`] = `
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="c"
           />
@@ -407,6 +420,7 @@ exports[`renders components/radio/demo/component-token.tsx correctly 1`] = `
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="d"
           />
@@ -586,6 +600,7 @@ exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="a"
         />
@@ -605,6 +620,7 @@ exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="b"
         />
@@ -624,6 +640,7 @@ exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="c"
         />
@@ -643,6 +660,7 @@ exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="d"
         />
@@ -667,6 +685,7 @@ exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="a"
         />
@@ -687,6 +706,7 @@ exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
         <input
           class="ant-radio-button-input"
           disabled=""
+          name="test-id"
           type="radio"
           value="b"
         />
@@ -706,6 +726,7 @@ exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="c"
         />
@@ -725,6 +746,7 @@ exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="d"
         />
@@ -750,6 +772,7 @@ exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
           checked=""
           class="ant-radio-button-input"
           disabled=""
+          name="test-id"
           type="radio"
           value="a"
         />
@@ -770,6 +793,7 @@ exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
         <input
           class="ant-radio-button-input"
           disabled=""
+          name="test-id"
           type="radio"
           value="b"
         />
@@ -790,6 +814,7 @@ exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
         <input
           class="ant-radio-button-input"
           disabled=""
+          name="test-id"
           type="radio"
           value="c"
         />
@@ -810,6 +835,7 @@ exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
         <input
           class="ant-radio-button-input"
           disabled=""
+          name="test-id"
           type="radio"
           value="d"
         />
@@ -841,6 +867,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx correctly 1`] = `
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="a"
         />
@@ -860,6 +887,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="b"
         />
@@ -879,6 +907,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="c"
         />
@@ -898,6 +927,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="d"
         />
@@ -921,6 +951,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="a"
         />
@@ -941,6 +972,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx correctly 1`] = `
         <input
           class="ant-radio-button-input"
           disabled=""
+          name="test-id"
           type="radio"
           value="b"
         />
@@ -961,6 +993,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx correctly 1`] = `
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="c"
         />
@@ -980,6 +1013,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="d"
         />
@@ -1008,6 +1042,7 @@ exports[`renders components/radio/demo/radiogroup.tsx correctly 1`] = `
       <input
         checked=""
         class="ant-radio-input"
+        name="test-id"
         type="radio"
         value="1"
       />
@@ -1027,6 +1062,7 @@ exports[`renders components/radio/demo/radiogroup.tsx correctly 1`] = `
     >
       <input
         class="ant-radio-input"
+        name="test-id"
         type="radio"
         value="2"
       />
@@ -1046,6 +1082,7 @@ exports[`renders components/radio/demo/radiogroup.tsx correctly 1`] = `
     >
       <input
         class="ant-radio-input"
+        name="test-id"
         type="radio"
         value="3"
       />
@@ -1065,6 +1102,7 @@ exports[`renders components/radio/demo/radiogroup.tsx correctly 1`] = `
     >
       <input
         class="ant-radio-input"
+        name="test-id"
         type="radio"
         value="4"
       />
@@ -1095,6 +1133,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx correctly 1`] = `
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="Apple"
         />
@@ -1114,6 +1153,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="Pear"
         />
@@ -1133,6 +1173,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="Orange"
         />
@@ -1157,6 +1198,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx correctly 1`] = `
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="Apple"
         />
@@ -1176,6 +1218,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="Pear"
         />
@@ -1195,6 +1238,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="Orange"
         />
@@ -1218,6 +1262,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="Apple"
         />
@@ -1238,6 +1283,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx correctly 1`] = `
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="Pear"
         />
@@ -1257,6 +1303,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="Orange"
         />
@@ -1291,6 +1338,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx correctly 1`] = `
           <input
             checked=""
             class="ant-radio-input"
+            name="test-id"
             type="radio"
             value="1"
           />
@@ -1314,6 +1362,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx correctly 1`] = `
         >
           <input
             class="ant-radio-input"
+            name="test-id"
             type="radio"
             value="2"
           />
@@ -1337,6 +1386,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx correctly 1`] = `
         >
           <input
             class="ant-radio-input"
+            name="test-id"
             type="radio"
             value="3"
           />
@@ -1360,6 +1410,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx correctly 1`] = `
         >
           <input
             class="ant-radio-input"
+            name="test-id"
             type="radio"
             value="4"
           />
@@ -1390,6 +1441,7 @@ Array [
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="Apple"
         />
@@ -1409,6 +1461,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="Pear"
         />
@@ -1428,6 +1481,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="Orange"
         />
@@ -1453,6 +1507,7 @@ Array [
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="Apple"
         />
@@ -1472,6 +1527,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="Pear"
         />
@@ -1492,6 +1548,7 @@ Array [
         <input
           class="ant-radio-input"
           disabled=""
+          name="test-id"
           type="radio"
           value="Orange"
         />
@@ -1518,6 +1575,7 @@ Array [
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="Apple"
         />
@@ -1537,6 +1595,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="Pear"
         />
@@ -1557,6 +1616,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="Orange"
         />
@@ -1583,6 +1643,7 @@ Array [
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="Apple"
         />
@@ -1602,6 +1663,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="Pear"
         />
@@ -1622,6 +1684,7 @@ Array [
         <input
           class="ant-radio-button-input"
           disabled=""
+          name="test-id"
           type="radio"
           value="Orange"
         />
@@ -1741,6 +1804,7 @@ exports[`renders components/radio/demo/size.tsx correctly 1`] = `
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="a"
         />
@@ -1760,6 +1824,7 @@ exports[`renders components/radio/demo/size.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="b"
         />
@@ -1779,6 +1844,7 @@ exports[`renders components/radio/demo/size.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="c"
         />
@@ -1798,6 +1864,7 @@ exports[`renders components/radio/demo/size.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="d"
         />
@@ -1822,6 +1889,7 @@ exports[`renders components/radio/demo/size.tsx correctly 1`] = `
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="a"
         />
@@ -1841,6 +1909,7 @@ exports[`renders components/radio/demo/size.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="b"
         />
@@ -1860,6 +1929,7 @@ exports[`renders components/radio/demo/size.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="c"
         />
@@ -1879,6 +1949,7 @@ exports[`renders components/radio/demo/size.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="d"
         />
@@ -1903,6 +1974,7 @@ exports[`renders components/radio/demo/size.tsx correctly 1`] = `
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="a"
         />
@@ -1922,6 +1994,7 @@ exports[`renders components/radio/demo/size.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="b"
         />
@@ -1941,6 +2014,7 @@ exports[`renders components/radio/demo/size.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="c"
         />
@@ -1960,6 +2034,7 @@ exports[`renders components/radio/demo/size.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="d"
         />
@@ -1989,6 +2064,7 @@ Array [
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="1"
         />
@@ -2008,6 +2084,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="2"
         />
@@ -2027,6 +2104,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="3"
         />
@@ -2046,6 +2124,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="4"
         />
@@ -2072,6 +2151,7 @@ Array [
           checked=""
           class="ant-radio-input"
           disabled=""
+          name="test-id"
           type="radio"
           value="1"
         />
@@ -2092,6 +2172,7 @@ Array [
         <input
           class="ant-radio-input"
           disabled=""
+          name="test-id"
           type="radio"
           value="2"
         />
@@ -2112,6 +2193,7 @@ Array [
         <input
           class="ant-radio-input"
           disabled=""
+          name="test-id"
           type="radio"
           value="3"
         />
@@ -2132,6 +2214,7 @@ Array [
         <input
           class="ant-radio-input"
           disabled=""
+          name="test-id"
           type="radio"
           value="4"
         />

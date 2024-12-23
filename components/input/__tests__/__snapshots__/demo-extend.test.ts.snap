@@ -5245,6 +5245,7 @@ Array [
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="a"
         />
@@ -5264,6 +5265,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="b"
         />
@@ -5801,7 +5803,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
             <input
               class="ant-input"
               placeholder="input search text"
-              type="text"
+              type="search"
               value=""
             />
             <span
@@ -7021,7 +7023,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         >
           <input
             class="ant-input"
-            type="text"
+            type="search"
             value="0571"
           />
           <span
@@ -7101,7 +7103,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         >
           <input
             class="ant-input"
-            type="text"
+            type="search"
             value="26888888"
           />
           <span
@@ -10869,7 +10871,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
         <input
           class="ant-input ant-input-outlined"
           placeholder="input search text"
-          type="text"
+          type="search"
           value=""
         />
         <span
@@ -10923,7 +10925,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           <input
             class="ant-input"
             placeholder="input search text"
-            type="text"
+            type="search"
             value=""
           />
           <span
@@ -11013,7 +11015,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           <input
             class="ant-input"
             placeholder="input search text"
-            type="text"
+            type="search"
             value=""
           />
           <span
@@ -11094,7 +11096,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
         <input
           class="ant-input ant-input-outlined"
           placeholder="input search text"
-          type="text"
+          type="search"
           value=""
         />
         <span
@@ -11147,7 +11149,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           <input
             class="ant-input ant-input-lg"
             placeholder="input search text"
-            type="text"
+            type="search"
             value=""
           />
           <span
@@ -11211,7 +11213,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           <input
             class="ant-input ant-input-lg"
             placeholder="input search text"
-            type="text"
+            type="search"
             value=""
           />
           <span
@@ -11270,7 +11272,7 @@ Array [
       <input
         class="ant-input ant-input-outlined"
         placeholder="input search loading default"
-        type="text"
+        type="search"
         value=""
       />
       <span
@@ -11318,7 +11320,7 @@ Array [
       <input
         class="ant-input ant-input-outlined"
         placeholder="input search loading with enterButton"
-        type="text"
+        type="search"
         value=""
       />
       <span
@@ -11366,7 +11368,7 @@ Array [
       <input
         class="ant-input ant-input-lg ant-input-outlined"
         placeholder="input search text"
-        type="text"
+        type="search"
         value=""
       />
       <span

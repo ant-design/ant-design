@@ -3993,6 +3993,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                         <input
                           checked=""
                           class="ant-segmented-item-input"
+                          name="test-id"
                           type="radio"
                         />
                         <div
@@ -4008,6 +4009,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       >
                         <input
                           class="ant-segmented-item-input"
+                          name="test-id"
                           type="radio"
                         />
                         <div

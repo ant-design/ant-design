@@ -6,7 +6,12 @@ console.log('Current React Version:', React.version);
 
 const originConsoleErr = console.error;
 
-const ignoreWarns = ['validateDOMNesting', 'on an unmounted component', 'not wrapped in act'];
+const ignoreWarns = [
+  'validateDOMNesting',
+  'on an unmounted component',
+  'not wrapped in act',
+  'You called act',
+];
 
 // Hack off React warning to avoid too large log in CI.
 console.error = (...args) => {
@@ -59,3 +64,19 @@ if (typeof window !== 'undefined') {
 
 global.requestAnimationFrame = global.requestAnimationFrame || global.setTimeout;
 global.cancelAnimationFrame = global.cancelAnimationFrame || global.clearTimeout;
+
+if (typeof MessageChannel === 'undefined') {
+  (global as any).MessageChannel = function MessageChannel() {
+    const port1: any = {};
+    const port2: any = {};
+    port1.postMessage = port2.onmessage = () => {};
+    port2.postMessage = port1.onmessage = () => {};
+    return { port1, port2 };
+  };
+}
+
+// Mock useId to return a stable id for snapshot testing
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  useId: () => 'test-id',
+}));

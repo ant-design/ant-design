@@ -101,7 +101,9 @@ const MenuItem: GenericComponent = (props) => {
     >
       {cloneElement(icon, {
         className: classNames(
-          React.isValidElement(icon) ? icon.props?.className : '',
+          React.isValidElement(icon)
+            ? (icon as React.ReactElement<{ className?: string }>).props?.className
+            : '',
           `${prefixCls}-item-icon`,
         ),
       })}
