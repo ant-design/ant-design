@@ -30867,6 +30867,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                 >
                   <input
                     class="ant-segmented-item-input"
+                    name="test-id"
                     type="radio"
                   />
                   <div
@@ -30883,6 +30884,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                   <input
                     checked=""
                     class="ant-segmented-item-input"
+                    name="test-id"
                     type="radio"
                   />
                   <div
@@ -30898,6 +30900,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                 >
                   <input
                     class="ant-segmented-item-input"
+                    name="test-id"
                     type="radio"
                   />
                   <div
