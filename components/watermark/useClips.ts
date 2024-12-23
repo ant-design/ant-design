@@ -48,7 +48,7 @@ export default function useClips() {
   ): [dataURL: string, finalWidth: number, finalHeight: number] {
     // If the type is HTMLImageElement, the uniqueness is determined by its src property.
     const key = Cache.generateKey(
-      content?.src || content,
+      content instanceof HTMLImageElement ? content.src : content,
       rotate,
       ratio,
       width,
