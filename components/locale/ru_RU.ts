@@ -80,7 +80,7 @@ const localeValues: Locale = {
     copy: 'Копировать',
     copied: 'Скопировано',
     expand: 'Раскрыть',
-    collapse: "Свернуть",
+    collapse: 'Свернуть',
   },
   Form: {
     optional: '(необязательно)',
@@ -144,7 +144,7 @@ const localeValues: Locale = {
     transparent: 'Прозрачный',
     singleColor: 'Один цвет',
     gradientColor: 'Градиент',
-  }
+  },
 };
 
 export default localeValues;

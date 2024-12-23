@@ -421,6 +421,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
     // ========================= Input =========================
     [`${componentCls}-clear-icon`]: {
       margin: 0,
+      lineHeight: 0,
       color: token.colorTextQuaternary,
       fontSize: token.fontSizeIcon,
       verticalAlign: -1,
@@ -676,8 +677,6 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
           [`${searchPrefixCls}-button`]: {
             // Fix https://github.com/ant-design/ant-design/issues/47150
             marginInlineEnd: -1,
-            paddingTop: 0,
-            paddingBottom: 0,
             borderStartStartRadius: 0,
             borderEndStartRadius: 0,
             boxShadow: 'none',

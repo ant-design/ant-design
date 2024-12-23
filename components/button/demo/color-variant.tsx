@@ -7,8 +7,8 @@ const App: React.FC = () => {
 
   return (
     <ConfigProvider componentSize={xxl ? 'middle' : 'small'}>
-      <Flex vertical gap="middle">
-        <Flex gap="middle" wrap>
+      <Flex vertical gap="small">
+        <Flex gap="small" wrap>
           <Button color="default" variant="solid">
             Solid
           </Button>
@@ -28,7 +28,7 @@ const App: React.FC = () => {
             Link
           </Button>
         </Flex>
-        <Flex gap="middle" wrap>
+        <Flex gap="small" wrap>
           <Button color="primary" variant="solid">
             Solid
           </Button>
@@ -48,7 +48,7 @@ const App: React.FC = () => {
             Link
           </Button>
         </Flex>
-        <Flex gap="middle" wrap>
+        <Flex gap="small" wrap>
           <Button color="danger" variant="solid">
             Solid
           </Button>

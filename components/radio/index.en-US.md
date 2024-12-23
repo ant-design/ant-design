@@ -30,6 +30,7 @@ demo:
 <code src="./demo/badge.tsx" debug>Badge style</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/debug-upload.tsx" debug>Upload Debug</code>
 <!-- prettier-ignore-end -->
 
 ## API

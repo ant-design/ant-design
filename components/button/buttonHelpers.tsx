@@ -15,7 +15,7 @@ export function convertLegacyProps(
   return { type };
 }
 
-export function isString(str: any): str is string {
+export function isString(str: unknown): str is string {
   return typeof str === 'string';
 }
 
@@ -34,10 +34,22 @@ function splitCNCharsBySpace(child: React.ReactElement | string | number, needIn
     typeof child !== 'string' &&
     typeof child !== 'number' &&
     isString(child.type) &&
-    isTwoCNChar(child.props.children)
+    isTwoCNChar(
+      (
+        child as React.ReactElement<{
+          children: string;
+        }>
+      ).props.children,
+    )
   ) {
     return cloneElement(child, {
-      children: child.props.children.split('').join(SPACE),
+      children: (
+        child as React.ReactElement<{
+          children: string;
+        }>
+      ).props.children
+        .split('')
+        .join(SPACE),
     });
   }
 

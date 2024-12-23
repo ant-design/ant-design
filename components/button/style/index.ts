@@ -13,7 +13,17 @@ export type { ComponentToken };
 
 // ============================== Shared ==============================
 const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSSObject => {
-  const { componentCls, iconCls, fontWeight } = token;
+  const {
+    componentCls,
+    iconCls,
+    fontWeight,
+    opacityLoading,
+    motionDurationSlow,
+    motionEaseInOut,
+    marginXS,
+    calc,
+  } = token;
+
   return {
     [componentCls]: {
       outline: 'none',
@@ -38,17 +48,21 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         pointerEvents: 'none',
       },
 
-      [`> span, ${componentCls}-icon`]: {
+      '> span:not(:only-child)': {
         display: 'inline-flex',
+        alignSelf: 'baseline',
+      },
+
+      [`> span${componentCls}-icon, > span${iconCls}`]: {
+        display: 'inline-flex',
+        alignSelf: 'center',
       },
 
       '> a': {
         color: 'currentColor',
       },
 
-      '&:not(:disabled)': {
-        ...genFocusStyle(token),
-      },
+      '&:not(:disabled)': genFocusStyle(token),
 
       [`&${componentCls}-two-chinese-chars::first-letter`]: {
         letterSpacing: '0.34em',
@@ -59,9 +73,66 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         letterSpacing: '0.34em',
       },
 
-      // iconPosition="end"
+      [`&${componentCls}-icon-only`]: {
+        paddingInline: 0,
+
+        // make `btn-icon-only` not too narrow
+        [`&${componentCls}-compact-item`]: {
+          flex: 'none',
+        },
+
+        [`&${componentCls}-round`]: {
+          width: 'auto',
+        },
+      },
+
+      // Loading
+      [`&${componentCls}-loading`]: {
+        opacity: opacityLoading,
+        cursor: 'default',
+      },
+
+      [`${componentCls}-loading-icon`]: {
+        transition: ['width', 'opacity', 'margin']
+          .map((transition) => `${transition} ${motionDurationSlow} ${motionEaseInOut}`)
+          .join(','),
+      },
+
+      // iconPosition
+      [`&:not(${componentCls}-icon-end)`]: {
+        [`${componentCls}-loading-icon-motion`]: {
+          '&-appear-start, &-enter-start': {
+            marginInlineEnd: calc(marginXS).mul(-1).equal(),
+          },
+          '&-appear-active, &-enter-active': {
+            marginInlineEnd: 0,
+          },
+          '&-leave-start': {
+            marginInlineEnd: 0,
+          },
+          '&-leave-active': {
+            marginInlineEnd: calc(marginXS).mul(-1).equal(),
+          },
+        },
+      },
+
       '&-icon-end': {
         flexDirection: 'row-reverse',
+
+        [`${componentCls}-loading-icon-motion`]: {
+          '&-appear-start, &-enter-start': {
+            marginInlineStart: calc(marginXS).mul(-1).equal(),
+          },
+          '&-appear-active, &-enter-active': {
+            marginInlineStart: 0,
+          },
+          '&-leave-start': {
+            marginInlineStart: 0,
+          },
+          '&-leave-active': {
+            marginInlineStart: calc(marginXS).mul(-1).equal(),
+          },
+        },
       },
     },
   };
@@ -244,9 +315,11 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
     token.solidTextColor,
     token.colorBgSolid,
     {
+      color: token.solidTextColor,
       background: token.colorBgSolidHover,
     },
     {
+      color: token.solidTextColor,
       background: token.colorBgSolidActive,
     },
   ),
@@ -525,11 +598,9 @@ const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation =>
     buttonPaddingHorizontal,
     iconCls,
     buttonPaddingVertical,
-    motionDurationSlow,
-    motionEaseInOut,
     buttonIconOnlyFontSize,
-    opacityLoading,
   } = token;
+
   return [
     {
       [prefixCls]: {
@@ -541,30 +612,10 @@ const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation =>
 
         [`&${componentCls}-icon-only`]: {
           width: controlHeight,
-          paddingInline: 0,
-
-          // make `btn-icon-only` not too narrow
-          [`&${componentCls}-compact-item`]: {
-            flex: 'none',
-          },
-
-          [`&${componentCls}-round`]: {
-            width: 'auto',
-          },
 
           [iconCls]: {
             fontSize: buttonIconOnlyFontSize,
           },
-        },
-
-        // Loading
-        [`&${componentCls}-loading`]: {
-          opacity: opacityLoading,
-          cursor: 'default',
-        },
-
-        [`${componentCls}-loading-icon`]: {
-          transition: `width ${motionDurationSlow} ${motionEaseInOut}, opacity ${motionDurationSlow} ${motionEaseInOut}`,
         },
       },
     },
