@@ -186,6 +186,23 @@ describe('Watermark', () => {
     expect(Cache.generateKey({ a: 1 }, [1, 2, 3])).toBe('{"a":1},[1,2,3]');
   });
 
+  it('should generate keys correctly for Error', async () => {
+    expect(
+      Cache.generateKey(
+        {
+          value: null,
+          toString: null,
+          toJSON() {
+            // 在序列化时抛出错误
+            throw new Error('Serialization error');
+          },
+        },
+        'a',
+        1,
+      ),
+    ).toBe(',"a",1');
+  });
+
   it('should handle JSON.stringify errors gracefully', async () => {
     const circularObj: any = {};
     circularObj.self = circularObj;
