@@ -18,6 +18,9 @@ export class Cache<ValueType = string> {
       | HTMLImageElement
       | number
       | Required<NonNullable<WatermarkProps['font']>>
+      | { [key: string]: unknown }
+      | ({ [key: string]: unknown } | number | string)[]
+      | boolean
     )[]
   ): string {
     return Array.from(args)

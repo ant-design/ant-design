@@ -6,6 +6,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { render, waitFakeTimer } from '../../../tests/utils';
 import Drawer from '../../drawer';
 import Modal from '../../modal';
+import Cache from '../cache';
 
 describe('Watermark', () => {
   mountTest(Watermark);
@@ -177,27 +178,27 @@ describe('Watermark', () => {
     spy.mockRestore();
   });
 
-  it('should generate keys correctly for primitive values', () => {
+  it('should generate keys correctly for primitive values', async () => {
     expect(Cache.generateKey(123, 'test', true)).toBe('123,"test",true');
   });
 
-  it('should generate keys correctly for objects and arrays', () => {
+  it('should generate keys correctly for objects and arrays', async () => {
     expect(Cache.generateKey({ a: 1 }, [1, 2, 3])).toBe('{"a":1},[1,2,3]');
   });
 
-  it('should handle JSON.stringify errors gracefully', () => {
+  it('should handle JSON.stringify errors gracefully', async () => {
     const circularObj: any = {};
     circularObj.self = circularObj;
     expect(Cache.generateKey(circularObj)).toBe('[object Object]');
   });
 
-  it('should retrieve value from cache correctly', () => {
+  it('should retrieve value from cache correctly', async () => {
     const cache = new Cache();
     cache.set('key1', 'value1');
     expect(cache.get('key1')).toBe('value1');
   });
 
-  it('should return undefined for non-existent keys', () => {
+  it('should return undefined for non-existent keys', async () => {
     const cache = new Cache();
     expect(cache.get('nonExistentKey')).toBeUndefined();
   });
