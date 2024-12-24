@@ -312,7 +312,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     tooltipClassNames?.root,
   );
 
-  const bodyClassnames = classNames(tooltip?.classNames?.body, tooltipClassNames?.body);
+  const bodyClassNames = classNames(tooltip?.classNames?.body, tooltipClassNames?.body);
 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Tooltip', otherProps.zIndex);
@@ -326,7 +326,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
       prefixCls={prefixCls}
-      classNames={{ root: rootClassNames, body: bodyClassnames }}
+      classNames={{ root: rootClassNames, body: bodyClassNames }}
       styles={{
         root: {
           ...arrowContentStyle,
