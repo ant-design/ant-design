@@ -1,3 +1,5 @@
+import { version } from 'react';
+
 import { waitFakeTimer19 } from '../../../tests/utils';
 import Modal from '../../modal';
 
@@ -14,13 +16,17 @@ describe('UnstableContext', () => {
 
   // TODO: Remove in v6
   it('should warning', async () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    Modal.info({ title: 'title', content: 'content' });
+    const majorVersion = parseInt(version.split('.')[0], 10);
 
-    await waitFakeTimer19();
+    if (majorVersion >= 19) {
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      Modal.info({ title: 'title', content: 'content' });
 
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: compatible] antd v5 support React is 16 ~ 18. see https://u.ant.design/v5-for-19 for compatible.',
-    );
+      await waitFakeTimer19();
+
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: compatible] antd v5 support React is 16 ~ 18. see https://u.ant.design/v5-for-19 for compatible.',
+      );
+    }
   });
 });
