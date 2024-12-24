@@ -15,8 +15,8 @@ antd v5 默认兼容 React 16 ~ 18 版本，对于 React 19 版本，可以使�
 
 由于 React 19 调整了 `react-dom` 的导出方式，导致 antd 无法直接使用 `ReactDOM.render` 方法。因而使用 antd 会遇到以下问题：
 
-- 波纹特效无法正常工作（如 Button、Switch 等组件点击控制台报错）
-- `Modal`、`Notification`、`Message` 等组件的静态方法报错
+- 波纹特效无法正常工作
+- `Modal`、`Notification`、`Message` 等组件的静态方法无效
 
 因而需要通过兼容配置，使 antd 在 React 19 中正常工作。
 

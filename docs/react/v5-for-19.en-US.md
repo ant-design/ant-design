@@ -15,8 +15,8 @@ antd v5 compatibility with React 16 ~ 18 by default. For React 19, you can use t
 
 Since React 19 adjusted the export method of `react-dom`, antd cannot directly use the `ReactDOM.render` method. Therefore, using antd will encounter the following problems:
 
-- Wave effect does not work properly (such as Button, Switch, etc., clicking the console reports an error)
-- Static methods of `Modal`, `Notification`, `Message`, etc. report errors
+- Wave effect does not show
+- Static methods of `Modal`, `Notification`, `Message` not working
 
 Therefore, you need to use a compatibility configuration to make antd work properly in React 19.
 
