@@ -13,9 +13,11 @@ const defaultReactRender: RenderType = (node, container) => {
   // TODO: Remove in v6
   // Warning for React 19
   if (process.env.NODE_ENV !== 'production') {
+    const majorVersion = parseInt(React.version.split('.')[0], 10);
     warning(
-      false,
-      'Seems you are using React 19. Currently antd support React is 16 ~ 18. see https://u.ant.design/v5-for-19 for compatible.',
+      majorVersion < 19,
+      'compatible',
+      'antd v5 support React is 16 ~ 18. see https://u.ant.design/v5-for-19 for compatible.',
     );
   }
 
