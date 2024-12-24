@@ -91,6 +91,14 @@ interface LegacyTooltipProps
 }
 
 export interface AbstractTooltipProps extends LegacyTooltipProps {
+  styles?: {
+    root?: React.CSSProperties;
+    body?: React.CSSProperties;
+  };
+  classNames?: {
+    root?: string;
+    body?: string;
+  };
   style?: React.CSSProperties;
   className?: string;
   rootClassName?: string;
@@ -130,7 +138,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     prefixCls: customizePrefixCls,
     openClassName,
     getTooltipContainer,
-    overlayClassName,
     color,
     overlayInnerStyle,
     children,
@@ -153,6 +160,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     direction,
+    tooltip,
   } = React.useContext(ConfigContext);
 
   // ============================== Ref ===============================
@@ -181,6 +189,10 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       ['onVisibleChange', 'onOpenChange'],
       ['afterVisibleChange', 'afterOpenChange'],
       ['arrowPointAtCenter', 'arrow={{ pointAtCenter: true }}'],
+      // todo: Warnings are not available yet, because popover and popconfirm are still in use. Wait until they are merged before processing.
+      // ['overlayStyle', 'styles={{ root: {} }}'],
+      // ['overlayInnerStyle', 'styles={{ body: {} }}'],
+      // ['overlayClassName', 'classNames={{ root: {} }}'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
@@ -253,6 +265,9 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     mouseLeaveDelay = 0.1,
     overlayStyle,
     rootClassName,
+    overlayClassName,
+    styles,
+    classNames: tooltipClassNames,
     ...otherProps
   } = props;
 
@@ -282,12 +297,8 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
   // Color
   const colorInfo = parseColor(prefixCls, color);
   const arrowContentStyle = colorInfo.arrowStyle;
-  const formattedOverlayInnerStyle: React.CSSProperties = {
-    ...overlayInnerStyle,
-    ...colorInfo.overlayStyle,
-  };
 
-  const customOverlayClassName = classNames(
+  const rootClassNames = classNames(
     overlayClassName,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -296,7 +307,12 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     rootClassName,
     hashId,
     cssVarCls,
+    tooltip?.className,
+    tooltip?.classNames?.root,
+    tooltipClassNames?.root,
   );
+
+  const bodyClassnames = classNames(tooltip?.classNames?.body, tooltipClassNames?.body);
 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Tooltip', otherProps.zIndex);
@@ -310,8 +326,22 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
       prefixCls={prefixCls}
-      overlayClassName={customOverlayClassName}
-      overlayStyle={{ ...arrowContentStyle, ...overlayStyle }}
+      classNames={{ root: rootClassNames, body: bodyClassnames }}
+      styles={{
+        root: {
+          ...arrowContentStyle,
+          ...tooltip?.styles?.root,
+          ...tooltip?.style,
+          ...overlayStyle,
+          ...styles?.root,
+        },
+        body: {
+          ...tooltip?.styles?.body,
+          ...overlayInnerStyle,
+          ...styles?.body,
+          ...colorInfo.overlayStyle,
+        },
+      }}
       getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
       ref={tooltipRef}
       builtinPlacements={tooltipPlacements}
@@ -319,7 +349,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       visible={tempOpen}
       onVisibleChange={onOpenChange}
       afterVisibleChange={afterOpenChange ?? afterVisibleChange}
-      overlayInnerStyle={formattedOverlayInnerStyle}
       arrowContent={<span className={`${prefixCls}-arrow-content`} />}
       motion={{
         motionName: getTransitionName(rootPrefixCls, 'zoom-big-fast', props.transitionName),
