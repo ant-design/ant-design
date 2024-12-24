@@ -1,3 +1,5 @@
+import type { WatermarkProps } from '.';
+
 type KeyType = string;
 export class Cache<ValueType = string> {
   cacheStore: {
@@ -10,16 +12,25 @@ export class Cache<ValueType = string> {
     this.cacheStore = {}; // new Map();
   }
 
-  static generateKey(...args: unknown[]): string {
+  static generateKey(
+    ...args: (
+      | NonNullable<WatermarkProps['content']>
+      | HTMLImageElement
+      | number
+      | Required<NonNullable<WatermarkProps['font']>>
+    )[]
+  ): string {
     return Array.from(args)
       .map((item) => {
         try {
           return JSON.stringify(item);
           // eslint-disable-next-line unused-imports/no-unused-vars
-        } catch (e) {
-          // console.warn(e);
-          return item?.toString?.() || '';
-        }
+        } catch (e) {}
+        try {
+          return item.toString();
+          // eslint-disable-next-line unused-imports/no-unused-vars
+        } catch (e) {}
+        return '';
       })
       .join();
   }
