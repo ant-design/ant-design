@@ -601,4 +601,33 @@ describe('Tooltip', () => {
     expect(error).toHaveBeenCalled();
     error.mockRestore();
   });
+
+  it('should apply custom styles to Tooltip', () => {
+    const customClassNames = {
+      body: 'custom-body',
+      root: 'custom-root',
+    };
+
+    const customStyles = {
+      body: { color: 'red' },
+      root: { backgroundColor: 'blue' },
+    };
+
+    const { container } = render(
+      <Tooltip classNames={customClassNames} overlay={<div />} styles={customStyles} visible>
+        <button type="button">button</button>
+      </Tooltip>,
+    );
+
+    const tooltipElement = container.querySelector('.ant-tooltip') as HTMLElement;
+    const tooltipBodyElement = container.querySelector('.ant-tooltip-inner') as HTMLElement;
+
+    // 验证 classNames
+    expect(tooltipElement.classList).toContain('custom-root');
+    expect(tooltipBodyElement.classList).toContain('custom-body');
+
+    // 验证 styles
+    expect(tooltipElement.style.backgroundColor).toBe('blue');
+    expect(tooltipBodyElement.style.color).toBe('red');
+  });
 });
