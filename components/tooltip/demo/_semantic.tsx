@@ -6,11 +6,11 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 
 const locales = {
   cn: {
-    root: '根节点',
+    root: '根节点 (包含箭头、内容元素)',
     body: '内容元素',
   },
   en: {
-    root: 'Root element',
+    root: 'Root element (including arrows, content elements)',
     body: 'Body element',
   },
 };
