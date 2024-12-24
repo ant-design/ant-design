@@ -30,7 +30,6 @@ demo:
 <code src="./demo/debug.tsx" debug>Debug</code>
 <code src="./demo/disabled.tsx">禁用</code>
 <code src="./demo/disabled-children.tsx" debug>禁用子元素</code>
-<code src="./demo/config-debug.tsx" debug>ConfigProvider</code>
 
 ## API
 
