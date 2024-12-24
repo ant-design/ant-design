@@ -176,4 +176,29 @@ describe('Watermark', () => {
     expect(spy).not.toHaveBeenCalledWith(expect.anything(), 0, -0);
     spy.mockRestore();
   });
+
+  it('should generate keys correctly for primitive values', () => {
+    expect(Cache.generateKey(123, 'test', true)).toBe('123,"test",true');
+  });
+
+  it('should generate keys correctly for objects and arrays', () => {
+    expect(Cache.generateKey({ a: 1 }, [1, 2, 3])).toBe('{"a":1},[1,2,3]');
+  });
+
+  it('should handle JSON.stringify errors gracefully', () => {
+    const circularObj: any = {};
+    circularObj.self = circularObj;
+    expect(Cache.generateKey(circularObj)).toBe('[object Object]');
+  });
+
+  it('should retrieve value from cache correctly', () => {
+    const cache = new Cache();
+    cache.set('key1', 'value1');
+    expect(cache.get('key1')).toBe('value1');
+  });
+
+  it('should return undefined for non-existent keys', () => {
+    const cache = new Cache();
+    expect(cache.get('nonExistentKey')).toBeUndefined();
+  });
 });
