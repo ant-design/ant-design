@@ -77,6 +77,9 @@ const genPurePanel = <ComponentProps extends BaseProps = BaseProps>(
       },
       open,
       visible: open,
+      popupAlign: {
+        overflow: { adjustX: false, adjustY: false },
+      },
       getPopupContainer: () => holderRef.current!,
     };
 
