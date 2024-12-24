@@ -175,7 +175,7 @@ jobs:
           CI: 1
 
       - name: check build files
-        run: node ./tests/dekko/index.test.js
+        run: bunx tsx ./tests/dekko/index.test.ts
 
       # Artifact build files
       - uses: actions/upload-artifact@v4
