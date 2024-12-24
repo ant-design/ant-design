@@ -32,9 +32,11 @@ const RESPONSIVE_MOBILE = 768;
 export const ANT_DESIGN_NOT_SHOW_BANNER = 'ANT_DESIGN_NOT_SHOW_BANNER';
 
 unstableSetRender((node, container) => {
-  const root = createRoot(container);
+  (container as any)._reactRoot ||= createRoot(container);
+  const root: ReturnType<typeof createRoot> = (container as any)._reactRoot;
   root.render(node);
   return async () => {
+    await new Promise((resolve) => setTimeout(resolve, 0));
     root.unmount();
   };
 });
