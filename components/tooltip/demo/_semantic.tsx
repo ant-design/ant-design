@@ -19,16 +19,15 @@ const BlockList: React.FC<React.PropsWithChildren> = (props: any) => {
   const divRef = React.useRef<HTMLDivElement>(null);
 
   return (
-    <div ref={divRef} style={{ position: 'absolute', height: 100 }}>
+    <div ref={divRef} style={{ position: 'absolute', marginTop: 60 }}>
       <Tooltip
         title="prompt text"
         open
-        placement="bottom"
+        placement="top"
+        autoAdjustOverflow={false}
         getPopupContainer={() => divRef.current}
         {...props}
-      >
-        <span>Tooltip will show on mouse enter.</span>
-      </Tooltip>
+      />
     </div>
   );
 };
