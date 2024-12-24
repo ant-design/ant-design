@@ -54,7 +54,7 @@ group:
 <code src="./demo/chinese-chars-loading.tsx" debug>加载中状态 bug 还原</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 <code src="./demo/linear-gradient.tsx">渐变按钮</code>
-<code src="./demo/noSpace.tsx" version="5.17.0">移除两个汉字之间的空格</code>
+<code src="./demo/chinese-space.tsx" version="5.17.0">移除两个汉字之间的空格</code>
 
 ## API
 
