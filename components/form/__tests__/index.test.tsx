@@ -125,13 +125,13 @@ describe('Form', () => {
           // Wait a while and then some logic to validate
           await waitFakeTimer();
 
-          try {
-            await act(async () => {
+          await act(async () => {
+            try {
               await form.validateFields();
-            });
-          } catch {
-            // do nothing
-          }
+            } catch {
+              // do nothing
+            }
+          });
         };
 
         return (
