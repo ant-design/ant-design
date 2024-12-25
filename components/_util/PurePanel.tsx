@@ -21,7 +21,7 @@ export interface BaseProps {
 const genPurePanel = <ComponentProps extends BaseProps = BaseProps>(
   Component: any,
   defaultPrefixCls?: string,
-  getDropdownCls?: null | ((prefixCls: string) => string),
+  getDropdownCls?: (prefixCls: string) => string,
   postProps?: (props: ComponentProps) => ComponentProps,
   alignPropName?: 'align' | 'dropdownAlign' | 'popupAlign',
 ) => {

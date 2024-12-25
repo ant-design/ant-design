@@ -331,7 +331,7 @@ const Select = React.forwardRef(InternalSelect) as unknown as (<
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(Select, undefined, undefined, (props) => props, 'dropdownAlign');
+const PurePanel = genPurePanel(Select, undefined, undefined, undefined, 'dropdownAlign');
 
 Select.SECRET_COMBOBOX_MODE_DO_NOT_USE = SECRET_COMBOBOX_MODE_DO_NOT_USE;
 Select.Option = Option;

@@ -31,13 +31,13 @@ export type DatePickerType = typeof DatePicker & {
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(DatePicker, 'picker', null, (props) => props, 'popupAlign');
+const PurePanel = genPurePanel(DatePicker, 'picker', undefined, undefined, 'popupAlign');
 (DatePicker as DatePickerType)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 const PureRangePanel = genPurePanel(
   DatePicker.RangePicker,
   'picker',
-  null,
-  (props) => props,
+  undefined,
+  undefined,
   'popupAlign',
 );
 (DatePicker as DatePickerType)._InternalRangePanelDoNotUseOrYouWillBeFired = PureRangePanel;

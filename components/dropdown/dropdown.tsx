@@ -316,13 +316,7 @@ const Dropdown: CompoundedComponent = (props) => {
 };
 
 // We don't care debug panel
-const PurePanel = genPurePanel(
-  Dropdown,
-  'dropdown',
-  (prefixCls) => prefixCls,
-  (props) => props,
-  'align',
-);
+const PurePanel = genPurePanel(Dropdown, 'dropdown', (prefixCls) => prefixCls, undefined, 'align');
 
 /* istanbul ignore next */
 const WrapPurePanel: React.FC<DropdownProps> = (props) => (
