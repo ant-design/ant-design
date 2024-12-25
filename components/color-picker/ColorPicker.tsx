@@ -221,7 +221,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   return wrapCSSVar(
     <Popover
       style={styles?.popup}
-      overlayInnerStyle={styles?.popupOverlayInner}
+      styles={{ body: styles?.popupOverlayInner }}
       onOpenChange={(visible) => {
         if (!visible || !mergedDisabled) {
           setPopupOpen(visible);
@@ -253,7 +253,7 @@ const ColorPicker: CompoundedComponent = (props) => {
           />
         </ContextIsolator>
       }
-      overlayClassName={mergedPopupCls}
+      classNames={{ root: mergedPopupCls }}
       {...popoverProps}
     >
       {children || (
