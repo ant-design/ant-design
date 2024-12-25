@@ -54,7 +54,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | selectAllLabels | A set of customized labels for select all checkboxes on the header | (ReactNode \| (info: { selectedCount: number, totalCount: number }) => ReactNode)\[] | - |  |
 | selectedKeys | A set of keys of selected items | string\[] \| number\[] | \[] |  |
 | showSearch | If included, a search box is shown on each column | boolean | false |  |
-| searchOptions | Search box configuration item, which can configure the search boxes on both sides | { placeholder:string,defaultValue:string,... }\|{ placeholder:string,defaultValue:string,... }[] | {} |  |
+| searchOptions | Search box configuration item, which can configure the search boxes on both sides | { placeholder:string,defaultValue:string }\|{ placeholder:string,defaultValue:string }[] | {} |  |
 | showSelectAll | Show select all checkbox on the header | boolean | true |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | targetKeys | A set of keys of elements that are listed on the right column | string\[] \| number\[] | \[] |  |

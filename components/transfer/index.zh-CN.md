@@ -57,7 +57,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g9vUQq2nkpEAAA
 | selectAllLabels | 自定义顶部多选框标题的集合 | (ReactNode \| (info: { selectedCount: number, totalCount: number }) => ReactNode)\[] | - |  |
 | selectedKeys | 设置哪些项应该被选中 | string\[] \| number\[] | \[] |  |
 | showSearch | 是否显示 | boolean | false |  |
-| searchOptions | 搜索框配置项,可对两侧搜索框进行配置 | { placeholder:string,defaultValue:string,... }\|{ placeholder:string,defaultValue:string,... }[] | {} |  |
+| searchOptions | 搜索框配置项,可对两侧搜索框进行配置 | { placeholder:string,defaultValue:string }\|{ placeholder:string,defaultValue:string }[] | {} |  |
 | showSelectAll | 是否展示全选勾选框 | boolean | true |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | targetKeys | 显示在右侧框数据的 key 集合 | string\[] \| number\[] | \[] |  |
