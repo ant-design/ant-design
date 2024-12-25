@@ -85,7 +85,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(TimePicker, 'picker', undefined, undefined, 'popupAlign');
+const PurePanel = genPurePanel(TimePicker, 'popupAlign', undefined, 'picker');
 (TimePicker as MergedTimePicker)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 type MergedTimePicker = typeof TimePicker & {

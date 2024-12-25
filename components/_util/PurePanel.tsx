@@ -20,10 +20,10 @@ export interface BaseProps {
 /* istanbul ignore next */
 const genPurePanel = <ComponentProps extends BaseProps = BaseProps>(
   Component: any,
-  defaultPrefixCls?: string,
-  getDropdownCls?: (prefixCls: string) => string,
-  postProps?: (props: ComponentProps) => ComponentProps,
   alignPropName?: 'align' | 'dropdownAlign' | 'popupAlign',
+  postProps?: (props: ComponentProps) => ComponentProps,
+  defaultPrefixCls?: string,
+  getDropdownCls: (prefixCls: string) => string = (prefixCls) => `.${prefixCls}-dropdown`,
 ) => {
   type WrapProps = ComponentProps & AnyObject;
 
@@ -52,11 +52,7 @@ const genPurePanel = <ComponentProps extends BaseProps = BaseProps>(
         });
 
         const interval = setInterval(() => {
-          const dropdownCls = getDropdownCls
-            ? `.${getDropdownCls(prefixCls)}`
-            : `.${prefixCls}-dropdown`;
-          const popup = holderRef.current?.querySelector(dropdownCls);
-
+          const popup = holderRef.current?.querySelector(`.${getDropdownCls(prefixCls)}`);
           if (popup) {
             clearInterval(interval);
             resizeObserver.observe(popup);

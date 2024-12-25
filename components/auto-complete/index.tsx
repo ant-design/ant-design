@@ -170,12 +170,8 @@ const RefAutoComplete = React.forwardRef<RefSelectProps, AutoCompleteProps>(
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(
-  RefAutoComplete,
-  undefined,
-  undefined,
-  (props: any) => omit(props, ['visible']),
-  'dropdownAlign',
+const PurePanel = genPurePanel(RefAutoComplete, 'dropdownAlign', (props: any) =>
+  omit(props, ['visible']),
 );
 
 RefAutoComplete.Option = Option;
