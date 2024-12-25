@@ -337,8 +337,12 @@ const TreeSelect = TreeSelectRef as CompoundedComponent;
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(TreeSelect, undefined, undefined, (props: any) =>
-  omit(props, ['visible']),
+const PurePanel = genPurePanel(
+  TreeSelect,
+  undefined,
+  undefined,
+  (props: any) => omit(props, ['visible']),
+  'dropdownAlign',
 );
 
 TreeSelect.TreeNode = TreeNode;

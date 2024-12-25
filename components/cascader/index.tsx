@@ -370,8 +370,12 @@ if (process.env.NODE_ENV !== 'production') {
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(Cascader, undefined, undefined, (props: any) =>
-  omit(props, ['visible']),
+const PurePanel = genPurePanel(
+  Cascader,
+  undefined,
+  undefined,
+  (props: any) => omit(props, ['visible']),
+  'dropdownAlign',
 );
 
 Cascader.SHOW_PARENT = SHOW_PARENT;

@@ -23,6 +23,7 @@ const genPurePanel = <ComponentProps extends BaseProps = BaseProps>(
   defaultPrefixCls?: string,
   getDropdownCls?: null | ((prefixCls: string) => string),
   postProps?: (props: ComponentProps) => ComponentProps,
+  alignPropName?: 'align' | 'dropdownAlign' | 'popupAlign',
 ) => {
   type WrapProps = ComponentProps & AnyObject;
 
@@ -77,14 +78,21 @@ const genPurePanel = <ComponentProps extends BaseProps = BaseProps>(
       },
       open,
       visible: open,
-      popupAlign: {
-        overflow: { adjustX: false, adjustY: false },
-      },
       getPopupContainer: () => holderRef.current!,
     };
 
     if (postProps) {
       mergedProps = postProps(mergedProps);
+    }
+    if (alignPropName) {
+      Object.assign(mergedProps, {
+        [alignPropName]: {
+          overflow: {
+            adjustX: false,
+            adjustY: false,
+          },
+        },
+      });
     }
     const mergedStyle: React.CSSProperties = {
       paddingBottom: popupHeight,
