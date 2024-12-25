@@ -1,7 +1,7 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
-import { genFocusStyle } from '../../style';
+import { genFocusStyle, resetIcon } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import type { ButtonVariantType } from '../buttonHelpers';
@@ -48,14 +48,14 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         pointerEvents: 'none',
       },
 
-      '> span:not(:only-child)': {
-        display: 'inline-flex',
-        alignSelf: 'baseline',
+      '> span': {
+        display: 'inline-block',
       },
 
-      [`> span${componentCls}-icon, > span${iconCls}`]: {
-        display: 'inline-flex',
-        alignSelf: 'center',
+      [`${componentCls}-icon`]: {
+        lineHeight: 1,
+        // https://github.com/ant-design/ant-design/issues/51380
+        '> svg': resetIcon(),
       },
 
       '> a': {
