@@ -49,8 +49,14 @@ export interface DescriptionsProps {
   labelStyle?: React.CSSProperties;
   contentStyle?: React.CSSProperties;
   styles?: {
+    root?: React.CSSProperties;
     label?: React.CSSProperties;
     content?: React.CSSProperties;
+  };
+  classNames?: {
+    root?: string;
+    label?: string;
+    content?: string;
   };
   items?: DescriptionsItemType[];
   id?: string;
@@ -74,6 +80,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     contentStyle,
     styles,
     items,
+    classNames: descriptionsClassNames,
     ...restProps
   } = props;
   const { getPrefixCls, direction, descriptions } = React.useContext(ConfigContext);
@@ -104,8 +111,19 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
 
   // ======================== Render ========================
   const contextValue = React.useMemo(
-    () => ({ labelStyle, contentStyle, styles: { ...descriptions?.styles, ...styles } }),
-    [labelStyle, contentStyle, JSON.stringify(styles), JSON.stringify(descriptions?.styles)],
+    () => ({
+      labelStyle,
+      contentStyle,
+      styles: {
+        content: { ...descriptions?.styles?.content, ...styles?.content },
+        label: { ...descriptions?.styles?.label, ...styles?.label },
+      },
+      classNames: {
+        label: classNames(descriptions?.classNames?.label, descriptionsClassNames?.label),
+        content: classNames(descriptions?.classNames?.content, descriptionsClassNames?.content),
+      },
+    }),
+    [labelStyle, contentStyle, styles, descriptionsClassNames, descriptions],
   );
 
   return wrapCSSVar(
@@ -114,6 +132,8 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
         className={classNames(
           prefixCls,
           descriptions?.className,
+          descriptions?.classNames?.root,
+          descriptionsClassNames?.root,
           {
             [`${prefixCls}-${mergedSize}`]: mergedSize && mergedSize !== 'default',
             [`${prefixCls}-bordered`]: !!bordered,
@@ -124,7 +144,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
           hashId,
           cssVarCls,
         )}
-        style={{ ...descriptions?.style, ...style }}
+        style={{ ...descriptions?.style, ...descriptions?.styles?.root, ...styles?.root, ...style }}
         {...restProps}
       >
         {(title || extra) && (

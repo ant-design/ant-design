@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { JSX } from 'react';
 import classNames from 'classnames';
+import DescriptionsContext from './DescriptionsContext';
 
 function notEmpty(val: any) {
   return val !== undefined && val !== null;
@@ -19,6 +20,10 @@ export interface CellProps {
   styles?: {
     label?: React.CSSProperties;
     content?: React.CSSProperties;
+  };
+  classNames?: {
+    label?: string;
+    content?: string;
   };
   bordered?: boolean;
   label?: React.ReactNode;
@@ -45,6 +50,8 @@ const Cell: React.FC<CellProps> = (props) => {
   } = props;
 
   const Component = component as keyof JSX.IntrinsicElements;
+  const descContext = React.useContext(DescriptionsContext);
+  const { classNames: descriptionsClassNames } = descContext;
 
   if (bordered) {
     return (
@@ -53,6 +60,8 @@ const Cell: React.FC<CellProps> = (props) => {
           {
             [`${itemPrefixCls}-item-label`]: type === 'label',
             [`${itemPrefixCls}-item-content`]: type === 'content',
+            [`${descriptionsClassNames?.label}`]: type === 'label',
+            [`${descriptionsClassNames?.content}`]: type === 'content',
           },
           className,
         )}
@@ -74,7 +83,7 @@ const Cell: React.FC<CellProps> = (props) => {
       <div className={`${itemPrefixCls}-item-container`}>
         {(label || label === 0) && (
           <span
-            className={classNames(`${itemPrefixCls}-item-label`, {
+            className={classNames(`${itemPrefixCls}-item-label`, descriptionsClassNames?.label, {
               [`${itemPrefixCls}-item-no-colon`]: !colon,
             })}
             style={{ ...labelStyle, ...styles?.label }}
@@ -84,7 +93,7 @@ const Cell: React.FC<CellProps> = (props) => {
         )}
         {(content || content === 0) && (
           <span
-            className={classNames(`${itemPrefixCls}-item-content`)}
+            className={classNames(`${itemPrefixCls}-item-content`, descriptionsClassNames?.content)}
             style={{ ...contentStyle, ...styles?.content }}
           >
             {content}

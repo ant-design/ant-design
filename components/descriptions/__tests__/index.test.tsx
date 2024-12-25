@@ -415,4 +415,46 @@ describe('Descriptions', () => {
     expect(wrapper.container.querySelectorAll('.ant-descriptions-item-label')).toHaveLength(1);
     expect(wrapper.container.querySelectorAll('.ant-descriptions-item-content')).toHaveLength(1);
   });
+
+  it('should apply custom styles to Descriptions', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      label: 'custom-label',
+      content: 'custom-content',
+    };
+
+    const customStyles = {
+      root: { color: 'red' },
+      label: { backgroundColor: 'blue' },
+      content: { color: 'green' },
+    };
+
+    const { container } = render(
+      <Descriptions
+        classNames={customClassNames}
+        styles={customStyles}
+        items={[
+          {
+            key: '1',
+            label: 'UserName',
+            children: 'Zhou Maomao',
+          },
+        ]}
+      />,
+    );
+
+    const rootElement = container.querySelector('.ant-descriptions') as HTMLElement;
+    const labelElement = container.querySelector('.ant-descriptions-item-label') as HTMLElement;
+    const contentElement = container.querySelector('.ant-descriptions-item-content') as HTMLElement;
+
+    // 验证 classNames
+    expect(rootElement.classList).toContain('custom-root');
+    expect(labelElement.classList).toContain('custom-label');
+    expect(contentElement.classList).toContain('custom-content');
+
+    // 验证 styles
+    expect(rootElement.style.color).toBe('red');
+    expect(labelElement.style.backgroundColor).toBe('blue');
+    expect(contentElement.style.color).toBe('green');
+  });
 });

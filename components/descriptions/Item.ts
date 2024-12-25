@@ -13,6 +13,11 @@ export interface DescriptionsItemProps {
     label?: React.CSSProperties;
     content?: React.CSSProperties;
   };
+  classNames?: {
+    root?: string;
+    label?: string;
+    content?: string;
+  };
   children: React.ReactNode;
   span?: number;
 }
