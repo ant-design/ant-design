@@ -63,7 +63,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   handleClear: () => void;
   /** Render item */
   render?: (item: RecordType) => RenderResult;
-  showSearch?: boolean;
+  showSearch?: boolean | TransferSearchOption;
   searchPlaceholder: string;
   itemUnit: string;
   itemsUnit: string;
@@ -80,7 +80,6 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   showRemove?: boolean;
   pagination?: PaginationType;
   selectionsIcon?: React.ReactNode;
-  searchOptions?: TransferSearchOption;
 }
 
 export interface TransferCustomListBodyProps<T> extends TransferListBodyProps<T> { }
@@ -120,10 +119,9 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     handleClear,
     filterOption,
     render = defaultRender,
-    searchOptions
   } = props;
-
-  const [filterValue, setFilterValue] = useState<string>(searchOptions?.defaultValue || '');
+  const searchDefaultValue = showSearch instanceof Object ? showSearch?.defaultValue : '';
+  const [filterValue, setFilterValue] = useState<string>(searchDefaultValue);
   const listBodyRef = useRef<ListBodyRef<RecordType>>({});
 
   const internalHandleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -205,6 +203,12 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     return 'part';
   }, [checkedKeys, checkedActiveItems]);
 
+  const searchOptions = useMemo<TransferSearchOption>(() => {
+    if (typeof showSearch === 'boolean') {
+      return {}
+    };
+    return showSearch
+  }, [showSearch])
   const listBody = useMemo<React.ReactNode>(() => {
     const search = showSearch ? (
       <div className={`${prefixCls}-body-search-wrapper`}>

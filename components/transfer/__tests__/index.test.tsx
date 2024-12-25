@@ -365,7 +365,7 @@ describe('Transfer', () => {
   });
 
   it('should display the correct locale and ignore old API', () => {
-    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
     const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
     const locale = { notFoundContent: 'old1', searchPlaceholder: 'old2' };
@@ -745,7 +745,7 @@ describe('Transfer', () => {
   });
 
   it('control mode select all should not throw warning', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
     const App: React.FC = () => {
       const [selectedKeys, setSelectedKeys] = useState<TransferProps['selectedKeys']>([]);
@@ -842,6 +842,37 @@ describe('Transfer', () => {
           ?.querySelector('input[type="checkbox"]')!,
       ).toBeChecked();
     });
+  });
+
+  it('showSearch with single object', () => {
+    const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
+    const locale = { itemUnit: 'Person', notFoundContent: 'Nothing' };
+    const { getAllByPlaceholderText, getAllByDisplayValue } = render(
+      <Transfer {...listCommonProps} {...emptyProps} showSearch={{ placeholder: "Search placeholder", defaultValue: "values" }} locale={locale} />,
+    );
+    expect(getAllByPlaceholderText('Search placeholder')).toHaveLength(2);
+    expect(getAllByDisplayValue('values')).toHaveLength(2);
+  });
+
+  it('showSearch with array of objects', () => {
+    const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
+    const locale = { itemUnit: 'Person', notFoundContent: 'Nothing' };
+    const { getByPlaceholderText, getByDisplayValue } = render(
+      <Transfer {...listCommonProps} {...emptyProps}
+        showSearch={[
+          { placeholder: "Search placeholder", defaultValue: "values" },
+          { placeholder: "Search placeholder right", defaultValue: "values right" }
+        ]}
+        locale={locale}
+      />,
+    );
+    // 检查左侧搜索框的占位符和默认值
+    expect(getByPlaceholderText('Search placeholder')).toBeInTheDocument();
+    expect(getByDisplayValue('values')).toBeInTheDocument();
+
+    // 检查右侧搜索框的占位符和默认值
+    expect(getByPlaceholderText('Search placeholder right')).toBeInTheDocument();
+    expect(getByDisplayValue('values right')).toBeInTheDocument();
   });
 });
 

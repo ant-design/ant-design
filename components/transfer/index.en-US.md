@@ -53,8 +53,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | render | The function to generate the item shown on a column. Based on an record (element of the dataSource array), this function should return a React element which is generated from that record. Also, it can return a plain object with `value` and `label`, `label` is a React element and `value` is for title | (record) => ReactNode | - |  |
 | selectAllLabels | A set of customized labels for select all checkboxes on the header | (ReactNode \| (info: { selectedCount: number, totalCount: number }) => ReactNode)\[] | - |  |
 | selectedKeys | A set of keys of selected items | string\[] \| number\[] | \[] |  |
-| showSearch | If included, a search box is shown on each column | boolean | false |  |
-| searchOptions | Search box configuration item, which can configure the search boxes on both sides | { placeholder:string,defaultValue:string }\|{ placeholder:string,defaultValue:string }[] | {} |  |
+| showSearch | If included, a search box is shown on each column | boolean \| { placeholder:string,defaultValue:string } \| { placeholder:string,defaultValue:string }[] | false |  |
 | showSelectAll | Show select all checkbox on the header | boolean | true |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | targetKeys | A set of keys of elements that are listed on the right column | string\[] \| number\[] | \[] |  |

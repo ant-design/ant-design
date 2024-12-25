@@ -99,7 +99,7 @@ export interface TransferProps<RecordType = any> {
   operationStyle?: CSSProperties;
   titles?: React.ReactNode[];
   operations?: string[];
-  showSearch?: boolean;
+  showSearch?: boolean | boolean[] | TransferSearchOption | TransferSearchOption[];
   filterOption?: (inputValue: string, item: RecordType, direction: TransferDirection) => boolean;
   locale?: Partial<TransferLocale>;
   footer?: (
@@ -116,7 +116,6 @@ export interface TransferProps<RecordType = any> {
   pagination?: PaginationType;
   status?: InputStatus;
   selectionsIcon?: React.ReactNode;
-  searchOptions?: TransferSearchOption | TransferSearchOption[];
 }
 
 const Transfer = <RecordType extends TransferItem = TransferItem>(
@@ -152,7 +151,6 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     onChange,
     onSearch,
     onSelectChange,
-    searchOptions={},
   } = props;
 
   const {
@@ -441,6 +439,14 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const mergedSelectionsIcon = selectionsIcon ?? transfer?.selectionsIcon;
 
+  const searchOption = React.useMemo(() => {
+    if (Array.isArray(showSearch)) {
+      return [showSearch[0], showSearch[1]]
+    } else {
+      return [showSearch, showSearch]
+    }
+  }, [showSearch])
+
   return wrapCSSVar(
     <div className={cls} style={{ ...transfer?.style, ...style }}>
       <List<KeyWise<RecordType>>
@@ -455,7 +461,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         onItemSelect={onLeftItemSelect}
         onItemSelectAll={onLeftItemSelectAll as any}
         render={render}
-        showSearch={showSearch}
+        showSearch={searchOption[0]}
         renderList={children as any}
         footer={footer as any}
         onScroll={handleLeftScroll}
@@ -466,7 +472,6 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         pagination={mergedPagination}
         selectionsIcon={mergedSelectionsIcon}
         {...listLocale}
-        searchOptions={Array.isArray(searchOptions) ? searchOptions[0] : searchOptions}
       />
       <Operation
         className={`${prefixCls}-operation`}
@@ -494,7 +499,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         onItemSelectAll={onRightItemSelectAll as any}
         onItemRemove={onRightItemRemove}
         render={render}
-        showSearch={showSearch}
+        showSearch={searchOption[1]}
         renderList={children as any}
         footer={footer as any}
         onScroll={handleRightScroll}
@@ -506,7 +511,6 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         pagination={mergedPagination}
         selectionsIcon={mergedSelectionsIcon}
         {...listLocale}
-        searchOptions={Array.isArray(searchOptions) ? searchOptions[1] : searchOptions}
       />
     </div>,
   );
