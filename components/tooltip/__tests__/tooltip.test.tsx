@@ -215,7 +215,7 @@ describe('Tooltip', () => {
         mouseLeaveDelay={0}
         placement="bottomLeft"
         arrowPointAtCenter
-        overlayClassName="point-center-element"
+        classNames={{ root: 'point-center-element' }}
       >
         <button type="button">Hello world!</button>
       </Tooltip>,
@@ -232,7 +232,7 @@ describe('Tooltip', () => {
         mouseLeaveDelay={0}
         placement="bottomLeft"
         arrow={{ arrowPointAtCenter: true }}
-        overlayClassName="point-center-element"
+        classNames={{ root: 'point-center-element' }}
       >
         <button type="button">Hello world!</button>
       </Tooltip>,
@@ -402,9 +402,9 @@ describe('Tooltip', () => {
     expect(document.querySelector('.ant-tooltip')).not.toBeNull();
   });
 
-  it('should pass overlayInnerStyle through to the inner component', () => {
+  it('should pass styles={{ body: {} }} through to the inner component', () => {
     const { container } = render(
-      <Tooltip overlayInnerStyle={{ color: 'red' }} title="xxxxx" open>
+      <Tooltip styles={{ body: { color: 'red' } }} title="xxxxx" open>
         <div />
       </Tooltip>,
     );

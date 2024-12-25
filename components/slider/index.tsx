@@ -10,9 +10,9 @@ import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { AbstractTooltipProps, TooltipPlacement } from '../tooltip';
+import SliderInternalContext from './Context';
 import SliderTooltip from './SliderTooltip';
 import useStyle from './style';
-import SliderInternalContext from './Context';
 import useRafLock from './useRafLock';
 
 export type SliderMarks = RcSliderProps['marks'];
@@ -319,7 +319,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
             open={open}
             placement={getTooltipPlacement(tooltipPlacement ?? legacyTooltipPlacement, vertical)}
             key={index}
-            overlayClassName={`${prefixCls}-tooltip`}
+            classNames={{ root: `${prefixCls}-tooltip` }}
             getPopupContainer={
               getTooltipPopupContainer || legacyGetTooltipPopupContainer || getPopupContainer
             }
@@ -350,7 +350,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
             open={mergedTipFormatter !== null && activeOpen}
             placement={getTooltipPlacement(tooltipPlacement ?? legacyTooltipPlacement, vertical)}
             key="tooltip"
-            overlayClassName={`${prefixCls}-tooltip`}
+            classNames={{ root: `${prefixCls}-tooltip` }}
             getPopupContainer={
               getTooltipPopupContainer || legacyGetTooltipPopupContainer || getPopupContainer
             }
