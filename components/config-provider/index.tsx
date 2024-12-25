@@ -52,6 +52,7 @@ import type {
   ThemeConfig,
   TimePickerConfig,
   TooltipConfig,
+  PopoverConfig,
   TourConfig,
   TransferConfig,
   TreeSelectConfig,
@@ -237,6 +238,7 @@ export interface ConfigProviderProps {
   wave?: WaveConfig;
   tour?: TourConfig;
   tooltip?: TooltipConfig;
+  popover?: PopoverConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -392,6 +394,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     warning: warningConfig,
     tour,
     tooltip,
+    popover,
     floatButtonGroup,
     variant,
     inputNumber,
@@ -493,6 +496,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     warning: warningConfig,
     tour,
     tooltip,
+    popover,
     floatButtonGroup,
     variant,
     inputNumber,
