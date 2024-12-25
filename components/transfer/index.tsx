@@ -72,6 +72,11 @@ export interface TransferLocale {
   selectInvert?: string;
   removeAll?: string;
   removeCurrent?: string;
+};
+
+export interface TransferSearchOption {
+  placeholder: string;
+  defaultValue: string;
 }
 
 export interface TransferProps<RecordType = any> {
@@ -111,6 +116,7 @@ export interface TransferProps<RecordType = any> {
   pagination?: PaginationType;
   status?: InputStatus;
   selectionsIcon?: React.ReactNode;
+  searchOptions?: TransferSearchOption | TransferSearchOption[];
 }
 
 const Transfer = <RecordType extends TransferItem = TransferItem>(
@@ -146,6 +152,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     onChange,
     onSearch,
     onSelectChange,
+    searchOptions={},
   } = props;
 
   const {
@@ -459,6 +466,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         pagination={mergedPagination}
         selectionsIcon={mergedSelectionsIcon}
         {...listLocale}
+        searchOptions={Array.isArray(searchOptions) ? searchOptions[0] : searchOptions}
       />
       <Operation
         className={`${prefixCls}-operation`}
@@ -498,6 +506,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         pagination={mergedPagination}
         selectionsIcon={mergedSelectionsIcon}
         {...listLocale}
+        searchOptions={Array.isArray(searchOptions) ? searchOptions[1] : searchOptions}
       />
     </div>,
   );
