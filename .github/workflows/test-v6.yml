@@ -1,12 +1,12 @@
 # Origin Source
 # https://github.com/ant-design/ant-design/blob/79f566b7f8abb1012ef55b0d2793bfdf5595b85d/.github/workflows/test.yml
-name: ✅ test
+name: ✅ test v6
 
 on:
   push:
-    branches: [master, feature]
+    branches: [next]
   pull_request:
-    branches: [master, feature]
+    branches: [next]
 
 # Cancel prev CI if new commit come
 concurrency:
