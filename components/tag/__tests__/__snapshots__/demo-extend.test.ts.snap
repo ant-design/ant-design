@@ -3,100 +3,86 @@
 exports[`renders components/tag/demo/animation.tsx extend context correctly 1`] = `
 Array [
   <div
-    style="margin-bottom: 16px;"
+    style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;"
   >
-    <div>
+    <span
+      class="ant-tag"
+    >
+      Tag 1
       <span
-        style="display: inline-block;"
+        aria-label="close"
+        class="anticon anticon-close ant-tag-close-icon"
+        role="img"
+        tabindex="-1"
       >
-        <span
-          class="ant-tag"
+        <svg
+          aria-hidden="true"
+          data-icon="close"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          Tag 1
-          <span
-            aria-label="close"
-            class="anticon anticon-close ant-tag-close-icon"
-            role="img"
-            tabindex="-1"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="close"
-              fill="currentColor"
-              fill-rule="evenodd"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-              />
-            </svg>
-          </span>
-        </span>
+          <path
+            d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+          />
+        </svg>
       </span>
+    </span>
+    <span
+      class="ant-tag"
+    >
+      Tag 2
       <span
-        style="display: inline-block;"
+        aria-label="close"
+        class="anticon anticon-close ant-tag-close-icon"
+        role="img"
+        tabindex="-1"
       >
-        <span
-          class="ant-tag"
+        <svg
+          aria-hidden="true"
+          data-icon="close"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          Tag 2
-          <span
-            aria-label="close"
-            class="anticon anticon-close ant-tag-close-icon"
-            role="img"
-            tabindex="-1"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="close"
-              fill="currentColor"
-              fill-rule="evenodd"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-              />
-            </svg>
-          </span>
-        </span>
+          <path
+            d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+          />
+        </svg>
       </span>
+    </span>
+    <span
+      class="ant-tag"
+    >
+      Tag 3
       <span
-        style="display: inline-block;"
+        aria-label="close"
+        class="anticon anticon-close ant-tag-close-icon"
+        role="img"
+        tabindex="-1"
       >
-        <span
-          class="ant-tag"
+        <svg
+          aria-hidden="true"
+          data-icon="close"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          Tag 3
-          <span
-            aria-label="close"
-            class="anticon anticon-close ant-tag-close-icon"
-            role="img"
-            tabindex="-1"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="close"
-              fill="currentColor"
-              fill-rule="evenodd"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-              />
-            </svg>
-          </span>
-        </span>
+          <path
+            d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+          />
+        </svg>
       </span>
-    </div>
+    </span>
   </div>,
   <span
     class="ant-tag"
@@ -132,12 +118,14 @@ Array [
 exports[`renders components/tag/demo/animation.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tag/demo/basic.tsx extend context correctly 1`] = `
-Array [
+<div
+  class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
+>
   <span
     class="ant-tag"
   >
     Tag 1
-  </span>,
+  </span>
   <span
     class="ant-tag"
   >
@@ -148,7 +136,7 @@ Array [
     >
       Link
     </a>
-  </span>,
+  </span>
   <span
     class="ant-tag"
   >
@@ -174,7 +162,7 @@ Array [
         />
       </svg>
     </span>
-  </span>,
+  </span>
   <span
     class="ant-tag"
   >
@@ -200,8 +188,8 @@ Array [
         />
       </svg>
     </span>
-  </span>,
-]
+  </span>
+</div>
 `;
 
 exports[`renders components/tag/demo/basic.tsx extend context correctly 2`] = `[]`;
@@ -209,8 +197,7 @@ exports[`renders components/tag/demo/basic.tsx extend context correctly 2`] = `[
 exports[`renders components/tag/demo/borderless.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-flex ant-flex-wrap-wrap"
-    style="gap: 4px 0;"
+    class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
   >
     <span
       class="ant-tag ant-tag-borderless"
@@ -280,8 +267,7 @@ Array [
     role="separator"
   />,
   <div
-    class="ant-flex ant-flex-wrap-wrap"
-    style="gap: 4px 0;"
+    class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
   >
     <span
       class="ant-tag ant-tag-processing ant-tag-borderless"
@@ -369,8 +355,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
   style="background-color: rgb(245, 245, 245); padding: 16px;"
 >
   <div
-    class="ant-flex ant-flex-wrap-wrap"
-    style="gap: 4px 0;"
+    class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
   >
     <span
       class="ant-tag ant-tag-borderless"
@@ -440,8 +425,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
     role="separator"
   />
   <div
-    class="ant-flex ant-flex-wrap-wrap"
-    style="gap: 4px 0;"
+    class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
   >
     <span
       class="ant-tag ant-tag-magenta ant-tag-borderless"
@@ -506,8 +490,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
 
 exports[`renders components/tag/demo/checkable.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-wrap-wrap ant-flex-align-center"
-  style="gap: 4px;"
+  class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
 >
   <span>
     Categories:
@@ -550,8 +533,7 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-flex ant-flex-wrap-wrap"
-    style="gap: 4px 0;"
+    class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
   >
     <span
       class="ant-tag ant-tag-magenta"
@@ -620,8 +602,7 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-flex ant-flex-wrap-wrap"
-    style="gap: 4px 0;"
+    class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
   >
     <span
       class="ant-tag ant-tag-has-color"
@@ -655,8 +636,7 @@ exports[`renders components/tag/demo/colorful.tsx extend context correctly 2`] =
 
 exports[`renders components/tag/demo/colorful-inverse.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-wrap-wrap"
-  style="gap: 4px 0;"
+  class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
 >
   <span
     class="ant-tag ant-tag-magenta-inverse"
@@ -720,8 +700,7 @@ exports[`renders components/tag/demo/colorful-inverse.tsx extend context correct
 
 exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-wrap-wrap"
-  style="gap: 4px 0;"
+  class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
 >
   <span
     class="ant-tag"
@@ -826,8 +805,7 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 2`] = 
 
 exports[`renders components/tag/demo/customize.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-wrap-wrap"
-  style="gap: 4px 0;"
+  class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
 >
   <span
     class="ant-tag"
@@ -917,8 +895,7 @@ exports[`renders components/tag/demo/draggable.tsx extend context correctly 2`] 
 
 exports[`renders components/tag/demo/icon.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-wrap-wrap"
-  style="gap: 4px 0;"
+  class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
 >
   <span
     class="ant-tag ant-tag-has-color"
@@ -1046,8 +1023,7 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-flex ant-flex-wrap-wrap"
-    style="gap: 4px 0;"
+    class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
   >
     <span
       class="ant-tag ant-tag-success"
@@ -1086,8 +1062,7 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-flex ant-flex-wrap-wrap"
-    style="gap: 4px 0;"
+    class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
   >
     <span
       class="ant-tag ant-tag-success"
