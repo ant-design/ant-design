@@ -4,7 +4,7 @@ import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
 import { resetComponent } from '../../style';
-import type { FullToken, GetDefaultToken, GenStyleFn } from '../../theme/internal';
+import type { FullToken, GenStyleFn, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
@@ -40,8 +40,6 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       ...resetComponent(token),
       display: 'inline-block',
       height: 'auto',
-      // https://github.com/ant-design/ant-design/pull/47504
-      marginInlineEnd: token.marginXS,
       paddingInline,
       fontSize: token.tagFontSize,
       lineHeight: token.tagLineHeight,

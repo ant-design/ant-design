@@ -14,7 +14,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex gap={4} wrap align="center">
+    <Flex gap="small" align="center" wrap>
       <span>Categories:</span>
       {tagsData.map<React.ReactNode>((tag) => (
         <Tag.CheckableTag
