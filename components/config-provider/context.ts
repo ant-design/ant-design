@@ -36,6 +36,7 @@ import type { TreeSelectProps } from '../tree-select';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import type { TooltipProps } from '../tooltip';
 import type { PopoverProps } from '../popover';
+import type { PopconfirmProps } from '../popconfirm';
 
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
@@ -182,6 +183,11 @@ export type TooltipConfig = Pick<TooltipProps, 'className' | 'style' | 'styles' 
 
 export type PopoverConfig = Pick<PopoverProps, 'className' | 'style' | 'styles' | 'classNames'>;
 
+export type PopconfirmConfig = Pick<
+  PopconfirmProps,
+  'className' | 'style' | 'styles' | 'classNames'
+>;
+
 export type SpinConfig = ComponentStyleConfig & Pick<SpinProps, 'indicator'>;
 
 export type InputNumberConfig = ComponentStyleConfig & Pick<InputNumberProps, 'variant'>;
@@ -297,6 +303,7 @@ export interface ConfigConsumerProps {
   tour?: TourConfig;
   tooltip?: TooltipConfig;
   popover?: PopoverConfig;
+  popconfirm?: PopconfirmConfig;
   upload?: ComponentStyleConfig;
   notification?: NotificationConfig;
   tree?: ComponentStyleConfig;

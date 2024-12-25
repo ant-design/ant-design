@@ -53,6 +53,7 @@ import type {
   TimePickerConfig,
   TooltipConfig,
   PopoverConfig,
+  PopconfirmConfig,
   TourConfig,
   TransferConfig,
   TreeSelectConfig,
@@ -239,6 +240,7 @@ export interface ConfigProviderProps {
   tour?: TourConfig;
   tooltip?: TooltipConfig;
   popover?: PopoverConfig;
+  popconfirm?: PopconfirmConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -395,6 +397,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     tour,
     tooltip,
     popover,
+    popconfirm,
     floatButtonGroup,
     variant,
     inputNumber,
@@ -497,6 +500,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     tour,
     tooltip,
     popover,
+    popconfirm,
     floatButtonGroup,
     variant,
     inputNumber,
