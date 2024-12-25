@@ -30,7 +30,7 @@ jobs:
     name: test-react-legacy
     strategy:
       matrix:
-        react: ['16', '17']
+        react: ['18']
         shard: [1/2, 2/2]
     env:
       REACT: ${{ matrix.react }}
@@ -39,15 +39,12 @@ jobs:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
       - run: bun install
-      - name: install react 16
-        if: ${{ matrix.react == '16' }}
-        run: bun run bun-install-react-16
-      - name: install react 17
-        if: ${{ matrix.react == '17' }}
-        run: bun run bun-install-react-17
+      - name: install react 18
+        if: ${{ matrix.react == '18' }}
+        run: bun run bun-install-react-18
       # dom test
       - name: dom test
-        run: bun run test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
+        run: bun run test -- --maxWorkers=2 --shard=${{matrix.shard}}
 
   test-node:
     name: test-node
