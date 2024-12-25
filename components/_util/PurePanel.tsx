@@ -23,7 +23,7 @@ const genPurePanel = <ComponentProps extends BaseProps = BaseProps>(
   alignPropName?: 'align' | 'dropdownAlign' | 'popupAlign',
   postProps?: (props: ComponentProps) => ComponentProps,
   defaultPrefixCls?: string,
-  getDropdownCls: (prefixCls: string) => string = (prefixCls) => `.${prefixCls}-dropdown`,
+  getDropdownCls?: (prefixCls: string) => string,
 ) => {
   type WrapProps = ComponentProps & AnyObject;
 
@@ -52,7 +52,10 @@ const genPurePanel = <ComponentProps extends BaseProps = BaseProps>(
         });
 
         const interval = setInterval(() => {
-          const popup = holderRef.current?.querySelector(`.${getDropdownCls(prefixCls)}`);
+          const dropdownCls = getDropdownCls
+            ? `.${getDropdownCls(prefixCls)}`
+            : `.${prefixCls}-dropdown`;
+          const popup = holderRef.current?.querySelector(dropdownCls);
           if (popup) {
             clearInterval(interval);
             resizeObserver.observe(popup);
