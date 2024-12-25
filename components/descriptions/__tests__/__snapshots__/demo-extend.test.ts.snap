@@ -141,6 +141,112 @@ exports[`renders components/descriptions/demo/basic.tsx extend context correctly
 
 exports[`renders components/descriptions/demo/basic.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/descriptions/demo/block.tsx extend context correctly 1`] = `
+<div
+  class="ant-descriptions ant-descriptions-bordered"
+>
+  <div
+    class="ant-descriptions-header"
+  >
+    <div
+      class="ant-descriptions-title"
+    >
+      User Info
+    </div>
+  </div>
+  <div
+    class="ant-descriptions-view"
+  >
+    <table>
+      <tbody>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              UserName
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              Zhou Maomao
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Live
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              Hangzhou, Zhejiang
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Remark
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              empty
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Address
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`renders components/descriptions/demo/block.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/descriptions/demo/border.tsx extend context correctly 1`] = `
 <div
   class="ant-descriptions ant-descriptions-bordered"
@@ -655,7 +761,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
         class="ant-descriptions-extra"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-solid"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -1565,7 +1671,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
         class="ant-descriptions-extra"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-solid"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -1751,7 +1857,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
         class="ant-descriptions-extra"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-solid"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>

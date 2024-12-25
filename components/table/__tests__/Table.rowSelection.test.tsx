@@ -43,48 +43,48 @@ describe('Table.rowSelection', () => {
     const namesList: Node['textContent'][] = [];
     container
       ?.querySelector('.ant-table-tbody')
-      ?.querySelectorAll('tr')
+      ?.querySelectorAll<HTMLTableRowElement>('tr')
       ?.forEach((tr) => {
-        namesList.push(tr?.querySelectorAll('td')?.[1]?.textContent);
+        namesList.push(tr?.querySelectorAll<HTMLTableCellElement>('td')?.[1]?.textContent);
       });
     return namesList;
   }
 
-  function getSelections(container: ReturnType<typeof render>['container']) {
+  const getSelections = (container: HTMLElement) => {
     const keys: React.Key[] = [];
-    container.querySelectorAll('.ant-table-tbody tr').forEach((row) => {
+    container.querySelectorAll<HTMLTableRowElement>('.ant-table-tbody tr').forEach((row) => {
       const key = row.getAttribute('data-row-key');
-      if (row.querySelector('input')?.checked) {
-        if (isNaN(Number(key))) {
+      if (key && row.querySelector<HTMLInputElement>('input')?.checked) {
+        if (Number.isNaN(Number(key))) {
           // rowKey
-          keys.push(key!);
+          keys.push(key);
         } else {
           keys.push(Number(key));
         }
       }
     });
     return keys;
-  }
+  };
 
-  function getIndeterminateSelection(container: ReturnType<typeof render>['container']) {
+  const getIndeterminateSelection = (container: HTMLElement) => {
     const keys: React.Key[] = [];
-    container.querySelectorAll('.ant-table-tbody tr').forEach((row) => {
+    container.querySelectorAll<HTMLTableRowElement>('.ant-table-tbody tr').forEach((row) => {
       const key = row.getAttribute('data-row-key');
-      if (row.querySelector('.ant-checkbox-indeterminate')) {
-        if (isNaN(Number(key))) {
+      if (key && row.querySelector<HTMLElement>('.ant-checkbox-indeterminate')) {
+        if (Number.isNaN(Number(key))) {
           // rowKey
-          keys.push(key!);
+          keys.push(key);
         } else {
           keys.push(Number(key));
         }
       }
     });
     return keys;
-  }
+  };
 
   it('select default row', () => {
     const { container } = render(createTable({ rowSelection: { defaultSelectedRowKeys: [0] } }));
-    const checkboxes = container.querySelectorAll('input[type="checkbox"]');
+    const checkboxes = container.querySelectorAll<HTMLInputElement>('input[type="checkbox"]');
     expect(getSelections(container)).toEqual([0]);
 
     fireEvent.click(checkboxes[1]);
@@ -959,9 +959,11 @@ describe('Table.rowSelection', () => {
           container.querySelectorAll('.ant-dropdown-menu-item .ant-checkbox-wrapper')[index],
         );
       });
-      // wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid').simulate('click');
+      // wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid').simulate('click');
       fireEvent.click(
-        container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid')!,
+        container.querySelector(
+          '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
+        )!,
       );
     }
 
@@ -1902,5 +1904,77 @@ describe('Table.rowSelection', () => {
         { type: 'single' },
       );
     });
+  });
+
+  it('should trigger both custom and internal checkbox events', () => {
+    const onClickMock = jest.fn();
+    const onChangeMock = jest.fn();
+
+    const getCheckboxProps = () => ({
+      onClick: onClickMock,
+      onChange: onChangeMock,
+    });
+
+    const { container } = render(
+      <Table
+        rowSelection={{
+          type: 'checkbox',
+          getCheckboxProps,
+        }}
+        columns={columns}
+        dataSource={data}
+      />,
+    );
+
+    const firstRowCheckbox = container.querySelector('tbody tr:first-child input[type="checkbox"]');
+    expect(firstRowCheckbox).toBeTruthy();
+
+    fireEvent.click(firstRowCheckbox!);
+
+    expect(onClickMock).toHaveBeenCalled();
+    expect(onClickMock.mock.calls.length).toBe(1);
+
+    expect(onChangeMock).toHaveBeenCalled();
+    expect(onChangeMock.mock.calls.length).toBe(1);
+
+    const changeEvent = onChangeMock.mock.calls[0][0];
+    expect(changeEvent).toHaveProperty('target');
+    expect(changeEvent.target).toHaveProperty('checked');
+  });
+
+  it('should trigger both custom and internal radio events', () => {
+    const onClickMock = jest.fn();
+    const onChangeMock = jest.fn();
+
+    const getCheckboxProps = () => ({
+      onClick: onClickMock,
+      onChange: onChangeMock,
+    });
+
+    const { container } = render(
+      <Table
+        rowSelection={{
+          type: 'radio',
+          getCheckboxProps,
+        }}
+        columns={columns}
+        dataSource={data}
+      />,
+    );
+
+    const firstRowRadio = container.querySelector('tbody tr:first-child input[type="radio"]');
+    expect(firstRowRadio).toBeTruthy();
+
+    fireEvent.click(firstRowRadio!);
+
+    expect(onClickMock).toHaveBeenCalled();
+    expect(onClickMock.mock.calls.length).toBe(1);
+
+    expect(onChangeMock).toHaveBeenCalled();
+    expect(onChangeMock.mock.calls.length).toBe(1);
+
+    const changeEvent = onChangeMock.mock.calls[0][0];
+    expect(changeEvent).toHaveProperty('target');
+    expect(changeEvent.target).toHaveProperty('checked');
   });
 });

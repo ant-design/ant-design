@@ -1279,13 +1279,36 @@ exports[`renders components/tree/demo/directory.tsx extend context correctly 1`]
         >
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open"
-            draggable="false"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-draggable"
+            draggable="true"
           >
             <span
               aria-hidden="true"
               class="ant-tree-indent"
             />
+            <span
+              class="ant-tree-draggable-icon"
+            >
+              <span
+                aria-label="holder"
+                class="anticon anticon-holder"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="holder"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                  />
+                </svg>
+              </span>
+            </span>
             <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >
@@ -1345,8 +1368,8 @@ exports[`renders components/tree/demo/directory.tsx extend context correctly 1`]
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode"
-            draggable="false"
+            class="ant-tree-treenode ant-tree-treenode-draggable"
+            draggable="true"
           >
             <span
               aria-hidden="true"
@@ -1355,6 +1378,29 @@ exports[`renders components/tree/demo/directory.tsx extend context correctly 1`]
               <span
                 class="ant-tree-indent-unit ant-tree-indent-unit-start"
               />
+            </span>
+            <span
+              class="ant-tree-draggable-icon"
+            >
+              <span
+                aria-label="holder"
+                class="anticon anticon-holder"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="holder"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                  />
+                </svg>
+              </span>
             </span>
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
@@ -1395,8 +1441,8 @@ exports[`renders components/tree/demo/directory.tsx extend context correctly 1`]
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-leaf-last"
-            draggable="false"
+            class="ant-tree-treenode ant-tree-treenode-leaf-last ant-tree-treenode-draggable"
+            draggable="true"
           >
             <span
               aria-hidden="true"
@@ -1405,6 +1451,29 @@ exports[`renders components/tree/demo/directory.tsx extend context correctly 1`]
               <span
                 class="ant-tree-indent-unit ant-tree-indent-unit-start"
               />
+            </span>
+            <span
+              class="ant-tree-draggable-icon"
+            >
+              <span
+                aria-label="holder"
+                class="anticon anticon-holder"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="holder"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                  />
+                </svg>
+              </span>
             </span>
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
@@ -1445,13 +1514,36 @@ exports[`renders components/tree/demo/directory.tsx extend context correctly 1`]
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
-            draggable="false"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last ant-tree-treenode-draggable"
+            draggable="true"
           >
             <span
               aria-hidden="true"
               class="ant-tree-indent"
             />
+            <span
+              class="ant-tree-draggable-icon"
+            >
+              <span
+                aria-label="holder"
+                class="anticon anticon-holder"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="holder"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                  />
+                </svg>
+              </span>
+            </span>
             <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >
@@ -1511,8 +1603,8 @@ exports[`renders components/tree/demo/directory.tsx extend context correctly 1`]
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode"
-            draggable="false"
+            class="ant-tree-treenode ant-tree-treenode-draggable"
+            draggable="true"
           >
             <span
               aria-hidden="true"
@@ -1521,6 +1613,29 @@ exports[`renders components/tree/demo/directory.tsx extend context correctly 1`]
               <span
                 class="ant-tree-indent-unit ant-tree-indent-unit-end"
               />
+            </span>
+            <span
+              class="ant-tree-draggable-icon"
+            >
+              <span
+                aria-label="holder"
+                class="anticon anticon-holder"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="holder"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                  />
+                </svg>
+              </span>
             </span>
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
@@ -1561,8 +1676,8 @@ exports[`renders components/tree/demo/directory.tsx extend context correctly 1`]
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-leaf-last"
-            draggable="false"
+            class="ant-tree-treenode ant-tree-treenode-leaf-last ant-tree-treenode-draggable"
+            draggable="true"
           >
             <span
               aria-hidden="true"
@@ -1571,6 +1686,29 @@ exports[`renders components/tree/demo/directory.tsx extend context correctly 1`]
               <span
                 class="ant-tree-indent-unit ant-tree-indent-unit-end"
               />
+            </span>
+            <span
+              class="ant-tree-draggable-icon"
+            >
+              <span
+                aria-label="holder"
+                class="anticon anticon-holder"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="holder"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                  />
+                </svg>
+              </span>
             </span>
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
@@ -3293,30 +3431,34 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="True"
-        >
-          True
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              readonly=""
+              role="combobox"
+              style="opacity: 0;"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="True"
+          >
+            True
+          </span>
         </span>
       </div>
       <div
@@ -4227,7 +4369,7 @@ exports[`renders components/tree/demo/search.tsx extend context correctly 1`] = 
         class="ant-input-group-addon"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-input-search-button"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
           type="button"
         >
           <span

@@ -12,6 +12,7 @@ import pixelmatch from 'pixelmatch';
 import { PNG } from 'pngjs';
 import sharp from 'sharp';
 import simpleGit from 'simple-git';
+import filter from 'lodash/filter';
 
 import markdown2Html from './convert';
 
@@ -81,7 +82,7 @@ const readPngs = (dir: string) => fs.readdirSync(dir).filter((n) => n.endsWith('
 
 const prettyList = (list: string[]) => list.map((i) => ` * ${i}`).join('\n');
 
-const ossDomain = `https://${ALI_OSS_BUCKET}.oss-cn-shanghai.aliyuncs.com`;
+const ossDomain = `https://${ALI_OSS_BUCKET}.oss-accelerate.aliyuncs.com`;
 
 async function downloadFile(url: string, destPath: string) {
   const response = await fetch(url);
@@ -283,9 +284,17 @@ ${fullReport}
 
   let diffCount = 0;
 
+  // Summary
+  const badCount = badCases.length;
+  const commentReportLimit = isLocalEnv ? badCount : 8;
+
+  const changedCount = filter(badCases, { type: 'changed' }).length;
+  const removedCount = filter(badCases, { type: 'removed' }).length;
+  const addedCount = filter(badCases, { type: 'added' }).length;
+
   for (const badCase of badCases) {
     diffCount += 1;
-    if (diffCount <= 10) {
+    if (diffCount <= commentReportLimit) {
       // 将图片下方增加文件名
       reportMdStr += generateLineReport(badCase, publicPath, currentRef, true);
     }
@@ -293,18 +302,37 @@ ${fullReport}
     fullVersionMd += generateLineReport(badCase, publicPath, currentRef, false);
   }
 
-  reportMdStr += `\n\nCheck <a href="${htmlReportLink}" target="_blank">Full Report</a> for details`;
+  const hasMore = badCount > commentReportLimit;
+
+  if (hasMore) {
+    reportMdStr += [
+      '\r',
+      '> [!WARNING]',
+      `> There are more diffs not shown in the table. Please check the <a href="${htmlReportLink}" target="_blank">Full Report</a> for details.`,
+      '\r',
+    ].join('\n');
+  }
 
   // tips for comment `Pass Visual Diff` will pass the CI
   if (!passed) {
-    reportMdStr += `
+    const summaryLine = [
+      changedCount > 0 && `🔄 **${changedCount}** changed`,
+      removedCount > 0 && `🛑 **${removedCount}** removed`,
+      addedCount > 0 && `🆕 **${addedCount}** added`,
+    ]
+      .filter(Boolean)
+      .join(', ');
 
------
-
-If you think the visual diff is acceptable, please check:
-
-- [ ] Visual diff is acceptable
-`;
+    reportMdStr += [
+      '\n---\n',
+      '> [!IMPORTANT]',
+      `> There are **${badCount}** diffs found in this PR: ${summaryLine}.`,
+      '> **Please check all items:**',
+      hasMore && '> - [ ] Checked all diffs in the full report',
+      '> - [ ] Visual diff is acceptable',
+    ]
+      .filter(Boolean)
+      .join('\n');
   }
 
   // convert fullVersionMd to html

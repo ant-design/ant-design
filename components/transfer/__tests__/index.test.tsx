@@ -7,6 +7,7 @@ import Transfer from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import Button from '../../button';
+import { waitFakeTimer } from '../../../tests/utils';
 
 const listCommonProps: {
   dataSource: { key: string; title: string; disabled?: boolean }[];
@@ -662,6 +663,17 @@ describe('Transfer', () => {
     expect(getByText('1 of 2')).toBeTruthy();
   });
 
+  it('should disable transfer operation button when some items are set to selected but also disabled', () => {
+    const dataSource = listDisabledProps.dataSource.map((d) => ({
+      ...d,
+      disabled: true,
+    }));
+    const { container } = render(<Transfer {...listDisabledProps} dataSource={dataSource} />);
+    expect(
+      container.querySelectorAll<HTMLDivElement>('.ant-transfer-operation button').item(0),
+    ).toBeDisabled();
+  });
+
   describe('pagination', () => {
     it('boolean', async () => {
       const { getByTitle } = render(<Transfer {...listDisabledProps} pagination />);
@@ -766,6 +778,70 @@ describe('Transfer', () => {
     expect(errSpy).not.toHaveBeenCalled();
 
     errSpy.mockRestore();
+  });
+  it('it checks correctly after changing the dataSource', async () => {
+    const mockData = Array.from({ length: 10 }).map((_, i) => ({
+      key: i.toString(),
+      title: `content${i + 1}`,
+      description: `description of content${i + 1}`,
+    }));
+
+    const initialTargetKeys = mockData
+      .filter((item) => Number(item.key) > 4)
+      .map((item) => item.key);
+
+    const defaultCheckedKeys = ['1', '2'];
+    const handleSelectChange = jest.fn();
+    const App: React.FC = () => {
+      const [targetKeys, setTargetKeys] = useState<TransferProps['targetKeys']>(initialTargetKeys);
+      const [selectedKeys, setSelectedKeys] = useState<TransferProps['targetKeys']>([]);
+
+      const [dataSource, setDataSource] = useState(mockData);
+
+      const onChange: TransferProps['onChange'] = (nextTargetKeys) => {
+        setTargetKeys(nextTargetKeys);
+      };
+
+      return (
+        <>
+          <Button
+            className="update-btn"
+            onClick={() => {
+              setSelectedKeys(defaultCheckedKeys);
+              setDataSource([]);
+              setDataSource([...mockData]);
+              // setTimeout(() => {
+              //   setDataSource([...mockData]);
+              // });
+            }}
+          >
+            update
+          </Button>
+          <Transfer
+            dataSource={dataSource}
+            titles={['Source', 'Target']}
+            targetKeys={targetKeys}
+            selectedKeys={selectedKeys}
+            onChange={onChange}
+            onSelectChange={handleSelectChange}
+            render={(item) => item.title}
+          />
+        </>
+      );
+    };
+    const { container } = render(<App />);
+
+    fireEvent.click(container.querySelector('.update-btn')!);
+    await waitFakeTimer();
+
+    defaultCheckedKeys.forEach((item) => {
+      expect(
+        container
+          ?.querySelectorAll('.ant-transfer-list-content-item')
+          ?.item(Number(item))
+          ?.querySelector('input[type="checkbox"]')!,
+      ).toBeChecked();
+    });
   });
 });
 

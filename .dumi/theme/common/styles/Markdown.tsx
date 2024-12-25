@@ -34,7 +34,8 @@ const GlobalStyle: React.FC = () => {
           margin: 0 auto;
         }
 
-        .markdown p > img {
+        .markdown p > img,
+        .markdown li > img {
           margin: 34px auto;
           box-shadow: 0 8px 20px rgba(143, 168, 191, 0.35);
           display: block;
@@ -168,7 +169,7 @@ const GlobalStyle: React.FC = () => {
           border-radius: ${token.borderRadius}px;
           > pre.prism-code {
             scrollbar-width: thin;
-            scrollbar-color: unset;
+            scrollbar-gutter: stable;
             padding: ${token.paddingSM}px ${token.paddingMD}px;
             font-size: ${token.fontSize}px;
             line-height: 2;
@@ -271,7 +272,7 @@ const GlobalStyle: React.FC = () => {
         .markdown .dumi-default-table {
           &-content {
             scrollbar-width: thin;
-            scrollbar-color: unset;
+            scrollbar-gutter: stable;
           }
           table {
             margin: 0;
@@ -372,6 +373,24 @@ const GlobalStyle: React.FC = () => {
               }
             }
           }
+
+            /*
+              Api 表中某些属性用 del 标记，表示已废弃（但仍期望给开发者一个过渡期)用 css 标记出来。仅此而已。
+              有更多看法？移步讨论区: https://github.com/ant-design/ant-design/discussions/51298
+            */
+            tr:has(td:first-child > del) {
+              color: ${token.colorWarning} !important;
+              background-color: ${token.colorWarningBg} !important;
+              display: var(--antd-site-api-deprecated-display, none);
+
+              del {
+                color: ${token.colorWarning};
+              }
+
+              &:hover del {
+                text-decoration: none;
+              }
+            }
         }
 
         .grid-demo,

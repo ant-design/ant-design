@@ -19,9 +19,9 @@ export default function useLegacyItems(items?: TabsProps['items'], children?: Re
     return items;
   }
 
-  const childrenItems = toArray(children).map((node: React.ReactElement<TabPaneProps>) => {
+  const childrenItems = toArray(children).map((node: React.ReactElement) => {
     if (React.isValidElement(node)) {
-      const { key, props } = node;
+      const { key, props } = node as React.ReactElement<TabPaneProps>;
       const { tab, ...restProps } = props || {};
 
       const item: Tab = {

@@ -22,6 +22,10 @@ export interface SplitBarProps {
   ariaMax: number;
 }
 
+function getValidNumber(num: number | undefined): number {
+  return typeof num === 'number' && !Number.isNaN(num) ? Math.round(num) : 0;
+}
+
 const SplitBar: React.FC<SplitBarProps> = (props) => {
   const {
     prefixCls,
@@ -52,6 +56,14 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     }
   };
 
+  const onTouchStart: React.TouchEventHandler<HTMLDivElement> = (e) => {
+    if (resizable && e.touches.length === 1) {
+      const touch = e.touches[0];
+      setStartPos([touch.pageX, touch.pageY]);
+      onOffsetStart(index);
+    }
+  };
+
   React.useEffect(() => {
     if (startPos) {
       const onMouseMove = (e: MouseEvent) => {
@@ -67,12 +79,31 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         onOffsetEnd();
       };
 
+      const handleTouchMove = (e: TouchEvent) => {
+        if (e.touches.length === 1) {
+          const touch = e.touches[0];
+          const offsetX = touch.pageX - startPos[0];
+          const offsetY = touch.pageY - startPos[1];
+
+          onOffsetUpdate(index, offsetX, offsetY);
+        }
+      };
+
+      const handleTouchEnd = () => {
+        setStartPos(null);
+        onOffsetEnd();
+      };
+
+      window.addEventListener('touchmove', handleTouchMove);
+      window.addEventListener('touchend', handleTouchEnd);
       window.addEventListener('mousemove', onMouseMove);
       window.addEventListener('mouseup', onMouseUp);
 
       return () => {
         window.removeEventListener('mousemove', onMouseMove);
         window.removeEventListener('mouseup', onMouseUp);
+        window.removeEventListener('touchmove', handleTouchMove);
+        window.removeEventListener('touchend', handleTouchEnd);
       };
     }
   }, [startPos]);
@@ -85,9 +116,9 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     <div
       className={splitBarPrefixCls}
       role="separator"
-      aria-valuenow={Math.round(ariaNow)}
-      aria-valuemin={Math.round(ariaMin)}
-      aria-valuemax={Math.round(ariaMax)}
+      aria-valuenow={getValidNumber(ariaNow)}
+      aria-valuemin={getValidNumber(ariaMin)}
+      aria-valuemax={getValidNumber(ariaMax)}
     >
       <div
         className={classNames(`${splitBarPrefixCls}-dragger`, {
@@ -95,6 +126,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
           [`${splitBarPrefixCls}-dragger-active`]: active,
         })}
         onMouseDown={onMouseDown}
+        onTouchStart={onTouchStart}
       />
 
       {/* Start Collapsible */}
@@ -104,13 +136,13 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
             `${splitBarPrefixCls}-collapse-bar`,
             `${splitBarPrefixCls}-collapse-bar-start`,
           )}
+          onClick={() => onCollapse(index, 'start')}
         >
           <StartIcon
             className={classNames(
               `${splitBarPrefixCls}-collapse-icon`,
               `${splitBarPrefixCls}-collapse-start`,
             )}
-            onClick={() => onCollapse(index, 'start')}
           />
         </div>
       )}
@@ -122,13 +154,13 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
             `${splitBarPrefixCls}-collapse-bar`,
             `${splitBarPrefixCls}-collapse-bar-end`,
           )}
+          onClick={() => onCollapse(index, 'end')}
         >
           <EndIcon
             className={classNames(
               `${splitBarPrefixCls}-collapse-icon`,
               `${splitBarPrefixCls}-collapse-end`,
             )}
-            onClick={() => onCollapse(index, 'end')}
           />
         </div>
       )}

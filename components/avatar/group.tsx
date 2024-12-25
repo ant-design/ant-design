@@ -102,7 +102,10 @@ const Group: React.FC<GroupProps> = (props) => {
   );
 
   const childrenWithProps = toArray(children).map((child, index) =>
-    cloneElement(child, { key: `avatar-key-${index}` }),
+    cloneElement(child, {
+      // eslint-disable-next-line react/no-array-index-key
+      key: `avatar-key-${index}`,
+    }),
   );
 
   const mergeCount = max?.count || maxCount;

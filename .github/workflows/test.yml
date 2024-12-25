@@ -133,7 +133,7 @@ jobs:
           bunx nyc report --reporter text -t coverage --report-dir coverage
           rm -rf persist-coverage
       - name: Upload coverage to codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v5
         with:
           # use own token to upload coverage reports
           token: ${{ secrets.CODECOV_TOKEN }}
@@ -171,10 +171,11 @@ jobs:
         run: bun run dist
         env:
           NODE_OPTIONS: --max_old_space_size=4096
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
           CI: 1
 
       - name: check build files
-        run: node ./tests/dekko/index.test.js
+        run: bun run test:dekko
 
       # Artifact build files
       - uses: actions/upload-artifact@v4

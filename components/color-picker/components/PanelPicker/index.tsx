@@ -137,7 +137,7 @@ const PanelPicker: FC = () => {
     info?: Info,
   ) => {
     const nextColor = fillColor(colorValue, info);
-    setPickerColor(nextColor);
+    setPickerColor(nextColor.isGradient() ? nextColor.getColors()[activeIndex].color : nextColor);
     onChange(nextColor, fromPicker);
   };
 

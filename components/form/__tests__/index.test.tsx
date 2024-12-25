@@ -10,7 +10,7 @@ import Form from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, pureRender, render, screen, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, pureRender, render, screen, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import Cascader from '../../cascader';
 import Checkbox from '../../checkbox';
@@ -126,7 +126,9 @@ describe('Form', () => {
           await waitFakeTimer();
 
           try {
-            await form.validateFields();
+            await act(async () => {
+              await form.validateFields();
+            });
           } catch {
             // do nothing
           }
@@ -532,6 +534,38 @@ describe('Form', () => {
       expect(scrollIntoView).toHaveBeenNthCalledWith(3, allInputs[2], expect.any(Object));
 
       expect(scrollIntoView).toHaveBeenCalledTimes(3);
+    });
+
+    it('should scrollToFirstError work with focus', async () => {
+      const onFinishFailed = jest.fn();
+      const focusSpy = jest.spyOn(HTMLElement.prototype, 'focus');
+
+      const { container } = render(
+        <Form scrollToFirstError={{ block: 'center', focus: true }} onFinishFailed={onFinishFailed}>
+          <Form.Item name="test" rules={[{ required: true }]}>
+            <input />
+          </Form.Item>
+          <Form.Item>
+            <Button htmlType="submit">Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(scrollIntoView).not.toHaveBeenCalled();
+      expect(focusSpy).not.toHaveBeenCalled();
+
+      fireEvent.submit(container.querySelector('form')!);
+      await waitFakeTimer();
+
+      const inputNode = document.getElementById('test');
+      expect(focusSpy).toHaveBeenCalledWith();
+      expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
+        block: 'center',
+        focus: true,
+        scrollMode: 'if-needed',
+      });
+
+      focusSpy.mockRestore();
     });
 
     // https://github.com/ant-design/ant-design/issues/28869
@@ -1335,6 +1369,104 @@ describe('Form', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  it('form.item should support label = null', () => {
+    // base size
+    const App: React.FC = () => (
+      <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }}>
+        <Form.Item label="name" name="name">
+          <Input />
+        </Form.Item>
+        <Form.Item label={null}>
+          <Button>Submit</Button>
+        </Form.Item>
+      </Form>
+    );
+    const { container } = render(<App />);
+
+    const items = container.querySelectorAll('.ant-form-item');
+    const oneItems = items[0].querySelector('.ant-row')?.querySelectorAll('.ant-col');
+    expect(oneItems?.[0]).toHaveClass('ant-col-4');
+    expect(oneItems?.[0].className.includes('offset')).toBeFalsy();
+    expect(oneItems?.[1]).toHaveClass('ant-col-14');
+    expect(oneItems?.[1].className.includes('offset')).toBeFalsy();
+    const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
+    expect(twoItem).toHaveClass('ant-col-14 ant-col-offset-4');
+
+    // more size
+    const list = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+    list.forEach((size) => {
+      const { container } = render(
+        <Form labelCol={{ [size]: { span: 4 } }} wrapperCol={{ span: 14 }}>
+          <Form.Item label="name" name="name">
+            <Input />
+          </Form.Item>
+          <Form.Item label={null}>
+            <Button>Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+
+      const items = container.querySelectorAll('.ant-form-item');
+      const oneItems = items[0].querySelector('.ant-row')?.querySelectorAll('.ant-col');
+      expect(oneItems?.[0]).toHaveClass(`ant-col-${size}-4`);
+      expect(oneItems?.[0].className.includes('offset')).toBeFalsy();
+      expect(oneItems?.[1]).toHaveClass('ant-col-14');
+      expect(oneItems?.[1].className.includes('offset')).toBeFalsy();
+      const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
+      expect(twoItem).toHaveClass(`ant-col-14 ant-col-${size}-offset-4`);
+    });
+  });
+
+  it('form.item should support label = null and labelCol.span = 24', () => {
+    // base size
+    const App: React.FC = () => (
+      <Form labelCol={{ span: 24 }} wrapperCol={{ span: 24 }}>
+        <Form.Item label="name" name="name">
+          <Input />
+        </Form.Item>
+        <Form.Item label={null}>
+          <Button>Submit</Button>
+        </Form.Item>
+      </Form>
+    );
+    const { container } = render(<App />);
+
+    const items = container.querySelectorAll('.ant-form-item');
+    const oneItems = items[0].querySelector('.ant-row')?.querySelectorAll('.ant-col');
+    expect(oneItems?.[0]).toHaveClass('ant-col-24');
+    expect(oneItems?.[0].className.includes('offset')).toBeFalsy();
+    expect(oneItems?.[1]).toHaveClass('ant-col-24');
+    expect(oneItems?.[1].className.includes('offset')).toBeFalsy();
+    const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
+    expect(twoItem).toHaveClass('ant-col-24');
+    expect(twoItem?.className.includes('offset')).toBeFalsy();
+
+    // more size
+    const list = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+    list.forEach((size) => {
+      const { container } = render(
+        <Form labelCol={{ [size]: { span: 24 } }} wrapperCol={{ span: 24 }}>
+          <Form.Item label="name" name="name">
+            <Input />
+          </Form.Item>
+          <Form.Item label={null}>
+            <Button>Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+
+      const items = container.querySelectorAll('.ant-form-item');
+      const oneItems = items[0].querySelector('.ant-row')?.querySelectorAll('.ant-col');
+      expect(oneItems?.[0]).toHaveClass(`ant-col-${size}-24`);
+      expect(oneItems?.[0].className.includes('offset')).toBeFalsy();
+      expect(oneItems?.[1]).toHaveClass('ant-col-24');
+      expect(oneItems?.[1].className.includes('offset')).toBeFalsy();
+      const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
+      expect(twoItem).toHaveClass(`ant-col-24`);
+      expect(twoItem?.className.includes('offset')).toBeFalsy();
+    });
+  });
+
   it('_internalItemRender api test', () => {
     const { container } = render(
       <Form>
@@ -2114,7 +2246,7 @@ describe('Form', () => {
     await waitFakeTimer();
 
     // initial validate
-    const initTriggerTime = ReactVersion.startsWith('18') ? 2 : 1;
+    const initTriggerTime = ReactVersion.startsWith('18') || ReactVersion.startsWith('19') ? 2 : 1;
     expect(onChange).toHaveBeenCalledTimes(initTriggerTime);
     let idx = 1;
     expect(onChange).toHaveBeenNthCalledWith(idx++, '');
@@ -2328,5 +2460,61 @@ describe('Form', () => {
 
     fireEvent.click(container.querySelector('input')!);
     expect(container.querySelector('input')?.checked).toBeTruthy();
+  });
+
+  it('not warning for react key', async () => {
+    const MockInput = (props: { onChange?: (value: number[]) => void }) => (
+      <Input
+        onChange={({ target: { value } }) => {
+          props.onChange?.(value.split(',').map(Number));
+        }}
+      />
+    );
+
+    const { container } = render(
+      <Form>
+        <Form.Item>
+          <Form.Item
+            name="test"
+            rules={[
+              {
+                type: 'array',
+                defaultField: {
+                  type: 'number',
+                  min: 10,
+                  message: 'LESS_THAN_10',
+                },
+              },
+            ]}
+          >
+            <MockInput />
+          </Form.Item>
+        </Form.Item>
+      </Form>,
+    );
+
+    function expectErrors(errors: string[]) {
+      expect(container.querySelectorAll('.ant-form-item-explain-error')).toHaveLength(
+        errors.length,
+      );
+      errors.forEach((error, index) => {
+        expect(container.querySelectorAll('.ant-form-item-explain-error')[index]).toHaveTextContent(
+          error,
+        );
+      });
+    }
+
+    // user type something and clear
+    await changeValue(0, '1');
+    expectErrors(['LESS_THAN_10']);
+
+    await changeValue(0, '1,1');
+    expectErrors(['LESS_THAN_10', 'LESS_THAN_10']);
+
+    await changeValue(0, '1');
+    expectErrors(['LESS_THAN_10']);
+
+    await changeValue(0, '100');
+    expectErrors([]);
   });
 });

@@ -69,12 +69,12 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
         transition: `all ${motionDurationMid}`,
       },
 
-      '&-zero-width': {
+      [`${antCls}-layout &-zero-width`]: {
         '> *': {
           overflow: 'hidden',
         },
 
-        [`${componentCls}-trigger`]: {
+        '&-trigger': {
           position: 'absolute',
           top: headerHeight,
           insetInlineEnd: token.calc(zeroTriggerWidth).mul(-1).equal(),

@@ -5,7 +5,7 @@ exports[`renders components/button/demo/basic.tsx extend context correctly 1`] =
   class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
 >
   <button
-    class="ant-btn ant-btn-primary ant-btn-solid"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -13,7 +13,7 @@ exports[`renders components/button/demo/basic.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-outlined"
+    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
     type="button"
   >
     <span>
@@ -21,7 +21,7 @@ exports[`renders components/button/demo/basic.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-dashed"
+    class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
     type="button"
   >
     <span>
@@ -29,7 +29,7 @@ exports[`renders components/button/demo/basic.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-text"
+    class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text"
     type="button"
   >
     <span>
@@ -37,7 +37,7 @@ exports[`renders components/button/demo/basic.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-link"
+    class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
     type="button"
   >
     <span>
@@ -55,7 +55,7 @@ exports[`renders components/button/demo/block.tsx extend context correctly 1`] =
   style="width: 100%;"
 >
   <button
-    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-block"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-block"
     type="button"
   >
     <span>
@@ -63,7 +63,7 @@ exports[`renders components/button/demo/block.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-block"
+    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-block"
     type="button"
   >
     <span>
@@ -71,7 +71,7 @@ exports[`renders components/button/demo/block.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-dashed ant-btn-block"
+    class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block"
     type="button"
   >
     <span>
@@ -79,7 +79,7 @@ exports[`renders components/button/demo/block.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-block"
+    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-block"
     disabled=""
     type="button"
   >
@@ -88,7 +88,7 @@ exports[`renders components/button/demo/block.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-text ant-btn-block"
+    class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-block"
     type="button"
   >
     <span>
@@ -96,7 +96,7 @@ exports[`renders components/button/demo/block.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-link ant-btn-block"
+    class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-block"
     type="button"
   >
     <span>
@@ -113,7 +113,7 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
   class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
 >
   <button
-    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-two-chinese-chars"
+    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-two-chinese-chars"
     type="button"
   >
     <span>
@@ -123,16 +123,15 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-loading"
+    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-loading"
     type="button"
   >
     <span
       class="ant-btn-icon ant-btn-loading-icon"
-      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+        class="anticon anticon-loading anticon-spin"
         role="img"
       >
         <svg
@@ -155,99 +154,7 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-loading"
-    type="button"
-  >
-    <span
-      class="ant-btn-icon ant-btn-loading-icon"
-      style="width: 0px; opacity: 0; transform: scale(0);"
-    >
-      <span
-        aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="loading"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-        >
-          <path
-            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-          />
-        </svg>
-      </span>
-    </span>
-    部署
-  </button>
-  <button
-    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-loading"
-    type="button"
-  >
-    <span
-      class="ant-btn-icon ant-btn-loading-icon"
-      style="width: 0px; opacity: 0; transform: scale(0);"
-    >
-      <span
-        aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="loading"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-        >
-          <path
-            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-          />
-        </svg>
-      </span>
-    </span>
-    <span>
-      部署
-    </span>
-  </button>
-  <button
-    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-loading"
-    type="button"
-  >
-    <span
-      class="ant-btn-icon ant-btn-loading-icon"
-      style="width: 0px; opacity: 0; transform: scale(0);"
-    >
-      <span
-        aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="loading"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-        >
-          <path
-            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-          />
-        </svg>
-      </span>
-    </span>
-    Submit
-  </button>
-  <button
-    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-loading"
+    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-loading"
     type="button"
   >
     <span
@@ -276,16 +183,104 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
     部署
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-loading"
+    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-loading"
     type="button"
   >
     <span
       class="ant-btn-icon ant-btn-loading-icon"
-      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+        class="anticon anticon-loading anticon-spin"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="loading"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+          />
+        </svg>
+      </span>
+    </span>
+    <span>
+      部署
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-loading"
+    type="button"
+  >
+    <span
+      class="ant-btn-icon ant-btn-loading-icon"
+    >
+      <span
+        aria-label="loading"
+        class="anticon anticon-loading anticon-spin"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="loading"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+          />
+        </svg>
+      </span>
+    </span>
+    Submit
+  </button>
+  <button
+    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-loading"
+    type="button"
+  >
+    <span
+      class="ant-btn-icon ant-btn-loading-icon"
+    >
+      <span
+        aria-label="loading"
+        class="anticon anticon-loading anticon-spin"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="loading"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+          />
+        </svg>
+      </span>
+    </span>
+    部署
+  </button>
+  <button
+    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-loading"
+    type="button"
+  >
+    <span
+      class="ant-btn-icon ant-btn-loading-icon"
+    >
+      <span
+        aria-label="loading"
+        class="anticon anticon-loading anticon-spin"
         role="img"
       >
         <svg
@@ -312,15 +307,40 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
 
 exports[`renders components/button/demo/chinese-chars-loading.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/button/demo/chinese-space.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+>
+  <button
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      确定
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      确 定
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders components/button/demo/chinese-space.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/button/demo/color-variant.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
 >
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-solid ant-btn-sm"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-solid ant-btn-sm"
       type="button"
     >
       <span>
@@ -328,7 +348,7 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
       type="button"
     >
       <span>
@@ -336,7 +356,7 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-dashed ant-btn-sm"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-dashed ant-btn-sm"
       type="button"
     >
       <span>
@@ -344,7 +364,7 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-filled ant-btn-sm"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-filled ant-btn-sm"
       type="button"
     >
       <span>
@@ -352,7 +372,7 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-text ant-btn-sm"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm"
       type="button"
     >
       <span>
@@ -360,7 +380,7 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-link ant-btn-sm"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-link ant-btn-sm"
       type="button"
     >
       <span>
@@ -369,10 +389,10 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
     </button>
   </div>
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+      class="ant-btn ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
       type="button"
     >
       <span>
@@ -380,7 +400,7 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-outlined ant-btn-sm"
+      class="ant-btn ant-btn-default ant-btn-color-primary ant-btn-variant-outlined ant-btn-sm"
       type="button"
     >
       <span>
@@ -388,7 +408,7 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-dashed ant-btn-sm"
+      class="ant-btn ant-btn-default ant-btn-color-primary ant-btn-variant-dashed ant-btn-sm"
       type="button"
     >
       <span>
@@ -396,7 +416,7 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-filled ant-btn-sm"
+      class="ant-btn ant-btn-default ant-btn-color-primary ant-btn-variant-filled ant-btn-sm"
       type="button"
     >
       <span>
@@ -404,7 +424,7 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-text ant-btn-sm"
+      class="ant-btn ant-btn-default ant-btn-color-primary ant-btn-variant-text ant-btn-sm"
       type="button"
     >
       <span>
@@ -412,7 +432,7 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-link ant-btn-sm"
+      class="ant-btn ant-btn-default ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
       type="button"
     >
       <span>
@@ -421,10 +441,10 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
     </button>
   </div>
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-dangerous ant-btn-solid ant-btn-sm"
+      class="ant-btn ant-btn-default ant-btn-color-dangerous ant-btn-variant-solid ant-btn-sm"
       type="button"
     >
       <span>
@@ -432,7 +452,7 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-dangerous ant-btn-outlined ant-btn-sm"
+      class="ant-btn ant-btn-default ant-btn-color-dangerous ant-btn-variant-outlined ant-btn-sm"
       type="button"
     >
       <span>
@@ -440,7 +460,7 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-dangerous ant-btn-dashed ant-btn-sm"
+      class="ant-btn ant-btn-default ant-btn-color-dangerous ant-btn-variant-dashed ant-btn-sm"
       type="button"
     >
       <span>
@@ -448,7 +468,7 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-dangerous ant-btn-filled ant-btn-sm"
+      class="ant-btn ant-btn-default ant-btn-color-dangerous ant-btn-variant-filled ant-btn-sm"
       type="button"
     >
       <span>
@@ -456,7 +476,7 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-dangerous ant-btn-text ant-btn-sm"
+      class="ant-btn ant-btn-default ant-btn-color-dangerous ant-btn-variant-text ant-btn-sm"
       type="button"
     >
       <span>
@@ -464,7 +484,7 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-dangerous ant-btn-link ant-btn-sm"
+      class="ant-btn ant-btn-default ant-btn-color-dangerous ant-btn-variant-link ant-btn-sm"
       type="button"
     >
       <span>
@@ -482,7 +502,7 @@ exports[`renders components/button/demo/danger.tsx extend context correctly 1`] 
   class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
 >
   <button
-    class="ant-btn ant-btn-dangerous ant-btn-solid"
+    class="ant-btn ant-btn-primary ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -490,7 +510,7 @@ exports[`renders components/button/demo/danger.tsx extend context correctly 1`] 
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-dangerous ant-btn-outlined"
+    class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
     type="button"
   >
     <span>
@@ -498,7 +518,7 @@ exports[`renders components/button/demo/danger.tsx extend context correctly 1`] 
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-dangerous ant-btn-dashed"
+    class="ant-btn ant-btn-dashed ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-dashed"
     type="button"
   >
     <span>
@@ -506,7 +526,7 @@ exports[`renders components/button/demo/danger.tsx extend context correctly 1`] 
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-dangerous ant-btn-text"
+    class="ant-btn ant-btn-text ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-text"
     type="button"
   >
     <span>
@@ -514,7 +534,7 @@ exports[`renders components/button/demo/danger.tsx extend context correctly 1`] 
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-dangerous ant-btn-link"
+    class="ant-btn ant-btn-link ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-link"
     type="button"
   >
     <span>
@@ -546,7 +566,7 @@ exports[`renders components/button/demo/debug-block.tsx extend context correctly
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-round ant-btn-default ant-btn-outlined ant-btn-lg ant-btn-block"
+              class="ant-btn ant-btn-round ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-block"
               style="margin-bottom: 12px;"
               type="button"
             >
@@ -555,7 +575,7 @@ exports[`renders components/button/demo/debug-block.tsx extend context correctly
               </span>
             </button>
             <button
-              class="ant-btn ant-btn-round ant-btn-default ant-btn-outlined ant-btn-lg ant-btn-icon-only"
+              class="ant-btn ant-btn-round ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only"
               type="button"
             >
               <span
@@ -591,6 +611,123 @@ exports[`renders components/button/demo/debug-block.tsx extend context correctly
 `;
 
 exports[`renders components/button/demo/debug-block.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/button/demo/debug-color-variant.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+>
+  <div
+    class="ant-flex ant-flex-gap-small"
+  >
+    <button
+      class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+      type="button"
+    >
+      <span>
+        Link Button
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+      type="button"
+    >
+      <span>
+        Link Button
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+  >
+    <button
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid acss-1ncngmd"
+      type="button"
+    >
+      <span>
+        Primary Button
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined acss-1ndra3x"
+      type="button"
+    >
+      <span>
+        Default Button
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed acss-1ndra3x"
+      type="button"
+    >
+      <span>
+        Dashed Button
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text acss-v6wxmk"
+      type="button"
+    >
+      <span>
+        Text Button
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link acss-1r0846s"
+      type="button"
+    >
+      <span>
+        Link Button
+      </span>
+    </button>
+  </div>
+  <div
+    class="acss-1cu8o9m ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+  >
+    <button
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Primary Button
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Default Button
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
+      type="button"
+    >
+      <span>
+        Dashed Button
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text"
+      type="button"
+    >
+      <span>
+        Text Button
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+      type="button"
+    >
+      <span>
+        Link Button
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/button/demo/debug-color-variant.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/button/demo/debug-icon.tsx extend context correctly 1`] = `
 Array [
@@ -673,7 +810,7 @@ Array [
       class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
     >
       <button
-        class="ant-btn ant-btn-circle ant-btn-primary ant-btn-solid ant-btn-lg ant-btn-icon-only"
+        class="ant-btn ant-btn-circle ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-btn-icon-only"
         type="button"
       >
         <span
@@ -720,7 +857,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-circle ant-btn-primary ant-btn-solid ant-btn-lg"
+        class="ant-btn ant-btn-circle ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg"
         type="button"
       >
         <span>
@@ -728,7 +865,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg"
         type="button"
       >
         <span
@@ -759,7 +896,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-circle ant-btn-default ant-btn-outlined ant-btn-lg ant-btn-icon-only"
+        class="ant-btn ant-btn-circle ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only"
         type="button"
       >
         <span
@@ -806,7 +943,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-lg"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg"
         type="button"
       >
         <span
@@ -841,7 +978,7 @@ Array [
       class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
     >
       <button
-        class="ant-btn ant-btn-circle ant-btn-default ant-btn-outlined ant-btn-lg ant-btn-icon-only"
+        class="ant-btn ant-btn-circle ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only"
         type="button"
       >
         <span
@@ -888,7 +1025,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-lg"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg"
         type="button"
       >
         <span
@@ -919,7 +1056,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-circle ant-btn-default ant-btn-dashed ant-btn-lg ant-btn-icon-only"
+        class="ant-btn ant-btn-circle ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-lg ant-btn-icon-only"
         type="button"
       >
         <span
@@ -966,7 +1103,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default ant-btn-dashed ant-btn-lg"
+        class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-lg"
         type="button"
       >
         <span
@@ -997,9 +1134,10 @@ Array [
         </span>
       </button>
       <a
-        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-lg ant-btn-icon-only"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only"
         href="https://www.google.com"
         tabindex="0"
+        target="_blank"
       >
         <span
           class="ant-btn-icon"
@@ -1026,7 +1164,7 @@ Array [
         </span>
       </a>
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-lg"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg"
         type="button"
       >
         <span
@@ -1053,6 +1191,139 @@ Array [
         </span>
       </button>
     </div>
+    <div
+      class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain"
+      role="separator"
+    >
+      <span
+        class="ant-divider-inner-text"
+      >
+        👇🏻 https://github.com/ant-design/ant-design/issues/51811 👇🏻
+      </span>
+    </div>
+    <div>
+      <button
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg"
+        type="button"
+      >
+        <span>
+          without icon
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="search"
+            class="anticon anticon-search"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="search"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span>
+          with icon
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain"
+      role="separator"
+    >
+      <span
+        class="ant-divider-inner-text"
+      >
+        👇🏻 https://github.com/ant-design/ant-design/issues/51380 👇🏻
+      </span>
+    </div>
+    <div
+      class="ant-flex ant-flex-gap-small"
+      style="transform: scale(3); transform-origin: left top;"
+    >
+      <button
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="minus-square"
+            class="anticon anticon-minus-square"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="minus-square"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M328 544h368c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
+              />
+              <path
+                d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <div
+            style="background: red; width: 12px; height: 12px;"
+          />
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <div
+            style="background: green; width: 16px; height: 16px;"
+          />
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <div
+            style="background: blue; width: 14px; height: 16px;"
+          />
+        </span>
+      </button>
+    </div>
   </div>,
 ]
 `;
@@ -1067,7 +1338,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     class="ant-flex ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -1075,7 +1346,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       disabled=""
       type="button"
     >
@@ -1088,7 +1359,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     class="ant-flex ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-outlined"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -1096,7 +1367,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-outlined"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       disabled=""
       type="button"
     >
@@ -1109,7 +1380,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     class="ant-flex ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-dashed"
+      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
       type="button"
     >
       <span>
@@ -1117,7 +1388,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-dashed"
+      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
       disabled=""
       type="button"
     >
@@ -1130,7 +1401,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     class="ant-flex ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-text"
+      class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text"
       type="button"
     >
       <span>
@@ -1138,7 +1409,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-text"
+      class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text"
       disabled=""
       type="button"
     >
@@ -1151,7 +1422,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     class="ant-flex ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-link"
+      class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
       type="button"
     >
       <span>
@@ -1159,7 +1430,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-link"
+      class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
       disabled=""
       type="button"
     >
@@ -1172,7 +1443,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     class="ant-flex ant-flex-gap-small"
   >
     <a
-      class="ant-btn ant-btn-primary ant-btn-solid"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       href="https://ant.design/index-cn"
       tabindex="0"
     >
@@ -1181,7 +1452,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
       </span>
     </a>
     <a
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-disabled"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-disabled"
       tabindex="-1"
     >
       <span>
@@ -1193,7 +1464,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     class="ant-flex ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-dangerous ant-btn-outlined"
+      class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -1201,7 +1472,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-dangerous ant-btn-outlined"
+      class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
       disabled=""
       type="button"
     >
@@ -1214,7 +1485,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     class="ant-flex ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-dangerous ant-btn-text"
+      class="ant-btn ant-btn-text ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-text"
       type="button"
     >
       <span>
@@ -1222,7 +1493,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-dangerous ant-btn-text"
+      class="ant-btn ant-btn-text ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-text"
       disabled=""
       type="button"
     >
@@ -1235,7 +1506,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     class="ant-flex ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-dangerous ant-btn-link"
+      class="ant-btn ant-btn-link ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-link"
       type="button"
     >
       <span>
@@ -1243,7 +1514,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-dangerous ant-btn-link"
+      class="ant-btn ant-btn-link ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-link"
       disabled=""
       type="button"
     >
@@ -1256,7 +1527,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     class="site-button-ghost-wrapper ant-flex ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-background-ghost"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-background-ghost"
       type="button"
     >
       <span>
@@ -1264,7 +1535,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-background-ghost"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-background-ghost"
       disabled=""
       type="button"
     >
@@ -1283,7 +1554,7 @@ exports[`renders components/button/demo/ghost.tsx extend context correctly 1`] =
   class="site-button-ghost-wrapper ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
 >
   <button
-    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-background-ghost"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-background-ghost"
     type="button"
   >
     <span>
@@ -1291,7 +1562,7 @@ exports[`renders components/button/demo/ghost.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-background-ghost"
+    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-background-ghost"
     type="button"
   >
     <span>
@@ -1299,7 +1570,7 @@ exports[`renders components/button/demo/ghost.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-dashed ant-btn-background-ghost"
+    class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-background-ghost"
     type="button"
   >
     <span>
@@ -1307,7 +1578,7 @@ exports[`renders components/button/demo/ghost.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-dangerous ant-btn-solid ant-btn-background-ghost"
+    class="ant-btn ant-btn-primary ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-solid ant-btn-background-ghost"
     type="button"
   >
     <span>
@@ -1327,7 +1598,7 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
     class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-circle ant-btn-primary ant-btn-solid ant-btn-icon-only"
+      class="ant-btn ant-btn-circle ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only"
       type="button"
     >
       <span
@@ -1374,7 +1645,7 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-circle ant-btn-primary ant-btn-solid"
+      class="ant-btn ant-btn-circle ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -1382,7 +1653,7 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span
@@ -1413,7 +1684,7 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-circle ant-btn-default ant-btn-outlined ant-btn-icon-only"
+      class="ant-btn ant-btn-circle ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
       type="button"
     >
       <span
@@ -1460,7 +1731,7 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-default ant-btn-outlined"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span
@@ -1495,7 +1766,7 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
     class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-circle ant-btn-default ant-btn-outlined ant-btn-icon-only"
+      class="ant-btn ant-btn-circle ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
       type="button"
     >
       <span
@@ -1542,7 +1813,7 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-default ant-btn-outlined"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span
@@ -1573,7 +1844,7 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-circle ant-btn-default ant-btn-dashed ant-btn-icon-only"
+      class="ant-btn ant-btn-circle ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-icon-only"
       type="button"
     >
       <span
@@ -1620,7 +1891,7 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-default ant-btn-dashed"
+      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
       type="button"
     >
       <span
@@ -1651,9 +1922,10 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
       </span>
     </button>
     <a
-      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
       href="https://www.google.com"
       tabindex="0"
+      target="_blank"
     >
       <span
         class="ant-btn-icon"
@@ -1755,7 +2027,7 @@ Array [
       class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
     >
       <button
-        class="ant-btn ant-btn-circle ant-btn-primary ant-btn-solid ant-btn-icon-only"
+        class="ant-btn ant-btn-circle ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only"
         type="button"
       >
         <span
@@ -1802,7 +2074,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-circle ant-btn-primary ant-btn-solid"
+        class="ant-btn ant-btn-circle ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -1810,7 +2082,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-icon-end"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-end"
         type="button"
       >
         <span
@@ -1841,7 +2113,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-circle ant-btn-default ant-btn-outlined ant-btn-icon-only"
+        class="ant-btn ant-btn-circle ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
         type="button"
       >
         <span
@@ -1888,7 +2160,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-end"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-end"
         type="button"
       >
         <span
@@ -1923,7 +2195,7 @@ Array [
       class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
     >
       <button
-        class="ant-btn ant-btn-circle ant-btn-default ant-btn-outlined ant-btn-icon-only"
+        class="ant-btn ant-btn-circle ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
         type="button"
       >
         <span
@@ -1970,7 +2242,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default ant-btn-text ant-btn-icon-end"
+        class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-icon-end"
         type="button"
       >
         <span
@@ -2001,7 +2273,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-circle ant-btn-default ant-btn-dashed ant-btn-icon-only"
+        class="ant-btn ant-btn-circle ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-icon-only"
         type="button"
       >
         <span
@@ -2048,7 +2320,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default ant-btn-dashed ant-btn-icon-end"
+        class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-icon-end"
         type="button"
       >
         <span
@@ -2079,9 +2351,10 @@ Array [
         </span>
       </button>
       <a
-        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-icon-end"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-icon-end"
         href="https://www.google.com"
         tabindex="0"
+        target="_blank"
       >
         <span
           class="ant-btn-icon"
@@ -2108,16 +2381,15 @@ Array [
         </span>
       </a>
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-loading ant-btn-icon-end"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-loading ant-btn-icon-end"
         type="button"
       >
         <span
           class="ant-btn-icon ant-btn-loading-icon"
-          style="width: 0px; opacity: 0; transform: scale(0);"
         >
           <span
             aria-label="loading"
-            class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+            class="anticon anticon-loading anticon-spin"
             role="img"
           >
             <svg
@@ -2152,7 +2424,7 @@ Array [
     class="ant-btn-group ant-btn-group-sm"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
       type="button"
     >
       <span>
@@ -2160,7 +2432,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
       type="button"
     >
       <span>
@@ -2168,7 +2440,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -2216,7 +2488,7 @@ Array [
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       type="button"
     >
       <span
@@ -2268,7 +2540,7 @@ Array [
     class="ant-btn-group"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -2276,7 +2548,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -2284,7 +2556,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -2332,7 +2604,7 @@ Array [
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only"
       type="button"
     >
       <span
@@ -2384,7 +2656,7 @@ Array [
     class="ant-btn-group ant-btn-group-lg"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg"
       type="button"
     >
       <span>
@@ -2392,7 +2664,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg"
       type="button"
     >
       <span>
@@ -2400,7 +2672,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -2448,7 +2720,7 @@ Array [
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-btn-icon-only"
       type="button"
     >
       <span
@@ -2508,7 +2780,7 @@ exports[`renders components/button/demo/linear-gradient.tsx extend context corre
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg acss-9mi5l3"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg acss-wkbm77"
       type="button"
     >
       <span
@@ -2543,7 +2815,7 @@ exports[`renders components/button/demo/linear-gradient.tsx extend context corre
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-lg acss-9mi5l3"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg acss-wkbm77"
       type="button"
     >
       <span>
@@ -2564,16 +2836,15 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
     class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-loading"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-loading"
       type="button"
     >
       <span
         class="ant-btn-icon ant-btn-loading-icon"
-        style="width: 0px; opacity: 0; transform: scale(0);"
       >
         <span
           aria-label="loading"
-          class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+          class="anticon anticon-loading anticon-spin"
           role="img"
         >
           <svg
@@ -2596,16 +2867,15 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-loading"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-loading"
       type="button"
     >
       <span
         class="ant-btn-icon ant-btn-loading-icon"
-        style="width: 0px; opacity: 0; transform: scale(0);"
       >
         <span
           aria-label="loading"
-          class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+          class="anticon anticon-loading anticon-spin"
           role="img"
         >
           <svg
@@ -2628,7 +2898,7 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-icon-only ant-btn-loading"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-loading"
       type="button"
     >
       <span
@@ -2660,15 +2930,23 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
     class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
-        Click me!
+        Icon Start
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-end"
+      type="button"
+    >
+      <span>
+        Icon End
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span
@@ -2695,11 +2973,11 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
         </span>
       </span>
       <span>
-        Click me!
+        Icon Replace
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only"
       type="button"
     >
       <span
@@ -2737,7 +3015,7 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
   class="ant-flex ant-flex-align-flex-start ant-flex-gap-small ant-flex-vertical"
 >
   <button
-    class="ant-btn ant-btn-primary ant-btn-solid"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -2745,7 +3023,7 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-outlined"
+    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
     type="button"
   >
     <span>
@@ -2756,7 +3034,7 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
     class="ant-space-compact ant-space-compact-block ant-dropdown-button"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-compact-item ant-btn-compact-first-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
       type="button"
     >
       <span>
@@ -2764,7 +3042,7 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
       type="button"
     >
       <span
@@ -2900,31 +3178,6 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
 
 exports[`renders components/button/demo/multiple.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders components/button/demo/noSpace.tsx extend context correctly 1`] = `
-<div
-  class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
->
-  <button
-    class="ant-btn ant-btn-primary ant-btn-solid"
-    type="button"
-  >
-    <span>
-      确定
-    </span>
-  </button>
-  <button
-    class="ant-btn ant-btn-primary ant-btn-solid"
-    type="button"
-  >
-    <span>
-      确 定
-    </span>
-  </button>
-</div>
-`;
-
-exports[`renders components/button/demo/noSpace.tsx extend context correctly 2`] = `[]`;
-
 exports[`renders components/button/demo/size.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -3006,7 +3259,7 @@ Array [
       class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg"
         type="button"
       >
         <span>
@@ -3014,7 +3267,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-lg"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg"
         type="button"
       >
         <span>
@@ -3022,7 +3275,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default ant-btn-dashed ant-btn-lg"
+        class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-lg"
         type="button"
       >
         <span>
@@ -3031,7 +3284,7 @@ Array [
       </button>
     </div>
     <button
-      class="ant-btn ant-btn-primary ant-btn-link ant-btn-lg"
+      class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-lg"
       type="button"
     >
       <span>
@@ -3042,7 +3295,7 @@ Array [
       class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-btn-icon-only"
         type="button"
       >
         <span
@@ -3070,7 +3323,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-circle ant-btn-primary ant-btn-solid ant-btn-lg ant-btn-icon-only"
+        class="ant-btn ant-btn-circle ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-btn-icon-only"
         type="button"
       >
         <span
@@ -3098,7 +3351,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-round ant-btn-primary ant-btn-solid ant-btn-lg ant-btn-icon-only"
+        class="ant-btn ant-btn-round ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-btn-icon-only"
         type="button"
       >
         <span
@@ -3126,7 +3379,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-round ant-btn-primary ant-btn-solid ant-btn-lg"
+        class="ant-btn ant-btn-round ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg"
         type="button"
       >
         <span
@@ -3157,7 +3410,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg"
         type="button"
       >
         <span

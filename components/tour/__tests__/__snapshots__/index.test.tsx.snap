@@ -69,7 +69,7 @@ exports[`Tour Primary 1`] = `
               class="ant-tour-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm ant-tour-next-btn"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-tour-next-btn"
                 type="button"
               >
                 <span>
@@ -284,7 +284,7 @@ exports[`Tour controlled current 1`] = `
               class="ant-tour-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm ant-btn-background-ghost ant-tour-prev-btn"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-background-ghost ant-tour-prev-btn"
                 type="button"
               >
                 <span>
@@ -292,7 +292,7 @@ exports[`Tour controlled current 1`] = `
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm ant-tour-next-btn"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-tour-next-btn"
                 type="button"
               >
                 <span>
@@ -413,7 +413,7 @@ exports[`Tour custom step pre btn & next btn className & style 1`] = `
           class="ant-tour-buttons"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-tour-next-btn customClassName"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn customClassName"
             style="background-color: rgb(69, 69, 255);"
             type="button"
           >
@@ -498,7 +498,7 @@ exports[`Tour should support gap.offset 1`] = `
               class="ant-tour-buttons"
             >
               <button
-                class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-tour-next-btn"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
                 type="button"
               >
                 <span>
@@ -662,7 +662,7 @@ exports[`Tour single 1`] = `
               class="ant-tour-buttons"
             >
               <button
-                class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-tour-next-btn"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
                 type="button"
               >
                 <span>
@@ -836,7 +836,7 @@ exports[`Tour step support Primary 1`] = `
               class="ant-tour-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm ant-btn-background-ghost ant-tour-prev-btn"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-background-ghost ant-tour-prev-btn"
                 type="button"
               >
                 <span>
@@ -844,7 +844,7 @@ exports[`Tour step support Primary 1`] = `
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm ant-tour-next-btn"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-tour-next-btn"
                 type="button"
               >
                 <span>

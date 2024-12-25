@@ -6,12 +6,18 @@ import { genStyleHooks } from '../../theme/internal';
 
 export interface ComponentToken {
   /**
-   * @desc 可改变大小标识 元素大小
-   * @descEN Height of content area
+   * @desc 拖拽标识元素大小
+   * @descEN Drag and drop the identity element size
+   * @deprecated Please use `splitBarDraggableSize` instead.
    */
   resizeSpinnerSize: number;
   /**
    * @desc 拖拽标识元素大小
+   * @descEN Drag and drop the identity element size
+   */
+  splitBarDraggableSize: number;
+  /**
+   * @desc 拖拽元素大小
    * @descEN Drag the element size
    */
   splitBarSize: number;
@@ -71,7 +77,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
   const {
     componentCls,
     colorFill,
-    resizeSpinnerSize,
+    splitBarDraggableSize,
     splitBarSize,
     splitTriggerSize,
     controlItemBgHover,
@@ -80,6 +86,8 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
   } = token;
 
   const splitBarCls = `${componentCls}-bar`;
+  const splitMaskCls = `${componentCls}-mask`;
+  const splitPanelCls = `${componentCls}-panel`;
 
   const halfTriggerSize = token.calc(splitTriggerSize).div(2).equal();
 
@@ -104,14 +112,14 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           zIndex: 1,
 
           // Hover background
-          '&:before': {
+          '&::before': {
             content: '""',
             background: controlItemBgHover,
             ...centerStyle,
           },
 
           // Spinner
-          '&:after': {
+          '&::after': {
             content: '""',
             background: colorFill,
             ...centerStyle,
@@ -119,7 +127,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
           // Hover
           [`&:hover:not(${splitBarCls}-dragger-active)`]: {
-            '&:before': {
+            '&::before': {
               background: controlItemBgActive,
             },
           },
@@ -128,7 +136,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           '&-active': {
             zIndex: 2,
 
-            '&:before': {
+            '&::before': {
               background: controlItemBgActiveHover,
             },
           },
@@ -139,12 +147,12 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
             '&, &:hover, &-active': {
               cursor: 'default',
-              '&:before': {
+              '&::before': {
                 background: controlItemBgHover,
               },
             },
 
-            '&:after': {
+            '&::after': {
               display: 'none',
             },
           },
@@ -153,7 +161,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         // ======================= Collapse =======================
         [`${splitBarCls}-collapse-bar`]: {
           ...centerStyle,
-          zIndex: 1,
+          zIndex: token.zIndexPopupBase,
           background: controlItemBgHover,
           fontSize: token.fontSizeSM,
           borderRadius: token.borderRadiusXS,
@@ -186,7 +194,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
       // =========================== Mask =========================
       // Util dom for handle cursor
-      '&-mask': {
+      [splitMaskCls]: {
         position: 'fixed',
         zIndex: token.zIndexPopupBase,
         inset: 0,
@@ -215,13 +223,13 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
             height: '100%',
             width: splitTriggerSize,
 
-            '&:before': {
+            '&::before': {
               height: '100%',
               width: splitBarSize,
             },
 
-            '&:after': {
-              height: resizeSpinnerSize,
+            '&::after': {
+              height: splitBarDraggableSize,
               width: splitBarSize,
             },
           },
@@ -270,13 +278,13 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
             width: '100%',
             height: splitTriggerSize,
 
-            '&:before': {
+            '&::before': {
               width: '100%',
               height: splitBarSize,
             },
 
-            '&:after': {
-              width: resizeSpinnerSize,
+            '&::after': {
+              width: splitBarDraggableSize,
               height: splitBarSize,
             },
           },
@@ -302,14 +310,20 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
       },
 
       // ========================= Panels =========================
-      '&-panel': {
+      [splitPanelCls]: {
         overflow: 'auto',
         padding: '0 1px',
         scrollbarWidth: 'thin',
         boxSizing: 'border-box',
-      },
-      '&-panel-hidden': {
-        padding: 0,
+
+        '&-hidden': {
+          padding: 0,
+          overflow: 'hidden',
+        },
+
+        [`&:has(${componentCls}:only-child)`]: {
+          overflow: 'hidden',
+        },
       },
 
       ...genRtlStyle(token),
@@ -321,11 +335,14 @@ export const prepareComponentToken: GetDefaultToken<'Splitter'> = (token) => {
   const splitBarSize = token.splitBarSize || 2;
   const splitTriggerSize = token.splitTriggerSize || 6;
 
+  // https://github.com/ant-design/ant-design/pull/51223
   const resizeSpinnerSize = token.resizeSpinnerSize || 20;
+  const splitBarDraggableSize = token.splitBarDraggableSize ?? resizeSpinnerSize;
 
   return {
     splitBarSize,
     splitTriggerSize,
+    splitBarDraggableSize,
     resizeSpinnerSize,
   };
 };
