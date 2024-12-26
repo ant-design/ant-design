@@ -680,10 +680,6 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
             borderStartStartRadius: 0,
             borderEndStartRadius: 0,
             boxShadow: 'none',
-
-            '> span': {
-              lineHeight: 1,
-            },
           },
 
           [`${searchPrefixCls}-button:not(${antCls}-btn-primary)`]: {

@@ -586,7 +586,6 @@ const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation =>
     componentCls,
     controlHeight,
     fontSize,
-    lineHeight,
     borderRadius,
     buttonPaddingHorizontal,
     iconCls,
@@ -598,7 +597,6 @@ const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation =>
     {
       [prefixCls]: {
         fontSize,
-        lineHeight,
         height: controlHeight,
         padding: `${unit(buttonPaddingVertical!)} ${unit(buttonPaddingHorizontal!)}`,
         borderRadius,
@@ -625,7 +623,6 @@ const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation =>
 const genSizeBaseButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const baseToken = mergeToken<ButtonToken>(token, {
     fontSize: token.contentFontSize,
-    lineHeight: token.contentLineHeight,
   });
   return genButtonStyle(baseToken, token.componentCls);
 };
@@ -634,7 +631,6 @@ const genSizeSmallButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const smallToken = mergeToken<ButtonToken>(token, {
     controlHeight: token.controlHeightSM,
     fontSize: token.contentFontSizeSM,
-    lineHeight: token.contentLineHeightSM,
     padding: token.paddingXS,
     buttonPaddingHorizontal: token.paddingInlineSM,
     buttonPaddingVertical: token.paddingBlockSM,
@@ -649,7 +645,6 @@ const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const largeToken = mergeToken<ButtonToken>(token, {
     controlHeight: token.controlHeightLG,
     fontSize: token.contentFontSizeLG,
-    lineHeight: token.contentLineHeightLG,
     buttonPaddingHorizontal: token.paddingInlineLG,
     buttonPaddingVertical: token.paddingBlockLG,
     borderRadius: token.borderRadiusLG,
