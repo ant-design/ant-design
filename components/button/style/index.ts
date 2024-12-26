@@ -49,14 +49,11 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       },
 
       '> span': {
-        display: 'inline-block',
+        lineHeight: 1,
       },
 
-      [`${componentCls}-icon`]: {
-        lineHeight: 1,
-        // https://github.com/ant-design/ant-design/issues/51380
-        '> svg': resetIcon(),
-      },
+      // https://github.com/ant-design/ant-design/issues/51380
+      [`${componentCls}-icon > svg`]: resetIcon(),
 
       '> a': {
         color: 'currentColor',
