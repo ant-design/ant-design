@@ -77,7 +77,13 @@ function renderCells(
         <Cell
           key={`label-${key || index}`}
           className={className}
-          style={{ ...rootLabelStyle, ...style, ...labelStyle, ...styles?.label }}
+          style={{
+            ...rootLabelStyle,
+            ...rootStyles?.label,
+            ...style,
+            ...labelStyle,
+            ...styles?.label,
+          }}
           span={1}
           colon={colon}
           component={component[0]}
@@ -89,7 +95,13 @@ function renderCells(
         <Cell
           key={`content-${key || index}`}
           className={className}
-          style={{ ...rootContentStyle, ...style, ...contentStyle, ...styles?.content }}
+          style={{
+            ...rootContentStyle,
+            ...rootStyles?.content,
+            ...style,
+            ...contentStyle,
+            ...styles?.content,
+          }}
           span={span * 2 - 1}
           component={component[1]}
           itemPrefixCls={itemPrefixCls}

@@ -14,7 +14,6 @@ export interface DescriptionsItemProps {
     content?: React.CSSProperties;
   };
   classNames?: {
-    root?: string;
     label?: string;
     content?: string;
   };

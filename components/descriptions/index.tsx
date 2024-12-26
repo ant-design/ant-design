@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { matchScreen } from '../_util/responsiveObserver';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
@@ -87,6 +88,16 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
   const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
   const screens = useBreakpoint();
 
+  // ============================== Warn ==============================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Descriptions');
+    [
+      ['labelStyle', 'styles={{ label: {} }}'],
+      ['contentStyle', 'styles={{ content: {} }}'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
+  }
   // Column count
   const mergedColumn = React.useMemo(() => {
     if (typeof column === 'number') {

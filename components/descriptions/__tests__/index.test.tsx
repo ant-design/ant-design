@@ -424,9 +424,9 @@ describe('Descriptions', () => {
     };
 
     const customStyles = {
-      root: { color: 'red' },
+      root: { backgroundColor: 'red' },
       label: { backgroundColor: 'blue' },
-      content: { color: 'green' },
+      content: { backgroundColor: 'green' },
     };
 
     const { container } = render(
@@ -437,7 +437,16 @@ describe('Descriptions', () => {
           {
             key: '1',
             label: 'UserName',
-            children: 'Zhou Maomao',
+            children: '1',
+          },
+          {
+            key: '2',
+            label: 'UserName',
+            children: '2',
+            styles: {
+              content: { color: 'yellow' },
+              label: { color: 'orange' },
+            },
           },
         ]}
       />,
@@ -446,6 +455,12 @@ describe('Descriptions', () => {
     const rootElement = container.querySelector('.ant-descriptions') as HTMLElement;
     const labelElement = container.querySelector('.ant-descriptions-item-label') as HTMLElement;
     const contentElement = container.querySelector('.ant-descriptions-item-content') as HTMLElement;
+    const labelElements = container.querySelectorAll(
+      '.ant-descriptions-item-label',
+    ) as NodeListOf<HTMLElement>;
+    const contentElements = container.querySelectorAll(
+      '.ant-descriptions-item-content',
+    ) as NodeListOf<HTMLElement>;
 
     // 验证 classNames
     expect(rootElement.classList).toContain('custom-root');
@@ -453,8 +468,13 @@ describe('Descriptions', () => {
     expect(contentElement.classList).toContain('custom-content');
 
     // 验证 styles
-    expect(rootElement.style.color).toBe('red');
+    expect(rootElement.style.backgroundColor).toBe('red');
     expect(labelElement.style.backgroundColor).toBe('blue');
-    expect(contentElement.style.color).toBe('green');
+    expect(contentElement.style.backgroundColor).toBe('green');
+
+    expect(labelElements[1].style.color).toBe('orange');
+    expect(contentElements[1].style.color).toBe('yellow');
+    expect(labelElements[0].style.color).not.toBe('orange');
+    expect(contentElements[0].style.color).not.toBe('yellow');
   });
 });
