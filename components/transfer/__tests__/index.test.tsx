@@ -859,7 +859,7 @@ describe('Transfer', () => {
     expect(searchInputs).toHaveLength(2);
     searchInputs.forEach((input) => {
       expect(input.getAttribute('placeholder')).toBe('Search placeholder');
-      expect(input.value).toBe('values');
+      expect(input).toHaveValue('values');
     });
   });
 });
