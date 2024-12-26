@@ -75,8 +75,8 @@ export interface TransferLocale {
 }
 
 export interface TransferSearchOption {
-  placeholder: string;
-  defaultValue: string;
+  placeholder?: string;
+  defaultValue?: string;
 }
 
 export interface TransferProps<RecordType = any> {
@@ -99,7 +99,7 @@ export interface TransferProps<RecordType = any> {
   operationStyle?: CSSProperties;
   titles?: React.ReactNode[];
   operations?: string[];
-  showSearch?: boolean | boolean[] | TransferSearchOption | TransferSearchOption[];
+  showSearch?: boolean | TransferSearchOption;
   filterOption?: (inputValue: string, item: RecordType, direction: TransferDirection) => boolean;
   locale?: Partial<TransferLocale>;
   footer?: (
@@ -439,14 +439,6 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const mergedSelectionsIcon = selectionsIcon ?? transfer?.selectionsIcon;
 
-  const searchOption = React.useMemo(() => {
-    if (Array.isArray(showSearch)) {
-      return [showSearch[0], showSearch[1]];
-    } else {
-      return [showSearch, showSearch];
-    }
-  }, [showSearch]);
-
   return wrapCSSVar(
     <div className={cls} style={{ ...transfer?.style, ...style }}>
       <List<KeyWise<RecordType>>
@@ -461,7 +453,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         onItemSelect={onLeftItemSelect}
         onItemSelectAll={onLeftItemSelectAll as any}
         render={render}
-        showSearch={searchOption[0]}
+        showSearch={showSearch}
         renderList={children as any}
         footer={footer as any}
         onScroll={handleLeftScroll}
@@ -499,7 +491,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         onItemSelectAll={onRightItemSelectAll as any}
         onItemRemove={onRightItemRemove}
         render={render}
-        showSearch={searchOption[1]}
+        showSearch={showSearch}
         renderList={children as any}
         footer={footer as any}
         onScroll={handleRightScroll}

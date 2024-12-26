@@ -84,6 +84,19 @@ export interface TransferListProps<RecordType> extends TransferLocale {
 
 export interface TransferCustomListBodyProps<T> extends TransferListBodyProps<T> {}
 
+const useShowSearchOption = (showSearch: boolean | TransferSearchOption) => {
+  if (showSearch instanceof Object) {
+    return {
+      ...showSearch,
+      defaultValue: showSearch.defaultValue || '',
+    };
+  }
+  return {
+    defaultValue: '',
+    placeholder: '',
+  };
+};
+
 const TransferList = <RecordType extends KeyWiseTransferItem>(
   props: TransferListProps<RecordType>,
 ) => {
@@ -120,8 +133,8 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     filterOption,
     render = defaultRender,
   } = props;
-  const searchDefaultValue = showSearch instanceof Object ? showSearch?.defaultValue : '';
-  const [filterValue, setFilterValue] = useState<string>(searchDefaultValue);
+  const searchOptions = useShowSearchOption(showSearch);
+  const [filterValue, setFilterValue] = useState<string>(searchOptions.defaultValue);
   const listBodyRef = useRef<ListBodyRef<RecordType>>({});
 
   const internalHandleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -203,12 +216,6 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     return 'part';
   }, [checkedKeys, checkedActiveItems]);
 
-  const searchOptions = useMemo<TransferSearchOption>(() => {
-    if (typeof showSearch === 'boolean') {
-      return {};
-    }
-    return showSearch;
-  }, [showSearch]);
   const listBody = useMemo<React.ReactNode>(() => {
     const search = showSearch ? (
       <div className={`${prefixCls}-body-search-wrapper`}>
@@ -217,7 +224,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
           prefixCls={`${prefixCls}-search`}
           onChange={internalHandleFilter}
           handleClear={internalHandleClear}
-          placeholder={searchOptions?.placeholder || searchPlaceholder}
+          placeholder={searchOptions.placeholder || searchPlaceholder}
           value={filterValue}
           disabled={disabled}
         />

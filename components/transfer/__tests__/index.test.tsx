@@ -858,29 +858,6 @@ describe('Transfer', () => {
     expect(getAllByPlaceholderText('Search placeholder')).toHaveLength(2);
     expect(getAllByDisplayValue('values')).toHaveLength(2);
   });
-
-  it('showSearch with array of objects', () => {
-    const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
-    const locale = { itemUnit: 'Person', notFoundContent: 'Nothing' };
-    const { getByPlaceholderText, getByDisplayValue } = render(
-      <Transfer
-        {...listCommonProps}
-        {...emptyProps}
-        showSearch={[
-          { placeholder: 'Search placeholder', defaultValue: 'values' },
-          { placeholder: 'Search placeholder right', defaultValue: 'values right' },
-        ]}
-        locale={locale}
-      />,
-    );
-    // 检查左侧搜索框的占位符和默认值
-    expect(getByPlaceholderText('Search placeholder')).toBeInTheDocument();
-    expect(getByDisplayValue('values')).toBeInTheDocument();
-
-    // 检查右侧搜索框的占位符和默认值
-    expect(getByPlaceholderText('Search placeholder right')).toBeInTheDocument();
-    expect(getByDisplayValue('values right')).toBeInTheDocument();
-  });
 });
 
 describe('immutable data', () => {
