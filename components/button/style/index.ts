@@ -633,7 +633,7 @@ const genSizeSmallButtonStyle: GenerateStyle<ButtonToken> = (token) => {
     fontSize: token.contentFontSizeSM,
     padding: token.paddingXS,
     buttonPaddingHorizontal: token.paddingInlineSM,
-    buttonPaddingVertical: token.paddingBlockSM,
+    buttonPaddingVertical: 0,
     borderRadius: token.borderRadiusSM,
     buttonIconOnlyFontSize: token.onlyIconSizeSM,
   });
@@ -646,7 +646,7 @@ const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
     controlHeight: token.controlHeightLG,
     fontSize: token.contentFontSizeLG,
     buttonPaddingHorizontal: token.paddingInlineLG,
-    buttonPaddingVertical: token.paddingBlockLG,
+    buttonPaddingVertical: 0,
     borderRadius: token.borderRadiusLG,
     buttonIconOnlyFontSize: token.onlyIconSizeLG,
   });
