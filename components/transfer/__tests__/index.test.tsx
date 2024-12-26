@@ -6,8 +6,8 @@ import type { SelectAllLabel, TransferProps } from '..';
 import Transfer from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import Button from '../../button';
 import { waitFakeTimer } from '../../../tests/utils';
+import Button from '../../button';
 
 const listCommonProps: {
   dataSource: { key: string; title: string; disabled?: boolean }[];
@@ -365,7 +365,7 @@ describe('Transfer', () => {
   });
 
   it('should display the correct locale and ignore old API', () => {
-    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
+    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
     const locale = { notFoundContent: 'old1', searchPlaceholder: 'old2' };
@@ -745,7 +745,7 @@ describe('Transfer', () => {
   });
 
   it('control mode select all should not throw warning', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const App: React.FC = () => {
       const [selectedKeys, setSelectedKeys] = useState<TransferProps['selectedKeys']>([]);
@@ -848,7 +848,12 @@ describe('Transfer', () => {
     const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
     const locale = { itemUnit: 'Person', notFoundContent: 'Nothing' };
     const { getAllByPlaceholderText, getAllByDisplayValue } = render(
-      <Transfer {...listCommonProps} {...emptyProps} showSearch={{ placeholder: "Search placeholder", defaultValue: "values" }} locale={locale} />,
+      <Transfer
+        {...listCommonProps}
+        {...emptyProps}
+        showSearch={{ placeholder: 'Search placeholder', defaultValue: 'values' }}
+        locale={locale}
+      />,
     );
     expect(getAllByPlaceholderText('Search placeholder')).toHaveLength(2);
     expect(getAllByDisplayValue('values')).toHaveLength(2);
@@ -858,10 +863,12 @@ describe('Transfer', () => {
     const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
     const locale = { itemUnit: 'Person', notFoundContent: 'Nothing' };
     const { getByPlaceholderText, getByDisplayValue } = render(
-      <Transfer {...listCommonProps} {...emptyProps}
+      <Transfer
+        {...listCommonProps}
+        {...emptyProps}
         showSearch={[
-          { placeholder: "Search placeholder", defaultValue: "values" },
-          { placeholder: "Search placeholder right", defaultValue: "values right" }
+          { placeholder: 'Search placeholder', defaultValue: 'values' },
+          { placeholder: 'Search placeholder right', defaultValue: 'values right' },
         ]}
         locale={locale}
       />,

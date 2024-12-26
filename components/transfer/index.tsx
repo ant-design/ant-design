@@ -72,7 +72,7 @@ export interface TransferLocale {
   selectInvert?: string;
   removeAll?: string;
   removeCurrent?: string;
-};
+}
 
 export interface TransferSearchOption {
   placeholder: string;
@@ -441,11 +441,11 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const searchOption = React.useMemo(() => {
     if (Array.isArray(showSearch)) {
-      return [showSearch[0], showSearch[1]]
+      return [showSearch[0], showSearch[1]];
     } else {
-      return [showSearch, showSearch]
+      return [showSearch, showSearch];
     }
-  }, [showSearch])
+  }, [showSearch]);
 
   return wrapCSSVar(
     <div className={cls} style={{ ...transfer?.style, ...style }}>

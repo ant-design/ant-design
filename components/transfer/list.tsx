@@ -82,7 +82,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   selectionsIcon?: React.ReactNode;
 }
 
-export interface TransferCustomListBodyProps<T> extends TransferListBodyProps<T> { }
+export interface TransferCustomListBodyProps<T> extends TransferListBodyProps<T> {}
 
 const TransferList = <RecordType extends KeyWiseTransferItem>(
   props: TransferListProps<RecordType>,
@@ -144,9 +144,9 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
   const renderListBody = (listProps: TransferListBodyProps<RecordType>) => {
     let bodyContent: React.ReactNode = renderList
       ? renderList({
-        ...listProps,
-        onItemSelect: (key, check) => listProps.onItemSelect(key, check),
-      })
+          ...listProps,
+          onItemSelect: (key, check) => listProps.onItemSelect(key, check),
+        })
       : null;
     const customize: boolean = !!bodyContent;
     if (!customize) {
@@ -205,10 +205,10 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
 
   const searchOptions = useMemo<TransferSearchOption>(() => {
     if (typeof showSearch === 'boolean') {
-      return {}
-    };
-    return showSearch
-  }, [showSearch])
+      return {};
+    }
+    return showSearch;
+  }, [showSearch]);
   const listBody = useMemo<React.ReactNode>(() => {
     const search = showSearch ? (
       <div className={`${prefixCls}-body-search-wrapper`}>
@@ -315,15 +315,15 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
       /* Remove Current Page */
       pagination
         ? {
-          key: 'removeCurrent',
-          label: removeCurrent,
-          onClick() {
-            const pageKeys = getEnabledItemKeys(
-              (listBodyRef.current?.items || []).map((entity) => entity.item),
-            );
-            onItemRemove?.(pageKeys);
-          },
-        }
+            key: 'removeCurrent',
+            label: removeCurrent,
+            onClick() {
+              const pageKeys = getEnabledItemKeys(
+                (listBodyRef.current?.items || []).map((entity) => entity.item),
+              );
+              onItemRemove?.(pageKeys);
+            },
+          }
         : null,
       /* Remove All */
       {
@@ -346,13 +346,13 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
       },
       pagination
         ? {
-          key: 'selectCurrent',
-          label: selectCurrent,
-          onClick() {
-            const pageItems = listBodyRef.current?.items || [];
-            onItemSelectAll?.(getEnabledItemKeys(pageItems.map((entity) => entity.item)), true);
-          },
-        }
+            key: 'selectCurrent',
+            label: selectCurrent,
+            onClick() {
+              const pageItems = listBodyRef.current?.items || [];
+              onItemSelectAll?.(getEnabledItemKeys(pageItems.map((entity) => entity.item)), true);
+            },
+          }
         : null,
       {
         key: 'selectInvert',
