@@ -51,11 +51,17 @@ export interface DescriptionsProps {
   contentStyle?: React.CSSProperties;
   styles?: {
     root?: React.CSSProperties;
+    header?: React.CSSProperties;
+    title?: React.CSSProperties;
+    extra?: React.CSSProperties;
     label?: React.CSSProperties;
     content?: React.CSSProperties;
   };
   classNames?: {
     root?: string;
+    header?: string;
+    title?: string;
+    extra?: string;
     label?: string;
     content?: string;
   };
@@ -159,9 +165,41 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
         {...restProps}
       >
         {(title || extra) && (
-          <div className={`${prefixCls}-header`}>
-            {title && <div className={`${prefixCls}-title`}>{title}</div>}
-            {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
+          <div
+            className={classNames(
+              `${prefixCls}-header`,
+              descriptions?.classNames?.header,
+              descriptionsClassNames?.header,
+            )}
+            style={{ ...descriptions?.styles?.header, ...styles?.header }}
+          >
+            {title && (
+              <div
+                className={classNames(
+                  `${prefixCls}-title`,
+                  descriptions?.classNames?.title,
+                  descriptionsClassNames?.title,
+                )}
+                style={{
+                  ...descriptions?.styles?.title,
+                  ...styles?.title,
+                }}
+              >
+                {title}
+              </div>
+            )}
+            {extra && (
+              <div
+                className={classNames(
+                  `${prefixCls}-extra`,
+                  descriptions?.classNames?.extra,
+                  descriptionsClassNames?.extra,
+                )}
+                style={{ ...descriptions?.styles?.extra, ...styles?.extra }}
+              >
+                {extra}
+              </div>
+            )}
           </div>
         )}
 

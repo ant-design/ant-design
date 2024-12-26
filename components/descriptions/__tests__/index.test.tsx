@@ -419,12 +419,18 @@ describe('Descriptions', () => {
   it('should apply custom styles to Descriptions', () => {
     const customClassNames = {
       root: 'custom-root',
+      header: 'custom-header',
+      title: 'custom-title',
+      extra: 'custom-extra',
       label: 'custom-label',
       content: 'custom-content',
     };
 
     const customStyles = {
       root: { backgroundColor: 'red' },
+      header: { backgroundColor: 'black' },
+      title: { backgroundColor: 'yellow' },
+      extra: { backgroundColor: 'purple' },
       label: { backgroundColor: 'blue' },
       content: { backgroundColor: 'green' },
     };
@@ -433,6 +439,8 @@ describe('Descriptions', () => {
       <Descriptions
         classNames={customClassNames}
         styles={customStyles}
+        extra={'extra'}
+        title="User Info"
         items={[
           {
             key: '1',
@@ -453,6 +461,9 @@ describe('Descriptions', () => {
     );
 
     const rootElement = container.querySelector('.ant-descriptions') as HTMLElement;
+    const headerElement = container.querySelector('.ant-descriptions-header') as HTMLElement;
+    const titleElement = container.querySelector('.ant-descriptions-title') as HTMLElement;
+    const extraElement = container.querySelector('.ant-descriptions-extra') as HTMLElement;
     const labelElement = container.querySelector('.ant-descriptions-item-label') as HTMLElement;
     const contentElement = container.querySelector('.ant-descriptions-item-content') as HTMLElement;
     const labelElements = container.querySelectorAll(
@@ -462,13 +473,19 @@ describe('Descriptions', () => {
       '.ant-descriptions-item-content',
     ) as NodeListOf<HTMLElement>;
 
-    // 验证 classNames
+    // check classNames
     expect(rootElement.classList).toContain('custom-root');
+    expect(headerElement.classList).toContain('custom-header');
+    expect(titleElement.classList).toContain('custom-title');
+    expect(extraElement.classList).toContain('custom-extra');
     expect(labelElement.classList).toContain('custom-label');
     expect(contentElement.classList).toContain('custom-content');
 
-    // 验证 styles
+    // check styles
     expect(rootElement.style.backgroundColor).toBe('red');
+    expect(headerElement.style.backgroundColor).toBe('black');
+    expect(titleElement.style.backgroundColor).toBe('yellow');
+    expect(extraElement.style.backgroundColor).toBe('purple');
     expect(labelElement.style.backgroundColor).toBe('blue');
     expect(contentElement.style.backgroundColor).toBe('green');
 
