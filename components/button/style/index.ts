@@ -606,6 +606,7 @@ const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation =>
 
           [iconCls]: {
             fontSize: buttonIconOnlyFontSize,
+            verticalAlign: 'calc(-0.125em - 1px)',
           },
         },
       },
