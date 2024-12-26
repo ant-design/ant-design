@@ -1,7 +1,5 @@
 import * as React from 'react';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
-
-import type { TransferSearchOption } from '.';
 import Input from '../input';
 
 export interface TransferSearchProps {
@@ -11,7 +9,6 @@ export interface TransferSearchProps {
   handleClear?: () => void;
   value?: string;
   disabled?: boolean;
-  searchOptions?: TransferSearchOption;
 }
 
 const Search: React.FC<TransferSearchProps> = (props) => {
@@ -22,7 +19,6 @@ const Search: React.FC<TransferSearchProps> = (props) => {
     disabled,
     onChange,
     handleClear,
-    searchOptions,
   } = props;
 
   const handleChange = React.useCallback(
@@ -37,7 +33,6 @@ const Search: React.FC<TransferSearchProps> = (props) => {
 
   return (
     <Input
-      {...searchOptions}
       placeholder={placeholder}
       className={prefixCls}
       value={value}

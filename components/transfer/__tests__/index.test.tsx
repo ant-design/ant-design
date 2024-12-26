@@ -847,7 +847,7 @@ describe('Transfer', () => {
   it('showSearch with single object', () => {
     const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
     const locale = { itemUnit: 'Person', notFoundContent: 'Nothing' };
-    const { getAllByPlaceholderText, getAllByDisplayValue } = render(
+    const { container } = render(
       <Transfer
         {...listCommonProps}
         {...emptyProps}
@@ -855,8 +855,12 @@ describe('Transfer', () => {
         locale={locale}
       />,
     );
-    expect(getAllByPlaceholderText('Search placeholder')).toHaveLength(2);
-    expect(getAllByDisplayValue('values')).toHaveLength(2);
+    const searchInputs = container.querySelectorAll('.ant-transfer-list-search input');
+    expect(searchInputs).toHaveLength(2);
+    searchInputs.forEach((input) => {
+      expect(input.getAttribute('placeholder')).toBe('Search placeholder');
+      expect(input.value).toBe('values');
+    });
   });
 });
 

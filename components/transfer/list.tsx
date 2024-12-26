@@ -220,7 +220,6 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     const search = showSearch ? (
       <div className={`${prefixCls}-body-search-wrapper`}>
         <Search
-          searchOptions={searchOptions}
           prefixCls={`${prefixCls}-search`}
           onChange={internalHandleFilter}
           handleClear={internalHandleClear}
