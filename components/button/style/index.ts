@@ -48,10 +48,6 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         pointerEvents: 'none',
       },
 
-      '> span': {
-        lineHeight: 1,
-      },
-
       // https://github.com/ant-design/ant-design/issues/51380
       [`${componentCls}-icon > svg`]: resetIcon(),
 

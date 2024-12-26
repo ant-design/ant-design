@@ -1,6 +1,6 @@
 import React from 'react';
 import { MinusSquareOutlined, SearchOutlined } from '@ant-design/icons';
-import { Button, ConfigProvider, Divider, Flex, Radio, Tooltip } from 'antd';
+import { Button, ConfigProvider, Divider, Flex, Radio, Tooltip, Input } from 'antd';
 import type { ConfigProviderProps } from 'antd';
 import { FiColumns } from 'react-icons/fi';
 
@@ -91,6 +91,7 @@ const App: React.FC = () => {
             <Button icon={<SearchOutlined />} />
             <Button icon={<SearchOutlined />}>with icon</Button>
             <Button size="large">without icon</Button>
+            <Input.Search style={{ width: 100 }} />
           </div>
           <Divider plain>👇🏻 https://github.com/ant-design/ant-design/issues/51380 👇🏻</Divider>
           <Flex
