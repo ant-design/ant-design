@@ -85,7 +85,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
 export interface TransferCustomListBodyProps<T> extends TransferListBodyProps<T> {}
 
 const useShowSearchOption = (showSearch: boolean | TransferSearchOption) => {
-  if (showSearch instanceof Object) {
+  if (showSearch && typeof showSearch === 'object') {
     return {
       ...showSearch,
       defaultValue: showSearch.defaultValue || '',
