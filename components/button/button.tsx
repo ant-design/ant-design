@@ -35,7 +35,7 @@ export interface BaseButtonProps {
   shape?: ButtonShape;
   size?: SizeType;
   disabled?: boolean;
-  loading?: boolean | { delay?: number };
+  loading?: boolean | { delay?: number } | Promise<any>;
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
@@ -235,9 +235,21 @@ const InternalCompoundedButton = React.forwardRef<
         e.preventDefault();
         return;
       }
+
+      if (props.loading instanceof Promise) {
+        setLoading(true);
+        props.loading
+          .then(() => {
+            setLoading(false);
+          })
+          .catch(() => {
+            setLoading(false);
+          });
+      }
+
       props.onClick?.(e);
     },
-    [props.onClick, innerLoading, mergedDisabled],
+    [props.onClick, innerLoading, mergedDisabled, props.loading],
   );
 
   // ========================== Warn ==========================

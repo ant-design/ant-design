@@ -96,3 +96,13 @@ it('Delay loading while use loading delay at first time', () => {
   const wrapper = render(<Demo />);
   expect(wrapper.container.firstChild).not.toHaveClass('ant-btn-loading');
 });
+
+it('should handle loading={Promise}', async () => {
+  const promise = new Promise<void>((resolve) => setTimeout(resolve, 1000));
+  const { container } = render(<Button loading={promise}>Button</Button>);
+  expect(container.querySelectorAll('.ant-btn-loading').length).toBe(1);
+  await act(async () => {
+    await promise;
+  });
+  expect(container.querySelectorAll('.ant-btn-loading').length).toBe(0);
+});
