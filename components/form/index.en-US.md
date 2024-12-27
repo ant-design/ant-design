@@ -718,3 +718,19 @@ const MyInput = (props) => (
   <MyInput />
 </Form.Item>;
 ```
+
+### Why does clicking the label in the form change the component state?
+
+> Related issue: [#47031](https://github.com/ant-design/ant-design/issues/47031), [#43175](https://github.com/ant-design/ant-design/issues/43175), [#52152](https://github.com/ant-design/ant-design/issues/52152)
+
+This is because in the form, the `label` is converted to a `label` tag, and the `label` tag will trigger the `focus` event of the form element by default. You can bind the corresponding form element through the `htmlFor` attribute, or bind an empty element to avoid this problem:
+
+```diff
+- <Form.Item name="switch" label="Switch">
+
++ <Form.Item name="switch" label="Switch" htmlFor={null}>
+
+<Switch />
+
+</Form.Item>
+```

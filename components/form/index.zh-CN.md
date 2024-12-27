@@ -718,6 +718,19 @@ const MyInput = (props) => (
 </Form.Item>;
 ```
 
+### 为什么表单点击 label 会更改组件状态？
+
+> 相关 issue：[#47031](https://github.com/ant-design/ant-design/issues/47031),[#43175](https://github.com/ant-design/ant-design/issues/43175), [#52152](https://github.com/ant-design/ant-design/issues/52152)
+
+这是因为在表单中，`label` 会被转换为 `label` 标签，而 `label` 标签会默认触发表单元素的 `focus` 事件。你可以通过 `htmlFor` 属性来绑定对应的表单元素，或者绑定一个空元素，从而避免这个问题：
+
+```diff
+- <Form.Item name="switch" label="Switch">
++ <Form.Item name="switch" label="Switch" htmlFor={null}>
+    <Switch />
+  </Form.Item>
+```
+
 ### 有更多参考文档吗？
 
 - 你可以阅读[《antd v4 Form 使用心得》](https://zhuanlan.zhihu.com/p/375753910)获得一些使用帮助以及建议。
