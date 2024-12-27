@@ -67,7 +67,7 @@ type LoadingConfigType = {
 };
 
 function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigType {
-  if (typeof loading === 'object' && loading && !(loading instanceof Promise)) {
+  if (typeof loading === 'object' && loading) {
     let delay = loading?.delay;
     delay = !Number.isNaN(delay) && typeof delay === 'number' ? delay : 0;
     return {
@@ -243,10 +243,6 @@ const InternalCompoundedButton = React.forwardRef<
             setLoading(false);
           })
           .catch(() => {
-            setLoading(false);
-          })
-          .finally(() => {
-            // P5715
             setLoading(false);
           });
       }

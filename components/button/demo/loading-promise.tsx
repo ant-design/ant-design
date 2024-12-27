@@ -6,15 +6,11 @@ const App: React.FC = () => {
 
   const handleClick = () => {
     const promise = new Promise<void>((resolve) => {
+      setLoading(promise);
       setTimeout(() => {
+        setLoading(null);
         resolve();
       }, 3000);
-    });
-
-    setLoading(promise);
-
-    promise.finally(() => {
-      setLoading(null);
     });
 
     return promise;
