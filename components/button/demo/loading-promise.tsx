@@ -2,15 +2,19 @@ import React, { useState } from 'react';
 import { Button, Flex } from 'antd';
 
 const App: React.FC = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<Promise<void> | null>(null);
 
   const handleClick = () => {
     const promise = new Promise<void>((resolve) => {
-      setLoading(true);
       setTimeout(() => {
-        setLoading(false);
         resolve();
       }, 3000);
+    });
+
+    setLoading(promise);
+
+    promise.finally(() => {
+      setLoading(null);
     });
 
     return promise;
