@@ -727,10 +727,7 @@ This is because in the form, the `label` is converted to a `label` tag, and the 
 
 ```diff
 - <Form.Item name="switch" label="Switch">
-
 + <Form.Item name="switch" label="Switch" htmlFor={null}>
-
-<Switch />
-
-</Form.Item>
+    <Switch />
+  </Form.Item>
 ```
