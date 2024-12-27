@@ -1,7 +1,7 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
-import { genFocusStyle } from '../../style';
+import { genFocusStyle, resetIcon } from '../../style';
 import { PresetColors } from '../../theme/interface';
 import type { GenerateStyle, PresetColorKey } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
@@ -49,15 +49,8 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         pointerEvents: 'none',
       },
 
-      '> span:not(:only-child)': {
-        display: 'inline-flex',
-        alignSelf: 'baseline',
-      },
-
-      [`> span${componentCls}-icon, > span${iconCls}`]: {
-        display: 'inline-flex',
-        alignSelf: 'center',
-      },
+      // https://github.com/ant-design/ant-design/issues/51380
+      [`${componentCls}-icon > svg`]: resetIcon(),
 
       '> a': {
         color: 'currentColor',
@@ -685,7 +678,6 @@ const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation =>
     componentCls,
     controlHeight,
     fontSize,
-    lineHeight,
     borderRadius,
     buttonPaddingHorizontal,
     iconCls,
@@ -697,7 +689,6 @@ const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation =>
     {
       [prefixCls]: {
         fontSize,
-        lineHeight,
         height: controlHeight,
         padding: `${unit(buttonPaddingVertical!)} ${unit(buttonPaddingHorizontal!)}`,
         borderRadius,
@@ -707,6 +698,7 @@ const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation =>
 
           [iconCls]: {
             fontSize: buttonIconOnlyFontSize,
+            verticalAlign: 'calc(-0.125em - 1px)',
           },
         },
       },
@@ -724,7 +716,6 @@ const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation =>
 const genSizeBaseButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const baseToken = mergeToken<ButtonToken>(token, {
     fontSize: token.contentFontSize,
-    lineHeight: token.contentLineHeight,
   });
   return genButtonStyle(baseToken, token.componentCls);
 };
@@ -733,10 +724,9 @@ const genSizeSmallButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const smallToken = mergeToken<ButtonToken>(token, {
     controlHeight: token.controlHeightSM,
     fontSize: token.contentFontSizeSM,
-    lineHeight: token.contentLineHeightSM,
     padding: token.paddingXS,
     buttonPaddingHorizontal: token.paddingInlineSM,
-    buttonPaddingVertical: token.paddingBlockSM,
+    buttonPaddingVertical: 0,
     borderRadius: token.borderRadiusSM,
     buttonIconOnlyFontSize: token.onlyIconSizeSM,
   });
@@ -748,9 +738,8 @@ const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const largeToken = mergeToken<ButtonToken>(token, {
     controlHeight: token.controlHeightLG,
     fontSize: token.contentFontSizeLG,
-    lineHeight: token.contentLineHeightLG,
     buttonPaddingHorizontal: token.paddingInlineLG,
-    buttonPaddingVertical: token.paddingBlockLG,
+    buttonPaddingVertical: 0,
     borderRadius: token.borderRadiusLG,
     buttonIconOnlyFontSize: token.onlyIconSizeLG,
   });
