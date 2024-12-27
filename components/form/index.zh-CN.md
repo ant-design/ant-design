@@ -722,7 +722,7 @@ const MyInput = (props) => (
 
 > 相关 issue：[#47031](https://github.com/ant-design/ant-design/issues/47031),[#43175](https://github.com/ant-design/ant-design/issues/43175), [#52152](https://github.com/ant-design/ant-design/issues/52152)
 
-这是因为在表单中, label 会使用 [HTML label 元素](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/label) 来包裹表单控件，从而实现点击 label 时聚焦到对应控件。如果你不希望这种行为，你可以通过 `htmlFor` 属性来解除这种关联：
+表单 label 使用 [HTML label](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/label) 元素来包裹表单控件，从而实现点击 label 时聚焦到对应控件。这是 label 元素的原生行为，用于提升可访问性和用户体验。这种标准交互模式能让用户更容易操作表单控件。如果你不希望这种行为，可通过 `htmlFor={null}` 属性解除关联，通常不建议这样做。
 
 ```diff
 - <Form.Item name="switch" label="Switch">

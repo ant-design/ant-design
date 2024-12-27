@@ -723,7 +723,7 @@ const MyInput = (props) => (
 
 > Related issue: [#47031](https://github.com/ant-design/ant-design/issues/47031), [#43175](https://github.com/ant-design/ant-design/issues/43175), [#52152](https://github.com/ant-design/ant-design/issues/52152)
 
-This is because in the form, the label uses the [HTML label element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label) to wrap the form control, thereby achieving focus on the corresponding control when the label is clicked. If you do not want this behavior, you can disconnect this association by using the `htmlFor` attribute:
+Form label use [HTML label](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label) elements to wrap form controls, which focuses the corresponding control when clicked. This is the native behavior of label elements, designed to improve accessibility and user experience. This standard interaction pattern makes it easier for users to interact with form controls. If you need to disable this behavior, you can use `htmlFor={null}`, though it's generally not recommended.
 
 ```diff
 - <Form.Item name="switch" label="Switch">
