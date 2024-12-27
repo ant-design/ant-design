@@ -16,12 +16,7 @@ const defaultReactRender: RenderType = (node, container) => {
   if (process.env.NODE_ENV !== 'production') {
     const majorVersion = parseInt(React.version.split('.')[0], 10);
     warning(
-      majorVersion < 19 ||
-        !!(
-          ReactDOM as typeof ReactDOM & {
-            createRoot: VoidFunction;
-          }
-        ).createRoot,
+      majorVersion < 19 || !!({ ...ReactDOM } as any).createRoot,
       'compatible',
       'antd v5 support React is 16 ~ 18. see https://u.ant.design/v5-for-19 for compatible.',
     );
