@@ -244,6 +244,10 @@ const InternalCompoundedButton = React.forwardRef<
           })
           .catch(() => {
             setLoading(false);
+          })
+          .finally(() => {
+            // P5715
+            setLoading(false);
           });
       }
 
