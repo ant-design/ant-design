@@ -15,8 +15,12 @@ const defaultReactRender: RenderType = (node, container) => {
   // Warning for React 19
   if (process.env.NODE_ENV !== 'production') {
     const majorVersion = parseInt(React.version.split('.')[0], 10);
+
+    // https://github.com/ant-design/ant-design/issues/52154
+    const magicReactDOM = { createRoot: null, ...ReactDOM };
+
     warning(
-      majorVersion < 19 || !!({ ...ReactDOM } as any).createRoot,
+      majorVersion < 19 || !!magicReactDOM.createRoot,
       'compatible',
       'antd v5 support React is 16 ~ 18. see https://u.ant.design/v5-for-19 for compatible.',
     );
