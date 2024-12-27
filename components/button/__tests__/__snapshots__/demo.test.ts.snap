@@ -1501,7 +1501,7 @@ Array [
         >
           <input
             class="ant-input ant-input-lg ant-input-outlined"
-            type="text"
+            type="search"
             value=""
           />
           <span
