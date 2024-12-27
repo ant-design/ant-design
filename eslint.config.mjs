@@ -62,6 +62,9 @@ export default antfu(
       'perfectionist/sort-named-imports': 'off',
       'perfectionist/sort-named-exports': 'off',
       'regexp/strict': 'off',
+      /* turn off React 19 only rules */
+      'react/no-forward-ref': 'off',
+      'react/no-context-provider': 'off',
     },
   },
   compat.configs['flat/recommended'],
