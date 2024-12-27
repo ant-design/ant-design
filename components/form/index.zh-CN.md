@@ -722,7 +722,7 @@ const MyInput = (props) => (
 
 > 相关 issue：[#47031](https://github.com/ant-design/ant-design/issues/47031),[#43175](https://github.com/ant-design/ant-design/issues/43175), [#52152](https://github.com/ant-design/ant-design/issues/52152)
 
-这是因为在表单中，`label` 会被转换为 `label` 标签，而 `label` 标签会默认触发表单元素的 `focus` 事件。你可以通过 `htmlFor` 属性来绑定对应的表单元素，或者绑定一个空元素，从而避免这个问题：
+这是因为在表单中, label 会使用 [HTML label 元素](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/label) 来包裹表单控件，从而实现点击 label 时聚焦到对应控件。如果你不希望这种行为，你可以通过 `htmlFor` 属性来解除这种关联：
 
 ```diff
 - <Form.Item name="switch" label="Switch">
