@@ -219,4 +219,12 @@ describe('Watermark', () => {
     const cache = new Cache();
     expect(cache.get('nonExistentKey')).toBeUndefined();
   });
+
+  it('should retrieve value', async () => {
+    const key = Cache.generateKey(1, 2, 3, [1, 2, 3]);
+    const value = 'value';
+    const cache = new Cache();
+    cache.set(key, value);
+    expect(cache.get(key)).toBe(value);
+  });
 });
