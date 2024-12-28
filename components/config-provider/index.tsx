@@ -570,9 +570,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 
   if (Object.keys(validateMessages).length > 0) {
     childNode = (
-      <ValidateMessagesContext.Provider value={validateMessages}>
-        {childNode}
-      </ValidateMessagesContext.Provider>
+      <ValidateMessagesContext value={validateMessages}>{childNode}</ValidateMessagesContext>
     );
   }
 
@@ -585,9 +583,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   }
 
   if (iconPrefixCls || csp) {
-    childNode = (
-      <IconContext.Provider value={memoIconContextValue}>{childNode}</IconContext.Provider>
-    );
+    childNode = <IconContext value={memoIconContextValue}>{childNode}</IconContext>;
   }
 
   if (componentSize) {
@@ -599,7 +595,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 
   // ================================ Dynamic theme ================================
   const memoTheme = React.useMemo(() => {
-    const { algorithm, token, components, cssVar, ...rest } = mergedTheme || {};
+    const { algorithm, token, components, ...rest } = mergedTheme || {};
     const themeObj =
       algorithm && (!Array.isArray(algorithm) || algorithm.length > 0)
         ? createTheme(algorithm)
@@ -639,21 +635,16 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
         override: mergedToken,
         ...parsedComponents,
       },
-      cssVar: cssVar as Exclude<ThemeConfig['cssVar'], boolean>,
     };
   }, [mergedTheme]);
 
   if (theme) {
-    childNode = (
-      <DesignTokenContext.Provider value={memoTheme}>{childNode}</DesignTokenContext.Provider>
-    );
+    childNode = <DesignTokenContext value={memoTheme}>{childNode}</DesignTokenContext>;
   }
 
   // ================================== Warning ===================================
   if (memoedConfig.warning) {
-    childNode = (
-      <WarningContext.Provider value={memoedConfig.warning}>{childNode}</WarningContext.Provider>
-    );
+    childNode = <WarningContext value={memoedConfig.warning}>{childNode}</WarningContext>;
   }
 
   // =================================== Render ===================================
@@ -663,7 +654,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     );
   }
 
-  return <ConfigContext.Provider value={memoedConfig}>{childNode}</ConfigContext.Provider>;
+  return <ConfigContext value={memoedConfig}>{childNode}</ConfigContext>;
 };
 
 const ConfigProvider: React.FC<ConfigProviderProps> & {

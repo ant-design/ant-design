@@ -451,7 +451,7 @@ describe('Button', () => {
 
   it('should support solidTextColor when theme changes', () => {
     const { container: defaultContainer } = render(
-      <ConfigProvider theme={{ algorithm: [theme.defaultAlgorithm], cssVar: true }}>
+      <ConfigProvider theme={{ algorithm: [theme.defaultAlgorithm] }}>
         <Button color="default" variant="solid">
           btn1
         </Button>
@@ -463,7 +463,7 @@ describe('Button', () => {
     });
 
     const { container: darkContainer } = render(
-      <ConfigProvider theme={{ algorithm: [theme.darkAlgorithm], cssVar: true }}>
+      <ConfigProvider theme={{ algorithm: [theme.darkAlgorithm] }}>
         <Button color="default" variant="solid">
           btn2
         </Button>
