@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
+import { FastColor } from '@ant-design/fast-color';
 import type { CssUtil } from 'antd-style';
 
 import { clearFix, resetComponent, resetIcon } from '../../style';
@@ -871,7 +871,7 @@ export const prepareComponentToken: GetDefaultToken<'Menu'> = (token) => {
   const activeBarBorderWidth = token.activeBarBorderWidth ?? lineWidth;
   const itemMarginInline = token.itemMarginInline ?? token.marginXXS;
 
-  const colorTextDark = new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString();
+  const colorTextDark = new FastColor(colorTextLightSolid).setA(0.65).toRgbString();
 
   return {
     dropdownWidth: 160,
@@ -944,7 +944,7 @@ export const prepareComponentToken: GetDefaultToken<'Menu'> = (token) => {
     groupTitleFontSize: fontSize,
 
     // Disabled
-    darkItemDisabledColor: new TinyColor(colorTextLightSolid).setAlpha(0.25).toRgbString(),
+    darkItemDisabledColor: new FastColor(colorTextLightSolid).setA(0.25).toRgbString(),
 
     // Dark
     darkItemColor: colorTextDark,
