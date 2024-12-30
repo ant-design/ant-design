@@ -185,7 +185,7 @@ const Result: ResultType = ({
   );
 
   const bodyClassNames = classNames(
-    `${prefixCls}-content`,
+    `${prefixCls}-body`,
     result?.classNames?.body,
     resultClassNames?.body,
   );

@@ -110,7 +110,7 @@ describe('Result', () => {
     const resultElement = container.querySelector('.ant-result') as HTMLElement;
     const resultTitleElement = container.querySelector('.ant-result-title') as HTMLElement;
     const resultSubTitleElement = container.querySelector('.ant-result-subtitle') as HTMLElement;
-    const resultBodyElement = container.querySelector('.ant-result-content') as HTMLElement;
+    const resultBodyElement = container.querySelector('.ant-result-body') as HTMLElement;
     const resultExtraElement = container.querySelector('.ant-result-extra') as HTMLElement;
     const resultIconElement = container.querySelector('.ant-result-icon') as HTMLElement;
 
