@@ -136,6 +136,10 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         transform: 'rotate(90deg)',
       },
 
+      [`${treeCls}-checkbox-disabled + ${treeCls}-node-selected`]: {
+        backgroundColor: `${nodeHoverBg} !important`,
+      },
+
       [`&-focused:not(:hover):not(${treeCls}-active-focused)`]: {
         ...genFocusOutline(token),
       },
