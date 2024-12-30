@@ -98,7 +98,14 @@ export default function StatusProvider({
     }
 
     return context;
-  }, [mergedValidateStatus, hasFeedback, noStyle, parentIsFormItemInput, parentStatus, errors]);
+  }, [
+    mergedValidateStatus,
+    hasFeedback,
+    noStyle,
+    parentIsFormItemInput,
+    parentStatus,
+    errors.join(),
+  ]);
 
   // ======================= Render =======================
   return (
