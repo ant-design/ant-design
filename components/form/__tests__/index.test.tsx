@@ -1943,6 +1943,73 @@ describe('Form', () => {
     );
   });
 
+  it('Form.Item.useStatus should update error message when returns of validator change', async () => {
+    const ErrorItem: React.FC = () => {
+      const { errors } = Form.Item.useStatus();
+      return <div className="test-error">{errors[0]}</div>;
+    };
+
+    const errorMessages = ['first error message', 'second error message'];
+    let errorMessagesIndex = 0;
+    const Demo: React.FC = () => {
+      const [form] = Form.useForm();
+
+      const error = Form.useWatch('error', form);
+
+      useEffect(() => {
+        form.validateFields();
+      }, [error]);
+
+      return (
+        <Form form={form} name="test-form" initialValues={{ error: '' }}>
+          <Form.Item
+            name="error"
+            rules={[
+              {
+                validator(_, value) {
+                  if (value === errorMessages[0]) {
+                    return Promise.reject(errorMessages[0]);
+                  }
+                  if (value === errorMessages[1]) {
+                    return Promise.reject(errorMessages[1]);
+                  }
+                  return Promise.resolve();
+                },
+              },
+            ]}
+          >
+            <ErrorItem />
+          </Form.Item>
+          <Button
+            className="change-message-button"
+            onClick={() => {
+              form.setFieldValue('error', errorMessages[errorMessagesIndex++] ?? '');
+            }}
+          >
+            Change message
+          </Button>
+        </Form>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    expect(container.querySelector('.test-error')).toHaveTextContent('');
+    await waitFakeTimer();
+
+    fireEvent.click(container.querySelector('.change-message-button')!);
+    await waitFakeTimer();
+    expect(container.querySelector('.test-error')).toHaveTextContent(errorMessages[0]);
+
+    fireEvent.click(container.querySelector('.change-message-button')!);
+    await waitFakeTimer();
+    expect(container.querySelector('.test-error')).toHaveTextContent(errorMessages[1]);
+
+    fireEvent.click(container.querySelector('.change-message-button')!);
+    await waitFakeTimer();
+    expect(container.querySelector('.test-error')).toHaveTextContent('');
+  });
+
   it('item customize margin', async () => {
     const computeSpy = jest
       .spyOn(window, 'getComputedStyle')
