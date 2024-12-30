@@ -28,12 +28,12 @@ const App: React.FC = () => {
   return (
     <SemanticPreview
       semantics={[
-        { name: 'root', desc: locale.root, version: '5.23.0' },
-        { name: 'icon', desc: locale.icon, version: '5.23.0' },
-        { name: 'title', desc: locale.title, version: '5.23.0' },
-        { name: 'subTitle', desc: locale.subTitle, version: '5.23.0' },
-        { name: 'extra', desc: locale.extra, version: '5.23.0' },
-        { name: 'body', desc: locale.body, version: '5.23.0' },
+        { name: 'root', desc: locale.root, version: '6.0.0' },
+        { name: 'icon', desc: locale.icon, version: '6.0.0' },
+        { name: 'title', desc: locale.title, version: '6.0.0' },
+        { name: 'subTitle', desc: locale.subTitle, version: '6.0.0' },
+        { name: 'extra', desc: locale.extra, version: '6.0.0' },
+        { name: 'body', desc: locale.body, version: '6.0.0' },
       ]}
     >
       <Result
