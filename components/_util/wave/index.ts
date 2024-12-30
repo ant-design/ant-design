@@ -31,7 +31,7 @@ const Wave: React.FC<WaveProps> = (props) => {
   // ============================== Effect ==============================
   React.useEffect(() => {
     const node = containerRef.current;
-    if (!node || node.nodeType !== Node.ELEMENT_NODE || disabled) {
+    if (!node || node.nodeType !== Node?.ELEMENT_NODE || disabled) {
       return;
     }
 
