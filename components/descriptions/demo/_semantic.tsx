@@ -1,5 +1,5 @@
 import React from 'react';
-import { Descriptions, DescriptionsProps, Switch } from 'antd';
+import { Descriptions, DescriptionsProps, Divider, Switch } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -42,6 +42,7 @@ const BlockList: React.FC<React.PropsWithChildren> = (props: any) => {
   return (
     <div ref={divRef} style={{ width: 240, height: 100 }}>
       <Switch checked={bordered} onChange={handleBorderChange} /> Toggle Border
+      <Divider />
       <Descriptions
         title="User Info"
         items={items}
