@@ -102,7 +102,7 @@ export default function useResponsiveObserver() {
         Object.keys(responsiveMap).forEach((screen) => {
           const matchMediaQuery = responsiveMap[screen as Breakpoint];
           const handler = this.matchHandlers[matchMediaQuery];
-          handler?.mql.removeEventListener('change', handler?.listener);
+          handler?.mql.removeListener(handler?.listener);
         });
         subscribers.clear();
       },
@@ -116,7 +116,7 @@ export default function useResponsiveObserver() {
             });
           };
           const mql = window.matchMedia(matchMediaQuery);
-          mql.addEventListener('change', listener);
+          mql.addListener(listener);
           this.matchHandlers[matchMediaQuery] = {
             mql,
             listener,
