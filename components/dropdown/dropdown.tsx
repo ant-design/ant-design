@@ -315,20 +315,8 @@ const Dropdown: CompoundedComponent = (props) => {
   return wrapCSSVar(renderNode);
 };
 
-function postPureProps(props: DropdownProps) {
-  return {
-    ...props,
-    align: {
-      overflow: {
-        adjustX: false,
-        adjustY: false,
-      },
-    },
-  };
-}
-
 // We don't care debug panel
-const PurePanel = genPurePanel(Dropdown, 'dropdown', (prefixCls) => prefixCls, postPureProps);
+const PurePanel = genPurePanel(Dropdown, 'align', undefined, 'dropdown', (prefixCls) => prefixCls);
 
 /* istanbul ignore next */
 const WrapPurePanel: React.FC<DropdownProps> = (props) => (
