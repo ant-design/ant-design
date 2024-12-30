@@ -105,13 +105,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ## Semantic DOM
 
-### Basic
-
-<code src="./demo/_semantic_basic.tsx" simplify="true"></code>
-
-### Border
-
-<code src="./demo/_semantic_bordered.tsx" simplify="true"></code>
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

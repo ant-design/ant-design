@@ -106,13 +106,7 @@ const items: DescriptionsProps['items'] = [
 
 ## Semantic DOM
 
-### 基本
-
-<code src="./demo/_semantic_basic.tsx" simplify="true"></code>
-
-### 带边框的
-
-<code src="./demo/_semantic_bordered.tsx" simplify="true"></code>
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 
