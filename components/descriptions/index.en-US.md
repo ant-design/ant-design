@@ -109,7 +109,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 <code src="./demo/_semantic_basic.tsx" simplify="true"></code>
 
-### border
+### Border
 
 <code src="./demo/_semantic_bordered.tsx" simplify="true"></code>
 
