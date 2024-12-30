@@ -145,7 +145,7 @@ const {
 | progress | Set Progress common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | radio | Set Radio common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | rate | Set Rate common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| result | Set Result common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| result | Set Result common props | { className?: string, style?: React.CSSProperties , classNames?: [ResultProps\["classNames"\]](/components/result#api), styles?: [ResultProps\["styles"\]](/components/result#api)} | - | 5.7.0, `classNames` and `styles`: 5.23.0 |
 | skeleton | Set Skeleton common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | segmented | Set Segmented common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | select | Set Select common props | { className?: string, showSearch?: boolean, style?: React.CSSProperties } | - | 5.7.0 |
