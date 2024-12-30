@@ -5,7 +5,7 @@ Array [
   <form
     class="ant-form ant-form-horizontal"
     id="advanced_search"
-    style="max-width:none;background:rgba(0, 0, 0, 0.02);border-radius:8px;padding:24px"
+    style="max-width:none;background:rgba(0,0,0,0.02);border-radius:8px;padding:24px"
   >
     <div
       class="ant-row"
@@ -454,7 +454,7 @@ Array [
     </div>
   </form>,
   <div
-    style="line-height:200px;text-align:center;background:rgba(0, 0, 0, 0.02);border-radius:8px;margin-top:16px"
+    style="line-height:200px;text-align:center;background:rgba(0,0,0,0.02);border-radius:8px;margin-top:16px"
   >
     Search Result List
   </div>,

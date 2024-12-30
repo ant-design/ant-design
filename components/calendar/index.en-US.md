@@ -47,7 +47,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | disabledDate | Function that specifies the dates that cannot be selected, `currentDate` is same dayjs object as `value` prop which you shouldn't mutate it](https://github.com/ant-design/ant-design/issues/30987) | (currentDate: Dayjs) => boolean | - |  |
 | fullscreen | Whether to display in full-screen | boolean | true |  |
 | showWeek | Whether to display week number | boolean | false | 5.23.0 |
-| headerRender | Render custom header in panel | function(object:{value: Dayjs, type: string, onChange: f(), onTypeChange: f()}) | - |  |
+| headerRender | Render custom header in panel | function(object:{value: Dayjs, type: 'year' \| 'month', onChange: f(), onTypeChange: f()}) | - |  |
 | locale | The calendar's locale | object | [(default)](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
 | mode | The display mode of the calendar | `month` \| `year` | `month` |  |
 | validRange | To set valid range | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - |  |

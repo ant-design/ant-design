@@ -1,6 +1,6 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
+import { FastColor } from '@ant-design/fast-color';
 
 import type { GenerateStyle } from '../../theme/internal';
 import type { PickerToken, SharedPickerToken } from './token';
@@ -477,7 +477,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
               },
 
               [`&${componentCls}-cell-week`]: {
-                color: new TinyColor(colorTextLightSolid).setAlpha(0.5).toHexString(),
+                color: new FastColor(colorTextLightSolid).setA(0.5).toHexString(),
               },
 
               [pickerCellInnerCls]: {
@@ -578,7 +578,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           },
 
           '&-active': {
-            background: new TinyColor(controlItemBgActive).setAlpha(0.2).toHexString(),
+            background: new FastColor(controlItemBgActive).setA(0.2).toHexString(),
           },
 
           '&:hover': {
