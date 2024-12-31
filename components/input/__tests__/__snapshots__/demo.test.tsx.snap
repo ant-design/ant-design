@@ -1345,10 +1345,9 @@ Array [
     <span
       class="ant-input-suffix"
     >
-      <span
+      <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -1370,7 +1369,7 @@ Array [
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>,
 ]
@@ -1438,10 +1437,9 @@ exports[`renders components/input/demo/borderless-debug.tsx correctly 1`] = `
     <span
       class="ant-input-suffix"
     >
-      <span
+      <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -1463,7 +1461,7 @@ exports[`renders components/input/demo/borderless-debug.tsx correctly 1`] = `
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>
   <span
@@ -1554,10 +1552,9 @@ exports[`renders components/input/demo/borderless-debug.tsx correctly 1`] = `
     <span
       class="ant-input-suffix"
     >
-      <span
+      <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -1579,7 +1576,7 @@ exports[`renders components/input/demo/borderless-debug.tsx correctly 1`] = `
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>
   <input
@@ -2338,10 +2335,9 @@ exports[`renders components/input/demo/filled-debug.tsx correctly 1`] = `
     <span
       class="ant-input-suffix"
     >
-      <span
+      <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -2363,7 +2359,7 @@ exports[`renders components/input/demo/filled-debug.tsx correctly 1`] = `
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>
   <span
@@ -5051,10 +5047,9 @@ Array [
     <span
       class="ant-input-suffix"
     >
-      <span
+      <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -5076,7 +5071,7 @@ Array [
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>,
 ]
