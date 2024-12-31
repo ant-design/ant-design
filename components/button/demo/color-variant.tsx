@@ -4,7 +4,6 @@ import { useResponsive } from 'antd-style';
 
 const App: React.FC = () => {
   const { xxl } = useResponsive();
-
   return (
     <ConfigProvider componentSize={xxl ? 'middle' : 'small'}>
       <Flex vertical gap="small">
