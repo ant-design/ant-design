@@ -174,7 +174,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
             },
           },
 
-          // custom icon
+          // custom dragger icon
           '&-custom': {
             [`${splitBarCls}-dragger-icon-wrapper`]: {
               ...centerStyle,
