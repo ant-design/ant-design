@@ -36,6 +36,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | subTitle | The subTitle | ReactNode | - |
 | title | The title | ReactNode | - |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Result"></ComponentTokenTable>

@@ -22,6 +22,7 @@ import type { MenuProps } from '../menu';
 import type { ModalProps } from '../modal';
 import type { ArgsProps } from '../notification/interface';
 import type { PaginationProps } from '../pagination';
+import type { ResultProps } from '../result';
 import type { SelectProps } from '../select';
 import type { SpaceProps } from '../space';
 import type { SpinProps } from '../spin';
@@ -178,6 +179,8 @@ export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'clas
 
 export type SpinConfig = ComponentStyleConfig & Pick<SpinProps, 'indicator'>;
 
+export type ResultConfig = ComponentStyleConfig & Pick<ResultProps, 'classNames' | 'styles'>;
+
 export type InputNumberConfig = ComponentStyleConfig & Pick<InputNumberProps, 'variant'>;
 
 export type CascaderConfig = ComponentStyleConfig & Pick<CascaderProps, 'variant'>;
@@ -268,7 +271,7 @@ export interface ConfigConsumerProps {
   mentions?: MentionsConfig;
   modal?: ModalConfig;
   progress?: ComponentStyleConfig;
-  result?: ComponentStyleConfig;
+  result?: ResultConfig;
   slider?: ComponentStyleConfig;
   breadcrumb?: ComponentStyleConfig;
   menu?: MenuConfig;

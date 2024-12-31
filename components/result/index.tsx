@@ -39,6 +39,22 @@ export interface ResultProps {
   rootClassName?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
+  classNames?: {
+    root?: string;
+    title?: string;
+    subTitle?: string;
+    body?: string;
+    extra?: string;
+    icon?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    title?: React.CSSProperties;
+    subTitle?: React.CSSProperties;
+    body?: React.CSSProperties;
+    extra?: React.CSSProperties;
+    icon?: React.CSSProperties;
+  };
 }
 
 // ExceptionImageMap keys
@@ -52,14 +68,13 @@ const ExceptionStatus = Object.keys(ExceptionMap);
  */
 
 interface IconProps {
-  prefixCls: string;
+  className: string;
   icon: React.ReactNode;
   status: ResultStatusType;
+  style?: React.CSSProperties;
 }
 
-const Icon: React.FC<IconProps> = ({ prefixCls, icon, status }) => {
-  const className = classNames(`${prefixCls}-icon`);
-
+const Icon: React.FC<IconProps> = ({ icon, status, className, style }) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Result');
 
@@ -73,7 +88,7 @@ const Icon: React.FC<IconProps> = ({ prefixCls, icon, status }) => {
   if (ExceptionStatus.includes(`${status}`)) {
     const SVGComponent = ExceptionMap[status as ExceptionStatusType];
     return (
-      <div className={`${className} ${prefixCls}-image`}>
+      <div className={className} style={style}>
         <SVGComponent />
       </div>
     );
@@ -87,19 +102,28 @@ const Icon: React.FC<IconProps> = ({ prefixCls, icon, status }) => {
     return null;
   }
 
-  return <div className={className}>{icon || iconNode}</div>;
+  return (
+    <div className={className} style={style}>
+      {icon || iconNode}
+    </div>
+  );
 };
 
 interface ExtraProps {
-  prefixCls: string;
   extra: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
-const Extra: React.FC<ExtraProps> = ({ prefixCls, extra }) => {
+const Extra: React.FC<ExtraProps> = ({ className, extra, style }) => {
   if (!extra) {
     return null;
   }
-  return <div className={`${prefixCls}-extra`}>{extra}</div>;
+  return (
+    <div className={className} style={style}>
+      {extra}
+    </div>
+  );
 };
 
 export interface ResultType extends React.FC<ResultProps> {
@@ -119,6 +143,8 @@ const Result: ResultType = ({
   status = 'info',
   icon,
   extra,
+  styles,
+  classNames: resultClassNames,
 }) => {
   const { getPrefixCls, direction, result } = React.useContext(ConfigContext);
 
@@ -127,7 +153,7 @@ const Result: ResultType = ({
   // Style
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
-  const className = classNames(
+  const rootClassNames = classNames(
     prefixCls,
     `${prefixCls}-${status}`,
     customizeClassName,
@@ -136,17 +162,77 @@ const Result: ResultType = ({
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
     hashId,
     cssVarCls,
+    result?.classNames?.root,
+    resultClassNames?.root,
   );
 
-  const mergedStyle: React.CSSProperties = { ...result?.style, ...style };
+  const titleClassNames = classNames(
+    `${prefixCls}-title`,
+    result?.classNames?.title,
+    resultClassNames?.title,
+  );
+
+  const subTitleClassNames = classNames(
+    `${prefixCls}-subtitle`,
+    result?.classNames?.subTitle,
+    resultClassNames?.subTitle,
+  );
+
+  const extraClassNames = classNames(
+    `${prefixCls}-extra`,
+    result?.classNames?.extra,
+    resultClassNames?.extra,
+  );
+
+  const bodyClassNames = classNames(
+    `${prefixCls}-body`,
+    result?.classNames?.body,
+    resultClassNames?.body,
+  );
+
+  const iconClassNames = classNames(
+    `${prefixCls}-icon`,
+    { [`${prefixCls}-image`]: ExceptionStatus.includes(`${status}`) },
+    result?.classNames?.icon,
+    resultClassNames?.icon,
+  );
+
+  const rootStyles: React.CSSProperties = {
+    ...result?.styles?.root,
+    ...styles?.root,
+    ...result?.style,
+    ...style,
+  };
 
   return wrapCSSVar(
-    <div className={className} style={mergedStyle}>
-      <Icon prefixCls={prefixCls} status={status} icon={icon} />
-      <div className={`${prefixCls}-title`}>{title}</div>
-      {subTitle && <div className={`${prefixCls}-subtitle`}>{subTitle}</div>}
-      <Extra prefixCls={prefixCls} extra={extra} />
-      {children && <div className={`${prefixCls}-content`}>{children}</div>}
+    <div className={rootClassNames} style={rootStyles}>
+      <Icon
+        className={iconClassNames}
+        style={{ ...result?.styles?.icon, ...styles?.icon }}
+        status={status}
+        icon={icon}
+      />
+      <div className={titleClassNames} style={{ ...result?.styles?.title, ...styles?.title }}>
+        {title}
+      </div>
+      {subTitle && (
+        <div
+          className={subTitleClassNames}
+          style={{ ...result?.styles?.subTitle, ...styles?.subTitle }}
+        >
+          {subTitle}
+        </div>
+      )}
+      <Extra
+        className={extraClassNames}
+        extra={extra}
+        style={{ ...result?.styles?.extra, ...styles?.extra }}
+      />
+      {children && (
+        <div className={bodyClassNames} style={{ ...result?.styles?.body, ...styles?.body }}>
+          {children}
+        </div>
+      )}
     </div>,
   );
 };
