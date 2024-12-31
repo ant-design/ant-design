@@ -94,7 +94,9 @@ const Masonry: React.FC<MasonryProps> = ({
   }, [gutter, screens]);
 
   const currentColumns = useMemo<number>(() => {
-    if (typeof columns === 'number') return columns;
+    if (typeof columns === 'number') {
+      return columns;
+    }
 
     // Find first matching responsive breakpoint
     const matchingBreakpoint = responsiveArray.find(
