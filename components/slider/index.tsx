@@ -382,6 +382,13 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     ...style,
   };
 
+  const mergedTracks = {
+    ...slider?.styles?.tracks,
+    ...styles?.tracks,
+  };
+
+  const mergedTracksClassNames = classNames(slider?.classNames?.tracks, sliderClassNames?.tracks);
+
   return wrapCSSVar(
     // @ts-ignore
     <RcSlider
@@ -390,7 +397,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
         handle: classNames(slider?.classNames?.handle, sliderClassNames?.handle),
         rail: classNames(slider?.classNames?.rail, sliderClassNames?.rail),
         track: classNames(slider?.classNames?.track, sliderClassNames?.track),
-        tracks: classNames(slider?.classNames?.tracks, sliderClassNames?.tracks),
+        ...(mergedTracksClassNames ? { tracks: mergedTracksClassNames } : {}),
       }}
       styles={{
         handle: {
@@ -405,10 +412,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
           ...slider?.styles?.track,
           ...styles?.track,
         },
-        tracks: {
-          ...slider?.styles?.tracks,
-          ...styles?.tracks,
-        },
+        ...(Object.keys(mergedTracks).length ? { tracks: mergedTracks } : {}),
       }}
       step={restProps.step}
       range={range}
