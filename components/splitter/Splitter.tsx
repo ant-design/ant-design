@@ -24,6 +24,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     style,
     layout = 'horizontal',
     children,
+    draggerIcon,
     rootClassName,
     onResizeStart,
     onResize,
@@ -177,6 +178,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 prefixCls={prefixCls}
                 vertical={isVertical}
                 resizable={resizableInfo.resizable}
+                draggerIcon={draggerIcon}
                 ariaNow={stackSizes[idx] * 100}
                 ariaMin={Math.max(ariaMinStart, ariaMinEnd) * 100}
                 ariaMax={Math.min(ariaMaxStart, ariaMaxEnd) * 100}

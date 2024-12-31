@@ -6,6 +6,8 @@ import UpOutlined from '@ant-design/icons/UpOutlined';
 import classNames from 'classnames';
 import useEvent from 'rc-util/lib/hooks/useEvent';
 
+import { SplitterProps } from './interface';
+
 export interface SplitBarProps {
   index: number;
   active: boolean;
@@ -13,6 +15,7 @@ export interface SplitBarProps {
   resizable: boolean;
   startCollapsible: boolean;
   endCollapsible: boolean;
+  draggerIcon?: SplitterProps['draggerIcon'];
   onOffsetStart: (index: number) => void;
   onOffsetUpdate: (index: number, offsetX: number, offsetY: number) => void;
   onOffsetEnd: VoidFunction;
@@ -39,6 +42,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     ariaMin,
     ariaMax,
     resizable,
+    draggerIcon,
     startCollapsible,
     endCollapsible,
     onOffsetStart,
@@ -184,10 +188,17 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         className={classNames(`${splitBarPrefixCls}-dragger`, {
           [`${splitBarPrefixCls}-dragger-disabled`]: !resizable,
           [`${splitBarPrefixCls}-dragger-active`]: active,
+          [`${splitBarPrefixCls}-dragger-custom`]: !!draggerIcon,
         })}
         onMouseDown={onMouseDown}
         onTouchStart={onTouchStart}
-      />
+      >
+        {draggerIcon ? (
+          <div className={classNames(`${splitBarPrefixCls}-dragger-icon-wrapper`)}>
+            {active ? draggerIcon.active : draggerIcon.default}
+          </div>
+        ) : undefined}
+      </div>
 
       {/* Start Collapsible */}
       {startCollapsible && (
