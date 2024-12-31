@@ -199,14 +199,11 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           },
         },
 
-        [`${treeCls}-checkbox-disabled + ${treeCls}-node-selected`]: {
-          backgroundColor: `${controlItemBgActiveDisabled} `,
-        },
-        [`&${treeNodeCls}-disabled${treeNodeCls}-selected`]: {
-          [`${treeCls}-node-content-wrapper`]:{
-            backgroundColor: `${controlItemBgActiveDisabled} `,
-          }
-        },
+        [`${treeCls}-checkbox-disabled + ${treeCls}-node-selected,&${treeNodeCls}-disabled${treeNodeCls}-selected ${treeCls}-node-content-wrapper`]:
+          {
+            backgroundColor: controlItemBgActiveDisabled,
+          },
+
         // not disable
         [`&:not(${treeNodeCls}-disabled)`]: {
           // >>> Title
