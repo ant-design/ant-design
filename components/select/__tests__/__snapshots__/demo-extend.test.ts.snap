@@ -10165,10 +10165,9 @@ Array [
       <span
         class="ant-input-suffix"
       >
-        <span
+        <button
           class="ant-input-clear-icon ant-input-clear-icon-hidden"
-          role="button"
-          tabindex="-1"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -10190,7 +10189,7 @@ Array [
               />
             </svg>
           </span>
-        </span>
+        </button>
       </span>
     </span>
     <div
