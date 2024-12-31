@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Tree } from 'antd';
 import type { TreeDataNode, TreeProps } from 'antd';
 
@@ -33,7 +33,9 @@ const treeData: TreeDataNode[] = [
 ];
 
 const App: React.FC = () => {
+ const [keys,setKeys] =useState(['0-0-0'])
   const onSelect: TreeProps['onSelect'] = (selectedKeys, info) => {
+    setKeys(selectedKeys)
     console.log('selected', selectedKeys, info);
   };
 
@@ -45,10 +47,11 @@ const App: React.FC = () => {
     <Tree
       checkable
       defaultExpandedKeys={['0-0-0', '0-0-1']}
-      defaultSelectedKeys={['0-0-0', '0-0-1']}
+      // defaultSelectedKeys={['0-0-0', '0-0-1']}
       defaultCheckedKeys={['0-0-0', '0-0-1']}
       onSelect={onSelect}
       onCheck={onCheck}
+      selectedKeys={keys}
       treeData={treeData}
     />
   );

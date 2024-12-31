@@ -119,7 +119,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
     nodeSelectedBg,
     nodeHoverBg,
     colorTextQuaternary,
-    controlItemBgActiveDisabled
+    controlItemBgActiveDisabled,
   } = token;
   return {
     [treeCls]: {
@@ -136,9 +136,10 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         transform: 'rotate(90deg)',
       },
 
-      [`${treeCls}-checkbox-disabled + ${treeCls}-node-selected`]: {
-        backgroundColor: `${controlItemBgActiveDisabled} !important`,
-      },
+      // [`${treeNodeCls}-disabled${treeCls}-node-selected ${treeCls}-node-content-wrapper`]: {
+      //   backgroundColor: `red`,
+
+      // },
 
       [`&-focused:not(:hover):not(${treeCls}-active-focused)`]: {
         ...genFocusOutline(token),
@@ -203,6 +204,14 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           },
         },
 
+        [`${treeCls}-checkbox-disabled + ${treeCls}-node-selected`]: {
+          backgroundColor: `${controlItemBgActiveDisabled} `,
+        },
+        [`&${treeNodeCls}-disabled${treeNodeCls}-selected`]: {
+          [`${treeCls}-node-content-wrapper`]:{
+            backgroundColor: `${controlItemBgActiveDisabled} `,
+          }
+        },
         // not disable
         [`&:not(${treeNodeCls}-disabled)`]: {
           // >>> Title
