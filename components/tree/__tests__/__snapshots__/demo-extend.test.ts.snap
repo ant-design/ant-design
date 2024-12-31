@@ -90,7 +90,7 @@ exports[`renders components/tree/demo/basic.tsx extend context correctly 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-selected"
+            class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked"
             draggable="false"
           >
             <span
@@ -218,7 +218,7 @@ exports[`renders components/tree/demo/basic.tsx extend context correctly 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-selected ant-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
@@ -260,7 +260,7 @@ exports[`renders components/tree/demo/basic.tsx extend context correctly 1`] = `
               />
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open ant-tree-node-selected"
               title="parent 1-1"
             >
               <span
@@ -4120,7 +4120,7 @@ exports[`renders components/tree/demo/multiple-line.tsx extend context correctly
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-selected"
+            class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked"
             draggable="false"
           >
             <span
@@ -4248,7 +4248,7 @@ exports[`renders components/tree/demo/multiple-line.tsx extend context correctly
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-selected ant-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
@@ -4290,7 +4290,7 @@ exports[`renders components/tree/demo/multiple-line.tsx extend context correctly
               />
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open ant-tree-node-selected"
               title="parent 1-1"
             >
               <span
