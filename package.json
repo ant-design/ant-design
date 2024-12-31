@@ -105,7 +105,7 @@
     "react-dom": ">=16.9.0"
   },
   "dependencies": {
-    "@ant-design/colors": "7.1.1-0",
+    "@ant-design/colors": "^7.2.0",
     "@ant-design/cssinjs": "^1.22.0",
     "@ant-design/cssinjs-utils": "^1.1.3",
     "@ant-design/fast-color": "^2.0.6",
@@ -346,11 +346,9 @@
     "mode": "npm"
   },
   "overrides": {
-    "@ant-design/colors": "7.1.1-0",
     "nwsapi": "2.2.13"
   },
   "resolutions": {
-    "@ant-design/colors": "7.1.1-0",
     "nwsapi": "2.2.13"
   }
 }
