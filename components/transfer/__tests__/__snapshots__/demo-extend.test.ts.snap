@@ -169,10 +169,9 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -194,7 +193,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
       </div>
@@ -700,10 +699,9 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -725,7 +723,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
       </div>
@@ -3279,10 +3277,9 @@ Array [
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                role="button"
-                tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -3304,7 +3301,7 @@ Array [
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
         </div>
@@ -3589,10 +3586,9 @@ Array [
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                role="button"
-                tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -3614,7 +3610,7 @@ Array [
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
         </div>
@@ -8680,10 +8676,9 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -8705,7 +8700,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
       </div>
@@ -9191,10 +9186,9 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -9216,7 +9210,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
       </div>
@@ -10081,10 +10075,9 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                role="button"
-                tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -10106,7 +10099,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
         </div>
@@ -10391,10 +10384,9 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                role="button"
-                tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -10416,7 +10408,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
         </div>
@@ -10544,10 +10536,9 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                role="button"
-                tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -10569,7 +10560,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
         </div>
@@ -11443,10 +11434,9 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                role="button"
-                tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -11468,7 +11458,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
         </div>

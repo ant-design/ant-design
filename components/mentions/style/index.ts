@@ -134,6 +134,10 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           cursor: 'pointer',
           transition: `color ${motionDurationSlow}`,
 
+          border: 'none',
+          outline: 'none',
+          backgroundColor: 'transparent',
+
           '&:hover': {
             color: colorTextTertiary,
           },
