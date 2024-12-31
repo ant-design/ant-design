@@ -29993,10 +29993,9 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               <span
                 class="ant-input-suffix"
               >
-                <span
+                <button
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
-                  role="button"
-                  tabindex="-1"
+                  type="button"
                 >
                   <span
                     aria-label="close-circle"
@@ -30018,7 +30017,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       />
                     </svg>
                   </span>
-                </span>
+                </button>
                 <span
                   class="ant-form-item-feedback-icon ant-form-item-feedback-icon-success"
                 >
@@ -30176,10 +30175,9 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               <span
                 class="ant-input-suffix"
               >
-                <span
+                <button
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
-                  role="button"
-                  tabindex="-1"
+                  type="button"
                 >
                   <span
                     aria-label="close-circle"
@@ -30201,7 +30199,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       />
                     </svg>
                   </span>
-                </span>
+                </button>
                 <span
                   aria-label="eye-invisible"
                   class="anticon anticon-eye-invisible ant-input-password-icon"
@@ -30571,10 +30569,9 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               <span
                 class="ant-input-suffix"
               >
-                <span
+                <button
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
-                  role="button"
-                  tabindex="-1"
+                  type="button"
                 >
                   <span
                     aria-label="close-circle"
@@ -30596,7 +30593,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       />
                     </svg>
                   </span>
-                </span>
+                </button>
                 <span
                   class="ant-input-textarea-suffix"
                 >
