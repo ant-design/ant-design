@@ -346,6 +346,7 @@
     "mode": "npm"
   },
   "overrides": {
+    "@ant-design/colors": "7.1.1-0",
     "nwsapi": "2.2.13"
   },
   "resolutions": {
