@@ -95,6 +95,11 @@ export interface ComponentToken {
    * @descEN Color of selected menu item text
    */
   itemSelectedColor: string;
+  /**
+   * @desc 子菜单内有选中项时，子菜单标题色
+   * @descEN Color of submenu title when submenu has selected item
+   */
+  subMenuItemSelectedColor: string;
 
   /** @deprecated Use `horizontalItemSelectedColor` instead */
   colorItemTextSelectedHorizontal: string;
@@ -890,6 +895,7 @@ export const prepareComponentToken: GetDefaultToken<'Menu'> = (token) => {
     groupTitleColor: colorTextDescription,
     colorItemTextSelected: colorPrimary,
     itemSelectedColor: colorPrimary,
+    subMenuItemSelectedColor: colorPrimary,
     colorItemTextSelectedHorizontal: colorPrimary,
     horizontalItemSelectedColor: colorPrimary,
     colorItemBg: colorBgContainer,
