@@ -168,6 +168,21 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
             '&::after': {
               display: 'none',
             },
+
+            [`${splitBarCls}-dragger-icon-wrapper`]: {
+              display: 'none',
+            },
+          },
+
+          // custom icon
+          '&-custom': {
+            [`${splitBarCls}-dragger-icon-wrapper`]: {
+              ...centerStyle,
+            },
+
+            '&::after': {
+              display: 'none',
+            },
           },
         },
 
