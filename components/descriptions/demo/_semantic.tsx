@@ -40,7 +40,7 @@ const BlockList: React.FC<React.PropsWithChildren> = (props: any) => {
   };
 
   return (
-    <div ref={divRef} style={{ width: 240, height: 100 }}>
+    <div ref={divRef} style={{ width: '100%', height: 100 }}>
       <Switch checked={bordered} onChange={handleBorderChange} /> Toggle Border
       <Divider />
       <Descriptions
