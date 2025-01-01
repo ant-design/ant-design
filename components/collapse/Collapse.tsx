@@ -122,25 +122,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
 
   const items = React.useMemo<React.ReactNode[] | null>(() => {
     if (children) {
-      return toArray(children).map((child, index) => {
-        const childProps = (
-          child as React.ReactElement<{
-            disabled?: boolean;
-            collapsible?: CollapsibleType;
-          }>
-        ).props;
-
-        if (childProps?.disabled) {
-          const key = child.key ?? String(index);
-          const mergedChildProps: Omit<CollapseProps, 'items'> & { key: React.Key } = {
-            ...omit(child.props as any, ['disabled']),
-            key,
-            collapsible: childProps.collapsible ?? 'disabled',
-          };
-          return cloneElement(child, mergedChildProps);
-        }
-        return child;
-      });
+      return toArray(children).map((child) => child);
     }
     return null;
   }, [children]);
