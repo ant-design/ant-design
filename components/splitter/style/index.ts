@@ -17,8 +17,8 @@ export interface ComponentToken {
    */
   splitBarDraggableSize: number;
   /**
-   * @desc 拖拽元素大小
-   * @descEN Drag the element size
+   * @desc 拖拽元素显示大小
+   * @descEN Drag the element display size
    */
   splitBarSize: number;
   /**
@@ -201,14 +201,17 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           justifyContent: 'center',
 
           // Hover
-          '&:hover': {
+          [`&:hover:not(${splitBarCls}-collapse-bar-custom)`]: {
             background: controlItemBgActive,
           },
 
           // Active
-          '&:active': {
+          [`&:active:not(${splitBarCls}-collapse-bar-custom)`]: {
             background: controlItemBgActiveHover,
           },
+        },
+        [`${splitBarCls}-collapse-bar-custom`]: {
+          background: 'transparent',
         },
 
         // ======================== Status ========================

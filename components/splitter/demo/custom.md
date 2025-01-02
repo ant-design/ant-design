@@ -1,7 +1,7 @@
 ## zh-CN
 
-自定义配置图标
+自定义图标
 
 ## en-US
 
-自定义配置
+Customize the icon

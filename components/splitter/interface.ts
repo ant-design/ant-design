@@ -6,8 +6,12 @@ export interface SplitterProps {
   rootClassName?: string;
   layout?: 'horizontal' | 'vertical';
   draggerIcon?: {
-    default?: React.ReactNode;
-    active?: React.ReactNode;
+    default: React.ReactElement;
+    active: React.ReactElement;
+  };
+  collapsibleIcon?: {
+    start: React.ReactElement;
+    end: React.ReactElement;
   };
   onResizeStart?: (sizes: number[]) => void;
   onResize?: (sizes: number[]) => void;
