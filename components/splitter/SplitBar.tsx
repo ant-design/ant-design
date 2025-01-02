@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
@@ -16,6 +16,7 @@ export interface SplitBarProps {
   startCollapsible: boolean;
   endCollapsible: boolean;
   draggerIcon?: SplitterProps['draggerIcon'];
+  collapsibleIcon?: SplitterProps['collapsibleIcon'];
   onOffsetStart: (index: number) => void;
   onOffsetUpdate: (index: number, offsetX: number, offsetY: number) => void;
   onOffsetEnd: VoidFunction;
@@ -43,6 +44,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     ariaMax,
     resizable,
     draggerIcon,
+    collapsibleIcon,
     startCollapsible,
     endCollapsible,
     onOffsetStart,
@@ -164,8 +166,32 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   };
 
   // ======================== Render ========================
-  const StartIcon = vertical ? UpOutlined : LeftOutlined;
-  const EndIcon = vertical ? DownOutlined : RightOutlined;
+  const [startIcon, endIcon, startCustom, endCustom] = useMemo(() => {
+    let startIcon = null;
+    let endIcon = null;
+    let startCustom = false;
+    let endCustom = false;
+
+    if (collapsibleIcon?.start) {
+      startIcon = collapsibleIcon.start;
+      startCustom = true;
+    } else if (vertical) {
+      startIcon = <DownOutlined />;
+    } else {
+      startIcon = <RightOutlined />;
+    }
+
+    if (collapsibleIcon?.end) {
+      endIcon = collapsibleIcon.end;
+      endCustom = true;
+    } else if (vertical) {
+      endIcon = <UpOutlined />;
+    } else {
+      endIcon = <LeftOutlined />;
+    }
+
+    return [startIcon, endIcon, startCustom, endCustom];
+  }, [collapsibleIcon]);
 
   return (
     <div
@@ -206,15 +232,19 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
           className={classNames(
             `${splitBarPrefixCls}-collapse-bar`,
             `${splitBarPrefixCls}-collapse-bar-start`,
+            {
+              [`${splitBarPrefixCls}-collapse-bar-custom`]: startCustom,
+            },
           )}
           onClick={() => onCollapse(index, 'start')}
         >
-          <StartIcon
-            className={classNames(
+          {React.cloneElement(startIcon, {
+            className: classNames(
               `${splitBarPrefixCls}-collapse-icon`,
               `${splitBarPrefixCls}-collapse-start`,
-            )}
-          />
+              startIcon.props.className,
+            ),
+          })}
         </div>
       )}
 
@@ -224,15 +254,19 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
           className={classNames(
             `${splitBarPrefixCls}-collapse-bar`,
             `${splitBarPrefixCls}-collapse-bar-end`,
+            {
+              [`${splitBarPrefixCls}-collapse-bar-custom`]: endCustom,
+            },
           )}
           onClick={() => onCollapse(index, 'end')}
         >
-          <EndIcon
-            className={classNames(
+          {React.cloneElement(endIcon, {
+            className: classNames(
               `${splitBarPrefixCls}-collapse-icon`,
               `${splitBarPrefixCls}-collapse-end`,
-            )}
-          />
+              endIcon.props.className,
+            ),
+          })}
         </div>
       )}
     </div>

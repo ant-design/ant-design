@@ -25,6 +25,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     layout = 'horizontal',
     children,
     draggerIcon,
+    collapsibleIcon,
     rootClassName,
     onResizeStart,
     onResize,
@@ -179,6 +180,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 vertical={isVertical}
                 resizable={resizableInfo.resizable}
                 draggerIcon={draggerIcon}
+                collapsibleIcon={collapsibleIcon}
                 ariaNow={stackSizes[idx] * 100}
                 ariaMin={Math.max(ariaMinStart, ariaMinEnd) * 100}
                 ariaMax={Math.min(ariaMaxStart, ariaMaxEnd) * 100}
