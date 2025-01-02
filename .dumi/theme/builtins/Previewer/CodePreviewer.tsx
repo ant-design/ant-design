@@ -7,6 +7,7 @@ import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
 import { FormattedMessage, useLiveDemo, useSiteData } from 'dumi';
 import LZString from 'lz-string';
+
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
 import ClientOnly from '../../common/ClientOnly';
@@ -18,8 +19,8 @@ import ExternalLinkIcon from '../../icons/ExternalLinkIcon';
 import DemoContext from '../../slots/DemoContext';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
-import type { AntdPreviewerProps } from './Previewer';
 import { ping } from '../../utils';
+import type { AntdPreviewerProps } from './Previewer';
 
 const { ErrorBoundary } = Alert;
 
@@ -436,7 +437,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 <CodeSandboxIcon className="code-box-codesandbox" />
               </Tooltip>
             </form>
-            {/* {showCodeBlockButton ? ( */}
+            {showCodeBlockButton ? (
               <Tooltip title={<FormattedMessage id="app.demo.codeblock" />}>
                 <div className="code-box-code-action">
                   <img
@@ -449,7 +450,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
                   />
                 </div>
               </Tooltip>
-            {/* ) : null} */}
+            ) : null}
             <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
               <span
                 className="code-box-code-action"
