@@ -1,4 +1,5 @@
 import React from 'react';
+import { CaretLeftOutlined, CaretRightOutlined, ColumnWidthOutlined } from '@ant-design/icons';
 import type { GetProps, SplitterProps } from 'antd';
 import { ConfigProvider, Splitter } from 'antd';
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
@@ -547,5 +548,65 @@ describe('Splitter', () => {
 
     fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
     expect(onResize).toHaveBeenCalledWith([0, 200]);
+  });
+
+  // ============================= customize =============================
+  describe('customize', () => {
+    it('custom draggerIcon', async () => {
+      const { container } = render(
+        <SplitterDemo
+          draggerIcon={{
+            default: <ColumnWidthOutlined className="custom-dragger-icon" />,
+            active: <ColumnWidthOutlined className="custom-dragger-icon-active" />,
+          }}
+        />,
+      );
+      const draggerEle = container.querySelector('.ant-splitter-bar-dragger')!;
+
+      expect(draggerEle).toHaveClass('ant-splitter-bar-dragger-custom');
+      expect(draggerEle.querySelector('.ant-splitter-bar-dragger-icon-wrapper')).toBeTruthy();
+      expect(draggerEle.querySelector('.custom-dragger-icon')).toBeTruthy();
+      expect(draggerEle.querySelector('.custom-dragger-icon-active')).toBeFalsy();
+
+      const downEvent = createEvent.mouseDown(draggerEle);
+      (downEvent as any).pageX = 0;
+      (downEvent as any).pageY = 0;
+      fireEvent(draggerEle, downEvent);
+
+      expect(draggerEle.querySelector('.custom-dragger-icon')).toBeFalsy();
+      expect(draggerEle.querySelector('.custom-dragger-icon-active')).toBeTruthy();
+    });
+
+    it('custom collapsibleIcon', async () => {
+      jest.useFakeTimers();
+
+      const { container } = render(
+        <SplitterDemo
+          items={[{ size: 20, collapsible: true }, { collapsible: true }]}
+          collapsibleIcon={{
+            start: <CaretLeftOutlined className="custom-icon-start" />,
+            end: <CaretRightOutlined className="custom-icon-end" />,
+          }}
+        />,
+      );
+
+      await resizeSplitter();
+      const startEle = container.querySelector('.ant-splitter-bar-collapse-bar-start')!;
+      const endEle = container.querySelector('.ant-splitter-bar-collapse-bar-end')!;
+
+      expect(startEle).toHaveClass('ant-splitter-bar-collapse-bar-custom');
+      expect(endEle).toHaveClass('ant-splitter-bar-collapse-bar-custom');
+
+      expect(startEle.querySelector('.custom-icon-start')).toBeTruthy();
+      expect(endEle.querySelector('.custom-icon-end')).toBeTruthy();
+
+      expect(startEle).toHaveStyle({ background: 'transparent' });
+      expect(endEle).toHaveStyle({ background: 'transparent' });
+
+      // const downEvent = createEvent.mouseDown(draggerEle);
+      // (downEvent as any).pageX = 0;
+      // (downEvent as any).pageY = 0;
+      // fireEvent(draggerEle, downEvent);
+    });
   });
 });

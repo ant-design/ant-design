@@ -1,7 +1,7 @@
 ## zh-CN
 
-自定义图标
+自定义操作元素样式
 
 ## en-US
 
-Customize the icon
+Custom handle elements and style

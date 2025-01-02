@@ -45,7 +45,7 @@ const App: React.FC = () => {
     <ConfigProvider
       theme={{
         components: {
-          Splitter: { splitBarSize: 16, splitTriggerSize: 16 },
+          Splitter: { splitBarSize: 1, splitTriggerSize: 16 },
         },
       }}
     >
@@ -74,7 +74,6 @@ const App: React.FC = () => {
       </Splitter>
 
       <Splitter
-        lazy
         layout="vertical"
         style={{ height: 200, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
         draggerIcon={{
