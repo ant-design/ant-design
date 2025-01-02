@@ -38,6 +38,7 @@ import type { TooltipProps } from '../tooltip';
 import type { PopoverProps } from '../popover';
 import type { PopconfirmProps } from '../popconfirm';
 import type { DescriptionsProps } from '../descriptions';
+import type { SliderProps } from '../slider';
 
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
@@ -192,6 +193,8 @@ export type PopconfirmConfig = Pick<
   'className' | 'style' | 'styles' | 'classNames'
 >;
 
+export type SliderConfig = ComponentStyleConfig & Pick<SliderProps, 'styles' | 'classNames'>;
+
 export type SpinConfig = ComponentStyleConfig & Pick<SpinProps, 'indicator'>;
 
 export type InputNumberConfig = ComponentStyleConfig & Pick<InputNumberProps, 'variant'>;
@@ -285,7 +288,7 @@ export interface ConfigConsumerProps {
   modal?: ModalConfig;
   progress?: ComponentStyleConfig;
   result?: ComponentStyleConfig;
-  slider?: ComponentStyleConfig;
+  slider?: SliderConfig;
   breadcrumb?: ComponentStyleConfig;
   menu?: MenuConfig;
   checkbox?: ComponentStyleConfig;
