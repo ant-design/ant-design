@@ -45,4 +45,50 @@ describe('Empty', () => {
       opacity: 0.65,
     });
   });
+
+  it('should apply custom styles to Empty', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      description: 'custom-description',
+      footer: 'custom-footer',
+      icon: 'custom-icon',
+    };
+
+    const customStyles = {
+      root: { color: 'red' },
+      description: { color: 'green' },
+      footer: { color: 'yellow' },
+      icon: { backgroundColor: 'black' },
+    };
+
+    const { container } = render(
+      <Empty
+        image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+        classNames={customClassNames}
+        styles={customStyles}
+        description={'Description'}
+      >
+        <div>Create Now</div>
+      </Empty>,
+    );
+
+    const emptyElement = container.querySelector('.ant-empty') as HTMLElement;
+    const emptyFooterElement = container.querySelector('.ant-empty-footer') as HTMLElement;
+    const emptyDescriptionElement = container.querySelector(
+      '.ant-empty-description',
+    ) as HTMLElement;
+    const emptyIconElement = container.querySelector('.ant-empty-image') as HTMLElement;
+
+    // check classNames
+    expect(emptyElement.classList).toContain('custom-root');
+    expect(emptyFooterElement.classList).toContain('custom-footer');
+    expect(emptyDescriptionElement.classList).toContain('custom-description');
+    expect(emptyIconElement.classList).toContain('custom-icon');
+
+    // check styles
+    expect(emptyElement.style.color).toBe('red');
+    expect(emptyDescriptionElement.style.color).toBe('green');
+    expect(emptyFooterElement.style.color).toBe('yellow');
+    expect(emptyIconElement.style.backgroundColor).toBe('black');
+  });
 });
