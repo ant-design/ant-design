@@ -139,7 +139,9 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
 
 export default genStyleHooks(
   ['Layout', 'Sider'],
-  (token) => [genSiderStyle(token)],
+  (token) => ({
+    [`${token.antCls}-layout`]: genSiderStyle(token),
+  }),
   prepareComponentToken,
   {
     deprecatedTokens: DEPRECATED_TOKENS,
