@@ -1,5 +1,5 @@
 import React from 'react';
-import { Descriptions, DescriptionsProps, Divider, Switch } from 'antd';
+import { Button, Descriptions, DescriptionsProps, Divider, Switch } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -40,13 +40,13 @@ const BlockList: React.FC<React.PropsWithChildren> = (props: any) => {
   };
 
   return (
-    <div ref={divRef} style={{ width: '100%', height: 100 }}>
+    <div ref={divRef} style={{ width: '100%', height: '100%' }}>
       <Switch checked={bordered} onChange={handleBorderChange} /> Toggle Border
       <Divider />
       <Descriptions
         title="User Info"
         items={items}
-        extra={'extra'}
+        extra={<Button type="primary">Edit</Button>}
         bordered={bordered}
         {...props}
       />
