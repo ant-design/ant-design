@@ -37,6 +37,7 @@ import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import type { TooltipProps } from '../tooltip';
 import type { PopoverProps } from '../popover';
 import type { PopconfirmProps } from '../popconfirm';
+import type { DescriptionsProps } from '../descriptions';
 
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
@@ -135,6 +136,9 @@ export type CollapseConfig = ComponentStyleConfig & Pick<CollapseProps, 'expandI
 export type MenuConfig = ComponentStyleConfig & Pick<MenuProps, 'expandIcon'>;
 
 export type TourConfig = Pick<TourProps, 'closeIcon'>;
+
+export type DescriptionsConfig = ComponentStyleConfig &
+  Pick<DescriptionsProps, 'classNames' | 'styles'>;
 
 export type ModalConfig = ComponentStyleConfig &
   Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon' | 'closable'>;
@@ -285,7 +289,7 @@ export interface ConfigConsumerProps {
   breadcrumb?: ComponentStyleConfig;
   menu?: MenuConfig;
   checkbox?: ComponentStyleConfig;
-  descriptions?: ComponentStyleConfig;
+  descriptions?: DescriptionsConfig;
   empty?: ComponentStyleConfig;
   badge?: BadgeConfig;
   radio?: ComponentStyleConfig;
