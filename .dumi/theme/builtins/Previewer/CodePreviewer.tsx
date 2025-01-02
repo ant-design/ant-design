@@ -16,7 +16,6 @@ import EditButton from '../../common/EditButton';
 import CodePenIcon from '../../icons/CodePenIcon';
 import CodeSandboxIcon from '../../icons/CodeSandboxIcon';
 import ExternalLinkIcon from '../../icons/ExternalLinkIcon';
-import RiddleIcon from '../../icons/RiddleIcon';
 import DemoContext from '../../slots/DemoContext';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
@@ -41,8 +40,8 @@ const track = ({ type, demo }: { type: string; demo: string }) => {
 
 let pingDeferrer: PromiseLike<boolean>;
 
-function useShowRiddleButton() {
-  const [showRiddleButton, setShowRiddleButton] = useState(false);
+function useShowCodeBlockButton() {
+  const [showCodeBlockButton, setShowCodeBlockButton] = useState(false);
 
   useEffect(() => {
     pingDeferrer ??= new Promise<boolean>((resolve) => {
@@ -54,10 +53,10 @@ function useShowRiddleButton() {
         return resolve(false);
       });
     });
-    pingDeferrer.then(setShowRiddleButton);
+    pingDeferrer.then(setShowCodeBlockButton);
   }, []);
 
-  return showRiddleButton;
+  return showCodeBlockButton;
 }
 
 const useStyle = createStyles(({ token }) => {
@@ -117,7 +116,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
 
   const entryName = 'index.tsx';
   const entryCode = asset.dependencies[entryName].value;
-  const showRiddleButton = useShowRiddleButton();
+  const showCodeBlockButton = useShowCodeBlockButton();
 
   const previewDemo = useRef<React.ReactNode>(null);
   const demoContainer = useRef<HTMLElement>(null);
@@ -131,7 +130,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   });
   const anchorRef = useRef<HTMLAnchorElement>(null);
   const codeSandboxIconRef = useRef<HTMLFormElement>(null);
-  const riddleIconRef = useRef<HTMLFormElement>(null);
   const codepenIconRef = useRef<HTMLFormElement>(null);
   const [codeExpand, setCodeExpand] = useState<boolean>(false);
   const { theme } = useContext<SiteContextProps>(SiteContext);
@@ -278,7 +276,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     js_pre_processor: 'typescript',
   };
 
-  const riddlePrefillConfig = {
+  const codeBlockPrefillConfig = {
     title: `${localizedTitle} - antd@${dependencies.antd}`,
     js: `${
       /import React(\D*)from 'react';/.test(jsx) ? '' : `import React from 'react';\n`
@@ -440,23 +438,19 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 <CodeSandboxIcon className="code-box-codesandbox" />
               </Tooltip>
             </form>
-            {showRiddleButton ? (
-              <form
-                className="code-box-code-action"
-                action="//riddle.alibaba-inc.com/riddles/define"
-                method="POST"
-                target="_blank"
-                ref={riddleIconRef}
-                onClick={() => {
-                  track({ type: 'riddle', demo: asset.id });
-                  riddleIconRef.current?.submit();
-                }}
-              >
-                <input type="hidden" name="data" value={JSON.stringify(riddlePrefillConfig)} />
-                <Tooltip title={<FormattedMessage id="app.demo.riddle" />}>
-                  <RiddleIcon className="code-box-riddle" />
-                </Tooltip>
-              </form>
+            {showCodeBlockButton ? (
+              <Tooltip title={<FormattedMessage id="app.demo.codeblock" />}>
+                <div className="code-box-code-action">
+                  <img
+                    alt="codeblock"
+                    src="https://mdn.alipayobjects.com/huamei_wtld8u/afts/img/A*K8rjSJpTNQ8AAAAAAAAAAAAADhOIAQ/original"
+                    className="code-box-codeblock"
+                    onClick={() => {
+                      openHituCodeBlock(JSON.stringify(codeBlockPrefillConfig));
+                    }}
+                  />
+                </div>
+              </Tooltip>
             ) : null}
             <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
               <span

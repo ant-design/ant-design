@@ -183,6 +183,7 @@ export default defineConfig({
       document.documentElement.className += isZhCN(pathname) ? 'zh-cn' : 'en-us';
     })();
     `,
+   'https://renderdev.alipay.com/p/yuyan_npm/@alipay_hitu-codeblock-helper/dev-s090011075829/dist/parseFileData.js',
   ],
   scripts: [
     {
