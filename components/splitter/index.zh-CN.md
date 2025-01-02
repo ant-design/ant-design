@@ -26,9 +26,9 @@ tag: 5.21.0
 <code src="./demo/collapsible.tsx">可折叠</code>
 <code src="./demo/multiple.tsx">多面板</code>
 <code src="./demo/group.tsx">复杂组合</code>
-<code src="./demo/nested-in-tabs.tsx" debug>标签页中嵌套</code>
 <code src="./demo/lazy.tsx" version="5.23.0">延迟渲染模式</code>
-<code src="./demo/custom.tsx" version="5.23.0">自定义配置</code>
+<code src="./demo/customize.tsx" version="5.23.0">自定义样式</code>
+<code src="./demo/nested-in-tabs.tsx" debug>标签页中嵌套</code>
 <code src="./demo/debug.tsx" debug>调试</code>
 
 ## API
@@ -39,13 +39,15 @@ tag: 5.21.0
 
 ### Splitter
 
-| 参数          | 说明             | 类型                        | 默认值       | 版本   |
-| ------------- | ---------------- | --------------------------- | ------------ | ------ |
-| layout        | 布局方向         | `horizontal` \| `vertical`  | `horizontal` | -      |
-| onResizeStart | 开始拖拽之前回调 | `(sizes: number[]) => void` | -            | -      |
-| onResize      | 面板大小变化回调 | `(sizes: number[]) => void` | -            | -      |
-| onResizeEnd   | 拖拽结束回调     | `(sizes: number[]) => void` | -            | -      |
-| lazy          | 延迟渲染模式     | `boolean`                   | `false`      | 5.23.0 |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| layout | 布局方向 | `horizontal` \| `vertical` | `horizontal` | - |
+| onResizeStart | 开始拖拽之前回调 | `(sizes: number[]) => void` | - | - |
+| onResize | 面板大小变化回调 | `(sizes: number[]) => void` | - | - |
+| onResizeEnd | 拖拽结束回调 | `(sizes: number[]) => void` | - | - |
+| lazy | 延迟渲染模式 | `boolean` | `false` | 5.23.0 |
+| collapsibleIcon | 折叠图标 | `{start: ReactElement; end: ReactElement;}` | - | 5.23.0 |
+| draggerIcon | 拖拽图标 | `{default: ReactElement; active: ReactElement;}` | - | 5.23.0 |
 
 ### Panel
 
