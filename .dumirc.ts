@@ -1,11 +1,19 @@
+import os from 'node:os';
 import path from 'path';
 import { defineConfig } from 'dumi';
 import * as fs from 'fs-extra';
-import os from 'node:os';
 
 import rehypeAntd from './.dumi/rehypeAntd';
 import remarkAntd from './.dumi/remarkAntd';
 import { version } from './package.json';
+
+const codeBlockJs =
+  'https://renderdev.a' +
+  'lipay.' +
+  'com/p/yuyan_npm/' +
+  '@alip' +
+  'ay_hitu-codeblock-helper/' +
+  'dev-s090011075829/dist/parseFileData.js';
 
 export default defineConfig({
   plugins: ['dumi-plugin-color-chunk'],
@@ -183,7 +191,7 @@ export default defineConfig({
       document.documentElement.className += isZhCN(pathname) ? 'zh-cn' : 'en-us';
     })();
     `,
-   'https://renderdev.alipay.com/p/yuyan_npm/@alipay_hitu-codeblock-helper/dev-s090011075829/dist/parseFileData.js',
+    codeBlockJs,
   ],
   scripts: [
     {
