@@ -15,6 +15,15 @@ tag: vVERSION
 
 ---
 
+## 5.22.7
+
+`2024-12-27`
+
+- 🐞 修复 Button 文字和图标不对齐的问题。[#52132](https://github.com/ant-design/ant-design/pull/52132) [@afc163](https://github.com/afc163)
+- 🐞 修复在 React 19 下点击 Button 时抛出 `reactRender is not a function` 错误的问题。[#52105](https://github.com/ant-design/ant-design/pull/52105) [@afc163](https://github.com/afc163)
+- TypeScript
+  - 🤖 修复 Menu `component` 属性类型抛错。[#51715](https://github.com/ant-design/ant-design/pull/51715) [@msyavuz](https://github.com/msyavuz)
+
 ## 5.22.6
 
 `2024-12-23`
