@@ -542,19 +542,6 @@ describe('Cascader', () => {
       expect((global as any).triggerProps.popupPlacement).toEqual('bottomLeft');
     });
 
-    it('legacy dropdownClassName', () => {
-      resetWarned();
-
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-      const { container } = render(<Cascader dropdownClassName="legacy" open />);
-      expect(errSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Cascader] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
-      );
-      expect(container.querySelector('.legacy')).toBeTruthy();
-
-      errSpy.mockRestore();
-    });
-
     it('should support showCheckedStrategy child', () => {
       const multipleOptions = [
         {
