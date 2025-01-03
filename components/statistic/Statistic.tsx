@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
+import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import Skeleton from '../skeleton';
@@ -19,6 +20,7 @@ interface StatisticReactProps extends FormatConfig {
   rootClassName?: string;
   style?: React.CSSProperties;
   value?: valueType;
+  /** @deprecated Please use `styles={{ content: { } }}` instead */
   valueStyle?: React.CSSProperties;
   valueRender?: (node: React.ReactNode) => React.ReactNode;
   title?: React.ReactNode;
@@ -63,6 +65,15 @@ const Statistic: React.FC<StatisticProps> = (props) => {
   const prefixCls = getPrefixCls('statistic', customizePrefixCls);
 
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+
+  // ============================= Warning ==============================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Statistic');
+
+    [['valueStyle', 'styles={{ content: { } }}']].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
+  }
 
   const valueNode: React.ReactNode = (
     <StatisticNumber
