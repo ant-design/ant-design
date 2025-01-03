@@ -213,7 +213,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
           <div className={classNames(`${splitBarPrefixCls}-dragger-icon-wrapper`)}>
             {active ? draggerIcon.active : draggerIcon.default}
           </div>
-        ) : undefined}
+        ) : null}
       </div>
 
       {/* Start Collapsible */}
