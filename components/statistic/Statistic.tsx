@@ -13,6 +13,20 @@ import type { FormatConfig, valueType } from './utils';
 interface StatisticReactProps extends FormatConfig {
   prefixCls?: string;
   className?: string;
+  classNames?: {
+    root?: string;
+    content?: string;
+    title?: string;
+    prefix?: string;
+    suffix?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    content?: React.CSSProperties;
+    title?: React.CSSProperties;
+    prefix?: React.CSSProperties;
+    suffix?: React.CSSProperties;
+  };
   rootClassName?: string;
   style?: React.CSSProperties;
   value?: valueType;
@@ -49,6 +63,8 @@ const Statistic: React.FC<StatisticProps> = (props) => {
     /* --- FormatConfig starts --- */
     onMouseEnter,
     onMouseLeave,
+    styles,
+    classNames: statisticClassNames,
     ...rest
   } = props;
 
@@ -70,7 +86,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
     />
   );
 
-  const cls = classNames(
+  const rootClassNames = classNames(
     prefixCls,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -78,8 +94,34 @@ const Statistic: React.FC<StatisticProps> = (props) => {
     statistic?.className,
     className,
     rootClassName,
+    statistic?.classNames?.root,
+    statisticClassNames?.root,
     hashId,
     cssVarCls,
+  );
+
+  const titleClassNames = classNames(
+    `${prefixCls}-title`,
+    statistic?.classNames?.title,
+    statisticClassNames?.title,
+  );
+
+  const contentClassNames = classNames(
+    `${prefixCls}-content`,
+    statistic?.classNames?.content,
+    statisticClassNames?.content,
+  );
+
+  const prefixClassNames = classNames(
+    `${prefixCls}-content-prefix`,
+    statistic?.classNames?.prefix,
+    statisticClassNames?.prefix,
+  );
+
+  const suffixClassNames = classNames(
+    `${prefixCls}-content-suffix`,
+    statistic?.classNames?.suffix,
+    statisticClassNames?.suffix,
   );
 
   const restProps = pickAttrs(rest, { aria: true, data: true });
@@ -87,17 +129,38 @@ const Statistic: React.FC<StatisticProps> = (props) => {
   return wrapCSSVar(
     <div
       {...restProps}
-      className={cls}
-      style={{ ...statistic?.style, ...style }}
+      className={rootClassNames}
+      style={{ ...statistic?.styles?.root, ...styles?.root, ...statistic?.style, ...style }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      {title && <div className={`${prefixCls}-title`}>{title}</div>}
+      {title && (
+        <div className={titleClassNames} style={{ ...statistic?.styles?.title, ...styles?.title }}>
+          {title}
+        </div>
+      )}
       <Skeleton paragraph={false} loading={loading} className={`${prefixCls}-skeleton`}>
-        <div style={valueStyle} className={`${prefixCls}-content`}>
-          {prefix && <span className={`${prefixCls}-content-prefix`}>{prefix}</span>}
+        <div
+          className={contentClassNames}
+          style={{ ...valueStyle, ...statistic?.styles?.content, ...styles?.content }}
+        >
+          {prefix && (
+            <span
+              className={prefixClassNames}
+              style={{ ...statistic?.styles?.prefix, ...styles?.prefix }}
+            >
+              {prefix}
+            </span>
+          )}
           {valueRender ? valueRender(valueNode) : valueNode}
-          {suffix && <span className={`${prefixCls}-content-suffix`}>{suffix}</span>}
+          {suffix && (
+            <span
+              className={suffixClassNames}
+              style={{ ...statistic?.styles?.suffix, ...styles?.suffix }}
+            >
+              {suffix}
+            </span>
+          )}
         </div>
       </Skeleton>
     </div>,

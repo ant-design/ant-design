@@ -209,4 +209,55 @@ describe('Statistic', () => {
       expect(formatTimeStr(1000 * 60 * 60 * 24, 'D [Day]')).toBe('1 Day');
     });
   });
+
+  it('should apply custom styles to Statistic', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      title: 'custom-title',
+      content: 'custom-content',
+      prefix: 'custom-prefix',
+      suffix: 'custom-suffix',
+    };
+
+    const customStyles = {
+      root: { color: 'red' },
+      title: { backgroundColor: 'blue' },
+      content: { backgroundColor: 'green' },
+      prefix: { color: 'yellow' },
+      suffix: { color: 'purple' },
+    };
+
+    const { container } = render(
+      <Statistic
+        classNames={customClassNames}
+        styles={customStyles}
+        title="Active"
+        value={11.28}
+        precision={2}
+        valueStyle={{ color: '#3f8600' }}
+        prefix="%"
+        suffix="%"
+      />,
+    );
+
+    const rootElement = container.querySelector('.ant-statistic') as HTMLElement;
+    const titleElement = container.querySelector('.ant-statistic-title') as HTMLElement;
+    const contentElement = container.querySelector('.ant-statistic-content') as HTMLElement;
+    const prefixElement = container.querySelector('.ant-statistic-content-prefix') as HTMLElement;
+    const suffixElement = container.querySelector('.ant-statistic-content-suffix') as HTMLElement;
+
+    // check classNames
+    expect(rootElement.classList).toContain('custom-root');
+    expect(titleElement.classList).toContain('custom-title');
+    expect(contentElement.classList).toContain('custom-content');
+    expect(prefixElement.classList).toContain('custom-prefix');
+    expect(suffixElement.classList).toContain('custom-suffix');
+
+    // check styles
+    expect(rootElement.style.color).toBe('red');
+    expect(titleElement.style.backgroundColor).toBe('blue');
+    expect(contentElement.style.backgroundColor).toBe('green');
+    expect(prefixElement.style.color).toBe('yellow');
+    expect(suffixElement.style.color).toBe('purple');
+  });
 });
