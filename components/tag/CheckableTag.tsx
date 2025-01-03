@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
+import DisabledContext from '../config-provider/DisabledContext';
 
 export interface CheckableTagProps {
   prefixCls?: string;
@@ -28,13 +29,16 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
     checked,
     onChange,
     onClick,
-    disabled,
+    disabled: customDisabled,
     ...restProps
   } = props;
   const { getPrefixCls, tag } = React.useContext(ConfigContext);
 
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled ?? disabled;
+
   const handleClick = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-    if (disabled) {
+    if (mergedDisabled) {
       return;
     }
     onChange?.(!checked);
@@ -50,7 +54,7 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
     `${prefixCls}-checkable`,
     {
       [`${prefixCls}-checkable-checked`]: checked,
-      [`${prefixCls}-checkable-disabled`]: disabled,
+      [`${prefixCls}-checkable-disabled`]: mergedDisabled,
     },
     tag?.className,
     className,

@@ -6,6 +6,7 @@ import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
+import { ConfigProvider } from 'antd';
 
 (global as any).isVisible = true;
 
@@ -166,6 +167,39 @@ describe('Tag', () => {
       });
       expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
     });
+
+    it('should not trigger onClick when disabled', () => {
+      const onClick = jest.fn();
+      const { container } = render(<Tag disabled onClick={onClick} />);
+      fireEvent.click(container.querySelector('.ant-tag')!);
+      expect(onClick).not.toHaveBeenCalled();
+    });
+
+    it('should not trigger onClose when disabled', () => {
+      const onClose = jest.fn();
+      const { container } = render(<Tag disabled closable onClose={onClose} />);
+      fireEvent.click(container.querySelector('.ant-tag-close-icon')!);
+      expect(onClose).not.toHaveBeenCalled();
+    });
+
+    it('should prevent link click when disabled', () => {
+      const onClick = jest.fn();
+      const { container } = render(
+        <Tag disabled>
+          <a href="https://ant.design" onClick={onClick}>
+            Link
+          </a>
+        </Tag>,
+      );
+      const link = container.querySelector('a')!;
+      fireEvent.click(link);
+      expect(onClick).not.toHaveBeenCalled();
+    });
+
+    it('should render correctly when disabled', () => {
+      const { container } = render(<Tag disabled>Disabled Tag</Tag>);
+      expect(container.querySelector('.ant-tag-disabled')).toBeTruthy();
+    });
   });
 
   describe('CheckableTag', () => {
@@ -189,6 +223,50 @@ describe('Tag', () => {
       expect(refElement?.textContent).toBe('Tag Text');
       expect(queryTarget?.textContent).toBe('Tag Text');
       expect(refElement).toBe(queryTarget);
+    });
+
+    it('should not trigger onChange when disabled', () => {
+      const onChange = jest.fn();
+      const { container } = render(
+        <Tag.CheckableTag disabled checked={false} onChange={onChange}>
+          Checkable
+        </Tag.CheckableTag>,
+      );
+      fireEvent.click(container.querySelector('.ant-tag')!);
+      expect(onChange).not.toHaveBeenCalled();
+    });
+
+    it('should render correctly for disabled CheckableTag', () => {
+      const { container, rerender } = render(
+        <Tag.CheckableTag disabled checked={false}>
+          Checkable
+        </Tag.CheckableTag>,
+      );
+      expect(container.querySelector('.ant-tag-checkable-disabled')).toBeTruthy();
+
+      // Test checked state
+      rerender(
+        <Tag.CheckableTag disabled checked>
+          Checkable
+        </Tag.CheckableTag>,
+      );
+      expect(container.querySelector('.ant-tag-checkable-checked')).toBeTruthy();
+      expect(container.querySelector('.ant-tag-checkable-disabled')).toBeTruthy();
+    });
+
+    it('should handle context disabled state', () => {
+      const onChange = jest.fn();
+      const Demo = () => (
+        <ConfigProvider componentDisabled>
+          <Tag.CheckableTag checked={false} onChange={onChange}>
+            Checkable
+          </Tag.CheckableTag>
+        </ConfigProvider>
+      );
+      const { container } = render(<Demo />);
+      expect(container.querySelector('.ant-tag-checkable-disabled')).toBeTruthy();
+      fireEvent.click(container.querySelector('.ant-tag')!);
+      expect(onChange).not.toHaveBeenCalled();
     });
   });
   it('should onClick is undefined', async () => {
