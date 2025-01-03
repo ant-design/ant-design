@@ -406,7 +406,7 @@ exports[`renders components/card/demo/flexible-content.tsx correctly 1`] = `
       class="ant-card-meta"
     >
       <div
-        class="ant-card-meta-detail"
+        class="ant-card-meta-section"
       >
         <div
           class="ant-card-meta-title"
@@ -936,7 +936,7 @@ exports[`renders components/card/demo/meta.tsx correctly 1`] = `
         </span>
       </div>
       <div
-        class="ant-card-meta-detail"
+        class="ant-card-meta-section"
       >
         <div
           class="ant-card-meta-title"

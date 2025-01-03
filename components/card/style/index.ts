@@ -251,7 +251,7 @@ const genCardMetaStyle: GenerateStyle<CardToken> = (token): CSSObject => ({
     paddingInlineEnd: token.padding,
   },
 
-  '&-detail': {
+  '&-section': {
     overflow: 'hidden',
     flex: 1,
 
