@@ -141,7 +141,7 @@
     "rc-resize-observer": "^1.4.3",
     "rc-segmented": "~2.7.0",
     "rc-select": "~14.16.4",
-    "rc-slider": "~11.1.7",
+    "rc-slider": "~11.1.8",
     "rc-steps": "~6.0.1",
     "rc-switch": "~4.1.0",
     "rc-table": "~7.50.1",
@@ -346,9 +346,11 @@
     "mode": "npm"
   },
   "overrides": {
-    "nwsapi": "2.2.13"
+    "nwsapi": "2.2.13",
+    "react-intl": "7.0.4"
   },
   "resolutions": {
-    "nwsapi": "2.2.13"
+    "nwsapi": "2.2.13",
+    "react-intl": "7.0.4"
   }
 }
