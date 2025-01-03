@@ -29627,12 +29627,12 @@ exports[`ConfigProvider components Tags configProvider 1`] = `
 exports[`ConfigProvider components Tags configProvider componentDisabled 1`] = `
 <div>
   <span
-    class="config-tag"
+    class="config-tag config-tag-disabled"
   >
     Bamboo
   </span>
   <span
-    class="config-tag config-tag-checkable"
+    class="config-tag config-tag-checkable config-tag-checkable-disabled"
   >
     Light
   </span>

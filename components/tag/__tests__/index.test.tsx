@@ -6,7 +6,7 @@ import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
-import { ConfigProvider } from 'antd';
+import ConfigProvider from '../../config-provider';
 
 (global as any).isVisible = true;
 
