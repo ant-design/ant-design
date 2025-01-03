@@ -49,6 +49,7 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   defaultActiveTabKey?: string;
   tabProps?: TabsProps;
   classNames?: {
+    root?: string;
     header?: string;
     body?: string;
     extra?: string;
@@ -57,6 +58,7 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
     cover?: string;
   };
   styles?: {
+    root?: React.CSSProperties;
     header?: React.CSSProperties;
     body?: React.CSSProperties;
     extra?: React.CSSProperties;
@@ -256,9 +258,16 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     rootClassName,
     hashId,
     cssVarCls,
+    card?.classNames?.root,
+    customClassNames?.root,
   );
 
-  const mergedStyle: React.CSSProperties = { ...card?.style, ...style };
+  const mergedStyle: React.CSSProperties = {
+    ...card?.styles?.root,
+    ...card?.style,
+    ...customStyles?.root,
+    ...style,
+  };
 
   return wrapCSSVar(
     <div ref={ref} {...divProps} className={classString} style={mergedStyle}>
