@@ -282,12 +282,13 @@ const GlobalDemoStyles: React.FC = () => {
             cursor: pointer;
           }
 
-          &-riddle {
-            width: 14px;
-            height: 14px;
+          &-codeblock {
+            width: 16px;
+            height: 16px;
             overflow: hidden;
             border: 0;
             cursor: pointer;
+            max-width: 100% !important;
           }
 
           &-codesandbox {
