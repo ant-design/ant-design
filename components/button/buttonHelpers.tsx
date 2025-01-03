@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { cloneElement, isFragment } from '../_util/reactNode';
+import { PresetColors } from '../theme/interface';
 import type { BaseButtonProps, LegacyButtonType } from './button';
 
 const rxTwoCNChar = /^[\u4E00-\u9FA5]{2}$/;
@@ -106,5 +107,6 @@ export const _ButtonVariantTypes = [
 ] as const;
 export type ButtonVariantType = (typeof _ButtonVariantTypes)[number];
 
-export const _ButtonColorTypes = ['default', 'primary', 'danger'] as const;
+export const _ButtonColorTypes = ['default', 'primary', 'danger', ...PresetColors] as const;
+
 export type ButtonColorType = (typeof _ButtonColorTypes)[number];

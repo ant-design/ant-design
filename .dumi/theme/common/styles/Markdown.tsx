@@ -1,5 +1,5 @@
 import React from 'react';
-import { TinyColor } from '@ctrl/tinycolor';
+import { FastColor } from '@ant-design/fast-color';
 import { css, Global } from '@emotion/react';
 import { useTheme } from 'antd-style';
 
@@ -410,7 +410,7 @@ const GlobalStyle: React.FC = () => {
             background: ${demoGridColor};
 
             &:nth-child(2n + 1) {
-              background: ${new TinyColor(demoGridColor).setAlpha(0.75).toHex8String()};
+              background: ${new FastColor(demoGridColor).setA(0.75).toHexString()};
             }
           }
 
@@ -426,12 +426,12 @@ const GlobalStyle: React.FC = () => {
           }
 
           ${antCls}-row .demo-col-1 {
-            background: ${new TinyColor(demoGridColor).setAlpha(0.75).toHexString()};
+            background: ${new FastColor(demoGridColor).setA(0.75).toHexString()};
           }
 
           ${antCls}-row .demo-col-2,
             .code-box-demo ${antCls}-row .demo-col-2 {
-            background: ${new TinyColor(demoGridColor).setAlpha(0.75).toHexString()};
+            background: ${new FastColor(demoGridColor).setA(0.75).toHexString()};
           }
 
           ${antCls}-row .demo-col-3,
@@ -442,7 +442,7 @@ const GlobalStyle: React.FC = () => {
 
           ${antCls}-row .demo-col-4,
             .code-box-demo ${antCls}-row .demo-col-4 {
-            background: ${new TinyColor(demoGridColor).setAlpha(0.6).toHexString()};
+            background: ${new FastColor(demoGridColor).setA(0.6).toHexString()};
           }
 
           ${antCls}-row .demo-col-5,

@@ -49,6 +49,7 @@ export interface CalendarProps<DateType> {
   defaultValue?: DateType;
   mode?: CalendarMode;
   fullscreen?: boolean;
+  showWeek?: boolean;
   onChange?: (date: DateType) => void;
   onPanelChange?: (date: DateType, mode: CalendarMode) => void;
   onSelect?: (date: DateType, selectInfo: SelectInfo) => void;
@@ -89,6 +90,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       mode,
       validRange,
       fullscreen = true,
+      showWeek,
       onChange,
       onPanelChange,
       onSelect,
@@ -299,6 +301,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
           picker={panelMode}
           disabledDate={mergedDisabledDate}
           hideHeader
+          showWeek={showWeek}
         />
       </div>,
     );

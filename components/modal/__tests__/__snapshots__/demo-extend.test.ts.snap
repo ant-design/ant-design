@@ -1228,14 +1228,26 @@ exports[`renders components/modal/demo/static-info.tsx extend context correctly 
 exports[`renders components/modal/demo/static-info.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/modal/demo/width.tsx extend context correctly 1`] = `
-<button
-  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-  type="button"
+<div
+  class="ant-flex ant-flex-align-flex-start ant-flex-gap-middle ant-flex-vertical"
 >
-  <span>
-    Open Modal of 1000px width
-  </span>
-</button>
+  <button
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Open Modal of 1000px width
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Open Modal of responsive width
+    </span>
+  </button>
+</div>
 `;
 
 exports[`renders components/modal/demo/width.tsx extend context correctly 2`] = `[]`;
