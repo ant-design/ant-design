@@ -40,7 +40,14 @@ const App: React.FC = () => {
   const onLoadMore = () => {
     setLoading(true);
     setList(
-      data.concat([...new Array(count)].map(() => ({ loading: true, name: {}, picture: {} }))),
+      data.concat(
+        Array.from({ length: count }, (_, i) => ({
+          loading: true,
+          name: {},
+          picture: {},
+          email: `fake-${i}`,
+        })),
+      ),
     );
     fetch(fakeDataUrl)
       .then((res) => res.json())
@@ -77,6 +84,7 @@ const App: React.FC = () => {
       itemLayout="horizontal"
       loadMore={loadMore}
       dataSource={list}
+      rowKey="email"
       renderItem={(item) => (
         <List.Item
           actions={[<a key="list-loadmore-edit">edit</a>, <a key="list-loadmore-more">more</a>]}
