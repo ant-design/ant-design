@@ -1,7 +1,7 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
-import { genFocusStyle } from '../../style';
+import { genFocusStyle, resetIcon } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import type { ButtonVariantType } from '../buttonHelpers';
@@ -13,7 +13,17 @@ export type { ComponentToken };
 
 // ============================== Shared ==============================
 const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSSObject => {
-  const { componentCls, iconCls, fontWeight } = token;
+  const {
+    componentCls,
+    iconCls,
+    fontWeight,
+    opacityLoading,
+    motionDurationSlow,
+    motionEaseInOut,
+    marginXS,
+    calc,
+  } = token;
+
   return {
     [componentCls]: {
       outline: 'none',
@@ -38,17 +48,14 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         pointerEvents: 'none',
       },
 
-      [`> span, ${componentCls}-icon`]: {
-        display: 'inline-flex',
-      },
+      // https://github.com/ant-design/ant-design/issues/51380
+      [`${componentCls}-icon > svg`]: resetIcon(),
 
       '> a': {
         color: 'currentColor',
       },
 
-      '&:not(:disabled)': {
-        ...genFocusStyle(token),
-      },
+      '&:not(:disabled)': genFocusStyle(token),
 
       [`&${componentCls}-two-chinese-chars::first-letter`]: {
         letterSpacing: '0.34em',
@@ -59,9 +66,66 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         letterSpacing: '0.34em',
       },
 
-      // iconPosition="end"
+      [`&${componentCls}-icon-only`]: {
+        paddingInline: 0,
+
+        // make `btn-icon-only` not too narrow
+        [`&${componentCls}-compact-item`]: {
+          flex: 'none',
+        },
+
+        [`&${componentCls}-round`]: {
+          width: 'auto',
+        },
+      },
+
+      // Loading
+      [`&${componentCls}-loading`]: {
+        opacity: opacityLoading,
+        cursor: 'default',
+      },
+
+      [`${componentCls}-loading-icon`]: {
+        transition: ['width', 'opacity', 'margin']
+          .map((transition) => `${transition} ${motionDurationSlow} ${motionEaseInOut}`)
+          .join(','),
+      },
+
+      // iconPosition
+      [`&:not(${componentCls}-icon-end)`]: {
+        [`${componentCls}-loading-icon-motion`]: {
+          '&-appear-start, &-enter-start': {
+            marginInlineEnd: calc(marginXS).mul(-1).equal(),
+          },
+          '&-appear-active, &-enter-active': {
+            marginInlineEnd: 0,
+          },
+          '&-leave-start': {
+            marginInlineEnd: 0,
+          },
+          '&-leave-active': {
+            marginInlineEnd: calc(marginXS).mul(-1).equal(),
+          },
+        },
+      },
+
       '&-icon-end': {
         flexDirection: 'row-reverse',
+
+        [`${componentCls}-loading-icon-motion`]: {
+          '&-appear-start, &-enter-start': {
+            marginInlineStart: calc(marginXS).mul(-1).equal(),
+          },
+          '&-appear-active, &-enter-active': {
+            marginInlineStart: 0,
+          },
+          '&-leave-start': {
+            marginInlineStart: 0,
+          },
+          '&-leave-active': {
+            marginInlineStart: calc(marginXS).mul(-1).equal(),
+          },
+        },
       },
     },
   };
@@ -244,9 +308,11 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
     token.solidTextColor,
     token.colorBgSolid,
     {
+      color: token.solidTextColor,
       background: token.colorBgSolidHover,
     },
     {
+      color: token.solidTextColor,
       background: token.colorBgSolidActive,
     },
   ),
@@ -520,51 +586,28 @@ const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation =>
     componentCls,
     controlHeight,
     fontSize,
-    lineHeight,
     borderRadius,
     buttonPaddingHorizontal,
     iconCls,
     buttonPaddingVertical,
-    motionDurationSlow,
-    motionEaseInOut,
     buttonIconOnlyFontSize,
-    opacityLoading,
   } = token;
+
   return [
     {
       [prefixCls]: {
         fontSize,
-        lineHeight,
         height: controlHeight,
         padding: `${unit(buttonPaddingVertical!)} ${unit(buttonPaddingHorizontal!)}`,
         borderRadius,
 
         [`&${componentCls}-icon-only`]: {
           width: controlHeight,
-          paddingInline: 0,
-
-          // make `btn-icon-only` not too narrow
-          [`&${componentCls}-compact-item`]: {
-            flex: 'none',
-          },
-
-          [`&${componentCls}-round`]: {
-            width: 'auto',
-          },
 
           [iconCls]: {
             fontSize: buttonIconOnlyFontSize,
+            verticalAlign: 'calc(-0.125em - 1px)',
           },
-        },
-
-        // Loading
-        [`&${componentCls}-loading`]: {
-          opacity: opacityLoading,
-          cursor: 'default',
-        },
-
-        [`${componentCls}-loading-icon`]: {
-          transition: `width ${motionDurationSlow} ${motionEaseInOut}, opacity ${motionDurationSlow} ${motionEaseInOut}`,
         },
       },
     },
@@ -581,7 +624,6 @@ const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation =>
 const genSizeBaseButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const baseToken = mergeToken<ButtonToken>(token, {
     fontSize: token.contentFontSize,
-    lineHeight: token.contentLineHeight,
   });
   return genButtonStyle(baseToken, token.componentCls);
 };
@@ -590,10 +632,9 @@ const genSizeSmallButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const smallToken = mergeToken<ButtonToken>(token, {
     controlHeight: token.controlHeightSM,
     fontSize: token.contentFontSizeSM,
-    lineHeight: token.contentLineHeightSM,
     padding: token.paddingXS,
     buttonPaddingHorizontal: token.paddingInlineSM,
-    buttonPaddingVertical: token.paddingBlockSM,
+    buttonPaddingVertical: 0,
     borderRadius: token.borderRadiusSM,
     buttonIconOnlyFontSize: token.onlyIconSizeSM,
   });
@@ -605,9 +646,8 @@ const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const largeToken = mergeToken<ButtonToken>(token, {
     controlHeight: token.controlHeightLG,
     fontSize: token.contentFontSizeLG,
-    lineHeight: token.contentLineHeightLG,
     buttonPaddingHorizontal: token.paddingInlineLG,
-    buttonPaddingVertical: token.paddingBlockLG,
+    buttonPaddingVertical: 0,
     borderRadius: token.borderRadiusLG,
     buttonIconOnlyFontSize: token.onlyIconSizeLG,
   });

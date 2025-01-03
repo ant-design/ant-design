@@ -15,6 +15,24 @@ tag: vVERSION
 
 ---
 
+## 5.22.7
+
+`2024-12-27`
+
+- 🐞 修复 Button 文字和图标不对齐的问题。[#52132](https://github.com/ant-design/ant-design/pull/52132) [@afc163](https://github.com/afc163)
+- 🐞 修复在 React 19 下点击 Button 时抛出 `reactRender is not a function` 错误的问题。[#52105](https://github.com/ant-design/ant-design/pull/52105) [@afc163](https://github.com/afc163)
+- TypeScript
+  - 🤖 修复 Menu `component` 属性类型抛错。[#51715](https://github.com/ant-design/ant-design/pull/51715) [@msyavuz](https://github.com/msyavuz)
+
+## 5.22.6
+
+`2024-12-23`
+
+- 🐞 修复 Button 有图标和无图标按钮对齐差一像素的问题。[#52070](https://github.com/ant-design/ant-design/pull/52070)
+- 🐞 修复 Splitter 组件折叠图标 `z-index` 层级过低问题。[#52065](https://github.com/ant-design/ant-design/pull/52065) [@wanpan11](https://github.com/wanpan11)
+- 🐞 修复 Button 启用 `loading` 时，动画不够顺滑的问题。[#52059](https://github.com/ant-design/ant-design/pull/52059) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Button 暗色模式下默认填充按钮文本在悬停时消失的问题。[#52024](https://github.com/ant-design/ant-design/pull/52024) [@DDDDD12138](https://github.com/DDDDD12138)
+
 ## 5.22.5
 
 `2024-12-15`
