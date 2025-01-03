@@ -5,8 +5,9 @@ import type { ColorPickerProps } from 'antd';
 
 type Presets = Required<ColorPickerProps>['presets'][number];
 
-const genPresets = (presets = presetPalettes) =>
-  Object.entries(presets).map<Presets>(([label, colors]) => ({ label, colors }));
+function genPresets(presets = presetPalettes) {
+  return Object.entries(presets).map<Presets>(([label, colors]) => ({ label, colors, key: label }));
+}
 
 const Demo: React.FC = () => {
   const { token } = theme.useToken();

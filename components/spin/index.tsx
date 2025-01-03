@@ -48,7 +48,7 @@ export type SpinType = React.FC<SpinProps> & {
 let defaultIndicator: React.ReactNode | undefined;
 
 function shouldDelay(spinning?: boolean, delay?: number): boolean {
-  return !!spinning && !!delay && !isNaN(Number(delay));
+  return !!spinning && !!delay && !Number.isNaN(Number(delay));
 }
 
 const Spin: SpinType = (props) => {

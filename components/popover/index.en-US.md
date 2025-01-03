@@ -47,6 +47,10 @@ Common props ref：[Common props](/docs/react/common-props)
 
 Please ensure that the child node of `Popover` accepts `onMouseEnter`, `onMouseLeave`, `onFocus`, `onClick` events.
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Popover"></ComponentTokenTable>

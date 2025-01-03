@@ -514,7 +514,7 @@ describe('Table.sorter', () => {
     rerender(
       createTable({
         showSorterTooltip: {
-          overlayClassName: 'custom-tooltip',
+          classNames: { root: 'custom-tooltip' },
         },
       }),
     );

@@ -37,6 +37,8 @@ const genFlexStyle: GenerateStyle<FlexToken> = (token) => {
   return {
     [componentCls]: {
       display: 'flex',
+      margin: 0,
+      padding: 0,
       '&-vertical': {
         flexDirection: 'column',
       },
