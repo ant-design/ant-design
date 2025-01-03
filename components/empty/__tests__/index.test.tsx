@@ -12,7 +12,7 @@ describe('Empty', () => {
   rtlTest(Empty);
 
   it('image size should change', () => {
-    const { container } = render(<Empty imageStyle={{ height: 20 }} />);
+    const { container } = render(<Empty styles={{ image: { height: 20 } }} />);
     expect(container.querySelector<HTMLDivElement>('.ant-empty-image')?.style.height).toBe('20px');
   });
 
@@ -51,19 +51,19 @@ describe('Empty', () => {
       root: 'custom-root',
       description: 'custom-description',
       footer: 'custom-footer',
-      icon: 'custom-icon',
+      image: 'custom-image',
     };
 
     const customStyles = {
       root: { color: 'red' },
       description: { color: 'green' },
       footer: { color: 'yellow' },
-      icon: { backgroundColor: 'black' },
+      image: { backgroundColor: 'black' },
     };
 
     const { container } = render(
       <Empty
-        image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+        image={Empty.PRESENTED_IMAGE_SIMPLE}
         classNames={customClassNames}
         styles={customStyles}
         description={'Description'}
@@ -77,18 +77,18 @@ describe('Empty', () => {
     const emptyDescriptionElement = container.querySelector(
       '.ant-empty-description',
     ) as HTMLElement;
-    const emptyIconElement = container.querySelector('.ant-empty-image') as HTMLElement;
+    const emptyImageElement = container.querySelector('.ant-empty-image') as HTMLElement;
 
     // check classNames
     expect(emptyElement.classList).toContain('custom-root');
     expect(emptyFooterElement.classList).toContain('custom-footer');
     expect(emptyDescriptionElement.classList).toContain('custom-description');
-    expect(emptyIconElement.classList).toContain('custom-icon');
+    expect(emptyImageElement.classList).toContain('custom-image');
 
     // check styles
     expect(emptyElement.style.color).toBe('red');
     expect(emptyDescriptionElement.style.color).toBe('green');
     expect(emptyFooterElement.style.color).toBe('yellow');
-    expect(emptyIconElement.style.backgroundColor).toBe('black');
+    expect(emptyImageElement.style.backgroundColor).toBe('black');
   });
 });

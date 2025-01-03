@@ -382,7 +382,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
           image={Empty.PRESENTED_IMAGE_SIMPLE}
           description={locale.filterEmptyText}
           styles={{
-            icon: {
+            image: {
               height: 24,
             },
           }}

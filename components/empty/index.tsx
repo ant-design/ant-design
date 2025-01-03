@@ -15,13 +15,13 @@ export interface TransferLocale {
   description: string;
 }
 
-export type SemanticName = 'root' | 'icon' | 'description' | 'footer';
+export type SemanticName = 'root' | 'image' | 'description' | 'footer';
 export interface EmptyProps {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
-  /** @deprecated Please use `styles={{ icon: {} }}` instead */
+  /** @deprecated Please use `styles={{ image: {} }}` instead */
   imageStyle?: React.CSSProperties;
   image?: React.ReactNode;
   description?: React.ReactNode;
@@ -71,7 +71,7 @@ const Empty: CompoundedComponent = (props) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Empty');
 
-    [['imageStyle', 'styles: { icon: {} }']].forEach(([deprecatedName, newName]) => {
+    [['imageStyle', 'styles: { image: {} }']].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
   }
@@ -96,8 +96,12 @@ const Empty: CompoundedComponent = (props) => {
       {...restProps}
     >
       <div
-        className={classNames(`${prefixCls}-icon`, empty?.classNames?.icon, emptyClassNames?.icon)}
-        style={{ ...imageStyle, ...empty?.styles?.icon, ...styles?.icon }}
+        className={classNames(
+          `${prefixCls}-image`,
+          empty?.classNames?.image,
+          emptyClassNames?.image,
+        )}
+        style={{ ...imageStyle, ...empty?.styles?.image, ...styles?.image }}
       >
         {imageNode}
       </div>

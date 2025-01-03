@@ -7,13 +7,13 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 const locales = {
   cn: {
     root: '根元素',
-    icon: '图片元素',
+    image: '图标元素',
     description: '描述元素',
     footer: '底部元素',
   },
   en: {
     root: 'Root element',
-    icon: 'Image element',
+    image: 'Image element',
     description: 'Description element',
     footer: 'Footer element',
   },
@@ -24,14 +24,14 @@ const App: React.FC = () => {
   return (
     <SemanticPreview
       semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'icon', desc: locale.icon, version: '6.0.0' },
-        { name: 'description', desc: locale.description, version: '6.0.0' },
-        { name: 'footer', desc: locale.footer, version: '6.0.0' },
+        { name: 'root', desc: locale.root, version: '5.23.0' },
+        { name: 'image', desc: locale.image, version: '5.23.0' },
+        { name: 'description', desc: locale.description, version: '5.23.0' },
+        { name: 'footer', desc: locale.footer, version: '5.23.0' },
       ]}
     >
       <Empty
-        image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+        image={Empty.PRESENTED_IMAGE_SIMPLE}
         styles={{ icon: { height: 60 } }}
         description={
           <Typography.Text>
