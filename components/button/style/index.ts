@@ -2,7 +2,8 @@ import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import { genFocusStyle, resetIcon } from '../../style';
-import type { GenerateStyle } from '../../theme/internal';
+import { PresetColors } from '../../theme/interface';
+import type { GenerateStyle, PresetColorKey } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import type { ButtonVariantType } from '../buttonHelpers';
 import genGroupStyle from './group';
@@ -298,6 +299,95 @@ const genTextLinkButtonStyle = (
 });
 
 // =============================== Color ==============================
+const genPresetColorStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
+  const { componentCls } = token;
+
+  return PresetColors.reduce<CSSObject>((prev: CSSObject, colorKey: PresetColorKey) => {
+    const darkColor = token[`${colorKey}6`];
+    const lightColor = token[`${colorKey}1`];
+    const hoverColor = token[`${colorKey}5`];
+    const lightHoverColor = token[`${colorKey}2`];
+    const lightBorderColor = token[`${colorKey}3`];
+    const activeColor = token[`${colorKey}7`];
+    const boxShadow = `0 ${token.controlOutlineWidth} 0 ${token[`${colorKey}1`]}`;
+
+    return {
+      ...prev,
+      [`&${componentCls}-color-${colorKey}`]: {
+        color: darkColor,
+        boxShadow,
+
+        ...genSolidButtonStyle(
+          token,
+          token.colorTextLightSolid,
+          darkColor,
+          {
+            background: hoverColor,
+          },
+          {
+            background: activeColor,
+          },
+        ),
+
+        ...genOutlinedDashedButtonStyle(
+          token,
+          darkColor,
+          token.colorBgContainer,
+          {
+            color: hoverColor,
+            borderColor: hoverColor,
+            background: token.colorBgContainer,
+          },
+          {
+            color: activeColor,
+            borderColor: activeColor,
+            background: token.colorBgContainer,
+          },
+        ),
+
+        ...genDashedButtonStyle(token),
+
+        ...genFilledButtonStyle(
+          token,
+          lightColor,
+          {
+            background: lightHoverColor,
+          },
+          {
+            background: lightBorderColor,
+          },
+        ),
+
+        ...genTextLinkButtonStyle(
+          token,
+          darkColor,
+          'link',
+          {
+            color: hoverColor,
+          },
+          {
+            color: activeColor,
+          },
+        ),
+
+        ...genTextLinkButtonStyle(
+          token,
+          darkColor,
+          'text',
+          {
+            color: hoverColor,
+            background: lightColor,
+          },
+          {
+            color: activeColor,
+            background: lightBorderColor,
+          },
+        ),
+      },
+    };
+  }, {});
+};
+
 const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   color: token.defaultColor,
 
@@ -513,6 +603,8 @@ const genColorButtonStyle: GenerateStyle<ButtonToken> = (token) => {
     [`${componentCls}-color-default`]: genDefaultButtonStyle(token),
     [`${componentCls}-color-primary`]: genPrimaryButtonStyle(token),
     [`${componentCls}-color-dangerous`]: genDangerousStyle(token),
+
+    ...genPresetColorStyle(token),
   };
 };
 
