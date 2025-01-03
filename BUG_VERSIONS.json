@@ -74,5 +74,6 @@
   "5.22.1": [
     "https://github.com/ant-design/ant-design/issues/51420",
     "https://github.com/ant-design/ant-design/issues/51430"
-  ]
+  ],
+  "5.22.6": ["https://github.com/ant-design/ant-design/issues/52124"]
 }

@@ -9,7 +9,9 @@ import type { CardProps } from '../card';
 import type { CascaderProps } from '../cascader';
 import type { CollapseProps } from '../collapse';
 import type { DatePickerProps, RangePickerProps } from '../date-picker';
+import type { DescriptionsProps } from '../descriptions';
 import type { DrawerProps } from '../drawer';
+import type { EmptyProps } from '../empty';
 import type { FlexProps } from '../flex/interface';
 import type { FloatButtonGroupProps } from '../float-button/interface';
 import type { FormProps } from '../form/Form';
@@ -22,8 +24,11 @@ import type { MenuProps } from '../menu';
 import type { ModalProps } from '../modal';
 import type { ArgsProps } from '../notification/interface';
 import type { PaginationProps } from '../pagination';
+import type { PopconfirmProps } from '../popconfirm';
+import type { PopoverProps } from '../popover';
 import type { ResultProps } from '../result';
 import type { SelectProps } from '../select';
+import type { SliderProps } from '../slider';
 import type { SpaceProps } from '../space';
 import type { SpinProps } from '../spin';
 import type { TableProps } from '../table';
@@ -31,6 +36,7 @@ import type { TabsProps } from '../tabs';
 import type { TagProps } from '../tag';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { TimePickerProps } from '../time-picker';
+import type { TooltipProps } from '../tooltip';
 import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
 import type { TreeSelectProps } from '../tree-select';
@@ -134,6 +140,11 @@ export type MenuConfig = ComponentStyleConfig & Pick<MenuProps, 'expandIcon'>;
 
 export type TourConfig = Pick<TourProps, 'closeIcon'>;
 
+export type DescriptionsConfig = ComponentStyleConfig &
+  Pick<DescriptionsProps, 'classNames' | 'styles'>;
+
+export type EmptyConfig = ComponentStyleConfig & Pick<EmptyProps, 'classNames' | 'styles'>;
+
 export type ModalConfig = ComponentStyleConfig &
   Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon' | 'closable'>;
 
@@ -176,6 +187,17 @@ export type PaginationConfig = ComponentStyleConfig & Pick<PaginationProps, 'sho
 export type SelectConfig = ComponentStyleConfig & Pick<SelectProps, 'showSearch' | 'variant'>;
 
 export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'classNames' | 'styles'>;
+
+export type TooltipConfig = Pick<TooltipProps, 'className' | 'style' | 'styles' | 'classNames'>;
+
+export type PopoverConfig = Pick<PopoverProps, 'className' | 'style' | 'styles' | 'classNames'>;
+
+export type PopconfirmConfig = Pick<
+  PopconfirmProps,
+  'className' | 'style' | 'styles' | 'classNames'
+>;
+
+export type SliderConfig = ComponentStyleConfig & Pick<SliderProps, 'styles' | 'classNames'>;
 
 export type SpinConfig = ComponentStyleConfig & Pick<SpinProps, 'indicator'>;
 
@@ -272,12 +294,12 @@ export interface ConfigConsumerProps {
   modal?: ModalConfig;
   progress?: ComponentStyleConfig;
   result?: ResultConfig;
-  slider?: ComponentStyleConfig;
+  slider?: SliderConfig;
   breadcrumb?: ComponentStyleConfig;
   menu?: MenuConfig;
   checkbox?: ComponentStyleConfig;
-  descriptions?: ComponentStyleConfig;
-  empty?: ComponentStyleConfig;
+  descriptions?: DescriptionsConfig;
+  empty?: EmptyConfig;
   badge?: BadgeConfig;
   radio?: ComponentStyleConfig;
   rate?: ComponentStyleConfig;
@@ -292,6 +314,9 @@ export interface ConfigConsumerProps {
   timeline?: ComponentStyleConfig;
   timePicker?: TimePickerConfig;
   tour?: TourConfig;
+  tooltip?: TooltipConfig;
+  popover?: PopoverConfig;
+  popconfirm?: PopconfirmConfig;
   upload?: ComponentStyleConfig;
   notification?: NotificationConfig;
   tree?: ComponentStyleConfig;

@@ -59,7 +59,7 @@ demo:
 | buttonStyle | RadioButton 的风格样式，目前有描边和填色两种风格 | `outline` \| `solid` | `outline` |  |  |
 | defaultValue | 默认选中的值 | any | - |  |  |
 | disabled | 禁选所有子单选器 | boolean | false |  |  |
-| name | RadioGroup 下所有 `input[type="radio"]` 的 `name` 属性 | string | - |  |  |
+| name | RadioGroup 下所有 `input[type="radio"]` 的 `name` 属性。若未设置，则将回退到随机生成的名称 | string | - |  |  |
 | options | 以配置形式设置子元素 | string\[] \| number\[] \| Array&lt;[CheckboxOptionType](#checkboxoptiontype)> | - |  |  |
 | optionType | 用于设置 Radio `options` 类型 | `default` \| `button` | `default` | 4.4.0 |  |
 | size | 大小，只对按钮样式生效 | `large` \| `middle` \| `small` | - |  |  |
