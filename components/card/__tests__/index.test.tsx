@@ -239,7 +239,7 @@ describe('Card', () => {
     const { Meta } = Card;
     const customClassNames = {
       root: 'custom-root',
-      content: 'custom-content',
+      section: 'custom-section',
       avatar: 'custom-avatar',
       title: 'custom-title',
       description: 'custom-description',
@@ -247,7 +247,7 @@ describe('Card', () => {
 
     const customStyles = {
       root: { backgroundColor: 'red' },
-      content: { backgroundColor: 'black' },
+      section: { backgroundColor: 'black' },
       avatar: { backgroundColor: 'gray' },
       description: { backgroundColor: 'yellow' },
     };
@@ -270,19 +270,19 @@ describe('Card', () => {
       </Card>,
     );
     const rootElement = container.querySelector('.ant-card-meta') as HTMLElement;
-    const contentElement = container.querySelector('.ant-card-meta-content') as HTMLElement;
+    const sectionElement = container.querySelector('.ant-card-meta-section') as HTMLElement;
     const avatarElement = container.querySelector('.custom-avatar') as HTMLElement;
     const titleElement = container.querySelector('.ant-card-meta-title') as HTMLElement;
     const descriptionElement = container.querySelector('.ant-card-meta-description') as HTMLElement;
 
     expect(rootElement.classList).toContain('custom-root');
-    expect(contentElement.classList).toContain('custom-content');
+    expect(sectionElement.classList).toContain('custom-section');
     expect(avatarElement.classList).toContain('custom-avatar');
     expect(titleElement.classList).toContain('custom-title');
     expect(descriptionElement.classList).toContain('custom-description');
 
     expect(rootElement.style.backgroundColor).toBe('red');
-    expect(contentElement.style.backgroundColor).toBe('black');
+    expect(sectionElement.style.backgroundColor).toBe('black');
     expect(avatarElement.style.backgroundColor).toBe('gray');
     expect(descriptionElement.style.backgroundColor).toBe('yellow');
   });

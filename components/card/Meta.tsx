@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 
-export type SemanticName = 'root' | 'content' | 'avatar' | 'title' | 'description';
+export type SemanticName = 'root' | 'section' | 'avatar' | 'title' | 'description';
 export interface CardMetaProps {
   prefixCls?: string;
   style?: React.CSSProperties;
@@ -82,15 +82,15 @@ const Meta: React.FC<CardMetaProps> = (props) => {
     ...styles?.description,
   };
 
-  const contentClassNames = classNames(
-    `${metaPrefixCls}-content`,
-    cardMeta?.classNames?.content,
-    cardMetaClassNames?.content,
+  const sectionClassNames = classNames(
+    `${metaPrefixCls}-section`,
+    cardMeta?.classNames?.section,
+    cardMetaClassNames?.section,
   );
 
-  const contentStyles = {
-    ...cardMeta?.styles?.content,
-    ...styles?.content,
+  const sectionStyles = {
+    ...cardMeta?.styles?.section,
+    ...styles?.section,
   };
 
   const avatarDom: React.ReactNode = avatar ? (
@@ -113,7 +113,7 @@ const Meta: React.FC<CardMetaProps> = (props) => {
 
   const MetaDetail: React.ReactNode =
     titleDom || descriptionDom ? (
-      <div className={contentClassNames} style={contentStyles}>
+      <div className={sectionClassNames} style={sectionStyles}>
         {titleDom}
         {descriptionDom}
       </div>

@@ -32,7 +32,7 @@ const BlockCard: React.FC<React.PropsWithChildren> = (props) => {
   const divRef = React.useRef<HTMLDivElement>(null);
 
   return (
-    <div ref={divRef} style={{ position: 'absolute', inset: 0 }}>
+    <div ref={divRef} style={{ position: 'absolute', top: 0 }}>
       <Card
         {...props}
         title="Card title"
