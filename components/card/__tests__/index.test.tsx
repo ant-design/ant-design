@@ -177,21 +177,113 @@ describe('Card', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('should support custom className', () => {
-    const { container } = render(
-      <Card title="Card title" classNames={{ header: 'custom-head' }}>
-        <p>Card content</p>
-      </Card>,
-    );
-    expect(container).toMatchSnapshot();
-  });
-
   it('should support custom styles', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      header: 'custom-header',
+      body: 'custom-body',
+      extra: 'custom-extra',
+      title: 'custom-title',
+      actions: 'custom-actions',
+      cover: 'custom-cover',
+    };
+
+    const customStyles = {
+      root: { backgroundColor: 'red' },
+      header: { backgroundColor: 'black' },
+      body: { backgroundColor: 'gray' },
+      extra: { backgroundColor: 'purple' },
+      title: { backgroundColor: 'yellow' },
+      actions: { backgroundColor: 'blue' },
+      cover: { backgroundColor: 'green' },
+    };
     const { container } = render(
-      <Card title="Card title" styles={{ header: { color: 'red' } }}>
+      <Card
+        title="Card title"
+        cover="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+        extra="More"
+        classNames={customClassNames}
+        styles={customStyles}
+        actions={[<div key="btn"> button</div>]}
+      >
         <p>Card content</p>
       </Card>,
     );
-    expect(container).toMatchSnapshot();
+    const rootElement = container.querySelector('.ant-card') as HTMLElement;
+    const headerElement = container.querySelector('.ant-card-head') as HTMLElement;
+    const bodyElement = container.querySelector('.custom-body') as HTMLElement;
+    const extraElement = container.querySelector('.ant-card-extra') as HTMLElement;
+    const titleElement = container.querySelector('.ant-card-head-title') as HTMLElement;
+    const actionsElement = container.querySelector('.ant-card-actions') as HTMLElement;
+    const coverElement = container.querySelector('.ant-card-cover') as HTMLElement;
+
+    // check classNames
+    expect(rootElement.classList).toContain('custom-root');
+    expect(headerElement.classList).toContain('custom-header');
+    expect(bodyElement.classList).toContain('custom-body');
+    expect(extraElement.classList).toContain('custom-extra');
+    expect(titleElement.classList).toContain('custom-title');
+    expect(actionsElement.classList).toContain('custom-actions');
+    expect(coverElement.classList).toContain('custom-cover');
+
+    // check styles
+    expect(rootElement.style.backgroundColor).toBe('red');
+    expect(headerElement.style.backgroundColor).toBe('black');
+    expect(bodyElement.style.backgroundColor).toBe('gray');
+    expect(extraElement.style.backgroundColor).toBe('purple');
+    expect(titleElement.style.backgroundColor).toBe('yellow');
+    expect(actionsElement.style.backgroundColor).toBe('blue');
+    expect(coverElement.style.backgroundColor).toBe('green');
+  });
+  it('should support custom styles for Card.Meta', () => {
+    const { Meta } = Card;
+    const customClassNames = {
+      root: 'custom-root',
+      detail: 'custom-detail',
+      avatar: 'custom-avatar',
+      title: 'custom-title',
+      description: 'custom-description',
+    };
+
+    const customStyles = {
+      root: { backgroundColor: 'red' },
+      detail: { backgroundColor: 'black' },
+      avatar: { backgroundColor: 'gray' },
+      description: { backgroundColor: 'yellow' },
+    };
+    const { container } = render(
+      <Card
+        title="Card title"
+        cover="https://api.dicebear.com/7.x/miniavs/svg?seed=8"
+        extra="More"
+        classNames={customClassNames}
+        styles={customStyles}
+        actions={[<div key="testbtn"> button</div>]}
+      >
+        <Meta
+          classNames={customClassNames}
+          styles={customStyles}
+          avatar={<img alt="testimg" src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" />}
+          title="Card Meta title"
+          description="This is the description"
+        />
+      </Card>,
+    );
+    const rootElement = container.querySelector('.ant-card-meta') as HTMLElement;
+    const detailElement = container.querySelector('.ant-card-meta-detail') as HTMLElement;
+    const avatarElement = container.querySelector('.custom-avatar') as HTMLElement;
+    const titleElement = container.querySelector('.ant-card-meta-title') as HTMLElement;
+    const descriptionElement = container.querySelector('.ant-card-meta-description') as HTMLElement;
+
+    expect(rootElement.classList).toContain('custom-root');
+    expect(detailElement.classList).toContain('custom-detail');
+    expect(avatarElement.classList).toContain('custom-avatar');
+    expect(titleElement.classList).toContain('custom-title');
+    expect(descriptionElement.classList).toContain('custom-description');
+
+    expect(rootElement.style.backgroundColor).toBe('red');
+    expect(detailElement.style.backgroundColor).toBe('black');
+    expect(avatarElement.style.backgroundColor).toBe('gray');
+    expect(descriptionElement.style.backgroundColor).toBe('yellow');
   });
 });

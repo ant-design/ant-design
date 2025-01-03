@@ -1,15 +1,15 @@
 import React from 'react';
+import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
+import { Avatar, Card } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
-
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
-import { Avatar, Card } from 'antd';
 
 const { Meta } = Card;
 
 const locales = {
   cn: {
+    root: '设置卡片根元素',
     header: '设置卡片头部区域',
     body: '设置卡片内容区域',
     extra: '设置卡片右上角的操作区域',
@@ -18,6 +18,7 @@ const locales = {
     cover: '设置标题封面',
   },
   en: {
+    root: 'set `root` of card',
     header: 'set `header` of card',
     body: 'set `body` of card',
     extra: 'set `extra` of card',
@@ -58,6 +59,7 @@ const App: React.FC = () => {
   return (
     <SemanticPreview
       semantics={[
+        { name: 'root', desc: locale.root, version: '5.23.0' },
         { name: 'header', desc: locale.header, version: '5.14.0' },
         { name: 'title', desc: locale.title, version: '5.14.0' },
         { name: 'extra', desc: locale.extra, version: '5.14.0' },
