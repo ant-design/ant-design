@@ -34,10 +34,12 @@ const genStatisticStyle: GenerateStyle<StatisticToken> = (token: StatisticToken)
   return {
     [componentCls]: {
       ...resetComponent(token),
-      [`${componentCls}-title`]: {
-        marginBottom: marginXXS,
-        color: colorTextDescription,
-        fontSize: titleFontSize,
+      [`${componentCls}-header`]: {
+        paddingBottom: marginXXS,
+        [`${componentCls}-title`]: {
+          color: colorTextDescription,
+          fontSize: titleFontSize,
+        },
       },
 
       [`${componentCls}-skeleton`]: {

@@ -41,7 +41,7 @@ import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
 import type { TreeSelectProps } from '../tree-select';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
-
+import type { StatisticProps } from '../statistic';
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
 
@@ -201,6 +201,8 @@ export type SliderConfig = ComponentStyleConfig & Pick<SliderProps, 'styles' | '
 
 export type SpinConfig = ComponentStyleConfig & Pick<SpinProps, 'indicator'>;
 
+export type StatisticConfig = ComponentStyleConfig & Pick<StatisticProps, 'classNames' | 'styles'>;
+
 export type ResultConfig = ComponentStyleConfig & Pick<ResultProps, 'classNames' | 'styles'>;
 
 export type InputNumberConfig = ComponentStyleConfig & Pick<InputNumberProps, 'variant'>;
@@ -286,7 +288,7 @@ export interface ConfigConsumerProps {
   spin?: SpinConfig;
   segmented?: ComponentStyleConfig;
   steps?: ComponentStyleConfig;
-  statistic?: ComponentStyleConfig;
+  statistic?: StatisticConfig;
   image?: ImageConfig;
   layout?: ComponentStyleConfig;
   list?: ListConfig;

@@ -57,6 +57,10 @@ demo:
 | onFinish | 倒计时完成时触发 | () => void | - |  |
 | onChange | 倒计时时间变化时触发 | (value: number) => void | - | 4.16.0 |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## 主题变量（Design Token）
 
 <ComponentTokenTable component="Statistic"></ComponentTokenTable>
