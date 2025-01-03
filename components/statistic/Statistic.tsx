@@ -10,23 +10,12 @@ import StatisticNumber from './Number';
 import useStyle from './style';
 import type { FormatConfig, valueType } from './utils';
 
+export type SemanticName = 'root' | 'content' | 'title' | 'header' | 'prefix' | 'suffix';
 interface StatisticReactProps extends FormatConfig {
   prefixCls?: string;
   className?: string;
-  classNames?: {
-    root?: string;
-    content?: string;
-    title?: string;
-    prefix?: string;
-    suffix?: string;
-  };
-  styles?: {
-    root?: React.CSSProperties;
-    content?: React.CSSProperties;
-    title?: React.CSSProperties;
-    prefix?: React.CSSProperties;
-    suffix?: React.CSSProperties;
-  };
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   rootClassName?: string;
   style?: React.CSSProperties;
   value?: valueType;
@@ -100,6 +89,12 @@ const Statistic: React.FC<StatisticProps> = (props) => {
     cssVarCls,
   );
 
+  const headerClassNames = classNames(
+    `${prefixCls}-header`,
+    statistic?.classNames?.header,
+    statisticClassNames?.header,
+  );
+
   const titleClassNames = classNames(
     `${prefixCls}-title`,
     statistic?.classNames?.title,
@@ -135,8 +130,16 @@ const Statistic: React.FC<StatisticProps> = (props) => {
       onMouseLeave={onMouseLeave}
     >
       {title && (
-        <div className={titleClassNames} style={{ ...statistic?.styles?.title, ...styles?.title }}>
-          {title}
+        <div
+          className={headerClassNames}
+          style={{ ...statistic?.styles?.header, ...styles?.header }}
+        >
+          <div
+            className={titleClassNames}
+            style={{ ...statistic?.styles?.title, ...styles?.title }}
+          >
+            {title}
+          </div>
         </div>
       )}
       <Skeleton paragraph={false} loading={loading} className={`${prefixCls}-skeleton`}>

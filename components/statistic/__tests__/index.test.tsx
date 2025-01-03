@@ -213,6 +213,7 @@ describe('Statistic', () => {
   it('should apply custom styles to Statistic', () => {
     const customClassNames = {
       root: 'custom-root',
+      header: 'custom-header',
       title: 'custom-title',
       content: 'custom-content',
       prefix: 'custom-prefix',
@@ -221,6 +222,7 @@ describe('Statistic', () => {
 
     const customStyles = {
       root: { color: 'red' },
+      header: { paddingBottom: '10px' },
       title: { backgroundColor: 'blue' },
       content: { backgroundColor: 'green' },
       prefix: { color: 'yellow' },
@@ -241,6 +243,7 @@ describe('Statistic', () => {
     );
 
     const rootElement = container.querySelector('.ant-statistic') as HTMLElement;
+    const headerElement = container.querySelector('.ant-statistic-header') as HTMLElement;
     const titleElement = container.querySelector('.ant-statistic-title') as HTMLElement;
     const contentElement = container.querySelector('.ant-statistic-content') as HTMLElement;
     const prefixElement = container.querySelector('.ant-statistic-content-prefix') as HTMLElement;
@@ -248,6 +251,7 @@ describe('Statistic', () => {
 
     // check classNames
     expect(rootElement.classList).toContain('custom-root');
+    expect(headerElement.classList).toContain('custom-header');
     expect(titleElement.classList).toContain('custom-title');
     expect(contentElement.classList).toContain('custom-content');
     expect(prefixElement.classList).toContain('custom-prefix');
@@ -255,6 +259,7 @@ describe('Statistic', () => {
 
     // check styles
     expect(rootElement.style.color).toBe('red');
+    expect(headerElement.style.paddingBottom).toBe('10px');
     expect(titleElement.style.backgroundColor).toBe('blue');
     expect(contentElement.style.backgroundColor).toBe('green');
     expect(prefixElement.style.color).toBe('yellow');
