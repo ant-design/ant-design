@@ -59,7 +59,7 @@ const App: React.FC = () => {
   return (
     <SemanticPreview
       semantics={[
-        { name: 'root', desc: locale.root, version: '5.23.0' },
+        { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'header', desc: locale.header, version: '5.14.0' },
         { name: 'title', desc: locale.title, version: '5.14.0' },
         { name: 'extra', desc: locale.extra, version: '5.14.0' },

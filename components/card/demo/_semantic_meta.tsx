@@ -9,14 +9,14 @@ const { Meta } = Card;
 const locales = {
   cn: {
     root: '设置元信息根元素',
-    detail: '设置元信息详情',
+    content: '设置元信息内容元素',
     avatar: '设置元信息图标',
     title: '设置元信息标题',
     description: '设置元信息描述',
   },
   en: {
     root: 'set `root` of Card.Meta',
-    detail: 'set `detail` of Card.Meta',
+    content: 'set `content` of Card.Meta',
     avatar: 'set `avatar` of Card.Meta',
     title: 'set `title` of Card.Meta',
     description: 'set `description` of Card.Meta',
@@ -45,11 +45,11 @@ const App: React.FC = () => {
   return (
     <SemanticPreview
       semantics={[
-        { name: 'root', desc: locale.root, version: '5.23.0' },
-        { name: 'detail', desc: locale.detail, version: '5.23.0' },
-        { name: 'avatar', desc: locale.avatar, version: '5.23.0' },
-        { name: 'title', desc: locale.title, version: '5.23.0' },
-        { name: 'description', desc: locale.description, version: '5.23.0' },
+        { name: 'root', desc: locale.root, version: '6.0.0' },
+        { name: 'content', desc: locale.content, version: '6.0.0' },
+        { name: 'avatar', desc: locale.avatar, version: '6.0.0' },
+        { name: 'title', desc: locale.title, version: '6.0.0' },
+        { name: 'description', desc: locale.description, version: '6.0.0' },
       ]}
     >
       <BlockCard />
