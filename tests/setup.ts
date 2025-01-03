@@ -78,3 +78,21 @@ if (typeof MessageChannel === 'undefined') {
     return { port1, port2 };
   };
 }
+
+// Mock useId to return a stable id for snapshot testing
+jest.mock('react', () => {
+  const originReact = jest.requireActual('react');
+
+  let cloneReact = {
+    ...originReact,
+  };
+
+  if (process.env.MOCK_USE_ID !== 'false') {
+    cloneReact = {
+      ...cloneReact,
+      useId: () => 'test-id',
+    };
+  }
+
+  return cloneReact;
+});

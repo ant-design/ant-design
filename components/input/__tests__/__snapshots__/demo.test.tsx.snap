@@ -1153,6 +1153,7 @@ Array [
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="a"
         />
@@ -1172,6 +1173,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="b"
         />
@@ -1304,10 +1306,9 @@ Array [
     <span
       class="ant-input-suffix"
     >
-      <span
+      <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -1329,7 +1330,7 @@ Array [
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>,
   <br />,
@@ -1344,10 +1345,9 @@ Array [
     <span
       class="ant-input-suffix"
     >
-      <span
+      <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -1369,7 +1369,7 @@ Array [
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>,
 ]
@@ -1437,10 +1437,9 @@ exports[`renders components/input/demo/borderless-debug.tsx correctly 1`] = `
     <span
       class="ant-input-suffix"
     >
-      <span
+      <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -1462,7 +1461,7 @@ exports[`renders components/input/demo/borderless-debug.tsx correctly 1`] = `
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>
   <span
@@ -1477,10 +1476,9 @@ exports[`renders components/input/demo/borderless-debug.tsx correctly 1`] = `
     <span
       class="ant-input-suffix"
     >
-      <span
+      <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -1502,7 +1500,7 @@ exports[`renders components/input/demo/borderless-debug.tsx correctly 1`] = `
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>
   <span
@@ -1554,10 +1552,9 @@ exports[`renders components/input/demo/borderless-debug.tsx correctly 1`] = `
     <span
       class="ant-input-suffix"
     >
-      <span
+      <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -1579,7 +1576,7 @@ exports[`renders components/input/demo/borderless-debug.tsx correctly 1`] = `
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>
   <input
@@ -1683,16 +1680,15 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
             <input
               class="ant-input"
               placeholder="input search text"
-              type="text"
+              type="search"
               value=""
             />
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                role="button"
-                tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -1714,7 +1710,7 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
           <span
@@ -2339,10 +2335,9 @@ exports[`renders components/input/demo/filled-debug.tsx correctly 1`] = `
     <span
       class="ant-input-suffix"
     >
-      <span
+      <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -2364,7 +2359,7 @@ exports[`renders components/input/demo/filled-debug.tsx correctly 1`] = `
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>
   <span
@@ -2714,16 +2709,15 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         >
           <input
             class="ant-input"
-            type="text"
+            type="search"
             value="0571"
           />
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -2745,7 +2739,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
         <span
@@ -2794,16 +2788,15 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         >
           <input
             class="ant-input"
-            type="text"
+            type="search"
             value="26888888"
           />
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -2825,7 +2818,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
         <span
@@ -4192,7 +4185,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
         <input
           class="ant-input ant-input-outlined"
           placeholder="input search text"
-          type="text"
+          type="search"
           value=""
         />
         <span
@@ -4246,16 +4239,15 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
           <input
             class="ant-input"
             placeholder="input search text"
-            type="text"
+            type="search"
             value=""
           />
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -4277,7 +4269,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
         <span
@@ -4336,16 +4328,15 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
           <input
             class="ant-input"
             placeholder="input search text"
-            type="text"
+            type="search"
             value=""
           />
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -4367,7 +4358,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
         <span
@@ -4417,7 +4408,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
         <input
           class="ant-input ant-input-outlined"
           placeholder="input search text"
-          type="text"
+          type="search"
           value=""
         />
         <span
@@ -4470,16 +4461,15 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
           <input
             class="ant-input ant-input-lg"
             placeholder="input search text"
-            type="text"
+            type="search"
             value=""
           />
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -4501,7 +4491,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
         <span
@@ -4534,7 +4524,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
           <input
             class="ant-input ant-input-lg"
             placeholder="input search text"
-            type="text"
+            type="search"
             value=""
           />
           <span
@@ -4591,7 +4581,7 @@ Array [
       <input
         class="ant-input ant-input-outlined"
         placeholder="input search loading default"
-        type="text"
+        type="search"
         value=""
       />
       <span
@@ -4639,7 +4629,7 @@ Array [
       <input
         class="ant-input ant-input-outlined"
         placeholder="input search loading with enterButton"
-        type="text"
+        type="search"
         value=""
       />
       <span
@@ -4687,7 +4677,7 @@ Array [
       <input
         class="ant-input ant-input-lg ant-input-outlined"
         placeholder="input search text"
-        type="text"
+        type="search"
         value=""
       />
       <span
@@ -5057,10 +5047,9 @@ Array [
     <span
       class="ant-input-suffix"
     >
-      <span
+      <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -5082,7 +5071,7 @@ Array [
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>,
 ]
