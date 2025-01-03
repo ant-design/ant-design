@@ -93,8 +93,8 @@ exports[`renders components/tree/demo/basic.tsx extend context correctly 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="true"
-            class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-selected"
+            aria-grabbed="false"
+            class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked"
             draggable="false"
             role="treeitem"
           >
@@ -235,8 +235,8 @@ exports[`renders components/tree/demo/basic.tsx extend context correctly 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="true"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last"
+            aria-grabbed="false"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-selected ant-tree-treenode-leaf-last"
             draggable="false"
             role="treeitem"
           >
@@ -282,7 +282,7 @@ exports[`renders components/tree/demo/basic.tsx extend context correctly 1`] = `
               />
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open ant-tree-node-selected"
               title="parent 1-1"
             >
               <span
@@ -1854,7 +1854,7 @@ Array [
   <div
     style="margin-bottom: 16px;"
   >
-    showLine: 
+    showLine:
     <button
       aria-checked="true"
       class="ant-switch ant-switch-checked"
@@ -1877,7 +1877,7 @@ Array [
     </button>
     <br />
     <br />
-    showIcon: 
+    showIcon:
     <button
       aria-checked="true"
       class="ant-switch ant-switch-checked"
@@ -1900,7 +1900,7 @@ Array [
     </button>
     <br />
     <br />
-    showLeafIcon: 
+    showLeafIcon:
     <button
       aria-checked="true"
       class="ant-switch ant-switch-checked"
@@ -3490,7 +3490,7 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
   <div
     style="margin-bottom: 16px;"
   >
-    showLine: 
+    showLine:
     <button
       aria-checked="true"
       class="ant-switch ant-switch-checked"
@@ -3513,7 +3513,7 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
     </button>
     <br />
     <br />
-    showIcon: 
+    showIcon:
     <button
       aria-checked="false"
       class="ant-switch"
@@ -3536,7 +3536,7 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
     </button>
     <br />
     <br />
-    showLeafIcon: 
+    showLeafIcon:
     <div
       class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
     >
@@ -4244,8 +4244,8 @@ exports[`renders components/tree/demo/multiple-line.tsx extend context correctly
             </span>
           </div>
           <div
-            aria-expanded="true"
-            class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-selected"
+            aria-grabbed="false"
+            class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked"
             draggable="false"
             role="treeitem"
           >
@@ -4386,8 +4386,8 @@ exports[`renders components/tree/demo/multiple-line.tsx extend context correctly
             </span>
           </div>
           <div
-            aria-expanded="true"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last"
+            aria-grabbed="false"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-selected ant-tree-treenode-leaf-last"
             draggable="false"
             role="treeitem"
           >
@@ -4433,7 +4433,7 @@ exports[`renders components/tree/demo/multiple-line.tsx extend context correctly
               />
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open ant-tree-node-selected"
               title="parent 1-1"
             >
               <span
