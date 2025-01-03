@@ -121,6 +121,76 @@ export default () => {
 };
 ```
 
+### Global scene (JS/TS)
+
+Here is an example of using `Message` to handle request errors in axios global interceptors:
+
+```tsx
+// toast.ts
+import { App } from 'antd';
+import type { MessageInstance } from 'antd/es/message/interface';
+import type { ModalStaticFunctions } from 'antd/es/modal/confirm';
+import type { NotificationInstance } from 'antd/es/notification/interface';
+
+let message: MessageInstance;
+let notification: NotificationInstance;
+let modal: Omit<ModalStaticFunctions, 'warn'>;
+
+export default function Toast() {
+  const staticFunction = App.useApp();
+  message = staticFunction.message;
+  modal = staticFunction.modal;
+  notification = staticFunction.notification;
+  return null;
+}
+
+export { message, notification, modal };
+```
+
+```tsx
+// App.tsx
+// Wrap the Toast component in the antd's App component to get the context
+import { App as AntdApp, ConfigProvider, Layout } from 'antd';
+
+import Toast from './toast';
+
+function App() {
+  return (
+    <ConfigProvider>
+      <AntdApp>
+        <Toast />
+      </AntdApp>
+    </ConfigProvider>
+  );
+}
+
+export default App;
+```
+
+```ts
+// fetch.ts
+// Instead of directly import from antd, import the message from the toast file
+import { message } from './toast';
+
+axios.interceptors.response.use(
+  function (response) {
+    return response;
+  },
+  function (error: AxiosError) {
+    if (error.response) {
+      if (error.response.status === 401) {
+        void message.error('user not login');
+      } else {
+        void message.error('error occur');
+      }
+    } else {
+      void message.error(error.message);
+    }
+    return Promise.reject(error);
+  },
+);
+```
+
 ## API
 
 Common props ref：[Common props](/docs/react/common-props)
