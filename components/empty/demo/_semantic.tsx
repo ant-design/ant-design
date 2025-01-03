@@ -32,7 +32,7 @@ const App: React.FC = () => {
     >
       <Empty
         image={Empty.PRESENTED_IMAGE_SIMPLE}
-        styles={{ icon: { height: 60 } }}
+        styles={{ image: { height: 60 } }}
         description={
           <Typography.Text>
             Customize <a href="#API">Description</a>
