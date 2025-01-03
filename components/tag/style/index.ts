@@ -1,6 +1,6 @@
 import type React from 'react';
 import { unit } from '@ant-design/cssinjs';
-import type { CSSInterpolation } from '@ant-design/cssinjs';
+import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { FastColor } from '@ant-design/fast-color';
 
 import { resetComponent } from '../../style';
@@ -18,6 +18,11 @@ export interface ComponentToken {
    * @descEN Default text color
    */
   defaultColor: string;
+  /**
+   * @desc 禁用状态边框颜色
+   * @descEN Disabled state border color
+   */
+  borderColorDisabled: string;
 }
 
 export interface TagToken extends FullToken<'Tag'> {
@@ -34,6 +39,21 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
   const { paddingXXS, lineWidth, tagPaddingHorizontal, componentCls, calc } = token;
   const paddingInline = calc(tagPaddingHorizontal).sub(lineWidth).equal();
   const iconMarginInline = calc(paddingXXS).sub(lineWidth).equal();
+
+  const disabledStyle: CSSObject = {
+    color: token.colorTextDisabled,
+    cursor: 'not-allowed',
+    backgroundColor: token.colorBgContainerDisabled,
+    borderColor: token.borderColorDisabled,
+    a: {
+      cursor: 'not-allowed',
+      color: token.colorTextDisabled,
+      '&:hover': {
+        color: token.colorTextDisabled,
+      },
+    },
+  };
+
   return {
     // Result
     [componentCls]: {
@@ -105,6 +125,31 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         '&:active': {
           backgroundColor: token.colorPrimaryActive,
         },
+
+        '&-disabled': {
+          cursor: 'not-allowed',
+
+          [`&:not(${componentCls}-checkable-checked)`]: {
+            color: token.colorTextDisabled,
+            '&:hover': {
+              backgroundColor: 'transparent',
+            },
+          },
+
+          [`&${componentCls}-checkable-checked`]: {
+            color: token.colorTextDisabled,
+            backgroundColor: token.colorBgContainerDisabled,
+          },
+
+          '&:hover, &:active': {
+            backgroundColor: token.colorBgContainerDisabled,
+            color: token.colorTextDisabled,
+          },
+
+          [`&:not(${componentCls}-checkable-checked):hover`]: {
+            color: token.colorTextDisabled,
+          },
+        },
       },
 
       '&-hidden': {
@@ -119,6 +164,23 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
     [`${componentCls}-borderless`]: {
       borderColor: 'transparent',
       background: token.tagBorderlessBg,
+    },
+
+    [`&${componentCls}-disabled`]: {
+      ...disabledStyle,
+
+      [`&${componentCls}-borderless, &${componentCls}-has-color`]: {
+        borderColor: 'transparent',
+        color: token.colorTextDisabled,
+      },
+
+      [`${componentCls}-close-icon`]: {
+        cursor: 'not-allowed',
+        color: token.colorTextDisabled,
+        '&:hover': {
+          color: token.colorTextDisabled,
+        },
+      },
     },
   };
 };
@@ -142,6 +204,7 @@ export const prepareComponentToken: GetDefaultToken<'Tag'> = (token) => ({
     .onBackground(token.colorBgContainer)
     .toHexString(),
   defaultColor: token.colorText,
+  borderColorDisabled: token.colorBorder,
 });
 
 export default genStyleHooks<'Tag'>(

@@ -18,6 +18,14 @@ const genPresetStyle = (token: TagToken) =>
       },
       [`&${token.componentCls}-borderless`]: {
         borderColor: 'transparent',
+        [`&${token.componentCls}-disabled`]: {
+          borderColor: 'transparent',
+        },
+      },
+      [`&${token.componentCls}-disabled`]: {
+        color: token.colorTextDisabled,
+        backgroundColor: token.colorBgContainerDisabled,
+        borderColor: token.borderColorDisabled,
       },
     },
   }));
