@@ -275,4 +275,27 @@ describe('Watermark', () => {
     // filledHeight / ratio
     expect(useClipsCache.get(key)?.[2]).toBeTruthy();
   });
+
+  it('should set watermark from cache correctly', async () => {
+    const content = 'should set watermark from cache correctly';
+    render(<Watermark content={content} />);
+    await waitFakeTimer();
+    const toDataURL = HTMLCanvasElement.prototype.toDataURL;
+    HTMLCanvasElement.prototype.toDataURL = () => {
+      HTMLCanvasElement.prototype.toDataURL = toDataURL;
+      const now = Date.now();
+      while (Date.now() - now < 30000) {
+        //
+      }
+      return '';
+    };
+    const now = Date.now();
+    render(<Watermark content={content} />);
+    render(<Watermark content={content} />);
+    render(<Watermark content={content} />);
+    await waitFakeTimer();
+    expect((Date.now() - now) / 1000).toBeLessThanOrEqual(20);
+
+    HTMLCanvasElement.prototype.toDataURL = toDataURL;
+  });
 });
