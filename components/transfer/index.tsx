@@ -74,6 +74,11 @@ export interface TransferLocale {
   removeCurrent?: string;
 }
 
+export interface TransferSearchOption {
+  placeholder?: string;
+  defaultValue?: string;
+}
+
 export interface TransferProps<RecordType = any> {
   prefixCls?: string;
   className?: string;
@@ -94,7 +99,7 @@ export interface TransferProps<RecordType = any> {
   operationStyle?: CSSProperties;
   titles?: React.ReactNode[];
   operations?: string[];
-  showSearch?: boolean;
+  showSearch?: boolean | TransferSearchOption;
   filterOption?: (inputValue: string, item: RecordType, direction: TransferDirection) => boolean;
   locale?: Partial<TransferLocale>;
   footer?: (

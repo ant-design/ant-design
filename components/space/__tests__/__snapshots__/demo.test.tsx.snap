@@ -620,7 +620,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         >
           <input
             class="ant-input ant-input-outlined"
-            type="text"
+            type="search"
             value="0571"
           />
           <span
@@ -669,16 +669,15 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
           >
             <input
               class="ant-input"
-              type="text"
+              type="search"
               value="26888888"
             />
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon"
-                role="button"
-                tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -700,7 +699,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
           <span
@@ -746,7 +745,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         >
           <input
             class="ant-input ant-input-outlined"
-            type="text"
+            type="search"
             value="+1"
           />
           <span
@@ -2910,7 +2909,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         >
           <input
             class="ant-input ant-input-outlined"
-            type="text"
+            type="search"
             value=""
           />
           <span
@@ -2955,7 +2954,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         >
           <input
             class="ant-input ant-input-outlined"
-            type="text"
+            type="search"
             value=""
           />
           <span
@@ -4145,7 +4144,7 @@ Array [
             <input
               class="ant-input ant-input-outlined"
               placeholder="Search"
-              type="text"
+              type="search"
               value=""
             />
             <span
@@ -4505,6 +4504,7 @@ Array [
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="small"
         />
@@ -4524,6 +4524,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="middle"
         />
@@ -4543,6 +4544,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="large"
         />
@@ -4562,6 +4564,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="customize"
         />
