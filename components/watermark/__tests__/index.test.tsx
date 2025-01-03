@@ -1,12 +1,14 @@
 import React from 'react';
+import { getPixelRatio } from 'antd/es/watermark/utils';
 
-import Watermark from '..';
+import Watermark, { WatermarkProps } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, waitFakeTimer } from '../../../tests/utils';
 import Drawer from '../../drawer';
 import Modal from '../../modal';
 import Cache from '../cache';
+import { cache as useClipsCache } from '../useClips';
 
 describe('Watermark', () => {
   mountTest(Watermark);
@@ -226,5 +228,51 @@ describe('Watermark', () => {
     const cache = new Cache();
     cache.set(key, value);
     expect(cache.get(key)).toBe(value);
+  });
+
+  it('should set watermark in cache if not available', async () => {
+    const font: WatermarkProps['font'] = {
+      color: 'rgba(0, 0, 0, 0.15)',
+      fontSize: 16,
+      fontStyle: 'normal',
+      fontWeight: 'normal',
+      fontFamily: 'sans-serif',
+      textAlign: 'center',
+    };
+    const content = 'antd-watermark';
+    const width = 100;
+    const height = 120;
+    const rotate = 10;
+    const gapX = 13;
+    const gapY = 45;
+    const key = Cache.generateKey(
+      content,
+      rotate,
+      getPixelRatio(),
+      width,
+      height,
+      font,
+      gapX,
+      gapY,
+    );
+    expect(useClipsCache.get(key)).toBeUndefined();
+    const { container } = render(
+      <Watermark
+        content={content}
+        rotate={rotate}
+        width={width}
+        height={height}
+        font={font}
+        gap={[gapX, gapY]}
+      />,
+    );
+    await waitFakeTimer();
+    expect(container).toMatchSnapshot();
+    // fCanvas.toDataURL()
+    expect(useClipsCache.get(key)?.[0]).toBeTruthy();
+    // filledWidth / ratio
+    expect(useClipsCache.get(key)?.[1]).toBeTruthy();
+    // filledHeight / ratio
+    expect(useClipsCache.get(key)?.[2]).toBeTruthy();
   });
 });

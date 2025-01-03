@@ -6,7 +6,7 @@ export const FontGap = 3;
 
 // The cache instance is currently used only within this file.
 // If manual cache management is required, consider exporting it.
-const cache = new Cache<[dataURL: string, finalWidth: number, finalHeight: number]>();
+export const cache = new Cache<[dataURL: string, finalWidth: number, finalHeight: number]>();
 
 function prepareCanvas(
   width: number,
