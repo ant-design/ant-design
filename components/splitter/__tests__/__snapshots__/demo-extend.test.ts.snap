@@ -198,7 +198,7 @@ exports[`renders components/splitter/demo/control.tsx extend context correctly 1
 
 exports[`renders components/splitter/demo/control.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders components/splitter/demo/custom.tsx extend context correctly 1`] = `
+exports[`renders components/splitter/demo/customize.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-splitter ant-splitter-horizontal"
@@ -398,7 +398,7 @@ Array [
 ]
 `;
 
-exports[`renders components/splitter/demo/custom.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/splitter/demo/customize.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/splitter/demo/debug.tsx extend context correctly 1`] = `
 <div
