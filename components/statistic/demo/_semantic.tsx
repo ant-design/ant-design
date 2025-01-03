@@ -45,11 +45,11 @@ const App: React.FC = () => {
   return (
     <SemanticPreview
       semantics={[
-        { name: 'root', desc: locale.root, version: '5.23.0' },
-        { name: 'title', desc: locale.title, version: '5.23.0' },
-        { name: 'content', desc: locale.content, version: '5.23.0' },
-        { name: 'prefix', desc: locale.prefix, version: '5.23.0' },
-        { name: 'suffix', desc: locale.suffix, version: '5.23.0' },
+        { name: 'root', desc: locale.root, version: '6.0.0' },
+        { name: 'title', desc: locale.title, version: '6.0.0' },
+        { name: 'content', desc: locale.content, version: '6.0.0' },
+        { name: 'prefix', desc: locale.prefix, version: '6.0.0' },
+        { name: 'suffix', desc: locale.suffix, version: '6.0.0' },
       ]}
     >
       <BlockList />
