@@ -29,6 +29,7 @@ export default function useResize(
 
   // Real px sizes
   const [cacheSizes, setCacheSizes] = React.useState<number[]>([]);
+  const cacheCollapsedSize = React.useRef<number[]>([]);
 
   /**
    * When start drag, check the direct is `start` or `end`.
@@ -129,6 +130,7 @@ export default function useResize(
       // Collapse directly
       currentSizes[currentIndex] = 0;
       currentSizes[targetIndex] += currentSize;
+      cacheCollapsedSize.current[index] = currentSize;
     } else {
       const totalSize = currentSize + targetSize;
 
@@ -140,9 +142,22 @@ export default function useResize(
       const limitStart = Math.max(currentSizeMin, totalSize - targetSizeMax);
       const limitEnd = Math.min(currentSizeMax, totalSize - targetSizeMin);
       const halfOffset = (limitEnd - limitStart) / 2;
+      const targetCacheCollapsedSize = cacheCollapsedSize.current[index];
+      const currentCacheCollapsedSize = totalSize - targetCacheCollapsedSize;
+      const shouldUseCache =
+        currentCacheCollapsedSize &&
+        targetCacheCollapsedSize <= targetSizeMax &&
+        targetCacheCollapsedSize >= targetSizeMin &&
+        currentCacheCollapsedSize <= currentSizeMax &&
+        currentCacheCollapsedSize >= currentSizeMin;
 
-      currentSizes[currentIndex] -= halfOffset;
-      currentSizes[targetIndex] += halfOffset;
+      if (shouldUseCache) {
+        currentSizes[targetIndex] = targetCacheCollapsedSize;
+        currentSizes[currentIndex] = currentCacheCollapsedSize;
+      } else {
+        currentSizes[currentIndex] -= halfOffset;
+        currentSizes[targetIndex] += halfOffset;
+      }
     }
 
     updateSizes(currentSizes);
