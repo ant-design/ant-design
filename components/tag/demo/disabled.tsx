@@ -1,8 +1,10 @@
-import React from 'react';
-import { Space, Tag, message } from 'antd';
+import React, { useState } from 'react';
+import { Flex, Tag, message, Switch } from 'antd';
 import { CheckCircleOutlined } from '@ant-design/icons';
 
 const App: React.FC = () => {
+  const [isDisabled, setIsDisabled] = useState(true);
+
   const handleClick = (tagName: string) => {
     console.log(`Tag ${tagName} clicked`);
     message.info(`Tag ${tagName} clicked`);
@@ -14,103 +16,89 @@ const App: React.FC = () => {
   };
 
   return (
-    <Space direction="vertical">
-      <Space size={[0, 8]} wrap>
-        <Tag disabled onClick={() => handleClick('Basic')}>
-          Tag
+    <Flex vertical gap="middle">
+      {/* 禁用状态开关 */}
+      <Flex gap="small" align="center">
+        <Switch
+          checked={isDisabled}
+          onChange={setIsDisabled}
+          checkedChildren="Disabled"
+          unCheckedChildren="Enabled"
+        />
+        <span>Toggle disabled state</span>
+      </Flex>
+
+      <Flex gap="small" wrap>
+        <Tag disabled={isDisabled} onClick={() => handleClick('Basic')}>
+          Basic Tag
         </Tag>
-        <Tag disabled onClick={() => handleClick('Link')}>
+        <Tag disabled={isDisabled} onClick={() => handleClick('Click Test')}>
+          Disabled Click
+        </Tag>
+      </Flex>
+
+      <Flex gap="small" wrap>
+        <Tag disabled={isDisabled} onClick={() => handleClick('Link')}>
           <a href="https://ant.design">Link Tag</a>
         </Tag>
+      </Flex>
+
+      <Flex gap="small" wrap>
         <Tag
-          disabled
+          disabled={isDisabled}
           color="success"
           icon={<CheckCircleOutlined />}
           onClick={() => handleClick('Success')}
         >
-          Success
+          Icon Tag
         </Tag>
-        <Tag disabled color="red" onClick={() => handleClick('Red')}>
-          Red
-        </Tag>
-        <Tag disabled color="#f50" onClick={() => handleClick('#f50')}>
-          #f50
-        </Tag>
-      </Space>
+      </Flex>
 
-      <Space size={[0, 8]} wrap>
+      <Flex gap="small" wrap>
+        <Tag disabled={isDisabled} color="red" onClick={() => handleClick('Red')}>
+          Preset Color Red
+        </Tag>
+        <Tag disabled={isDisabled} color="#f50" onClick={() => handleClick('#f50')}>
+          Custom Color #f50
+        </Tag>
+      </Flex>
+
+      <Flex gap="small" wrap>
         <Tag
-          disabled
+          disabled={isDisabled}
           closable
-          onClick={() => handleClick('Closable 1')}
-          onClose={() => handleClose('Closable 1')}
+          onClick={() => handleClick('Closable')}
+          onClose={() => handleClose('Closable')}
         >
-          Tag
+          Closable Tag
         </Tag>
         <Tag
-          disabled
-          closable
-          onClick={() => handleClick('Closable Link')}
-          onClose={() => handleClose('Closable Link')}
-        >
-          <a href="https://ant.design">Link Tag</a>
-        </Tag>
-        <Tag
-          disabled
+          disabled={isDisabled}
           closable
           color="success"
           icon={<CheckCircleOutlined />}
           onClick={() => handleClick('Closable Success')}
           onClose={() => handleClose('Closable Success')}
         >
-          Success
+          Closable with Icon
         </Tag>
-        <Tag
-          disabled
-          closable
-          color="red"
-          onClick={() => handleClick('Closable Red')}
-          onClose={() => handleClose('Closable Red')}
-        >
-          Red
-        </Tag>
-        <Tag disabled color="#f50" onClick={() => handleClick('#f50')}>
-          #f50
-        </Tag>
-      </Space>
+      </Flex>
 
-      <Space size={[0, 8]} wrap>
-        <Tag disabled onClick={() => handleClick('Click Test')}>
-          Disabled Click
+      <Flex gap="small" wrap>
+        <Tag disabled={isDisabled} bordered={false} onClick={() => handleClick('Borderless')}>
+          Borderless Basic
         </Tag>
         <Tag
-          disabled
-          closable
-          onClick={() => handleClick('Close Test')}
-          onClose={() => handleClose('Close Test')}
-        >
-          Disabled Close
-        </Tag>
-      </Space>
-
-      <Space size={[0, 8]} wrap>
-        <Tag disabled bordered={false} onClick={() => handleClick('Borderless')}>
-          Borderless Tag
-        </Tag>
-        <Tag
-          disabled
+          disabled={isDisabled}
           bordered={false}
           color="success"
           icon={<CheckCircleOutlined />}
           onClick={() => handleClick('Borderless Success')}
         >
-          Borderless Success
-        </Tag>
-        <Tag disabled bordered={false} color="red" onClick={() => handleClick('Borderless Red')}>
-          Borderless Red
+          Borderless with Icon
         </Tag>
         <Tag
-          disabled
+          disabled={isDisabled}
           bordered={false}
           closable
           onClick={() => handleClick('Borderless Closable')}
@@ -118,8 +106,8 @@ const App: React.FC = () => {
         >
           Borderless Closable
         </Tag>
-      </Space>
-    </Space>
+      </Flex>
+    </Flex>
   );
 };
 
