@@ -39,6 +39,7 @@ import type { PopoverProps } from '../popover';
 import type { PopconfirmProps } from '../popconfirm';
 import type { DescriptionsProps } from '../descriptions';
 import type { SliderProps } from '../slider';
+import type { EmptyProps } from '../empty';
 
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
@@ -140,6 +141,8 @@ export type TourConfig = Pick<TourProps, 'closeIcon'>;
 
 export type DescriptionsConfig = ComponentStyleConfig &
   Pick<DescriptionsProps, 'classNames' | 'styles'>;
+
+export type EmptyConfig = ComponentStyleConfig & Pick<EmptyProps, 'classNames' | 'styles'>;
 
 export type ModalConfig = ComponentStyleConfig &
   Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon' | 'closable'>;
@@ -293,7 +296,7 @@ export interface ConfigConsumerProps {
   menu?: MenuConfig;
   checkbox?: ComponentStyleConfig;
   descriptions?: DescriptionsConfig;
-  empty?: ComponentStyleConfig;
+  empty?: EmptyConfig;
   badge?: BadgeConfig;
   radio?: ComponentStyleConfig;
   rate?: ComponentStyleConfig;
