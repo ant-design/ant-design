@@ -5,6 +5,14 @@ export interface SplitterProps {
   style?: React.CSSProperties;
   rootClassName?: string;
   layout?: 'horizontal' | 'vertical';
+  draggerIcon?: {
+    default: React.ReactElement;
+    active: React.ReactElement;
+  };
+  collapsibleIcon?: {
+    start: React.ReactElement;
+    end: React.ReactElement;
+  };
   onResizeStart?: (sizes: number[]) => void;
   onResize?: (sizes: number[]) => void;
   onResizeEnd?: (sizes: number[]) => void;

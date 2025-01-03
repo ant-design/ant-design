@@ -23,8 +23,9 @@ Can be used to separate areas horizontally or vertically. When you need to freel
 <code src="./demo/collapsible.tsx">Collapsible</code>
 <code src="./demo/multiple.tsx">Multiple panels</code>
 <code src="./demo/group.tsx">Complex combination</code>
-<code src="./demo/nested-in-tabs.tsx" debug>Nested in tabs</code>
 <code src="./demo/lazy.tsx" version="5.23.0">Lazy</code>
+<code src="./demo/customize.tsx" version="5.23.0">Customize</code>
+<code src="./demo/nested-in-tabs.tsx" debug>Nested in tabs</code>
 <code src="./demo/debug.tsx" debug>Debug</code>
 
 ## API
@@ -42,6 +43,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | onResize | Panel size change callback | `(sizes: number[]) => void` | - | - |
 | onResizeEnd | Drag end callback | `(sizes: number[]) => void` | - | - |
 | lazy | Lazy mode | `boolean` | `false` | 5.23.0 |
+| collapsibleIcon | custom collapsible icon | `{start: React.ReactElement; end: React.ReactElement;}` | - | 5.23.0 |
+| draggerIcon | custom dragger icon | `{default: React.ReactElement; active: React.ReactElement;}` | - | 5.23.0 |
 
 ### Panel
 
