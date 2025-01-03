@@ -166,15 +166,15 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   };
 
   // ======================== Render ========================
-  const [startIcon, endIcon, startCustom, endCustom] = useMemo(() => {
+  const [startIcon, endIcon, startCustomize, endCustomize] = useMemo(() => {
     let startIcon = null;
     let endIcon = null;
-    let startCustom = false;
-    let endCustom = false;
+    let startCustomize = false;
+    let endCustomize = false;
 
     if (collapsibleIcon?.start) {
       startIcon = collapsibleIcon.start;
-      startCustom = true;
+      startCustomize = true;
     } else if (vertical) {
       startIcon = <DownOutlined />;
     } else {
@@ -183,14 +183,14 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
 
     if (collapsibleIcon?.end) {
       endIcon = collapsibleIcon.end;
-      endCustom = true;
+      endCustomize = true;
     } else if (vertical) {
       endIcon = <UpOutlined />;
     } else {
       endIcon = <LeftOutlined />;
     }
 
-    return [startIcon, endIcon, startCustom, endCustom];
+    return [startIcon, endIcon, startCustomize, endCustomize];
   }, [collapsibleIcon]);
 
   return (
@@ -214,7 +214,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         className={classNames(`${splitBarPrefixCls}-dragger`, {
           [`${splitBarPrefixCls}-dragger-disabled`]: !resizable,
           [`${splitBarPrefixCls}-dragger-active`]: active,
-          [`${splitBarPrefixCls}-dragger-custom`]: !!draggerIcon,
+          [`${splitBarPrefixCls}-dragger-customize`]: !!draggerIcon,
         })}
         onMouseDown={onMouseDown}
         onTouchStart={onTouchStart}
@@ -233,7 +233,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
             `${splitBarPrefixCls}-collapse-bar`,
             `${splitBarPrefixCls}-collapse-bar-start`,
             {
-              [`${splitBarPrefixCls}-collapse-bar-custom`]: startCustom,
+              [`${splitBarPrefixCls}-collapse-bar-customize`]: startCustomize,
             },
           )}
           onClick={() => onCollapse(index, 'start')}
@@ -255,7 +255,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
             `${splitBarPrefixCls}-collapse-bar`,
             `${splitBarPrefixCls}-collapse-bar-end`,
             {
-              [`${splitBarPrefixCls}-collapse-bar-custom`]: endCustom,
+              [`${splitBarPrefixCls}-collapse-bar-customize`]: endCustomize,
             },
           )}
           onClick={() => onCollapse(index, 'end')}

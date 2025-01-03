@@ -4,4 +4,4 @@
 
 ## en-US
 
-Custom handle elements and style
+customize handle elements and style

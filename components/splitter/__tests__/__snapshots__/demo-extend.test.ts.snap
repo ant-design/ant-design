@@ -228,7 +228,7 @@ Array [
       role="separator"
     >
       <div
-        class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled ant-splitter-bar-dragger-custom"
+        class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled ant-splitter-bar-dragger-customize"
       >
         <div
           class="ant-splitter-bar-dragger-icon-wrapper"
@@ -279,7 +279,7 @@ Array [
       role="separator"
     >
       <div
-        class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled ant-splitter-bar-dragger-custom"
+        class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled ant-splitter-bar-dragger-customize"
       >
         <div
           class="ant-splitter-bar-dragger-icon-wrapper"
@@ -351,7 +351,7 @@ Array [
       role="separator"
     >
       <div
-        class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled ant-splitter-bar-dragger-custom"
+        class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled ant-splitter-bar-dragger-customize"
       >
         <div
           class="ant-splitter-bar-dragger-icon-wrapper"

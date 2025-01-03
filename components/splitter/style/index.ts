@@ -174,8 +174,8 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
             },
           },
 
-          // custom dragger icon
-          '&-custom': {
+          // customize dragger icon
+          '&-customize': {
             [`${splitBarCls}-dragger-icon-wrapper`]: {
               ...centerStyle,
             },
@@ -201,16 +201,16 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           justifyContent: 'center',
 
           // Hover
-          [`&:hover:not(${splitBarCls}-collapse-bar-custom)`]: {
+          [`&:hover:not(${splitBarCls}-collapse-bar-customize)`]: {
             background: controlItemBgActive,
           },
 
           // Active
-          [`&:active:not(${splitBarCls}-collapse-bar-custom)`]: {
+          [`&:active:not(${splitBarCls}-collapse-bar-customize)`]: {
             background: controlItemBgActiveHover,
           },
         },
-        [`${splitBarCls}-collapse-bar-custom`]: {
+        [`${splitBarCls}-collapse-bar-customize`]: {
           background: 'transparent',
         },
 

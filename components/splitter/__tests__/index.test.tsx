@@ -552,40 +552,40 @@ describe('Splitter', () => {
 
   // ============================= customize =============================
   describe('customize', () => {
-    it('custom draggerIcon', async () => {
+    it('customize draggerIcon', async () => {
       const { container } = render(
         <SplitterDemo
           draggerIcon={{
-            default: <ColumnWidthOutlined className="custom-dragger-icon" />,
-            active: <ColumnWidthOutlined className="custom-dragger-icon-active" />,
+            default: <ColumnWidthOutlined className="customize-dragger-icon" />,
+            active: <ColumnWidthOutlined className="customize-dragger-icon-active" />,
           }}
         />,
       );
       const draggerEle = container.querySelector('.ant-splitter-bar-dragger')!;
 
-      expect(draggerEle).toHaveClass('ant-splitter-bar-dragger-custom');
+      expect(draggerEle).toHaveClass('ant-splitter-bar-dragger-customize');
       expect(draggerEle.querySelector('.ant-splitter-bar-dragger-icon-wrapper')).toBeTruthy();
-      expect(draggerEle.querySelector('.custom-dragger-icon')).toBeTruthy();
-      expect(draggerEle.querySelector('.custom-dragger-icon-active')).toBeFalsy();
+      expect(draggerEle.querySelector('.customize-dragger-icon')).toBeTruthy();
+      expect(draggerEle.querySelector('.customize-dragger-icon-active')).toBeFalsy();
 
       const downEvent = createEvent.mouseDown(draggerEle);
       (downEvent as any).pageX = 0;
       (downEvent as any).pageY = 0;
       fireEvent(draggerEle, downEvent);
 
-      expect(draggerEle.querySelector('.custom-dragger-icon')).toBeFalsy();
-      expect(draggerEle.querySelector('.custom-dragger-icon-active')).toBeTruthy();
+      expect(draggerEle.querySelector('.customize-dragger-icon')).toBeFalsy();
+      expect(draggerEle.querySelector('.customize-dragger-icon-active')).toBeTruthy();
     });
 
-    it('custom collapsibleIcon', async () => {
+    it('customize collapsibleIcon', async () => {
       jest.useFakeTimers();
 
       const { container } = render(
         <SplitterDemo
           items={[{ size: 20, collapsible: true }, { collapsible: true }]}
           collapsibleIcon={{
-            start: <CaretLeftOutlined className="custom-icon-start" />,
-            end: <CaretRightOutlined className="custom-icon-end" />,
+            start: <CaretLeftOutlined className="customize-icon-start" />,
+            end: <CaretRightOutlined className="customize-icon-end" />,
           }}
         />,
       );
@@ -594,19 +594,14 @@ describe('Splitter', () => {
       const startEle = container.querySelector('.ant-splitter-bar-collapse-bar-start')!;
       const endEle = container.querySelector('.ant-splitter-bar-collapse-bar-end')!;
 
-      expect(startEle).toHaveClass('ant-splitter-bar-collapse-bar-custom');
-      expect(endEle).toHaveClass('ant-splitter-bar-collapse-bar-custom');
+      expect(startEle).toHaveClass('ant-splitter-bar-collapse-bar-customize');
+      expect(endEle).toHaveClass('ant-splitter-bar-collapse-bar-customize');
 
-      expect(startEle.querySelector('.custom-icon-start')).toBeTruthy();
-      expect(endEle.querySelector('.custom-icon-end')).toBeTruthy();
+      expect(startEle.querySelector('.customize-icon-start')).toBeTruthy();
+      expect(endEle.querySelector('.customize-icon-end')).toBeTruthy();
 
       expect(startEle).toHaveStyle({ background: 'transparent' });
       expect(endEle).toHaveStyle({ background: 'transparent' });
-
-      // const downEvent = createEvent.mouseDown(draggerEle);
-      // (downEvent as any).pageX = 0;
-      // (downEvent as any).pageY = 0;
-      // fireEvent(draggerEle, downEvent);
     });
   });
 });
