@@ -31,6 +31,7 @@ demo:
 <code src="./demo/customize.tsx" debug>Customize close</code>
 <code src="./demo/draggable.tsx">Draggable Tag</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/disabled.tsx">Disabled</code>
 
 ## API
 
@@ -45,6 +46,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | icon | Set the icon of tag | ReactNode | - |  |
 | bordered | Whether has border style | boolean | true | 5.4.0 |
 | onClose | Callback executed when tag is closed | (e: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
+| disabled | Whether the tag is disabled | boolean | false | 5.23.0 |
 
 ### Tag.CheckableTag
 

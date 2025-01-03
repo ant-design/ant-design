@@ -11,10 +11,12 @@ import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
+import { useToken } from '../theme/internal';
 import CheckableTag from './CheckableTag';
 import useStyle from './style';
 import PresetCmp from './style/presetCmp';
 import StatusCmp from './style/statusCmp';
+import DisabledContext from '../config-provider/DisabledContext';
 
 export type { CheckableTagProps } from './CheckableTag';
 
@@ -32,6 +34,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   style?: React.CSSProperties;
   icon?: React.ReactNode;
   bordered?: boolean;
+  disabled?: boolean;
 }
 
 const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) => {
@@ -46,12 +49,31 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
     onClose,
     bordered = true,
     visible: deprecatedVisible,
+    disabled: customDisabled,
     ...props
   } = tagProps;
+
+  // ===================== Disabled =====================
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled ?? disabled;
+
   const { getPrefixCls, direction, tag: tagContext } = React.useContext(ConfigContext);
+  const [, token] = useToken();
   const [visible, setVisible] = React.useState(true);
 
   const domProps = omit(props, ['closeIcon', 'closable']);
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLElement>) => {
+    if (mergedDisabled) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  };
+
+  if (mergedDisabled) {
+    delete domProps.onClick;
+    domProps.onClickCapture = handleLinkClick;
+  }
 
   // Warning for deprecated usage
   if (process.env.NODE_ENV !== 'production') {
@@ -71,7 +93,12 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
   const isInternalColor = isPreset || isStatus;
 
   const tagStyle: React.CSSProperties = {
-    backgroundColor: color && !isInternalColor ? color : undefined,
+    backgroundColor:
+      color && !isInternalColor
+        ? mergedDisabled
+          ? token.colorBgContainerDisabled
+          : color
+        : undefined,
     ...tagContext?.style,
     ...style,
   };
@@ -89,6 +116,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
       [`${prefixCls}-hidden`]: !visible,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-borderless`]: !bordered,
+      [`${prefixCls}-disabled`]: mergedDisabled,
     },
     className,
     rootClassName,
@@ -97,6 +125,9 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
   );
 
   const handleCloseClick = (e: React.MouseEvent<HTMLElement>) => {
+    if (mergedDisabled) {
+      return;
+    }
     e.stopPropagation();
     onClose?.(e);
 
@@ -116,6 +147,9 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
       );
       return replaceElement(iconNode, replacement, (originProps) => ({
         onClick: (e: React.MouseEvent<HTMLElement>) => {
+          if (mergedDisabled) {
+            return;
+          }
           originProps?.onClick?.(e);
           handleCloseClick(e);
         },
@@ -130,7 +164,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
 
   const iconNode: React.ReactNode = icon || null;
 
-  const kids: React.ReactNode = iconNode ? (
+  const child: React.ReactNode = iconNode ? (
     <>
       {iconNode}
       {children && <span>{children}</span>}
@@ -141,7 +175,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
 
   const tagNode: React.ReactNode = (
     <span {...domProps} ref={ref} className={tagClassName} style={tagStyle}>
-      {kids}
+      {child}
       {mergedCloseIcon}
       {isPreset && <PresetCmp key="preset" prefixCls={prefixCls} />}
       {isStatus && <StatusCmp key="status" prefixCls={prefixCls} />}

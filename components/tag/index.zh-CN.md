@@ -31,6 +31,7 @@ demo:
 <code src="./demo/customize.tsx" debug>自定义关闭按钮</code>
 <code src="./demo/draggable.tsx">可拖拽标签</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
+<code src="./demo/disabled.tsx">禁用标签</code>
 
 ## API
 
@@ -45,6 +46,7 @@ demo:
 | icon | 设置图标 | ReactNode | - |  |
 | bordered | 是否有边框 | boolean | true | 5.4.0 |
 | onClose | 关闭时的回调（可通过 `e.preventDefault()` 来阻止默认行为） | (e: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
+| disabled | 是否禁用标签 | boolean | false | 5.23.0 |
 
 ### Tag.CheckableTag
 
