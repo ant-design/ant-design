@@ -52,6 +52,10 @@ export function fillWindowEnv(window: Window | DOMWindow) {
   win.AnimationEvent = win.AnimationEvent || win.Event;
   win.TransitionEvent = win.TransitionEvent || win.Event;
 
+  (win as any).Node = {
+    ELEMENT_NODE: 1,
+  };
+
   // ref: https://jestjs.io/docs/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
   // ref: https://github.com/jsdom/jsdom/issues/2524
   Object.defineProperty(win, 'TextEncoder', { writable: true, value: util.TextEncoder });
