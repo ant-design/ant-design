@@ -169,29 +169,19 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   const [startIcon, endIcon, startCustomize, endCustomize] = useMemo(() => {
     let startIcon = null;
     let endIcon = null;
-    let startCustomize = false;
-    let endCustomize = false;
+    const startCustomize = !!collapsibleIcon?.start;
+    const endCustomize = !!collapsibleIcon?.end;
 
-    if (collapsibleIcon?.start) {
-      startIcon = collapsibleIcon.start;
-      startCustomize = true;
-    } else if (vertical) {
-      startIcon = <DownOutlined />;
+    if (vertical) {
+      startIcon = startCustomize ? collapsibleIcon.start : <UpOutlined />;
+      endIcon = endCustomize ? collapsibleIcon.end : <DownOutlined />;
     } else {
-      startIcon = <RightOutlined />;
-    }
-
-    if (collapsibleIcon?.end) {
-      endIcon = collapsibleIcon.end;
-      endCustomize = true;
-    } else if (vertical) {
-      endIcon = <UpOutlined />;
-    } else {
-      endIcon = <LeftOutlined />;
+      startIcon = startCustomize ? collapsibleIcon.start : <LeftOutlined />;
+      endIcon = endCustomize ? collapsibleIcon.end : <RightOutlined />;
     }
 
     return [startIcon, endIcon, startCustomize, endCustomize];
-  }, [collapsibleIcon]);
+  }, [collapsibleIcon, vertical]);
 
   return (
     <div
