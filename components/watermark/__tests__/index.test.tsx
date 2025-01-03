@@ -278,24 +278,19 @@ describe('Watermark', () => {
 
   it('should set watermark from cache correctly', async () => {
     const content = 'should set watermark from cache correctly';
-    render(<Watermark content={content} />);
-    await waitFakeTimer();
-    const toDataURL = HTMLCanvasElement.prototype.toDataURL;
-    HTMLCanvasElement.prototype.toDataURL = () => {
-      HTMLCanvasElement.prototype.toDataURL = toDataURL;
-      const now = Date.now();
-      while (Date.now() - now < 30000) {
-        //
-      }
-      return '';
-    };
-    const now = Date.now();
-    render(<Watermark content={content} />);
-    render(<Watermark content={content} />);
-    render(<Watermark content={content} />);
-    await waitFakeTimer();
-    expect((Date.now() - now) / 1000).toBeLessThanOrEqual(20);
 
-    HTMLCanvasElement.prototype.toDataURL = toDataURL;
+    jest.spyOn(HTMLCanvasElement.prototype, 'toDataURL').mockReturnValue('1');
+
+    const { container: container1 } = render(<Watermark content={content} />);
+    await waitFakeTimer();
+    expect(container1).toMatchSnapshot();
+
+    jest.spyOn(HTMLCanvasElement.prototype, 'toDataURL').mockReturnValue('2');
+
+    const { container: container2 } = render(<Watermark content={content} />);
+    await waitFakeTimer();
+    expect(container2).toMatchSnapshot();
+
+    HTMLCanvasElement.prototype.toDataURL.mockRestore();
   });
 });
