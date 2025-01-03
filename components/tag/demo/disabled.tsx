@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { Flex, Tag, message, Switch } from 'antd';
 import { CheckCircleOutlined } from '@ant-design/icons';
 
+const { CheckableTag } = Tag;
+
 const App: React.FC = () => {
   const [isDisabled, setIsDisabled] = useState(true);
+  const [selectedTags, setSelectedTags] = useState<string[]>(['Books']);
 
   const handleClick = (tagName: string) => {
     console.log(`Tag ${tagName} clicked`);
@@ -15,9 +18,16 @@ const App: React.FC = () => {
     message.info(`Tag ${tagName} closed`);
   };
 
+  const handleCheckableChange = (tag: string, checked: boolean) => {
+    const nextSelectedTags = checked
+      ? [...selectedTags, tag]
+      : selectedTags.filter((t) => t !== tag);
+    setSelectedTags(nextSelectedTags);
+    message.info(`${tag} is ${checked ? 'checked' : 'unchecked'}`);
+  };
+
   return (
     <Flex vertical gap="middle">
-      {/* 禁用状态开关 */}
       <Flex gap="small" align="center">
         <Switch
           checked={isDisabled}
@@ -25,25 +35,15 @@ const App: React.FC = () => {
           checkedChildren="Disabled"
           unCheckedChildren="Enabled"
         />
-        <span>Toggle disabled state</span>
       </Flex>
 
       <Flex gap="small" wrap>
         <Tag disabled={isDisabled} onClick={() => handleClick('Basic')}>
           Basic Tag
         </Tag>
-        <Tag disabled={isDisabled} onClick={() => handleClick('Click Test')}>
-          Disabled Click
-        </Tag>
-      </Flex>
-
-      <Flex gap="small" wrap>
         <Tag disabled={isDisabled} onClick={() => handleClick('Link')}>
           <a href="https://ant.design">Link Tag</a>
         </Tag>
-      </Flex>
-
-      <Flex gap="small" wrap>
         <Tag
           disabled={isDisabled}
           color="success"
@@ -61,6 +61,22 @@ const App: React.FC = () => {
         <Tag disabled={isDisabled} color="#f50" onClick={() => handleClick('#f50')}>
           Custom Color #f50
         </Tag>
+        <Tag disabled={isDisabled} color="success" onClick={() => handleClick('Success')}>
+          Preset Status Success
+        </Tag>
+      </Flex>
+
+      <Flex gap="small" wrap>
+        {['Books', 'Movies', 'Music'].map((tag) => (
+          <CheckableTag
+            key={tag}
+            disabled={isDisabled}
+            checked={selectedTags.includes(tag)}
+            onChange={(checked) => handleCheckableChange(tag, checked)}
+          >
+            {tag}
+          </CheckableTag>
+        ))}
       </Flex>
 
       <Flex gap="small" wrap>

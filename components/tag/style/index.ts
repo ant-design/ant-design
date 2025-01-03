@@ -125,6 +125,31 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         '&:active': {
           backgroundColor: token.colorPrimaryActive,
         },
+
+        '&-disabled': {
+          cursor: 'not-allowed',
+
+          [`&:not(${componentCls}-checkable-checked)`]: {
+            color: token.colorTextDisabled,
+            '&:hover': {
+              backgroundColor: 'transparent',
+            },
+          },
+
+          [`&${componentCls}-checkable-checked`]: {
+            color: token.colorTextDisabled,
+            backgroundColor: token.colorBgContainerDisabled,
+          },
+
+          '&:hover, &:active': {
+            backgroundColor: token.colorBgContainerDisabled,
+            color: token.colorTextDisabled,
+          },
+
+          [`&:not(${componentCls}-checkable-checked):hover`]: {
+            color: token.colorTextDisabled,
+          },
+        },
       },
 
       '&-hidden': {
