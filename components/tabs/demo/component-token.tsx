@@ -14,6 +14,7 @@ const App: React.FC = () => (
           titleFontSize: 20,
           titleFontSizeLG: 20,
           titleFontSizeSM: 20,
+          titleHoverCloseIcon: 'block',
           inkBarColor: '#52C41A',
           horizontalMargin: `0 0 12px 0`,
           horizontalItemGutter: 12, // Fixed Value
