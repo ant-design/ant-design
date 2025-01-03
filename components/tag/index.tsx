@@ -70,11 +70,6 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
     }
   };
 
-  if (mergedDisabled) {
-    delete domProps.onClick;
-    domProps.onClickCapture = handleLinkClick;
-  }
-
   // Warning for deprecated usage
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Tag');
@@ -174,7 +169,14 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
   );
 
   const tagNode: React.ReactNode = (
-    <span {...domProps} ref={ref} className={tagClassName} style={tagStyle}>
+    <span
+      {...domProps}
+      onClickCapture={mergedDisabled ? handleLinkClick : domProps.onClickCapture}
+      onClick={mergedDisabled ? undefined : domProps.onClick}
+      ref={ref}
+      className={tagClassName}
+      style={tagStyle}
+    >
       {child}
       {mergedCloseIcon}
       {isPreset && <PresetCmp key="preset" prefixCls={prefixCls} />}
