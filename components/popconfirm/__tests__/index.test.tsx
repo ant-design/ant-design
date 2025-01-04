@@ -378,4 +378,33 @@ describe('Popconfirm', () => {
     expect(document.body.querySelectorAll('.ant-btn')[0].textContent).toBe('Cancel');
     expect(document.body.querySelectorAll('.ant-btn')[1].textContent).toBe('OK');
   });
+
+  it('should apply custom styles to Popconfirm', () => {
+    const customClassNames = {
+      body: 'custom-body',
+      root: 'custom-root',
+    };
+
+    const customStyles = {
+      body: { color: 'red' },
+      root: { backgroundColor: 'blue' },
+    };
+
+    const { container } = render(
+      <Popconfirm classNames={customClassNames} title="" styles={customStyles} open>
+        <span />
+      </Popconfirm>,
+    );
+
+    const popconfirmElement = container.querySelector('.ant-popconfirm') as HTMLElement;
+    const popconfirmBodyElement = container.querySelector('.ant-popover-inner') as HTMLElement;
+
+    // 验证 classNames
+    expect(popconfirmElement.classList).toContain('custom-root');
+    expect(popconfirmBodyElement.classList).toContain('custom-body');
+
+    // 验证 styles
+    expect(popconfirmElement.style.backgroundColor).toBe('blue');
+    expect(popconfirmBodyElement.style.color).toBe('red');
+  });
 });

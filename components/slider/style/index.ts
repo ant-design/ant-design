@@ -1,7 +1,7 @@
 import type * as React from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
+import { FastColor } from '@ant-design/fast-color';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
@@ -466,7 +466,7 @@ export const prepareComponentToken: GetDefaultToken<'Slider'> = (token) => {
   const handleLineWidth = token.lineWidth + increaseHandleWidth;
   const handleLineWidthHover = token.lineWidth + increaseHandleWidth * 1.5;
   const handleActiveColor = token.colorPrimary;
-  const handleActiveOutlineColor = new TinyColor(handleActiveColor).setAlpha(0.2).toRgbString();
+  const handleActiveOutlineColor = new FastColor(handleActiveColor).setA(0.2).toRgbString();
 
   return {
     controlSize,
@@ -483,9 +483,9 @@ export const prepareComponentToken: GetDefaultToken<'Slider'> = (token) => {
     handleColor: token.colorPrimaryBorder,
     handleActiveColor,
     handleActiveOutlineColor,
-    handleColorDisabled: new TinyColor(token.colorTextDisabled)
+    handleColorDisabled: new FastColor(token.colorTextDisabled)
       .onBackground(token.colorBgContainer)
-      .toHexShortString(),
+      .toHexString(),
     dotBorderColor: token.colorBorderSecondary,
     dotActiveBorderColor: token.colorPrimaryBorder,
     trackBgDisabled: token.colorBgContainerDisabled,

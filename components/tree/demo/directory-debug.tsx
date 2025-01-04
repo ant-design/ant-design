@@ -46,7 +46,9 @@ const BasicDemo = () => <DirectoryTree {...sharedProps} multiple treeData={treeD
 
 const NormalDemo = () => <Tree {...sharedProps} defaultSelectedKeys={['0-1']} />;
 
-const NormalCheckDemo = () => <Tree {...sharedProps} checkable defaultSelectedKeys={['0-1','0-0-0', '0-0-1','0-1-1']} />;
+const NormalCheckDemo = () => (
+  <Tree {...sharedProps} checkable defaultSelectedKeys={['0-1', '0-0-0', '0-0-1', '0-1-1']} />
+);
 
 const NormalDragDemo = () => <Tree {...sharedProps} draggable defaultSelectedKeys={['0-1-0']} />;
 

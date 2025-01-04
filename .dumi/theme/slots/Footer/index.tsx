@@ -13,7 +13,7 @@ import {
   UsergroupAddOutlined,
   ZhihuOutlined,
 } from '@ant-design/icons';
-import { TinyColor } from '@ctrl/tinycolor';
+import { FastColor } from '@ant-design/fast-color';
 import { createStyles } from 'antd-style';
 import getAlphaColor from 'antd/es/theme/util/getAlphaColor';
 import { FormattedMessage, Link } from 'dumi';
@@ -37,7 +37,7 @@ const locales = {
 const useStyle = () => {
   const { isMobile } = useContext(SiteContext);
   return createStyles(({ token, css }) => {
-    const background = new TinyColor(getAlphaColor('#f0f3fa', '#fff'))
+    const background = new FastColor(getAlphaColor('#f0f3fa', '#fff'))
       .onBackground(token.colorBgContainer)
       .toHexString();
 

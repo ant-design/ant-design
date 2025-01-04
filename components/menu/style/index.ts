@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
+import { FastColor } from '@ant-design/fast-color';
 import type { CssUtil } from 'antd-style';
 
 import { clearFix, resetComponent, resetIcon } from '../../style';
@@ -95,6 +95,11 @@ export interface ComponentToken {
    * @descEN Color of selected menu item text
    */
   itemSelectedColor: string;
+  /**
+   * @desc 子菜单内有选中项时，子菜单标题色
+   * @descEN Color of submenu title when submenu has selected item
+   */
+  subMenuItemSelectedColor: string;
 
   /** @deprecated Use `horizontalItemSelectedColor` instead */
   colorItemTextSelectedHorizontal: string;
@@ -652,7 +657,6 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
           [`${componentCls}-item-extra`]: {
             marginInlineStart: 'auto',
             paddingInlineStart: token.padding,
-            fontSize: token.fontSizeSM,
           },
         },
 
@@ -871,7 +875,7 @@ export const prepareComponentToken: GetDefaultToken<'Menu'> = (token) => {
   const activeBarBorderWidth = token.activeBarBorderWidth ?? lineWidth;
   const itemMarginInline = token.itemMarginInline ?? token.marginXXS;
 
-  const colorTextDark = new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString();
+  const colorTextDark = new FastColor(colorTextLightSolid).setA(0.65).toRgbString();
 
   return {
     dropdownWidth: 160,
@@ -890,6 +894,7 @@ export const prepareComponentToken: GetDefaultToken<'Menu'> = (token) => {
     groupTitleColor: colorTextDescription,
     colorItemTextSelected: colorPrimary,
     itemSelectedColor: colorPrimary,
+    subMenuItemSelectedColor: colorPrimary,
     colorItemTextSelectedHorizontal: colorPrimary,
     horizontalItemSelectedColor: colorPrimary,
     colorItemBg: colorBgContainer,
@@ -944,7 +949,7 @@ export const prepareComponentToken: GetDefaultToken<'Menu'> = (token) => {
     groupTitleFontSize: fontSize,
 
     // Disabled
-    darkItemDisabledColor: new TinyColor(colorTextLightSolid).setAlpha(0.25).toRgbString(),
+    darkItemDisabledColor: new FastColor(colorTextLightSolid).setA(0.25).toRgbString(),
 
     // Dark
     darkItemColor: colorTextDark,

@@ -28,6 +28,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     onResizeStart,
     onResize,
     onResizeEnd,
+    lazy,
   } = props;
 
   const { getPrefixCls, direction, splitter } = React.useContext(ConfigContext);
@@ -170,6 +171,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
             splitBar = (
               <SplitBar
+                lazy={lazy}
                 index={idx}
                 active={movingIndex === idx}
                 prefixCls={prefixCls}
@@ -190,6 +192,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 }}
                 onOffsetEnd={onInternalResizeEnd}
                 onCollapse={onInternalCollapse}
+                containerSize={containerSize || 0}
               />
             );
           }
