@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircleOutlined } from '@ant-design/icons';
+import { CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
 
 import Tag from '..';
 import { resetWarned } from '../../_util/warning';
@@ -199,6 +199,24 @@ describe('Tag', () => {
     it('should render correctly when disabled', () => {
       const { container } = render(<Tag disabled>Disabled Tag</Tag>);
       expect(container.querySelector('.ant-tag-disabled')).toBeTruthy();
+    });
+
+    it('should not trigger onClose and onClick when click closeIcon and disabled', () => {
+      const onClose = jest.fn();
+      const onClick = jest.fn();
+      const { container } = render(
+        <Tag
+          disabled
+          closable
+          closeIcon={<CloseCircleOutlined />}
+          onClose={onClose}
+          onClick={onClick}
+        />,
+      );
+
+      fireEvent.click(container.querySelector('.ant-tag-close-icon')!);
+      expect(onClose).not.toHaveBeenCalled();
+      expect(onClick).not.toHaveBeenCalled();
     });
   });
 
