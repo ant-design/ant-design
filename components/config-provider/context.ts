@@ -9,7 +9,9 @@ import type { CardProps } from '../card';
 import type { CascaderProps } from '../cascader';
 import type { CollapseProps } from '../collapse';
 import type { DatePickerProps, RangePickerProps } from '../date-picker';
+import type { DescriptionsProps } from '../descriptions';
 import type { DrawerProps } from '../drawer';
+import type { EmptyProps } from '../empty';
 import type { FlexProps } from '../flex/interface';
 import type { FloatButtonGroupProps } from '../float-button/interface';
 import type { FormProps } from '../form/Form';
@@ -22,7 +24,11 @@ import type { MenuProps } from '../menu';
 import type { ModalProps } from '../modal';
 import type { ArgsProps } from '../notification/interface';
 import type { PaginationProps } from '../pagination';
+import type { PopconfirmProps } from '../popconfirm';
+import type { PopoverProps } from '../popover';
+import type { ResultProps } from '../result';
 import type { SelectProps } from '../select';
+import type { SliderProps } from '../slider';
 import type { SpaceProps } from '../space';
 import type { SpinProps } from '../spin';
 import type { TableProps } from '../table';
@@ -30,15 +36,11 @@ import type { TabsProps } from '../tabs';
 import type { TagProps } from '../tag';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { TimePickerProps } from '../time-picker';
+import type { TooltipProps } from '../tooltip';
 import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
 import type { TreeSelectProps } from '../tree-select';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
-import type { TooltipProps } from '../tooltip';
-import type { PopoverProps } from '../popover';
-import type { PopconfirmProps } from '../popconfirm';
-import type { DescriptionsProps } from '../descriptions';
-import type { SliderProps } from '../slider';
 
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
@@ -141,6 +143,8 @@ export type TourConfig = Pick<TourProps, 'closeIcon'>;
 export type DescriptionsConfig = ComponentStyleConfig &
   Pick<DescriptionsProps, 'classNames' | 'styles'>;
 
+export type EmptyConfig = ComponentStyleConfig & Pick<EmptyProps, 'classNames' | 'styles'>;
+
 export type ModalConfig = ComponentStyleConfig &
   Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon' | 'closable'>;
 
@@ -196,6 +200,8 @@ export type PopconfirmConfig = Pick<
 export type SliderConfig = ComponentStyleConfig & Pick<SliderProps, 'styles' | 'classNames'>;
 
 export type SpinConfig = ComponentStyleConfig & Pick<SpinProps, 'indicator'>;
+
+export type ResultConfig = ComponentStyleConfig & Pick<ResultProps, 'classNames' | 'styles'>;
 
 export type InputNumberConfig = ComponentStyleConfig & Pick<InputNumberProps, 'variant'>;
 
@@ -287,13 +293,13 @@ export interface ConfigConsumerProps {
   mentions?: MentionsConfig;
   modal?: ModalConfig;
   progress?: ComponentStyleConfig;
-  result?: ComponentStyleConfig;
+  result?: ResultConfig;
   slider?: SliderConfig;
   breadcrumb?: ComponentStyleConfig;
   menu?: MenuConfig;
   checkbox?: ComponentStyleConfig;
   descriptions?: DescriptionsConfig;
-  empty?: ComponentStyleConfig;
+  empty?: EmptyConfig;
   badge?: BadgeConfig;
   radio?: ComponentStyleConfig;
   rate?: ComponentStyleConfig;

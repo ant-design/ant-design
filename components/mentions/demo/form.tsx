@@ -3,6 +3,11 @@ import { Button, Form, Mentions, Space } from 'antd';
 
 const { getMentions } = Mentions;
 
+const formItemLayout = {
+  labelCol: { span: 6 },
+  wrapperCol: { span: 16 },
+};
+
 const App: React.FC = () => {
   const [form] = Form.useForm();
 
@@ -28,14 +33,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <Form form={form} layout="horizontal" onFinish={onFinish}>
-      <Form.Item
-        name="coders"
-        label="Top coders"
-        labelCol={{ span: 6 }}
-        wrapperCol={{ span: 16 }}
-        rules={[{ validator: checkMention }]}
-      >
+    <Form form={form} layout="horizontal" onFinish={onFinish} {...formItemLayout}>
+      <Form.Item name="coders" label="Top coders" rules={[{ validator: checkMention }]}>
         <Mentions
           rows={1}
           options={[
@@ -54,13 +53,7 @@ const App: React.FC = () => {
           ]}
         />
       </Form.Item>
-      <Form.Item
-        name="bio"
-        label="Bio"
-        labelCol={{ span: 6 }}
-        wrapperCol={{ span: 16 }}
-        rules={[{ required: true }]}
-      >
+      <Form.Item name="bio" label="Bio" rules={[{ required: true }]}>
         <Mentions
           rows={3}
           placeholder="You can use @ to ref user here"
@@ -80,7 +73,7 @@ const App: React.FC = () => {
           ]}
         />
       </Form.Item>
-      <Form.Item wrapperCol={{ span: 14, offset: 6 }}>
+      <Form.Item label={null}>
         <Space wrap>
           <Button htmlType="submit" type="primary">
             Submit

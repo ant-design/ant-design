@@ -12,14 +12,7 @@ export interface TransferSearchProps {
 }
 
 const Search: React.FC<TransferSearchProps> = (props) => {
-  const {
-    placeholder = '',
-    value,
-    prefixCls,
-    disabled,
-    onChange,
-    handleClear,
-  } = props;
+  const { placeholder = '', value, prefixCls, disabled, onChange, handleClear } = props;
 
   const handleChange = React.useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {

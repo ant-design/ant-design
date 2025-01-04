@@ -104,25 +104,6 @@ describe('Collapse', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  it('should trigger warning and keep compatibility when using disabled in Panel', () => {
-    const { container } = render(
-      <Collapse>
-        <Collapse.Panel disabled header="This is panel header 1" key="1">
-          content
-        </Collapse.Panel>
-      </Collapse>,
-    );
-
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Collapse.Panel] `disabled` is deprecated. Please use `collapsible="disabled"` instead.',
-    );
-
-    expect(container.querySelectorAll('.ant-collapse-item-disabled').length).toBe(1);
-
-    fireEvent.click(container.querySelector('.ant-collapse-header')!);
-    expect(container.querySelectorAll('.ant-collapse-item-active').length).toBe(0);
-  });
-
   it('should not trigger warning when using items instead of children', () => {
     render(
       <Collapse
@@ -209,32 +190,6 @@ describe('Collapse', () => {
     expect(ref.current).toBe(container.firstChild);
     expect(panelRef1.current).toBe(document.querySelectorAll('.ant-collapse-item')[0]);
     expect(panelRef2.current).toBe(document.querySelectorAll('.ant-collapse-item')[1]);
-  });
-
-  describe('expandIconPosition', () => {
-    ['left', 'right'].forEach((pos) => {
-      it(`warning for legacy '${pos}'`, () => {
-        render(
-          <Collapse expandIconPosition={pos}>
-            <Collapse.Panel header="header" key="1" />
-          </Collapse>,
-        );
-
-        expect(errorSpy).toHaveBeenCalledWith(
-          'Warning: [antd: Collapse] `expandIconPosition` with `left` or `right` is deprecated. Please use `start` or `end` instead.',
-        );
-      });
-
-      it('position end', () => {
-        const { container } = render(
-          <Collapse expandIconPosition="end">
-            <Collapse.Panel header="header" key="1" />
-          </Collapse>,
-        );
-
-        expect(container.querySelector('.ant-collapse-icon-position-end')).toBeTruthy();
-      });
-    });
   });
 
   it('Collapse.Panel usage', () => {

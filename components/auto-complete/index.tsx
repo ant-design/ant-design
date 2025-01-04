@@ -38,8 +38,6 @@ export interface AutoCompleteProps<
   dataSource?: DataSourceItemType[];
   status?: InputStatus;
   popupClassName?: string;
-  /** @deprecated Please use `popupClassName` instead */
-  dropdownClassName?: string;
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
@@ -53,14 +51,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   props,
   ref,
 ) => {
-  const {
-    prefixCls: customizePrefixCls,
-    className,
-    popupClassName,
-    dropdownClassName,
-    children,
-    dataSource,
-  } = props;
+  const { prefixCls: customizePrefixCls, className, popupClassName, children, dataSource } = props;
   const childNodes: React.ReactElement[] = toArray(children);
 
   // ============================= Input =============================
@@ -120,8 +111,6 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       'usage',
       'You need to control style self instead of setting `size` when using customize input.',
     );
-
-    warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
   }
 
   const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
@@ -135,9 +124,9 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     <Select
       ref={ref}
       suffixIcon={null}
-      {...omit(props, ['dataSource', 'dropdownClassName'])}
+      {...omit(props, ['dataSource'])}
       prefixCls={prefixCls}
-      popupClassName={popupClassName || dropdownClassName}
+      popupClassName={popupClassName}
       dropdownStyle={{
         ...props.dropdownStyle,
         zIndex,
