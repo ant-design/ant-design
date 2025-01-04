@@ -43,6 +43,15 @@ describe('Dropdown', () => {
     </Dropdown>
   ));
 
+  it('support custom transitionName', () => {
+    const { asFragment } = render(
+      <Dropdown menu={{ items }} transitionName="move-up" open>
+        <button type="button">button</button>
+      </Dropdown>,
+    );
+    expect(Array.from(asFragment().childNodes)).toMatchSnapshot();
+  });
+
   it('should render custom dropdown correctly', () => {
     const { asFragment } = render(
       <Dropdown

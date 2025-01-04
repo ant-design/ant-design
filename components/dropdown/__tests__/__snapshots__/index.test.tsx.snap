@@ -51,3 +51,42 @@ Array [
   </div>,
 ]
 `;
+
+exports[`Dropdown support custom transitionName 1`] = `
+Array [
+  <button
+    class="ant-dropdown-trigger ant-dropdown-open"
+    type="button"
+  >
+    button
+  </button>,
+  <div
+    class="ant-dropdown move-up-appear move-up-appear-prepare move-up ant-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  >
+    <ul
+      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+      data-menu-list="true"
+      role="menu"
+      tabindex="0"
+    >
+      <li
+        class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+        data-menu-id="rc-menu-uuid-test-1"
+        role="menuitem"
+        tabindex="-1"
+      >
+        <span
+          class="ant-dropdown-menu-title-content"
+        >
+          foo
+        </span>
+      </li>
+    </ul>
+    <div
+      aria-hidden="true"
+      style="display: none;"
+    />
+  </div>,
+]
+`;
