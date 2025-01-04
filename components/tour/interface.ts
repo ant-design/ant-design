@@ -16,6 +16,8 @@ export interface TourProps extends Omit<RCTourProps, 'renderPanel'> {
 
 export type SemanticName =
   | 'root'
+  | 'cover'
+  | 'mask'
   | 'body'
   | 'content'
   | 'footer'

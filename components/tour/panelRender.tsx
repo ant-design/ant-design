@@ -7,7 +7,8 @@ import type { ButtonProps } from '../button';
 import Button from '../button';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
-import type { TourStepProps, SemanticName } from './interface';
+import type { SemanticName, TourStepProps } from './interface';
+import TourContext from './TourContext';
 
 function isValidNode(node: ReactNode): boolean {
   return node !== undefined && node !== null;
@@ -44,6 +45,9 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     closable,
   } = stepProps;
 
+  const tourContext = React.useContext(TourContext);
+  const { classNames: tourClassNames, styles } = tourContext;
+
   const mergedType = stepType ?? type;
 
   const mergedCloseIcon = (
@@ -78,7 +82,11 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     <div className={`${prefixCls}-description`}>{description}</div>
   ) : null;
 
-  const coverNode = isValidNode(cover) ? <div className={`${prefixCls}-cover`}>{cover}</div> : null;
+  const coverNode = isValidNode(cover) ? (
+    <div className={classNames(`${prefixCls}-cover`, tourClassNames?.cover)} style={styles?.cover}>
+      {cover}
+    </div>
+  ) : null;
 
   let mergedIndicatorNode: ReactNode;
 
@@ -92,7 +100,9 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
           className={classNames(
             index === current && `${prefixCls}-indicator-active`,
             `${prefixCls}-indicator`,
+            tourClassNames?.indicator,
           )}
+          style={styles?.indicator}
         />
       ),
     );
@@ -108,15 +118,24 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
   const [contextLocale] = useLocale('Tour', defaultLocale.Tour);
 
   return (
-    <div className={`${prefixCls}-content`}>
-      <div className={`${prefixCls}-body`}>
+    <div
+      className={classNames(`${prefixCls}-content`, tourClassNames?.content)}
+      style={styles?.content}
+    >
+      <div className={classNames(`${prefixCls}-body`, tourClassNames?.body)} style={styles?.body}>
         {closable && mergedCloseIcon}
         {coverNode}
         {headerNode}
         {descriptionNode}
-        <div className={`${prefixCls}-footer`}>
+        <div
+          className={classNames(`${prefixCls}-footer`, tourClassNames?.footer)}
+          style={styles?.footer}
+        >
           {total > 1 && <div className={`${prefixCls}-indicators`}>{mergedIndicatorNode}</div>}
-          <div className={`${prefixCls}-actions`}>
+          <div
+            className={classNames(`${prefixCls}-actions`, tourClassNames?.actions)}
+            style={styles?.actions}
+          >
             {current !== 0 ? (
               <Button
                 {...secondaryBtnProps}
