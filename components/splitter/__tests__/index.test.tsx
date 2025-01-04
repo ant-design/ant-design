@@ -598,7 +598,7 @@ describe('Splitter', () => {
 
     it('customize collapsibleIcon', async () => {
       jest.useFakeTimers();
-      const { container } = render(
+      const { container, rerender } = render(
         <SplitterDemo
           items={[{ size: 20, collapsible: true }, { collapsible: true }]}
           collapsibleIcon={{
@@ -620,6 +620,19 @@ describe('Splitter', () => {
 
       expect(startEle).toHaveStyle({ background: 'transparent' });
       expect(endEle).toHaveStyle({ background: 'transparent' });
+
+      // not ReactElement
+      rerender(
+        <SplitterDemo
+          items={[{ size: 20, collapsible: true }, { collapsible: true }]}
+          collapsibleIcon={{
+            start: 11,
+            end: 22,
+          }}
+        />,
+      );
+      expect(container.querySelector('.ant-splitter-bar-collapse-bar-start')?.innerHTML).toBe('11');
+      expect(container.querySelector('.ant-splitter-bar-collapse-bar-end')?.innerHTML).toBe('22');
     });
   });
 });
