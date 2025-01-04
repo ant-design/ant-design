@@ -185,7 +185,6 @@ async function run() {
     })),
   });
 
-  fs.emptyDirSync(targetPath);
   if (selected.length === 0 || difference(components, selected).length === 0) {
     appliedComponents = 'all';
   } else {
@@ -193,7 +192,17 @@ async function run() {
   }
 
   // ==================== 生成目标快照(运行快照测试 ==================
-  runImageTests([imagesTestsScript, ...(appliedComponents === 'all' ? [] : appliedComponents)]);
+  const needRun = await confirm({
+    message: '📚 是否进行快照截图？【如果你已经运行过了，可以忽略】',
+    default: true,
+  });
+
+  if (needRun) {
+    fs.emptyDirSync(targetPath);
+    runImageTests([imagesTestsScript, ...(appliedComponents === 'all' ? [] : appliedComponents)]);
+  } else {
+    fs.ensureDirSync(targetPath);
+  }
 
   // ==================== 下载基准快照 ==================
   const visualTarPath = await downloadVisualSnapshots(visualSha);
