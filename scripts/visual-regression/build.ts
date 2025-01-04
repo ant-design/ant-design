@@ -270,13 +270,21 @@ function generateReport(
     return [mdStr, markdown2Html(mdStr)];
   }
 
-  let reportMdStr = `
-${commonHeader}
-${fullReport}
-
+  const summaryHeader = '<!-- summary -->';
+  const tableHeader = `
 | Expected (Branch ${targetBranch}) | Actual (Current PR) | Diff |
 | --- | --- | --- |
-    `.trim();
+  `.trim();
+
+  let reportMdStr = [
+    commonHeader,
+    isLocalEnv ? false : `${fullReport}`,
+    summaryHeader,
+    '\n',
+    tableHeader,
+  ]
+    .filter(Boolean)
+    .join('\n');
 
   reportMdStr += '\n';
 
@@ -316,9 +324,9 @@ ${fullReport}
   // tips for comment `Pass Visual Diff` will pass the CI
   if (!passed) {
     const summaryLine = [
-      changedCount > 0 && `🔄 **${changedCount}** changed`,
-      removedCount > 0 && `🛑 **${removedCount}** removed`,
-      addedCount > 0 && `🆕 **${addedCount}** added`,
+      changedCount > 0 && `🔄 \`${changedCount}\` changed`,
+      removedCount > 0 && `🛑 \`${removedCount}\` removed`,
+      addedCount > 0 && `🆕 \`${addedCount}\` added`,
     ]
       .filter(Boolean)
       .join(', ');
@@ -333,6 +341,9 @@ ${fullReport}
     ]
       .filter(Boolean)
       .join('\n');
+
+    reportMdStr = reportMdStr.replace(summaryHeader, `> **📊 Summary:** ${summaryLine}`);
+    fullVersionMd = fullVersionMd.replace(summaryHeader, `> **📊 Summary:** ${summaryLine}`);
   }
 
   // convert fullVersionMd to html
