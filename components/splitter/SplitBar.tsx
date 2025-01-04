@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
@@ -166,11 +166,11 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   };
 
   // ======================== Render ========================
-  const [startIcon, endIcon, startCustomize, endCustomize] = useMemo(() => {
+  const [startIcon, endIcon, startCustomize, endCustomize] = React.useMemo(() => {
     let startIcon = null;
     let endIcon = null;
-    const startCustomize = !!collapsibleIcon?.start;
-    const endCustomize = !!collapsibleIcon?.end;
+    const startCustomize = collapsibleIcon?.start !== undefined;
+    const endCustomize = collapsibleIcon?.end !== undefined;
 
     if (vertical) {
       startIcon = startCustomize ? collapsibleIcon.start : <UpOutlined />;
@@ -228,15 +228,24 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
           )}
           onClick={() => onCollapse(index, 'start')}
         >
-          {React.isValidElement<{ className: string }>(startIcon)
-            ? React.cloneElement(startIcon, {
-                className: classNames(
-                  `${splitBarPrefixCls}-collapse-icon`,
-                  `${splitBarPrefixCls}-collapse-start`,
-                  startIcon.props.className,
-                ),
-              })
-            : startIcon}
+          {React.isValidElement<{ className: string }>(startIcon) ? (
+            React.cloneElement(startIcon, {
+              className: classNames(
+                `${splitBarPrefixCls}-collapse-icon`,
+                `${splitBarPrefixCls}-collapse-start`,
+                startIcon.props.className,
+              ),
+            })
+          ) : (
+            <span
+              className={classNames(
+                `${splitBarPrefixCls}-collapse-icon`,
+                `${splitBarPrefixCls}-collapse-start`,
+              )}
+            >
+              {startIcon}
+            </span>
+          )}
         </div>
       )}
 
@@ -252,15 +261,24 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
           )}
           onClick={() => onCollapse(index, 'end')}
         >
-          {React.isValidElement<{ className: string }>(endIcon)
-            ? React.cloneElement(endIcon, {
-                className: classNames(
-                  `${splitBarPrefixCls}-collapse-icon`,
-                  `${splitBarPrefixCls}-collapse-end`,
-                  endIcon.props.className,
-                ),
-              })
-            : endIcon}
+          {React.isValidElement<{ className: string }>(endIcon) ? (
+            React.cloneElement(endIcon, {
+              className: classNames(
+                `${splitBarPrefixCls}-collapse-icon`,
+                `${splitBarPrefixCls}-collapse-end`,
+                endIcon.props.className,
+              ),
+            })
+          ) : (
+            <span
+              className={classNames(
+                `${splitBarPrefixCls}-collapse-icon`,
+                `${splitBarPrefixCls}-collapse-end`,
+              )}
+            >
+              {endIcon}
+            </span>
+          )}
         </div>
       )}
     </div>

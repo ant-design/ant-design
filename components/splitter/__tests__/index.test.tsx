@@ -631,8 +631,8 @@ describe('Splitter', () => {
           }}
         />,
       );
-      expect(container.querySelector('.ant-splitter-bar-collapse-bar-start')?.innerHTML).toBe('11');
-      expect(container.querySelector('.ant-splitter-bar-collapse-bar-end')?.innerHTML).toBe('22');
+      expect(container.querySelector('.ant-splitter-bar-collapse-start')?.innerHTML).toBe('11');
+      expect(container.querySelector('.ant-splitter-bar-collapse-end')?.innerHTML).toBe('22');
     });
   });
 });
