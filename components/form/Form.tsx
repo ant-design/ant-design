@@ -49,8 +49,6 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   disabled?: boolean;
   scrollToFirstError?: ScrollFocusOptions | boolean;
   requiredMark?: RequiredMark;
-  /** @deprecated Will warning in future branch. Pls use `requiredMark` instead. */
-  hideRequiredMark?: boolean;
   rootClassName?: string;
   variant?: Variant;
 }
@@ -71,7 +69,6 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     labelWrap,
     labelCol,
     wrapperCol,
-    hideRequiredMark,
     layout = 'horizontal',
     scrollToFirstError,
     requiredMark,
@@ -97,16 +94,12 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
       return requiredMark;
     }
 
-    if (hideRequiredMark) {
-      return false;
-    }
-
     if (contextForm && contextForm.requiredMark !== undefined) {
       return contextForm.requiredMark;
     }
 
     return true;
-  }, [hideRequiredMark, requiredMark, contextForm]);
+  }, [requiredMark, contextForm]);
 
   const mergedColon = colon ?? contextForm?.colon;
 

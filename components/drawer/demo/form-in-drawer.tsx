@@ -39,7 +39,7 @@ const App: React.FC = () => {
           </Space>
         }
       >
-        <Form layout="vertical" hideRequiredMark>
+        <Form layout="vertical" requiredMark>
           <Row gutter={16}>
             <Col span={12}>
               <Form.Item
