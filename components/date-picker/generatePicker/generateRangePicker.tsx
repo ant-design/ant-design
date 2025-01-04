@@ -46,7 +46,6 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
       bordered = true,
       placeholder,
       popupClassName,
-      dropdownClassName,
       status: customStatus,
       rootClassName,
       variant: customVariant,
@@ -68,8 +67,6 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     // =================== Warning =====================
     if (process.env.NODE_ENV !== 'production') {
       const warning = devUseWarning('DatePicker.RangePicker');
-
-      warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
 
       warning.deprecated(!('bordered' in props), 'bordered', 'variant');
     }
@@ -153,13 +150,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
           components={mergedComponents}
           direction={direction}
           classNames={{
-            popup: classNames(
-              hashId,
-              popupClassName || dropdownClassName,
-              cssVarCls,
-              rootCls,
-              rootClassName,
-            ),
+            popup: classNames(hashId, popupClassName, cssVarCls, rootCls, rootClassName),
           }}
           styles={{
             popup: {

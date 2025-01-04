@@ -52,12 +52,6 @@ type InjectDefaultProps<Props> = Omit<Props, 'locale' | 'generateConfig' | 'hide
    * @default "outlined"
    */
   variant?: Variant;
-
-  /**
-   * @deprecated `dropdownClassName` is deprecated which will be removed in next major
-   *   version.Please use `popupClassName` instead.
-   */
-  dropdownClassName?: string;
   popupClassName?: string;
   rootClassName?: string;
   popupStyle?: React.CSSProperties;
