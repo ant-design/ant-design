@@ -1,4 +1,4 @@
-import React, { ReactElement, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
@@ -228,12 +228,12 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
           )}
           onClick={() => onCollapse(index, 'start')}
         >
-          {React.isValidElement(startIcon)
-            ? React.cloneElement(startIcon as ReactElement<{ className: string }>, {
+          {React.isValidElement<{ className: string }>(startIcon)
+            ? React.cloneElement(startIcon, {
                 className: classNames(
                   `${splitBarPrefixCls}-collapse-icon`,
                   `${splitBarPrefixCls}-collapse-start`,
-                  (startIcon as ReactElement<{ className: string }>).props.className,
+                  startIcon.props.className,
                 ),
               })
             : startIcon}
@@ -252,12 +252,12 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
           )}
           onClick={() => onCollapse(index, 'end')}
         >
-          {React.isValidElement(endIcon)
-            ? React.cloneElement(endIcon as ReactElement<{ className: string }>, {
+          {React.isValidElement<{ className: string }>(endIcon)
+            ? React.cloneElement(endIcon, {
                 className: classNames(
                   `${splitBarPrefixCls}-collapse-icon`,
                   `${splitBarPrefixCls}-collapse-end`,
-                  (endIcon as ReactElement<{ className: string }>).props.className,
+                  endIcon.props.className,
                 ),
               })
             : endIcon}
