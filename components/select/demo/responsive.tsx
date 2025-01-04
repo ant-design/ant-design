@@ -42,7 +42,7 @@ const App: React.FC = () => {
         {...selectProps}
         maxTagPlaceholder={(omittedValues) => (
           <Tooltip
-            overlayStyle={{ pointerEvents: 'none' }}
+            styles={{ root: { pointerEvents: 'none' } }}
             title={omittedValues.map(({ label }) => label).join(', ')}
           >
             <span>Hover Me</span>

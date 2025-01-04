@@ -5,6 +5,9 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 
 const rgbToHex = (rgbString: string): string => {
   const rgb = rgbString.match(/\d+/g);
+  if (!rgb) {
+    return '';
+  }
   let r = parseInt(rgb[0], 10).toString(16);
   let g = parseInt(rgb[1], 10).toString(16);
   let b = parseInt(rgb[2], 10).toString(16);

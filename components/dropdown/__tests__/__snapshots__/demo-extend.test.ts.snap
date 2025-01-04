@@ -4352,11 +4352,10 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
       >
         <span
           class="ant-btn-icon ant-btn-loading-icon"
-          style="width: 0px; opacity: 0; transform: scale(0);"
         >
           <span
             aria-label="loading"
-            class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+            class="anticon anticon-loading anticon-spin"
             role="img"
           >
             <svg
@@ -4465,11 +4464,10 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
       >
         <span
           class="ant-btn-icon ant-btn-loading-icon"
-          style="width: 0px; opacity: 0; transform: scale(0);"
         >
           <span
             aria-label="loading"
-            class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+            class="anticon anticon-loading anticon-spin"
             role="img"
           >
             <svg
@@ -7263,6 +7261,8 @@ Array [
         >
           <a
             href="https://www.antgroup.com"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             1st menu item
           </a>
@@ -7296,6 +7296,8 @@ Array [
         >
           <a
             href="https://www.aliyun.com"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             2nd menu item
           </a>

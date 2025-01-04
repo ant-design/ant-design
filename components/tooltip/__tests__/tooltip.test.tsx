@@ -215,7 +215,7 @@ describe('Tooltip', () => {
         mouseLeaveDelay={0}
         placement="bottomLeft"
         arrowPointAtCenter
-        overlayClassName="point-center-element"
+        classNames={{ root: 'point-center-element' }}
       >
         <button type="button">Hello world!</button>
       </Tooltip>,
@@ -232,7 +232,7 @@ describe('Tooltip', () => {
         mouseLeaveDelay={0}
         placement="bottomLeft"
         arrow={{ arrowPointAtCenter: true }}
-        overlayClassName="point-center-element"
+        classNames={{ root: 'point-center-element' }}
       >
         <button type="button">Hello world!</button>
       </Tooltip>,
@@ -402,9 +402,9 @@ describe('Tooltip', () => {
     expect(document.querySelector('.ant-tooltip')).not.toBeNull();
   });
 
-  it('should pass overlayInnerStyle through to the inner component', () => {
+  it('should pass styles={{ body: {} }} through to the inner component', () => {
     const { container } = render(
-      <Tooltip overlayInnerStyle={{ color: 'red' }} title="xxxxx" open>
+      <Tooltip styles={{ body: { color: 'red' } }} title="xxxxx" open>
         <div />
       </Tooltip>,
     );
@@ -600,5 +600,34 @@ describe('Tooltip', () => {
     });
     expect(error).toHaveBeenCalled();
     error.mockRestore();
+  });
+
+  it('should apply custom styles to Tooltip', () => {
+    const customClassNames = {
+      body: 'custom-body',
+      root: 'custom-root',
+    };
+
+    const customStyles = {
+      body: { color: 'red' },
+      root: { backgroundColor: 'blue' },
+    };
+
+    const { container } = render(
+      <Tooltip classNames={customClassNames} overlay={<div />} styles={customStyles} visible>
+        <button type="button">button</button>
+      </Tooltip>,
+    );
+
+    const tooltipElement = container.querySelector('.ant-tooltip') as HTMLElement;
+    const tooltipBodyElement = container.querySelector('.ant-tooltip-inner') as HTMLElement;
+
+    // 验证 classNames
+    expect(tooltipElement.classList).toContain('custom-root');
+    expect(tooltipBodyElement.classList).toContain('custom-body');
+
+    // 验证 styles
+    expect(tooltipElement.style.backgroundColor).toBe('blue');
+    expect(tooltipBodyElement.style.color).toBe('red');
   });
 });

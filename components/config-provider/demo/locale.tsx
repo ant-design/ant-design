@@ -193,12 +193,26 @@ const Page: React.FC = () => {
         Begin Tour
       </Button>
       <Space>
-        <Button ref={(node) => node && tourRefs.current.splice(0, 0, node)}> Upload</Button>
-        <Button ref={(node) => node && tourRefs.current.splice(1, 0, node)} type="primary">
+        <Button
+          ref={(node) => {
+            node && tourRefs.current.splice(0, 0, node);
+          }}
+        >
+          {' '}
+          Upload
+        </Button>
+        <Button
+          ref={(node) => {
+            node && tourRefs.current.splice(1, 0, node);
+          }}
+          type="primary"
+        >
           Save
         </Button>
         <Button
-          ref={(node) => node && tourRefs.current.splice(2, 0, node)}
+          ref={(node) => {
+            node && tourRefs.current.splice(2, 0, node);
+          }}
           icon={<EllipsisOutlined />}
         />
       </Space>

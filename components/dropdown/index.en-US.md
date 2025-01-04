@@ -66,7 +66,7 @@ Same props from Dropdown. And includes additional props:
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | buttonsRender | Custom buttons inside Dropdown.Button | (buttons: ReactNode\[]) => ReactNode\[] | - |  |
-| loading | Set the loading status of button | boolean \| { delay: number } | false |  |
+| loading | Set the loading status of button, the same as [Button](/components/button/#api) | boolean \| { delay: number, icon: ReactNode } | false | icon: 5.23.0 |
 | danger | Set the danger status of button | boolean | - | 4.23.0 |
 | icon | Icon (appears on the right) | ReactNode | - |  |
 | size | Size of the button, the same as [Button](/components/button/#api) | string | `default` |  |

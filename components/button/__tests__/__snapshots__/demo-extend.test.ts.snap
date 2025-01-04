@@ -128,11 +128,10 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
   >
     <span
       class="ant-btn-icon ant-btn-loading-icon"
-      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+        class="anticon anticon-loading anticon-spin"
         role="img"
       >
         <svg
@@ -160,11 +159,10 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
   >
     <span
       class="ant-btn-icon ant-btn-loading-icon"
-      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+        class="anticon anticon-loading anticon-spin"
         role="img"
       >
         <svg
@@ -190,11 +188,10 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
   >
     <span
       class="ant-btn-icon ant-btn-loading-icon"
-      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+        class="anticon anticon-loading anticon-spin"
         role="img"
       >
         <svg
@@ -222,11 +219,10 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
   >
     <span
       class="ant-btn-icon ant-btn-loading-icon"
-      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+        class="anticon anticon-loading anticon-spin"
         role="img"
       >
         <svg
@@ -281,11 +277,10 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
   >
     <span
       class="ant-btn-icon ant-btn-loading-icon"
-      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+        class="anticon anticon-loading anticon-spin"
         role="img"
       >
         <svg
@@ -312,12 +307,37 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
 
 exports[`renders components/button/demo/chinese-chars-loading.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/button/demo/chinese-space.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+>
+  <button
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      确定
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      确 定
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders components/button/demo/chinese-space.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/button/demo/color-variant.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
 >
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <button
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-solid ant-btn-sm"
@@ -369,7 +389,7 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
     </button>
   </div>
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <button
       class="ant-btn ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
@@ -421,7 +441,7 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
     </button>
   </div>
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <button
       class="ant-btn ant-btn-default ant-btn-color-dangerous ant-btn-variant-solid ant-btn-sm"
@@ -465,6 +485,162 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
     </button>
     <button
       class="ant-btn ant-btn-default ant-btn-color-dangerous ant-btn-variant-link ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Link
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
+  >
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-pink ant-btn-variant-solid ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Solid
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-pink ant-btn-variant-outlined ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Outlined
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-pink ant-btn-variant-dashed ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Dashed
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-pink ant-btn-variant-filled ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Filled
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-pink ant-btn-variant-text ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Text
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-pink ant-btn-variant-link ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Link
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
+  >
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-purple ant-btn-variant-solid ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Solid
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-purple ant-btn-variant-outlined ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Outlined
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-purple ant-btn-variant-dashed ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Dashed
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-purple ant-btn-variant-filled ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Filled
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-purple ant-btn-variant-text ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Text
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-purple ant-btn-variant-link ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Link
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
+  >
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-cyan ant-btn-variant-solid ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Solid
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-cyan ant-btn-variant-outlined ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Outlined
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-cyan ant-btn-variant-dashed ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Dashed
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-cyan ant-btn-variant-filled ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Filled
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-cyan ant-btn-variant-text ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Text
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-cyan ant-btn-variant-link ant-btn-sm"
       type="button"
     >
       <span>
@@ -594,7 +770,7 @@ exports[`renders components/button/demo/debug-block.tsx extend context correctly
 
 exports[`renders components/button/demo/debug-color-variant.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
 >
   <div
     class="ant-flex ant-flex-gap-small"
@@ -723,6 +899,7 @@ Array [
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="large"
         />
@@ -742,6 +919,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="default"
         />
@@ -761,6 +939,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="small"
         />
@@ -1117,6 +1296,7 @@ Array [
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only"
         href="https://www.google.com"
         tabindex="0"
+        target="_blank"
       >
         <span
           class="ant-btn-icon"
@@ -1169,6 +1349,297 @@ Array [
           Search
         </span>
       </button>
+    </div>
+    <div
+      class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain"
+      role="separator"
+    >
+      <span
+        class="ant-divider-inner-text"
+      >
+        👇🏻 https://github.com/ant-design/ant-design/issues/51811 👇🏻
+      </span>
+    </div>
+    <div>
+      <button
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg"
+        type="button"
+      >
+        <span>
+          without icon
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="search"
+            class="anticon anticon-search"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="search"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span>
+          with icon
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain"
+      role="separator"
+    >
+      <span
+        class="ant-divider-inner-text"
+      >
+        👇🏻 https://github.com/ant-design/ant-design/issues/52124 👇🏻
+      </span>
+    </div>
+    <div>
+      <button
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg"
+        style="height: 60px;"
+        type="button"
+      >
+        <span>
+          without icon
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg"
+        style="height: 60px;"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="search"
+            class="anticon anticon-search"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="search"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span>
+          with icon
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain"
+      role="separator"
+    >
+      <span
+        class="ant-divider-inner-text"
+      >
+        👇🏻 https://github.com/ant-design/ant-design/issues/51380 👇🏻
+      </span>
+    </div>
+    <div>
+      <button
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <svg
+            class="my-class-name"
+            fill="none"
+            height="1em"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18"
+            />
+          </svg>
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18"
+            />
+          </svg>
+        </span>
+        <span>
+          custom icon
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="search"
+            class="anticon anticon-search"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="search"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="search"
+            class="anticon anticon-search"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="search"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span>
+          with icon
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg"
+        type="button"
+      >
+        <span>
+          without icon
+        </span>
+      </button>
+      <span
+        class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large"
+        style="width: 100px;"
+      >
+        <span
+          class="ant-input-wrapper ant-input-group"
+        >
+          <input
+            class="ant-input ant-input-lg ant-input-outlined"
+            type="search"
+            value=""
+          />
+          <span
+            class="ant-input-group-addon"
+          >
+            <button
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only ant-input-search-button"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="search"
+                  class="anticon anticon-search"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="search"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </button>
+          </span>
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain"
+      role="separator"
+    >
+      <span
+        class="ant-divider-inner-text"
+      >
+        👇🏻 https://github.com/ant-design/ant-design/issues/51380 👇🏻
+      </span>
     </div>
     <div
       class="ant-flex ant-flex-gap-small"
@@ -1843,6 +2314,7 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
       href="https://www.google.com"
       tabindex="0"
+      target="_blank"
     >
       <span
         class="ant-btn-icon"
@@ -1893,6 +2365,7 @@ Array [
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="start"
             />
@@ -1913,6 +2386,7 @@ Array [
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="end"
             />
@@ -2271,6 +2745,7 @@ Array [
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-icon-end"
         href="https://www.google.com"
         tabindex="0"
+        target="_blank"
       >
         <span
           class="ant-btn-icon"
@@ -2302,11 +2777,10 @@ Array [
       >
         <span
           class="ant-btn-icon ant-btn-loading-icon"
-          style="width: 0px; opacity: 0; transform: scale(0);"
         >
           <span
             aria-label="loading"
-            class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+            class="anticon anticon-loading anticon-spin"
             role="img"
           >
             <svg
@@ -2697,7 +3171,7 @@ exports[`renders components/button/demo/linear-gradient.tsx extend context corre
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg acss-9mi5l3"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg acss-wkbm77"
       type="button"
     >
       <span
@@ -2732,7 +3206,7 @@ exports[`renders components/button/demo/linear-gradient.tsx extend context corre
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg acss-9mi5l3"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg acss-wkbm77"
       type="button"
     >
       <span>
@@ -2758,11 +3232,10 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
     >
       <span
         class="ant-btn-icon ant-btn-loading-icon"
-        style="width: 0px; opacity: 0; transform: scale(0);"
       >
         <span
           aria-label="loading"
-          class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+          class="anticon anticon-loading anticon-spin"
           role="img"
         >
           <svg
@@ -2790,11 +3263,10 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
     >
       <span
         class="ant-btn-icon ant-btn-loading-icon"
-        style="width: 0px; opacity: 0; transform: scale(0);"
       >
         <span
           aria-label="loading"
-          class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+          class="anticon anticon-loading anticon-spin"
           role="img"
         >
           <svg
@@ -2844,6 +3316,37 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
         </span>
       </span>
     </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-loading"
+      type="button"
+    >
+      <span
+        class="ant-btn-icon"
+      >
+        <span
+          aria-label="sync"
+          class="anticon anticon-sync anticon-spin"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="sync"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M168 504.2c1-43.7 10-86.1 26.9-126 17.3-41 42.1-77.7 73.7-109.4S337 212.3 378 195c42.4-17.9 87.4-27 133.9-27s91.5 9.1 133.8 27A341.5 341.5 0 01755 268.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.7 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c0-6.7-7.7-10.5-12.9-6.3l-56.4 44.1C765.8 155.1 646.2 92 511.8 92 282.7 92 96.3 275.6 92 503.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8zm756 7.8h-60c-4.4 0-7.9 3.5-8 7.8-1 43.7-10 86.1-26.9 126-17.3 41-42.1 77.8-73.7 109.4A342.45 342.45 0 01512.1 856a342.24 342.24 0 01-243.2-100.8c-9.9-9.9-19.2-20.4-27.8-31.4l60.2-47a8 8 0 00-3-14.1l-175.7-43c-5-1.2-9.9 2.6-9.9 7.7l-.7 181c0 6.7 7.7 10.5 12.9 6.3l56.4-44.1C258.2 868.9 377.8 932 512.2 932c229.2 0 415.5-183.7 419.8-411.8a8 8 0 00-8-8.2z"
+            />
+          </svg>
+        </span>
+      </span>
+      <span>
+        Loading Icon
+      </span>
+    </button>
   </div>
   <div
     class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
@@ -2853,7 +3356,15 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
       type="button"
     >
       <span>
-        Click me!
+        Icon Start
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-end"
+      type="button"
+    >
+      <span>
+        Icon End
       </span>
     </button>
     <button
@@ -2884,7 +3395,7 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
         </span>
       </span>
       <span>
-        Click me!
+        Icon Replace
       </span>
     </button>
     <button
@@ -2913,6 +3424,37 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
             />
           </svg>
         </span>
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span
+        class="ant-btn-icon"
+      >
+        <span
+          aria-label="poweroff"
+          class="anticon anticon-poweroff"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="poweroff"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M705.6 124.9a8 8 0 00-11.6 7.2v64.2c0 5.5 2.9 10.6 7.5 13.6a352.2 352.2 0 0162.2 49.8c32.7 32.8 58.4 70.9 76.3 113.3a355 355 0 0127.9 138.7c0 48.1-9.4 94.8-27.9 138.7a355.92 355.92 0 01-76.3 113.3 353.06 353.06 0 01-113.2 76.4c-43.8 18.6-90.5 28-138.5 28s-94.7-9.4-138.5-28a353.06 353.06 0 01-113.2-76.4A355.92 355.92 0 01184 650.4a355 355 0 01-27.9-138.7c0-48.1 9.4-94.8 27.9-138.7 17.9-42.4 43.6-80.5 76.3-113.3 19-19 39.8-35.6 62.2-49.8 4.7-2.9 7.5-8.1 7.5-13.6V132c0-6-6.3-9.8-11.6-7.2C178.5 195.2 82 339.3 80 506.3 77.2 745.1 272.5 943.5 511.2 944c239 .5 432.8-193.3 432.8-432.4 0-169.2-97-315.7-238.4-386.7zM480 560h64c4.4 0 8-3.6 8-8V88c0-4.4-3.6-8-8-8h-64c-4.4 0-8 3.6-8 8v464c0 4.4 3.6 8 8 8z"
+            />
+          </svg>
+        </span>
+      </span>
+      <span>
+        Loading Icon
       </span>
     </button>
   </div>
@@ -3089,31 +3631,6 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
 
 exports[`renders components/button/demo/multiple.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders components/button/demo/noSpace.tsx extend context correctly 1`] = `
-<div
-  class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
->
-  <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-    type="button"
-  >
-    <span>
-      确定
-    </span>
-  </button>
-  <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-    type="button"
-  >
-    <span>
-      确 定
-    </span>
-  </button>
-</div>
-`;
-
-exports[`renders components/button/demo/noSpace.tsx extend context correctly 2`] = `[]`;
-
 exports[`renders components/button/demo/size.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -3128,6 +3645,7 @@ Array [
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="large"
         />
@@ -3147,6 +3665,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="default"
         />
@@ -3166,6 +3685,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="small"
         />

@@ -151,6 +151,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         display: 'flex',
         width: '100%',
         position: 'relative',
+        minWidth: 0,
 
         // https://github.com/ant-design/ant-design/issues/51669
         '&:after': {
@@ -205,13 +206,17 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
     },
 
     // ========================= Feedback ==========================
-    [`${componentCls}-has-feedback`]: {
-      [`${componentCls}-clear`]: {
-        insetInlineEnd: token
-          .calc(inputPaddingHorizontalBase)
-          .add(token.fontSize)
-          .add(token.paddingXS)
-          .equal(),
+    [`${componentCls}-status`]: {
+      '&-error, &-warning, &-success, &-validating': {
+        [`&${componentCls}-has-feedback`]: {
+          [`${componentCls}-clear`]: {
+            insetInlineEnd: token
+              .calc(inputPaddingHorizontalBase)
+              .add(token.fontSize)
+              .add(token.paddingXS)
+              .equal(),
+          },
+        },
       },
     },
   };

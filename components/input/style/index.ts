@@ -429,7 +429,9 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
       // https://codesandbox.io/s/wizardly-sun-u10br
       cursor: 'pointer',
       transition: `color ${token.motionDurationSlow}`,
-
+      border: 'none',
+      outline: 'none',
+      backgroundColor: 'transparent',
       '&:hover': {
         color: token.colorTextTertiary,
       },
@@ -677,8 +679,6 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
           [`${searchPrefixCls}-button`]: {
             // Fix https://github.com/ant-design/ant-design/issues/47150
             marginInlineEnd: -1,
-            paddingTop: 0,
-            paddingBottom: 0,
             borderStartStartRadius: 0,
             borderEndStartRadius: 0,
             boxShadow: 'none',

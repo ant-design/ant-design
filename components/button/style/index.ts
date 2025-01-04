@@ -1,8 +1,9 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
-import { genFocusStyle } from '../../style';
-import type { GenerateStyle } from '../../theme/internal';
+import { genFocusStyle, resetIcon } from '../../style';
+import { PresetColors } from '../../theme/interface';
+import type { GenerateStyle, PresetColorKey } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import type { ButtonVariantType } from '../buttonHelpers';
 import genGroupStyle from './group';
@@ -13,7 +14,17 @@ export type { ComponentToken };
 
 // ============================== Shared ==============================
 const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSSObject => {
-  const { componentCls, iconCls, fontWeight } = token;
+  const {
+    componentCls,
+    iconCls,
+    fontWeight,
+    opacityLoading,
+    motionDurationSlow,
+    motionEaseInOut,
+    marginXS,
+    calc,
+  } = token;
+
   return {
     [componentCls]: {
       outline: 'none',
@@ -38,17 +49,14 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         pointerEvents: 'none',
       },
 
-      [`> span, ${componentCls}-icon`]: {
-        display: 'inline-flex',
-      },
+      // https://github.com/ant-design/ant-design/issues/51380
+      [`${componentCls}-icon > svg`]: resetIcon(),
 
       '> a': {
         color: 'currentColor',
       },
 
-      '&:not(:disabled)': {
-        ...genFocusStyle(token),
-      },
+      '&:not(:disabled)': genFocusStyle(token),
 
       [`&${componentCls}-two-chinese-chars::first-letter`]: {
         letterSpacing: '0.34em',
@@ -59,9 +67,66 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         letterSpacing: '0.34em',
       },
 
-      // iconPosition="end"
+      [`&${componentCls}-icon-only`]: {
+        paddingInline: 0,
+
+        // make `btn-icon-only` not too narrow
+        [`&${componentCls}-compact-item`]: {
+          flex: 'none',
+        },
+
+        [`&${componentCls}-round`]: {
+          width: 'auto',
+        },
+      },
+
+      // Loading
+      [`&${componentCls}-loading`]: {
+        opacity: opacityLoading,
+        cursor: 'default',
+      },
+
+      [`${componentCls}-loading-icon`]: {
+        transition: ['width', 'opacity', 'margin']
+          .map((transition) => `${transition} ${motionDurationSlow} ${motionEaseInOut}`)
+          .join(','),
+      },
+
+      // iconPosition
+      [`&:not(${componentCls}-icon-end)`]: {
+        [`${componentCls}-loading-icon-motion`]: {
+          '&-appear-start, &-enter-start': {
+            marginInlineEnd: calc(marginXS).mul(-1).equal(),
+          },
+          '&-appear-active, &-enter-active': {
+            marginInlineEnd: 0,
+          },
+          '&-leave-start': {
+            marginInlineEnd: 0,
+          },
+          '&-leave-active': {
+            marginInlineEnd: calc(marginXS).mul(-1).equal(),
+          },
+        },
+      },
+
       '&-icon-end': {
         flexDirection: 'row-reverse',
+
+        [`${componentCls}-loading-icon-motion`]: {
+          '&-appear-start, &-enter-start': {
+            marginInlineStart: calc(marginXS).mul(-1).equal(),
+          },
+          '&-appear-active, &-enter-active': {
+            marginInlineStart: 0,
+          },
+          '&-leave-start': {
+            marginInlineStart: 0,
+          },
+          '&-leave-active': {
+            marginInlineStart: calc(marginXS).mul(-1).equal(),
+          },
+        },
       },
     },
   };
@@ -234,6 +299,95 @@ const genTextLinkButtonStyle = (
 });
 
 // =============================== Color ==============================
+const genPresetColorStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
+  const { componentCls } = token;
+
+  return PresetColors.reduce<CSSObject>((prev: CSSObject, colorKey: PresetColorKey) => {
+    const darkColor = token[`${colorKey}6`];
+    const lightColor = token[`${colorKey}1`];
+    const hoverColor = token[`${colorKey}5`];
+    const lightHoverColor = token[`${colorKey}2`];
+    const lightBorderColor = token[`${colorKey}3`];
+    const activeColor = token[`${colorKey}7`];
+    const boxShadow = `0 ${token.controlOutlineWidth} 0 ${token[`${colorKey}1`]}`;
+
+    return {
+      ...prev,
+      [`&${componentCls}-color-${colorKey}`]: {
+        color: darkColor,
+        boxShadow,
+
+        ...genSolidButtonStyle(
+          token,
+          token.colorTextLightSolid,
+          darkColor,
+          {
+            background: hoverColor,
+          },
+          {
+            background: activeColor,
+          },
+        ),
+
+        ...genOutlinedDashedButtonStyle(
+          token,
+          darkColor,
+          token.colorBgContainer,
+          {
+            color: hoverColor,
+            borderColor: hoverColor,
+            background: token.colorBgContainer,
+          },
+          {
+            color: activeColor,
+            borderColor: activeColor,
+            background: token.colorBgContainer,
+          },
+        ),
+
+        ...genDashedButtonStyle(token),
+
+        ...genFilledButtonStyle(
+          token,
+          lightColor,
+          {
+            background: lightHoverColor,
+          },
+          {
+            background: lightBorderColor,
+          },
+        ),
+
+        ...genTextLinkButtonStyle(
+          token,
+          darkColor,
+          'link',
+          {
+            color: hoverColor,
+          },
+          {
+            color: activeColor,
+          },
+        ),
+
+        ...genTextLinkButtonStyle(
+          token,
+          darkColor,
+          'text',
+          {
+            color: hoverColor,
+            background: lightColor,
+          },
+          {
+            color: activeColor,
+            background: lightBorderColor,
+          },
+        ),
+      },
+    };
+  }, {});
+};
+
 const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   color: token.defaultColor,
 
@@ -244,9 +398,11 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
     token.solidTextColor,
     token.colorBgSolid,
     {
+      color: token.solidTextColor,
       background: token.colorBgSolidHover,
     },
     {
+      color: token.solidTextColor,
       background: token.colorBgSolidActive,
     },
   ),
@@ -447,6 +603,8 @@ const genColorButtonStyle: GenerateStyle<ButtonToken> = (token) => {
     [`${componentCls}-color-default`]: genDefaultButtonStyle(token),
     [`${componentCls}-color-primary`]: genPrimaryButtonStyle(token),
     [`${componentCls}-color-dangerous`]: genDangerousStyle(token),
+
+    ...genPresetColorStyle(token),
   };
 };
 
@@ -520,51 +678,28 @@ const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation =>
     componentCls,
     controlHeight,
     fontSize,
-    lineHeight,
     borderRadius,
     buttonPaddingHorizontal,
     iconCls,
     buttonPaddingVertical,
-    motionDurationSlow,
-    motionEaseInOut,
     buttonIconOnlyFontSize,
-    opacityLoading,
   } = token;
+
   return [
     {
       [prefixCls]: {
         fontSize,
-        lineHeight,
         height: controlHeight,
         padding: `${unit(buttonPaddingVertical!)} ${unit(buttonPaddingHorizontal!)}`,
         borderRadius,
 
         [`&${componentCls}-icon-only`]: {
           width: controlHeight,
-          paddingInline: 0,
-
-          // make `btn-icon-only` not too narrow
-          [`&${componentCls}-compact-item`]: {
-            flex: 'none',
-          },
-
-          [`&${componentCls}-round`]: {
-            width: 'auto',
-          },
 
           [iconCls]: {
             fontSize: buttonIconOnlyFontSize,
+            verticalAlign: 'calc(-0.125em - 1px)',
           },
-        },
-
-        // Loading
-        [`&${componentCls}-loading`]: {
-          opacity: opacityLoading,
-          cursor: 'default',
-        },
-
-        [`${componentCls}-loading-icon`]: {
-          transition: `width ${motionDurationSlow} ${motionEaseInOut}, opacity ${motionDurationSlow} ${motionEaseInOut}`,
         },
       },
     },
@@ -581,7 +716,6 @@ const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation =>
 const genSizeBaseButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const baseToken = mergeToken<ButtonToken>(token, {
     fontSize: token.contentFontSize,
-    lineHeight: token.contentLineHeight,
   });
   return genButtonStyle(baseToken, token.componentCls);
 };
@@ -590,10 +724,9 @@ const genSizeSmallButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const smallToken = mergeToken<ButtonToken>(token, {
     controlHeight: token.controlHeightSM,
     fontSize: token.contentFontSizeSM,
-    lineHeight: token.contentLineHeightSM,
     padding: token.paddingXS,
     buttonPaddingHorizontal: token.paddingInlineSM,
-    buttonPaddingVertical: token.paddingBlockSM,
+    buttonPaddingVertical: 0,
     borderRadius: token.borderRadiusSM,
     buttonIconOnlyFontSize: token.onlyIconSizeSM,
   });
@@ -605,9 +738,8 @@ const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const largeToken = mergeToken<ButtonToken>(token, {
     controlHeight: token.controlHeightLG,
     fontSize: token.contentFontSizeLG,
-    lineHeight: token.contentLineHeightLG,
     buttonPaddingHorizontal: token.paddingInlineLG,
-    buttonPaddingVertical: token.paddingBlockLG,
+    buttonPaddingVertical: 0,
     borderRadius: token.borderRadiusLG,
     buttonIconOnlyFontSize: token.onlyIconSizeLG,
   });

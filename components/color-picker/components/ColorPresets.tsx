@@ -35,7 +35,10 @@ export const isBright = (value: AggregationColor, bgColorToken: string) => {
   return r * 0.299 + g * 0.587 + b * 0.114 > 192;
 };
 
-const genCollapsePanelKey = ({ label }: PresetsItem) => `panel-${label}`;
+const genCollapsePanelKey = (preset: PresetsItem, index: number) => {
+  const mergedKey = preset.key ?? index;
+  return `panel-${mergedKey}`;
+};
 
 const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color, onChange }) => {
   const [locale] = useLocale('ColorPicker');
@@ -48,9 +51,11 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
 
   const activeKeys = useMemo(
     () =>
-      presetsValue.reduce<string[]>((acc, preset) => {
+      presetsValue.reduce<string[]>((acc, preset, index) => {
         const { defaultOpen = true } = preset;
-        if (defaultOpen) acc.push(genCollapsePanelKey(preset));
+        if (defaultOpen) {
+          acc.push(genCollapsePanelKey(preset, index));
+        }
         return acc;
       }, []),
     [presetsValue],
@@ -60,8 +65,8 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
     onChange?.(colorValue);
   };
 
-  const items: CollapseProps['items'] = presetsValue.map((preset) => ({
-    key: genCollapsePanelKey(preset),
+  const items = presetsValue.map<NonNullable<CollapseProps['items']>[number]>((preset, index) => ({
+    key: genCollapsePanelKey(preset, index),
     label: <div className={`${colorPresetsPrefixCls}-label`}>{preset?.label}</div>,
     children: (
       <div className={`${colorPresetsPrefixCls}-items`}>

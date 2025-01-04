@@ -548,7 +548,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | fields | 仅在 `type` 为 `array` 或 `object` 类型时有效，用于指定子元素的校验规则 | Record&lt;string, [rule](#rule)> |  |
 | len | string 类型时为字符串长度；number 类型时为确定数字； array 类型时为数组长度 | number |  |
 | max | 必须设置 `type`：string 类型为字符串最大长度；number 类型时为最大值；array 类型时为数组最大长度 | number |  |
-| message | 错误信息，不设置时会通过[模板](#validatemessages)自动生成 | string |  |
+| message | 错误信息，不设置时会通过[模板](#validatemessages)自动生成 | string \| ReactElement |  |
 | min | 必须设置 `type`：string 类型为字符串最小长度；number 类型时为最小值；array 类型时为数组最小长度 | number |  |
 | pattern | 正则表达式匹配 | RegExp |  |
 | required | 是否为必选字段 | boolean |  |
@@ -716,6 +716,19 @@ const MyInput = (props) => (
 <Form.Item name="input">
   <MyInput />
 </Form.Item>;
+```
+
+### 为什么表单点击 label 会更改组件状态？
+
+> 相关 issue：[#47031](https://github.com/ant-design/ant-design/issues/47031),[#43175](https://github.com/ant-design/ant-design/issues/43175), [#52152](https://github.com/ant-design/ant-design/issues/52152)
+
+表单 label 使用 [HTML label](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/label) 元素来包裹表单控件，从而实现点击 label 时聚焦到对应控件。这是 label 元素的原生行为，用于提升可访问性和用户体验，这种标准交互模式能让用户更容易操作表单控件。如果你不希望这种行为，可通过 `htmlFor={null}` 属性解除关联，通常不建议这样做。
+
+```diff
+- <Form.Item name="switch" label="Switch">
++ <Form.Item name="switch" label="Switch" htmlFor={null}>
+    <Switch />
+  </Form.Item>
 ```
 
 ### 有更多参考文档吗？
