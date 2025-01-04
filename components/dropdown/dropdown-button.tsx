@@ -52,7 +52,6 @@ const DropdownButton: CompoundedComponent = (props) => {
     menu,
     arrow,
     autoFocus,
-    overlay,
     trigger,
     align,
     open,
@@ -95,10 +94,6 @@ const DropdownButton: CompoundedComponent = (props) => {
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   const classes = classNames(buttonPrefixCls, compactItemClassnames, className);
-
-  if ('overlay' in props) {
-    dropdownProps.overlay = overlay;
-  }
 
   if ('open' in props) {
     dropdownProps.open = open;
