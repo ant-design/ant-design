@@ -47,7 +47,7 @@ tag: 5.21.0
 | onResizeEnd | 拖拽结束回调 | `(sizes: number[]) => void` | - | - |
 | lazy | 延迟渲染模式 | `boolean` | `false` | 5.23.0 |
 | collapsibleIcon | 折叠图标 | `{start?: ReactNode; end?: ReactNode}` | - | 6.0.0 |
-| draggerIcon | 拖拽图标 | `{default: ReactNode; active: ReactNode}` | - | 6.0.0 |
+| draggerIcon | 拖拽图标 | `{default?: ReactNode; active?: ReactNode}` | - | 6.0.0 |
 
 ### Panel
 
