@@ -120,9 +120,6 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
   );
 
   const handleCloseClick = (e: React.MouseEvent<HTMLElement>) => {
-    if (mergedDisabled) {
-      return;
-    }
     e.stopPropagation();
     onClose?.(e);
 
@@ -142,9 +139,6 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
       );
       return replaceElement(iconNode, replacement, (originProps) => ({
         onClick: (e: React.MouseEvent<HTMLElement>) => {
-          if (mergedDisabled) {
-            return;
-          }
           originProps?.onClick?.(e);
           handleCloseClick(e);
         },
