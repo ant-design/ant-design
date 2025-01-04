@@ -73,13 +73,26 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
   };
 
   const headerNode = isValidNode(title) ? (
-    <div className={`${prefixCls}-header`}>
-      <div className={`${prefixCls}-title`}>{title}</div>
+    <div
+      className={classNames(`${prefixCls}-header`, tourClassNames?.header)}
+      style={styles?.header}
+    >
+      <div
+        className={classNames(`${prefixCls}-title`, tourClassNames?.title)}
+        style={styles?.title}
+      >
+        {title}
+      </div>
     </div>
   ) : null;
 
   const descriptionNode = isValidNode(description) ? (
-    <div className={`${prefixCls}-description`}>{description}</div>
+    <div
+      className={classNames(`${prefixCls}-description`, tourClassNames?.description)}
+      style={styles?.description}
+    >
+      {description}
+    </div>
   ) : null;
 
   const coverNode = isValidNode(cover) ? (

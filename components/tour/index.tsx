@@ -27,6 +27,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     closeIcon,
     classNames: tourClassNames,
     styles,
+    className,
     ...restProps
   } = props;
   const { getPrefixCls, direction, tour } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -61,8 +62,10 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     hashId,
     cssVarCls,
     rootClassName,
+    tour?.className,
     tour?.classNames?.root,
     tourClassNames?.root,
+    className,
   );
 
   const RCTourClassNames = {

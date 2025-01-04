@@ -17,6 +17,7 @@ const locales = {
     header: '头部元素',
     title: '标题元素',
     description: '描述元素',
+    mask: '遮罩层元素',
   },
   en: {
     root: 'Root element',
@@ -29,6 +30,7 @@ const locales = {
     header: 'Header element',
     title: 'Title element',
     description: 'Description element',
+    mask: 'Mask element',
   },
 };
 
@@ -42,7 +44,6 @@ const BlockList: React.FC<React.PropsWithChildren> = (props: any) => {
         top: 0,
       }}
     >
-      <InternalPanel {...props} title="Hello World!" description="Hello World?!" />
       <InternalPanel
         {...props}
         title="Hello World!"
@@ -65,17 +66,19 @@ const App: React.FC = () => {
 
   return (
     <SemanticPreview
+      component="ant-tour"
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
+        { name: 'mask', desc: locale.mask, version: '6.0.0' },
+        { name: 'content', desc: locale.content, version: '6.0.0' },
+        { name: 'body', desc: locale.body, version: '6.0.0' },
+        { name: 'cover', desc: locale.cover, version: '6.0.0' },
         { name: 'header', desc: locale.header, version: '6.0.0' },
         { name: 'title', desc: locale.title, version: '6.0.0' },
         { name: 'description', desc: locale.description, version: '6.0.0' },
-        { name: 'cover', desc: locale.cover, version: '6.0.0' },
-        { name: 'content', desc: locale.content, version: '6.0.0' },
-        { name: 'body', desc: locale.body, version: '6.0.0' },
+        { name: 'footer', desc: locale.footer, version: '6.0.0' },
         { name: 'actions', desc: locale.actions, version: '6.0.0' },
         { name: 'indicator', desc: locale.indicator, version: '6.0.0' },
-        { name: 'footer', desc: locale.footer, version: '6.0.0' },
       ]}
     >
       <BlockList />

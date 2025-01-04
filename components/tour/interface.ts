@@ -12,6 +12,8 @@ export interface TourProps extends Omit<RCTourProps, 'renderPanel'> {
   type?: 'default' | 'primary'; //	default type, affects the background color and text color
   classNames?: Partial<Record<SemanticName, string>>;
   styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 export type SemanticName =
