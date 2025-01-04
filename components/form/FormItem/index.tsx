@@ -101,8 +101,6 @@ export interface FormItemProps<Values = any>
   initialValue?: any;
   messageVariables?: Record<string, string>;
   tooltip?: LabelTooltipType;
-  /** @deprecated No need anymore */
-  fieldKey?: React.Key | React.Key[];
   layout?: FormItemLayout;
 }
 
