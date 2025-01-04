@@ -31,7 +31,7 @@ demo:
 <code src="./demo/customize.tsx" debug>Customize close</code>
 <code src="./demo/draggable.tsx">Draggable Tag</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
-<code src="./demo/disabled.tsx">Disabled</code>
+<code src="./demo/disabled.tsx" version="6.0.0">Disabled</code>
 
 ## API
 
