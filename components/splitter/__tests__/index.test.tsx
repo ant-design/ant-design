@@ -543,6 +543,7 @@ describe('Splitter', () => {
   });
 
   it('auto resize', async () => {
+    jest.useFakeTimers();
     containerSize = 200;
 
     const onResize = jest.fn();
