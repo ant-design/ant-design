@@ -7,7 +7,7 @@ import type { ButtonProps } from '../button';
 import Button from '../button';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
-import type { TourStepProps } from './interface';
+import type { TourStepProps, SemanticName } from './interface';
 
 function isValidNode(node: ReactNode): boolean {
   return node !== undefined && node !== null;
@@ -20,6 +20,8 @@ interface TourPanelProps {
   current: number;
   type: TourStepProps['type'];
   indicatorsRender?: TourStepProps['indicatorsRender'];
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 // Due to the independent design of Panel, it will be too coupled to put in rc-tour,
@@ -107,14 +109,14 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
 
   return (
     <div className={`${prefixCls}-content`}>
-      <div className={`${prefixCls}-inner`}>
+      <div className={`${prefixCls}-body`}>
         {closable && mergedCloseIcon}
         {coverNode}
         {headerNode}
         {descriptionNode}
         <div className={`${prefixCls}-footer`}>
           {total > 1 && <div className={`${prefixCls}-indicators`}>{mergedIndicatorNode}</div>}
-          <div className={`${prefixCls}-buttons`}>
+          <div className={`${prefixCls}-actions`}>
             {current !== 0 ? (
               <Button
                 {...secondaryBtnProps}

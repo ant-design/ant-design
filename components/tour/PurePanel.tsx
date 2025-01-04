@@ -22,6 +22,8 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     type,
     closable,
     closeIcon,
+    classNames: tourClassNames,
+    styles,
     ...restProps
   } = props;
 
@@ -64,6 +66,8 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         }}
         current={current}
         type={type}
+        classNames={tourClassNames}
+        styles={styles}
       />
     </PopoverRawPurePanel>,
   );
