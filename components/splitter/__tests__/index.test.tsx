@@ -65,6 +65,7 @@ describe('Splitter', () => {
   });
 
   it('should correct render panel size', async () => {
+    jest.useFakeTimers();
     const { container } = render(<SplitterDemo items={[{ size: 20 }, { size: '45%' }, {}]} />);
 
     await resizeSplitter();
@@ -143,6 +144,7 @@ describe('Splitter', () => {
     }
 
     it('The mousemove should work fine', async () => {
+      jest.useFakeTimers();
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
@@ -164,6 +166,7 @@ describe('Splitter', () => {
     });
 
     it('The touchMove should work fine', async () => {
+      jest.useFakeTimers();
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
@@ -185,6 +188,7 @@ describe('Splitter', () => {
     });
 
     it('with min', async () => {
+      jest.useFakeTimers();
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
@@ -200,6 +204,7 @@ describe('Splitter', () => {
     });
 
     it('with max', async () => {
+      jest.useFakeTimers();
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
@@ -215,6 +220,7 @@ describe('Splitter', () => {
     });
 
     it('both panel has min and max', async () => {
+      jest.useFakeTimers();
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
@@ -241,6 +247,8 @@ describe('Splitter', () => {
     });
 
     it('rtl', async () => {
+      jest.useFakeTimers();
+
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
@@ -258,6 +266,7 @@ describe('Splitter', () => {
     });
 
     it('[true, 0, true] can be move left', async () => {
+      jest.useFakeTimers();
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
@@ -277,6 +286,7 @@ describe('Splitter', () => {
     });
 
     it('[false, 0, true] can not be move left', async () => {
+      jest.useFakeTimers();
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
@@ -296,6 +306,8 @@ describe('Splitter', () => {
     });
 
     it("aria-valuemin/aria-valuemax should not set NaN When container's width be setting zero", async () => {
+      jest.useFakeTimers();
+
       containerSize = 0;
       const App: React.FC = () => {
         return <SplitterDemo items={[{}, {}, {}]} />;
@@ -323,6 +335,7 @@ describe('Splitter', () => {
   // ============================= Collapsible =============================
   describe('collapsible', () => {
     it('Basic', async () => {
+      jest.useFakeTimers();
       const { container, rerender } = render(
         <SplitterDemo items={[{ size: 20, collapsible: true }, { collapsible: true }]} />,
       );
@@ -354,6 +367,7 @@ describe('Splitter', () => {
     });
 
     it('collapsible - true', async () => {
+      jest.useFakeTimers();
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
@@ -379,6 +393,7 @@ describe('Splitter', () => {
     });
 
     it('collapsible - start:true', async () => {
+      jest.useFakeTimers();
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
@@ -410,6 +425,7 @@ describe('Splitter', () => {
     });
 
     it('collapsible - end:true', async () => {
+      jest.useFakeTimers();
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
@@ -441,6 +457,7 @@ describe('Splitter', () => {
     });
 
     it('both collapsible', async () => {
+      jest.useFakeTimers();
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
@@ -477,6 +494,7 @@ describe('Splitter', () => {
     });
 
     it('collapsible with min', async () => {
+      jest.useFakeTimers();
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
@@ -579,7 +597,6 @@ describe('Splitter', () => {
 
     it('customize collapsibleIcon', async () => {
       jest.useFakeTimers();
-
       const { container } = render(
         <SplitterDemo
           items={[{ size: 20, collapsible: true }, { collapsible: true }]}

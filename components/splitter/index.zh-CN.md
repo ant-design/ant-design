@@ -46,8 +46,8 @@ tag: 5.21.0
 | onResize | 面板大小变化回调 | `(sizes: number[]) => void` | - | - |
 | onResizeEnd | 拖拽结束回调 | `(sizes: number[]) => void` | - | - |
 | lazy | 延迟渲染模式 | `boolean` | `false` | 5.23.0 |
-| collapsibleIcon | 折叠图标 | `{start: ReactElement; end: ReactElement;}` | - | 5.23.0 |
-| draggerIcon | 拖拽图标 | `{default: ReactElement; active: ReactElement;}` | - | 5.23.0 |
+| collapsibleIcon | 折叠图标 | `{start: ReactNode; end: ReactNode}` | - | 5.23.0 |
+| draggerIcon | 拖拽图标 | `{default: ReactNode; active: ReactNode}` | - | 5.23.0 |
 
 ### Panel
 

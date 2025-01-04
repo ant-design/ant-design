@@ -43,8 +43,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | onResize | Panel size change callback | `(sizes: number[]) => void` | - | - |
 | onResizeEnd | Drag end callback | `(sizes: number[]) => void` | - | - |
 | lazy | Lazy mode | `boolean` | `false` | 5.23.0 |
-| collapsibleIcon | custom collapsible icon | `{start: React.ReactElement; end: React.ReactElement;}` | - | 5.23.0 |
-| draggerIcon | custom dragger icon | `{default: React.ReactElement; active: React.ReactElement;}` | - | 5.23.0 |
+| collapsibleIcon | custom collapsible icon | `{start: ReactNode; end: ReactNode}` | - | 5.23.0 |
+| draggerIcon | custom dragger icon | `{default: ReactNode; active: ReactNode}` | - | 5.23.0 |
 
 ### Panel
 
