@@ -272,7 +272,7 @@ function generateReport(
 
   let reportMdStr = `
 ${commonHeader}
-${fullReport}
+${isLocalEnv ? '__LOCAL_HEAD__' : fullReport}
 
 | Expected (Branch ${targetBranch}) | Actual (Current PR) | Diff |
 | --- | --- | --- |
@@ -333,6 +333,8 @@ ${fullReport}
     ]
       .filter(Boolean)
       .join('\n');
+
+    fullVersionMd = fullVersionMd.replace('__LOCAL_HEAD__', `🔍 **Summary**: ${summaryLine}`);
   }
 
   // convert fullVersionMd to html
