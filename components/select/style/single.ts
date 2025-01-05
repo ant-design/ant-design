@@ -6,7 +6,7 @@ import { mergeToken } from '../../theme/internal';
 import type { SelectToken } from './token';
 
 function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
-  const { componentCls, inputPaddingHorizontalBase, borderRadius, selectAffixPadding } = token;
+  const { componentCls, inputPaddingHorizontalBase, borderRadius } = token;
 
   const selectHeightWithoutBorder = token
     .calc(token.controlHeight)
@@ -28,12 +28,6 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         borderRadius,
         flex: '1 1 auto',
 
-        [`${componentCls}-selection-wrap`]: {
-          display: 'flex',
-          width: '100%',
-          position: 'relative',
-        },
-
         [`${componentCls}-selection-search`]: {
           position: 'absolute',
           inset: 0,
@@ -47,8 +41,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 
         [`
           ${componentCls}-selection-item,
-          ${componentCls}-selection-placeholder,
-          ${componentCls}-prefix
+          ${componentCls}-selection-placeholder
         `]: {
           display: 'block',
           padding: 0,
@@ -60,10 +53,6 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         [`${componentCls}-selection-placeholder`]: {
           transition: 'none',
           pointerEvents: 'none',
-        },
-
-        [`${componentCls}-prefix`]: {
-          marginInlineEnd: selectAffixPadding,
         },
 
         // For common baseline align
@@ -101,6 +90,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         [`${componentCls}-selector`]: {
           width: '100%',
           height: '100%',
+          alignItems: 'center',
           padding: `0 ${unit(inputPaddingHorizontalBase)}`,
 
           [`${componentCls}-selection-search-input`]: {

@@ -189,6 +189,7 @@ exports[`Form form should support disabled 1`] = `
                   <input
                     class="ant-radio-input"
                     disabled=""
+                    name="test-id"
                     type="radio"
                     value="apple"
                   />
@@ -209,6 +210,7 @@ exports[`Form form should support disabled 1`] = `
                   <input
                     class="ant-radio-input"
                     disabled=""
+                    name="test-id"
                     type="radio"
                     value="pear"
                   />
@@ -941,8 +943,7 @@ exports[`Form form should support disabled 1`] = `
               class="ant-upload-wrapper"
             >
               <div
-                class="ant-upload ant-upload-select ant-upload-disabled"
-                style="display: none;"
+                class="ant-upload ant-upload-select ant-upload-disabled ant-upload-hidden"
               >
                 <span
                   class="ant-upload ant-upload-disabled"

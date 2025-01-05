@@ -30,7 +30,6 @@ Array [
       class="ant-checkbox ant-checkbox-indeterminate ant-wave-target"
     >
       <input
-        aria-checked="mixed"
         class="ant-checkbox-input"
         type="checkbox"
       />
@@ -519,7 +518,6 @@ Array [
       class="ant-checkbox ant-checkbox-indeterminate ant-wave-target ant-checkbox-disabled"
     >
       <input
-        aria-checked="mixed"
         class="ant-checkbox-input"
         disabled=""
         type="checkbox"

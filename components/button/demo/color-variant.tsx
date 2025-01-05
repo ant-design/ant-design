@@ -7,8 +7,8 @@ const App: React.FC = () => {
 
   return (
     <ConfigProvider componentSize={xxl ? 'middle' : 'small'}>
-      <Flex vertical gap="middle">
-        <Flex gap="middle" wrap>
+      <Flex vertical gap="small">
+        <Flex gap="small" wrap>
           <Button color="default" variant="solid">
             Solid
           </Button>
@@ -28,7 +28,7 @@ const App: React.FC = () => {
             Link
           </Button>
         </Flex>
-        <Flex gap="middle" wrap>
+        <Flex gap="small" wrap>
           <Button color="primary" variant="solid">
             Solid
           </Button>
@@ -48,7 +48,7 @@ const App: React.FC = () => {
             Link
           </Button>
         </Flex>
-        <Flex gap="middle" wrap>
+        <Flex gap="small" wrap>
           <Button color="danger" variant="solid">
             Solid
           </Button>
@@ -65,6 +65,67 @@ const App: React.FC = () => {
             Text
           </Button>
           <Button color="danger" variant="link">
+            Link
+          </Button>
+        </Flex>
+        <Flex gap="middle" wrap>
+          <Button color="pink" variant="solid">
+            Solid
+          </Button>
+          <Button color="pink" variant="outlined">
+            Outlined
+          </Button>
+          <Button color="pink" variant="dashed">
+            Dashed
+          </Button>
+          <Button color="pink" variant="filled">
+            Filled
+          </Button>
+          <Button color="pink" variant="text">
+            Text
+          </Button>
+          <Button color="pink" variant="link">
+            Link
+          </Button>
+        </Flex>
+        <Flex gap="middle" wrap>
+          <Button color="purple" variant="solid">
+            Solid
+          </Button>
+          <Button color="purple" variant="outlined">
+            Outlined
+          </Button>
+          <Button color="purple" variant="dashed">
+            Dashed
+          </Button>
+          <Button color="purple" variant="filled">
+            Filled
+          </Button>
+          <Button color="purple" variant="text">
+            Text
+          </Button>
+          <Button color="purple" variant="link">
+            Link
+          </Button>
+        </Flex>
+
+        <Flex gap="middle" wrap>
+          <Button color="cyan" variant="solid">
+            Solid
+          </Button>
+          <Button color="cyan" variant="outlined">
+            Outlined
+          </Button>
+          <Button color="cyan" variant="dashed">
+            Dashed
+          </Button>
+          <Button color="cyan" variant="filled">
+            Filled
+          </Button>
+          <Button color="cyan" variant="text">
+            Text
+          </Button>
+          <Button color="cyan" variant="link">
             Link
           </Button>
         </Flex>

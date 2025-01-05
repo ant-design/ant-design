@@ -15,6 +15,7 @@ exports[`renders components/radio/demo/badge.tsx extend context correctly 1`] = 
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="1"
         />
@@ -56,6 +57,7 @@ exports[`renders components/radio/demo/badge.tsx extend context correctly 1`] = 
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="2"
         />
@@ -180,6 +182,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           <input
             checked=""
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="a"
           />
@@ -199,6 +202,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="b"
           />
@@ -218,6 +222,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="c"
           />
@@ -237,6 +242,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="d"
           />
@@ -266,6 +272,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
             checked=""
             class="ant-radio-button-input"
             disabled=""
+            name="test-id"
             type="radio"
             value="a"
           />
@@ -286,6 +293,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           <input
             class="ant-radio-button-input"
             disabled=""
+            name="test-id"
             type="radio"
             value="b"
           />
@@ -306,6 +314,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           <input
             class="ant-radio-button-input"
             disabled=""
+            name="test-id"
             type="radio"
             value="c"
           />
@@ -326,6 +335,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           <input
             class="ant-radio-button-input"
             disabled=""
+            name="test-id"
             type="radio"
             value="d"
           />
@@ -354,6 +364,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           <input
             checked=""
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="a"
           />
@@ -373,6 +384,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="b"
           />
@@ -392,6 +404,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="c"
           />
@@ -411,6 +424,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="d"
           />
@@ -428,6 +442,101 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
 `;
 
 exports[`renders components/radio/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/radio/demo/debug-upload.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+>
+  <div
+    class="ant-space-item"
+  >
+    <span
+      class="ant-upload-wrapper"
+    >
+      <div
+        class="ant-upload ant-upload-select"
+      >
+        <span
+          class="ant-upload"
+        >
+          <input
+            accept=""
+            name="file"
+            style="display: none;"
+            type="file"
+          />
+          <label
+            class="ant-radio-wrapper"
+          >
+            <span
+              class="ant-radio ant-wave-target"
+            >
+              <input
+                class="ant-radio-input"
+                type="radio"
+              />
+              <span
+                class="ant-radio-inner"
+              />
+            </span>
+            <span>
+              Radio
+            </span>
+          </label>
+        </span>
+      </div>
+      <div
+        class="ant-upload-list ant-upload-list-text"
+      />
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <span
+      class="ant-upload-wrapper"
+    >
+      <div
+        class="ant-upload ant-upload-select"
+      >
+        <span
+          class="ant-upload"
+        >
+          <input
+            accept=""
+            name="file"
+            style="display: none;"
+            type="file"
+          />
+          <label
+            class="ant-checkbox-wrapper"
+          >
+            <span
+              class="ant-checkbox ant-wave-target"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+            <span>
+              Checkbox
+            </span>
+          </label>
+        </span>
+      </div>
+      <div
+        class="ant-upload-list ant-upload-list-text"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders components/radio/demo/debug-upload.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/radio/demo/disabled.tsx extend context correctly 1`] = `
 Array [
@@ -501,6 +610,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="a"
         />
@@ -520,6 +630,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="b"
         />
@@ -539,6 +650,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="c"
         />
@@ -558,6 +670,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="d"
         />
@@ -582,6 +695,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="a"
         />
@@ -602,6 +716,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         <input
           class="ant-radio-button-input"
           disabled=""
+          name="test-id"
           type="radio"
           value="b"
         />
@@ -621,6 +736,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="c"
         />
@@ -640,6 +756,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="d"
         />
@@ -665,6 +782,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
           checked=""
           class="ant-radio-button-input"
           disabled=""
+          name="test-id"
           type="radio"
           value="a"
         />
@@ -685,6 +803,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         <input
           class="ant-radio-button-input"
           disabled=""
+          name="test-id"
           type="radio"
           value="b"
         />
@@ -705,6 +824,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         <input
           class="ant-radio-button-input"
           disabled=""
+          name="test-id"
           type="radio"
           value="c"
         />
@@ -725,6 +845,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         <input
           class="ant-radio-button-input"
           disabled=""
+          name="test-id"
           type="radio"
           value="d"
         />
@@ -758,6 +879,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="a"
         />
@@ -777,6 +899,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="b"
         />
@@ -796,6 +919,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="c"
         />
@@ -815,6 +939,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="d"
         />
@@ -838,6 +963,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="a"
         />
@@ -858,6 +984,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
         <input
           class="ant-radio-button-input"
           disabled=""
+          name="test-id"
           type="radio"
           value="b"
         />
@@ -878,6 +1005,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="c"
         />
@@ -897,6 +1025,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="d"
         />
@@ -927,6 +1056,7 @@ exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1
       <input
         checked=""
         class="ant-radio-input"
+        name="test-id"
         type="radio"
         value="1"
       />
@@ -946,6 +1076,7 @@ exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1
     >
       <input
         class="ant-radio-input"
+        name="test-id"
         type="radio"
         value="2"
       />
@@ -965,6 +1096,7 @@ exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1
     >
       <input
         class="ant-radio-input"
+        name="test-id"
         type="radio"
         value="3"
       />
@@ -984,6 +1116,7 @@ exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1
     >
       <input
         class="ant-radio-input"
+        name="test-id"
         type="radio"
         value="4"
       />
@@ -1016,6 +1149,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="Apple"
         />
@@ -1035,6 +1169,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="Pear"
         />
@@ -1054,6 +1189,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="Orange"
         />
@@ -1078,6 +1214,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="Apple"
         />
@@ -1097,6 +1234,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="Pear"
         />
@@ -1116,6 +1254,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="Orange"
         />
@@ -1139,6 +1278,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="Apple"
         />
@@ -1159,6 +1299,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="Pear"
         />
@@ -1178,6 +1319,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="Orange"
         />
@@ -1214,6 +1356,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
           <input
             checked=""
             class="ant-radio-input"
+            name="test-id"
             type="radio"
             value="1"
           />
@@ -1237,6 +1380,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
         >
           <input
             class="ant-radio-input"
+            name="test-id"
             type="radio"
             value="2"
           />
@@ -1260,6 +1404,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
         >
           <input
             class="ant-radio-input"
+            name="test-id"
             type="radio"
             value="3"
           />
@@ -1283,6 +1428,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
         >
           <input
             class="ant-radio-input"
+            name="test-id"
             type="radio"
             value="4"
           />
@@ -1315,6 +1461,7 @@ Array [
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="Apple"
         />
@@ -1334,6 +1481,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="Pear"
         />
@@ -1353,6 +1501,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="Orange"
         />
@@ -1378,6 +1527,7 @@ Array [
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="Apple"
         />
@@ -1397,6 +1547,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="Pear"
         />
@@ -1417,6 +1568,7 @@ Array [
         <input
           class="ant-radio-input"
           disabled=""
+          name="test-id"
           type="radio"
           value="Orange"
         />
@@ -1443,6 +1595,7 @@ Array [
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="Apple"
         />
@@ -1462,6 +1615,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="Pear"
         />
@@ -1482,6 +1636,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="Orange"
         />
@@ -1508,6 +1663,7 @@ Array [
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="Apple"
         />
@@ -1527,6 +1683,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="Pear"
         />
@@ -1547,6 +1704,7 @@ Array [
         <input
           class="ant-radio-button-input"
           disabled=""
+          name="test-id"
           type="radio"
           value="Orange"
         />
@@ -1670,6 +1828,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="a"
         />
@@ -1689,6 +1848,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="b"
         />
@@ -1708,6 +1868,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="c"
         />
@@ -1727,6 +1888,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="d"
         />
@@ -1751,6 +1913,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="a"
         />
@@ -1770,6 +1933,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="b"
         />
@@ -1789,6 +1953,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="c"
         />
@@ -1808,6 +1973,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="d"
         />
@@ -1832,6 +1998,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="a"
         />
@@ -1851,6 +2018,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="b"
         />
@@ -1870,6 +2038,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="c"
         />
@@ -1889,6 +2058,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="d"
         />
@@ -1920,6 +2090,7 @@ Array [
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="1"
         />
@@ -1939,6 +2110,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="2"
         />
@@ -1958,6 +2130,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="3"
         />
@@ -1977,6 +2150,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="4"
         />
@@ -2003,6 +2177,7 @@ Array [
           checked=""
           class="ant-radio-input"
           disabled=""
+          name="test-id"
           type="radio"
           value="1"
         />
@@ -2023,6 +2198,7 @@ Array [
         <input
           class="ant-radio-input"
           disabled=""
+          name="test-id"
           type="radio"
           value="2"
         />
@@ -2043,6 +2219,7 @@ Array [
         <input
           class="ant-radio-input"
           disabled=""
+          name="test-id"
           type="radio"
           value="3"
         />
@@ -2063,6 +2240,7 @@ Array [
         <input
           class="ant-radio-input"
           disabled=""
+          name="test-id"
           type="radio"
           value="4"
         />

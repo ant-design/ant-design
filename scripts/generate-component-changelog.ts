@@ -45,6 +45,7 @@ const miscKeys = [
   'Design Token',
   'MISC:',
   '杂项：',
+  'antd',
   '@ant-design/cssinjs',
   '@ant-design/icons',
   'rc-motion',
@@ -62,6 +63,7 @@ const miscKeys = [
   '🇪🇸',
   '🇷🇺',
   '🇺🇦',
+  '🇵🇹',
   '🇲🇲',
   '🇸🇪',
   '🇻🇳',
@@ -78,7 +80,6 @@ const miscKeys = [
   '🇲🇳',
   '🇳🇵',
   '🇪🇬',
-  '🇪🇸',
   '🇦🇿',
 ];
 
@@ -155,7 +156,7 @@ const miscKeys = [
       changelogLine = changelogLine
         .replace(/\[([^\]]+)]\(([^)]+)\)/g, (...match) => {
           const [, title, ref] = match;
-          if (ref.includes('/pull/')) {
+          if (/\/(pull|issues)\//.test(ref)) {
             refs.push(ref);
           }
 

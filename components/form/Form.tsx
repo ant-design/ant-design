@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useMemo } from 'react';
 import classNames from 'classnames';
 import FieldForm, { List, useWatch } from 'rc-field-form';
 import type { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
@@ -93,7 +92,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     useFormWarning(props);
   }
 
-  const mergedRequiredMark = useMemo(() => {
+  const mergedRequiredMark = React.useMemo(() => {
     if (requiredMark !== undefined) {
       return requiredMark;
     }
@@ -137,7 +136,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
   const { __INTERNAL__ } = wrapForm;
   __INTERNAL__.name = name;
 
-  const formContextValue = useMemo<FormContextProps>(
+  const formContextValue = React.useMemo<FormContextProps>(
     () => ({
       name,
       labelAlign,

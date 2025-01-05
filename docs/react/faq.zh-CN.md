@@ -69,7 +69,7 @@ antd 在 minor 和 patch 版本迭代中会避免引入破坏性变更，遵从�
 
 ## 当我动态改变 `defaultValue` 的时候它并没有生效。
 
-`Input`/`Select` 等的 `defaultXxxx`（例如 `defaultValue`）只有在第一次渲染的时候有效，这是 React 的规范，请阅读 [React 的文档](https://zh-hans.reactjs.org/docs/forms.html#controlled-components)。
+`Input`/`Select` 等的 `defaultXxxx`（例如 `defaultValue`）只有在第一次渲染的时候有效，这是 React 的规范，请阅读 [React 的文档](https://zh-hans.react.dev/reference/react-dom/components/input#controlling-an-input-with-a-state-variable)。
 
 ## 为什么修改组件传入的对象或数组属性组件不会更新？
 
@@ -77,7 +77,7 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 ## 当我设置了 `Input`/`Select` 等的 `value` 时它就无法修改了。
 
-尝试使用 `onChange` 来改变 `value`，请参考 [React 的文档](https://zh-hans.reactjs.org/docs/forms.html#controlled-components)。
+尝试使用 `onChange` 来改变 `value`，请参考 [React 的文档](https://zh-hans.react.dev/reference/react-dom/components/input#controlling-an-input-with-a-state-variable)。
 
 ## 多个组件放一排时没有垂直对齐怎么办？
 

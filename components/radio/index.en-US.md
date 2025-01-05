@@ -30,6 +30,7 @@ demo:
 <code src="./demo/badge.tsx" debug>Badge style</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/debug-upload.tsx" debug>Upload Debug</code>
 <!-- prettier-ignore-end -->
 
 ## API
@@ -55,7 +56,7 @@ Radio group can wrap a group of `Radio`。
 | buttonStyle | The style type of radio button | `outline` \| `solid` | `outline` |  |
 | defaultValue | Default selected value | any | - |  |
 | disabled | Disable all radio buttons | boolean | false |  |
-| name | The `name` property of all `input[type="radio"]` children | string | - |  |
+| name | The `name` property of all `input[type="radio"]` children. If not set, it will fallback to a randomly generated name | string | - |  |
 | options | Set children optional | string\[] \| number\[] \| Array&lt;[CheckboxOptionType](#checkboxoptiontype)> | - |  |
 | optionType | Set Radio optionType | `default` \| `button` | `default` | 4.4.0 |
 | size | The size of radio button style | `large` \| `middle` \| `small` | - |  |

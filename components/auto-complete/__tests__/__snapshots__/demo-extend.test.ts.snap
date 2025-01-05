@@ -793,7 +793,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <title>
-                            Simple Empty
+                            No data
                           </title>
                           <g
                             fill="none"
@@ -948,7 +948,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <title>
-                              Simple Empty
+                              No data
                             </title>
                             <g
                               fill="none"
@@ -1249,7 +1249,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <title>
-                              Simple Empty
+                              No data
                             </title>
                             <g
                               fill="none"
@@ -1476,7 +1476,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <title>
-                              Simple Empty
+                              No data
                             </title>
                             <g
                               fill="none"
@@ -1716,7 +1716,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <title>
-                              Simple Empty
+                              No data
                             </title>
                             <g
                               fill="none"
@@ -2267,15 +2267,7 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
 </div>
 `;
 
-exports[`renders components/auto-complete/demo/render-panel.tsx extend context correctly 2`] = `
-[
-  "Warning: Received \`%s\` for a non-boolean attribute \`%s\`.
-
-If you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.
-
-If you used to conditionally omit it with %s={condition && value}, pass %s={condition ? value : undefined} instead.%s",
-]
-`;
+exports[`renders components/auto-complete/demo/render-panel.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/auto-complete/demo/status.tsx extend context correctly 1`] = `
 <div

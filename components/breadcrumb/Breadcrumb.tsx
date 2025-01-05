@@ -26,7 +26,7 @@ export interface BreadcrumbItemType {
    */
   path?: string;
   title?: React.ReactNode;
-  /* @deprecated Please use `title` instead */
+  /** @deprecated Please use `title` instead */
   breadcrumbName?: string;
   menu?: BreadcrumbItemProps['menu'];
   /** @deprecated Please use `menu` instead */
@@ -199,6 +199,7 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
       const isLastItem = index === childrenLength - 1;
       return cloneElement(element, {
         separator: isLastItem ? '' : separator,
+        // eslint-disable-next-line react/no-array-index-key
         key: index,
       });
     });
