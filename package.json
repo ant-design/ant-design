@@ -347,10 +347,10 @@
   },
   "overrides": {
     "nwsapi": "2.2.13",
-    "react-intl": "7.0.4"
+    "react-intl": "7.1.0"
   },
   "resolutions": {
     "nwsapi": "2.2.13",
-    "react-intl": "7.0.4"
+    "react-intl": "7.1.0"
   }
 }
