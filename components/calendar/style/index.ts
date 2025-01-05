@@ -149,6 +149,18 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
           },
         },
       },
+      [`${componentCls}-cell-week ${componentCls}-cell-inner`]: {
+        display: 'block',
+        borderRadius: 0,
+        borderTop: `${unit(token.lineWidthBold)} ${token.lineType} ${token.colorSplit}`,
+        width: '100%',
+        height: token
+          .calc(token.dateValueHeight)
+          .add(token.dateContentHeight)
+          .add(token.calc(token.paddingXS).div(2))
+          .add(token.lineWidthBold)
+          .equal(),
+      },
       [`${componentCls}-cell`]: {
         '&::before': {
           display: 'none',

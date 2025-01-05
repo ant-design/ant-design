@@ -6,8 +6,8 @@ import type { SelectAllLabel, TransferProps } from '..';
 import Transfer from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import Button from '../../button';
 import { waitFakeTimer } from '../../../tests/utils';
+import Button from '../../button';
 
 const listCommonProps: {
   dataSource: { key: string; title: string; disabled?: boolean }[];
@@ -841,6 +841,25 @@ describe('Transfer', () => {
           ?.item(Number(item))
           ?.querySelector('input[type="checkbox"]')!,
       ).toBeChecked();
+    });
+  });
+
+  it('showSearch with single object', () => {
+    const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
+    const locale = { itemUnit: 'Person', notFoundContent: 'Nothing' };
+    const { container } = render(
+      <Transfer
+        {...listCommonProps}
+        {...emptyProps}
+        showSearch={{ placeholder: 'Search placeholder', defaultValue: 'values' }}
+        locale={locale}
+      />,
+    );
+    const searchInputs = container.querySelectorAll('.ant-transfer-list-search input');
+    expect(searchInputs).toHaveLength(2);
+    searchInputs.forEach((input) => {
+      expect(input.getAttribute('placeholder')).toBe('Search placeholder');
+      expect(input).toHaveValue('values');
     });
   });
 });
