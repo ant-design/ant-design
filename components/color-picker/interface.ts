@@ -1,4 +1,5 @@
 import type { CSSProperties, FC, ReactNode } from 'react';
+import React from 'react';
 import type {
   ColorGenInput,
   ColorPickerProps as RcColorPickerProps,
@@ -33,7 +34,13 @@ export interface PresetsItem {
    * @default true
    */
   defaultOpen?: boolean;
+  /**
+   * The key of the panel
+   * @since 5.23.0
+   */
+  key?: React.Key;
 }
+
 export type TriggerType = 'click' | 'hover';
 
 export type TriggerPlacement = TooltipPlacement; // Alias, to prevent breaking changes.

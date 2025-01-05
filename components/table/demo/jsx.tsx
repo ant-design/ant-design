@@ -1,5 +1,5 @@
 import React from 'react';
-import { Space, Table, Tag } from 'antd';
+import { Flex, Space, Table, Tag } from 'antd';
 
 const { Column, ColumnGroup } = Table;
 
@@ -52,7 +52,7 @@ const App: React.FC = () => (
       dataIndex="tags"
       key="tags"
       render={(tags: string[]) => (
-        <>
+        <Flex gap="small" align="center" wrap>
           {tags.map((tag) => {
             let color = tag.length > 5 ? 'geekblue' : 'green';
             if (tag === 'loser') {
@@ -64,7 +64,7 @@ const App: React.FC = () => (
               </Tag>
             );
           })}
-        </>
+        </Flex>
       )}
     />
     <Column

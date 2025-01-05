@@ -29,8 +29,6 @@ export interface BreadcrumbItemType {
   /** @deprecated Please use `title` instead */
   breadcrumbName?: string;
   menu?: BreadcrumbItemProps['menu'];
-  /** @deprecated Please use `menu` instead */
-  overlay?: React.ReactNode;
   className?: string;
   dropdownProps?: DropdownProps;
   onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
@@ -141,7 +139,6 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
         key,
         type,
         menu,
-        overlay,
         onClick,
         className: itemClassName,
         separator: itemSeparator,
@@ -164,8 +161,6 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
 
       if (menu) {
         itemProps.menu = menu;
-      } else if (overlay) {
-        itemProps.overlay = overlay as any;
       }
 
       let { href } = item;

@@ -27,6 +27,11 @@ export interface ComponentToken {
    */
   optionSelectedBg: string;
   /**
+   * @desc 选项选中时文本颜色
+   * @descEN Text color when option is selected
+   */
+  optionSelectedColor: string;
+  /**
    * @desc 选项选中时字重
    * @descEN Font weight of selected item
    */
@@ -100,6 +105,7 @@ export const prepareComponentToken = (token: GlobalToken) => {
     optionSelectedFontWeight: token.fontWeightStrong,
     optionPadding: `${itemPaddingVertical}px ${token.paddingSM}px`,
     menuPadding: token.paddingXXS,
+    optionSelectedColor: token.colorText,
   };
 };
 

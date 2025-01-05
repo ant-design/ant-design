@@ -21,7 +21,7 @@ export type { BreadcrumbItemProps, BreadcrumbProps } from './breadcrumb';
 export { default as Button } from './button';
 export type { ButtonProps } from './button';
 export { default as Calendar } from './calendar';
-export type { CalendarProps } from './calendar';
+export type { CalendarMode, CalendarProps } from './calendar';
 export { default as Card } from './card';
 export type { CardProps } from './card';
 export { default as Carousel } from './carousel';
