@@ -8,6 +8,11 @@ import genMotionStyle from './motion';
 
 export interface ComponentToken {
   /**
+   * @desc 可编辑卡片标签标题鼠标悬浮显示关闭图标
+   * @descEN Editable card label title, hovering mouse display, off icon
+   */
+  titleHoverCloseIcon: string;
+  /**
    * @desc 下拉菜单 z-index
    * @descEN z-index of dropdown menu
    */
@@ -705,6 +710,7 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
       },
       '&-remove': {
         flex: 'none',
+        display: token.titleHoverCloseIcon,
         marginRight: {
           _skip_check_: true,
           value: token.calc(token.marginXXS).mul(-1).equal(),
@@ -727,6 +733,10 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
       },
       '&:hover': {
         color: itemHoverColor,
+      },
+
+      [`&:hover ${tabCls}-remove`]: {
+        display: 'block'
       },
 
       [`&${tabCls}-active ${tabCls}-btn`]: {
@@ -1039,6 +1049,7 @@ export const prepareComponentToken: GetDefaultToken<'Tabs'> = (token) => {
     titleFontSize: token.fontSize,
     titleFontSizeLG: token.fontSizeLG,
     titleFontSizeSM: token.fontSize,
+    titleHoverCloseIcon: token.hoverDisplay,
     inkBarColor: token.colorPrimary,
     horizontalMargin: `0 0 ${token.margin}px 0`,
     horizontalItemGutter: 32, // Fixed Value
