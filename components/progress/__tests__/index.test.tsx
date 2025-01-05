@@ -226,13 +226,6 @@ describe('Progress', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('should warning if use `progress` in success', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<Progress percent={60} success={{ progress: 30 }} />);
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',
-    );
-  });
   it('should warnning if use `width` prop', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress percent={60} width={100} />);
@@ -246,14 +239,6 @@ describe('Progress', () => {
     render(<Progress percent={60} strokeWidth={10} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] `strokeWidth` is deprecated. Please use `size` instead.',
-    );
-  });
-
-  it('should warning if use `progress` in success in type Circle', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<Progress percent={60} success={{ progress: 30 }} type="circle" />);
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',
     );
   });
 
