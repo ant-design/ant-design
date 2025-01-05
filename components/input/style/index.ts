@@ -13,6 +13,8 @@ import {
   genFilledStyle,
   genOutlinedGroupStyle,
   genOutlinedStyle,
+  genUnderlinedGroupStyle,
+  genUnderlinedStyle,
 } from './variants';
 
 export type { ComponentToken };
@@ -393,7 +395,7 @@ const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       ...genOutlinedStyle(token),
       ...genFilledStyle(token),
       ...genBorderlessStyle(token),
-
+      ...genUnderlinedStyle(token),
       '&[type="color"]': {
         height: token.controlHeight,
 
@@ -601,6 +603,7 @@ const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         // Variants
         ...genOutlinedGroupStyle(token),
         ...genFilledGroupStyle(token),
+        ...genUnderlinedGroupStyle(token),
 
         // '&-disabled': {
         //   [`${componentCls}-group-addon`]: {

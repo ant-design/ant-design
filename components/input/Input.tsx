@@ -146,7 +146,6 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const mergedAllowClear = getAllowClear(allowClear ?? input?.allowClear);
 
   const [variant, enableVariantCls] = useVariant('input', customVariant, bordered);
-
   return wrapCSSVar(
     <RcInput
       ref={composeRef(ref, inputRef)}

@@ -140,7 +140,7 @@ interface CountConfig {
 | length | 输入元素数量 | number | 6 |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - |  |
 | size | 输入框大小 | `small` \| `middle` \| `large` | `middle` |  |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` |  |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` |  |
 | value | 输入框内容 | string | - |  |
 | onChange | 当输入框内容全部填充时触发回调 | (value: string) => void | - |  |
 | onInput | 输入值变化时触发的回调 | (value: string[]) => void | - | `5.22.0` |
