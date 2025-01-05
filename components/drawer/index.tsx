@@ -84,16 +84,6 @@ const Drawer: React.FC<DrawerProps> & {
       ? () => getPopupContainer(document.body)
       : customizeGetContainer;
 
-  const drawerClassName = classNames(
-    {
-      'no-mask': !mask,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    },
-    rootClassName,
-    hashId,
-    cssVarCls,
-  );
-
   // ========================== Warning ===========================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Drawer');
@@ -156,8 +146,20 @@ const Drawer: React.FC<DrawerProps> & {
   const [zIndex, contextZIndex] = useZIndex('Drawer', rest.zIndex);
 
   // =========================== Render ===========================
-  const { classNames: propClassNames = {}, styles: propStyles = {} } = rest;
+  const { classNames: propClassNames = {}, styles: propStyles = {}, rootStyle } = rest;
   const { classNames: contextClassNames = {}, styles: contextStyles = {} } = drawer || {};
+
+  const drawerClassName = classNames(
+    {
+      'no-mask': !mask,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    rootClassName,
+    hashId,
+    cssVarCls,
+    propClassNames?.root,
+    contextClassNames?.root,
+  );
 
   return wrapCSSVar(
     <ContextIsolator form space>
@@ -196,6 +198,7 @@ const Drawer: React.FC<DrawerProps> & {
           width={mergedWidth}
           height={mergedHeight}
           style={{ ...drawer?.style, ...style }}
+          rootStyle={{ ...rootStyle, ...contextStyles?.root, ...propStyles?.root }}
           className={classNames(drawer?.className, className)}
           rootClassName={drawerClassName}
           getContainer={getContainer}

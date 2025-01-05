@@ -9,14 +9,20 @@ import Skeleton from '../skeleton';
 
 export interface DrawerClassNames extends NonNullable<RCDrawerProps['classNames']> {
   header?: string;
+  title?: string;
+  extra?: string;
   body?: string;
   footer?: string;
+  root?: string;
 }
 
 export interface DrawerStyles extends NonNullable<RCDrawerProps['styles']> {
   header?: React.CSSProperties;
+  title?: React.CSSProperties;
+  extra?: React.CSSProperties;
   body?: React.CSSProperties;
   footer?: React.CSSProperties;
+  root?: React.CSSProperties;
 }
 
 export interface DrawerPanelProps {
@@ -112,9 +118,37 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
       >
         <div className={`${prefixCls}-header-title`}>
           {mergedCloseIcon}
-          {title && <div className={`${prefixCls}-title`}>{title}</div>}
+          {title && (
+            <div
+              className={classNames(
+                `${prefixCls}-title`,
+                drawerContext?.classNames?.title,
+                drawerClassNames?.title,
+              )}
+              style={{
+                ...drawerContext?.styles?.title,
+                ...drawerStyles?.title,
+              }}
+            >
+              {title}
+            </div>
+          )}
         </div>
-        {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
+        {extra && (
+          <div
+            className={classNames(
+              `${prefixCls}-extra`,
+              drawerContext?.classNames?.extra,
+              drawerClassNames?.extra,
+            )}
+            style={{
+              ...drawerContext?.styles?.extra,
+              ...drawerStyles?.extra,
+            }}
+          >
+            {extra}
+          </div>
+        )}
       </div>
     );
   }, [mergedClosable, mergedCloseIcon, extra, headerStyle, prefixCls, title]);

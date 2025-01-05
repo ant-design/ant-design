@@ -411,4 +411,73 @@ describe('Drawer', () => {
     triggerMotion();
     expect(container.querySelector('#test')).toBeTruthy();
   });
+
+  it('should apply custom styles to Drawer', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      mask: 'custom-mask',
+      header: 'custom-header',
+      title: 'custom-title',
+      extra: 'custom-extra',
+      content: 'custom-content',
+      body: 'custom-body',
+      footer: 'custom-footer',
+    };
+
+    const customStyles = {
+      root: { fontSize: '24px' },
+      mask: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
+      header: { borderBottom: '1px solid #e8e8e8' },
+      title: { fontWeight: 'bold' },
+      extra: { color: 'blue' },
+      content: { padding: '24px' },
+      body: { color: 'green' },
+      footer: { color: 'yellow' },
+    };
+
+    const { container } = render(
+      <Drawer
+        classNames={customClassNames}
+        styles={customStyles}
+        title="Title"
+        placement="right"
+        footer={<>Footer</>}
+        closable={false}
+        open
+        getContainer={false}
+        extra={<>Cancel</>}
+      >
+        <p>Some contents...</p>
+      </Drawer>,
+    );
+
+    const rootElement = container.querySelector('.ant-drawer') as HTMLElement;
+    const maskElement = container.querySelector('.ant-drawer-mask') as HTMLElement;
+    const headerElement = container.querySelector('.ant-drawer-header') as HTMLElement;
+    const titleElement = container.querySelector('.ant-drawer-title') as HTMLElement;
+    const extraElement = container.querySelector('.ant-drawer-extra') as HTMLElement;
+    const contentElement = container.querySelector('.ant-drawer-content') as HTMLElement;
+    const bodyElement = container.querySelector('.ant-drawer-body') as HTMLElement;
+    const footerElement = container.querySelector('.ant-drawer-footer') as HTMLElement;
+
+    // check classNames
+    expect(rootElement.classList).toContain('custom-root');
+    expect(maskElement.classList).toContain('custom-mask');
+    expect(headerElement.classList).toContain('custom-header');
+    expect(titleElement.classList).toContain('custom-title');
+    expect(extraElement.classList).toContain('custom-extra');
+    expect(contentElement.classList).toContain('custom-content');
+    expect(bodyElement.classList).toContain('custom-body');
+    expect(footerElement.classList).toContain('custom-footer');
+
+    // check styles
+    expect(rootElement.style.fontSize).toBe('24px');
+    expect(maskElement.style.backgroundColor).toBe('rgba(0, 0, 0, 0.5)');
+    expect(headerElement.style.borderBottom).toBe('1px solid #e8e8e8');
+    expect(titleElement.style.fontWeight).toBe('bold');
+    expect(extraElement.style.color).toBe('blue');
+    expect(contentElement.style.padding).toBe('24px');
+    expect(bodyElement.style.color).toBe('green');
+    expect(footerElement.style.color).toBe('yellow');
+  });
 });
