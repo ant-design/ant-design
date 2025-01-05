@@ -215,26 +215,32 @@ describe('Space', () => {
     expect(ref.current).toBe(container.firstChild);
   });
 
-  it('should classNames work', () => {
+  it('should apply classNames and styles correctly', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      item: 'custom-item',
+    };
+
+    const customStyles = {
+      root: { backgroundColor: 'green' },
+      item: { color: 'red' },
+    };
     const { container } = render(
-      <Space classNames={{ item: 'test-classNames' }}>
+      <Space classNames={customClassNames} styles={customStyles}>
         <span>Text1</span>
         <span>Text2</span>
       </Space>,
     );
 
-    expect(container.querySelector<HTMLDivElement>('.ant-space-item.test-classNames')).toBeTruthy();
-  });
+    const rootElement = container.querySelector('.ant-space') as HTMLElement;
+    const itemElement = container.querySelector('.ant-space-item') as HTMLElement;
 
-  it('should styles work', () => {
-    const { container } = render(
-      <Space styles={{ item: { color: 'red' } }}>
-        <span>Text1</span>
-        <span>Text2</span>
-      </Space>,
-    );
-    expect(
-      container.querySelector<HTMLDivElement>('.ant-space-item')?.getAttribute('style'),
-    ).toEqual('color: red;');
+    // Check classNames
+    expect(rootElement.classList).toContain('custom-root');
+    expect(itemElement.classList).toContain('custom-item');
+
+    // Check styles
+    expect(rootElement.style.backgroundColor).toBe('green');
+    expect(itemElement.style.color).toBe('red');
   });
 });
