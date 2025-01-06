@@ -40,8 +40,8 @@ tag: vVERSION
 - 🆕 ConfigProvider 支持 Popover 组件语义化 `classNames` 和 `styles`。[#52110](https://github.com/ant-design/ant-design/pull/52110) [@thinkasany](https://github.com/thinkasany)
 - 🆕 ConfigProvider 支持 Tooltip 组件语义化 `classNames` 和 `styles`。[#51872](https://github.com/ant-design/ant-design/pull/51872) [@thinkasany](https://github.com/thinkasany)
 - 🆕 Calendar 支持 `showWeek` 属性用于显示周数列。[#52072](https://github.com/ant-design/ant-design/pull/52072) [@afc163](https://github.com/afc163)
-- 🆕 Mentions 新增`onPopupScroll` 属性。[#51858](https://github.com/ant-design/ant-design/pull/51858) [@OysterD3](https://github.com/OysterD3)
-- 🆕 Card 增加 `bodyPaddingSM`、 `headerPaddingSM` 、 `bodyPadding` 、 `headerPadding` 组件 token。[#51762](https://github.com/ant-design/ant-design/pull/51762) [@thinkasany](https://github.com/thinkasany)
+- 🆕 Mentions 新增 `onPopupScroll` 属性。[#51858](https://github.com/ant-design/ant-design/pull/51858) [@OysterD3](https://github.com/OysterD3)
+- 🆕 Card 增加 `bodyPaddingSM`、`headerPaddingSM`、`bodyPadding`、`headerPadding` 组件 token。[#51762](https://github.com/ant-design/ant-design/pull/51762) [@thinkasany](https://github.com/thinkasany)
 - 🆕 ColorPicker `presets` 支持传入 `key`。[#51794](https://github.com/ant-design/ant-design/pull/51794) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 Cascader 新增 `optionSelectedColor` token。[#51769](https://github.com/ant-design/ant-design/pull/51769) [@thinkasany](https://github.com/thinkasany)
 - 🐞 修复 Layout.Sider `trigger` 样式不正确的问题。[46a8eff](https://github.com/ant-design/ant-design/commit/46a8eff) [@Wxh16144](https://github.com/Wxh16144)
@@ -57,10 +57,9 @@ tag: vVERSION
 - Segmented
   - ⌨️ 优化 Segmented 聚焦样式以提升无障碍体验。[#51934](https://github.com/ant-design/ant-design/pull/51934) [@aojunhao123](https://github.com/aojunhao123)
   - ⌨️ Segmented 支持 `name` 属性以提升无障碍体验。[#51725](https://github.com/ant-design/ant-design/pull/51725) [@thinkasany](https://github.com/thinkasany)
-- ⚡️ MISC: 用 `@ant-design/fast-color` 替换 `@ctrl/tinycolor` 以降低打包体积。[#52190](https://github.com/ant-design/ant-design/pull/52190) [@aojunhao123](https://github.com/aojunhao123)
+- 📦 MISC: 用 `@ant-design/fast-color` 替换 `@ctrl/tinycolor` 以降低打包体积。[#52190](https://github.com/ant-design/ant-design/pull/52190) [#52157](https://github.com/ant-design/ant-design/pull/52157) [@aojunhao123](https://github.com/aojunhao123)
 - ⌨️ 调整 Input、InputNumber、Mentions、Textarea 组件清除图标从 `span` 元素更改为 `button` 元素，提高了可访问性和交互性。[#52180](https://github.com/ant-design/ant-design/pull/52180) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 MISC: 修复 React 19 下构建报错的问题。[#52168](https://github.com/ant-design/ant-design/pull/52168) [@zombieJ](https://github.com/zombieJ)
-- 🛠 MISC: 使用 `@ant-design/fast-color` 替换 `@ctrl/tinycolor` 以减小打包体积。[#52157](https://github.com/ant-design/ant-design/pull/52157) [@aojunhao123](https://github.com/aojunhao123)
 - TypeScript
   - 🤖 调整 Table `ref` 类型为 React.Ref。[#52205](https://github.com/ant-design/ant-design/pull/52205) [@li-jia-nan](https://github.com/li-jia-nan)
   - 🤖 Calendar 导出 CalendarMode 类型。[#52160](https://github.com/ant-design/ant-design/pull/52160) [@Kaikiat1126](https://github.com/Kaikiat1126)

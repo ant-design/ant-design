@@ -57,10 +57,9 @@ tag: vVERSION
 - Segmented
   - ⌨️ Optimize Segmented focus style to improve a11y. [#51934](https://github.com/ant-design/ant-design/pull/51934) [@aojunhao123](https://github.com/aojunhao123)
   - ⌨️ Segmented support `name` prop to improve a11y. [#51725](https://github.com/ant-design/ant-design/pull/51725) [@thinkasany](https://github.com/thinkasany)
-- ⚡️ MISC: Reduce bundle size by replacing `@ctrl/tinycolor` with `@ant-design/fast-color`. [#52190](https://github.com/ant-design/ant-design/pull/52190) [@aojunhao123](https://github.com/aojunhao123)
+- 📦 MISC: Reduce bundle size by replacing `@ctrl/tinycolor` with `@ant-design/fast-color`. [#52190](https://github.com/ant-design/ant-design/pull/52190) [#52157](https://github.com/ant-design/ant-design/pull/52157) [@aojunhao123](https://github.com/aojunhao123)
 - ⌨️ Adjust Input, InputNumber, Mentions, Textarea clear icon from `span` to `button` to improve a11y. [#52180](https://github.com/ant-design/ant-design/pull/52180) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 MISC: Fix build error when using React 19. [#52168](https://github.com/ant-design/ant-design/pull/52168) [@zombieJ](https://github.com/zombieJ)
-- 🛠 MISC: Replace `@ctrl/tinycolor` with `@ant-design/fast-color` to reduce bundle size. [#52157](https://github.com/ant-design/ant-design/pull/52157) [@aojunhao123](https://github.com/aojunhao123)
 - TypeScript
   - 🤖 Adjust Table `ref` type to React.Ref. [#52205](https://github.com/ant-design/ant-design/pull/52205) [@li-jia-nan](https://github.com/li-jia-nan)
   - 🤖 Calendar export CalendarMode type. [#52160](https://github.com/ant-design/ant-design/pull/52160) [@Kaikiat1126](https://github.com/Kaikiat1126)
