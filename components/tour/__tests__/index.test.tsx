@@ -707,4 +707,105 @@ describe('Tour', () => {
       expect(container.querySelector('.little')).toBeTruthy();
     });
   });
+  it('support custom styles', () => {
+    const customClassnames = {
+      mask: 'custom-mask',
+      actions: 'custom-actions',
+      title: 'custom-title',
+      header: 'custom-header',
+      content: 'custom-content',
+      body: 'custom-body',
+      footer: 'custom-footer',
+      description: 'custom-description',
+      cover: 'custom-cover',
+      indicator: 'custom-indicator',
+      root: 'custom-root',
+    };
+    const customStyles = {
+      mask: { color: 'white' },
+      actions: { color: 'blue' },
+      title: { fontSize: '20px' },
+      header: { backgroundColor: 'gray' },
+      content: { padding: '10px' },
+      body: { margin: '5px' },
+      footer: { borderTop: '1px solid black' },
+      description: { fontStyle: 'italic' },
+      cover: { color: 'red' },
+      indicator: { color: 'green' },
+      root: { color: 'yellow' },
+    };
+    const Demo = () => {
+      const btnRef = useRef<HTMLButtonElement>(null);
+      return (
+        <div style={{ margin: 20 }}>
+          <button ref={btnRef} type="button">
+            按钮
+          </button>
+          <Tour
+            classNames={customClassnames}
+            styles={customStyles}
+            open
+            steps={[
+              {
+                title: '创建',
+                description: '创建一条数据',
+                cover: (
+                  <img
+                    alt="tour.png"
+                    src="https://user-images.githubusercontent.com/5378891/197385811-55df8480-7ff4-44bd-9d43-a7dade598d70.png"
+                  />
+                ),
+                target: () => btnRef.current!,
+              },
+              {
+                title: 'Save',
+                description: 'Save your changes.',
+                target: () => btnRef.current!,
+              },
+            ]}
+          />
+        </div>
+      );
+    };
+    render(<Demo />);
+
+    // wait for rc-tour
+    // const maskElement = document.querySelector('.ant-tour-mask') as HTMLElement;
+    const actionsElement = document.querySelector('.ant-tour-actions') as HTMLElement;
+    const titleElement = document.querySelector('.ant-tour-title') as HTMLElement;
+    const headerElement = document.querySelector('.ant-tour-header') as HTMLElement;
+    const contentElement = document.querySelector('.ant-tour-content') as HTMLElement;
+    const bodyElement = document.querySelector('.ant-tour-body') as HTMLElement;
+    const footerElement = document.querySelector('.ant-tour-footer') as HTMLElement;
+    const descriptionElement = document.querySelector('.ant-tour-description') as HTMLElement;
+    const coverElement = document.querySelector('.ant-tour-cover') as HTMLElement;
+    const indicatorElement = document.querySelector('.ant-tour-indicator') as HTMLElement;
+    const rootElement = document.querySelector('.ant-tour') as HTMLElement;
+
+    // check classNames
+    // expect(maskElement.classList).toContain('custom-mask');
+    expect(actionsElement.classList).toContain('custom-actions');
+    expect(titleElement.classList).toContain('custom-title');
+    expect(headerElement.classList).toContain('custom-header');
+    expect(contentElement.classList).toContain('custom-content');
+    expect(bodyElement.classList).toContain('custom-body');
+    expect(footerElement.classList).toContain('custom-footer');
+    expect(descriptionElement.classList).toContain('custom-description');
+    expect(coverElement.classList).toContain('custom-cover');
+    expect(indicatorElement.classList).toContain('custom-indicator');
+    expect(rootElement.classList).toContain('custom-root');
+
+    // check styles
+    // expect(maskElement.style.color).toBe('white');
+    expect(actionsElement.style.color).toBe('blue');
+    expect(titleElement.style.fontSize).toBe('20px');
+    expect(headerElement.style.backgroundColor).toBe('gray');
+    expect(contentElement.style.padding).toBe('10px');
+    expect(bodyElement.style.margin).toBe('5px');
+    expect(footerElement.style.borderTop).toBe('1px solid black');
+    expect(descriptionElement.style.fontStyle).toBe('italic');
+    expect(coverElement.style.color).toBe('red');
+    expect(indicatorElement.style.color).toBe('green');
+    // expect(rootElement.style.color).toBe('yellow'); // wait for rc-tour
+  });
 });
