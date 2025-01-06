@@ -8,12 +8,10 @@ import remarkAntd from './.dumi/remarkAntd';
 import { version } from './package.json';
 
 const codeBlockJs =
-  'https://renderdev.a' +
-  'lipay.' +
-  'com/p/yuyan_npm/' +
-  '@alip' +
-  'ay_hitu-codeblock-helper/' +
-  'dev-s090011075829/dist/parseFileData.js';
+  'https://renderoffice.a' +
+  'lipay' +
+  'objects.com/p' +
+  '/yuyan/180020010001206410/parseFileData.js';
 
 export default defineConfig({
   plugins: ['dumi-plugin-color-chunk'],
