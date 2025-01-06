@@ -234,7 +234,6 @@ tag: vVERSION
 - 💄 Modify Button `textHoverBg` hover background to `colorFillTertiary`. [#51187](https://github.com/ant-design/ant-design/pull/51187) [@coding-ice](https://github.com/coding-ice)
 - TypeScript
   - 🤖 Improve type of Switch `eventHandler`. [#51165](https://github.com/ant-design/ant-design/pull/51165) [@thinkasany](https://github.com/thinkasany)
-
 ## 5.21.3
 
 `2024-10-09`
@@ -279,17 +278,21 @@ tag: vVERSION
 
 `2024-09-22`
 
-- 🔥 **Introduce the new Splitter component**, draggale split panel. [#50038](https://github.com/ant-design/ant-design/pull/50038) [@wanpan11](https://github.com/wanpan11) <img width="520" alt="Splitter" src="https://github.com/user-attachments/assets/25fc4e3c-1aa5-41bb-8f39-f34f7149e0f6">
+- 🔥 **Introduce the new Splitter component**, draggale split panel. [#50038](https://github.com/ant-design/ant-design/pull/50038) [@wanpan11](https://github.com/wanpan11)
+  <img width="520" alt="Splitter" src="https://github.com/user-attachments/assets/25fc4e3c-1aa5-41bb-8f39-f34f7149e0f6">
 - Button
-  - 🔥 Button supports `variant` and `color` properties for more combination styles. [#50051](https://github.com/ant-design/ant-design/pull/50051) [@coding-ice](https://github.com/coding-ice) <img width="420" alt="Button" src="https://github.com/user-attachments/assets/cd5cb7fb-25e8-445f-b217-7fdd4ae0f9b4">
+  - 🔥 Button supports `variant` and `color` properties for more combination styles. [#50051](https://github.com/ant-design/ant-design/pull/50051) [@coding-ice](https://github.com/coding-ice)
+    <img width="420" alt="Button" src="https://github.com/user-attachments/assets/cd5cb7fb-25e8-445f-b217-7fdd4ae0f9b4">
   - 💄 Button adds `textColor`, `textHoverColor` and ` textActiveColor` tokens. [#47870](https://github.com/ant-design/ant-design/pull/47870) [@madocto](https://github.com/madocto)
 - FloatButton
-  - 🆕 FloatButton supports `placement` property, allowing menus to pop up from multiple directions. [#50407](https://github.com/ant-design/ant-design/pull/50407) [@li-jia-nan](https://github.com/li-jia-nan) <img width="300" alt="float button" src="https://github.com/user-attachments/assets/4b53c0f6-7bdd-4e2a-91cc-2fb804f6e6d3" />
+  - 🆕 FloatButton supports `placement` property, allowing menus to pop up from multiple directions. [#50407](https://github.com/ant-design/ant-design/pull/50407) [@li-jia-nan](https://github.com/li-jia-nan)
+    <img width="300" alt="float button" src="https://github.com/user-attachments/assets/4b53c0f6-7bdd-4e2a-91cc-2fb804f6e6d3" />
   - 🆕 FloatButton supports `htmlType` prop. [#50892](https://github.com/ant-design/ant-design/pull/50892) [@li-jia-nan](https://github.com/li-jia-nan)
   - 💄 Unify FloatButton and FloatButton.Group button round style. [#50513](https://github.com/ant-design/ant-design/pull/50513) [@Layouwen](https://github.com/Layouwen)
   - 💄 Manage FloatButton's `z-index` with `useZIndex` to improve compatibility with other popup components. [#50311](https://github.com/ant-design/ant-design/pull/50311) [@li-jia-nan](https://github.com/li-jia-nan)
 - Menu
-  - 🆕 Menu.Item and Dropdown's `menu` supports `extra` prop now. [#50431](https://github.com/ant-design/ant-design/pull/50431) [@coding-ice](https://github.com/coding-ice) <img width="259" alt="menu extra" src="https://github.com/user-attachments/assets/fee57c43-b948-4f98-8a6b-0d94094a8a65">
+  - 🆕 Menu.Item and Dropdown's `menu` supports `extra` prop now. [#50431](https://github.com/ant-design/ant-design/pull/50431) [@coding-ice](https://github.com/coding-ice)
+    <img width="259" alt="menu extra" src="https://github.com/user-attachments/assets/fee57c43-b948-4f98-8a6b-0d94094a8a65">
   - 🐞 Fix Menu `popupStyle` not working on SubMenu. [#50922](https://github.com/ant-design/ant-design/pull/50922) [@Wxh16144](https://github.com/Wxh16144)
 - Table
   - 🆕 Table supports `minWidth` for columns. [#50416](https://github.com/ant-design/ant-design/pull/50416) [@linxianxi](https://github.com/linxianxi)
@@ -320,7 +323,8 @@ tag: vVERSION
   - 💄 Add more tokens for Select to customize hover/focus style. [#50951](https://github.com/ant-design/ant-design/pull/50951) [@kiner-tang](https://github.com/kiner-tang)
   - 🐞 Fix Select search text overlap with arrow icon. [#50917](https://github.com/ant-design/ant-design/pull/50917) [@yezhonghu0503](https://github.com/yezhonghu0503)
   - 🐞 Fix Select extra background of clear icon when enable `allowClear` and `variant="filled"`. [#50916](https://github.com/ant-design/ant-design/pull/50916) [@thinkasany](https://github.com/thinkasany)
-- 🆕 Segmented adds `vertical` property and improves accessibility. [#50708](https://github.com/ant-design/ant-design/pull/50708) [@liangchaofei](https://github.com/liangchaofei) <img width="72" alt="Segmented vertical demo" src="https://github.com/user-attachments/assets/c1b0f971-9966-48d4-b641-4fd476c59513">
+- 🆕 Segmented adds `vertical` property and improves accessibility. [#50708](https://github.com/ant-design/ant-design/pull/50708) [@liangchaofei](https://github.com/liangchaofei)
+  <img width="72" alt="Segmented vertical demo" src="https://github.com/user-attachments/assets/c1b0f971-9966-48d4-b641-4fd476c59513">
 - 🆕 Radio.Group supports `block` prop now. [#50828](https://github.com/ant-design/ant-design/pull/50828) [@yuanliu147](https://github.com/yuanliu147)
 - 🆕 ConfigProvider supports configuring the `className` and `style` properties of the Splitter component. [#50855](https://github.com/ant-design/ant-design/pull/50855) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 Image add `onActive` to `toolbarRender` for toggling images . [#50812](https://github.com/ant-design/ant-design/pull/50812) [@madocto](https://github.com/madocto)
@@ -336,7 +340,7 @@ tag: vVERSION
   - 🇬🇷 Added Greek text for the Form component. [#50825](https://github.com/ant-design/ant-design/pull/50825) [@nathanlao](https://github.com/nathanlao)
   - 🇪🇸 Added Spanish `es_ES` text for the Tour component. [#50805](https://github.com/ant-design/ant-design/pull/50805) [@thinkasany](https://github.com/thinkasany)
 - TypeScript
-  - 🤖 Checkbox adds onFocus`and`onBlur` in type definition. [#50842](https://github.com/ant-design/ant-design/pull/50842) [@huiliangShen](https://github.com/huiliangShen)
+  - 🤖 Checkbox adds onFocus` and `onBlur` in type definition. [#50842](https://github.com/ant-design/ant-design/pull/50842) [@huiliangShen](https://github.com/huiliangShen)
   - 🤖 Fix Badge property type definition to support passing mouse events. [#50774](https://github.com/ant-design/ant-design/pull/50774) [@yuanliu147](https://github.com/yuanliu147)
 
 ## 5.20.6
