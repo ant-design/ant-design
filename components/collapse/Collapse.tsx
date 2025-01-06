@@ -17,7 +17,7 @@ import CollapsePanel from './CollapsePanel';
 import useStyle from './style';
 
 export type ExpandIconPosition = 'start' | 'end' | undefined;
-
+export type SemanticName = 'root' | 'header' | 'title' | 'body' | 'content' | 'icon';
 export interface CollapseProps extends Pick<RcCollapseProps, 'items'> {
   activeKey?: Array<string | number> | string | number;
   defaultActiveKey?: Array<string | number> | string | number;
@@ -39,6 +39,8 @@ export interface CollapseProps extends Pick<RcCollapseProps, 'items'> {
    * @deprecated use `items` instead
    */
   children?: React.ReactNode;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 interface PanelProps {
@@ -66,6 +68,8 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     expandIconPosition = 'start',
     children,
     expandIcon,
+    styles,
+    classNames: collapseClassNames,
   } = props;
 
   const mergedSize = useSize((ctx) => customizeSize ?? ctx ?? 'middle');
@@ -113,6 +117,8 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     rootClassName,
     hashId,
     cssVarCls,
+    collapseClassNames?.root,
+    collapse?.classNames?.root,
   );
   const openMotion: CSSMotionProps = {
     ...initCollapseMotion(rootPrefixCls),
@@ -136,7 +142,21 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       expandIcon={renderExpandIcon}
       prefixCls={prefixCls}
       className={collapseClassName}
-      style={{ ...collapse?.style, ...style }}
+      style={{ ...collapse?.styles?.root, ...collapse?.style, ...styles?.root, ...style }}
+      classNames={{
+        header: classNames(collapse?.classNames?.header, collapseClassNames?.header),
+        title: classNames(collapse?.classNames?.title, collapseClassNames?.title),
+        icon: classNames(collapse?.classNames?.icon, collapseClassNames?.icon),
+        content: classNames(collapse?.classNames?.content, collapseClassNames?.content),
+        body: classNames(collapse?.classNames?.body, collapseClassNames?.body),
+      }}
+      styles={{
+        header: { ...collapse?.styles?.header, ...styles?.header },
+        title: { ...collapse?.styles?.title, ...styles?.title },
+        icon: { ...collapse?.styles?.icon, ...styles?.icon },
+        content: { ...collapse?.styles?.content, ...styles?.content },
+        body: { ...collapse?.styles?.body, ...styles?.body },
+      }}
     >
       {items}
     </RcCollapse>,
