@@ -119,8 +119,8 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
     nodeSelectedBg,
     nodeHoverBg,
     colorTextQuaternary,
+    controlItemBgActiveDisabled,
   } = token;
-
   return {
     [treeCls]: {
       ...resetComponent(token),
@@ -198,6 +198,11 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
             background: 'transparent',
           },
         },
+
+        [`${treeCls}-checkbox-disabled + ${treeCls}-node-selected,&${treeNodeCls}-disabled${treeNodeCls}-selected ${treeCls}-node-content-wrapper`]:
+          {
+            backgroundColor: controlItemBgActiveDisabled,
+          },
 
         // not disable
         [`&:not(${treeNodeCls}-disabled)`]: {

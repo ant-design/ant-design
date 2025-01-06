@@ -48,10 +48,13 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     overlayClassName,
     onOpenChange,
     onVisibleChange,
+    overlayStyle,
+    styles,
+    classNames: popconfirmClassNames,
     ...restProps
   } = props;
 
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, popconfirm } = React.useContext(ConfigContext);
   const [open, setOpen] = useMergedState(false, {
     value: props.open ?? props.visible,
     defaultValue: props.defaultOpen ?? props.defaultVisible,
@@ -83,7 +86,13 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
   };
 
   const prefixCls = getPrefixCls('popconfirm', customizePrefixCls);
-  const overlayClassNames = classNames(prefixCls, overlayClassName);
+  const rootClassNames = classNames(
+    prefixCls,
+    overlayClassName,
+    popconfirm?.classNames?.root,
+    popconfirmClassNames?.root,
+  );
+  const bodyClassNames = classNames(popconfirm?.classNames?.body, popconfirmClassNames?.body);
 
   const [wrapCSSVar] = useStyle(prefixCls);
 
@@ -95,7 +104,19 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
       onOpenChange={onInternalOpenChange}
       open={open}
       ref={ref}
-      overlayClassName={overlayClassNames}
+      classNames={{ root: rootClassNames, body: bodyClassNames }}
+      styles={{
+        root: {
+          ...popconfirm?.styles?.root,
+          ...popconfirm?.style,
+          ...overlayStyle,
+          ...styles?.root,
+        },
+        body: {
+          ...popconfirm?.styles?.body,
+          ...styles?.body,
+        },
+      }}
       content={
         <Overlay
           okType={okType}

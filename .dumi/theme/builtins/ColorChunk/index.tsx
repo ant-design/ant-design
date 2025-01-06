@@ -1,6 +1,6 @@
 import * as React from 'react';
-import type { ColorInput } from '@ctrl/tinycolor';
-import { TinyColor } from '@ctrl/tinycolor';
+import { FastColor } from '@ant-design/fast-color';
+import type { ColorInput } from '@ant-design/fast-color';
 import { createStyles } from 'antd-style';
 
 const useStyle = createStyles(({ token, css }) => ({
@@ -22,7 +22,7 @@ const useStyle = createStyles(({ token, css }) => ({
 }));
 
 interface ColorChunkProps {
-  value?: ColorInput;
+  value: ColorInput;
 }
 
 const ColorChunk: React.FC<React.PropsWithChildren<ColorChunkProps>> = (props) => {
@@ -30,7 +30,7 @@ const ColorChunk: React.FC<React.PropsWithChildren<ColorChunkProps>> = (props) =
   const { value, children } = props;
 
   const dotColor = React.useMemo(() => {
-    const _color = new TinyColor(value).toHex8String();
+    const _color = new FastColor(value).toHexString();
     return _color.endsWith('ff') ? _color.slice(0, -2) : _color;
   }, [value]);
 

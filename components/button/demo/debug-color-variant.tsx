@@ -54,7 +54,7 @@ const App: React.FC = () => {
     <Flex vertical gap="small">
       {/* link color */}
       <Flex gap="small">
-        <ConfigProvider theme={{ token: { colorPrimary: 'red' } }}>
+        <ConfigProvider theme={{ token: { colorLink: '#FF0000' } }}>
           <Button type="link">Link Button</Button>
         </ConfigProvider>
         <Button type="link">Link Button</Button>
