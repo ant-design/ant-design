@@ -57,7 +57,7 @@ tag: vVERSION
 - Segmented
   - ⌨️ 优化 Segmented 聚焦样式以提升无障碍体验。[#51934](https://github.com/ant-design/ant-design/pull/51934) [@aojunhao123](https://github.com/aojunhao123)
   - ⌨️ Segmented 支持 `name` 属性以提升无障碍体验。[#51725](https://github.com/ant-design/ant-design/pull/51725) [@thinkasany](https://github.com/thinkasany)
-- ⚡️ MISC：用 `@ant-design/fast-color` 替换 `@ctrl/tinycolor` 以降低打包体积。[#52190](https://github.com/ant-design/ant-design/pull/52190) [@aojunhao123](https://github.com/aojunhao123)
+- ⚡️ MISC: 用 `@ant-design/fast-color` 替换 `@ctrl/tinycolor` 以降低打包体积。[#52190](https://github.com/ant-design/ant-design/pull/52190) [@aojunhao123](https://github.com/aojunhao123)
 - ⌨️ 调整 Input、InputNumber、Mentions、Textarea 组件清除图标从 `span` 元素更改为 `button` 元素，提高了可访问性和交互性。[#52180](https://github.com/ant-design/ant-design/pull/52180) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 MISC: 修复 React 19 下构建报错的问题。[#52168](https://github.com/ant-design/ant-design/pull/52168) [@zombieJ](https://github.com/zombieJ)
 - 🛠 MISC: 使用 `@ant-design/fast-color` 替换 `@ctrl/tinycolor` 以减小打包体积。[#52157](https://github.com/ant-design/ant-design/pull/52157) [@aojunhao123](https://github.com/aojunhao123)
