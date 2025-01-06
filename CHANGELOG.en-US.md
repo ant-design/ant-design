@@ -22,16 +22,19 @@ tag: vVERSION
 - 🔥 TreeSelect support `maxCount` to limit the maximum number of selections. [#51759](https://github.com/ant-design/ant-design/pull/51759) [@aojunhao123](https://github.com/aojunhao123)
 - 🔥 Modal `width` support responsive size. [#51653](https://github.com/ant-design/ant-design/pull/51653) [@zombieJ](https://github.com/zombieJ)
 - 🔥 Splitter support `lazy` mode. [#51557](https://github.com/ant-design/ant-design/pull/51557) [@OysterD3](https://github.com/OysterD3)
-- 🔥 Button `color` support full color palette. [#51550](https://github.com/ant-design/ant-design/pull/51550) [@OysterD3](https://github.com/OysterD3)
+- 🔥 Button `color` support full color palette. [#51550](https://github.com/ant-design/ant-design/pull/51550) [@OysterD3](https://github.com/OysterD3) <img width="520" alt="Button Colors" src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*ApyYQpXQQfgAAAAAAAAAAAAADgCCAQ/original">
 - 🆕 Button support `loadingIcon` to customize loading icon. [#51758](https://github.com/ant-design/ant-design/pull/51758) [@zhangchao-wooc](https://github.com/zhangchao-wooc)
 - Menu
   - 🐞 Fix Menu `extra` font size and vertical align issue. [#52217](https://github.com/ant-design/ant-design/pull/52217) [@guoyunhe](https://github.com/guoyunhe)
   - 🆕 Menu add token `subMenuItemSelectedColor` to resolve submenu title color being overrided by `itemSelectedColor` . [#52182](https://github.com/ant-design/ant-design/pull/52182) [@afc163](https://github.com/afc163)
-- 🆕 ConfigProvider support Empty semantic `classNames` and `styles`. [#52208](https://github.com/ant-design/ant-design/pull/52208) [@thinkasany](https://github.com/thinkasany)
+- 🆕 Semantic Props
+  - 🆕 ConfigProvider support Empty semantic props `classNames` and `styles`. [#52208](https://github.com/ant-design/ant-design/pull/52208) [@thinkasany](https://github.com/thinkasany)
+  - 🆕 ConfigProvider support Popconfirm semantic props `classNames` and `styles`. [#52126](https://github.com/ant-design/ant-design/pull/52126) [@thinkasany](https://github.com/thinkasany)
+  - 🆕 ConfigProvider support Popover semantic props `classNames` and `styles`. [#52110](https://github.com/ant-design/ant-design/pull/52110) [@thinkasany](https://github.com/thinkasany)
+  - 🆕 ConfigProvider support Tooltip semantic props `classNames` and `styles`. [#51872](https://github.com/ant-design/ant-design/pull/51872) [@thinkasany](https://github.com/thinkasany)
+  - 🆕 ConfigProvider support Descriptions semantic props `classNames` and `styles`. [#52120](https://github.com/ant-design/ant-design/pull/52120) [@thinkasany](https://github.com/thinkasany)
+  - 🆕 ConfigProvider support Slider semantic props `classNames` and `styles`. [#52185](https://github.com/ant-design/ant-design/pull/52185) [@thinkasany](https://github.com/thinkasany)
 - 🆕 Transfer support `showSearch` config `defaultValue` & `placeholder`. [#52125](https://github.com/ant-design/ant-design/pull/52125) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
-- 🆕 ConfigProvider support Popconfirm semantic `classNames` and `styles`. [#52126](https://github.com/ant-design/ant-design/pull/52126) [@thinkasany](https://github.com/thinkasany)
-- 🆕 ConfigProvider support Popover semantic `classNames` and `styles`. [#52110](https://github.com/ant-design/ant-design/pull/52110) [@thinkasany](https://github.com/thinkasany)
-- 🆕 ConfigProvider support Tooltip semantic `classNames` and `styles`. [#51872](https://github.com/ant-design/ant-design/pull/51872) [@thinkasany](https://github.com/thinkasany)
 - 🆕 Calendar now supports `showWeek` prop. [#52072](https://github.com/ant-design/ant-design/pull/52072) [@afc163](https://github.com/afc163)
 - 🆕 Mentions support `onPopupScroll` props. [#51858](https://github.com/ant-design/ant-design/pull/51858) [@OysterD3](https://github.com/OysterD3)
 - 🆕 Card support `bodyPaddingSM`, `headerPaddingSM` , `bodyPadding`, `headerPadding` component token. [#51762](https://github.com/ant-design/ant-design/pull/51762) [@thinkasany](https://github.com/thinkasany)
@@ -40,10 +43,7 @@ tag: vVERSION
 - Tree
   - 🛠 Refactor Tree part code to Function Component for React 19 perf preparing. [#52209](https://github.com/ant-design/ant-design/pull/52209) [@li-jia-nan](https://github.com/li-jia-nan)
   - 💄 Optimize Tree `disabled` & `selected` node display style. [#52173](https://github.com/ant-design/ant-design/pull/52173) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
-- Slider
-  - 🆕 ConfigProvider support Slider semantic `classNames` and `styles`. [#52185](https://github.com/ant-design/ant-design/pull/52185) [@thinkasany](https://github.com/thinkasany)
-  - 🐞 Fix Slider crash when `tipFormatter` is undefined. [#52184](https://github.com/ant-design/ant-design/pull/52184) [@thinkasany](https://github.com/thinkasany)
-- 🆕 ConfigProvider support Descriptions semantic `classNames` and `styles`. [#52120](https://github.com/ant-design/ant-design/pull/52120) [@thinkasany](https://github.com/thinkasany)
+- 🐞 Fix Slider crash when `tipFormatter` is undefined. [#52184](https://github.com/ant-design/ant-design/pull/52184) [@thinkasany](https://github.com/thinkasany)
 - 🐞 Fix Layout.Sider `trigger` style not correct. [46a8eff](https://github.com/ant-design/ant-design/commit/46a8eff) [@Wxh16144](https://github.com/Wxh16144)
 - Table
   - 🐞 Fix Table `fixed：right` is not working in `expandable`. [#52176](https://github.com/ant-design/ant-design/pull/52176) [@afc163](https://github.com/afc163)
