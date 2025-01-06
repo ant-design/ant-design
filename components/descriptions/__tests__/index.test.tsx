@@ -311,7 +311,10 @@ describe('Descriptions', () => {
   it('number 0 should render correct', () => {
     const wrapper = render(
       <Descriptions>
-        <Descriptions.Item label={0} labelStyle={{ color: 'red' }} contentStyle={{ color: 'red' }}>
+        <Descriptions.Item
+          label={0}
+          styles={{ label: { color: 'red' }, content: { color: 'red' } }}
+        >
           {0}
         </Descriptions.Item>
       </Descriptions>,
