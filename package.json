@@ -283,7 +283,7 @@
     "qs": "^6.13.0",
     "rc-footer": "^0.6.8",
     "rc-tween-one": "^3.0.6",
-    "rc-virtual-list": "^3.15.0",
+    "rc-virtual-list": "^3.17.0",
     "react": "^19.0.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-countup": "^6.5.3",
