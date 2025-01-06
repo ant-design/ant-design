@@ -7,7 +7,7 @@ describe('antd dist files', () => {
   // https://github.com/ant-design/ant-design/issues/1638
   // https://github.com/ant-design/ant-design/issues/1968
   it('exports modules correctly', () => {
-    let antd: any;
+    let antd: Record<PropertyKey, any> = {};
     if (testDist) {
       antd = require('../dist/antd');
     } else if (testDistMin) {

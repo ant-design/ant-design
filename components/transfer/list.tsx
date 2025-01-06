@@ -250,9 +250,9 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     }
     return (
       <div
-        className={classNames(
-          showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`,
-        )}
+        className={classNames(`${prefixCls}-body`, {
+          [`${prefixCls}-body-with-search`]: showSearch,
+        })}
       >
         {search}
         {bodyNode}
