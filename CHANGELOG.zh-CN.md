@@ -25,7 +25,7 @@ tag: vVERSION
 - Button
   - 🔥 Button `color` 属性支持完整色板。[#51550](https://github.com/ant-design/ant-design/pull/51550) [@OysterD3](https://github.com/OysterD3)
   <img width="520" alt="Button Colors" src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*ApyYQpXQQfgAAAAAAAAAAAAADgCCAQ/original">
-  - 🆕 Button 组件新增 `loadingIcon` 以自定义加载图标。[#51758](https://github.com/ant-design/ant-design/pull/51758) [@zhangchao-wooc](https://github.com/zhangchao-wooc)
+  - 🆕 Button 组件新增 `loading={{ icon: ReactNode }}` 以自定义加载图标。[#51758](https://github.com/ant-design/ant-design/pull/51758) [@zhangchao-wooc](https://github.com/zhangchao-wooc)
 - Menu
   - 🆕 Menu 新增 token `subMenuItemSelectedColor`，避免 `itemSelectedColor` 覆盖子菜单标题样式。[#52182](https://github.com/ant-design/ant-design/pull/52182) [@afc163](https://github.com/afc163)
   - 🐞 修复 Menu `extra` 字体大小和垂直居中对齐问题。[#52217](https://github.com/ant-design/ant-design/pull/52217) [@guoyunhe](https://github.com/guoyunhe)
@@ -54,7 +54,7 @@ tag: vVERSION
 - 🐞 修复 Slider 当 `tipFormatter` 未定义时导致崩溃的问题。[#52184](https://github.com/ant-design/ant-design/pull/52184) [@thinkasany](https://github.com/thinkasany)
 - 💄 优化 Collapse 聚焦样式以及折叠项圆角。[#52086](https://github.com/ant-design/ant-design/pull/52086) [@aojunhao123](https://github.com/aojunhao123)
 - ⌨️ 为 Radio.Group 添加默认 `name` 属性以提升无障碍体验。[#52076](https://github.com/ant-design/ant-design/pull/52076) [@aojunhao123](https://github.com/aojunhao123)
-- ⌨️ Input.Search添加默认 `type=search` 类型。[#52083](https://github.com/ant-design/ant-design/pull/52083) [@Kaikiat1126](https://github.com/Kaikiat1126)
+- ⌨️ Input.Search 添加默认 `type=search` 类型。[#52083](https://github.com/ant-design/ant-design/pull/52083) [@Kaikiat1126](https://github.com/Kaikiat1126)
 - ⌨️ 优化 Tabs 键盘操作时的焦点样式。[#52002](https://github.com/ant-design/ant-design/pull/52002) [@aojunhao123](https://github.com/aojunhao123)
 - Segmented
   - ⌨️ 优化 Segmented 聚焦样式以提升无障碍体验。[#51934](https://github.com/ant-design/ant-design/pull/51934) [@aojunhao123](https://github.com/aojunhao123)
