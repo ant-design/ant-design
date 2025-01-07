@@ -56,7 +56,7 @@ const TokenChecker: React.FC = () => {
 const locales = {
   cn: {
     themeTitle: '定制主题，随心所欲',
-    themeDesc: 'Ant Design 6.0 开放更多样式算法，让你定制主题更简单',
+    themeDesc: 'Ant Design 开放更多样式算法，让你定制主题更简单',
 
     customizeTheme: '定制主题',
     myTheme: '我的主题',
@@ -73,7 +73,7 @@ const locales = {
   },
   en: {
     themeTitle: 'Flexible theme customization',
-    themeDesc: 'Ant Design 6.0 enable extendable algorithm, make custom theme easier',
+    themeDesc: 'Ant Design enable extendable algorithm, make custom theme easier',
 
     customizeTheme: 'Customize Theme',
     myTheme: 'My Theme',
@@ -478,7 +478,7 @@ const Theme: React.FC = () => {
                   alt="antd logo"
                 />
               </div>
-              <h1>Ant Design 6.0</h1>
+              <h1>Ant Design</h1>
             </div>
             <Flex className={styles.menu} gap="middle">
               <BellOutlined />
