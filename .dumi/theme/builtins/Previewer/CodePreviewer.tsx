@@ -19,7 +19,7 @@ import ExternalLinkIcon from '../../icons/ExternalLinkIcon';
 import DemoContext from '../../slots/DemoContext';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
-import { ping } from '../../utils';
+import CodeBlockButton from './CodeBlockButton';
 import type { AntdPreviewerProps } from './Previewer';
 
 const { ErrorBoundary } = Alert;
@@ -37,27 +37,6 @@ const track = ({ type, demo }: { type: string; demo: string }) => {
   }
   window.gtag('event', 'demo', { event_category: type, event_label: demo });
 };
-
-let pingDeferrer: PromiseLike<boolean>;
-
-function useShowCodeBlockButton() {
-  const [showCodeBlockButton, setShowCodeBlockButton] = useState(false);
-
-  useEffect(() => {
-    pingDeferrer ??= new Promise<boolean>((resolve) => {
-      ping((status) => {
-        if (status !== 'timeout' && status !== 'error') {
-          return resolve(true);
-        }
-
-        return resolve(false);
-      });
-    });
-    pingDeferrer.then(setShowCodeBlockButton);
-  }, []);
-
-  return showCodeBlockButton;
-}
 
 const useStyle = createStyles(({ token }) => {
   const { borderRadius } = token;
@@ -116,7 +95,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
 
   const entryName = 'index.tsx';
   const entryCode = asset.dependencies[entryName].value;
-  const showCodeBlockButton = useShowCodeBlockButton();
   const previewDemo = useRef<React.ReactNode>(null);
   const demoContainer = useRef<HTMLElement>(null);
   const {
@@ -275,18 +253,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     js_pre_processor: 'typescript',
   };
 
-  const codeBlockPrefillConfig = {
-    title: `${localizedTitle} - antd@${dependencies.antd}`,
-    js: `${
-      /import React(\D*)from 'react';/.test(jsx) ? '' : `import React from 'react';\n`
-    }import { createRoot } from 'react-dom/client';\n${jsx.replace(
-      /export default/,
-      'const ComponentDemo =',
-    )}\n\ncreateRoot(mountNode).render(<ComponentDemo />);\n`,
-    css: '',
-    json: JSON.stringify({ name: 'antd-demo', dependencies }, null, 2),
-  };
-
   // Reorder source code
   let parsedSourceCode = suffix === 'tsx' ? entryCode : jsx;
   let importReactContent = "import React from 'react';";
@@ -437,20 +403,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 <CodeSandboxIcon className="code-box-codesandbox" />
               </Tooltip>
             </form>
-            {showCodeBlockButton ? (
-              <Tooltip title={<FormattedMessage id="app.demo.codeblock" />}>
-                <div className="code-box-code-action">
-                  <img
-                    alt="codeblock"
-                    src="https://mdn.alipayobjects.com/huamei_wtld8u/afts/img/A*K8rjSJpTNQ8AAAAAAAAAAAAADhOIAQ/original"
-                    className="code-box-codeblock"
-                    onClick={() => {
-                      openHituCodeBlock(JSON.stringify(codeBlockPrefillConfig));
-                    }}
-                  />
-                </div>
-              </Tooltip>
-            ) : null}
+            <CodeBlockButton title={localizedTitle} dependencies={dependencies} jsx={jsx} />
             <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
               <span
                 className="code-box-code-action"
