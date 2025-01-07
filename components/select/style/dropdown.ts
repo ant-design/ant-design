@@ -124,25 +124,27 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
               backgroundColor: token.optionActiveBg,
             },
 
-            [`&-selected:not(${selectItemCls}-option-disabled)`]: {
-              color: token.optionSelectedColor,
-              fontWeight: token.optionSelectedFontWeight,
-              backgroundColor: token.optionSelectedBg,
+            '&-selected': {
+              [`&:not(${selectItemCls}-option-disabled)`]: {
+                color: token.optionSelectedColor,
+                fontWeight: token.optionSelectedFontWeight,
+                backgroundColor: token.optionSelectedBg,
 
-              [`${selectItemCls}-option-state`]: {
-                color: token.colorPrimary,
-              },
-
-              [`&:has(+ ${selectItemCls}-option-selected:not(${selectItemCls}-option-disabled))`]: {
-                borderEndStartRadius: 0,
-                borderEndEndRadius: 0,
-
-                [`& + ${selectItemCls}-option-selected:not(${selectItemCls}-option-disabled)`]: {
-                  borderStartStartRadius: 0,
-                  borderStartEndRadius: 0,
+                [`${selectItemCls}-option-state`]: {
+                  color: token.colorPrimary,
                 },
               },
+              '&:has(+ &)': {
+                borderEndStartRadius: 0,
+                borderEndEndRadius: 0,
+              },
+
+              '&:has(+ &) + &': {
+                borderStartStartRadius: 0,
+                borderStartEndRadius: 0,
+              },
             },
+
             '&-disabled': {
               [`&${selectItemCls}-option-selected`]: {
                 backgroundColor: token.colorBgContainerDisabled,
