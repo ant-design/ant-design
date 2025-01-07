@@ -349,11 +349,11 @@
     "mode": "npm"
   },
   "overrides": {
-    "nwsapi": "2.2.13",
+    "nwsapi": "2.2.16",
     "react-intl": "7.0.4"
   },
   "resolutions": {
-    "nwsapi": "2.2.13",
+    "nwsapi": "2.2.16",
     "react-intl": "7.0.4"
   }
 }
