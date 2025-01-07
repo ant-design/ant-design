@@ -22,8 +22,10 @@ tag: vVERSION
 - 🔥 TreeSelect support `maxCount` to limit the maximum number of selections. [#51759](https://github.com/ant-design/ant-design/pull/51759) [@aojunhao123](https://github.com/aojunhao123)
 - 🔥 Modal `width` support responsive size. [#51653](https://github.com/ant-design/ant-design/pull/51653) [@zombieJ](https://github.com/zombieJ)
 - 🔥 Splitter support `lazy` mode. [#51557](https://github.com/ant-design/ant-design/pull/51557) [@OysterD3](https://github.com/OysterD3)
-- 🔥 Button `color` support full color palette. [#51550](https://github.com/ant-design/ant-design/pull/51550) [@OysterD3](https://github.com/OysterD3) <img width="520" alt="Button Colors" src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*ApyYQpXQQfgAAAAAAAAAAAAADgCCAQ/original">
-- 🆕 Button support `loadingIcon` to customize loading icon. [#51758](https://github.com/ant-design/ant-design/pull/51758) [@zhangchao-wooc](https://github.com/zhangchao-wooc)
+- Button
+  - 🔥 Button `color` support full color palette. [#51550](https://github.com/ant-design/ant-design/pull/51550) [@OysterD3](https://github.com/OysterD3)
+    <img width="520" alt="Button Colors" src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*ApyYQpXQQfgAAAAAAAAAAAAADgCCAQ/original">
+  - 🆕 Button support `loadingIcon` to customize loading icon. [#51758](https://github.com/ant-design/ant-design/pull/51758) [@zhangchao-wooc](https://github.com/zhangchao-wooc)
 - Menu
   - 🐞 Fix Menu `extra` font size and vertical align issue. [#52217](https://github.com/ant-design/ant-design/pull/52217) [@guoyunhe](https://github.com/guoyunhe)
   - 🆕 Menu add token `subMenuItemSelectedColor` to resolve submenu title color being overrided by `itemSelectedColor`. [#52182](https://github.com/ant-design/ant-design/pull/52182) [@afc163](https://github.com/afc163)
