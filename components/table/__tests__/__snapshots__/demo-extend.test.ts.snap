@@ -10360,7 +10360,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                     >
                                       <div
                                         aria-expanded="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-close"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                                         draggable="false"
                                         role="treeitem"
                                       >
@@ -10448,7 +10448,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                       </div>
                                       <div
                                         aria-expanded="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-close"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                                         draggable="false"
                                         role="treeitem"
                                       >
@@ -10486,7 +10486,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                       </div>
                                       <div
                                         aria-expanded="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                                         draggable="false"
                                         role="treeitem"
                                       >
@@ -10578,7 +10578,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                       </div>
                                       <div
                                         aria-expanded="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-close"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                                         draggable="false"
                                         role="treeitem"
                                       >
@@ -10616,7 +10616,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                       </div>
                                       <div
                                         aria-expanded="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                                         draggable="false"
                                         role="treeitem"
                                       >
@@ -11328,7 +11328,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                     >
                                       <div
                                         aria-expanded="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-close"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                                         draggable="false"
                                         role="treeitem"
                                       >
@@ -11362,7 +11362,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                       </div>
                                       <div
                                         aria-expanded="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-close"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                                         draggable="false"
                                         role="treeitem"
                                       >
@@ -11396,7 +11396,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                       </div>
                                       <div
                                         aria-expanded="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                                         draggable="false"
                                         role="treeitem"
                                       >
