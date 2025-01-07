@@ -7,23 +7,20 @@ import type { ClosableType } from '../_util/hooks/useClosable';
 import { ConfigContext } from '../config-provider';
 import Skeleton from '../skeleton';
 
-export interface DrawerClassNames extends NonNullable<RCDrawerProps['classNames']> {
-  header?: string;
-  title?: string;
-  extra?: string;
-  body?: string;
-  footer?: string;
-  root?: string;
-}
+export type SemanticName =
+  | 'root'
+  | 'mask'
+  | 'header'
+  | 'title'
+  | 'extra'
+  | 'section'
+  | 'body'
+  | 'footer'
+  | 'wrapper';
 
-export interface DrawerStyles extends NonNullable<RCDrawerProps['styles']> {
-  header?: React.CSSProperties;
-  title?: React.CSSProperties;
-  extra?: React.CSSProperties;
-  body?: React.CSSProperties;
-  footer?: React.CSSProperties;
-  root?: React.CSSProperties;
-}
+export type DrawerClassNames = Partial<Record<SemanticName, string>>;
+
+export type DrawerStyles = Partial<Record<SemanticName, React.CSSProperties>>;
 
 export interface DrawerPanelProps {
   prefixCls: string;

@@ -349,7 +349,7 @@ describe('Drawer', () => {
             header: getStyle1(),
             body: getStyle1(),
             footer: getStyle1(),
-            content: getStyle1(),
+            section: getStyle1(),
             wrapper: getStyle1(),
             mask: getStyle1(),
           }}
@@ -419,7 +419,7 @@ describe('Drawer', () => {
       header: 'custom-header',
       title: 'custom-title',
       extra: 'custom-extra',
-      content: 'custom-content',
+      section: 'custom-section',
       body: 'custom-body',
       footer: 'custom-footer',
     };
@@ -430,7 +430,7 @@ describe('Drawer', () => {
       header: { borderBottom: '1px solid #e8e8e8' },
       title: { fontWeight: 'bold' },
       extra: { color: 'blue' },
-      content: { padding: '24px' },
+      section: { padding: '24px' },
       body: { color: 'green' },
       footer: { color: 'yellow' },
     };
@@ -456,7 +456,7 @@ describe('Drawer', () => {
     const headerElement = container.querySelector('.ant-drawer-header') as HTMLElement;
     const titleElement = container.querySelector('.ant-drawer-title') as HTMLElement;
     const extraElement = container.querySelector('.ant-drawer-extra') as HTMLElement;
-    const contentElement = container.querySelector('.ant-drawer-content') as HTMLElement;
+    const sectionElement = container.querySelector('.ant-drawer-content') as HTMLElement;
     const bodyElement = container.querySelector('.ant-drawer-body') as HTMLElement;
     const footerElement = container.querySelector('.ant-drawer-footer') as HTMLElement;
 
@@ -466,7 +466,7 @@ describe('Drawer', () => {
     expect(headerElement.classList).toContain('custom-header');
     expect(titleElement.classList).toContain('custom-title');
     expect(extraElement.classList).toContain('custom-extra');
-    expect(contentElement.classList).toContain('custom-content');
+    expect(sectionElement.classList).toContain('custom-section');
     expect(bodyElement.classList).toContain('custom-body');
     expect(footerElement.classList).toContain('custom-footer');
 
@@ -476,7 +476,7 @@ describe('Drawer', () => {
     expect(headerElement.style.borderBottom).toBe('1px solid #e8e8e8');
     expect(titleElement.style.fontWeight).toBe('bold');
     expect(extraElement.style.color).toBe('blue');
-    expect(contentElement.style.padding).toBe('24px');
+    expect(sectionElement.style.padding).toBe('24px');
     expect(bodyElement.style.color).toBe('green');
     expect(footerElement.style.color).toBe('yellow');
   });

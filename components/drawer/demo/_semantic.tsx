@@ -8,7 +8,7 @@ const locales = {
   cn: {
     root: '根元素',
     mask: '遮罩层元素',
-    content: 'Drawer 容器元素',
+    section: 'Drawer 容器元素',
     header: '头部元素',
     body: '内容元素',
     footer: '底部元素',
@@ -18,7 +18,7 @@ const locales = {
   en: {
     root: 'Root element',
     mask: 'Mask element',
-    content: 'Drawer container element',
+    section: 'Drawer container element',
     header: 'Header element',
     body: 'Body element',
     footer: 'Footer element',
@@ -37,7 +37,7 @@ const App: React.FC = () => {
         { name: 'header', desc: locale.header, version: '5.13.0' },
         { name: 'title', desc: locale.title, version: '6.0.0' },
         { name: 'extra', desc: locale.extra, version: '6.0.0' },
-        { name: 'content', desc: locale.content, version: '5.13.0' },
+        { name: 'section', desc: locale.section, version: '6.0.0' },
         { name: 'body', desc: locale.body, version: '5.13.0' },
         { name: 'footer', desc: locale.footer, version: '5.13.0' },
       ]}

@@ -96,7 +96,7 @@ const Drawer: React.FC<DrawerProps> & {
       ['footerStyle', 'styles.footer'],
       ['contentWrapperStyle', 'styles.wrapper'],
       ['maskStyle', 'styles.mask'],
-      ['drawerStyle', 'styles.content'],
+      ['drawerStyle', 'styles.section'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
@@ -172,7 +172,7 @@ const Drawer: React.FC<DrawerProps> & {
           {...rest}
           classNames={{
             mask: classNames(propClassNames.mask, contextClassNames.mask),
-            content: classNames(propClassNames.content, contextClassNames.content),
+            content: classNames(propClassNames.section, contextClassNames.section),
             wrapper: classNames(propClassNames.wrapper, contextClassNames.wrapper),
           }}
           styles={{
@@ -182,9 +182,9 @@ const Drawer: React.FC<DrawerProps> & {
               ...contextStyles.mask,
             },
             content: {
-              ...propStyles.content,
+              ...propStyles.section,
               ...drawerStyle,
-              ...contextStyles.content,
+              ...contextStyles.section,
             },
             wrapper: {
               ...propStyles.wrapper,
