@@ -37,7 +37,7 @@ const SkeletonNode: React.FC<SkeletonNodeProps> = (props) => {
 
   return wrapCSSVar(
     <div className={cls}>
-      <div className={classNames(`${prefixCls}-image`, className)} style={style}>
+      <div className={classNames(`${prefixCls}-node`, className)} style={style}>
         {children}
       </div>
     </div>,
