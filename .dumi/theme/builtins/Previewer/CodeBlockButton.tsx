@@ -15,7 +15,7 @@ function useShowCodeBlockButton() {
           return resolve(true);
         }
 
-        return resolve(true);
+        return resolve(false);
       });
     });
     pingDeferrer.then(setShowCodeBlockButton);
