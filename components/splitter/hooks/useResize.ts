@@ -142,6 +142,7 @@ export default function useResize(
       const limitStart = Math.max(currentSizeMin, totalSize - targetSizeMax);
       const limitEnd = Math.min(currentSizeMax, totalSize - targetSizeMin);
       const halfOffset = (limitEnd - limitStart) / 2;
+
       const targetCacheCollapsedSize = cacheCollapsedSize.current[index];
       const currentCacheCollapsedSize = totalSize - targetCacheCollapsedSize;
 
