@@ -137,7 +137,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     motionAppear: false,
     leavedClassName: `${prefixCls}-content-hidden`,
   };
-  const items = React.useMemo<any>(() => {
+  const items = React.useMemo<React.ReactElement<ItemType>[] | null>(() => {
     if (children) {
       return toArray(children).map((child) =>
         React.cloneElement(child as React.ReactElement<ItemType>, {
