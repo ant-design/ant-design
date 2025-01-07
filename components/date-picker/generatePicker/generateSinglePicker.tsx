@@ -60,7 +60,6 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         placement,
         placeholder,
         popupClassName,
-        dropdownClassName,
         disabled: customDisabled,
         status: customStatus,
         variant: customVariant,
@@ -116,8 +115,6 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
           'deprecated',
           `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,
         );
-
-        warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
 
         warning.deprecated(!('bordered' in props), 'bordered', 'variant');
 
@@ -197,13 +194,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
             direction={direction}
             disabled={mergedDisabled}
             classNames={{
-              popup: classNames(
-                hashId,
-                cssVarCls,
-                rootCls,
-                rootClassName,
-                popupClassName || dropdownClassName,
-              ),
+              popup: classNames(hashId, cssVarCls, rootCls, rootClassName, popupClassName),
             }}
             styles={{
               popup: {
