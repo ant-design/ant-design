@@ -38,6 +38,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
   const slideUpLeaveActive = `&${antCls}-slide-up-leave${antCls}-slide-up-leave-active`;
 
   const dropdownPlacementCls = `${componentCls}-dropdown-placement-`;
+  const seletedItemCls = `${selectItemCls}-option-selected:not(${selectItemCls}-option-disabled))`;
 
   return [
     {
@@ -124,22 +125,21 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
               backgroundColor: token.optionActiveBg,
             },
 
-            '&-selected': {
-              [`&:not(${selectItemCls}-option-disabled)`]: {
-                color: token.optionSelectedColor,
-                fontWeight: token.optionSelectedFontWeight,
-                backgroundColor: token.optionSelectedBg,
+            [`${seletedItemCls}`]: {
+              color: token.optionSelectedColor,
+              fontWeight: token.optionSelectedFontWeight,
+              backgroundColor: token.optionSelectedBg,
 
-                [`${selectItemCls}-option-state`]: {
-                  color: token.colorPrimary,
-                },
+              [`${selectItemCls}-option-state`]: {
+                color: token.colorPrimary,
               },
-              '&:has(+ &)': {
+
+              [`${seletedItemCls}:has(+ ${seletedItemCls}`]: {
                 borderEndStartRadius: 0,
                 borderEndEndRadius: 0,
               },
 
-              '&:has(+ &) + &': {
+              [`${seletedItemCls}:has(+ ${seletedItemCls}) + ${seletedItemCls}`]: {
                 borderStartStartRadius: 0,
                 borderStartEndRadius: 0,
               },
