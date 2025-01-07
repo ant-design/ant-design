@@ -145,23 +145,20 @@ export default function useResize(
       const targetCacheCollapsedSize = cacheCollapsedSize.current[index];
       const currentCacheCollapsedSize = totalSize - targetCacheCollapsedSize;
 
-      let shouldUseCache = false;
+    const shouldUseCache = 
+      targetCacheCollapsedSize &&
+      targetCacheCollapsedSize <= targetSizeMax &&
+      targetCacheCollapsedSize >= targetSizeMin &&
+      currentCacheCollapsedSize <= currentSizeMax &&
+      currentCacheCollapsedSize >= currentSizeMin;
 
-      if (targetCacheCollapsedSize) {
-        shouldUseCache =
-          targetCacheCollapsedSize <= targetSizeMax &&
-          targetCacheCollapsedSize >= targetSizeMin &&
-          currentCacheCollapsedSize <= currentSizeMax &&
-          currentCacheCollapsedSize >= currentSizeMin;
-      }
-
-      if (shouldUseCache) {
-        currentSizes[targetIndex] = targetCacheCollapsedSize;
-        currentSizes[currentIndex] = currentCacheCollapsedSize;
-      } else {
-        currentSizes[currentIndex] -= halfOffset;
-        currentSizes[targetIndex] += halfOffset;
-      }
+    if (shouldUseCache) {
+      currentSizes[targetIndex] = targetCacheCollapsedSize;
+      currentSizes[currentIndex] = currentCacheCollapsedSize;
+    } else {
+      currentSizes[currentIndex] -= halfOffset;
+      currentSizes[targetIndex] += halfOffset;
+    }
     }
 
     updateSizes(currentSizes);
