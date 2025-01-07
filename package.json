@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.22.7",
+  "version": "5.23.0",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -91,6 +91,7 @@
     "test:site-update": "npm run site && npm run test:site -- -u",
     "test:update": "jest --config .jest.js --no-cache -u",
     "test:visual-regression": "tsx scripts/visual-regression/build.ts",
+    "test:visual-regression:local": "tsx scripts/visual-regression/local.ts",
     "token:meta": "tsx scripts/generate-token-meta.ts",
     "token:statistic": "tsx scripts/collect-token-statistic.ts",
     "tsc": "tsc --noEmit",
@@ -234,6 +235,7 @@
     "dotenv": "^16.4.5",
     "dumi": "~2.4.17",
     "dumi-plugin-color-chunk": "^1.1.2",
+    "env-paths": "^3.0.0",
     "eslint": "^9.15.0",
     "eslint-plugin-compat": "^6.0.1",
     "eslint-plugin-jest": "^28.9.0",
@@ -274,6 +276,7 @@
     "open": "^10.1.0",
     "ora": "^8.1.0",
     "p-all": "^5.0.0",
+    "package-manager-detector": "^0.2.8",
     "pixelmatch": "^6.0.0",
     "pngjs": "^7.0.0",
     "prettier": "^3.4.1",
