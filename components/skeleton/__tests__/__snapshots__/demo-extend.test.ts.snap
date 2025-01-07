@@ -234,7 +234,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
         class="ant-skeleton ant-skeleton-element"
       >
         <div
-          class="ant-skeleton-image"
+          class="ant-skeleton-node"
           style="width: 160px;"
         />
       </div>
@@ -246,7 +246,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
         class="ant-skeleton ant-skeleton-element"
       >
         <div
-          class="ant-skeleton-image"
+          class="ant-skeleton-node"
         >
           <span
             aria-label="dot-chart"

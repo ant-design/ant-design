@@ -325,7 +325,7 @@ exports[`Skeleton custom node element should render normal 1`] = `
   class="ant-skeleton ant-skeleton-element"
 >
   <div
-    class="ant-skeleton-image"
+    class="ant-skeleton-node"
   />
 </div>
 `;
@@ -335,7 +335,7 @@ exports[`Skeleton custom node element should render normal 2`] = `
   class="ant-skeleton ant-skeleton-element"
 >
   <div
-    class="ant-skeleton-image"
+    class="ant-skeleton-node"
   >
     <span>
       Custom Content Node
