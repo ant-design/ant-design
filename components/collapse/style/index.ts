@@ -125,7 +125,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
           transition: `all ${motionDurationSlow}, visibility 0s`,
           ...genFocusStyle(token),
 
-          [`> ${componentCls}-header-text`]: {
+          [`> ${componentCls}-title`]: {
             flex: 'auto',
           },
 
@@ -149,14 +149,14 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
           },
 
           // >>>>> Text
-          [`${componentCls}-header-text`]: {
+          [`${componentCls}-title`]: {
             marginInlineEnd: 'auto',
           },
         },
 
         [`${componentCls}-collapsible-header`]: {
           cursor: 'default',
-          [`${componentCls}-header-text`]: {
+          [`${componentCls}-title`]: {
             flex: 'none',
             cursor: 'pointer',
           },
@@ -176,7 +176,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
         backgroundColor: contentBg,
         borderTop: borderBase,
 
-        [`& > ${componentCls}-content-box`]: {
+        [`& > ${componentCls}-body`]: {
           padding: contentPadding,
         },
 
@@ -196,7 +196,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
               marginInlineStart: token.calc(paddingSM).sub(paddingXS).equal(),
             },
           },
-          [`> ${componentCls}-content > ${componentCls}-content-box`]: {
+          [`> ${componentCls}-content > ${componentCls}-body`]: {
             padding: paddingSM,
           },
         },
@@ -216,7 +216,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
               marginInlineStart: token.calc(paddingLG).sub(padding).equal(),
             },
           },
-          [`> ${componentCls}-content > ${componentCls}-content-box`]: {
+          [`> ${componentCls}-content > ${componentCls}-body`]: {
             padding: paddingLG,
           },
         },
@@ -304,7 +304,7 @@ const genBorderlessStyle: GenerateStyle<CollapseToken> = (token) => {
         borderTop: 0,
       },
 
-      [`> ${componentCls}-item > ${componentCls}-content > ${componentCls}-content-box`]: {
+      [`> ${componentCls}-item > ${componentCls}-content > ${componentCls}-body`]: {
         paddingTop: paddingXXS,
       },
     },
@@ -323,7 +323,7 @@ const genGhostStyle: GenerateStyle<CollapseToken> = (token) => {
         [`> ${componentCls}-content`]: {
           backgroundColor: 'transparent',
           border: 0,
-          [`> ${componentCls}-content-box`]: {
+          [`> ${componentCls}-body`]: {
             paddingBlock: paddingSM,
           },
         },

@@ -52,8 +52,14 @@ interface PanelProps {
   forceRender?: boolean;
   extra?: React.ReactNode;
   collapsible?: CollapsibleType;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
+interface ItemType {
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+}
 const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
   const { getPrefixCls, direction, collapse } = React.useContext(ConfigContext);
 
@@ -68,8 +74,8 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     expandIconPosition = 'start',
     children,
     expandIcon,
-    styles,
     classNames: collapseClassNames,
+    styles,
   } = props;
 
   const mergedSize = useSize((ctx) => customizeSize ?? ctx ?? 'middle');
@@ -97,8 +103,14 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
               className?: string;
             }>
           )?.props?.className,
+          collapse?.classNames?.icon,
+          collapseClassNames?.icon,
           `${prefixCls}-arrow`,
         ),
+        style: {
+          ...collapse?.styles?.icon,
+          ...styles?.icon,
+        },
       }));
     },
     [mergedExpandIcon, prefixCls],
@@ -117,18 +129,32 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     rootClassName,
     hashId,
     cssVarCls,
-    collapseClassNames?.root,
     collapse?.classNames?.root,
+    collapseClassNames?.root,
   );
   const openMotion: CSSMotionProps = {
     ...initCollapseMotion(rootPrefixCls),
     motionAppear: false,
     leavedClassName: `${prefixCls}-content-hidden`,
   };
-
-  const items = React.useMemo<React.ReactNode[] | null>(() => {
+  const items = React.useMemo<any>(() => {
     if (children) {
-      return toArray(children).map((child) => child);
+      return toArray(children).map((child) =>
+        React.cloneElement(child as React.ReactElement<ItemType>, {
+          classNames: {
+            header: classNames(collapse?.classNames?.header, collapseClassNames?.header),
+            title: classNames(collapse?.classNames?.title, collapseClassNames?.title),
+            body: classNames(collapse?.classNames?.body, collapseClassNames?.body),
+            content: classNames(collapse?.classNames?.content, collapseClassNames?.content),
+          },
+          styles: {
+            header: { ...collapse?.styles?.header, ...styles?.header },
+            title: { ...collapse?.styles?.title, ...styles?.title },
+            body: { ...collapse?.styles?.body, ...styles?.body },
+            content: { ...collapse?.styles?.content, ...styles?.content },
+          },
+        }),
+      );
     }
     return null;
   }, [children]);
@@ -143,20 +169,6 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       prefixCls={prefixCls}
       className={collapseClassName}
       style={{ ...collapse?.styles?.root, ...collapse?.style, ...styles?.root, ...style }}
-      classNames={{
-        header: classNames(collapse?.classNames?.header, collapseClassNames?.header),
-        title: classNames(collapse?.classNames?.title, collapseClassNames?.title),
-        icon: classNames(collapse?.classNames?.icon, collapseClassNames?.icon),
-        content: classNames(collapse?.classNames?.content, collapseClassNames?.content),
-        body: classNames(collapse?.classNames?.body, collapseClassNames?.body),
-      }}
-      styles={{
-        header: { ...collapse?.styles?.header, ...styles?.header },
-        title: { ...collapse?.styles?.title, ...styles?.title },
-        icon: { ...collapse?.styles?.icon, ...styles?.icon },
-        content: { ...collapse?.styles?.content, ...styles?.content },
-        body: { ...collapse?.styles?.body, ...styles?.body },
-      }}
     >
       {items}
     </RcCollapse>,

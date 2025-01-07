@@ -231,24 +231,60 @@ describe('Collapse', () => {
   });
 
   it('should support styles and classNames', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      header: 'custom-header',
+      title: 'custom-title',
+      body: 'custom-body',
+      content: 'custom-content',
+      icon: 'custom-icon',
+    };
+    const customStyles = {
+      root: { color: 'red' },
+      header: { color: 'blue' },
+      title: { color: 'green' },
+      body: { color: 'yellow' },
+      content: { color: 'black' },
+      icon: { color: 'purple' },
+    };
     const { container } = render(
       <Collapse
         activeKey={['1']}
+        styles={customStyles}
+        classNames={customClassNames}
         items={[
           {
             key: '1',
             label: 'title',
-            styles: { header: { color: 'red' }, body: { color: 'blue' } },
-            classNames: { header: 'header-class', body: 'body-class' },
+            styles: customStyles,
+            classNames: customClassNames,
           },
         ]}
       />,
     );
 
-    expect(container.querySelector('.ant-collapse-header')).toHaveClass('header-class');
-    expect(container.querySelector('.ant-collapse-content-box')).toHaveClass('body-class');
+    const rootElement = container.querySelector('.ant-collapse') as HTMLElement;
+    const headerElement = container.querySelector('.ant-collapse-header') as HTMLElement;
+    const titleElement = container.querySelector('.ant-collapse-title') as HTMLElement;
+    const bodyElement = container.querySelector('.ant-collapse-body') as HTMLElement;
+    const iconElement = container.querySelector('.ant-collapse-expand-icon') as HTMLElement;
+    // todo
+    // const contentElement = container.querySelector('.ant-collapse-content') as HTMLElement;
 
-    expect(container.querySelector('.ant-collapse-header')).toHaveStyle({ color: 'red' });
-    expect(container.querySelector('.ant-collapse-content-box')).toHaveStyle({ color: 'blue' });
+    // check classNames
+    expect(rootElement.classList).toContain('custom-root');
+    expect(headerElement.classList).toContain('custom-header');
+    expect(titleElement.classList).toContain('custom-title');
+    expect(bodyElement.classList).toContain('custom-body');
+    // expect(contentElement.classList).toContain('custom-content');
+    expect(iconElement.classList).toContain('custom-icon');
+
+    // check styles
+    expect(rootElement.style.color).toBe('red');
+    expect(headerElement.style.color).toBe('blue');
+    expect(titleElement.style.color).toBe('green');
+    expect(bodyElement.style.color).toBe('yellow');
+    // expect(contentElement.style.color).toBe('black');
+    expect(iconElement.style.color).toBe('purple');
   });
 });

@@ -38,7 +38,7 @@ exports[`Collapse Collapse.Panel usage 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         test panel1
       </span>
@@ -78,7 +78,7 @@ exports[`Collapse Collapse.Panel usage 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         test panel2
       </span>
@@ -126,7 +126,7 @@ exports[`Collapse could override default openMotion 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 1
       </span>
@@ -135,7 +135,7 @@ exports[`Collapse could override default openMotion 1`] = `
       class="ant-collapse-content ant-collapse-content-active"
     >
       <div
-        class="ant-collapse-content-box"
+        class="ant-collapse-body"
       >
         content
       </div>
@@ -182,7 +182,7 @@ exports[`Collapse should render extra node of panel 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         header
       </span>
@@ -231,7 +231,7 @@ exports[`Collapse should render extra node of panel 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         header
       </span>
@@ -264,7 +264,7 @@ exports[`Collapse should support remove expandIcon 1`] = `
       tabindex="0"
     >
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         header
       </span>
