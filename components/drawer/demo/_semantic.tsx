@@ -34,10 +34,10 @@ const App: React.FC = () => {
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'mask', desc: locale.mask, version: '5.13.0' },
+        { name: 'section', desc: locale.section, version: '6.0.0' },
         { name: 'header', desc: locale.header, version: '5.13.0' },
         { name: 'title', desc: locale.title, version: '6.0.0' },
         { name: 'extra', desc: locale.extra, version: '6.0.0' },
-        { name: 'section', desc: locale.section, version: '6.0.0' },
         { name: 'body', desc: locale.body, version: '5.13.0' },
         { name: 'footer', desc: locale.footer, version: '5.13.0' },
       ]}
