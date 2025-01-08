@@ -13203,7 +13203,9 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                 <span
                   class="ant-select-selection-item-content"
                 >
-                  <span>
+                  <span
+                    aria-describedby="test-id"
+                  >
                     Hover Me
                   </span>
                   <div
@@ -13219,6 +13221,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                     >
                       <div
                         class="ant-tooltip-inner"
+                        id="test-id"
                         role="tooltip"
                       >
                         Long Label: c12, Long Label: h17, Long Label: j19, Long Label: k20

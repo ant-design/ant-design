@@ -1940,6 +1940,7 @@ Array [
                       tabindex="0"
                     >
                       <div
+                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -2008,6 +2009,7 @@ Array [
                         >
                           <div
                             class="ant-tooltip-inner"
+                            id="test-id"
                             role="tooltip"
                           >
                             Click to sort ascending
@@ -2066,6 +2068,7 @@ Array [
                               tabindex="0"
                             >
                               <li
+                                aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
                                 data-menu-id="rc-menu-uuid-test-London"
                                 role="menuitem"
@@ -2107,11 +2110,13 @@ Array [
                                 >
                                   <div
                                     class="ant-tooltip-inner"
+                                    id="test-id"
                                     role="tooltip"
                                   />
                                 </div>
                               </div>
                               <li
+                                aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
                                 data-menu-id="rc-menu-uuid-test-New York"
                                 role="menuitem"
@@ -2153,6 +2158,7 @@ Array [
                                 >
                                   <div
                                     class="ant-tooltip-inner"
+                                    id="test-id"
                                     role="tooltip"
                                   />
                                 </div>
@@ -2194,6 +2200,7 @@ Array [
                       tabindex="0"
                     >
                       <div
+                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -2262,6 +2269,7 @@ Array [
                         >
                           <div
                             class="ant-tooltip-inner"
+                            id="test-id"
                             role="tooltip"
                           >
                             Click to sort ascending
@@ -3487,6 +3495,7 @@ Array [
                               tabindex="0"
                             >
                               <li
+                                aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
                                 data-menu-id="rc-menu-uuid-test-gte35"
                                 role="menuitem"
@@ -3528,11 +3537,13 @@ Array [
                                 >
                                   <div
                                     class="ant-tooltip-inner"
+                                    id="test-id"
                                     role="tooltip"
                                   />
                                 </div>
                               </div>
                               <li
+                                aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
                                 data-menu-id="rc-menu-uuid-test-lt18"
                                 role="menuitem"
@@ -3574,6 +3585,7 @@ Array [
                                 >
                                   <div
                                     class="ant-tooltip-inner"
+                                    id="test-id"
                                     role="tooltip"
                                   />
                                 </div>
@@ -4130,6 +4142,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                         class="ant-table-column-title"
                       >
                         <div
+                          aria-describedby="test-id"
                           class="ant-table-column-sorters"
                         >
                           <span
@@ -4198,6 +4211,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                           >
                             <div
                               class="ant-tooltip-inner"
+                              id="test-id"
                               role="tooltip"
                             >
                               Click to sort descending
@@ -6505,6 +6519,7 @@ Array [
                       tabindex="0"
                     >
                       <div
+                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -6573,6 +6588,7 @@ Array [
                         >
                           <div
                             class="ant-tooltip-inner"
+                            id="test-id"
                             role="tooltip"
                           >
                             Click to sort ascending
@@ -6631,6 +6647,7 @@ Array [
                               tabindex="0"
                             >
                               <li
+                                aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
                                 data-menu-id="rc-menu-uuid-test-London"
                                 role="menuitem"
@@ -6672,11 +6689,13 @@ Array [
                                 >
                                   <div
                                     class="ant-tooltip-inner"
+                                    id="test-id"
                                     role="tooltip"
                                   />
                                 </div>
                               </div>
                               <li
+                                aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
                                 data-menu-id="rc-menu-uuid-test-New York"
                                 role="menuitem"
@@ -6718,6 +6737,7 @@ Array [
                                 >
                                   <div
                                     class="ant-tooltip-inner"
+                                    id="test-id"
                                     role="tooltip"
                                   />
                                 </div>
@@ -6759,6 +6779,7 @@ Array [
                       tabindex="0"
                     >
                       <div
+                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -6827,6 +6848,7 @@ Array [
                         >
                           <div
                             class="ant-tooltip-inner"
+                            id="test-id"
                             role="tooltip"
                           >
                             Click to sort ascending
@@ -8053,7 +8075,9 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
+                      <a
+                        aria-describedby="test-id"
+                      >
                         Delete
                       </a>
                       <div
@@ -8069,6 +8093,7 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
                         >
                           <div
                             class="ant-popover-inner"
+                            id="test-id"
                             role="tooltip"
                           >
                             <div
@@ -8167,7 +8192,9 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
+                      <a
+                        aria-describedby="test-id"
+                      >
                         Delete
                       </a>
                       <div
@@ -8183,6 +8210,7 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
                         >
                           <div
                             class="ant-popover-inner"
+                            id="test-id"
                             role="tooltip"
                           >
                             <div
@@ -9446,7 +9474,9 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       New York No. 1 Lake Park, New York No. 1 Lake Park
                     </span>
                     <div
@@ -9462,6 +9492,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                       >
                         <div
                           class="ant-tooltip-inner"
+                          id="test-id"
                           role="tooltip"
                         >
                           New York No. 1 Lake Park, New York No. 1 Lake Park
@@ -9472,7 +9503,9 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       New York No. 1 Lake Park, New York No. 1 Lake Park
                     </span>
                     <div
@@ -9488,6 +9521,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                       >
                         <div
                           class="ant-tooltip-inner"
+                          id="test-id"
                           role="tooltip"
                         >
                           New York No. 1 Lake Park, New York No. 1 Lake Park
@@ -9498,7 +9532,9 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       New York No. 1 Lake Park, New York No. 1 Lake Park
                     </span>
                     <div
@@ -9514,6 +9550,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                       >
                         <div
                           class="ant-tooltip-inner"
+                          id="test-id"
                           role="tooltip"
                         >
                           New York No. 1 Lake Park, New York No. 1 Lake Park
@@ -9524,7 +9561,9 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       New York No. 1 Lake Park, New York No. 1 Lake Park
                     </span>
                     <div
@@ -9540,6 +9579,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                       >
                         <div
                           class="ant-tooltip-inner"
+                          id="test-id"
                           role="tooltip"
                         >
                           New York No. 1 Lake Park, New York No. 1 Lake Park
@@ -9567,7 +9607,9 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       London No. 2 Lake Park, London No. 2 Lake Park
                     </span>
                     <div
@@ -9583,6 +9625,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                       >
                         <div
                           class="ant-tooltip-inner"
+                          id="test-id"
                           role="tooltip"
                         >
                           London No. 2 Lake Park, London No. 2 Lake Park
@@ -9593,7 +9636,9 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       London No. 2 Lake Park, London No. 2 Lake Park
                     </span>
                     <div
@@ -9609,6 +9654,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                       >
                         <div
                           class="ant-tooltip-inner"
+                          id="test-id"
                           role="tooltip"
                         >
                           London No. 2 Lake Park, London No. 2 Lake Park
@@ -9619,7 +9665,9 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       London No. 2 Lake Park, London No. 2 Lake Park
                     </span>
                     <div
@@ -9635,6 +9683,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                       >
                         <div
                           class="ant-tooltip-inner"
+                          id="test-id"
                           role="tooltip"
                         >
                           London No. 2 Lake Park, London No. 2 Lake Park
@@ -9645,7 +9694,9 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       London No. 2 Lake Park, London No. 2 Lake Park
                     </span>
                     <div
@@ -9661,6 +9712,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                       >
                         <div
                           class="ant-tooltip-inner"
+                          id="test-id"
                           role="tooltip"
                         >
                           London No. 2 Lake Park, London No. 2 Lake Park
@@ -9688,7 +9740,9 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                     <div
@@ -9704,6 +9758,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                       >
                         <div
                           class="ant-tooltip-inner"
+                          id="test-id"
                           role="tooltip"
                         >
                           Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
@@ -9714,7 +9769,9 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                     <div
@@ -9730,6 +9787,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                       >
                         <div
                           class="ant-tooltip-inner"
+                          id="test-id"
                           role="tooltip"
                         >
                           Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
@@ -9740,7 +9798,9 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                     <div
@@ -9756,6 +9816,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                       >
                         <div
                           class="ant-tooltip-inner"
+                          id="test-id"
                           role="tooltip"
                         >
                           Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
@@ -9766,7 +9827,9 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                     <div
@@ -9782,6 +9845,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                       >
                         <div
                           class="ant-tooltip-inner"
+                          id="test-id"
                           role="tooltip"
                         >
                           Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
@@ -10690,6 +10754,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -10758,6 +10823,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                       >
                         <div
                           class="ant-tooltip-inner"
+                          id="test-id"
                           role="tooltip"
                         >
                           Click to sort ascending
@@ -10854,6 +10920,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                             tabindex="0"
                           >
                             <li
+                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-test-London"
                               role="menuitem"
@@ -10895,11 +10962,13 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                               >
                                 <div
                                   class="ant-tooltip-inner"
+                                  id="test-id"
                                   role="tooltip"
                                 />
                               </div>
                             </div>
                             <li
+                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-test-New York"
                               role="menuitem"
@@ -10941,6 +11010,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                               >
                                 <div
                                   class="ant-tooltip-inner"
+                                  id="test-id"
                                   role="tooltip"
                                 />
                               </div>
@@ -11466,6 +11536,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -11534,6 +11605,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                       >
                         <div
                           class="ant-tooltip-inner"
+                          id="test-id"
                           role="tooltip"
                         >
                           Click to sort ascending
@@ -11630,6 +11702,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                             tabindex="0"
                           >
                             <li
+                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-test-London"
                               role="menuitem"
@@ -11671,11 +11744,13 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                               >
                                 <div
                                   class="ant-tooltip-inner"
+                                  id="test-id"
                                   role="tooltip"
                                 />
                               </div>
                             </div>
                             <li
+                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-test-New York"
                               role="menuitem"
@@ -11717,6 +11792,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                               >
                                 <div
                                   class="ant-tooltip-inner"
+                                  id="test-id"
                                   role="tooltip"
                                 />
                               </div>
@@ -13377,6 +13453,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                             tabindex="0"
                           >
                             <li
+                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-test-Joe"
                               role="menuitem"
@@ -13418,11 +13495,13 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                               >
                                 <div
                                   class="ant-tooltip-inner"
+                                  id="test-id"
                                   role="tooltip"
                                 />
                               </div>
                             </div>
                             <li
+                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-test-John"
                               role="menuitem"
@@ -13464,6 +13543,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                               >
                                 <div
                                   class="ant-tooltip-inner"
+                                  id="test-id"
                                   role="tooltip"
                                 />
                               </div>
@@ -13530,6 +13610,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -13598,6 +13679,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                       >
                         <div
                           class="ant-tooltip-inner"
+                          id="test-id"
                           role="tooltip"
                         >
                           Click to sort ascending
@@ -14627,6 +14709,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                         class="ant-table-column-title"
                       >
                         <div
+                          aria-describedby="test-id"
                           class="ant-table-column-sorters"
                         >
                           <span
@@ -14676,6 +14759,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                           >
                             <div
                               class="ant-tooltip-inner"
+                              id="test-id"
                               role="tooltip"
                             >
                               Click to sort descending
@@ -14722,6 +14806,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                             tabindex="0"
                           >
                             <li
+                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-test-Joe"
                               role="menuitem"
@@ -14763,11 +14848,13 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                               >
                                 <div
                                   class="ant-tooltip-inner"
+                                  id="test-id"
                                   role="tooltip"
                                 />
                               </div>
                             </div>
                             <li
+                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-test-Jim"
                               role="menuitem"
@@ -14809,6 +14896,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                               >
                                 <div
                                   class="ant-tooltip-inner"
+                                  id="test-id"
                                   role="tooltip"
                                 />
                               </div>
@@ -14866,6 +14954,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                                   role="menu"
                                 >
                                   <li
+                                    aria-describedby="test-id"
                                     class="ant-dropdown-menu-item"
                                     data-menu-id="rc-menu-uuid-test-Green"
                                     role="menuitem"
@@ -14907,11 +14996,13 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                                     >
                                       <div
                                         class="ant-tooltip-inner"
+                                        id="test-id"
                                         role="tooltip"
                                       />
                                     </div>
                                   </div>
                                   <li
+                                    aria-describedby="test-id"
                                     class="ant-dropdown-menu-item"
                                     data-menu-id="rc-menu-uuid-test-Black"
                                     role="menuitem"
@@ -14953,6 +15044,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                                     >
                                       <div
                                         class="ant-tooltip-inner"
+                                        id="test-id"
                                         role="tooltip"
                                       />
                                     </div>
@@ -15005,6 +15097,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                         Age
                       </span>
                       <span
+                        aria-describedby="test-id"
                         class="ant-table-column-sorter ant-table-column-sorter-full"
                       >
                         <span
@@ -15064,6 +15157,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                         >
                           <div
                             class="ant-tooltip-inner"
+                            id="test-id"
                             role="tooltip"
                           >
                             Click to cancel sorting
@@ -15123,6 +15217,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                             tabindex="0"
                           >
                             <li
+                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-test-London"
                               role="menuitem"
@@ -15164,11 +15259,13 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                               >
                                 <div
                                   class="ant-tooltip-inner"
+                                  id="test-id"
                                   role="tooltip"
                                 />
                               </div>
                             </div>
                             <li
+                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-test-New York"
                               role="menuitem"
@@ -15210,6 +15307,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                               >
                                 <div
                                   class="ant-tooltip-inner"
+                                  id="test-id"
                                   role="tooltip"
                                 />
                               </div>
@@ -16248,6 +16346,7 @@ exports[`renders components/table/demo/multiple-sorter.tsx extend context correc
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -16316,6 +16415,7 @@ exports[`renders components/table/demo/multiple-sorter.tsx extend context correc
                       >
                         <div
                           class="ant-tooltip-inner"
+                          id="test-id"
                           role="tooltip"
                         >
                           Click to sort ascending
@@ -16330,6 +16430,7 @@ exports[`renders components/table/demo/multiple-sorter.tsx extend context correc
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -16398,6 +16499,7 @@ exports[`renders components/table/demo/multiple-sorter.tsx extend context correc
                       >
                         <div
                           class="ant-tooltip-inner"
+                          id="test-id"
                           role="tooltip"
                         >
                           Click to sort ascending
@@ -16412,6 +16514,7 @@ exports[`renders components/table/demo/multiple-sorter.tsx extend context correc
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -16480,6 +16583,7 @@ exports[`renders components/table/demo/multiple-sorter.tsx extend context correc
                       >
                         <div
                           class="ant-tooltip-inner"
+                          id="test-id"
                           role="tooltip"
                         >
                           Click to sort ascending
@@ -18079,6 +18183,7 @@ Array [
                                                   tabindex="0"
                                                 >
                                                   <li
+                                                    aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                     data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
@@ -18103,11 +18208,13 @@ Array [
                                                     >
                                                       <div
                                                         class="ant-tooltip-inner"
+                                                        id="test-id"
                                                         role="tooltip"
                                                       />
                                                     </div>
                                                   </div>
                                                   <li
+                                                    aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                     data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
@@ -18132,6 +18239,7 @@ Array [
                                                     >
                                                       <div
                                                         class="ant-tooltip-inner"
+                                                        id="test-id"
                                                         role="tooltip"
                                                       />
                                                     </div>
@@ -18239,6 +18347,7 @@ Array [
                                                   tabindex="0"
                                                 >
                                                   <li
+                                                    aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                     data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
@@ -18263,11 +18372,13 @@ Array [
                                                     >
                                                       <div
                                                         class="ant-tooltip-inner"
+                                                        id="test-id"
                                                         role="tooltip"
                                                       />
                                                     </div>
                                                   </div>
                                                   <li
+                                                    aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                     data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
@@ -18292,6 +18403,7 @@ Array [
                                                     >
                                                       <div
                                                         class="ant-tooltip-inner"
+                                                        id="test-id"
                                                         role="tooltip"
                                                       />
                                                     </div>
@@ -18399,6 +18511,7 @@ Array [
                                                   tabindex="0"
                                                 >
                                                   <li
+                                                    aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                     data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
@@ -18423,11 +18536,13 @@ Array [
                                                     >
                                                       <div
                                                         class="ant-tooltip-inner"
+                                                        id="test-id"
                                                         role="tooltip"
                                                       />
                                                     </div>
                                                   </div>
                                                   <li
+                                                    aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                     data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
@@ -18452,6 +18567,7 @@ Array [
                                                     >
                                                       <div
                                                         class="ant-tooltip-inner"
+                                                        id="test-id"
                                                         role="tooltip"
                                                       />
                                                     </div>
@@ -18960,6 +19076,7 @@ Array [
                                                   tabindex="0"
                                                 >
                                                   <li
+                                                    aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                     data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
@@ -18984,11 +19101,13 @@ Array [
                                                     >
                                                       <div
                                                         class="ant-tooltip-inner"
+                                                        id="test-id"
                                                         role="tooltip"
                                                       />
                                                     </div>
                                                   </div>
                                                   <li
+                                                    aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                     data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
@@ -19013,6 +19132,7 @@ Array [
                                                     >
                                                       <div
                                                         class="ant-tooltip-inner"
+                                                        id="test-id"
                                                         role="tooltip"
                                                       />
                                                     </div>
@@ -19120,6 +19240,7 @@ Array [
                                                   tabindex="0"
                                                 >
                                                   <li
+                                                    aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                     data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
@@ -19144,11 +19265,13 @@ Array [
                                                     >
                                                       <div
                                                         class="ant-tooltip-inner"
+                                                        id="test-id"
                                                         role="tooltip"
                                                       />
                                                     </div>
                                                   </div>
                                                   <li
+                                                    aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                     data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
@@ -19173,6 +19296,7 @@ Array [
                                                     >
                                                       <div
                                                         class="ant-tooltip-inner"
+                                                        id="test-id"
                                                         role="tooltip"
                                                       />
                                                     </div>
@@ -19280,6 +19404,7 @@ Array [
                                                   tabindex="0"
                                                 >
                                                   <li
+                                                    aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                     data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
@@ -19304,11 +19429,13 @@ Array [
                                                     >
                                                       <div
                                                         class="ant-tooltip-inner"
+                                                        id="test-id"
                                                         role="tooltip"
                                                       />
                                                     </div>
                                                   </div>
                                                   <li
+                                                    aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                     data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
@@ -19333,6 +19460,7 @@ Array [
                                                     >
                                                       <div
                                                         class="ant-tooltip-inner"
+                                                        id="test-id"
                                                         role="tooltip"
                                                       />
                                                     </div>
@@ -19841,6 +19969,7 @@ Array [
                                                   tabindex="0"
                                                 >
                                                   <li
+                                                    aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                     data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
@@ -19865,11 +19994,13 @@ Array [
                                                     >
                                                       <div
                                                         class="ant-tooltip-inner"
+                                                        id="test-id"
                                                         role="tooltip"
                                                       />
                                                     </div>
                                                   </div>
                                                   <li
+                                                    aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                     data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
@@ -19894,6 +20025,7 @@ Array [
                                                     >
                                                       <div
                                                         class="ant-tooltip-inner"
+                                                        id="test-id"
                                                         role="tooltip"
                                                       />
                                                     </div>
@@ -20001,6 +20133,7 @@ Array [
                                                   tabindex="0"
                                                 >
                                                   <li
+                                                    aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                     data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
@@ -20025,11 +20158,13 @@ Array [
                                                     >
                                                       <div
                                                         class="ant-tooltip-inner"
+                                                        id="test-id"
                                                         role="tooltip"
                                                       />
                                                     </div>
                                                   </div>
                                                   <li
+                                                    aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                     data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
@@ -20054,6 +20189,7 @@ Array [
                                                     >
                                                       <div
                                                         class="ant-tooltip-inner"
+                                                        id="test-id"
                                                         role="tooltip"
                                                       />
                                                     </div>
@@ -20161,6 +20297,7 @@ Array [
                                                   tabindex="0"
                                                 >
                                                   <li
+                                                    aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                     data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
@@ -20185,11 +20322,13 @@ Array [
                                                     >
                                                       <div
                                                         class="ant-tooltip-inner"
+                                                        id="test-id"
                                                         role="tooltip"
                                                       />
                                                     </div>
                                                   </div>
                                                   <li
+                                                    aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                     data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
@@ -20214,6 +20353,7 @@ Array [
                                                     >
                                                       <div
                                                         class="ant-tooltip-inner"
+                                                        id="test-id"
                                                         role="tooltip"
                                                       />
                                                     </div>
@@ -21474,6 +21614,7 @@ Array [
                           class="ant-table-column-title"
                         >
                           <div
+                            aria-describedby="test-id"
                             class="ant-table-column-sorters"
                           >
                             <span
@@ -21542,6 +21683,7 @@ Array [
                             >
                               <div
                                 class="ant-tooltip-inner"
+                                id="test-id"
                                 role="tooltip"
                               >
                                 Click to sort ascending
@@ -21588,6 +21730,7 @@ Array [
                               tabindex="0"
                             >
                               <li
+                                aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
                                 data-menu-id="rc-menu-uuid-test-Joe"
                                 role="menuitem"
@@ -21629,11 +21772,13 @@ Array [
                                 >
                                   <div
                                     class="ant-tooltip-inner"
+                                    id="test-id"
                                     role="tooltip"
                                   />
                                 </div>
                               </div>
                               <li
+                                aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
                                 data-menu-id="rc-menu-uuid-test-Jim"
                                 role="menuitem"
@@ -21675,6 +21820,7 @@ Array [
                                 >
                                   <div
                                     class="ant-tooltip-inner"
+                                    id="test-id"
                                     role="tooltip"
                                   />
                                 </div>
@@ -21717,6 +21863,7 @@ Array [
                       title="Age"
                     >
                       <div
+                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -21785,6 +21932,7 @@ Array [
                         >
                           <div
                             class="ant-tooltip-inner"
+                            id="test-id"
                             role="tooltip"
                           >
                             Click to sort ascending
@@ -21806,6 +21954,7 @@ Array [
                           class="ant-table-column-title"
                         >
                           <div
+                            aria-describedby="test-id"
                             class="ant-table-column-sorters"
                           >
                             <span
@@ -21874,6 +22023,7 @@ Array [
                             >
                               <div
                                 class="ant-tooltip-inner"
+                                id="test-id"
                                 role="tooltip"
                               >
                                 Click to sort ascending
@@ -21920,6 +22070,7 @@ Array [
                               tabindex="0"
                             >
                               <li
+                                aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
                                 data-menu-id="rc-menu-uuid-test-London"
                                 role="menuitem"
@@ -21961,11 +22112,13 @@ Array [
                                 >
                                   <div
                                     class="ant-tooltip-inner"
+                                    id="test-id"
                                     role="tooltip"
                                   />
                                 </div>
                               </div>
                               <li
+                                aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
                                 data-menu-id="rc-menu-uuid-test-New York"
                                 role="menuitem"
@@ -22007,6 +22160,7 @@ Array [
                                 >
                                   <div
                                     class="ant-tooltip-inner"
+                                    id="test-id"
                                     role="tooltip"
                                   />
                                 </div>
@@ -22286,6 +22440,7 @@ exports[`renders components/table/demo/resizable-column.tsx extend context corre
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -22354,6 +22509,7 @@ exports[`renders components/table/demo/resizable-column.tsx extend context corre
                       >
                         <div
                           class="ant-tooltip-inner"
+                          id="test-id"
                           role="tooltip"
                         >
                           Click to sort ascending
@@ -23823,6 +23979,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                             tabindex="0"
                           >
                             <li
+                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                               data-menu-id="rc-menu-uuid-test-all"
                               role="menuitem"
@@ -23847,11 +24004,13 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                               >
                                 <div
                                   class="ant-tooltip-inner"
+                                  id="test-id"
                                   role="tooltip"
                                 />
                               </div>
                             </div>
                             <li
+                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                               data-menu-id="rc-menu-uuid-test-invert"
                               role="menuitem"
@@ -23876,11 +24035,13 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                               >
                                 <div
                                   class="ant-tooltip-inner"
+                                  id="test-id"
                                   role="tooltip"
                                 />
                               </div>
                             </div>
                             <li
+                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                               data-menu-id="rc-menu-uuid-test-none"
                               role="menuitem"
@@ -23905,11 +24066,13 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                               >
                                 <div
                                   class="ant-tooltip-inner"
+                                  id="test-id"
                                   role="tooltip"
                                 />
                               </div>
                             </div>
                             <li
+                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                               data-menu-id="rc-menu-uuid-test-odd"
                               role="menuitem"
@@ -23934,11 +24097,13 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                               >
                                 <div
                                   class="ant-tooltip-inner"
+                                  id="test-id"
                                   role="tooltip"
                                 />
                               </div>
                             </div>
                             <li
+                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                               data-menu-id="rc-menu-uuid-test-even"
                               role="menuitem"
@@ -23963,6 +24128,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                               >
                                 <div
                                   class="ant-tooltip-inner"
+                                  id="test-id"
                                   role="tooltip"
                                 />
                               </div>
@@ -27293,6 +27459,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                             tabindex="0"
                           >
                             <li
+                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                               data-menu-id="rc-menu-uuid-test-all"
                               role="menuitem"
@@ -27317,11 +27484,13 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                               >
                                 <div
                                   class="ant-tooltip-inner"
+                                  id="test-id"
                                   role="tooltip"
                                 />
                               </div>
                             </div>
                             <li
+                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                               data-menu-id="rc-menu-uuid-test-invert"
                               role="menuitem"
@@ -27346,11 +27515,13 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                               >
                                 <div
                                   class="ant-tooltip-inner"
+                                  id="test-id"
                                   role="tooltip"
                                 />
                               </div>
                             </div>
                             <li
+                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                               data-menu-id="rc-menu-uuid-test-none"
                               role="menuitem"
@@ -27375,6 +27546,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                               >
                                 <div
                                   class="ant-tooltip-inner"
+                                  id="test-id"
                                   role="tooltip"
                                 />
                               </div>
