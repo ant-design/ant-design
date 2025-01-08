@@ -7,11 +7,6 @@ const { CheckableTag } = Tag;
 const App: React.FC = () => {
   const [selectedTags, setSelectedTags] = useState<string[]>(['Books']);
 
-  const handleClick = (tagName: string) => {
-    console.log(`Tag ${tagName} clicked`);
-    message.info(`Tag ${tagName} clicked`);
-  };
-
   const handleClose = (tagName: string) => {
     console.log(`Tag ${tagName} closed`);
     message.info(`Tag ${tagName} closed`);
@@ -28,30 +23,23 @@ const App: React.FC = () => {
   return (
     <Flex vertical gap="middle">
       <Flex gap="small" wrap>
-        <Tag disabled onClick={() => handleClick('Basic')}>
-          Basic Tag
-        </Tag>
-        <Tag disabled onClick={() => handleClick('Link')}>
+        <Tag disabled>Basic Tag</Tag>
+        <Tag disabled>
           <a href="https://ant.design">Link Tag</a>
         </Tag>
-        <Tag
-          disabled
-          color="success"
-          icon={<CheckCircleOutlined />}
-          onClick={() => handleClick('Success')}
-        >
+        <Tag disabled color="success" icon={<CheckCircleOutlined />}>
           Icon Tag
         </Tag>
       </Flex>
 
       <Flex gap="small" wrap>
-        <Tag disabled color="red" onClick={() => handleClick('Red')}>
+        <Tag disabled color="red">
           Preset Color Red
         </Tag>
-        <Tag disabled color="#f50" onClick={() => handleClick('#f50')}>
+        <Tag disabled color="#f50">
           Custom Color #f50
         </Tag>
-        <Tag disabled color="success" onClick={() => handleClick('Success')}>
+        <Tag disabled color="success">
           Preset Status Success
         </Tag>
       </Flex>
@@ -70,12 +58,7 @@ const App: React.FC = () => {
       </Flex>
 
       <Flex gap="small" wrap>
-        <Tag
-          disabled
-          closable
-          onClick={() => handleClick('Closable')}
-          onClose={() => handleClose('Closable')}
-        >
+        <Tag disabled closable onClose={() => handleClose('Closable')}>
           Closable Tag
         </Tag>
         <Tag
@@ -83,7 +66,6 @@ const App: React.FC = () => {
           closable
           color="success"
           icon={<CheckCircleOutlined />}
-          onClick={() => handleClick('Closable Success')}
           onClose={() => handleClose('Closable Success')}
         >
           Closable with Icon
@@ -94,25 +76,13 @@ const App: React.FC = () => {
       </Flex>
 
       <Flex gap="small" wrap>
-        <Tag disabled bordered={false} onClick={() => handleClick('Borderless')}>
+        <Tag disabled bordered={false}>
           Borderless Basic
         </Tag>
-        <Tag
-          disabled
-          bordered={false}
-          color="success"
-          icon={<CheckCircleOutlined />}
-          onClick={() => handleClick('Borderless Success')}
-        >
+        <Tag disabled bordered={false} color="success" icon={<CheckCircleOutlined />}>
           Borderless with Icon
         </Tag>
-        <Tag
-          disabled
-          bordered={false}
-          closable
-          onClick={() => handleClick('Borderless Closable')}
-          onClose={() => handleClose('Borderless Closable')}
-        >
+        <Tag disabled bordered={false} closable onClose={() => handleClose('Borderless Closable')}>
           Borderless Closable
         </Tag>
       </Flex>
