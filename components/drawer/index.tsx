@@ -28,16 +28,8 @@ export interface DrawerProps
   extends Omit<RcDrawerProps, 'maskStyle'>,
     Omit<DrawerPanelProps, 'prefixCls'> {
   size?: sizeType;
-
   open?: boolean;
-
   afterOpenChange?: (open: boolean) => void;
-
-  // Deprecated
-  /** @deprecated Please use `open` instead */
-  visible?: boolean;
-  /** @deprecated Please use `afterOpenChange` instead */
-  afterVisibleChange?: (open: boolean) => void;
   classNames?: DrawerClassNames;
   styles?: DrawerStyles;
 }
@@ -63,8 +55,6 @@ const Drawer: React.FC<DrawerProps> & {
     className,
 
     // Deprecated
-    visible,
-    afterVisibleChange,
     maskStyle,
     drawerStyle,
     contentWrapperStyle,
@@ -89,8 +79,6 @@ const Drawer: React.FC<DrawerProps> & {
     const warning = devUseWarning('Drawer');
 
     [
-      ['visible', 'open'],
-      ['afterVisibleChange', 'afterOpenChange'],
       ['headerStyle', 'styles.header'],
       ['bodyStyle', 'styles.body'],
       ['footerStyle', 'styles.footer'],
@@ -192,7 +180,7 @@ const Drawer: React.FC<DrawerProps> & {
               ...contextStyles.wrapper,
             },
           }}
-          open={open ?? visible}
+          open={open}
           mask={mask}
           push={push}
           width={mergedWidth}
@@ -202,7 +190,7 @@ const Drawer: React.FC<DrawerProps> & {
           className={classNames(drawer?.className, className)}
           rootClassName={drawerClassName}
           getContainer={getContainer}
-          afterOpenChange={afterOpenChange ?? afterVisibleChange}
+          afterOpenChange={afterOpenChange}
           panelRef={panelRef}
           zIndex={zIndex}
         >

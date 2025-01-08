@@ -120,31 +120,6 @@ describe('Drawer', () => {
     expect(afterOpenChange).toHaveBeenCalledTimes(1);
   });
 
-  it('test legacy afterVisibleChange', async () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
-    const afterVisibleChange = jest.fn();
-    const { container, rerender } = render(
-      <DrawerTest open afterVisibleChange={afterVisibleChange} />,
-    );
-    rerender(<DrawerTest visible={false} afterVisibleChange={afterVisibleChange} />);
-
-    act(() => {
-      jest.runAllTimers();
-    });
-    fireEvent.animationEnd(container.querySelector('.ant-drawer-content-wrapper')!);
-
-    expect(afterVisibleChange).toHaveBeenCalledTimes(1);
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Drawer] `visible` is deprecated. Please use `open` instead.',
-    );
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Drawer] `afterVisibleChange` is deprecated. Please use `afterOpenChange` instead.',
-    );
-
-    errorSpy.mockRestore();
-  });
-
   it('should support children ref', () => {
     const fn = jest.fn();
 

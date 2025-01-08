@@ -10,7 +10,7 @@ const App: React.FC = () => (
           title="Active"
           value={11.28}
           precision={2}
-          valueStyle={{ color: '#3f8600' }}
+          styles={{ content: { color: '#3f8600' } }}
           prefix={<ArrowUpOutlined />}
           suffix="%"
         />
@@ -22,7 +22,7 @@ const App: React.FC = () => (
           title="Idle"
           value={9.3}
           precision={2}
-          valueStyle={{ color: '#cf1322' }}
+          styles={{ content: { color: '#cf1322' } }}
           prefix={<ArrowDownOutlined />}
           suffix="%"
         />
