@@ -9,6 +9,8 @@ import useStyle from './style/ribbon';
 
 type RibbonPlacement = 'start' | 'end';
 
+type SemanticName = 'root' | 'text' | 'corner' | 'body';
+
 export interface RibbonProps {
   className?: string;
   prefixCls?: string;
@@ -18,6 +20,8 @@ export interface RibbonProps {
   children?: React.ReactNode;
   placement?: RibbonPlacement;
   rootClassName?: string;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 const Ribbon: React.FC<RibbonProps> = (props) => {
@@ -30,8 +34,10 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
     text,
     placement = 'end',
     rootClassName,
+    styles,
+    classNames: ribbonClassNames,
   } = props;
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, ribbon } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('ribbon', customizePrefixCls);
 
   const wrapperCls = `${prefixCls}-wrapper`;
@@ -46,6 +52,9 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
       [`${prefixCls}-color-${color}`]: colorInPreset,
     },
     className,
+    ribbon?.className,
+    ribbon?.classNames?.body,
+    ribbonClassNames?.body,
   );
 
   const colorStyle: React.CSSProperties = {};
@@ -55,11 +64,46 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
     cornerColorStyle.color = color;
   }
   return wrapCSSVar(
-    <div className={classNames(wrapperCls, rootClassName, hashId, cssVarCls)}>
+    <div
+      className={classNames(
+        wrapperCls,
+        rootClassName,
+        hashId,
+        cssVarCls,
+        ribbonClassNames?.root,
+        ribbon?.classNames?.root,
+      )}
+      style={{ ...ribbon?.styles?.root, ...styles?.root }}
+    >
       {children}
-      <div className={classNames(ribbonCls, hashId)} style={{ ...colorStyle, ...style }}>
-        <span className={`${prefixCls}-text`}>{text}</span>
-        <div className={`${prefixCls}-corner`} style={cornerColorStyle} />
+      <div
+        className={classNames(ribbonCls, hashId)}
+        style={{
+          ...colorStyle,
+          ...ribbon?.styles?.body,
+          ...ribbon?.style,
+          ...styles?.body,
+          ...style,
+        }}
+      >
+        <span
+          className={classNames(
+            `${prefixCls}-text`,
+            ribbonClassNames?.text,
+            ribbon?.classNames?.text,
+          )}
+          style={{ ...ribbon?.styles?.text, ...styles?.text }}
+        >
+          {text}
+        </span>
+        <div
+          className={classNames(
+            `${prefixCls}-corner`,
+            ribbonClassNames?.corner,
+            ribbon?.classNames?.corner,
+          )}
+          style={{ ...cornerColorStyle, ...ribbon?.styles?.corner, ...styles?.corner }}
+        />
       </div>
     </div>,
   );
