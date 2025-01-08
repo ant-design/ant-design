@@ -155,6 +155,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
           },
         },
 
+        // https://github.com/ant-design/ant-design/pull/46646
         [`${selectedItemCls}:has(+ ${selectedItemCls})`]: {
           borderEndStartRadius: 0,
           borderEndEndRadius: 0,
