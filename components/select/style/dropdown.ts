@@ -137,11 +137,11 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
               [`&:has(+ ${selectedItemCls}`]: {
                 borderEndStartRadius: 0,
                 borderEndEndRadius: 0,
-              },
 
-              [`&:has(+ ${selectedItemCls}) + ${selectedItemCls}`]: {
-                borderStartStartRadius: 0,
-                borderStartEndRadius: 0,
+                [`& + ${selectedItemCls}`]: {
+                  borderStartStartRadius: 0,
+                  borderStartEndRadius: 0,
+                },
               },
             },
 
