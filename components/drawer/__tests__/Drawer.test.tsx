@@ -38,7 +38,7 @@ describe('Drawer', () => {
       fireEvent.animationEnd(mask);
     }
 
-    const panel = document.querySelector('.ant-drawer-content');
+    const panel = document.querySelector('.ant-drawer-section');
     if (panel) {
       fireEvent.animationEnd(panel);
     }
@@ -456,7 +456,7 @@ describe('Drawer', () => {
     const headerElement = container.querySelector('.ant-drawer-header') as HTMLElement;
     const titleElement = container.querySelector('.ant-drawer-title') as HTMLElement;
     const extraElement = container.querySelector('.ant-drawer-extra') as HTMLElement;
-    const sectionElement = container.querySelector('.ant-drawer-content') as HTMLElement;
+    const sectionElement = container.querySelector('.ant-drawer-section') as HTMLElement;
     const bodyElement = container.querySelector('.ant-drawer-body') as HTMLElement;
     const footerElement = container.querySelector('.ant-drawer-footer') as HTMLElement;
 

@@ -76,14 +76,14 @@ describe('Drawer', () => {
     act(() => {
       jest.runAllTimers();
     });
-    fireEvent.animationEnd(container.querySelector('.ant-drawer-content')!);
+    fireEvent.animationEnd(container.querySelector('.ant-drawer-section')!);
 
     expect(container.querySelector('.ant-drawer')).toBeTruthy();
   });
 
   it('dom should be existed after close twice when getContainer is false', () => {
     const { container, rerender } = render(<DrawerTest open getContainer={false} />);
-    expect(container.querySelector('.ant-drawer-content')).toBeTruthy();
+    expect(container.querySelector('.ant-drawer-section')).toBeTruthy();
 
     // Hide
     rerender(<DrawerTest open={false} getContainer={false} />);
