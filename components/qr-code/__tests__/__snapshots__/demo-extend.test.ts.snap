@@ -3,6 +3,7 @@
 exports[`renders components/qr-code/demo/Popover.tsx extend context correctly 1`] = `
 Array [
   <button
+    aria-describedby="test-id"
     class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
@@ -23,6 +24,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
