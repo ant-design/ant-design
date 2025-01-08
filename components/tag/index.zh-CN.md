@@ -31,7 +31,7 @@ demo:
 <code src="./demo/customize.tsx" debug>自定义关闭按钮</code>
 <code src="./demo/draggable.tsx">可拖拽标签</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
-<code src="./demo/disabled.tsx" version="6.0.0">禁用标签</code>
+<code src="./demo/disabled.tsx" debug>禁用标签</code>
 
 ## API
 
