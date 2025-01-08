@@ -144,7 +144,7 @@ const miscKeys = [
       }
 
       // Filter not is changelog
-      if (!line.trim().startsWith('-') && !line.includes('github.')) {
+      if (!line.trim().startsWith('-') && !line.includes('github.') && !line.includes('img')) {
         continue;
       }
 
