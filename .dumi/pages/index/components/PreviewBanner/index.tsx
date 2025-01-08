@@ -156,7 +156,7 @@ const PreviewBanner: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
         </Suspense>
         <div className={styles.mask} />
         <Typography className={styles.typography}>
-          <h1>Ant Design 6.0</h1>
+          <h1>Ant Design</h1>
           <p>{locale.slogan}</p>
         </Typography>
         <Flex gap="middle" className={styles.btnWrap}>
