@@ -179,6 +179,10 @@ export default function imageTest(
         </style>`;
       }
 
+      if (name.includes('default') && !name.includes('CSS Var')) {
+        console.log('\n\n', styleStr);
+      }
+
       await page.evaluate(
         (innerHTML: string, ssrStyle: string, triggerClassName?: string) => {
           const root = document.querySelector<HTMLDivElement>('#root')!;
