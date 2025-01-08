@@ -8,7 +8,6 @@ import classNames from 'classnames';
 import { FormattedMessage, useLiveDemo, useSiteData } from 'dumi';
 import LZString from 'lz-string';
 
-import RiddleButton from './RiddleButton';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
 import ClientOnly from '../../common/ClientOnly';
@@ -20,6 +19,7 @@ import ExternalLinkIcon from '../../icons/ExternalLinkIcon';
 import DemoContext from '../../slots/DemoContext';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
+import CodeBlockButton from './CodeBlockButton';
 import type { AntdPreviewerProps } from './Previewer';
 
 const { ErrorBoundary } = Alert;
@@ -253,6 +253,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
       .join(';'),
     js_pre_processor: 'typescript',
   };
+
   // Reorder source code
   let parsedSourceCode = suffix === 'tsx' ? entryCode : jsx;
   let importReactContent = "import React from 'react';";
@@ -403,13 +404,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 <CodeSandboxIcon className="code-box-codesandbox" />
               </Tooltip>
             </form>
-            <RiddleButton
-              title={localizedTitle}
-              dependencies={dependencies}
-              jsx={jsx}
-              track={track}
-              asset={asset}
-            />
+            <CodeBlockButton title={localizedTitle} dependencies={dependencies} jsx={jsx} />
             <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
               <span
                 className="code-box-code-action"

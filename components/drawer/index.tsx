@@ -28,16 +28,8 @@ export interface DrawerProps
   extends Omit<RcDrawerProps, 'maskStyle'>,
     Omit<DrawerPanelProps, 'prefixCls'> {
   size?: sizeType;
-
   open?: boolean;
-
   afterOpenChange?: (open: boolean) => void;
-
-  // Deprecated
-  /** @deprecated Please use `open` instead */
-  visible?: boolean;
-  /** @deprecated Please use `afterOpenChange` instead */
-  afterVisibleChange?: (open: boolean) => void;
   classNames?: DrawerClassNames;
   styles?: DrawerStyles;
 }
@@ -63,8 +55,6 @@ const Drawer: React.FC<DrawerProps> & {
     className,
 
     // Deprecated
-    visible,
-    afterVisibleChange,
     maskStyle,
     drawerStyle,
     contentWrapperStyle,
@@ -84,29 +74,17 @@ const Drawer: React.FC<DrawerProps> & {
       ? () => getPopupContainer(document.body)
       : customizeGetContainer;
 
-  const drawerClassName = classNames(
-    {
-      'no-mask': !mask,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    },
-    rootClassName,
-    hashId,
-    cssVarCls,
-  );
-
   // ========================== Warning ===========================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Drawer');
 
     [
-      ['visible', 'open'],
-      ['afterVisibleChange', 'afterOpenChange'],
       ['headerStyle', 'styles.header'],
       ['bodyStyle', 'styles.body'],
       ['footerStyle', 'styles.footer'],
       ['contentWrapperStyle', 'styles.wrapper'],
       ['maskStyle', 'styles.mask'],
-      ['drawerStyle', 'styles.content'],
+      ['drawerStyle', 'styles.section'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
@@ -156,8 +134,20 @@ const Drawer: React.FC<DrawerProps> & {
   const [zIndex, contextZIndex] = useZIndex('Drawer', rest.zIndex);
 
   // =========================== Render ===========================
-  const { classNames: propClassNames = {}, styles: propStyles = {} } = rest;
+  const { classNames: propClassNames = {}, styles: propStyles = {}, rootStyle } = rest;
   const { classNames: contextClassNames = {}, styles: contextStyles = {} } = drawer || {};
+
+  const drawerClassName = classNames(
+    {
+      'no-mask': !mask,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    rootClassName,
+    hashId,
+    cssVarCls,
+    propClassNames?.root,
+    contextClassNames?.root,
+  );
 
   return wrapCSSVar(
     <ContextIsolator form space>
@@ -170,7 +160,7 @@ const Drawer: React.FC<DrawerProps> & {
           {...rest}
           classNames={{
             mask: classNames(propClassNames.mask, contextClassNames.mask),
-            content: classNames(propClassNames.content, contextClassNames.content),
+            section: classNames(propClassNames.section, contextClassNames.section),
             wrapper: classNames(propClassNames.wrapper, contextClassNames.wrapper),
           }}
           styles={{
@@ -179,10 +169,10 @@ const Drawer: React.FC<DrawerProps> & {
               ...maskStyle,
               ...contextStyles.mask,
             },
-            content: {
-              ...propStyles.content,
+            section: {
+              ...propStyles.section,
               ...drawerStyle,
-              ...contextStyles.content,
+              ...contextStyles.section,
             },
             wrapper: {
               ...propStyles.wrapper,
@@ -190,16 +180,17 @@ const Drawer: React.FC<DrawerProps> & {
               ...contextStyles.wrapper,
             },
           }}
-          open={open ?? visible}
+          open={open}
           mask={mask}
           push={push}
           width={mergedWidth}
           height={mergedHeight}
           style={{ ...drawer?.style, ...style }}
+          rootStyle={{ ...rootStyle, ...contextStyles?.root, ...propStyles?.root }}
           className={classNames(drawer?.className, className)}
           rootClassName={drawerClassName}
           getContainer={getContainer}
-          afterOpenChange={afterOpenChange ?? afterVisibleChange}
+          afterOpenChange={afterOpenChange}
           panelRef={panelRef}
           zIndex={zIndex}
         >

@@ -26,8 +26,8 @@ export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   align?: 'start' | 'end' | 'center' | 'baseline';
   split?: React.ReactNode;
   wrap?: boolean;
-  classNames?: { item: string };
-  styles?: { item: React.CSSProperties };
+  classNames?: { item?: string; root?: string };
+  styles?: { item?: React.CSSProperties; root?: React.CSSProperties };
 }
 
 const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
@@ -44,9 +44,9 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     split,
     style,
     wrap = false,
-    classNames: customClassNames,
+    classNames: spaceClassNames,
     styles,
-    ...otherProps
+    ...restProps
   } = props;
 
   const [horizontalSize, verticalSize] = Array.isArray(size) ? size : ([size, size] as const);
@@ -65,7 +65,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
   const prefixCls = getPrefixCls('space', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
-  const cls = classNames(
+  const rootClassNames = classNames(
     prefixCls,
     space?.className,
     hashId,
@@ -79,11 +79,14 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     className,
     rootClassName,
     cssVarCls,
+    spaceClassNames?.root,
+    space?.classNames?.root,
   );
 
   const itemClassName = classNames(
     `${prefixCls}-item`,
-    customClassNames?.item ?? space?.classNames?.item,
+    spaceClassNames?.item,
+    space?.classNames?.item,
   );
 
   // Calculate latest one
@@ -132,9 +135,9 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
   return wrapCSSVar(
     <div
       ref={ref}
-      className={cls}
-      style={{ ...gapStyle, ...space?.style, ...style }}
-      {...otherProps}
+      className={rootClassNames}
+      style={{ ...gapStyle, ...space?.styles?.root, ...space?.style, ...styles?.root, ...style }}
+      {...restProps}
     >
       <SpaceContextProvider value={spaceContext}>{nodes}</SpaceContextProvider>
     </div>,
