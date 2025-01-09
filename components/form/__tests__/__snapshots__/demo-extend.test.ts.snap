@@ -28406,7 +28406,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                             >
                               <div
                                 aria-expanded="false"
-                                class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
+                                class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                                 draggable="false"
                                 role="treeitem"
                               >
