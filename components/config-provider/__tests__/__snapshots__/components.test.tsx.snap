@@ -41604,7 +41604,7 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
           >
             <div
               aria-expanded="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -41670,7 +41670,7 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
           >
             <div
               aria-expanded="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -41764,7 +41764,7 @@ exports[`ConfigProvider components Tree configProvider componentDisabled 1`] = `
           >
             <div
               aria-expanded="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -41830,7 +41830,7 @@ exports[`ConfigProvider components Tree configProvider componentDisabled 1`] = `
           >
             <div
               aria-expanded="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -41924,7 +41924,7 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
           >
             <div
               aria-expanded="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -41990,7 +41990,7 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
           >
             <div
               aria-expanded="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -42084,7 +42084,7 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
           >
             <div
               aria-expanded="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -42150,7 +42150,7 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
           >
             <div
               aria-expanded="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -42244,7 +42244,7 @@ exports[`ConfigProvider components Tree configProvider componentSize small 1`] =
           >
             <div
               aria-expanded="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -42310,7 +42310,7 @@ exports[`ConfigProvider components Tree configProvider componentSize small 1`] =
           >
             <div
               aria-expanded="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -42404,7 +42404,7 @@ exports[`ConfigProvider components Tree normal 1`] = `
           >
             <div
               aria-expanded="false"
-              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -42470,7 +42470,7 @@ exports[`ConfigProvider components Tree normal 1`] = `
           >
             <div
               aria-expanded="false"
-              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -42564,7 +42564,7 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
           >
             <div
               aria-expanded="false"
-              class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close prefix-Tree-treenode-leaf-last"
+              class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close prefix-Tree-treenode-leaf-last prefix-Tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -42630,7 +42630,7 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
           >
             <div
               aria-expanded="false"
-              class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close prefix-Tree-treenode-leaf-last"
+              class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close prefix-Tree-treenode-leaf-last prefix-Tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -42770,7 +42770,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
                 >
                   <div
                     aria-expanded="false"
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last config-select-tree-treenode-leaf"
                     draggable="false"
                     role="treeitem"
                   >
@@ -42981,7 +42981,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
                 >
                   <div
                     aria-expanded="false"
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last config-select-tree-treenode-leaf"
                     draggable="false"
                     role="treeitem"
                   >
@@ -43127,7 +43127,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
                 >
                   <div
                     aria-expanded="false"
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last config-select-tree-treenode-leaf"
                     draggable="false"
                     role="treeitem"
                   >
@@ -43273,7 +43273,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize small
                 >
                   <div
                     aria-expanded="false"
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last config-select-tree-treenode-leaf"
                     draggable="false"
                     role="treeitem"
                   >
@@ -43419,7 +43419,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
                 >
                   <div
                     aria-expanded="false"
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-active ant-select-tree-treenode-leaf-last"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-active ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
                     role="treeitem"
                   >
@@ -43565,7 +43565,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
                 >
                   <div
                     aria-expanded="false"
-                    class="prefix-TreeSelect-tree-treenode prefix-TreeSelect-tree-treenode-switcher-close prefix-TreeSelect-tree-treenode-active prefix-TreeSelect-tree-treenode-leaf-last"
+                    class="prefix-TreeSelect-tree-treenode prefix-TreeSelect-tree-treenode-switcher-close prefix-TreeSelect-tree-treenode-active prefix-TreeSelect-tree-treenode-leaf-last prefix-TreeSelect-tree-treenode-leaf"
                     draggable="false"
                     role="treeitem"
                   >

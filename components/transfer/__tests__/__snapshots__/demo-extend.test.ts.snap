@@ -11957,7 +11957,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                   >
                     <div
                       aria-expanded="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-close"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                       draggable="false"
                       role="treeitem"
                     >
@@ -12045,7 +12045,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                     </div>
                     <div
                       aria-expanded="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-close"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                       draggable="false"
                       role="treeitem"
                     >
@@ -12083,7 +12083,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                     </div>
                     <div
                       aria-expanded="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                       draggable="false"
                       role="treeitem"
                     >
@@ -12121,7 +12121,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                     </div>
                     <div
                       aria-expanded="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-close"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                       draggable="false"
                       role="treeitem"
                     >
@@ -12155,7 +12155,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                     </div>
                     <div
                       aria-expanded="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-close"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                       draggable="false"
                       role="treeitem"
                     >
@@ -12189,7 +12189,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                     </div>
                     <div
                       aria-expanded="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                       draggable="false"
                       role="treeitem"
                     >

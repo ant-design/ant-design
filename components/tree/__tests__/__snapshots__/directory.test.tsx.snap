@@ -177,7 +177,7 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
             </span>
           </div>
           <div
-            class="ant-tree-treenode ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -343,7 +343,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
           </div>
           <div
             aria-expanded="true"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -394,7 +394,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
           </div>
           <div
             aria-expanded="true"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -512,7 +512,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
           </div>
           <div
             aria-expanded="true"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -563,7 +563,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
           </div>
           <div
             aria-expanded="true"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -905,7 +905,7 @@ exports[`Directory Tree expand with state control click 1`] = `
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -1068,7 +1068,7 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -1298,7 +1298,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -1349,7 +1349,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -1512,7 +1512,7 @@ exports[`Directory Tree group select 1`] = `
           </div>
           <div
             aria-expanded="true"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -1563,7 +1563,7 @@ exports[`Directory Tree group select 1`] = `
           </div>
           <div
             aria-expanded="true"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -1681,7 +1681,7 @@ exports[`Directory Tree group select 1`] = `
           </div>
           <div
             aria-expanded="true"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -1732,7 +1732,7 @@ exports[`Directory Tree group select 1`] = `
           </div>
           <div
             aria-expanded="true"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -1895,7 +1895,7 @@ exports[`Directory Tree group select 2`] = `
           </div>
           <div
             aria-expanded="true"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -1946,7 +1946,7 @@ exports[`Directory Tree group select 2`] = `
           </div>
           <div
             aria-expanded="true"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -2064,7 +2064,7 @@ exports[`Directory Tree group select 2`] = `
           </div>
           <div
             aria-expanded="true"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -2115,7 +2115,7 @@ exports[`Directory Tree group select 2`] = `
           </div>
           <div
             aria-expanded="true"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -2366,7 +2366,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
           </div>
           <div
             aria-expanded="true"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -2417,7 +2417,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
           </div>
           <div
             aria-expanded="true"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -2535,7 +2535,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
           </div>
           <div
             aria-expanded="true"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -2586,7 +2586,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
           </div>
           <div
             aria-expanded="true"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >

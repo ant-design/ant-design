@@ -74,7 +74,7 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
           overflow: 'hidden',
         },
 
-        '&-trigger': {
+        [`${componentCls}-zero-width-trigger`]: {
           position: 'absolute',
           top: headerHeight,
           insetInlineEnd: token.calc(zeroTriggerWidth).mul(-1).equal(),
@@ -139,9 +139,7 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
 
 export default genStyleHooks(
   ['Layout', 'Sider'],
-  (token) => ({
-    [`${token.antCls}-layout`]: genSiderStyle(token),
-  }),
+  (token) => [genSiderStyle(token)],
   prepareComponentToken,
   {
     deprecatedTokens: DEPRECATED_TOKENS,
