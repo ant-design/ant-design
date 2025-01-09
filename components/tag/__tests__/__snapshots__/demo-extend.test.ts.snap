@@ -909,7 +909,7 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
     </span>
     <span
       class="ant-tag ant-tag-has-color ant-tag-disabled"
-      style="background-color: rgba(0, 0, 0, 0.04);"
+      style="background-color: rgb(255, 85, 0);"
     >
       Custom Color #f50
     </span>

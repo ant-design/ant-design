@@ -11,7 +11,6 @@ import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
-import { useToken } from '../theme/internal';
 import CheckableTag from './CheckableTag';
 import useStyle from './style';
 import PresetCmp from './style/presetCmp';
@@ -58,7 +57,6 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
   const mergedDisabled = customDisabled ?? disabled;
 
   const { getPrefixCls, direction, tag: tagContext } = React.useContext(ConfigContext);
-  const [, token] = useToken();
   const [visible, setVisible] = React.useState(true);
 
   const domProps = omit(props, ['closeIcon', 'closable']);
@@ -88,12 +86,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
   const isInternalColor = isPreset || isStatus;
 
   const tagStyle: React.CSSProperties = {
-    backgroundColor:
-      color && !isInternalColor
-        ? mergedDisabled
-          ? token.colorBgContainerDisabled
-          : color
-        : undefined,
+    backgroundColor: color && !isInternalColor ? color : undefined,
     ...tagContext?.style,
     ...style,
   };

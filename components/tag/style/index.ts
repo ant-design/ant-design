@@ -96,6 +96,14 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       [`&${componentCls}-has-color`]: {
         borderColor: 'transparent',
 
+        [`&${componentCls}-disabled`]: {
+          backgroundColor: `${token.colorBgContainerDisabled} !important`,
+          color: token.colorTextDisabled,
+          [`${componentCls}-close-icon`]: {
+            color: token.colorTextDisabled,
+          },
+        },
+
         [`&, a, a:hover, ${token.iconCls}-close, ${token.iconCls}-close:hover`]: {
           color: token.colorTextLightSolid,
         },
