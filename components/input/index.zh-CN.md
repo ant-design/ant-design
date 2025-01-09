@@ -142,7 +142,8 @@ interface CountConfig {
 | size | 输入框大小 | `small` \| `middle` \| `large` | `middle` |  |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` |  |
 | value | 输入框内容 | string | - |  |
-| onChange | 当输入框内容全部填充时触发回调 | function(value: string) | - |  |
+| onChange | 当输入框内容全部填充时触发回调 | (value: string) => void | - |  |
+| onInput | 输入值变化时触发的回调 | (value: string[]) => void | - | `5.22.0` |
 
 #### VisibilityToggle
 
@@ -158,13 +159,13 @@ interface CountConfig {
 | blur | 取消焦点 | - |  |
 | focus | 获取焦点 | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | option - 4.10.0 |
 
-### Semantic DOM
+## Semantic DOM
 
-#### Input
+### Input
 
 <code src="./demo/_semantic_input.tsx" simplify="true"></code>
 
-#### Input.TextArea
+### Input.TextArea
 
 <code src="./demo/_semantic_textarea.tsx" simplify="true"></code>
 

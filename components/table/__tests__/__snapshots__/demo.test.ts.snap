@@ -1407,6 +1407,7 @@ Array [
                     <input
                       checked=""
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="large"
                     />
@@ -1426,6 +1427,7 @@ Array [
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="middle"
                     />
@@ -1445,6 +1447,7 @@ Array [
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="small"
                     />
@@ -1499,7 +1502,9 @@ Array [
                     <input
                       checked=""
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
+                      value="unset"
                     />
                     <span
                       class="ant-radio-button-inner"
@@ -1517,6 +1522,7 @@ Array [
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="scroll"
                     />
@@ -1536,6 +1542,7 @@ Array [
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="fixed"
                     />
@@ -1590,7 +1597,9 @@ Array [
                     <input
                       checked=""
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
+                      value="unset"
                     />
                     <span
                       class="ant-radio-button-inner"
@@ -1608,6 +1617,7 @@ Array [
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="fixed"
                     />
@@ -1661,6 +1671,7 @@ Array [
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="topLeft"
                     />
@@ -1680,6 +1691,7 @@ Array [
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="topCenter"
                     />
@@ -1699,6 +1711,7 @@ Array [
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="topRight"
                     />
@@ -1719,6 +1732,7 @@ Array [
                     <input
                       checked=""
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="none"
                     />
@@ -1772,6 +1786,7 @@ Array [
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="bottomLeft"
                     />
@@ -1791,6 +1806,7 @@ Array [
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="bottomCenter"
                     />
@@ -1811,6 +1827,7 @@ Array [
                     <input
                       checked=""
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="bottomRight"
                     />
@@ -1830,6 +1847,7 @@ Array [
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="none"
                     />
@@ -5277,6 +5295,7 @@ Array [
                     <input
                       checked=""
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="large"
                     />
@@ -5296,6 +5315,7 @@ Array [
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="middle"
                     />
@@ -5315,6 +5335,7 @@ Array [
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="small"
                     />
@@ -5369,7 +5390,9 @@ Array [
                     <input
                       checked=""
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
+                      value="unset"
                     />
                     <span
                       class="ant-radio-button-inner"
@@ -5387,6 +5410,7 @@ Array [
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="scroll"
                     />
@@ -5406,6 +5430,7 @@ Array [
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="fixed"
                     />
@@ -5460,7 +5485,9 @@ Array [
                     <input
                       checked=""
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
+                      value="unset"
                     />
                     <span
                       class="ant-radio-button-inner"
@@ -5478,6 +5505,7 @@ Array [
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="fixed"
                     />
@@ -5531,6 +5559,7 @@ Array [
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="topLeft"
                     />
@@ -5550,6 +5579,7 @@ Array [
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="topCenter"
                     />
@@ -5569,6 +5599,7 @@ Array [
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="topRight"
                     />
@@ -5589,6 +5620,7 @@ Array [
                     <input
                       checked=""
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="none"
                     />
@@ -5642,6 +5674,7 @@ Array [
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="bottomLeft"
                     />
@@ -5661,6 +5694,7 @@ Array [
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="bottomCenter"
                     />
@@ -5681,6 +5715,7 @@ Array [
                     <input
                       checked=""
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="bottomRight"
                     />
@@ -5700,6 +5735,7 @@ Array [
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="test-id"
                       type="radio"
                       value="none"
                     />
@@ -7837,27 +7873,31 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
               class="ant-select-selector"
             >
               <span
-                class="ant-select-selection-search"
+                class="ant-select-selection-wrap"
               >
-                <input
-                  aria-autocomplete="list"
-                  aria-controls="undefined_list"
-                  aria-expanded="false"
-                  aria-haspopup="listbox"
-                  aria-label="Page Size"
-                  aria-owns="undefined_list"
-                  autocomplete="off"
-                  class="ant-select-selection-search-input"
-                  role="combobox"
-                  type="search"
-                  value=""
-                />
-              </span>
-              <span
-                class="ant-select-selection-item"
-                title="10 / page"
-              >
-                10 / page
+                <span
+                  class="ant-select-selection-search"
+                >
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="undefined_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-label="Page Size"
+                    aria-owns="undefined_list"
+                    autocomplete="off"
+                    class="ant-select-selection-search-input"
+                    role="combobox"
+                    type="search"
+                    value=""
+                  />
+                </span>
+                <span
+                  class="ant-select-selection-item"
+                  title="10 / page"
+                >
+                  10 / page
+                </span>
               </span>
             </div>
             <span
@@ -12054,27 +12094,31 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
               class="ant-select-selector"
             >
               <span
-                class="ant-select-selection-search"
+                class="ant-select-selection-wrap"
               >
-                <input
-                  aria-autocomplete="list"
-                  aria-controls="undefined_list"
-                  aria-expanded="false"
-                  aria-haspopup="listbox"
-                  aria-label="Page Size"
-                  aria-owns="undefined_list"
-                  autocomplete="off"
-                  class="ant-select-selection-search-input"
-                  role="combobox"
-                  type="search"
-                  value=""
-                />
-              </span>
-              <span
-                class="ant-select-selection-item"
-                title="10 / page"
-              >
-                10 / page
+                <span
+                  class="ant-select-selection-search"
+                >
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="undefined_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-label="Page Size"
+                    aria-owns="undefined_list"
+                    autocomplete="off"
+                    class="ant-select-selection-search-input"
+                    role="combobox"
+                    type="search"
+                    value=""
+                  />
+                </span>
+                <span
+                  class="ant-select-selection-item"
+                  title="10 / page"
+                >
+                  10 / page
+                </span>
               </span>
             </div>
             <span
@@ -14033,27 +14077,31 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
               class="ant-select-selector"
             >
               <span
-                class="ant-select-selection-search"
+                class="ant-select-selection-wrap"
               >
-                <input
-                  aria-autocomplete="list"
-                  aria-controls="undefined_list"
-                  aria-expanded="false"
-                  aria-haspopup="listbox"
-                  aria-label="Page Size"
-                  aria-owns="undefined_list"
-                  autocomplete="off"
-                  class="ant-select-selection-search-input"
-                  role="combobox"
-                  type="search"
-                  value=""
-                />
-              </span>
-              <span
-                class="ant-select-selection-item"
-                title="50 / page"
-              >
-                50 / page
+                <span
+                  class="ant-select-selection-search"
+                >
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="undefined_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-label="Page Size"
+                    aria-owns="undefined_list"
+                    autocomplete="off"
+                    class="ant-select-selection-search-input"
+                    role="combobox"
+                    type="search"
+                    value=""
+                  />
+                </span>
+                <span
+                  class="ant-select-selection-item"
+                  title="50 / page"
+                >
+                  50 / page
+                </span>
               </span>
             </div>
             <span
@@ -15063,27 +15111,31 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
               class="ant-select-selector"
             >
               <span
-                class="ant-select-selection-search"
+                class="ant-select-selection-wrap"
               >
-                <input
-                  aria-autocomplete="list"
-                  aria-controls="undefined_list"
-                  aria-expanded="false"
-                  aria-haspopup="listbox"
-                  aria-label="Page Size"
-                  aria-owns="undefined_list"
-                  autocomplete="off"
-                  class="ant-select-selection-search-input"
-                  role="combobox"
-                  type="search"
-                  value=""
-                />
-              </span>
-              <span
-                class="ant-select-selection-item"
-                title="10 / page"
-              >
-                10 / page
+                <span
+                  class="ant-select-selection-search"
+                >
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="undefined_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-label="Page Size"
+                    aria-owns="undefined_list"
+                    autocomplete="off"
+                    class="ant-select-selection-search-input"
+                    role="combobox"
+                    type="search"
+                    value=""
+                  />
+                </span>
+                <span
+                  class="ant-select-selection-item"
+                  title="10 / page"
+                >
+                  10 / page
+                </span>
               </span>
             </div>
             <span
@@ -17195,27 +17247,31 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
                 class="ant-select-selector"
               >
                 <span
-                  class="ant-select-selection-search"
+                  class="ant-select-selection-wrap"
                 >
-                  <input
-                    aria-autocomplete="list"
-                    aria-controls="undefined_list"
-                    aria-expanded="false"
-                    aria-haspopup="listbox"
-                    aria-label="Page Size"
-                    aria-owns="undefined_list"
-                    autocomplete="off"
-                    class="ant-select-selection-search-input"
-                    role="combobox"
-                    type="search"
-                    value=""
-                  />
-                </span>
-                <span
-                  class="ant-select-selection-item"
-                  title="10 / page"
-                >
-                  10 / page
+                  <span
+                    class="ant-select-selection-search"
+                  >
+                    <input
+                      aria-autocomplete="list"
+                      aria-controls="undefined_list"
+                      aria-expanded="false"
+                      aria-haspopup="listbox"
+                      aria-label="Page Size"
+                      aria-owns="undefined_list"
+                      autocomplete="off"
+                      class="ant-select-selection-search-input"
+                      role="combobox"
+                      type="search"
+                      value=""
+                    />
+                  </span>
+                  <span
+                    class="ant-select-selection-item"
+                    title="10 / page"
+                  >
+                    10 / page
+                  </span>
                 </span>
               </div>
               <span
@@ -20066,6 +20122,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
           <input
             checked=""
             class="ant-radio-input"
+            name="test-id"
             type="radio"
             value="topLeft"
           />
@@ -20085,6 +20142,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
         >
           <input
             class="ant-radio-input"
+            name="test-id"
             type="radio"
             value="topCenter"
           />
@@ -20104,6 +20162,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
         >
           <input
             class="ant-radio-input"
+            name="test-id"
             type="radio"
             value="topRight"
           />
@@ -20123,6 +20182,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
         >
           <input
             class="ant-radio-input"
+            name="test-id"
             type="radio"
             value="none"
           />
@@ -20148,6 +20208,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="bottomLeft"
         />
@@ -20167,6 +20228,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="bottomCenter"
         />
@@ -20187,6 +20249,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="bottomRight"
         />
@@ -20206,6 +20269,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="none"
         />
@@ -21625,6 +21689,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="checkbox"
         />
@@ -21644,6 +21709,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="radio"
         />
@@ -27787,27 +27853,31 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
               class="ant-select-selector"
             >
               <span
-                class="ant-select-selection-search"
+                class="ant-select-selection-wrap"
               >
-                <input
-                  aria-autocomplete="list"
-                  aria-controls="undefined_list"
-                  aria-expanded="false"
-                  aria-haspopup="listbox"
-                  aria-label="Page Size"
-                  aria-owns="undefined_list"
-                  autocomplete="off"
-                  class="ant-select-selection-search-input"
-                  role="combobox"
-                  type="search"
-                  value=""
-                />
-              </span>
-              <span
-                class="ant-select-selection-item"
-                title="10 / page"
-              >
-                10 / page
+                <span
+                  class="ant-select-selection-search"
+                >
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="undefined_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-label="Page Size"
+                    aria-owns="undefined_list"
+                    autocomplete="off"
+                    class="ant-select-selection-search-input"
+                    role="combobox"
+                    type="search"
+                    value=""
+                  />
+                </span>
+                <span
+                  class="ant-select-selection-item"
+                  title="10 / page"
+                >
+                  10 / page
+                </span>
               </span>
             </div>
             <span

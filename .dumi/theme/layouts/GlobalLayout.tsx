@@ -22,6 +22,8 @@ import SiteThemeProvider from '../SiteThemeProvider';
 import type { SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
 
+import '@ant-design/v5-patch-for-react-19';
+
 const ThemeSwitch = React.lazy(() => import('../common/ThemeSwitch'));
 
 type Entries<T> = { [K in keyof T]: [K, T[K]] }[keyof T][];
@@ -69,6 +71,9 @@ const GlobalLayout: React.FC = () => {
       theme: [],
       bannerVisible: false,
     });
+
+  // TODO: This can be remove in v6
+  const useCssVar = searchParams.get('cssVar') !== 'false';
 
   const updateSiteConfig = useCallback(
     (props: SiteState) => {
@@ -150,8 +155,8 @@ const GlobalLayout: React.FC = () => {
     () => ({
       algorithm: getAlgorithm(theme),
       token: { motion: !theme.includes('motion-off') },
-      cssVar: true,
-      hashed: false,
+      cssVar: useCssVar,
+      hashed: !useCssVar,
     }),
     [theme],
   );

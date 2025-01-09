@@ -239,11 +239,11 @@ export interface ButtonToken extends FullToken<'Button'> {
 export const prepareToken: (token: Parameters<GenStyleFn<'Button'>>[0]) => ButtonToken = (
   token,
 ) => {
-  const { paddingInline, onlyIconSize, paddingBlock } = token;
+  const { paddingInline, onlyIconSize } = token;
 
   const buttonToken = mergeToken<ButtonToken>(token, {
     buttonPaddingHorizontal: paddingInline,
-    buttonPaddingVertical: paddingBlock,
+    buttonPaddingVertical: 0,
     buttonIconOnlyFontSize: onlyIconSize,
   });
 

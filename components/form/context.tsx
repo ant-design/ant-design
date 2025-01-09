@@ -1,6 +1,5 @@
 import type { PropsWithChildren, ReactNode } from 'react';
 import * as React from 'react';
-import { createContext, useContext, useMemo } from 'react';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import type { FormProviderProps as RcFormProviderProps } from 'rc-field-form/lib/FormContext';
 import type { Meta } from 'rc-field-form/lib/interface';
@@ -78,9 +77,9 @@ export type NoFormStyleProps = PropsWithChildren<{
 }>;
 
 export const NoFormStyle: React.FC<NoFormStyleProps> = ({ children, status, override }) => {
-  const formItemInputContext = useContext(FormItemInputContext);
+  const formItemInputContext = React.useContext(FormItemInputContext);
 
-  const newFormItemInputContext = useMemo(() => {
+  const newFormItemInputContext = React.useMemo(() => {
     const newContext = { ...formItemInputContext };
     if (override) {
       delete newContext.isFormItemInput;
@@ -100,4 +99,4 @@ export const NoFormStyle: React.FC<NoFormStyleProps> = ({ children, status, over
   );
 };
 
-export const VariantContext = createContext<Variant | undefined>(undefined);
+export const VariantContext = React.createContext<Variant | undefined>(undefined);

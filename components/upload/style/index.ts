@@ -40,6 +40,10 @@ const genBaseStyle: GenerateStyle<UploadToken> = (token) => {
         display: 'inline-block',
       },
 
+      [`${componentCls}-hidden`]: {
+        display: 'none',
+      },
+
       [`${componentCls}-disabled`]: {
         color: colorTextDisabled,
         cursor: 'not-allowed',

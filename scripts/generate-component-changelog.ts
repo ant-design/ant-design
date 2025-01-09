@@ -45,6 +45,7 @@ const miscKeys = [
   'Design Token',
   'MISC:',
   '杂项：',
+  'antd',
   '@ant-design/cssinjs',
   '@ant-design/icons',
   'rc-motion',
@@ -62,6 +63,7 @@ const miscKeys = [
   '🇪🇸',
   '🇷🇺',
   '🇺🇦',
+  '🇵🇹',
   '🇲🇲',
   '🇸🇪',
   '🇻🇳',
@@ -78,7 +80,6 @@ const miscKeys = [
   '🇲🇳',
   '🇳🇵',
   '🇪🇬',
-  '🇪🇸',
   '🇦🇿',
 ];
 
@@ -143,7 +144,7 @@ const miscKeys = [
       }
 
       // Filter not is changelog
-      if (!line.trim().startsWith('-') && !line.includes('github.')) {
+      if (!line.trim().startsWith('-') && !line.includes('github.') && !line.includes('img')) {
         continue;
       }
 

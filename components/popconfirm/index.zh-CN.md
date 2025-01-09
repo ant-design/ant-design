@@ -50,7 +50,13 @@ demo:
 | onConfirm | 点击确认的回调 | function(e) | - |  |
 | onPopupClick | 弹出气泡点击事件 | function(e) | - | 5.5.0 |
 
-更多属性请参考 [Tooltip](/components/tooltip-cn/#api)。
+<!-- 共同的 API -->
+
+<embed src="../tooltip/shared/sharedProps.zh-CN.md"></embed>
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

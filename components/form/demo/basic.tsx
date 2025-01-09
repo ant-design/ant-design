@@ -43,15 +43,11 @@ const App: React.FC = () => (
       <Input.Password />
     </Form.Item>
 
-    <Form.Item<FieldType>
-      name="remember"
-      valuePropName="checked"
-      wrapperCol={{ offset: 8, span: 16 }}
-    >
+    <Form.Item<FieldType> name="remember" valuePropName="checked" label={null}>
       <Checkbox>Remember me</Checkbox>
     </Form.Item>
 
-    <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+    <Form.Item label={null}>
       <Button type="primary" htmlType="submit">
         Submit
       </Button>

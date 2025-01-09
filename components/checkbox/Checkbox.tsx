@@ -13,6 +13,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FormItemInputContext } from '../form/context';
 import GroupContext from './GroupContext';
 import useStyle from './style';
+import useBubbleLock from './useBubbleLock';
 
 export interface AbstractCheckboxProps<T> {
   prefixCls?: string;
@@ -153,18 +154,24 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     TARGET_CLS,
     hashId,
   );
+
+  // ============================ Event Lock ============================
+  const [onLabelClick, onInputClick] = useBubbleLock(checkboxProps.onClick);
+
+  // ============================== Render ==============================
   return wrapCSSVar(
     <Wave component="Checkbox" disabled={mergedDisabled}>
-      {}
       <label
         className={classString}
         style={{ ...checkbox?.style, ...style }}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
+        onClick={onLabelClick}
       >
         {/* @ts-ignore */}
         <RcCheckbox
           {...checkboxProps}
+          onClick={onInputClick}
           prefixCls={prefixCls}
           className={checkboxClass}
           disabled={mergedDisabled}

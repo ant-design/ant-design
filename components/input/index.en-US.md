@@ -141,7 +141,8 @@ Added in `5.16.0`.
 | size | The size of the input box | `small` \| `middle` \| `large` | `middle` |  |
 | variant | Variants of Input | `outlined` \| `borderless` \| `filled` | `outlined` |  |
 | value | The input content value | string | - |  |
-| onChange | Trigger when all the fields are filled | function(value: string) | - |  |
+| onChange | Trigger when all the fields are filled | (value: string) => void | - |  |
+| onInput | Trigger when the input value changes | (value: string[]) => void | - | `5.22.0` |
 
 #### VisibilityToggle
 
@@ -157,13 +158,13 @@ Added in `5.16.0`.
 | blur | Remove focus | - |  |
 | focus | Get focus | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | option - 4.10.0 |
 
-### Semantic DOM
+## Semantic DOM
 
-#### Input
+### Input
 
 <code src="./demo/_semantic_input.tsx" simplify="true"></code>
 
-#### Input.TextArea
+### Input.TextArea
 
 <code src="./demo/_semantic_textarea.tsx" simplify="true"></code>
 
