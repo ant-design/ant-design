@@ -19,6 +19,7 @@ const App: React.FC = () => {
           { label: 'Disabled', value: 'disabled' },
           { label: 'Bamboo', value: 'bamboo' },
         ]}
+        virtual={false}
       />
     </Space>
   );
