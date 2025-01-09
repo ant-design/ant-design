@@ -152,7 +152,7 @@
     "rc-tree": "~5.13.0",
     "rc-tree-select": "~5.27.0",
     "rc-upload": "~4.8.1",
-    "rc-util": "^5.44.3",
+    "rc-util": "5.44.3",
     "scroll-into-view-if-needed": "^3.1.0",
     "throttle-debounce": "^5.0.2"
   },
@@ -349,13 +349,9 @@
     "mode": "npm"
   },
   "overrides": {
-    "jsdom": "25.0.1",
-    "nwsapi": "2.2.13",
     "react-intl": "7.0.4"
   },
   "resolutions": {
-    "jsdom": "25.0.1",
-    "nwsapi": "2.2.13",
     "react-intl": "7.0.4"
   }
 }
