@@ -152,7 +152,7 @@
     "rc-tree": "~5.13.0",
     "rc-tree-select": "~5.27.0",
     "rc-upload": "~4.8.1",
-    "rc-util": "5.44.3",
+    "rc-util": "^5.44.3",
     "scroll-into-view-if-needed": "^3.1.0",
     "throttle-debounce": "^5.0.2"
   },
@@ -262,7 +262,7 @@
     "jest-image-snapshot": "^6.4.0",
     "jest-puppeteer": "^11.0.0",
     "jquery": "^3.7.1",
-    "jsdom": "25.0.1",
+    "jsdom": "^25.0.1",
     "jsonml-to-react-element": "^1.1.11",
     "jsonml.js": "^0.1.0",
     "lint-staged": "^15.3.0",
@@ -349,9 +349,11 @@
     "mode": "npm"
   },
   "overrides": {
+    "cssstyle": "4.1.0",
     "react-intl": "7.0.4"
   },
   "resolutions": {
+    "cssstyle": "4.1.0",
     "react-intl": "7.0.4"
   }
 }
