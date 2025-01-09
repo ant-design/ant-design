@@ -349,10 +349,12 @@
     "mode": "npm"
   },
   "overrides": {
+    "jsdom": "25.0.1",
     "nwsapi": "2.2.13",
     "react-intl": "7.0.4"
   },
   "resolutions": {
+    "jsdom": "25.0.1",
     "nwsapi": "2.2.13",
     "react-intl": "7.0.4"
   }
