@@ -346,9 +346,11 @@
     }
   ],
   "overrides": {
+    "react-intl": "7.0.4",
     "jsdom": "^25.0.1"
   },
   "resolutions": {
+    "react-intl": "7.0.4",
     "jsdom": "^25.0.1"
   }
 }
