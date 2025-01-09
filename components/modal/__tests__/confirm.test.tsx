@@ -314,8 +314,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   it('should close confirm modal when click cancel button', async () => {
     const onCancel = jest.fn();
     Modal.confirm({
-      // test legacy visible
-      visible: true,
+      open: true,
       title: 'title',
       content: 'content',
       onCancel,
@@ -785,7 +784,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     const modal = Modal.confirm({});
 
     modal.update({
-      visible: true,
+      open: true,
     });
 
     await waitFakeTimer();

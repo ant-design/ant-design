@@ -188,7 +188,6 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     const warning = devUseWarning('Modal');
 
     [
-      ['visible', 'open'],
       ['bodyStyle', 'styles.body'],
       ['maskStyle', 'styles.mask'],
     ].forEach(([deprecatedName, newName]) => {

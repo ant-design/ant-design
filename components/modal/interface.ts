@@ -67,10 +67,6 @@ export interface ModalProps extends ModalCommonProps {
   focusTriggerAfterClose?: boolean;
   children?: React.ReactNode;
   mousePosition?: MousePosition;
-
-  // Legacy
-  /** @deprecated Please use `open` instead. */
-  visible?: boolean;
   /**
    * @since 5.18.0
    */
@@ -84,8 +80,6 @@ export interface ModalFuncProps extends ModalCommonProps {
   className?: string;
   rootClassName?: string;
   open?: boolean;
-  /** @deprecated Please use `open` instead. */
-  visible?: boolean;
   title?: React.ReactNode;
   content?: React.ReactNode;
   // TODO: find out exact types

@@ -13,9 +13,13 @@ exports[`renders components/statistic/demo/animated.tsx correctly 1`] = `
       class="ant-statistic"
     >
       <div
-        class="ant-statistic-title"
+        class="ant-statistic-header"
       >
-        Active Users
+        <div
+          class="ant-statistic-title"
+        >
+          Active Users
+        </div>
       </div>
       <div
         class="ant-statistic-content"
@@ -36,9 +40,13 @@ exports[`renders components/statistic/demo/animated.tsx correctly 1`] = `
       class="ant-statistic"
     >
       <div
-        class="ant-statistic-title"
+        class="ant-statistic-header"
       >
-        Account Balance (CNY)
+        <div
+          class="ant-statistic-title"
+        >
+          Account Balance (CNY)
+        </div>
       </div>
       <div
         class="ant-statistic-content"
@@ -67,9 +75,13 @@ exports[`renders components/statistic/demo/basic.tsx correctly 1`] = `
       class="ant-statistic"
     >
       <div
-        class="ant-statistic-title"
+        class="ant-statistic-header"
       >
-        Active Users
+        <div
+          class="ant-statistic-title"
+        >
+          Active Users
+        </div>
       </div>
       <div
         class="ant-statistic-content"
@@ -94,9 +106,13 @@ exports[`renders components/statistic/demo/basic.tsx correctly 1`] = `
       class="ant-statistic"
     >
       <div
-        class="ant-statistic-title"
+        class="ant-statistic-header"
       >
-        Account Balance (CNY)
+        <div
+          class="ant-statistic-title"
+        >
+          Account Balance (CNY)
+        </div>
       </div>
       <div
         class="ant-statistic-content"
@@ -135,9 +151,13 @@ exports[`renders components/statistic/demo/basic.tsx correctly 1`] = `
       class="ant-statistic"
     >
       <div
-        class="ant-statistic-title"
+        class="ant-statistic-header"
       >
-        Active Users
+        <div
+          class="ant-statistic-title"
+        >
+          Active Users
+        </div>
       </div>
       <div
         class="ant-skeleton ant-statistic-skeleton"
@@ -174,9 +194,13 @@ exports[`renders components/statistic/demo/card.tsx correctly 1`] = `
           class="ant-statistic"
         >
           <div
-            class="ant-statistic-title"
+            class="ant-statistic-header"
           >
-            Active
+            <div
+              class="ant-statistic-title"
+            >
+              Active
+            </div>
           </div>
           <div
             class="ant-statistic-content"
@@ -243,9 +267,13 @@ exports[`renders components/statistic/demo/card.tsx correctly 1`] = `
           class="ant-statistic"
         >
           <div
-            class="ant-statistic-title"
+            class="ant-statistic-header"
           >
-            Idle
+            <div
+              class="ant-statistic-title"
+            >
+              Idle
+            </div>
           </div>
           <div
             class="ant-statistic-content"
@@ -314,9 +342,13 @@ exports[`renders components/statistic/demo/component-token.tsx correctly 1`] = `
       class="ant-statistic"
     >
       <div
-        class="ant-statistic-title"
+        class="ant-statistic-header"
       >
-        Active Users
+        <div
+          class="ant-statistic-title"
+        >
+          Active Users
+        </div>
       </div>
       <div
         class="ant-statistic-content"
@@ -341,9 +373,13 @@ exports[`renders components/statistic/demo/component-token.tsx correctly 1`] = `
       class="ant-statistic"
     >
       <div
-        class="ant-statistic-title"
+        class="ant-statistic-header"
       >
-        Account Balance (CNY)
+        <div
+          class="ant-statistic-title"
+        >
+          Account Balance (CNY)
+        </div>
       </div>
       <div
         class="ant-statistic-content"
@@ -382,9 +418,13 @@ exports[`renders components/statistic/demo/component-token.tsx correctly 1`] = `
       class="ant-statistic"
     >
       <div
-        class="ant-statistic-title"
+        class="ant-statistic-header"
       >
-        Active Users
+        <div
+          class="ant-statistic-title"
+        >
+          Active Users
+        </div>
       </div>
       <div
         class="ant-skeleton ant-statistic-skeleton"
@@ -415,9 +455,13 @@ exports[`renders components/statistic/demo/countdown.tsx correctly 1`] = `
       class="ant-statistic"
     >
       <div
-        class="ant-statistic-title"
+        class="ant-statistic-header"
       >
-        Countdown
+        <div
+          class="ant-statistic-title"
+        >
+          Countdown
+        </div>
       </div>
       <div
         class="ant-statistic-content"
@@ -438,9 +482,13 @@ exports[`renders components/statistic/demo/countdown.tsx correctly 1`] = `
       class="ant-statistic"
     >
       <div
-        class="ant-statistic-title"
+        class="ant-statistic-header"
       >
-        Million Seconds
+        <div
+          class="ant-statistic-title"
+        >
+          Million Seconds
+        </div>
       </div>
       <div
         class="ant-statistic-content"
@@ -461,9 +509,13 @@ exports[`renders components/statistic/demo/countdown.tsx correctly 1`] = `
       class="ant-statistic"
     >
       <div
-        class="ant-statistic-title"
+        class="ant-statistic-header"
       >
-        Day Level
+        <div
+          class="ant-statistic-title"
+        >
+          Day Level
+        </div>
       </div>
       <div
         class="ant-statistic-content"
@@ -484,9 +536,13 @@ exports[`renders components/statistic/demo/countdown.tsx correctly 1`] = `
       class="ant-statistic"
     >
       <div
-        class="ant-statistic-title"
+        class="ant-statistic-header"
       >
-        Countdown
+        <div
+          class="ant-statistic-title"
+        >
+          Countdown
+        </div>
       </div>
       <div
         class="ant-statistic-content"
@@ -515,9 +571,13 @@ exports[`renders components/statistic/demo/unit.tsx correctly 1`] = `
       class="ant-statistic"
     >
       <div
-        class="ant-statistic-title"
+        class="ant-statistic-header"
       >
-        Feedback
+        <div
+          class="ant-statistic-title"
+        >
+          Feedback
+        </div>
       </div>
       <div
         class="ant-statistic-content"
@@ -565,9 +625,13 @@ exports[`renders components/statistic/demo/unit.tsx correctly 1`] = `
       class="ant-statistic"
     >
       <div
-        class="ant-statistic-title"
+        class="ant-statistic-header"
       >
-        Unmerged
+        <div
+          class="ant-statistic-title"
+        >
+          Unmerged
+        </div>
       </div>
       <div
         class="ant-statistic-content"

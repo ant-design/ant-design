@@ -25,9 +25,13 @@ exports[`Statistic support negative number 1`] = `
   class="ant-statistic"
 >
   <div
-    class="ant-statistic-title"
+    class="ant-statistic-header"
   >
-    Account Balance (CNY)
+    <div
+      class="ant-statistic-title"
+    >
+      Account Balance (CNY)
+    </div>
   </div>
   <div
     class="ant-statistic-content"

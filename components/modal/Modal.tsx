@@ -62,7 +62,6 @@ const Modal: React.FC<ModalProps> = (props) => {
     const warning = devUseWarning('Modal');
 
     [
-      ['visible', 'open'],
       ['bodyStyle', 'styles.body'],
       ['maskStyle', 'styles.mask'],
     ].forEach(([deprecatedName, newName]) => {
@@ -80,8 +79,6 @@ const Modal: React.FC<ModalProps> = (props) => {
     getContainer,
     focusTriggerAfterClose = true,
     style,
-    // Deprecated
-    visible,
 
     width = 520,
     footer,
@@ -161,7 +158,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           prefixCls={prefixCls}
           rootClassName={classNames(hashId, rootClassName, cssVarCls, rootCls)}
           footer={dialogFooter}
-          visible={open ?? visible}
+          visible={open}
           mousePosition={restProps.mousePosition ?? mousePosition}
           onClose={handleCancel as any}
           closable={

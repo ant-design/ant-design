@@ -8,7 +8,6 @@ import Alert from '../../alert';
 import Anchor from '../../anchor';
 import AutoComplete from '../../auto-complete';
 import Avatar from '../../avatar';
-import BackTop from '../../back-top';
 import Badge from '../../badge';
 import Breadcrumb from '../../breadcrumb';
 import Button from '../../button';
@@ -141,9 +140,6 @@ describe('ConfigProvider', () => {
 
     // Avatar
     testPair('Avatar', (props) => <Avatar {...props} />);
-
-    // BackTop
-    testPair('BackTop', (props) => <BackTop visibilityHeight={0} {...props} />);
 
     // Badge
     testPair('Badge', (props) => {

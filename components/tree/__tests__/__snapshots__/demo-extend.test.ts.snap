@@ -153,7 +153,7 @@ exports[`renders components/tree/demo/basic.tsx extend context correctly 1`] = `
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -195,7 +195,7 @@ exports[`renders components/tree/demo/basic.tsx extend context correctly 1`] = `
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -294,7 +294,7 @@ exports[`renders components/tree/demo/basic.tsx extend context correctly 1`] = `
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -498,7 +498,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx extend context correc
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -539,7 +539,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx extend context correc
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -580,7 +580,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx extend context correc
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -679,7 +679,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx extend context correc
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -720,7 +720,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx extend context correc
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -761,7 +761,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx extend context correc
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -802,7 +802,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx extend context correc
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -894,7 +894,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx extend context correc
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -1029,7 +1029,7 @@ exports[`renders components/tree/demo/block-node.tsx extend context correctly 1`
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-close"
+            class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -1068,7 +1068,7 @@ exports[`renders components/tree/demo/block-node.tsx extend context correctly 1`
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-selected ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-selected ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -1221,7 +1221,7 @@ exports[`renders components/tree/demo/customized-icon.tsx extend context correct
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-selected"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-selected ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -1272,7 +1272,7 @@ exports[`renders components/tree/demo/customized-icon.tsx extend context correct
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -1459,7 +1459,7 @@ exports[`renders components/tree/demo/directory.tsx extend context correctly 1`]
             </span>
           </div>
           <div
-            class="ant-tree-treenode ant-tree-treenode-draggable"
+            class="ant-tree-treenode ant-tree-treenode-draggable ant-tree-treenode-leaf"
             draggable="true"
             role="treeitem"
           >
@@ -1532,7 +1532,7 @@ exports[`renders components/tree/demo/directory.tsx extend context correctly 1`]
             </span>
           </div>
           <div
-            class="ant-tree-treenode ant-tree-treenode-leaf-last ant-tree-treenode-draggable"
+            class="ant-tree-treenode ant-tree-treenode-leaf-last ant-tree-treenode-draggable ant-tree-treenode-leaf"
             draggable="true"
             role="treeitem"
           >
@@ -1695,7 +1695,7 @@ exports[`renders components/tree/demo/directory.tsx extend context correctly 1`]
             </span>
           </div>
           <div
-            class="ant-tree-treenode ant-tree-treenode-draggable"
+            class="ant-tree-treenode ant-tree-treenode-draggable ant-tree-treenode-leaf"
             draggable="true"
             role="treeitem"
           >
@@ -1768,7 +1768,7 @@ exports[`renders components/tree/demo/directory.tsx extend context correctly 1`]
             </span>
           </div>
           <div
-            class="ant-tree-treenode ant-tree-treenode-leaf-last ant-tree-treenode-draggable"
+            class="ant-tree-treenode ant-tree-treenode-leaf-last ant-tree-treenode-draggable ant-tree-treenode-leaf"
             draggable="true"
             role="treeitem"
           >
@@ -2151,7 +2151,7 @@ Array [
             </div>
             <div
               aria-expanded="true"
-              class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-draggable"
+              class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-draggable ant-tree-treenode-leaf"
               draggable="true"
               role="treeitem"
             >
@@ -2232,7 +2232,7 @@ Array [
             </div>
             <div
               aria-expanded="false"
-              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-draggable"
+              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-draggable ant-tree-treenode-leaf"
               draggable="true"
               role="treeitem"
             >
@@ -2313,7 +2313,7 @@ Array [
             </div>
             <div
               aria-expanded="false"
-              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-draggable"
+              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-draggable ant-tree-treenode-leaf"
               draggable="true"
               role="treeitem"
             >
@@ -2491,7 +2491,7 @@ Array [
             </div>
             <div
               aria-expanded="false"
-              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-draggable"
+              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-draggable ant-tree-treenode-leaf"
               draggable="true"
               role="treeitem"
             >
@@ -2662,7 +2662,7 @@ Array [
             </div>
             <div
               aria-expanded="false"
-              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-draggable"
+              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-draggable ant-tree-treenode-leaf"
               draggable="true"
               role="treeitem"
             >
@@ -2922,7 +2922,7 @@ exports[`renders components/tree/demo/draggable.tsx extend context correctly 1`]
           </div>
           <div
             aria-expanded="true"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-draggable"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-draggable ant-tree-treenode-leaf"
             draggable="true"
             role="treeitem"
           >
@@ -2976,7 +2976,7 @@ exports[`renders components/tree/demo/draggable.tsx extend context correctly 1`]
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-draggable"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-draggable ant-tree-treenode-leaf"
             draggable="true"
             role="treeitem"
           >
@@ -3030,7 +3030,7 @@ exports[`renders components/tree/demo/draggable.tsx extend context correctly 1`]
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-draggable"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-draggable ant-tree-treenode-leaf"
             draggable="true"
             role="treeitem"
           >
@@ -3155,7 +3155,7 @@ exports[`renders components/tree/demo/draggable.tsx extend context correctly 1`]
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-draggable"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-draggable ant-tree-treenode-leaf"
             draggable="true"
             role="treeitem"
           >
@@ -3273,7 +3273,7 @@ exports[`renders components/tree/demo/draggable.tsx extend context correctly 1`]
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-draggable"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-draggable ant-tree-treenode-leaf"
             draggable="true"
             role="treeitem"
           >
@@ -3454,7 +3454,7 @@ exports[`renders components/tree/demo/dynamic.tsx extend context correctly 1`] =
             </span>
           </div>
           <div
-            class="ant-tree-treenode ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -3836,7 +3836,7 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
             </div>
             <div
               aria-expanded="false"
-              class="ant-tree-treenode ant-tree-treenode-switcher-close"
+              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -3887,7 +3887,7 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
             </div>
             <div
               aria-expanded="false"
-              class="ant-tree-treenode ant-tree-treenode-switcher-close"
+              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -3943,7 +3943,7 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
             </div>
             <div
               aria-expanded="false"
-              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -4304,7 +4304,7 @@ exports[`renders components/tree/demo/multiple-line.tsx extend context correctly
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -4346,7 +4346,7 @@ exports[`renders components/tree/demo/multiple-line.tsx extend context correctly
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -4445,7 +4445,7 @@ exports[`renders components/tree/demo/multiple-line.tsx extend context correctly
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -4683,7 +4683,7 @@ exports[`renders components/tree/demo/search.tsx extend context correctly 1`] = 
             </div>
             <div
               aria-expanded="false"
-              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -4852,7 +4852,7 @@ exports[`renders components/tree/demo/switcher-icon.tsx extend context correctly
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -4887,7 +4887,7 @@ exports[`renders components/tree/demo/switcher-icon.tsx extend context correctly
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -4922,7 +4922,7 @@ exports[`renders components/tree/demo/switcher-icon.tsx extend context correctly
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
