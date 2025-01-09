@@ -68,7 +68,7 @@ const App: React.FC = () => {
             Link
           </Button>
         </Flex>
-        <Flex gap="middle" wrap>
+        <Flex gap="small" wrap>
           <Button color="pink" variant="solid">
             Solid
           </Button>
@@ -88,7 +88,7 @@ const App: React.FC = () => {
             Link
           </Button>
         </Flex>
-        <Flex gap="middle" wrap>
+        <Flex gap="small" wrap>
           <Button color="purple" variant="solid">
             Solid
           </Button>
@@ -108,8 +108,7 @@ const App: React.FC = () => {
             Link
           </Button>
         </Flex>
-
-        <Flex gap="middle" wrap>
+        <Flex gap="small" wrap>
           <Button color="cyan" variant="solid">
             Solid
           </Button>
