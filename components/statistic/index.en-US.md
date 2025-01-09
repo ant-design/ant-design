@@ -56,6 +56,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | onFinish | Trigger when time's up | () => void | - |  |
 | onChange | Trigger when time's changing | (value: number) => void | - | 4.16.0 |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Statistic"></ComponentTokenTable>

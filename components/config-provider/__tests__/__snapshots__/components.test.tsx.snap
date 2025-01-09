@@ -673,244 +673,6 @@ exports[`ConfigProvider components Avatar prefixCls 1`] = `
 </span>
 `;
 
-exports[`ConfigProvider components BackTop configProvider 1`] = `
-<div
-  class="config-back-top"
->
-  <div
-    class="config-fade-appear config-fade-appear-start config-fade config-back-top-content"
-  >
-    <div
-      class="config-back-top-icon"
-    >
-      <span
-        aria-label="vertical-align-top"
-        class="anticon anticon-vertical-align-top"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="vertical-align-top"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M859.9 168H164.1c-4.5 0-8.1 3.6-8.1 8v60c0 4.4 3.6 8 8.1 8h695.8c4.5 0 8.1-3.6 8.1-8v-60c0-4.4-3.6-8-8.1-8zM518.3 355a8 8 0 00-12.6 0l-112 141.7a7.98 7.98 0 006.3 12.9h73.9V848c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V509.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 355z"
-          />
-        </svg>
-      </span>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components BackTop configProvider componentDisabled 1`] = `
-<div
-  class="config-back-top"
->
-  <div
-    class="config-fade-appear config-fade-appear-start config-fade config-back-top-content"
-  >
-    <div
-      class="config-back-top-icon"
-    >
-      <span
-        aria-label="vertical-align-top"
-        class="anticon anticon-vertical-align-top"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="vertical-align-top"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M859.9 168H164.1c-4.5 0-8.1 3.6-8.1 8v60c0 4.4 3.6 8 8.1 8h695.8c4.5 0 8.1-3.6 8.1-8v-60c0-4.4-3.6-8-8.1-8zM518.3 355a8 8 0 00-12.6 0l-112 141.7a7.98 7.98 0 006.3 12.9h73.9V848c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V509.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 355z"
-          />
-        </svg>
-      </span>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components BackTop configProvider componentSize large 1`] = `
-<div
-  class="config-back-top"
->
-  <div
-    class="config-fade-appear config-fade-appear-start config-fade config-back-top-content"
-  >
-    <div
-      class="config-back-top-icon"
-    >
-      <span
-        aria-label="vertical-align-top"
-        class="anticon anticon-vertical-align-top"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="vertical-align-top"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M859.9 168H164.1c-4.5 0-8.1 3.6-8.1 8v60c0 4.4 3.6 8 8.1 8h695.8c4.5 0 8.1-3.6 8.1-8v-60c0-4.4-3.6-8-8.1-8zM518.3 355a8 8 0 00-12.6 0l-112 141.7a7.98 7.98 0 006.3 12.9h73.9V848c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V509.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 355z"
-          />
-        </svg>
-      </span>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components BackTop configProvider componentSize middle 1`] = `
-<div
-  class="config-back-top"
->
-  <div
-    class="config-fade-appear config-fade-appear-start config-fade config-back-top-content"
-  >
-    <div
-      class="config-back-top-icon"
-    >
-      <span
-        aria-label="vertical-align-top"
-        class="anticon anticon-vertical-align-top"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="vertical-align-top"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M859.9 168H164.1c-4.5 0-8.1 3.6-8.1 8v60c0 4.4 3.6 8 8.1 8h695.8c4.5 0 8.1-3.6 8.1-8v-60c0-4.4-3.6-8-8.1-8zM518.3 355a8 8 0 00-12.6 0l-112 141.7a7.98 7.98 0 006.3 12.9h73.9V848c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V509.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 355z"
-          />
-        </svg>
-      </span>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components BackTop configProvider componentSize small 1`] = `
-<div
-  class="config-back-top"
->
-  <div
-    class="config-fade-appear config-fade-appear-start config-fade config-back-top-content"
-  >
-    <div
-      class="config-back-top-icon"
-    >
-      <span
-        aria-label="vertical-align-top"
-        class="anticon anticon-vertical-align-top"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="vertical-align-top"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M859.9 168H164.1c-4.5 0-8.1 3.6-8.1 8v60c0 4.4 3.6 8 8.1 8h695.8c4.5 0 8.1-3.6 8.1-8v-60c0-4.4-3.6-8-8.1-8zM518.3 355a8 8 0 00-12.6 0l-112 141.7a7.98 7.98 0 006.3 12.9h73.9V848c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V509.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 355z"
-          />
-        </svg>
-      </span>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components BackTop normal 1`] = `
-<div
-  class="ant-back-top"
->
-  <div
-    class="ant-fade-appear ant-fade-appear-start ant-fade ant-back-top-content"
-  >
-    <div
-      class="ant-back-top-icon"
-    >
-      <span
-        aria-label="vertical-align-top"
-        class="anticon anticon-vertical-align-top"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="vertical-align-top"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M859.9 168H164.1c-4.5 0-8.1 3.6-8.1 8v60c0 4.4 3.6 8 8.1 8h695.8c4.5 0 8.1-3.6 8.1-8v-60c0-4.4-3.6-8-8.1-8zM518.3 355a8 8 0 00-12.6 0l-112 141.7a7.98 7.98 0 006.3 12.9h73.9V848c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V509.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 355z"
-          />
-        </svg>
-      </span>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components BackTop prefixCls 1`] = `
-<div
-  class="prefix-BackTop"
->
-  <div
-    class="ant-fade-appear ant-fade-appear-start ant-fade prefix-BackTop-content"
-  >
-    <div
-      class="prefix-BackTop-icon"
-    >
-      <span
-        aria-label="vertical-align-top"
-        class="anticon anticon-vertical-align-top"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="vertical-align-top"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M859.9 168H164.1c-4.5 0-8.1 3.6-8.1 8v60c0 4.4 3.6 8 8.1 8h695.8c4.5 0 8.1-3.6 8.1-8v-60c0-4.4-3.6-8-8.1-8zM518.3 355a8 8 0 00-12.6 0l-112 141.7a7.98 7.98 0 006.3 12.9h73.9V848c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V509.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 355z"
-          />
-        </svg>
-      </span>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`ConfigProvider components Badge configProvider 1`] = `
 <div>
   <span
@@ -14374,7 +14136,7 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
   >
     <div
       aria-modal="true"
-      class="config-drawer-content"
+      class="config-drawer-section"
       role="dialog"
     >
       <div
@@ -14445,7 +14207,7 @@ exports[`ConfigProvider components Drawer configProvider componentDisabled 1`] =
   >
     <div
       aria-modal="true"
-      class="config-drawer-content"
+      class="config-drawer-section"
       role="dialog"
     >
       <div
@@ -14516,7 +14278,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize large 1`]
   >
     <div
       aria-modal="true"
-      class="config-drawer-content"
+      class="config-drawer-section"
       role="dialog"
     >
       <div
@@ -14587,7 +14349,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize middle 1`
   >
     <div
       aria-modal="true"
-      class="config-drawer-content"
+      class="config-drawer-section"
       role="dialog"
     >
       <div
@@ -14658,7 +14420,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize small 1`]
   >
     <div
       aria-modal="true"
-      class="config-drawer-content"
+      class="config-drawer-section"
       role="dialog"
     >
       <div
@@ -14729,7 +14491,7 @@ exports[`ConfigProvider components Drawer normal 1`] = `
   >
     <div
       aria-modal="true"
-      class="ant-drawer-content"
+      class="ant-drawer-section"
       role="dialog"
     >
       <div
@@ -14800,7 +14562,7 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
   >
     <div
       aria-modal="true"
-      class="prefix-Drawer-content"
+      class="prefix-Drawer-section"
       role="dialog"
     >
       <div
@@ -41520,7 +41282,7 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
           >
             <div
               aria-expanded="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -41586,7 +41348,7 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
           >
             <div
               aria-expanded="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -41680,7 +41442,7 @@ exports[`ConfigProvider components Tree configProvider componentDisabled 1`] = `
           >
             <div
               aria-expanded="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -41746,7 +41508,7 @@ exports[`ConfigProvider components Tree configProvider componentDisabled 1`] = `
           >
             <div
               aria-expanded="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -41840,7 +41602,7 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
           >
             <div
               aria-expanded="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -41906,7 +41668,7 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
           >
             <div
               aria-expanded="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -42000,7 +41762,7 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
           >
             <div
               aria-expanded="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -42066,7 +41828,7 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
           >
             <div
               aria-expanded="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -42160,7 +41922,7 @@ exports[`ConfigProvider components Tree configProvider componentSize small 1`] =
           >
             <div
               aria-expanded="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -42226,7 +41988,7 @@ exports[`ConfigProvider components Tree configProvider componentSize small 1`] =
           >
             <div
               aria-expanded="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -42320,7 +42082,7 @@ exports[`ConfigProvider components Tree normal 1`] = `
           >
             <div
               aria-expanded="false"
-              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -42386,7 +42148,7 @@ exports[`ConfigProvider components Tree normal 1`] = `
           >
             <div
               aria-expanded="false"
-              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -42480,7 +42242,7 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
           >
             <div
               aria-expanded="false"
-              class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close prefix-Tree-treenode-leaf-last"
+              class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close prefix-Tree-treenode-leaf-last prefix-Tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -42546,7 +42308,7 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
           >
             <div
               aria-expanded="false"
-              class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close prefix-Tree-treenode-leaf-last"
+              class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close prefix-Tree-treenode-leaf-last prefix-Tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -42686,7 +42448,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
                 >
                   <div
                     aria-expanded="false"
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last config-select-tree-treenode-leaf"
                     draggable="false"
                     role="treeitem"
                   >
@@ -42897,7 +42659,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
                 >
                   <div
                     aria-expanded="false"
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last config-select-tree-treenode-leaf"
                     draggable="false"
                     role="treeitem"
                   >
@@ -43043,7 +42805,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
                 >
                   <div
                     aria-expanded="false"
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last config-select-tree-treenode-leaf"
                     draggable="false"
                     role="treeitem"
                   >
@@ -43189,7 +42951,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize small
                 >
                   <div
                     aria-expanded="false"
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last config-select-tree-treenode-leaf"
                     draggable="false"
                     role="treeitem"
                   >
@@ -43335,7 +43097,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
                 >
                   <div
                     aria-expanded="false"
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-active ant-select-tree-treenode-leaf-last"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-active ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
                     role="treeitem"
                   >
@@ -43481,7 +43243,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
                 >
                   <div
                     aria-expanded="false"
-                    class="prefix-TreeSelect-tree-treenode prefix-TreeSelect-tree-treenode-switcher-close prefix-TreeSelect-tree-treenode-active prefix-TreeSelect-tree-treenode-leaf-last"
+                    class="prefix-TreeSelect-tree-treenode prefix-TreeSelect-tree-treenode-switcher-close prefix-TreeSelect-tree-treenode-active prefix-TreeSelect-tree-treenode-leaf-last prefix-TreeSelect-tree-treenode-leaf"
                     draggable="false"
                     role="treeitem"
                   >

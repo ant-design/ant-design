@@ -69,7 +69,7 @@ v5 uses `rootClassName` & `rootStyle` to configure the outermost element style, 
 | placement | The placement of the Drawer | `top` \| `right` \| `bottom` \| `left` | `right` |  |
 | push | Nested drawers push behavior | boolean \| { distance: string \| number } | { distance: 180 } | 4.5.0+ |
 | rootStyle | Style of wrapper element which **contains mask** compare to `style` | CSSProperties | - |  |
-| style | Style of Drawer panel. Use `bodyStyle` if want to config body only | CSSProperties | - |  |
+| style | Style of Drawer panel. Use `styles.body` if want to config body only | CSSProperties | - |  |
 | styles | Semantic structure style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.10.0 |
 | size | preset size of drawer, default `378px` and large `736px` | 'default' \| 'large' | 'default' | 4.17.0 |
 | title | The title for Drawer | ReactNode | - |  |

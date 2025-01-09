@@ -293,7 +293,7 @@ exports[`Tree showLine is object type should render correctly 1`] = `
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -328,7 +328,7 @@ exports[`Tree showLine is object type should render correctly 1`] = `
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -363,7 +363,7 @@ exports[`Tree showLine is object type should render correctly 1`] = `
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -712,7 +712,7 @@ exports[`Tree switcherIcon in Tree could be string 1`] = `
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
@@ -740,7 +740,7 @@ exports[`Tree switcherIcon in Tree could be string 1`] = `
           </div>
           <div
             aria-expanded="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
             role="treeitem"
           >
