@@ -10,7 +10,7 @@ const codeBlockJs =
   'https://renderoffice.a' +
   'lipay' +
   'objects.com/p' +
-  '/yuyan/180020010001206410/parseFileData.js';
+  '/yuyan/180020010001206410/parseFileData-v1.0.1.js';
 
 function useShowCodeBlockButton() {
   const [showCodeBlockButton, setShowCodeBlockButton] = useState(false);
@@ -27,7 +27,7 @@ function useShowCodeBlockButton() {
 
           return resolve(true);
         }
-
+        
         return resolve(false);
       });
     });
