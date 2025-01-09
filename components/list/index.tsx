@@ -136,10 +136,9 @@ function InternalList<T>(
       key = (item as any)?.key;
     }
 
-    const node = renderItem(item, index);
-    key ??= React.isValidElement(node) ? node.key : undefined;
-
     if (!key) {
+      key = `list-item-${index}`;
+
       if (process.env.NODE_ENV !== 'production') {
         warning(
           false,
@@ -147,10 +146,9 @@ function InternalList<T>(
           'Each record in list should have a unique `key` prop, or set `rowKey` to an unique primary key.',
         );
       }
-      key = `list-item-${index}`;
     }
 
-    return <React.Fragment key={key}>{node}</React.Fragment>;
+    return <React.Fragment key={key}>{renderItem(item, index)}</React.Fragment>;
   };
 
   const isSomethingAfterLastItem = () => !!(loadMore || pagination || footer);
@@ -268,7 +266,7 @@ function InternalList<T>(
 
   let childrenContent: React.ReactNode = isLoading && <div style={{ minHeight: 53 }} />;
   if (splitDataSource.length > 0) {
-    const items = splitDataSource.map((item: T, index: number) => renderInnerItem(item, index));
+    const items = splitDataSource.map(renderInnerItem);
     childrenContent = grid ? (
       <Row gutter={grid.gutter}>
         {React.Children.map(items, (child) => (
