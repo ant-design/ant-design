@@ -27,7 +27,6 @@ function useShowCodeBlockButton() {
 
           return resolve(true);
         }
-        
         return resolve(false);
       });
     });
