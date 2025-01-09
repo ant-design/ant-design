@@ -1,7 +1,7 @@
 import * as React from 'react';
+import toArray from '@rc-component/util/lib/Children/toArray';
+import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import classNames from 'classnames';
-import toArray from 'rc-util/lib/Children/toArray';
-import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import { cloneElement } from '../_util/reactNode';
 import type { AnyObject } from '../_util/type';

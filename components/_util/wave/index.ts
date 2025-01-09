@@ -1,7 +1,7 @@
 import React, { useContext, useRef } from 'react';
+import isVisible from '@rc-component/util/lib/Dom/isVisible';
+import { composeRef, getNodeRef, supportRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
-import isVisible from 'rc-util/lib/Dom/isVisible';
-import { composeRef, getNodeRef, supportRef } from 'rc-util/lib/ref';
 
 import type { ConfigConsumerProps } from '../../config-provider';
 import { ConfigContext } from '../../config-provider';

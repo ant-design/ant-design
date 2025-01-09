@@ -5,10 +5,10 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
+import pickAttrs from '@rc-component/util/lib/pickAttrs';
+import { composeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
-import pickAttrs from 'rc-util/lib/pickAttrs';
-import { composeRef } from 'rc-util/lib/ref';
 
 import type { ClosableType } from '../_util/hooks/useClosable';
 import { replaceElement } from '../_util/reactNode';

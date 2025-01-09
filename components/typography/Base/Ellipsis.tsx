@@ -1,6 +1,7 @@
 import * as React from 'react';
-import toArray from 'rc-util/lib/Children/toArray';
-import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
+import toArray from '@rc-component/util/lib/Children/toArray';
+import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
+
 import { isValidText } from './util';
 
 interface MeasureTextProps {

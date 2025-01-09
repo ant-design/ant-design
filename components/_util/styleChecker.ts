@@ -1,5 +1,5 @@
-import canUseDom from 'rc-util/lib/Dom/canUseDom';
-import { isStyleSupport } from 'rc-util/lib/Dom/styleChecker';
+import canUseDom from '@rc-component/util/lib/Dom/canUseDom';
+import { isStyleSupport } from '@rc-component/util/lib/Dom/styleChecker';
 
 export const canUseDocElement = () => canUseDom() && window.document.documentElement;
 

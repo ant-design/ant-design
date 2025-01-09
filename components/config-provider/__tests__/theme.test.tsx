@@ -1,6 +1,6 @@
 import React from 'react';
+import canUseDom from '@rc-component/util/lib/Dom/canUseDom';
 import kebabCase from 'lodash/kebabCase';
-import canUseDom from 'rc-util/lib/Dom/canUseDom';
 
 import ConfigProvider from '..';
 import { Button, InputNumber, Select } from '../..';
@@ -15,7 +15,7 @@ const { defaultAlgorithm, darkAlgorithm, compactAlgorithm } = theme;
 /* biome-ignore lint/style/noVar: has to be a global variable */ /* eslint-disable-next-line no-var */
 var mockCanUseDom = true;
 
-jest.mock('rc-util/lib/Dom/canUseDom', () => () => mockCanUseDom);
+jest.mock('@rc-component/util/lib/Dom/canUseDom', () => () => mockCanUseDom);
 
 describe('ConfigProvider.Theme', () => {
   beforeEach(() => {
@@ -35,7 +35,7 @@ describe('ConfigProvider.Theme', () => {
 
       const styles = Array.from(document.querySelectorAll<HTMLStyleElement>('style'));
       const themeStyle = styles.find((style) =>
-        style.getAttribute('rc-util-key')?.includes('-dynamic-theme'),
+        style.getAttribute('@rc-component/util-key')?.includes('-dynamic-theme'),
       );
       expect(themeStyle).toBeTruthy();
 

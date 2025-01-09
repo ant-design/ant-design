@@ -95,7 +95,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
 
   const entryName = 'index.tsx';
   const entryCode = asset.dependencies[entryName].value;
-  
+
   const previewDemo = useRef<React.ReactNode>(null);
   const demoContainer = useRef<HTMLElement>(null);
   const {
@@ -288,7 +288,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
     main: 'index.js',
     dependencies: {
       ...dependencies,
-      'rc-util': pkgDependencyList['rc-util'],
+      '@rc-component/util': pkgDependencyList['@rc-component/util'],
       react: '^18.0.0',
       'react-dom': '^18.0.0',
       'react-scripts': '^5.0.0',

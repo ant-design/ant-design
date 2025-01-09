@@ -1,8 +1,8 @@
 import * as React from 'react';
+import toArray from '@rc-component/util/lib/Children/toArray';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
 import type { BaseSelectRef } from 'rc-select';
-import toArray from 'rc-util/lib/Children/toArray';
-import omit from 'rc-util/lib/omit';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import genPurePanel from '../_util/PurePanel';

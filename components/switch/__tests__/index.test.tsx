@@ -6,7 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
 
-jest.mock('rc-util/lib/Dom/isVisible', () => {
+jest.mock('@rc-component/util/lib/Dom/isVisible', () => {
   const mockFn = () => true;
   return mockFn;
 });
