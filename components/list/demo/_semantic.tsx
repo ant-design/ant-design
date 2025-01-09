@@ -43,10 +43,10 @@ const BlockList: React.FC<React.PropsWithChildren> = (props) => {
         itemLayout="vertical"
         size="large"
         dataSource={data}
+        rowKey="title"
         renderItem={(item) => (
           <List.Item
             {...props}
-            key={item.title}
             actions={[
               <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
               <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,

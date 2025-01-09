@@ -63,7 +63,8 @@ const App: React.FC = () => (
       footer={<div>Footer</div>}
       bordered
       dataSource={data}
-      renderItem={(item) => <List.Item key={item}>{item}</List.Item>}
+      rowKey={(item) => item}
+      renderItem={(item) => <List.Item>{item}</List.Item>}
     />
     <Divider orientation="left">Large Size</Divider>
     <List
@@ -72,14 +73,16 @@ const App: React.FC = () => (
       footer={<div>Footer</div>}
       bordered
       dataSource={data}
-      renderItem={(item) => <List.Item key={item}>{item}</List.Item>}
+      rowKey={(item) => item}
+      renderItem={(item) => <List.Item>{item}</List.Item>}
     />
     <Divider orientation="left">Meta</Divider>
     <List
       itemLayout="horizontal"
       dataSource={data1}
+      rowKey="title"
       renderItem={(item, index) => (
-        <List.Item key={item.title}>
+        <List.Item>
           <List.Item.Meta
             avatar={<Avatar src={`https://api.dicebear.com/7.x/miniavs/svg?seed=${index}`} />}
             title={<a href="https://ant.design">{item.title}</a>}
@@ -92,8 +95,9 @@ const App: React.FC = () => (
     <List
       itemLayout="vertical"
       dataSource={data1}
+      rowKey="title"
       renderItem={(item, index) => (
-        <List.Item key={item.title}>
+        <List.Item>
           <List.Item.Meta
             avatar={<Avatar src={`https://api.dicebear.com/7.x/miniavs/svg?seed=${index}`} />}
             title={<a href="https://ant.design">{item.title}</a>}

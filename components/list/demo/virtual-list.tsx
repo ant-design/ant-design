@@ -55,7 +55,7 @@ const App: React.FC = () => {
         onScroll={onScroll}
       >
         {(item: UserItem) => (
-          <List.Item key={item.email}>
+          <List.Item>
             <List.Item.Meta
               avatar={<Avatar src={item.picture.large} />}
               title={<a href="https://ant.design">{item.name.last}</a>}

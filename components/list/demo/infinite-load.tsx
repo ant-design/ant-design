@@ -64,7 +64,7 @@ const App: React.FC = () => {
           dataSource={data}
           rowKey="email"
           renderItem={(item) => (
-            <List.Item key={item.email}>
+            <List.Item>
               <List.Item.Meta
                 avatar={<Avatar src={item.picture.large} />}
                 title={<a href="https://ant.design">{item.name.last}</a>}
