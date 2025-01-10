@@ -21,7 +21,7 @@ const localeValues: Locale = {
     filterConfirm: 'Gerai',
     filterReset: 'Atstatyti',
     filterEmptyText: 'Be filtrų',
-    filterCheckall: 'Pasirinkti visus',
+    filterCheckAll: 'Pasirinkti visus',
     filterSearchPlaceholder: 'Ieškoti filtruose',
     emptyText: 'Nėra duomenų',
     selectAll: 'Pasirinkti viską',
