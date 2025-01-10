@@ -80,6 +80,11 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         },
       },
 
+      // Icon wrapper
+      [`${componentCls}-icon`]: {
+        lineHeight: 1,
+      },
+
       // Loading
       [`&${componentCls}-loading`]: {
         opacity: opacityLoading,
