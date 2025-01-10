@@ -7,12 +7,6 @@ import rehypeAntd from './.dumi/rehypeAntd';
 import remarkAntd from './.dumi/remarkAntd';
 import { version } from './package.json';
 
-const codeBlockJs =
-  'https://renderoffice.a' +
-  'lipay' +
-  'objects.com/p' +
-  '/yuyan/180020010001206410/parseFileData.js';
-
 export default defineConfig({
   plugins: ['dumi-plugin-color-chunk'],
 
@@ -189,7 +183,6 @@ export default defineConfig({
       document.documentElement.className += isZhCN(pathname) ? 'zh-cn' : 'en-us';
     })();
     `,
-    codeBlockJs,
   ],
   scripts: [
     {

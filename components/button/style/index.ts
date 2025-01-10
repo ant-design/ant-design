@@ -309,7 +309,7 @@ const genPresetColorStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
     const lightHoverColor = token[`${colorKey}2`];
     const lightBorderColor = token[`${colorKey}3`];
     const activeColor = token[`${colorKey}7`];
-    const boxShadow = `0 ${token.controlOutlineWidth} 0 ${token[`${colorKey}1`]}`;
+    const boxShadow = `0 ${unit(token.controlOutlineWidth)} 0 ${token[`${colorKey}1`]}`;
 
     return {
       ...prev,
