@@ -50,7 +50,7 @@ From the figure above, we can see that when `contextHolder` is placed inside `Mo
 
 ### Why?
 
-antd's Modal internal calls the `rc-dialog` component library, which accepts a `mousePosition` attribute to control the pop-up position([Dialog/Content/index.tsx](https://github.com/react-component/dialog/blob/79649e187ee512be6b3eb3b76e4a6b618b67ebc7/src/Dialog/Content/index.tsx#L43))：
+antd's Modal internal calls the `@rc-component/dialog` component library, which accepts a `mousePosition` attribute to control the pop-up position([Dialog/Content/index.tsx](https://github.com/react-component/dialog/blob/79649e187ee512be6b3eb3b76e4a6b618b67ebc7/src/Dialog/Content/index.tsx#L43))：
 
 ```tsx
 // pseudocode
@@ -85,7 +85,7 @@ This value obviously means that the form component has not been added to the DOM
 
 ### createPortal
 
-`rc-dialog` creates a node in the document through `rc-portal`, and then renders the component to this node through `ReactDOM.createPortal`. For the different positions of `contextHolder` and different interactive, it can be speculated that there must be a problem with the timing of creating nodes in the document, so we can take a closer look at the part of adding nodes by default in `rc-portal`([useDom.tsx](https://github.com/react-component/portal/blob/85e6e15ee97c70ec260c5409d9d273d6967e3560/src/useDom.tsx#L55))：
+`@rc-component/dialog` creates a node in the document through `rc-portal`, and then renders the component to this node through `ReactDOM.createPortal`. For the different positions of `contextHolder` and different interactive, it can be speculated that there must be a problem with the timing of creating nodes in the document, so we can take a closer look at the part of adding nodes by default in `rc-portal`([useDom.tsx](https://github.com/react-component/portal/blob/85e6e15ee97c70ec260c5409d9d273d6967e3560/src/useDom.tsx#L55))：
 
 ```tsx
 // pseudocode
@@ -141,7 +141,7 @@ useLayoutEffect(() => {
 
 ### Resolution
 
-Due to the above queue operation, the DOM of the portal will be triggered in the next `useLayoutEffect` under nesting. This causes the `useLayoutEffect` timing of the animation to start in `rc-dialog` after the node behavior is added, resulting in the element not being in the document and unable to obtain the correct coordinate information.
+Due to the above queue operation, the DOM of the portal will be triggered in the next `useLayoutEffect` under nesting. This causes the `useLayoutEffect` timing of the animation to start in `@rc-component/dialog` after the node behavior is added, resulting in the element not being in the document and unable to obtain the correct coordinate information.
 
 Since Modal is already enabled, it does not need to be executed asynchronously through `queue`, so we only need to add a judgment if it is enabled, and execute `append` directly:
 
