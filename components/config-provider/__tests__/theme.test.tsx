@@ -35,7 +35,7 @@ describe('ConfigProvider.Theme', () => {
 
       const styles = Array.from(document.querySelectorAll<HTMLStyleElement>('style'));
       const themeStyle = styles.find((style) =>
-        style.getAttribute('@rc-component/util-key')?.includes('-dynamic-theme'),
+        style.getAttribute('rc-util-key')?.includes('-dynamic-theme'),
       );
       expect(themeStyle).toBeTruthy();
 
