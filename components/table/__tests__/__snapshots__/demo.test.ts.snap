@@ -1952,6 +1952,7 @@ Array [
                       tabindex="0"
                     >
                       <div
+                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -2054,6 +2055,7 @@ Array [
                       tabindex="0"
                     >
                       <div
+                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -3640,6 +3642,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx correctly 1`] = `
                         class="ant-table-column-title"
                       >
                         <div
+                          aria-describedby="test-id"
                           class="ant-table-column-sorters"
                         >
                           <span
@@ -5840,6 +5843,7 @@ Array [
                       tabindex="0"
                     >
                       <div
+                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -5942,6 +5946,7 @@ Array [
                       tabindex="0"
                     >
                       <div
+                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -7215,7 +7220,9 @@ exports[`renders components/table/demo/edit-cell.tsx correctly 1`] = `
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
+                      <a
+                        aria-describedby="test-id"
+                      >
                         Delete
                       </a>
                     </td>
@@ -7247,7 +7254,9 @@ exports[`renders components/table/demo/edit-cell.tsx correctly 1`] = `
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
+                      <a
+                        aria-describedby="test-id"
+                      >
                         Delete
                       </a>
                     </td>
@@ -8335,28 +8344,36 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`]
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       New York No. 1 Lake Park, New York No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       New York No. 1 Lake Park, New York No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       New York No. 1 Lake Park, New York No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       New York No. 1 Lake Park, New York No. 1 Lake Park
                     </span>
                   </td>
@@ -8380,28 +8397,36 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`]
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       London No. 2 Lake Park, London No. 2 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       London No. 2 Lake Park, London No. 2 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       London No. 2 Lake Park, London No. 2 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       London No. 2 Lake Park, London No. 2 Lake Park
                     </span>
                   </td>
@@ -8425,28 +8450,36 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`]
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                   </td>
@@ -8921,6 +8954,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -9271,6 +9305,7 @@ exports[`renders components/table/demo/filter-search.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -9613,6 +9648,7 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -14251,6 +14287,7 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -15224,6 +15261,7 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
                         class="ant-table-column-title"
                       >
                         <div
+                          aria-describedby="test-id"
                           class="ant-table-column-sorters"
                         >
                           <span
@@ -15303,6 +15341,7 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
                         Age
                       </span>
                       <span
+                        aria-describedby="test-id"
                         class="ant-table-column-sorter ant-table-column-sorter-full"
                       >
                         <span
@@ -16406,6 +16445,7 @@ exports[`renders components/table/demo/multiple-sorter.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -16469,6 +16509,7 @@ exports[`renders components/table/demo/multiple-sorter.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -16532,6 +16573,7 @@ exports[`renders components/table/demo/multiple-sorter.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -20806,6 +20848,7 @@ Array [
                           class="ant-table-column-title"
                         >
                           <div
+                            aria-describedby="test-id"
                             class="ant-table-column-sorters"
                           >
                             <span
@@ -20897,6 +20940,7 @@ Array [
                       title="Age"
                     >
                       <div
+                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -20967,6 +21011,7 @@ Array [
                           class="ant-table-column-title"
                         >
                           <div
+                            aria-describedby="test-id"
                             class="ant-table-column-sorters"
                           >
                             <span
@@ -21293,6 +21338,7 @@ exports[`renders components/table/demo/resizable-column.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span

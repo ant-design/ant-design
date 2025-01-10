@@ -441,6 +441,7 @@ Array [
   >
     This is a copyable text.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -478,6 +479,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Copy
@@ -490,6 +492,7 @@ Array [
   >
     Replace copy text.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -527,6 +530,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Copy
@@ -539,6 +543,7 @@ Array [
   >
     Custom Copy icon and replace tooltips text.
     <button
+      aria-describedby="test-id"
       aria-label="click here"
       class="ant-typography-copy"
       type="button"
@@ -576,6 +581,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           click here
@@ -588,6 +594,7 @@ Array [
   >
     Hide Copy tooltips.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -625,6 +632,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         />
       </div>
@@ -635,6 +643,7 @@ Array [
   >
     Request copy text.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -672,6 +681,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Copy
@@ -683,6 +693,7 @@ Array [
     class="ant-typography"
   >
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy ant-typography-copy-icon-only"
       type="button"
@@ -720,6 +731,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Copy
@@ -739,6 +751,7 @@ Array [
   >
     This is an editable text.
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -776,6 +789,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Edit
@@ -789,6 +803,7 @@ Array [
   >
     This is a loooooooooooooooooooooooooooooooong editable text with suffix.
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -826,6 +841,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Edit
@@ -838,6 +854,7 @@ Array [
   >
     Custom Edit icon and replace tooltip text.
     <button
+      aria-describedby="test-id"
       aria-label="click to edit text"
       class="ant-typography-edit"
       type="button"
@@ -875,6 +892,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           click to edit text
@@ -953,6 +971,7 @@ Array [
   >
     Text or icon as trigger - click to start editing.
     <button
+      aria-describedby="test-id"
       aria-label="click to edit text"
       class="ant-typography-edit"
       type="button"
@@ -990,6 +1009,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           click to edit text
@@ -1002,6 +1022,7 @@ Array [
   >
     Editable text with a custom enter icon in edit field.
     <button
+      aria-describedby="test-id"
       aria-label="click to edit text"
       class="ant-typography-edit"
       type="button"
@@ -1039,6 +1060,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           click to edit text
@@ -1051,6 +1073,7 @@ Array [
   >
     Editable text with no enter icon in edit field.
     <button
+      aria-describedby="test-id"
       aria-label="click to edit text"
       class="ant-typography-edit"
       type="button"
@@ -1088,6 +1111,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           click to edit text
@@ -1100,6 +1124,7 @@ Array [
   >
     Hide Edit tooltip.
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -1137,6 +1162,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         />
       </div>
@@ -1147,6 +1173,7 @@ Array [
   >
     This is an editable text with limited length.
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -1184,6 +1211,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Edit
@@ -1197,6 +1225,7 @@ Array [
   >
     h1. Ant Design
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -1234,6 +1263,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Edit
@@ -1247,6 +1277,7 @@ Array [
   >
     h2. Ant Design
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -1284,6 +1315,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Edit
@@ -1297,6 +1329,7 @@ Array [
   >
     h3. Ant Design
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -1334,6 +1367,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Edit
@@ -1347,6 +1381,7 @@ Array [
   >
     h4. Ant Design
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -1384,6 +1419,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Edit
@@ -1397,6 +1433,7 @@ Array [
   >
     h5. Ant Design
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -1434,6 +1471,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Edit
@@ -1480,6 +1518,7 @@ Array [
     Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
   </div>,
   <span
+    aria-describedby="test-id"
     class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
     style="width: 200px;"
   >
@@ -1498,6 +1537,7 @@ Array [
     >
       <div
         class="ant-tooltip-inner"
+        id="test-id"
         role="tooltip"
       >
         I am ellipsis now!
@@ -1505,6 +1545,7 @@ Array [
     </div>
   </div>,
   <span
+    aria-describedby="test-id"
     class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
     style="width: 200px;"
   >
@@ -1525,6 +1566,7 @@ Array [
     >
       <div
         class="ant-tooltip-inner"
+        id="test-id"
         role="tooltip"
       >
         I am ellipsis now!
@@ -1581,6 +1623,7 @@ exports[`renders components/typography/demo/ellipsis-controlled.tsx extend conte
         class="ant-slider-step"
       />
       <div
+        aria-describedby="test-id"
         aria-disabled="false"
         aria-orientation="horizontal"
         aria-valuemax="20"
@@ -1604,6 +1647,7 @@ exports[`renders components/typography/demo/ellipsis-controlled.tsx extend conte
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             2
@@ -1618,6 +1662,7 @@ exports[`renders components/typography/demo/ellipsis-controlled.tsx extend conte
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -1655,6 +1700,7 @@ exports[`renders components/typography/demo/ellipsis-controlled.tsx extend conte
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Copy
@@ -1765,6 +1811,7 @@ Array [
       class="ant-slider-step"
     />
     <div
+      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="10"
@@ -1788,6 +1835,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           1
@@ -1819,6 +1867,7 @@ Array [
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -1856,6 +1905,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Copy
@@ -1871,6 +1921,7 @@ Array [
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -1908,6 +1959,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Copy
@@ -1923,6 +1975,7 @@ Array [
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -1960,6 +2013,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Copy
@@ -1975,6 +2029,7 @@ Array [
   >
     Ant Design is a design language for background applications, is refined by Ant UED Team.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -2012,6 +2067,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Copy
@@ -2032,6 +2088,7 @@ Array [
     style="display: none;"
   >
     <span
+      aria-describedby="test-id"
       class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
       style="width: 100px;"
     >
@@ -2050,6 +2107,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           I am ellipsis now!
@@ -2095,6 +2153,7 @@ Array [
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -2132,6 +2191,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Copy
@@ -2375,6 +2435,7 @@ Array [
       class="ant-slider-step"
     />
     <div
+      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="10"
@@ -2398,6 +2459,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           1
