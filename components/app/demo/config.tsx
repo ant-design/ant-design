@@ -30,7 +30,7 @@ const MyPage = () => {
 
 // Entry component
 export default () => (
-  <App message={{ maxCount: 1 }} notification={{ placement: 'bottomLeft' }}>
+  <App message={{ maxCount: 1 }} notification={{ placement: 'bottomRight' }}>
     <MyPage />
   </App>
 );
