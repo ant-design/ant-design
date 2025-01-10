@@ -65,6 +65,10 @@ demo:
 | disabled  | 分段项的禁用状态 | boolean          | false  |      |
 | className | 自定义类名       | string           | -      |      |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## 主题变量（Design Token）
 
 <ComponentTokenTable component="Segmented"></ComponentTokenTable>
