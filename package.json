@@ -153,6 +153,7 @@
     "rc-tree-select": "~5.27.0",
     "rc-upload": "~4.8.1",
     "rc-util": "^5.44.3",
+    "react-scan": "^0.0.54",
     "scroll-into-view-if-needed": "^3.1.0",
     "throttle-debounce": "^5.0.2"
   },
