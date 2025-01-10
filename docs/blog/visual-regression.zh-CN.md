@@ -20,7 +20,7 @@ npm run test:image # 截图将会保存在 imageSnapshots 目录下, 指定组�
 
 ### Argos
 
-早期使用我们使用 [Argos](https://argos-ci.com/) 作为视觉回归测试的方案，但是 Argos 修改了收费策略，antd 在每次 PR 中都会触发视觉回归测试，每次对比将近 6,000 张截图，这样的费用是我们无法承受的。
+早期我们使用 [Argos](https://argos-ci.com/) 作为视觉回归测试的方案，但是 Argos 修改了收费策略，antd 在每次 PR 中都会触发视觉回归测试，每次对比将近 6,000 张截图，这样的费用是我们无法承受的。
 
 ### Self-hosted
 
