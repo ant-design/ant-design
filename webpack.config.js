@@ -5,7 +5,6 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { codecovWebpackPlugin } = require('@codecov/webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const DuplicatePackageCheckerPlugin = require('@madccc/duplicate-package-checker-webpack-plugin');
-const { default: ReactComponentName } = require('react-scan/react-component-name/webpack');
 const path = require('path');
 
 function addLocales(config) {
@@ -67,7 +66,6 @@ function addPluginsForProduction(config) {
     new CircularDependencyPlugin({
       failOnError: true,
     }),
-    ReactComponentName({}),
   );
 
   return newConfig;
