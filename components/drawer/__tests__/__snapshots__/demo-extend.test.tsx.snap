@@ -508,7 +508,9 @@ Array [
               class="ant-radio-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-label"
+          >
             top
           </span>
         </label>
@@ -529,7 +531,9 @@ Array [
               class="ant-radio-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-label"
+          >
             right
           </span>
         </label>
@@ -549,7 +553,9 @@ Array [
               class="ant-radio-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-label"
+          >
             bottom
           </span>
         </label>
@@ -569,7 +575,9 @@ Array [
               class="ant-radio-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-label"
+          >
             left
           </span>
         </label>
@@ -3162,7 +3170,9 @@ Array [
               class="ant-radio-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-label"
+          >
             top
           </span>
         </label>
@@ -3182,7 +3192,9 @@ Array [
               class="ant-radio-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-label"
+          >
             right
           </span>
         </label>
@@ -3202,7 +3214,9 @@ Array [
               class="ant-radio-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-label"
+          >
             bottom
           </span>
         </label>
@@ -3223,7 +3237,9 @@ Array [
               class="ant-radio-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-label"
+          >
             left
           </span>
         </label>
