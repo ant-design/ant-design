@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { composeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
 import RcMentions from 'rc-mentions';
 import type {
@@ -6,7 +7,6 @@ import type {
   MentionsProps as RcMentionsProps,
   MentionsRef as RcMentionsRef,
 } from 'rc-mentions/lib/Mentions';
-import { composeRef } from 'rc-util/lib/ref';
 
 import getAllowClear from '../_util/getAllowClear';
 import genPurePanel from '../_util/PurePanel';

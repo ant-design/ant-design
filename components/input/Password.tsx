@@ -2,9 +2,9 @@ import * as React from 'react';
 import { useRef, useState } from 'react';
 import EyeInvisibleOutlined from '@ant-design/icons/EyeInvisibleOutlined';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
+import omit from '@rc-component/util/lib/omit';
+import { composeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
-import { composeRef } from 'rc-util/lib/ref';
 
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';

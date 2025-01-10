@@ -1,9 +1,9 @@
 import React from 'react';
 import { CheckOutlined, HighlightOutlined, LikeOutlined, SmileOutlined } from '@ant-design/icons';
-import copy from 'copy-to-clipboard';
-import KeyCode from 'rc-util/lib/KeyCode';
-import { resetWarned } from 'rc-util/lib/warning';
+import KeyCode from '@rc-component/util/lib/KeyCode';
+import { resetWarned } from '@rc-component/util/lib/warning';
 import userEvent from '@testing-library/user-event';
+import copy from 'copy-to-clipboard';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';

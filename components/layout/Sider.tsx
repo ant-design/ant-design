@@ -3,8 +3,8 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import BarsOutlined from '@ant-design/icons/BarsOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
 
 import isNumeric from '../_util/isNumeric';
 import { ConfigContext } from '../config-provider';

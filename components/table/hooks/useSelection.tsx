@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useCallback, useMemo } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
+import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
 import classNames from 'classnames';
 import { INTERNAL_COL_DEFINE } from 'rc-table';
 import type { FixedType } from 'rc-table/lib/interface';
@@ -8,7 +9,6 @@ import type { DataNode, GetCheckDisabled } from 'rc-tree/lib/interface';
 import { arrAdd, arrDel } from 'rc-tree/lib/util';
 import { conductCheck } from 'rc-tree/lib/utils/conductUtil';
 import { convertDataToEntities } from 'rc-tree/lib/utils/treeUtil';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import useMultipleSelect from '../../_util/hooks/useMultipleSelect';
 import type { AnyObject } from '../../_util/type';

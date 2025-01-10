@@ -3,10 +3,10 @@ import FileTwoTone from '@ant-design/icons/FileTwoTone';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import PaperClipOutlined from '@ant-design/icons/PaperClipOutlined';
 import PictureTwoTone from '@ant-design/icons/PictureTwoTone';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
 import type { CSSMotionListProps } from 'rc-motion';
 import CSSMotion, { CSSMotionList } from 'rc-motion';
-import omit from 'rc-util/lib/omit';
 
 import useForceUpdate from '../../_util/hooks/useForceUpdate';
 import initCollapseMotion from '../../_util/motion';

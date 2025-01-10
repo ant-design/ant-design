@@ -1,9 +1,9 @@
 import React from 'react';
+import raf from '@rc-component/util/lib/raf';
 import classNames from 'classnames';
 import type { SliderProps as RcSliderProps } from 'rc-slider';
 import RcSlider from 'rc-slider';
 import type { SliderRef } from 'rc-slider/lib/Slider';
-import raf from 'rc-util/lib/raf';
 
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
