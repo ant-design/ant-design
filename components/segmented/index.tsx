@@ -1,4 +1,5 @@
 import * as React from 'react';
+import useId from '@rc-component/util/lib/hooks/useId';
 import classNames from 'classnames';
 import type {
   SegmentedLabeledOption as RcSegmentedLabeledOption,
@@ -12,7 +13,6 @@ import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
-import useId from 'rc-util/lib/hooks/useId';
 
 export type { SegmentedValue } from 'rc-segmented';
 

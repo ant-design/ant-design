@@ -2,8 +2,8 @@
 import type { CSSProperties, MouseEventHandler } from 'react';
 import React, { forwardRef, useMemo } from 'react';
 import { ColorBlock } from '@rc-component/color-picker';
+import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import classNames from 'classnames';
-import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import { useLocale } from '../../locale';
 import type { AggregationColor } from '../color';

@@ -58,7 +58,8 @@ import TreeSelect from '../../tree-select';
 import Upload from '../../upload';
 
 dayjs.extend(customParseFormat);
-jest.mock('rc-util/lib/Portal');
+
+jest.mock('@rc-component/util/lib/Portal');
 
 describe('ConfigProvider', () => {
   describe('components', () => {

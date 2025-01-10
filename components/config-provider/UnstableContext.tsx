@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { render, unmount } from 'rc-util/lib/React/render';
+import { render, unmount } from '@rc-component/util/lib/React/render';
 
 import warning from '../_util/warning';
 

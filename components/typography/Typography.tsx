@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { JSX } from 'react';
+import { composeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
-import { composeRef } from 'rc-util/lib/ref';
 
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps, DirectionType } from '../config-provider';
