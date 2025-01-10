@@ -228,24 +228,14 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
           )}
           onClick={() => onCollapse(index, 'start')}
         >
-          {React.isValidElement<{ className: string }>(startIcon) ? (
-            React.cloneElement(startIcon, {
-              className: classNames(
-                `${splitBarPrefixCls}-collapse-icon`,
-                `${splitBarPrefixCls}-collapse-start`,
-                startIcon.props.className,
-              ),
-            })
-          ) : (
-            <span
-              className={classNames(
-                `${splitBarPrefixCls}-collapse-icon`,
-                `${splitBarPrefixCls}-collapse-start`,
-              )}
-            >
-              {startIcon}
-            </span>
-          )}
+          <span
+            className={classNames(
+              `${splitBarPrefixCls}-collapse-icon`,
+              `${splitBarPrefixCls}-collapse-start`,
+            )}
+          >
+            {startIcon}
+          </span>
         </div>
       )}
 
@@ -261,24 +251,14 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
           )}
           onClick={() => onCollapse(index, 'end')}
         >
-          {React.isValidElement<{ className: string }>(endIcon) ? (
-            React.cloneElement(endIcon, {
-              className: classNames(
-                `${splitBarPrefixCls}-collapse-icon`,
-                `${splitBarPrefixCls}-collapse-end`,
-                endIcon.props.className,
-              ),
-            })
-          ) : (
-            <span
-              className={classNames(
-                `${splitBarPrefixCls}-collapse-icon`,
-                `${splitBarPrefixCls}-collapse-end`,
-              )}
-            >
-              {endIcon}
-            </span>
-          )}
+          <span
+            className={classNames(
+              `${splitBarPrefixCls}-collapse-icon`,
+              `${splitBarPrefixCls}-collapse-end`,
+            )}
+          >
+            {endIcon}
+          </span>
         </div>
       )}
     </div>

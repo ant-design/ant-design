@@ -178,6 +178,8 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           '&-customize': {
             [`${splitBarCls}-dragger-icon-wrapper`]: {
               ...centerStyle,
+              display: 'flex',
+              alignItems: 'center',
             },
 
             '&::after': {
@@ -208,6 +210,11 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           // Active
           [`&:active:not(${splitBarCls}-collapse-bar-customize)`]: {
             background: controlItemBgActiveHover,
+          },
+
+          [`${splitBarCls}-collapse-icon`]: {
+            display: 'flex',
+            alignItems: 'center',
           },
         },
         [`${splitBarCls}-collapse-bar-customize`]: {

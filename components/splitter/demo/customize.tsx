@@ -12,7 +12,6 @@ import { createStyles } from 'antd-style';
 
 const useStyles = createStyles(({ token }) => ({
   draggerIcon: {
-    padding: '8px 0',
     color: token.colorTextDescription,
 
     '&:hover': {
