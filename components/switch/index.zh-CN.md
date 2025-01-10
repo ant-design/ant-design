@@ -22,7 +22,7 @@ demo:
 <code src="./demo/disabled.tsx">不可用</code>
 <code src="./demo/text.tsx">文字和图标</code>
 <code src="./demo/size.tsx">两种大小</code>
-<code src="./demo/loading.tsx">加载中</code>
+<code src="./demo/custom-value.tsx">自定义 value</code>
 <code src="./demo/component-token.tsx" debug>自定义组件 Token</code>
 
 ## API
@@ -36,7 +36,9 @@ demo:
 | checkedChildren | 选中时的内容 | ReactNode | - |  |
 | className | Switch 器类名 | string | - |  |
 | defaultChecked | 初始是否选中 | boolean | false |  |
-| defaultValue | `defaultChecked` 的别名 | boolean | - | 5.12.0 |
+| defaultValue | 默认值 | boolean / string / number | - | 5.12.0 |
+| checkedValue | 选中时的值 | boolean / string / number | - | - |
+| uncheckedValue | 未选中时的值 | boolean / string / number | - | - |
 | disabled | 是否禁用 | boolean | false |  |
 | loading | 加载中的开关 | boolean | false |  |
 | size | 开关大小，可选值：`default` `small` | string | `default` |  |

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Switch from '..';
 import focusTest from '../../../tests/shared/focusTest';
@@ -87,5 +87,64 @@ describe('Switch', () => {
 
     rerender(<Switch unCheckedChildren="0" />);
     expect(container.querySelector('.ant-switch-inner-unchecked')).toHaveStyle('min-height: 22px');
+  });
+
+  it('should be uncontrolled by defaultValue when use custom value', () => {
+    const mockChangeHandler = jest.fn();
+    const checkedValue = 1;
+    const uncheckedValue = 0;
+
+    const { getByRole } = render(
+      <Switch
+        defaultValue={checkedValue}
+        checkedValue={checkedValue}
+        uncheckedValue={uncheckedValue}
+        onChange={mockChangeHandler}
+      />,
+    );
+
+    const switchNode = getByRole('switch');
+    expect(switchNode).toBeTruthy();
+    expect(getByRole('switch')).toBeChecked();
+
+    fireEvent.click(switchNode);
+
+    expect(mockChangeHandler).toHaveBeenCalledWith(uncheckedValue, expect.anything());
+    // uncontrolled component, so false after click
+    expect(getByRole('switch')).not.toBeChecked();
+
+    fireEvent.click(switchNode);
+
+    expect(mockChangeHandler).toHaveBeenCalledWith(checkedValue, expect.anything());
+    // uncontrolled component, so false after click
+    expect(getByRole('switch')).toBeChecked();
+  });
+
+  it('should be controlled by value when use custom value', () => {
+    const checkedValue = 1;
+    const uncheckedValue = 0;
+    const App: React.FC = () => {
+      const [value, setValue] = useState(checkedValue);
+
+      return (
+        <Switch
+          value={value}
+          checkedValue={checkedValue}
+          uncheckedValue={uncheckedValue}
+          onChange={(v) => {
+            setValue(v);
+          }}
+        />
+      );
+    };
+
+    const { getByRole, unmount } = render(<App />);
+    const switchNode = getByRole('switch');
+    expect(switchNode).toBeTruthy();
+    expect(getByRole('switch')).toBeChecked();
+
+    fireEvent.click(switchNode);
+    expect(switchNode).not.toBeChecked();
+    unmount();
   });
 });

@@ -2,7 +2,10 @@ import * as React from 'react';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
 import RcSwitch from 'rc-switch';
-import type { SwitchChangeEventHandler, SwitchClickEventHandler } from 'rc-switch';
+import type {
+  SwitchChangeEventHandler as RcSwitchChangeEventHandler,
+  SwitchClickEventHandler,
+} from 'rc-switch';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import Wave from '../_util/wave';
@@ -12,26 +15,26 @@ import useSize from '../config-provider/hooks/useSize';
 import useStyle from './style';
 
 export type SwitchSize = 'small' | 'default';
-export type { SwitchChangeEventHandler, SwitchClickEventHandler };
+export type { SwitchClickEventHandler };
 
-export interface SwitchProps {
+export type SwitchValueType = number | string | boolean | undefined;
+export type SwitchChangeEventHandler<T = boolean> = (
+  value: T,
+  event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>,
+) => void;
+
+export interface SwitchProps<T extends SwitchValueType> {
   prefixCls?: string;
   size?: SwitchSize;
   className?: string;
   rootClassName?: string;
   checked?: boolean;
   defaultChecked?: boolean;
-  /**
-   * Alias for `checked`.
-   * @since 5.12.0
-   */
-  value?: boolean;
-  /**
-   * Alias for `defaultChecked`.
-   * @since 5.12.0
-   */
-  defaultValue?: boolean;
-  onChange?: SwitchChangeEventHandler;
+  value?: T;
+  defaultValue?: T;
+  checkedValue?: T;
+  uncheckedValue?: T;
+  onChange?: SwitchChangeEventHandler<T>;
   onClick?: SwitchClickEventHandler;
   checkedChildren?: React.ReactNode;
   unCheckedChildren?: React.ReactNode;
@@ -44,7 +47,10 @@ export interface SwitchProps {
   id?: string;
 }
 
-const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => {
+const InternalSwitch = <T extends SwitchValueType>(
+  props: SwitchProps<T>,
+  ref: React.Ref<HTMLButtonElement>,
+) => {
   const {
     prefixCls: customizePrefixCls,
     size: customizeSize,
@@ -54,15 +60,17 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
     rootClassName,
     style,
     checked: checkedProp,
-    value,
+    value: valueProp,
     defaultChecked: defaultCheckedProp,
     defaultValue,
     onChange,
+    checkedValue = true,
+    uncheckedValue = false,
     ...restProps
   } = props;
 
-  const [checked, setChecked] = useMergedState<boolean>(false, {
-    value: checkedProp ?? value,
+  const [value, setValue] = useMergedState<SwitchValueType>(defaultValue, {
+    value: checkedProp ?? valueProp,
     defaultValue: defaultCheckedProp ?? defaultValue,
   });
 
@@ -99,17 +107,17 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
   );
 
   const mergedStyle: React.CSSProperties = { ...SWITCH?.style, ...style };
-
-  const changeHandler: SwitchChangeEventHandler = (...args) => {
-    setChecked(args[0]);
-    onChange?.(...args);
+  const changeHandler: RcSwitchChangeEventHandler = (isChecked, ...rest) => {
+    const value = isChecked ? checkedValue : uncheckedValue;
+    setValue(value);
+    onChange?.(value, ...rest);
   };
 
   return wrapCSSVar(
     <Wave component="Switch">
       <RcSwitch
         {...restProps}
-        checked={checked}
+        checked={value === checkedValue}
         onChange={changeHandler}
         prefixCls={prefixCls}
         className={classes}
@@ -120,14 +128,19 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
       />
     </Wave>,
   );
-});
+};
 
-type CompoundedComponent = typeof InternalSwitch & {
+const InternalSwitchRef = React.forwardRef(InternalSwitch) as <T extends SwitchValueType = boolean>(
+  props: React.PropsWithChildren<SwitchProps<T>> & React.RefAttributes<HTMLButtonElement>,
+) => React.ReactElement;
+
+type CompoundedComponent = typeof InternalSwitchRef & {
+  displayName?: string;
   /** @internal */
   __ANT_SWITCH: boolean;
 };
 
-const Switch = InternalSwitch as CompoundedComponent;
+const Switch = InternalSwitchRef as CompoundedComponent;
 
 Switch.__ANT_SWITCH = true;
 
