@@ -60,11 +60,7 @@ import type {
   TreeSelectConfig,
   Variant,
   WaveConfig,
-<<<<<<< HEAD
-=======
-  EmptyConfig,
   CardMetaConfig,
->>>>>>> a21bae01f1 (feat: configProvider support Card.Meta)
 } from './context';
 import {
   ConfigConsumer,

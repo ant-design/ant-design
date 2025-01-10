@@ -435,7 +435,7 @@ exports[`renders components/card/demo/flexible-content.tsx extend context correc
       class="ant-card-meta"
     >
       <div
-        class="ant-card-meta-detail"
+        class="ant-card-meta-section"
       >
         <div
           class="ant-card-meta-title"
@@ -975,7 +975,7 @@ exports[`renders components/card/demo/meta.tsx extend context correctly 1`] = `
         </span>
       </div>
       <div
-        class="ant-card-meta-detail"
+        class="ant-card-meta-section"
       >
         <div
           class="ant-card-meta-title"
