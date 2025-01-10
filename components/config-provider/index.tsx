@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { createTheme } from '@ant-design/cssinjs';
 import IconContext from '@ant-design/icons/lib/components/Context';
-import useMemo from 'rc-util/lib/hooks/useMemo';
-import { merge } from 'rc-util/lib/utils/set';
+import useMemo from '@rc-component/util/lib/hooks/useMemo';
+import { merge } from '@rc-component/util/lib/utils/set';
 
 import warning, { devUseWarning, WarningContext } from '../_util/warning';
 import type { WarningContextProps } from '../_util/warning';
@@ -27,6 +27,7 @@ import type {
   DatePickerConfig,
   DirectionType,
   DrawerConfig,
+  EmptyConfig,
   FlexConfig,
   FloatButtonGroupConfig,
   FormConfig,
@@ -39,6 +40,8 @@ import type {
   ModalConfig,
   NotificationConfig,
   PaginationConfig,
+  PopconfirmConfig,
+  PopoverConfig,
   PopupOverflow,
   RangePickerConfig,
   SelectConfig,
@@ -52,14 +55,11 @@ import type {
   ThemeConfig,
   TimePickerConfig,
   TooltipConfig,
-  PopoverConfig,
-  PopconfirmConfig,
   TourConfig,
   TransferConfig,
   TreeSelectConfig,
   Variant,
   WaveConfig,
-  EmptyConfig,
 } from './context';
 import {
   ConfigConsumer,

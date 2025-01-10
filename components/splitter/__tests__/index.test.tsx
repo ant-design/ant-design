@@ -1,8 +1,8 @@
 import React from 'react';
 import { CaretLeftOutlined, CaretRightOutlined, ColumnWidthOutlined } from '@ant-design/icons';
+import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 import type { GetProps, SplitterProps } from 'antd';
 import { ConfigProvider, Splitter } from 'antd';
-import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 
 import { resetWarned } from '../../_util/warning';
 import {

@@ -1,11 +1,11 @@
 import * as React from 'react';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import type { AlignType } from '@rc-component/trigger';
+import useEvent from '@rc-component/util/lib/hooks/useEvent';
+import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
 import RcDropdown from 'rc-dropdown';
-import useEvent from 'rc-util/lib/hooks/useEvent';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import omit from 'rc-util/lib/omit';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import isPrimitive from '../_util/isPrimitive';

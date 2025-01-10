@@ -1,6 +1,6 @@
 import React, { useContext, useMemo } from 'react';
+import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
 import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import genPurePanel from '../_util/PurePanel';

@@ -1,9 +1,9 @@
 import * as React from 'react';
+import isVisible from '@rc-component/util/lib/Dom/isVisible';
+import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
 import type { Meta } from 'rc-field-form/lib/interface';
-import isVisible from 'rc-util/lib/Dom/isVisible';
-import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
-import omit from 'rc-util/lib/omit';
 
 import type { FormItemProps } from '.';
 import { Row } from '../../grid';

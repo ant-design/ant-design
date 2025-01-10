@@ -1,6 +1,6 @@
 import * as React from 'react';
+import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
 import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import type { KeyWiseTransferItem } from '.';
 import Pagination from '../pagination';

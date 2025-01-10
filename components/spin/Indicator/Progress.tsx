@@ -1,6 +1,6 @@
 import * as React from 'react';
+import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import classNames from 'classnames';
-import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
 export interface ProgressProps {
   prefixCls: string;
