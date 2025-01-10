@@ -9,7 +9,7 @@ import useStyle from './style/ribbon';
 
 type RibbonPlacement = 'start' | 'end';
 
-type SemanticName = 'root' | 'text' | 'corner' | 'body';
+type SemanticName = 'root' | 'content' | 'body';
 
 export interface RibbonProps {
   className?: string;
@@ -88,22 +88,15 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
       >
         <span
           className={classNames(
-            `${prefixCls}-text`,
-            ribbonClassNames?.text,
-            ribbon?.classNames?.text,
+            `${prefixCls}-content`,
+            ribbonClassNames?.content,
+            ribbon?.classNames?.content,
           )}
-          style={{ ...ribbon?.styles?.text, ...styles?.text }}
+          style={{ ...ribbon?.styles?.content, ...styles?.content }}
         >
           {text}
         </span>
-        <div
-          className={classNames(
-            `${prefixCls}-corner`,
-            ribbonClassNames?.corner,
-            ribbon?.classNames?.corner,
-          )}
-          style={{ ...cornerColorStyle, ...ribbon?.styles?.corner, ...styles?.corner }}
-        />
+        <div className={`${prefixCls}-corner`} style={cornerColorStyle} />
       </div>
     </div>,
   );

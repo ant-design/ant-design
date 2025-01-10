@@ -8,14 +8,12 @@ const locales = {
   cn: {
     root: '根节点',
     body: '主体节点',
-    text: '文本节点',
-    corner: '角标节点',
+    content: '文本节点',
   },
   en: {
     root: 'Root element',
     body: 'Body element',
-    text: 'Text element',
-    corner: 'Corner element',
+    content: 'Text element',
   },
 };
 
@@ -38,8 +36,7 @@ const App: React.FC = () => {
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'body', desc: locale.body, version: '6.0.0' },
-        { name: 'text', desc: locale.text, version: '6.0.0' },
-        { name: 'corner', desc: locale.corner, version: '6.0.0' },
+        { name: 'content', desc: locale.content, version: '6.0.0' },
       ]}
     >
       <BlockList />

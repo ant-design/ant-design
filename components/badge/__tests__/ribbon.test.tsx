@@ -84,14 +84,14 @@ describe('Ribbon', () => {
     const customClassNames = {
       root: 'custom-root',
       body: 'custom-body',
-      text: 'custom-text',
+      content: 'custom-content',
       corner: 'custom-corner',
     };
 
     const customStyles = {
       root: { color: 'red' },
       body: { color: 'green' },
-      text: { color: 'yellow' },
+      content: { color: 'yellow' },
       corner: { backgroundColor: 'black' },
     };
 
@@ -103,19 +103,16 @@ describe('Ribbon', () => {
 
     const rootElement = container.querySelector('.ant-ribbon-wrapper') as HTMLElement;
     const bodyElement = container.querySelector('.ant-ribbon') as HTMLElement;
-    const textElement = container.querySelector('.ant-ribbon-text') as HTMLElement;
-    const cornerElement = container.querySelector('.ant-ribbon-corner') as HTMLElement;
+    const contentElement = container.querySelector('.ant-ribbon-content') as HTMLElement;
 
     // check classNames
     expect(rootElement.classList).toContain('custom-root');
     expect(bodyElement.classList).toContain('custom-body');
-    expect(textElement.classList).toContain('custom-text');
-    expect(cornerElement.classList).toContain('custom-corner');
+    expect(contentElement.classList).toContain('custom-content');
 
     // check styles
     expect(rootElement.style.color).toBe('red');
     expect(bodyElement.style.color).toBe('green');
-    expect(textElement.style.color).toBe('yellow');
-    expect(cornerElement.style.backgroundColor).toBe('black');
+    expect(contentElement.style.color).toBe('yellow');
   });
 });

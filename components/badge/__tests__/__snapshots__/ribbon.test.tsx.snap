@@ -8,7 +8,7 @@ exports[`Ribbon rtl render component should be rendered correctly in RTL directi
     class="ant-ribbon ant-ribbon-placement-end ant-ribbon-rtl"
   >
     <span
-      class="ant-ribbon-text"
+      class="ant-ribbon-content"
     />
     <div
       class="ant-ribbon-corner"
