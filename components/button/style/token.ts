@@ -233,7 +233,7 @@ export interface ButtonToken extends FullToken<'Button'> {
    * @desc 只有图标的按钮图标尺寸
    * @descEN Icon size of button which only contains icon
    */
-  buttonIconOnlyFontSize: number;
+  buttonIconOnlyFontSize: number | string;
 }
 
 export const prepareToken: (token: Parameters<GenStyleFn<'Button'>>[0]) => ButtonToken = (
