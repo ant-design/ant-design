@@ -160,17 +160,17 @@ export interface ComponentToken {
    * @desc 只有图标的按钮图标尺寸
    * @descEN Icon size of button which only contains icon
    */
-  onlyIconSize: number;
+  onlyIconSize: number | string;
   /**
    * @desc 大号只有图标的按钮图标尺寸
    * @descEN Icon size of large button which only contains icon
    */
-  onlyIconSizeLG: number;
+  onlyIconSizeLG: number | string;
   /**
    * @desc 小号只有图标的按钮图标尺寸
    * @descEN Icon size of small button which only contains icon
    */
-  onlyIconSizeSM: number;
+  onlyIconSizeSM: number | string;
   /**
    * @desc 按钮组边框颜色
    * @descEN Border color of button group
