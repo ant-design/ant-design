@@ -32,7 +32,7 @@ const BlockCard: React.FC<React.PropsWithChildren> = (props) => {
   const divRef = React.useRef<HTMLDivElement>(null);
 
   return (
-    <div ref={divRef} style={{ position: 'absolute', inset: 0 }}>
+    <div ref={divRef} style={{ position: 'absolute' }}>
       <Card
         {...props}
         title="Card title"
@@ -59,7 +59,7 @@ const App: React.FC = () => {
   return (
     <SemanticPreview
       semantics={[
-        { name: 'root', desc: locale.root, version: '5.23.0' },
+        { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'header', desc: locale.header, version: '5.14.0' },
         { name: 'title', desc: locale.title, version: '5.14.0' },
         { name: 'extra', desc: locale.extra, version: '5.14.0' },
