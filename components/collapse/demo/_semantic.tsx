@@ -11,7 +11,6 @@ const locales = {
     header: '头部元素',
     title: '标题元素',
     body: '内容元素',
-    content: '容器元素',
     icon: '图标元素',
   },
   en: {
@@ -19,7 +18,6 @@ const locales = {
     header: 'Header element',
     title: 'Title element',
     body: 'Body element',
-    content: 'Content element',
     icon: 'Icon element',
   },
 };
@@ -35,7 +33,7 @@ const BlockCollapse: React.FC = (props) => {
   ];
 
   return (
-    <div style={{ position: 'absolute', inset: 0 }}>
+    <div style={{ position: 'absolute', inset: 0, margin: '42px 24px 50px' }}>
       <Collapse {...props} items={items} defaultActiveKey={['1']} />
     </div>
   );
@@ -50,7 +48,6 @@ const App: React.FC = () => {
         { name: 'header', desc: locale.header, version: '5.21.0' },
         { name: 'icon', desc: locale.icon, version: '6.0.0' },
         { name: 'title', desc: locale.title, version: '6.0.0' },
-        { name: 'content', desc: locale.content, version: '6.0.0' },
         { name: 'body', desc: locale.body, version: '5.21.0' },
       ]}
     >

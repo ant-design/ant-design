@@ -5365,7 +5365,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                 </span>
                               </div>
                               <span
-                                class="ant-collapse-header-text"
+                                class="ant-collapse-title"
                               >
                                 <div
                                   class="ant-color-picker-presets-label"
@@ -5375,10 +5375,10 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               </span>
                             </div>
                             <div
-                              class="ant-collapse-content ant-collapse-content-active"
+                              class="ant-collapse-panel ant-collapse-panel-active"
                             >
                               <div
-                                class="ant-collapse-content-box"
+                                class="ant-collapse-body"
                               >
                                 <div
                                   class="ant-color-picker-presets-items"
@@ -5502,7 +5502,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                 </span>
                               </div>
                               <span
-                                class="ant-collapse-header-text"
+                                class="ant-collapse-title"
                               >
                                 <div
                                   class="ant-color-picker-presets-label"
@@ -5512,10 +5512,10 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               </span>
                             </div>
                             <div
-                              class="ant-collapse-content ant-collapse-content-active"
+                              class="ant-collapse-panel ant-collapse-panel-active"
                             >
                               <div
-                                class="ant-collapse-content-box"
+                                class="ant-collapse-body"
                               >
                                 <div
                                   class="ant-color-picker-presets-items"
@@ -5639,7 +5639,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                 </span>
                               </div>
                               <span
-                                class="ant-collapse-header-text"
+                                class="ant-collapse-title"
                               >
                                 <div
                                   class="ant-color-picker-presets-label"
@@ -5649,10 +5649,10 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               </span>
                             </div>
                             <div
-                              class="ant-collapse-content ant-collapse-content-active"
+                              class="ant-collapse-panel ant-collapse-panel-active"
                             >
                               <div
-                                class="ant-collapse-content-box"
+                                class="ant-collapse-body"
                               >
                                 <div
                                   class="ant-color-picker-presets-items"
@@ -5776,7 +5776,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                 </span>
                               </div>
                               <span
-                                class="ant-collapse-header-text"
+                                class="ant-collapse-title"
                               >
                                 <div
                                   class="ant-color-picker-presets-label"
@@ -5786,10 +5786,10 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               </span>
                             </div>
                             <div
-                              class="ant-collapse-content ant-collapse-content-active"
+                              class="ant-collapse-panel ant-collapse-panel-active"
                             >
                               <div
-                                class="ant-collapse-content-box"
+                                class="ant-collapse-body"
                               >
                                 <div
                                   class="ant-color-picker-presets-items"
@@ -6672,7 +6672,7 @@ Array [
                         </span>
                       </div>
                       <span
-                        class="ant-collapse-header-text"
+                        class="ant-collapse-title"
                       >
                         <div
                           class="ant-color-picker-presets-label"
@@ -6682,10 +6682,10 @@ Array [
                       </span>
                     </div>
                     <div
-                      class="ant-collapse-content ant-collapse-content-active"
+                      class="ant-collapse-panel ant-collapse-panel-active"
                     >
                       <div
-                        class="ant-collapse-content-box"
+                        class="ant-collapse-body"
                       >
                         <div
                           class="ant-color-picker-presets-items"
@@ -6809,7 +6809,7 @@ Array [
                         </span>
                       </div>
                       <span
-                        class="ant-collapse-header-text"
+                        class="ant-collapse-title"
                       >
                         <div
                           class="ant-color-picker-presets-label"
@@ -6819,10 +6819,10 @@ Array [
                       </span>
                     </div>
                     <div
-                      class="ant-collapse-content ant-collapse-content-active"
+                      class="ant-collapse-panel ant-collapse-panel-active"
                     >
                       <div
-                        class="ant-collapse-content-box"
+                        class="ant-collapse-body"
                       >
                         <div
                           class="ant-color-picker-presets-items"
@@ -6946,7 +6946,7 @@ Array [
                         </span>
                       </div>
                       <span
-                        class="ant-collapse-header-text"
+                        class="ant-collapse-title"
                       >
                         <div
                           class="ant-color-picker-presets-label"
@@ -6956,10 +6956,10 @@ Array [
                       </span>
                     </div>
                     <div
-                      class="ant-collapse-content ant-collapse-content-active"
+                      class="ant-collapse-panel ant-collapse-panel-active"
                     >
                       <div
-                        class="ant-collapse-content-box"
+                        class="ant-collapse-body"
                       >
                         <div
                           class="ant-color-picker-presets-items"

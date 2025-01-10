@@ -175,7 +175,7 @@ exports[`renders components/collapse/demo/basic.tsx extend context correctly 1`]
       </span>
     </div>
     <div
-      class="ant-collapse-content ant-collapse-content-active"
+      class="ant-collapse-panel ant-collapse-panel-active"
     >
       <div
         class="ant-collapse-body"
@@ -318,7 +318,7 @@ exports[`renders components/collapse/demo/borderless.tsx extend context correctl
       </span>
     </div>
     <div
-      class="ant-collapse-content ant-collapse-content-active"
+      class="ant-collapse-panel ant-collapse-panel-active"
     >
       <div
         class="ant-collapse-body"
@@ -471,7 +471,7 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
           </span>
         </div>
         <div
-          class="ant-collapse-content ant-collapse-content-active"
+          class="ant-collapse-panel ant-collapse-panel-active"
         >
           <div
             class="ant-collapse-body"
@@ -533,7 +533,7 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
           </span>
         </div>
         <div
-          class="ant-collapse-content ant-collapse-content-active"
+          class="ant-collapse-panel ant-collapse-panel-active"
         >
           <div
             class="ant-collapse-body"
@@ -777,7 +777,7 @@ exports[`renders components/collapse/demo/custom.tsx extend context correctly 1`
       </span>
     </div>
     <div
-      class="ant-collapse-content ant-collapse-content-active"
+      class="ant-collapse-panel ant-collapse-panel-active"
     >
       <div
         class="ant-collapse-body"
@@ -947,7 +947,7 @@ Array [
         </div>
       </div>
       <div
-        class="ant-collapse-content ant-collapse-content-active"
+        class="ant-collapse-panel ant-collapse-panel-active"
       >
         <div
           class="ant-collapse-body"
@@ -1288,7 +1288,7 @@ exports[`renders components/collapse/demo/ghost.tsx extend context correctly 1`]
       </span>
     </div>
     <div
-      class="ant-collapse-content ant-collapse-content-active"
+      class="ant-collapse-panel ant-collapse-panel-active"
     >
       <div
         class="ant-collapse-body"
@@ -1560,7 +1560,7 @@ exports[`renders components/collapse/demo/noarrow.tsx extend context correctly 1
       </span>
     </div>
     <div
-      class="ant-collapse-content ant-collapse-content-active"
+      class="ant-collapse-panel ant-collapse-panel-active"
     >
       <div
         class="ant-collapse-body"

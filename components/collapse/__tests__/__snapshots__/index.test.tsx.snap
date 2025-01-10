@@ -132,7 +132,7 @@ exports[`Collapse could override default openMotion 1`] = `
       </span>
     </div>
     <div
-      class="ant-collapse-content ant-collapse-content-active"
+      class="ant-collapse-panel ant-collapse-panel-active"
     >
       <div
         class="ant-collapse-body"

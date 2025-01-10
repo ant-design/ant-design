@@ -3,8 +3,8 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import toArray from '@rc-component/util/lib/Children/toArray';
 import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import type { CollapseProps as RcCollapseProps } from 'rc-collapse';
-import RcCollapse from 'rc-collapse';
+import type { CollapseProps as RcCollapseProps } from '@rc-component/collapse';
+import RcCollapse from '@rc-component/collapse';
 import type { CSSMotionProps } from 'rc-motion';
 
 import initCollapseMotion from '../_util/motion';
@@ -17,7 +17,7 @@ import CollapsePanel from './CollapsePanel';
 import useStyle from './style';
 
 export type ExpandIconPosition = 'start' | 'end' | undefined;
-export type SemanticName = 'root' | 'header' | 'title' | 'body' | 'content' | 'icon';
+export type SemanticName = 'root' | 'header' | 'title' | 'body' | 'icon';
 export interface CollapseProps extends Pick<RcCollapseProps, 'items'> {
   activeKey?: Array<string | number> | string | number;
   defaultActiveKey?: Array<string | number> | string | number;
@@ -135,7 +135,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
   const openMotion: CSSMotionProps = {
     ...initCollapseMotion(rootPrefixCls),
     motionAppear: false,
-    leavedClassName: `${prefixCls}-content-hidden`,
+    leavedClassName: `${prefixCls}-panel-hidden`,
   };
   const items = React.useMemo<React.ReactElement<ItemType>[] | null>(() => {
     if (children) {
@@ -145,13 +145,11 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
             header: classNames(collapse?.classNames?.header, collapseClassNames?.header),
             title: classNames(collapse?.classNames?.title, collapseClassNames?.title),
             body: classNames(collapse?.classNames?.body, collapseClassNames?.body),
-            content: classNames(collapse?.classNames?.content, collapseClassNames?.content),
           },
           styles: {
             header: { ...collapse?.styles?.header, ...styles?.header },
             title: { ...collapse?.styles?.title, ...styles?.title },
             body: { ...collapse?.styles?.body, ...styles?.body },
-            content: { ...collapse?.styles?.content, ...styles?.content },
           },
         }),
       );

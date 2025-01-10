@@ -205,14 +205,14 @@ describe('ColorPicker', () => {
     fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
     await waitFakeTimer();
     const presetsColors = container
-      .querySelector('.ant-collapse-content')
+      .querySelector('.ant-collapse-panel')
       ?.querySelectorAll('.ant-color-picker-presets-color')!;
 
     expect(container.querySelector('.ant-color-picker-presets')).toBeTruthy();
     expect(presetsColors.length).toBe(10);
     expect(
       container
-        .querySelectorAll('.ant-collapse-content')[1]
+        .querySelectorAll('.ant-collapse-panel')[1]
         .querySelector('.ant-color-picker-presets-empty'),
     ).toBeTruthy();
 
