@@ -1,8 +1,8 @@
 import * as React from 'react';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import omit from 'rc-util/lib/omit';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import type { ButtonProps, LegacyButtonType } from '../button/button';

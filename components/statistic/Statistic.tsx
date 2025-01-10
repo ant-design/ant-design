@@ -1,6 +1,6 @@
 import * as React from 'react';
+import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import classNames from 'classnames';
-import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
 import { devUseWarning } from '../_util/warning';

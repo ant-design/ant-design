@@ -10,7 +10,7 @@ import ConfigProvider from '../../config-provider';
 
 (global as any).isVisible = true;
 
-jest.mock('rc-util/lib/Dom/isVisible', () => {
+jest.mock('@rc-component/util/lib/Dom/isVisible', () => {
   const mockFn = () => (global as any).isVisible;
   return mockFn;
 });

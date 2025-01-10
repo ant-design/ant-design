@@ -1,5 +1,5 @@
 import React from 'react';
-import { spyElementPrototype } from 'rc-util/lib/test/domHook';
+import { spyElementPrototype } from '@rc-component/util/lib/test/domHook';
 
 import Popconfirm from '..';
 import mountTest from '../../../tests/shared/mountTest';

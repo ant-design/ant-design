@@ -1,11 +1,11 @@
 import * as React from 'react';
 import RightOutlined from '@ant-design/icons/RightOutlined';
+import toArray from '@rc-component/util/lib/Children/toArray';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
 import type { CollapseProps as RcCollapseProps } from 'rc-collapse';
 import RcCollapse from 'rc-collapse';
 import type { CSSMotionProps } from 'rc-motion';
-import toArray from 'rc-util/lib/Children/toArray';
-import omit from 'rc-util/lib/omit';
 
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';

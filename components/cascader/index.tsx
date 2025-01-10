@@ -1,4 +1,5 @@
 import * as React from 'react';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
 import type {
   BaseOptionType,
@@ -9,7 +10,6 @@ import type {
 } from 'rc-cascader';
 import RcCascader from 'rc-cascader';
 import type { Placement } from 'rc-select/lib/BaseSelect';
-import omit from 'rc-util/lib/omit';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';

@@ -1,6 +1,6 @@
 import * as React from 'react';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
 
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { isPresetColor, isPresetStatusColor } from '../_util/colors';

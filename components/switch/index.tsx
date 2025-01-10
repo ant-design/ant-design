@@ -1,9 +1,9 @@
 import * as React from 'react';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
 import classNames from 'classnames';
 import RcSwitch from 'rc-switch';
 import type { SwitchChangeEventHandler, SwitchClickEventHandler } from 'rc-switch';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
