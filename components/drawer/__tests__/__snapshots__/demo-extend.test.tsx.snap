@@ -842,7 +842,7 @@ Array [
           style="padding-bottom: 80px;"
         >
           <form
-            class="ant-form ant-form-vertical"
+            class="ant-form ant-form-vertical ant-form-hide-required-mark"
           >
             <div
               class="ant-row"
@@ -2807,7 +2807,11 @@ Array [
 ]
 `;
 
-exports[`renders components/drawer/demo/form-in-drawer.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/drawer/demo/form-in-drawer.tsx extend context correctly 2`] = `
+[
+  "Accessing element.ref was removed in React 19. ref is now a regular prop. It will be removed from the JSX Element type in a future release.",
+]
+`;
 
 exports[`renders components/drawer/demo/loading.tsx extend context correctly 1`] = `
 Array [
@@ -4372,4 +4376,8 @@ Array [
 ]
 `;
 
-exports[`renders components/drawer/demo/user-profile.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/drawer/demo/user-profile.tsx extend context correctly 2`] = `
+[
+  "Accessing element.ref was removed in React 19. ref is now a regular prop. It will be removed from the JSX Element type in a future release.",
+]
+`;
