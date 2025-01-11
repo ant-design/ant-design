@@ -3,6 +3,7 @@ import { unit } from '@ant-design/cssinjs';
 
 import { mergeToken } from '../../theme/internal';
 import type { InputToken } from './token';
+import { CSSProperties } from 'react';
 
 export const genHoverStyle = (token: InputToken): CSSObject => ({
   borderColor: token.hoverBorderColor,
@@ -306,6 +307,185 @@ const genFilledGroupStatusStyle = (
     },
   },
 });
+
+/* ============== Underlined ============== */
+export const genBaseUnderlinedStyle = (
+  token: InputToken,
+  options: {
+    borderColor: string;
+    hoverBorderColor: string;
+    activeBorderColor: string;
+  },
+): CSSObject => ({
+  background: token.colorBgContainer,
+  border: 'none',
+  borderRadius: '0px',
+  borderBottomWidth: token.lineWidth,
+  borderBottomColor: options.borderColor,
+  borderBottomStyle: token.lineType as CSSProperties['borderBottomStyle'],
+  '&:focus, &:focus-within': {
+    borderColor: options.activeBorderColor,
+    outline: 0,
+    backgroundColor: token.activeBg,
+  },
+  '&:hover': {
+    borderColor: options.hoverBorderColor,
+    backgroundColor: token.hoverBg,
+  },
+});
+const genUnderlinedStatusStyle = (
+  token: InputToken,
+  options: {
+    status: string;
+    borderColor: string;
+    hoverBorderColor: string;
+    activeBorderColor: string;
+    activeShadow: string;
+    affixColor: string;
+  },
+): CSSObject => ({
+  [`&${token.componentCls}-status-${options.status}:not(${token.componentCls}-disabled)`]: {
+    ...genBaseOutlinedStyle(token, options),
+
+    [`${token.componentCls}-prefix, ${token.componentCls}-suffix`]: {
+      color: options.affixColor,
+    },
+  },
+  [`&${token.componentCls}-status-${options.status}${token.componentCls}-disabled`]: {
+    borderColor: options.borderColor,
+  },
+});
+
+export const genUnderlinedStyle = (token: InputToken, extraStyles?: CSSObject): CSSObject => ({
+  '&-underlined': {
+    ...genBaseUnderlinedStyle(token, {
+      borderColor: token.colorBorder,
+      hoverBorderColor: token.hoverBorderColor,
+      activeBorderColor: token.activeBorderColor,
+    }),
+
+    [`&${token.componentCls}-disabled, &[disabled]`]: {
+      ...genDisabledStyle(token),
+    },
+
+    ...genUnderlinedStatusStyle(token, {
+      status: 'error',
+      borderColor: token.colorError,
+      hoverBorderColor: token.colorErrorBorderHover,
+      activeBorderColor: token.colorError,
+      activeShadow: token.errorActiveShadow,
+      affixColor: token.colorError,
+    }),
+
+    ...genUnderlinedStatusStyle(token, {
+      status: 'warning',
+      borderColor: token.colorWarning,
+      hoverBorderColor: token.colorWarningBorderHover,
+      activeBorderColor: token.colorWarning,
+      activeShadow: token.warningActiveShadow,
+      affixColor: token.colorWarning,
+    }),
+
+    ...extraStyles,
+  },
+});
+
+const genUnderlinedGroupStatusStyle = (
+  token: InputToken,
+  options: {
+    status: string;
+    addonBorderColor: string;
+    addonColor: string;
+  },
+): CSSObject => ({
+  [`&${token.componentCls}-group-wrapper-status-${options.status}`]: {
+    [`${token.componentCls}-group-addon`]: {
+      borderColor: options.addonBorderColor,
+      color: options.addonColor,
+    },
+  },
+});
+
+export const genUnderlinedGroupStyle = (token: InputToken): CSSObject => ({
+  '&-outlined': {
+    [`${token.componentCls}-group`]: {
+      '&-addon': {
+        background: token.addonBg,
+        border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
+      },
+
+      '&-addon:first-child': {
+        borderInlineEnd: 0,
+      },
+
+      '&-addon:last-child': {
+        borderInlineStart: 0,
+      },
+    },
+
+    ...genUnderlinedGroupStatusStyle(token, {
+      status: 'error',
+      addonBorderColor: token.colorError,
+      addonColor: token.colorErrorText,
+    }),
+
+    ...genUnderlinedGroupStatusStyle(token, {
+      status: 'warning',
+      addonBorderColor: token.colorWarning,
+      addonColor: token.colorWarningText,
+    }),
+
+    [`&${token.componentCls}-group-wrapper-disabled`]: {
+      [`${token.componentCls}-group-addon`]: {
+        ...genDisabledStyle(token),
+      },
+    },
+  },
+});
+// export const genUnderlinedStyle = (token: InputToken, extraStyles?: CSSObject): CSSObject => {
+//   const { componentCls } = token;
+//
+//   return {
+//     '&-underlined': {
+//       background: token.colorBgContainer,
+//       borderRadius: 0,
+//       border:'none',
+//       borderBottomWidth:token.lineWidth,
+//       borderBottomColor:token.colorBorder,
+//       borderBottomStyle:token.lineType,
+//       '&:focus, &:focus-within': {
+//         borderColor:token.activeBorderColor,
+//         outline: 0,
+//         backgroundColor: token.activeBg,
+//       },
+//       '&:hover': {
+//         borderColor: token.hoverBorderColor,
+//         backgroundColor: token.hoverBg,
+//       },
+//
+//       // >>>>> Disabled
+//       [`&${componentCls}-disabled, &[disabled]`]: {
+//         color: token.colorTextDisabled,
+//         cursor: 'not-allowed',
+//       },
+//
+//       // >>>>> Status
+//       [`&${componentCls}-status-error`]: {
+//         '&, & input, & textarea': {
+//           color: token.colorError,
+//         },
+//       },
+//
+//       [`&${componentCls}-status-warning`]: {
+//         '&, & input, & textarea': {
+//           color: token.colorWarning,
+//         },
+//       },
+//
+//       ...extraStyles,
+//     },
+//   };
+// };
 
 export const genFilledGroupStyle = (token: InputToken): CSSObject => ({
   '&-filled': {

@@ -29,7 +29,6 @@ const useVariant = (
   const { variant: configVariant, [component]: componentConfig } = React.useContext(ConfigContext);
   const ctxVariant = React.useContext(VariantContext);
   const configComponentVariant = componentConfig?.variant;
-
   let mergedVariant: Variant;
   if (typeof variant !== 'undefined') {
     mergedVariant = variant;
