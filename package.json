@@ -162,7 +162,7 @@
     "@ant-design/tools": "^18.0.3",
     "@ant-design/v5-patch-for-react-19": "^1.0.2",
     "@antfu/eslint-config": "^3.11.2",
-    "@antv/g6": "^4.8.24",
+    "@antv/g6": "^5.0.0",
     "@biomejs/biome": "^1.9.4",
     "@codecov/webpack-plugin": "^1.4.0",
     "@codesandbox/sandpack-react": "^2.19.10",
