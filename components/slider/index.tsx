@@ -109,12 +109,9 @@ type SliderRange = Exclude<GetProp<RcSliderProps, 'range'>, boolean>;
 
 export type Opens = { [index: number]: boolean };
 
-function getTipFormatter(tipFormatter?: Formatter, legacyTipFormatter?: Formatter) {
+function getTipFormatter(tipFormatter?: Formatter) {
   if (tipFormatter || tipFormatter === null) {
     return tipFormatter;
-  }
-  if (legacyTipFormatter || legacyTipFormatter === null) {
-    return legacyTipFormatter;
   }
   return (val?: number) => (typeof val === 'number' ? val.toString() : '');
 }
