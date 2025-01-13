@@ -734,6 +734,7 @@ Array [
   >
     Ant Design
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -771,6 +772,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Copy
@@ -6798,6 +6800,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       value="git@github.com:ant-design/ant-design.git"
     />
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
       type="button"
     >
@@ -6838,6 +6841,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           copy git url
@@ -10754,6 +10758,7 @@ Array [
       class="ant-input-suffix"
     >
       <span
+        aria-describedby="test-id"
         aria-label="info-circle"
         class="anticon anticon-info-circle"
         role="img"
@@ -10789,6 +10794,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             Extra information
@@ -11771,6 +11777,7 @@ exports[`renders components/input/demo/textarea-resize.tsx extend context correc
 exports[`renders components/input/demo/tooltip.tsx extend context correctly 1`] = `
 Array [
   <input
+    aria-describedby="test-id"
     class="ant-input ant-input-outlined"
     maxlength="16"
     placeholder="Input a number"
@@ -11791,6 +11798,7 @@ Array [
     >
       <div
         class="ant-tooltip-inner"
+        id="test-id"
         role="tooltip"
       >
         Input a number
