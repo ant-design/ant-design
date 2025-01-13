@@ -85,14 +85,12 @@ describe('Ribbon', () => {
       root: 'custom-root',
       indicator: 'custom-indicator',
       content: 'custom-content',
-      corner: 'custom-corner',
     };
 
     const customStyles = {
       root: { color: 'red' },
       indicator: { color: 'green' },
       content: { color: 'yellow' },
-      corner: { backgroundColor: 'black' },
     };
 
     const { container } = render(
