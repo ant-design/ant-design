@@ -47,6 +47,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | bordered | Whether has border style | boolean | true | 5.4.0 |
 | onClose | Callback executed when tag is closed | (e: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
 | disabled | Whether the tag is disabled | boolean | false | 6.0.0 |
+| href | The address to jump when clicking, when this property is specified, the `tag` component will be rendered as an `<a>` tag | string | - |  |
+| target | The target attribute of the a tag, which takes effect when href is specified | string | - |  |
 
 ### Tag.CheckableTag
 

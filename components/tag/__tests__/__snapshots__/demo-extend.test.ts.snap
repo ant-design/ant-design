@@ -869,6 +869,12 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
         Link Tag
       </a>
     </span>
+    <a
+      aria-disabled="true"
+      class="ant-tag ant-tag-disabled"
+    >
+      Href Tag
+    </a>
     <span
       class="ant-tag ant-tag-success ant-tag-disabled"
     >

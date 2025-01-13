@@ -47,6 +47,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
     borderColor: token.borderColorDisabled,
     a: {
       cursor: 'not-allowed',
+      pointerEvents: 'none',
       color: token.colorTextDisabled,
       '&:hover': {
         color: token.colorTextDisabled,
@@ -176,6 +177,12 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 
     [`&${componentCls}-disabled`]: {
       ...disabledStyle,
+
+      'a&': {
+        '&:hover, &:active': {
+          color: token.colorTextDisabled,
+        },
+      },
 
       [`&${componentCls}-borderless, &${componentCls}-has-color`]: {
         borderColor: 'transparent',

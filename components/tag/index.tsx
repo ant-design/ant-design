@@ -33,146 +33,152 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   style?: React.CSSProperties;
   icon?: React.ReactNode;
   bordered?: boolean;
+  href?: string;
+  target?: string;
   disabled?: boolean;
 }
 
-const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) => {
-  const {
-    prefixCls: customizePrefixCls,
-    className,
-    rootClassName,
-    style,
-    children,
-    icon,
-    color,
-    onClose,
-    bordered = true,
-    visible: deprecatedVisible,
-    disabled: customDisabled,
-    ...props
-  } = tagProps;
+const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagProps>(
+  (tagProps, ref) => {
+    const {
+      prefixCls: customizePrefixCls,
+      className,
+      rootClassName,
+      style,
+      children,
+      icon,
+      color,
+      onClose,
+      bordered = true,
+      visible: deprecatedVisible,
+      disabled: customDisabled,
+      href,
+      target,
+      ...props
+    } = tagProps;
 
-  // ===================== Disabled =====================
-  const disabled = React.useContext(DisabledContext);
-  const mergedDisabled = customDisabled ?? disabled;
+    // ===================== Disabled =====================
+    const disabled = React.useContext(DisabledContext);
+    const mergedDisabled = customDisabled ?? disabled;
 
-  const { getPrefixCls, direction, tag: tagContext } = React.useContext(ConfigContext);
-  const [visible, setVisible] = React.useState(true);
+    const { getPrefixCls, direction, tag: tagContext } = React.useContext(ConfigContext);
+    const [visible, setVisible] = React.useState(true);
 
-  const domProps = omit(props, ['closeIcon', 'closable']);
+    const domProps = omit(props, ['closeIcon', 'closable']);
 
-  const handleLinkClick = (e: React.MouseEvent<HTMLElement>) => {
-    if (mergedDisabled) {
-      e.preventDefault();
+    // Warning for deprecated usage
+    if (process.env.NODE_ENV !== 'production') {
+      const warning = devUseWarning('Tag');
+
+      warning.deprecated(!('visible' in tagProps), 'visible', 'visible && <Tag />');
+    }
+
+    React.useEffect(() => {
+      if (deprecatedVisible !== undefined) {
+        setVisible(deprecatedVisible!);
+      }
+    }, [deprecatedVisible]);
+
+    const isPreset = isPresetColor(color);
+    const isStatus = isPresetStatusColor(color);
+    const isInternalColor = isPreset || isStatus;
+
+    const tagStyle: React.CSSProperties = {
+      backgroundColor: color && !isInternalColor ? color : undefined,
+      ...tagContext?.style,
+      ...style,
+    };
+
+    const prefixCls = getPrefixCls('tag', customizePrefixCls);
+    const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+    // Style
+    const tagClassName = classNames(
+      prefixCls,
+      tagContext?.className,
+      {
+        [`${prefixCls}-${color}`]: isInternalColor,
+        [`${prefixCls}-has-color`]: color && !isInternalColor,
+        [`${prefixCls}-hidden`]: !visible,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+        [`${prefixCls}-borderless`]: !bordered,
+        [`${prefixCls}-disabled`]: mergedDisabled,
+      },
+      className,
+      rootClassName,
+      hashId,
+      cssVarCls,
+    );
+
+    const handleCloseClick = (e: React.MouseEvent<HTMLElement>) => {
+      if (mergedDisabled) {
+        return;
+      }
       e.stopPropagation();
-    }
-  };
+      onClose?.(e);
 
-  // Warning for deprecated usage
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Tag');
+      if (e.defaultPrevented) {
+        return;
+      }
+      setVisible(false);
+    };
 
-    warning.deprecated(!('visible' in tagProps), 'visible', 'visible && <Tag />');
-  }
+    const [, mergedCloseIcon] = useClosable(pickClosable(tagProps), pickClosable(tagContext), {
+      closable: false,
+      closeIconRender: (iconNode: React.ReactNode) => {
+        const replacement = (
+          <span className={`${prefixCls}-close-icon`} onClick={handleCloseClick}>
+            {iconNode}
+          </span>
+        );
+        return replaceElement(iconNode, replacement, (originProps) => ({
+          onClick: (e: React.MouseEvent<HTMLElement>) => {
+            originProps?.onClick?.(e);
+            handleCloseClick(e);
+          },
+          className: classNames(originProps?.className, `${prefixCls}-close-icon`),
+        }));
+      },
+    });
 
-  React.useEffect(() => {
-    if (deprecatedVisible !== undefined) {
-      setVisible(deprecatedVisible!);
-    }
-  }, [deprecatedVisible]);
+    const isNeedWave =
+      typeof props.onClick === 'function' ||
+      (children && (children as React.ReactElement<any>).type === 'a');
 
-  const isPreset = isPresetColor(color);
-  const isStatus = isPresetStatusColor(color);
-  const isInternalColor = isPreset || isStatus;
+    const iconNode: React.ReactNode = icon || null;
 
-  const tagStyle: React.CSSProperties = {
-    backgroundColor: color && !isInternalColor ? color : undefined,
-    ...tagContext?.style,
-    ...style,
-  };
+    const child: React.ReactNode = iconNode ? (
+      <>
+        {iconNode}
+        {children && <span>{children}</span>}
+      </>
+    ) : (
+      children
+    );
 
-  const prefixCls = getPrefixCls('tag', customizePrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
-  // Style
+    const TagWrapper = href ? 'a' : 'span';
 
-  const tagClassName = classNames(
-    prefixCls,
-    tagContext?.className,
-    {
-      [`${prefixCls}-${color}`]: isInternalColor,
-      [`${prefixCls}-has-color`]: color && !isInternalColor,
-      [`${prefixCls}-hidden`]: !visible,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-borderless`]: !bordered,
-      [`${prefixCls}-disabled`]: mergedDisabled,
-    },
-    className,
-    rootClassName,
-    hashId,
-    cssVarCls,
-  );
+    const tagNode: React.ReactNode = (
+      <TagWrapper
+        {...domProps}
+        // @ts-expect-error
+        ref={ref}
+        className={tagClassName}
+        style={tagStyle}
+        href={mergedDisabled ? undefined : href}
+        target={target}
+        onClick={mergedDisabled ? undefined : domProps.onClick}
+        {...(href && mergedDisabled ? { 'aria-disabled': true } : {})}
+      >
+        {child}
+        {mergedCloseIcon}
+        {isPreset && <PresetCmp key="preset" prefixCls={prefixCls} />}
+        {isStatus && <StatusCmp key="status" prefixCls={prefixCls} />}
+      </TagWrapper>
+    );
 
-  const handleCloseClick = (e: React.MouseEvent<HTMLElement>) => {
-    e.stopPropagation();
-    onClose?.(e);
-
-    if (e.defaultPrevented) {
-      return;
-    }
-    setVisible(false);
-  };
-
-  const [, mergedCloseIcon] = useClosable(pickClosable(tagProps), pickClosable(tagContext), {
-    closable: false,
-    closeIconRender: (iconNode: React.ReactNode) => {
-      const replacement = (
-        <span className={`${prefixCls}-close-icon`} onClick={handleCloseClick}>
-          {iconNode}
-        </span>
-      );
-      return replaceElement(iconNode, replacement, (originProps) => ({
-        onClick: (e: React.MouseEvent<HTMLElement>) => {
-          originProps?.onClick?.(e);
-          handleCloseClick(e);
-        },
-        className: classNames(originProps?.className, `${prefixCls}-close-icon`),
-      }));
-    },
-  });
-
-  const isNeedWave =
-    typeof props.onClick === 'function' ||
-    (children && (children as React.ReactElement<any>).type === 'a');
-
-  const iconNode: React.ReactNode = icon || null;
-
-  const child: React.ReactNode = iconNode ? (
-    <>
-      {iconNode}
-      {children && <span>{children}</span>}
-    </>
-  ) : (
-    children
-  );
-
-  const tagNode: React.ReactNode = (
-    <span
-      {...domProps}
-      onClickCapture={mergedDisabled ? handleLinkClick : domProps.onClickCapture}
-      onClick={mergedDisabled ? undefined : domProps.onClick}
-      ref={ref}
-      className={tagClassName}
-      style={tagStyle}
-    >
-      {child}
-      {mergedCloseIcon}
-      {isPreset && <PresetCmp key="preset" prefixCls={prefixCls} />}
-      {isStatus && <StatusCmp key="status" prefixCls={prefixCls} />}
-    </span>
-  );
-
-  return wrapCSSVar(isNeedWave ? <Wave component="Tag">{tagNode}</Wave> : tagNode);
-});
+    return wrapCSSVar(isNeedWave ? <Wave component="Tag">{tagNode}</Wave> : tagNode);
+  },
+);
 
 export type TagType = typeof InternalTag & {
   CheckableTag: typeof CheckableTag;

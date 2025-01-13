@@ -182,7 +182,7 @@ describe('Tag', () => {
       expect(onClose).not.toHaveBeenCalled();
     });
 
-    it('should prevent link click when disabled', () => {
+    it("should prevent children's event when disabled", () => {
       const onClick = jest.fn();
       const { container } = render(
         <Tag disabled>
@@ -192,8 +192,7 @@ describe('Tag', () => {
         </Tag>,
       );
       const link = container.querySelector('a')!;
-      fireEvent.click(link);
-      expect(onClick).not.toHaveBeenCalled();
+      expect(window.getComputedStyle(link).pointerEvents).toBe('none');
     });
 
     it('should render correctly when disabled', () => {

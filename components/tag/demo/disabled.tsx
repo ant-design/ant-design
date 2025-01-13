@@ -27,6 +27,9 @@ const App: React.FC = () => {
         <Tag disabled>
           <a href="https://ant.design">Link Tag</a>
         </Tag>
+        <Tag disabled href="https://ant.design">
+          Href Tag
+        </Tag>
         <Tag disabled color="success" icon={<CheckCircleOutlined />}>
           Icon Tag
         </Tag>
