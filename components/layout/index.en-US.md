@@ -69,7 +69,6 @@ Style of a navigation should conform to its level.
 <code src="./demo/fixed-sider.tsx" iframe="360">Fixed Sider</code>
 <code src="./demo/custom-trigger-debug.tsx" compact background="grey" debug>Custom trigger debug</code>
 <code src="./demo/component-token.tsx" compact background="grey" debug>Component Token</code>
-<code src="./demo/rtl.tsx" iframe="360" debug>rtl layout</code>
 
 ## API
 

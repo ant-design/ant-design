@@ -69,7 +69,6 @@ const items: CollapseProps['items'] = [
 <code src="./demo/ghost.tsx">Ghost Collapse</code>
 <code src="./demo/collapsible.tsx">Collapsible</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
-<code src="./demo/rtl.tsx" debug>rtl</code>
 
 ## API
 
