@@ -3,8 +3,8 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import toArray from '@rc-component/util/lib/Children/toArray';
 import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import type { CollapseProps as RcCollapseProps } from 'rc-collapse';
-import RcCollapse from 'rc-collapse';
+import type { CollapseProps as RcCollapseProps } from '@rc-component/collapse';
+import RcCollapse from '@rc-component/collapse';
 import type { CSSMotionProps } from 'rc-motion';
 
 import initCollapseMotion from '../_util/motion';
@@ -17,7 +17,7 @@ import CollapsePanel from './CollapsePanel';
 import useStyle from './style';
 
 export type ExpandIconPosition = 'start' | 'end' | undefined;
-
+export type SemanticName = 'root' | 'header' | 'title' | 'body' | 'icon';
 export interface CollapseProps extends Pick<RcCollapseProps, 'items'> {
   activeKey?: Array<string | number> | string | number;
   defaultActiveKey?: Array<string | number> | string | number;
@@ -39,6 +39,8 @@ export interface CollapseProps extends Pick<RcCollapseProps, 'items'> {
    * @deprecated use `items` instead
    */
   children?: React.ReactNode;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 interface PanelProps {
@@ -50,8 +52,14 @@ interface PanelProps {
   forceRender?: boolean;
   extra?: React.ReactNode;
   collapsible?: CollapsibleType;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
+interface ItemType {
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+}
 const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
   const { getPrefixCls, direction, collapse } = React.useContext(ConfigContext);
 
@@ -66,6 +74,8 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     expandIconPosition = 'start',
     children,
     expandIcon,
+    classNames: collapseClassNames,
+    styles,
   } = props;
 
   const mergedSize = useSize((ctx) => customizeSize ?? ctx ?? 'middle');
@@ -93,8 +103,14 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
               className?: string;
             }>
           )?.props?.className,
+          collapse?.classNames?.icon,
+          collapseClassNames?.icon,
           `${prefixCls}-arrow`,
         ),
+        style: {
+          ...collapse?.styles?.icon,
+          ...styles?.icon,
+        },
       }));
     },
     [mergedExpandIcon, prefixCls],
@@ -113,16 +129,30 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     rootClassName,
     hashId,
     cssVarCls,
+    collapse?.classNames?.root,
+    collapseClassNames?.root,
   );
   const openMotion: CSSMotionProps = {
     ...initCollapseMotion(rootPrefixCls),
     motionAppear: false,
-    leavedClassName: `${prefixCls}-content-hidden`,
+    leavedClassName: `${prefixCls}-panel-hidden`,
   };
-
-  const items = React.useMemo<React.ReactNode[] | null>(() => {
+  const items = React.useMemo<React.ReactElement<ItemType>[] | null>(() => {
     if (children) {
-      return toArray(children).map((child) => child);
+      return toArray(children).map((child) =>
+        React.cloneElement(child as React.ReactElement<ItemType>, {
+          classNames: {
+            header: classNames(collapse?.classNames?.header, collapseClassNames?.header),
+            title: classNames(collapse?.classNames?.title, collapseClassNames?.title),
+            body: classNames(collapse?.classNames?.body, collapseClassNames?.body),
+          },
+          styles: {
+            header: { ...collapse?.styles?.header, ...styles?.header },
+            title: { ...collapse?.styles?.title, ...styles?.title },
+            body: { ...collapse?.styles?.body, ...styles?.body },
+          },
+        }),
+      );
     }
     return null;
   }, [children]);
@@ -136,7 +166,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       expandIcon={renderExpandIcon}
       prefixCls={prefixCls}
       className={collapseClassName}
-      style={{ ...collapse?.style, ...style }}
+      style={{ ...collapse?.styles?.root, ...collapse?.style, ...styles?.root, ...style }}
     >
       {items}
     </RcCollapse>,

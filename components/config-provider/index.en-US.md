@@ -119,7 +119,7 @@ const {
 | carousel | Set Carousel common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | cascader | Set Cascader common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | checkbox | Set Checkbox common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| collapse | Set Collapse common props | { className?: string, style?: React.CSSProperties, expandIcon?: (props) => ReactNode } | - | 5.7.0, expandIcon: 5.15.0 |
+| collapse | Set Collapse common props | { className?: string, style?: React.CSSProperties, expandIcon?: (props) => ReactNode, classNames?: [CollapseProps\["classNames"\]](/components/collapse#api), styles?: [CollapseProps\["styles"\]](/components/collapse#api) } | - | 5.7.0, expandIcon: 5.15.0, `classNames` and `styles`: 6.0.0 |
 | colorPicker | Set ColorPicker common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | datePicker | Set datePicker common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | rangePicker | Set rangePicker common props | { className?: string, style?: React.CSSProperties } | - | 5.11.0 |
