@@ -83,14 +83,14 @@ describe('Ribbon', () => {
   it('should apply custom styles to Badge.Ribbon', () => {
     const customClassNames = {
       root: 'custom-root',
-      body: 'custom-body',
+      indicator: 'custom-indicator',
       content: 'custom-content',
       corner: 'custom-corner',
     };
 
     const customStyles = {
       root: { color: 'red' },
-      body: { color: 'green' },
+      indicator: { color: 'green' },
       content: { color: 'yellow' },
       corner: { backgroundColor: 'black' },
     };
@@ -102,17 +102,17 @@ describe('Ribbon', () => {
     );
 
     const rootElement = container.querySelector('.ant-ribbon-wrapper') as HTMLElement;
-    const bodyElement = container.querySelector('.ant-ribbon') as HTMLElement;
+    const indicatorElement = container.querySelector('.ant-ribbon') as HTMLElement;
     const contentElement = container.querySelector('.ant-ribbon-content') as HTMLElement;
 
     // check classNames
     expect(rootElement.classList).toContain('custom-root');
-    expect(bodyElement.classList).toContain('custom-body');
+    expect(indicatorElement.classList).toContain('custom-indicator');
     expect(contentElement.classList).toContain('custom-content');
 
     // check styles
     expect(rootElement.style.color).toBe('red');
-    expect(bodyElement.style.color).toBe('green');
+    expect(indicatorElement.style.color).toBe('green');
     expect(contentElement.style.color).toBe('yellow');
   });
 });

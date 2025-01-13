@@ -9,7 +9,7 @@ import useStyle from './style/ribbon';
 
 type RibbonPlacement = 'start' | 'end';
 
-type SemanticName = 'root' | 'content' | 'body';
+type SemanticName = 'root' | 'content' | 'indicator';
 
 export interface RibbonProps {
   className?: string;
@@ -53,8 +53,8 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
     },
     className,
     ribbon?.className,
-    ribbon?.classNames?.body,
-    ribbonClassNames?.body,
+    ribbon?.classNames?.indicator,
+    ribbonClassNames?.indicator,
   );
 
   const colorStyle: React.CSSProperties = {};
@@ -80,9 +80,9 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
         className={classNames(ribbonCls, hashId)}
         style={{
           ...colorStyle,
-          ...ribbon?.styles?.body,
+          ...ribbon?.styles?.indicator,
           ...ribbon?.style,
-          ...styles?.body,
+          ...styles?.indicator,
           ...style,
         }}
       >

@@ -7,12 +7,12 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 const locales = {
   cn: {
     root: '根节点',
-    body: '主体节点',
+    indicator: '指示器节点',
     content: '文本节点',
   },
   en: {
     root: 'Root element',
-    body: 'Body element',
+    indicator: 'Indicator element',
     content: 'Text element',
   },
 };
@@ -35,7 +35,7 @@ const App: React.FC = () => {
     <SemanticPreview
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'body', desc: locale.body, version: '6.0.0' },
+        { name: 'indicator', desc: locale.indicator, version: '6.0.0' },
         { name: 'content', desc: locale.content, version: '6.0.0' },
       ]}
     >
