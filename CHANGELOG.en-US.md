@@ -15,6 +15,23 @@ tag: vVERSION
 
 ---
 
+## 5.23.1
+
+`2025-01-13`
+
+- 🆕 Add Tree leaf node className for differentiate node type. [#52274](https://github.com/ant-design/ant-design/pull/52274) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 Fix DatePicker switch buttons is not hidden when `superPrevIcon/superNextIcon/prevIcon/nextIcon` is null. [#52327](https://github.com/ant-design/ant-design/pull/52327) [@afc163](https://github.com/afc163)
+- 🐞 Fix Select throws `error not a valid selector` in Jest tests. [#51844](https://github.com/ant-design/ant-design/pull/51844) [@renovate](https://github.com/renovate)
+- 🐞 Fix Layout.Sider under ConfigProvider directly, the `theme` not working. [#52302](https://github.com/ant-design/ant-design/pull/52302) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Splitter lost previous state when re-expanding. [#52222](https://github.com/ant-design/ant-design/pull/52222) [@jjlstruggle](https://github.com/jjlstruggle)
+- 🐞 Fix Table unexpected row selections when set `checkStrictly` to false in tree mode. [#52338](https://github.com/ant-design/ant-design/pull/52338) [@LeeSSHH](https://github.com/LeeSSHH)
+- Button
+  - 🐞 Fix Button alignment and icon centering by adjusting the icon size for icon-only Buttons. [#52353](https://github.com/ant-design/ant-design/pull/52353) [@afc163](https://github.com/afc163)
+  - 💄 Fix Button missing `box-shadow` style. [#52304](https://github.com/ant-design/ant-design/pull/52304) [@zombieJ](https://github.com/zombieJ)
+- RTL
+  - 💄 Fix Collapse arrow direction in RTL mode. [#52374](https://github.com/ant-design/ant-design/pull/52374) [@aojunhao123](https://github.com/aojunhao123)
+  - 💄 Fix Layout.Sider arrow direction in RTL mode. [#52374](https://github.com/ant-design/ant-design/pull/52374) [@aojunhao123](https://github.com/aojunhao123)
+
 ## 5.23.0
 
 `2025-01-06`
