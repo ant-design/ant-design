@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 5.23.0
 
-`2024-01-06`
+`2025-01-06`
 
 - 🔥 TreeSelect support `maxCount` to limit the maximum number of selections. [#51759](https://github.com/ant-design/ant-design/pull/51759) [@aojunhao123](https://github.com/aojunhao123)
 - 🔥 Modal `width` support responsive size. [#51653](https://github.com/ant-design/ant-design/pull/51653) [@zombieJ](https://github.com/zombieJ)
@@ -46,7 +46,7 @@ tag: vVERSION
   - 🛠 Refactor Tree part code to Function Component for React 19 perf preparing. [#52209](https://github.com/ant-design/ant-design/pull/52209) [@li-jia-nan](https://github.com/li-jia-nan)
   - 💄 Optimize Tree `disabled` & `selected` node display style. [#52173](https://github.com/ant-design/ant-design/pull/52173) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🐞 Fix Slider crash when `tipFormatter` is undefined. [#52184](https://github.com/ant-design/ant-design/pull/52184) [@thinkasany](https://github.com/thinkasany)
-- 🐞 Fix Layout.Sider `trigger` style not correct. [46a8eff](https://github.com/ant-design/ant-design/commit/46a8eff) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix Layout.Sider `trigger` style not correct. [#46a8eff](https://github.com/ant-design/ant-design/commit/46a8eff) [@Wxh16144](https://github.com/Wxh16144)
 - Table
   - 🐞 Fix Table `fixed：right` is not working in `expandable`. [#52176](https://github.com/ant-design/ant-design/pull/52176) [@afc163](https://github.com/afc163)
   - 🐞 Fix Table sticky scrollbar not working in rtl direction. [#52176](https://github.com/ant-design/ant-design/pull/52176) [@afc163](https://github.com/afc163)
@@ -2085,7 +2085,7 @@ tag: vVERSION
 - 💄 Adjust Select, TreeSelect, Cascader always show the `arrow` by default when multiple. [#41028](https://github.com/ant-design/ant-design/pull/41028)
 - 🐞 Fix Form `Form.Item.useStatus` problem with sever-side-rendering. [#40977](https://github.com/ant-design/ant-design/pull/40977) [@AndyBoat](https://github.com/AndyBoat)
 - 🐞 MISC: Fix arrow shape in some components. [#40971](https://github.com/ant-design/ant-design/pull/40971)
-- 🐞 Fix Layout throw `React does not recognize the `suffixCls` prop on a DOM element` warning. [#40969](https://github.com/ant-design/ant-design/pull/40969)
+- 🐞 Fix Layout throw "React does not recognize the `suffixCls` prop on a DOM element" warning. [#40969](https://github.com/ant-design/ant-design/pull/40969)
 - 🐞 Fix Watermark that text will be displayed when the picture loads abnormally. [#40770](https://github.com/ant-design/ant-design/pull/40770) [@OriginRing](https://github.com/OriginRing)
 - 🐞 Image support flip function in preview mode. Fix Image `fallback` when used in ssr. [#40660](https://github.com/ant-design/ant-design/pull/40660)
 - 🐞 Fix Typography component is not centered in the Select component. [#40422](https://github.com/ant-design/ant-design/pull/40422) [@Yuiai01](https://github.com/Yuiai01)
