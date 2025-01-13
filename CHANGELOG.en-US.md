@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 5.23.0
 
-`2024-01-06`
+`2025-01-06`
 
 - 🔥 TreeSelect support `maxCount` to limit the maximum number of selections. [#51759](https://github.com/ant-design/ant-design/pull/51759) [@aojunhao123](https://github.com/aojunhao123)
 - 🔥 Modal `width` support responsive size. [#51653](https://github.com/ant-design/ant-design/pull/51653) [@zombieJ](https://github.com/zombieJ)
