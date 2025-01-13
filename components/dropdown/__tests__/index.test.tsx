@@ -3,7 +3,6 @@ import type { TriggerProps } from '@rc-component/trigger';
 
 import type { DropDownProps } from '..';
 import Dropdown from '..';
-import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -44,18 +43,9 @@ describe('Dropdown', () => {
     </Dropdown>
   ));
 
-  it('overlay is function and has custom transitionName', () => {
+  it('support custom transitionName', () => {
     const { asFragment } = render(
-      <Dropdown overlay={() => <div>menu</div>} transitionName="move-up" open>
-        <button type="button">button</button>
-      </Dropdown>,
-    );
-    expect(Array.from(asFragment().childNodes)).toMatchSnapshot();
-  });
-
-  it('overlay is string', () => {
-    const { asFragment } = render(
-      <Dropdown overlay={'string' as any} open>
+      <Dropdown menu={{ items }} transitionName="move-up" open>
         <button type="button">button</button>
       </Dropdown>,
     );
@@ -203,55 +193,6 @@ describe('Dropdown', () => {
     expect(container.querySelector('.ant-dropdown-hidden')).toBeTruthy();
 
     jest.useRealTimers();
-  });
-
-  it('legacy visible', () => {
-    resetWarned();
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const onOpenChange = jest.fn();
-    const onVisibleChange = jest.fn();
-
-    const { container, rerender } = render(
-      <Dropdown
-        visible
-        onOpenChange={onOpenChange}
-        onVisibleChange={onVisibleChange}
-        trigger={['click']}
-        menu={{
-          items: [
-            {
-              label: <div className="bamboo" />,
-              key: 'bamboo',
-            },
-          ],
-        }}
-      >
-        <a className="little" />
-      </Dropdown>,
-    );
-
-    expect(document.querySelector('.bamboo')).toBeTruthy();
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Dropdown] `visible` is deprecated. Please use `open` instead.',
-    );
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Dropdown] `onVisibleChange` is deprecated. Please use `onOpenChange` instead.',
-    );
-
-    fireEvent.click(container.querySelector('.little')!);
-    expect(onOpenChange).toHaveBeenCalled();
-    expect(onVisibleChange).toHaveBeenCalled();
-
-    rerender(
-      <Dropdown overlay={<div>menu</div>}>
-        <a className="little" />
-      </Dropdown>,
-    );
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Dropdown] `overlay` is deprecated. Please use `menu` instead.',
-    );
-
-    errorSpy.mockRestore();
   });
 
   it('not block ref', () => {
