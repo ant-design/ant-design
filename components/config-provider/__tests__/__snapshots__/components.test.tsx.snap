@@ -12475,6 +12475,7 @@ exports[`ConfigProvider components Collapse prefixCls 1`] = `
 
 exports[`ConfigProvider components ColorPicker configProvider 1`] = `
 <div
+  aria-describedby="test-id"
   class="config-color-picker-trigger"
 >
   <div
@@ -12485,6 +12486,7 @@ exports[`ConfigProvider components ColorPicker configProvider 1`] = `
 
 exports[`ConfigProvider components ColorPicker configProvider componentDisabled 1`] = `
 <div
+  aria-describedby="test-id"
   class="config-color-picker-trigger config-color-picker-trigger-disabled"
 >
   <div
@@ -12495,6 +12497,7 @@ exports[`ConfigProvider components ColorPicker configProvider componentDisabled 
 
 exports[`ConfigProvider components ColorPicker configProvider componentSize large 1`] = `
 <div
+  aria-describedby="test-id"
   class="config-color-picker-trigger config-color-picker-lg"
 >
   <div
@@ -12505,6 +12508,7 @@ exports[`ConfigProvider components ColorPicker configProvider componentSize larg
 
 exports[`ConfigProvider components ColorPicker configProvider componentSize middle 1`] = `
 <div
+  aria-describedby="test-id"
   class="config-color-picker-trigger"
 >
   <div
@@ -12515,6 +12519,7 @@ exports[`ConfigProvider components ColorPicker configProvider componentSize midd
 
 exports[`ConfigProvider components ColorPicker configProvider componentSize small 1`] = `
 <div
+  aria-describedby="test-id"
   class="config-color-picker-trigger config-color-picker-sm"
 >
   <div
@@ -12525,6 +12530,7 @@ exports[`ConfigProvider components ColorPicker configProvider componentSize smal
 
 exports[`ConfigProvider components ColorPicker normal 1`] = `
 <div
+  aria-describedby="test-id"
   class="ant-color-picker-trigger"
 >
   <div
@@ -12535,6 +12541,7 @@ exports[`ConfigProvider components ColorPicker normal 1`] = `
 
 exports[`ConfigProvider components ColorPicker prefixCls 1`] = `
 <div
+  aria-describedby="test-id"
   class="prefix-ColorPicker-trigger"
 >
   <div
@@ -17734,6 +17741,7 @@ Array [
             role="group"
           >
             <li
+              aria-describedby="test-id"
               class="config-menu-item config-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-1"
               role="menuitem"
@@ -17811,6 +17819,7 @@ Array [
             role="group"
           >
             <li
+              aria-describedby="test-id"
               class="config-menu-item config-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-1"
               role="menuitem"
@@ -17888,6 +17897,7 @@ Array [
             role="group"
           >
             <li
+              aria-describedby="test-id"
               class="config-menu-item config-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-1"
               role="menuitem"
@@ -17965,6 +17975,7 @@ Array [
             role="group"
           >
             <li
+              aria-describedby="test-id"
               class="config-menu-item config-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-1"
               role="menuitem"
@@ -18042,6 +18053,7 @@ Array [
             role="group"
           >
             <li
+              aria-describedby="test-id"
               class="config-menu-item config-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-1"
               role="menuitem"
@@ -18119,6 +18131,7 @@ Array [
             role="group"
           >
             <li
+              aria-describedby="test-id"
               class="ant-menu-item ant-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-1"
               role="menuitem"
@@ -18197,6 +18210,7 @@ Array [
             role="group"
           >
             <li
+              aria-describedby="test-id"
               class="prefix-Menu-item prefix-Menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-1"
               prefixcls="prefix-Menu"
@@ -20950,6 +20964,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
 exports[`ConfigProvider components Popconfirm configProvider 1`] = `
 <div>
   <span
+    aria-describedby="test-id"
     class="config-popover-open"
   >
     Bamboo
@@ -20967,6 +20982,7 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
     >
       <div
         class="config-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -21036,6 +21052,7 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
 exports[`ConfigProvider components Popconfirm configProvider componentDisabled 1`] = `
 <div>
   <span
+    aria-describedby="test-id"
     class="config-popover-open"
   >
     Bamboo
@@ -21053,6 +21070,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentDisabled 1
     >
       <div
         class="config-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -21124,6 +21142,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentDisabled 1
 exports[`ConfigProvider components Popconfirm configProvider componentSize large 1`] = `
 <div>
   <span
+    aria-describedby="test-id"
     class="config-popover-open"
   >
     Bamboo
@@ -21141,6 +21160,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
     >
       <div
         class="config-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -21210,6 +21230,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
 exports[`ConfigProvider components Popconfirm configProvider componentSize middle 1`] = `
 <div>
   <span
+    aria-describedby="test-id"
     class="config-popover-open"
   >
     Bamboo
@@ -21227,6 +21248,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize middl
     >
       <div
         class="config-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -21296,6 +21318,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize middl
 exports[`ConfigProvider components Popconfirm configProvider componentSize small 1`] = `
 <div>
   <span
+    aria-describedby="test-id"
     class="config-popover-open"
   >
     Bamboo
@@ -21313,6 +21336,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize small
     >
       <div
         class="config-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -21382,6 +21406,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize small
 exports[`ConfigProvider components Popconfirm normal 1`] = `
 <div>
   <span
+    aria-describedby="test-id"
     class="ant-popover-open"
   >
     Bamboo
@@ -21399,6 +21424,7 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -21468,6 +21494,7 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
 exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
 <div>
   <span
+    aria-describedby="test-id"
     class="ant-popover-open"
   >
     Bamboo
@@ -21485,6 +21512,7 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -21554,6 +21582,7 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
 exports[`ConfigProvider components Popover configProvider 1`] = `
 <div>
   <span
+    aria-describedby="test-id"
     class="config-popover-open"
   >
     Light
@@ -21571,6 +21600,7 @@ exports[`ConfigProvider components Popover configProvider 1`] = `
     >
       <div
         class="config-popover-inner"
+        id="test-id"
         role="tooltip"
       />
     </div>
@@ -21581,6 +21611,7 @@ exports[`ConfigProvider components Popover configProvider 1`] = `
 exports[`ConfigProvider components Popover configProvider componentDisabled 1`] = `
 <div>
   <span
+    aria-describedby="test-id"
     class="config-popover-open"
   >
     Light
@@ -21598,6 +21629,7 @@ exports[`ConfigProvider components Popover configProvider componentDisabled 1`] 
     >
       <div
         class="config-popover-inner"
+        id="test-id"
         role="tooltip"
       />
     </div>
@@ -21608,6 +21640,7 @@ exports[`ConfigProvider components Popover configProvider componentDisabled 1`] 
 exports[`ConfigProvider components Popover configProvider componentSize large 1`] = `
 <div>
   <span
+    aria-describedby="test-id"
     class="config-popover-open"
   >
     Light
@@ -21625,6 +21658,7 @@ exports[`ConfigProvider components Popover configProvider componentSize large 1`
     >
       <div
         class="config-popover-inner"
+        id="test-id"
         role="tooltip"
       />
     </div>
@@ -21635,6 +21669,7 @@ exports[`ConfigProvider components Popover configProvider componentSize large 1`
 exports[`ConfigProvider components Popover configProvider componentSize middle 1`] = `
 <div>
   <span
+    aria-describedby="test-id"
     class="config-popover-open"
   >
     Light
@@ -21652,6 +21687,7 @@ exports[`ConfigProvider components Popover configProvider componentSize middle 1
     >
       <div
         class="config-popover-inner"
+        id="test-id"
         role="tooltip"
       />
     </div>
@@ -21662,6 +21698,7 @@ exports[`ConfigProvider components Popover configProvider componentSize middle 1
 exports[`ConfigProvider components Popover configProvider componentSize small 1`] = `
 <div>
   <span
+    aria-describedby="test-id"
     class="config-popover-open"
   >
     Light
@@ -21679,6 +21716,7 @@ exports[`ConfigProvider components Popover configProvider componentSize small 1`
     >
       <div
         class="config-popover-inner"
+        id="test-id"
         role="tooltip"
       />
     </div>
@@ -21689,6 +21727,7 @@ exports[`ConfigProvider components Popover configProvider componentSize small 1`
 exports[`ConfigProvider components Popover normal 1`] = `
 <div>
   <span
+    aria-describedby="test-id"
     class="ant-popover-open"
   >
     Light
@@ -21706,6 +21745,7 @@ exports[`ConfigProvider components Popover normal 1`] = `
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       />
     </div>
@@ -21716,6 +21756,7 @@ exports[`ConfigProvider components Popover normal 1`] = `
 exports[`ConfigProvider components Popover prefixCls 1`] = `
 <div>
   <span
+    aria-describedby="test-id"
     class="prefix-Popover-open"
   >
     Light
@@ -21733,6 +21774,7 @@ exports[`ConfigProvider components Popover prefixCls 1`] = `
     >
       <div
         class="prefix-Popover-inner"
+        id="test-id"
         role="tooltip"
       />
     </div>
@@ -25478,6 +25520,7 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
     class="config-slider-step"
   />
   <div
+    aria-describedby="test-id"
     aria-disabled="false"
     aria-orientation="horizontal"
     aria-valuemax="100"
@@ -25501,6 +25544,7 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
     >
       <div
         class="config-tooltip-inner"
+        id="test-id"
         role="tooltip"
       >
         0
@@ -25525,6 +25569,7 @@ exports[`ConfigProvider components Slider configProvider componentDisabled 1`] =
     class="config-slider-step"
   />
   <div
+    aria-describedby="test-id"
     aria-disabled="true"
     aria-orientation="horizontal"
     aria-valuemax="100"
@@ -25547,6 +25592,7 @@ exports[`ConfigProvider components Slider configProvider componentDisabled 1`] =
     >
       <div
         class="config-tooltip-inner"
+        id="test-id"
         role="tooltip"
       >
         0
@@ -25571,6 +25617,7 @@ exports[`ConfigProvider components Slider configProvider componentSize large 1`]
     class="config-slider-step"
   />
   <div
+    aria-describedby="test-id"
     aria-disabled="false"
     aria-orientation="horizontal"
     aria-valuemax="100"
@@ -25594,6 +25641,7 @@ exports[`ConfigProvider components Slider configProvider componentSize large 1`]
     >
       <div
         class="config-tooltip-inner"
+        id="test-id"
         role="tooltip"
       >
         0
@@ -25618,6 +25666,7 @@ exports[`ConfigProvider components Slider configProvider componentSize middle 1`
     class="config-slider-step"
   />
   <div
+    aria-describedby="test-id"
     aria-disabled="false"
     aria-orientation="horizontal"
     aria-valuemax="100"
@@ -25641,6 +25690,7 @@ exports[`ConfigProvider components Slider configProvider componentSize middle 1`
     >
       <div
         class="config-tooltip-inner"
+        id="test-id"
         role="tooltip"
       >
         0
@@ -25665,6 +25715,7 @@ exports[`ConfigProvider components Slider configProvider componentSize small 1`]
     class="config-slider-step"
   />
   <div
+    aria-describedby="test-id"
     aria-disabled="false"
     aria-orientation="horizontal"
     aria-valuemax="100"
@@ -25688,6 +25739,7 @@ exports[`ConfigProvider components Slider configProvider componentSize small 1`]
     >
       <div
         class="config-tooltip-inner"
+        id="test-id"
         role="tooltip"
       >
         0
@@ -25712,6 +25764,7 @@ exports[`ConfigProvider components Slider normal 1`] = `
     class="ant-slider-step"
   />
   <div
+    aria-describedby="test-id"
     aria-disabled="false"
     aria-orientation="horizontal"
     aria-valuemax="100"
@@ -25735,6 +25788,7 @@ exports[`ConfigProvider components Slider normal 1`] = `
     >
       <div
         class="ant-tooltip-inner"
+        id="test-id"
         role="tooltip"
       >
         0
@@ -25759,6 +25813,7 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
     class="prefix-Slider-step"
   />
   <div
+    aria-describedby="test-id"
     aria-disabled="false"
     aria-orientation="horizontal"
     aria-valuemax="100"
@@ -25782,6 +25837,7 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
     >
       <div
         class="prefix-Slider-tooltip-inner"
+        id="test-id"
         role="tooltip"
       >
         0
@@ -26623,6 +26679,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                         class="config-table-column-title"
                       >
                         <div
+                          aria-describedby="test-id"
                           class="config-table-column-sorters"
                         >
                           <span
@@ -26718,6 +26775,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                             tabindex="0"
                           >
                             <li
+                              aria-describedby="test-id"
                               class="config-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-test-Joe"
                               role="menuitem"
@@ -26930,6 +26988,7 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                         class="config-table-column-title"
                       >
                         <div
+                          aria-describedby="test-id"
                           class="config-table-column-sorters"
                         >
                           <span
@@ -27025,6 +27084,7 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                             tabindex="0"
                           >
                             <li
+                              aria-describedby="test-id"
                               class="config-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-test-Joe"
                               role="menuitem"
@@ -27239,6 +27299,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                         class="config-table-column-title"
                       >
                         <div
+                          aria-describedby="test-id"
                           class="config-table-column-sorters"
                         >
                           <span
@@ -27334,6 +27395,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                             tabindex="0"
                           >
                             <li
+                              aria-describedby="test-id"
                               class="config-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-test-Joe"
                               role="menuitem"
@@ -27546,6 +27608,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                         class="config-table-column-title"
                       >
                         <div
+                          aria-describedby="test-id"
                           class="config-table-column-sorters"
                         >
                           <span
@@ -27641,6 +27704,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                             tabindex="0"
                           >
                             <li
+                              aria-describedby="test-id"
                               class="config-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-test-Joe"
                               role="menuitem"
@@ -27853,6 +27917,7 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                         class="config-table-column-title"
                       >
                         <div
+                          aria-describedby="test-id"
                           class="config-table-column-sorters"
                         >
                           <span
@@ -27948,6 +28013,7 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                             tabindex="0"
                           >
                             <li
+                              aria-describedby="test-id"
                               class="config-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-test-Joe"
                               role="menuitem"
@@ -28160,6 +28226,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                         class="ant-table-column-title"
                       >
                         <div
+                          aria-describedby="test-id"
                           class="ant-table-column-sorters"
                         >
                           <span
@@ -28255,6 +28322,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                             tabindex="0"
                           >
                             <li
+                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-test-Joe"
                               role="menuitem"
@@ -28467,6 +28535,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                         class="prefix-Table-column-title"
                       >
                         <div
+                          aria-describedby="test-id"
                           class="prefix-Table-column-sorters"
                         >
                           <span
@@ -28562,6 +28631,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                             tabindex="0"
                           >
                             <li
+                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-test-Joe"
                               role="menuitem"
@@ -39046,6 +39116,7 @@ exports[`ConfigProvider components Timeline prefixCls 1`] = `
 exports[`ConfigProvider components Tooltip configProvider 1`] = `
 Array [
   <span
+    aria-describedby="test-id"
     class="config-tooltip-open"
   >
     Light
@@ -39063,6 +39134,7 @@ Array [
     >
       <div
         class="config-tooltip-inner"
+        id="test-id"
         role="tooltip"
       >
         Bamboo
@@ -39075,6 +39147,7 @@ Array [
 exports[`ConfigProvider components Tooltip configProvider componentDisabled 1`] = `
 Array [
   <span
+    aria-describedby="test-id"
     class="config-tooltip-open"
   >
     Light
@@ -39092,6 +39165,7 @@ Array [
     >
       <div
         class="config-tooltip-inner"
+        id="test-id"
         role="tooltip"
       >
         Bamboo
@@ -39104,6 +39178,7 @@ Array [
 exports[`ConfigProvider components Tooltip configProvider componentSize large 1`] = `
 Array [
   <span
+    aria-describedby="test-id"
     class="config-tooltip-open"
   >
     Light
@@ -39121,6 +39196,7 @@ Array [
     >
       <div
         class="config-tooltip-inner"
+        id="test-id"
         role="tooltip"
       >
         Bamboo
@@ -39133,6 +39209,7 @@ Array [
 exports[`ConfigProvider components Tooltip configProvider componentSize middle 1`] = `
 Array [
   <span
+    aria-describedby="test-id"
     class="config-tooltip-open"
   >
     Light
@@ -39150,6 +39227,7 @@ Array [
     >
       <div
         class="config-tooltip-inner"
+        id="test-id"
         role="tooltip"
       >
         Bamboo
@@ -39162,6 +39240,7 @@ Array [
 exports[`ConfigProvider components Tooltip configProvider componentSize small 1`] = `
 Array [
   <span
+    aria-describedby="test-id"
     class="config-tooltip-open"
   >
     Light
@@ -39179,6 +39258,7 @@ Array [
     >
       <div
         class="config-tooltip-inner"
+        id="test-id"
         role="tooltip"
       >
         Bamboo
@@ -39191,6 +39271,7 @@ Array [
 exports[`ConfigProvider components Tooltip normal 1`] = `
 Array [
   <span
+    aria-describedby="test-id"
     class="ant-tooltip-open"
   >
     Light
@@ -39208,6 +39289,7 @@ Array [
     >
       <div
         class="ant-tooltip-inner"
+        id="test-id"
         role="tooltip"
       >
         Bamboo
@@ -39220,6 +39302,7 @@ Array [
 exports[`ConfigProvider components Tooltip prefixCls 1`] = `
 Array [
   <span
+    aria-describedby="test-id"
     class="prefix-Tooltip-open"
   >
     Light
@@ -39237,6 +39320,7 @@ Array [
     >
       <div
         class="prefix-Tooltip-inner"
+        id="test-id"
         role="tooltip"
       >
         Bamboo

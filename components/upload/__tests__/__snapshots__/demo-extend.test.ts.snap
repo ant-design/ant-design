@@ -370,6 +370,7 @@ exports[`renders components/upload/demo/component-token.tsx extend context corre
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -452,6 +453,7 @@ exports[`renders components/upload/demo/component-token.tsx extend context corre
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             Server Error 500
@@ -763,6 +765,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
           class="ant-upload-list-item-container"
         >
           <div
+            aria-describedby="test-id"
             class="ant-upload-list-item ant-upload-list-item-error"
           >
             <div
@@ -828,6 +831,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               >
                 Upload error
@@ -1038,6 +1042,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
           class="ant-upload-list-item-container"
         >
           <div
+            aria-describedby="test-id"
             class="ant-upload-list-item ant-upload-list-item-error"
           >
             <div
@@ -1103,6 +1108,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               >
                 Upload error
@@ -1433,6 +1439,7 @@ exports[`renders components/upload/demo/defaultFileList.tsx extend context corre
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -1515,6 +1522,7 @@ exports[`renders components/upload/demo/defaultFileList.tsx extend context corre
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             Server Error 500
@@ -2407,6 +2415,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -2503,6 +2512,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             Upload error
@@ -2514,6 +2524,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -2610,6 +2621,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             Upload error
@@ -2621,6 +2633,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -2709,6 +2722,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             Upload error
@@ -3413,6 +3427,7 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -3509,6 +3524,7 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             Upload error
@@ -3690,6 +3706,7 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -3786,6 +3803,7 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             Upload error
@@ -4035,6 +4053,7 @@ exports[`renders components/upload/demo/picture-style.tsx extend context correct
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -4131,6 +4150,7 @@ exports[`renders components/upload/demo/picture-style.tsx extend context correct
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             Upload error
@@ -4498,6 +4518,7 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -4589,6 +4610,7 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             Server Error 500

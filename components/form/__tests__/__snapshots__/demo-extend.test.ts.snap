@@ -5248,6 +5248,7 @@ Array [
                   class="ant-slider-step"
                 />
                 <div
+                  aria-describedby="test-id"
                   aria-disabled="true"
                   aria-orientation="horizontal"
                   aria-valuemax="100"
@@ -5270,6 +5271,7 @@ Array [
                   >
                     <div
                       class="ant-tooltip-inner"
+                      id="test-id"
                       role="tooltip"
                     >
                       0
@@ -5308,6 +5310,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
+                aria-describedby="test-id"
                 class="ant-color-picker-trigger ant-color-picker-trigger-disabled"
               >
                 <div
@@ -5327,6 +5330,7 @@ Array [
                 >
                   <div
                     class="ant-popover-inner"
+                    id="test-id"
                     role="tooltip"
                   >
                     <div
@@ -10123,6 +10127,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
         >
           Nickname
           <span
+            aria-describedby="test-id"
             aria-label="question-circle"
             class="anticon anticon-question-circle ant-form-item-tooltip"
             role="img"
@@ -10158,6 +10163,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               >
                 What do you want others to call you?
@@ -11467,6 +11473,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
         >
           Field A
           <span
+            aria-describedby="test-id"
             aria-label="question-circle"
             class="anticon anticon-question-circle ant-form-item-tooltip"
             role="img"
@@ -11502,6 +11509,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               >
                 This is a required field
@@ -11545,6 +11553,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
         >
           Field B
           <span
+            aria-describedby="test-id"
             aria-label="info-circle"
             class="anticon anticon-info-circle ant-form-item-tooltip"
             role="img"
@@ -11580,6 +11589,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               >
                 Tooltip with customize icon
@@ -22125,6 +22135,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 />
               </div>
               <div
+                aria-describedby="test-id"
                 aria-disabled="false"
                 aria-orientation="horizontal"
                 aria-valuemax="100"
@@ -22148,6 +22159,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 >
                   <div
                     class="ant-tooltip-inner"
+                    id="test-id"
                     role="tooltip"
                   >
                     0
@@ -23121,6 +23133,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-describedby="test-id"
               aria-required="true"
               class="ant-color-picker-trigger"
               id="validate_other_color-picker"
@@ -23142,6 +23155,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
               >
                 <div
                   class="ant-popover-inner"
+                  id="test-id"
                   role="tooltip"
                 >
                   <div

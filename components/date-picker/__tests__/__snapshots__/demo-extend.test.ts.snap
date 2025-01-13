@@ -10636,6 +10636,7 @@ exports[`renders components/date-picker/demo/components.tsx extend context corre
                     class="ant-slider-step"
                   />
                   <div
+                    aria-describedby="test-id"
                     aria-disabled="false"
                     aria-orientation="horizontal"
                     aria-valuemax="365"
@@ -10659,6 +10660,7 @@ exports[`renders components/date-picker/demo/components.tsx extend context corre
                     >
                       <div
                         class="ant-tooltip-inner"
+                        id="test-id"
                         role="tooltip"
                       >
                         2016-01-01
