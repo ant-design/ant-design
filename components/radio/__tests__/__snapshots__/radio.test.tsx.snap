@@ -57,7 +57,9 @@ exports[`Radio should render correctly 1`] = `
       class="ant-radio-inner"
     />
   </span>
-  <span>
+  <span
+    class="ant-radio-label"
+  >
     Test
   </span>
 </label>
