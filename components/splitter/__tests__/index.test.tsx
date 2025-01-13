@@ -1,4 +1,5 @@
 import React from 'react';
+import { CaretLeftOutlined, CaretRightOutlined, ColumnWidthOutlined } from '@ant-design/icons';
 import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 import type { GetProps, SplitterProps } from 'antd';
 import { ConfigProvider, Splitter } from 'antd';
@@ -64,6 +65,7 @@ describe('Splitter', () => {
   });
 
   it('should correct render panel size', async () => {
+    jest.useFakeTimers();
     const { container } = render(<SplitterDemo items={[{ size: 20 }, { size: '45%' }, {}]} />);
 
     await resizeSplitter();
@@ -142,6 +144,7 @@ describe('Splitter', () => {
     }
 
     it('The mousemove should work fine', async () => {
+      jest.useFakeTimers();
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
@@ -163,6 +166,7 @@ describe('Splitter', () => {
     });
 
     it('The touchMove should work fine', async () => {
+      jest.useFakeTimers();
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
@@ -184,6 +188,7 @@ describe('Splitter', () => {
     });
 
     it('with min', async () => {
+      jest.useFakeTimers();
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
@@ -199,6 +204,7 @@ describe('Splitter', () => {
     });
 
     it('with max', async () => {
+      jest.useFakeTimers();
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
@@ -214,6 +220,7 @@ describe('Splitter', () => {
     });
 
     it('both panel has min and max', async () => {
+      jest.useFakeTimers();
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
@@ -240,6 +247,8 @@ describe('Splitter', () => {
     });
 
     it('rtl', async () => {
+      jest.useFakeTimers();
+
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
@@ -257,6 +266,7 @@ describe('Splitter', () => {
     });
 
     it('[true, 0, true] can be move left', async () => {
+      jest.useFakeTimers();
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
@@ -276,6 +286,7 @@ describe('Splitter', () => {
     });
 
     it('[false, 0, true] can not be move left', async () => {
+      jest.useFakeTimers();
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
@@ -295,6 +306,8 @@ describe('Splitter', () => {
     });
 
     it("aria-valuemin/aria-valuemax should not set NaN When container's width be setting zero", async () => {
+      jest.useFakeTimers();
+
       containerSize = 0;
       const App: React.FC = () => {
         return <SplitterDemo items={[{}, {}, {}]} />;
@@ -322,6 +335,7 @@ describe('Splitter', () => {
   // ============================= Collapsible =============================
   describe('collapsible', () => {
     it('Basic', async () => {
+      jest.useFakeTimers();
       const { container, rerender } = render(
         <SplitterDemo items={[{ size: 20, collapsible: true }, { collapsible: true }]} />,
       );
@@ -353,6 +367,7 @@ describe('Splitter', () => {
     });
 
     it('collapsible - true', async () => {
+      jest.useFakeTimers();
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
@@ -378,6 +393,7 @@ describe('Splitter', () => {
     });
 
     it('collapsible - start:true', async () => {
+      jest.useFakeTimers();
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
@@ -409,6 +425,7 @@ describe('Splitter', () => {
     });
 
     it('collapsible - end:true', async () => {
+      jest.useFakeTimers();
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
@@ -440,6 +457,7 @@ describe('Splitter', () => {
     });
 
     it('both collapsible', async () => {
+      jest.useFakeTimers();
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
@@ -571,6 +589,7 @@ describe('Splitter', () => {
   });
 
   it('auto resize', async () => {
+    jest.useFakeTimers();
     containerSize = 200;
 
     const onResize = jest.fn();
@@ -594,5 +613,72 @@ describe('Splitter', () => {
 
     fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
     expect(onResize).toHaveBeenCalledWith([0, 200]);
+  });
+
+  // ============================= customize =============================
+  describe('customize', () => {
+    it('customize draggerIcon', async () => {
+      const { container } = render(
+        <SplitterDemo
+          draggerIcon={{
+            default: <ColumnWidthOutlined className="customize-dragger-icon" />,
+            active: <ColumnWidthOutlined className="customize-dragger-icon-active" />,
+          }}
+        />,
+      );
+      const draggerEle = container.querySelector('.ant-splitter-bar-dragger')!;
+
+      expect(draggerEle).toHaveClass('ant-splitter-bar-dragger-customize');
+      expect(draggerEle.querySelector('.ant-splitter-bar-dragger-icon-wrapper')).toBeTruthy();
+      expect(draggerEle.querySelector('.customize-dragger-icon')).toBeTruthy();
+      expect(draggerEle.querySelector('.customize-dragger-icon-active')).toBeFalsy();
+
+      const downEvent = createEvent.mouseDown(draggerEle);
+      (downEvent as any).pageX = 0;
+      (downEvent as any).pageY = 0;
+      fireEvent(draggerEle, downEvent);
+
+      expect(draggerEle.querySelector('.customize-dragger-icon')).toBeFalsy();
+      expect(draggerEle.querySelector('.customize-dragger-icon-active')).toBeTruthy();
+    });
+
+    it('customize collapsibleIcon', async () => {
+      jest.useFakeTimers();
+      const { container, rerender } = render(
+        <SplitterDemo
+          items={[{ size: 20, collapsible: true }, { collapsible: true }]}
+          collapsibleIcon={{
+            start: <CaretLeftOutlined className="customize-icon-start" />,
+            end: <CaretRightOutlined className="customize-icon-end" />,
+          }}
+        />,
+      );
+
+      await resizeSplitter();
+      const startEle = container.querySelector('.ant-splitter-bar-collapse-bar-start')!;
+      const endEle = container.querySelector('.ant-splitter-bar-collapse-bar-end')!;
+
+      expect(startEle).toHaveClass('ant-splitter-bar-collapse-bar-customize');
+      expect(endEle).toHaveClass('ant-splitter-bar-collapse-bar-customize');
+
+      expect(startEle.querySelector('.customize-icon-start')).toBeTruthy();
+      expect(endEle.querySelector('.customize-icon-end')).toBeTruthy();
+
+      expect(startEle).toHaveStyle({ background: 'transparent' });
+      expect(endEle).toHaveStyle({ background: 'transparent' });
+
+      // not ReactElement
+      rerender(
+        <SplitterDemo
+          items={[{ size: 20, collapsible: true }, { collapsible: true }]}
+          collapsibleIcon={{
+            start: 11,
+            end: 22,
+          }}
+        />,
+      );
+      expect(container.querySelector('.ant-splitter-bar-collapse-start')?.innerHTML).toBe('11');
+      expect(container.querySelector('.ant-splitter-bar-collapse-end')?.innerHTML).toBe('22');
+    });
   });
 });
