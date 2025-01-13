@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Popconfirm rtl render component should be rendered correctly in RTL direction 1`] = `<span />`;
+exports[`Popconfirm rtl render component should be rendered correctly in RTL direction 1`] = `
+<span
+  aria-describedby="test-id"
+/>
+`;
 
 exports[`Popconfirm should show overlay when trigger is clicked 1`] = `
 <div
@@ -16,6 +20,7 @@ exports[`Popconfirm should show overlay when trigger is clicked 1`] = `
   >
     <div
       class="ant-popover-inner"
+      id="test-id"
       role="tooltip"
     >
       <div
@@ -101,6 +106,7 @@ exports[`Popconfirm shows content for render functions 1`] = `
   >
     <div
       class="ant-popover-inner"
+      id="test-id"
       role="tooltip"
     >
       <div

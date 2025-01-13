@@ -127,7 +127,7 @@ const Drawer: React.FC<DrawerProps> & {
   });
 
   // ============================ Refs ============================
-  // Select `ant-modal-content` by `panelRef`
+  // Select `ant-drawer-content` by `panelRef`
   const panelRef = usePanelRef();
 
   // ============================ zIndex ============================
