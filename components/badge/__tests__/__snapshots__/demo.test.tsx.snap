@@ -2294,7 +2294,7 @@ exports[`renders components/badge/demo/ribbon.tsx correctly 1`] = `
         class="ant-ribbon ant-ribbon-placement-end"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           Hippies
         </span>
@@ -2336,7 +2336,7 @@ exports[`renders components/badge/demo/ribbon.tsx correctly 1`] = `
         class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-pink"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           Hippies
         </span>
@@ -2378,7 +2378,7 @@ exports[`renders components/badge/demo/ribbon.tsx correctly 1`] = `
         class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-red"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           Hippies
         </span>
@@ -2420,7 +2420,7 @@ exports[`renders components/badge/demo/ribbon.tsx correctly 1`] = `
         class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-cyan"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           Hippies
         </span>
@@ -2462,7 +2462,7 @@ exports[`renders components/badge/demo/ribbon.tsx correctly 1`] = `
         class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-green"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           Hippies
         </span>
@@ -2504,7 +2504,7 @@ exports[`renders components/badge/demo/ribbon.tsx correctly 1`] = `
         class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-purple"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           Hippies
         </span>
@@ -2546,7 +2546,7 @@ exports[`renders components/badge/demo/ribbon.tsx correctly 1`] = `
         class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-volcano"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           Hippies
         </span>
@@ -2588,7 +2588,7 @@ exports[`renders components/badge/demo/ribbon.tsx correctly 1`] = `
         class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-magenta"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           Hippies
         </span>
@@ -2625,7 +2625,7 @@ exports[`renders components/badge/demo/ribbon-debug.tsx correctly 1`] = `
         class="ant-ribbon ant-ribbon-placement-end"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           啦啦啦啦
         </span>
@@ -2654,7 +2654,7 @@ exports[`renders components/badge/demo/ribbon-debug.tsx correctly 1`] = `
         class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-purple"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           啦啦啦啦
         </span>
@@ -2684,7 +2684,7 @@ exports[`renders components/badge/demo/ribbon-debug.tsx correctly 1`] = `
         style="background:#2db7f5"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           啦啦啦啦
         </span>
@@ -2715,7 +2715,7 @@ exports[`renders components/badge/demo/ribbon-debug.tsx correctly 1`] = `
         style="background:#2db7f5"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           啦啦啦啦
         </span>
@@ -2746,7 +2746,7 @@ exports[`renders components/badge/demo/ribbon-debug.tsx correctly 1`] = `
         style="background:#2db7f5"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           啦啦啦啦
         </span>

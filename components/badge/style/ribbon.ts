@@ -33,7 +33,7 @@ const genRibbonStyle: GenerateStyle<BadgeToken> = (token) => {
       whiteSpace: 'nowrap',
       backgroundColor: token.colorPrimary,
       borderRadius: token.borderRadiusSM,
-      [`${ribbonPrefixCls}-text`]: {
+      [`${ribbonPrefixCls}-content`]: {
         color: token.badgeTextColor,
       },
       [`${ribbonPrefixCls}-corner`]: {

@@ -60,6 +60,7 @@ import type {
   TreeSelectConfig,
   Variant,
   WaveConfig,
+  RibbonConfig,
 } from './context';
 import {
   ConfigConsumer,
@@ -216,6 +217,7 @@ export interface ConfigProviderProps {
   badge?: BadgeConfig;
   radio?: ComponentStyleConfig;
   rate?: ComponentStyleConfig;
+  ribbon?: RibbonConfig;
   switch?: ComponentStyleConfig;
   transfer?: TransferConfig;
   avatar?: ComponentStyleConfig;
@@ -375,6 +377,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     badge,
     radio,
     rate,
+    ribbon,
     switch: SWITCH,
     transfer,
     avatar,
@@ -478,6 +481,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     badge,
     radio,
     rate,
+    ribbon,
     switch: SWITCH,
     transfer,
     avatar,

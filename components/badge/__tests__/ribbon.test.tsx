@@ -80,4 +80,37 @@ describe('Ribbon', () => {
       expect(container.querySelectorAll('.cool').length).toEqual(1);
     });
   });
+  it('should apply custom styles to Badge.Ribbon', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      indicator: 'custom-indicator',
+      content: 'custom-content',
+    };
+
+    const customStyles = {
+      root: { color: 'red' },
+      indicator: { color: 'green' },
+      content: { color: 'yellow' },
+    };
+
+    const { container } = render(
+      <Badge.Ribbon text="Hippies" color="pink" classNames={customClassNames} styles={customStyles}>
+        <div>and raises the spyglass.</div>
+      </Badge.Ribbon>,
+    );
+
+    const rootElement = container.querySelector('.ant-ribbon-wrapper') as HTMLElement;
+    const indicatorElement = container.querySelector('.ant-ribbon') as HTMLElement;
+    const contentElement = container.querySelector('.ant-ribbon-content') as HTMLElement;
+
+    // check classNames
+    expect(rootElement.classList).toContain('custom-root');
+    expect(indicatorElement.classList).toContain('custom-indicator');
+    expect(contentElement.classList).toContain('custom-content');
+
+    // check styles
+    expect(rootElement.style.color).toBe('red');
+    expect(indicatorElement.style.color).toBe('green');
+    expect(contentElement.style.color).toBe('yellow');
+  });
 });
