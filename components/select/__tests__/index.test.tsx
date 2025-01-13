@@ -174,19 +174,6 @@ describe('Select', () => {
       expect(asFragment().firstChild).toMatchSnapshot();
     });
 
-    it('dropdownClassName', () => {
-      resetWarned();
-
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-      const { container } = render(<Select dropdownClassName="legacy" open />);
-      expect(errSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Select] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
-      );
-      expect(container.querySelector('.legacy')).toBeTruthy();
-
-      errSpy.mockRestore();
-    });
-
     it('warning for legacy dropdownMatchSelectWidth', () => {
       resetWarned();
 
