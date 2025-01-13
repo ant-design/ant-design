@@ -1,12 +1,12 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 
-import AutoComplete from '..';
+import AutoComplete, { AutoCompleteProps } from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, screen } from '../../../tests/utils';
-import Input from '../../input';
+import { fireEvent, render, screen, waitFakeTimer } from '../../../tests/utils';
+import Input, { InputRef } from '../../input';
 
 describe('AutoComplete', () => {
   mountTest(AutoComplete);
@@ -116,5 +116,47 @@ describe('AutoComplete', () => {
     expect(container.querySelector('.legacy')).toBeTruthy();
 
     errSpy.mockRestore();
+  });
+
+  it('release Enter key lock after customize input calls blur()', async () => {
+    const Demo: React.FC = () => {
+      const mockVal = (str: string, repeat = 1) => ({
+        value: str.repeat(repeat),
+      });
+      const [options, setOptions] = React.useState<AutoCompleteProps['options']>([]);
+      const getPanelValue = (searchText: string) =>
+        !searchText ? [] : [mockVal(searchText), mockVal(searchText, 2), mockVal(searchText, 3)];
+      const ref = React.useRef<InputRef>(null);
+      const onSelect = () => {
+        ref.current!.blur();
+      };
+      return (
+        <AutoComplete
+          options={options}
+          onSearch={(text) => setOptions(getPanelValue(text))}
+          onSelect={onSelect}
+        >
+          <Input ref={ref} />
+        </AutoComplete>
+      );
+    };
+    const { container } = render(<Demo />);
+    const inputElem = container.querySelector('input') as HTMLInputElement;
+    fireEvent.click(inputElem!);
+    fireEvent.input(inputElem!, { target: { value: 'a' } });
+    await waitFakeTimer();
+    fireEvent.keyDown(inputElem!, { key: 'Down', keyCode: 40 });
+    fireEvent.keyUp(inputElem!, { key: 'Down', keyCode: 40 });
+    fireEvent.keyDown(inputElem!, { key: 'Enter', keyCode: 13 });
+    // fireEvent.keyUp(inputElem!, { key: 'Enter', keyCode: 13 });
+    expect(inputElem.value).toEqual('aa');
+    fireEvent.click(inputElem!);
+    fireEvent.input(inputElem!, { target: { value: 'b' } });
+    await waitFakeTimer();
+    fireEvent.keyDown(inputElem!, { key: 'Down', keyCode: 40 });
+    fireEvent.keyUp(inputElem!, { key: 'Down', keyCode: 40 });
+    fireEvent.keyDown(inputElem!, { key: 'Enter', keyCode: 13 });
+    await waitFakeTimer();
+    expect(inputElem.value).toEqual('bb');
   });
 });
