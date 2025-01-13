@@ -475,7 +475,9 @@ exports[`renders components/descriptions/demo/component-token.tsx correctly 1`] 
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         default
       </span>
     </label>
@@ -495,7 +497,9 @@ exports[`renders components/descriptions/demo/component-token.tsx correctly 1`] 
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         middle
       </span>
     </label>
@@ -515,7 +519,9 @@ exports[`renders components/descriptions/demo/component-token.tsx correctly 1`] 
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         small
       </span>
     </label>
@@ -1497,7 +1503,9 @@ exports[`renders components/descriptions/demo/size.tsx correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         default
       </span>
     </label>
@@ -1517,7 +1525,9 @@ exports[`renders components/descriptions/demo/size.tsx correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         middle
       </span>
     </label>
@@ -1537,7 +1547,9 @@ exports[`renders components/descriptions/demo/size.tsx correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         small
       </span>
     </label>
@@ -1922,7 +1934,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         horizontal
       </span>
     </label>
@@ -1942,7 +1956,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         vertical
       </span>
     </label>

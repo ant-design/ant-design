@@ -153,7 +153,9 @@ exports[`renders components/calendar/demo/basic.tsx correctly 1`] = `
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Month
         </span>
       </label>
@@ -173,7 +175,9 @@ exports[`renders components/calendar/demo/basic.tsx correctly 1`] = `
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Year
         </span>
       </label>
@@ -1108,7 +1112,9 @@ exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Month
           </span>
         </label>
@@ -1128,7 +1134,9 @@ exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Year
           </span>
         </label>
@@ -2062,7 +2070,9 @@ Array [
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Month
           </span>
         </label>
@@ -2082,7 +2092,9 @@ Array [
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Year
           </span>
         </label>
@@ -3012,7 +3024,9 @@ Array [
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Month
           </span>
         </label>
@@ -3032,7 +3046,9 @@ Array [
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Year
           </span>
         </label>
@@ -3855,7 +3871,9 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
                   class="ant-radio-button-inner"
                 />
               </span>
-              <span>
+              <span
+                class="ant-radio-button-label"
+              >
                 Month
               </span>
             </label>
@@ -3875,7 +3893,9 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
                   class="ant-radio-button-inner"
                 />
               </span>
-              <span>
+              <span
+                class="ant-radio-button-label"
+              >
                 Year
               </span>
             </label>
@@ -4946,7 +4966,9 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Month
         </span>
       </label>
@@ -4966,7 +4988,9 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Year
         </span>
       </label>
@@ -6311,7 +6335,9 @@ Array [
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Month
           </span>
         </label>
@@ -6331,7 +6357,9 @@ Array [
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Year
           </span>
         </label>
@@ -7265,7 +7293,9 @@ Array [
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Month
           </span>
         </label>
@@ -7285,7 +7315,9 @@ Array [
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Year
           </span>
         </label>
@@ -8272,7 +8304,9 @@ Array [
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Month
           </span>
         </label>
@@ -8292,7 +8326,9 @@ Array [
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Year
           </span>
         </label>

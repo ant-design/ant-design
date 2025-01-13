@@ -166,7 +166,7 @@ const RefLinks: React.FC<{ refs: string[] }> = ({ refs }) => {
     <>
       {refs?.map((ref) => (
         <a className={styles.linkRef} key={ref} href={ref} target="_blank" rel="noreferrer">
-          #{ref.match(/^.*\/(\d+)$/)?.[1]}
+          #{ref.match(/[^/]+$/)?.[0]}
         </a>
       ))}
     </>

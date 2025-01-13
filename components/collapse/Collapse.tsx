@@ -82,7 +82,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
           mergedExpandIcon(panelProps)
         ) : (
           <RightOutlined
-            rotate={panelProps.isActive ? 90 : undefined}
+            rotate={panelProps.isActive ? (direction === 'rtl' ? -90 : 90) : undefined}
             aria-label={panelProps.isActive ? 'expanded' : 'collapsed'}
           />
         );

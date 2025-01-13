@@ -47240,7 +47240,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         topLeft
       </span>
     </label>
@@ -47260,7 +47262,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         topRight
       </span>
     </label>
@@ -47280,7 +47284,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         bottomLeft
       </span>
     </label>
@@ -47300,7 +47306,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         bottomRight
       </span>
     </label>
@@ -61495,7 +61503,9 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Large
         </span>
       </label>
@@ -61516,7 +61526,9 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           middle
         </span>
       </label>
@@ -61536,7 +61548,9 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Small
         </span>
       </label>

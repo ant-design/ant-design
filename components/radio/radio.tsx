@@ -106,7 +106,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
           ref={mergedRef}
           onClick={onInputClick}
         />
-        {children !== undefined ? <span>{children}</span> : null}
+        {children !== undefined ? <span className={`${prefixCls}-label`}>{children}</span> : null}
       </label>
     </Wave>,
   );

@@ -146,7 +146,7 @@ export default function useResize(
       const targetCacheCollapsedSize = cacheCollapsedSize.current[index];
       const currentCacheCollapsedSize = totalSize - targetCacheCollapsedSize;
 
-      const shouldUseCache = 
+      const shouldUseCache =
         targetCacheCollapsedSize &&
         targetCacheCollapsedSize <= targetSizeMax &&
         targetCacheCollapsedSize >= targetSizeMin &&

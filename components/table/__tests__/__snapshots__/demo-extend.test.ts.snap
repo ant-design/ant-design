@@ -1427,7 +1427,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Large
                   </span>
                 </label>
@@ -1447,7 +1449,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Middle
                   </span>
                 </label>
@@ -1467,7 +1471,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Small
                   </span>
                 </label>
@@ -1522,7 +1528,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Unset
                   </span>
                 </label>
@@ -1542,7 +1550,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Scroll
                   </span>
                 </label>
@@ -1562,7 +1572,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Fixed Columns
                   </span>
                 </label>
@@ -1617,7 +1629,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Unset
                   </span>
                 </label>
@@ -1637,7 +1651,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Fixed
                   </span>
                 </label>
@@ -1691,7 +1707,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     TopLeft
                   </span>
                 </label>
@@ -1711,7 +1729,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     TopCenter
                   </span>
                 </label>
@@ -1731,7 +1751,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     TopRight
                   </span>
                 </label>
@@ -1752,7 +1774,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     None
                   </span>
                 </label>
@@ -1806,7 +1830,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     BottomLeft
                   </span>
                 </label>
@@ -1826,7 +1852,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     BottomCenter
                   </span>
                 </label>
@@ -1847,7 +1875,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     BottomRight
                   </span>
                 </label>
@@ -1867,7 +1897,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     None
                   </span>
                 </label>
@@ -6006,7 +6038,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Large
                   </span>
                 </label>
@@ -6026,7 +6060,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Middle
                   </span>
                 </label>
@@ -6046,7 +6082,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Small
                   </span>
                 </label>
@@ -6101,7 +6139,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Unset
                   </span>
                 </label>
@@ -6121,7 +6161,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Scroll
                   </span>
                 </label>
@@ -6141,7 +6183,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Fixed Columns
                   </span>
                 </label>
@@ -6196,7 +6240,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Unset
                   </span>
                 </label>
@@ -6216,7 +6262,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Fixed
                   </span>
                 </label>
@@ -6270,7 +6318,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     TopLeft
                   </span>
                 </label>
@@ -6290,7 +6340,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     TopCenter
                   </span>
                 </label>
@@ -6310,7 +6362,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     TopRight
                   </span>
                 </label>
@@ -6331,7 +6385,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     None
                   </span>
                 </label>
@@ -6385,7 +6441,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     BottomLeft
                   </span>
                 </label>
@@ -6405,7 +6463,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     BottomCenter
                   </span>
                 </label>
@@ -6426,7 +6486,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     BottomRight
                   </span>
                 </label>
@@ -6446,7 +6508,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     None
                   </span>
                 </label>
@@ -10393,7 +10457,9 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                   class="ant-checkbox-inner"
                                 />
                               </span>
-                              <span>
+                              <span
+                                class="ant-checkbox-label"
+                              >
                                 Select all items
                               </span>
                             </label>
@@ -11367,7 +11433,9 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                   class="ant-checkbox-inner"
                                 />
                               </span>
-                              <span>
+                              <span
+                                class="ant-checkbox-label"
+                              >
                                 Select all items
                               </span>
                             </label>
@@ -15561,7 +15629,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Column 1
       </span>
     </label>
@@ -15581,7 +15651,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Column 2
       </span>
     </label>
@@ -15601,7 +15673,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Column 3
       </span>
     </label>
@@ -15621,7 +15695,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Column 4
       </span>
     </label>
@@ -15641,7 +15717,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Column 5
       </span>
     </label>
@@ -15661,7 +15739,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Column 6
       </span>
     </label>
@@ -15681,7 +15761,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Column 7
       </span>
     </label>
@@ -15701,7 +15783,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Column 8
       </span>
     </label>
@@ -20996,7 +21080,9 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
             class="ant-radio-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-label"
+        >
           topLeft
         </span>
       </label>
@@ -21016,7 +21102,9 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
             class="ant-radio-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-label"
+        >
           topCenter
         </span>
       </label>
@@ -21036,7 +21124,9 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
             class="ant-radio-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-label"
+        >
           topRight
         </span>
       </label>
@@ -21056,7 +21146,9 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
             class="ant-radio-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-label"
+        >
           none
         </span>
       </label>
@@ -21082,7 +21174,9 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         bottomLeft
       </span>
     </label>
@@ -21102,7 +21196,9 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         bottomCenter
       </span>
     </label>
@@ -21123,7 +21219,9 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         bottomRight
       </span>
     </label>
@@ -21143,7 +21241,9 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         none
       </span>
     </label>
@@ -22929,7 +23029,9 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         Checkbox
       </span>
     </label>
@@ -22949,7 +23051,9 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         radio
       </span>
     </label>

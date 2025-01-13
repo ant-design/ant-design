@@ -1525,7 +1525,9 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               class="config-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="config-radio-button-label"
+          >
             Month
           </span>
         </label>
@@ -1545,7 +1547,9 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               class="config-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="config-radio-button-label"
+          >
             Year
           </span>
         </label>
@@ -2411,7 +2415,9 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               class="config-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="config-radio-button-label"
+          >
             Month
           </span>
         </label>
@@ -2432,7 +2438,9 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               class="config-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="config-radio-button-label"
+          >
             Year
           </span>
         </label>
@@ -2832,7 +2840,9 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
               class="config-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="config-radio-button-label"
+          >
             Month
           </span>
         </label>
@@ -2853,7 +2863,9 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
               class="config-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="config-radio-button-label"
+          >
             Year
           </span>
         </label>
@@ -3721,7 +3733,9 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
               class="config-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="config-radio-button-label"
+          >
             Month
           </span>
         </label>
@@ -3743,7 +3757,9 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
               class="config-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="config-radio-button-label"
+          >
             Year
           </span>
         </label>
@@ -4140,7 +4156,9 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
               class="config-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="config-radio-button-label"
+          >
             Month
           </span>
         </label>
@@ -4160,7 +4178,9 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
               class="config-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="config-radio-button-label"
+          >
             Year
           </span>
         </label>
@@ -5026,7 +5046,9 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
               class="config-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="config-radio-button-label"
+          >
             Month
           </span>
         </label>
@@ -5047,7 +5069,9 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
               class="config-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="config-radio-button-label"
+          >
             Year
           </span>
         </label>
@@ -5444,7 +5468,9 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
               class="config-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="config-radio-button-label"
+          >
             Month
           </span>
         </label>
@@ -5464,7 +5490,9 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
               class="config-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="config-radio-button-label"
+          >
             Year
           </span>
         </label>
@@ -6330,7 +6358,9 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
               class="config-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="config-radio-button-label"
+          >
             Month
           </span>
         </label>
@@ -6351,7 +6381,9 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
               class="config-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="config-radio-button-label"
+          >
             Year
           </span>
         </label>
@@ -6748,7 +6780,9 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
               class="config-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="config-radio-button-label"
+          >
             Month
           </span>
         </label>
@@ -6768,7 +6802,9 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
               class="config-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="config-radio-button-label"
+          >
             Year
           </span>
         </label>
@@ -7634,7 +7670,9 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
               class="config-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="config-radio-button-label"
+          >
             Month
           </span>
         </label>
@@ -7655,7 +7693,9 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
               class="config-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="config-radio-button-label"
+          >
             Year
           </span>
         </label>
@@ -8052,7 +8092,9 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Month
           </span>
         </label>
@@ -8072,7 +8114,9 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Year
           </span>
         </label>
@@ -8938,7 +8982,9 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Month
           </span>
         </label>
@@ -8959,7 +9005,9 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Year
           </span>
         </label>
@@ -9356,7 +9404,9 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Month
           </span>
         </label>
@@ -9376,7 +9426,9 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Year
           </span>
         </label>
@@ -10242,7 +10294,9 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Month
           </span>
         </label>
@@ -10263,7 +10317,9 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Year
           </span>
         </label>
@@ -11986,7 +12042,9 @@ exports[`ConfigProvider components Checkbox configProvider 1`] = `
         class="config-checkbox-inner"
       />
     </span>
-    <span>
+    <span
+      class="config-checkbox-label"
+    >
       Bamboo
     </span>
   </label>
@@ -12012,7 +12070,9 @@ exports[`ConfigProvider components Checkbox configProvider componentDisabled 1`]
         class="config-checkbox-inner"
       />
     </span>
-    <span>
+    <span
+      class="config-checkbox-label"
+    >
       Bamboo
     </span>
   </label>
@@ -12037,7 +12097,9 @@ exports[`ConfigProvider components Checkbox configProvider componentSize large 1
         class="config-checkbox-inner"
       />
     </span>
-    <span>
+    <span
+      class="config-checkbox-label"
+    >
       Bamboo
     </span>
   </label>
@@ -12062,7 +12124,9 @@ exports[`ConfigProvider components Checkbox configProvider componentSize middle 
         class="config-checkbox-inner"
       />
     </span>
-    <span>
+    <span
+      class="config-checkbox-label"
+    >
       Bamboo
     </span>
   </label>
@@ -12087,7 +12151,9 @@ exports[`ConfigProvider components Checkbox configProvider componentSize small 1
         class="config-checkbox-inner"
       />
     </span>
-    <span>
+    <span
+      class="config-checkbox-label"
+    >
       Bamboo
     </span>
   </label>
@@ -12112,7 +12178,9 @@ exports[`ConfigProvider components Checkbox normal 1`] = `
         class="ant-checkbox-inner"
       />
     </span>
-    <span>
+    <span
+      class="ant-checkbox-label"
+    >
       Bamboo
     </span>
   </label>
@@ -12137,7 +12205,9 @@ exports[`ConfigProvider components Checkbox prefixCls 1`] = `
         class="prefix-Checkbox-inner"
       />
     </span>
-    <span>
+    <span
+      class="prefix-Checkbox-label"
+    >
       Bamboo
     </span>
   </label>
@@ -22013,7 +22083,9 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
           class="config-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="config-radio-label"
+      >
         Bamboo
       </span>
     </label>
@@ -22037,7 +22109,9 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
           class="config-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="config-radio-button-label"
+      >
         Light
       </span>
     </label>
@@ -22067,7 +22141,9 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
           class="config-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="config-radio-label"
+      >
         Bamboo
       </span>
     </label>
@@ -22092,7 +22168,9 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
           class="config-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="config-radio-button-label"
+      >
         Light
       </span>
     </label>
@@ -22121,7 +22199,9 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
           class="config-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="config-radio-label"
+      >
         Bamboo
       </span>
     </label>
@@ -22145,7 +22225,9 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
           class="config-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="config-radio-button-label"
+      >
         Light
       </span>
     </label>
@@ -22174,7 +22256,9 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
           class="config-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="config-radio-label"
+      >
         Bamboo
       </span>
     </label>
@@ -22198,7 +22282,9 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
           class="config-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="config-radio-button-label"
+      >
         Light
       </span>
     </label>
@@ -22227,7 +22313,9 @@ exports[`ConfigProvider components Radio configProvider componentSize small 1`] 
           class="config-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="config-radio-label"
+      >
         Bamboo
       </span>
     </label>
@@ -22251,7 +22339,9 @@ exports[`ConfigProvider components Radio configProvider componentSize small 1`] 
           class="config-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="config-radio-button-label"
+      >
         Light
       </span>
     </label>
@@ -22280,7 +22370,9 @@ exports[`ConfigProvider components Radio normal 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         Bamboo
       </span>
     </label>
@@ -22304,7 +22396,9 @@ exports[`ConfigProvider components Radio normal 1`] = `
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Light
       </span>
     </label>
@@ -22333,7 +22427,9 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
           class="prefix-Radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="prefix-Radio-label"
+      >
         Bamboo
       </span>
     </label>
@@ -22357,7 +22453,9 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
           class="prefix-Radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="prefix-Radio-button-label"
+      >
         Light
       </span>
     </label>
