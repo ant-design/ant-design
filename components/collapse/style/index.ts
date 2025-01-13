@@ -134,7 +134,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
             height: fontHeight,
             display: 'flex',
             alignItems: 'center',
-            paddingInlineEnd: marginSM,
+            marginInlineEnd: marginSM,
           },
 
           [`${componentCls}-arrow`]: {
@@ -246,8 +246,8 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
           [`> ${componentCls}-header`]: {
             [`${componentCls}-expand-icon`]: {
               order: 1,
-              paddingInlineEnd: 0,
-              paddingInlineStart: marginSM,
+              marginInlineEnd: 0,
+              marginInlineStart: marginSM,
             },
           },
         },
