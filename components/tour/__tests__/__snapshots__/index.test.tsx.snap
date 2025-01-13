@@ -21,7 +21,7 @@ exports[`Tour Primary 1`] = `
         class="ant-tour-content"
       >
         <div
-          class="ant-tour-inner"
+          class="ant-tour-body"
         >
           <button
             class="ant-tour-close"
@@ -66,7 +66,7 @@ exports[`Tour Primary 1`] = `
             class="ant-tour-footer"
           >
             <div
-              class="ant-tour-buttons"
+              class="ant-tour-actions"
             >
               <button
                 class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-tour-next-btn"
@@ -226,7 +226,7 @@ exports[`Tour controlled current 1`] = `
         class="ant-tour-content"
       >
         <div
-          class="ant-tour-inner"
+          class="ant-tour-body"
         >
           <button
             class="ant-tour-close"
@@ -281,7 +281,7 @@ exports[`Tour controlled current 1`] = `
               />
             </div>
             <div
-              class="ant-tour-buttons"
+              class="ant-tour-actions"
             >
               <button
                 class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-background-ghost ant-tour-prev-btn"
@@ -355,7 +355,7 @@ exports[`Tour custom step pre btn & next btn className & style 1`] = `
     class="ant-tour-content"
   >
     <div
-      class="ant-tour-inner"
+      class="ant-tour-body"
     >
       <button
         class="ant-tour-close"
@@ -410,7 +410,7 @@ exports[`Tour custom step pre btn & next btn className & style 1`] = `
           />
         </div>
         <div
-          class="ant-tour-buttons"
+          class="ant-tour-actions"
         >
           <button
             class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn customClassName"
@@ -450,7 +450,7 @@ exports[`Tour should support gap.offset 1`] = `
         class="ant-tour-content"
       >
         <div
-          class="ant-tour-inner"
+          class="ant-tour-body"
         >
           <button
             class="ant-tour-close"
@@ -495,7 +495,7 @@ exports[`Tour should support gap.offset 1`] = `
             class="ant-tour-footer"
           >
             <div
-              class="ant-tour-buttons"
+              class="ant-tour-actions"
             >
               <button
                 class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
@@ -614,7 +614,7 @@ exports[`Tour single 1`] = `
         class="ant-tour-content"
       >
         <div
-          class="ant-tour-inner"
+          class="ant-tour-body"
         >
           <button
             class="ant-tour-close"
@@ -659,7 +659,7 @@ exports[`Tour single 1`] = `
             class="ant-tour-footer"
           >
             <div
-              class="ant-tour-buttons"
+              class="ant-tour-actions"
             >
               <button
                 class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
@@ -778,7 +778,7 @@ exports[`Tour step support Primary 1`] = `
         class="ant-tour-content"
       >
         <div
-          class="ant-tour-inner"
+          class="ant-tour-body"
         >
           <button
             class="ant-tour-close"
@@ -833,7 +833,7 @@ exports[`Tour step support Primary 1`] = `
               />
             </div>
             <div
-              class="ant-tour-buttons"
+              class="ant-tour-actions"
             >
               <button
                 class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-background-ghost ant-tour-prev-btn"

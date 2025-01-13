@@ -94,7 +94,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
           position: 'relative',
         },
 
-        [`${componentCls}-inner`]: {
+        [`${componentCls}-body`]: {
           textAlign: 'start',
           textDecoration: 'none',
           borderRadius: tourBorderRadius,
@@ -177,7 +177,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
                 },
               },
             },
-            [`${componentCls}-buttons`]: {
+            [`${componentCls}-actions`]: {
               marginInlineStart: 'auto',
               [`${antCls}-btn`]: {
                 marginInlineStart: marginXS,
@@ -191,7 +191,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
         [`${componentCls}-primary, &${componentCls}-primary`]: {
           '--antd-arrow-background-color': colorPrimary,
 
-          [`${componentCls}-inner`]: {
+          [`${componentCls}-body`]: {
             color: colorTextLightSolid,
             textAlign: 'start',
             textDecoration: 'none',
@@ -252,7 +252,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
         '&-placement-rightTop',
         '&-placement-rightBottom',
       ].join(',')]: {
-        [`${componentCls}-inner`]: {
+        [`${componentCls}-body`]: {
           borderRadius: token.min(tourBorderRadius, MAX_VERTICAL_CONTENT_RADIUS),
         },
       },
