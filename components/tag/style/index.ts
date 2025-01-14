@@ -18,11 +18,6 @@ export interface ComponentToken {
    * @descEN Default text color
    */
   defaultColor: string;
-  /**
-   * @desc 禁用状态边框颜色
-   * @descEN Disabled state border color
-   */
-  borderColorDisabled: string;
 }
 
 export interface TagToken extends FullToken<'Tag'> {
@@ -44,7 +39,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
     color: token.colorTextDisabled,
     cursor: 'not-allowed',
     backgroundColor: token.colorBgContainerDisabled,
-    borderColor: token.borderColorDisabled,
+    borderColor: '#d9d9d9',
     a: {
       cursor: 'not-allowed',
       pointerEvents: 'none',
@@ -219,7 +214,6 @@ export const prepareComponentToken: GetDefaultToken<'Tag'> = (token) => ({
     .onBackground(token.colorBgContainer)
     .toHexString(),
   defaultColor: token.colorText,
-  borderColorDisabled: token.colorBorder,
 });
 
 export default genStyleHooks<'Tag'>(
