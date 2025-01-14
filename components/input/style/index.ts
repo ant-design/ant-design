@@ -420,6 +420,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
   return {
     // ========================= Input =========================
     [`${componentCls}-clear-icon`]: {
+      padding: 0,
       margin: 0,
       lineHeight: 0,
       color: token.colorTextQuaternary,
