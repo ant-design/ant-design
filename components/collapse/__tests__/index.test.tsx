@@ -254,8 +254,6 @@ describe('Collapse', () => {
           {
             key: '1',
             label: 'title',
-            styles: customStyles,
-            classNames: customClassNames,
           },
         ]}
       />,

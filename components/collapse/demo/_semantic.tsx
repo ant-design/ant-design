@@ -28,7 +28,6 @@ const BlockCollapse: React.FC = (props) => {
       key: '1',
       label: 'This is panel header',
       children: <p>This is panel body</p>,
-      ...props,
     },
   ];
 

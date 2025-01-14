@@ -111,7 +111,7 @@
     "@ant-design/icons": "^5.5.2",
     "@ant-design/react-slick": "~1.1.2",
     "@babel/runtime": "^7.26.0",
-    "@rc-component/collapse": "~1.0.0",
+    "@rc-component/collapse": "~1.0.1",
     "@rc-component/color-picker": "~2.0.1",
     "@rc-component/mutate-observer": "^1.1.0",
     "@rc-component/qrcode": "~1.0.0",

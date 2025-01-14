@@ -1,10 +1,10 @@
 import * as React from 'react';
 import RightOutlined from '@ant-design/icons/RightOutlined';
+import type { CollapseProps as RcCollapseProps } from '@rc-component/collapse';
+import RcCollapse from '@rc-component/collapse';
 import toArray from '@rc-component/util/lib/Children/toArray';
 import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import type { CollapseProps as RcCollapseProps } from '@rc-component/collapse';
-import RcCollapse from '@rc-component/collapse';
 import type { CSSMotionProps } from 'rc-motion';
 
 import initCollapseMotion from '../_util/motion';
@@ -56,10 +56,6 @@ interface PanelProps {
   styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
-interface ItemType {
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
-}
 const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
   const { getPrefixCls, direction, collapse } = React.useContext(ConfigContext);
 
@@ -137,22 +133,9 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     motionAppear: false,
     leavedClassName: `${prefixCls}-panel-hidden`,
   };
-  const items = React.useMemo<React.ReactElement<ItemType>[] | null>(() => {
+  const items = React.useMemo<React.ReactNode[] | null>(() => {
     if (children) {
-      return toArray(children).map((child) =>
-        React.cloneElement(child as React.ReactElement<ItemType>, {
-          classNames: {
-            header: classNames(collapse?.classNames?.header, collapseClassNames?.header),
-            title: classNames(collapse?.classNames?.title, collapseClassNames?.title),
-            body: classNames(collapse?.classNames?.body, collapseClassNames?.body),
-          },
-          styles: {
-            header: { ...collapse?.styles?.header, ...styles?.header },
-            title: { ...collapse?.styles?.title, ...styles?.title },
-            body: { ...collapse?.styles?.body, ...styles?.body },
-          },
-        }),
-      );
+      return toArray(children).map((child) => child);
     }
     return null;
   }, [children]);
