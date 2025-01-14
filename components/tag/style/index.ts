@@ -39,7 +39,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
     color: token.colorTextDisabled,
     cursor: 'not-allowed',
     backgroundColor: token.colorBgContainerDisabled,
-    borderColor: '#d9d9d9',
+    borderColor: token.colorBorder,
     a: {
       cursor: 'not-allowed',
       pointerEvents: 'none',

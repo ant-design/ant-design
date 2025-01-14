@@ -19,7 +19,7 @@ const genPresetStyle = (token: TagToken) =>
         [`&${token.componentCls}-disabled`]: {
           color: token.colorTextDisabled,
           backgroundColor: token.colorBgContainerDisabled,
-          borderColor: '#d9d9d9',
+          borderColor: token.colorBorder,
         },
       },
       [`&${token.componentCls}-borderless`]: {
@@ -31,7 +31,7 @@ const genPresetStyle = (token: TagToken) =>
       [`&${token.componentCls}-disabled`]: {
         color: token.colorTextDisabled,
         backgroundColor: token.colorBgContainerDisabled,
-        borderColor: '#d9d9d9',
+        borderColor: token.colorBorder,
       },
     },
   }));
