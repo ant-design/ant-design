@@ -242,7 +242,9 @@ exports[`renders components/flex/demo/basic.tsx correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         horizontal
       </span>
     </label>
@@ -262,7 +264,9 @@ exports[`renders components/flex/demo/basic.tsx correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         vertical
       </span>
     </label>
@@ -390,7 +394,9 @@ exports[`renders components/flex/demo/gap.tsx correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         small
       </span>
     </label>
@@ -410,7 +416,9 @@ exports[`renders components/flex/demo/gap.tsx correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         middle
       </span>
     </label>
@@ -430,7 +438,9 @@ exports[`renders components/flex/demo/gap.tsx correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         large
       </span>
     </label>
@@ -450,7 +460,9 @@ exports[`renders components/flex/demo/gap.tsx correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         customize
       </span>
     </label>
