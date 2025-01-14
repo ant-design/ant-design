@@ -41,6 +41,7 @@ describe('Splitter lazy', () => {
     containerSize = 100;
     errSpy.mockReset();
     resetWarned();
+    jest.useFakeTimers();
   });
 
   afterEach(() => {
@@ -88,7 +89,6 @@ describe('Splitter lazy', () => {
   };
 
   it('should only update after mouse up when lazy is true', async () => {
-    jest.useFakeTimers();
     const onResize = jest.fn();
     const onResizeEnd = jest.fn();
 
@@ -125,7 +125,6 @@ describe('Splitter lazy', () => {
   });
 
   it('should work with touch events when lazy', async () => {
-    jest.useFakeTimers();
     const onResize = jest.fn();
     const onResizeEnd = jest.fn();
 
@@ -162,7 +161,6 @@ describe('Splitter lazy', () => {
   });
 
   it('should work with vertical splitter', async () => {
-    jest.useFakeTimers();
     const onResize = jest.fn();
     const onResizeEnd = jest.fn();
 
