@@ -4531,7 +4531,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         topLeft
       </span>
     </label>
@@ -4551,7 +4553,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         topRight
       </span>
     </label>
@@ -4571,7 +4575,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         bottomLeft
       </span>
     </label>
@@ -4591,7 +4597,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         bottomRight
       </span>
     </label>
@@ -4696,7 +4704,9 @@ exports[`renders components/select/demo/placement-debug.tsx correctly 1`] = `
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             TL
           </span>
         </label>
@@ -4716,7 +4726,9 @@ exports[`renders components/select/demo/placement-debug.tsx correctly 1`] = `
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             TR
           </span>
         </label>
@@ -4736,7 +4748,9 @@ exports[`renders components/select/demo/placement-debug.tsx correctly 1`] = `
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             BL
           </span>
         </label>
@@ -4756,7 +4770,9 @@ exports[`renders components/select/demo/placement-debug.tsx correctly 1`] = `
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             BR
           </span>
         </label>
@@ -5469,7 +5485,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Large
       </span>
     </label>
@@ -5490,7 +5508,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Default
       </span>
     </label>
@@ -5510,7 +5530,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Small
       </span>
     </label>
