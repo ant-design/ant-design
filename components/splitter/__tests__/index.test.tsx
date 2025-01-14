@@ -612,7 +612,7 @@ describe('Splitter', () => {
       const draggerEle = container.querySelector('.ant-splitter-bar-dragger')!;
 
       expect(draggerEle).toHaveClass('ant-splitter-bar-dragger-customize');
-      expect(draggerEle.querySelector('.ant-splitter-bar-dragger-icon-wrapper')).toBeTruthy();
+      expect(draggerEle.querySelector('.ant-splitter-bar-dragger-icon')).toBeTruthy();
       expect(draggerEle.querySelector('.customize-dragger-icon')).toBeTruthy();
       expect(draggerEle.querySelector('.customize-dragger-icon-active')).toBeFalsy();
     });

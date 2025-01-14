@@ -210,7 +210,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         onTouchStart={onTouchStart}
       >
         {draggerIcon ? (
-          <div className={classNames(`${splitBarPrefixCls}-dragger-icon-wrapper`)}>
+          <div className={classNames(`${splitBarPrefixCls}-dragger-icon`)}>
             {active ? draggerIcon.active : draggerIcon.default}
           </div>
         ) : null}

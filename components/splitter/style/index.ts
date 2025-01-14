@@ -169,14 +169,14 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
               display: 'none',
             },
 
-            [`${splitBarCls}-dragger-icon-wrapper`]: {
+            [`${splitBarCls}-dragger-icon`]: {
               display: 'none',
             },
           },
 
           // customize dragger icon
           '&-customize': {
-            [`${splitBarCls}-dragger-icon-wrapper`]: {
+            [`${splitBarCls}-dragger-icon`]: {
               ...centerStyle,
               display: 'flex',
               alignItems: 'center',

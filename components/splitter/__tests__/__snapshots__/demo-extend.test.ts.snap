@@ -231,7 +231,7 @@ Array [
         class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled ant-splitter-bar-dragger-customize"
       >
         <div
-          class="ant-splitter-bar-dragger-icon-wrapper"
+          class="ant-splitter-bar-dragger-icon"
         >
           <span
             aria-label="column-width"
@@ -282,7 +282,7 @@ Array [
         class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled ant-splitter-bar-dragger-customize"
       >
         <div
-          class="ant-splitter-bar-dragger-icon-wrapper"
+          class="ant-splitter-bar-dragger-icon"
         >
           <span
             aria-label="column-width"
@@ -354,7 +354,7 @@ Array [
         class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled ant-splitter-bar-dragger-customize"
       >
         <div
-          class="ant-splitter-bar-dragger-icon-wrapper"
+          class="ant-splitter-bar-dragger-icon"
         >
           <span
             aria-label="column-height"
