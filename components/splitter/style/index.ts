@@ -84,6 +84,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
     controlItemBgActive,
     controlItemBgActiveHover,
     prefixCls,
+    colorPrimary,
   } = token;
 
   const splitBarCls = `${componentCls}-bar`;
@@ -153,6 +154,11 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
               background: controlItemBgActiveHover,
             },
           },
+          [`&-active${splitBarCls}-dragger-customize`]: {
+            [`${splitBarCls}-dragger-icon`]: {
+              color: colorPrimary,
+            },
+          },
 
           // Disabled, not use `pointer-events: none` since still need trigger collapse
           [`&-disabled${splitBarCls}-dragger`]: {
@@ -180,6 +186,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
               ...centerStyle,
               display: 'flex',
               alignItems: 'center',
+              color: colorFill,
             },
 
             '&::after': {

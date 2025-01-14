@@ -602,19 +602,13 @@ describe('Splitter', () => {
   describe('customize', () => {
     it('customize draggerIcon', () => {
       const { container } = render(
-        <SplitterDemo
-          draggerIcon={{
-            default: <ColumnWidthOutlined className="customize-dragger-icon" />,
-            active: <ColumnWidthOutlined className="customize-dragger-icon-active" />,
-          }}
-        />,
+        <SplitterDemo draggerIcon={<ColumnWidthOutlined className="customize-dragger-icon" />} />,
       );
       const draggerEle = container.querySelector('.ant-splitter-bar-dragger')!;
 
       expect(draggerEle).toHaveClass('ant-splitter-bar-dragger-customize');
       expect(draggerEle.querySelector('.ant-splitter-bar-dragger-icon')).toBeTruthy();
       expect(draggerEle.querySelector('.customize-dragger-icon')).toBeTruthy();
-      expect(draggerEle.querySelector('.customize-dragger-icon-active')).toBeFalsy();
     });
 
     it('customize collapsibleIcon', async () => {

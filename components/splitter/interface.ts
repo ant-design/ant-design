@@ -5,10 +5,7 @@ export interface SplitterProps {
   style?: React.CSSProperties;
   rootClassName?: string;
   layout?: 'horizontal' | 'vertical';
-  draggerIcon?: {
-    default?: React.ReactNode;
-    active?: React.ReactNode;
-  };
+  draggerIcon?: React.ReactNode;
   collapsibleIcon?: {
     start?: React.ReactNode;
     end?: React.ReactNode;

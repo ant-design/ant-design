@@ -44,7 +44,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onResizeEnd | Drag end callback | `(sizes: number[]) => void` | - | - |
 | lazy | Lazy mode | `boolean` | `false` | 5.23.0 |
 | collapsibleIcon | custom collapsible icon | `{start: ReactNode; end: ReactNode}` | - | 6.0.0 |
-| draggerIcon | custom dragger icon | `{default: ReactNode; active: ReactNode}` | - | 6.0.0 |
+| draggerIcon | custom dragger icon | `ReactNode` | - | 6.0.0 |
 
 ### Panel
 
