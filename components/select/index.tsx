@@ -71,14 +71,17 @@ export interface SelectProps<
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
     InternalSelectProps<ValueType, OptionType>,
-    'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill' | 'placement'
+    | 'mode'
+    | 'getInputElement'
+    | 'getRawInputElement'
+    | 'backfill'
+    | 'placement'
+    | 'dropdownClassName'
   > {
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   status?: InputStatus;
   popupClassName?: string;
-  /** @deprecated Please use `popupClassName` instead */
-  dropdownClassName?: string;
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
@@ -100,7 +103,6 @@ const InternalSelect = <
     rootClassName,
     getPopupContainer,
     popupClassName,
-    dropdownClassName,
     listHeight = 256,
     placement,
     listItemHeight: customListItemHeight,
@@ -205,7 +207,7 @@ const InternalSelect = <
   const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
 
   const mergedPopupClassName = classNames(
-    popupClassName || dropdownClassName,
+    popupClassName,
     {
       [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
     },
@@ -250,8 +252,6 @@ const InternalSelect = <
   // ====================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Select');
-
-    warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
 
     warning.deprecated(
       dropdownMatchSelectWidth === undefined,
