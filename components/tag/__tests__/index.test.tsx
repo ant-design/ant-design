@@ -2,7 +2,6 @@ import React from 'react';
 import { CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
 
 import Tag from '..';
-import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
@@ -120,54 +119,7 @@ describe('Tag', () => {
     expect(container.querySelector('.ant-tag ')?.childElementCount).toBe(1);
   });
 
-  it('deprecated warning', () => {
-    resetWarned();
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
-    const { container } = render(<Tag visible={false} />);
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tag] `visible` is deprecated. Please use `visible && <Tag />` instead.',
-    );
-    expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
-
-    errSpy.mockRestore();
-  });
-
-  describe('visibility', () => {
-    it('can be controlled by visible with visible as initial value', () => {
-      const { container, rerender } = render(<Tag visible />);
-      expect(container.querySelector('.ant-tag-hidden')).toBeFalsy();
-
-      rerender(<Tag visible={false} />);
-      act(() => {
-        jest.runAllTimers();
-      });
-      expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
-
-      rerender(<Tag visible />);
-      act(() => {
-        jest.runAllTimers();
-      });
-      expect(container.querySelector('.ant-tag-hidden')).toBeFalsy();
-    });
-
-    it('can be controlled by visible with hidden as initial value', () => {
-      const { container, rerender } = render(<Tag visible={false} />);
-      expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
-
-      rerender(<Tag visible />);
-      act(() => {
-        jest.runAllTimers();
-      });
-      expect(container.querySelector('.ant-tag-hidden')).toBeFalsy();
-
-      rerender(<Tag visible={false} />);
-      act(() => {
-        jest.runAllTimers();
-      });
-      expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
-    });
-
+  describe('disabled', () => {
     it('should not trigger onClick when disabled', () => {
       const onClick = jest.fn();
       const { container } = render(<Tag disabled onClick={onClick} />);

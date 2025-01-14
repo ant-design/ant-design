@@ -8,7 +8,6 @@ import type { ClosableType } from '../_util/hooks/useClosable';
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
 import { replaceElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
-import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import CheckableTag from './CheckableTag';
@@ -27,8 +26,6 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   /** Advised to use closeIcon instead. */
   closable?: ClosableType;
   closeIcon?: React.ReactNode;
-  /** @deprecated `visible` will be removed in next major version. */
-  visible?: boolean;
   onClose?: (e: React.MouseEvent<HTMLElement>) => void;
   style?: React.CSSProperties;
   icon?: React.ReactNode;
@@ -50,7 +47,6 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       color,
       onClose,
       bordered = true,
-      visible: deprecatedVisible,
       disabled: customDisabled,
       href,
       target,
@@ -65,19 +61,6 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     const [visible, setVisible] = React.useState(true);
 
     const domProps = omit(props, ['closeIcon', 'closable']);
-
-    // Warning for deprecated usage
-    if (process.env.NODE_ENV !== 'production') {
-      const warning = devUseWarning('Tag');
-
-      warning.deprecated(!('visible' in tagProps), 'visible', 'visible && <Tag />');
-    }
-
-    React.useEffect(() => {
-      if (deprecatedVisible !== undefined) {
-        setVisible(deprecatedVisible!);
-      }
-    }, [deprecatedVisible]);
 
     const isPreset = isPresetColor(color);
     const isStatus = isPresetStatusColor(color);
