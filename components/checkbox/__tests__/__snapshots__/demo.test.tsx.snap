@@ -15,7 +15,9 @@ exports[`renders components/checkbox/demo/basic.tsx correctly 1`] = `
       class="ant-checkbox-inner"
     />
   </span>
-  <span>
+  <span
+    class="ant-checkbox-label"
+  >
     Checkbox
   </span>
 </label>
@@ -37,7 +39,9 @@ Array [
         class="ant-checkbox-inner"
       />
     </span>
-    <span>
+    <span
+      class="ant-checkbox-label"
+    >
       Check all
     </span>
   </label>,
@@ -64,7 +68,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Apple
       </span>
     </label>
@@ -83,7 +89,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Pear
       </span>
     </label>
@@ -103,7 +111,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Orange
       </span>
     </label>
@@ -131,7 +141,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Checked-Enabled
       </span>
     </label>
@@ -301,7 +313,9 @@ exports[`renders components/checkbox/demo/debug-line.tsx correctly 1`] = `
             class="ant-checkbox-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-checkbox-label"
+        >
           Little
         </span>
       </label>
@@ -356,7 +370,9 @@ exports[`renders components/checkbox/demo/debug-line.tsx correctly 1`] = `
             class="ant-radio-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-label"
+        >
           Little
         </span>
       </label>
@@ -399,7 +415,9 @@ exports[`renders components/checkbox/demo/debug-line.tsx correctly 1`] = `
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Little
       </span>
     </label>
@@ -441,7 +459,9 @@ exports[`renders components/checkbox/demo/debug-line.tsx correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         Little
       </span>
     </label>
@@ -461,7 +481,9 @@ exports[`renders components/checkbox/demo/debug-line.tsx correctly 1`] = `
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Aligned
       </span>
     </label>
@@ -481,7 +503,9 @@ exports[`renders components/checkbox/demo/debug-line.tsx correctly 1`] = `
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         <span
           style="font-size:32px"
         >
@@ -570,7 +594,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Apple
       </span>
     </label>
@@ -589,7 +615,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Pear
       </span>
     </label>
@@ -608,7 +636,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Orange
       </span>
     </label>
@@ -633,7 +663,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Apple
       </span>
     </label>
@@ -653,7 +685,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Pear
       </span>
     </label>
@@ -672,7 +706,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Orange
       </span>
     </label>
@@ -699,7 +735,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Apple
       </span>
     </label>
@@ -719,7 +757,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Pear
       </span>
     </label>
@@ -739,7 +779,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Orange
       </span>
     </label>
@@ -773,7 +815,9 @@ exports[`renders components/checkbox/demo/layout.tsx correctly 1`] = `
             class="ant-checkbox-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-checkbox-label"
+        >
           A
         </span>
       </label>
@@ -796,7 +840,9 @@ exports[`renders components/checkbox/demo/layout.tsx correctly 1`] = `
             class="ant-checkbox-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-checkbox-label"
+        >
           B
         </span>
       </label>
@@ -819,7 +865,9 @@ exports[`renders components/checkbox/demo/layout.tsx correctly 1`] = `
             class="ant-checkbox-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-checkbox-label"
+        >
           C
         </span>
       </label>
@@ -842,7 +890,9 @@ exports[`renders components/checkbox/demo/layout.tsx correctly 1`] = `
             class="ant-checkbox-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-checkbox-label"
+        >
           D
         </span>
       </label>
@@ -865,7 +915,9 @@ exports[`renders components/checkbox/demo/layout.tsx correctly 1`] = `
             class="ant-checkbox-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-checkbox-label"
+        >
           E
         </span>
       </label>
