@@ -150,6 +150,18 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       prefixCls={prefixCls}
       className={collapseClassName}
       style={{ ...collapse?.styles?.root, ...collapse?.style, ...styles?.root, ...style }}
+      classNames={{
+        header: classNames(collapse?.classNames?.header, collapseClassNames?.header),
+        title: classNames(collapse?.classNames?.title, collapseClassNames?.title),
+        body: classNames(collapse?.classNames?.body, collapseClassNames?.body),
+        icon: classNames(collapse?.classNames?.icon, collapseClassNames?.icon),
+      }}
+      styles={{
+        header: { ...collapse?.styles?.header, ...styles?.header },
+        title: { ...collapse?.styles?.title, ...styles?.title },
+        body: { ...collapse?.styles?.body, ...styles?.body },
+        icon: { ...collapse?.styles?.icon, ...styles?.icon },
+      }}
     >
       {items}
     </RcCollapse>,
