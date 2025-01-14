@@ -413,7 +413,7 @@ describe('Cascader', () => {
     const { container } = render(<Cascader options={customOptions} placement="topRight" />);
     toggleOpen(container);
 
-    // Inject in tests/__mocks__/rc-trigger.js
+    // Inject in tests/__mocks__/@rc-component/trigger.js
     expect((global as any)?.triggerProps.popupPlacement).toEqual('topRight');
   });
 
@@ -531,14 +531,14 @@ describe('Cascader', () => {
     const { container } = render(<Cascader options={options} direction="rtl" />);
     toggleOpen(container);
 
-    // Inject in tests/__mocks__/rc-trigger.js
+    // Inject in tests/__mocks__/@rc-component/trigger.js
     expect((global as any).triggerProps.popupPlacement).toEqual('bottomRight');
   });
 
   describe('legacy props', () => {
     it('popupPlacement', () => {
       render(<Cascader open popupPlacement="bottomLeft" />);
-      // Inject in tests/__mocks__/rc-trigger.js
+      // Inject in tests/__mocks__/@rc-component/trigger.js
       expect((global as any).triggerProps.popupPlacement).toEqual('bottomLeft');
     });
 
