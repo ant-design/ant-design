@@ -47,8 +47,8 @@ demo:
 | bordered | 是否有边框 | boolean | true | 5.4.0 |
 | onClose | 关闭时的回调（可通过 `e.preventDefault()` 来阻止默认行为） | (e: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
 | disabled | 是否禁用标签 | boolean | false | 6.0.0 |
-| href | 点击跳转的地址，指定此属性`tag`组件会渲染成 `<a>` 标签 | string | - |  |
-| target | 相当于 a 标签的 target 属性，href 存在时生效 | string | - |  |
+| href | 点击跳转的地址，指定此属性`tag`组件会渲染成 `<a>` 标签 | string | - | 6.0.0 |
+| target | 相当于 a 标签的 target 属性，href 存在时生效 | string | - | 6.0.0 |
 
 ### Tag.CheckableTag
 
