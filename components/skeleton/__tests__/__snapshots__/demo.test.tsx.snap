@@ -430,7 +430,9 @@ exports[`renders components/skeleton/demo/element.tsx correctly 1`] = `
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Default
                       </span>
                     </label>
@@ -450,7 +452,9 @@ exports[`renders components/skeleton/demo/element.tsx correctly 1`] = `
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Large
                       </span>
                     </label>
@@ -470,7 +474,9 @@ exports[`renders components/skeleton/demo/element.tsx correctly 1`] = `
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Small
                       </span>
                     </label>
@@ -529,7 +535,9 @@ exports[`renders components/skeleton/demo/element.tsx correctly 1`] = `
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Default
                       </span>
                     </label>
@@ -549,7 +557,9 @@ exports[`renders components/skeleton/demo/element.tsx correctly 1`] = `
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Square
                       </span>
                     </label>
@@ -569,7 +579,9 @@ exports[`renders components/skeleton/demo/element.tsx correctly 1`] = `
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Round
                       </span>
                     </label>
@@ -589,7 +601,9 @@ exports[`renders components/skeleton/demo/element.tsx correctly 1`] = `
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Circle
                       </span>
                     </label>
@@ -647,7 +661,9 @@ exports[`renders components/skeleton/demo/element.tsx correctly 1`] = `
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Square
                       </span>
                     </label>
@@ -668,7 +684,9 @@ exports[`renders components/skeleton/demo/element.tsx correctly 1`] = `
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Circle
                       </span>
                     </label>
