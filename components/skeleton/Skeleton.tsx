@@ -18,7 +18,7 @@ import Title from './Title';
 /* This only for skeleton internal. */
 type SkeletonAvatarProps = Omit<AvatarProps, 'active'>;
 
-type SemanticName = 'root' | 'header' | 'content' | 'avatar' | 'title' | 'paragraph';
+export type SemanticName = 'root' | 'header' | 'content' | 'avatar' | 'title' | 'paragraph';
 
 export interface SkeletonProps {
   active?: boolean;

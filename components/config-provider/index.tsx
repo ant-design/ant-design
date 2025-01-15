@@ -44,7 +44,9 @@ import type {
   PopoverConfig,
   PopupOverflow,
   RangePickerConfig,
+  RibbonConfig,
   SelectConfig,
+  SkeletonConfig,
   SpaceConfig,
   SpinConfig,
   TableConfig,
@@ -60,7 +62,6 @@ import type {
   TreeSelectConfig,
   Variant,
   WaveConfig,
-  RibbonConfig,
 } from './context';
 import {
   ConfigConsumer,
@@ -195,7 +196,7 @@ export interface ConfigProviderProps {
   divider?: ComponentStyleConfig;
   drawer?: DrawerConfig;
   typography?: ComponentStyleConfig;
-  skeleton?: ComponentStyleConfig;
+  skeleton?: SkeletonConfig;
   spin?: SpinConfig;
   segmented?: ComponentStyleConfig;
   statistic?: ComponentStyleConfig;

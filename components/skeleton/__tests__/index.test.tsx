@@ -9,7 +9,7 @@ import type { SkeletonButtonProps } from '../Button';
 import type { SkeletonImageProps } from '../Image';
 import type { SkeletonInputProps } from '../Input';
 import type { SkeletonNodeProps } from '../Node';
-import type { SkeletonProps } from '../Skeleton';
+import type { SemanticName, SkeletonProps } from '../Skeleton';
 
 describe('Skeleton', () => {
   const genSkeleton = (props: SkeletonProps) =>
@@ -185,5 +185,57 @@ describe('Skeleton', () => {
   it('should support style', () => {
     const { asFragment } = genSkeleton({ style: { background: 'blue' } });
     expect(asFragment().firstChild).toMatchSnapshot();
+  });
+
+  it('should apply custom styles to semantic elements', () => {
+    const style = { background: 'pink' };
+    const customStyles: Record<SemanticName, React.CSSProperties> = {
+      root: style,
+      header: style,
+      content: style,
+      avatar: style,
+      title: style,
+      paragraph: style,
+    };
+
+    const customClassNames: Record<SemanticName, string> = {
+      root: 'custom-root',
+      header: 'custom-header',
+      content: 'custom-content',
+      avatar: 'custom-avatar',
+      title: 'custom-title',
+      paragraph: 'custom-paragraph',
+    };
+
+    const { asFragment } = genSkeleton({
+      styles: customStyles,
+      classNames: customClassNames,
+      avatar: true,
+    });
+    const container = asFragment();
+
+    const rootElement = container.querySelector('.ant-skeleton');
+    expect(rootElement).toHaveStyle(style);
+    expect(rootElement).toHaveClass(customClassNames.root);
+
+    const headerElement = container.querySelector('.ant-skeleton-header');
+    expect(headerElement).toHaveStyle(style);
+    expect(headerElement).toHaveClass(customClassNames.header);
+
+    const contentElement = container.querySelector('.ant-skeleton-content');
+    expect(contentElement).toHaveStyle(style);
+    expect(contentElement).toHaveClass(customClassNames.content);
+
+    const avatarElement = container.querySelector('.ant-skeleton-avatar');
+    expect(avatarElement).toHaveStyle(style);
+    expect(avatarElement).toHaveClass(customClassNames.avatar);
+
+    const titleElement = container.querySelector('.ant-skeleton-title');
+    expect(titleElement).toHaveStyle(style);
+    expect(titleElement).toHaveClass(customClassNames.title);
+
+    const paragraphElement = container.querySelector('.ant-skeleton-paragraph');
+    expect(paragraphElement).toHaveStyle(style);
+    expect(paragraphElement).toHaveClass(customClassNames.paragraph);
   });
 });

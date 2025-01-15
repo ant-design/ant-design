@@ -42,6 +42,7 @@ import Result from '../../result';
 import Segmented from '../../segmented';
 import Select from '../../select';
 import Skeleton from '../../skeleton';
+import type { SemanticName as SkeletonSemanticName } from '../../skeleton/Skeleton';
 import Slider from '../../slider';
 import Space from '../../space';
 import Spin from '../../spin';
@@ -379,6 +380,57 @@ describe('ConfigProvider support style and className props', () => {
     );
 
     expect(container.querySelector('.ant-skeleton')).toHaveStyle('color: red; font-size: 16px;');
+  });
+
+  it('Should Skeleton classNames & styles works', () => {
+    const style = { background: 'pink' };
+    const customStyles: Record<SkeletonSemanticName, React.CSSProperties> = {
+      root: style,
+      header: style,
+      content: style,
+      avatar: style,
+      title: style,
+      paragraph: style,
+    };
+
+    const customClassNames: Record<SkeletonSemanticName, string> = {
+      root: 'custom-root',
+      header: 'custom-header',
+      content: 'custom-content',
+      avatar: 'custom-avatar',
+      title: 'custom-title',
+      paragraph: 'custom-paragraph',
+    };
+
+    const { container } = render(
+      <ConfigProvider skeleton={{ styles: customStyles, classNames: customClassNames }}>
+        <Skeleton avatar />
+      </ConfigProvider>,
+    );
+
+    const rootElement = container.querySelector('.ant-skeleton');
+    expect(rootElement).toHaveStyle(style);
+    expect(rootElement).toHaveClass(customClassNames.root);
+
+    const headerElement = container.querySelector('.ant-skeleton-header');
+    expect(headerElement).toHaveStyle(style);
+    expect(headerElement).toHaveClass(customClassNames.header);
+
+    const contentElement = container.querySelector('.ant-skeleton-content');
+    expect(contentElement).toHaveStyle(style);
+    expect(contentElement).toHaveClass(customClassNames.content);
+
+    const avatarElement = container.querySelector('.ant-skeleton-avatar');
+    expect(avatarElement).toHaveStyle(style);
+    expect(avatarElement).toHaveClass(customClassNames.avatar);
+
+    const titleElement = container.querySelector('.ant-skeleton-title');
+    expect(titleElement).toHaveStyle(style);
+    expect(titleElement).toHaveClass(customClassNames.title);
+
+    const paragraphElement = container.querySelector('.ant-skeleton-paragraph');
+    expect(paragraphElement).toHaveStyle(style);
+    expect(paragraphElement).toHaveClass(customClassNames.paragraph);
   });
 
   it('Should Spin className & style works', () => {

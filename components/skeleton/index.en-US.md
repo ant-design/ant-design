@@ -32,12 +32,14 @@ Common props ref：[Common props](/docs/react/common-props)
 ### Skeleton
 
 | Property | Description | Type | Default |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | active | Show animation effect | boolean | false |
 | avatar | Show avatar placeholder | boolean \| [SkeletonAvatarProps](#skeletonavatarprops) | false |
+| classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - | 6.0.0 |
 | loading | Display the skeleton when true | boolean | - |
 | paragraph | Show paragraph placeholder | boolean \| [SkeletonParagraphProps](#skeletonparagraphprops) | true |
 | round | Show paragraph and title radius when true | boolean | false |
+| styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 6.0.0 |
 | title | Show title placeholder | boolean \| [SkeletonTitleProps](#skeletontitleprops) | true |
 
 ### SkeletonAvatarProps

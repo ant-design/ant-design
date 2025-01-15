@@ -148,8 +148,8 @@ const {
 | radio | 设置 Radio 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | rate | 设置 Rate 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | result | 设置 Result 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [ResultProps\["classNames"\]](/components/result-cn#api), styles?: [ResultProps\["styles"\]](/components/result-cn#api) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
-| ribbon | 设置 Ribbon 组件的通用属性 | { className?: string, style?: React.CSSProperties, , classNames?: [RibbonProps\["classNames"\]](/components/badge-cn#api), styles?: [RibbonProps\["styles"\]](/components/badge-cn#api) } | - | 6.0.0 |
-| skeleton | 设置 Skeleton 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| ribbon | 设置 Ribbon 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [RibbonProps\["classNames"\]](/components/badge-cn#api), styles?: [RibbonProps\["styles"\]](/components/badge-cn#api) } | - | 6.0.0 |
+| skeleton | 设置 Skeleton 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [SkeletonProps\["classNames"\]](/components/skeleton-cn#api), styles?: [SkeletonProps\["styles"\]](/components/skeleton-cn#api) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
 | segmented | 设置 Segmented 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | select | 设置 Select 组件的通用属性 | { className?: string, showSearch?: boolean, style?: React.CSSProperties } | - | 5.7.0 |
 | slider | 设置 Slider 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [SliderProps\["classNames"\]](/components/slider-cn#api), styles?: [SliderProps\["styles"\]](/components/slider-cn#api) } | - | 5.7.0, `classNames` 和 `styles`: 5.23.0 |
