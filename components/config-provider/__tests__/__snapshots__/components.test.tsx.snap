@@ -21040,7 +21040,7 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
     Bamboo
   </span>
   <div
-    class="config-popover config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-popconfirm config-popover-placement-top"
+    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popconfirm config-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
@@ -21128,7 +21128,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentDisabled 1
     Bamboo
   </span>
   <div
-    class="config-popover config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-popconfirm config-popover-placement-top"
+    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popconfirm config-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
@@ -21218,7 +21218,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
     Bamboo
   </span>
   <div
-    class="config-popover config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-popconfirm config-popover-placement-top"
+    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popconfirm config-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
@@ -21306,7 +21306,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize middl
     Bamboo
   </span>
   <div
-    class="config-popover config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-popconfirm config-popover-placement-top"
+    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popconfirm config-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
@@ -21394,7 +21394,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize small
     Bamboo
   </span>
   <div
-    class="config-popover config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-popconfirm config-popover-placement-top"
+    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popconfirm config-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
@@ -21482,7 +21482,7 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
     Bamboo
   </span>
   <div
-    class="ant-popover ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-popconfirm ant-popover-placement-top"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
@@ -21570,7 +21570,7 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
     Bamboo
   </span>
   <div
-    class="ant-popover ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast prefix-Popconfirm ant-popover-placement-top"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big prefix-Popconfirm ant-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
@@ -21658,7 +21658,7 @@ exports[`ConfigProvider components Popover configProvider 1`] = `
     Light
   </span>
   <div
-    class="config-popover config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-popover-placement-top"
+    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
@@ -21687,7 +21687,7 @@ exports[`ConfigProvider components Popover configProvider componentDisabled 1`] 
     Light
   </span>
   <div
-    class="config-popover config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-popover-placement-top"
+    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
@@ -21716,7 +21716,7 @@ exports[`ConfigProvider components Popover configProvider componentSize large 1`
     Light
   </span>
   <div
-    class="config-popover config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-popover-placement-top"
+    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
@@ -21745,7 +21745,7 @@ exports[`ConfigProvider components Popover configProvider componentSize middle 1
     Light
   </span>
   <div
-    class="config-popover config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-popover-placement-top"
+    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
@@ -21774,7 +21774,7 @@ exports[`ConfigProvider components Popover configProvider componentSize small 1`
     Light
   </span>
   <div
-    class="config-popover config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-popover-placement-top"
+    class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
@@ -21803,7 +21803,7 @@ exports[`ConfigProvider components Popover normal 1`] = `
     Light
   </span>
   <div
-    class="ant-popover ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-popover-placement-top"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
@@ -21832,7 +21832,7 @@ exports[`ConfigProvider components Popover prefixCls 1`] = `
     Light
   </span>
   <div
-    class="prefix-Popover ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast prefix-Popover-placement-top"
+    class="prefix-Popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big prefix-Popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div

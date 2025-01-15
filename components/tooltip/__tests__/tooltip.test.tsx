@@ -344,6 +344,7 @@ describe('Tooltip', () => {
         const { container } = render(
           <Tooltip
             title="xxxxx"
+            motion={{ motionName: '' }}
             mouseEnterDelay={0}
             placement={placement}
             autoAdjustOverflow={false}
