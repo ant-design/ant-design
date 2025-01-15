@@ -159,7 +159,7 @@ const genRoundButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
 
 const genDisabledStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   cursor: 'not-allowed',
-  borderColor: token.borderColorDisabled,
+  borderColor: token.colorBorderDisabled,
   color: token.colorTextDisabled,
   background: token.colorBgContainerDisabled,
   boxShadow: 'none',
@@ -171,7 +171,7 @@ const genGhostButtonStyle = (
   textColor: string | false,
   borderColor: string | false,
   textColorDisabled: string | false,
-  borderColorDisabled: string | false,
+  colorBorderDisabled: string | false,
   hoverStyle?: CSSObject,
   activeStyle?: CSSObject,
 ): CSSObject => ({
@@ -196,7 +196,7 @@ const genGhostButtonStyle = (
     '&:disabled': {
       cursor: 'not-allowed',
       color: textColorDisabled || undefined,
-      borderColor: borderColorDisabled || undefined,
+      borderColor: colorBorderDisabled || undefined,
     },
   },
 });
