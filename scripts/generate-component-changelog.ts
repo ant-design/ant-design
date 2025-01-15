@@ -133,6 +133,20 @@ const miscKeys = [
         lastReleaseDate = matchReleaseDate[1];
       }
 
+      // Get Contributor name
+      const contributors: string[] = [];
+      const usernameMatches = line.match(/\[@([^\]]+)\]/g);
+
+      if (usernameMatches) {
+        usernameMatches.forEach((match) => {
+          const usernameMatch = match.match(/\[@([^\]]+)\]/);
+          if (usernameMatch) {
+            const username = usernameMatch[1];
+            contributors.push(username);
+          }
+        });
+      }
+
       // Start when get version
       if (!lastVersion) {
         continue;
@@ -157,7 +171,6 @@ const miscKeys = [
       // Collect Components
       let matched = false;
       const refs: string[] = [];
-      const contributors: string[] = [];
 
       let changelogLine = line.trim().replace('- ', '');
       changelogLine = changelogLine
@@ -165,13 +178,6 @@ const miscKeys = [
           const [, title, ref] = match;
           if (/\/(pull|issues|commit)\//.test(ref)) {
             refs.push(ref);
-          }
-
-          // Get Contributor name
-          const usernameMatch = line.match(/\[@([^\]]+)\]/);
-          if (usernameMatch) {
-            const username = usernameMatch[1];
-            contributors.push(username);
           }
 
           if (title && (title[0] === '#' || title[0] === '@')) {
