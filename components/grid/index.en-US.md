@@ -72,17 +72,17 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | flex | Flex layout style | string \| number | - |  |
-| offset | The number of cells to offset Col from the left | number | 0 |  |
-| order | Raster order | number | 0 |  |
-| pull | The number of cells that raster is moved to the left | number | 0 |  |
-| push | The number of cells that raster is moved to the right | number | 0 |  |
-| span | Raster number of cells to occupy, 0 corresponds to `display: none` | number | none |  |
-| xs | `screen < 576px` and also default setting, could be a `span` value or an object containing above props | number \| object | - |  |
-| sm | `screen ≥ 576px`, could be a `span` value or an object containing above props | number \| object | - |  |
-| md | `screen ≥ 768px`, could be a `span` value or an object containing above props | number \| object | - |  |
-| lg | `screen ≥ 992px`, could be a `span` value or an object containing above props | number \| object | - |  |
-| xl | `screen ≥ 1200px`, could be a `span` value or an object containing above props | number \| object | - |  |
-| xxl | `screen ≥ 1600px`, could be a `span` value or an object containing above props | number \| object | - |  |
+| offset | The number of cells to offset Col from the left | string \| number | 0 |  |
+| order | Raster order | string \| number | 0 |  |
+| pull | The number of cells that raster is moved to the left | string \| number | 0 |  |
+| push | The number of cells that raster is moved to the right | string \| number | 0 |  |
+| span | Raster number of cells to occupy, 0 corresponds to `display: none` | string \| number | none |  |
+| xs | `screen < 576px` and also default setting, could be a `span` value or an object containing above props | string \| number \| object | - |  |
+| sm | `screen ≥ 576px`, could be a `span` value or an object containing above props | string \| number \| object | - |  |
+| md | `screen ≥ 768px`, could be a `span` value or an object containing above props | string \| number \| object | - |  |
+| lg | `screen ≥ 992px`, could be a `span` value or an object containing above props | string \| number \| object | - |  |
+| xl | `screen ≥ 1200px`, could be a `span` value or an object containing above props | string \| number \| object | - |  |
+| xxl | `screen ≥ 1600px`, could be a `span` value or an object containing above props | string \| number \| object | - |  |
 
 You can modify the breakpoints values using by modifying `screen[XS|SM|MD|LG|XL|XXL]` with [theme customization](/docs/react/customize-theme) (since 5.1.0, [sandbox demo](https://codesandbox.io/s/antd-reproduction-template-forked-dlq3r9?file=/index.js)).
 
