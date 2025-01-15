@@ -161,15 +161,30 @@ const ParseChangelog: React.FC<{ changelog: string }> = (props) => {
   return <span>{parsedChangelog}</span>;
 };
 
-const RefLinks: React.FC<{ refs: string[]; contributors: string[] }> = ({ refs }) => {
+const RefLinks: React.FC<{ refs: string[]; contributors: string[] }> = ({ refs, contributors }) => {
   const { styles } = useStyle();
 
   return (
     <>
       {refs?.map((ref) => (
-        <a className={styles.linkRef} key={ref} href={ref} target="_blank" rel="noreferrer">
-          #{ref.match(/[^/]+$/)?.[0]}
-        </a>
+        <React.Fragment key={ref}>
+          <a className={styles.linkRef} key={ref} href={ref} target="_blank" rel="noreferrer">
+            #{ref.match(/[^/]+$/)?.[0]}
+          </a>
+        </React.Fragment>
+      ))}
+      {contributors?.map((contributor) => (
+        <React.Fragment key={contributor}>
+          <a
+            className={styles.linkRef}
+            key={contributor}
+            href={`https://github.com/${contributor}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            @{contributor}
+          </a>
+        </React.Fragment>
       ))}
     </>
   );
