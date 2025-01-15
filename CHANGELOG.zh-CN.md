@@ -1778,7 +1778,7 @@ tag: vVERSION
 - ⌨️ 增强 Progress 可访问性表现，添加 `aria` 属性。[#42704](https://github.com/ant-design/ant-design/pull/42704) [@MehmetYararVX](https://github.com/MehmetYararVX)
 - ⌨️ Notification 添加 `role` 属性。[#42484](https://github.com/ant-design/ant-design/pull/42484) [@guan404ming](https://github.com/guan404ming)
 - 🛠 Collapse 使用 `onKeyDown` 替代 `onKeyPress` 来改变折叠面板的激活状态。[#42592](https://github.com/ant-design/ant-design/pull/42592) [@kiner-tang](https://github.com/kiner-tang)
-- 🛠 使用 `@rc-component/trigger` 重构 Menu 组件。移除 `rc-/trigger` 依赖，缩小打包体积。[#42554](https://github.com/ant-design/ant-design/pull/42554)
+- 🛠 使用 `@rc-component/trigger` 重构 Menu 组件。移除 `rc-trigger` 依赖，缩小打包体积。[#42554](https://github.com/ant-design/ant-design/pull/42554)
 - 🛠 Table 组件将 `sorterOrder` 重命名为 `sortOrder` 用于 `sortIcon` 的参数。[#42519](https://github.com/ant-design/ant-design/pull/42519) [@sawadyecma](https://github.com/sawadyecma)
 - 组件 Token 迁移，更多详情请查看文档：[迁移 less 变量](/docs/react/migrate-less-variables-cn)
   - 🛠 使用新的命名标准重命名 Menu 组件 token。[#42848](https://github.com/ant-design/ant-design/pull/42848)
