@@ -1065,7 +1065,9 @@ exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1
       />
     </span>
     <span>
-      A
+      <span>
+        A
+      </span>
     </span>
   </label>
   <label
@@ -1085,7 +1087,9 @@ exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1
       />
     </span>
     <span>
-      B
+      <span>
+        B
+      </span>
     </span>
   </label>
   <label
@@ -1105,7 +1109,9 @@ exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1
       />
     </span>
     <span>
-      C
+      <span>
+        C
+      </span>
     </span>
   </label>
   <label
@@ -1125,7 +1131,9 @@ exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1
       />
     </span>
     <span>
-      D
+      <span>
+        D
+      </span>
     </span>
   </label>
 </div>
