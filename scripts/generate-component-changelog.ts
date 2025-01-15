@@ -144,7 +144,7 @@ const miscKeys = [
       }
 
       // Filter not is changelog
-      if (!line.trim().startsWith('-') && !line.includes('github.')) {
+      if (!line.trim().startsWith('-') && !line.includes('github.') && !line.includes('img')) {
         continue;
       }
 
@@ -156,7 +156,7 @@ const miscKeys = [
       changelogLine = changelogLine
         .replace(/\[([^\]]+)]\(([^)]+)\)/g, (...match) => {
           const [, title, ref] = match;
-          if (/\/(pull|issues)\//.test(ref)) {
+          if (/\/(pull|issues|commit)\//.test(ref)) {
             refs.push(ref);
           }
 

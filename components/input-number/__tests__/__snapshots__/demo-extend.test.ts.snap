@@ -3250,7 +3250,9 @@ exports[`renders components/input-number/demo/keyboard.tsx extend context correc
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Toggle keyboard
       </span>
     </label>

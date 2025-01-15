@@ -1,5 +1,5 @@
 import React from 'react';
-import { CopyOutlined } from '@ant-design/icons';
+import { SearchOutlined } from '@ant-design/icons';
 import {
   AutoComplete,
   Button,
@@ -78,8 +78,8 @@ const App: React.FC = () => (
         style={{ width: 'calc(100% - 200px)' }}
         defaultValue="git@github.com:ant-design/ant-design.git"
       />
-      <Tooltip title="copy git url">
-        <Button icon={<CopyOutlined />} />
+      <Tooltip title="search git url">
+        <Button icon={<SearchOutlined />} />
       </Tooltip>
     </Input.Group>
     <br />

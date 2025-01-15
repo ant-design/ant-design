@@ -265,6 +265,10 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           display: 'inline-flex',
           alignItems: 'center',
           justifyContent: 'center',
+
+          '&:empty': {
+            display: 'none',
+          },
         },
 
         '> button': {
