@@ -350,7 +350,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       afterVisibleChange={afterOpenChange ?? afterVisibleChange}
       arrowContent={<span className={`${prefixCls}-arrow-content`} />}
       motion={{
-        motionName: getTransitionName(rootPrefixCls, 'zoom-big-fast', props.transitionName),
+        motionName: getTransitionName(rootPrefixCls, 'zoom-big-fast'),
         motionDeadline: 1000,
       }}
       destroyTooltipOnHide={!!destroyTooltipOnHide}

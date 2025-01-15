@@ -1778,7 +1778,7 @@ tag: vVERSION
 - ⌨️ Improve Progress accessibility by adding more `aria` props. [#42704](https://github.com/ant-design/ant-design/pull/42704) [@MehmetYararVX](https://github.com/MehmetYararVX)
 - ⌨️ Notification add role `props`. [#42484](https://github.com/ant-design/ant-design/pull/42484) [@guan404ming](https://github.com/guan404ming)
 - 🛠 Collapse use `onKeyDown` instead of `onKeyPress` to change collapse panel active state. [#42592](https://github.com/ant-design/ant-design/pull/42592) [@kiner-tang](https://github.com/kiner-tang)
-- 🛠 Refactor Menu with `@rc-component/trigger`. Remove `@rc-component/trigger` and reduce bundle size. [#42554](https://github.com/ant-design/ant-design/pull/42554)
+- 🛠 Refactor Menu with `@rc-component/trigger`. Remove `rc-/trigger` and reduce bundle size. [#42554](https://github.com/ant-design/ant-design/pull/42554)
 - 🛠 Table rename `sorterOrder` to `sortOrder` for argument of `sortIcon`. [#42519](https://github.com/ant-design/ant-design/pull/42519) [@sawadyecma](https://github.com/sawadyecma)
 - Component Token Migration. For more info: [Migrate less variables](/docs/react/migrate-less-variables)
   - 🛠 Rename Menu component token with new naming standard. [#42848](https://github.com/ant-design/ant-design/pull/42848)

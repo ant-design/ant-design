@@ -5,7 +5,6 @@ import classNames from 'classnames';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
-import { getTransitionName } from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
@@ -44,7 +43,6 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
 
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
-  const rootPrefixCls = getPrefixCls();
 
   const rootClassNames = classNames(
     overlayClassName,
@@ -110,7 +108,6 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
           <Overlay prefixCls={prefixCls} title={titleNode} content={contentNode} />
         ) : null
       }
-      transitionName={getTransitionName(rootPrefixCls, 'zoom-big', otherProps.transitionName)}
       data-popover-inject
     >
       {cloneElement(children, {
