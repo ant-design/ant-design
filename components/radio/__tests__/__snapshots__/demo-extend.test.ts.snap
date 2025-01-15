@@ -1348,108 +1348,89 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
 exports[`renders components/radio/demo/radiogroup-more.tsx extend context correctly 1`] = `
 <div
   class="ant-radio-group ant-radio-group-outline"
+  style="display: flex; flex-direction: column; gap: 16px;"
 >
-  <div
-    class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  <label
+    class="ant-radio-wrapper ant-radio-wrapper-checked"
   >
-    <div
-      class="ant-space-item"
+    <span
+      class="ant-radio ant-wave-target ant-radio-checked"
     >
-      <label
-        class="ant-radio-wrapper ant-radio-wrapper-checked"
-      >
-        <span
-          class="ant-radio ant-wave-target ant-radio-checked"
-        >
-          <input
-            checked=""
-            class="ant-radio-input"
-            name="test-id"
-            type="radio"
-            value="1"
-          />
-          <span
-            class="ant-radio-inner"
-          />
-        </span>
-        <span>
-          Option A
-        </span>
-      </label>
-    </div>
-    <div
-      class="ant-space-item"
+      <input
+        checked=""
+        class="ant-radio-input"
+        name="test-id"
+        type="radio"
+        value="1"
+      />
+      <span
+        class="ant-radio-inner"
+      />
+    </span>
+    <span>
+      Option A
+    </span>
+  </label>
+  <label
+    class="ant-radio-wrapper"
+  >
+    <span
+      class="ant-radio ant-wave-target"
     >
-      <label
-        class="ant-radio-wrapper"
-      >
-        <span
-          class="ant-radio ant-wave-target"
-        >
-          <input
-            class="ant-radio-input"
-            name="test-id"
-            type="radio"
-            value="2"
-          />
-          <span
-            class="ant-radio-inner"
-          />
-        </span>
-        <span>
-          Option B
-        </span>
-      </label>
-    </div>
-    <div
-      class="ant-space-item"
+      <input
+        class="ant-radio-input"
+        name="test-id"
+        type="radio"
+        value="2"
+      />
+      <span
+        class="ant-radio-inner"
+      />
+    </span>
+    <span>
+      Option B
+    </span>
+  </label>
+  <label
+    class="ant-radio-wrapper"
+  >
+    <span
+      class="ant-radio ant-wave-target"
     >
-      <label
-        class="ant-radio-wrapper"
-      >
-        <span
-          class="ant-radio ant-wave-target"
-        >
-          <input
-            class="ant-radio-input"
-            name="test-id"
-            type="radio"
-            value="3"
-          />
-          <span
-            class="ant-radio-inner"
-          />
-        </span>
-        <span>
-          Option C
-        </span>
-      </label>
-    </div>
-    <div
-      class="ant-space-item"
+      <input
+        class="ant-radio-input"
+        name="test-id"
+        type="radio"
+        value="3"
+      />
+      <span
+        class="ant-radio-inner"
+      />
+    </span>
+    <span>
+      Option C
+    </span>
+  </label>
+  <label
+    class="ant-radio-wrapper"
+  >
+    <span
+      class="ant-radio ant-wave-target"
     >
-      <label
-        class="ant-radio-wrapper"
-      >
-        <span
-          class="ant-radio ant-wave-target"
-        >
-          <input
-            class="ant-radio-input"
-            name="test-id"
-            type="radio"
-            value="4"
-          />
-          <span
-            class="ant-radio-inner"
-          />
-        </span>
-        <span>
-          More...
-        </span>
-      </label>
-    </div>
-  </div>
+      <input
+        class="ant-radio-input"
+        name="test-id"
+        type="radio"
+        value="4"
+      />
+      <span
+        class="ant-radio-inner"
+      />
+    </span>
+    <span>
+      More...
+    </span>
+  </label>
 </div>
 `;
 
