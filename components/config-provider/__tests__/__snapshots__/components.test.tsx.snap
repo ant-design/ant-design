@@ -12252,7 +12252,7 @@ exports[`ConfigProvider components Collapse configProvider 1`] = `
         </span>
       </div>
       <span
-        class="config-collapse-header-text"
+        class="config-collapse-title"
       >
         Bamboo
       </span>
@@ -12299,7 +12299,7 @@ exports[`ConfigProvider components Collapse configProvider componentDisabled 1`]
         </span>
       </div>
       <span
-        class="config-collapse-header-text"
+        class="config-collapse-title"
       >
         Bamboo
       </span>
@@ -12346,7 +12346,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize large 1
         </span>
       </div>
       <span
-        class="config-collapse-header-text"
+        class="config-collapse-title"
       >
         Bamboo
       </span>
@@ -12393,7 +12393,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize middle 
         </span>
       </div>
       <span
-        class="config-collapse-header-text"
+        class="config-collapse-title"
       >
         Bamboo
       </span>
@@ -12440,7 +12440,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize small 1
         </span>
       </div>
       <span
-        class="config-collapse-header-text"
+        class="config-collapse-title"
       >
         Bamboo
       </span>
@@ -12487,7 +12487,7 @@ exports[`ConfigProvider components Collapse normal 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         Bamboo
       </span>
@@ -12534,7 +12534,7 @@ exports[`ConfigProvider components Collapse prefixCls 1`] = `
         </span>
       </div>
       <span
-        class="prefix-Collapse-header-text"
+        class="prefix-Collapse-title"
       >
         Bamboo
       </span>
@@ -29557,12 +29557,12 @@ exports[`ConfigProvider components Tags configProvider 1`] = `
 exports[`ConfigProvider components Tags configProvider componentDisabled 1`] = `
 <div>
   <span
-    class="config-tag"
+    class="config-tag config-tag-disabled"
   >
     Bamboo
   </span>
   <span
-    class="config-tag config-tag-checkable"
+    class="config-tag config-tag-checkable config-tag-checkable-disabled"
   >
     Light
   </span>

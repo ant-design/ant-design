@@ -38,7 +38,7 @@ const genPresetsStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
         flexDirection: 'column',
         gap: marginXXS,
       },
-      [`${antCls}-collapse-item > ${antCls}-collapse-content > ${antCls}-collapse-content-box`]: {
+      [`${antCls}-collapse-item > ${antCls}-collapse-panel > ${antCls}-collapse-body`]: {
         padding: `${unit(paddingXS)} 0`,
       },
       '&-label': {
