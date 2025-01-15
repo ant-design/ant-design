@@ -1,4 +1,5 @@
 import React from 'react';
+import { CaretLeftOutlined, CaretRightOutlined, ColumnWidthOutlined } from '@ant-design/icons';
 import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 import type { GetProps, SplitterProps } from 'antd';
 import { ConfigProvider, Splitter } from 'antd';
@@ -49,6 +50,7 @@ describe('Splitter', () => {
     containerSize = 100;
     errSpy.mockReset();
     resetWarned();
+    jest.useFakeTimers();
   });
 
   afterEach(() => {
@@ -594,5 +596,44 @@ describe('Splitter', () => {
 
     fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
     expect(onResize).toHaveBeenCalledWith([0, 200]);
+  });
+
+  // ============================= customize =============================
+  describe('customize', () => {
+    it('customize draggerIcon', () => {
+      const { container } = render(
+        <SplitterDemo draggerIcon={<ColumnWidthOutlined className="customize-dragger-icon" />} />,
+      );
+      const draggerEle = container.querySelector('.ant-splitter-bar-dragger')!;
+
+      expect(draggerEle).toHaveClass('ant-splitter-bar-dragger-customize');
+      expect(draggerEle.querySelector('.ant-splitter-bar-dragger-icon')).toBeTruthy();
+      expect(draggerEle.querySelector('.customize-dragger-icon')).toBeTruthy();
+    });
+
+    it('customize collapsibleIcon', async () => {
+      const { container } = render(
+        <SplitterDemo
+          items={[{ size: 20, collapsible: true }, { collapsible: true }]}
+          collapsibleIcon={{
+            start: <CaretLeftOutlined className="customize-icon-start" />,
+            end: <CaretRightOutlined className="customize-icon-end" />,
+          }}
+        />,
+      );
+
+      await resizeSplitter();
+      const startEle = container.querySelector('.ant-splitter-bar-collapse-bar-start')!;
+      const endEle = container.querySelector('.ant-splitter-bar-collapse-bar-end')!;
+
+      expect(startEle).toHaveClass('ant-splitter-bar-collapse-bar-customize');
+      expect(endEle).toHaveClass('ant-splitter-bar-collapse-bar-customize');
+
+      expect(startEle.querySelector('.customize-icon-start')).toBeTruthy();
+      expect(endEle.querySelector('.customize-icon-end')).toBeTruthy();
+
+      expect(startEle).toHaveStyle({ background: 'transparent' });
+      expect(endEle).toHaveStyle({ background: 'transparent' });
+    });
   });
 });

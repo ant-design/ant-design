@@ -38,6 +38,7 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     overlayStyle = {},
     styles,
     classNames: popoverClassNames,
+    motion,
     ...otherProps
   } = props;
   const { popover, getPrefixCls } = React.useContext(ConfigContext);
@@ -110,7 +111,13 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
           <Overlay prefixCls={prefixCls} title={titleNode} content={contentNode} />
         ) : null
       }
-      transitionName={getTransitionName(rootPrefixCls, 'zoom-big', otherProps.transitionName)}
+      motion={{
+        motionName: getTransitionName(
+          rootPrefixCls,
+          'zoom-big',
+          typeof motion?.motionName === 'string' ? motion?.motionName : undefined,
+        ),
+      }}
       data-popover-inject
     >
       {cloneElement(children, {
