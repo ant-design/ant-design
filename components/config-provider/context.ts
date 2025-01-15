@@ -134,7 +134,8 @@ export interface ImageConfig extends ComponentStyleConfig {
   preview?: Partial<Record<'closeIcon', React.ReactNode>>;
 }
 
-export type CollapseConfig = ComponentStyleConfig & Pick<CollapseProps, 'expandIcon'>;
+export type CollapseConfig = ComponentStyleConfig &
+  Pick<CollapseProps, 'expandIcon' | 'classNames' | 'styles'>;
 
 export type MenuConfig = ComponentStyleConfig & Pick<MenuProps, 'expandIcon'>;
 
