@@ -101,7 +101,13 @@ const miscKeys = [
     // Changelog map
     const componentChangelog: Record<
       string,
-      { version: string; changelog: string; refs: string[]; releaseDate: string }[]
+      {
+        version: string;
+        changelog: string;
+        refs: string[];
+        releaseDate: string;
+        contributors: string[];
+      }[]
     > = {};
     Object.keys(componentNameMap).forEach((name) => {
       componentChangelog[name] = [];
@@ -151,6 +157,7 @@ const miscKeys = [
       // Collect Components
       let matched = false;
       const refs: string[] = [];
+      const contributors: string[] = [];
 
       let changelogLine = line.trim().replace('- ', '');
       changelogLine = changelogLine
@@ -158,6 +165,13 @@ const miscKeys = [
           const [, title, ref] = match;
           if (/\/(pull|issues|commit)\//.test(ref)) {
             refs.push(ref);
+          }
+
+          // Get Contributor name
+          const usernameMatch = line.match(/\[@([^\]]+)\]/);
+          if (usernameMatch) {
+            const username = usernameMatch[1];
+            contributors.push(username);
           }
 
           if (title && (title[0] === '#' || title[0] === '@')) {
@@ -184,6 +198,7 @@ const miscKeys = [
             changelog: changelogLine,
             refs,
             releaseDate: lastReleaseDate,
+            contributors,
           });
           matched = true;
         }

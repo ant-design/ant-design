@@ -20,6 +20,7 @@ interface ChangelogInfo {
   version: string;
   changelog: string;
   refs: string[];
+  contributors: string[];
   releaseDate: string;
 }
 
@@ -160,8 +161,9 @@ const ParseChangelog: React.FC<{ changelog: string }> = (props) => {
   return <span>{parsedChangelog}</span>;
 };
 
-const RefLinks: React.FC<{ refs: string[] }> = ({ refs }) => {
+const RefLinks: React.FC<{ refs: string[]; contributors: string[] }> = ({ refs }) => {
   const { styles } = useStyle();
+
   return (
     <>
       {refs?.map((ref) => (
@@ -178,7 +180,7 @@ const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[] }> = ({ cha
   const { styles } = useStyle();
   const len = changelogList.length;
   for (let i = 0; i < len; i += 1) {
-    const { refs, changelog } = changelogList[i];
+    const { refs, changelog, contributors } = changelogList[i];
     // Check if the next line is an image link and append it to the current line
     if (i + 1 < len && changelogList[i + 1].changelog.trim().startsWith('<img')) {
       const imgDom = new DOMParser().parseFromString(changelogList[i + 1].changelog, 'text/html');
@@ -186,7 +188,7 @@ const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[] }> = ({ cha
       elements.push(
         <li key={i}>
           <ParseChangelog changelog={changelog} />
-          <RefLinks refs={refs} />
+          <RefLinks refs={refs} contributors={contributors} />
           <br />
           <img
             src={imgElement?.getAttribute('src') || ''}
@@ -200,7 +202,7 @@ const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[] }> = ({ cha
       elements.push(
         <li key={i}>
           <ParseChangelog changelog={changelog} />
-          <RefLinks refs={refs} />
+          <RefLinks refs={refs} contributors={contributors} />
         </li>,
       );
     }
