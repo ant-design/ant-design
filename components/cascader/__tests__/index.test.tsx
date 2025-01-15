@@ -531,7 +531,7 @@ describe('Cascader', () => {
     const { container } = render(<Cascader options={options} direction="rtl" />);
     toggleOpen(container);
 
-    // Inject in tests/__mocks__/@rc-component/trigger.js
+    // Inject in tests/__mocks__/@rc-component/trigger.tsx
     expect((global as any).triggerProps.popupPlacement).toEqual('bottomRight');
   });
 
