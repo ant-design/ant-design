@@ -1,6 +1,6 @@
 import React from 'react';
+import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 import { render } from '@testing-library/react';
-import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 
 import { resetWarned } from '../../_util/warning';
 import { createEvent, fireEvent } from '../../../tests/utils';

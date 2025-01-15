@@ -5,8 +5,9 @@ import Modal from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { createEvent, fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
-jest.mock('rc-util/lib/Portal');
+jest.mock('@rc-component/util/lib/Portal');
 
 const ModalTester: React.FC<ModalProps> = (props) => {
   const [open, setOpen] = React.useState(false);
@@ -192,5 +193,28 @@ describe('Modal', () => {
       '--ant-modal-xl-width': '50%',
       '--ant-modal-xxl-width': '40%',
     });
+  });
+
+  it('Should support centered prop', () => {
+    render(<Modal open centered />);
+    expect(document.querySelector('.ant-modal-centered')).toBeTruthy();
+  });
+
+  it('Should support centered global config', () => {
+    render(
+      <ConfigProvider modal={{ centered: true }}>
+        <Modal open />
+      </ConfigProvider>,
+    );
+    expect(document.querySelector('.ant-modal-centered')).toBeTruthy();
+  });
+
+  it('Should prefer centered prop over centered global config', () => {
+    render(
+      <ConfigProvider modal={{ centered: true }}>
+        <Modal open centered={false} />
+      </ConfigProvider>,
+    );
+    expect(document.querySelector('.ant-modal-centered')).toBeFalsy();
   });
 });

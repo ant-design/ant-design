@@ -1,11 +1,11 @@
 import * as React from 'react';
+import { FastColor } from '@ant-design/fast-color';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import { FastColor } from '@ant-design/fast-color';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
 
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -30,8 +30,6 @@ export interface PercentPositionType {
 
 export interface SuccessProps {
   percent?: number;
-  /** @deprecated Use `percent` instead */
-  progress?: number;
   strokeColor?: string;
 }
 
@@ -58,8 +56,6 @@ export interface ProgressProps extends ProgressAriaProps {
   gapPosition?: 'top' | 'bottom' | 'left' | 'right';
   size?: number | [number | string, number] | ProgressSize | { width?: number; height?: number };
   steps?: number | { count: number; gap: number };
-  /** @deprecated Use `success` instead */
-  successPercent?: number;
   percentPosition?: PercentPositionType;
   children?: React.ReactNode;
 }
@@ -103,7 +99,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
       successPercent !== undefined ? (successPercent ?? 0)?.toString() : (percent ?? 0)?.toString(),
       10,
     );
-  }, [percent, props.success, props.successPercent]);
+  }, [percent, props.success]);
 
   const progressStatus = React.useMemo<(typeof ProgressStatuses)[number]>(() => {
     if (!ProgressStatuses.includes(status!) && percentNumber >= 100) {
@@ -159,7 +155,6 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Progress');
 
-    warning.deprecated(!('successPercent' in props), 'successPercent', 'success.percent');
     warning.deprecated(!('width' in props), 'width', 'size');
 
     if (type === 'circle' || type === 'dashboard') {
@@ -176,10 +171,6 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
           'Type "circle" and "dashboard" do not accept object as `size`, please use number or preset size instead.',
         );
       }
-    }
-
-    if (props.success && 'progress' in props.success) {
-      warning.deprecated(false, 'success.progress', 'success.percent');
     }
   }
 
@@ -260,7 +251,6 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
         'gapPosition',
         'strokeLinecap',
         'success',
-        'successPercent',
       ])}
     >
       {progress}

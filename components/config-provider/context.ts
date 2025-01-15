@@ -43,6 +43,7 @@ import type { TreeSelectProps } from '../tree-select';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import type { StatisticProps } from '../statistic';
 import type { SkeletonProps } from '../skeleton';
+import type { RibbonProps } from '../badge/Ribbon';
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
 
@@ -135,7 +136,8 @@ export interface ImageConfig extends ComponentStyleConfig {
   preview?: Partial<Record<'closeIcon', React.ReactNode>>;
 }
 
-export type CollapseConfig = ComponentStyleConfig & Pick<CollapseProps, 'expandIcon'>;
+export type CollapseConfig = ComponentStyleConfig &
+  Pick<CollapseProps, 'expandIcon' | 'classNames' | 'styles'>;
 
 export type MenuConfig = ComponentStyleConfig & Pick<MenuProps, 'expandIcon'>;
 
@@ -147,7 +149,7 @@ export type DescriptionsConfig = ComponentStyleConfig &
 export type EmptyConfig = ComponentStyleConfig & Pick<EmptyProps, 'classNames' | 'styles'>;
 
 export type ModalConfig = ComponentStyleConfig &
-  Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon' | 'closable'>;
+  Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon' | 'closable' | 'centered'>;
 
 export type TabsConfig = ComponentStyleConfig &
   Pick<TabsProps, 'indicator' | 'indicatorSize' | 'more' | 'moreIcon' | 'addIcon' | 'removeIcon'>;
@@ -221,6 +223,8 @@ export type RangePickerConfig = ComponentStyleConfig & Pick<RangePickerProps, 'v
 export type TimePickerConfig = ComponentStyleConfig & Pick<TimePickerProps, 'variant'>;
 
 export type MentionsConfig = ComponentStyleConfig & Pick<MentionsProps, 'variant'>;
+
+export type RibbonConfig = ComponentStyleConfig & Pick<RibbonProps, 'classNames' | 'styles'>;
 
 export type PopupOverflow = 'viewport' | 'scroll';
 
@@ -328,6 +332,7 @@ export interface ConfigConsumerProps {
   colorPicker?: ComponentStyleConfig;
   datePicker?: DatePickerConfig;
   rangePicker?: RangePickerConfig;
+  ribbon?: RibbonConfig;
   dropdown?: ComponentStyleConfig;
   flex?: FlexConfig;
   wave?: WaveConfig;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import RcCollapse from 'rc-collapse';
+import RcCollapse from '@rc-component/collapse';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
+import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 
 import Tour from '..';
 import mountTest from '../../../tests/shared/mountTest';

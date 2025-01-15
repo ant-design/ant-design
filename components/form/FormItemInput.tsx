@@ -1,8 +1,8 @@
 import * as React from 'react';
 import type { JSX } from 'react';
+import { get, set } from '@rc-component/util';
+import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import classNames from 'classnames';
-import { get, set } from 'rc-util';
-import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
 import type { ColProps } from '../grid/col';
 import Col from '../grid/col';

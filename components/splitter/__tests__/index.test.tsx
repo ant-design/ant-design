@@ -1,7 +1,7 @@
 import React from 'react';
+import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 import type { GetProps, SplitterProps } from 'antd';
 import { ConfigProvider, Splitter } from 'antd';
-import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 
 import { resetWarned } from '../../_util/warning';
 import {
@@ -475,7 +475,7 @@ describe('Splitter', () => {
       expectClick(container.querySelector('.ant-splitter-bar-collapse-start')!, [50, 50]);
     });
 
-    it('collapsible with min', async () => {
+    it('collapsible with cache', async () => {
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
@@ -509,8 +509,55 @@ describe('Splitter', () => {
       onResize.mockReset();
       onResizeEnd.mockReset();
       fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-end')!);
-      expect(onResize).toHaveBeenCalledWith([5, 95]);
-      expect(onResizeEnd).toHaveBeenCalledWith([5, 95]);
+      expect(onResize).toHaveBeenCalledWith([20, 80]);
+      expect(onResizeEnd).toHaveBeenCalledWith([20, 80]);
+      expect(container.querySelector('.ant-splitter-bar-dragger-disabled')).toBeFalsy();
+
+      // Collapse right
+      onResize.mockReset();
+      onResizeEnd.mockReset();
+      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-end')!);
+      expect(onResize).toHaveBeenCalledWith([100, 0]);
+      expect(onResizeEnd).toHaveBeenCalledWith([100, 0]);
+      expect(container.querySelector('.ant-splitter-bar-dragger-disabled')).toBeTruthy();
+    });
+
+    it('collapsible with fallback', async () => {
+      const onResize = jest.fn();
+      const onResizeEnd = jest.fn();
+
+      const { container } = render(
+        <SplitterDemo
+          items={[
+            {
+              defaultSize: 10,
+              collapsible: true,
+              min: 15,
+            },
+            {
+              collapsible: true,
+              min: '80%',
+            },
+          ]}
+          onResize={onResize}
+          onResizeEnd={onResizeEnd}
+        />,
+      );
+
+      await resizeSplitter();
+
+      // Collapse left
+      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
+      expect(onResize).toHaveBeenCalledWith([0, 100]);
+      expect(onResizeEnd).toHaveBeenCalledWith([0, 100]);
+      expect(container.querySelector('.ant-splitter-bar-dragger-disabled')).toBeTruthy();
+
+      // Collapse back
+      onResize.mockReset();
+      onResizeEnd.mockReset();
+      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-end')!);
+      expect(onResize).toHaveBeenCalledWith([2.5, 97.5]);
+      expect(onResizeEnd).toHaveBeenCalledWith([2.5, 97.5]);
       expect(container.querySelector('.ant-splitter-bar-dragger-disabled')).toBeFalsy();
 
       // Collapse right

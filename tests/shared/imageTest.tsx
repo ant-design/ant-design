@@ -2,13 +2,13 @@ import path from 'path';
 import React from 'react';
 // Reference: https://github.com/ant-design/ant-design/pull/24003#discussion_r427267386
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+import rcWarning from '@rc-component/util/lib/warning';
 import { extractStaticStyle } from 'antd-style';
 import dayjs from 'dayjs';
 import fse from 'fs-extra';
 import { globSync } from 'glob';
 import { JSDOM } from 'jsdom';
 import MockDate from 'mockdate';
-import rcWarning from 'rc-util/lib/warning';
 import type { HTTPRequest } from 'puppeteer';
 import ReactDOMServer from 'react-dom/server';
 

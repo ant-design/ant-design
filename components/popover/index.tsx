@@ -1,7 +1,7 @@
 import * as React from 'react';
+import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
+import KeyCode from '@rc-component/util/lib/KeyCode';
 import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import KeyCode from 'rc-util/lib/KeyCode';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';

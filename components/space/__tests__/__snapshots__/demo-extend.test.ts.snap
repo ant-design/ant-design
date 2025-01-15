@@ -226,6 +226,7 @@ exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
@@ -246,6 +247,7 @@ exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -402,6 +404,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         value="git@github.com:ant-design/ant-design.git"
       />
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
@@ -442,6 +445,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             copy git url
@@ -8581,7 +8585,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         </div>
                         <div
                           aria-expanded="false"
-                          class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-selected"
+                          class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-selected ant-select-tree-treenode-leaf"
                           draggable="false"
                           role="treeitem"
                         >
@@ -8612,7 +8616,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         </div>
                         <div
                           aria-expanded="false"
-                          class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
+                          class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                           draggable="false"
                           role="treeitem"
                         >
@@ -8691,7 +8695,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         </div>
                         <div
                           aria-expanded="false"
-                          class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
+                          class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                           draggable="false"
                           role="treeitem"
                         >
@@ -8997,6 +9001,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         value=""
       />
       <div
+        aria-describedby="test-id"
         class="ant-color-picker-trigger ant-color-picker-compact-item ant-color-picker-compact-last-item"
       >
         <div
@@ -9016,6 +9021,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -9493,6 +9499,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
     class="ant-space-compact ant-space-compact-block"
   >
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-first-item"
       type="button"
     >
@@ -9533,6 +9540,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Like
@@ -9540,6 +9548,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </div>
     </div>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -9589,6 +9598,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Comment
@@ -9596,6 +9606,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </div>
     </div>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -9636,6 +9647,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Star
@@ -9643,6 +9655,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </div>
     </div>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -9683,6 +9696,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Heart
@@ -9690,6 +9704,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </div>
     </div>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -9730,6 +9745,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Share
@@ -9737,6 +9753,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </div>
     </div>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -9777,6 +9794,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Download
@@ -9822,6 +9840,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
         tabindex="0"
       >
         <li
+          aria-describedby="test-id"
           class="ant-dropdown-menu-item"
           data-menu-id="rc-menu-uuid-test-1"
           role="menuitem"
@@ -9865,11 +9884,13 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           >
             <div
               class="ant-tooltip-inner"
+              id="test-id"
               role="tooltip"
             />
           </div>
         </div>
         <li
+          aria-describedby="test-id"
           class="ant-dropdown-menu-item"
           data-menu-id="rc-menu-uuid-test-2"
           role="menuitem"
@@ -9913,11 +9934,13 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           >
             <div
               class="ant-tooltip-inner"
+              id="test-id"
               role="tooltip"
             />
           </div>
         </div>
         <li
+          aria-describedby="test-id"
           class="ant-dropdown-menu-item"
           data-menu-id="rc-menu-uuid-test-3"
           role="menuitem"
@@ -9961,6 +9984,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           >
             <div
               class="ant-tooltip-inner"
+              id="test-id"
               role="tooltip"
             />
           </div>
@@ -10009,6 +10033,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item"
       disabled=""
       type="button"
@@ -10050,6 +10075,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Tooltip
@@ -10057,6 +10083,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </div>
     </div>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
       type="button"
     >
@@ -10097,6 +10124,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Tooltip
@@ -10133,6 +10161,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       disabled=""
       type="button"
@@ -10174,6 +10203,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Tooltip
@@ -10181,6 +10211,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </div>
     </div>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -10221,6 +10252,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Tooltip
@@ -10274,6 +10306,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
         tabindex="0"
       >
         <li
+          aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           data-menu-id="rc-menu-uuid-test-1"
           role="menuitem"
@@ -10298,11 +10331,13 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           >
             <div
               class="ant-tooltip-inner"
+              id="test-id"
               role="tooltip"
             />
           </div>
         </div>
         <li
+          aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           data-menu-id="rc-menu-uuid-test-2"
           role="menuitem"
@@ -10327,11 +10362,13 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           >
             <div
               class="ant-tooltip-inner"
+              id="test-id"
               role="tooltip"
             />
           </div>
         </div>
         <li
+          aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           data-menu-id="rc-menu-uuid-test-3"
           role="menuitem"
@@ -10356,6 +10393,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           >
             <div
               class="ant-tooltip-inner"
+              id="test-id"
               role="tooltip"
             />
           </div>
@@ -10423,6 +10461,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
         disabled=""
         type="button"
@@ -10464,6 +10503,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             Tooltip
@@ -11556,6 +11596,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-1"
               role="menuitem"
@@ -11587,11 +11628,13 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-2"
               role="menuitem"
@@ -11616,6 +11659,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -11658,6 +11702,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         value=""
       />
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
@@ -11678,6 +11723,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -16386,6 +16432,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
@@ -16406,6 +16453,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -16480,6 +16528,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       disabled=""
       type="button"
@@ -16501,6 +16550,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -16672,7 +16722,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         small
       </span>
     </label>
@@ -16692,7 +16744,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         middle
       </span>
     </label>
@@ -16712,7 +16766,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         large
       </span>
     </label>
@@ -16732,7 +16788,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         customize
       </span>
     </label>

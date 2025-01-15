@@ -74,16 +74,6 @@ const Drawer: React.FC<DrawerProps> & {
       ? () => getPopupContainer(document.body)
       : customizeGetContainer;
 
-  const drawerClassName = classNames(
-    {
-      'no-mask': !mask,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    },
-    rootClassName,
-    hashId,
-    cssVarCls,
-  );
-
   // ========================== Warning ===========================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Drawer');
@@ -94,7 +84,7 @@ const Drawer: React.FC<DrawerProps> & {
       ['footerStyle', 'styles.footer'],
       ['contentWrapperStyle', 'styles.wrapper'],
       ['maskStyle', 'styles.mask'],
-      ['drawerStyle', 'styles.content'],
+      ['drawerStyle', 'styles.section'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
@@ -137,15 +127,27 @@ const Drawer: React.FC<DrawerProps> & {
   });
 
   // ============================ Refs ============================
-  // Select `ant-modal-content` by `panelRef`
+  // Select `ant-drawer-content` by `panelRef`
   const panelRef = usePanelRef();
 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Drawer', rest.zIndex);
 
   // =========================== Render ===========================
-  const { classNames: propClassNames = {}, styles: propStyles = {} } = rest;
+  const { classNames: propClassNames = {}, styles: propStyles = {}, rootStyle } = rest;
   const { classNames: contextClassNames = {}, styles: contextStyles = {} } = drawer || {};
+
+  const drawerClassName = classNames(
+    {
+      'no-mask': !mask,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    rootClassName,
+    hashId,
+    cssVarCls,
+    propClassNames?.root,
+    contextClassNames?.root,
+  );
 
   return wrapCSSVar(
     <ContextIsolator form space>
@@ -158,7 +160,7 @@ const Drawer: React.FC<DrawerProps> & {
           {...rest}
           classNames={{
             mask: classNames(propClassNames.mask, contextClassNames.mask),
-            content: classNames(propClassNames.content, contextClassNames.content),
+            section: classNames(propClassNames.section, contextClassNames.section),
             wrapper: classNames(propClassNames.wrapper, contextClassNames.wrapper),
           }}
           styles={{
@@ -167,10 +169,10 @@ const Drawer: React.FC<DrawerProps> & {
               ...maskStyle,
               ...contextStyles.mask,
             },
-            content: {
-              ...propStyles.content,
+            section: {
+              ...propStyles.section,
               ...drawerStyle,
-              ...contextStyles.content,
+              ...contextStyles.section,
             },
             wrapper: {
               ...propStyles.wrapper,
@@ -184,6 +186,7 @@ const Drawer: React.FC<DrawerProps> & {
           width={mergedWidth}
           height={mergedHeight}
           style={{ ...drawer?.style, ...style }}
+          rootStyle={{ ...rootStyle, ...contextStyles?.root, ...propStyles?.root }}
           className={classNames(drawer?.className, className)}
           rootClassName={drawerClassName}
           getContainer={getContainer}

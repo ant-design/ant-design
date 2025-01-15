@@ -2,6 +2,7 @@
 
 exports[`renders components/qr-code/demo/Popover.tsx correctly 1`] = `
 <button
+  aria-describedby="test-id"
   class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >

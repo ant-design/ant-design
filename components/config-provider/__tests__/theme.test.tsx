@@ -1,6 +1,6 @@
 import React from 'react';
+import canUseDom from '@rc-component/util/lib/Dom/canUseDom';
 import kebabCase from 'lodash/kebabCase';
-import canUseDom from 'rc-util/lib/Dom/canUseDom';
 
 import ConfigProvider from '..';
 import { Button, InputNumber, Select } from '../..';
@@ -15,7 +15,7 @@ const { defaultAlgorithm, darkAlgorithm, compactAlgorithm } = theme;
 /* biome-ignore lint/style/noVar: has to be a global variable */ /* eslint-disable-next-line no-var */
 var mockCanUseDom = true;
 
-jest.mock('rc-util/lib/Dom/canUseDom', () => () => mockCanUseDom);
+jest.mock('@rc-component/util/lib/Dom/canUseDom', () => () => mockCanUseDom);
 
 describe('ConfigProvider.Theme', () => {
   beforeEach(() => {

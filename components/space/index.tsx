@@ -1,6 +1,6 @@
 import * as React from 'react';
+import toArray from '@rc-component/util/lib/Children/toArray';
 import classNames from 'classnames';
-import toArray from 'rc-util/lib/Children/toArray';
 
 import { isPresetSize, isValidGapNumber } from '../_util/gapSize';
 import { ConfigContext } from '../config-provider';

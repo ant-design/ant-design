@@ -62,10 +62,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAA
 | subMenuOpenDelay | 用户鼠标进入子菜单后开启延时，单位：秒 | number | 0 |  |
 | theme | 主题颜色 | `light` \| `dark` | `light` |  |
 | triggerSubMenuAction | SubMenu 展开/关闭的触发行为 | `hover` \| `click` | `hover` |  |
-| onClick | 点击 MenuItem 调用此函数 | function({ item, key, keyPath, domEvent }) | - |  |
-| onDeselect | 取消选中时调用，仅在 multiple 生效 | function({ item, key, keyPath, selectedKeys, domEvent }) | - |  |
+| onClick | 点击 MenuItem 调用此函数 | function({ key, keyPath, domEvent }) | - |  |
+| onDeselect | 取消选中时调用，仅在 multiple 生效 | function({ key, keyPath, selectedKeys, domEvent }) | - |  |
 | onOpenChange | SubMenu 展开/关闭的回调 | function(openKeys: string\[]) | - |  |
-| onSelect | 被选中时调用 | function({ item, key, keyPath, selectedKeys, domEvent }) | -   |  |
+| onSelect | 被选中时调用 | function({ key, keyPath, selectedKeys, domEvent }) | -   |  |
 
 > 更多属性查看 [rc-menu](https://github.com/react-component/menu#api)
 

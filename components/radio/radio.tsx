@@ -1,7 +1,7 @@
 import * as React from 'react';
+import { composeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
 import RcCheckbox from 'rc-checkbox';
-import { composeRef } from 'rc-util/lib/ref';
 
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -106,7 +106,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
           ref={mergedRef}
           onClick={onInputClick}
         />
-        {children !== undefined ? <span>{children}</span> : null}
+        {children !== undefined ? <span className={`${prefixCls}-label`}>{children}</span> : null}
       </label>
     </Wave>,
   );

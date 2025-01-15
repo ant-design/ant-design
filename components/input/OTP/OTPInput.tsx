@@ -1,5 +1,5 @@
 import * as React from 'react';
-import raf from 'rc-util/lib/raf';
+import raf from '@rc-component/util/lib/raf';
 
 import Input from '../Input';
 import type { InputProps, InputRef } from '../Input';
