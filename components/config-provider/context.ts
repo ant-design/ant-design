@@ -43,6 +43,7 @@ import type { TreeSelectProps } from '../tree-select';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import type { StatisticProps } from '../statistic';
 import type { RibbonProps } from '../badge/Ribbon';
+import type { SegmentedProps } from '../segmented';
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
 
@@ -201,6 +202,8 @@ export type PopconfirmConfig = Pick<
 
 export type SliderConfig = ComponentStyleConfig & Pick<SliderProps, 'styles' | 'classNames'>;
 
+export type SegmentedConfig = ComponentStyleConfig & Pick<SegmentedProps, 'classNames' | 'styles'>;
+
 export type SpinConfig = ComponentStyleConfig & Pick<SpinProps, 'indicator'>;
 
 export type StatisticConfig = ComponentStyleConfig & Pick<StatisticProps, 'classNames' | 'styles'>;
@@ -290,7 +293,7 @@ export interface ConfigConsumerProps {
   typography?: ComponentStyleConfig;
   skeleton?: ComponentStyleConfig;
   spin?: SpinConfig;
-  segmented?: ComponentStyleConfig;
+  segmented?: SegmentedConfig;
   steps?: ComponentStyleConfig;
   statistic?: StatisticConfig;
   image?: ImageConfig;

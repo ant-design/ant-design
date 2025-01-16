@@ -62,6 +62,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | disabled  | Disabled state of segmented item | boolean          | false   |         |
 | className | The additional css class         | string           | -       |         |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Segmented"></ComponentTokenTable>
