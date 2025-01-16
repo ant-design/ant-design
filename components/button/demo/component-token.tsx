@@ -36,7 +36,18 @@ const App: React.FC = () => (
         <Button type="primary" disabled>
           CONTAINED
         </Button>
-        <Button disabled>OUTLINED</Button>
+        <ConfigProvider
+          theme={{
+            components: {
+              Button: {
+                colorBorderDisabled: 'rgba(0, 0, 0, 0.12)',
+                colorBgContainerDisabled: 'transparent',
+              },
+            },
+          }}
+        >
+          <Button disabled>OUTLINED</Button>
+        </ConfigProvider>
       </Flex>
       <Flex wrap gap="small">
         <Button type="text" size="small">
