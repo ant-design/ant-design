@@ -150,4 +150,24 @@ describe('Tabs', () => {
     );
     errorSpy.mockRestore();
   });
+
+  it('should remove focus outline when switching browser pages', () => {
+    const { container } = render(
+      <Tabs>
+        <TabPane tab="Tab 1" key="1">
+          Content 1
+        </TabPane>
+        <TabPane tab="Tab 2" key="2">
+          Content 2
+        </TabPane>
+      </Tabs>,
+    );
+
+    const tabElement = container.querySelector('.ant-tabs-tab')!;
+    fireEvent.focus(tabElement);
+    expect(tabElement).toHaveClass('ant-tabs-tab-active');
+
+    fireEvent.blur(tabElement, { relatedTarget: document.createElement('iframe') });
+    expect(tabElement).not.toHaveClass('ant-tabs-tab-active');
+  });
 });

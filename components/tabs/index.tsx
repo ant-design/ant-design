@@ -110,6 +110,13 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     size: indicator?.size ?? indicatorSize ?? tabs?.indicator?.size ?? tabs?.indicatorSize,
   };
 
+  const handleBlur = (e: React.FocusEvent<HTMLDivElement>) => {
+    const activeElement = document.activeElement;
+    if (activeElement && activeElement.tagName === 'IFRAME') {
+      e.currentTarget.blur();
+    }
+  };
+
   return wrapCSSVar(
     <RcTabs
       direction={direction}
@@ -141,6 +148,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       prefixCls={prefixCls}
       animated={mergedAnimated}
       indicator={mergedIndicator}
+      onBlur={handleBlur}
     />,
   );
 };
