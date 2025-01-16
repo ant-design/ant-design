@@ -5,7 +5,7 @@ import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
-export type ComponentToken = {
+export interface ComponentToken {
   /**
    * @desc 星星颜色
    * @descEN Star color
@@ -26,7 +26,7 @@ export type ComponentToken = {
    * @descEN Star background color
    */
   starBg: string;
-};
+}
 
 interface RateToken extends FullToken<'Rate'> {}
 
