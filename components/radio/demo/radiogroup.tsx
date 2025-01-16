@@ -1,4 +1,10 @@
 import React, { useState } from 'react';
+import {
+  BarChartOutlined,
+  DotChartOutlined,
+  LineChartOutlined,
+  PieChartOutlined,
+} from '@ant-design/icons';
 import type { RadioChangeEvent } from 'antd';
 import { Radio } from 'antd';
 
@@ -14,10 +20,10 @@ const App: React.FC = () => {
       onChange={onChange}
       value={value}
       options={[
-        { value: 1, label: <span>A</span> },
-        { value: 2, label: <span>B</span> },
-        { value: 3, label: <span>C</span> },
-        { value: 4, label: <span>D</span> },
+        { value: 1, label: <LineChartOutlined style={{ fontSize: 18 }} /> },
+        { value: 2, label: <DotChartOutlined style={{ fontSize: 18 }} /> },
+        { value: 3, label: <BarChartOutlined style={{ fontSize: 18 }} /> },
+        { value: 4, label: <PieChartOutlined style={{ fontSize: 18 }} /> },
       ]}
     />
   );
