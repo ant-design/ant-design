@@ -159,7 +159,7 @@ const genRoundButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
 
 const genDisabledStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   cursor: 'not-allowed',
-  borderColor: token.colorBorderDisabled,
+  borderColor: token.colorBorderDisabled ?? token.borderColorDisabled,
   color: token.colorTextDisabled,
   background: token.colorBgContainerDisabled,
   boxShadow: 'none',

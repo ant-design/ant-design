@@ -4,7 +4,11 @@ import { ConfigProvider, Flex, Tag } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider
-    theme={{ components: { Tag: { defaultBg: '#f9f0ff', defaultColor: '#4b34d3' } } }}
+    theme={{
+      components: {
+        Tag: { defaultBg: '#f9f0ff', defaultColor: '#4b34d3', colorBorderDisabled: '#4a4a4a' },
+      },
+    }}
   >
     <Flex gap="small" align="center" wrap>
       <Tag>
@@ -37,6 +41,9 @@ const App: React.FC = () => (
       </Tag>
       <Tag icon={<SyncOutlined spin />} color="processing">
         processing
+      </Tag>
+      <Tag color="success" disabled>
+        disabled
       </Tag>
     </Flex>
   </ConfigProvider>

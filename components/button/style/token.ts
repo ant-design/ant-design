@@ -83,6 +83,12 @@ export interface ComponentToken {
    */
   defaultActiveBorderColor: string;
   /**
+   * @deprecated use `colorBorderDisabled` instead
+   * @desc 禁用状态边框颜色
+   * @descEN Border color of disabled button
+   */
+  borderColorDisabled: string;
+  /**
    * @desc 默认幽灵按钮文本颜色
    * @descEN Text color of default ghost button
    */
