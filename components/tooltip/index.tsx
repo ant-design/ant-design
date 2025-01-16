@@ -1,13 +1,13 @@
 import * as React from 'react';
-import type { BuildInPlacements } from '@rc-component/trigger';
-import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
-import classNames from 'classnames';
-import RcTooltip from 'rc-tooltip';
-import type { placements as Placements } from 'rc-tooltip/lib/placements';
+import RcTooltip from '@rc-component/tooltip';
+import type { placements as Placements } from '@rc-component/tooltip/lib/placements';
 import type {
   TooltipProps as RcTooltipProps,
   TooltipRef as RcTooltipRef,
-} from 'rc-tooltip/lib/Tooltip';
+} from '@rc-component/tooltip/lib/Tooltip';
+import type { BuildInPlacements } from '@rc-component/trigger';
+import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
+import classNames from 'classnames';
 
 import type { PresetColorType } from '../_util/colors';
 import ContextIsolator from '../_util/ContextIsolator';
@@ -150,6 +150,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     builtinPlacements,
     arrowPointAtCenter = false,
     autoAdjustOverflow = true,
+    motion,
   } = props;
 
   const mergedShowArrow = !!arrow;
@@ -350,7 +351,11 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       afterVisibleChange={afterOpenChange ?? afterVisibleChange}
       arrowContent={<span className={`${prefixCls}-arrow-content`} />}
       motion={{
-        motionName: getTransitionName(rootPrefixCls, 'zoom-big-fast', props.transitionName),
+        motionName: getTransitionName(
+          rootPrefixCls,
+          'zoom-big-fast',
+          typeof motion?.motionName === 'string' ? motion?.motionName : undefined,
+        ),
         motionDeadline: 1000,
       }}
       destroyTooltipOnHide={!!destroyTooltipOnHide}
