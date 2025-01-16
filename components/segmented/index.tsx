@@ -6,15 +6,15 @@ import type {
   SegmentedProps as RCSegmentedProps,
   SegmentedValue as RcSegmentedValue,
   SegmentedRawOption,
-} from 'rc-segmented';
-import RcSegmented from 'rc-segmented';
+} from '@rc-component/segmented';
+import RcSegmented from '@rc-component/segmented';
 
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
 
-export type { SegmentedValue } from 'rc-segmented';
+export type { SegmentedValue } from '@rc-component/segmented';
 export type SemanticName = 'root' | 'icon' | 'label' | 'item';
 interface SegmentedLabeledOptionWithoutIcon<ValueType = RcSegmentedValue>
   extends RcSegmentedLabeledOption<ValueType> {
