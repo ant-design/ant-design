@@ -101,7 +101,13 @@ const miscKeys = [
     // Changelog map
     const componentChangelog: Record<
       string,
-      { version: string; changelog: string; refs: string[]; releaseDate: string }[]
+      {
+        version: string;
+        changelog: string;
+        refs: string[];
+        releaseDate: string;
+        contributors: string[];
+      }[]
     > = {};
     Object.keys(componentNameMap).forEach((name) => {
       componentChangelog[name] = [];
@@ -125,6 +131,20 @@ const miscKeys = [
       const matchReleaseDate = line.match(/`(\d{4}-\d{2}-\d{2})`/);
       if (matchReleaseDate) {
         lastReleaseDate = matchReleaseDate[1];
+      }
+
+      // Get Contributor name
+      const contributors: string[] = [];
+      const usernameMatches = line.match(/\[@([^\]]+)\]/g);
+
+      if (usernameMatches) {
+        usernameMatches.forEach((match) => {
+          const usernameMatch = match.match(/\[@([^\]]+)\]/);
+          if (usernameMatch) {
+            const username = usernameMatch[1];
+            contributors.push(username);
+          }
+        });
       }
 
       // Start when get version
@@ -184,6 +204,7 @@ const miscKeys = [
             changelog: changelogLine,
             refs,
             releaseDate: lastReleaseDate,
+            contributors,
           });
           matched = true;
         }
