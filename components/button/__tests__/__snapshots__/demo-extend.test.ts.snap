@@ -1947,6 +1947,28 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
       </span>
     </button>
   </div>
+  <div
+    class="ant-flex ant-flex-gap-small"
+  >
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      disabled=""
+      type="button"
+    >
+      <span>
+        Custom Disabled
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      disabled=""
+      type="button"
+    >
+      <span>
+        Legacy Disabled
+      </span>
+    </button>
+  </div>
 </div>
 `;
 

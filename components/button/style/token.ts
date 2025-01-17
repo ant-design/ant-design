@@ -240,12 +240,13 @@ export interface ButtonToken extends FullToken<'Button'> {
 export const prepareToken: (token: Parameters<GenStyleFn<'Button'>>[0]) => ButtonToken = (
   token,
 ) => {
-  const { paddingInline, onlyIconSize } = token;
+  const { paddingInline, onlyIconSize, colorBorderDisabled, borderColorDisabled } = token;
 
   const buttonToken = mergeToken<ButtonToken>(token, {
     buttonPaddingHorizontal: paddingInline,
     buttonPaddingVertical: 0,
     buttonIconOnlyFontSize: onlyIconSize,
+    colorBorderDisabled: colorBorderDisabled ?? borderColorDisabled,
   });
 
   return buttonToken;
@@ -269,7 +270,7 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
     dangerShadow: `0 ${token.controlOutlineWidth}px 0 ${token.colorErrorOutline}`,
     primaryColor: token.colorTextLightSolid,
     dangerColor: token.colorTextLightSolid,
-    borderColorDisabled: token.colorBorder,
+    borderColorDisabled: token.colorBorderDisabled,
     defaultGhostColor: token.colorBgContainer,
     ghostBg: 'transparent',
     defaultGhostBorderColor: token.colorBgContainer,
