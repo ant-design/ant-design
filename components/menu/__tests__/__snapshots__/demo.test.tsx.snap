@@ -911,6 +911,23 @@ exports[`renders components/menu/demo/extra-style.tsx correctly 1`] = `
               </span>
             </span>
           </li>
+          <li
+            aria-describedby="test-id"
+            aria-disabled="true"
+            class="ant-menu-item ant-menu-item-disabled ant-menu-item-only-child"
+            role="menuitem"
+            style="padding-left:48px"
+          >
+            <span
+              class="ant-menu-title-content"
+            >
+              <a
+                href="https://www.baidu.com"
+              >
+                Link Option
+              </a>
+            </span>
+          </li>
         </ul>
       </li>
     </ul>
