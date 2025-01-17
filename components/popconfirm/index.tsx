@@ -47,7 +47,6 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     children,
     overlayClassName,
     onOpenChange,
-    onVisibleChange,
     overlayStyle,
     styles,
     classNames: popconfirmClassNames,
@@ -56,13 +55,12 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
 
   const { getPrefixCls, popconfirm } = React.useContext(ConfigContext);
   const [open, setOpen] = useMergedState(false, {
-    value: props.open ?? props.visible,
-    defaultValue: props.defaultOpen ?? props.defaultVisible,
+    value: props.open,
+    defaultValue: props.defaultOpen,
   });
 
   const settingOpen: PopoverProps['onOpenChange'] = (value, e) => {
     setOpen(value, true);
-    onVisibleChange?.(value);
     onOpenChange?.(value, e);
   };
 

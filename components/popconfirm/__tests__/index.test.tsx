@@ -141,38 +141,6 @@ describe('Popconfirm', () => {
     jest.useRealTimers();
   });
 
-  it('should be controlled by visible', () => {
-    jest.useFakeTimers();
-    const popconfirm = render(
-      <Popconfirm title="code">
-        <span>show me your code</span>
-      </Popconfirm>,
-    );
-
-    expect(popconfirm.container.querySelector('.ant-popover')).toBe(null);
-    popconfirm.rerender(
-      <Popconfirm title="code" visible>
-        <span>show me your code</span>
-      </Popconfirm>,
-    );
-
-    expect(popconfirm.container.querySelector('.ant-popover')).not.toBe(null);
-    expect(popconfirm.container.querySelector('.ant-popover')?.className).not.toContain(
-      'ant-popover-hidden',
-    );
-
-    popconfirm.rerender(
-      <Popconfirm title="code" visible={false}>
-        <span>show me your code</span>
-      </Popconfirm>,
-    );
-    act(() => {
-      jest.runAllTimers();
-    });
-    expect(popconfirm.container.querySelector('.ant-popover')).not.toBe(null);
-    jest.useRealTimers();
-  });
-
   it('should trigger onConfirm and onCancel', async () => {
     const confirm = jest.fn();
     const cancel = jest.fn();
@@ -344,28 +312,6 @@ describe('Popconfirm', () => {
     await waitFakeTimer();
     fireEvent.click(popconfirm.container.querySelector('.ant-popover-inner-content')!);
     expect(onPopupClick).toHaveBeenCalled();
-  });
-
-  // https://github.com/ant-design/ant-design/issues/42314
-  it('legacy onVisibleChange should only trigger once', async () => {
-    const onOpenChange = jest.fn();
-    const onVisibleChange = jest.fn();
-
-    const { container } = render(
-      <Popconfirm
-        title="will unmount"
-        onOpenChange={onOpenChange}
-        onVisibleChange={onVisibleChange}
-      >
-        <span className="target" />
-      </Popconfirm>,
-    );
-
-    fireEvent.click(container.querySelector('.target')!);
-    await waitFakeTimer();
-
-    expect(onOpenChange).toHaveBeenCalledTimes(1);
-    expect(onVisibleChange).toHaveBeenCalledTimes(1);
   });
 
   it('okText & cancelText could be empty', () => {
