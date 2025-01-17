@@ -141,7 +141,7 @@
     "rc-rate": "~2.13.0",
     "rc-resize-observer": "^1.4.3",
     "rc-segmented": "~2.7.0",
-    "rc-select": "~14.16.5",
+    "rc-select": "~14.16.6",
     "rc-slider": "~11.1.8",
     "rc-steps": "~6.0.1",
     "rc-switch": "~4.1.0",
