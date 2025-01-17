@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import type { RadioChangeEvent } from 'antd';
 import { Radio } from 'antd';
+import type { CheckboxGroupProps } from 'antd/es/checkbox';
 
-const plainOptions = ['Apple', 'Pear', 'Orange'];
-const options = [
+const plainOptions: CheckboxGroupProps<string>['options'] = ['Apple', 'Pear', 'Orange'];
+
+const options: CheckboxGroupProps<string>['options'] = [
   { label: 'Apple', value: 'Apple' },
   { label: 'Pear', value: 'Pear' },
   { label: 'Orange', value: 'Orange', title: 'Orange' },
 ];
-const optionsWithDisabled = [
+
+const optionsWithDisabled: CheckboxGroupProps<string>['options'] = [
   { label: 'Apple', value: 'Apple' },
   { label: 'Pear', value: 'Pear' },
   { label: 'Orange', value: 'Orange', disabled: true },
