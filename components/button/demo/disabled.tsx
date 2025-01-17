@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Flex, ConfigProvider } from 'antd';
+import { Button, Flex } from 'antd';
 
 const App: React.FC = () => (
   <Flex gap="small" align="flex-start" vertical>
@@ -66,14 +66,6 @@ const App: React.FC = () => (
       <Button ghost disabled>
         Ghost(disabled)
       </Button>
-    </Flex>
-    <Flex gap="small">
-      <ConfigProvider theme={{ components: { Button: { colorBorderDisabled: 'red' } } }}>
-        <Button disabled>Custom Disabled</Button>
-      </ConfigProvider>
-      <ConfigProvider theme={{ components: { Button: { borderColorDisabled: 'blue' } } }}>
-        <Button disabled>Legacy Disabled</Button>
-      </ConfigProvider>
     </Flex>
   </Flex>
 );

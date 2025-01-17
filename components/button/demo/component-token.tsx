@@ -58,6 +58,14 @@ const App: React.FC = () => (
         </Button>
         <Button size="small">OUTLINED</Button>
       </Flex>
+      <Flex gap="small">
+        <ConfigProvider theme={{ components: { Button: { colorBorderDisabled: 'red' } } }}>
+          <Button disabled>Custom Disabled</Button>
+        </ConfigProvider>
+        <ConfigProvider theme={{ components: { Button: { borderColorDisabled: 'blue' } } }}>
+          <Button disabled>Legacy Disabled</Button>
+        </ConfigProvider>
+      </Flex>
     </Flex>
   </ConfigProvider>
 );
