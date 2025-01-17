@@ -1925,6 +1925,7 @@ exports[`renders components/menu/demo/extra-style.tsx extend context correctly 1
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               aria-disabled="true"
               class="ant-menu-item ant-menu-item-disabled ant-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-3"
@@ -1954,6 +1955,7 @@ exports[`renders components/menu/demo/extra-style.tsx extend context correctly 1
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -2061,6 +2063,7 @@ exports[`renders components/menu/demo/extra-style.tsx extend context correctly 1
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             aria-disabled="true"
             class="ant-menu-item ant-menu-item-disabled ant-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-3"
@@ -2090,6 +2093,7 @@ exports[`renders components/menu/demo/extra-style.tsx extend context correctly 1
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
