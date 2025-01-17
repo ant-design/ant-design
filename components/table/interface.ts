@@ -77,10 +77,6 @@ export interface ColumnFilterItem {
 }
 
 export interface ColumnTitleProps<RecordType = AnyObject> {
-  /** @deprecated Please use `sorterColumns` instead. */
-  sortOrder?: SortOrder;
-  /** @deprecated Please use `sorterColumns` instead. */
-  sortColumn?: ColumnType<RecordType>;
   sortColumns?: { column: ColumnType<RecordType>; order: SortOrder }[];
 
   filters?: Record<string, FilterValue>;
@@ -184,10 +180,6 @@ export interface ColumnType<RecordType = AnyObject>
    * @since 4.23.0
    */
   onFilterDropdownOpenChange?: (visible: boolean) => void;
-  /** @deprecated Please use `filterDropdownProps.open` instead. */
-  filterDropdownVisible?: boolean;
-  /** @deprecated Please use `filterDropdownProps.onOpenChange` instead */
-  onFilterDropdownVisibleChange?: (visible: boolean) => void;
 }
 
 export interface ColumnGroupType<RecordType = AnyObject>
@@ -224,14 +216,6 @@ export interface TableRowSelection<T = AnyObject> {
   onChange?: (selectedRowKeys: Key[], selectedRows: T[], info: { type: RowSelectMethod }) => void;
   getCheckboxProps?: (record: T) => Partial<Omit<CheckboxProps, 'checked' | 'defaultChecked'>>;
   onSelect?: SelectionSelectFn<T>;
-  /** @deprecated This function is deprecated and should use `onChange` instead */
-  onSelectMultiple?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
-  /** @deprecated This function is deprecated and should use `onChange` instead */
-  onSelectAll?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
-  /** @deprecated This function is deprecated and should use `onChange` instead */
-  onSelectInvert?: (selectedRowKeys: Key[]) => void;
-  /** @deprecated This function is deprecated and should use `onChange` instead */
-  onSelectNone?: () => void;
   selections?: INTERNAL_SELECTION_ITEM[] | boolean;
   hideSelectAll?: boolean;
   fixed?: FixedType;

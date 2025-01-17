@@ -171,8 +171,6 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     filterDropdownProps = {},
     // Deprecated
     filterDropdownOpen,
-    filterDropdownVisible,
-    onFilterDropdownVisibleChange,
     onFilterDropdownOpenChange,
   } = column;
   const [visible, setVisible] = React.useState(false);
@@ -186,7 +184,6 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     filterDropdownProps.onOpenChange?.(newVisible);
     // deprecated
     onFilterDropdownOpenChange?.(newVisible);
-    onFilterDropdownVisibleChange?.(newVisible);
   };
 
   // =================Warning===================
@@ -195,9 +192,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
 
     const deprecatedList: [keyof typeof column, string][] = [
       ['filterDropdownOpen', 'filterDropdownProps.open'],
-      ['filterDropdownVisible', 'filterDropdownProps.open'],
       ['onFilterDropdownOpenChange', 'filterDropdownProps.onOpenChange'],
-      ['onFilterDropdownVisibleChange', 'filterDropdownProps.onOpenChange'],
     ];
 
     deprecatedList.forEach(([deprecatedName, newName]) => {
@@ -208,7 +203,6 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
   const mergedVisible =
     filterDropdownProps.open ??
     filterDropdownOpen ?? // deprecated
-    filterDropdownVisible ?? // deprecated
     visible; // inner state
 
   // ===================== Select Keys =====================

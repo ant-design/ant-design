@@ -626,8 +626,8 @@ describe('Table.sorter', () => {
 
   // https://github.com/ant-design/ant-design/issues/11246#issuecomment-405009167
   it('Allow column title as render props with sortOrder argument', () => {
-    const title: NonNullable<TableProps['columns']>[number]['title'] = ({ sortOrder }) => (
-      <div className="custom-title">{sortOrder}</div>
+    const title: NonNullable<TableProps['columns']>[number]['title'] = ({ sortColumns }) => (
+      <div className="custom-title">{sortColumns?.[0].order}</div>
     );
     const columns: TableProps['columns'] = [{ title, key: 'group', sorter: true }];
     const testData = [
