@@ -1436,7 +1436,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
 exports[`renders components/radio/demo/radiogroup-more.tsx extend context correctly 1`] = `
 <div
   class="ant-radio-group ant-radio-group-outline"
-  style="display: flex; flex-direction: column; gap: 16px;"
+  style="display: flex; flex-direction: column; gap: 8px;"
 >
   <label
     class="ant-radio-wrapper ant-radio-wrapper-checked"
