@@ -102,6 +102,20 @@ describe('Descriptions', () => {
     expect(container.querySelectorAll('.ant-descriptions-item')[6]).toHaveAttribute('colSpan', '2');
   });
 
+  it('when column=6, last item span should be 5', () => {
+    const { container } = render(
+      <Descriptions
+        column={6}
+        items={[
+          { label: '0', children: '' },
+          { label: '1', children: '', span: 2 },
+        ]}
+      />,
+    );
+    expect(container.querySelectorAll('.ant-descriptions-item')[0]).toHaveAttribute('colSpan', '1');
+    expect(container.querySelectorAll('.ant-descriptions-item')[1]).toHaveAttribute('colSpan', '5');
+  });
+
   it('column is number', () => {
     const wrapper = render(
       <Descriptions column={3}>
