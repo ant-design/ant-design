@@ -5,7 +5,7 @@ on:
     - cron: "0 0 * * *" # Run at 00:00 every day
 
 permissions:
-  issues: write # Need write permission to modify issue assignees
+  issues: write
 
 jobs:
   reminder_job:
@@ -15,16 +15,18 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const daysBeforeReminder = 14; 
+            const daysBeforeReminder = 14;
             let page = 1;
             const perPage = 100;
+            
+            const reminderSignature = "This issue has been inactive for more than 14 days";
 
             while (true) {
               const { data: issues } = await github.rest.issues.listForRepo({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 state: 'open',
-                assignee: '*', // Filter assigned issues
+                assignee: '*',
                 per_page: perPage,
                 page: page,
               });
@@ -53,16 +55,30 @@ jobs:
                 );
 
                 if (daysInactive >= daysBeforeReminder && !hasLinkedPR) {
-                  const assigneesMentions = issue.assignees
-                    .map(user => `@${user.login}`)
-                    .join(' ');
-                    
-                  await github.rest.issues.createComment({
+                  // get issue comments
+                  const { data: comments } = await github.rest.issues.listComments({
                     owner: context.repo.owner,
                     repo: context.repo.repo,
                     issue_number: issue.number,
-                    body: `${assigneesMentions} 这个 issue 已经超过 14 天没有更新或关联 PR。如果您仍在处理这个 issue，请更新进度；如果您无法继续处理，请联系维护者重新分配。\n\nThis issue has been inactive for more than 14 days without any updates or linked PR. If you are still working on this issue, please provide a progress update. If you are unable to continue, please contact the maintainers for reassignment.`,
                   });
+
+                  // check if reminder has been sent
+                  const hasReminder = comments.some(comment => 
+                    comment.body.includes(reminderSignature)
+                  );
+
+                  if (!hasReminder) {
+                    const assigneesMentions = issue.assignees
+                      .map(user => `@${user.login}`)
+                      .join(' ');
+                      
+                    await github.rest.issues.createComment({
+                      owner: context.repo.owner,
+                      repo: context.repo.repo,
+                      issue_number: issue.number,
+                      body: `${assigneesMentions} 这个 issue 已经超过 14 天没有更新或关联 PR。如果您仍在处理这个 issue，请更新进度；如果您无法继续处理，请联系维护者重新分配。\n\nThis issue has been inactive for more than 14 days without any updates or linked PR. If you are still working on this issue, please provide a progress update. If you are unable to continue, please contact the maintainers for reassignment.`,
+                    });
+                  }
                 }
               }
 
