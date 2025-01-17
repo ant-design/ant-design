@@ -145,7 +145,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     tooltip,
   } = React.useContext(ConfigContext);
   const mergedArrow = useMergedArrow(tooltipArrow, tooltip?.arrow);
-  const mergedShowArrow = !!mergedArrow;
+  const mergedShowArrow = mergedArrow?.show ?? true;
 
   // ============================== Ref ===============================
   const warning = devUseWarning('Tooltip');
@@ -197,7 +197,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     return (
       builtinPlacements ||
       getPlacements({
-        arrowPointAtCenter: typeof mergedArrow === 'object' ? mergedArrow?.pointAtCenter : false,
+        arrowPointAtCenter: mergedArrow?.pointAtCenter ?? false,
         autoAdjustOverflow,
         arrowWidth: mergedShowArrow ? token.sizePopupArrow : 0,
         borderRadius: token.borderRadius,

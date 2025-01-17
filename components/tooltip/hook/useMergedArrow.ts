@@ -3,21 +3,22 @@ import React from 'react';
 import { AbstractTooltipProps } from '..';
 import { TooltipConfig } from '../../config-provider/context';
 
+interface MergedArrow {
+  show?: boolean;
+  pointAtCenter?: boolean;
+}
 const useMergedArrow = (
   providedArrow?: AbstractTooltipProps['arrow'],
   providedContextArrow?: TooltipConfig['arrow'],
-) => {
-  return React.useMemo(() => {
-    if (typeof providedArrow === 'object') {
-      return {
-        ...providedArrow,
-        pointAtCenter:
-          providedArrow.pointAtCenter ??
-          (providedContextArrow as { pointAtCenter: boolean })?.pointAtCenter,
-      };
-    }
+): MergedArrow => {
+  const toConfig = (arrow?: boolean | AbstractTooltipProps['arrow']) =>
+    typeof arrow === 'boolean' ? { show: arrow } : arrow || {};
 
-    return providedArrow ?? providedContextArrow ?? true;
+  return React.useMemo(() => {
+    const arrowConfig = toConfig(providedArrow);
+    const contextArrowConfig = toConfig(providedContextArrow);
+
+    return { ...contextArrowConfig, ...arrowConfig };
   }, [providedArrow, providedContextArrow]);
 };
 
