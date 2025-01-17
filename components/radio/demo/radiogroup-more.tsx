@@ -5,7 +5,7 @@ import { Input, Radio } from 'antd';
 const style: React.CSSProperties = {
   display: 'flex',
   flexDirection: 'column',
-  gap: 16,
+  gap: 8,
 };
 
 const App: React.FC = () => {
