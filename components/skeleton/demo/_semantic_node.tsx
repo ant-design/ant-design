@@ -7,11 +7,11 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 const locales = {
   cn: {
     root: '根元素',
-    node: '节点元素 (可以是 avatar、button、input、image)',
+    node: '节点元素 (可以是 avatar、button、input)',
   },
   en: {
     root: 'Root element',
-    node: 'Node element (can be avatar, button, input, image)',
+    node: 'Node element (can be avatar, button, input)',
   },
 };
 

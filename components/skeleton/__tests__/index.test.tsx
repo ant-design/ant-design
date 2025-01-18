@@ -6,6 +6,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
 import type { AvatarProps } from '../Avatar';
 import type { SkeletonButtonProps } from '../Button';
+import { ElementSemanticName } from '../Element';
 import type { SkeletonImageProps } from '../Image';
 import type { SkeletonInputProps } from '../Input';
 import type { SkeletonNodeProps } from '../Node';
@@ -187,7 +188,7 @@ describe('Skeleton', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  it('should apply custom styles to semantic elements', () => {
+  it('Skeleton should apply custom styles to semantic elements', () => {
     const style = { background: 'pink' };
     const customStyles: Record<SemanticName, React.CSSProperties> = {
       root: style,
@@ -207,12 +208,11 @@ describe('Skeleton', () => {
       paragraph: 'custom-paragraph',
     };
 
-    const { asFragment } = genSkeleton({
+    const { container } = genSkeleton({
       styles: customStyles,
       classNames: customClassNames,
       avatar: true,
     });
-    const container = asFragment();
 
     const rootElement = container.querySelector('.ant-skeleton');
     expect(rootElement).toHaveStyle(style);
@@ -237,5 +237,102 @@ describe('Skeleton', () => {
     const paragraphElement = container.querySelector('.ant-skeleton-paragraph');
     expect(paragraphElement).toHaveStyle(style);
     expect(paragraphElement).toHaveClass(customClassNames.paragraph);
+  });
+
+  it('Elements should apply custom styles to semantic elements', () => {
+    const elements = ['avatar', 'button', 'input', 'node'] as const;
+    const rootStyle = { background: 'pink' };
+    const elementStyle = { background: 'green' };
+
+    type Elements = (typeof elements)[number];
+    type SemanticRecord<T> = Partial<Record<Elements, Record<ElementSemanticName, T>>>;
+
+    const customStyles: SemanticRecord<React.CSSProperties> = elements.reduce(
+      (prev, cur) => ({
+        ...prev,
+        [cur]: {
+          root: rootStyle,
+          [cur]: elementStyle,
+        },
+      }),
+      {},
+    );
+
+    const customClassNames: SemanticRecord<string> = elements.reduce(
+      (prev, cur) => ({
+        ...prev,
+        [cur]: {
+          root: 'custom-root',
+          [cur]: `custom-${cur}`,
+        },
+      }),
+      {},
+    );
+
+    const { container: avatarContainer } = genSkeletonAvatar({
+      styles: customStyles.avatar,
+      classNames: customClassNames.avatar,
+    });
+
+    const avatarRootElement = avatarContainer.querySelector('.ant-skeleton');
+    expect(avatarRootElement).toHaveStyle(rootStyle);
+    expect(avatarRootElement).toHaveClass(customClassNames.avatar!.root);
+
+    const avatarElement = avatarContainer.querySelector('.ant-skeleton-avatar');
+    expect(avatarElement).toHaveStyle(elementStyle);
+    expect(avatarElement).toHaveClass(customClassNames.avatar!.avatar);
+
+    const { container: buttonContainer } = genSkeletonButton({
+      styles: customStyles.button,
+      classNames: customClassNames.button,
+    });
+
+    const buttonRootElement = buttonContainer.querySelector('.ant-skeleton');
+    expect(buttonRootElement).toHaveStyle(rootStyle);
+    expect(buttonRootElement).toHaveClass(customClassNames.button!.root);
+
+    const buttonElement = buttonContainer.querySelector('.ant-skeleton-button');
+    expect(buttonElement).toHaveStyle(elementStyle);
+    expect(buttonElement).toHaveClass(customClassNames.button!.button);
+
+    const { container: inputContainer } = genSkeletonInput({
+      styles: customStyles.input,
+      classNames: customClassNames.input,
+    });
+
+    const inputRootElement = inputContainer.querySelector('.ant-skeleton');
+    expect(inputRootElement).toHaveStyle(rootStyle);
+    expect(inputRootElement).toHaveClass(customClassNames.input!.root);
+
+    const inputElement = inputContainer.querySelector('.ant-skeleton-input');
+    expect(inputElement).toHaveStyle(elementStyle);
+    expect(inputElement).toHaveClass(customClassNames.input!.input);
+
+    const { container: nodeContainer } = genSkeletonNode({
+      styles: customStyles.node,
+      classNames: customClassNames.node,
+    });
+
+    const nodeRootElement = nodeContainer.querySelector('.ant-skeleton');
+    expect(nodeRootElement).toHaveStyle(rootStyle);
+    expect(nodeRootElement).toHaveClass(customClassNames.node!.root);
+
+    const nodeElement = nodeContainer.querySelector('.ant-skeleton-node');
+    expect(nodeElement).toHaveStyle(elementStyle);
+    expect(nodeElement).toHaveClass(customClassNames.node!.node);
+
+    // Image is a derived component of node
+    const { container: imageContainer } = genSkeletonImage({
+      styles: customStyles.node,
+      classNames: customClassNames.node,
+    });
+
+    const imageRootElement = imageContainer.querySelector('.ant-skeleton');
+    expect(imageRootElement).toHaveStyle(rootStyle);
+    expect(imageRootElement).toHaveClass(customClassNames.node!.root);
+
+    const imageElement = imageContainer.querySelector('.ant-skeleton-node');
+    expect(imageElement).toHaveStyle(elementStyle);
+    expect(imageElement).toHaveClass(customClassNames.node!.node);
   });
 });
