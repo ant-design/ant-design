@@ -57,8 +57,8 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
   const bodyClassNames = classNames(popover?.classNames?.body, popoverClassNames?.body);
 
   const [open, setOpen] = useMergedState(false, {
-    value: props.open ?? props.visible,
-    defaultValue: props.defaultOpen ?? props.defaultVisible,
+    value: props.open,
+    defaultValue: props.defaultOpen,
   });
 
   const settingOpen = (

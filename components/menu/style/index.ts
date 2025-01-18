@@ -474,6 +474,8 @@ const genMenuItemStyle = (token: MenuToken): CSSObject => {
 
       a: {
         color: 'inherit !important',
+        cursor: 'not-allowed',
+        pointerEvents: 'none',
       },
 
       [`> ${componentCls}-submenu-title`]: {
