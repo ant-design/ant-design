@@ -60,8 +60,6 @@ export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = 
   disabled?: boolean;
   placement?: SelectCommonPlacement;
   popupClassName?: string;
-  /** @deprecated Please use `popupClassName` instead */
-  dropdownClassName?: string;
   /** @deprecated Use `variant` instead. */
   bordered?: boolean;
   treeLine?: TreeProps['showLine'];
@@ -105,7 +103,6 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     treeLine,
     getPopupContainer,
     popupClassName,
-    dropdownClassName,
     treeIcon = false,
     transitionName,
     choiceTransitionName = '',
@@ -145,8 +142,6 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
       '`multiple` will always be `true` when `treeCheckable` is true',
     );
 
-    warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
-
     warning.deprecated(
       dropdownMatchSelectWidth === undefined,
       'dropdownMatchSelectWidth',
@@ -176,7 +171,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
   const [variant, enableVariantCls] = useVariant('treeSelect', customVariant, bordered);
 
   const mergedDropdownClassName = classNames(
-    popupClassName || dropdownClassName,
+    popupClassName,
     `${treeSelectPrefixCls}-dropdown`,
     {
       [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',
