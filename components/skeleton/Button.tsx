@@ -17,7 +17,10 @@ const SkeletonButton: React.FC<SkeletonButtonProps> = (props) => {
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
+    classNames: skeletonButtonClassNames,
     active,
+    style,
+    styles,
     block = false,
     size = 'default',
   } = props;
@@ -25,14 +28,15 @@ const SkeletonButton: React.FC<SkeletonButtonProps> = (props) => {
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
-  const otherProps = omit(props, ['prefixCls']);
+  const otherProps = omit(props, ['prefixCls', 'className', 'classNames', 'style', 'styles']);
   const cls = classNames(
     prefixCls,
-    `${prefixCls}-element`,
+    `${prefixCls}-with-element`,
     {
       [`${prefixCls}-active`]: active,
       [`${prefixCls}-block`]: block,
     },
+    skeletonButtonClassNames?.root,
     className,
     rootClassName,
     hashId,
@@ -40,8 +44,14 @@ const SkeletonButton: React.FC<SkeletonButtonProps> = (props) => {
   );
 
   return wrapCSSVar(
-    <div className={cls}>
-      <Element prefixCls={`${prefixCls}-button`} size={size} {...otherProps} />
+    <div className={cls} style={styles?.root}>
+      <Element
+        prefixCls={`${prefixCls}-button`}
+        className={skeletonButtonClassNames?.button}
+        style={{ ...styles?.button, ...style }}
+        size={size}
+        {...otherProps}
+      />
     </div>,
   );
 };

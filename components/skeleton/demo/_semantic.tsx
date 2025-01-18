@@ -25,7 +25,6 @@ const locales = {
 
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
-
   return (
     <SemanticPreview
       semantics={[

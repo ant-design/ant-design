@@ -15,8 +15,11 @@ const SkeletonAvatar: React.FC<AvatarProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
+    classNames: skeletonAvatarClassNames,
     rootClassName,
     active,
+    style,
+    styles,
     shape = 'circle',
     size = 'default',
   } = props;
@@ -24,13 +27,14 @@ const SkeletonAvatar: React.FC<AvatarProps> = (props) => {
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
-  const otherProps = omit(props, ['prefixCls', 'className']);
+  const otherProps = omit(props, ['prefixCls', 'className', 'classNames', 'style', 'styles']);
   const cls = classNames(
     prefixCls,
-    `${prefixCls}-element`,
+    `${prefixCls}-with-element`,
     {
       [`${prefixCls}-active`]: active,
     },
+    skeletonAvatarClassNames?.root,
     className,
     rootClassName,
     hashId,
@@ -38,8 +42,15 @@ const SkeletonAvatar: React.FC<AvatarProps> = (props) => {
   );
 
   return wrapCSSVar(
-    <div className={cls}>
-      <Element prefixCls={`${prefixCls}-avatar`} shape={shape} size={size} {...otherProps} />
+    <div className={cls} style={styles?.root}>
+      <Element
+        prefixCls={`${prefixCls}-avatar`}
+        className={skeletonAvatarClassNames?.avatar}
+        style={{ ...styles?.avatar, ...style }}
+        shape={shape}
+        size={size}
+        {...otherProps}
+      />
     </div>,
   );
 };
