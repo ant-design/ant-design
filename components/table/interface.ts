@@ -78,7 +78,6 @@ export interface ColumnFilterItem {
 
 export interface ColumnTitleProps<RecordType = AnyObject> {
   sortColumns?: { column: ColumnType<RecordType>; order: SortOrder }[];
-
   filters?: Record<string, FilterValue>;
 }
 
