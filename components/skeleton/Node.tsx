@@ -26,7 +26,7 @@ const SkeletonNode: React.FC<SkeletonNodeProps> = (props) => {
 
   const cls = classNames(
     prefixCls,
-    `${prefixCls}-with-element`,
+    `${prefixCls}-element`,
     {
       [`${prefixCls}-active`]: active,
     },

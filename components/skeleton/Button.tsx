@@ -31,7 +31,7 @@ const SkeletonButton: React.FC<SkeletonButtonProps> = (props) => {
   const otherProps = omit(props, ['prefixCls', 'className', 'classNames', 'style', 'styles']);
   const cls = classNames(
     prefixCls,
-    `${prefixCls}-with-element`,
+    `${prefixCls}-element`,
     {
       [`${prefixCls}-active`]: active,
       [`${prefixCls}-block`]: block,
