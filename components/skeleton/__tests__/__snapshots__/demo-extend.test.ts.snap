@@ -155,7 +155,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
       class="ant-space-item"
     >
       <div
-        class="ant-skeleton ant-skeleton-with-element"
+        class="ant-skeleton ant-skeleton-element"
       >
         <span
           class="ant-skeleton-button"
@@ -166,7 +166,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
       class="ant-space-item"
     >
       <div
-        class="ant-skeleton ant-skeleton-with-element"
+        class="ant-skeleton ant-skeleton-element"
       >
         <span
           class="ant-skeleton-avatar ant-skeleton-avatar-circle"
@@ -177,7 +177,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
       class="ant-space-item"
     >
       <div
-        class="ant-skeleton ant-skeleton-with-element"
+        class="ant-skeleton ant-skeleton-element"
       >
         <span
           class="ant-skeleton-input"
@@ -186,14 +186,14 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
     </div>
   </div>
   <div
-    class="ant-skeleton ant-skeleton-with-element"
+    class="ant-skeleton ant-skeleton-element"
   >
     <span
       class="ant-skeleton-button"
     />
   </div>
   <div
-    class="ant-skeleton ant-skeleton-with-element"
+    class="ant-skeleton ant-skeleton-element"
   >
     <span
       class="ant-skeleton-input"
@@ -206,7 +206,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
       class="ant-space-item"
     >
       <div
-        class="ant-skeleton ant-skeleton-with-element"
+        class="ant-skeleton ant-skeleton-element"
       >
         <div
           class="ant-skeleton-node"
@@ -231,7 +231,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
       class="ant-space-item"
     >
       <div
-        class="ant-skeleton ant-skeleton-with-element"
+        class="ant-skeleton ant-skeleton-element"
       >
         <div
           class="ant-skeleton-node"
@@ -243,7 +243,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
       class="ant-space-item"
     >
       <div
-        class="ant-skeleton ant-skeleton-with-element"
+        class="ant-skeleton ant-skeleton-element"
       >
         <div
           class="ant-skeleton-node"
