@@ -279,10 +279,6 @@ Properties for row selection.
 | onCell | Set props on per cell. Same as `onCell` in column | function(record, rowIndex) | - | 5.5.0 |
 | onChange | Callback executed when selected rows change | function(selectedRowKeys, selectedRows, info: { type }) | - | `info.type`: 4.21.0 |
 | onSelect | Callback executed when select/deselect one row | function(record, selected, selectedRows, nativeEvent) | - |  |
-| onSelectAll | Callback executed when select/deselect all rows | function(selected, selectedRows, changeRows) | - |  |
-| onSelectInvert | Callback executed when row selection is inverted | function(selectedRowKeys) | - |  |
-| onSelectNone | Callback executed when row selection is cleared | function() | - |  |
-| onSelectMultiple | Callback executed when row selection is changed by pressing shift | function(selected, selectedRows, changeRows) | - |  |
 
 ### scroll
 

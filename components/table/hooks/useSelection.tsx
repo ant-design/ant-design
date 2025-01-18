@@ -541,12 +541,6 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
                     multipleSelect(currentSelectedIndex, recordKeys, keySet);
                     const keys = Array.from(keySet);
 
-                    // onSelectMultiple?.(
-                    //   !checked,
-                    //   keys.map((recordKey) => getRecordByKey(recordKey)),
-                    //   changedKeys.map((recordKey) => getRecordByKey(recordKey)),
-                    // );
-
                     setSelectedKeys(keys, 'multiple');
                   } else {
                     // Single record selected
