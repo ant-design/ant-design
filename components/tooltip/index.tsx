@@ -128,12 +128,25 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     children,
     afterOpenChange,
     destroyTooltipOnHide,
-    arrow: tooltipArrow,
     title,
     overlay,
     builtinPlacements,
     autoAdjustOverflow = true,
     motion,
+  } = props;
+
+  const {
+    getPopupContainer,
+    placement = 'top',
+    mouseEnterDelay = 0.1,
+    mouseLeaveDelay = 0.1,
+    overlayStyle,
+    rootClassName,
+    overlayClassName,
+    styles,
+    classNames: tooltipClassNames,
+    arrow: tooltipArrow,
+    ...restProps
   } = props;
 
   const [, token] = useToken();
@@ -220,19 +233,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     </ContextIsolator>
   );
 
-  const {
-    getPopupContainer,
-    placement = 'top',
-    mouseEnterDelay = 0.1,
-    mouseLeaveDelay = 0.1,
-    overlayStyle,
-    rootClassName,
-    overlayClassName,
-    styles,
-    classNames: tooltipClassNames,
-    ...otherProps
-  } = props;
-
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
@@ -277,11 +277,11 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
   const bodyClassNames = classNames(tooltip?.classNames?.body, tooltipClassNames?.body);
 
   // ============================ zIndex ============================
-  const [zIndex, contextZIndex] = useZIndex('Tooltip', otherProps.zIndex);
+  const [zIndex, contextZIndex] = useZIndex('Tooltip', restProps.zIndex);
 
   const content = (
     <RcTooltip
-      {...otherProps}
+      {...restProps}
       zIndex={zIndex}
       showArrow={mergedShowArrow}
       placement={placement}

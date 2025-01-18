@@ -41,7 +41,7 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     classNames: popoverClassNames,
     motion,
     arrow: popoverArrow,
-    ...otherProps
+    ...restProps
   } = props;
   const { popover, getPrefixCls } = React.useContext(ConfigContext);
 
@@ -92,7 +92,7 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
       trigger={trigger}
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
-      {...otherProps}
+      {...restProps}
       prefixCls={prefixCls}
       classNames={{ root: rootClassNames, body: bodyClassNames }}
       styles={{
