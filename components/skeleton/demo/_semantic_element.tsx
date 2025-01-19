@@ -16,7 +16,7 @@ const COMPONENT_MAP: Record<string, React.ElementType> = {
   node: Skeleton.Node,
 };
 
-const LocaleMap: Record<string, { cn: string; en: string }> = {
+const LOCALE_MAP: Record<string, { cn: string; en: string }> = {
   avatar: {
     cn: '头像',
     en: 'Avatar',
@@ -60,11 +60,11 @@ const App: React.FC = () => {
     () => ({
       cn: {
         root: '根元素',
-        node: `${LocaleMap[element].cn}元素`,
+        node: `${LOCALE_MAP[element].cn}元素`,
       },
       en: {
         root: 'Root element',
-        node: `${LocaleMap[element].en} element`,
+        node: `${LOCALE_MAP[element].en} element`,
       },
     }),
     [element],
