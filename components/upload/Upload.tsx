@@ -94,8 +94,6 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       'usage',
       '`value` is not a valid prop, do you mean `fileList`?',
     );
-
-    warning.deprecated(!('transformFile' in props), 'transformFile', 'beforeUpload');
   }
 
   // Control mode will auto fill file uid if not provided
@@ -154,7 +152,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   };
 
   const mergedBeforeUpload = async (file: RcFile, fileListArgs: RcFile[]) => {
-    const { beforeUpload, transformFile } = props;
+    const { beforeUpload } = props;
 
     let parsedFile: File | Blob | string = file;
     if (beforeUpload) {
@@ -177,10 +175,6 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       if (typeof result === 'object' && result) {
         parsedFile = result as File;
       }
-    }
-
-    if (transformFile) {
-      parsedFile = await transformFile(parsedFile as any);
     }
 
     return parsedFile as RcFile;
