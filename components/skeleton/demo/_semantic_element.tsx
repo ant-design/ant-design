@@ -35,17 +35,31 @@ const LOCALE_MAP: Record<string, { cn: string; en: string }> = {
   },
 };
 
+const OPTIONS = [
+  {
+    value: 'avatar',
+    label: 'Avatar',
+  },
+  {
+    value: 'button',
+    label: 'Button',
+  },
+  {
+    value: 'input',
+    label: 'Input',
+  },
+  {
+    value: 'node',
+    label: 'Node',
+  },
+];
+
 const PreviewContent: React.FC<PreviewContentProps> = ({ element, setElement, ...rest }) => {
   const Element = COMPONENT_MAP[element];
 
   return (
     <Flex vertical style={{ width: '100%' }}>
-      <Radio.Group value={element} onChange={(e) => setElement(e.target.value)}>
-        <Radio.Button value="avatar">Avatar</Radio.Button>
-        <Radio.Button value="button">Button</Radio.Button>
-        <Radio.Button value="input">Input</Radio.Button>
-        <Radio.Button value="node">Node</Radio.Button>
-      </Radio.Group>
+      <Radio.Group options={OPTIONS} value={element} onChange={(e) => setElement(e.target.value)} />
       <Divider orientation="left" plain>
         Preview
       </Divider>
