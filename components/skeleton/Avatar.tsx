@@ -1,5 +1,4 @@
 import * as React from 'react';
-import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
 
 import { ConfigContext } from '../config-provider';
@@ -22,12 +21,12 @@ const SkeletonAvatar: React.FC<AvatarProps> = (props) => {
     styles,
     shape = 'circle',
     size = 'default',
+    ...rest
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
-  const otherProps = omit(props, ['prefixCls', 'className', 'classNames', 'style', 'styles']);
   const cls = classNames(
     prefixCls,
     `${prefixCls}-element`,
@@ -49,7 +48,7 @@ const SkeletonAvatar: React.FC<AvatarProps> = (props) => {
         style={{ ...styles?.avatar, ...style }}
         shape={shape}
         size={size}
-        {...otherProps}
+        {...rest}
       />
     </div>,
   );

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
 
 import { ConfigContext } from '../config-provider';
@@ -23,12 +22,12 @@ const SkeletonButton: React.FC<SkeletonButtonProps> = (props) => {
     styles,
     block = false,
     size = 'default',
+    ...rest
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
-  const otherProps = omit(props, ['prefixCls', 'className', 'classNames', 'style', 'styles']);
   const cls = classNames(
     prefixCls,
     `${prefixCls}-element`,
@@ -50,7 +49,7 @@ const SkeletonButton: React.FC<SkeletonButtonProps> = (props) => {
         className={skeletonButtonClassNames?.button}
         style={{ ...styles?.button, ...style }}
         size={size}
-        {...otherProps}
+        {...rest}
       />
     </div>,
   );

@@ -333,7 +333,7 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
       },
     },
     // Skeleton with element
-    [`${componentCls}${componentCls}-with-element`]: {
+    [`${componentCls}${componentCls}-element`]: {
       display: 'inline-block',
       width: 'auto',
 
