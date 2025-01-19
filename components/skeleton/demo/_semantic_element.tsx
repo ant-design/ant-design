@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Divider, Flex, Radio, Skeleton } from 'antd';
+import { Divider, Flex, Segmented, Skeleton } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -59,7 +59,11 @@ const PreviewContent: React.FC<PreviewContentProps> = ({ element, setElement, ..
 
   return (
     <Flex vertical style={{ width: '100%' }}>
-      <Radio.Group options={OPTIONS} value={element} onChange={(e) => setElement(e.target.value)} />
+      <Segmented
+        options={OPTIONS}
+        value={element}
+        onChange={(value: string) => setElement(value)}
+      />
       <Divider orientation="left" plain>
         Preview
       </Divider>
