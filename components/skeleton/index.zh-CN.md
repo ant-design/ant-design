@@ -84,9 +84,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAA
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-### Skeleton.Node
+### Skeleton.Element
 
-<code src="./demo/_semantic_node.tsx" simplify="true"></code>
+<code src="./demo/_semantic_element.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 
