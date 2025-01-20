@@ -20,8 +20,8 @@
 
 [npm-image]: https://img.shields.io/npm/v/antd.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/antd
-[github-action-image]: https://github.com/ant-design/ant-design/workflows/%E2%9C%85%20test/badge.svg
-[github-action-url]: https://github.com/ant-design/ant-design/actions?query=workflow%3A%22%E2%9C%85+test%22
+[github-action-image]: https://github.com/ant-design/ant-design/actions/workflows/test.yml/badge.svg
+[github-action-url]: https://github.com/ant-design/ant-design/actions/workflows/test.yml
 [codecov-image]: https://img.shields.io/codecov/c/github/ant-design/ant-design/master.svg?style=flat-square
 [codecov-url]: https://codecov.io/gh/ant-design/ant-design/branch/master
 [download-image]: https://img.shields.io/npm/dm/antd.svg?style=flat-square
