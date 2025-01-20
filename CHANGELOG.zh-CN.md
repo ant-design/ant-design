@@ -25,6 +25,7 @@ tag: vVERSION
 - 💄 修复 Descriptions 最后一项未正确填充满剩余空间的问题。[#52410](https://github.com/ant-design/ant-design/pull/52410) [@anyuxuan](https://github.com/anyuxuan)
 - 💄 修复 Radio 最后一项多余 margin 的问题。[#52433](https://github.com/ant-design/ant-design/pull/52433)
 - 💄 修复 Input/Mentions 清除按钮 padding 不正确的问题。[#52407](https://github.com/ant-design/ant-design/pull/52407) [@ustcfury](https://github.com/ustcfury)
+- 💄 修复 Input 紧凑模式中 `addonAfter` 的圆角问题。[#52490](https://github.com/ant-design/ant-design/pull/52490) [@DDDDD12138](https://github.com/DDDDD12138)
 - 💄 修复 MenuItem 在禁用状态下链接仍可点击且缺少禁用样式的问题。[#52402](https://github.com/ant-design/ant-design/pull/52402) [@aojunhao123](https://github.com/aojunhao123)
 - TypeScript
   - 🤖 优化 PurePanel 使用 React.ComponentType 类型。[#52480](https://github.com/ant-design/ant-design/pull/52480)
