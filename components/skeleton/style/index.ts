@@ -280,7 +280,7 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
           ...genSkeletonElementAvatarSize(controlHeightSM),
         },
       },
-      [`${componentCls}-content`]: {
+      [`${componentCls}-section`]: {
         display: 'table-cell',
         width: '100%',
         verticalAlign: 'top',
@@ -316,13 +316,13 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
         },
       },
 
-      [`&-round ${componentCls}-content`]: {
+      [`&-round ${componentCls}-section`]: {
         [`${skeletonTitleCls}, ${skeletonParagraphCls} > li`]: {
           borderRadius,
         },
       },
     },
-    [`${componentCls}-with-avatar ${componentCls}-content`]: {
+    [`${componentCls}-with-avatar ${componentCls}-section`]: {
       // Title
       [skeletonTitleCls]: {
         marginBlockStart: marginSM,

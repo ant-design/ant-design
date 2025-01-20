@@ -18,7 +18,7 @@ import Title from './Title';
 /* This only for skeleton internal. */
 type SkeletonAvatarProps = Omit<AvatarProps, 'active'>;
 
-export type SemanticName = 'root' | 'header' | 'content' | 'avatar' | 'title' | 'paragraph';
+export type SemanticName = 'root' | 'header' | 'section' | 'avatar' | 'title' | 'paragraph';
 
 export interface SkeletonProps {
   active?: boolean;
@@ -176,11 +176,11 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
       contentNode = (
         <div
           className={classNames(
-            skeleton?.classNames?.content,
-            skeletonClassNames?.content,
-            `${prefixCls}-content`,
+            skeleton?.classNames?.section,
+            skeletonClassNames?.section,
+            `${prefixCls}-section`,
           )}
-          style={{ ...skeleton?.styles?.content, ...styles?.content }}
+          style={{ ...skeleton?.styles?.section, ...styles?.section }}
         >
           {$title}
           {paragraphNode}

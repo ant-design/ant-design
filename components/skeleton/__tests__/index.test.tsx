@@ -191,7 +191,7 @@ describe('Skeleton', () => {
   it('Skeleton should apply custom styles to semantic elements', () => {
     const rootStyle = { background: 'pink' };
     const headerStyle = { background: 'green' };
-    const contentStyle = { background: 'yellow' };
+    const sectionStyle = { background: 'yellow' };
     const avatarStyle = { background: 'blue' };
     const titleStyle = { background: 'red' };
     const paragraphStyle = { background: 'orange' };
@@ -199,7 +199,7 @@ describe('Skeleton', () => {
     const customStyles: Record<SemanticName, React.CSSProperties> = {
       root: rootStyle,
       header: headerStyle,
-      content: contentStyle,
+      section: sectionStyle,
       avatar: avatarStyle,
       title: titleStyle,
       paragraph: paragraphStyle,
@@ -208,7 +208,7 @@ describe('Skeleton', () => {
     const customClassNames: Record<SemanticName, string> = {
       root: 'custom-root',
       header: 'custom-header',
-      content: 'custom-content',
+      section: 'custom-section',
       avatar: 'custom-avatar',
       title: 'custom-title',
       paragraph: 'custom-paragraph',
@@ -228,9 +228,9 @@ describe('Skeleton', () => {
     expect(headerElement).toHaveStyle(headerStyle);
     expect(headerElement).toHaveClass(customClassNames.header);
 
-    const contentElement = container.querySelector('.ant-skeleton-content');
-    expect(contentElement).toHaveStyle(contentStyle);
-    expect(contentElement).toHaveClass(customClassNames.content);
+    const sectionElement = container.querySelector('.ant-skeleton-section');
+    expect(sectionElement).toHaveStyle(sectionStyle);
+    expect(sectionElement).toHaveClass(customClassNames.section);
 
     const avatarElement = container.querySelector('.ant-skeleton-avatar');
     expect(avatarElement).toHaveStyle(avatarStyle);

@@ -383,20 +383,26 @@ describe('ConfigProvider support style and className props', () => {
   });
 
   it('Should Skeleton classNames & styles works', () => {
-    const style = { background: 'pink' };
+    const rootStyle = { background: 'pink' };
+    const headerStyle = { background: 'green' };
+    const sectionStyle = { background: 'yellow' };
+    const avatarStyle = { background: 'blue' };
+    const titleStyle = { background: 'red' };
+    const paragraphStyle = { background: 'orange' };
+
     const customStyles: Record<SkeletonSemanticName, React.CSSProperties> = {
-      root: style,
-      header: style,
-      content: style,
-      avatar: style,
-      title: style,
-      paragraph: style,
+      root: rootStyle,
+      header: headerStyle,
+      section: sectionStyle,
+      avatar: avatarStyle,
+      title: titleStyle,
+      paragraph: paragraphStyle,
     };
 
     const customClassNames: Record<SkeletonSemanticName, string> = {
       root: 'custom-root',
       header: 'custom-header',
-      content: 'custom-content',
+      section: 'custom-section',
       avatar: 'custom-avatar',
       title: 'custom-title',
       paragraph: 'custom-paragraph',
@@ -409,27 +415,27 @@ describe('ConfigProvider support style and className props', () => {
     );
 
     const rootElement = container.querySelector('.ant-skeleton');
-    expect(rootElement).toHaveStyle(style);
+    expect(rootElement).toHaveStyle(rootStyle);
     expect(rootElement).toHaveClass(customClassNames.root);
 
     const headerElement = container.querySelector('.ant-skeleton-header');
-    expect(headerElement).toHaveStyle(style);
+    expect(headerElement).toHaveStyle(headerStyle);
     expect(headerElement).toHaveClass(customClassNames.header);
 
-    const contentElement = container.querySelector('.ant-skeleton-content');
-    expect(contentElement).toHaveStyle(style);
-    expect(contentElement).toHaveClass(customClassNames.content);
+    const sectionElement = container.querySelector('.ant-skeleton-section');
+    expect(sectionElement).toHaveStyle(sectionStyle);
+    expect(sectionElement).toHaveClass(customClassNames.section);
 
     const avatarElement = container.querySelector('.ant-skeleton-avatar');
-    expect(avatarElement).toHaveStyle(style);
+    expect(avatarElement).toHaveStyle(avatarStyle);
     expect(avatarElement).toHaveClass(customClassNames.avatar);
 
     const titleElement = container.querySelector('.ant-skeleton-title');
-    expect(titleElement).toHaveStyle(style);
+    expect(titleElement).toHaveStyle(titleStyle);
     expect(titleElement).toHaveClass(customClassNames.title);
 
     const paragraphElement = container.querySelector('.ant-skeleton-paragraph');
-    expect(paragraphElement).toHaveStyle(style);
+    expect(paragraphElement).toHaveStyle(paragraphStyle);
     expect(paragraphElement).toHaveClass(customClassNames.paragraph);
   });
 

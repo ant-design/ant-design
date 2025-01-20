@@ -83,7 +83,7 @@ exports[`Skeleton avatar shape 1`] = `
     />
   </div>
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -111,7 +111,7 @@ exports[`Skeleton avatar shape 2`] = `
     />
   </div>
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -139,7 +139,7 @@ exports[`Skeleton avatar size 1`] = `
     />
   </div>
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -167,7 +167,7 @@ exports[`Skeleton avatar size 2`] = `
     />
   </div>
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -195,7 +195,7 @@ exports[`Skeleton avatar size 3`] = `
     />
   </div>
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -224,7 +224,7 @@ exports[`Skeleton avatar size 4`] = `
     />
   </div>
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -413,7 +413,7 @@ exports[`Skeleton paragraph rows 1`] = `
   class="ant-skeleton"
 >
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -439,7 +439,7 @@ exports[`Skeleton paragraph width 1`] = `
   class="ant-skeleton"
 >
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -463,7 +463,7 @@ exports[`Skeleton paragraph width 2`] = `
   class="ant-skeleton"
 >
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -489,7 +489,7 @@ exports[`Skeleton rtl render component should be rendered correctly in RTL direc
   class="ant-skeleton ant-skeleton-rtl"
 >
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -515,7 +515,7 @@ exports[`Skeleton should round title and paragraph 1`] = `
   class="ant-skeleton ant-skeleton-round"
 >
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -546,7 +546,7 @@ exports[`Skeleton should square avatar 1`] = `
     />
   </div>
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -561,7 +561,7 @@ exports[`Skeleton should support style 1`] = `
   style="background: blue;"
 >
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -585,7 +585,7 @@ exports[`Skeleton should without avatar and paragraph 1`] = `
   class="ant-skeleton"
 >
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -599,7 +599,7 @@ exports[`Skeleton title width 1`] = `
   class="ant-skeleton"
 >
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
