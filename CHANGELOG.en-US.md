@@ -29,7 +29,7 @@ tag: vVERSION
 - 💄 Fix Menu.Item links were still clickable and lacked disabled styles when in disabled state. [#52402](https://github.com/ant-design/ant-design/pull/52402) [@aojunhao123](https://github.com/aojunhao123)
 - TypeScript
   - 🤖 MISC: Optimize PurePanel to use React.ComponentType type. [#52480](https://github.com/ant-design/ant-design/pull/52480)
-  - 🤖 Fix missing token type for Rate. [#52406](https://github.com/ant-design/ant-design/pull/52406) [@coding-ice](https://github.com/coding-ice)
+  - 🤖 Fix missing token type for Skeleton and Rate. [#52406](https://github.com/ant-design/ant-design/pull/52406) [@coding-ice](https://github.com/coding-ice)
 
 ## 5.23.1
 
