@@ -117,8 +117,8 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
         <DumiDemoGrid
           items={demos}
           demoRender={(item) => (
-            <Suspense fallback={<DemoFallback />}>
-              <DumiDemo key={item.demo.id} {...item} />
+            <Suspense key={item.demo.id} fallback={<DemoFallback />}>
+              <DumiDemo {...item} />
             </Suspense>
           )}
         />
