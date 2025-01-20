@@ -87,7 +87,7 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
           alignItems: 'center',
           justifyContent: 'center',
           background: siderBg,
-          borderRadius: `0 ${borderRadiusLG} ${borderRadiusLG} 0`,
+          borderRadius: `0 ${unit(borderRadiusLG)} ${unit(borderRadiusLG)} 0`,
           cursor: 'pointer',
           transition: `background ${motionDurationSlow} ease`,
 
@@ -105,7 +105,7 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
 
           '&-right': {
             insetInlineStart: token.calc(zeroTriggerWidth).mul(-1).equal(),
-            borderRadius: `${borderRadiusLG} 0 0 ${borderRadiusLG}`,
+            borderRadius: `${unit(borderRadiusLG)} 0 0 ${unit(borderRadiusLG)}`,
           },
         },
       },
