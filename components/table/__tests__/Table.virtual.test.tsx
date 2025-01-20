@@ -35,7 +35,7 @@ describe('Table.Virtual', () => {
     ).toEqual('bamboo');
   });
 
-  // warning from `rc-table`
+  // warning from `rc-component/table`
   it('warning if no scroll', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Table virtual />);
