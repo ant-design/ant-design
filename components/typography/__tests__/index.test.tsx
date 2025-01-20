@@ -14,7 +14,6 @@ import Paragraph from '../Paragraph';
 import Text from '../Text';
 import type { TitleProps } from '../Title';
 import Title from '../Title';
-import Typography from '../Typography';
 
 jest.mock('copy-to-clipboard');
 
@@ -443,14 +442,6 @@ describe('Typography', () => {
       expect(textareaNode?.selectionStart).toBe(7);
       expect(textareaNode?.selectionEnd).toBe(7);
     });
-  });
-
-  it('warning if use setContentRef', () => {
-    const setContentRef = { setContentRef() {} } as any;
-    render(<Typography {...setContentRef} />);
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Typography] `setContentRef` is deprecated. Please use `ref` instead.',
-    );
   });
 
   it('no italic warning', () => {

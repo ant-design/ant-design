@@ -1,9 +1,9 @@
 import * as React from 'react';
+import { INTERNAL_HOOKS } from '@rc-component/table';
+import type { Reference as RcReference, TableProps as RcTableProps } from '@rc-component/table';
+import { convertChildrenToColumns } from '@rc-component/table/lib/hooks/useColumns';
 import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import { INTERNAL_HOOKS } from 'rc-table';
-import type { Reference as RcReference, TableProps as RcTableProps } from 'rc-table';
-import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 
 import useProxyImperativeHandle from '../_util/hooks/useProxyImperativeHandle';
 import type { Breakpoint } from '../_util/responsiveObserver';
@@ -449,7 +449,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   // ========================== Expandable ==========================
 
-  // Pass origin render status into `rc-table`, this can be removed when refactor with `rc-table`
+  // Pass origin render status into `@rc-component/table`, this can be removed when refactor with `@rc-component/table`
   (mergedExpandable as any).__PARENT_RENDER_ICON__ = mergedExpandable.expandIcon;
 
   // Customize expandable icon
