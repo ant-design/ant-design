@@ -128,14 +128,12 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     children,
     afterOpenChange,
     destroyTooltipOnHide,
+    arrow: tooltipArrow,
     title,
     overlay,
     builtinPlacements,
     autoAdjustOverflow = true,
     motion,
-  } = props;
-
-  const {
     getPopupContainer,
     placement = 'top',
     mouseEnterDelay = 0.1,
@@ -145,7 +143,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     overlayClassName,
     styles,
     classNames: tooltipClassNames,
-    arrow: tooltipArrow,
     ...restProps
   } = props;
 
@@ -158,7 +155,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     tooltip,
   } = React.useContext(ConfigContext);
   const mergedArrow = useMergedArrow(tooltipArrow, tooltip?.arrow);
-  const mergedShowArrow = mergedArrow?.show ?? true;
+  const mergedShowArrow = mergedArrow?.show;
 
   // ============================== Ref ===============================
   const warning = devUseWarning('Tooltip');

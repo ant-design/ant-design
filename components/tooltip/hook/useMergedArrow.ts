@@ -15,11 +15,14 @@ const useMergedArrow = (
     typeof arrow === 'boolean' ? { show: arrow } : arrow || {};
 
   return React.useMemo(() => {
-    const arrowConfig = toConfig(providedArrow);
-    const contextArrowConfig = toConfig(providedContextArrow);
+    const arrowConfig: MergedArrow = toConfig(providedArrow);
+    const contextArrowConfig: MergedArrow = toConfig(providedContextArrow);
 
-    return { ...contextArrowConfig, ...arrowConfig };
+    return {
+      ...contextArrowConfig,
+      ...arrowConfig,
+      show: arrowConfig.show ?? contextArrowConfig.show ?? true,
+    };
   }, [providedArrow, providedContextArrow]);
 };
-
 export default useMergedArrow;
