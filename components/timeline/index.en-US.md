@@ -15,7 +15,7 @@ demo:
 - When you need a timeline to make a visual connection.
 
 <!-- prettier-ignore -->
-:::info
+:::info{title="Upgrade Tip"}
 After version 5.2.0, we provide a simpler usage `<Timeline items={[...]} />` with better performance and potential of writing simpler code style in your applications.
 Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0.
 :::
@@ -52,13 +52,13 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### Timeline
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| mode | By sending `alternate` the timeline will distribute the nodes to the left and right | `left` \| `alternate` \| `right` | - |
-| pending | Set the last ghost node's existence or its content | ReactNode | false |
-| pendingDot | Set the dot of the last ghost node when pending is true | ReactNode | &lt;LoadingOutlined /&gt; |
-| reverse | Whether reverse nodes or not | boolean | false |
-| items | Each node of timeline | [Items](#Items)[] | 5.2.0 |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| mode | By sending `alternate` the timeline will distribute the nodes to the left and right | `left` \| `alternate` \| `right` | - |  |
+| pending | Set the last ghost node's existence or its content | ReactNode | false |  |
+| pendingDot | Set the dot of the last ghost node when pending is true | ReactNode | &lt;LoadingOutlined /&gt; |  |
+| reverse | Whether reverse nodes or not | boolean | false |  |
+| items | Each node of timeline | [Items](#Items)[] | - | 5.2.0 |
 
 ### Items
 

@@ -1,5 +1,5 @@
-import { css, Global } from '@emotion/react';
 import React from 'react';
+import { css, Global } from '@emotion/react';
 import { useTheme } from 'antd-style';
 
 export default () => {
@@ -11,7 +11,8 @@ export default () => {
         @font-face {
           font-weight: normal;
           font-family: AlibabaPuHuiTi;
-          src: url('//at.alicdn.com/t/webfont_6e11e43nfj.woff2') format('woff2'),
+          src:
+            url('//at.alicdn.com/t/webfont_6e11e43nfj.woff2') format('woff2'),
             url('//at.alicdn.com/t/webfont_6e11e43nfj.woff') format('woff'),
             /* chrome、firefox */ url('//at.alicdn.com/t/webfont_6e11e43nfj.ttf') format('truetype'); /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
           font-display: swap;
@@ -20,7 +21,8 @@ export default () => {
         @font-face {
           font-weight: bold;
           font-family: AlibabaPuHuiTi;
-          src: url('//at.alicdn.com/t/webfont_exesdog9toj.woff2') format('woff2'),
+          src:
+            url('//at.alicdn.com/t/webfont_exesdog9toj.woff2') format('woff2'),
             url('//at.alicdn.com/t/webfont_exesdog9toj.woff') format('woff'),
             /* chrome、firefox */ url('//at.alicdn.com/t/webfont_exesdog9toj.ttf')
               format('truetype'); /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
@@ -32,7 +34,8 @@ export default () => {
         @font-face {
           font-weight: 900;
           font-family: 'AliPuHui';
-          src: url('//at.alicdn.com/wf/webfont/exMpJIukiCms/Gsw2PSKrftc1yNWMNlXgw.woff2')
+          src:
+            url('//at.alicdn.com/wf/webfont/exMpJIukiCms/Gsw2PSKrftc1yNWMNlXgw.woff2')
               format('woff2'),
             url('//at.alicdn.com/wf/webfont/exMpJIukiCms/vtu73by4O2gEBcvBuLgeu.woff') format('woff');
           font-display: swap;

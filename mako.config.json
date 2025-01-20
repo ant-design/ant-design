@@ -1,0 +1,17 @@
+{
+  "optimization": {
+    "skipModules": false,
+    "concatenateModules": false
+  },
+  "codeSplitting": {
+    "strategy": "auto"
+  },
+  "watch": {
+    "_nodeModulesRegexes": ["rc-.*"]
+  },
+  "hmr": false,
+  "devtool": false,
+  "experimental": {
+    "magicComment": true
+  }
+}

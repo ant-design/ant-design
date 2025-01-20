@@ -50,30 +50,34 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
               class="ant-select-selector"
             >
               <span
-                class="ant-select-selection-search"
+                class="ant-select-selection-wrap"
               >
-                <input
-                  aria-autocomplete="list"
-                  aria-controls="rc_select_TEST_OR_SSR_list"
-                  aria-expanded="false"
-                  aria-haspopup="listbox"
-                  aria-owns="rc_select_TEST_OR_SSR_list"
-                  autocomplete="off"
-                  class="ant-select-selection-search-input"
-                  id="rc_select_TEST_OR_SSR"
-                  readonly=""
-                  role="combobox"
-                  style="opacity: 0;"
-                  type="search"
-                  unselectable="on"
-                  value=""
-                />
-              </span>
-              <span
-                class="ant-select-selection-item"
-                title="http://"
-              >
-                http://
+                <span
+                  class="ant-select-selection-search"
+                >
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="rc_select_TEST_OR_SSR_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-owns="rc_select_TEST_OR_SSR_list"
+                    autocomplete="off"
+                    class="ant-select-selection-search-input"
+                    id="rc_select_TEST_OR_SSR"
+                    readonly=""
+                    role="combobox"
+                    style="opacity: 0;"
+                    type="search"
+                    unselectable="on"
+                    value=""
+                  />
+                </span>
+                <span
+                  class="ant-select-selection-item"
+                  title="http://"
+                >
+                  http://
+                </span>
               </span>
             </div>
             <div
@@ -199,30 +203,34 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
               class="ant-select-selector"
             >
               <span
-                class="ant-select-selection-search"
+                class="ant-select-selection-wrap"
               >
-                <input
-                  aria-autocomplete="list"
-                  aria-controls="rc_select_TEST_OR_SSR_list"
-                  aria-expanded="false"
-                  aria-haspopup="listbox"
-                  aria-owns="rc_select_TEST_OR_SSR_list"
-                  autocomplete="off"
-                  class="ant-select-selection-search-input"
-                  id="rc_select_TEST_OR_SSR"
-                  readonly=""
-                  role="combobox"
-                  style="opacity: 0;"
-                  type="search"
-                  unselectable="on"
-                  value=""
-                />
-              </span>
-              <span
-                class="ant-select-selection-item"
-                title=".com"
-              >
-                .com
+                <span
+                  class="ant-select-selection-search"
+                >
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="rc_select_TEST_OR_SSR_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-owns="rc_select_TEST_OR_SSR_list"
+                    autocomplete="off"
+                    class="ant-select-selection-search-input"
+                    id="rc_select_TEST_OR_SSR"
+                    readonly=""
+                    role="combobox"
+                    style="opacity: 0;"
+                    type="search"
+                    unselectable="on"
+                    value=""
+                  />
+                </span>
+                <span
+                  class="ant-select-selection-item"
+                  title=".com"
+                >
+                  .com
+                </span>
               </span>
             </div>
             <div
@@ -461,29 +469,33 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
               class="ant-select-selector"
             >
               <span
-                class="ant-select-selection-search"
+                class="ant-select-selection-wrap"
               >
-                <input
-                  aria-autocomplete="list"
-                  aria-controls="rc_select_TEST_OR_SSR_list"
-                  aria-expanded="false"
-                  aria-haspopup="listbox"
-                  aria-owns="rc_select_TEST_OR_SSR_list"
-                  autocomplete="off"
-                  class="ant-select-selection-search-input"
-                  id="rc_select_TEST_OR_SSR"
-                  readonly=""
-                  role="combobox"
-                  style="opacity: 0;"
-                  type="search"
-                  unselectable="on"
-                  value=""
-                />
-              </span>
-              <span
-                class="ant-select-selection-placeholder"
-              >
-                cascader
+                <span
+                  class="ant-select-selection-search"
+                >
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="rc_select_TEST_OR_SSR_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-owns="rc_select_TEST_OR_SSR_list"
+                    autocomplete="off"
+                    class="ant-select-selection-search-input"
+                    id="rc_select_TEST_OR_SSR"
+                    readonly=""
+                    role="combobox"
+                    style="opacity: 0;"
+                    type="search"
+                    unselectable="on"
+                    value=""
+                  />
+                </span>
+                <span
+                  class="ant-select-selection-placeholder"
+                >
+                  cascader
+                </span>
               </span>
             </div>
             <div
@@ -519,6 +531,9 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                               width="64"
                               xmlns="http://www.w3.org/2000/svg"
                             >
+                              <title>
+                                No data
+                              </title>
                               <g
                                 fill="none"
                                 fill-rule="evenodd"
@@ -701,7 +716,7 @@ Array [
     style="width: 100px;"
   />,
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -718,12 +733,10 @@ Array [
     class="ant-typography"
   >
     Ant Design
-    <div
+    <button
       aria-label="Copy"
       class="ant-typography-copy"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-      tabindex="0"
+      type="button"
     >
       <span
         aria-label="copy"
@@ -744,7 +757,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -946,6 +959,7 @@ Array [
                 class="ant-picker-header"
               >
                 <button
+                  aria-label="super-prev-year"
                   class="ant-picker-header-super-prev-btn"
                   tabindex="-1"
                   type="button"
@@ -955,6 +969,7 @@ Array [
                   />
                 </button>
                 <button
+                  aria-label="prev-year"
                   class="ant-picker-header-prev-btn"
                   tabindex="-1"
                   type="button"
@@ -967,6 +982,7 @@ Array [
                   class="ant-picker-header-view"
                 >
                   <button
+                    aria-label="month panel"
                     class="ant-picker-month-btn"
                     tabindex="-1"
                     type="button"
@@ -974,6 +990,7 @@ Array [
                     Nov
                   </button>
                   <button
+                    aria-label="year panel"
                     class="ant-picker-year-btn"
                     tabindex="-1"
                     type="button"
@@ -982,6 +999,7 @@ Array [
                   </button>
                 </div>
                 <button
+                  aria-label="next-year"
                   class="ant-picker-header-next-btn"
                   tabindex="-1"
                   type="button"
@@ -991,6 +1009,7 @@ Array [
                   />
                 </button>
                 <button
+                  aria-label="super-next-year"
                   class="ant-picker-header-super-next-btn"
                   tabindex="-1"
                   type="button"
@@ -3034,7 +3053,7 @@ Array [
                 class="ant-picker-ok"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                   disabled=""
                   type="button"
                 >
@@ -3057,30 +3076,34 @@ Array [
       class="ant-select-selector"
     >
       <span
-        class="ant-select-selection-search"
+        class="ant-select-selection-wrap"
       >
-        <input
-          aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
-          autocomplete="off"
-          class="ant-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
-          readonly=""
-          role="combobox"
-          style="opacity: 0;"
-          type="search"
-          unselectable="on"
-          value=""
-        />
-      </span>
-      <span
-        class="ant-select-selection-item"
-        title="Jack"
-      >
-        Jack
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="rc_select_TEST_OR_SSR_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
+            readonly=""
+            role="combobox"
+            style="opacity: 0;"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-item"
+          title="Jack"
+        >
+          Jack
+        </span>
       </span>
     </div>
     <div
@@ -3198,29 +3221,33 @@ Array [
       class="ant-select-selector"
     >
       <span
-        class="ant-select-selection-search"
+        class="ant-select-selection-wrap"
       >
-        <input
-          aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
-          autocomplete="off"
-          class="ant-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
-          readonly=""
-          role="combobox"
-          style="opacity: 0;"
-          type="search"
-          unselectable="on"
-          value=""
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="rc_select_TEST_OR_SSR_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
+            readonly=""
+            role="combobox"
+            style="opacity: 0;"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-item"
+          title=""
         />
       </span>
-      <span
-        class="ant-select-selection-item"
-        title=""
-      />
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
@@ -3337,28 +3364,32 @@ Array [
       class="ant-select-selector"
     >
       <span
-        class="ant-select-selection-search"
+        class="ant-select-selection-wrap"
       >
-        <input
-          aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
-          autocomplete="off"
-          class="ant-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
-          readonly=""
-          role="combobox"
-          style="opacity: 0;"
-          type="search"
-          unselectable="on"
-          value=""
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="rc_select_TEST_OR_SSR_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
+            readonly=""
+            role="combobox"
+            style="opacity: 0;"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
         />
       </span>
-      <span
-        class="ant-select-selection-placeholder"
-      />
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
@@ -3475,28 +3506,32 @@ Array [
       class="ant-select-selector"
     >
       <span
-        class="ant-select-selection-search"
+        class="ant-select-selection-wrap"
       >
-        <input
-          aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
-          autocomplete="off"
-          class="ant-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
-          readonly=""
-          role="combobox"
-          style="opacity: 0;"
-          type="search"
-          unselectable="on"
-          value=""
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="rc_select_TEST_OR_SSR_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
+            readonly=""
+            role="combobox"
+            style="opacity: 0;"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
         />
       </span>
-      <span
-        class="ant-select-selection-placeholder"
-      />
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
@@ -3519,6 +3554,9 @@ Array [
                 width="64"
                 xmlns="http://www.w3.org/2000/svg"
               >
+                <title>
+                  No data
+                </title>
                 <g
                   fill="none"
                   fill-rule="evenodd"
@@ -3589,30 +3627,34 @@ Array [
       class="ant-select-selector"
     >
       <span
-        class="ant-select-selection-search"
+        class="ant-select-selection-wrap"
       >
-        <input
-          aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
-          autocomplete="off"
-          class="ant-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
-          readonly=""
-          role="combobox"
-          style="opacity: 0;"
-          type="search"
-          unselectable="on"
-          value=""
-        />
-      </span>
-      <span
-        class="ant-select-selection-item"
-        title="Zhejiang / Hangzhou / West Lake"
-      >
-        Zhejiang / Hangzhou / West Lake
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="rc_select_TEST_OR_SSR_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
+            readonly=""
+            role="combobox"
+            style="opacity: 0;"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-item"
+          title="Zhejiang / Hangzhou / West Lake"
+        >
+          Zhejiang / Hangzhou / West Lake
+        </span>
       </span>
     </div>
     <div
@@ -3814,7 +3856,7 @@ Array [
     </div>
     <div
       class="ant-picker-active-bar"
-      style="position: absolute; width: 0px; left: 0px;"
+      style="position: absolute; width: 0px;"
     />
     <span
       class="ant-picker-suffix"
@@ -3849,7 +3891,7 @@ Array [
     >
       <div
         class="ant-picker-range-arrow"
-        style="left: 0px;"
+        style="inset-inline-start: 0;"
       />
       <div
         class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -3874,6 +3916,7 @@ Array [
                     class="ant-picker-header"
                   >
                     <button
+                      aria-label="super-prev-year"
                       class="ant-picker-header-super-prev-btn"
                       tabindex="-1"
                       type="button"
@@ -3883,6 +3926,7 @@ Array [
                       />
                     </button>
                     <button
+                      aria-label="prev-year"
                       class="ant-picker-header-prev-btn"
                       tabindex="-1"
                       type="button"
@@ -3895,6 +3939,7 @@ Array [
                       class="ant-picker-header-view"
                     >
                       <button
+                        aria-label="month panel"
                         class="ant-picker-month-btn"
                         tabindex="-1"
                         type="button"
@@ -3902,6 +3947,7 @@ Array [
                         Nov
                       </button>
                       <button
+                        aria-label="year panel"
                         class="ant-picker-year-btn"
                         tabindex="-1"
                         type="button"
@@ -3910,6 +3956,7 @@ Array [
                       </button>
                     </div>
                     <button
+                      aria-label="next-year"
                       class="ant-picker-header-next-btn"
                       style="visibility: hidden;"
                       tabindex="-1"
@@ -3920,6 +3967,7 @@ Array [
                       />
                     </button>
                     <button
+                      aria-label="super-next-year"
                       class="ant-picker-header-super-next-btn"
                       style="visibility: hidden;"
                       tabindex="-1"
@@ -4410,6 +4458,7 @@ Array [
                     class="ant-picker-header"
                   >
                     <button
+                      aria-label="super-prev-year"
                       class="ant-picker-header-super-prev-btn"
                       style="visibility: hidden;"
                       tabindex="-1"
@@ -4420,6 +4469,7 @@ Array [
                       />
                     </button>
                     <button
+                      aria-label="prev-year"
                       class="ant-picker-header-prev-btn"
                       style="visibility: hidden;"
                       tabindex="-1"
@@ -4433,6 +4483,7 @@ Array [
                       class="ant-picker-header-view"
                     >
                       <button
+                        aria-label="month panel"
                         class="ant-picker-month-btn"
                         tabindex="-1"
                         type="button"
@@ -4440,6 +4491,7 @@ Array [
                         Dec
                       </button>
                       <button
+                        aria-label="year panel"
                         class="ant-picker-year-btn"
                         tabindex="-1"
                         type="button"
@@ -4448,6 +4500,7 @@ Array [
                       </button>
                     </div>
                     <button
+                      aria-label="next-year"
                       class="ant-picker-header-next-btn"
                       tabindex="-1"
                       type="button"
@@ -4457,6 +4510,7 @@ Array [
                       />
                     </button>
                     <button
+                      aria-label="super-next-year"
                       class="ant-picker-header-super-next-btn"
                       tabindex="-1"
                       type="button"
@@ -5003,6 +5057,7 @@ Array [
                 class="ant-picker-header"
               >
                 <button
+                  aria-label="super-prev-year"
                   class="ant-picker-header-super-prev-btn"
                   tabindex="-1"
                   type="button"
@@ -5015,6 +5070,7 @@ Array [
                   class="ant-picker-header-view"
                 >
                   <button
+                    aria-label="year panel"
                     class="ant-picker-year-btn"
                     tabindex="-1"
                     type="button"
@@ -5023,6 +5079,7 @@ Array [
                   </button>
                 </div>
                 <button
+                  aria-label="super-next-year"
                   class="ant-picker-header-super-next-btn"
                   tabindex="-1"
                   type="button"
@@ -5188,6 +5245,7 @@ Array [
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="a"
         />
@@ -5207,6 +5265,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="b"
         />
@@ -5227,26 +5286,30 @@ Array [
       class="ant-select-selector"
     >
       <span
-        class="ant-select-selection-search"
+        class="ant-select-selection-wrap"
       >
-        <input
-          aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
-          autocomplete="off"
-          class="ant-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
-          role="combobox"
-          type="search"
-          value=""
-        />
-      </span>
-      <span
-        class="ant-select-selection-placeholder"
-      >
-        input here
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="rc_select_TEST_OR_SSR_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
+            role="combobox"
+            type="search"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
+        >
+          input here
+        </span>
       </span>
     </div>
     <div
@@ -5350,10 +5413,9 @@ Array [
     <span
       class="ant-input-suffix"
     >
-      <span
+      <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -5375,7 +5437,7 @@ Array [
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>,
   <br />,
@@ -5390,10 +5452,9 @@ Array [
     <span
       class="ant-input-suffix"
     >
-      <span
+      <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -5415,7 +5476,7 @@ Array [
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>,
 ]
@@ -5492,10 +5553,9 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     <span
       class="ant-input-suffix"
     >
-      <span
+      <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -5517,7 +5577,7 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>
   <span
@@ -5532,10 +5592,9 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     <span
       class="ant-input-suffix"
     >
-      <span
+      <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -5557,7 +5616,7 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>
   <span
@@ -5609,10 +5668,9 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     <span
       class="ant-input-suffix"
     >
-      <span
+      <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -5634,8 +5692,46 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
+  </span>
+  <input
+    class="ant-input ant-input-borderless ant-input-status-error"
+    type="text"
+    value="error"
+  />
+  <input
+    class="ant-input ant-input-borderless ant-input-status-warning"
+    type="text"
+    value="warning"
+  />
+  <span
+    class="ant-input-affix-wrapper ant-input-borderless ant-input-status-error"
+  >
+    <span
+      class="ant-input-prefix"
+    >
+      $
+    </span>
+    <input
+      class="ant-input"
+      type="text"
+      value="error"
+    />
+  </span>
+  <span
+    class="ant-input-affix-wrapper ant-input-borderless ant-input-status-warning"
+  >
+    <span
+      class="ant-input-prefix"
+    >
+      $
+    </span>
+    <input
+      class="ant-input"
+      type="text"
+      value="warning"
+    />
   </span>
 </div>
 `;
@@ -5702,16 +5798,15 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
             <input
               class="ant-input"
               placeholder="input search text"
-              type="text"
+              type="search"
               value=""
             />
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                role="button"
-                tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -5733,14 +5828,14 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
           <span
             class="ant-input-group-addon"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
               type="button"
             >
               <span
@@ -5785,7 +5880,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
         value="Combine input and button"
       />
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -5807,30 +5902,34 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              readonly=""
-              role="combobox"
-              style="opacity: 0;"
-              type="search"
-              unselectable="on"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="Zhejiang"
-          >
-            Zhejiang
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                readonly=""
+                role="combobox"
+                style="opacity: 0;"
+                type="search"
+                unselectable="on"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="Zhejiang"
+            >
+              Zhejiang
+            </span>
           </span>
         </div>
         <div
@@ -6030,7 +6129,7 @@ exports[`renders components/input/demo/debug-addon.tsx extend context correctly 
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
             type="button"
           >
             <span>
@@ -6059,7 +6158,7 @@ exports[`renders components/input/demo/debug-addon.tsx extend context correctly 
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span>
@@ -6103,7 +6202,7 @@ exports[`renders components/input/demo/debug-addon.tsx extend context correctly 
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span
@@ -6439,10 +6538,9 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
     <span
       class="ant-input-suffix"
     >
-      <span
+      <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -6464,7 +6562,7 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>
   <span
@@ -6526,7 +6624,7 @@ exports[`renders components/input/demo/focus.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -6538,7 +6636,7 @@ exports[`renders components/input/demo/focus.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -6550,7 +6648,7 @@ exports[`renders components/input/demo/focus.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -6562,7 +6660,7 @@ exports[`renders components/input/demo/focus.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -6681,7 +6779,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       value="https://ant.design"
     />
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -6700,20 +6798,20 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       value="git@github.com:ant-design/ant-design.git"
     />
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
       type="button"
     >
       <span
         class="ant-btn-icon"
       >
         <span
-          aria-label="copy"
-          class="anticon anticon-copy"
+          aria-label="search"
+          class="anticon anticon-search"
           role="img"
         >
           <svg
             aria-hidden="true"
-            data-icon="copy"
+            data-icon="search"
             fill="currentColor"
             focusable="false"
             height="1em"
@@ -6721,7 +6819,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
             width="1em"
           >
             <path
-              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+              d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
             />
           </svg>
         </span>
@@ -6742,7 +6840,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           class="ant-tooltip-inner"
           role="tooltip"
         >
-          copy git url
+          search git url
         </div>
       </div>
     </div>
@@ -6758,30 +6856,34 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="Zhejiang"
-        >
-          Zhejiang
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              readonly=""
+              role="combobox"
+              style="opacity: 0;"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="Zhejiang"
+          >
+            Zhejiang
+          </span>
         </span>
       </div>
       <div
@@ -6914,16 +7016,15 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         >
           <input
             class="ant-input"
-            type="text"
+            type="search"
             value="0571"
           />
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -6945,14 +7046,14 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
         <span
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -6994,16 +7095,15 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         >
           <input
             class="ant-input"
-            type="text"
+            type="search"
             value="26888888"
           />
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -7025,14 +7125,14 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
         <span
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -7074,30 +7174,34 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="Option1"
-        >
-          Option1
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              readonly=""
+              role="combobox"
+              style="opacity: 0;"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="Option1"
+          >
+            Option1
+          </span>
         </span>
       </div>
       <div
@@ -7369,6 +7473,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   class="ant-picker-header"
                 >
                   <button
+                    aria-label="super-prev-year"
                     class="ant-picker-header-super-prev-btn"
                     tabindex="-1"
                     type="button"
@@ -7378,6 +7483,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                     />
                   </button>
                   <button
+                    aria-label="prev-year"
                     class="ant-picker-header-prev-btn"
                     tabindex="-1"
                     type="button"
@@ -7390,6 +7496,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                     class="ant-picker-header-view"
                   >
                     <button
+                      aria-label="month panel"
                       class="ant-picker-month-btn"
                       tabindex="-1"
                       type="button"
@@ -7397,6 +7504,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                       Nov
                     </button>
                     <button
+                      aria-label="year panel"
                       class="ant-picker-year-btn"
                       tabindex="-1"
                       type="button"
@@ -7405,6 +7513,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                     </button>
                   </div>
                   <button
+                    aria-label="next-year"
                     class="ant-picker-header-next-btn"
                     tabindex="-1"
                     type="button"
@@ -7414,6 +7523,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                     />
                   </button>
                   <button
+                    aria-label="super-next-year"
                     class="ant-picker-header-super-next-btn"
                     tabindex="-1"
                     type="button"
@@ -7983,7 +8093,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position: absolute; width: 0px; left: 0px;"
+        style="position: absolute; width: 0px;"
       />
       <span
         class="ant-picker-suffix"
@@ -8018,7 +8128,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       >
         <div
           class="ant-picker-range-arrow"
-          style="left: 0px;"
+          style="inset-inline-start: 0;"
         />
         <div
           class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -8043,6 +8153,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                       class="ant-picker-header"
                     >
                       <button
+                        aria-label="super-prev-year"
                         class="ant-picker-header-super-prev-btn"
                         tabindex="-1"
                         type="button"
@@ -8052,6 +8163,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                         />
                       </button>
                       <button
+                        aria-label="prev-year"
                         class="ant-picker-header-prev-btn"
                         tabindex="-1"
                         type="button"
@@ -8064,6 +8176,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                         class="ant-picker-header-view"
                       >
                         <button
+                          aria-label="month panel"
                           class="ant-picker-month-btn"
                           tabindex="-1"
                           type="button"
@@ -8071,6 +8184,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                           Nov
                         </button>
                         <button
+                          aria-label="year panel"
                           class="ant-picker-year-btn"
                           tabindex="-1"
                           type="button"
@@ -8079,6 +8193,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                         </button>
                       </div>
                       <button
+                        aria-label="next-year"
                         class="ant-picker-header-next-btn"
                         style="visibility: hidden;"
                         tabindex="-1"
@@ -8089,6 +8204,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                         />
                       </button>
                       <button
+                        aria-label="super-next-year"
                         class="ant-picker-header-super-next-btn"
                         style="visibility: hidden;"
                         tabindex="-1"
@@ -8579,6 +8695,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                       class="ant-picker-header"
                     >
                       <button
+                        aria-label="super-prev-year"
                         class="ant-picker-header-super-prev-btn"
                         style="visibility: hidden;"
                         tabindex="-1"
@@ -8589,6 +8706,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                         />
                       </button>
                       <button
+                        aria-label="prev-year"
                         class="ant-picker-header-prev-btn"
                         style="visibility: hidden;"
                         tabindex="-1"
@@ -8602,6 +8720,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                         class="ant-picker-header-view"
                       >
                         <button
+                          aria-label="month panel"
                           class="ant-picker-month-btn"
                           tabindex="-1"
                           type="button"
@@ -8609,6 +8728,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                           Dec
                         </button>
                         <button
+                          aria-label="year panel"
                           class="ant-picker-year-btn"
                           tabindex="-1"
                           type="button"
@@ -8617,6 +8737,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                         </button>
                       </div>
                       <button
+                        aria-label="next-year"
                         class="ant-picker-header-next-btn"
                         tabindex="-1"
                         type="button"
@@ -8626,6 +8747,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                         />
                       </button>
                       <button
+                        aria-label="super-next-year"
                         class="ant-picker-header-super-next-btn"
                         tabindex="-1"
                         type="button"
@@ -9122,30 +9244,34 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="Option1-1"
-        >
-          Option1-1
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              readonly=""
+              role="combobox"
+              style="opacity: 0;"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="Option1-1"
+          >
+            Option1-1
+          </span>
         </span>
       </div>
       <div
@@ -9262,30 +9388,34 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="Option2-2"
-        >
-          Option2-2
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              readonly=""
+              role="combobox"
+              style="opacity: 0;"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="Option2-2"
+          >
+            Option2-2
+          </span>
         </span>
       </div>
       <div
@@ -9407,30 +9537,34 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="Between"
-        >
-          Between
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              readonly=""
+              role="combobox"
+              style="opacity: 0;"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="Between"
+          >
+            Between
+          </span>
         </span>
       </div>
       <div
@@ -9575,30 +9709,34 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="Sign Up"
-        >
-          Sign Up
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              readonly=""
+              role="combobox"
+              style="opacity: 0;"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="Sign Up"
+          >
+            Sign Up
+          </span>
         </span>
       </div>
       <div
@@ -9716,26 +9854,30 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            role="combobox"
-            type="search"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        >
-          Email
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              role="combobox"
+              type="search"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-placeholder"
+          >
+            Email
+          </span>
         </span>
       </div>
       <div
@@ -9823,30 +9965,34 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="Home"
-        >
-          Home
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              readonly=""
+              role="combobox"
+              style="opacity: 0;"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="Home"
+          >
+            Home
+          </span>
         </span>
       </div>
       <div
@@ -9964,29 +10110,33 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        >
-          Select Address
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              readonly=""
+              role="combobox"
+              style="opacity: 0;"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-placeholder"
+          >
+            Select Address
+          </span>
         </span>
       </div>
       <div
@@ -10111,6 +10261,262 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
 exports[`renders components/input/demo/group.tsx extend context correctly 2`] = `
 [
   "Warning: [antd: Input.Group] \`Input.Group\` is deprecated. Please use \`Space.Compact\` instead.",
+]
+`;
+
+exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-flex-start ant-flex-gap-middle ant-flex-vertical"
+>
+  <h5
+    class="ant-typography"
+  >
+    With formatter (Upcase)
+  </h5>
+  <div
+    class="ant-otp"
+  >
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+  </div>
+  <h5
+    class="ant-typography"
+  >
+    With Disabled
+  </h5>
+  <div
+    class="ant-otp"
+  >
+    <input
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      disabled=""
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      disabled=""
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      disabled=""
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      disabled=""
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      disabled=""
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      disabled=""
+      size="1"
+      type="text"
+      value=""
+    />
+  </div>
+  <h5
+    class="ant-typography"
+  >
+    With Length (8)
+  </h5>
+  <div
+    class="ant-otp"
+  >
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+  </div>
+  <h5
+    class="ant-typography"
+  >
+    With variant
+  </h5>
+  <div
+    class="ant-otp"
+  >
+    <input
+      class="ant-input ant-input-filled ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-filled ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-filled ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-filled ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-filled ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-filled ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+  </div>
+  <h5
+    class="ant-typography"
+  >
+    With custom display character
+  </h5>
+  <div
+    class="ant-otp"
+  >
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`renders components/input/demo/otp.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Input.OTP] \`mask\` prop should be a single character.",
 ]
 `;
 
@@ -10251,7 +10657,7 @@ exports[`renders components/input/demo/password-input.tsx extend context correct
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width: 80px;"
           type="button"
         >
@@ -10261,6 +10667,48 @@ exports[`renders components/input/demo/password-input.tsx extend context correct
         </button>
       </div>
     </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <span
+      class="ant-input-affix-wrapper ant-input-disabled ant-input-affix-wrapper-disabled ant-input-outlined ant-input-password"
+    >
+      <input
+        class="ant-input ant-input-disabled"
+        disabled=""
+        placeholder="disabled input password"
+        type="password"
+        value=""
+      />
+      <span
+        class="ant-input-suffix"
+      >
+        <span
+          aria-label="eye-invisible"
+          class="anticon anticon-eye-invisible ant-input-password-icon"
+          role="img"
+          tabindex="-1"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="eye-invisible"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
+            />
+            <path
+              d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
+            />
+          </svg>
+        </span>
+      </span>
+    </span>
   </div>
 </div>
 `;
@@ -10277,8 +10725,9 @@ Array [
     >
       <span
         aria-label="user"
-        class="anticon anticon-user site-form-item-icon"
+        class="anticon anticon-user"
         role="img"
+        style="color: rgba(0, 0, 0, 0.25);"
       >
         <svg
           aria-hidden="true"
@@ -10413,14 +10862,14 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
         <input
           class="ant-input ant-input-outlined"
           placeholder="input search text"
-          type="text"
+          type="search"
           value=""
         />
         <span
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -10467,16 +10916,15 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           <input
             class="ant-input"
             placeholder="input search text"
-            type="text"
+            type="search"
             value=""
           />
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -10498,14 +10946,14 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
         <span
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -10557,16 +11005,15 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           <input
             class="ant-input"
             placeholder="input search text"
-            type="text"
+            type="search"
             value=""
           />
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -10588,14 +11035,14 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
         <span
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -10638,14 +11085,14 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
         <input
           class="ant-input ant-input-outlined"
           placeholder="input search text"
-          type="text"
+          type="search"
           value=""
         />
         <span
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-primary ant-input-search-button"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-input-search-button"
             type="button"
           >
             <span
@@ -10691,16 +11138,15 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           <input
             class="ant-input ant-input-lg"
             placeholder="input search text"
-            type="text"
+            type="search"
             value=""
           />
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -10722,14 +11168,14 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
         <span
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-lg ant-input-search-button"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-input-search-button"
             type="button"
           >
             <span>
@@ -10755,7 +11201,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           <input
             class="ant-input ant-input-lg"
             placeholder="input search text"
-            type="text"
+            type="search"
             value=""
           />
           <span
@@ -10787,7 +11233,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-lg ant-input-search-button"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-input-search-button"
             type="button"
           >
             <span>
@@ -10814,14 +11260,14 @@ Array [
       <input
         class="ant-input ant-input-outlined"
         placeholder="input search loading default"
-        type="text"
+        type="search"
         value=""
       />
       <span
         class="ant-input-group-addon"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-loading ant-input-search-button"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-loading ant-input-search-button"
           type="button"
         >
           <span
@@ -10862,14 +11308,14 @@ Array [
       <input
         class="ant-input ant-input-outlined"
         placeholder="input search loading with enterButton"
-        type="text"
+        type="search"
         value=""
       />
       <span
         class="ant-input-group-addon"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-loading ant-input-search-button"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-loading ant-input-search-button"
           type="button"
         >
           <span
@@ -10910,23 +11356,22 @@ Array [
       <input
         class="ant-input ant-input-lg ant-input-outlined"
         placeholder="input search text"
-        type="text"
+        type="search"
         value=""
       />
       <span
         class="ant-input-group-addon"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-lg ant-btn-loading ant-input-search-button"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-btn-loading ant-input-search-button"
           type="button"
         >
           <span
             class="ant-btn-icon ant-btn-loading-icon"
-            style="width: 0px; opacity: 0; transform: scale(0);"
           >
             <span
               aria-label="loading"
-              class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+              class="anticon anticon-loading anticon-spin"
               role="img"
             >
               <svg
@@ -11267,7 +11712,7 @@ exports[`renders components/input/demo/textarea.tsx extend context correctly 2`]
 exports[`renders components/input/demo/textarea-resize.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-default"
+    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
     style="margin-bottom: 16px;"
     type="button"
   >
@@ -11291,10 +11736,9 @@ Array [
     <span
       class="ant-input-suffix"
     >
-      <span
+      <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -11316,7 +11760,7 @@ Array [
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>,
 ]

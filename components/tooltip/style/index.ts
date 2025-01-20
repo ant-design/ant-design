@@ -1,3 +1,5 @@
+import { unit } from '@ant-design/cssinjs';
+
 import { resetComponent } from '../../style';
 import { initZoomMotion } from '../../style/motion';
 import type { ArrowOffsetToken } from '../../style/placementArrow';
@@ -5,11 +7,10 @@ import getArrowStyle, {
   getArrowOffsetToken,
   MAX_VERTICAL_CONTENT_RADIUS,
 } from '../../style/placementArrow';
-import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genPresetColor, genStyleHooks, mergeToken } from '../../theme/internal';
-import { unit } from '@ant-design/cssinjs';
 import type { ArrowToken } from '../../style/roundedArrow';
 import { getArrowToken } from '../../style/roundedArrow';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genPresetColor, genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken extends ArrowOffsetToken, ArrowToken {
   /**
@@ -29,6 +30,7 @@ interface TooltipToken extends FullToken<'Tooltip'> {
 
 const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
   const {
+    calc,
     componentCls, // ant-tooltip
     tooltipMaxWidth,
     tooltipColor,
@@ -39,7 +41,18 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     boxShadowSecondary,
     paddingSM,
     paddingXS,
+    arrowOffsetHorizontal,
+    sizePopupArrow,
   } = token;
+
+  // arrowOffsetHorizontal + arrowWidth + borderRadius
+  const edgeAlignMinWidth = calc(tooltipBorderRadius)
+    .add(sizePopupArrow)
+    .add(arrowOffsetHorizontal)
+    .equal();
+
+  // borderRadius * 2 + arrowWidth
+  const centerAlignMinWidth = calc(tooltipBorderRadius).mul(2).add(sizePopupArrow).equal();
 
   return [
     {
@@ -51,7 +64,11 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         width: 'max-content',
         maxWidth: tooltipMaxWidth,
         visibility: 'visible',
-        transformOrigin: `var(--arrow-x, 50%) var(--arrow-y, 50%)`,
+
+        // When use `autoArrow`, origin will follow the arrow position
+        '--valid-offset-x': 'var(--arrow-offset-horizontal, var(--arrow-x))',
+        transformOrigin: [`var(--valid-offset-x, 50%)`, `var(--arrow-y, 50%)`].join(' '),
+
         '&-hidden': {
           display: 'none',
         },
@@ -60,7 +77,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
 
         // Wrapper for the tooltip content
         [`${componentCls}-inner`]: {
-          minWidth: controlHeight,
+          minWidth: centerAlignMinWidth,
           minHeight: controlHeight,
           padding: `${unit(token.calc(paddingSM).div(2).equal())} ${unit(paddingXS)}`,
           color: tooltipColor,
@@ -71,6 +88,16 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
           borderRadius: tooltipBorderRadius,
           boxShadow: boxShadowSecondary,
           boxSizing: 'border-box',
+        },
+
+        // Align placement should have another min width
+        [[
+          `&-placement-topLeft`,
+          `&-placement-topRight`,
+          `&-placement-bottomLeft`,
+          `&-placement-bottomRight`,
+        ].join(',')]: {
+          minWidth: edgeAlignMinWidth,
         },
 
         // Limit left and right placement radius
@@ -138,7 +165,7 @@ export const prepareComponentToken: GetDefaultToken<'Tooltip'> = (token) => ({
   ),
 });
 
-export default (prefixCls: string, injectStyle: boolean = true) => {
+export default (prefixCls: string, injectStyle = true) => {
   const useStyle = genStyleHooks(
     'Tooltip',
     (token) => {

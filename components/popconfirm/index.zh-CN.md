@@ -22,6 +22,7 @@ demo:
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/locale.tsx">国际化</code>
 <code src="./demo/placement.tsx">位置</code>
+<code src="./demo/shift.tsx" iframe="300">贴边偏移</code>
 <code src="./demo/dynamic-trigger.tsx">条件触发</code>
 <code src="./demo/icon.tsx">自定义 Icon 图标</code>
 <code src="./demo/async.tsx">异步关闭</code>
@@ -49,11 +50,26 @@ demo:
 | onConfirm | 点击确认的回调 | function(e) | - |  |
 | onPopupClick | 弹出气泡点击事件 | function(e) | - | 5.5.0 |
 
-更多属性请参考 [Tooltip](/components/tooltip-cn/#api)。
+<!-- 共同的 API -->
+
+<embed src="../tooltip/shared/sharedProps.zh-CN.md"></embed>
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 
 <ComponentTokenTable component="Popconfirm"></ComponentTokenTable>
+
+## FAQ
+
+### 为何在严格模式中有时候会出现 `findDOMNode is deprecated` 这个警告？
+
+这是由于 `rc-trigger` 的实现方式导致的，`rc-trigger` 强制要求 children 能够接受 ref，否则就会 fallback 到 findDOMNode，所以 children 需要是原生 html 标签，如果不是，则需要使用 `React.forwardRef` 把 `ref` 透传到原生 html 标签。
+
+- `findDOMNode is deprecated` 重现：<https://codesandbox.io/p/sandbox/finddomnode-c5hy96>
+- 使用 `forwardRef` 消除警告：<https://codesandbox.io/p/sandbox/no-finddomnode-warning-forked-gdxczs>
 
 ## 注意
 

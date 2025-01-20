@@ -1,5 +1,6 @@
-import React from 'react';
-import { Cascader, Flex } from 'antd';
+import React, { useState } from 'react';
+import type { CascaderProps } from 'antd';
+import { Cascader, Flex, Switch } from 'antd';
 
 interface Option {
   value: string | number;
@@ -42,16 +43,31 @@ const options: Option[] = [
   },
 ];
 
-const onChange = (value: string[]) => {
+const onChange: CascaderProps<Option>['onChange'] = (value) => {
   console.log(value);
 };
 
-const App: React.FC = () => (
-  <Flex vertical gap="small" align="flex-start">
-    <Cascader.Panel options={options} onChange={onChange} />
-    <Cascader.Panel multiple options={options} onChange={onChange} />
-    <Cascader.Panel />
-  </Flex>
-);
+const onMultipleChange: CascaderProps<Option, 'value', true>['onChange'] = (value) => {
+  console.log(value);
+};
+
+const App: React.FC = () => {
+  const [disabled, setDisabled] = useState(false);
+
+  return (
+    <Flex vertical gap="small" align="flex-start">
+      <Switch
+        checked={disabled}
+        checkedChildren="Enabled"
+        unCheckedChildren="Disabled"
+        onChange={setDisabled}
+        aria-label="disabled switch"
+      />
+      <Cascader.Panel options={options} onChange={onChange} disabled={disabled} />
+      <Cascader.Panel multiple options={options} onChange={onMultipleChange} disabled={disabled} />
+      <Cascader.Panel />
+    </Flex>
+  );
+};
 
 export default App;

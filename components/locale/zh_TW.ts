@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/zh_TW';
 
 import type { Locale } from '.';
@@ -22,6 +21,9 @@ const localeValues: Locale = {
     filterConfirm: '確定',
     filterReset: '重置',
     filterEmptyText: '無篩選項',
+    filterCheckall: '全選',
+    filterSearchPlaceholder: '在篩選項中搜尋',
+    emptyText: '暫無數據',
     selectAll: '全部選取',
     selectInvert: '反向選取',
     selectNone: '清空所有',

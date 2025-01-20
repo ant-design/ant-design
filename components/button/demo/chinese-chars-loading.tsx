@@ -7,7 +7,7 @@ const Text2 = () => <span>部署</span>;
 const Text3 = () => <>Submit</>;
 
 const App: React.FC = () => (
-  <Flex wrap="wrap" gap="small">
+  <Flex wrap gap="small">
     <Button>
       <span>
         <span>部署</span>

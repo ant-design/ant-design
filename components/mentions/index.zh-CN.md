@@ -17,7 +17,7 @@ demo:
 ### 5.1.0 用法升级
 
 <!-- prettier-ignore -->
-:::info
+:::info{title="升级提示"}
 在 5.1.0 版本后，我们提供了 `<Mentions options={[...]} />` 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。
 同时我们废弃了原先的写法，你还是可以在 5.x 继续使用，但会在控制台看到警告，并会在 6.0 后移除。
 :::
@@ -59,7 +59,7 @@ return (
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| allowClear | 支持清除 | boolean \| { clearIcon?: ReactNode } | false | 5.13.0 |
+| allowClear | 可以点击清除图标删除内容 | boolean \| { clearIcon?: ReactNode } | false | 5.13.0 |
 | autoFocus | 自动获得焦点 | boolean | false |  |
 | autoSize | 自适应内容高度，可设置为 true \| false 或对象：{ minRows: 2, maxRows: 6 } | boolean \| object | false |  |
 | defaultValue | 默认值 | string | - |  |
@@ -75,10 +75,12 @@ return (
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | onBlur | 失去焦点时触发 | () => void | - |  |
 | onChange | 值改变时触发 | (text: string) => void | - |  |
+| onClear | 按下清除按钮的回调 | () => void | - | 5.20.0 |
 | onFocus | 获得焦点时触发 | () => void | - |  |
 | onResize | resize 回调 | function({ width, height }) | - |  |
 | onSearch | 搜索时触发 | (text: string, prefix: string) => void | - |  |
 | onSelect | 选择选项时触发 | (option: OptionProps, prefix: string) => void | - |  |
+| onPopupScroll | 滚动时触发 | (event: Event) => void | - | 5.23.0 |
 | options | 选项配置 | [Options](#option) | [] | 5.1.0 |
 
 ### Mentions 方法

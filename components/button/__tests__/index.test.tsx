@@ -1,13 +1,15 @@
 import React, { Suspense, useRef, useState } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import { resetWarned } from 'rc-util/lib/warning';
-import { act } from 'react-dom/test-utils';
 
-import Button from '..';
+import Button, { _ButtonVariantTypes } from '..';
+import type { GetRef } from '../../_util/type';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import theme from '../../theme';
+import { PresetColors } from '../../theme/interface';
 import type { BaseButtonProps } from '../button';
 
 describe('Button', () => {
@@ -88,7 +90,7 @@ describe('Button', () => {
   });
 
   it('renders Chinese characters correctly in HOC', () => {
-    const Text = ({ children }: { children: React.ReactNode }) => <span>{children}</span>;
+    const Text: React.FC<React.PropsWithChildren> = ({ children }) => <span>{children}</span>;
     const { container, rerender } = render(
       <Button>
         <Text>按钮</Text>
@@ -231,7 +233,6 @@ describe('Button', () => {
   it('should merge text if children using variable', () => {
     const wrapper = render(
       <Button>
-        {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
         This {'is'} a test {1}
       </Button>,
     );
@@ -292,7 +293,7 @@ describe('Button', () => {
   });
 
   it('skip check 2 words when ConfigProvider disable this', () => {
-    const buttonInstance = React.createRef<HTMLElement>();
+    const buttonInstance = React.createRef<GetRef<typeof Button>>();
     render(
       <ConfigProvider autoInsertSpaceInButton={false}>
         <Button ref={buttonInstance}>test</Button>
@@ -329,7 +330,6 @@ describe('Button', () => {
   it('should handle fragment as children', () => {
     const wrapper = render(
       <Button>
-        {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
         <>text</>
       </Button>,
     );
@@ -369,13 +369,13 @@ describe('Button', () => {
       />
     );
 
-    const btnRef = React.createRef<HTMLButtonElement>();
+    const btnRef = React.createRef<GetRef<typeof Button>>();
     const refBtn = <Button ref={btnRef} />;
 
-    const anchorRef = React.createRef<HTMLAnchorElement>();
+    const anchorRef = React.createRef<GetRef<typeof Button>>();
     const refAnchor = <Button ref={anchorRef} />;
 
-    const htmlRef = React.createRef<HTMLElement>();
+    const htmlRef = React.createRef<GetRef<typeof Button>>();
     const refHtml = <Button ref={htmlRef} />;
 
     const btnAttr = <Button name="hello" />;
@@ -401,9 +401,11 @@ describe('Button', () => {
           promiseCache.resolve = resolve;
         });
         throw promiseCache.promise;
-      } else if (freeze) {
+      }
+      if (freeze) {
         throw promiseCache.promise;
-      } else if (promiseCache.promise) {
+      }
+      if (promiseCache.promise) {
         promiseCache.resolve?.();
         promiseCache.promise = undefined;
       }
@@ -440,5 +442,57 @@ describe('Button', () => {
   it('Compatible with original `type` behavior', async () => {
     const { container } = render(<Button type={'' as any} />);
     expect(container.querySelector('.ant-btn-default')).toBeTruthy();
+  });
+
+  it('should support autoInsertSpace', () => {
+    const text = '确定';
+    const { container } = render(<Button autoInsertSpace={false}>{text}</Button>);
+    expect(container.querySelector<HTMLButtonElement>('button')?.textContent).toBe(text);
+  });
+
+  it('should support solidTextColor when theme changes', () => {
+    const { container: defaultContainer } = render(
+      <ConfigProvider theme={{ algorithm: [theme.defaultAlgorithm], cssVar: true }}>
+        <Button color="default" variant="solid">
+          btn1
+        </Button>
+      </ConfigProvider>,
+    );
+
+    expect(defaultContainer.firstChild).toHaveStyle({
+      '--ant-button-solid-text-color': '#fff',
+    });
+
+    const { container: darkContainer } = render(
+      <ConfigProvider theme={{ algorithm: [theme.darkAlgorithm], cssVar: true }}>
+        <Button color="default" variant="solid">
+          btn2
+        </Button>
+      </ConfigProvider>,
+    );
+
+    expect(darkContainer.firstChild).toHaveStyle({
+      '--ant-button-solid-text-color': '#000',
+    });
+  });
+
+  it('should render preset colors and variants correctly', () => {
+    PresetColors.forEach((color) => {
+      _ButtonVariantTypes.forEach((variant) => {
+        const { container } = render(
+          <Button color={color} variant={variant}>
+            {color}
+          </Button>,
+        );
+        expect(container.firstChild).toHaveClass(`ant-btn-color-${color}`);
+        expect(container.firstChild).toHaveClass(`ant-btn-variant-${variant}`);
+      });
+    });
+  });
+
+  it('autoFocus should work', () => {
+    const { container } = render(<Button autoFocus>button</Button>);
+
+    expect(container.querySelector('button')).toBe(document.activeElement);
   });
 });

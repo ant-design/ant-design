@@ -2,6 +2,9 @@
 title: Modal hook 的有趣 BUG
 date: 2022-12-21
 author: zombieJ
+zhihu_url: https://zhuanlan.zhihu.com/p/639265725
+yuque_url: https://www.yuque.com/ant-design/ant-design/yq0w59gikugthyqz
+juejin_url: https://juejin.cn/post/7322306608103686194
 ---
 
 最近我们遇到了一个 [issue](https://github.com/ant-design/ant-design/issues/39427)，说是 `Modal.useModal` 的 `contextHolder` 在放置不同的位置时，`modal.confirm` 弹出位置会不一样：
@@ -138,7 +141,7 @@ useLayoutEffect(() => {
 
 ### 问题分析
 
-由于上述的队列操作，使得 portal 的 DOM 在嵌套下会在下一个 `useLayoutEffect` 触发。这导致添加节点行为后于 `rc-dialog` 启动动画的 `uesLayoutEffect` 时机，导致元素不在 document 中而无法获取正确的坐标信息。
+由于上述的队列操作，使得 portal 的 DOM 在嵌套下会在下一个 `useLayoutEffect` 触发。这导致添加节点行为后于 `rc-dialog` 启动动画的 `useLayoutEffect` 时机，导致元素不在 document 中而无法获取正确的坐标信息。
 
 由于 Modal 已经是开启状态，其实不需要通过 `queue` 异步执行，所以我们只需要加一个判断如果是开启状态，直接执行 `append` 即可：
 

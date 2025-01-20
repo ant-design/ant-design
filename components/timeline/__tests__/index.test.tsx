@@ -1,4 +1,5 @@
 import React from 'react';
+
 import type { TimelineProps } from '..';
 import TimeLine from '..';
 import mountTest from '../../../tests/shared/mountTest';

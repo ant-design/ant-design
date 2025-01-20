@@ -1,15 +1,13 @@
 import React from 'react';
+import { cyan, generate, green, presetPalettes, red } from '@ant-design/colors';
 import { Col, ColorPicker, Divider, Row, Space, theme } from 'antd';
 import type { ColorPickerProps } from 'antd';
-import { generate, green, presetPalettes, red, cyan } from '@ant-design/colors';
 
 type Presets = Required<ColorPickerProps>['presets'][number];
 
-const genPresets = (presets = presetPalettes) =>
-  Object.entries(presets).map<Presets>(([label, colors]) => ({
-    label,
-    colors,
-  }));
+function genPresets(presets = presetPalettes) {
+  return Object.entries(presets).map<Presets>(([label, colors]) => ({ label, colors, key: label }));
+}
 
 const HorizontalLayoutDemo = () => {
   const { token } = theme.useToken();

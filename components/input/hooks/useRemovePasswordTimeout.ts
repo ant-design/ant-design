@@ -1,8 +1,9 @@
 import { useEffect, useRef } from 'react';
+
 import type { InputRef } from '../Input';
 
 export default function useRemovePasswordTimeout(
-  inputRef: React.RefObject<InputRef>,
+  inputRef: React.RefObject<InputRef | null>,
   triggerOnMount?: boolean,
 ) {
   const removePasswordTimeoutRef = useRef<ReturnType<typeof setTimeout>[]>([]);

@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { useMemo } from 'react';
 import classNames from 'classnames';
 import FieldForm, { List, useWatch } from 'rc-field-form';
 import type { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
-import type { InternalNamePath, ValidateErrorEntity } from 'rc-field-form/lib/interface';
+import type { FormRef, InternalNamePath, ValidateErrorEntity } from 'rc-field-form/lib/interface';
 import type { Options } from 'scroll-into-view-if-needed';
 
 import { ConfigContext } from '../config-provider';
@@ -16,9 +15,10 @@ import type { ColProps } from '../grid/col';
 import type { FormContextProps } from './context';
 import { FormContext, FormProvider, VariantContext } from './context';
 import type { FeedbackIcons } from './FormItem';
-import useForm, { type FormInstance } from './hooks/useForm';
+import useForm from './hooks/useForm';
+import type { FormInstance } from './hooks/useForm';
 import useFormWarning from './hooks/useFormWarning';
-import type { Variant } from './hooks/useVariants';
+import type { Variant } from '../config-provider';
 import type { FormLabelAlign } from './interface';
 import useStyle from './style';
 import ValidateMessagesContext from './validateMessagesContext';
@@ -28,6 +28,11 @@ export type RequiredMark =
   | 'optional'
   | ((labelNode: React.ReactNode, info: { required: boolean }) => React.ReactNode);
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
+export type FormItemLayout = 'horizontal' | 'vertical';
+
+export type ScrollFocusOptions = Options & {
+  focus?: boolean;
+};
 
 export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form'> {
   prefixCls?: string;
@@ -42,7 +47,7 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   feedbackIcons?: FeedbackIcons;
   size?: SizeType;
   disabled?: boolean;
-  scrollToFirstError?: Options | boolean;
+  scrollToFirstError?: ScrollFocusOptions | boolean;
   requiredMark?: RequiredMark;
   /** @deprecated Will warning in future branch. Pls use `requiredMark` instead. */
   hideRequiredMark?: boolean;
@@ -50,7 +55,7 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   variant?: Variant;
 }
 
-const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (props, ref) => {
+const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props, ref) => {
   const contextDisabled = React.useContext(DisabledContext);
   const { getPrefixCls, direction, form: contextForm } = React.useContext(ConfigContext);
 
@@ -87,7 +92,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     useFormWarning(props);
   }
 
-  const mergedRequiredMark = useMemo(() => {
+  const mergedRequiredMark = React.useMemo(() => {
     if (requiredMark !== undefined) {
       return requiredMark;
     }
@@ -131,7 +136,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
   const { __INTERNAL__ } = wrapForm;
   __INTERNAL__.name = name;
 
-  const formContextValue = useMemo<FormContextProps>(
+  const formContextValue = React.useMemo<FormContextProps>(
     () => ({
       name,
       labelAlign,
@@ -158,15 +163,22 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     ],
   );
 
-  React.useImperativeHandle(ref, () => wrapForm);
+  const nativeElementRef = React.useRef<FormRef>(null);
+  React.useImperativeHandle(ref, () => ({
+    ...wrapForm,
+    nativeElement: nativeElementRef.current?.nativeElement,
+  }));
 
-  const scrollToField = (options: boolean | Options, fieldName: InternalNamePath) => {
+  const scrollToField = (options: ScrollFocusOptions | boolean, fieldName: InternalNamePath) => {
     if (options) {
-      let defaultScrollToFirstError: Options = { block: 'nearest' };
+      let defaultScrollToFirstError: ScrollFocusOptions = { block: 'nearest' };
       if (typeof options === 'object') {
-        defaultScrollToFirstError = options;
+        defaultScrollToFirstError = { ...defaultScrollToFirstError, ...options };
       }
       wrapForm.scrollToField(fieldName, defaultScrollToFirstError);
+      if (defaultScrollToFirstError.focus) {
+        wrapForm.focusField(fieldName);
+      }
     }
   };
 
@@ -202,6 +214,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
                 name={name}
                 onFinishFailed={onInternalFinishFailed}
                 form={wrapForm}
+                ref={nativeElementRef}
                 style={{ ...contextForm?.style, ...style }}
                 className={formClassName}
               />
@@ -213,8 +226,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
   );
 };
 
-const Form = React.forwardRef<FormInstance, FormProps>(InternalForm) as (<Values = any>(
-  props: React.PropsWithChildren<FormProps<Values>> & React.RefAttributes<FormInstance<Values>>,
+const Form = React.forwardRef<FormRef, FormProps>(InternalForm) as (<Values = any>(
+  props: React.PropsWithChildren<FormProps<Values>> & React.RefAttributes<FormRef<Values>>,
 ) => React.ReactElement) &
   Pick<React.FC, 'displayName'>;
 

@@ -1,16 +1,16 @@
-import React, { useContext } from 'react';
-import ReloadOutlined from '@ant-design/icons/ReloadOutlined';
+import React, { useContext, type AriaAttributes } from 'react';
+import { QRCodeCanvas, QRCodeSVG } from '@rc-component/qrcode';
 import classNames from 'classnames';
-import { QRCodeCanvas, QRCodeSVG } from 'qrcode.react';
+import omit from 'rc-util/lib/omit';
+import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import { devUseWarning } from '../_util/warning';
-import Button from '../button';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
-import Spin from '../spin';
 import { useToken } from '../theme/internal';
 import type { QRCodeProps, QRProps } from './interface';
+import QRcodeStatus from './QrcodeStatus';
 import useStyle from './style/index';
 
 const QRCode: React.FC<QRCodeProps> = (props) => {
@@ -20,7 +20,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     type = 'canvas',
     icon = '',
     size = 160,
-    iconSize = 40,
+    iconSize,
     color = token.colorText,
     errorLevel = 'M',
     status = 'active',
@@ -31,6 +31,8 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     rootClassName,
     prefixCls: customizePrefixCls,
     bgColor = 'transparent',
+    statusRender,
+    ...rest
   } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('qrcode', customizePrefixCls);
@@ -41,10 +43,17 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     src: icon,
     x: undefined,
     y: undefined,
-    height: iconSize,
-    width: iconSize,
+    height: typeof iconSize === 'number' ? iconSize : (iconSize?.height ?? 40),
+    width: typeof iconSize === 'number' ? iconSize : (iconSize?.width ?? 40),
     excavate: true,
+    crossOrigin: 'anonymous',
   };
+
+  const a11yProps = pickAttrs(rest, true);
+  const restProps = omit<React.HTMLAttributes<HTMLDivElement>, keyof AriaAttributes>(
+    rest,
+    Object.keys(a11yProps) as Array<keyof AriaAttributes>,
+  );
 
   const qrCodeProps = {
     value,
@@ -52,8 +61,9 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     level: errorLevel,
     bgColor,
     fgColor: color,
-    style: { width: undefined, height: undefined },
+    style: { width: style?.width, height: style?.height },
     imageSettings: icon ? imageSettings : undefined,
+    ...a11yProps,
   };
 
   const [locale] = useLocale('QRCode');
@@ -78,25 +88,24 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     [`${prefixCls}-borderless`]: !bordered,
   });
 
+  const mergedStyle: React.CSSProperties = {
+    backgroundColor: bgColor,
+    ...style,
+    width: style?.width ?? size,
+    height: style?.height ?? size,
+  };
+
   return wrapCSSVar(
-    <div
-      className={mergedCls}
-      style={{ ...style, width: size, height: size, backgroundColor: bgColor }}
-    >
+    <div {...restProps} className={mergedCls} style={mergedStyle}>
       {status !== 'active' && (
         <div className={`${prefixCls}-mask`}>
-          {status === 'loading' && <Spin />}
-          {status === 'expired' && (
-            <>
-              <p className={`${prefixCls}-expired`}>{locale?.expired}</p>
-              {onRefresh && (
-                <Button type="link" icon={<ReloadOutlined />} onClick={onRefresh}>
-                  {locale?.refresh}
-                </Button>
-              )}
-            </>
-          )}
-          {status === 'scanned' && <p className={`${prefixCls}-scanned`}>{locale?.scanned}</p>}
+          <QRcodeStatus
+            prefixCls={prefixCls}
+            locale={locale}
+            status={status}
+            onRefresh={onRefresh}
+            statusRender={statusRender}
+          />
         </div>
       )}
       {type === 'canvas' ? <QRCodeCanvas {...qrCodeProps} /> : <QRCodeSVG {...qrCodeProps} />}

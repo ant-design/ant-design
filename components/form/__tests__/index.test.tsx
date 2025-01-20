@@ -126,7 +126,9 @@ describe('Form', () => {
           await waitFakeTimer();
 
           try {
-            await form.validateFields();
+            await act(async () => {
+              await form.validateFields();
+            });
           } catch {
             // do nothing
           }
@@ -448,30 +450,169 @@ describe('Form', () => {
     });
   });
 
-  it('scrollToFirstError', async () => {
-    const onFinishFailed = jest.fn();
+  describe('scrollToFirstError', () => {
+    it('should work with scrollToFirstError', async () => {
+      const onFinishFailed = jest.fn();
 
-    const { container } = render(
-      <Form scrollToFirstError={{ block: 'center' }} onFinishFailed={onFinishFailed}>
-        <Form.Item name="test" rules={[{ required: true }]}>
-          <input />
-        </Form.Item>
-        <Form.Item>
-          <Button htmlType="submit">Submit</Button>
-        </Form.Item>
-      </Form>,
-    );
+      const { container } = render(
+        <Form scrollToFirstError={{ block: 'center' }} onFinishFailed={onFinishFailed}>
+          <Form.Item name="test" rules={[{ required: true }]}>
+            <input />
+          </Form.Item>
+          <Form.Item>
+            <Button htmlType="submit">Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
 
-    expect(scrollIntoView).not.toHaveBeenCalled();
-    fireEvent.submit(container.querySelector('form')!);
-    await waitFakeTimer();
+      expect(scrollIntoView).not.toHaveBeenCalled();
+      fireEvent.submit(container.querySelector('form')!);
+      await waitFakeTimer();
 
-    const inputNode = document.getElementById('test');
-    expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
-      block: 'center',
-      scrollMode: 'if-needed',
+      const inputNode = document.getElementById('test');
+      expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
+        block: 'center',
+        scrollMode: 'if-needed',
+      });
+      expect(onFinishFailed).toHaveBeenCalled();
     });
-    expect(onFinishFailed).toHaveBeenCalled();
+
+    it('should work with scrollToFirstError with ref', async () => {
+      const ForwardRefInput = React.forwardRef<HTMLInputElement, any>(({ id, ...props }, ref) => (
+        <input {...props} ref={ref} />
+      ));
+
+      const NativeInput = React.forwardRef<any, any>(({ id, ...props }, ref) => {
+        const internalRef = React.useRef<HTMLInputElement>(null);
+        React.useImperativeHandle(ref, () => ({
+          nativeElement: internalRef.current,
+        }));
+        return <input {...props} ref={internalRef} />;
+      });
+
+      const NormalInput = (props: any) => <input {...props} />;
+
+      const { getByRole, getAllByRole } = render(
+        <Form scrollToFirstError>
+          <Form.Item name="foo" rules={[{ required: true }]}>
+            <ForwardRefInput />
+          </Form.Item>
+          <Form.Item name="bar" rules={[{ required: true }]}>
+            <NativeInput />
+          </Form.Item>
+          <Form.Item name="baz" rules={[{ required: true }]}>
+            <NormalInput />
+          </Form.Item>
+          <Form.Item>
+            <Button htmlType="submit">Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+
+      // click submit to trigger validate
+      const allInputs = getAllByRole('textbox');
+      const button = getByRole('button');
+      expect(allInputs).toHaveLength(3);
+
+      fireEvent.click(button);
+      await waitFakeTimer();
+
+      expect(scrollIntoView).toHaveBeenNthCalledWith(1, allInputs[0], expect.any(Object));
+
+      // change the value of the first input
+      fireEvent.change(allInputs[0], { target: { value: '123' } });
+      fireEvent.click(button);
+      await waitFakeTimer();
+
+      expect(scrollIntoView).toHaveBeenNthCalledWith(2, allInputs[1], expect.any(Object));
+
+      // change the value of the second input
+      fireEvent.change(allInputs[1], { target: { value: 'abc' } });
+      fireEvent.click(button);
+      await waitFakeTimer();
+
+      expect(scrollIntoView).toHaveBeenNthCalledWith(3, allInputs[2], expect.any(Object));
+
+      expect(scrollIntoView).toHaveBeenCalledTimes(3);
+    });
+
+    it('should scrollToFirstError work with focus', async () => {
+      const onFinishFailed = jest.fn();
+      const focusSpy = jest.spyOn(HTMLElement.prototype, 'focus');
+
+      const { container } = render(
+        <Form scrollToFirstError={{ block: 'center', focus: true }} onFinishFailed={onFinishFailed}>
+          <Form.Item name="test" rules={[{ required: true }]}>
+            <input />
+          </Form.Item>
+          <Form.Item>
+            <Button htmlType="submit">Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(scrollIntoView).not.toHaveBeenCalled();
+      expect(focusSpy).not.toHaveBeenCalled();
+
+      fireEvent.submit(container.querySelector('form')!);
+      await waitFakeTimer();
+
+      const inputNode = document.getElementById('test');
+      expect(focusSpy).toHaveBeenCalledWith();
+      expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
+        block: 'center',
+        focus: true,
+        scrollMode: 'if-needed',
+      });
+
+      focusSpy.mockRestore();
+    });
+
+    // https://github.com/ant-design/ant-design/issues/28869
+    it('should work with Upload', async () => {
+      const uploadRef = React.createRef<any>();
+
+      const { getByRole } = render(
+        <Form scrollToFirstError>
+          <Form.Item
+            name="demo-form_dragger"
+            valuePropName="fileList"
+            getValueFromEvent={(e) => (Array.isArray(e) ? e : e?.fileList)}
+            rules={[{ required: true }]}
+          >
+            <Upload name="files" action="/upload.do" ref={uploadRef} />
+          </Form.Item>
+          <Form.Item>
+            <Button htmlType="submit">Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+      fireEvent.click(getByRole('button'));
+      await waitFakeTimer();
+
+      expect(scrollIntoView).toHaveBeenCalled();
+      expect((scrollIntoView as any).mock.calls[0][0]).toBe(uploadRef.current.nativeElement);
+    });
+
+    // https://github.com/ant-design/ant-design/issues/48981
+    it('should not throw error when use InputNumber', async () => {
+      const inputNumberRef = React.createRef<any>();
+
+      const { getByText } = render(
+        <Form scrollToFirstError>
+          <Form.Item name="demo-form_input-number" rules={[{ required: true }]}>
+            <InputNumber ref={inputNumberRef} />
+          </Form.Item>
+          <Form.Item>
+            <Button htmlType="submit">Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+      fireEvent.click(getByText('Submit'));
+      await waitFakeTimer();
+      expect(scrollIntoView).toHaveBeenCalled();
+      expect((scrollIntoView as any).mock.calls[0][0]).toBe(inputNumberRef.current?.nativeElement);
+    });
   });
 
   it('Form.Item should support data-*、aria-* and custom attribute', () => {
@@ -495,6 +636,15 @@ describe('Form', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Form.Item] `name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.',
     );
+  });
+
+  it('No warning when use noStyle and children is empty', () => {
+    render(
+      <Form>
+        <Form.Item name="noWarning" noStyle />
+      </Form>,
+    );
+    expect(errorSpy).not.toHaveBeenCalled();
   });
 
   it('dynamic change required', async () => {
@@ -594,7 +744,6 @@ describe('Form', () => {
       </Form>,
     );
 
-    /* eslint-disable no-await-in-loop */
     for (let i = 0; i < 3; i += 1) {
       await changeValue(0, 'bamboo');
       await changeValue(0, '');
@@ -605,7 +754,6 @@ describe('Form', () => {
       await changeValue(0, 'p');
       expect(container.querySelector('.ant-form-item-explain')?.textContent).toEqual('not a p');
     }
-    /* eslint-enable */
   });
 
   // https://github.com/ant-design/ant-design/issues/20813
@@ -909,7 +1057,6 @@ describe('Form', () => {
   it('validation message should has alert role', async () => {
     // https://github.com/ant-design/ant-design/issues/25711
     const { container } = render(
-      // eslint-disable-next-line no-template-curly-in-string
       <Form validateMessages={{ required: 'name is good!' }}>
         <Form.Item name="test" rules={[{ required: true }]}>
           <input />
@@ -951,7 +1098,7 @@ describe('Form', () => {
 
     for (let i = 0; i < 5; i += 1) {
       fireEvent.click(container.querySelector('button')!);
-      // eslint-disable-next-line no-await-in-loop
+
       await waitFakeTimer();
     }
 
@@ -1204,6 +1351,122 @@ describe('Form', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  it('form.item should support layout', () => {
+    const App: React.FC = () => (
+      <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }} layout="horizontal">
+        <Form.Item label="name" name="name">
+          <Input />
+        </Form.Item>
+        <Form.Item label="horizontal" name="horizontal" layout="horizontal">
+          <Input />
+        </Form.Item>
+        <Form.Item label="vertical" name="vertical" layout="vertical">
+          <Input />
+        </Form.Item>
+      </Form>
+    );
+    const { container } = render(<App />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('form.item should support label = null', () => {
+    // base size
+    const App: React.FC = () => (
+      <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }}>
+        <Form.Item label="name" name="name">
+          <Input />
+        </Form.Item>
+        <Form.Item label={null}>
+          <Button>Submit</Button>
+        </Form.Item>
+      </Form>
+    );
+    const { container } = render(<App />);
+
+    const items = container.querySelectorAll('.ant-form-item');
+    const oneItems = items[0].querySelector('.ant-row')?.querySelectorAll('.ant-col');
+    expect(oneItems?.[0]).toHaveClass('ant-col-4');
+    expect(oneItems?.[0].className.includes('offset')).toBeFalsy();
+    expect(oneItems?.[1]).toHaveClass('ant-col-14');
+    expect(oneItems?.[1].className.includes('offset')).toBeFalsy();
+    const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
+    expect(twoItem).toHaveClass('ant-col-14 ant-col-offset-4');
+
+    // more size
+    const list = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+    list.forEach((size) => {
+      const { container } = render(
+        <Form labelCol={{ [size]: { span: 4 } }} wrapperCol={{ span: 14 }}>
+          <Form.Item label="name" name="name">
+            <Input />
+          </Form.Item>
+          <Form.Item label={null}>
+            <Button>Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+
+      const items = container.querySelectorAll('.ant-form-item');
+      const oneItems = items[0].querySelector('.ant-row')?.querySelectorAll('.ant-col');
+      expect(oneItems?.[0]).toHaveClass(`ant-col-${size}-4`);
+      expect(oneItems?.[0].className.includes('offset')).toBeFalsy();
+      expect(oneItems?.[1]).toHaveClass('ant-col-14');
+      expect(oneItems?.[1].className.includes('offset')).toBeFalsy();
+      const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
+      expect(twoItem).toHaveClass(`ant-col-14 ant-col-${size}-offset-4`);
+    });
+  });
+
+  it('form.item should support label = null and labelCol.span = 24', () => {
+    // base size
+    const App: React.FC = () => (
+      <Form labelCol={{ span: 24 }} wrapperCol={{ span: 24 }}>
+        <Form.Item label="name" name="name">
+          <Input />
+        </Form.Item>
+        <Form.Item label={null}>
+          <Button>Submit</Button>
+        </Form.Item>
+      </Form>
+    );
+    const { container } = render(<App />);
+
+    const items = container.querySelectorAll('.ant-form-item');
+    const oneItems = items[0].querySelector('.ant-row')?.querySelectorAll('.ant-col');
+    expect(oneItems?.[0]).toHaveClass('ant-col-24');
+    expect(oneItems?.[0].className.includes('offset')).toBeFalsy();
+    expect(oneItems?.[1]).toHaveClass('ant-col-24');
+    expect(oneItems?.[1].className.includes('offset')).toBeFalsy();
+    const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
+    expect(twoItem).toHaveClass('ant-col-24');
+    expect(twoItem?.className.includes('offset')).toBeFalsy();
+
+    // more size
+    const list = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+    list.forEach((size) => {
+      const { container } = render(
+        <Form labelCol={{ [size]: { span: 24 } }} wrapperCol={{ span: 24 }}>
+          <Form.Item label="name" name="name">
+            <Input />
+          </Form.Item>
+          <Form.Item label={null}>
+            <Button>Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+
+      const items = container.querySelectorAll('.ant-form-item');
+      const oneItems = items[0].querySelector('.ant-row')?.querySelectorAll('.ant-col');
+      expect(oneItems?.[0]).toHaveClass(`ant-col-${size}-24`);
+      expect(oneItems?.[0].className.includes('offset')).toBeFalsy();
+      expect(oneItems?.[1]).toHaveClass('ant-col-24');
+      expect(oneItems?.[1].className.includes('offset')).toBeFalsy();
+      const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
+      expect(twoItem).toHaveClass(`ant-col-24`);
+      expect(twoItem?.className.includes('offset')).toBeFalsy();
+    });
+  });
+
   it('_internalItemRender api test', () => {
     const { container } = render(
       <Form>
@@ -1214,7 +1477,7 @@ describe('Form', () => {
             mark: 'pro_table_render',
             render: (_: any, doms: any) => (
               <div>
-                <h1>warning title</h1>
+                <div className="bamboo">warning title</div>
                 {doms.input}
                 {doms.errorList}
                 {doms.extra}
@@ -1227,7 +1490,7 @@ describe('Form', () => {
       </Form>,
     );
 
-    expect(container.querySelector('h1')!).toHaveTextContent(/warning title/i);
+    expect(container.querySelector('.bamboo')!).toHaveTextContent(/warning title/i);
   });
 
   it('Form Item element id will auto add form_item prefix if form name is empty and item name is in the black list', async () => {
@@ -1416,8 +1679,8 @@ describe('Form', () => {
   });
 
   it('useFormInstance', () => {
-    let formInstance;
-    let subFormInstance;
+    let formInstance: any;
+    let subFormInstance: any;
 
     const Sub = () => {
       const formSub = Form.useFormInstance();
@@ -1705,7 +1968,7 @@ describe('Form', () => {
   it('form child components should be given priority to own disabled props when it in a disabled form', () => {
     const props = {
       name: 'file',
-      action: 'https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188',
+      action: 'https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload',
       headers: {
         authorization: 'authorization-text',
       },
@@ -1983,7 +2246,7 @@ describe('Form', () => {
     await waitFakeTimer();
 
     // initial validate
-    const initTriggerTime = ReactVersion.startsWith('18') ? 2 : 1;
+    const initTriggerTime = ReactVersion.startsWith('18') || ReactVersion.startsWith('19') ? 2 : 1;
     expect(onChange).toHaveBeenCalledTimes(initTriggerTime);
     let idx = 1;
     expect(onChange).toHaveBeenNthCalledWith(idx++, '');
@@ -2128,9 +2391,8 @@ describe('Form', () => {
 
     expect(container.querySelector('.ant-input-number-suffix')).toBeTruthy();
 
-    act(() => {
-      fireEvent.focus(input);
-    });
+    fireEvent.focus(input);
+
     expect(container.querySelector('.ant-input-number-focused')).toBeTruthy();
 
     fireEvent.change(input, {
@@ -2198,5 +2460,61 @@ describe('Form', () => {
 
     fireEvent.click(container.querySelector('input')!);
     expect(container.querySelector('input')?.checked).toBeTruthy();
+  });
+
+  it('not warning for react key', async () => {
+    const MockInput = (props: { onChange?: (value: number[]) => void }) => (
+      <Input
+        onChange={({ target: { value } }) => {
+          props.onChange?.(value.split(',').map(Number));
+        }}
+      />
+    );
+
+    const { container } = render(
+      <Form>
+        <Form.Item>
+          <Form.Item
+            name="test"
+            rules={[
+              {
+                type: 'array',
+                defaultField: {
+                  type: 'number',
+                  min: 10,
+                  message: 'LESS_THAN_10',
+                },
+              },
+            ]}
+          >
+            <MockInput />
+          </Form.Item>
+        </Form.Item>
+      </Form>,
+    );
+
+    function expectErrors(errors: string[]) {
+      expect(container.querySelectorAll('.ant-form-item-explain-error')).toHaveLength(
+        errors.length,
+      );
+      errors.forEach((error, index) => {
+        expect(container.querySelectorAll('.ant-form-item-explain-error')[index]).toHaveTextContent(
+          error,
+        );
+      });
+    }
+
+    // user type something and clear
+    await changeValue(0, '1');
+    expectErrors(['LESS_THAN_10']);
+
+    await changeValue(0, '1,1');
+    expectErrors(['LESS_THAN_10', 'LESS_THAN_10']);
+
+    await changeValue(0, '1');
+    expectErrors(['LESS_THAN_10']);
+
+    await changeValue(0, '100');
+    expectErrors([]);
   });
 });

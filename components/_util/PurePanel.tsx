@@ -32,10 +32,11 @@ export interface BaseProps {
 
 /* istanbul ignore next */
 const genPurePanel = <ComponentProps extends BaseProps = BaseProps>(
-  Component: any,
-  defaultPrefixCls?: string,
-  getDropdownCls?: null | ((prefixCls: string) => string),
+  Component: React.ComponentType<Readonly<ComponentProps>>,
+  alignPropName?: 'align' | 'dropdownAlign' | 'popupAlign',
   postProps?: (props: ComponentProps) => ComponentProps,
+  defaultPrefixCls?: string,
+  getDropdownCls?: (prefixCls: string) => string,
 ) => {
   type WrapProps = ComponentProps & AnyObject;
 
@@ -58,7 +59,7 @@ const genPurePanel = <ComponentProps extends BaseProps = BaseProps>(
 
       if (typeof ResizeObserver !== 'undefined') {
         const resizeObserver = new ResizeObserver((entries) => {
-          const element: HTMLDivElement = entries[0].target as any;
+          const element = entries[0].target as HTMLDivElement;
           setPopupHeight(element.offsetHeight + 8);
           setPopupWidth(element.offsetWidth);
         });
@@ -68,7 +69,6 @@ const genPurePanel = <ComponentProps extends BaseProps = BaseProps>(
             ? `.${getDropdownCls(prefixCls)}`
             : `.${prefixCls}-dropdown`;
           const popup = holderRef.current?.querySelector(dropdownCls);
-
           if (popup) {
             clearInterval(interval);
             resizeObserver.observe(popup);
@@ -95,6 +95,16 @@ const genPurePanel = <ComponentProps extends BaseProps = BaseProps>(
 
     if (postProps) {
       mergedProps = postProps(mergedProps);
+    }
+    if (alignPropName) {
+      Object.assign(mergedProps, {
+        [alignPropName]: {
+          overflow: {
+            adjustX: false,
+            adjustY: false,
+          },
+        },
+      });
     }
     const mergedStyle: React.CSSProperties = {
       paddingBottom: popupHeight,

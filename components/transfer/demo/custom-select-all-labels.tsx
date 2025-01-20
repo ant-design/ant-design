@@ -8,7 +8,7 @@ interface RecordType {
   description: string;
 }
 
-const mockData: RecordType[] = Array.from({ length: 10 }).map((_, i) => ({
+const mockData = Array.from({ length: 10 }).map<RecordType>((_, i) => ({
   key: i.toString(),
   title: `content${i + 1}`,
   description: `description of content${i + 1}`,
@@ -22,7 +22,7 @@ const selectAllLabels: TransferProps['selectAllLabels'] = [
 ];
 
 const App: React.FC = () => {
-  const [targetKeys, setTargetKeys] = useState(oriTargetKeys);
+  const [targetKeys, setTargetKeys] = useState<React.Key[]>(oriTargetKeys);
   return (
     <Transfer
       dataSource={mockData}

@@ -1,5 +1,5 @@
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 import React from 'react';
+import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 import { Card, ConfigProvider } from 'antd';
 
 export default () => (
@@ -8,6 +8,10 @@ export default () => (
       components: {
         Card: {
           headerBg: '#e6f4ff',
+          bodyPaddingSM: 22,
+          headerPaddingSM: 20,
+          headerPadding: 18,
+          bodyPadding: 26,
           headerFontSize: 20,
           headerFontSizeSM: 20,
           headerHeight: 60,

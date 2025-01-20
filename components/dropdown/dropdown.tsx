@@ -3,11 +3,12 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import type { AlignType } from '@rc-component/trigger';
 import classNames from 'classnames';
 import RcDropdown from 'rc-dropdown';
-import { useEvent } from 'rc-util';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
+import isPrimitive from '../_util/isPrimitive';
 import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';
 import genPurePanel from '../_util/PurePanel';
@@ -15,14 +16,14 @@ import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { MenuProps } from '../menu';
 import Menu from '../menu';
 import { OverrideProvider } from '../menu/OverrideContext';
 import { useToken } from '../theme/internal';
 import useStyle from './style';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
-const Placements = [
+const _Placements = [
   'topLeft',
   'topCenter',
   'topRight',
@@ -33,7 +34,7 @@ const Placements = [
   'bottom',
 ] as const;
 
-type Placement = (typeof Placements)[number];
+type Placement = (typeof _Placements)[number];
 type DropdownPlacement = Exclude<Placement, 'topCenter' | 'bottomCenter'>;
 
 type OverlayFunc = () => React.ReactElement;
@@ -175,7 +176,12 @@ const Dropdown: CompoundedComponent = (props) => {
 
   const [, token] = useToken();
 
-  const child = React.Children.only(children) as React.ReactElement<any>;
+  const child = React.Children.only(
+    isPrimitive(children) ? <span>{children}</span> : children,
+  ) as React.ReactElement<{
+    className?: string;
+    disabled?: boolean;
+  }>;
 
   const dropdownTrigger = cloneElement(child, {
     className: classNames(
@@ -185,14 +191,10 @@ const Dropdown: CompoundedComponent = (props) => {
       },
       child.props.className,
     ),
-    disabled,
+    disabled: child.props.disabled ?? disabled,
   });
-
   const triggerActions = disabled ? [] : trigger;
-  let alignPoint: boolean;
-  if (triggerActions && triggerActions.includes('contextMenu')) {
-    alignPoint = true;
-  }
+  const alignPoint = !!triggerActions?.includes('contextMenu');
 
   // =========================== Open ============================
   const [mergedOpen, setOpen] = useMergedState(false, {
@@ -283,7 +285,7 @@ const Dropdown: CompoundedComponent = (props) => {
   // ============================ Render ============================
   let renderNode = (
     <RcDropdown
-      alignPoint={alignPoint!}
+      alignPoint={alignPoint}
       {...omit(props, ['rootClassName'])}
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
@@ -313,20 +315,8 @@ const Dropdown: CompoundedComponent = (props) => {
   return wrapCSSVar(renderNode);
 };
 
-function postPureProps(props: DropdownProps) {
-  return {
-    ...props,
-    align: {
-      overflow: {
-        adjustX: false,
-        adjustY: false,
-      },
-    },
-  };
-}
-
 // We don't care debug panel
-const PurePanel = genPurePanel(Dropdown, 'dropdown', (prefixCls) => prefixCls, postPureProps);
+const PurePanel = genPurePanel(Dropdown, 'align', undefined, 'dropdown', (prefixCls) => prefixCls);
 
 /* istanbul ignore next */
 const WrapPurePanel: React.FC<DropdownProps> = (props) => (

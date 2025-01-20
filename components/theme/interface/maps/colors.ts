@@ -126,6 +126,24 @@ export interface ColorNeutralMapToken {
    * @descEN Control the background color of frosted glass container, usually transparent.
    */
   colorBgBlur: string;
+
+  // ----------   Solid   ---------- //
+
+  /**
+   * @desc 实心的背景颜色，目前只用在默认实心按钮背景色上。
+   * @descEN Solid background color, currently only used for the default solid button background color.
+   */
+  colorBgSolid: string;
+  /**
+   * @desc 实心的背景颜色激活态，目前只用在默认实心按钮的 active 效果。
+   * @descEN Solid background color active state, currently only used in the active effect of the default solid button.
+   */
+  colorBgSolidActive: string;
+  /**
+   * @desc 实心的背景颜色悬浮态，目前只用在默认实心按钮的 hover 效果。
+   * @descEN Solid background color hover state, currently only used in the hover effect of the default solid button.
+   */
+  colorBgSolidHover: string;
 }
 
 /**
@@ -475,6 +493,22 @@ interface ColorErrorMapToken {
    * @descEN The hover state background color of the error state.
    */
   colorErrorBgHover: string; // 2
+
+  /**
+   * @nameZH 错误色的浅色填充背景色悬浮态
+   * @nameEN Wrong color fill background color suspension state
+   * @desc 错误色的浅色填充背景色悬浮态，目前只用在危险填充按钮的 hover 效果。
+   * @descEN The wrong color fills the background color of the suspension state, which is currently only used in the hover effect of the dangerous filled button.
+   */
+  colorErrorBgFilledHover: string; // 2.5
+
+  /**
+   * @nameZH 错误色的浅色背景色激活态
+   * @nameEN Error background color active state
+   * @desc 错误色的浅色背景色激活态
+   * @descEN The active state background color of the error state.
+   */
+  colorErrorBgActive: string; // 3
 
   /**
    * @nameZH 错误色的描边色

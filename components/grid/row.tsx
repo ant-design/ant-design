@@ -8,8 +8,8 @@ import RowContext from './RowContext';
 import type { RowContextState } from './RowContext';
 import { useRowStyle } from './style';
 
-const RowAligns = ['top', 'middle', 'bottom', 'stretch'] as const;
-const RowJustify = [
+const _RowAligns = ['top', 'middle', 'bottom', 'stretch'] as const;
+const _RowJustify = [
   'start',
   'end',
   'center',
@@ -26,20 +26,23 @@ type ResponsiveLike<T> = {
 type Gap = number | undefined;
 export type Gutter = number | undefined | Partial<Record<Breakpoint, number>>;
 
-type ResponsiveAligns = ResponsiveLike<(typeof RowAligns)[number]>;
-type ResponsiveJustify = ResponsiveLike<(typeof RowJustify)[number]>;
+type ResponsiveAligns = ResponsiveLike<(typeof _RowAligns)[number]>;
+type ResponsiveJustify = ResponsiveLike<(typeof _RowJustify)[number]>;
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   gutter?: Gutter | [Gutter, Gutter];
-  align?: (typeof RowAligns)[number] | ResponsiveAligns;
-  justify?: (typeof RowJustify)[number] | ResponsiveJustify;
+  align?: (typeof _RowAligns)[number] | ResponsiveAligns;
+  justify?: (typeof _RowJustify)[number] | ResponsiveJustify;
   prefixCls?: string;
   wrap?: boolean;
 }
 
-function useMergePropByScreen(oriProp: RowProps['align'] | RowProps['justify'], screen: ScreenMap) {
+function useMergedPropByScreen(
+  oriProp: RowProps['align'] | RowProps['justify'],
+  screen: ScreenMap,
+) {
   const [prop, setProp] = React.useState(typeof oriProp === 'string' ? oriProp : '');
 
-  const calcMergeAlignOrJustify = () => {
+  const calcMergedAlignOrJustify = () => {
     if (typeof oriProp === 'string') {
       setProp(oriProp);
     }
@@ -61,7 +64,7 @@ function useMergePropByScreen(oriProp: RowProps['align'] | RowProps['justify'], 
   };
 
   React.useEffect(() => {
-    calcMergeAlignOrJustify();
+    calcMergedAlignOrJustify();
   }, [JSON.stringify(oriProp), screen]);
 
   return prop;
@@ -101,9 +104,9 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   });
 
   // ================================== calc responsive data ==================================
-  const mergeAlign = useMergePropByScreen(align, curScreens);
+  const mergedAlign = useMergedPropByScreen(align, curScreens);
 
-  const mergeJustify = useMergePropByScreen(justify, curScreens);
+  const mergedJustify = useMergedPropByScreen(justify, curScreens);
 
   const gutterRef = React.useRef<Gutter | [Gutter, Gutter]>(gutter);
 
@@ -154,8 +157,8 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     prefixCls,
     {
       [`${prefixCls}-no-wrap`]: wrap === false,
-      [`${prefixCls}-${mergeJustify}`]: mergeJustify,
-      [`${prefixCls}-${mergeAlign}`]: mergeAlign,
+      [`${prefixCls}-${mergedJustify}`]: mergedJustify,
+      [`${prefixCls}-${mergedAlign}`]: mergedAlign,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,

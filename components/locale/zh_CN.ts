@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/zh_CN';
 
 import type { Locale } from '.';
@@ -25,6 +24,7 @@ const localeValues: Locale = {
     filterEmptyText: '无筛选项',
     filterCheckall: '全选',
     filterSearchPlaceholder: '在筛选项中搜索',
+    emptyText: '暂无数据',
     selectAll: '全选当页',
     selectInvert: '反选当页',
     selectNone: '清空所有',
@@ -59,6 +59,7 @@ const localeValues: Locale = {
     selectCurrent: '全选当页',
     removeCurrent: '删除当页',
     selectAll: '全选所有',
+    deselectAll: '取消全选',
     removeAll: '删除全部',
     selectInvert: '反选当页',
   },
@@ -80,6 +81,7 @@ const localeValues: Locale = {
     copy: '复制',
     copied: '复制成功',
     expand: '展开',
+    collapse: '收起',
   },
   Form: {
     optional: '（可选）',
@@ -141,6 +143,9 @@ const localeValues: Locale = {
   },
   ColorPicker: {
     presetEmpty: '暂无',
+    transparent: '无色',
+    singleColor: '单色',
+    gradientColor: '渐变色',
   },
 };
 

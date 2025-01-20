@@ -8,6 +8,7 @@ import tokenData from 'antd/es/version/token.json';
 
 import useLocale from '../../../hooks/useLocale';
 import { useColumns } from '../TokenTable';
+import type { TokenData } from '../TokenTable';
 
 const compare = (token1: string, token2: string) => {
   const hasColor1 = token1.toLowerCase().includes('color');
@@ -52,7 +53,7 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(() => ({
+const useStyle = createStyles(({ token }) => ({
   tableTitle: css`
     cursor: pointer;
     position: relative;
@@ -62,15 +63,15 @@ const useStyle = createStyles(() => ({
     line-height: 40px;
   `,
   arrowIcon: css`
-    font-size: 16px;
-    margin-inline-end: 8px;
+    font-size: ${token.fontSizeLG}px;
+    margin-inline-end: ${token.marginXS}px;
     & svg {
-      transition: all 0.3s;
+      transition: all ${token.motionDurationSlow};
     }
   `,
   help: css`
-    margin-inline-start: 8px;
-    font-size: 12px;
+    margin-inline-start: ${token.marginXS}px;
+    font-size: ${token.fontSizeSM}px;
     font-weight: normal;
     color: #999;
     a {
@@ -98,7 +99,7 @@ const SubTokenTable: React.FC<SubTokenTableProps> = (props) => {
   const token = useTheme();
   const columns = useColumns();
 
-  const [open, setOpen] = useState<boolean>(defaultOpen || process.env.NODE_ENV !== 'production');
+  const [open, setOpen] = useState<boolean>(defaultOpen ?? process.env.NODE_ENV !== 'production');
 
   const { styles } = useStyle();
 
@@ -108,13 +109,13 @@ const SubTokenTable: React.FC<SubTokenTableProps> = (props) => {
 
   const data = tokens
     .sort(component ? undefined : compare)
-    .map((name) => {
+    .map<TokenData>((name) => {
       const meta = component
         ? tokenMeta.components[component].find((item) => item.token === name)
         : tokenMeta.global[name];
 
       if (!meta) {
-        return null;
+        return null as unknown as TokenData;
       }
 
       return {
@@ -156,7 +157,7 @@ const SubTokenTable: React.FC<SubTokenTableProps> = (props) => {
           {title}
           <Popover
             title={null}
-            popupStyle={{ width: 400 }}
+            styles={{ root: { width: 400 } }}
             content={
               <Typography>
                 {/* <SourceCode lang="jsx">{code}</SourceCode> */}
@@ -177,7 +178,7 @@ const SubTokenTable: React.FC<SubTokenTableProps> = (props) => {
       </div>
       {open && (
         <ConfigProvider theme={{ token: { borderRadius: 0 } }}>
-          <Table
+          <Table<TokenData>
             size="middle"
             columns={columns}
             bordered

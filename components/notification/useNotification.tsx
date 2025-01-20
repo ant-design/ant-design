@@ -65,6 +65,8 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     onAllRemoved,
     stack,
     duration,
+    pauseOnHover = true,
+    showProgress,
   } = props;
   const { getPrefixCls, getPopupContainer, notification, direction } = useContext(ConfigContext);
   const [, token] = useToken();
@@ -91,6 +93,8 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     duration: duration ?? DEFAULT_DURATION,
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
+    pauseOnHover,
+    showProgress,
     onAllRemoved,
     renderNotifications,
     stack:
@@ -148,6 +152,7 @@ export function useInternalNotification(
         style,
         role = 'alert',
         closeIcon,
+        closable,
         ...restConfig
       } = config;
 
@@ -178,7 +183,7 @@ export function useInternalNotification(
         ),
         style: { ...notification?.style, ...style },
         closeIcon: realCloseIcon,
-        closable: !!realCloseIcon,
+        closable: closable ?? !!realCloseIcon,
       });
     };
 

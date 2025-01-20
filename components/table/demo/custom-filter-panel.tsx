@@ -1,11 +1,9 @@
 import React, { useRef, useState } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
-import type { GetRef, TableColumnsType, TableColumnType } from 'antd';
+import type { InputRef, TableColumnsType, TableColumnType } from 'antd';
 import { Button, Input, Space, Table } from 'antd';
 import type { FilterDropdownProps } from 'antd/es/table/interface';
 import Highlighter from 'react-highlight-words';
-
-type InputRef = GetRef<typeof Input>;
 
 interface DataType {
   key: string;
@@ -122,10 +120,12 @@ const App: React.FC = () => {
         .toString()
         .toLowerCase()
         .includes((value as string).toLowerCase()),
-    onFilterDropdownOpenChange: (visible) => {
-      if (visible) {
-        setTimeout(() => searchInput.current?.select(), 100);
-      }
+    filterDropdownProps: {
+      onOpenChange(open) {
+        if (open) {
+          setTimeout(() => searchInput.current?.select(), 100);
+        }
+      },
     },
     render: (text) =>
       searchedColumn === dataIndex ? (
@@ -165,7 +165,7 @@ const App: React.FC = () => {
     },
   ];
 
-  return <Table columns={columns} dataSource={data} />;
+  return <Table<DataType> columns={columns} dataSource={data} />;
 };
 
 export default App;

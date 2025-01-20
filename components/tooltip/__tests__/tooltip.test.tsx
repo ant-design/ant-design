@@ -1,13 +1,13 @@
-import { spyElementPrototype } from 'rc-util/lib/test/domHook';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
+import { spyElementPrototype } from 'rc-util/lib/test/domHook';
+
 import type { TooltipPlacement } from '..';
 import Tooltip from '..';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import getPlacements from '../../_util/placements';
 import { resetWarned } from '../../_util/warning';
+import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import DatePicker from '../../date-picker';
 import Input from '../../input';
@@ -200,9 +200,7 @@ describe('Tooltip', () => {
         </Button>
       </Tooltip>,
     );
-    expect(getComputedStyle(containerInline.querySelector('button')!)?.display).toBe(
-      'inline-block',
-    );
+    expect(getComputedStyle(containerInline.querySelector('button')!)?.display).toBe('inline-flex');
     expect(getComputedStyle(containerBlock.querySelector('button')!)?.display).toBe('block');
   });
 
@@ -217,7 +215,7 @@ describe('Tooltip', () => {
         mouseLeaveDelay={0}
         placement="bottomLeft"
         arrowPointAtCenter
-        overlayClassName="point-center-element"
+        classNames={{ root: 'point-center-element' }}
       >
         <button type="button">Hello world!</button>
       </Tooltip>,
@@ -234,7 +232,7 @@ describe('Tooltip', () => {
         mouseLeaveDelay={0}
         placement="bottomLeft"
         arrow={{ arrowPointAtCenter: true }}
-        overlayClassName="point-center-element"
+        classNames={{ root: 'point-center-element' }}
       >
         <button type="button">Hello world!</button>
       </Tooltip>,
@@ -404,9 +402,9 @@ describe('Tooltip', () => {
     expect(document.querySelector('.ant-tooltip')).not.toBeNull();
   });
 
-  it('should pass overlayInnerStyle through to the inner component', () => {
+  it('should pass styles={{ body: {} }} through to the inner component', () => {
     const { container } = render(
-      <Tooltip overlayInnerStyle={{ color: 'red' }} title="xxxxx" open>
+      <Tooltip styles={{ body: { color: 'red' } }} title="xxxxx" open>
         <div />
       </Tooltip>,
     );
@@ -563,7 +561,7 @@ describe('Tooltip', () => {
   });
 
   it('not inject className when children className is not string type', () => {
-    const HOC = ({ className }: { className: Function }) => <span className={className()} />;
+    const HOC = ({ className }: { className: () => string }) => <span className={className()} />;
     const { container } = render(
       <Tooltip open>
         <HOC className={() => 'bamboo'} />
@@ -602,5 +600,34 @@ describe('Tooltip', () => {
     });
     expect(error).toHaveBeenCalled();
     error.mockRestore();
+  });
+
+  it('should apply custom styles to Tooltip', () => {
+    const customClassNames = {
+      body: 'custom-body',
+      root: 'custom-root',
+    };
+
+    const customStyles = {
+      body: { color: 'red' },
+      root: { backgroundColor: 'blue' },
+    };
+
+    const { container } = render(
+      <Tooltip classNames={customClassNames} overlay={<div />} styles={customStyles} visible>
+        <button type="button">button</button>
+      </Tooltip>,
+    );
+
+    const tooltipElement = container.querySelector('.ant-tooltip') as HTMLElement;
+    const tooltipBodyElement = container.querySelector('.ant-tooltip-inner') as HTMLElement;
+
+    // 验证 classNames
+    expect(tooltipElement.classList).toContain('custom-root');
+    expect(tooltipBodyElement.classList).toContain('custom-body');
+
+    // 验证 styles
+    expect(tooltipElement.style.backgroundColor).toBe('blue');
+    expect(tooltipBodyElement.style.color).toBe('red');
   });
 });

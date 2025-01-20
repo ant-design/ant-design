@@ -1,13 +1,15 @@
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
-import { createStyles } from 'antd-style';
 import type { ReactElement } from 'react';
-import React, { useMemo, useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import type { GetProp, MenuProps } from 'antd';
+import { createStyles } from 'antd-style';
 import classNames from 'classnames';
-import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
-import type { MenuProps } from 'antd';
+
 import useMenu from '../../hooks/useMenu';
 import SiteContext from '../slots/SiteContext';
 import type { SiteContextProps } from '../slots/SiteContext';
+
+type MenuItemType = Extract<GetProp<MenuProps, 'items'>[number], { type?: 'item' }>;
 
 const useStyle = createStyles(({ token, css }) => {
   const { colorSplit, iconCls, fontSizeIcon } = token;
@@ -18,7 +20,7 @@ const useStyle = createStyles(({ token, css }) => {
       margin-inline-end: 170px;
       margin-inline-start: 64px;
       overflow: hidden;
-      font-size: 14px;
+      font-size: ${token.fontSize}px;
       border-top: 1px solid ${colorSplit};
       display: flex;
     `,
@@ -31,11 +33,11 @@ const useStyle = createStyles(({ token, css }) => {
       ${iconCls} {
         color: #999;
         font-size: ${fontSizeIcon}px;
-        transition: all 0.3s;
+        transition: all ${token.motionDurationSlow};
       }
 
       .chinese {
-        margin-inline-start: 4px;
+        margin-inline-start: ${token.marginXXS}px;
       }
     `,
     prevNav: css`
@@ -52,7 +54,7 @@ const useStyle = createStyles(({ token, css }) => {
         position: relative;
         line-height: 0;
         vertical-align: middle;
-        transition: inset-inline-end 0.3s;
+        transition: inset-inline-end ${token.motionDurationSlow};
         margin-inline-end: 1em;
         inset-inline-end: 0;
       }
@@ -76,7 +78,7 @@ const useStyle = createStyles(({ token, css }) => {
         margin-bottom: 1px;
         line-height: 0;
         vertical-align: middle;
-        transition: inset-inline-start 0.3s;
+        transition: inset-inline-start ${token.motionDurationSlow};
         margin-inline-start: 1em;
         inset-inline-start: 0;
       }
@@ -139,13 +141,23 @@ const PrevAndNext: React.FC<{ rtl?: boolean }> = ({ rtl }) => {
   return (
     <section className={styles.prevNextNav}>
       {prev &&
-        React.cloneElement(prev.label as ReactElement, {
-          className: classNames(styles.pageNav, styles.prevNav, prev.className),
-        })}
+        React.cloneElement(
+          prev.label as ReactElement<{
+            className: string;
+          }>,
+          {
+            className: classNames(styles.pageNav, styles.prevNav, prev.className),
+          },
+        )}
       {next &&
-        React.cloneElement(next.label as ReactElement, {
-          className: classNames(styles.pageNav, styles.nextNav, next.className),
-        })}
+        React.cloneElement(
+          next.label as ReactElement<{
+            className: string;
+          }>,
+          {
+            className: classNames(styles.pageNav, styles.nextNav, next.className),
+          },
+        )}
     </section>
   );
 };

@@ -249,13 +249,8 @@ exports[`Image Default Group preview props 1`] = `
           role="dialog"
         >
           <div
-            aria-hidden="true"
-            style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-            tabindex="0"
-          />
-          <div
             style="outline: none;"
-            tabindex="-1"
+            tabindex="0"
           >
             <div
               class="ant-image-preview-content"
@@ -276,7 +271,6 @@ exports[`Image Default Group preview props 1`] = `
             </div>
           </div>
           <div
-            aria-hidden="true"
             style="width: 0px; height: 0px; overflow: hidden; outline: none;"
             tabindex="0"
           />

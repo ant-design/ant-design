@@ -1,15 +1,14 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import type { CSSMotionProps } from 'rc-motion';
 import CSSMotion, { CSSMotionList } from 'rc-motion';
-import * as React from 'react';
-import { useMemo } from 'react';
+
 import initCollapseMotion from '../_util/motion';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FormItemPrefixContext } from './context';
 import type { ValidateStatus } from './FormItem';
 import useDebounce from './hooks/useDebounce';
-
 import useStyle from './style';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 const EMPTY_LIST: React.ReactNode[] = [];
 
@@ -23,7 +22,7 @@ function toErrorEntity(
   error: React.ReactNode,
   prefix: string,
   errorStatus?: ValidateStatus,
-  index: number = 0,
+  index = 0,
 ): ErrorEntity {
   return {
     key: typeof error === 'string' ? error : `${prefix}-${index}`,
@@ -58,7 +57,10 @@ const ErrorList: React.FC<ErrorListProps> = ({
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const collapseMotion: CSSMotionProps = useMemo(() => initCollapseMotion(prefixCls), [prefixCls]);
+  const collapseMotion = React.useMemo<CSSMotionProps>(
+    () => initCollapseMotion(prefixCls),
+    [prefixCls],
+  );
 
   // We have to debounce here again since somewhere use ErrorList directly still need no shaking
   // ref: https://github.com/ant-design/ant-design/issues/36336
@@ -78,6 +80,17 @@ const ErrorList: React.FC<ErrorListProps> = ({
     ];
   }, [help, helpStatus, debounceErrors, debounceWarnings]);
 
+  const filledKeyFullKeyList = React.useMemo<ErrorEntity[]>(() => {
+    const keysCount: Record<string, number> = {};
+    fullKeyList.forEach(({ key }) => {
+      keysCount[key] = (keysCount[key] || 0) + 1;
+    });
+    return fullKeyList.map((entity, index) => ({
+      ...entity,
+      key: keysCount[entity.key] > 1 ? `${entity.key}-fallback-${index}` : entity.key,
+    }));
+  }, [fullKeyList]);
+
   const helpProps: { id?: string } = {};
 
   if (fieldId) {
@@ -88,7 +101,7 @@ const ErrorList: React.FC<ErrorListProps> = ({
     <CSSMotion
       motionDeadline={collapseMotion.motionDeadline}
       motionName={`${prefixCls}-show-help`}
-      visible={!!fullKeyList.length}
+      visible={!!filledKeyFullKeyList.length}
       onVisibleChanged={onVisibleChanged}
     >
       {(holderProps) => {
@@ -109,7 +122,7 @@ const ErrorList: React.FC<ErrorListProps> = ({
             role="alert"
           >
             <CSSMotionList
-              keys={fullKeyList}
+              keys={filledKeyFullKeyList}
               {...initCollapseMotion(prefixCls)}
               motionName={`${prefixCls}-show-help-item`}
               component={false}

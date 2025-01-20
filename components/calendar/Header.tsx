@@ -1,7 +1,8 @@
-import type { GenerateConfig } from 'rc-picker/lib/generate';
-import type { Locale } from 'rc-picker/lib/interface';
 import * as React from 'react';
 import { useContext, useMemo } from 'react';
+import type { GenerateConfig } from 'rc-picker/lib/generate';
+import type { Locale } from 'rc-picker/lib/interface';
+
 import { FormItemInputContext } from '../form/context';
 import { Button, Group } from '../radio';
 import Select from '../select';
@@ -152,7 +153,7 @@ export interface CalendarHeaderProps<DateType> {
 }
 function CalendarHeader<DateType>(props: CalendarHeaderProps<DateType>) {
   const { prefixCls, fullscreen, mode, onChange, onModeChange } = props;
-  const divRef = React.useRef<HTMLDivElement>(null);
+  const divRef = React.useRef<HTMLDivElement>(null!);
 
   const formItemInputContext = useContext(FormItemInputContext);
   const mergedFormItemInputContext = useMemo(

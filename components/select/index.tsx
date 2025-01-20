@@ -21,7 +21,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
-import type { Variant } from '../form/hooks/useVariants';
+import type { Variant } from '../config-provider';
 import useVariants from '../form/hooks/useVariants';
 import { useCompactItemContext } from '../space/Compact';
 import { useToken } from '../theme/internal';
@@ -47,6 +47,7 @@ export interface InternalSelectProps<
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<RcSelectProps<ValueType, OptionType>, 'mode'> {
   rootClassName?: string;
+  prefix?: React.ReactNode;
   suffixIcon?: React.ReactNode;
   size?: SizeType;
   disabled?: boolean;
@@ -118,6 +119,7 @@ const InternalSelect = <
     transitionName,
     tagRender,
     maxCount,
+    prefix,
     ...rest
   } = props;
 
@@ -142,7 +144,7 @@ const InternalSelect = <
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
-  const [variant, enableVariantCls] = useVariants(customizeVariant, bordered);
+  const [variant, enableVariantCls] = useVariants('select', customizeVariant, bordered);
 
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
@@ -292,6 +294,7 @@ const InternalSelect = <
       prefixCls={prefixCls}
       placement={memoPlacement}
       direction={direction}
+      prefix={prefix}
       suffixIcon={suffixIcon}
       menuItemSelectedIcon={itemIcon}
       removeIcon={removeIcon}
@@ -328,7 +331,7 @@ const Select = React.forwardRef(InternalSelect) as unknown as (<
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(Select);
+const PurePanel = genPurePanel(Select, 'dropdownAlign');
 
 Select.SECRET_COMBOBOX_MODE_DO_NOT_USE = SECRET_COMBOBOX_MODE_DO_NOT_USE;
 Select.Option = Option;

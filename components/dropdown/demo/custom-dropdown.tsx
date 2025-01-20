@@ -1,6 +1,6 @@
 import React from 'react';
 import { DownOutlined } from '@ant-design/icons';
-import { Dropdown, Space, Divider, Button, theme } from 'antd';
+import { Button, Divider, Dropdown, Space, theme } from 'antd';
 import type { MenuProps } from 'antd';
 
 const { useToken } = theme;
@@ -52,7 +52,12 @@ const App: React.FC = () => {
       menu={{ items }}
       dropdownRender={(menu) => (
         <div style={contentStyle}>
-          {React.cloneElement(menu as React.ReactElement, { style: menuStyle })}
+          {React.cloneElement(
+            menu as React.ReactElement<{
+              style: React.CSSProperties;
+            }>,
+            { style: menuStyle },
+          )}
           <Divider style={{ margin: 0 }} />
           <Space style={{ padding: 8 }}>
             <Button type="primary">Click me!</Button>

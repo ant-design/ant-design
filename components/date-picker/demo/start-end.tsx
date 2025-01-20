@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import type { Dayjs } from 'dayjs';
 import { DatePicker, Space } from 'antd';
+import type { Dayjs } from 'dayjs';
 
 const App: React.FC = () => {
   const [startValue, setStartValue] = useState<Dayjs | null>(null);

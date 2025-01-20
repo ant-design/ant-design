@@ -1,10 +1,11 @@
 import React from 'react';
+
 import type { ListProps } from '..';
 import List from '..';
-import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('List', () => {
   mountTest(List);
@@ -38,5 +39,15 @@ describe('List', () => {
 
     expect(container.querySelector('.ant-list-sm')).toBeTruthy();
     expect(container.querySelector('.ant-list-lg')).toBeTruthy();
+  });
+
+  it('ref should be able to get List id passe to internal div', async () => {
+    const renderItem: ListProps<any>['renderItem'] = (item) => <List.Item>{item}</List.Item>;
+    const dataSource: ListProps<any>['dataSource'] = [];
+    const ref = React.createRef<HTMLDivElement>();
+    const id = 'list-1';
+    render(<List ref={ref} id={id} renderItem={renderItem} dataSource={dataSource} />);
+
+    expect(ref.current?.id).toBe(id);
   });
 });

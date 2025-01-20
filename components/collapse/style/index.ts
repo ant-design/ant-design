@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react';
 import { unit } from '@ant-design/cssinjs';
 
-import { resetComponent, resetIcon } from '../../style';
+import { genFocusStyle, resetComponent, resetIcon } from '../../style';
 import { genCollapseMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
@@ -20,7 +20,7 @@ export interface ComponentToken {
    */
   headerBg: string;
   /**
-   * @desc 折叠面板内容内部编辑
+   * @desc 折叠面板内容内边距
    * @descEN Padding of content
    */
   contentPadding: CSSProperties['padding'];
@@ -32,8 +32,20 @@ export interface ComponentToken {
 }
 
 type CollapseToken = FullToken<'Collapse'> & {
+  /**
+   * @desc 小号折叠面板头部内边距
+   * @descEN Padding of small header
+   */
   collapseHeaderPaddingSM: string;
+  /**
+   * @desc 大号折叠面板头部内边距
+   * @descEN Padding of large header
+   */
   collapseHeaderPaddingLG: string;
+  /**
+   * @desc 折叠面板边框圆角
+   * @descEN Border radius of collapse panel
+   */
   collapsePanelBorderRadius: number;
 };
 
@@ -75,16 +87,23 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
       ...resetComponent(token),
       backgroundColor: headerBg,
       border: borderBase,
-      borderBottom: 0,
       borderRadius: collapsePanelBorderRadius,
 
-      [`&-rtl`]: {
+      '&-rtl': {
         direction: 'rtl',
       },
 
       [`& > ${componentCls}-item`]: {
         borderBottom: borderBase,
-        [`&:last-child`]: {
+        '&:first-child': {
+          [`
+            &,
+            & > ${componentCls}-header`]: {
+            borderRadius: `${unit(collapsePanelBorderRadius)} ${unit(collapsePanelBorderRadius)} 0 0`,
+          },
+        },
+
+        '&:last-child': {
           [`
             &,
             & > ${componentCls}-header`]: {
@@ -104,13 +123,10 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
           lineHeight,
           cursor: 'pointer',
           transition: `all ${motionDurationSlow}, visibility 0s`,
+          ...genFocusStyle(token),
 
           [`> ${componentCls}-header-text`]: {
             flex: 'auto',
-          },
-
-          '&:focus': {
-            outline: 'none',
           },
 
           // >>>>> Arrow
@@ -124,7 +140,9 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
           [`${componentCls}-arrow`]: {
             ...resetIcon(),
             fontSize: fontSizeIcon,
-
+            // when `transform: rotate()` is applied to icon's root element
+            transition: `transform ${motionDurationSlow}`,
+            // when `transform: rotate()` is applied to icon's child element
             svg: {
               transition: `transform ${motionDurationSlow}`,
             },
@@ -136,7 +154,15 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
           },
         },
 
-        [`${componentCls}-icon-collapsible-only`]: {
+        [`${componentCls}-collapsible-header`]: {
+          cursor: 'default',
+          [`${componentCls}-header-text`]: {
+            flex: 'none',
+            cursor: 'pointer',
+          },
+        },
+
+        [`${componentCls}-collapsible-icon`]: {
           cursor: 'unset',
 
           [`${componentCls}-expand-icon`]: {
@@ -154,12 +180,12 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
           padding: contentPadding,
         },
 
-        [`&-hidden`]: {
+        '&-hidden': {
           display: 'none',
         },
       },
 
-      [`&-small`]: {
+      '&-small': {
         [`> ${componentCls}-item`]: {
           [`> ${componentCls}-header`]: {
             padding: collapseHeaderPaddingSM,
@@ -176,7 +202,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
         },
       },
 
-      [`&-large`]: {
+      '&-large': {
         [`> ${componentCls}-item`]: {
           fontSize: fontSizeLG,
           lineHeight: lineHeightLG,
@@ -197,6 +223,8 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
       },
 
       [`${componentCls}-item:last-child`]: {
+        borderBottom: 0,
+
         [`> ${componentCls}-content`]: {
           borderRadius: `0 0 ${unit(collapsePanelBorderRadius)} ${unit(collapsePanelBorderRadius)}`,
         },
@@ -231,7 +259,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
 const genArrowStyle: GenerateStyle<CollapseToken> = (token) => {
   const { componentCls } = token;
 
-  const fixedSelector = `> ${componentCls}-item > ${componentCls}-header ${componentCls}-arrow svg`;
+  const fixedSelector = `> ${componentCls}-item > ${componentCls}-header ${componentCls}-arrow`;
 
   return {
     [`${componentCls}-rtl`]: {

@@ -1,16 +1,22 @@
 import { useLocale as useDumiLocale } from 'dumi';
 
-export interface LocaleMap<Key extends string> {
-  cn: Record<Key, string>;
-  en: Record<Key, string>;
+export interface LocaleMap<
+  K extends PropertyKey = PropertyKey,
+  V extends string | ((...params: any[]) => string) = string,
+> {
+  cn: Record<K, V>;
+  en: Record<K, V>;
 }
 
-function useLocale<Key extends string>(
-  localeMap?: LocaleMap<Key>,
-): [Record<Key, string>, 'cn' | 'en'] {
+const useLocale = <
+  K extends PropertyKey = PropertyKey,
+  V extends string | ((...params: any[]) => string) = string,
+>(
+  localeMap?: LocaleMap<K, V>,
+): [Record<K, V>, 'cn' | 'en'] => {
   const { id } = useDumiLocale();
   const localeType = id === 'zh-CN' ? 'cn' : 'en';
-  return [localeMap?.[localeType]!, localeType];
-}
+  return [localeMap?.[localeType]!, localeType] as const;
+};
 
 export default useLocale;

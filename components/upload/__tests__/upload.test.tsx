@@ -38,7 +38,7 @@ describe('Upload', () => {
 
   // https://github.com/react-component/upload/issues/36
   it('should get refs inside Upload in componentDidMount', () => {
-    let ref: React.RefObject<HTMLInputElement>;
+    let ref: React.RefObject<HTMLInputElement | null>;
     const App: React.FC = () => {
       const inputRef = useRef<HTMLInputElement>(null);
       useEffect(() => {
@@ -460,7 +460,7 @@ describe('Upload', () => {
       url: 'http://www.baidu.com/xxx.png',
     };
 
-    let removePromise: (value: boolean | Promise<void | boolean>) => void;
+    let removePromise: (value: boolean | Promise<undefined | boolean>) => void;
 
     const onRemove: UploadProps['onRemove'] = () =>
       new Promise((resolve) => {
@@ -630,7 +630,7 @@ describe('Upload', () => {
 
     const customRequest = jest.fn(async (options) => {
       // stop here to make sure new fileList has been set and passed to Upload
-      // eslint-disable-next-line no-promise-executor-return
+
       await new Promise((resolve) => setTimeout(resolve, 0));
       options.onProgress({ percent: 0 });
       const url = Promise.resolve('https://ant.design');
@@ -815,6 +815,53 @@ describe('Upload', () => {
         }),
       );
     });
+
+    it('should trigger onChange when defaultFileList.length is longer than maxCount ', async () => {
+      const onChange = jest.fn();
+
+      const { container } = render(
+        <Upload
+          onChange={onChange}
+          maxCount={3}
+          defaultFileList={[
+            {
+              uid: 'bamboo',
+              name: 'bamboo.png',
+            },
+            {
+              uid: 'little',
+              name: 'little.png',
+            },
+            {
+              uid: 'foo',
+              name: 'foo.png',
+            },
+            {
+              uid: 'bar',
+              name: 'bar.png',
+            },
+            {
+              uid: 'bar1',
+              name: 'bar1.png',
+            },
+          ]}
+          showUploadList
+        >
+          <button type="button">upload</button>
+        </Upload>,
+      );
+
+      fireEvent.click(container.querySelector('.ant-upload-list-item-action')!);
+      await waitFakeTimer();
+      // Click delete
+
+      expect(onChange).toHaveBeenCalledWith(
+        expect.objectContaining({
+          // Have 3 file
+          fileList: [expect.anything(), expect.anything(), expect.anything()],
+        }),
+      );
+    });
   });
 
   it('auto fill file uid', () => {
@@ -995,7 +1042,7 @@ describe('Upload', () => {
 
     const customRequest = jest.fn(async (options) => {
       // stop here to make sure new fileList has been set and passed to Upload
-      // eslint-disable-next-line no-promise-executor-return
+
       await new Promise((resolve) => setTimeout(resolve, 0));
       options.onProgress({ percent: 0 });
       const url = Promise.resolve<string>('https://ant.design');
@@ -1034,5 +1081,12 @@ describe('Upload', () => {
     fileListOut.forEach((file) => {
       expect(file.status).toBe('done');
     });
+  });
+
+  it('container ref', () => {
+    const ref = React.createRef<any>();
+    render(<Upload ref={ref} />);
+    expect(ref.current?.nativeElement).toBeTruthy();
+    expect(ref.current?.nativeElement instanceof HTMLElement).toBeTruthy();
   });
 });

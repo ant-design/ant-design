@@ -19,9 +19,9 @@ const App: React.FC = () => {
   return (
     <>
       <Segmented
-        defaultValue="center"
+        value={alignValue}
         style={{ marginBottom: 8 }}
-        onChange={(value) => setAlignValue(value as Align)}
+        onChange={setAlignValue}
         options={['start', 'center', 'end']}
       />
       <Tabs

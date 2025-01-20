@@ -1,9 +1,9 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
 
-import { resetComponent, textEllipsis } from '../../style';
+import { genFocusOutline, genFocusStyle, resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
-import { unit } from '@ant-design/cssinjs';
 
 export interface ComponentToken {
   /**
@@ -103,18 +103,32 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       background: token.trackBg,
       borderRadius: token.borderRadius,
       transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
+      ...genFocusStyle(token),
 
       [`${componentCls}-group`]: {
         position: 'relative',
         display: 'flex',
         alignItems: 'stretch',
         justifyItems: 'flex-start',
+        flexDirection: 'row',
         width: '100%',
       },
 
       // RTL styles
       [`&${componentCls}-rtl`]: {
         direction: 'rtl',
+      },
+
+      [`&${componentCls}-vertical`]: {
+        [`${componentCls}-group`]: {
+          flexDirection: 'column',
+        },
+
+        [`${componentCls}-thumb`]: {
+          width: '100%',
+          height: 0,
+          padding: `0 ${unit(token.paddingXXS)}`,
+        },
       },
 
       // block styles
@@ -141,6 +155,10 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         '&-selected': {
           ...getItemSelectedStyle(token),
           color: token.itemSelectedColor,
+        },
+
+        '&-focused': {
+          ...genFocusOutline(token),
         },
 
         '&::after': {
@@ -205,6 +223,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         height: '100%',
         padding: `${unit(token.paddingXXS)} 0`,
         borderRadius: token.borderRadiusSM,
+        transition: `transform ${token.motionDurationSlow} ${token.motionEaseInOut}, height ${token.motionDurationSlow} ${token.motionEaseInOut}`,
 
         [`& ~ ${componentCls}-item:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)::after`]:
           {

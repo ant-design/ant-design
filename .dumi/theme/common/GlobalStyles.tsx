@@ -2,13 +2,10 @@ import React from 'react';
 
 import ColorStyle from './Color/ColorStyle';
 import {
-  BrowserMockup,
   Common,
   Demo,
   HeadingAnchor,
   Highlight,
-  Icon,
-  IconPickSearcher,
   Markdown,
   NProgress,
   PreviewImage,
@@ -25,9 +22,6 @@ const GlobalStyles: React.FC = () => (
     <Markdown />
     <Highlight />
     <Demo />
-    <Icon />
-    <IconPickSearcher />
-    <BrowserMockup />
     <Responsive />
     <NProgress />
     <PreviewImage />

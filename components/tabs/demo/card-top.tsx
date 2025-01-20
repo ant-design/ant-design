@@ -1,6 +1,6 @@
 import React from 'react';
-import { createStyles } from 'antd-style';
 import { Tabs } from 'antd';
+import { createStyles } from 'antd-style';
 
 const useStyle = createStyles(({ token, css }) => {
   const antdTabsCls = '.ant-tabs';

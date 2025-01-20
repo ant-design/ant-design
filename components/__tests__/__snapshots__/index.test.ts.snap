@@ -54,6 +54,7 @@ exports[`antd exports modules correctly 1`] = `
   "Slider",
   "Space",
   "Spin",
+  "Splitter",
   "Statistic",
   "Steps",
   "Switch",
@@ -73,6 +74,7 @@ exports[`antd exports modules correctly 1`] = `
   "message",
   "notification",
   "theme",
+  "unstableSetRender",
   "version",
 ]
 `;

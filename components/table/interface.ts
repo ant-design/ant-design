@@ -11,16 +11,17 @@ import { ExpandableConfig, GetRowKey } from 'rc-table/lib/interface';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { AnyObject } from '../_util/type';
 import type { CheckboxProps } from '../checkbox';
+import type { DropdownProps } from '../dropdown';
 import type { PaginationProps } from '../pagination';
 import type { TooltipProps } from '../tooltip';
 import type { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
 import type { InternalTableProps, TableProps } from './InternalTable';
 
-export type RefTable = <RecordType extends AnyObject = AnyObject>(
+export type RefTable = <RecordType = AnyObject>(
   props: React.PropsWithChildren<TableProps<RecordType>> & React.RefAttributes<Reference>,
 ) => React.ReactElement;
 
-export type RefInternalTable = <RecordType extends AnyObject = AnyObject>(
+export type RefInternalTable = <RecordType = AnyObject>(
   props: React.PropsWithChildren<InternalTableProps<RecordType>> & React.RefAttributes<Reference>,
 ) => React.ReactElement;
 
@@ -58,10 +59,16 @@ export interface TableLocale {
 
 export type SortOrder = 'descend' | 'ascend' | null;
 
-const TableActions = ['paginate', 'sort', 'filter'] as const;
-export type TableAction = (typeof TableActions)[number];
+export type SorterTooltipTarget = 'full-header' | 'sorter-icon';
 
-export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
+export type SorterTooltipProps = TooltipProps & {
+  target?: SorterTooltipTarget;
+};
+
+const _TableActions = ['paginate', 'sort', 'filter'] as const;
+export type TableAction = (typeof _TableActions)[number];
+
+export type CompareFn<T = AnyObject> = (a: T, b: T, sortOrder?: SortOrder) => number;
 
 export interface ColumnFilterItem {
   text: React.ReactNode;
@@ -69,7 +76,7 @@ export interface ColumnFilterItem {
   children?: ColumnFilterItem[];
 }
 
-export interface ColumnTitleProps<RecordType> {
+export interface ColumnTitleProps<RecordType = AnyObject> {
   /** @deprecated Please use `sorterColumns` instead. */
   sortOrder?: SortOrder;
   /** @deprecated Please use `sorterColumns` instead. */
@@ -79,7 +86,7 @@ export interface ColumnTitleProps<RecordType> {
   filters?: Record<string, FilterValue>;
 }
 
-export type ColumnTitle<RecordType> =
+export type ColumnTitle<RecordType = AnyObject> =
   | React.ReactNode
   | ((props: ColumnTitleProps<RecordType>) => React.ReactNode);
 
@@ -92,6 +99,11 @@ export interface FilterConfirmProps {
   closeDropdown: boolean;
 }
 
+export interface FilterRestProps {
+  confirm?: boolean;
+  closeDropdown?: boolean;
+}
+
 export interface FilterDropdownProps {
   prefixCls: string;
   setSelectedKeys: (selectedKeys: React.Key[]) => void;
@@ -101,14 +113,28 @@ export interface FilterDropdownProps {
    * {closeDropdown: true}
    */
   confirm: (param?: FilterConfirmProps) => void;
-  clearFilters?: () => void;
+  clearFilters?: (param?: FilterRestProps) => void;
   filters?: ColumnFilterItem[];
   /** Only close filterDropdown */
   close: () => void;
   visible: boolean;
 }
 
-export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, 'title'> {
+// 非必要请勿导出
+interface CoverableDropdownProps
+  extends Omit<
+    DropdownProps,
+    | 'onOpenChange'
+    // === deprecated ===
+    | 'overlay'
+    | 'visible'
+    | 'onVisibleChange'
+  > {
+  onOpenChange?: (open: boolean) => void;
+}
+
+export interface ColumnType<RecordType = AnyObject>
+  extends Omit<RcColumnType<RecordType>, 'title'> {
   title?: ColumnTitle<RecordType>;
   // Sorter
   sorter?:
@@ -123,7 +149,7 @@ export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, '
   defaultSortOrder?: SortOrder;
   sortDirections?: SortOrder[];
   sortIcon?: (props: { sortOrder: SortOrder }) => React.ReactNode;
-  showSorterTooltip?: boolean | TooltipProps;
+  showSorterTooltip?: boolean | SorterTooltipProps;
 
   // Filter
   filtered?: boolean;
@@ -137,25 +163,39 @@ export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, '
   filterMode?: 'menu' | 'tree';
   filterSearch?: FilterSearchType<ColumnFilterItem>;
   onFilter?: (value: React.Key | boolean, record: RecordType) => boolean;
-  filterDropdownOpen?: boolean;
-  onFilterDropdownOpenChange?: (visible: boolean) => void;
+  /**
+   * Can cover `<Dropdown>` props
+   * @since 5.22.0
+   */
+  filterDropdownProps?: CoverableDropdownProps;
   filterResetToDefaultFilteredValue?: boolean;
 
   // Responsive
   responsive?: Breakpoint[];
 
   // Deprecated
-  /** @deprecated Please use `filterDropdownOpen` instead */
+  /**
+   * @deprecated Please use `filterDropdownProps.open` instead.
+   * @since 4.23.0
+   */
+  filterDropdownOpen?: boolean;
+  /**
+   * @deprecated Please use `filterDropdownProps.onOpenChange` instead.
+   * @since 4.23.0
+   */
+  onFilterDropdownOpenChange?: (visible: boolean) => void;
+  /** @deprecated Please use `filterDropdownProps.open` instead. */
   filterDropdownVisible?: boolean;
-  /** @deprecated Please use `onFilterDropdownOpenChange` instead */
+  /** @deprecated Please use `filterDropdownProps.onOpenChange` instead */
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
 }
 
-export interface ColumnGroupType<RecordType> extends Omit<ColumnType<RecordType>, 'dataIndex'> {
+export interface ColumnGroupType<RecordType = AnyObject>
+  extends Omit<ColumnType<RecordType>, 'dataIndex'> {
   children: ColumnsType<RecordType>;
 }
 
-export type ColumnsType<RecordType = unknown> = (
+export type ColumnsType<RecordType = AnyObject> = (
   | ColumnGroupType<RecordType>
   | ColumnType<RecordType>
 )[];
@@ -166,7 +206,7 @@ export interface SelectionItem {
   onSelect?: SelectionItemSelectFn;
 }
 
-export type SelectionSelectFn<T> = (
+export type SelectionSelectFn<T = AnyObject> = (
   record: T,
   selected: boolean,
   selectedRows: T[],
@@ -175,7 +215,7 @@ export type SelectionSelectFn<T> = (
 
 export type RowSelectMethod = 'all' | 'none' | 'invert' | 'single' | 'multiple';
 
-export interface TableRowSelection<T> {
+export interface TableRowSelection<T = AnyObject> {
   /** Keep the selection keys in list even the key not exist in `dataSource` anymore */
   preserveSelectedRowKeys?: boolean;
   type?: RowSelectionType;
@@ -207,16 +247,16 @@ export interface TableRowSelection<T> {
   onCell?: GetComponentProps<T>;
 }
 
-export type TransformColumns<RecordType> = (
+export type TransformColumns<RecordType = AnyObject> = (
   columns: ColumnsType<RecordType>,
 ) => ColumnsType<RecordType>;
 
-export interface TableCurrentDataSource<RecordType> {
+export interface TableCurrentDataSource<RecordType = AnyObject> {
   currentDataSource: RecordType[];
   action: TableAction;
 }
 
-export interface SorterResult<RecordType> {
+export interface SorterResult<RecordType = AnyObject> {
   column?: ColumnType<RecordType>;
   order?: SortOrder;
   field?: Key | readonly Key[];

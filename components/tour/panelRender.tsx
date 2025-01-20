@@ -44,19 +44,11 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
 
   const mergedType = stepType ?? type;
 
-  const mergedCloseIcon = React.useMemo(() => {
-    let defaultCloseIcon: React.ReactNode = <CloseOutlined className={`${prefixCls}-close-icon`} />;
-
-    if (closable && closable.closeIcon) {
-      defaultCloseIcon = closable.closeIcon;
-    }
-
-    return (
-      <button type="button" onClick={onClose} className={`${prefixCls}-close`}>
-        {defaultCloseIcon}
-      </button>
-    );
-  }, [closable]);
+  const mergedCloseIcon = (
+    <button type="button" onClick={onClose} className={`${prefixCls}-close`}>
+      {closable?.closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
+    </button>
+  );
 
   const isLastStep = current === total - 1;
 
@@ -86,12 +78,12 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
 
   const coverNode = isValidNode(cover) ? <div className={`${prefixCls}-cover`}>{cover}</div> : null;
 
-  let mergeIndicatorNode: ReactNode;
+  let mergedIndicatorNode: ReactNode;
 
   if (indicatorsRender) {
-    mergeIndicatorNode = indicatorsRender(current, total);
+    mergedIndicatorNode = indicatorsRender(current, total);
   } else {
-    mergeIndicatorNode = [...Array.from({ length: total }).keys()].map<ReactNode>(
+    mergedIndicatorNode = [...Array.from({ length: total }).keys()].map<ReactNode>(
       (stepItem, index) => (
         <span
           key={stepItem}
@@ -121,7 +113,7 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
         {headerNode}
         {descriptionNode}
         <div className={`${prefixCls}-footer`}>
-          {total > 1 && <div className={`${prefixCls}-indicators`}>{mergeIndicatorNode}</div>}
+          {total > 1 && <div className={`${prefixCls}-indicators`}>{mergedIndicatorNode}</div>}
           <div className={`${prefixCls}-buttons`}>
             {current !== 0 ? (
               <Button

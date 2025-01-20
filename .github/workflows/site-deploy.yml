@@ -11,82 +11,69 @@ permissions:
   contents: write
 
 jobs:
-  setup:
+  build-site:
     runs-on: ubuntu-latest
     if: (startsWith(github.ref, 'refs/tags/') && (contains(github.ref_name, '-') == false)) || github.event_name == 'workflow_dispatch'
+
+    # https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#example-defining-outputs-for-a-job
+    outputs:
+      formatted_version: ${{ steps.shared-formatted_version.outputs.VERSION }}
+
     steps:
       - name: checkout
         uses: actions/checkout@v4
 
-      - name: cache package-lock.json
-        uses: actions/cache@v4
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
+      - uses: oven-sh/setup-bun@v2
 
-      - name: create package-lock.json
-        run: npm i --package-lock-only --ignore-scripts
-
-      - name: hack for single file
-        run: |
-          if [ ! -d "package-temp-dir" ]; then
-            mkdir package-temp-dir
-          fi
-          cp package-lock.json package-temp-dir
-      - name: cache node_modules
-        id: node_modules_cache_id
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
-      - name: install
-        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: npm ci
-
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - name: checkout
-        uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v4
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+      - run: bun install
 
       - name: build site
-        run: npm run predeploy
+        run: bun run predeploy
         env:
-          NODE_OPTIONS: "--max_old_space_size=4096"
+          NODE_OPTIONS: --max_old_space_size=4096
 
       - name: build dist and bundle analyzer report
-        run: npm run dist
+        run: bun run dist
         env:
           ANALYZER: 1
-          NODE_OPTIONS: "--max_old_space_size=4096"
+          NODE_OPTIONS: --max_old_space_size=4096
 
-      - name: Get version
-        id: publish-version
+      - name: move report.html to _site
+        run: |
+          if [ -f report.html ]; then
+            mv report.html _site && echo "report.html moved to _site"
+          fi
+
+      - name: upload site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: real-site
+          path: _site/
+          retention-days: 1 # Not need to keep for too long
+
+      - name: Format version
+        if: ${{ always() }}
+        id: shared-formatted_version
         run: echo "VERSION=$(echo ${{ github.ref_name }} | sed 's/\./-/g')" >> $GITHUB_OUTPUT
 
+  deploy-to-pages:
+    runs-on: ubuntu-latest
+    needs: build-site
+    steps:
+      - uses: oven-sh/setup-bun@v2
+
+      - name: download site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: real-site
+          path: _site
+
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
+          exclude_files: ./_site/report.html # 👈 这个功能是 beta, 但即便不排除，也不 care
           force_orphan: true
 
       # Since force_orphan will not trigger Sync to Gitee, we need to force run it here
@@ -100,14 +87,37 @@ jobs:
 
       - name: Deploy to Surge (with TAG)
         run: |
-          export DEPLOY_DOMAIN=ant-design-${{ steps.publish-version.outputs.VERSION }}.surge.sh
-          cp report.html ./_site
-          npx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+          export DEPLOY_DOMAIN=ant-design-${{ needs.build-site.outputs.formatted_version }}.surge.sh
+          bunx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
       - name: Create Commit Comment
         uses: peter-evans/commit-comment@v3
         with:
           body: |
-            - Documentation site for this release: https://ant-design-${{ steps.publish-version.outputs.VERSION }}.surge.sh
-            - Webpack bundle analyzer report page: https://ant-design-${{ steps.publish-version.outputs.VERSION }}.surge.sh/report.html
+            - Documentation site for this release: https://ant-design-${{ needs.build-site.outputs.formatted_version }}.surge.sh
+            - Webpack bundle analyzer report page: https://ant-design-${{ needs.build-site.outputs.formatted_version }}.surge.sh/report.html
 
+  # https://github.com/ant-design/ant-design/pull/49213/files#r1625446496
+  upload-to-release:
+    runs-on: ubuntu-latest
+    # 仅在 tag 的时候工作，因为我们要将内容发布到以 tag 为版本号的 release 里
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: build-site
+    steps:
+      - name: download site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: real-site
+          path: _site
+
+      - name: Tarball site
+        run: |
+          cd ./_site
+          tar -czf ../website.tar.gz --transform 's|^|antd-${{ needs.build-site.outputs.formatted_version }}-website/|' .
+          cd ..
+
+      - name: Upload to Release
+        uses: softprops/action-gh-release@01570a1f39cb168c169c802c3bceb9e93fb10974 # v2.1.0
+        with:
+          fail_on_unmatched_files: true
+          files: website.tar.gz

@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { render } from 'rc-util/lib/React/render';
 
 import { AppConfigContext } from '../app/context';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
+import { getReactRender } from '../config-provider/UnstableContext';
 import type {
   ArgsProps,
   ConfigOptions,
@@ -48,7 +48,7 @@ type Task =
   | TypeTask
   | {
       type: 'destroy';
-      key: React.Key;
+      key?: React.Key;
       skipped?: boolean;
     };
 
@@ -83,8 +83,8 @@ const GlobalHolder = React.forwardRef<
   React.useImperativeHandle(ref, () => {
     const instance: MessageInstance = { ...api };
 
-    Object.keys(instance).forEach((method: keyof MessageInstance) => {
-      instance[method] = (...args: any[]) => {
+    Object.keys(instance).forEach((method) => {
+      instance[method as keyof MessageInstance] = (...args: any[]) => {
         sync();
         return (api as any)[method](...args);
       };
@@ -98,7 +98,7 @@ const GlobalHolder = React.forwardRef<
   return holder;
 });
 
-const GlobalHolderWrapper = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
+const GlobalHolderWrapper = React.forwardRef<GlobalHolderRef, unknown>((_, ref) => {
   const [messageConfig, setMessageConfig] = React.useState<ConfigOptions>(getGlobalContext);
 
   const sync = () => {
@@ -132,7 +132,9 @@ function flushNotice() {
 
     // Delay render to avoid sync issue
     act(() => {
-      render(
+      const reactRender = getReactRender();
+
+      reactRender(
         <GlobalHolderWrapper
           ref={(node) => {
             const { instance, sync } = node || {};
@@ -286,13 +288,13 @@ function typeOpen(type: NoticeType, args: Parameters<TypeOpen>): MessageType {
   return result;
 }
 
-function destroy(key: React.Key) {
+const destroy: BaseMethods['destroy'] = (key) => {
   taskQueue.push({
     type: 'destroy',
     key,
   });
   flushNotice();
-}
+};
 
 interface BaseMethods {
   open: (config: ArgsProps) => MessageType;

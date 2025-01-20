@@ -1,11 +1,11 @@
 import type React from 'react';
-import { unit, type CSSInterpolation } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSInterpolation } from '@ant-design/cssinjs';
+import { FastColor } from '@ant-design/fast-color';
 
 import { resetComponent } from '../../style';
-import type { FullToken } from '../../theme/internal';
+import type { FullToken, GetDefaultToken, GenStyleFn } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
-import type { GenStyleFn, GetDefaultToken } from '../../theme/util/genComponentStyleHook';
 
 export interface ComponentToken {
   /**
@@ -83,7 +83,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         },
       },
 
-      [`&-checkable`]: {
+      '&-checkable': {
         backgroundColor: 'transparent',
         borderColor: 'transparent',
         cursor: 'pointer',
@@ -109,7 +109,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         },
       },
 
-      [`&-hidden`]: {
+      '&-hidden': {
         display: 'none',
       },
 
@@ -140,7 +140,7 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Tag'>>[0]) => TagToken
 };
 
 export const prepareComponentToken: GetDefaultToken<'Tag'> = (token) => ({
-  defaultBg: new TinyColor(token.colorFillQuaternary)
+  defaultBg: new FastColor(token.colorFillQuaternary)
     .onBackground(token.colorBgContainer)
     .toHexString(),
   defaultColor: token.colorText,

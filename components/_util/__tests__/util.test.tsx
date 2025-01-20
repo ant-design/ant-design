@@ -1,10 +1,6 @@
-/* eslint-disable class-methods-use-this */
-import KeyCode from 'rc-util/lib/KeyCode';
-import React from 'react';
-import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { waitFakeTimer } from '../../../tests/utils';
 import { isStyleSupport } from '../styleChecker';
 import throttleByAnimationFrame from '../throttleByAnimationFrame';
-import TransButton from '../transButton';
 
 describe('Test utils function', () => {
   describe('throttle', () => {
@@ -42,29 +38,6 @@ describe('Test utils function', () => {
       await waitFakeTimer();
 
       expect(callback).not.toHaveBeenCalled();
-    });
-  });
-
-  describe('TransButton', () => {
-    it('can be focus/blur', () => {
-      const ref = React.createRef<HTMLDivElement>();
-      render(<TransButton ref={ref}>TransButton</TransButton>);
-      expect(typeof ref.current?.focus).toBe('function');
-      expect(typeof ref.current?.blur).toBe('function');
-    });
-
-    it('should trigger onClick when press enter', () => {
-      const onClick = jest.fn();
-
-      const { container } = render(<TransButton onClick={onClick}>TransButton</TransButton>);
-
-      // callback should trigger
-      fireEvent.keyUp(container.querySelector('div')!, { keyCode: KeyCode.ENTER });
-      expect(onClick).toHaveBeenCalledTimes(1);
-
-      // callback should not trigger
-      fireEvent.keyDown(container.querySelector('div')!, { keyCode: KeyCode.ENTER });
-      expect(onClick).toHaveBeenCalledTimes(1);
     });
   });
 

@@ -1,25 +1,28 @@
 import * as React from 'react';
+import { useEvent, useMergedState } from 'rc-util';
 
-const EMPTY_KEYS: string[] = [];
+import type { TransferKey } from '../interface';
 
-function filterKeys(keys: string[], dataKeys: Set<string>) {
+const EMPTY_KEYS: TransferKey[] = [];
+
+function filterKeys(keys: TransferKey[], dataKeys: Set<TransferKey>) {
   const filteredKeys = keys.filter((key) => dataKeys.has(key));
   return keys.length === filteredKeys.length ? keys : filteredKeys;
 }
 
-function flattenKeys(keys: Set<string>) {
+function flattenKeys(keys: Set<TransferKey>) {
   return Array.from(keys).join(';');
 }
 
-export default function useSelection<T extends { key: string }>(
+export default function useSelection<T extends { key: TransferKey }>(
   leftDataSource: T[],
   rightDataSource: T[],
-  selectedKeys: string[] = EMPTY_KEYS,
+  selectedKeys?: TransferKey[],
 ): [
-  sourceSelectedKeys: string[],
-  targetSelectedKeys: string[],
-  setSourceSelectedKeys: React.Dispatch<React.SetStateAction<string[]>>,
-  setTargetSelectedKeys: React.Dispatch<React.SetStateAction<string[]>>,
+  sourceSelectedKeys: TransferKey[],
+  targetSelectedKeys: TransferKey[],
+  setSourceSelectedKeys: (srcKeys: TransferKey[]) => void,
+  setTargetSelectedKeys: (srcKeys: TransferKey[]) => void,
 ] {
   // Prepare `dataSource` keys
   const [leftKeys, rightKeys] = React.useMemo(
@@ -31,24 +34,34 @@ export default function useSelection<T extends { key: string }>(
   );
 
   // Selected Keys
-  const [sourceSelectedKeys, setSourceSelectedKeys] = React.useState(() =>
-    filterKeys(selectedKeys, leftKeys),
+  const [mergedSelectedKeys, setMergedSelectedKeys] = useMergedState(EMPTY_KEYS, {
+    value: selectedKeys,
+  });
+
+  const sourceSelectedKeys = React.useMemo(
+    () => filterKeys(mergedSelectedKeys, leftKeys),
+    [mergedSelectedKeys, leftKeys],
   );
-  const [targetSelectedKeys, setTargetSelectedKeys] = React.useState(() =>
-    filterKeys(selectedKeys, rightKeys),
+  const targetSelectedKeys = React.useMemo(
+    () => filterKeys(mergedSelectedKeys, rightKeys),
+    [mergedSelectedKeys, rightKeys],
   );
 
-  // Fill selected keys
+  // // Reset when data changed
   React.useEffect(() => {
-    setSourceSelectedKeys(filterKeys(selectedKeys, leftKeys));
-    setTargetSelectedKeys(filterKeys(selectedKeys, rightKeys));
-  }, [selectedKeys]);
-
-  // Reset when data changed
-  React.useEffect(() => {
-    setSourceSelectedKeys(filterKeys(sourceSelectedKeys, leftKeys));
-    setTargetSelectedKeys(filterKeys(targetSelectedKeys, rightKeys));
+    setMergedSelectedKeys([
+      ...filterKeys(mergedSelectedKeys, leftKeys),
+      ...filterKeys(mergedSelectedKeys, rightKeys),
+    ]);
   }, [flattenKeys(leftKeys), flattenKeys(rightKeys)]);
+
+  // Update keys
+  const setSourceSelectedKeys = useEvent((nextSrcKeys: TransferKey[]) => {
+    setMergedSelectedKeys([...nextSrcKeys, ...targetSelectedKeys]);
+  });
+  const setTargetSelectedKeys = useEvent((nextTargetKeys: TransferKey[]) => {
+    setMergedSelectedKeys([...sourceSelectedKeys, ...nextTargetKeys]);
+  });
 
   return [
     // Keys

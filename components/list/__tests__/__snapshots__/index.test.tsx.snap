@@ -25,6 +25,9 @@ exports[`List rtl render component should be rendered correctly in RTL direction
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                No data
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"

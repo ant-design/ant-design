@@ -7,10 +7,10 @@
 Using `marks` property to mark a graduated slider, use `value` or `defaultValue` to specify the position of thumb. When `included` is false, means that different thumbs are coordinative. when `step` is null, users can only slide the thumbs onto marks.
 
 <style>
-#components-slider-demo-mark h4 {
+#slider-demo-mark h4 {
   margin: 0 0 16px;
 }
-#components-slider-demo-mark .ant-slider-with-marks {
+#slider-demo-mark .ant-slider-with-marks {
   margin-bottom: 44px;
 }
 </style>

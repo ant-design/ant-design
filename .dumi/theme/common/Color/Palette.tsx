@@ -1,10 +1,13 @@
-import { presetDarkPalettes } from '@ant-design/colors';
 import React, { useEffect } from 'react';
+import { presetDarkPalettes } from '@ant-design/colors';
+import { App } from 'antd';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import { message } from 'antd';
 
 const rgbToHex = (rgbString: string): string => {
   const rgb = rgbString.match(/\d+/g);
+  if (!rgb) {
+    return '';
+  }
   let r = parseInt(rgb[0], 10).toString(16);
   let g = parseInt(rgb[1], 10).toString(16);
   let b = parseInt(rgb[2], 10).toString(16);
@@ -36,9 +39,10 @@ const Palette: React.FC<PaletteProps> = (props) => {
   } = props;
   const [hexColors, setHexColors] = React.useState<Record<PropertyKey, string>>({});
   const colorNodesRef = React.useRef<Record<PropertyKey, HTMLDivElement>>({});
+  const { message } = App.useApp();
 
   useEffect(() => {
-    const colors = {};
+    const colors: Record<string, string> = {};
     Object.keys(colorNodesRef.current || {}).forEach((key) => {
       const computedColor = getComputedStyle(colorNodesRef.current[key])['background-color'];
       if (computedColor.includes('rgba')) {
@@ -55,7 +59,7 @@ const Palette: React.FC<PaletteProps> = (props) => {
   const colorName = `${english} / ${chinese}`;
   const colorPaletteMap = {
     dark: ['#fff', 'unset'],
-    default: ['rgba(0,0,0,0.85)', '#fff'],
+    default: ['rgba(0, 0, 0, 0.85)', '#fff'],
   };
   const [lastColor, firstColor] = dark ? colorPaletteMap.dark : colorPaletteMap.default;
   for (let i = 1; i <= count; i += 1) {
@@ -70,7 +74,9 @@ const Palette: React.FC<PaletteProps> = (props) => {
         <div
           key={i}
           ref={(node) => {
-            colorNodesRef.current[`${name}-${i}`] = node;
+            if (node) {
+              colorNodesRef.current[`${name}-${i}`] = node;
+            }
           }}
           className={`main-color-item palette-${name}-${i}`}
           style={{

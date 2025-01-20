@@ -6,7 +6,7 @@ export function getLineHeight(fontSize: number) {
 export default function getFontSizes(base: number) {
   const fontSizes = new Array(10).fill(null).map((_, index) => {
     const i = index - 1;
-    const baseSize = base * 2.71828 ** (i / 5);
+    const baseSize = base * Math.E ** (i / 5);
     const intSize = index > 1 ? Math.floor(baseSize) : Math.ceil(baseSize);
 
     // Convert to even

@@ -2,6 +2,7 @@
 title: 你好，GitHub Actions
 date: 2023-06-06
 author: Wxh16144
+zhihu_url: https://zhuanlan.zhihu.com/p/639266855
 ---
 
 大家好，我是 [Wxh16144](https://github.com/Wxh16144)，通过学习 Ant Design 的组件库和参与社区贡献，我发现了一些提高开发效率和代码质量的工具。借此机会，希望与大家分享我的经验，帮助大家更好地了解 Ant Design，并将这些技巧应用到自己的项目中。
@@ -179,7 +180,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Node.js (设置 node 版本)
-        uses: actions/setup-node@v3
+        uses: oven-sh/setup-bun@v2
         with:
           node-version: 16
 

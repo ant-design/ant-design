@@ -1,25 +1,22 @@
-/* eslint-disable no-console, import/prefer-default-export */
 import util from 'util';
+import React from 'react';
 import type { DOMWindow } from 'jsdom';
 
-// import { fillWindowEnv } from './utils';
-
-const React = require('react');
-
-// eslint-disable-next-line no-console
 console.log('Current React Version:', React.version);
 
 const originConsoleErr = console.error;
 
+const ignoreWarns = [
+  'validateDOMNesting',
+  'on an unmounted component',
+  'not wrapped in act',
+  'You called act',
+];
+
 // Hack off React warning to avoid too large log in CI.
 console.error = (...args) => {
   const str = args.join('').replace(/\n/g, '');
-
-  if (
-    ['validateDOMNesting', 'on an unmounted component', 'not wrapped in act'].every(
-      (warn) => !str.includes(warn),
-    )
-  ) {
+  if (ignoreWarns.every((warn) => !str.includes(warn))) {
     originConsoleErr(...args);
   }
 };
@@ -61,10 +58,37 @@ export function fillWindowEnv(window: Window | DOMWindow) {
   Object.defineProperty(win, 'TextDecoder', { writable: true, value: util.TextDecoder });
 }
 
-/* eslint-disable global-require */
 if (typeof window !== 'undefined') {
   fillWindowEnv(window);
 }
 
 global.requestAnimationFrame = global.requestAnimationFrame || global.setTimeout;
 global.cancelAnimationFrame = global.cancelAnimationFrame || global.clearTimeout;
+
+if (typeof MessageChannel === 'undefined') {
+  (global as any).MessageChannel = function MessageChannel() {
+    const port1: any = {};
+    const port2: any = {};
+    port1.postMessage = port2.onmessage = () => {};
+    port2.postMessage = port1.onmessage = () => {};
+    return { port1, port2 };
+  };
+}
+
+// Mock useId to return a stable id for snapshot testing
+jest.mock('react', () => {
+  const originReact = jest.requireActual('react');
+
+  let cloneReact = {
+    ...originReact,
+  };
+
+  if (process.env.MOCK_USE_ID !== 'false') {
+    cloneReact = {
+      ...cloneReact,
+      useId: () => 'test-id',
+    };
+  }
+
+  return cloneReact;
+});

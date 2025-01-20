@@ -12,7 +12,7 @@ import {
   Tour,
   Typography,
 } from 'antd';
-import { createStyles, css, useTheme } from 'antd-style';
+import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
 
@@ -96,7 +96,21 @@ const useStyle = () => {
       mobileCard: css`
         height: 395px;
       `,
+      nodeWrap: css`
+        margin-top: ${token.paddingLG}px;
+        flex: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      `,
       carousel,
+      componentsList: css`
+        width: 100%;
+        overflow: hidden;
+      `,
+      mobileComponentsList: css`
+        margin: 0 ${token.margin}px;
+      `,
     };
   })();
 };
@@ -107,14 +121,12 @@ const ComponentItem: React.FC<ComponentItemProps> = ({ title, node, type, index 
   const tagText = type === 'new' ? locale.new : locale.update;
   const { styles } = useStyle();
   const { isMobile } = useContext(SiteContext);
-  const token = useTheme();
-
   return (
     <div className={classNames(styles.card, isMobile && styles.mobileCard)}>
       {/* Decorator */}
       <div
         className={styles.cardCircle}
-        style={{ right: (index % 2) * -20 - 20, bottom: (index % 3) * -40 - 20 }}
+        style={{ insetInlineEnd: (index % 2) * -20 - 20, bottom: (index % 3) * -40 - 20 }}
       />
 
       {/* Title */}
@@ -124,18 +136,7 @@ const ComponentItem: React.FC<ComponentItemProps> = ({ title, node, type, index 
         </Typography.Title>
         <Tag color={tagColor}>{tagText}</Tag>
       </Flex>
-
-      <div
-        style={{
-          marginTop: token.paddingLG,
-          flex: 'auto',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        {node}
-      </div>
+      <div className={styles.nodeWrap}>{node}</div>
     </div>
   );
 };
@@ -148,7 +149,6 @@ interface ComponentItemProps {
 }
 
 const ComponentsList: React.FC = () => {
-  const token = useTheme();
   const { styles } = useStyle();
   const [locale] = useLocale(locales);
   const { isMobile } = useContext(SiteContext);
@@ -257,7 +257,7 @@ const ComponentsList: React.FC = () => {
             style={{ width: 400 }}
             message="Ant Design 5.0"
             description={locale.sampleContent}
-            closable
+            closable={{ closeIcon: true, disabled: true }}
           />
         ),
       },
@@ -266,21 +266,33 @@ const ComponentsList: React.FC = () => {
   );
 
   return isMobile ? (
-    <div style={{ margin: '0 16px' }}>
+    <div className={styles.mobileComponentsList}>
       <Carousel className={styles.carousel}>
         {COMPONENTS.map<React.ReactNode>(({ title, node, type }, index) => (
-          <ComponentItem title={title} node={node} type={type} index={index} key={index} />
+          <ComponentItem
+            title={title}
+            node={node}
+            type={type}
+            index={index}
+            key={`mobile-item-${index}`}
+          />
         ))}
       </Carousel>
     </div>
   ) : (
-    <div style={{ width: '100%', overflow: 'hidden', display: 'flex', justifyContent: 'center' }}>
-      <div style={{ display: 'flex', alignItems: 'stretch', columnGap: token.paddingLG }}>
+    <Flex justify="center" className={styles.componentsList}>
+      <Flex align="stretch" gap="large">
         {COMPONENTS.map<React.ReactNode>(({ title, node, type }, index) => (
-          <ComponentItem title={title} node={node} type={type} index={index} key={index} />
+          <ComponentItem
+            title={title}
+            node={node}
+            type={type}
+            index={index}
+            key={`desktop-item-${index}`}
+          />
         ))}
-      </div>
-    </div>
+      </Flex>
+    </Flex>
   );
 };
 

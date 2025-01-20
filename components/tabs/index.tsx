@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import type { TabsProps as RcTabsProps } from 'rc-tabs';
 import RcTabs from 'rc-tabs';
 import type { GetIndicatorSize } from 'rc-tabs/lib/hooks/useIndicator';
-import type { EditableConfig } from 'rc-tabs/lib/interface';
+import type { EditableConfig, MoreProps } from 'rc-tabs/lib/interface';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
@@ -31,6 +31,8 @@ export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
   hideAdd?: boolean;
   centered?: boolean;
   addIcon?: React.ReactNode;
+  moreIcon?: React.ReactNode;
+  more?: MoreProps;
   removeIcon?: React.ReactNode;
   onEdit?: (e: React.MouseEvent | React.KeyboardEvent | string, action: 'add' | 'remove') => void;
   children?: React.ReactNode;
@@ -50,6 +52,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     addIcon,
     removeIcon,
     moreIcon,
+    more,
     popupClassName,
     children,
     items,
@@ -111,7 +114,6 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     <RcTabs
       direction={direction}
       getPopupContainer={getPopupContainer}
-      moreTransitionName={`${rootPrefixCls}-slide-up`}
       {...otherProps}
       items={mergedItems}
       className={classNames(
@@ -131,7 +133,11 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       popupClassName={classNames(popupClassName, hashId, cssVarCls, rootCls)}
       style={mergedStyle}
       editable={editable}
-      moreIcon={moreIcon ?? tabs?.moreIcon ?? <EllipsisOutlined />}
+      more={{
+        icon: tabs?.more?.icon ?? tabs?.moreIcon ?? moreIcon ?? <EllipsisOutlined />,
+        transitionName: `${rootPrefixCls}-slide-up`,
+        ...more,
+      }}
       prefixCls={prefixCls}
       animated={mergedAnimated}
       indicator={mergedIndicator}

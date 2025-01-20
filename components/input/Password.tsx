@@ -8,6 +8,7 @@ import { composeRef } from 'rc-util/lib/ref';
 
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
+import DisabledContext from '../config-provider/DisabledContext';
 import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import type { InputProps, InputRef } from './Input';
 import Input from './Input';
@@ -35,7 +36,17 @@ const actionMap: Record<PropertyKey, keyof React.DOMAttributes<HTMLSpanElement>>
 type IconPropsType = React.HTMLAttributes<HTMLSpanElement> & React.Attributes;
 
 const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
-  const { visibilityToggle = true } = props;
+  const {
+    disabled: customDisabled,
+    action = 'click',
+    visibilityToggle = true,
+    iconRender = defaultIconRender,
+  } = props;
+
+  // ===================== Disabled =====================
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled ?? disabled;
+
   const visibilityControlled =
     typeof visibilityToggle === 'object' && visibilityToggle.visible !== undefined;
   const [visible, setVisible] = useState(() =>
@@ -53,24 +64,22 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
   const removePasswordTimeout = useRemovePasswordTimeout(inputRef);
 
   const onVisibleChange = () => {
-    const { disabled } = props;
-    if (disabled) {
+    if (mergedDisabled) {
       return;
     }
     if (visible) {
       removePasswordTimeout();
     }
-    setVisible((prevState) => {
-      const newState = !prevState;
-      if (typeof visibilityToggle === 'object') {
-        visibilityToggle.onVisibleChange?.(newState);
-      }
-      return newState;
-    });
+
+    const nextVisible = !visible;
+    setVisible(nextVisible);
+
+    if (typeof visibilityToggle === 'object') {
+      visibilityToggle.onVisibleChange?.(nextVisible);
+    }
   };
 
   const getIcon = (prefixCls: string) => {
-    const { action = 'click', iconRender = defaultIconRender } = props;
     const iconTrigger = actionMap[action] || '';
     const icon = iconRender(visible);
     const iconProps: IconPropsType = {
