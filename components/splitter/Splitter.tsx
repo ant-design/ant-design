@@ -95,6 +95,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     itemPtgSizes,
     containerSize,
     updateSizes,
+    isRTL,
   );
 
   // ======================== Events ========================
@@ -180,8 +181,12 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 ariaNow={stackSizes[idx] * 100}
                 ariaMin={Math.max(ariaMinStart, ariaMinEnd) * 100}
                 ariaMax={Math.min(ariaMaxStart, ariaMaxEnd) * 100}
-                startCollapsible={resizableInfo.startCollapsible}
-                endCollapsible={resizableInfo.endCollapsible}
+                startCollapsible={
+                  isRTL ? resizableInfo.endCollapsible : resizableInfo.startCollapsible
+                }
+                endCollapsible={
+                  isRTL ? resizableInfo.startCollapsible : resizableInfo.endCollapsible
+                }
                 onOffsetStart={onInternalResizeStart}
                 onOffsetUpdate={(index, offsetX, offsetY) => {
                   let offset = isVertical ? offsetY : offsetX;
