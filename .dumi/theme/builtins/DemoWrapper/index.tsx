@@ -52,6 +52,8 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
           previewerProps: {
             ...previewerProps,
             expand: expandAll,
+            // always override debug property, because dumi will hide debug demo in production
+            debug: false,
             /**
              * antd extra marker for the original debug
              * @see https://github.com/ant-design/ant-design/pull/40130#issuecomment-1380208762
