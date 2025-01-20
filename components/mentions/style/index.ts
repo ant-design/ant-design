@@ -27,16 +27,24 @@ export interface ComponentToken extends SharedComponentToken {
    * @desc 弹层高度
    * @descEN Height of popup
    */
-  dropdownHeight: number;
+  dropdownHeight: number | string;
   /**
    * @desc 菜单项高度
    * @descEN Height of menu item
    */
-  controlItemWidth: number;
+  controlItemWidth: number | string;
 }
 
+/**
+ * @desc Mentions 组件的 Token
+ * @descEN Token for Mentions component
+ */
 type MentionsToken = FullToken<'Mentions'> &
   SharedInputToken & {
+    /**
+     * @desc 菜单项内边距
+     * @descEN Padding of menu item
+     */
     itemPaddingVertical: string | number;
   };
 
@@ -118,6 +126,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           insetBlockStart: calc(fontSize).mul(lineHeight).mul(0.5).add(paddingBlock).equal(),
           transform: `translateY(-50%)`,
           margin: 0,
+          padding: 0,
           color: colorTextQuaternary,
           fontSize: fontSizeIcon,
           verticalAlign: -1,
@@ -125,6 +134,10 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           // https://codesandbox.io/s/wizardly-sun-u10br
           cursor: 'pointer',
           transition: `color ${motionDurationSlow}`,
+
+          border: 'none',
+          outline: 'none',
+          backgroundColor: 'transparent',
 
           '&:hover': {
             color: colorTextTertiary,

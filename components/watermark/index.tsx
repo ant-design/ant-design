@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useMutateObserver } from '@rc-component/mutate-observer';
 import classNames from 'classnames';
-import { useEvent } from 'rc-util';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 
 import { useToken } from '../theme/internal';
 import WatermarkContext from './context';
@@ -10,6 +10,7 @@ import useClips, { FontGap } from './useClips';
 import useRafDebounce from './useRafDebounce';
 import useWatermark from './useWatermark';
 import { getPixelRatio, reRendering } from './utils';
+import toList from '../_util/toList';
 
 export interface WatermarkProps {
   zIndex?: number;
@@ -145,7 +146,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     let defaultHeight = 64;
     if (!image && ctx.measureText) {
       ctx.font = `${Number(fontSize)}px ${fontFamily}`;
-      const contents = Array.isArray(content) ? content : [content];
+      const contents = toList(content);
       const sizes = contents.map((item) => {
         const metrics = ctx.measureText(item!);
 

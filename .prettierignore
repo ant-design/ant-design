@@ -3,16 +3,15 @@
 CODEOWNERS
 .dockerignore
 Dockerfile.ui-test
-package.json
 .dumi/tmp
 .dumi/tmp-production
+!dumi
 AUTHORS.txt
 lib/
 es/
 dist/
 _site/
 server
-.dumi/tmp
 coverage/
 CNAME
 LICENSE
@@ -32,3 +31,4 @@ components/*/*.jsx
 .history
 **/*.yml
 *.html
+CHANGELOG.*.md

@@ -4,4 +4,4 @@
 
 ## en-US
 
-Change the variant of all components in the form, optional `outlined` `filled` and `borderless`
+Change the variant of all components in the form, options include: `outlined`, `filled` and `borderless`

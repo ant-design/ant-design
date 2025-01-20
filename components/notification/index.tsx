@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { render } from 'rc-util/lib/React/render';
 
 import { AppConfigContext } from '../app/context';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
+import { getReactRender } from '../config-provider/UnstableContext';
 import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface';
 import PurePanel from './PurePanel';
 import useNotification, { useInternalNotification } from './useNotification';
@@ -34,10 +34,19 @@ let taskQueue: Task[] = [];
 let defaultGlobalConfig: GlobalConfigProps = {};
 
 function getGlobalContext() {
-  const { getContainer, rtl, maxCount, top, bottom } = defaultGlobalConfig;
+  const { getContainer, rtl, maxCount, top, bottom, showProgress, pauseOnHover } =
+    defaultGlobalConfig;
   const mergedContainer = getContainer?.() || document.body;
 
-  return { getContainer: () => mergedContainer, rtl, maxCount, top, bottom };
+  return {
+    getContainer: () => mergedContainer,
+    rtl,
+    maxCount,
+    top,
+    bottom,
+    showProgress,
+    pauseOnHover,
+  };
 }
 
 interface GlobalHolderRef {
@@ -82,7 +91,7 @@ const GlobalHolder = React.forwardRef<
   return holder;
 });
 
-const GlobalHolderWrapper = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
+const GlobalHolderWrapper = React.forwardRef<GlobalHolderRef, unknown>((_, ref) => {
   const [notificationConfig, setNotificationConfig] =
     React.useState<GlobalConfigProps>(getGlobalContext);
 
@@ -117,7 +126,9 @@ function flushNotice() {
 
     // Delay render to avoid sync issue
     act(() => {
-      render(
+      const reactRender = getReactRender();
+
+      reactRender(
         <GlobalHolderWrapper
           ref={(node) => {
             const { instance, sync } = node || {};
@@ -145,7 +156,6 @@ function flushNotice() {
 
   // >>> Execute task
   taskQueue.forEach((task) => {
-    // eslint-disable-next-line default-case
     switch (task.type) {
       case 'open': {
         act(() => {

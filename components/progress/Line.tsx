@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { presetPrimaryColors } from '@ant-design/colors';
 import classNames from 'classnames';
+
 import { devUseWarning } from '../_util/warning';
 import type { DirectionType } from '../config-provider';
 import type {
+  PercentPositionType,
   ProgressGradient,
   ProgressProps,
   StringGradients,
-  PercentPositionType,
 } from './progress';
 import { LineStrokeColorVar, Percent } from './style';
 import { getSize, getSuccessPercent, validProgress } from './utils';
@@ -30,14 +31,11 @@ interface LineProps extends ProgressProps {
  *   }
  */
 export const sortGradient = (gradients: StringGradients) => {
-  let tempArr: any[] = [];
+  let tempArr: { key: number; value?: string }[] = [];
   Object.keys(gradients).forEach((key) => {
     const formattedKey = parseFloat(key.replace(/%/g, ''));
-    if (!isNaN(formattedKey)) {
-      tempArr.push({
-        key: formattedKey,
-        value: gradients[key],
-      });
+    if (!Number.isNaN(formattedKey)) {
+      tempArr.push({ key: formattedKey, value: gradients[key] });
     }
   });
   tempArr = tempArr.sort((a, b) => a.key - b.key);
@@ -125,12 +123,12 @@ const Line: React.FC<LineProps> = (props) => {
 
   const successPercent = getSuccessPercent(props);
 
-  const successPercentStyle = {
+  const successPercentStyle: React.CSSProperties = {
     width: `${validProgress(successPercent)}%`,
     height,
     borderRadius,
     backgroundColor: success?.strokeColor,
-  } as React.CSSProperties;
+  };
 
   const outerStyle: React.CSSProperties = {
     width: width < 0 ? '100%' : width,

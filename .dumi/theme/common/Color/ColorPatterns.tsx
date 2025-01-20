@@ -1,6 +1,7 @@
 import React from 'react';
 import { generate } from '@ant-design/colors';
 import uniq from 'lodash/uniq';
+
 import ColorBlock from './ColorBlock';
 
 interface ColorPatternsProps {

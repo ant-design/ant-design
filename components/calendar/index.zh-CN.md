@@ -20,6 +20,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 <code src="./demo/card.tsx" clientOnly>卡片模式</code>
 <code src="./demo/select.tsx" clientOnly>选择功能</code>
 <code src="./demo/lunar.tsx" clientOnly>农历日历</code>
+<code src="./demo/week.tsx" clientOnly version="5.23.0">周数</code>
 <code src="./demo/customize-header.tsx" clientOnly>自定义头部</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
@@ -35,30 +36,21 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 // import 'dayjs/locale/zh-cn';
 // dayjs.locale('zh-cn');
 
-<Calendar
-  dateCellRender={dateCellRender}
-  monthCellRender={monthCellRender}
-  onPanelChange={onPanelChange}
-  onSelect={onSelect}
-/>
+<Calendar cellRender={cellRender} onPanelChange={onPanelChange} onSelect={onSelect} />
 ```
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| dateCellRender | 自定义渲染日期单元格，返回内容会被追加到单元格，>= 5.4.0 请用 `cellRender` | function(date: Dayjs): ReactNode | - | < 5.4.0 |
-| cellRender | 自定义单元格的内容 | function(current: dayjs, today: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
+| cellRender | 自定义单元格的内容 | function(current: dayjs, info: { prefixCls: string, originNode: React.ReactElement, today: dayjs, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
 | dateFullCellRender | 自定义渲染日期单元格，返回内容覆盖单元格，>= 5.4.0 请用 `fullCellRender` | function(date: Dayjs): ReactNode | - | < 5.4.0 |
-| fullCellRender | 自定义单元格的内容 | function(current: dayjs, today: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
+| fullCellRender | 自定义单元格的内容 | function(current: dayjs, info: { prefixCls: string, originNode: React.ReactElement, today: dayjs, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
 | defaultValue | 默认展示的日期 | [dayjs](https://day.js.org/) | - |  |
 | disabledDate | 不可选择的日期，参数为当前 `value`，注意使用时[不要直接修改](https://github.com/ant-design/ant-design/issues/30987) | (currentDate: Dayjs) => boolean | - |  |
 | fullscreen | 是否全屏显示 | boolean | true |  |
-| headerRender | 自定义头部内容 | function(object:{value: Dayjs, type: string, onChange: f(), onTypeChange: f()}) | - |  |
+| showWeek | 是否显示周数列 | boolean | false | 5.23.0 |
+| headerRender | 自定义头部内容 | function(object:{value: Dayjs, type: 'year' \| 'month', onChange: f(), onTypeChange: f()}) | - |  |
 | locale | 国际化配置 | object | [(默认配置)](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
 | mode | 初始模式 | `month` \| `year` | `month` |  |
-| monthCellRender | 自定义渲染月单元格，返回内容会被追加到单元格，>= 5.4.0 请用 `cellRender` | function(date: Dayjs): ReactNode | - | < 5.4.0 |
-| cellRender | 自定义单元格的内容 | function(current: dayjs, today: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
-| monthFullCellRender | 自定义渲染月单元格，返回内容覆盖单元格，>= 5.4.0 请用 `fullCellRender` | function(date: Dayjs): ReactNode | - | < 5.4.0 |
-| fullCellRender | 自定义单元格的内容 | function(current: dayjs, today: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
 | validRange | 设置可以显示的日期 | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - |  |
 | value | 展示日期 | [dayjs](https://day.js.org/) | - |  |
 | onChange | 日期变化回调 | function(date: Dayjs) | - |  |

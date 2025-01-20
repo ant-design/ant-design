@@ -4,7 +4,7 @@ import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import classNames from 'classnames';
 import type { MenuProps as RcMenuProps, MenuRef as RcMenuRef } from 'rc-menu';
 import RcMenu from 'rc-menu';
-import { useEvent } from 'rc-util';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 import omit from 'rc-util/lib/omit';
 
 import initCollapseMotion from '../_util/motion';
@@ -13,11 +13,11 @@ import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import Divider from './MenuDivider';
 import type { SiderContextProps } from '../layout/Sider';
 import type { ItemType } from './interface';
 import type { MenuContextProps, MenuTheme } from './MenuContext';
 import MenuContext from './MenuContext';
+import Divider from './MenuDivider';
 import MenuItem from './MenuItem';
 import OverrideContext from './OverrideContext';
 import useStyle from './style';
@@ -88,13 +88,6 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
       'usage',
       '`inlineCollapsed` should only be used when `mode` is inline.',
     );
-
-    warning(
-      !(props.siderCollapsed !== undefined && 'inlineCollapsed' in props),
-      'usage',
-      '`inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
-    );
-
     warning.deprecated('items' in props && !props.children, 'children', 'items');
   }
 
@@ -115,12 +108,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
 
   // ======================== Collapsed ========================
   // Inline Collapsed
-  const mergedInlineCollapsed = React.useMemo(() => {
-    if (siderCollapsed !== undefined) {
-      return siderCollapsed;
-    }
-    return inlineCollapsed;
-  }, [inlineCollapsed, siderCollapsed]);
+  const mergedInlineCollapsed = inlineCollapsed ?? siderCollapsed;
 
   const defaultMotions: MenuProps['defaultMotions'] = {
     horizontal: { motionName: `${rootPrefixCls}-slide-up` },
@@ -148,7 +136,13 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     return cloneElement(mergedIcon, {
       className: classNames(
         `${prefixCls}-submenu-expand-icon`,
-        React.isValidElement(mergedIcon) ? mergedIcon.props?.className : undefined,
+        React.isValidElement<any>(mergedIcon)
+          ? (
+              mergedIcon as React.ReactElement<{
+                className?: string;
+              }>
+            ).props?.className
+          : undefined,
       ),
     });
   }, [expandIcon, overrideObj?.expandIcon, menu?.expandIcon, prefixCls]);

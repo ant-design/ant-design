@@ -40,7 +40,7 @@ type CheckboxGroupType = GetProps<typeof Checkbox.Group>;
 
 ## GetProp
 
-获取组件的单个 `props` 属性定义。它已经将 `NonNullable` 进行了封装，所以不用在考虑为空的情况：
+获取组件的单个 `props` 属性定义。它已经将 `NonNullable` 进行了封装，所以不用再考虑为空的情况：
 
 ```tsx
 import { Select } from 'antd';

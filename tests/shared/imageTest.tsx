@@ -2,11 +2,13 @@ import path from 'path';
 import React from 'react';
 // Reference: https://github.com/ant-design/ant-design/pull/24003#discussion_r427267386
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+import { extractStaticStyle } from 'antd-style';
 import dayjs from 'dayjs';
 import fse from 'fs-extra';
 import { globSync } from 'glob';
 import { JSDOM } from 'jsdom';
 import MockDate from 'mockdate';
+import rcWarning from 'rc-util/lib/warning';
 import type { HTTPRequest } from 'puppeteer';
 import ReactDOMServer from 'react-dom/server';
 
@@ -42,7 +44,7 @@ export default function imageTest(
   let container: HTMLDivElement;
 
   beforeAll(async () => {
-    const dom = new JSDOM('<!DOCTYPE html><body></body></p>', {
+    const dom = new JSDOM('<!DOCTYPE html><body></body></html>', {
       url: 'http://localhost/',
     });
     const win = dom.window;
@@ -121,8 +123,10 @@ export default function imageTest(
 
       const { openTriggerClassName } = options;
 
+      const requestListener = (request: any) => onRequestHandle(request as HTTPRequest);
+
       MockDate.set(dayjs('2016-11-22').valueOf());
-      page.on('request', onRequestHandle);
+      page.on('request', requestListener);
       await page.goto(`file://${process.cwd()}/tests/index.html`);
       await page.addStyleTag({ path: `${process.cwd()}/components/style/reset.css` });
       await page.addStyleTag({ content: '*{animation: none!important;}' });
@@ -151,14 +155,13 @@ export default function imageTest(
 
       if (options.ssr) {
         html = ReactDOMServer.renderToString(element);
-        styleStr = extractStyle(cache);
+        styleStr = extractStyle(cache) + extractStaticStyle(html).map((item) => item.tag);
       } else {
         const { unmount } = render(element, {
           container,
         });
         html = container.innerHTML;
-        styleStr = extractStyle(cache);
-
+        styleStr = extractStyle(cache) + extractStaticStyle(html).map((item) => item.tag);
         // We should extract style before unmount
         unmount();
       }
@@ -194,12 +197,20 @@ export default function imageTest(
         },
         html,
         styleStr,
-        openTriggerClassName,
+        openTriggerClassName || '',
       );
 
       if (!options.onlyViewport) {
         // Get scroll height of the rendered page and set viewport
         const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
+
+        // loooooong image
+        rcWarning(
+          bodyHeight < 4096, // Expected height
+          `[IMAGE TEST] [${identifier}] may cause screenshots to be very long and unacceptable.
+            Please consider using \`onlyViewport: ["filename.tsx"]\`, read more: https://github.com/ant-design/ant-design/pull/52053`,
+        );
+
         await page.setViewport({ width: 800, height: bodyHeight });
       }
 
@@ -210,23 +221,30 @@ export default function imageTest(
       await fse.writeFile(path.join(snapshotPath, `${identifier}${suffix}.png`), image);
 
       MockDate.reset();
-      page.off('request', onRequestHandle);
+      page.off('request', requestListener);
     });
   }
 
   Object.entries(themes).forEach(([key, algorithm]) => {
+    const configTheme = {
+      algorithm,
+      token: {
+        fontFamily: 'Arial',
+      },
+    };
+
     test(
       `component image screenshot should correct ${key}`,
       `.${key}`,
       <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
-        <ConfigProvider theme={{ algorithm }}>{component}</ConfigProvider>
+        <ConfigProvider theme={configTheme}>{component}</ConfigProvider>
       </div>,
     );
     test(
       `[CSS Var] component image screenshot should correct ${key}`,
       `.${key}.css-var`,
       <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
-        <ConfigProvider theme={{ algorithm, cssVar: true }}>{component}</ConfigProvider>
+        <ConfigProvider theme={{ ...configTheme, cssVar: true }}>{component}</ConfigProvider>
       </div>,
     );
   });
@@ -255,7 +273,6 @@ export function imageDemoTest(component: string, options: Options = {}) {
       describeMethod = describe;
     }
     describeMethod(`Test ${file} image`, () => {
-      // eslint-disable-next-line global-require,import/no-dynamic-require
       let Demo = require(`../../${file}`).default;
       if (typeof Demo === 'function') {
         Demo = <Demo />;

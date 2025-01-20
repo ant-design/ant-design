@@ -90,7 +90,7 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
   });
 
   const isItemContainsTextNodeAndNotSingular = () => {
-    let result;
+    let result = false;
     Children.forEach(children as ReactElement, (element) => {
       if (typeof element === 'string') {
         result = true;

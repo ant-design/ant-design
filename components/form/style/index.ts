@@ -4,9 +4,14 @@ import { unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import { genCollapseMotion, zoomIn } from '../../style/motion';
-import type { AliasToken, FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import type {
+  AliasToken,
+  FullToken,
+  GenerateStyle,
+  GenStyleFn,
+  GetDefaultToken,
+} from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
-import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 import genFormValidateMotionStyle from './explain';
 
 export interface ComponentToken {
@@ -29,7 +34,7 @@ export interface ComponentToken {
    * @desc 标签高度
    * @descEN Label height
    */
-  labelHeight: number;
+  labelHeight: number | string;
   /**
    * @desc 标签冒号前间距
    * @descEN Label colon margin-inline-start
@@ -62,8 +67,20 @@ export interface ComponentToken {
   verticalLabelMargin: CSSProperties['margin'];
 }
 
+/**
+ * @desc Form 组件的 Token
+ * @descEN Token for Form component
+ */
 export interface FormToken extends FullToken<'Form'> {
+  /**
+   * @desc 表单项类名
+   * @descEN Form item class name
+   */
   formItemCls: string;
+  /**
+   * @desc 根前缀类名
+   * @descEN Root prefix class name
+   */
   rootPrefixCls: string;
 }
 
@@ -322,6 +339,11 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
       // =                           Explain                          =
       // ==============================================================
       [formItemCls]: {
+        '&-additional': {
+          display: 'flex',
+          flexDirection: 'column',
+        },
+
         '&-explain, &-extra': {
           clear: 'both',
           color: token.colorTextDescription,

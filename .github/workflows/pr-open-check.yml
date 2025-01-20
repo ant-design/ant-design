@@ -16,8 +16,8 @@ jobs:
     steps:
       - uses: actions-cool/pr-welcome@v1
         with:
-          refuse-issue-label: '🎱 Collaborate PR only'
-          need-creator-authority: 'write'
+          refuse-issue-label: 🎱 Collaborate PR only
+          need-creator-authority: write
           comment: |
             Hi @${{ github.event.pull_request.user.login }}. The issue mentioned in this PR needs to be confirmed with the designer or core team. Thank you for your contribution! 😊
 
@@ -38,15 +38,15 @@ jobs:
           filter-start: '|'
           require-include: '🇺🇸 English, 🇨🇳 Chinese, 🇺🇸 英文, 🇨🇳 中文'
           comment-body: |
-            - 🚨 Please fill changelog in the PR
-              - Write with a **developer-oriented perspective** and **narrative method**, without describing the details of the repair
-              - **Describing the problem and the impact on the developer**
-              - **describing the user-first site problem**, not your solution
-              - Refer: https://ant.design/changelog#501
+            - 🚨 @${{ github.event.pull_request.user.login }}, Please fill changelog in PR content
+              > - Read [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) like a cat tracks a laser pointer.
+              > - Describe the impact of the changes on developers, not the solution approach.
+              > - Reference: https://ant.design/changelog
 
-            - 🚨 请填写 PR 中的 changelog
-              - 请用**面向开发者的角度**和**叙述方式撰写**，不描述修复细节
-              - **描述问题和对开发者的影响**
-              - **描述用户第一现场的问题**，而非你的解决方式
-              - 参考：https://ant.design/changelog-cn#501
+            - 🚨 @${{ github.event.pull_request.user.login }}, 请填写 PR 中的 changelog
+              > - 郑重地阅读 [如何维护更新日志](https://keepachangelog.com/zh-CN/1.1.0/)
+              > - 描述改动对开发者有哪些影响，而非解决方式
+              > - 可参考：https://ant.design/changelog-cn
+
+            ![](https://github.com/ant-design/ant-design/assets/507615/14c767db-e40f-42a1-9aab-553037eb1ab6)
           skip-title-start: 'docs, chore, test, ci'

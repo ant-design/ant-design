@@ -46,8 +46,8 @@ export const getSize = (
     strokeWidth?: number;
   },
 ): [number, number] => {
-  let width: number = -1;
-  let height: number = -1;
+  let width = -1;
+  let height = -1;
   if (type === 'step') {
     const steps = extra!.steps!;
     const strokeWidth = extra!.strokeWidth!;

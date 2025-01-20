@@ -7,8 +7,8 @@ import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
-import { composeRef } from 'rc-util/lib/ref';
 import pickAttrs from 'rc-util/lib/pickAttrs';
+import { composeRef } from 'rc-util/lib/ref';
 
 import type { ClosableType } from '../_util/hooks/useClosable';
 import { replaceElement } from '../_util/reactNode';
@@ -76,9 +76,14 @@ const IconNode: React.FC<IconNodeProps> = (props) => {
   const iconType = iconMapFilled[type!] || null;
   if (icon) {
     return replaceElement(icon, <span className={`${prefixCls}-icon`}>{icon}</span>, () => ({
-      className: classNames(`${prefixCls}-icon`, {
-        [(icon as ReactElement).props.className]: (icon as ReactElement).props.className,
-      }),
+      className: classNames(
+        `${prefixCls}-icon`,
+        (
+          icon as ReactElement<{
+            className?: string;
+          }>
+        ).props.className,
+      ),
     })) as ReactElement;
   }
   return React.createElement(iconType, { className: `${prefixCls}-icon` });
@@ -219,7 +224,6 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
   const mergedAriaProps = React.useMemo<React.AriaAttributes>(() => {
     const merged = closable ?? alert?.closable;
     if (typeof merged === 'object') {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { closeIcon: _, ...ariaProps } = merged;
       return ariaProps;
     }

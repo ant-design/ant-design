@@ -6,28 +6,42 @@ import type { AlertProps } from '../alert';
 import type { BadgeProps } from '../badge';
 import type { ButtonProps } from '../button';
 import type { CardProps } from '../card';
+import type { CascaderProps } from '../cascader';
 import type { CollapseProps } from '../collapse';
+import type { DatePickerProps, RangePickerProps } from '../date-picker';
 import type { DrawerProps } from '../drawer';
 import type { FlexProps } from '../flex/interface';
 import type { FloatButtonGroupProps } from '../float-button/interface';
 import type { FormProps } from '../form/Form';
 import type { InputProps, TextAreaProps } from '../input';
+import type { InputNumberProps } from '../input-number';
 import type { ListItemProps } from '../list';
 import type { Locale } from '../locale';
+import type { MentionsProps } from '../mentions';
 import type { MenuProps } from '../menu';
 import type { ModalProps } from '../modal';
 import type { ArgsProps } from '../notification/interface';
 import type { PaginationProps } from '../pagination';
 import type { SelectProps } from '../select';
 import type { SpaceProps } from '../space';
+import type { SpinProps } from '../spin';
 import type { TableProps } from '../table';
 import type { TabsProps } from '../tabs';
 import type { TagProps } from '../tag';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
+import type { TimePickerProps } from '../time-picker';
 import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
+import type { TreeSelectProps } from '../tree-select';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
+import type { TooltipProps } from '../tooltip';
+import type { PopoverProps } from '../popover';
+import type { PopconfirmProps } from '../popconfirm';
+import type { DescriptionsProps } from '../descriptions';
+import type { SliderProps } from '../slider';
+import type { EmptyProps } from '../empty';
 
+export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
 
 export interface Theme {
@@ -125,6 +139,11 @@ export type MenuConfig = ComponentStyleConfig & Pick<MenuProps, 'expandIcon'>;
 
 export type TourConfig = Pick<TourProps, 'closeIcon'>;
 
+export type DescriptionsConfig = ComponentStyleConfig &
+  Pick<DescriptionsProps, 'classNames' | 'styles'>;
+
+export type EmptyConfig = ComponentStyleConfig & Pick<EmptyProps, 'classNames' | 'styles'>;
+
 export type ModalConfig = ComponentStyleConfig &
   Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon' | 'closable'>;
 
@@ -136,10 +155,10 @@ export type AlertConfig = ComponentStyleConfig & Pick<AlertProps, 'closable' | '
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
 
 export type InputConfig = ComponentStyleConfig &
-  Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear'>;
+  Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
 export type TextAreaConfig = ComponentStyleConfig &
-  Pick<TextAreaProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear'>;
+  Pick<TextAreaProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
 export type ButtonConfig = ComponentStyleConfig &
   Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace'>;
@@ -158,21 +177,52 @@ export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>;
 export type TransferConfig = ComponentStyleConfig & Pick<TransferProps, 'selectionsIcon'>;
 
 export type FormConfig = ComponentStyleConfig &
-  Pick<FormProps, 'requiredMark' | 'colon' | 'scrollToFirstError' | 'validateMessages'>;
+  Pick<FormProps, 'requiredMark' | 'colon' | 'scrollToFirstError' | 'validateMessages' | 'variant'>;
 
 export type FloatButtonGroupConfig = Pick<FloatButtonGroupProps, 'closeIcon'>;
 
 export type PaginationConfig = ComponentStyleConfig & Pick<PaginationProps, 'showSizeChanger'>;
 
-export type SelectConfig = ComponentStyleConfig & Pick<SelectProps, 'showSearch'>;
+export type SelectConfig = ComponentStyleConfig & Pick<SelectProps, 'showSearch' | 'variant'>;
 
 export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'classNames' | 'styles'>;
+
+export type TooltipConfig = Pick<TooltipProps, 'className' | 'style' | 'styles' | 'classNames'>;
+
+export type PopoverConfig = Pick<PopoverProps, 'className' | 'style' | 'styles' | 'classNames'>;
+
+export type PopconfirmConfig = Pick<
+  PopconfirmProps,
+  'className' | 'style' | 'styles' | 'classNames'
+>;
+
+export type SliderConfig = ComponentStyleConfig & Pick<SliderProps, 'styles' | 'classNames'>;
+
+export type SpinConfig = ComponentStyleConfig & Pick<SpinProps, 'indicator'>;
+
+export type InputNumberConfig = ComponentStyleConfig & Pick<InputNumberProps, 'variant'>;
+
+export type CascaderConfig = ComponentStyleConfig & Pick<CascaderProps, 'variant'>;
+
+export type TreeSelectConfig = ComponentStyleConfig & Pick<TreeSelectProps, 'variant'>;
+
+export type DatePickerConfig = ComponentStyleConfig & Pick<DatePickerProps, 'variant'>;
+
+export type RangePickerConfig = ComponentStyleConfig & Pick<RangePickerProps, 'variant'>;
+
+export type TimePickerConfig = ComponentStyleConfig & Pick<TimePickerProps, 'variant'>;
+
+export type MentionsConfig = ComponentStyleConfig & Pick<MentionsProps, 'variant'>;
 
 export type PopupOverflow = 'viewport' | 'scroll';
 
 export interface ListConfig extends ComponentStyleConfig {
   item?: Pick<ListItemProps, 'classNames' | 'styles'>;
 }
+
+export const Variants = ['outlined', 'borderless', 'filled'] as const;
+
+export type Variant = (typeof Variants)[number];
 
 export interface WaveConfig {
   /**
@@ -202,12 +252,15 @@ export interface ConfigConsumerProps {
   csp?: CSPConfig;
   /** @deprecated Please use `{ button: { autoInsertSpace: boolean }}` instead */
   autoInsertSpaceInButton?: boolean;
+  variant?: Variant;
   input?: InputConfig;
   textArea?: TextAreaConfig;
+  inputNumber?: InputNumberConfig;
   pagination?: PaginationConfig;
   locale?: Locale;
   direction?: DirectionType;
   space?: SpaceConfig;
+  splitter?: ComponentStyleConfig;
   virtual?: boolean;
   popupMatchSelectWidth?: boolean;
   popupOverflow?: PopupOverflow;
@@ -221,28 +274,29 @@ export interface ConfigConsumerProps {
   drawer?: DrawerConfig;
   calendar?: ComponentStyleConfig;
   carousel?: ComponentStyleConfig;
-  cascader?: ComponentStyleConfig;
+  cascader?: CascaderConfig;
+  treeSelect?: TreeSelectConfig;
   collapse?: CollapseConfig;
   floatButtonGroup?: FloatButtonGroupConfig;
   typography?: ComponentStyleConfig;
   skeleton?: ComponentStyleConfig;
-  spin?: ComponentStyleConfig;
+  spin?: SpinConfig;
   segmented?: ComponentStyleConfig;
   steps?: ComponentStyleConfig;
   statistic?: ComponentStyleConfig;
   image?: ImageConfig;
   layout?: ComponentStyleConfig;
   list?: ListConfig;
-  mentions?: ComponentStyleConfig;
+  mentions?: MentionsConfig;
   modal?: ModalConfig;
   progress?: ComponentStyleConfig;
   result?: ComponentStyleConfig;
-  slider?: ComponentStyleConfig;
+  slider?: SliderConfig;
   breadcrumb?: ComponentStyleConfig;
   menu?: MenuConfig;
   checkbox?: ComponentStyleConfig;
-  descriptions?: ComponentStyleConfig;
-  empty?: ComponentStyleConfig;
+  descriptions?: DescriptionsConfig;
+  empty?: EmptyConfig;
   badge?: BadgeConfig;
   radio?: ComponentStyleConfig;
   rate?: ComponentStyleConfig;
@@ -255,14 +309,17 @@ export interface ConfigConsumerProps {
   card?: CardConfig;
   tabs?: TabsConfig;
   timeline?: ComponentStyleConfig;
-  timePicker?: ComponentStyleConfig;
+  timePicker?: TimePickerConfig;
   tour?: TourConfig;
+  tooltip?: TooltipConfig;
+  popover?: PopoverConfig;
+  popconfirm?: PopconfirmConfig;
   upload?: ComponentStyleConfig;
   notification?: NotificationConfig;
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
-  datePicker?: ComponentStyleConfig;
-  rangePicker?: ComponentStyleConfig;
+  datePicker?: DatePickerConfig;
+  rangePicker?: RangePickerConfig;
   dropdown?: ComponentStyleConfig;
   flex?: FlexConfig;
   wave?: WaveConfig;
@@ -273,7 +330,7 @@ const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) =>
   if (customizePrefixCls) {
     return customizePrefixCls;
   }
-  return suffixCls ? `ant-${suffixCls}` : 'ant';
+  return suffixCls ? `${defaultPrefixCls}-${suffixCls}` : defaultPrefixCls;
 };
 
 // zombieJ: 🚨 Do not pass `defaultRenderEmpty` here since it will cause circular dependency.

@@ -10,7 +10,7 @@ export interface ScrollNumberProps {
   className?: string;
   motionClassName?: string;
   count?: string | number | null;
-  children?: React.ReactElement<HTMLElement>;
+  children?: React.ReactElement;
   component?: React.ComponentType<any>;
   style?: React.CSSProperties;
   title?: string | number | null;
@@ -70,7 +70,7 @@ const ScrollNumber = React.forwardRef<HTMLElement, ScrollNumberProps>((props, re
   // allow specify the border
   // mock border-color by box-shadow for compatible with old usage:
   // <Badge count={4} style={{ backgroundColor: '#fff', color: '#999', borderColor: '#d9d9d9' }} />
-  if (style && style.borderColor) {
+  if (style?.borderColor) {
     newProps.style = {
       ...style,
       boxShadow: `0 0 0 1px ${style.borderColor} inset`,

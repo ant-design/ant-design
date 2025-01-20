@@ -41,9 +41,9 @@ Please find below some of the design resources and tools about Ant Design that w
   - Landing Templates
   - https://landing.ant.design/docs/download-cn
   - Official
-- UI Kit for Figma
+- Figma Resources
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
-  - Library of components for Desktop
+  - Always up-to-date Ant Design Figma resources
   - https://www.antforfigma.com
 - Figma Open Source Library
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
@@ -87,7 +87,7 @@ Do you want to know the story behind the Ant Design design system? How can I bet
 
 ## Reference
 
-Please find below the books that inspired us, saved our time and helped us to overcome difficulties when designing components and patterns. If you want to know more about UI design, we recommend you these awesome design systems: [Fiori Design](https://experience.sap.com/fiori-design-web/), [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/themes/), [Lightning Design System](https://lightningdesignsystem.com/getting-started/), [Material Design](https://material.io/).
+Please find below the books that inspired us, saved our time and helped us to overcome difficulties when designing components and patterns. If you want to know more about UI design, we recommend you these awesome design systems: [Fiori Design](https://experience.sap.com/fiori-design-web/), [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/), [Lightning Design System](https://lightningdesignsystem.com/getting-started/), [Material Design](https://material.io/).
 
 <div class="next-block-use-cards"></div>
 

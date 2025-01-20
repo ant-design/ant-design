@@ -169,10 +169,9 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -194,7 +193,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
       </div>
@@ -457,8 +456,8 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
       class="ant-transfer-list-footer"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-sm"
-        style="float: left; margin: 5px;"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+        style="display: flex; margin: 8px; margin-inline-end: auto;"
         type="button"
       >
         <span>
@@ -471,7 +470,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
       disabled=""
       type="button"
     >
@@ -503,7 +502,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
       disabled=""
       type="button"
     >
@@ -700,10 +699,9 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -725,7 +723,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
       </div>
@@ -988,8 +986,8 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
       class="ant-transfer-list-footer"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-sm"
-        style="float: right; margin: 5px;"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+        style="display: flex; margin: 8px; margin-inline-start: auto;"
         type="button"
       >
         <span>
@@ -1420,7 +1418,7 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -1449,7 +1447,7 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -2263,7 +2261,7 @@ Array [
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -2292,7 +2290,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -2828,6 +2826,9 @@ Array [
                 width="64"
                 xmlns="http://www.w3.org/2000/svg"
               >
+                <title>
+                  No data
+                </title>
                 <g
                   fill="none"
                   fill-rule="evenodd"
@@ -2868,7 +2869,7 @@ Array [
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -2897,7 +2898,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -3068,6 +3069,9 @@ Array [
                 width="64"
                 xmlns="http://www.w3.org/2000/svg"
               >
+                <title>
+                  No data
+                </title>
                 <g
                   fill="none"
                   fill-rule="evenodd"
@@ -3273,10 +3277,9 @@ Array [
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                role="button"
-                tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -3298,7 +3301,7 @@ Array [
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
         </div>
@@ -3317,6 +3320,9 @@ Array [
                 width="64"
                 xmlns="http://www.w3.org/2000/svg"
               >
+                <title>
+                  No data
+                </title>
                 <g
                   fill="none"
                   fill-rule="evenodd"
@@ -3357,7 +3363,7 @@ Array [
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -3386,7 +3392,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -3580,10 +3586,9 @@ Array [
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                role="button"
-                tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -3605,7 +3610,7 @@ Array [
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
         </div>
@@ -3624,6 +3629,9 @@ Array [
                 width="64"
                 xmlns="http://www.w3.org/2000/svg"
               >
+                <title>
+                  No data
+                </title>
                 <g
                   fill="none"
                   fill-rule="evenodd"
@@ -4409,7 +4417,7 @@ Array [
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -4438,7 +4446,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -5513,7 +5521,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -5542,7 +5550,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -6314,7 +6322,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -6343,7 +6351,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -7072,7 +7080,7 @@ Array [
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -7101,7 +7109,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -8141,7 +8149,7 @@ Array [
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -8266,12 +8274,10 @@ Array [
             >
               content3
             </span>
-            <div
+            <button
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
-              role="button"
-              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-              tabindex="0"
+              type="button"
             >
               <span
                 aria-label="delete"
@@ -8292,7 +8298,7 @@ Array [
                   />
                 </svg>
               </span>
-            </div>
+            </button>
           </li>
           <li
             class="ant-transfer-list-content-item"
@@ -8303,12 +8309,10 @@ Array [
             >
               content6
             </span>
-            <div
+            <button
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
-              role="button"
-              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-              tabindex="0"
+              type="button"
             >
               <span
                 aria-label="delete"
@@ -8329,7 +8333,7 @@ Array [
                   />
                 </svg>
               </span>
-            </div>
+            </button>
           </li>
           <li
             class="ant-transfer-list-content-item"
@@ -8340,12 +8344,10 @@ Array [
             >
               content9
             </span>
-            <div
+            <button
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
-              role="button"
-              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-              tabindex="0"
+              type="button"
             >
               <span
                 aria-label="delete"
@@ -8366,7 +8368,7 @@ Array [
                   />
                 </svg>
               </span>
-            </div>
+            </button>
           </li>
           <li
             class="ant-transfer-list-content-item"
@@ -8377,12 +8379,10 @@ Array [
             >
               content12
             </span>
-            <div
+            <button
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
-              role="button"
-              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-              tabindex="0"
+              type="button"
             >
               <span
                 aria-label="delete"
@@ -8403,7 +8403,7 @@ Array [
                   />
                 </svg>
               </span>
-            </div>
+            </button>
           </li>
           <li
             class="ant-transfer-list-content-item"
@@ -8414,12 +8414,10 @@ Array [
             >
               content15
             </span>
-            <div
+            <button
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
-              role="button"
-              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-              tabindex="0"
+              type="button"
             >
               <span
                 aria-label="delete"
@@ -8440,7 +8438,7 @@ Array [
                   />
                 </svg>
               </span>
-            </div>
+            </button>
           </li>
           <li
             class="ant-transfer-list-content-item"
@@ -8451,12 +8449,10 @@ Array [
             >
               content18
             </span>
-            <div
+            <button
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
-              role="button"
-              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-              tabindex="0"
+              type="button"
             >
               <span
                 aria-label="delete"
@@ -8477,7 +8473,7 @@ Array [
                   />
                 </svg>
               </span>
-            </div>
+            </button>
           </li>
         </ul>
       </div>
@@ -8680,10 +8676,9 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -8705,7 +8700,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
       </div>
@@ -8969,7 +8964,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -8998,7 +8993,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -9191,10 +9186,9 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -9216,7 +9210,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
       </div>
@@ -9483,284 +9477,211 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 2`
 
 exports[`renders components/transfer/demo/status.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-space-item"
+    class="ant-transfer ant-transfer-status-error"
   >
     <div
-      class="ant-transfer ant-transfer-status-error"
+      class="ant-transfer-list"
     >
       <div
-        class="ant-transfer-list"
+        class="ant-transfer-list-header"
       >
-        <div
-          class="ant-transfer-list-header"
+        <label
+          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
         >
-          <label
-            class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
-          >
-            <span
-              class="ant-checkbox ant-wave-target ant-checkbox-disabled"
-            >
-              <input
-                class="ant-checkbox-input"
-                disabled=""
-                type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
-              />
-            </span>
-          </label>
           <span
-            aria-label="down"
-            class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
-            role="img"
+            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="down"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-              />
-            </svg>
-          </span>
-          <div
-            class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-          >
-            <ul
-              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-              data-menu-list="true"
-              role="menu"
-              tabindex="0"
-            >
-              <li
-                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                data-menu-id="rc-menu-uuid-test-selectAll"
-                role="menuitem"
-                tabindex="-1"
-              >
-                <span
-                  class="ant-dropdown-menu-title-content"
-                >
-                  Select all data
-                </span>
-              </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                />
-                <div
-                  class="ant-tooltip-content"
-                >
-                  <div
-                    class="ant-tooltip-inner"
-                    role="tooltip"
-                  />
-                </div>
-              </div>
-              <li
-                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                data-menu-id="rc-menu-uuid-test-selectInvert"
-                role="menuitem"
-                tabindex="-1"
-              >
-                <span
-                  class="ant-dropdown-menu-title-content"
-                >
-                  Invert current page
-                </span>
-              </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                />
-                <div
-                  class="ant-tooltip-content"
-                >
-                  <div
-                    class="ant-tooltip-inner"
-                    role="tooltip"
-                  />
-                </div>
-              </div>
-            </ul>
-            <div
-              aria-hidden="true"
-              style="display: none;"
+            <input
+              class="ant-checkbox-input"
+              disabled=""
+              type="checkbox"
             />
-          </div>
-          <span
-            class="ant-transfer-list-header-selected"
-          >
-            0 item
+            <span
+              class="ant-checkbox-inner"
+            />
           </span>
-          <span
-            class="ant-transfer-list-header-title"
+        </label>
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+        <div
+          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        >
+          <ul
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            data-menu-list="true"
+            role="menu"
+            tabindex="0"
+          >
+            <li
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-selectAll"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-dropdown-menu-title-content"
+              >
+                Select all data
+              </span>
+            </li>
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; top: 0px; left: 0px;"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+            <li
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-selectInvert"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-dropdown-menu-title-content"
+              >
+                Invert current page
+              </span>
+            </li>
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; top: 0px; left: 0px;"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+          </ul>
+          <div
+            aria-hidden="true"
+            style="display: none;"
           />
         </div>
+        <span
+          class="ant-transfer-list-header-selected"
+        >
+          0 item
+        </span>
+        <span
+          class="ant-transfer-list-header-title"
+        />
+      </div>
+      <div
+        class="ant-transfer-list-body"
+      >
         <div
-          class="ant-transfer-list-body"
+          class="ant-transfer-list-body-not-found"
         >
           <div
-            class="ant-transfer-list-body-not-found"
+            class="ant-empty ant-empty-normal ant-empty-small"
           >
             <div
-              class="ant-empty ant-empty-normal ant-empty-small"
+              class="ant-empty-image"
             >
-              <div
-                class="ant-empty-image"
+              <svg
+                height="41"
+                viewBox="0 0 64 41"
+                width="64"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  height="41"
-                  viewBox="0 0 64 41"
-                  width="64"
-                  xmlns="http://www.w3.org/2000/svg"
+                <title>
+                  No data
+                </title>
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  transform="translate(0 1)"
                 >
+                  <ellipse
+                    cx="32"
+                    cy="33"
+                    fill="#f5f5f5"
+                    rx="32"
+                    ry="7"
+                  />
                   <g
-                    fill="none"
-                    fill-rule="evenodd"
-                    transform="translate(0 1)"
+                    fill-rule="nonzero"
+                    stroke="#d9d9d9"
                   >
-                    <ellipse
-                      cx="32"
-                      cy="33"
-                      fill="#f5f5f5"
-                      rx="32"
-                      ry="7"
+                    <path
+                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                     />
-                    <g
-                      fill-rule="nonzero"
-                      stroke="#d9d9d9"
-                    >
-                      <path
-                        d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                      />
-                      <path
-                        d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                        fill="#fafafa"
-                      />
-                    </g>
+                    <path
+                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                      fill="#fafafa"
+                    />
                   </g>
-                </svg>
-              </div>
-              <div
-                class="ant-empty-description"
-              >
-                No data
-              </div>
+                </g>
+              </svg>
+            </div>
+            <div
+              class="ant-empty-description"
+            >
+              No data
             </div>
           </div>
         </div>
       </div>
-      <div
-        class="ant-transfer-operation"
+    </div>
+    <div
+      class="ant-transfer-operation"
+    >
+      <button
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
+        disabled=""
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
-          disabled=""
-          type="button"
+        <span
+          class="ant-btn-icon"
         >
           <span
-            class="ant-btn-icon"
-          >
-            <span
-              aria-label="right"
-              class="anticon anticon-right"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="right"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                />
-              </svg>
-            </span>
-          </span>
-        </button>
-        <button
-          class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
-          disabled=""
-          type="button"
-        >
-          <span
-            class="ant-btn-icon"
-          >
-            <span
-              aria-label="left"
-              class="anticon anticon-left"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="left"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-                />
-              </svg>
-            </span>
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-transfer-list"
-      >
-        <div
-          class="ant-transfer-list-header"
-        >
-          <label
-            class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
-          >
-            <span
-              class="ant-checkbox ant-wave-target ant-checkbox-disabled"
-            >
-              <input
-                class="ant-checkbox-input"
-                disabled=""
-                type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
-              />
-            </span>
-          </label>
-          <span
-            aria-label="down"
-            class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+            aria-label="right"
+            class="anticon anticon-right"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="right"
               fill="currentColor"
               focusable="false"
               height="1em"
@@ -9768,143 +9689,218 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
               />
             </svg>
           </span>
-          <div
-            class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="left"
+            class="anticon anticon-left"
+            role="img"
           >
-            <ul
-              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-              data-menu-list="true"
-              role="menu"
-              tabindex="0"
-            >
-              <li
-                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                data-menu-id="rc-menu-uuid-test-selectAll"
-                role="menuitem"
-                tabindex="-1"
-              >
-                <span
-                  class="ant-dropdown-menu-title-content"
-                >
-                  Select all data
-                </span>
-              </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                />
-                <div
-                  class="ant-tooltip-content"
-                >
-                  <div
-                    class="ant-tooltip-inner"
-                    role="tooltip"
-                  />
-                </div>
-              </div>
-              <li
-                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                data-menu-id="rc-menu-uuid-test-selectInvert"
-                role="menuitem"
-                tabindex="-1"
-              >
-                <span
-                  class="ant-dropdown-menu-title-content"
-                >
-                  Invert current page
-                </span>
-              </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                />
-                <div
-                  class="ant-tooltip-content"
-                >
-                  <div
-                    class="ant-tooltip-inner"
-                    role="tooltip"
-                  />
-                </div>
-              </div>
-            </ul>
-            <div
+            <svg
               aria-hidden="true"
-              style="display: none;"
-            />
-          </div>
-          <span
-            class="ant-transfer-list-header-selected"
-          >
-            0 item
+              data-icon="left"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+              />
+            </svg>
           </span>
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-transfer-list"
+    >
+      <div
+        class="ant-transfer-list-header"
+      >
+        <label
+          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+        >
           <span
-            class="ant-transfer-list-header-title"
+            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+          >
+            <input
+              class="ant-checkbox-input"
+              disabled=""
+              type="checkbox"
+            />
+            <span
+              class="ant-checkbox-inner"
+            />
+          </span>
+        </label>
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+        <div
+          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        >
+          <ul
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            data-menu-list="true"
+            role="menu"
+            tabindex="0"
+          >
+            <li
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-selectAll"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-dropdown-menu-title-content"
+              >
+                Select all data
+              </span>
+            </li>
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; top: 0px; left: 0px;"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+            <li
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-selectInvert"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-dropdown-menu-title-content"
+              >
+                Invert current page
+              </span>
+            </li>
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; top: 0px; left: 0px;"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+          </ul>
+          <div
+            aria-hidden="true"
+            style="display: none;"
           />
         </div>
+        <span
+          class="ant-transfer-list-header-selected"
+        >
+          0 item
+        </span>
+        <span
+          class="ant-transfer-list-header-title"
+        />
+      </div>
+      <div
+        class="ant-transfer-list-body"
+      >
         <div
-          class="ant-transfer-list-body"
+          class="ant-transfer-list-body-not-found"
         >
           <div
-            class="ant-transfer-list-body-not-found"
+            class="ant-empty ant-empty-normal ant-empty-small"
           >
             <div
-              class="ant-empty ant-empty-normal ant-empty-small"
+              class="ant-empty-image"
             >
-              <div
-                class="ant-empty-image"
+              <svg
+                height="41"
+                viewBox="0 0 64 41"
+                width="64"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  height="41"
-                  viewBox="0 0 64 41"
-                  width="64"
-                  xmlns="http://www.w3.org/2000/svg"
+                <title>
+                  No data
+                </title>
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  transform="translate(0 1)"
                 >
+                  <ellipse
+                    cx="32"
+                    cy="33"
+                    fill="#f5f5f5"
+                    rx="32"
+                    ry="7"
+                  />
                   <g
-                    fill="none"
-                    fill-rule="evenodd"
-                    transform="translate(0 1)"
+                    fill-rule="nonzero"
+                    stroke="#d9d9d9"
                   >
-                    <ellipse
-                      cx="32"
-                      cy="33"
-                      fill="#f5f5f5"
-                      rx="32"
-                      ry="7"
+                    <path
+                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                     />
-                    <g
-                      fill-rule="nonzero"
-                      stroke="#d9d9d9"
-                    >
-                      <path
-                        d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                      />
-                      <path
-                        d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                        fill="#fafafa"
-                      />
-                    </g>
+                    <path
+                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                      fill="#fafafa"
+                    />
                   </g>
-                </svg>
-              </div>
-              <div
-                class="ant-empty-description"
-              >
-                No data
-              </div>
+                </g>
+              </svg>
+            </div>
+            <div
+              class="ant-empty-description"
+            >
+              No data
             </div>
           </div>
         </div>
@@ -9912,348 +9908,274 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
     </div>
   </div>
   <div
-    class="ant-space-item"
+    class="ant-transfer ant-transfer-status-warning"
   >
     <div
-      class="ant-transfer ant-transfer-status-warning"
+      class="ant-transfer-list"
     >
       <div
-        class="ant-transfer-list"
+        class="ant-transfer-list-header"
       >
-        <div
-          class="ant-transfer-list-header"
+        <label
+          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
         >
-          <label
-            class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
-          >
-            <span
-              class="ant-checkbox ant-wave-target ant-checkbox-disabled"
-            >
-              <input
-                class="ant-checkbox-input"
-                disabled=""
-                type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
-              />
-            </span>
-          </label>
           <span
-            aria-label="down"
-            class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
-            role="img"
+            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="down"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-              />
-            </svg>
-          </span>
-          <div
-            class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-          >
-            <ul
-              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-              data-menu-list="true"
-              role="menu"
-              tabindex="0"
-            >
-              <li
-                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                data-menu-id="rc-menu-uuid-test-selectAll"
-                role="menuitem"
-                tabindex="-1"
-              >
-                <span
-                  class="ant-dropdown-menu-title-content"
-                >
-                  Select all data
-                </span>
-              </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                />
-                <div
-                  class="ant-tooltip-content"
-                >
-                  <div
-                    class="ant-tooltip-inner"
-                    role="tooltip"
-                  />
-                </div>
-              </div>
-              <li
-                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                data-menu-id="rc-menu-uuid-test-selectInvert"
-                role="menuitem"
-                tabindex="-1"
-              >
-                <span
-                  class="ant-dropdown-menu-title-content"
-                >
-                  Invert current page
-                </span>
-              </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                />
-                <div
-                  class="ant-tooltip-content"
-                >
-                  <div
-                    class="ant-tooltip-inner"
-                    role="tooltip"
-                  />
-                </div>
-              </div>
-            </ul>
-            <div
-              aria-hidden="true"
-              style="display: none;"
+            <input
+              class="ant-checkbox-input"
+              disabled=""
+              type="checkbox"
             />
-          </div>
-          <span
-            class="ant-transfer-list-header-selected"
-          >
-            0 item
+            <span
+              class="ant-checkbox-inner"
+            />
           </span>
-          <span
-            class="ant-transfer-list-header-title"
+        </label>
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+        <div
+          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        >
+          <ul
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            data-menu-list="true"
+            role="menu"
+            tabindex="0"
+          >
+            <li
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-selectAll"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-dropdown-menu-title-content"
+              >
+                Select all data
+              </span>
+            </li>
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; top: 0px; left: 0px;"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+            <li
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-selectInvert"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-dropdown-menu-title-content"
+              >
+                Invert current page
+              </span>
+            </li>
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; top: 0px; left: 0px;"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+          </ul>
+          <div
+            aria-hidden="true"
+            style="display: none;"
           />
         </div>
-        <div
-          class="ant-transfer-list-body ant-transfer-list-body-with-search"
+        <span
+          class="ant-transfer-list-header-selected"
         >
-          <div
-            class="ant-transfer-list-body-search-wrapper"
+          0 item
+        </span>
+        <span
+          class="ant-transfer-list-header-title"
+        />
+      </div>
+      <div
+        class="ant-transfer-list-body ant-transfer-list-body-with-search"
+      >
+        <div
+          class="ant-transfer-list-body-search-wrapper"
+        >
+          <span
+            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search"
+              class="ant-input-prefix"
             >
               <span
-                class="ant-input-prefix"
+                aria-label="search"
+                class="anticon anticon-search"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="search"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <input
+              class="ant-input"
+              placeholder="Search here"
+              type="text"
+              value=""
+            />
+            <span
+              class="ant-input-suffix"
+            >
+              <button
+                class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                type="button"
               >
                 <span
-                  aria-label="search"
-                  class="anticon anticon-search"
+                  aria-label="close-circle"
+                  class="anticon anticon-close-circle"
                   role="img"
                 >
                   <svg
                     aria-hidden="true"
-                    data-icon="search"
+                    data-icon="close-circle"
                     fill="currentColor"
+                    fill-rule="evenodd"
                     focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
                   >
                     <path
-                      d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                      d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
                     />
                   </svg>
                 </span>
-              </span>
-              <input
-                class="ant-input"
-                placeholder="Search here"
-                type="text"
-                value=""
-              />
-              <span
-                class="ant-input-suffix"
-              >
-                <span
-                  class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                  role="button"
-                  tabindex="-1"
-                >
-                  <span
-                    aria-label="close-circle"
-                    class="anticon anticon-close-circle"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="close-circle"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
-                      />
-                    </svg>
-                  </span>
-                </span>
-              </span>
+              </button>
             </span>
-          </div>
+          </span>
+        </div>
+        <div
+          class="ant-transfer-list-body-not-found"
+        >
           <div
-            class="ant-transfer-list-body-not-found"
+            class="ant-empty ant-empty-normal ant-empty-small"
           >
             <div
-              class="ant-empty ant-empty-normal ant-empty-small"
+              class="ant-empty-image"
             >
-              <div
-                class="ant-empty-image"
+              <svg
+                height="41"
+                viewBox="0 0 64 41"
+                width="64"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  height="41"
-                  viewBox="0 0 64 41"
-                  width="64"
-                  xmlns="http://www.w3.org/2000/svg"
+                <title>
+                  No data
+                </title>
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  transform="translate(0 1)"
                 >
+                  <ellipse
+                    cx="32"
+                    cy="33"
+                    fill="#f5f5f5"
+                    rx="32"
+                    ry="7"
+                  />
                   <g
-                    fill="none"
-                    fill-rule="evenodd"
-                    transform="translate(0 1)"
+                    fill-rule="nonzero"
+                    stroke="#d9d9d9"
                   >
-                    <ellipse
-                      cx="32"
-                      cy="33"
-                      fill="#f5f5f5"
-                      rx="32"
-                      ry="7"
+                    <path
+                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                     />
-                    <g
-                      fill-rule="nonzero"
-                      stroke="#d9d9d9"
-                    >
-                      <path
-                        d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                      />
-                      <path
-                        d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                        fill="#fafafa"
-                      />
-                    </g>
+                    <path
+                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                      fill="#fafafa"
+                    />
                   </g>
-                </svg>
-              </div>
-              <div
-                class="ant-empty-description"
-              >
-                No data
-              </div>
+                </g>
+              </svg>
+            </div>
+            <div
+              class="ant-empty-description"
+            >
+              No data
             </div>
           </div>
         </div>
       </div>
-      <div
-        class="ant-transfer-operation"
+    </div>
+    <div
+      class="ant-transfer-operation"
+    >
+      <button
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
+        disabled=""
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
-          disabled=""
-          type="button"
+        <span
+          class="ant-btn-icon"
         >
           <span
-            class="ant-btn-icon"
-          >
-            <span
-              aria-label="right"
-              class="anticon anticon-right"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="right"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                />
-              </svg>
-            </span>
-          </span>
-        </button>
-        <button
-          class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
-          disabled=""
-          type="button"
-        >
-          <span
-            class="ant-btn-icon"
-          >
-            <span
-              aria-label="left"
-              class="anticon anticon-left"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="left"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-                />
-              </svg>
-            </span>
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-transfer-list"
-      >
-        <div
-          class="ant-transfer-list-header"
-        >
-          <label
-            class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
-          >
-            <span
-              class="ant-checkbox ant-wave-target ant-checkbox-disabled"
-            >
-              <input
-                class="ant-checkbox-input"
-                disabled=""
-                type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
-              />
-            </span>
-          </label>
-          <span
-            aria-label="down"
-            class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+            aria-label="right"
+            class="anticon anticon-right"
             role="img"
           >
             <svg
               aria-hidden="true"
-              data-icon="down"
+              data-icon="right"
               fill="currentColor"
               focusable="false"
               height="1em"
@@ -10261,210 +10183,284 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               width="1em"
             >
               <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
               />
             </svg>
           </span>
-          <div
-            class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-          >
-            <ul
-              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-              data-menu-list="true"
-              role="menu"
-              tabindex="0"
-            >
-              <li
-                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                data-menu-id="rc-menu-uuid-test-selectAll"
-                role="menuitem"
-                tabindex="-1"
-              >
-                <span
-                  class="ant-dropdown-menu-title-content"
-                >
-                  Select all data
-                </span>
-              </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                />
-                <div
-                  class="ant-tooltip-content"
-                >
-                  <div
-                    class="ant-tooltip-inner"
-                    role="tooltip"
-                  />
-                </div>
-              </div>
-              <li
-                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                data-menu-id="rc-menu-uuid-test-selectInvert"
-                role="menuitem"
-                tabindex="-1"
-              >
-                <span
-                  class="ant-dropdown-menu-title-content"
-                >
-                  Invert current page
-                </span>
-              </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                />
-                <div
-                  class="ant-tooltip-content"
-                >
-                  <div
-                    class="ant-tooltip-inner"
-                    role="tooltip"
-                  />
-                </div>
-              </div>
-            </ul>
-            <div
-              aria-hidden="true"
-              style="display: none;"
-            />
-          </div>
-          <span
-            class="ant-transfer-list-header-selected"
-          >
-            0 item
-          </span>
-          <span
-            class="ant-transfer-list-header-title"
-          />
-        </div>
-        <div
-          class="ant-transfer-list-body ant-transfer-list-body-with-search"
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
         >
-          <div
-            class="ant-transfer-list-body-search-wrapper"
+          <span
+            aria-label="left"
+            class="anticon anticon-left"
+            role="img"
           >
+            <svg
+              aria-hidden="true"
+              data-icon="left"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-transfer-list"
+    >
+      <div
+        class="ant-transfer-list-header"
+      >
+        <label
+          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+        >
+          <span
+            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+          >
+            <input
+              class="ant-checkbox-input"
+              disabled=""
+              type="checkbox"
+            />
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search"
+              class="ant-checkbox-inner"
+            />
+          </span>
+        </label>
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+        <div
+          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        >
+          <ul
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            data-menu-list="true"
+            role="menu"
+            tabindex="0"
+          >
+            <li
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-selectAll"
+              role="menuitem"
+              tabindex="-1"
             >
               <span
-                class="ant-input-prefix"
+                class="ant-dropdown-menu-title-content"
+              >
+                Select all data
+              </span>
+            </li>
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; top: 0px; left: 0px;"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+            <li
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-selectInvert"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-dropdown-menu-title-content"
+              >
+                Invert current page
+              </span>
+            </li>
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; top: 0px; left: 0px;"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+          </ul>
+          <div
+            aria-hidden="true"
+            style="display: none;"
+          />
+        </div>
+        <span
+          class="ant-transfer-list-header-selected"
+        >
+          0 item
+        </span>
+        <span
+          class="ant-transfer-list-header-title"
+        />
+      </div>
+      <div
+        class="ant-transfer-list-body ant-transfer-list-body-with-search"
+      >
+        <div
+          class="ant-transfer-list-body-search-wrapper"
+        >
+          <span
+            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search"
+          >
+            <span
+              class="ant-input-prefix"
+            >
+              <span
+                aria-label="search"
+                class="anticon anticon-search"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="search"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <input
+              class="ant-input"
+              placeholder="Search here"
+              type="text"
+              value=""
+            />
+            <span
+              class="ant-input-suffix"
+            >
+              <button
+                class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                type="button"
               >
                 <span
-                  aria-label="search"
-                  class="anticon anticon-search"
+                  aria-label="close-circle"
+                  class="anticon anticon-close-circle"
                   role="img"
                 >
                   <svg
                     aria-hidden="true"
-                    data-icon="search"
+                    data-icon="close-circle"
                     fill="currentColor"
+                    fill-rule="evenodd"
                     focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
                   >
                     <path
-                      d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                      d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
                     />
                   </svg>
                 </span>
-              </span>
-              <input
-                class="ant-input"
-                placeholder="Search here"
-                type="text"
-                value=""
-              />
-              <span
-                class="ant-input-suffix"
-              >
-                <span
-                  class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                  role="button"
-                  tabindex="-1"
-                >
-                  <span
-                    aria-label="close-circle"
-                    class="anticon anticon-close-circle"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="close-circle"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
-                      />
-                    </svg>
-                  </span>
-                </span>
-              </span>
+              </button>
             </span>
-          </div>
+          </span>
+        </div>
+        <div
+          class="ant-transfer-list-body-not-found"
+        >
           <div
-            class="ant-transfer-list-body-not-found"
+            class="ant-empty ant-empty-normal ant-empty-small"
           >
             <div
-              class="ant-empty ant-empty-normal ant-empty-small"
+              class="ant-empty-image"
             >
-              <div
-                class="ant-empty-image"
+              <svg
+                height="41"
+                viewBox="0 0 64 41"
+                width="64"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  height="41"
-                  viewBox="0 0 64 41"
-                  width="64"
-                  xmlns="http://www.w3.org/2000/svg"
+                <title>
+                  No data
+                </title>
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  transform="translate(0 1)"
                 >
+                  <ellipse
+                    cx="32"
+                    cy="33"
+                    fill="#f5f5f5"
+                    rx="32"
+                    ry="7"
+                  />
                   <g
-                    fill="none"
-                    fill-rule="evenodd"
-                    transform="translate(0 1)"
+                    fill-rule="nonzero"
+                    stroke="#d9d9d9"
                   >
-                    <ellipse
-                      cx="32"
-                      cy="33"
-                      fill="#f5f5f5"
-                      rx="32"
-                      ry="7"
+                    <path
+                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                     />
-                    <g
-                      fill-rule="nonzero"
-                      stroke="#d9d9d9"
-                    >
-                      <path
-                        d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                      />
-                      <path
-                        d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                        fill="#fafafa"
-                      />
-                    </g>
+                    <path
+                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                      fill="#fafafa"
+                    />
                   </g>
-                </svg>
-              </div>
-              <div
-                class="ant-empty-description"
-              >
-                No data
-              </div>
+                </g>
+              </svg>
+            </div>
+            <div
+              class="ant-empty-description"
+            >
+              No data
             </div>
           </div>
         </div>
@@ -10477,9 +10473,12 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
 exports[`renders components/transfer/demo/status.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/transfer/demo/table-transfer.tsx extend context correctly 1`] = `
-Array [
+<div
+  class="ant-flex ant-flex-align-start ant-flex-gap-middle ant-flex-vertical"
+>
   <div
     class="ant-transfer ant-transfer-customize-list"
+    style="width: 100%;"
   >
     <div
       class="ant-transfer-list"
@@ -10537,10 +10536,9 @@ Array [
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                role="button"
-                tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -10562,7 +10560,7 @@ Array [
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
         </div>
@@ -11322,7 +11320,7 @@ Array [
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -11351,7 +11349,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -11436,10 +11434,9 @@ Array [
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                role="button"
-                tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -11461,7 +11458,7 @@ Array [
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
         </div>
@@ -11696,6 +11693,9 @@ Array [
                                     width="64"
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
+                                    <title>
+                                      No data
+                                    </title>
                                     <g
                                       fill="none"
                                       fill-rule="evenodd"
@@ -11742,41 +11742,32 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-  <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-    style="margin-top: 16px;"
+  </div>
+  <button
+    aria-checked="false"
+    class="ant-switch"
+    role="switch"
+    type="button"
   >
     <div
-      class="ant-space-item"
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
     >
-      <button
-        aria-checked="false"
-        class="ant-switch"
-        role="switch"
-        type="button"
+      <span
+        class="ant-switch-inner-checked"
       >
-        <div
-          class="ant-switch-handle"
-        />
-        <span
-          class="ant-switch-inner"
-        >
-          <span
-            class="ant-switch-inner-checked"
-          >
-            disabled
-          </span>
-          <span
-            class="ant-switch-inner-unchecked"
-          >
-            disabled
-          </span>
-        </span>
-      </button>
-    </div>
-  </div>,
-]
+        disabled
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        disabled
+      </span>
+    </span>
+  </button>
+</div>
 `;
 
 exports[`renders components/transfer/demo/table-transfer.tsx extend context correctly 2`] = `[]`;
@@ -11811,7 +11802,6 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
         >
           <div
             class="ant-tree ant-tree-icon-hide ant-tree-block-node"
-            role="tree"
           >
             <div>
               <input
@@ -11836,6 +11826,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
             </div>
             <div
               class="ant-tree-list"
+              role="tree"
               style="position: relative;"
             >
               <div
@@ -11847,9 +11838,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                     style="display: flex; flex-direction: column;"
                   >
                     <div
-                      aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                      aria-expanded="false"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                       draggable="false"
+                      role="treeitem"
                     >
                       <span
                         aria-hidden="true"
@@ -11859,7 +11851,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                         class="ant-tree-switcher ant-tree-switcher-noop"
                       />
                       <span
+                        aria-checked="false"
+                        aria-label="Select 0-0"
                         class="ant-tree-checkbox"
+                        role="checkbox"
                       >
                         <span
                           class="ant-tree-checkbox-inner"
@@ -11877,9 +11872,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       </span>
                     </div>
                     <div
-                      aria-grabbed="false"
+                      aria-expanded="true"
                       class="ant-tree-treenode ant-tree-treenode-switcher-open"
                       draggable="false"
+                      role="treeitem"
                     >
                       <span
                         aria-hidden="true"
@@ -11909,7 +11905,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                         </span>
                       </span>
                       <span
+                        aria-checked="false"
+                        aria-label="Select 0-1"
                         class="ant-tree-checkbox"
+                        role="checkbox"
                       >
                         <span
                           class="ant-tree-checkbox-inner"
@@ -11927,9 +11926,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       </span>
                     </div>
                     <div
-                      aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                      aria-expanded="false"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                       draggable="false"
+                      role="treeitem"
                     >
                       <span
                         aria-hidden="true"
@@ -11943,7 +11943,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                         class="ant-tree-switcher ant-tree-switcher-noop"
                       />
                       <span
+                        aria-checked="false"
+                        aria-label="Select 0-1-0"
                         class="ant-tree-checkbox"
+                        role="checkbox"
                       >
                         <span
                           class="ant-tree-checkbox-inner"
@@ -11961,9 +11964,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       </span>
                     </div>
                     <div
-                      aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+                      aria-expanded="false"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                       draggable="false"
+                      role="treeitem"
                     >
                       <span
                         aria-hidden="true"
@@ -11977,7 +11981,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                         class="ant-tree-switcher ant-tree-switcher-noop"
                       />
                       <span
+                        aria-checked="false"
+                        aria-label="Select 0-1-1"
                         class="ant-tree-checkbox"
+                        role="checkbox"
                       >
                         <span
                           class="ant-tree-checkbox-inner"
@@ -11995,9 +12002,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       </span>
                     </div>
                     <div
-                      aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                      aria-expanded="false"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                       draggable="false"
+                      role="treeitem"
                     >
                       <span
                         aria-hidden="true"
@@ -12007,7 +12015,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                         class="ant-tree-switcher ant-tree-switcher-noop"
                       />
                       <span
+                        aria-checked="false"
+                        aria-label="Select 0-2"
                         class="ant-tree-checkbox"
+                        role="checkbox"
                       >
                         <span
                           class="ant-tree-checkbox-inner"
@@ -12025,9 +12036,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       </span>
                     </div>
                     <div
-                      aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                      aria-expanded="false"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                       draggable="false"
+                      role="treeitem"
                     >
                       <span
                         aria-hidden="true"
@@ -12037,7 +12049,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                         class="ant-tree-switcher ant-tree-switcher-noop"
                       />
                       <span
+                        aria-checked="false"
+                        aria-label="Select 0-3"
                         class="ant-tree-checkbox"
+                        role="checkbox"
                       >
                         <span
                           class="ant-tree-checkbox-inner"
@@ -12055,9 +12070,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       </span>
                     </div>
                     <div
-                      aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+                      aria-expanded="false"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                       draggable="false"
+                      role="treeitem"
                     >
                       <span
                         aria-hidden="true"
@@ -12067,7 +12083,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                         class="ant-tree-switcher ant-tree-switcher-noop"
                       />
                       <span
+                        aria-checked="false"
+                        aria-label="Select 0-4"
                         class="ant-tree-checkbox"
+                        role="checkbox"
                       >
                         <span
                           class="ant-tree-checkbox-inner"
@@ -12097,7 +12116,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -12126,7 +12145,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -12188,6 +12207,9 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                No data
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"

@@ -1,9 +1,9 @@
 import type { CSSProperties } from 'react';
 import React, { useCallback, useMemo, useState } from 'react';
 import Icon, * as AntdIcons from '@ant-design/icons';
-import type { SegmentedProps } from 'antd';
 import { Affix, Empty, Input, Segmented } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
+import type { SegmentedOptions } from 'antd/es/segmented';
 import { useIntl } from 'dumi';
 import debounce from 'lodash/debounce';
 
@@ -27,26 +27,6 @@ const useStyle = createStyles(({ token, css }) => ({
     justify-content: space-between;
   `,
 }));
-
-const options = (
-  formatMessage: (values: Record<string, string>) => React.ReactNode,
-): SegmentedProps['options'] => [
-  {
-    value: ThemeType.Outlined,
-    icon: <Icon component={OutlinedIcon} />,
-    label: formatMessage({ id: 'app.docs.components.icon.outlined' }),
-  },
-  {
-    value: ThemeType.Filled,
-    icon: <Icon component={FilledIcon} />,
-    label: formatMessage({ id: 'app.docs.components.icon.filled' }),
-  },
-  {
-    value: ThemeType.TwoTone,
-    icon: <Icon component={TwoToneIcon} />,
-    label: formatMessage({ id: 'app.docs.components.icon.two-tone' }),
-  },
-];
 
 interface IconSearchState {
   theme: ThemeType;
@@ -80,8 +60,8 @@ const IconSearch: React.FC = () => {
         let iconList = categories[key as CategoriesKeys];
         if (searchKey) {
           const matchKey = searchKey
-            // eslint-disable-next-line prefer-regex-literals
-            .replace(new RegExp(`^<([a-zA-Z]*)\\s/>$`, 'gi'), (_, name) => name)
+
+            .replace(/^<([a-z]*)\s\/>$/gi, (_, name) => name)
             .replace(/(Filled|Outlined|TwoTone)$/, '')
             .toLowerCase();
           iconList = iconList.filter((iconName) => iconName.toLowerCase().includes(matchKey));
@@ -124,14 +104,35 @@ const IconSearch: React.FC = () => {
     backgroundColor: colorBgContainer,
   };
 
+  const memoizedOptions = React.useMemo<SegmentedOptions<ThemeType>>(
+    () => [
+      {
+        value: ThemeType.Outlined,
+        icon: <Icon component={OutlinedIcon} />,
+        label: intl.formatMessage({ id: 'app.docs.components.icon.outlined' }),
+      },
+      {
+        value: ThemeType.Filled,
+        icon: <Icon component={FilledIcon} />,
+        label: intl.formatMessage({ id: 'app.docs.components.icon.filled' }),
+      },
+      {
+        value: ThemeType.TwoTone,
+        icon: <Icon component={TwoToneIcon} />,
+        label: intl.formatMessage({ id: 'app.docs.components.icon.two-tone' }),
+      },
+    ],
+    [intl],
+  );
+
   return (
     <div className="markdown">
       <Affix offsetTop={anchorTop} onChange={setSearchBarAffixed}>
         <div className={styles.iconSearchAffix} style={searchBarAffixed ? affixedStyle : {}}>
-          <Segmented
+          <Segmented<ThemeType>
             size="large"
             value={displayState.theme}
-            options={options(intl.formatMessage)}
+            options={memoizedOptions}
             onChange={handleChangeTheme}
           />
           <Input.Search

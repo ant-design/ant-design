@@ -3,6 +3,7 @@ import { CheckOutlined, HighlightOutlined, LikeOutlined, SmileOutlined } from '@
 import copy from 'copy-to-clipboard';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
+import userEvent from '@testing-library/user-event';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -131,18 +132,14 @@ describe('Typography', () => {
             expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copy');
           } else if (tooltips === false) {
             expect(container.querySelector('.ant-tooltip-inner')).toBeFalsy();
-          } else if ((tooltips as any)[0] === '' && (tooltips as any)[1] === '') {
+          } else if (tooltips[0] === '' && tooltips[1] === '') {
             expect(container.querySelector('.ant-tooltip-inner')).toBeFalsy();
-          } else if ((tooltips as any)[0] === '' && (tooltips as any)[1]) {
+          } else if (tooltips[0] === '' && tooltips[1]) {
             expect(container.querySelector('.ant-tooltip-inner')).toBeFalsy();
-          } else if ((tooltips as any)[1] === '' && (tooltips as any)[0]) {
-            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(
-              (tooltips as any)[0],
-            );
+          } else if (tooltips[1] === '' && tooltips[0]) {
+            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltips[0]);
           } else {
-            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(
-              (tooltips as any)[0],
-            );
+            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltips[0]);
           }
 
           // Click to copy
@@ -298,15 +295,15 @@ describe('Typography', () => {
             fireEvent.click(wrapper.querySelectorAll('.ant-typography-edit')[0]);
 
             expect(onStart).toHaveBeenCalled();
-            if (triggerType !== undefined && triggerType.includes('text')) {
+            if (triggerType?.includes('text')) {
               fireEvent.keyDown(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
               fireEvent.keyUp(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
               expect(onChange).not.toHaveBeenCalled();
             }
           }
 
-          if (triggerType !== undefined && triggerType.includes('text')) {
-            if (!triggerType.includes('icon')) {
+          if (triggerType?.includes('text')) {
+            if (!triggerType?.includes('icon')) {
               expect(wrapper.querySelectorAll('.anticon-highlight').length).toBe(0);
               expect(wrapper.querySelectorAll('.anticon-edit').length).toBe(0);
             }
@@ -369,7 +366,6 @@ describe('Typography', () => {
           fireEvent.keyUp(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
         },
         (onChange) => {
-          // eslint-disable-next-line jest/no-standalone-expect
           expect(onChange).not.toHaveBeenCalled();
         },
       );
@@ -479,5 +475,26 @@ describe('Typography', () => {
     const ref = React.createRef<HTMLSpanElement>();
     render(<Text ref={ref} />);
     expect(ref.current instanceof HTMLSpanElement).toBe(true);
+  });
+
+  it('should trigger callback when press {enter}', async () => {
+    const onCopy = jest.fn();
+    const onEditStart = jest.fn();
+    const { container: wrapper } = render(
+      <Paragraph copyable={{ onCopy }} editable={{ onStart: onEditStart }}>
+        test
+      </Paragraph>,
+    );
+    const copyButton = wrapper.querySelector('.ant-typography-copy') as HTMLButtonElement;
+    expect(copyButton).toBeTruthy();
+    // https://github.com/testing-library/user-event/issues/179#issuecomment-1125146667
+    copyButton.focus();
+    userEvent.keyboard('{enter}');
+    await waitFor(() => expect(onCopy).toHaveBeenCalledTimes(1));
+    const editButton = wrapper.querySelector('.ant-typography-edit') as HTMLButtonElement;
+    expect(editButton).toBeTruthy();
+    editButton.focus();
+    userEvent.keyboard('{enter}');
+    await waitFor(() => expect(onEditStart).toHaveBeenCalledTimes(1));
   });
 });

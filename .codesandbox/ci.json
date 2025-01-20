@@ -1,5 +1,0 @@
-{
-  "installCommand": "npm-install",
-  "sandboxes": ["antd-reproduction-template-forked-jyh2k9"],
-  "node": "18"
-}

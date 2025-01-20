@@ -37,6 +37,7 @@ return <Breadcrumb routes={[{ breadcrumbName: 'sample' }]} />;
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/withIcon.tsx">带有图标的</code>
+<code src="./demo/withParams.tsx">带有参数的</code>
 <code src="./demo/separator.tsx">分隔符</code>
 <code src="./demo/overlay.tsx">带下拉菜单的面包屑</code>
 <code src="./demo/separator-component.tsx">独立的分隔符</code>
@@ -53,12 +54,12 @@ return <Breadcrumb routes={[{ breadcrumbName: 'sample' }]} />;
 | --- | --- | --- | --- | --- |
 | itemRender | 自定义链接函数，和 react-router 配置使用 | (route, params, routes, paths) => ReactNode | - |  |
 | params | 路由的参数 | object | - |  |
-| items | 路由栈信息 | [items\[\]](#ItemType) | - | 5.3.0 |
+| items | 路由栈信息 | [items\[\]](#itemtype) | - | 5.3.0 |
 | separator | 分隔符自定义 | ReactNode | `/` |  |
 
 ### ItemType
 
-> type ItemType = Omit<[RouteItemType](#RouteItemType), 'title' | 'path'> | [SeparatorType](#SeparatorType)
+> type ItemType = Omit<[RouteItemType](#routeitemtype), 'title' | 'path'> | [SeparatorType](#separatortype)
 
 ### RouteItemType
 

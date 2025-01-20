@@ -4,4 +4,4 @@
 
 ## en-US
 
-Disabled part of dates and time by `disabledDate` and `disabledTime` respectively, and `disabledTime` only works with `showTime`.
+Disable specific dates and times by using `disabledDate` and `disabledTime` respectively, and `disabledTime` only works with `showTime`.

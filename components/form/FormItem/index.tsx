@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type { JSX } from 'react';
 import classNames from 'classnames';
 import { Field, FieldContext, ListContext } from 'rc-field-form';
 import type { FieldProps } from 'rc-field-form/lib/Field';
@@ -31,8 +32,8 @@ interface FieldError {
   warnings: string[];
 }
 
-const ValidateStatuses = ['success', 'warning', 'error', 'validating', ''] as const;
-export type ValidateStatus = (typeof ValidateStatuses)[number];
+const _ValidateStatuses = ['success', 'warning', 'error', 'validating', ''] as const;
+export type ValidateStatus = (typeof _ValidateStatuses)[number];
 
 type RenderChildren<Values = any> = (form: FormInstance<Values>) => React.ReactNode;
 type RcFieldProps<Values = any> = Omit<FieldProps<Values>, 'children'>;
@@ -165,7 +166,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   // ========================= MISC =========================
   // Get `noStyle` required info
   const listContext = React.useContext(ListContext);
-  const fieldKeyPathRef = React.useRef<InternalNamePath>();
+  const fieldKeyPathRef = React.useRef<InternalNamePath>(null);
 
   // ======================== Errors ========================
   // >>>>> Collect sub field errors
@@ -312,19 +313,16 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
         const isRequired =
           required !== undefined
             ? required
-            : !!(
-                rules &&
-                rules.some((rule) => {
-                  if (rule && typeof rule === 'object' && rule.required && !rule.warningOnly) {
-                    return true;
-                  }
-                  if (typeof rule === 'function') {
-                    const ruleEntity = rule(context);
-                    return ruleEntity && ruleEntity.required && !ruleEntity.warningOnly;
-                  }
-                  return false;
-                })
-              );
+            : !!rules?.some((rule) => {
+                if (rule && typeof rule === 'object' && rule.required && !rule.warningOnly) {
+                  return true;
+                }
+                if (typeof rule === 'function') {
+                  const ruleEntity = rule(context);
+                  return ruleEntity?.required && !ruleEntity?.warningOnly;
+                }
+                return false;
+              });
 
         // ======================= Children =======================
         const mergedControl: typeof control = {
@@ -364,12 +362,19 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
           );
         } else if (React.isValidElement(mergedChildren)) {
           warning(
-            mergedChildren.props.defaultValue === undefined,
+            (
+              mergedChildren as React.ReactElement<{
+                defaultValue?: any;
+              }>
+            ).props.defaultValue === undefined,
             'usage',
             '`defaultValue` will not work on controlled Field. You should use `initialValues` of Form instead.',
           );
 
-          const childProps = { ...mergedChildren.props, ...mergedControl };
+          const childProps = {
+            ...(mergedChildren as React.ReactElement<any>).props,
+            ...mergedControl,
+          };
           if (!childProps.id) {
             childProps.id = fieldId;
           }
@@ -406,7 +411,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
           triggers.forEach((eventName) => {
             childProps[eventName] = (...args: any[]) => {
               mergedControl[eventName]?.(...args);
-              mergedChildren.props[eventName]?.(...args);
+              (mergedChildren as React.ReactElement<any>).props[eventName]?.(...args);
             };
           });
 

@@ -56,7 +56,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g9vUQq2nkpEAAA
 | render | 每行数据渲染函数，该函数的入参为 `dataSource` 中的项，返回值为 ReactElement。或者返回一个普通对象，其中 `label` 字段为 ReactElement，`value` 字段为 title | (record) => ReactNode | - |  |
 | selectAllLabels | 自定义顶部多选框标题的集合 | (ReactNode \| (info: { selectedCount: number, totalCount: number }) => ReactNode)\[] | - |  |
 | selectedKeys | 设置哪些项应该被选中 | string\[] \| number\[] | \[] |  |
-| showSearch | 是否显示搜索框 | boolean | false |  |
+| showSearch | 是否显示搜索框，或可对两侧搜索框进行配置 | boolean \| { placeholder:string,defaultValue:string } | false |  |
 | showSelectAll | 是否展示全选勾选框 | boolean | true |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | targetKeys | 显示在右侧框数据的 key 集合 | string\[] \| number\[] | \[] |  |
@@ -87,7 +87,7 @@ Transfer 支持接收 `children` 自定义渲染列表，并返回以下参数�
 
 ## 注意
 
-按照 React 的[规范](http://facebook.github.io/react/docs/lists-and-keys.html#keys)，所有的组件数组必须绑定 key。在 Transfer 中，`dataSource` 里的数据值需要指定 `key` 值。对于 `dataSource` 默认将每列数据的 `key` 属性作为唯一的标识。
+按照 React 的[规范](https://zh-hans.react.dev/learn/rendering-lists#why-does-react-need-keys)，所有的组件数组必须绑定 key。在 Transfer 中，`dataSource` 里的数据值需要指定 `key` 值。对于 `dataSource` 默认将每列数据的 `key` 属性作为唯一的标识。
 
 如果你的数据没有这个属性，务必使用 `rowKey` 来指定数据列的主键。
 

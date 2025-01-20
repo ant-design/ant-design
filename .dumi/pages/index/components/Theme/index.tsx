@@ -6,11 +6,10 @@ import {
   HomeOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons';
-import { TinyColor } from '@ctrl/tinycolor';
-import type { MenuProps, ThemeConfig } from 'antd';
+import { FastColor } from '@ant-design/fast-color';
+import type { ColorPickerProps, GetProp, MenuProps, ThemeConfig } from 'antd';
 import {
   Breadcrumb,
-  Button,
   Card,
   ConfigProvider,
   Flex,
@@ -22,14 +21,13 @@ import {
   Typography,
 } from 'antd';
 import { createStyles } from 'antd-style';
-import type { Color } from 'antd/es/color-picker';
 import { generateColor } from 'antd/es/color-picker/util';
 import classNames from 'classnames';
 import { useLocation } from 'dumi';
 
 import useDark from '../../../../hooks/useDark';
 import useLocale from '../../../../hooks/useLocale';
-import Link from '../../../../theme/common/Link';
+import LinkButton from '../../../../theme/common/LinkButton';
 import SiteContext from '../../../../theme/slots/SiteContext';
 import { getLocalizedPathname } from '../../../../theme/utils';
 import Group from '../Group';
@@ -42,10 +40,13 @@ import RadiusPicker from './RadiusPicker';
 import type { THEME } from './ThemePicker';
 import ThemePicker from './ThemePicker';
 
+type Color = Extract<GetProp<ColorPickerProps, 'value'>, string | { cleared: any }>;
+
 const { Header, Content, Sider } = Layout;
 
 const TokenChecker: React.FC = () => {
   if (process.env.NODE_ENV !== 'production') {
+    // eslint-disable-next-line no-console
     console.log('Demo Token:', theme.useToken());
   }
   return null;
@@ -195,23 +196,23 @@ const useStyle = createStyles(({ token, css, cx }) => {
       position: absolute;
     `,
     leftTopImagePos: css`
-      left: 0;
+      inset-inline-start: 0;
       top: -100px;
       height: 500px;
     `,
     rightBottomPos: css`
-      right: 0;
+      inset-inline-end: 0;
       bottom: -100px;
       height: 287px;
     `,
     leftTopImage: css`
-      left: 50%;
+      inset-inline-start: 50%;
       transform: translate3d(-900px, 0, 0);
       top: -100px;
       height: 500px;
     `,
     rightBottomImage: css`
-      right: 50%;
+      inset-inline-end: 50%;
       transform: translate3d(750px, 0, 0);
       bottom: -100px;
       height: 287px;
@@ -265,7 +266,7 @@ const sideMenuItems: MenuProps['items'] = [
 
 // ============================= Theme =============================
 
-function getTitleColor(colorPrimary: string | Color, isLight?: boolean) {
+function getTitleColor(colorPrimary: Color, isLight?: boolean) {
   if (!isLight) {
     return '#FFF';
   }
@@ -290,7 +291,7 @@ function getTitleColor(colorPrimary: string | Color, isLight?: boolean) {
 
 interface ThemeData {
   themeType: THEME;
-  colorPrimary: string | Color;
+  colorPrimary: Color;
   borderRadius: number;
   compact: 'default' | 'compact';
 }
@@ -323,7 +324,7 @@ const ThemesInfo: Record<THEME, Partial<ThemeData>> = {
 const normalize = (value: number) => value / 255;
 
 function rgbToColorMatrix(color: string) {
-  const rgb = new TinyColor(color).toRgb();
+  const rgb = new FastColor(color).toRgb();
   const { r, g, b } = rgb;
 
   const invertValue = normalize(r) * 100;
@@ -474,7 +475,7 @@ const Theme: React.FC = () => {
                     filter:
                       closestColor === DEFAULT_COLOR ? undefined : rgbToColorMatrix(logoColor),
                   }}
-                  alt=""
+                  alt="antd logo"
                 />
               </div>
               <h1>Ant Design 5.0</h1>
@@ -518,14 +519,15 @@ const Theme: React.FC = () => {
                   title={locale.myTheme}
                   extra={
                     <Flex gap="small">
-                      <Link to={getLocalizedPathname('/theme-editor', isZhCN, search)}>
-                        <Button type="default">{locale.toDef}</Button>
-                      </Link>
-                      <Link
+                      <LinkButton to={getLocalizedPathname('/theme-editor', isZhCN, search)}>
+                        {locale.toDef}
+                      </LinkButton>
+                      <LinkButton
+                        type="primary"
                         to={getLocalizedPathname('/docs/react/customize-theme', isZhCN, search)}
                       >
-                        <Button type="primary">{locale.toUse}</Button>
-                      </Link>
+                        {locale.toUse}
+                      </LinkButton>
                     </Flex>
                   }
                 >

@@ -28,6 +28,7 @@ demo:
 <code src="./demo/reverse.tsx">反向</code>
 <code src="./demo/draggableTrack.tsx">范围可拖拽</code>
 <code src="./demo/multiple.tsx">多点组合</code>
+<code src="./demo/editable.tsx" version="5.20.0">动态增减节点</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
@@ -48,7 +49,7 @@ demo:
 | min | 最小值 | number | 0 |  |
 | range | 双滑块模式 | boolean \| [range](#range) | false |  |
 | reverse | 反向坐标轴 | boolean | false |  |
-| step | 步长，取值必须大于 0，并且可被 (max - min) 整除。当 `marks` 不为空对象时，可以设置 `step` 为 null，此时 Slider 的可选值仅有 marks 标出来的部分 | number \| null | 1 |  |
+| step | 步长，取值必须大于 0，并且可被 (max - min) 整除。当 `marks` 不为空对象时，可以设置 `step` 为 null，此时 Slider 的可选值仅有 `marks`、`min` 和 `max` | number \| null | 1 |  |
 | styles | 语义化结构 styles | [Record<SemanticDOM, React.CSSProperties>](#semantic-dom) | - | 5.10.0 |
 | tooltip | 设置 Tooltip 相关属性 | [tooltip](#tooltip) | - | 4.23.0 |
 | value | 设置当前取值。当 `range` 为 false 时，使用 number，否则用 \[number, number] | number \| \[number, number] | - |  |
@@ -58,9 +59,12 @@ demo:
 
 ### range
 
-| 参数           | 说明                 | 类型    | 默认值 | 版本   |
-| -------------- | -------------------- | ------- | ------ | ------ |
-| draggableTrack | 范围刻度是否可被拖拽 | boolean | false  | 4.10.0 |
+| 参数           | 说明                                               | 类型    | 默认值 | 版本   |
+| -------------- | -------------------------------------------------- | ------- | ------ | ------ |
+| draggableTrack | 范围刻度是否可被拖拽                               | boolean | false  |        |
+| editable       | 启动动态增减节点，不能和 `draggableTrack` 一同使用 | boolean | false  | 5.20.0 |
+| minCount       | 配置 `editable` 时，最小节点数量                   | number  | 0      | 5.20.0 |
+| maxCount       | 配置 `editable` 时，最大节点数量                   | number  | -      | 5.20.0 |
 
 ### tooltip
 

@@ -19,10 +19,12 @@ import type {
   BadgeConfig,
   ButtonConfig,
   CardConfig,
+  CascaderConfig,
   CollapseConfig,
   ComponentStyleConfig,
   ConfigConsumerProps,
   CSPConfig,
+  DatePickerConfig,
   DirectionType,
   DrawerConfig,
   FlexConfig,
@@ -30,25 +32,42 @@ import type {
   FormConfig,
   ImageConfig,
   InputConfig,
+  InputNumberConfig,
   ListConfig,
+  MentionsConfig,
   MenuConfig,
   ModalConfig,
   NotificationConfig,
   PaginationConfig,
   PopupOverflow,
+  RangePickerConfig,
   SelectConfig,
   SpaceConfig,
+  SpinConfig,
   TableConfig,
   TabsConfig,
   TagConfig,
   TextAreaConfig,
   Theme,
   ThemeConfig,
+  TimePickerConfig,
+  TooltipConfig,
+  PopoverConfig,
+  PopconfirmConfig,
   TourConfig,
   TransferConfig,
+  TreeSelectConfig,
+  Variant,
   WaveConfig,
+  EmptyConfig,
 } from './context';
-import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
+import {
+  ConfigConsumer,
+  ConfigContext,
+  defaultIconPrefixCls,
+  defaultPrefixCls,
+  Variants,
+} from './context';
 import { registerTheme } from './cssVariables';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import { DisabledContextProvider } from './DisabledContext';
@@ -59,6 +78,10 @@ import PropWarning from './PropWarning';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
+
+export type { Variant };
+
+export { Variants };
 
 /**
  * Since too many feedback using static method like `Modal.confirm` not getting theme, we record the
@@ -81,6 +104,7 @@ export const warnContext: (componentName: string) => void =
 export {
   ConfigConsumer,
   ConfigContext,
+  defaultPrefixCls,
   defaultIconPrefixCls,
   type ConfigConsumerProps,
   type CSPConfig,
@@ -125,8 +149,10 @@ export interface ConfigProviderProps {
   csp?: CSPConfig;
   /** @deprecated Please use `{ button: { autoInsertSpace: boolean }}` instead */
   autoInsertSpaceInButton?: boolean;
+  variant?: Variant;
   form?: FormConfig;
   input?: InputConfig;
+  inputNumber?: InputNumberConfig;
   textArea?: TextAreaConfig;
   select?: SelectConfig;
   pagination?: PaginationConfig;
@@ -144,6 +170,7 @@ export interface ConfigProviderProps {
    */
   direction?: DirectionType;
   space?: SpaceConfig;
+  splitter?: ComponentStyleConfig;
   /**
    * @descCN 设置 `false` 时关闭虚拟滚动。
    * @descEN Close the virtual scrolling when setting `false`.
@@ -161,20 +188,21 @@ export interface ConfigProviderProps {
   button?: ButtonConfig;
   calendar?: ComponentStyleConfig;
   carousel?: ComponentStyleConfig;
-  cascader?: ComponentStyleConfig;
+  cascader?: CascaderConfig;
+  treeSelect?: TreeSelectConfig;
   collapse?: CollapseConfig;
   divider?: ComponentStyleConfig;
   drawer?: DrawerConfig;
   typography?: ComponentStyleConfig;
   skeleton?: ComponentStyleConfig;
-  spin?: ComponentStyleConfig;
+  spin?: SpinConfig;
   segmented?: ComponentStyleConfig;
   statistic?: ComponentStyleConfig;
   steps?: ComponentStyleConfig;
   image?: ImageConfig;
   layout?: ComponentStyleConfig;
   list?: ListConfig;
-  mentions?: ComponentStyleConfig;
+  mentions?: MentionsConfig;
   modal?: ModalConfig;
   progress?: ComponentStyleConfig;
   result?: ComponentStyleConfig;
@@ -184,7 +212,7 @@ export interface ConfigProviderProps {
   floatButtonGroup?: FloatButtonGroupConfig;
   checkbox?: ComponentStyleConfig;
   descriptions?: ComponentStyleConfig;
-  empty?: ComponentStyleConfig;
+  empty?: EmptyConfig;
   badge?: BadgeConfig;
   radio?: ComponentStyleConfig;
   rate?: ComponentStyleConfig;
@@ -197,13 +225,13 @@ export interface ConfigProviderProps {
   card?: CardConfig;
   tabs?: TabsConfig;
   timeline?: ComponentStyleConfig;
-  timePicker?: ComponentStyleConfig;
+  timePicker?: TimePickerConfig;
   upload?: ComponentStyleConfig;
   notification?: NotificationConfig;
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
-  datePicker?: ComponentStyleConfig;
-  rangePicker?: ComponentStyleConfig;
+  datePicker?: DatePickerConfig;
+  rangePicker?: RangePickerConfig;
   dropdown?: ComponentStyleConfig;
   flex?: FlexConfig;
   /**
@@ -211,6 +239,9 @@ export interface ConfigProviderProps {
    */
   wave?: WaveConfig;
   tour?: TourConfig;
+  tooltip?: TooltipConfig;
+  popover?: PopoverConfig;
+  popconfirm?: PopconfirmConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -219,8 +250,6 @@ interface ProviderChildrenProps extends ConfigProviderProps {
 }
 
 type holderRenderType = (children: React.ReactNode) => React.ReactNode;
-
-export const defaultPrefixCls = 'ant';
 
 let globalPrefixCls: string;
 let globalIconPrefixCls: string;
@@ -305,6 +334,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     componentSize,
     direction,
     space,
+    splitter,
     virtual,
     dropdownMatchSelectWidth,
     popupMatchSelectWidth,
@@ -366,7 +396,13 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     dropdown,
     warning: warningConfig,
     tour,
+    tooltip,
+    popover,
+    popconfirm,
     floatButtonGroup,
+    variant,
+    inputNumber,
+    treeSelect,
   } = props;
 
   // =================================== Context ===================================
@@ -404,6 +440,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     locale: locale || legacyLocale,
     direction,
     space,
+    splitter,
     virtual,
     popupMatchSelectWidth: popupMatchSelectWidth ?? dropdownMatchSelectWidth,
     popupOverflow,
@@ -462,7 +499,13 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     dropdown,
     warning: warningConfig,
     tour,
+    tooltip,
+    popover,
+    popconfirm,
     floatButtonGroup,
+    variant,
+    inputNumber,
+    treeSelect,
   };
 
   if (process.env.NODE_ENV !== 'production') {

@@ -11,15 +11,8 @@ const App: React.FC = () => {
     setFormLayout(layout);
   };
 
-  const formItemLayout =
-    formLayout === 'horizontal' ? { labelCol: { span: 4 }, wrapperCol: { span: 14 } } : null;
-
-  const buttonItemLayout =
-    formLayout === 'horizontal' ? { wrapperCol: { span: 14, offset: 4 } } : null;
-
   return (
     <Form
-      {...formItemLayout}
       layout={formLayout}
       form={form}
       initialValues={{ layout: formLayout }}
@@ -39,7 +32,7 @@ const App: React.FC = () => {
       <Form.Item label="Field B">
         <Input placeholder="input placeholder" />
       </Form.Item>
-      <Form.Item {...buttonItemLayout}>
+      <Form.Item>
         <Button type="primary">Submit</Button>
       </Form.Item>
     </Form>

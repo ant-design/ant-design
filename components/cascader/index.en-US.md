@@ -12,7 +12,7 @@ demo:
 ## When To Use
 
 - When you need to select from a set of associated data set. Such as province/city/district, company level, things classification.
-- When selecting from a large data set, with multi-stage classification separated for easy selection.
+- When selecting from a large data set, with multi-stage classifications separated for easy selection.
 - Chooses cascade items in one float layer for better user experience.
 
 ## Examples
@@ -31,12 +31,13 @@ demo:
 <code src="./demo/search.tsx">Search</code>
 <code src="./demo/lazy.tsx">Load Options Lazily</code>
 <code src="./demo/fields-name.tsx">Custom Field Names</code>
-<code src="./demo/suffix.tsx" debug>Custom Icons</code>
+<code src="./demo/suffix.tsx" version="5.22.0">Prefix and Suffix</code>
 <code src="./demo/custom-dropdown.tsx">Custom dropdown</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/panel.tsx" version=">= 5.10.0">Panel</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 
@@ -51,7 +52,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | allowClear | Show clear button | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: Support object type |
 | autoClearSearchValue | Whether the current search will be cleared on selecting an item. Only applies when `multiple` is `true` | boolean | true | 5.9.0 |
 | autoFocus | If get focus when component mounted | boolean | false |  |
-| changeOnSelect | (Work on single select) Change value on each selection if set to true, see above demo for details | boolean | false |  |
+| changeOnSelect | Change value on each selection if set to true, see above demo for details | boolean | false |  |
 | className | The additional css class | string | - |  |
 | defaultValue | Initial selected value | string\[] \| number\[] | \[] |  |
 | disabled | Whether disabled select | boolean | false |  |
@@ -67,11 +68,12 @@ Common props ref：[Common props](/docs/react/common-props)
 | maxTagCount | Max tag count to show. `responsive` will cost render performance | number \| `responsive` | - | 4.17.0 |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode \| function(omittedValues) | - | 4.17.0 |
 | maxTagTextLength | Max tag text length to show | number | - | 4.17.0 |
-| notFoundContent | Specify content to show when no result matches | string | `Not Found` |  |
+| notFoundContent | Specify content to show when no result matches | ReactNode | `Not Found` |  |
 | open | Set visible of cascader popup | boolean | - | 4.17.0 |
 | options | The data options of cascade | [Option](#option)\[] | - |  |
-| placeholder | The input placeholder | string | `Please select` |  |
+| placeholder | The input placeholder | string | - |  |
 | placement | Use preset popup align config from builtinPlacements | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 |
+| prefix | The custom prefix | ReactNode | - | 5.22.0 |
 | showSearch | Whether show search input in single mode | boolean \| [Object](#showsearch) | false |  |
 | size | The input size | `large` \| `middle` \| `small` | - |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |

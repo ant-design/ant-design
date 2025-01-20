@@ -7,13 +7,13 @@ const App: React.FC = () => (
     <FloatButton
       shape="circle"
       type="primary"
-      style={{ right: 94 }}
+      style={{ insetInlineEnd: 94 }}
       icon={<CustomerServiceOutlined />}
     />
     <FloatButton
       shape="square"
       type="primary"
-      style={{ right: 24 }}
+      style={{ insetInlineEnd: 24 }}
       icon={<CustomerServiceOutlined />}
     />
   </>

@@ -12,6 +12,12 @@ const useStyle = createStyles(({ token, css, cx }) => {
     color: ${token.colorTextTertiary};
     font-size: ${token.fontSizeSM}px;
   `;
+  const weekend = css`
+    color: ${token.colorError};
+    &.gray {
+      opacity: 0.4;
+    }
+  `;
   return {
     wrapper: css`
       width: 450px;
@@ -24,15 +30,15 @@ const useStyle = createStyles(({ token, css, cx }) => {
       &:before {
         content: '';
         position: absolute;
-        left: 0;
-        right: 0;
+        inset-inline-start: 0;
+        inset-inline-end: 0;
         top: 0;
         bottom: 0;
         margin: auto;
         max-width: 40px;
         max-height: 40px;
         background: transparent;
-        transition: background 300ms;
+        transition: background-color 300ms;
         border-radius: ${token.borderRadiusOuter}px;
         border: 1px solid transparent;
         box-sizing: border-box;
@@ -64,6 +70,9 @@ const useStyle = createStyles(({ token, css, cx }) => {
         color: ${token.colorTextLightSolid};
         opacity: 0.9;
       }
+      .${cx(weekend)} {
+        color: ${token.colorTextLightSolid};
+      }
     `,
     monthCell: css`
       width: 120px;
@@ -82,12 +91,7 @@ const useStyle = createStyles(({ token, css, cx }) => {
         opacity: 0.8;
       }
     `,
-    weekend: css`
-      color: ${token.colorError};
-      &.gray {
-        opacity: .4
-      }
-    `,
+    weekend,
   };
 });
 
@@ -117,7 +121,7 @@ const App: React.FC = () => {
     const displayHoliday = h?.getTarget() === h?.getDay() ? h?.getName() : undefined;
     if (info.type === 'date') {
       return React.cloneElement(info.originNode, {
-        ...info.originNode.props,
+        ...(info.originNode as React.ReactElement<any>).props,
         className: classNames(styles.dateCell, {
           [styles.current]: selectDate.isSame(date, 'date'),
           [styles.today]: date.isSame(dayjs(), 'date'),
@@ -209,7 +213,7 @@ const App: React.FC = () => {
               <Col>
                 <Select
                   size="small"
-                  dropdownMatchSelectWidth={false}
+                  popupMatchSelectWidth={false}
                   className="my-year-select"
                   value={year}
                   options={options}
@@ -222,7 +226,7 @@ const App: React.FC = () => {
               <Col>
                 <Select
                   size="small"
-                  dropdownMatchSelectWidth={false}
+                  popupMatchSelectWidth={false}
                   value={month}
                   options={monthOptions}
                   onChange={(newMonth) => {

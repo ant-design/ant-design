@@ -6,6 +6,14 @@ const { Text, Paragraph } = Typography;
 const templateStr =
   'In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.';
 
+const text = `this is a multiline
+  text that has many
+  lines and 
+    - render like this
+    - and this
+    
+  and that`;
+
 const App: React.FC = () => {
   const [rows, setRows] = useState(1);
   const [longText, setLongText] = useState(true);
@@ -90,6 +98,16 @@ const App: React.FC = () => {
         <span style={{ fontSize: '5em' }}>ANTD</span>
         {templateStr.slice(60)}
       </Typography.Paragraph>
+
+      <pre>
+        <Typography.Paragraph ellipsis={{ rows: 2, expandable: true }}>{text}</Typography.Paragraph>
+      </pre>
+
+      <br />
+
+      <Text style={{ width: 100, whiteSpace: 'nowrap' }} ellipsis copyable>
+        {templateStr}
+      </Text>
     </>
   );
 };

@@ -7,7 +7,7 @@ const App: React.FC = () => (
     <FloatButton.Group
       trigger="click"
       type="primary"
-      style={{ right: 24 }}
+      style={{ insetInlineEnd: 24 }}
       icon={<CustomerServiceOutlined />}
     >
       <FloatButton />
@@ -16,7 +16,7 @@ const App: React.FC = () => (
     <FloatButton.Group
       trigger="hover"
       type="primary"
-      style={{ right: 94 }}
+      style={{ insetInlineEnd: 94 }}
       icon={<CustomerServiceOutlined />}
     >
       <FloatButton />

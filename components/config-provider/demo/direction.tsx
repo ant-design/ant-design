@@ -313,15 +313,7 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
                 <Select defaultValue="مورچه" style={{ width: 120 }} loading>
                   <Option value="مورچه">مورچه</Option>
                 </Select>
-                <Select
-                  showSearch
-                  style={{ width: 200 }}
-                  placeholder="Select a person"
-                  optionFilterProp="children"
-                  filterOption={(input, option) =>
-                    option?.props.children.toLowerCase().includes(input.toLowerCase())
-                  }
-                >
+                <Select showSearch style={{ width: 200 }} placeholder="Select a person">
                   <Option value="jack">Jack</Option>
                   <Option value="سعید">سعید</Option>
                   <Option value="tom">Tom</Option>
@@ -414,7 +406,10 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
               <Rate defaultValue={2.5} />
               <br />
               <strong>* Note:</strong> Half star not implemented in RTL direction, it will be
-              supported after <a href="https://github.com/react-component/rate">rc-rate</a>{' '}
+              supported after{' '}
+              <a href="https://github.com/react-component/rate" target="_blank" rel="noreferrer">
+                rc-rate
+              </a>{' '}
               implement rtl support.
             </Col>
             <Col span={12}>
@@ -500,17 +495,13 @@ const App: React.FC = () => {
   const changeDirection = (e: RadioChangeEvent) => {
     const directionValue = e.target.value;
     setDirection(directionValue);
-    if (directionValue === 'rtl') {
-      setPlacement('bottomRight');
-    } else {
-      setPlacement('bottomLeft');
-    }
+    setPlacement(directionValue === 'rtl' ? 'bottomRight' : 'bottomLeft');
   };
 
   return (
     <>
       <div style={{ marginBottom: 16 }}>
-        <span style={{ marginRight: 16 }}>Change direction of components:</span>
+        <span style={{ marginInlineEnd: 16 }}>Change direction of components:</span>
         <Radio.Group defaultValue="ltr" onChange={changeDirection}>
           <Radio.Button key="ltr" value="ltr">
             LTR

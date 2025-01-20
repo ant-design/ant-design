@@ -1,6 +1,7 @@
 import type React from 'react';
 
 import type { BadgeProps } from '../badge';
+import type { ButtonHTMLType } from '../button';
 import type { TooltipProps } from '../tooltip';
 
 export type FloatButtonElement = HTMLAnchorElement & HTMLButtonElement;
@@ -30,7 +31,12 @@ export interface FloatButtonProps extends React.DOMAttributes<FloatButtonElement
   href?: string;
   target?: React.HTMLAttributeAnchorTarget;
   badge?: FloatButtonBadgeProps;
-  ['aria-label']?: React.HtmlHTMLAttributes<HTMLElement>['aria-label'];
+  /**
+   * @since 5.21.0
+   * @default button
+   */
+  htmlType?: ButtonHTMLType;
+  'aria-label'?: React.HtmlHTMLAttributes<HTMLElement>['aria-label'];
 }
 
 export interface FloatButtonContentProps extends React.DOMAttributes<HTMLDivElement> {
@@ -49,6 +55,8 @@ export interface FloatButtonGroupProps extends FloatButtonProps {
   open?: boolean;
   // 关闭按钮自定义图标
   closeIcon?: React.ReactNode;
+  // 菜单弹出方向
+  placement?: 'top' | 'left' | 'right' | 'bottom';
   // 展开收起的回调
   onOpenChange?: (open: boolean) => void;
 }

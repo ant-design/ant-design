@@ -9,7 +9,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 
 ## When To Use
 
-- When need to display a title or paragraph contents in Articles/Blogs/Notes.
+- When you need to display a title or paragraph contents in Articles/Blogs/Notes.
 - When you need copyable/editable/ellipsis texts.
 
 ## Examples
@@ -37,11 +37,11 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | code | Code style | boolean | false |  |
-| copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false | [copyable](#copyable) |
+| copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false |  |
 | delete | Deleted line style | boolean | false |  |
 | disabled | Disabled content | boolean | false |  |
-| editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false | [editable](#editable) |
-| ellipsis | Display ellipsis when text overflows, can't configure expandable、rows and onExpand by using object. Diff with Typography.Paragraph, Text do not have 100% width style which means it will fix width on the first ellipsis. If you want to have responsive ellipsis, please set width manually | boolean \| [Omit<ellipsis, 'expandable' \| 'rows' \| 'onExpand'>](#ellipsis) | false | [ellipsis](#ellipsis) |
+| editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false |  |
+| ellipsis | Display ellipsis when text overflows, can't configure expandable、rows and onExpand by using object. Diff with Typography.Paragraph, Text do not have 100% width style which means it will fix width on the first ellipsis. If you want to have responsive ellipsis, please set width manually | boolean \| [Omit<ellipsis, 'expandable' \| 'rows' \| 'onExpand'>](#ellipsis) | false |  |
 | keyboard | Keyboard style | boolean | false | 4.3.0 |
 | mark | Marked style | boolean | false |  |
 | onClick | Set the handler to handle click event | (event) => void | - |  |
@@ -55,11 +55,11 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | code | Code style | boolean | false |  |
-| copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false | [copyable](#copyable) |
+| copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false |  |
 | delete | Deleted line style | boolean | false |  |
 | disabled | Disabled content | boolean | false |  |
-| editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false | [editable](#editable) |
-| ellipsis | Display ellipsis when text overflows, can configure rows and expandable by using object | boolean \| [ellipsis](#ellipsis) | false | [ellipsis](#ellipsis) |
+| editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false |  |
+| ellipsis | Display ellipsis when text overflows, can configure rows and expandable by using object | boolean \| [ellipsis](#ellipsis) | false |  |
 | level | Set content importance. Match with `h1`, `h2`, `h3`, `h4`, `h5` | number: 1, 2, 3, 4, 5 | 1 | 5: 4.6.0 |
 | mark | Marked style | boolean | false |  |
 | onClick | Set the handler to handle click event | (event) => void | - |  |
@@ -72,11 +72,11 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | code | Code style | boolean | false |  |
-| copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false | [copyable](#copyable) |
+| copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false |  |
 | delete | Deleted line style | boolean | false |  |
 | disabled | Disabled content | boolean | false |  |
-| editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false | [editable](#editable) |
-| ellipsis | Display ellipsis when text overflows, can configure rows and expandable by using object | boolean \| [ellipsis](#ellipsis) | false | [ellipsis](#ellipsis) |
+| editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false |  |
+| ellipsis | Display ellipsis when text overflows, can configure rows and expandable by using object | boolean \| [ellipsis](#ellipsis) | false |  |
 | mark | Marked style | boolean | false |  |
 | onClick | Set the handler to handle click event | (event) => void | - |  |
 | strong | Bold style | boolean | false |  |
@@ -108,7 +108,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
     {
       icon: ReactNode,
-      tooltip: boolean | ReactNode,
+      tooltip: ReactNode,
       editing: boolean,
       maxLength: number,
       autoSize: boolean | { minRows: number, maxRows: number },
@@ -148,7 +148,7 @@ interface EllipsisConfig {
   suffix: string;
   /** render function added in `5.16.0` */
   symbol: ReactNode | ((expanded: boolean) => ReactNode);
-  tooltip: boolean | ReactNode | TooltipProps;
+  tooltip: ReactNode | TooltipProps;
   /** added in `5.16.0` */
   defaultExpanded: boolean;
   /** added in `5.16.0` */

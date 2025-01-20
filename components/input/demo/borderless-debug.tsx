@@ -13,6 +13,12 @@ const App: React.FC = () => (
     <Input prefix="￥" suffix="RMB" variant="borderless" />
     <Input prefix="￥" suffix="RMB" disabled variant="borderless" />
     <TextArea allowClear style={{ border: '2px solid #000' }} />
+
+    {/* status */}
+    <Input defaultValue="error" variant="borderless" status="error" />
+    <Input defaultValue="warning" variant="borderless" status="warning" />
+    <Input prefix="$" defaultValue="error" variant="borderless" status="error" />
+    <Input prefix="$" defaultValue="warning" variant="borderless" status="warning" />
   </div>
 );
 

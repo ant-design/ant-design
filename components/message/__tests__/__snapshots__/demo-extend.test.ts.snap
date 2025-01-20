@@ -79,7 +79,7 @@ exports[`renders components/message/demo/component-token.tsx extend context corr
 
 exports[`renders components/message/demo/custom-style.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-default"
+  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
   type="button"
 >
   <span>
@@ -92,7 +92,7 @@ exports[`renders components/message/demo/custom-style.tsx extend context correct
 
 exports[`renders components/message/demo/duration.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-default"
+  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
   type="button"
 >
   <span>
@@ -105,7 +105,7 @@ exports[`renders components/message/demo/duration.tsx extend context correctly 2
 
 exports[`renders components/message/demo/hooks.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -118,7 +118,7 @@ exports[`renders components/message/demo/hooks.tsx extend context correctly 2`] 
 
 exports[`renders components/message/demo/info.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -131,7 +131,7 @@ exports[`renders components/message/demo/info.tsx extend context correctly 2`] =
 
 exports[`renders components/message/demo/loading.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-default"
+  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
   type="button"
 >
   <span>
@@ -150,7 +150,7 @@ exports[`renders components/message/demo/other.tsx extend context correctly 1`] 
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -162,7 +162,7 @@ exports[`renders components/message/demo/other.tsx extend context correctly 1`] 
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -174,7 +174,7 @@ exports[`renders components/message/demo/other.tsx extend context correctly 1`] 
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -229,7 +229,7 @@ exports[`renders components/message/demo/render-panel.tsx extend context correct
 
 exports[`renders components/message/demo/thenable.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-default"
+  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
   type="button"
 >
   <span>
@@ -242,7 +242,7 @@ exports[`renders components/message/demo/thenable.tsx extend context correctly 2
 
 exports[`renders components/message/demo/update.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>

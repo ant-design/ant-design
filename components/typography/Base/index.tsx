@@ -1,16 +1,16 @@
 import * as React from 'react';
+import type { JSX } from 'react';
 import EditOutlined from '@ant-design/icons/EditOutlined';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import type { AutoSizeType } from 'rc-textarea';
 import toArray from 'rc-util/lib/Children/toArray';
-import useIsomorphicLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
+import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 import { composeRef } from 'rc-util/lib/ref';
 
 import { isStyleSupport } from '../../_util/styleChecker';
-import TransButton from '../../_util/transButton';
 import { ConfigContext } from '../../config-provider';
 import useLocale from '../../locale/useLocale';
 import type { TooltipProps } from '../../tooltip';
@@ -18,19 +18,20 @@ import Tooltip from '../../tooltip';
 import Editable from '../Editable';
 import useCopyClick from '../hooks/useCopyClick';
 import useMergedConfig from '../hooks/useMergedConfig';
-import useUpdatedEffect from '../hooks/useUpdatedEffect';
 import usePrevious from '../hooks/usePrevious';
+import useTooltipProps from '../hooks/useTooltipProps';
 import type { TypographyProps } from '../Typography';
 import Typography from '../Typography';
 import CopyBtn from './CopyBtn';
 import Ellipsis from './Ellipsis';
 import EllipsisTooltip from './EllipsisTooltip';
+import { isEleEllipsis, isValidText } from './util';
 
 export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
 
 export interface CopyConfig {
   text?: string | (() => string | Promise<string>);
-  onCopy?: (event?: React.MouseEvent<HTMLDivElement>) => void;
+  onCopy?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
   icon?: React.ReactNode;
   tooltips?: React.ReactNode;
   format?: 'text/plain' | 'text/html';
@@ -129,7 +130,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const [textLocale] = useLocale('Text');
 
   const typographyRef = React.useRef<HTMLElement>(null);
-  const editIconRef = React.useRef<HTMLDivElement>(null);
+  const editIconRef = React.useRef<HTMLButtonElement>(null);
 
   // ============================ MISC ============================
   const prefixCls = getPrefixCls('typography', customizePrefixCls);
@@ -161,7 +162,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   // Focus edit icon when back
   const prevEditing = usePrevious(editing);
-  useUpdatedEffect(() => {
+  useLayoutEffect(() => {
     if (!editing && prevEditing) {
       editIconRef.current?.focus();
     }
@@ -222,7 +223,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     [mergedEnableEllipsis, ellipsisConfig, enableEdit, enableCopy],
   );
 
-  useIsomorphicLayoutEffect(() => {
+  useLayoutEffect(() => {
     if (enableEllipsis && !needMeasureEllipsis) {
       setIsLineClampSupport(isStyleSupport('webkitLineClamp'));
       setIsTextOverflowSupport(isStyleSupport('textOverflow'));
@@ -245,7 +246,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   // We use effect to change from css ellipsis to js ellipsis.
   // To make SSR still can see the ellipsis.
-  useIsomorphicLayoutEffect(() => {
+  useLayoutEffect(() => {
     setCssEllipsis(canUseCssEllipsis && mergedEnableEllipsis);
   }, [canUseCssEllipsis, mergedEnableEllipsis]);
 
@@ -280,9 +281,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     const textEle = typographyRef.current;
 
     if (enableEllipsis && cssEllipsis && textEle) {
-      const currentEllipsis = cssLineClamp
-        ? textEle.offsetHeight < textEle.scrollHeight
-        : textEle.offsetWidth < textEle.scrollWidth;
+      const currentEllipsis = isEleEllipsis(textEle);
+
       if (isNativeEllipsis !== currentEllipsis) {
         setIsNativeEllipsis(currentEllipsis);
       }
@@ -314,40 +314,13 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   }, [cssEllipsis, mergedEnableEllipsis]);
 
   // ========================== Tooltip ===========================
-  let tooltipProps: TooltipProps = {};
-  if (ellipsisConfig.tooltip === true) {
-    tooltipProps = { title: editConfig.text ?? children };
-  } else if (React.isValidElement(ellipsisConfig.tooltip)) {
-    tooltipProps = { title: ellipsisConfig.tooltip };
-  } else if (typeof ellipsisConfig.tooltip === 'object') {
-    tooltipProps = { title: editConfig.text ?? children, ...ellipsisConfig.tooltip };
-  } else {
-    tooltipProps = { title: ellipsisConfig.tooltip };
-  }
-  const topAriaLabel = React.useMemo(() => {
-    const isValid = (val: any): val is string | number => ['string', 'number'].includes(typeof val);
+  const tooltipProps = useTooltipProps(ellipsisConfig.tooltip, editConfig.text, children);
 
+  const topAriaLabel = React.useMemo(() => {
     if (!enableEllipsis || cssEllipsis) {
       return undefined;
     }
-
-    if (isValid(editConfig.text)) {
-      return editConfig.text;
-    }
-
-    if (isValid(children)) {
-      return children;
-    }
-
-    if (isValid(title)) {
-      return title;
-    }
-
-    if (isValid(tooltipProps.title)) {
-      return tooltipProps.title;
-    }
-
-    return undefined;
+    return [editConfig.text, children, title, tooltipProps.title].find(isValidText);
   }, [enableEllipsis, cssEllipsis, title, tooltipProps.title, isMergedEllipsis]);
 
   // =========================== Render ===========================
@@ -375,24 +348,17 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   // Expand
   const renderExpand = () => {
     const { expandable, symbol } = ellipsisConfig;
-
-    if (!expandable) {
-      return null;
-    }
-    if (expanded && expandable !== 'collapsible') {
-      return null;
-    }
-
-    return (
-      <a
+    return expandable ? (
+      <button
+        type="button"
         key="expand"
         className={`${prefixCls}-${expanded ? 'collapse' : 'expand'}`}
-        onClick={(e) => onExpandClick(e, { expanded: !expanded })}
+        onClick={(e) => onExpandClick(e!, { expanded: !expanded })}
         aria-label={expanded ? textLocale.collapse : textLocale?.expand}
       >
         {typeof symbol === 'function' ? symbol(expanded) : symbol}
-      </a>
-    );
+      </button>
+    ) : null;
   };
 
   // Edit
@@ -408,7 +374,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
     return triggerType.includes('icon') ? (
       <Tooltip key="edit" title={tooltip === false ? '' : editTitle}>
-        <TransButton
+        <button
+          type="button"
           ref={editIconRef}
           className={`${prefixCls}-edit`}
           onClick={onEditClick}
@@ -416,7 +383,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
           tabIndex={tabIndex}
         >
           {icon || <EditOutlined role="button" />}
-        </TransButton>
+        </button>
       </Tooltip>
     ) : null;
   };
@@ -442,7 +409,6 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   };
 
   const renderOperations = (canEllipsis: boolean) => [
-    // (renderExpanded || ellipsisConfig.collapsible) && renderExpand(),
     canEllipsis && renderExpand(),
     renderEdit(),
     renderCopy(),
@@ -472,7 +438,6 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
                 [`${prefixCls}-${type}`]: type,
                 [`${prefixCls}-disabled`]: disabled,
                 [`${prefixCls}-ellipsis`]: enableEllipsis,
-                [`${prefixCls}-single-line`]: mergedEnableEllipsis && rows === 1 && !expanded,
                 [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
                 [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
               },
@@ -498,7 +463,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               width={ellipsisWidth}
               onEllipsis={onJsEllipsis}
               expanded={expanded}
-              miscDeps={[copied, expanded, copyLoading, enableEdit, enableCopy]}
+              miscDeps={[copied, expanded, copyLoading, enableEdit, enableCopy, textLocale]}
             >
               {(node, canEllipsis) =>
                 wrapperDecorations(

@@ -1,4 +1,5 @@
 import React, { Suspense, useCallback, useEffect } from 'react';
+import { Monitoring } from 'react-scan/monitoring';
 import {
   createCache,
   extractStyle,
@@ -12,7 +13,13 @@ import { getSandpackCssText } from '@codesandbox/sandpack-react';
 import { theme as antdTheme, App } from 'antd';
 import type { MappingAlgorithm } from 'antd';
 import type { DirectionType, ThemeConfig } from 'antd/es/config-provider';
-import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
+import {
+  createSearchParams,
+  useOutlet,
+  useParams,
+  useSearchParams,
+  useServerInsertedHTML,
+} from 'dumi';
 
 import { DarkContext } from '../../hooks/useDark';
 import useLayoutState from '../../hooks/useLayoutState';
@@ -21,6 +28,8 @@ import type { ThemeName } from '../common/ThemeSwitch';
 import SiteThemeProvider from '../SiteThemeProvider';
 import type { SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
+
+import '@ant-design/v5-patch-for-react-19';
 
 const ThemeSwitch = React.lazy(() => import('../common/ThemeSwitch'));
 
@@ -34,6 +43,16 @@ export const ANT_DESIGN_NOT_SHOW_BANNER = 'ANT_DESIGN_NOT_SHOW_BANNER';
 // if (typeof global !== 'undefined') {
 //   (global as any).styleCache = styleCache;
 // }
+
+// Compatible with old anchors
+if (typeof window !== 'undefined') {
+  const hashId = location.hash.slice(1);
+  if (hashId.startsWith('components-')) {
+    if (!document.querySelector(`#${hashId}`)) {
+      location.hash = `#${hashId.replace(/^components-/, '')}`;
+    }
+  }
+}
 
 const getAlgorithm = (themes: ThemeName[] = []) =>
   themes
@@ -51,6 +70,7 @@ const getAlgorithm = (themes: ThemeName[] = []) =>
 const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
   const { pathname } = useLocation();
+  const params = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
   const [{ theme = [], direction, isMobile, bannerVisible = false }, setSiteState] =
     useLayoutState<SiteState>({
@@ -59,6 +79,9 @@ const GlobalLayout: React.FC = () => {
       theme: [],
       bannerVisible: false,
     });
+
+  // TODO: This can be remove in v6
+  const useCssVar = searchParams.get('cssVar') !== 'false';
 
   const updateSiteConfig = useCallback(
     (props: SiteState) => {
@@ -140,8 +163,8 @@ const GlobalLayout: React.FC = () => {
     () => ({
       algorithm: getAlgorithm(theme),
       token: { motion: !theme.includes('motion-off') },
-      cssVar: true,
-      hashed: false,
+      cssVar: useCssVar,
+      hashed: !useCssVar,
     }),
     [theme],
   );
@@ -153,6 +176,7 @@ const GlobalLayout: React.FC = () => {
       plain: true,
       types: 'style',
     });
+    // biome-ignore lint/security/noDangerouslySetInnerHtml: only used in .dumi
     return <style data-type="antd-cssinjs" dangerouslySetInnerHTML={{ __html: styleText }} />;
   });
 
@@ -166,6 +190,7 @@ const GlobalLayout: React.FC = () => {
         data-type="antd-css-var"
         data-rc-order="prepend"
         data-rc-priority="-9999"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: only used in .dumi
         dangerouslySetInnerHTML={{ __html: styleText }}
       />
     );
@@ -175,6 +200,7 @@ const GlobalLayout: React.FC = () => {
     <style
       data-sandpack="true"
       id="sandpack"
+      // biome-ignore lint/security/noDangerouslySetInnerHtml: only used in .dumi
       dangerouslySetInnerHTML={{ __html: getSandpackCssText() }}
     />
   ));
@@ -207,7 +233,17 @@ const GlobalLayout: React.FC = () => {
       >
         <SiteContext.Provider value={siteContextValue}>
           <SiteThemeProvider theme={themeConfig}>
-            <HappyProvider disabled={!theme.includes('happy-work')}>{content}</HappyProvider>
+            <HappyProvider disabled={!theme.includes('happy-work')}>
+              {content}
+              <Monitoring
+                apiKey="GhrCCNrHZHXlf4P6E03ntrFwhRLxJL30" // Safe to expose publically
+                url="https://monitoring.react-scan.com/api/v1/ingest"
+                commit={process.env.COMMIT_HASH}
+                branch={process.env.BRANCH}
+                params={params as Record<string, string>}
+                path={pathname}
+              />
+            </HappyProvider>
           </SiteThemeProvider>
         </SiteContext.Provider>
       </StyleProvider>

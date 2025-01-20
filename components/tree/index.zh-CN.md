@@ -25,6 +25,7 @@ demo:
 <code src="./demo/line.tsx">连接线</code>
 <code src="./demo/customized-icon.tsx">自定义图标</code>
 <code src="./demo/directory.tsx">目录</code>
+<code src="./demo/directory-debug.tsx" debug>目录 Debug</code>
 <code src="./demo/switcher-icon.tsx">自定义展开/折叠图标</code>
 <code src="./demo/virtual-scroll.tsx">虚拟滚动</code>
 <code src="./demo/drag-debug.tsx" debug>Drag Debug</code>
@@ -69,6 +70,7 @@ demo:
 | showIcon | 控制是否展示 `icon` 节点，没有默认样式 | boolean | false |  |
 | showLine | 是否展示连接线 | boolean \| { showLeafIcon: ReactNode \| ((props: AntTreeNodeProps) => ReactNode) } | false |  |
 | switcherIcon | 自定义树节点的展开/折叠图标（带有默认 rotate 角度样式） | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |
+| switcherLoadingIcon | 自定义树节点的加载图标 | ReactNode | - | 5.20.0 |
 | titleRender | 自定义渲染节点 | (nodeData) => ReactNode | - | 4.5.0 |
 | treeData | treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（key 在整个树范围内唯一） | array&lt;{key, title, children, \[disabled, selectable]}> | - |  |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |

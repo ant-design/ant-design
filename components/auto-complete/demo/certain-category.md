@@ -17,7 +17,7 @@ Demonstration of [Lookup Patterns: Certain Category](https://ant.design/docs/spe
 }
 
 .certain-category-search-dropdown .ant-select-dropdown-menu-item {
-  padding-left: 16px;
+  padding-inline-start: 16px;
 }
 
 .certain-category-search-dropdown .ant-select-dropdown-menu-item.show-all {
