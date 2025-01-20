@@ -29,7 +29,7 @@ You can choose one of the following methods, and it is recommended to use the co
 Install the compatibility package
 
 ```bash
-npm install --save-dev @ant-design/v5-patch-for-react-19
+npm install @ant-design/v5-patch-for-react-19
 ```
 
 Import the compatibility package at the application entry
