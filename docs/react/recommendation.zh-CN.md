@@ -39,7 +39,7 @@ title: 社区精选组件
 | 图片裁切 | [antd-img-crop](https://github.com/nanxiaobei/antd-img-crop) [react-image-crop](https://github.com/DominicTobias/react-image-crop) |
 | 关键字高亮 | [react-highlight-words](https://github.com/bvaughn/react-highlight-words) |
 | 文字轮播 | [react-text-loop-next](https://github.com/samarmohan/react-text-loop-next) [react-fast-marquee](https://github.com/justin-chu/react-fast-marquee) |
-| 动画 | [framer-motion](https://github.com/framer/motion) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://github.com/pmndrs/react-spring) |
+| 动画 | [motion](https://github.com/framer/motion) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://github.com/pmndrs/react-spring) |
 | 页脚 | [rc-footer](https://github.com/react-component/footer) |
 | 数字/金额 | [react-number-format](https://github.com/s-yadav/react-number-format) [react-currency-input-field](https://github.com/cchanxzy/react-currency-input-field) |
 | 移动端探测 | [react-device-detect](https://github.com/duskload/react-device-detect) |
@@ -48,6 +48,7 @@ title: 社区精选组件
 | 电话输入 | [react-phone-number-input](https://gitlab.com/catamphetamine/react-phone-number-input) [antd-phone-input](https://github.com/ArtyomVancyan/antd-phone-input/) |
 | AI 对话界面 | [pro-chat](https://github.com/ant-design/pro-chat) |
 | PDF | [react-pdf](https://github.com/diegomura/react-pdf) [@react-pdf/renderer](https://github.com/diegomura/react-pdf) |
+| React 手势库 | [use-gesture](https://use-gesture.netlify.app) |
 
 ## 推荐产品 ✨
 
