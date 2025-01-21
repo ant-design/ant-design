@@ -6,7 +6,7 @@ const App: React.FC = () => (
   <ConfigProvider
     theme={{
       components: {
-        Tag: { defaultBg: '#f9f0ff', defaultColor: '#4b34d3', colorBorderDisabled: '#4a4a4a' },
+        Tag: { defaultBg: '#f9f0ff', defaultColor: '#4b34d3', colorBorderDisabled: '#FF0000' },
       },
     }}
   >
