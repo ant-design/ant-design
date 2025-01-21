@@ -112,7 +112,15 @@ export function accessibilityTest(Component: React.ComponentType, disabledRules?
 }
 
 type Options = {
+  /**
+   * 跳过测试
+   * @default false
+   */
   skip?: boolean | string[];
+  /**
+   * 禁用axe规则检查
+   * @default []
+   */
   disabledRules?: string[];
 };
 
