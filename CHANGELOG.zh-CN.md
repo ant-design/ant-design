@@ -15,15 +15,50 @@ tag: vVERSION
 
 ---
 
+## 5.23.2
+
+`2025-01-20`
+
+- 🐞 修复 Space.Compact 抛出 `Should not use more than one & in a selector` 警告信息的问题。[#52489](https://github.com/ant-design/ant-design/pull/52489)
+- 💄 修复 Layout 切换侧边栏按钮样式丢失的问题。[#52477](https://github.com/ant-design/ant-design/pull/52477)
+- 💄 修复 Table 收起虚拟滚动表格第一行时滚动条高度不为 0 的问题。[#52447](https://github.com/ant-design/ant-design/pull/52447) [@LeeSSHH](https://github.com/LeeSSHH)
+- 💄 修复 Descriptions 最后一项未正确填充满剩余空间的问题。[#52410](https://github.com/ant-design/ant-design/pull/52410) [@anyuxuan](https://github.com/anyuxuan)
+- 💄 修复 Radio.Group 最后一项多余 margin 的问题。[#52433](https://github.com/ant-design/ant-design/pull/52433)
+- 💄 修复 Input/Mentions 清除按钮 padding 不正确的问题。[#52407](https://github.com/ant-design/ant-design/pull/52407) [@ustcfury](https://github.com/ustcfury)
+- 💄 修复 Input 紧凑模式中 `addonAfter` 的圆角问题。[#52490](https://github.com/ant-design/ant-design/pull/52490) [@DDDDD12138](https://github.com/DDDDD12138)
+- 💄 修复 Menu.Item 在禁用状态下链接仍可点击且缺少禁用样式的问题。[#52402](https://github.com/ant-design/ant-design/pull/52402) [@aojunhao123](https://github.com/aojunhao123)
+- TypeScript
+  - 🤖 MISC: 优化 PurePanel 使用 React.ComponentType 类型。[#52480](https://github.com/ant-design/ant-design/pull/52480)
+  - 🤖 修复 Skeleton 和 Rate 缺失的 token 类型。[#52406](https://github.com/ant-design/ant-design/pull/52406) [@coding-ice](https://github.com/coding-ice)
+
+## 5.23.1
+
+`2025-01-13`
+
+- 🆕 新增 Tree 组件叶子节点的 className 用于区分节点类型。[#52274](https://github.com/ant-design/ant-design/pull/52274) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 修复 DatePicker `superPrevIcon/superNextIcon/prevIcon/nextIcon` 设置为 null 时切换按钮依旧存在的问题。[#52327](https://github.com/ant-design/ant-design/pull/52327) [@afc163](https://github.com/afc163)
+- 🐞 修复 Select 组件在 jest 测试中报错 `not a valid selector` 的问题。[#51844](https://github.com/ant-design/ant-design/pull/51844) [@renovate](https://github.com/renovate)
+- 🐞 修复 Layout.Sider 直接嵌套在 ConfigProvider 下时，`theme` 配置无效的问题。[#52302](https://github.com/ant-design/ant-design/pull/52302) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Splitter 二次展开时丢失上一次状态的问题。[#52222](https://github.com/ant-design/ant-design/pull/52222) [@jjlstruggle](https://github.com/jjlstruggle)
+- 🐞 修复 Table 树形展示且设置 `checkStrictly` 为 false 时，某些行被错误选中的问题。[#52338](https://github.com/ant-design/ant-design/pull/52338) [@LeeSSHH](https://github.com/LeeSSHH)
+- Button
+  - 🐞 调整 Button 纯图标的大小从而修复按钮对齐和图标居中问题。[#52353](https://github.com/ant-design/ant-design/pull/52353) [@afc163](https://github.com/afc163)
+  - 💄 修复 Button 丢失阴影样式的问题。[#52304](https://github.com/ant-design/ant-design/pull/52304) [@zombieJ](https://github.com/zombieJ)
+- RTL
+  - 💄 修复 Collapse 在 RTL 模式下的箭头方向。[#52374](https://github.com/ant-design/ant-design/pull/52374) [@aojunhao123](https://github.com/aojunhao123)
+  - 💄 修复 Layout.Sider 在 RTL 模式下的箭头方向。[#52374](https://github.com/ant-design/ant-design/pull/52374) [@aojunhao123](https://github.com/aojunhao123)
+
 ## 5.23.0
 
-`2024-01-06`
+`2025-01-06`
 
 - 🔥 TreeSelect 新增 `maxCount` 属性以限制最大选择数量。[#51759](https://github.com/ant-design/ant-design/pull/51759) [@aojunhao123](https://github.com/aojunhao123)
 - 🔥 Modal `width` 支持响应式尺寸。[#51653](https://github.com/ant-design/ant-design/pull/51653) [@zombieJ](https://github.com/zombieJ)
 - 🔥 Splitter 增加 `lazy` 模式。[#51557](https://github.com/ant-design/ant-design/pull/51557) [@OysterD3](https://github.com/OysterD3)
-- 🔥 Button `color` 属性支持完整色板。[#51550](https://github.com/ant-design/ant-design/pull/51550) [@OysterD3](https://github.com/OysterD3) <img width="520" alt="Button Colors" src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*ApyYQpXQQfgAAAAAAAAAAAAADgCCAQ/original">
-- 🆕 Button 组件新增 `loadingIcon` 以自定义加载图标。[#51758](https://github.com/ant-design/ant-design/pull/51758) [@zhangchao-wooc](https://github.com/zhangchao-wooc)
+- Button
+  - 🔥 Button `color` 属性支持完整色板。[#51550](https://github.com/ant-design/ant-design/pull/51550) [@OysterD3](https://github.com/OysterD3)
+  <img width="520" alt="Button Colors" src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*ApyYQpXQQfgAAAAAAAAAAAAADgCCAQ/original">
+  - 🆕 Button 组件新增 `loading={{ icon: ReactNode }}` 以自定义加载图标。[#51758](https://github.com/ant-design/ant-design/pull/51758) [@zhangchao-wooc](https://github.com/zhangchao-wooc)
 - Menu
   - 🆕 Menu 新增 token `subMenuItemSelectedColor`，避免 `itemSelectedColor` 覆盖子菜单标题样式。[#52182](https://github.com/ant-design/ant-design/pull/52182) [@afc163](https://github.com/afc163)
   - 🐞 修复 Menu `extra` 字体大小和垂直居中对齐问题。[#52217](https://github.com/ant-design/ant-design/pull/52217) [@guoyunhe](https://github.com/guoyunhe)
@@ -43,7 +78,7 @@ tag: vVERSION
 - 🆕 Card 增加 `bodyPaddingSM`、`headerPaddingSM`、`bodyPadding`、`headerPadding` 组件 token。[#51762](https://github.com/ant-design/ant-design/pull/51762) [@thinkasany](https://github.com/thinkasany)
 - 🆕 ColorPicker `presets` 支持传入 `key`。[#51794](https://github.com/ant-design/ant-design/pull/51794) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 Cascader 新增 `optionSelectedColor` token。[#51769](https://github.com/ant-design/ant-design/pull/51769) [@thinkasany](https://github.com/thinkasany)
-- 🐞 修复 Layout.Sider `trigger` 样式不正确的问题。[46a8eff](https://github.com/ant-design/ant-design/commit/46a8eff) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 修复 Layout.Sider `trigger` 样式不正确的问题。[#46a8eff](https://github.com/ant-design/ant-design/commit/46a8eff) [@Wxh16144](https://github.com/Wxh16144)
 - Table
   - 🐞 修复 Table `expandable` 中设置 `fixed：right` 不生效的问题。[#52176](https://github.com/ant-design/ant-design/pull/52176) [@afc163](https://github.com/afc163)
   - 🐞 修复 Table `sticky` 模式下水平固定滚动条在 rtl 模式下不生效的问题。[#52176](https://github.com/ant-design/ant-design/pull/52176) [@afc163](https://github.com/afc163)
@@ -52,7 +87,7 @@ tag: vVERSION
 - 🐞 修复 Slider 当 `tipFormatter` 未定义时导致崩溃的问题。[#52184](https://github.com/ant-design/ant-design/pull/52184) [@thinkasany](https://github.com/thinkasany)
 - 💄 优化 Collapse 聚焦样式以及折叠项圆角。[#52086](https://github.com/ant-design/ant-design/pull/52086) [@aojunhao123](https://github.com/aojunhao123)
 - ⌨️ 为 Radio.Group 添加默认 `name` 属性以提升无障碍体验。[#52076](https://github.com/ant-design/ant-design/pull/52076) [@aojunhao123](https://github.com/aojunhao123)
-- ⌨️ Input.Search添加默认 `type=search` 类型。[#52083](https://github.com/ant-design/ant-design/pull/52083) [@Kaikiat1126](https://github.com/Kaikiat1126)
+- ⌨️ Input.Search 添加默认 `type=search` 类型。[#52083](https://github.com/ant-design/ant-design/pull/52083) [@Kaikiat1126](https://github.com/Kaikiat1126)
 - ⌨️ 优化 Tabs 键盘操作时的焦点样式。[#52002](https://github.com/ant-design/ant-design/pull/52002) [@aojunhao123](https://github.com/aojunhao123)
 - Segmented
   - ⌨️ 优化 Segmented 聚焦样式以提升无障碍体验。[#51934](https://github.com/ant-design/ant-design/pull/51934) [@aojunhao123](https://github.com/aojunhao123)
@@ -278,17 +313,21 @@ tag: vVERSION
 
 `2024-09-22`
 
-- 🔥 **全新 Splitter 区域分割组件**，自由拖拽调整区域大小。[#50038](https://github.com/ant-design/ant-design/pull/50038) [@wanpan11](https://github.com/wanpan11) <img width="520" alt="Splitter" src="https://github.com/user-attachments/assets/25fc4e3c-1aa5-41bb-8f39-f34f7149e0f6">
+- 🔥 **全新 Splitter 区域分割组件**，自由拖拽调整区域大小。[#50038](https://github.com/ant-design/ant-design/pull/50038) [@wanpan11](https://github.com/wanpan11)
+  <img width="520" alt="Splitter" src="https://github.com/user-attachments/assets/25fc4e3c-1aa5-41bb-8f39-f34f7149e0f6">
 - Button
-  - 🔥 Button 支持 `variant` 变体和 `color` 颜色属性，以支持更多组合样式。[#50051](https://github.com/ant-design/ant-design/pull/50051) [@coding-ice](https://github.com/coding-ice) <img width="420" alt="Button" src="https://github.com/user-attachments/assets/cd5cb7fb-25e8-445f-b217-7fdd4ae0f9b4">
+  - 🔥 Button 支持 `variant` 变体和 `color` 颜色属性，以支持更多组合样式。[#50051](https://github.com/ant-design/ant-design/pull/50051) [@coding-ice](https://github.com/coding-ice)
+  <img width="420" alt="Button" src="https://github.com/user-attachments/assets/cd5cb7fb-25e8-445f-b217-7fdd4ae0f9b4">
   - 💄 Button 添加 `textColor`、`textHoverColor` 和 `textActiveColor` 三个 token。[#47870](https://github.com/ant-design/ant-design/pull/47870) [@madocto](https://github.com/madocto)
 - FloatButton
-  - 🆕 FloatButton 组件支持 `placement` 属性，支持从四个方向弹出菜单。（实现方式改为 `position: absolute` + flex 布局，可能会对你现有的布局造成 breaking change，请注意兼容）[#50407](https://github.com/ant-design/ant-design/pull/50407) [@li-jia-nan](https://github.com/li-jia-nan) <img width="300" alt="float button" src="https://github.com/user-attachments/assets/4b53c0f6-7bdd-4e2a-91cc-2fb804f6e6d3" />
+  - 🆕 FloatButton 组件支持 `placement` 属性，支持从四个方向弹出菜单。（实现方式改为 `position: absolute` + flex 布局，可能会对你现有的布局造成 breaking change，请注意兼容）[#50407](https://github.com/ant-design/ant-design/pull/50407) [@li-jia-nan](https://github.com/li-jia-nan)
+  <img width="300" alt="float button" src="https://github.com/user-attachments/assets/4b53c0f6-7bdd-4e2a-91cc-2fb804f6e6d3" />
   - 💄 统一 FloatButton 和 FloatButton.Group 的按钮圆角。[#50513](https://github.com/ant-design/ant-design/pull/50513) [@Layouwen](https://github.com/Layouwen)
   - 💄 FloatButton 组件的 `z-index` 加入 `useZIndex` 管理，兼容弹层类组件。[#50311](https://github.com/ant-design/ant-design/pull/50311) [@li-jia-nan](https://github.com/li-jia-nan)
   - 🆕 FloatButton 支持传入 `htmlType` 属性。[#50892](https://github.com/ant-design/ant-design/pull/50892) [@li-jia-nan](https://github.com/li-jia-nan)
 - Menu
-  - 🆕 Menu.Item 和 Dropdown 的 menu 支持 `extra` 属性。[#50431](https://github.com/ant-design/ant-design/pull/50431) [@coding-ice](https://github.com/coding-ice) <img width="259" alt="menu extra" src="https://github.com/user-attachments/assets/fee57c43-b948-4f98-8a6b-0d94094a8a65">
+  - 🆕 Menu.Item 和 Dropdown 的 menu 支持 `extra` 属性。[#50431](https://github.com/ant-design/ant-design/pull/50431) [@coding-ice](https://github.com/coding-ice)
+  <img width="259" alt="menu extra" src="https://github.com/user-attachments/assets/fee57c43-b948-4f98-8a6b-0d94094a8a65">
   - 🐞 修复 Menu `popupStyle` 在 SubMenu 上失效的问题。[#50922](https://github.com/ant-design/ant-design/pull/50922) [@Wxh16144](https://github.com/Wxh16144)
 - Table
   - 🆕 Table 列支持配置 `minWidth` 属性。[#50416](https://github.com/ant-design/ant-design/pull/50416) [@linxianxi](https://github.com/linxianxi)
@@ -319,7 +358,8 @@ tag: vVERSION
   - 💄 Select 组件新增一些 token 以支持自定义 hover 和 focus 样式。[#50951](https://github.com/ant-design/ant-design/pull/50951) [@kiner-tang](https://github.com/kiner-tang)
   - 🐞 修复 Select 搜索模式下搜索词内容覆盖右侧图标的问题。[#50917](https://github.com/ant-design/ant-design/pull/50917) [@yezhonghu0503](https://github.com/yezhonghu0503)
   - 🐞 修复 Select 同时启用 `allowClear` 和 `variant="filled"` 时清除图标多余的白色背景的问题。[#50916](https://github.com/ant-design/ant-design/pull/50916) [@thinkasany](https://github.com/thinkasany)
-- 🆕 Segmented 新增 `vertical` 属性以支持垂直模式，并优化了可访问性。[#50708](https://github.com/ant-design/ant-design/pull/50708) [@liangchaofei](https://github.com/liangchaofei) <img width="72" alt="Segmented vertical demo" src="https://github.com/user-attachments/assets/c1b0f971-9966-48d4-b641-4fd476c59513">
+- 🆕 Segmented 新增 `vertical` 属性以支持垂直模式，并优化了可访问性。[#50708](https://github.com/ant-design/ant-design/pull/50708) [@liangchaofei](https://github.com/liangchaofei)
+  <img width="72" alt="Segmented vertical demo" src="https://github.com/user-attachments/assets/c1b0f971-9966-48d4-b641-4fd476c59513">
 - 🆕 Radio.Group 支持 `block` 属性以撑满一行。[#50828](https://github.com/ant-design/ant-design/pull/50828) [@yuanliu147](https://github.com/yuanliu147)
 - 🆕 ConfigProvider 支持配置 Splitter 组件的 `className` 和 `style` 属性。[#50855](https://github.com/ant-design/ant-design/pull/50855) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 Image 新增 `onActive` 到 `toolbarRender` 以切换图片 。[#50812](https://github.com/ant-design/ant-design/pull/50812) [@madocto](https://github.com/madocto)
@@ -2079,7 +2119,7 @@ tag: vVERSION
 - 💄 调整 Select, TreeSelect, Cascader 在多选时总是默认显示下拉箭头。[#41028](https://github.com/ant-design/ant-design/pull/41028)
 - 🐞 修复 Form 组件 `Form.Item.useStatus` 导致的服务端渲染问题。[#40977](https://github.com/ant-design/ant-design/pull/40977) [@AndyBoat](https://github.com/AndyBoat)
 - 🐞 杂项：修复部分组件箭头形状问题。[#40971](https://github.com/ant-design/ant-design/pull/40971)
-- 🐞 修复 Layout 报错 `React does not recognize the `suffixCls` prop on a DOM element` 的问题。[#40969](https://github.com/ant-design/ant-design/pull/40969)
+- 🐞 修复 Layout 报错 "React does not recognize the `suffixCls` prop on a DOM element" 的问题。[#40969](https://github.com/ant-design/ant-design/pull/40969)
 - 🐞 修复 Watermark 组件图片加载异常时的问题，默认展示文字。[#40770](https://github.com/ant-design/ant-design/pull/40770) [@OriginRing](https://github.com/OriginRing)
 - 🐞 Image 预览新增图片翻转功能。并修复 Image `fallback` 在 ssr 下失效的问题。[#40660](https://github.com/ant-design/ant-design/pull/40660)
 - 🐞 修复 Select 中使用 Typography 不居中的问题。[#40422](https://github.com/ant-design/ant-design/pull/40422) [@Yuiai01](https://github.com/Yuiai01)

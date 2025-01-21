@@ -282,12 +282,13 @@ const GlobalDemoStyles: React.FC = () => {
             cursor: pointer;
           }
 
-          &-riddle {
-            width: 14px;
-            height: 14px;
+           &-codeblock {
+            width: 16px;
+            height: 16px;
             overflow: hidden;
             border: 0;
             cursor: pointer;
+            max-width: 100% !important;
           }
 
           &-codesandbox {
@@ -324,7 +325,6 @@ const GlobalDemoStyles: React.FC = () => {
 
           &-debug {
             border-color: ${token.purple3};
-            display: none;
           }
 
           &-debug &-title a {
@@ -334,10 +334,6 @@ const GlobalDemoStyles: React.FC = () => {
 
         .demo-wrapper {
           position: relative;
-
-          &-show-debug .code-box-debug {
-            display: block;
-          }
         }
 
         .all-code-box-controls {
