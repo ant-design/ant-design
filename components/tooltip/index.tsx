@@ -155,7 +155,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     tooltip,
   } = React.useContext(ConfigContext);
   const mergedArrow = useMergedArrow(tooltipArrow, tooltip?.arrow);
-  const mergedShowArrow = mergedArrow?.show;
+  const mergedShowArrow = mergedArrow.show;
 
   // ============================== Ref ===============================
   const warning = devUseWarning('Tooltip');
