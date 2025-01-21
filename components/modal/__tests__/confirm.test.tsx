@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
+import KeyCode from '@rc-component/util/lib/KeyCode';
+import { resetWarned } from '@rc-component/util/lib/warning';
 import CSSMotion from 'rc-motion';
 import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
-import KeyCode from 'rc-util/lib/KeyCode';
-import { resetWarned } from 'rc-util/lib/warning';
 
 import type { ModalFuncProps } from '..';
 import Modal from '..';
@@ -76,7 +76,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     (CSSMotion as any)[key] = (MockCSSMotion as any)[key];
   });
 
-  // // Mock for rc-util raf
+  // // Mock for @rc-component/util raf
   // window.requestAnimationFrame = callback => {
   //   const ret = window.setTimeout(callback, 16);
   //   return ret;
@@ -314,8 +314,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   it('should close confirm modal when click cancel button', async () => {
     const onCancel = jest.fn();
     Modal.confirm({
-      // test legacy visible
-      visible: true,
+      open: true,
       title: 'title',
       content: 'content',
       onCancel,
@@ -785,7 +784,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     const modal = Modal.confirm({});
 
     modal.update({
-      visible: true,
+      open: true,
     });
 
     await waitFakeTimer();

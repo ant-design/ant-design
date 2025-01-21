@@ -18,10 +18,9 @@ Array [
     <span
       class="ant-mentions-suffix"
     >
-      <span
+      <button
         class="ant-mentions-clear-icon"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -43,7 +42,7 @@ Array [
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>,
   <br />,
@@ -64,10 +63,9 @@ Array [
     <span
       class="ant-mentions-suffix"
     >
-      <span
+      <button
         class="ant-mentions-clear-icon"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-square"
@@ -89,7 +87,7 @@ Array [
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>,
   <br />,
@@ -110,10 +108,9 @@ Array [
     <span
       class="ant-mentions-suffix"
     >
-      <span
+      <button
         class="ant-mentions-clear-icon"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -135,7 +132,7 @@ Array [
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>,
 ]
@@ -348,7 +345,7 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
       class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-col ant-col-14 ant-col-offset-6 ant-form-item-control"
+        class="ant-col ant-col-16 ant-col-offset-6 ant-form-item-control"
       >
         <div
           class="ant-form-item-control-input"

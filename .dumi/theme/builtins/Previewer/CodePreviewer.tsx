@@ -16,11 +16,10 @@ import EditButton from '../../common/EditButton';
 import CodePenIcon from '../../icons/CodePenIcon';
 import CodeSandboxIcon from '../../icons/CodeSandboxIcon';
 import ExternalLinkIcon from '../../icons/ExternalLinkIcon';
-import RiddleIcon from '../../icons/RiddleIcon';
 import DemoContext from '../../slots/DemoContext';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
-import { ping } from '../../utils';
+import CodeBlockButton from './CodeBlockButton';
 import type { AntdPreviewerProps } from './Previewer';
 
 const { ErrorBoundary } = Alert;
@@ -38,27 +37,6 @@ const track = ({ type, demo }: { type: string; demo: string }) => {
   }
   window.gtag('event', 'demo', { event_category: type, event_label: demo });
 };
-
-let pingDeferrer: PromiseLike<boolean>;
-
-function useShowRiddleButton() {
-  const [showRiddleButton, setShowRiddleButton] = useState(false);
-
-  useEffect(() => {
-    pingDeferrer ??= new Promise<boolean>((resolve) => {
-      ping((status) => {
-        if (status !== 'timeout' && status !== 'error') {
-          return resolve(true);
-        }
-
-        return resolve(false);
-      });
-    });
-    pingDeferrer.then(setShowRiddleButton);
-  }, []);
-
-  return showRiddleButton;
-}
 
 const useStyle = createStyles(({ token }) => {
   const { borderRadius } = token;
@@ -98,7 +76,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     title,
     description,
     originDebug,
-    jsx,
+    jsx = '',
     style,
     compact,
     background,
@@ -117,7 +95,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
 
   const entryName = 'index.tsx';
   const entryCode = asset.dependencies[entryName].value;
-  const showRiddleButton = useShowRiddleButton();
 
   const previewDemo = useRef<React.ReactNode>(null);
   const demoContainer = useRef<HTMLElement>(null);
@@ -127,11 +104,10 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     setSource: setLiveDemoSource,
   } = useLiveDemo(asset.id, {
     iframe: Boolean(iframe),
-    containerRef: demoContainer,
+    containerRef: demoContainer as React.RefObject<HTMLElement>,
   });
   const anchorRef = useRef<HTMLAnchorElement>(null);
   const codeSandboxIconRef = useRef<HTMLFormElement>(null);
-  const riddleIconRef = useRef<HTMLFormElement>(null);
   const codepenIconRef = useRef<HTMLFormElement>(null);
   const [codeExpand, setCodeExpand] = useState<boolean>(false);
   const { theme } = useContext<SiteContextProps>(SiteContext);
@@ -278,18 +254,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     js_pre_processor: 'typescript',
   };
 
-  const riddlePrefillConfig = {
-    title: `${localizedTitle} - antd@${dependencies.antd}`,
-    js: `${
-      /import React(\D*)from 'react';/.test(jsx) ? '' : `import React from 'react';\n`
-    }import { createRoot } from 'react-dom/client';\n${jsx.replace(
-      /export default/,
-      'const ComponentDemo =',
-    )}\n\ncreateRoot(mountNode).render(<ComponentDemo />);\n`,
-    css: '',
-    json: JSON.stringify({ name: 'antd-demo', dependencies }, null, 2),
-  };
-
   // Reorder source code
   let parsedSourceCode = suffix === 'tsx' ? entryCode : jsx;
   let importReactContent = "import React from 'react';";
@@ -324,7 +288,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
     main: 'index.js',
     dependencies: {
       ...dependencies,
-      'rc-util': pkgDependencyList['rc-util'],
+      '@rc-component/util': pkgDependencyList['@rc-component/util'],
       react: '^18.0.0',
       'react-dom': '^18.0.0',
       'react-scripts': '^5.0.0',
@@ -440,24 +404,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 <CodeSandboxIcon className="code-box-codesandbox" />
               </Tooltip>
             </form>
-            {showRiddleButton ? (
-              <form
-                className="code-box-code-action"
-                action="//riddle.alibaba-inc.com/riddles/define"
-                method="POST"
-                target="_blank"
-                ref={riddleIconRef}
-                onClick={() => {
-                  track({ type: 'riddle', demo: asset.id });
-                  riddleIconRef.current?.submit();
-                }}
-              >
-                <input type="hidden" name="data" value={JSON.stringify(riddlePrefillConfig)} />
-                <Tooltip title={<FormattedMessage id="app.demo.riddle" />}>
-                  <RiddleIcon className="code-box-riddle" />
-                </Tooltip>
-              </form>
-            ) : null}
+            <CodeBlockButton title={localizedTitle} dependencies={dependencies} jsx={jsx} />
             <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
               <span
                 className="code-box-code-action"

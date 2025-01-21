@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { createTheme } from '@ant-design/cssinjs';
 import IconContext from '@ant-design/icons/lib/components/Context';
-import useMemo from 'rc-util/lib/hooks/useMemo';
-import { merge } from 'rc-util/lib/utils/set';
+import useMemo from '@rc-component/util/lib/hooks/useMemo';
+import { merge } from '@rc-component/util/lib/utils/set';
 
 import warning, { devUseWarning, WarningContext } from '../_util/warning';
 import type { WarningContextProps } from '../_util/warning';
@@ -27,6 +27,7 @@ import type {
   DatePickerConfig,
   DirectionType,
   DrawerConfig,
+  EmptyConfig,
   FlexConfig,
   FloatButtonGroupConfig,
   FormConfig,
@@ -39,6 +40,8 @@ import type {
   ModalConfig,
   NotificationConfig,
   PaginationConfig,
+  PopconfirmConfig,
+  PopoverConfig,
   PopupOverflow,
   RangePickerConfig,
   SelectConfig,
@@ -51,11 +54,13 @@ import type {
   Theme,
   ThemeConfig,
   TimePickerConfig,
+  TooltipConfig,
   TourConfig,
   TransferConfig,
   TreeSelectConfig,
   Variant,
   WaveConfig,
+  RibbonConfig,
 } from './context';
 import {
   ConfigConsumer,
@@ -208,10 +213,11 @@ export interface ConfigProviderProps {
   floatButtonGroup?: FloatButtonGroupConfig;
   checkbox?: ComponentStyleConfig;
   descriptions?: ComponentStyleConfig;
-  empty?: ComponentStyleConfig;
+  empty?: EmptyConfig;
   badge?: BadgeConfig;
   radio?: ComponentStyleConfig;
   rate?: ComponentStyleConfig;
+  ribbon?: RibbonConfig;
   switch?: ComponentStyleConfig;
   transfer?: TransferConfig;
   avatar?: ComponentStyleConfig;
@@ -235,6 +241,9 @@ export interface ConfigProviderProps {
    */
   wave?: WaveConfig;
   tour?: TourConfig;
+  tooltip?: TooltipConfig;
+  popover?: PopoverConfig;
+  popconfirm?: PopconfirmConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -368,6 +377,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     badge,
     radio,
     rate,
+    ribbon,
     switch: SWITCH,
     transfer,
     avatar,
@@ -389,6 +399,9 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     dropdown,
     warning: warningConfig,
     tour,
+    tooltip,
+    popover,
+    popconfirm,
     floatButtonGroup,
     variant,
     inputNumber,
@@ -468,6 +481,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     badge,
     radio,
     rate,
+    ribbon,
     switch: SWITCH,
     transfer,
     avatar,
@@ -489,6 +503,9 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     dropdown,
     warning: warningConfig,
     tour,
+    tooltip,
+    popover,
+    popconfirm,
     floatButtonGroup,
     variant,
     inputNumber,

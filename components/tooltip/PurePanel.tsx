@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Popup } from 'rc-tooltip';
+import { Popup } from '@rc-component/tooltip';
 
 import type { TooltipProps } from '.';
 import { ConfigContext } from '../config-provider';

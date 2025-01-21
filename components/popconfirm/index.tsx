@@ -1,8 +1,8 @@
 import * as React from 'react';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import omit from 'rc-util/lib/omit';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
@@ -47,19 +47,20 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     children,
     overlayClassName,
     onOpenChange,
-    onVisibleChange,
+    overlayStyle,
+    styles,
+    classNames: popconfirmClassNames,
     ...restProps
   } = props;
 
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, popconfirm } = React.useContext(ConfigContext);
   const [open, setOpen] = useMergedState(false, {
-    value: props.open ?? props.visible,
-    defaultValue: props.defaultOpen ?? props.defaultVisible,
+    value: props.open,
+    defaultValue: props.defaultOpen,
   });
 
   const settingOpen: PopoverProps['onOpenChange'] = (value, e) => {
     setOpen(value, true);
-    onVisibleChange?.(value);
     onOpenChange?.(value, e);
   };
 
@@ -83,7 +84,13 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
   };
 
   const prefixCls = getPrefixCls('popconfirm', customizePrefixCls);
-  const overlayClassNames = classNames(prefixCls, overlayClassName);
+  const rootClassNames = classNames(
+    prefixCls,
+    overlayClassName,
+    popconfirm?.classNames?.root,
+    popconfirmClassNames?.root,
+  );
+  const bodyClassNames = classNames(popconfirm?.classNames?.body, popconfirmClassNames?.body);
 
   const [wrapCSSVar] = useStyle(prefixCls);
 
@@ -95,7 +102,19 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
       onOpenChange={onInternalOpenChange}
       open={open}
       ref={ref}
-      overlayClassName={overlayClassNames}
+      classNames={{ root: rootClassNames, body: bodyClassNames }}
+      styles={{
+        root: {
+          ...popconfirm?.styles?.root,
+          ...popconfirm?.style,
+          ...overlayStyle,
+          ...styles?.root,
+        },
+        body: {
+          ...popconfirm?.styles?.body,
+          ...styles?.body,
+        },
+      }}
       content={
         <Overlay
           okType={okType}

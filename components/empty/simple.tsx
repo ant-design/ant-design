@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useMemo } from 'react';
-import { TinyColor } from '@ctrl/tinycolor';
+import { FastColor } from '@ant-design/fast-color';
 
 import { useToken } from '../theme/internal';
 import { useLocale } from '../locale';
@@ -13,13 +13,9 @@ const Simple: React.FC = () => {
 
   const { borderColor, shadowColor, contentColor } = useMemo(
     () => ({
-      borderColor: new TinyColor(colorFill).onBackground(colorBgContainer).toHexShortString(),
-      shadowColor: new TinyColor(colorFillTertiary)
-        .onBackground(colorBgContainer)
-        .toHexShortString(),
-      contentColor: new TinyColor(colorFillQuaternary)
-        .onBackground(colorBgContainer)
-        .toHexShortString(),
+      borderColor: new FastColor(colorFill).onBackground(colorBgContainer).toHexString(),
+      shadowColor: new FastColor(colorFillTertiary).onBackground(colorBgContainer).toHexString(),
+      contentColor: new FastColor(colorFillQuaternary).onBackground(colorBgContainer).toHexString(),
     }),
     [colorFill, colorFillTertiary, colorFillQuaternary, colorBgContainer],
   );

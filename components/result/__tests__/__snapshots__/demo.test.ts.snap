@@ -1197,7 +1197,7 @@ exports[`renders components/result/demo/error.tsx correctly 1`] = `
     </button>
   </div>
   <div
-    class="ant-result-content"
+    class="ant-result-body"
   >
     <div
       class="desc"

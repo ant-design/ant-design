@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 
 import type { ModalProps } from '..';
 import Modal from '..';
-import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { createEvent, fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
-jest.mock('rc-util/lib/Portal');
+jest.mock('@rc-component/util/lib/Portal');
 
 const ModalTester: React.FC<ModalProps> = (props) => {
   const [open, setOpen] = React.useState(false);
@@ -121,20 +121,6 @@ describe('Modal', () => {
     ).toBe('100px 100px');
   });
 
-  it('deprecated warning', () => {
-    resetWarned();
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
-    render(<Modal visible />);
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Modal] `visible` is deprecated. Please use `open` instead.',
-    );
-
-    expect(document.querySelector('.ant-modal')).toBeTruthy();
-
-    errSpy.mockRestore();
-  });
-
   it('should not render footer if null', () => {
     render(<Modal open footer={null} />);
     expect(document.querySelector('.ant-modal-footer')).toBeFalsy();
@@ -191,5 +177,44 @@ describe('Modal', () => {
     );
     expect(document.querySelector('.first-origin')).toMatchSnapshot();
     expect(document.querySelector('.second-props-origin')).toMatchSnapshot();
+  });
+
+  it('responsive width', () => {
+    render(
+      <Modal open width={{ xs: '90%', sm: '80%', md: '70%', lg: '60%', xl: '50%', xxl: '40%' }} />,
+    );
+
+    const modalEle = document.querySelector<HTMLDivElement>('.ant-modal')!;
+    expect(modalEle).toHaveStyle({
+      '--ant-modal-xs-width': '90%',
+      '--ant-modal-sm-width': '80%',
+      '--ant-modal-md-width': '70%',
+      '--ant-modal-lg-width': '60%',
+      '--ant-modal-xl-width': '50%',
+      '--ant-modal-xxl-width': '40%',
+    });
+  });
+
+  it('Should support centered prop', () => {
+    render(<Modal open centered />);
+    expect(document.querySelector('.ant-modal-centered')).toBeTruthy();
+  });
+
+  it('Should support centered global config', () => {
+    render(
+      <ConfigProvider modal={{ centered: true }}>
+        <Modal open />
+      </ConfigProvider>,
+    );
+    expect(document.querySelector('.ant-modal-centered')).toBeTruthy();
+  });
+
+  it('Should prefer centered prop over centered global config', () => {
+    render(
+      <ConfigProvider modal={{ centered: true }}>
+        <Modal open centered={false} />
+      </ConfigProvider>,
+    );
+    expect(document.querySelector('.ant-modal-centered')).toBeFalsy();
   });
 });

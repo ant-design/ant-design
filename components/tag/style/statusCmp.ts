@@ -22,6 +22,14 @@ const genTagStatusStyle = (
       borderColor: token[`color${capitalizedCssVariableType}Border`],
       [`&${token.componentCls}-borderless`]: {
         borderColor: 'transparent',
+        [`&${token.componentCls}-disabled`]: {
+          borderColor: 'transparent',
+        },
+      },
+      [`&${token.componentCls}-disabled`]: {
+        color: token.colorTextDisabled,
+        backgroundColor: token.colorBgContainerDisabled,
+        borderColor: token.colorBorder,
       },
     },
   };

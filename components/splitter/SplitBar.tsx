@@ -3,7 +3,10 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
+import useEvent from '@rc-component/util/lib/hooks/useEvent';
 import classNames from 'classnames';
+
+import type { SplitterProps } from './interface';
 
 export interface SplitBarProps {
   index: number;
@@ -12,6 +15,8 @@ export interface SplitBarProps {
   resizable: boolean;
   startCollapsible: boolean;
   endCollapsible: boolean;
+  draggerIcon?: SplitterProps['draggerIcon'];
+  collapsibleIcon?: SplitterProps['collapsibleIcon'];
   onOffsetStart: (index: number) => void;
   onOffsetUpdate: (index: number, offsetX: number, offsetY: number) => void;
   onOffsetEnd: VoidFunction;
@@ -20,6 +25,8 @@ export interface SplitBarProps {
   ariaNow: number;
   ariaMin: number;
   ariaMax: number;
+  lazy?: boolean;
+  containerSize: number;
 }
 
 function getValidNumber(num: number | undefined): number {
@@ -36,18 +43,26 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     ariaMin,
     ariaMax,
     resizable,
+    draggerIcon,
+    collapsibleIcon,
     startCollapsible,
     endCollapsible,
     onOffsetStart,
     onOffsetUpdate,
     onOffsetEnd,
     onCollapse,
+    lazy,
+    containerSize,
   } = props;
 
   const splitBarPrefixCls = `${prefixCls}-bar`;
 
   // ======================== Resize ========================
   const [startPos, setStartPos] = useState<[x: number, y: number] | null>(null);
+  const [constrainedOffset, setConstrainedOffset] = useState<number>(0);
+
+  const constrainedOffsetX = vertical ? 0 : constrainedOffset;
+  const constrainedOffsetY = vertical ? constrainedOffset : 0;
 
   const onMouseDown: React.MouseEventHandler<HTMLDivElement> = (e) => {
     if (resizable && e.currentTarget) {
@@ -64,6 +79,30 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     }
   };
 
+  // Updated constraint calculation
+  const getConstrainedOffset = (rawOffset: number) => {
+    const currentPos = (containerSize * ariaNow) / 100;
+    const newPos = currentPos + rawOffset;
+
+    // Calculate available space
+    const minAllowed = Math.max(0, (containerSize * ariaMin) / 100);
+    const maxAllowed = Math.min(containerSize, (containerSize * ariaMax) / 100);
+
+    // Constrain new position within bounds
+    const clampedPos = Math.max(minAllowed, Math.min(maxAllowed, newPos));
+    return clampedPos - currentPos;
+  };
+
+  const handleLazyMove = useEvent((offsetX: number, offsetY: number) => {
+    const constrainedOffsetValue = getConstrainedOffset(vertical ? offsetY : offsetX);
+    setConstrainedOffset(constrainedOffsetValue);
+  });
+
+  const handleLazyEnd = useEvent(() => {
+    onOffsetUpdate(index, constrainedOffsetX, constrainedOffsetY);
+    setConstrainedOffset(0);
+  });
+
   React.useEffect(() => {
     if (startPos) {
       const onMouseMove = (e: MouseEvent) => {
@@ -71,10 +110,17 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         const offsetX = pageX - startPos[0];
         const offsetY = pageY - startPos[1];
 
-        onOffsetUpdate(index, offsetX, offsetY);
+        if (lazy) {
+          handleLazyMove(offsetX, offsetY);
+        } else {
+          onOffsetUpdate(index, offsetX, offsetY);
+        }
       };
 
       const onMouseUp = () => {
+        if (lazy) {
+          handleLazyEnd();
+        }
         setStartPos(null);
         onOffsetEnd();
       };
@@ -85,11 +131,18 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
           const offsetX = touch.pageX - startPos[0];
           const offsetY = touch.pageY - startPos[1];
 
-          onOffsetUpdate(index, offsetX, offsetY);
+          if (lazy) {
+            handleLazyMove(offsetX, offsetY);
+          } else {
+            onOffsetUpdate(index, offsetX, offsetY);
+          }
         }
       };
 
       const handleTouchEnd = () => {
+        if (lazy) {
+          handleLazyEnd();
+        }
         setStartPos(null);
         onOffsetEnd();
       };
@@ -106,11 +159,29 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         window.removeEventListener('touchend', handleTouchEnd);
       };
     }
-  }, [startPos]);
+  }, [startPos, lazy, vertical, index, containerSize, ariaNow, ariaMin, ariaMax]);
+
+  const transformStyle = {
+    [`--${splitBarPrefixCls}-preview-offset`]: `${constrainedOffset}px`,
+  };
 
   // ======================== Render ========================
-  const StartIcon = vertical ? UpOutlined : LeftOutlined;
-  const EndIcon = vertical ? DownOutlined : RightOutlined;
+  const [startIcon, endIcon, startCustomize, endCustomize] = React.useMemo(() => {
+    let startIcon = null;
+    let endIcon = null;
+    const startCustomize = collapsibleIcon?.start !== undefined;
+    const endCustomize = collapsibleIcon?.end !== undefined;
+
+    if (vertical) {
+      startIcon = startCustomize ? collapsibleIcon.start : <UpOutlined />;
+      endIcon = endCustomize ? collapsibleIcon.end : <DownOutlined />;
+    } else {
+      startIcon = startCustomize ? collapsibleIcon.start : <LeftOutlined />;
+      endIcon = endCustomize ? collapsibleIcon.end : <RightOutlined />;
+    }
+
+    return [startIcon, endIcon, startCustomize, endCustomize];
+  }, [collapsibleIcon, vertical]);
 
   return (
     <div
@@ -120,14 +191,28 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       aria-valuemin={getValidNumber(ariaMin)}
       aria-valuemax={getValidNumber(ariaMax)}
     >
+      {lazy && (
+        <div
+          className={classNames(`${splitBarPrefixCls}-preview`, {
+            [`${splitBarPrefixCls}-preview-active`]: !!constrainedOffset,
+          })}
+          style={transformStyle}
+        />
+      )}
+
       <div
         className={classNames(`${splitBarPrefixCls}-dragger`, {
           [`${splitBarPrefixCls}-dragger-disabled`]: !resizable,
           [`${splitBarPrefixCls}-dragger-active`]: active,
+          [`${splitBarPrefixCls}-dragger-customize`]: !!draggerIcon,
         })}
         onMouseDown={onMouseDown}
         onTouchStart={onTouchStart}
-      />
+      >
+        {draggerIcon ? (
+          <div className={classNames(`${splitBarPrefixCls}-dragger-icon`)}>{draggerIcon}</div>
+        ) : null}
+      </div>
 
       {/* Start Collapsible */}
       {startCollapsible && (
@@ -135,15 +220,20 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
           className={classNames(
             `${splitBarPrefixCls}-collapse-bar`,
             `${splitBarPrefixCls}-collapse-bar-start`,
+            {
+              [`${splitBarPrefixCls}-collapse-bar-customize`]: startCustomize,
+            },
           )}
           onClick={() => onCollapse(index, 'start')}
         >
-          <StartIcon
+          <span
             className={classNames(
               `${splitBarPrefixCls}-collapse-icon`,
               `${splitBarPrefixCls}-collapse-start`,
             )}
-          />
+          >
+            {startIcon}
+          </span>
         </div>
       )}
 
@@ -153,15 +243,20 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
           className={classNames(
             `${splitBarPrefixCls}-collapse-bar`,
             `${splitBarPrefixCls}-collapse-bar-end`,
+            {
+              [`${splitBarPrefixCls}-collapse-bar-customize`]: endCustomize,
+            },
           )}
           onClick={() => onCollapse(index, 'end')}
         >
-          <EndIcon
+          <span
             className={classNames(
               `${splitBarPrefixCls}-collapse-icon`,
               `${splitBarPrefixCls}-collapse-end`,
             )}
-          />
+          >
+            {endIcon}
+          </span>
         </div>
       )}
     </div>

@@ -1,6 +1,6 @@
 import React, { useContext, useMemo } from 'react';
+import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
 import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import genPurePanel from '../_util/PurePanel';
@@ -221,7 +221,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   return wrapCSSVar(
     <Popover
       style={styles?.popup}
-      overlayInnerStyle={styles?.popupOverlayInner}
+      styles={{ body: styles?.popupOverlayInner }}
       onOpenChange={(visible) => {
         if (!visible || !mergedDisabled) {
           setPopupOpen(visible);
@@ -253,7 +253,7 @@ const ColorPicker: CompoundedComponent = (props) => {
           />
         </ContextIsolator>
       }
-      overlayClassName={mergedPopupCls}
+      classNames={{ root: mergedPopupCls }}
       {...popoverProps}
     >
       {children || (
@@ -280,14 +280,15 @@ if (process.env.NODE_ENV !== 'production') {
 
 const PurePanel = genPurePanel(
   ColorPicker,
-  'color-picker',
-  /* istanbul ignore next */
-  (prefixCls) => prefixCls,
+  undefined,
   (props: ColorPickerProps) => ({
     ...props,
     placement: 'bottom' as TriggerPlacement,
     autoAdjustOverflow: false,
   }),
+  'color-picker',
+  /* istanbul ignore next */
+  (prefixCls) => prefixCls,
 );
 
 ColorPicker._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;

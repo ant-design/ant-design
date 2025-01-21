@@ -1,6 +1,6 @@
 import React from 'react';
+import canUseDom from '@rc-component/util/lib/Dom/canUseDom';
 import kebabCase from 'lodash/kebabCase';
-import canUseDom from 'rc-util/lib/Dom/canUseDom';
 
 import ConfigProvider from '..';
 import { Button, InputNumber, Select } from '../..';
@@ -15,7 +15,7 @@ const { defaultAlgorithm, darkAlgorithm, compactAlgorithm } = theme;
 /* biome-ignore lint/style/noVar: has to be a global variable */ /* eslint-disable-next-line no-var */
 var mockCanUseDom = true;
 
-jest.mock('rc-util/lib/Dom/canUseDom', () => () => mockCanUseDom);
+jest.mock('@rc-component/util/lib/Dom/canUseDom', () => () => mockCanUseDom);
 
 describe('ConfigProvider.Theme', () => {
   beforeEach(() => {
@@ -39,7 +39,7 @@ describe('ConfigProvider.Theme', () => {
       );
       expect(themeStyle).toBeTruthy();
 
-      expect(themeStyle?.innerHTML).toContain(`--bamboo-${kebabCase(colorName)}: rgb(0, 0, 255)`);
+      expect(themeStyle?.innerHTML).toContain(`--bamboo-${kebabCase(colorName)}: rgb(0,0,255)`);
     });
   });
 
@@ -234,7 +234,7 @@ describe('ConfigProvider.Theme', () => {
 
       expect(button).toHaveClass('foo');
       expect(button).toHaveStyle({
-        '--ant-color-text': 'rgba(0, 0, 0, 0.88)',
+        '--ant-color-text': 'rgba(0,0,0,0.88)',
         boxShadow: 'var(--ant-button-default-shadow)',
         'border-radius': 'var(--ant-border-radius)',
       });
@@ -257,14 +257,14 @@ describe('ConfigProvider.Theme', () => {
 
       expect(fooBtn).toHaveClass('foo');
       expect(fooBtn).toHaveStyle({
-        '--ant-color-text': 'rgba(0, 0, 0, 0.88)',
+        '--ant-color-text': 'rgba(0,0,0,0.88)',
         boxShadow: 'var(--ant-button-default-shadow)',
         'border-radius': 'var(--ant-border-radius)',
       });
 
       expect(barBtn).toHaveClass('bar');
       expect(barBtn).toHaveStyle({
-        '--bar-color-text': 'rgba(0, 0, 0, 0.88)',
+        '--bar-color-text': 'rgba(0,0,0,0.88)',
         boxShadow: 'var(--bar-button-default-shadow)',
         'border-radius': 'var(--bar-border-radius)',
       });
@@ -298,7 +298,7 @@ describe('ConfigProvider.Theme', () => {
       const fooBtn = container.querySelector('.button-foo')!;
       expect(fooBtn).toHaveClass('foo');
       expect(fooBtn).toHaveStyle({
-        '--foo-color-text': 'rgba(0, 0, 0, 0.88)',
+        '--foo-color-text': 'rgba(0,0,0,0.88)',
         boxShadow: 'var(--foo-button-default-shadow)',
         'border-radius': 'var(--foo-border-radius)',
       });
@@ -306,7 +306,7 @@ describe('ConfigProvider.Theme', () => {
       const barBtn = container.querySelector('.button-bar')!;
       expect(barBtn).toHaveClass('bar');
       expect(barBtn).toHaveStyle({
-        '--bar-color-text': 'rgba(0, 0, 0, 0.88)',
+        '--bar-color-text': 'rgba(0,0,0,0.88)',
         boxShadow: 'var(--bar-button-default-shadow)',
         'border-radius': 'var(--bar-border-radius)',
       });
@@ -314,7 +314,7 @@ describe('ConfigProvider.Theme', () => {
       const bananaBtn = container.querySelector('.button-banana')!;
       expect(bananaBtn).toHaveClass('banana');
       expect(bananaBtn).toHaveStyle({
-        '--banana-color-text': 'rgba(0, 0, 0, 0.88)',
+        '--banana-color-text': 'rgba(0,0,0,0.88)',
         boxShadow: 'var(--banana-button-default-shadow)',
         'border-radius': 'var(--banana-border-radius)',
       });
@@ -322,7 +322,7 @@ describe('ConfigProvider.Theme', () => {
       const catBtn = container.querySelector('.button-cat')!;
       expect(catBtn).toHaveClass('apple');
       expect(catBtn).toHaveStyle({
-        '--cat-color-text': 'rgba(0, 0, 0, 0.88)',
+        '--cat-color-text': 'rgba(0,0,0,0.88)',
         boxShadow: 'var(--cat-button-default-shadow)',
         'border-radius': 'var(--cat-border-radius)',
       });

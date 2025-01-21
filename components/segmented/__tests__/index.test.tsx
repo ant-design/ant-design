@@ -346,4 +346,55 @@ describe('Segmented', () => {
         .textContent?.includes('KanbanYes'),
     ).toBeTruthy();
   });
+
+  it('all children should have a name property', () => {
+    const GROUP_NAME = 'GROUP_NAME';
+    const { container } = render(
+      <Segmented options={['iOS', 'Android', 'Web']} name={GROUP_NAME} />,
+    );
+
+    container.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach((el) => {
+      expect(el.name).toEqual(GROUP_NAME);
+    });
+  });
+  it('should apply custom styles to Segmented', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      icon: 'custom-icon',
+      item: 'custom-item',
+      label: 'custom-label',
+    };
+
+    const customStyles = {
+      root: { color: 'red' },
+      icon: { backgroundColor: 'blue' },
+      item: { color: 'yellow' },
+      label: { backgroundColor: 'black' },
+    };
+
+    const { container } = render(
+      <Segmented
+        options={[{ label: 'Kanban', value: 'Kanban', icon: <AppstoreOutlined /> }]}
+        classNames={customClassNames}
+        styles={customStyles}
+      />,
+    );
+
+    const rootElement = container.querySelector('.ant-segmented') as HTMLElement;
+    const iconElement = container.querySelector('.ant-segmented-item-icon') as HTMLElement;
+    const itemElement = container.querySelector('.ant-segmented-item') as HTMLElement;
+    const labelElement = container.querySelector('.ant-segmented-item-label') as HTMLElement;
+
+    // check classNames
+    expect(rootElement.classList).toContain('custom-root');
+    expect(iconElement.classList).toContain('custom-icon');
+    expect(itemElement.classList).toContain('custom-item');
+    expect(labelElement.classList).toContain('custom-label');
+
+    // check styles
+    expect(rootElement.style.color).toBe('red');
+    expect(iconElement.style.backgroundColor).toBe('blue');
+    expect(itemElement.style.color).toBe('yellow');
+    expect(labelElement.style.backgroundColor).toBe('black');
+  });
 });

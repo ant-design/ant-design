@@ -1,13 +1,12 @@
 import React from 'react';
-import { spyElementPrototype } from 'rc-util/lib/test/domHook';
+import { spyElementPrototype } from '@rc-component/util/lib/test/domHook';
 
 import type { TooltipPlacement } from '..';
 import Tooltip from '..';
 import getPlacements from '../../_util/placements';
-import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import DatePicker from '../../date-picker';
 import Input from '../../input';
@@ -204,44 +203,6 @@ describe('Tooltip', () => {
     expect(getComputedStyle(containerBlock.querySelector('button')!)?.display).toBe('block');
   });
 
-  it('should warn for arrowPointAtCenter', async () => {
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
-    render(
-      <Tooltip
-        title="xxxxx"
-        trigger="click"
-        mouseEnterDelay={0}
-        mouseLeaveDelay={0}
-        placement="bottomLeft"
-        arrowPointAtCenter
-        overlayClassName="point-center-element"
-      >
-        <button type="button">Hello world!</button>
-      </Tooltip>,
-    );
-    expect(warnSpy).toHaveBeenLastCalledWith(
-      expect.stringContaining('`arrowPointAtCenter` is deprecated'),
-    );
-
-    render(
-      <Tooltip
-        title="xxxxx"
-        trigger="click"
-        mouseEnterDelay={0}
-        mouseLeaveDelay={0}
-        placement="bottomLeft"
-        arrow={{ arrowPointAtCenter: true }}
-        overlayClassName="point-center-element"
-      >
-        <button type="button">Hello world!</button>
-      </Tooltip>,
-    );
-    expect(warnSpy).toHaveBeenCalledWith(
-      expect.stringContaining('`arrowPointAtCenter` in `arrow` is deprecated'),
-    );
-  });
-
   it('should works for date picker', async () => {
     const onOpenChange = jest.fn();
     const ref = React.createRef<any>();
@@ -344,7 +305,7 @@ describe('Tooltip', () => {
         const { container } = render(
           <Tooltip
             title="xxxxx"
-            transitionName=""
+            motion={{ motionName: '' }}
             mouseEnterDelay={0}
             placement={placement}
             autoAdjustOverflow={false}
@@ -402,9 +363,9 @@ describe('Tooltip', () => {
     expect(document.querySelector('.ant-tooltip')).not.toBeNull();
   });
 
-  it('should pass overlayInnerStyle through to the inner component', () => {
+  it('should pass styles={{ body: {} }} through to the inner component', () => {
     const { container } = render(
-      <Tooltip overlayInnerStyle={{ color: 'red' }} title="xxxxx" open>
+      <Tooltip styles={{ body: { color: 'red' } }} title="xxxxx" open>
         <div />
       </Tooltip>,
     );
@@ -480,86 +441,6 @@ describe('Tooltip', () => {
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
 
-  it('deprecated warning', async () => {
-    resetWarned();
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
-    // defaultVisible
-    const { container, rerender } = render(
-      <Tooltip defaultVisible title="bamboo">
-        <a />
-      </Tooltip>,
-    );
-    await waitFakeTimer();
-
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tooltip] `defaultVisible` is deprecated. Please use `defaultOpen` instead.',
-    );
-    expect(isTooltipOpen()).toBeTruthy();
-
-    // visible
-    rerender(
-      <Tooltip visible title="bamboo">
-        <a />
-      </Tooltip>,
-    );
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tooltip] `visible` is deprecated. Please use `open` instead.',
-    );
-
-    rerender(
-      <Tooltip visible={false} title="bamboo">
-        <a />
-      </Tooltip>,
-    );
-    await waitFakeTimer();
-    if (container.querySelector('.ant-zoom-big-fast-leave-active')) {
-      fireEvent.animationEnd(container.querySelector('.ant-zoom-big-fast-leave-active')!);
-    }
-    expect(isTooltipOpen()).toBeFalsy();
-
-    // onVisibleChange
-    rerender(
-      <Tooltip onVisibleChange={() => {}} title="bamboo">
-        <a />
-      </Tooltip>,
-    );
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tooltip] `onVisibleChange` is deprecated. Please use `onOpenChange` instead.',
-    );
-
-    // afterVisibleChange
-    rerender(
-      <Tooltip afterVisibleChange={() => {}} title="bamboo">
-        <a />
-      </Tooltip>,
-    );
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tooltip] `afterVisibleChange` is deprecated. Please use `afterOpenChange` instead.',
-    );
-
-    // Event Trigger
-    const onVisibleChange = jest.fn();
-    const afterVisibleChange = jest.fn();
-    rerender(
-      <Tooltip
-        visible
-        onVisibleChange={onVisibleChange}
-        afterVisibleChange={afterVisibleChange}
-        title="bamboo"
-      >
-        <a />
-      </Tooltip>,
-    );
-
-    fireEvent.mouseLeave(container.querySelector('a')!);
-    await waitFakeTimer();
-    expect(onVisibleChange).toHaveBeenCalled();
-    expect(afterVisibleChange).toHaveBeenCalled();
-
-    errSpy.mockRestore();
-  });
-
   it('not inject className when children className is not string type', () => {
     const HOC = ({ className }: { className: () => string }) => <span className={className()} />;
     const { container } = render(
@@ -590,15 +471,32 @@ describe('Tooltip', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('use ref.current.forcePopupAlign', async () => {
-    const ref = React.createRef<any>();
-    const error = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<Tooltip open ref={ref} />);
-    act(() => {
-      ref.current.forcePopupAlign();
-      jest.runAllTimers();
-    });
-    expect(error).toHaveBeenCalled();
-    error.mockRestore();
+  it('should apply custom styles to Tooltip', () => {
+    const customClassNames = {
+      body: 'custom-body',
+      root: 'custom-root',
+    };
+
+    const customStyles = {
+      body: { color: 'red' },
+      root: { backgroundColor: 'blue' },
+    };
+
+    const { container } = render(
+      <Tooltip classNames={customClassNames} overlay={<div />} styles={customStyles} open>
+        <button type="button">button</button>
+      </Tooltip>,
+    );
+
+    const tooltipElement = container.querySelector('.ant-tooltip') as HTMLElement;
+    const tooltipBodyElement = container.querySelector('.ant-tooltip-inner') as HTMLElement;
+
+    // 验证 classNames
+    expect(tooltipElement.classList).toContain('custom-root');
+    expect(tooltipBodyElement.classList).toContain('custom-body');
+
+    // 验证 styles
+    expect(tooltipElement.style.backgroundColor).toBe('blue');
+    expect(tooltipBodyElement.style.color).toBe('red');
   });
 });

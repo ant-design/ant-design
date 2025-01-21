@@ -1,7 +1,7 @@
 import * as React from 'react';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
+import { composeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
-import { composeRef } from 'rc-util/lib/ref';
 
 import { cloneElement } from '../_util/reactNode';
 import Button from '../button';
@@ -150,6 +150,13 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     className,
   );
 
+  const newProps: InputProps = {
+    ...restProps,
+    className: cls,
+    prefixCls: inputPrefixCls,
+    type: 'search',
+  };
+
   const handleOnCompositionStart: React.CompositionEventHandler<HTMLInputElement> = (e) => {
     composedRef.current = true;
     onCompositionStart?.(e);
@@ -164,15 +171,13 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     <Input
       ref={composeRef<InputRef>(inputRef, ref)}
       onPressEnter={onPressEnter}
-      {...restProps}
+      {...newProps}
       size={size}
       onCompositionStart={handleOnCompositionStart}
       onCompositionEnd={handleOnCompositionEnd}
-      prefixCls={inputPrefixCls}
       addonAfter={button}
       suffix={suffix}
       onChange={onChange}
-      className={cls}
       disabled={disabled}
     />
   );

@@ -3,8 +3,8 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import BarsOutlined from '@ant-design/icons/BarsOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
 
 import isNumeric from '../_util/isNumeric';
 import { ConfigContext } from '../config-provider';
@@ -99,7 +99,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
   };
 
   // =========================== Prefix ===========================
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls, direction } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('layout-sider', customizePrefixCls);
 
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
@@ -171,9 +171,10 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
           {trigger || <BarsOutlined />}
         </span>
       ) : null;
+    const reverseIcon = (direction === 'rtl') === !reverseArrow;
     const iconObj = {
-      expanded: reverseArrow ? <RightOutlined /> : <LeftOutlined />,
-      collapsed: reverseArrow ? <LeftOutlined /> : <RightOutlined />,
+      expanded: reverseIcon ? <RightOutlined /> : <LeftOutlined />,
+      collapsed: reverseIcon ? <LeftOutlined /> : <RightOutlined />,
     };
     const status = collapsed ? 'collapsed' : 'expanded';
     const defaultTrigger = iconObj[status];

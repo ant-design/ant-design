@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 import { createEvent, fireEvent, render } from '@testing-library/react';
-import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
@@ -12,7 +12,7 @@ import Form from '../../form';
 import theme from '../../theme';
 import { AggregationColor } from '../color';
 import ColorPicker from '../ColorPicker';
-import type { ColorPickerProps, ColorValueType } from '../interface';
+import type { ColorPickerProps, ColorValueType, PresetsItem } from '../interface';
 import { generateColor } from '../util';
 
 function doMouseMove(
@@ -178,6 +178,7 @@ describe('ColorPicker', () => {
         onChange={handleColorChange}
         presets={[
           {
+            key: 'Recommended',
             label: 'Recommended',
             colors: [
               '#000000',
@@ -193,6 +194,7 @@ describe('ColorPicker', () => {
             ],
           },
           {
+            key: 'Recent',
             label: 'Recent',
             colors: [],
           },
@@ -203,14 +205,14 @@ describe('ColorPicker', () => {
     fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
     await waitFakeTimer();
     const presetsColors = container
-      .querySelector('.ant-collapse-content')
+      .querySelector('.ant-collapse-panel')
       ?.querySelectorAll('.ant-color-picker-presets-color')!;
 
     expect(container.querySelector('.ant-color-picker-presets')).toBeTruthy();
     expect(presetsColors.length).toBe(10);
     expect(
       container
-        .querySelectorAll('.ant-collapse-content')[1]
+        .querySelectorAll('.ant-collapse-panel')[1]
         .querySelector('.ant-color-picker-presets-empty'),
     ).toBeTruthy();
 
@@ -243,7 +245,8 @@ describe('ColorPicker', () => {
   });
 
   describe('preset collapsed', () => {
-    const recommendedPreset = {
+    const recommendedPreset: PresetsItem = {
+      key: 'Recommended',
       label: 'Recommended',
       colors: ['#f00', '#0f0', '#00f'],
     };
@@ -263,6 +266,7 @@ describe('ColorPicker', () => {
           presets={[
             recommendedPreset,
             {
+              key: 'Recent',
               label: 'Recent',
               colors: ['#f00d', '#0f0d', '#00fd'],
               defaultOpen: false,
@@ -381,6 +385,7 @@ describe('ColorPicker', () => {
           open
           presets={[
             {
+              key: 'test',
               label: 'test',
               colors: ['#0000001A'],
             },
@@ -955,9 +960,9 @@ describe('ColorPicker', () => {
       <ColorPicker
         open
         presets={[
-          { label: <span>aaa</span>, colors: ['#333'], defaultOpen: true },
-          { label: <span>bbb</span>, colors: ['#666'], defaultOpen: true },
-          { label: <span>ccc</span>, colors: ['#999'], defaultOpen: true },
+          { label: <span>aaa</span>, colors: ['#333'], key: 'a', defaultOpen: true },
+          { label: <span>bbb</span>, colors: ['#666'], key: 'b', defaultOpen: true },
+          { label: <span>ccc</span>, colors: ['#999'], key: 'c', defaultOpen: true },
         ]}
       />,
     );

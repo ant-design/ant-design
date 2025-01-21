@@ -3758,10 +3758,9 @@ Array [
       <span
         class="ant-input-suffix"
       >
-        <span
+        <button
           class="ant-input-clear-icon ant-input-clear-icon-hidden"
-          role="button"
-          tabindex="-1"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -3783,7 +3782,7 @@ Array [
               />
             </svg>
           </span>
-        </span>
+        </button>
       </span>
     </span>
     <div
@@ -4524,6 +4523,7 @@ Array [
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="topLeft"
         />
@@ -4531,7 +4531,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         topLeft
       </span>
     </label>
@@ -4543,6 +4545,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="topRight"
         />
@@ -4550,7 +4553,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         topRight
       </span>
     </label>
@@ -4562,6 +4567,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="bottomLeft"
         />
@@ -4569,7 +4575,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         bottomLeft
       </span>
     </label>
@@ -4581,6 +4589,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="bottomRight"
         />
@@ -4588,7 +4597,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         bottomRight
       </span>
     </label>
@@ -4685,6 +4696,7 @@ exports[`renders components/select/demo/placement-debug.tsx correctly 1`] = `
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="topLeft"
             />
@@ -4692,7 +4704,9 @@ exports[`renders components/select/demo/placement-debug.tsx correctly 1`] = `
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             TL
           </span>
         </label>
@@ -4704,6 +4718,7 @@ exports[`renders components/select/demo/placement-debug.tsx correctly 1`] = `
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="topRight"
             />
@@ -4711,7 +4726,9 @@ exports[`renders components/select/demo/placement-debug.tsx correctly 1`] = `
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             TR
           </span>
         </label>
@@ -4723,6 +4740,7 @@ exports[`renders components/select/demo/placement-debug.tsx correctly 1`] = `
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="bottomLeft"
             />
@@ -4730,7 +4748,9 @@ exports[`renders components/select/demo/placement-debug.tsx correctly 1`] = `
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             BL
           </span>
         </label>
@@ -4742,6 +4762,7 @@ exports[`renders components/select/demo/placement-debug.tsx correctly 1`] = `
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="bottomRight"
             />
@@ -4749,7 +4770,9 @@ exports[`renders components/select/demo/placement-debug.tsx correctly 1`] = `
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             BR
           </span>
         </label>
@@ -5064,7 +5087,9 @@ exports[`renders components/select/demo/responsive.tsx correctly 1`] = `
                 <span
                   class="ant-select-selection-item-content"
                 >
-                  <span>
+                  <span
+                    aria-describedby="test-id"
+                  >
                     Hover Me
                   </span>
                 </span>
@@ -5452,6 +5477,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="large"
         />
@@ -5459,7 +5485,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Large
       </span>
     </label>
@@ -5472,6 +5500,7 @@ Array [
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="middle"
         />
@@ -5479,7 +5508,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Default
       </span>
     </label>
@@ -5491,6 +5522,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="small"
         />
@@ -5498,7 +5530,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Small
       </span>
     </label>

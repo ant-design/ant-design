@@ -68,6 +68,66 @@ const App: React.FC = () => {
             Link
           </Button>
         </Flex>
+        <Flex gap="small" wrap>
+          <Button color="pink" variant="solid">
+            Solid
+          </Button>
+          <Button color="pink" variant="outlined">
+            Outlined
+          </Button>
+          <Button color="pink" variant="dashed">
+            Dashed
+          </Button>
+          <Button color="pink" variant="filled">
+            Filled
+          </Button>
+          <Button color="pink" variant="text">
+            Text
+          </Button>
+          <Button color="pink" variant="link">
+            Link
+          </Button>
+        </Flex>
+        <Flex gap="small" wrap>
+          <Button color="purple" variant="solid">
+            Solid
+          </Button>
+          <Button color="purple" variant="outlined">
+            Outlined
+          </Button>
+          <Button color="purple" variant="dashed">
+            Dashed
+          </Button>
+          <Button color="purple" variant="filled">
+            Filled
+          </Button>
+          <Button color="purple" variant="text">
+            Text
+          </Button>
+          <Button color="purple" variant="link">
+            Link
+          </Button>
+        </Flex>
+        <Flex gap="small" wrap>
+          <Button color="cyan" variant="solid">
+            Solid
+          </Button>
+          <Button color="cyan" variant="outlined">
+            Outlined
+          </Button>
+          <Button color="cyan" variant="dashed">
+            Dashed
+          </Button>
+          <Button color="cyan" variant="filled">
+            Filled
+          </Button>
+          <Button color="cyan" variant="text">
+            Text
+          </Button>
+          <Button color="cyan" variant="link">
+            Link
+          </Button>
+        </Flex>
       </Flex>
     </ConfigProvider>
   );

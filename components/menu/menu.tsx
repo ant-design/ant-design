@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { forwardRef } from 'react';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
+import useEvent from '@rc-component/util/lib/hooks/useEvent';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
 import type { MenuProps as RcMenuProps, MenuRef as RcMenuRef } from 'rc-menu';
 import RcMenu from 'rc-menu';
-import useEvent from 'rc-util/lib/hooks/useEvent';
-import omit from 'rc-util/lib/omit';
 
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';

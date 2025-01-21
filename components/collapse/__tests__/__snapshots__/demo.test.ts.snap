@@ -39,7 +39,7 @@ exports[`renders components/collapse/demo/accordion.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 1
       </span>
@@ -79,7 +79,7 @@ exports[`renders components/collapse/demo/accordion.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 2
       </span>
@@ -119,7 +119,7 @@ exports[`renders components/collapse/demo/accordion.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 3
       </span>
@@ -167,16 +167,16 @@ exports[`renders components/collapse/demo/basic.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 1
       </span>
     </div>
     <div
-      class="ant-collapse-content ant-collapse-content-active"
+      class="ant-collapse-panel ant-collapse-panel-active"
     >
       <div
-        class="ant-collapse-content-box"
+        class="ant-collapse-body"
       >
         <p>
   A dog is a type of domesticated animal.
@@ -220,7 +220,7 @@ exports[`renders components/collapse/demo/basic.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 2
       </span>
@@ -260,7 +260,7 @@ exports[`renders components/collapse/demo/basic.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 3
       </span>
@@ -308,16 +308,16 @@ exports[`renders components/collapse/demo/borderless.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 1
       </span>
     </div>
     <div
-      class="ant-collapse-content ant-collapse-content-active"
+      class="ant-collapse-panel ant-collapse-panel-active"
     >
       <div
-        class="ant-collapse-content-box"
+        class="ant-collapse-body"
       >
         <p
           style="padding-inline-start:24px"
@@ -361,7 +361,7 @@ exports[`renders components/collapse/demo/borderless.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 2
       </span>
@@ -401,7 +401,7 @@ exports[`renders components/collapse/demo/borderless.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 3
       </span>
@@ -457,7 +457,7 @@ exports[`renders components/collapse/demo/collapsible.tsx correctly 1`] = `
           <span
             aria-disabled="false"
             aria-expanded="true"
-            class="ant-collapse-header-text"
+            class="ant-collapse-title"
             role="button"
             tabindex="0"
           >
@@ -465,10 +465,10 @@ exports[`renders components/collapse/demo/collapsible.tsx correctly 1`] = `
           </span>
         </div>
         <div
-          class="ant-collapse-content ant-collapse-content-active"
+          class="ant-collapse-panel ant-collapse-panel-active"
         >
           <div
-            class="ant-collapse-content-box"
+            class="ant-collapse-body"
           >
             <p>
   A dog is a type of domesticated animal.
@@ -521,16 +521,16 @@ exports[`renders components/collapse/demo/collapsible.tsx correctly 1`] = `
             </span>
           </div>
           <span
-            class="ant-collapse-header-text"
+            class="ant-collapse-title"
           >
             This panel can only be collapsed by clicking icon
           </span>
         </div>
         <div
-          class="ant-collapse-content ant-collapse-content-active"
+          class="ant-collapse-panel ant-collapse-panel-active"
         >
           <div
-            class="ant-collapse-content-box"
+            class="ant-collapse-body"
           >
             <p>
   A dog is a type of domesticated animal.
@@ -582,7 +582,7 @@ exports[`renders components/collapse/demo/collapsible.tsx correctly 1`] = `
             </span>
           </div>
           <span
-            class="ant-collapse-header-text"
+            class="ant-collapse-title"
           >
             This panel can't be collapsed
           </span>
@@ -631,7 +631,7 @@ exports[`renders components/collapse/demo/component-token.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 1, (Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! )
       </span>
@@ -671,7 +671,7 @@ exports[`renders components/collapse/demo/component-token.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 2, (Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! )
       </span>
@@ -711,7 +711,7 @@ exports[`renders components/collapse/demo/component-token.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 3, (Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! )
       </span>
@@ -727,7 +727,7 @@ exports[`renders components/collapse/demo/custom.tsx correctly 1`] = `
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
-    style="margin-bottom:24px;background:rgba(0, 0, 0, 0.02);border-radius:8px;border:none"
+    style="margin-bottom:24px;background:rgba(0,0,0,0.02);border-radius:8px;border:none"
   >
     <div
       aria-disabled="false"
@@ -761,16 +761,16 @@ exports[`renders components/collapse/demo/custom.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 1
       </span>
     </div>
     <div
-      class="ant-collapse-content ant-collapse-content-active"
+      class="ant-collapse-panel ant-collapse-panel-active"
     >
       <div
-        class="ant-collapse-content-box"
+        class="ant-collapse-body"
       >
         <p>
   A dog is a type of domesticated animal.
@@ -782,7 +782,7 @@ exports[`renders components/collapse/demo/custom.tsx correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
-    style="margin-bottom:24px;background:rgba(0, 0, 0, 0.02);border-radius:8px;border:none"
+    style="margin-bottom:24px;background:rgba(0,0,0,0.02);border-radius:8px;border:none"
   >
     <div
       aria-disabled="false"
@@ -815,7 +815,7 @@ exports[`renders components/collapse/demo/custom.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 2
       </span>
@@ -823,7 +823,7 @@ exports[`renders components/collapse/demo/custom.tsx correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
-    style="margin-bottom:24px;background:rgba(0, 0, 0, 0.02);border-radius:8px;border:none"
+    style="margin-bottom:24px;background:rgba(0,0,0,0.02);border-radius:8px;border:none"
   >
     <div
       aria-disabled="false"
@@ -856,7 +856,7 @@ exports[`renders components/collapse/demo/custom.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 3
       </span>
@@ -905,7 +905,7 @@ Array [
           </span>
         </div>
         <span
-          class="ant-collapse-header-text"
+          class="ant-collapse-title"
         >
           This is panel header 1
         </span>
@@ -935,10 +935,10 @@ Array [
         </div>
       </div>
       <div
-        class="ant-collapse-content ant-collapse-content-active"
+        class="ant-collapse-panel ant-collapse-panel-active"
       >
         <div
-          class="ant-collapse-content-box"
+          class="ant-collapse-body"
         >
           <div>
   A dog is a type of domesticated animal.
@@ -982,7 +982,7 @@ Array [
           </span>
         </div>
         <span
-          class="ant-collapse-header-text"
+          class="ant-collapse-title"
         >
           This is panel header 2
         </span>
@@ -1046,7 +1046,7 @@ Array [
           </span>
         </div>
         <span
-          class="ant-collapse-header-text"
+          class="ant-collapse-title"
         >
           This is panel header 3
         </span>
@@ -1187,16 +1187,16 @@ exports[`renders components/collapse/demo/ghost.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 1
       </span>
     </div>
     <div
-      class="ant-collapse-content ant-collapse-content-active"
+      class="ant-collapse-panel ant-collapse-panel-active"
     >
       <div
-        class="ant-collapse-content-box"
+        class="ant-collapse-body"
       >
         <p>
   A dog is a type of domesticated animal.
@@ -1240,7 +1240,7 @@ exports[`renders components/collapse/demo/ghost.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 2
       </span>
@@ -1280,7 +1280,7 @@ exports[`renders components/collapse/demo/ghost.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 3
       </span>
@@ -1327,7 +1327,7 @@ exports[`renders components/collapse/demo/mix.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 1
       </span>
@@ -1367,7 +1367,7 @@ exports[`renders components/collapse/demo/mix.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 2
       </span>
@@ -1407,7 +1407,7 @@ exports[`renders components/collapse/demo/mix.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 3
       </span>
@@ -1455,16 +1455,16 @@ exports[`renders components/collapse/demo/noarrow.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header with arrow icon
       </span>
     </div>
     <div
-      class="ant-collapse-content ant-collapse-content-active"
+      class="ant-collapse-panel ant-collapse-panel-active"
     >
       <div
-        class="ant-collapse-content-box"
+        class="ant-collapse-body"
       >
         <p>
   A dog is a type of domesticated animal.
@@ -1485,7 +1485,7 @@ exports[`renders components/collapse/demo/noarrow.tsx correctly 1`] = `
       tabindex="0"
     >
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header with no arrow icon
       </span>
@@ -1543,7 +1543,7 @@ Array [
           </span>
         </div>
         <span
-          class="ant-collapse-header-text"
+          class="ant-collapse-title"
         >
           This is default size panel header
         </span>
@@ -1597,7 +1597,7 @@ Array [
           </span>
         </div>
         <span
-          class="ant-collapse-header-text"
+          class="ant-collapse-title"
         >
           This is small size panel header
         </span>
@@ -1651,7 +1651,7 @@ Array [
           </span>
         </div>
         <span
-          class="ant-collapse-header-text"
+          class="ant-collapse-title"
         >
           This is large size panel header
         </span>

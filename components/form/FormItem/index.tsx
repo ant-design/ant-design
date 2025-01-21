@@ -1,11 +1,11 @@
 import * as React from 'react';
 import type { JSX } from 'react';
+import useState from '@rc-component/util/lib/hooks/useState';
+import { supportRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
 import { Field, FieldContext, ListContext } from 'rc-field-form';
 import type { FieldProps } from 'rc-field-form/lib/Field';
 import type { InternalNamePath, Meta } from 'rc-field-form/lib/interface';
-import useState from 'rc-util/lib/hooks/useState';
-import { supportRef } from 'rc-util/lib/ref';
 
 import { cloneElement } from '../../_util/reactNode';
 import { devUseWarning } from '../../_util/warning';
@@ -101,8 +101,6 @@ export interface FormItemProps<Values = any>
   initialValue?: any;
   messageVariables?: Record<string, string>;
   tooltip?: LabelTooltipType;
-  /** @deprecated No need anymore */
-  fieldKey?: React.Key | React.Key[];
   layout?: FormItemLayout;
 }
 

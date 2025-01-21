@@ -30,6 +30,7 @@ demo:
 <code src="./demo/size.tsx">三种大小</code>
 <code src="./demo/with-icon.tsx">设置图标</code>
 <code src="./demo/icon-only.tsx">只设置图标</code>
+<code src="./demo/with-name.tsx" version="5.23.0">配合 name 使用</code>
 <code src="./demo/controlled-two.tsx" debug>受控同步模式</code>
 <code src="./demo/size-consistent.tsx" debug>统一高度</code>
 <code src="./demo/componentToken.tsx" debug>自定义组件 Token</code>
@@ -52,6 +53,7 @@ demo:
 | size | 控件尺寸 | `large` \| `middle` \| `small` | `middle` |  |
 | vertical | 排列方向 | boolean | `false` | 5.21.0 |
 | value | 当前选中的值 | string \| number |  |  |
+| name | Segmented 下所有 `input[type="radio"]` 的 `name` 属性。若未设置，则将回退到随机生成的名称 | string |  | 5.23.0 |
 
 ### SegmentedItemType
 
@@ -62,6 +64,10 @@ demo:
 | icon      | 分段项的显示图标 | ReactNode        | -      |      |
 | disabled  | 分段项的禁用状态 | boolean          | false  |      |
 | className | 自定义类名       | string           | -      |      |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

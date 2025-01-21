@@ -1,7 +1,8 @@
 import * as React from 'react';
+import useId from '@rc-component/util/lib/hooks/useId';
+import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
+import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -19,6 +20,8 @@ import useStyle from './style';
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
+  const defaultName = useId();
+
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -31,7 +34,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     style,
     id,
     optionType,
-    name,
+    name = defaultName,
     defaultValue,
     value: customizedValue,
     block = false,

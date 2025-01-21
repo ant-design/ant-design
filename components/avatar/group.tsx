@@ -1,6 +1,6 @@
 import * as React from 'react';
+import toArray from '@rc-component/util/lib/Children/toArray';
 import classNames from 'classnames';
-import toArray from 'rc-util/lib/Children/toArray';
 
 import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
@@ -121,7 +121,7 @@ const Group: React.FC<GroupProps> = (props) => {
     const mergeProps = {
       content: childrenHidden,
       ...max?.popover,
-      overlayClassName: classNames(`${groupPrefixCls}-popover`, max?.popover?.overlayClassName),
+      classNames: { root: classNames(`${groupPrefixCls}-popover`, max?.popover?.classNames?.root) },
       placement: mergePopoverPlacement,
       trigger: mergePopoverTrigger,
     };

@@ -413,7 +413,7 @@ describe('Cascader', () => {
     const { container } = render(<Cascader options={customOptions} placement="topRight" />);
     toggleOpen(container);
 
-    // Inject in tests/__mocks__/rc-trigger.js
+    // Inject in tests/__mocks__/@rc-component/trigger.tsx
     expect((global as any)?.triggerProps.popupPlacement).toEqual('topRight');
   });
 
@@ -531,28 +531,15 @@ describe('Cascader', () => {
     const { container } = render(<Cascader options={options} direction="rtl" />);
     toggleOpen(container);
 
-    // Inject in tests/__mocks__/rc-trigger.js
+    // Inject in tests/__mocks__/@rc-component/trigger.tsx
     expect((global as any).triggerProps.popupPlacement).toEqual('bottomRight');
   });
 
   describe('legacy props', () => {
     it('popupPlacement', () => {
       render(<Cascader open popupPlacement="bottomLeft" />);
-      // Inject in tests/__mocks__/rc-trigger.js
+      // Inject in tests/__mocks__/@rc-component/trigger.tsx
       expect((global as any).triggerProps.popupPlacement).toEqual('bottomLeft');
-    });
-
-    it('legacy dropdownClassName', () => {
-      resetWarned();
-
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-      const { container } = render(<Cascader dropdownClassName="legacy" open />);
-      expect(errSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Cascader] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
-      );
-      expect(container.querySelector('.legacy')).toBeTruthy();
-
-      errSpy.mockRestore();
     });
 
     it('should support showCheckedStrategy child', () => {

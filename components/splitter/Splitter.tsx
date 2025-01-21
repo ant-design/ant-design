@@ -1,8 +1,8 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
+import useEvent from '@rc-component/util/lib/hooks/useEvent';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
-import useEvent from 'rc-util/lib/hooks/useEvent';
 
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -24,10 +24,13 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     style,
     layout = 'horizontal',
     children,
+    draggerIcon,
+    collapsibleIcon,
     rootClassName,
     onResizeStart,
     onResize,
     onResizeEnd,
+    lazy,
   } = props;
 
   const { getPrefixCls, direction, splitter } = React.useContext(ConfigContext);
@@ -170,11 +173,14 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
             splitBar = (
               <SplitBar
+                lazy={lazy}
                 index={idx}
                 active={movingIndex === idx}
                 prefixCls={prefixCls}
                 vertical={isVertical}
                 resizable={resizableInfo.resizable}
+                draggerIcon={draggerIcon}
+                collapsibleIcon={collapsibleIcon}
                 ariaNow={stackSizes[idx] * 100}
                 ariaMin={Math.max(ariaMinStart, ariaMinEnd) * 100}
                 ariaMax={Math.min(ariaMaxStart, ariaMaxEnd) * 100}
@@ -190,6 +196,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 }}
                 onOffsetEnd={onInternalResizeEnd}
                 onCollapse={onInternalCollapse}
+                containerSize={containerSize || 0}
               />
             );
           }

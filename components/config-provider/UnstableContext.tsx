@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { render, unmount } from 'rc-util/lib/React/render';
+import { render, unmount } from '@rc-component/util/lib/React/render';
 
 import warning from '../_util/warning';
 
@@ -15,13 +15,10 @@ const defaultReactRender: RenderType = (node, container) => {
   // Warning for React 19
   if (process.env.NODE_ENV !== 'production') {
     const majorVersion = parseInt(React.version.split('.')[0], 10);
+    const fullKeys = Object.keys(ReactDOM);
+
     warning(
-      majorVersion < 19 ||
-        !!(
-          ReactDOM as typeof ReactDOM & {
-            createRoot: VoidFunction;
-          }
-        ).createRoot,
+      majorVersion < 19 || fullKeys.includes('createRoot'),
       'compatible',
       'antd v5 support React is 16 ~ 18. see https://u.ant.design/v5-for-19 for compatible.',
     );

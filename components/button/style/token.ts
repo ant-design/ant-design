@@ -160,17 +160,17 @@ export interface ComponentToken {
    * @desc 只有图标的按钮图标尺寸
    * @descEN Icon size of button which only contains icon
    */
-  onlyIconSize: number;
+  onlyIconSize: number | string;
   /**
    * @desc 大号只有图标的按钮图标尺寸
    * @descEN Icon size of large button which only contains icon
    */
-  onlyIconSizeLG: number;
+  onlyIconSizeLG: number | string;
   /**
    * @desc 小号只有图标的按钮图标尺寸
    * @descEN Icon size of small button which only contains icon
    */
-  onlyIconSizeSM: number;
+  onlyIconSizeSM: number | string;
   /**
    * @desc 按钮组边框颜色
    * @descEN Border color of button group
@@ -233,17 +233,17 @@ export interface ButtonToken extends FullToken<'Button'> {
    * @desc 只有图标的按钮图标尺寸
    * @descEN Icon size of button which only contains icon
    */
-  buttonIconOnlyFontSize: number;
+  buttonIconOnlyFontSize: number | string;
 }
 
 export const prepareToken: (token: Parameters<GenStyleFn<'Button'>>[0]) => ButtonToken = (
   token,
 ) => {
-  const { paddingInline, onlyIconSize, paddingBlock } = token;
+  const { paddingInline, onlyIconSize } = token;
 
   const buttonToken = mergeToken<ButtonToken>(token, {
     buttonPaddingHorizontal: paddingInline,
-    buttonPaddingVertical: paddingBlock,
+    buttonPaddingVertical: 0,
     buttonIconOnlyFontSize: onlyIconSize,
   });
 
@@ -275,9 +275,9 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
     paddingInline: token.paddingContentHorizontal - token.lineWidth,
     paddingInlineLG: token.paddingContentHorizontal - token.lineWidth,
     paddingInlineSM: 8 - token.lineWidth,
-    onlyIconSize: token.fontSizeLG,
-    onlyIconSizeSM: token.fontSizeLG - 2,
-    onlyIconSizeLG: token.fontSizeLG + 2,
+    onlyIconSize: 'inherit',
+    onlyIconSizeSM: 'inherit',
+    onlyIconSizeLG: 'inherit',
     groupBorderColor: token.colorPrimaryHover,
     linkHoverBg: 'transparent',
     textTextColor: token.colorText,

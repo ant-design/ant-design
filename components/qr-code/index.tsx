@@ -1,8 +1,8 @@
 import React, { useContext, type AriaAttributes } from 'react';
 import { QRCodeCanvas, QRCodeSVG } from '@rc-component/qrcode';
+import omit from '@rc-component/util/lib/omit';
+import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
-import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';

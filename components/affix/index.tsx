@@ -1,7 +1,7 @@
 import React from 'react';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
-import omit from 'rc-util/lib/omit';
 
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import type { ConfigConsumerProps } from '../config-provider';

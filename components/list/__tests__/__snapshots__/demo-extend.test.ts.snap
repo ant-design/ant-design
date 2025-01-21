@@ -1872,6 +1872,7 @@ Array [
               >
                 <input
                   class="ant-radio-button-input"
+                  name="test-id"
                   type="radio"
                   value="top"
                 />
@@ -1879,7 +1880,9 @@ Array [
                   class="ant-radio-button-inner"
                 />
               </span>
-              <span>
+              <span
+                class="ant-radio-button-label"
+              >
                 top
               </span>
             </label>
@@ -1892,6 +1895,7 @@ Array [
                 <input
                   checked=""
                   class="ant-radio-button-input"
+                  name="test-id"
                   type="radio"
                   value="bottom"
                 />
@@ -1899,7 +1903,9 @@ Array [
                   class="ant-radio-button-inner"
                 />
               </span>
-              <span>
+              <span
+                class="ant-radio-button-label"
+              >
                 bottom
               </span>
             </label>
@@ -1911,6 +1917,7 @@ Array [
               >
                 <input
                   class="ant-radio-button-input"
+                  name="test-id"
                   type="radio"
                   value="both"
                 />
@@ -1918,7 +1925,9 @@ Array [
                   class="ant-radio-button-inner"
                 />
               </span>
-              <span>
+              <span
+                class="ant-radio-button-label"
+              >
                 both
               </span>
             </label>
@@ -1953,6 +1962,7 @@ Array [
               >
                 <input
                   class="ant-radio-button-input"
+                  name="test-id"
                   type="radio"
                   value="start"
                 />
@@ -1960,7 +1970,9 @@ Array [
                   class="ant-radio-button-inner"
                 />
               </span>
-              <span>
+              <span
+                class="ant-radio-button-label"
+              >
                 start
               </span>
             </label>
@@ -1973,6 +1985,7 @@ Array [
                 <input
                   checked=""
                   class="ant-radio-button-input"
+                  name="test-id"
                   type="radio"
                   value="center"
                 />
@@ -1980,7 +1993,9 @@ Array [
                   class="ant-radio-button-inner"
                 />
               </span>
-              <span>
+              <span
+                class="ant-radio-button-label"
+              >
                 center
               </span>
             </label>
@@ -1992,6 +2007,7 @@ Array [
               >
                 <input
                   class="ant-radio-button-input"
+                  name="test-id"
                   type="radio"
                   value="end"
                 />
@@ -1999,7 +2015,9 @@ Array [
                   class="ant-radio-button-inner"
                 />
               </span>
-              <span>
+              <span
+                class="ant-radio-button-label"
+              >
                 end
               </span>
             </label>

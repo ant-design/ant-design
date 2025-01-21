@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Slider from '..';
-import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -164,65 +163,52 @@ describe('Slider', () => {
       render(<Slider step={value} tooltip={{ open: true }} />);
     });
   });
-  it('deprecated warning', () => {
-    resetWarned();
 
-    const TSSlider = Slider as any;
+  it('should apply custom styles to Descriptions', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      track: 'custom-track',
+      tracks: 'custom-tracks',
+      rail: 'custom-rail',
+      handle: 'custom-handle',
+    };
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const customStyles = {
+      root: { backgroundColor: 'red' },
+      track: { backgroundColor: 'black' },
+      tracks: { backgroundColor: 'yellow' },
+      rail: { backgroundColor: 'purple' },
+      handle: { backgroundColor: 'blue' },
+    };
 
-    const { container, rerender } = render(<TSSlider tooltipPrefixCls="xxx" />);
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tooltipPrefixCls` is deprecated. Please use `tooltip.prefixCls` instead.',
-    );
-
-    rerender(<TSSlider getTooltipPopupContainer={() => document.body} />);
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `getTooltipPopupContainer` is deprecated. Please use `tooltip.getPopupContainer` instead.',
-    );
-
-    rerender(<TSSlider tipFormatter={(v: any) => v} />);
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tipFormatter` is deprecated. Please use `tooltip.formatter` instead.',
-    );
-
-    rerender(<TSSlider tooltipVisible />);
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tooltipVisible` is deprecated. Please use `tooltip.open` instead.',
-    );
-
-    rerender(<TSSlider tooltipPlacement="left" />);
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tooltipPlacement` is deprecated. Please use `tooltip.placement` instead.',
-    );
-
-    // All should work
-    const holder = document.createElement('div');
-    holder.id = 'holder';
-    document.body.appendChild(holder);
-
-    const getTooltipPopupContainer = jest.fn(() => container);
-
-    rerender(
-      <TSSlider
-        tooltipPrefixCls="bamboo"
-        getTooltipPopupContainer={getTooltipPopupContainer}
-        tipFormatter={() => 'little'}
-        tooltipPlacement="bottom"
-        tooltipVisible
+    const { container } = render(
+      <Slider
+        range
+        defaultValue={[20, 30, 50]}
+        style={{ width: '100%' }}
+        classNames={customClassNames}
+        styles={customStyles}
       />,
     );
 
-    act(() => {
-      jest.runAllTimers();
-    });
+    const rootElement = container.querySelector('.ant-slider') as HTMLElement;
+    const trackElement = container.querySelector('.ant-slider-track') as HTMLElement;
+    const tracksElement = container.querySelector('.ant-slider-tracks') as HTMLElement;
+    const railElement = container.querySelector('.ant-slider-rail') as HTMLElement;
+    const handleElement = container.querySelector('.ant-slider-handle') as HTMLElement;
 
-    expect(getTooltipPopupContainer).toHaveBeenCalled();
-    expect(container.querySelector('.bamboo')).toBeTruthy();
-    expect(container.querySelector('.bamboo-inner')!.textContent).toEqual('little');
+    // check classNames
+    expect(rootElement.classList).toContain('custom-root');
+    expect(trackElement.classList).toContain('custom-track');
+    expect(tracksElement.classList).toContain('custom-tracks');
+    expect(railElement.classList).toContain('custom-rail');
+    expect(handleElement.classList).toContain('custom-handle');
 
-    holder.parentNode?.removeChild(holder);
-
-    errSpy.mockRestore();
+    // check styles
+    expect(rootElement.style.backgroundColor).toBe('red');
+    expect(trackElement.style.backgroundColor).toBe('black');
+    expect(tracksElement.style.backgroundColor).toBe('yellow');
+    expect(railElement.style.backgroundColor).toBe('purple');
+    expect(handleElement.style.backgroundColor).toBe('blue');
   });
 });
