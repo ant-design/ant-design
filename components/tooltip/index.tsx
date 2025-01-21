@@ -22,6 +22,7 @@ import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
 import { useToken } from '../theme/internal';
+import useMergedArrow from './hook/useMergedArrow';
 import PurePanel from './PurePanel';
 import useStyle from './style';
 import { parseColor } from './util';
@@ -127,15 +128,23 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     children,
     afterOpenChange,
     destroyTooltipOnHide,
-    arrow = true,
+    arrow: tooltipArrow,
     title,
     overlay,
     builtinPlacements,
     autoAdjustOverflow = true,
     motion,
+    getPopupContainer,
+    placement = 'top',
+    mouseEnterDelay = 0.1,
+    mouseLeaveDelay = 0.1,
+    overlayStyle,
+    rootClassName,
+    overlayClassName,
+    styles,
+    classNames: tooltipClassNames,
+    ...restProps
   } = props;
-
-  const mergedShowArrow = !!arrow;
 
   const [, token] = useToken();
 
@@ -145,6 +154,8 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     direction,
     tooltip,
   } = React.useContext(ConfigContext);
+  const mergedArrow = useMergedArrow(tooltipArrow, tooltip?.arrow);
+  const mergedShowArrow = mergedArrow.show;
 
   // ============================== Ref ===============================
   const warning = devUseWarning('Tooltip');
@@ -196,7 +207,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     return (
       builtinPlacements ||
       getPlacements({
-        arrowPointAtCenter: typeof arrow === 'object' ? arrow?.pointAtCenter : false,
+        arrowPointAtCenter: mergedArrow?.pointAtCenter ?? false,
         autoAdjustOverflow,
         arrowWidth: mergedShowArrow ? token.sizePopupArrow : 0,
         borderRadius: token.borderRadius,
@@ -204,7 +215,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
         visibleFirst: true,
       })
     );
-  }, [arrow, builtinPlacements, token]);
+  }, [mergedArrow, builtinPlacements, token]);
 
   const memoOverlay = React.useMemo<TooltipProps['overlay']>(() => {
     if (title === 0) {
@@ -218,19 +229,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       {typeof memoOverlay === 'function' ? memoOverlay() : memoOverlay}
     </ContextIsolator>
   );
-
-  const {
-    getPopupContainer,
-    placement = 'top',
-    mouseEnterDelay = 0.1,
-    mouseLeaveDelay = 0.1,
-    overlayStyle,
-    rootClassName,
-    overlayClassName,
-    styles,
-    classNames: tooltipClassNames,
-    ...otherProps
-  } = props;
 
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
@@ -276,11 +274,11 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
   const bodyClassNames = classNames(tooltip?.classNames?.body, tooltipClassNames?.body);
 
   // ============================ zIndex ============================
-  const [zIndex, contextZIndex] = useZIndex('Tooltip', otherProps.zIndex);
+  const [zIndex, contextZIndex] = useZIndex('Tooltip', restProps.zIndex);
 
   const content = (
     <RcTooltip
-      {...otherProps}
+      {...restProps}
       zIndex={zIndex}
       showArrow={mergedShowArrow}
       placement={placement}

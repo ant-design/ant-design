@@ -191,13 +191,19 @@ export type SelectConfig = ComponentStyleConfig & Pick<SelectProps, 'showSearch'
 
 export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'classNames' | 'styles'>;
 
-export type TooltipConfig = Pick<TooltipProps, 'className' | 'style' | 'styles' | 'classNames'>;
+export type TooltipConfig = Pick<
+  TooltipProps,
+  'className' | 'style' | 'styles' | 'classNames' | 'arrow'
+>;
 
-export type PopoverConfig = Pick<PopoverProps, 'className' | 'style' | 'styles' | 'classNames'>;
+export type PopoverConfig = Pick<
+  PopoverProps,
+  'className' | 'style' | 'styles' | 'classNames' | 'arrow'
+>;
 
 export type PopconfirmConfig = Pick<
   PopconfirmProps,
-  'className' | 'style' | 'styles' | 'classNames'
+  'className' | 'style' | 'styles' | 'classNames' | 'arrow'
 >;
 
 export type SliderConfig = ComponentStyleConfig & Pick<SliderProps, 'styles' | 'classNames'>;

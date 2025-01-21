@@ -10,6 +10,7 @@ import { ConfigContext } from '../config-provider';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
 import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
+import useMergedArrow from '../tooltip/hook/useMergedArrow';
 import PurePanel, { Overlay } from './PurePanel';
 import useStyle from './style';
 
@@ -49,6 +50,7 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     onOpenChange,
     overlayStyle,
     styles,
+    arrow: popconfirmArrow,
     classNames: popconfirmClassNames,
     ...restProps
   } = props;
@@ -58,6 +60,7 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     value: props.open,
     defaultValue: props.defaultOpen,
   });
+  const mergedArrow = useMergedArrow(popconfirmArrow, popconfirm?.arrow);
 
   const settingOpen: PopoverProps['onOpenChange'] = (value, e) => {
     setOpen(value, true);
@@ -96,6 +99,7 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
 
   return wrapCSSVar(
     <Popover
+      arrow={mergedArrow}
       {...omit(restProps, ['title'])}
       trigger={trigger}
       placement={placement}
