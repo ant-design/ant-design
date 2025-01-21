@@ -203,6 +203,11 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     deprecatedList.forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in column), deprecatedName, newName);
     });
+    warning.deprecated(
+      !('filterCheckall' in locale),
+      'filterCheckall' as 'deprecated',
+      'locale.filterCheckAll',
+    );
   }
 
   const mergedVisible =
@@ -416,7 +421,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
                   className={`${tablePrefixCls}-filter-dropdown-checkall`}
                   onChange={onCheckAll}
                 >
-                  {locale.filterCheckall}
+                  {locale.filterCheckall ?? locale?.filterCheckAll}
                 </Checkbox>
               ) : null}
               <Tree<FilterTreeDataNode>

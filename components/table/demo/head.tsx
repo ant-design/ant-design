@@ -12,6 +12,7 @@ interface DataType {
 const columns: TableColumnsType<DataType> = [
   {
     title: 'Name',
+    filterDropdownOpen: false,
     dataIndex: 'name',
     showSorterTooltip: { target: 'full-header' },
     filters: [
@@ -100,6 +101,11 @@ const onChange: TableProps<DataType>['onChange'] = (pagination, filters, sorter,
 
 const App: React.FC = () => (
   <Table<DataType>
+    locale={{
+      filterCheckAll: 'aaa',
+      filterCheckall: 'bbb',
+    }}
+    filterDropdownOpen={false}
     columns={columns}
     dataSource={data}
     onChange={onChange}
