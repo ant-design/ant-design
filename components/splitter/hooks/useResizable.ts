@@ -8,7 +8,7 @@ export type ResizableInfo = {
   endCollapsible: boolean;
 };
 
-export default function useResizable(items: ItemType[], pxSizes: number[]) {
+export default function useResizable(items: ItemType[], pxSizes: number[], isRTL: boolean) {
   return React.useMemo(() => {
     const resizeInfos: ResizableInfo[] = [];
 
@@ -52,8 +52,8 @@ export default function useResizable(items: ItemType[], pxSizes: number[]) {
 
       resizeInfos[i] = {
         resizable: mergedResizable,
-        startCollapsible: !!startCollapsible,
-        endCollapsible: !!endCollapsible,
+        startCollapsible: !!(isRTL ? endCollapsible : startCollapsible),
+        endCollapsible: !!(isRTL ? startCollapsible : endCollapsible),
       };
     }
 
