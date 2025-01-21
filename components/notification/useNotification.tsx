@@ -158,7 +158,11 @@ export function useInternalNotification(
 
       const realCloseIcon = getCloseIcon(
         noticePrefixCls,
-        typeof closeIcon !== 'undefined' ? closeIcon : notification?.closeIcon,
+        typeof closeIcon !== 'undefined'
+          ? closeIcon
+          : typeof notificationConfig?.closeIcon !== 'undefined'
+            ? notificationConfig?.closeIcon
+            : notification?.closeIcon,
       );
 
       return originOpen({

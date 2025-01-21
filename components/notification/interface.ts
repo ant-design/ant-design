@@ -78,4 +78,5 @@ export interface NotificationConfig {
   duration?: number;
   showProgress?: boolean;
   pauseOnHover?: boolean;
+  closeIcon?: React.ReactNode;
 }
