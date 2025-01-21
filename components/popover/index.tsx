@@ -10,6 +10,7 @@ import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
 import Tooltip from '../tooltip';
+import useMergedArrow from '../tooltip/hook/useMergedArrow';
 import PurePanel, { Overlay } from './PurePanel';
 // CSSINJS
 import useStyle from './style';
@@ -39,13 +40,15 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     styles,
     classNames: popoverClassNames,
     motion,
-    ...otherProps
+    arrow: popoverArrow,
+    ...restProps
   } = props;
   const { popover, getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
   const rootPrefixCls = getPrefixCls();
+  const mergedArrow = useMergedArrow(popoverArrow, popover?.arrow);
 
   const rootClassNames = classNames(
     overlayClassName,
@@ -84,11 +87,12 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
 
   return wrapCSSVar(
     <Tooltip
+      arrow={mergedArrow}
       placement={placement}
       trigger={trigger}
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
-      {...otherProps}
+      {...restProps}
       prefixCls={prefixCls}
       classNames={{ root: rootClassNames, body: bodyClassNames }}
       styles={{

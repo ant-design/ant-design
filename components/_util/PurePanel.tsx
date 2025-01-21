@@ -19,7 +19,7 @@ export interface BaseProps {
 
 /* istanbul ignore next */
 const genPurePanel = <ComponentProps extends BaseProps = BaseProps>(
-  Component: any,
+  Component: React.ComponentType<Readonly<ComponentProps>>,
   alignPropName?: 'align' | 'dropdownAlign' | 'popupAlign',
   postProps?: (props: ComponentProps) => ComponentProps,
   defaultPrefixCls?: string,
