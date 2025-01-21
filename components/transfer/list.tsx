@@ -14,6 +14,7 @@ import type {
   SelectAllLabel,
   TransferDirection,
   TransferLocale,
+  TransferSearchOption,
 } from './index';
 import type { PaginationType, TransferKey } from './interface';
 import type { ListBodyRef, TransferListBodyProps } from './ListBody';
@@ -62,7 +63,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   handleClear: () => void;
   /** Render item */
   render?: (item: RecordType) => RenderResult;
-  showSearch?: boolean;
+  showSearch?: boolean | TransferSearchOption;
   searchPlaceholder: string;
   itemUnit: string;
   itemsUnit: string;
@@ -82,6 +83,19 @@ export interface TransferListProps<RecordType> extends TransferLocale {
 }
 
 export interface TransferCustomListBodyProps<T> extends TransferListBodyProps<T> {}
+
+const useShowSearchOption = (showSearch: boolean | TransferSearchOption) => {
+  if (showSearch && typeof showSearch === 'object') {
+    return {
+      ...showSearch,
+      defaultValue: showSearch.defaultValue || '',
+    };
+  }
+  return {
+    defaultValue: '',
+    placeholder: '',
+  };
+};
 
 const TransferList = <RecordType extends KeyWiseTransferItem>(
   props: TransferListProps<RecordType>,
@@ -119,8 +133,8 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     filterOption,
     render = defaultRender,
   } = props;
-
-  const [filterValue, setFilterValue] = useState<string>('');
+  const searchOptions = useShowSearchOption(showSearch);
+  const [filterValue, setFilterValue] = useState<string>(searchOptions.defaultValue);
   const listBodyRef = useRef<ListBodyRef<RecordType>>({});
 
   const internalHandleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -187,8 +201,12 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     return [filterItems, filterRenderItems] as const;
   }, [dataSource, filterValue]);
 
+  const checkedActiveItems = useMemo<RecordType[]>(() => {
+    return filteredItems.filter((item) => checkedKeys.includes(item.key) && !item.disabled);
+  }, [checkedKeys, filteredItems]);
+
   const checkStatus = useMemo<string>(() => {
-    if (checkedKeys.length === 0) {
+    if (checkedActiveItems.length === 0) {
       return 'none';
     }
     const checkedKeysMap = groupKeysMap(checkedKeys);
@@ -196,16 +214,16 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
       return 'all';
     }
     return 'part';
-  }, [checkedKeys, filteredItems]);
+  }, [checkedKeys, checkedActiveItems]);
 
   const listBody = useMemo<React.ReactNode>(() => {
     const search = showSearch ? (
       <div className={`${prefixCls}-body-search-wrapper`}>
         <Search
           prefixCls={`${prefixCls}-search`}
-          onChange={internalHandleFilter as any}
+          onChange={internalHandleFilter}
           handleClear={internalHandleClear}
-          placeholder={searchPlaceholder}
+          placeholder={searchOptions.placeholder || searchPlaceholder}
           value={filterValue}
           disabled={disabled}
         />
@@ -232,9 +250,9 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     }
     return (
       <div
-        className={classNames(
-          showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`,
-        )}
+        className={classNames(`${prefixCls}-body`, {
+          [`${prefixCls}-body-with-search`]: showSearch,
+        })}
       >
         {search}
         {bodyNode}
@@ -254,7 +272,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
 
   const checkBox = (
     <Checkbox
-      disabled={dataSource.length === 0 || disabled}
+      disabled={dataSource.filter((d) => !d.disabled).length === 0 || disabled}
       checked={checkStatus === 'all'}
       indeterminate={checkStatus === 'part'}
       className={`${prefixCls}-checkbox`}
@@ -380,7 +398,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
           </>
         ) : null}
         <span className={`${prefixCls}-header-selected`}>
-          {getSelectAllLabel(checkedKeys.length, filteredItems.length)}
+          {getSelectAllLabel(checkedActiveItems.length, filteredItems.length)}
         </span>
         <span className={`${prefixCls}-header-title`}>{titleText}</span>
       </div>

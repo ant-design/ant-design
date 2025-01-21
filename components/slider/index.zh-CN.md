@@ -28,6 +28,7 @@ demo:
 <code src="./demo/reverse.tsx">反向</code>
 <code src="./demo/draggableTrack.tsx">范围可拖拽</code>
 <code src="./demo/multiple.tsx">多点组合</code>
+<code src="./demo/editable.tsx" version="5.20.0">动态增减节点</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
@@ -58,9 +59,12 @@ demo:
 
 ### range
 
-| 参数           | 说明                 | 类型    | 默认值 | 版本   |
-| -------------- | -------------------- | ------- | ------ | ------ |
-| draggableTrack | 范围刻度是否可被拖拽 | boolean | false  | 4.10.0 |
+| 参数           | 说明                                               | 类型    | 默认值 | 版本   |
+| -------------- | -------------------------------------------------- | ------- | ------ | ------ |
+| draggableTrack | 范围刻度是否可被拖拽                               | boolean | false  |        |
+| editable       | 启动动态增减节点，不能和 `draggableTrack` 一同使用 | boolean | false  | 5.20.0 |
+| minCount       | 配置 `editable` 时，最小节点数量                   | number  | 0      | 5.20.0 |
+| maxCount       | 配置 `editable` 时，最大节点数量                   | number  | -      | 5.20.0 |
 
 ### tooltip
 

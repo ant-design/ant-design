@@ -32,9 +32,25 @@ export interface ComponentToken extends ArrowToken, ArrowOffsetToken {
   paddingBlock: CSSProperties['paddingBlock'];
 }
 
+/**
+ * @desc Dropdown 组件的 Token
+ * @descEN Token for Dropdown component
+ */
 export interface DropdownToken extends FullToken<'Dropdown'> {
+  /**
+   * @desc 下拉箭头距离
+   * @descEN Distance of dropdown arrow
+   */
   dropdownArrowDistance: number | string;
+  /**
+   * @desc 下拉菜单边缘子项内边距
+   * @descEN Padding of edge child in dropdown menu
+   */
   dropdownEdgeChildPadding: number;
+  /**
+   * @desc 菜单类名
+   * @descEN Menu class name
+   */
   menuCls: string;
 }
 
@@ -78,6 +94,12 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
           zIndex: -9999,
           opacity: 0.0001,
           content: '""',
+        },
+
+        // Makes vertical dropdowns have a scrollbar once they become taller than the viewport.
+        '&-menu-vertical': {
+          maxHeight: '100vh',
+          overflowY: 'auto',
         },
 
         [`&-trigger${antCls}-btn`]: {
@@ -211,7 +233,6 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
             position: 'relative',
             display: 'flex',
             alignItems: 'center',
-            whiteSpace: 'nowrap',
           },
 
           [`${menuCls}-item-icon`]: {
@@ -222,6 +243,12 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
 
           [`${menuCls}-title-content`]: {
             flex: 'auto',
+
+            '&-with-extra': {
+              display: 'inline-flex',
+              alignItems: 'center',
+              width: '100%',
+            },
 
             '> a': {
               color: 'inherit',
@@ -237,11 +264,18 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
                 content: '""',
               },
             },
+
+            [`${menuCls}-item-extra`]: {
+              paddingInlineStart: token.padding,
+              marginInlineStart: 'auto',
+              fontSize: token.fontSizeSM,
+              color: token.colorTextDescription,
+            },
           },
 
           // =========================== Item ===========================
           [`${menuCls}-item, ${menuCls}-submenu-title`]: {
-            clear: 'both',
+            display: 'flex',
             margin: 0,
             padding: `${unit(paddingBlock!)} ${unit(controlPaddingHorizontal)}`,
             color: token.colorText,

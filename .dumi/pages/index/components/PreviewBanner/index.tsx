@@ -1,7 +1,9 @@
 import React, { Suspense } from 'react';
 import { ConfigProvider, Flex, Typography } from 'antd';
 import { createStyles } from 'antd-style';
+import classNames from 'classnames';
 import { useLocation } from 'dumi';
+
 import useLocale from '../../../../hooks/useLocale';
 import LinkButton from '../../../../theme/common/LinkButton';
 import SiteContext from '../../../../theme/slots/SiteContext';
@@ -26,6 +28,7 @@ const locales = {
 
 const useStyle = () => {
   const { direction } = React.useContext(ConfigProvider.ConfigContext);
+  const { isMobile } = React.useContext(SiteContext);
   const isRTL = direction === 'rtl';
   return createStyles(({ token, css, cx }) => {
     const textShadow = `0 0 4px ${token.colorBgContainer}`;
@@ -101,11 +104,23 @@ const useStyle = () => {
       btnWrap: css`
         margin-bottom: ${token.marginXL}px;
       `,
+      bgImg: css`
+        position: absolute;
+        width: 240px;
+      `,
+      bgImgTop: css`
+        top: 0;
+        inset-inline-start: ${isMobile ? '-120px' : 0};
+      `,
+      bgImgBottom: css`
+        bottom: 120px;
+        inset-inline-end: ${isMobile ? 0 : '40%'};
+      `,
     };
   })();
 };
 
-const PreviewBanner: React.FC<React.PropsWithChildren> = (props) => {
+const PreviewBanner: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
   const { children } = props;
   const [locale] = useLocale(locales);
   const { styles } = useStyle();
@@ -117,15 +132,17 @@ const PreviewBanner: React.FC<React.PropsWithChildren> = (props) => {
     <GroupMaskLayer>
       {/* Image Left Top */}
       <img
-        style={{ position: 'absolute', left: isMobile ? -120 : 0, top: 0, width: 240 }}
-        src="https://gw.alipayobjects.com/zos/bmw-prod/49f963db-b2a8-4f15-857a-270d771a1204.svg"
         alt="bg"
+        src="https://gw.alipayobjects.com/zos/bmw-prod/49f963db-b2a8-4f15-857a-270d771a1204.svg"
+        draggable={false}
+        className={classNames(styles.bgImg, styles.bgImgTop)}
       />
       {/* Image Right Top */}
       <img
-        style={{ position: 'absolute', right: isMobile ? 0 : '40%', bottom: 120, width: 240 }}
-        src="https://gw.alipayobjects.com/zos/bmw-prod/e152223c-bcae-4913-8938-54fda9efe330.svg"
         alt="bg"
+        src="https://gw.alipayobjects.com/zos/bmw-prod/e152223c-bcae-4913-8938-54fda9efe330.svg"
+        draggable={false}
+        className={classNames(styles.bgImg, styles.bgImgBottom)}
       />
 
       <div className={styles.holder}>

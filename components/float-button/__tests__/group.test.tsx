@@ -86,6 +86,38 @@ describe('FloatButtonGroup', () => {
     expect(onOpenChange).toHaveBeenCalledTimes(2);
   });
 
+  it('support onClick for floatButtonGroup', () => {
+    const onClick = jest.fn();
+    const { container } = render(
+      <FloatButton.Group trigger="click" onClick={onClick}>
+        <FloatButton />
+        <FloatButton />
+
+        <FloatButton />
+      </FloatButton.Group>,
+    );
+    const floatButton = container
+      .querySelector('.ant-float-btn-group')!
+      .querySelector('.ant-float-btn');
+    fireEvent.click(floatButton!);
+    expect(onClick).toHaveBeenCalled();
+  });
+  it('support click floatButtonGroup when children has onClick', () => {
+    const onClick = jest.fn();
+    const onClick2 = jest.fn();
+    const { container } = render(
+      <FloatButton.Group trigger="click" onClick={onClick}>
+        <FloatButton onClick={onClick2} />
+        <FloatButton onClick={onClick2} />
+        <FloatButton onClick={onClick2} />
+      </FloatButton.Group>,
+    );
+    fireEvent.click(container.querySelector('.ant-float-btn')!);
+    fireEvent.click(container.querySelector('.ant-float-btn-group')!);
+    expect(onClick).toHaveBeenCalled();
+    expect(onClick2).not.toHaveBeenCalled();
+  });
+
   it('warning if set `open` but not set `trigger`', () => {
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
@@ -119,5 +151,17 @@ describe('FloatButtonGroup', () => {
     );
 
     expect(container.querySelector('.ant-badge')).toBeTruthy();
+  });
+
+  it('FloatButton.Group should support placement', () => {
+    (['bottom', 'left', 'right', 'top'] as const).forEach((placement) => {
+      const { container } = render(
+        <FloatButton.Group placement={placement} trigger="click" open>
+          <FloatButton />
+        </FloatButton.Group>,
+      );
+      const element = container.querySelector<HTMLDivElement>('.ant-float-btn-group');
+      expect(element).toHaveClass(`ant-float-btn-group-${placement}`);
+    });
   });
 });

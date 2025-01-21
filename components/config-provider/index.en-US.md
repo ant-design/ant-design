@@ -9,7 +9,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*YC4ERpGAddoAAA
 
 ## Usage
 
-This component provides a configuration to all React components underneath itself via the [context API](https://facebook.github.io/react/docs/context.html). In the render tree all components will have access to the provided config.
+This component provides a configuration to all React components underneath itself via the [context API](https://react.dev/learn/passing-data-deeply-with-context). In the render tree all components will have access to the provided config.
 
 ```tsx
 import React from 'react';
@@ -111,9 +111,9 @@ const {
 | alert | Set Alert common props | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode } | - | 5.7.0, closeIcon: 5.14.0 |
 | anchor | Set Anchor common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | avatar | Set Avatar common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| badge | Set Badge common props | { className?: string, style?: React.CSSProperties, classNames?: { count?: string, indicator?: string }, styles?: { count?: React.CSSProperties, indicator?: React.CSSProperties } } | - | 5.7.0 |
+| badge | Set Badge common props | { className?: string, style?: React.CSSProperties, classNames?: [BadgeProps\["classNames"\]](/components/badge#api), styles?: [BadgeProps\["styles"\]](/components/badge#api) } | - | 5.7.0 |
 | breadcrumb | Set Breadcrumb common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| button | Set Button common props | { className?: string, style?: React.CSSProperties, classNames?: { icon: string }, styles?: { icon: React.CSSProperties }, autoInsertSpace?: boolean } | - | 5.6.0, autoInsertSpace: 5.17.0 |
+| button | Set Button common props | { className?: string, style?: React.CSSProperties, classNames?: [ButtonProps\["classNames"\]](/components/button#api), styles?: [ButtonProps\["styles"\]](/components/button#api), autoInsertSpace?: boolean } | - | 5.6.0, autoInsertSpace: 5.17.0 |
 | card | Set Card common props | { className?: string, style?: React.CSSProperties, classNames?: [CardProps\["classNames"\]](/components/card#api), styles?: [CardProps\["styles"\]](/components/card#api) } | - | 5.7.0, `classNames` and `styles`: 5.14.0 |
 | calendar | Set Calendar common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | carousel | Set Carousel common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
@@ -123,11 +123,11 @@ const {
 | colorPicker | Set ColorPicker common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | datePicker | Set datePicker common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | rangePicker | Set rangePicker common props | { className?: string, style?: React.CSSProperties } | - | 5.11.0 |
-| descriptions | Set Descriptions common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| descriptions | Set Descriptions common props | { className?: string, style?: React.CSSProperties, classNames?: [DescriptionsProps\["classNames"\]](/components/descriptions#api), styles?: [DescriptionsProps\["styles"\]](/components/descriptions#api) } | - | 5.7.0, `classNames` and `styles`: 5.23.0 |
 | divider | Set Divider common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | drawer | Set Drawer common props | { className?: string, style?: React.CSSProperties, classNames?: [DrawerProps\["classNames"\]](/components/drawer#api), styles?: [DrawerProps\["styles"\]](/components/drawer#api), closeIcon?: ReactNode } | - | 5.7.0, `classNames` and `styles`: 5.10.0, `closeIcon`: 5.14.0 |
 | dropdown | Set Dropdown common props | { className?: string, style?: React.CSSProperties } | - | 5.11.0 |
-| empty | Set Empty common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| empty | Set Empty common props | { className?: string, style?: React.CSSProperties, classNames?: [EmptyProps\["classNames"\]](/components/empty#api), styles?: [EmptyProps\["styles"\]](/components/empty#api) } | - | 5.7.0, `classNames` and `styles`: 5.23.0 |
 | flex | Set Flex common props | { className?: string, style?: React.CSSProperties, vertical?: boolean } | - | 5.10.0 |
 | floatButtonGroup | Set FloatButton.Group common props | { closeIcon?: React.ReactNode } | - | 5.16.0 |
 | form | Set Form common props | { className?: string, style?: React.CSSProperties, validateMessages?: [ValidateMessages](/components/form/#validatemessages), requiredMark?: boolean \| `optional`, scrollToFirstError?: boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) } | - | requiredMark: 4.8.0; colon: 4.18.0; scrollToFirstError: 5.2.0; className: 5.7.0; style: 5.7.0 |
@@ -149,10 +149,11 @@ const {
 | skeleton | Set Skeleton common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | segmented | Set Segmented common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | select | Set Select common props | { className?: string, showSearch?: boolean, style?: React.CSSProperties } | - | 5.7.0 |
-| slider | Set Slider common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| slider | Set Slider common props | { className?: string, style?: React.CSSProperties, classNames?: [SliderProps\["classNames"\]](/components/slider#api), styles?: [SliderProps\["styles"\]](/components/slider#api) } | - | 5.7.0, `classNames` and `styles`: 5.23.0 |
 | switch | Set Switch common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| space | Set Space common props, ref [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number`, className?: string, style?: React.CSSProperties, classNames?: { item: string }, styles?: { item: React.CSSProperties } } | - | 5.6.0 |
-| spin | Set Spin common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| space | Set Space common props, ref [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number`, className?: string, style?: React.CSSProperties, classNames?: [SpaceProps\["classNames"\]](/components/space#api), styles?: [SpaceProps\["styles"\]](/components/space#api) } | - | 5.6.0 |
+| splitter | Set Splitter common props | { className?: string, style?: React.CSSProperties } | - | 5.21.0 |
+| spin | Set Spin common props | { className?: string, style?: React.CSSProperties, indicator?: React.ReactElement } | - | 5.7.0, indicator: 5.20.0 |
 | statistic | Set Statistic common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | steps | Set Steps common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | table | Set Table common props | { className?: string, style?: React.CSSProperties, expandable?: { expandIcon?: props => React.ReactNode } } | - | 5.7.0, expandable: 5.14.0 |
@@ -161,6 +162,9 @@ const {
 | timeline | Set Timeline common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | timePicker | Set TimePicker common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | tour | Set Tour common props | { closeIcon?: React.ReactNode } | - | 5.14.0 |
+| tooltip | Set Tooltip common props | { className?: string, style?: React.CSSProperties, classNames?:[Tooltip\["classNames"\]](/components/tooltip#api), styles?: [Tooltip\["styles"\]](/components/tooltip#api) } | - | 5.23.0 |
+| popover | Set Popover common props | { className?: string, style?: React.CSSProperties, classNames?:[Popover\["classNames"\]](/components/popover#api), styles?: [Popover\["styles"\]](/components/popover#api) } | - | 5.23.0 |
+| popconfirm | Set Popconfirm common props | { className?: string, style?: React.CSSProperties, classNames?:[Popconfirm\["classNames"\]](/components/popconfirm#api), styles?: [Popconfirm\["styles"\]](/components/popconfirm#api) } | - | 5.23.0 |
 | transfer | Set Transfer common props | { className?: string, style?: React.CSSProperties, selectionsIcon?: React.ReactNode } | - | 5.7.0, selectionsIcon: 5.14.0 |
 | tree | Set Tree common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | typography | Set Typography common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |

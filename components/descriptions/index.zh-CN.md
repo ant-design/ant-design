@@ -72,6 +72,7 @@ const items: DescriptionsProps['items'] = [
 <code src="./demo/style.tsx" debug>自定义 label & wrapper 样式</code>
 <code src="./demo/jsx.tsx" debug>JSX demo</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
+<code src="./demo/block.tsx">整行</code>
 
 ## API
 
@@ -99,9 +100,13 @@ const items: DescriptionsProps['items'] = [
 | contentStyle | 自定义内容样式 | CSSProperties | - | 4.9.0 |
 | label | 内容的描述 | ReactNode | - |  |
 | labelStyle | 自定义标签样式 | CSSProperties | - | 4.9.0 |
-| span | 包含列的数量 | number \| [Screens](/components/grid-cn#col) | 1 | `screens: 5.9.0` |
+| span | 包含列的数量（`filled` 铺满当前行剩余部分） | number\| `filled` \| [Screens](/components/grid-cn#col) | 1 | `screens: 5.9.0`，`filled: 5.22.0` |
 
 > span 是 Description.Item 的数量。 span={2} 会占用两个 DescriptionItem 的宽度。当同时配置 `style` 和 `labelStyle`（或 `contentStyle`）时，两者会同时作用。样式冲突时，后者会覆盖前者。
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

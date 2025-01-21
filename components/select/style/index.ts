@@ -76,7 +76,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
     [componentCls]: {
       ...resetComponent(token),
       position: 'relative',
-      display: 'inline-block',
+      display: 'inline-flex',
       cursor: 'pointer',
 
       [`&:not(${componentCls}-customize-input) ${componentCls}-selector`]: {
@@ -146,6 +146,27 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         },
       },
 
+      // ========================== Wrap ===========================
+      [`${componentCls}-selection-wrap`]: {
+        display: 'flex',
+        width: '100%',
+        position: 'relative',
+        minWidth: 0,
+
+        // https://github.com/ant-design/ant-design/issues/51669
+        '&:after': {
+          content: '"\\a0"',
+          width: 0,
+          overflow: 'hidden',
+        },
+      },
+
+      // ========================= Prefix ==========================
+      [`${componentCls}-prefix`]: {
+        flex: 'none',
+        marginInlineEnd: token.selectAffixPadding,
+      },
+
       // ========================== Clear ==========================
       [`${componentCls}-clear`]: {
         position: 'absolute',
@@ -177,27 +198,25 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         },
       },
 
-      '&:hover': {
-        [`${componentCls}-clear`]: {
-          opacity: 1,
-        },
-        // Should use the following selector, but since `:has` has poor compatibility,
-        // we use `:not(:last-child)` instead, which may cause some problems in some cases.
-        // [`${componentCls}-arrow:has(+ ${componentCls}-clear)`]: {
-        [`${componentCls}-arrow:not(:last-child)`]: {
-          opacity: 0,
-        },
+      [`&:hover ${componentCls}-clear`]: {
+        opacity: 1,
+        background: token.colorBgBase,
+        borderRadius: '50%',
       },
     },
 
     // ========================= Feedback ==========================
-    [`${componentCls}-has-feedback`]: {
-      [`${componentCls}-clear`]: {
-        insetInlineEnd: token
-          .calc(inputPaddingHorizontalBase)
-          .add(token.fontSize)
-          .add(token.paddingXS)
-          .equal(),
+    [`${componentCls}-status`]: {
+      '&-error, &-warning, &-success, &-validating': {
+        [`&${componentCls}-has-feedback`]: {
+          [`${componentCls}-clear`]: {
+            insetInlineEnd: token
+              .calc(inputPaddingHorizontalBase)
+              .add(token.fontSize)
+              .add(token.paddingXS)
+              .equal(),
+          },
+        },
       },
     },
   };

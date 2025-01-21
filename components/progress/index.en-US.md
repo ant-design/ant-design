@@ -31,7 +31,7 @@ If it will take a long time to complete an operation, you can use `Progress` to 
 <code src="./demo/linecap.tsx">Stroke Linecap</code>
 <code src="./demo/gradient-line.tsx">Custom line gradient</code>
 <code src="./demo/steps.tsx">Progress bar with steps</code>
-<code src="./demo/circle-steps.tsx" version="5.16.0">Circular progress bar whit steps</code>
+<code src="./demo/circle-steps.tsx" version="5.16.0">Circular progress bar with steps</code>
 <code src="./demo/size.tsx">Progress size</code>
 <code src="./demo/info-position.tsx" version="5.18.0">Change progress value position</code>
 

@@ -89,7 +89,6 @@ const useThemeAnimation = () => {
       .startViewTransition(async () => {
         // wait for theme change end
         while (colorBgElevated === animateRef.current.colorBgElevated) {
-          // eslint-disable-next-line no-await-in-loop
           await new Promise((resolve) => {
             setTimeout(resolve, 1000 / 60);
           });
@@ -99,6 +98,7 @@ const useThemeAnimation = () => {
         root.classList.add(isDark ? 'light' : 'dark');
       })
       .ready.then(() => {
+        // eslint-disable-next-line no-console
         console.log(`Theme transition finished in ${Date.now() - time}ms`);
         const clipPath = [
           `circle(0px at ${x}px ${y}px)`,

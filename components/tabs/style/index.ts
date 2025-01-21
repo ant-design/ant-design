@@ -1,7 +1,7 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import { genFocusStyle, resetComponent, textEllipsis } from '../../style';
+import { genFocusOutline, genFocusStyle, resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genMotionStyle from './motion';
@@ -21,7 +21,7 @@ export interface ComponentToken {
    * @desc 卡片标签页高度
    * @descEN Height of card tab
    */
-  cardHeight: number;
+  cardHeight: number | string;
   /**
    * @desc 卡片标签页内间距
    * @descEN Padding of card tab
@@ -38,7 +38,7 @@ export interface ComponentToken {
    */
   cardPaddingLG: string;
   /**
-   * @desc 标齐页标题文本大小
+   * @desc 标签页标题文本大小
    * @descEN Font size of title
    */
   titleFontSize: number;
@@ -134,8 +134,8 @@ export interface TabsToken extends FullToken<'Tabs'> {
   dropdownEdgeChildVerticalPadding: number;
   tabsNavWrapPseudoWidth: number;
   tabsActiveTextShadow: string;
-  tabsDropdownHeight: number;
-  tabsDropdownWidth: number;
+  tabsDropdownHeight: number | string;
+  tabsDropdownWidth: number | string;
   tabsHorizontalItemMargin: string;
   tabsHorizontalItemMarginRTL: string;
 }
@@ -165,8 +165,16 @@ const genCardStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
           background: token.colorBgContainer,
         },
 
+        [`${componentCls}-tab-focus`]: {
+          ...genFocusOutline(token, -3),
+        },
+
         [`${componentCls}-ink-bar`]: {
           visibility: 'hidden',
+        },
+
+        [`& ${componentCls}-tab${componentCls}-tab-focus ${componentCls}-tab-btn`]: {
+          outline: 'none',
         },
       },
 
@@ -687,7 +695,6 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
         '&:focus:not(:focus-visible), &:active': {
           color: itemActiveColor,
         },
-        ...genFocusStyle(token),
       },
       '&-btn': {
         outline: 'none',
@@ -716,6 +723,7 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
         '&:hover': {
           color: token.colorTextHeading,
         },
+        ...genFocusStyle(token),
       },
       '&:hover': {
         color: itemHoverColor,
@@ -724,6 +732,10 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
       [`&${tabCls}-active ${tabCls}-btn`]: {
         color: itemSelectedColor,
         textShadow: token.tabsActiveTextShadow,
+      },
+
+      [`&${tabCls}-focus ${tabCls}-btn`]: {
+        ...genFocusOutline(token),
       },
 
       [`&${tabCls}-disabled`]: {
@@ -940,12 +952,11 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
 
         [`${componentCls}-nav-add`]: {
           minWidth: cardHeight,
-          minHeight: cardHeight,
           marginLeft: {
             _skip_check_: true,
             value: cardGutter,
           },
-          padding: `0 ${unit(token.paddingXS)}`,
+          padding: unit(token.paddingXS),
           background: 'transparent',
           border: `${unit(token.lineWidth)} ${token.lineType} ${colorBorderSecondary}`,
           borderRadius: `${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)} 0 0`,
@@ -962,7 +973,7 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
             color: itemActiveColor,
           },
 
-          ...genFocusStyle(token),
+          ...genFocusStyle(token, -3),
         },
       },
 
@@ -993,7 +1004,7 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
       },
 
       [`${componentCls}-tabpane`]: {
-        outline: 'none',
+        ...genFocusStyle(token),
         '&-hidden': {
           display: 'none',
         },
@@ -1003,8 +1014,8 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
     [`${componentCls}-centered`]: {
       [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {
         [`${componentCls}-nav-wrap`]: {
-          [`&:not([class*='${componentCls}-nav-wrap-ping'])`]: {
-            justifyContent: 'center',
+          [`&:not([class*='${componentCls}-nav-wrap-ping']) > ${componentCls}-nav-list`]: {
+            margin: 'auto',
           },
         },
       },

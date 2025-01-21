@@ -28,7 +28,7 @@ const useStyle = createStyles(({ token, css }) => ({
     justify-content: space-between;
     align-items: center;
   `,
-  left: css`
+  leftCard: css`
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -117,7 +117,7 @@ const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink, juejinLink }) => {
       card,
       bigTitle,
       cardBody,
-      left,
+      leftCard,
       title,
       subTitle,
       logo,
@@ -136,7 +136,7 @@ const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink, juejinLink }) => {
         <>
           <Divider />
           <div className={cardBody}>
-            <div className={left}>
+            <div className={leftCard}>
               <img draggable={false} src={ANTD_IMG_URL} alt="antd" />
               <div>
                 <p className={title}>Ant Design</p>
@@ -170,7 +170,7 @@ const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink, juejinLink }) => {
         <>
           <Divider />
           <div className={cardBody}>
-            <div className={left}>
+            <div className={leftCard}>
               <img draggable={false} src={ANTD_IMG_URL} alt="antd" />
               <div>
                 <p className={title}>Ant Design</p>
@@ -204,7 +204,7 @@ const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink, juejinLink }) => {
         <>
           <Divider />
           <div className={cardBody}>
-            <div className={left}>
+            <div className={leftCard}>
               <img draggable={false} src={ANTD_IMG_URL} alt="antd" />
               <div>
                 <p className={title}>Ant Design</p>

@@ -3,7 +3,6 @@
 exports[`Tree icon and switcherIcon of Tree with showLine should render correctly 1`] = `
 <div
   class="ant-tree ant-tree-show-line"
-  role="tree"
 >
   <div>
     <input
@@ -28,6 +27,7 @@ exports[`Tree icon and switcherIcon of Tree with showLine should render correctl
   </div>
   <div
     class="ant-tree-list"
+    role="tree"
     style="position: relative;"
   >
     <div
@@ -39,9 +39,10 @@ exports[`Tree icon and switcherIcon of Tree with showLine should render correctl
           style="display: flex; flex-direction: column;"
         >
           <div
-            aria-grabbed="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
             draggable="false"
+            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -69,9 +70,10 @@ exports[`Tree icon and switcherIcon of Tree with showLine should render correctl
             </span>
           </div>
           <div
-            aria-grabbed="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
             draggable="false"
+            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -97,9 +99,10 @@ exports[`Tree icon and switcherIcon of Tree with showLine should render correctl
             </span>
           </div>
           <div
-            aria-grabbed="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
             draggable="false"
+            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -155,7 +158,6 @@ exports[`Tree icon and switcherIcon of Tree with showLine should render correctl
 exports[`Tree showLine is object type should render correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide ant-tree-show-line"
-  role="tree"
 >
   <div>
     <input
@@ -180,6 +182,7 @@ exports[`Tree showLine is object type should render correctly 1`] = `
   </div>
   <div
     class="ant-tree-list"
+    role="tree"
     style="position: relative;"
   >
     <div
@@ -191,9 +194,10 @@ exports[`Tree showLine is object type should render correctly 1`] = `
           style="display: flex; flex-direction: column;"
         >
           <div
-            aria-grabbed="false"
+            aria-expanded="true"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
             draggable="false"
+            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -237,9 +241,10 @@ exports[`Tree showLine is object type should render correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
+            aria-expanded="true"
             class="ant-tree-treenode ant-tree-treenode-switcher-open"
             draggable="false"
+            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -287,9 +292,10 @@ exports[`Tree showLine is object type should render correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            aria-expanded="false"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
             draggable="false"
+            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -321,9 +327,10 @@ exports[`Tree showLine is object type should render correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            aria-expanded="false"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
             draggable="false"
+            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -355,9 +362,10 @@ exports[`Tree showLine is object type should render correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            aria-expanded="false"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
+            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -389,9 +397,10 @@ exports[`Tree showLine is object type should render correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
             draggable="false"
+            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -439,9 +448,10 @@ exports[`Tree showLine is object type should render correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
             draggable="false"
+            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -495,10 +505,9 @@ exports[`Tree showLine is object type should render correctly 1`] = `
 </div>
 `;
 
-exports[`Tree switcherIcon in Tree could be string 1`] = `
+exports[`Tree support switcherLoadingIcon prop when loadData 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide"
-  role="tree"
 >
   <div>
     <input
@@ -523,6 +532,7 @@ exports[`Tree switcherIcon in Tree could be string 1`] = `
   </div>
   <div
     class="ant-tree-list"
+    role="tree"
     style="position: relative;"
   >
     <div
@@ -534,9 +544,10 @@ exports[`Tree switcherIcon in Tree could be string 1`] = `
           style="display: flex; flex-direction: column;"
         >
           <div
-            aria-grabbed="false"
+            aria-expanded="true"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
             draggable="false"
+            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -559,9 +570,151 @@ exports[`Tree switcherIcon in Tree could be string 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open"
+            aria-expanded="true"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-loading"
             draggable="false"
+            role="treeitem"
+          >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            >
+              <span
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+              />
+            </span>
+            <span
+              class="ant-tree-switcher ant-tree-switcher_open"
+            >
+              <div>
+                loading...
+              </div>
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              title="node1"
+            >
+              <span
+                class="ant-tree-iconEle ant-tree-icon__open ant-tree-icon_loading"
+              />
+              <span
+                class="ant-tree-title"
+              >
+                node1
+              </span>
+            </span>
+          </div>
+          <div
+            aria-expanded="true"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-loading ant-tree-treenode-leaf-last"
+            draggable="false"
+            role="treeitem"
+          >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            >
+              <span
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+              />
+            </span>
+            <span
+              class="ant-tree-switcher ant-tree-switcher_open"
+            >
+              <div>
+                loading...
+              </div>
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              title="node2"
+            >
+              <span
+                class="ant-tree-iconEle ant-tree-icon__open ant-tree-icon_loading"
+              />
+              <span
+                class="ant-tree-title"
+              >
+                node2
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tree switcherIcon in Tree could be string 1`] = `
+<div
+  class="ant-tree ant-tree-icon-hide"
+>
+  <div>
+    <input
+      aria-label="for screen reader"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+      tabindex="0"
+      value=""
+    />
+  </div>
+  <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-tree-list"
+    role="tree"
+    style="position: relative;"
+  >
+    <div
+      class="ant-tree-list-holder"
+    >
+      <div>
+        <div
+          class="ant-tree-list-holder-inner"
+          style="display: flex; flex-direction: column;"
+        >
+          <div
+            aria-expanded="true"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            draggable="false"
+            role="treeitem"
+          >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
+            <span
+              class="ant-tree-switcher ant-tree-switcher_open"
+            >
+              switcherIcon
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              title="---"
+            >
+              <span
+                class="ant-tree-title"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+          <div
+            aria-expanded="false"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
+            draggable="false"
+            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -586,9 +739,10 @@ exports[`Tree switcherIcon in Tree could be string 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            aria-expanded="false"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
+            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -622,7 +776,6 @@ exports[`Tree switcherIcon in Tree could be string 1`] = `
 exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide"
-  role="tree"
 >
   <div>
     <input
@@ -647,6 +800,7 @@ exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
   </div>
   <div
     class="ant-tree-list"
+    role="tree"
     style="position: relative;"
   >
     <div
@@ -658,9 +812,10 @@ exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
           style="display: flex; flex-direction: column;"
         >
           <div
-            aria-grabbed="false"
+            aria-expanded="true"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
             draggable="false"
+            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -683,9 +838,10 @@ exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-loading"
+            aria-expanded="false"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close"
             draggable="false"
+            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -696,35 +852,14 @@ exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher_open"
+              class="ant-tree-switcher ant-tree-switcher_close"
             >
-              <span
-                aria-label="loading"
-                class="anticon anticon-loading anticon-spin ant-tree-switcher-loading-icon"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="loading"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="0 0 1024 1024"
-                  width="1em"
-                >
-                  <path
-                    d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                  />
-                </svg>
-              </span>
+              switcherIcon
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
               title="node1"
             >
-              <span
-                class="ant-tree-iconEle ant-tree-icon__open ant-tree-icon_loading"
-              />
               <span
                 class="ant-tree-title"
               >
@@ -733,9 +868,10 @@ exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-loading ant-tree-treenode-leaf-last"
+            aria-expanded="false"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
             draggable="false"
+            role="treeitem"
           >
             <span
               aria-hidden="true"
@@ -746,35 +882,14 @@ exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher_open"
+              class="ant-tree-switcher ant-tree-switcher_close"
             >
-              <span
-                aria-label="loading"
-                class="anticon anticon-loading anticon-spin ant-tree-switcher-loading-icon"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="loading"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="0 0 1024 1024"
-                  width="1em"
-                >
-                  <path
-                    d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                  />
-                </svg>
-              </span>
+              switcherIcon
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
               title="node2"
             >
-              <span
-                class="ant-tree-iconEle ant-tree-icon__open ant-tree-icon_loading"
-              />
               <span
                 class="ant-tree-title"
               >

@@ -35,8 +35,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 <Card title="卡片标题">卡片内容</Card>
 ```
 
-### Card
-
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | actions | 卡片操作组，位置在卡片底部 | Array&lt;ReactNode> | - |  |
@@ -53,8 +51,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 | tabProps | [Tabs](/components/tabs-cn#tabs) | - | - |  |
 | title | 卡片标题 | ReactNode | - |  |
 | type | 卡片类型，可设置为 `inner` 或 不设置 | string | - |  |
-| classNames | 配置卡片内置模块的 className | Record<SemanticDOM, string> | - | 5.14.0 |
-| styles | 配置卡片内置模块的 style | Record<SemanticDOM, string> | - | 5.14.0 |
+| classNames | 配置卡片内置模块的 className | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.14.0 |
+| styles | 配置卡片内置模块的 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.14.0 |
 | onTabChange | 页签切换的回调 | (key) => void | - |  |
 
 ### Card.Grid
@@ -75,16 +73,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 | style       | 定义容器类名的样式 | CSSProperties | -      |      |
 | title       | 标题内容           | ReactNode     | -      |      |
 
-### `styles` 和 `classNames` 属性
+## Semantic DOM
 
-| 名称    | 说明                     | 版本   |
-| ------- | ------------------------ | ------ |
-| header  | 设置卡片头部区域         | 5.14.0 |
-| body    | 设置卡片内容区域         | 5.14.0 |
-| extra   | 设置卡片右上角的操作区域 | 5.14.0 |
-| title   | 设置卡片标题             | 5.14.0 |
-| actions | 设置卡片底部操作组       | 5.14.0 |
-| cover   | 设置标题封面             | 5.14.0 |
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

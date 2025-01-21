@@ -9,8 +9,8 @@ Use a form in Drawer with a submit button.
 ```css
 .site-form-in-drawer-wrapper {
   position: absolute;
-  right: 0px;
-  bottom: 0px;
+  inset-inline-end: 0;
+  bottom: 0;
   width: 100%;
   padding: 10px 16px;
   text-align: right;

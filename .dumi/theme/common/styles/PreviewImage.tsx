@@ -70,14 +70,14 @@ export default () => {
           + svg {
             position: absolute;
             top: 0;
-            left: 0;
+            inset-inline-start: 0;
           }
         }
 
         .preview-image-wrapper.good::after {
           position: absolute;
           bottom: 0;
-          left: 0;
+          inset-inline-start: 0;
           display: block;
           width: 100%;
           height: 3px;
@@ -88,7 +88,7 @@ export default () => {
         .preview-image-wrapper.bad::after {
           position: absolute;
           bottom: 0;
-          left: 0;
+          inset-inline-start: 0;
           display: block;
           width: 100%;
           height: 3px;

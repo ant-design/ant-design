@@ -63,7 +63,6 @@ const TimelineItemList: React.FC<TimelineProps & { hashId: string; direction?: s
             !reverse && !!pending ? pendingClass : readyClass,
             getPositionCls(item?.position ?? '', idx),
           ])}
-          /* eslint-disable-next-line react/no-array-index-key */
           key={item?.key || idx}
         />
       );

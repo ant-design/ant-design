@@ -23,7 +23,7 @@ import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
-import { getPlaceholder, transPlacement2DropdownAlign, useIcons } from '../util';
+import { getPlaceholder, useIcons } from '../util';
 import {
   MONTH,
   MONTHPICKER,
@@ -39,7 +39,9 @@ import {
 import type { GenericTimePickerProps, PickerProps, PickerPropsWithMultiple } from './interface';
 import useComponents from './useComponents';
 
-const generatePicker = <DateType extends AnyObject>(generateConfig: GenerateConfig<DateType>) => {
+const generatePicker = <DateType extends AnyObject = AnyObject>(
+  generateConfig: GenerateConfig<DateType>,
+) => {
   type DatePickerProps = PickerProps<DateType>;
   type TimePickerProps = GenericTimePickerProps<DateType>;
 
@@ -158,7 +160,6 @@ const generatePicker = <DateType extends AnyObject>(generateConfig: GenerateConf
             ref={innerRef}
             placeholder={getPlaceholder(locale, mergedPicker, placeholder)}
             suffixIcon={suffixNode}
-            dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
             placement={placement}
             prevIcon={<span className={`${prefixCls}-prev-icon`} />}
             nextIcon={<span className={`${prefixCls}-next-icon`} />}

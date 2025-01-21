@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react';
 import { unit } from '@ant-design/cssinjs';
 
-import { resetComponent, resetIcon } from '../../style';
+import { genFocusStyle, resetComponent, resetIcon } from '../../style';
 import { genCollapseMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
@@ -32,8 +32,20 @@ export interface ComponentToken {
 }
 
 type CollapseToken = FullToken<'Collapse'> & {
+  /**
+   * @desc 小号折叠面板头部内边距
+   * @descEN Padding of small header
+   */
   collapseHeaderPaddingSM: string;
+  /**
+   * @desc 大号折叠面板头部内边距
+   * @descEN Padding of large header
+   */
   collapseHeaderPaddingLG: string;
+  /**
+   * @desc 折叠面板边框圆角
+   * @descEN Border radius of collapse panel
+   */
   collapsePanelBorderRadius: number;
 };
 
@@ -83,6 +95,14 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
 
       [`& > ${componentCls}-item`]: {
         borderBottom: borderBase,
+        '&:first-child': {
+          [`
+            &,
+            & > ${componentCls}-header`]: {
+            borderRadius: `${unit(collapsePanelBorderRadius)} ${unit(collapsePanelBorderRadius)} 0 0`,
+          },
+        },
+
         '&:last-child': {
           [`
             &,
@@ -103,13 +123,10 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
           lineHeight,
           cursor: 'pointer',
           transition: `all ${motionDurationSlow}, visibility 0s`,
+          ...genFocusStyle(token),
 
           [`> ${componentCls}-header-text`]: {
             flex: 'auto',
-          },
-
-          '&:focus': {
-            outline: 'none',
           },
 
           // >>>>> Arrow
@@ -137,7 +154,15 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
           },
         },
 
-        [`${componentCls}-icon-collapsible-only`]: {
+        [`${componentCls}-collapsible-header`]: {
+          cursor: 'default',
+          [`${componentCls}-header-text`]: {
+            flex: 'none',
+            cursor: 'pointer',
+          },
+        },
+
+        [`${componentCls}-collapsible-icon`]: {
           cursor: 'unset',
 
           [`${componentCls}-expand-icon`]: {

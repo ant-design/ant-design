@@ -2,19 +2,19 @@ import type { FC } from 'react';
 import React, { useEffect, useState } from 'react';
 import type { RGB } from '@rc-component/color-picker';
 
-import type { Color } from '../color';
-import type { ColorPickerBaseProps } from '../interface';
+import type { AggregationColor } from '../color';
 import { generateColor } from '../util';
 import ColorSteppers from './ColorSteppers';
 
-interface ColorRgbInputProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
-  value?: Color;
-  onChange?: (value: Color) => void;
+interface ColorRgbInputProps {
+  prefixCls: string;
+  value?: AggregationColor;
+  onChange?: (value: AggregationColor) => void;
 }
 
 const ColorRgbInput: FC<ColorRgbInputProps> = ({ prefixCls, value, onChange }) => {
   const colorRgbInputPrefixCls = `${prefixCls}-rgb-input`;
-  const [rgbValue, setRgbValue] = useState<Color>(generateColor(value || '#000'));
+  const [rgbValue, setRgbValue] = useState<AggregationColor>(generateColor(value || '#000'));
 
   // Update step value
   useEffect(() => {

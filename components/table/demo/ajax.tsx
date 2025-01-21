@@ -4,7 +4,7 @@ import { Table } from 'antd';
 import type { SorterResult } from 'antd/es/table/interface';
 import qs from 'qs';
 
-type ColumnsType<T> = TableProps<T>['columns'];
+type ColumnsType<T extends object = object> = TableProps<T>['columns'];
 type TablePaginationConfig = Exclude<GetProp<TableProps, 'pagination'>, boolean>;
 
 interface DataType {
@@ -84,9 +84,7 @@ const App: React.FC = () => {
       });
   };
 
-  useEffect(() => {
-    fetchData();
-  }, [
+  useEffect(fetchData, [
     tableParams.pagination?.current,
     tableParams.pagination?.pageSize,
     tableParams?.sortOrder,
@@ -94,7 +92,7 @@ const App: React.FC = () => {
     JSON.stringify(tableParams.filters),
   ]);
 
-  const handleTableChange: TableProps['onChange'] = (pagination, filters, sorter) => {
+  const handleTableChange: TableProps<DataType>['onChange'] = (pagination, filters, sorter) => {
     setTableParams({
       pagination,
       filters,
@@ -109,7 +107,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Table
+    <Table<DataType>
       columns={columns}
       rowKey={(record) => record.login.uuid}
       dataSource={data}

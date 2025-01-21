@@ -24,7 +24,6 @@ interface NewToken {
 
 // 通过给 antd-style 扩展 CustomToken 对象类型定义，可以为 useTheme 中增加相应的 token 对象
 declare module 'antd-style' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
   export interface CustomToken extends NewToken {}
 }
 

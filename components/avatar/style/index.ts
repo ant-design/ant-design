@@ -53,6 +53,10 @@ export interface ComponentToken {
   groupBorderColor: string;
 }
 
+/**
+ * @desc Avatar 组件的 Token
+ * @descEN Token for Avatar component
+ */
 type AvatarToken = FullToken<'Avatar'> & {
   avatarBgColor: string;
   avatarBg: string;
@@ -147,7 +151,7 @@ const genGroupStyle: GenerateStyle<AvatarToken> = (token) => {
     [`${componentCls}-group`]: {
       display: 'inline-flex',
 
-      [`${componentCls}`]: {
+      [componentCls]: {
         borderColor: groupBorderColor,
       },
 

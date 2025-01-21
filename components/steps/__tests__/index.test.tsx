@@ -57,7 +57,6 @@ describe('Steps', () => {
         <Steps
           current={current}
           onChange={(val: number) => {
-            // eslint-disable-next-line no-console
             console.log('Change:', val);
             setCurrent(val);
           }}
@@ -69,7 +68,7 @@ describe('Steps', () => {
     expect(
       container.querySelectorAll('.ant-steps-item')[1].classList.contains('ant-steps-item-process'),
     ).toBe(false);
-    fireEvent.click(screen.getByText(/进行中/i));
+    fireEvent.click(screen.getByText(/进行中/));
     expect(
       container.querySelectorAll('.ant-steps-item')[1].classList.contains('ant-steps-item-process'),
     ).toBe(true);

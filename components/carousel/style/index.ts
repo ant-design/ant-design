@@ -9,12 +9,12 @@ export interface ComponentToken {
    * @desc 指示点宽度
    * @descEN Width of indicator
    */
-  dotWidth: number;
+  dotWidth: number | string;
   /**
    * @desc 指示点高度
    * @descEN Height of indicator
    */
-  dotHeight: number;
+  dotHeight: number | string;
   /**
    * @desc 指示点之间的间距
    * @descEN gap between indicator
@@ -31,7 +31,7 @@ export interface ComponentToken {
    * @desc 激活态指示点宽度
    * @descEN Width of active indicator
    */
-  dotActiveWidth: number;
+  dotActiveWidth: number | string;
   /**
    * @desc 切换箭头大小
    * @descEN Size of arrows

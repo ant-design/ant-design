@@ -31,6 +31,8 @@ export interface CarouselRef {
   innerSlider: any;
 }
 
+const dotsClass = 'slick-dots';
+
 interface ArrowType extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   currentSlide?: number;
   slideCount?: number;
@@ -39,8 +41,6 @@ interface ArrowType extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 const ArrowButton: React.FC<ArrowType> = ({ currentSlide, slideCount, ...rest }) => (
   <button type="button" {...rest} />
 );
-
-const dotsClass = 'slick-dots';
 
 const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   const {
@@ -59,7 +59,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     ...otherProps
   } = props;
   const { getPrefixCls, direction, carousel } = React.useContext(ConfigContext);
-  const slickRef = React.useRef<any>();
+  const slickRef = React.useRef<any>(null);
 
   const goTo = (slide: number, dontAnimate = false) => {
     slickRef.current.slickGoTo(slide, dontAnimate);

@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/th_TH';
 
 import type { Locale } from '.';
@@ -143,6 +142,9 @@ const localeValues: Locale = {
   },
   ColorPicker: {
     presetEmpty: 'ไม่มีข้อมูล',
+    transparent: 'โปร่งใส',
+    singleColor: 'สีเดียว',
+    gradientColor: 'สีไล่ระดับ',
   },
 };
 

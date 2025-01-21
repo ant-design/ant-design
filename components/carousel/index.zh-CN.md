@@ -37,7 +37,7 @@ demo:
 | autoplaySpeed | 自动切换的间隔（毫秒） | number | 3000 |  |
 | adaptiveHeight | 高度自适应 | boolean | false |  |
 | dotPosition | 面板指示点位置，可选 `top` `bottom` `left` `right` | string | `bottom` |  |
-| dots | 是否显示面板指示点，如果为 `object` 则同时可以指定 `dotsClass` 或者 | boolean \| { className?: string } | true |  |
+| dots | 是否显示面板指示点，如果为 `object` 则可以指定 `dotsClass` | boolean \| { className?: string } | true |  |
 | draggable | 是否启用拖拽切换 | boolean | false |  |
 | fade | 使用渐变切换动效 | boolean | false |  |
 | infinite | 是否无限循环切换（实现方式是复制两份 children 元素，如果子元素有副作用则可能会引发 bug） | boolean | true |  |

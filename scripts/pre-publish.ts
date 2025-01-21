@@ -1,4 +1,3 @@
-/* eslint-disable camelcase, no-async-promise-executor */
 import fs from 'node:fs';
 import runScript from '@npmcli/run-script';
 import { Octokit } from '@octokit/rest';
@@ -18,6 +17,8 @@ const blockStatus = ['failure', 'cancelled', 'timed_out'] as const;
 
 const spinner = { interval: 80, frames: ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'] };
 const spinnies = new Spinnies({ spinner });
+
+const IGNORE_ACTIONS = ['Check Virtual Regression Approval', 'issue-remove-inactive'];
 
 let spinniesId = 0;
 
@@ -143,14 +144,18 @@ const runPrePublish = async () => {
   showMessage(`开始检查远程分支 ${currentBranch} 的 CI 状态`, true);
 
   const failureUrlList: string[] = [];
-  const {
+  let {
     data: { check_runs },
   } = await octokit.checks.listForRef({
     owner,
     repo,
     ref: sha,
+    filter: 'all',
   });
   showMessage(`远程分支 CI 状态(${check_runs.length})：`, 'succeed');
+  check_runs = check_runs.filter((run) =>
+    IGNORE_ACTIONS.every((action) => !run.name.includes(action)),
+  );
   check_runs.forEach((run) => {
     showMessage(`  ${run.name.padEnd(36)} ${emojify(run.status)} ${emojify(run.conclusion || '')}`);
     if (blockStatus.some((status) => run.conclusion === status)) {
@@ -235,7 +240,7 @@ const runPrePublish = async () => {
 
   // 从 OSS 下载产物
   const downloadOSSPromise = Promise.resolve().then(async () => {
-    const url = `https://antd-visual-diff.oss-cn-shanghai.aliyuncs.com/${sha}/oss-artifacts.zip`;
+    const url = `https://antd-visual-diff.oss-accelerate.aliyuncs.com/${sha}/oss-artifacts.zip`;
 
     showMessage(`准备从远程 OSS 下载构建产物`, true, '[OSS]');
 
@@ -258,7 +263,7 @@ const runPrePublish = async () => {
     firstArtifactFile = await Promise.any([downloadArtifactPromise, downloadOSSPromise]);
   } catch (error) {
     showMessage(
-      chalk.bgRedBright(`下载失败，请确认你当前 ${sha.slice(0, 6)} 位于 master 分支中`),
+      chalk.bgRedBright(`下载失败 ${error}，请确认你当前 ${sha.slice(0, 6)} 位于 master 分支中`),
       'fail',
     );
     process.exit(1);

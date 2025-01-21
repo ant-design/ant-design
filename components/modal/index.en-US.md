@@ -48,12 +48,12 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | afterClose | Specify a function that will be called when modal is closed completely | function | - |  |
-| classNames | Config Modal build-in module's className | `header?: string; body?: string; footer?: string; mask?: string; content?: string; wrapper?: string;` | - |  |
-| styles | Config Modal build-in module's style | `header?: CSSProperties; body?: CSSProperties; footer?: CSSProperties; mask?: CSSProperties; content?: CSSProperties; wrapper?: CSSProperties;` | - | 5.10.0 |
+| classNames | Config Modal build-in module's className | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| styles | Config Modal build-in module's style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.10.0 |
 | cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#api) | - |  |
 | cancelText | Text of the Cancel button | ReactNode | `Cancel` |  |
 | centered | Centered Modal | boolean | false |  |
-| closable | Whether a close (x) button is visible on top right or not | boolean \| { closeIcon?: React.ReactNode } | true |  |
+| closable | Whether a close (x) button is visible on top right or not | boolean \| { closeIcon?: React.ReactNode; disabled?: boolean; } | true |  |
 | closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | ReactNode | &lt;CloseOutlined /> |  |
 | confirmLoading | Whether to apply loading visual effect for OK button or not | boolean | false |  |
 | destroyOnClose | Whether to unmount child components on onClose | boolean | false |  |
@@ -72,7 +72,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | loading | Show the skeleton | boolean |  | 5.18.0 |
 | title | The modal dialog's title | ReactNode | - |  |
 | open | Whether the modal dialog is visible or not | boolean | false |  |
-| width | Width of the modal dialog | string \| number | 520 |  |
+| width | Width of the modal dialog | string \| number \| [Breakpoint](/components/grid-cn#col) | 520 | Breakpoint: 5.23.0 |
 | wrapClassName | The class name of the container of the modal dialog | string | - |  |
 | zIndex | The `z-index` of the Modal | number | 1000 |  |
 | onCancel | Specify a function that will be called when a user clicks mask, close button on top right or Cancel button | function(e) | - |  |
@@ -192,7 +192,7 @@ const confirmed = await modal.confirm({ ... });
 | originNode | default node | React.ReactNode | - |
 | extra | extended options | { OkBtn: FC; CancelBtn: FC } | - |
 
-### `styles` and `classNames` attribute
+## Semantic DOM
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 

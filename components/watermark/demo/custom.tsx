@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ColorPicker, Flex, Form, Input, InputNumber, Slider, Typography, Watermark } from 'antd';
 import type { ColorPickerProps, GetProp, WatermarkProps } from 'antd';
 
-type Color = GetProp<ColorPickerProps, 'color'>;
+type Color = Extract<GetProp<ColorPickerProps, 'value'>, string | { cleared: any }>;
 
 const { Paragraph } = Typography;
 

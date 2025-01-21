@@ -56,6 +56,9 @@ export interface Locale {
   };
   ColorPicker?: {
     presetEmpty: string;
+    transparent: string;
+    singleColor: string;
+    gradientColor: string;
   };
 }
 

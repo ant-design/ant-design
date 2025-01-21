@@ -10,7 +10,7 @@ export interface ComponentToken {
    * @desc 内容区域高度
    * @descEN Height of content area
    */
-  contentHeight: number;
+  contentHeight: number | string;
   /**
    * @desc 加载图标尺寸
    * @descEN Loading icon size
@@ -43,7 +43,7 @@ const antRotate = new Keyframes('antRotate', {
 const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => {
   const { componentCls, calc } = token;
   return {
-    [`${componentCls}`]: {
+    [componentCls]: {
       ...resetComponent(token),
       position: 'absolute',
       display: 'none',
@@ -209,8 +209,8 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
       [`${componentCls}-dot-progress`]: {
         position: 'absolute',
         top: '50%',
-        transform: 'translateY(-50%)',
-        insetInlineStart: 0,
+        transform: 'translate(-50%, -50%)',
+        insetInlineStart: '50%',
       },
 
       // dots

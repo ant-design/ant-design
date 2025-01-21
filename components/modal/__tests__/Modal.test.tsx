@@ -41,6 +41,11 @@ describe('Modal', () => {
     expect(baseElement.querySelector('.ant-modal-close')).toBeFalsy();
   });
 
+  it('support disable close button when setting disable to true', () => {
+    const { baseElement } = render(<Modal open closable={{ disabled: true }} />);
+    expect(baseElement.querySelector('.ant-modal-close')).toHaveAttribute('disabled');
+  });
+
   it('render correctly', () => {
     const { asFragment } = render(<ModalTester />);
     expect(asFragment().firstChild).toMatchSnapshot();
@@ -186,5 +191,21 @@ describe('Modal', () => {
     );
     expect(document.querySelector('.first-origin')).toMatchSnapshot();
     expect(document.querySelector('.second-props-origin')).toMatchSnapshot();
+  });
+
+  it('responsive width', () => {
+    render(
+      <Modal open width={{ xs: '90%', sm: '80%', md: '70%', lg: '60%', xl: '50%', xxl: '40%' }} />,
+    );
+
+    const modalEle = document.querySelector<HTMLDivElement>('.ant-modal')!;
+    expect(modalEle).toHaveStyle({
+      '--ant-modal-xs-width': '90%',
+      '--ant-modal-sm-width': '80%',
+      '--ant-modal-md-width': '70%',
+      '--ant-modal-lg-width': '60%',
+      '--ant-modal-xl-width': '50%',
+      '--ant-modal-xxl-width': '40%',
+    });
   });
 });

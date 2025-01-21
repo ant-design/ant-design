@@ -38,7 +38,7 @@ const App: React.FC = () => {
         <DatePicker />
       </Form.Item>
 
-      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+      <Form.Item label={null}>
         <Button type="primary" htmlType="submit">
           Submit
         </Button>

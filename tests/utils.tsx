@@ -32,7 +32,7 @@ export const sleep = async (timeout = 0) => {
 const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>) =>
   render(ui, { wrapper: StrictMode, ...options });
 
-export function renderHook<T>(func: () => T): { result: React.RefObject<T> } {
+export function renderHook<T>(func: () => T): { result: React.RefObject<T | null> } {
   const result = createRef<T>();
 
   const Demo: React.FC = () => {
@@ -76,7 +76,6 @@ export const triggerResize = (target: Element) => {
  */
 export async function waitFakeTimer(advanceTime = 1000, times = 20) {
   for (let i = 0; i < times; i += 1) {
-    // eslint-disable-next-line no-await-in-loop
     await act(async () => {
       await Promise.resolve();
 
@@ -87,6 +86,19 @@ export async function waitFakeTimer(advanceTime = 1000, times = 20) {
       }
     });
   }
+}
+
+/**
+ * Same as `waitFakeTimer` but to resolve React 19.
+ * `act` warning
+ */
+export async function waitFakeTimer19(advanceTime = 1000) {
+  await act(async () => {
+    await Promise.resolve();
+  });
+  await act(async () => {
+    jest.advanceTimersByTime(advanceTime);
+  });
 }
 
 export * from '@testing-library/react';
