@@ -1,6 +1,6 @@
 import accessibilityDemoTest from '../../../tests/shared/accessibilityTest';
 
-describe('checkbox demo a11y', () => {
+accessibilityDemoTest('checkbox', {
   // skip debug demo
-  accessibilityDemoTest('checkbox', { skip: ['custom-line-width.tsx', 'disabled.tsx'] });
+  skip: ['custom-line-width.tsx', 'disabled.tsx'],
 });
