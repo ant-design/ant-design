@@ -1,6 +1,14 @@
 {
   "compilerOptions": {
+    "target": "es6",
+    "jsx": "react",
+    "jsxFactory": "React.createElement",
+    "jsxFragmentFactory": "React.Fragment",
+    "lib": ["dom", "es2017"],
+    "experimentalDecorators": true,
     "baseUrl": "./",
+    "module": "esnext",
+    "moduleResolution": "Bundler",
     "paths": {
       "@@/*": [".dumi/tmp/*"],
       "antd": ["components/index.ts"],
@@ -8,23 +16,15 @@
       "antd/lib/*": ["components/*"],
       "antd/locale/*": ["components/locale/*"]
     },
+    "resolvePackageJsonExports": true,
     "strict": true,
     "strictNullChecks": true,
-    "module": "esnext",
-    "moduleResolution": "Bundler",
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "jsx": "react",
-    "jsxFactory": "React.createElement",
-    "jsxFragmentFactory": "React.Fragment",
-    "noUnusedParameters": true,
-    "noUnusedLocals": true,
     "noImplicitAny": true,
-    "target": "es6",
-    "lib": ["dom", "es2017"],
-    "skipLibCheck": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "stripInternal": true,
-    "resolvePackageJsonExports": true
+    "esModuleInterop": true,
+    "skipLibCheck": true
   },
   "include": [".dumirc.ts", "**/*"],
   "exclude": ["node_modules", "lib", "es"]

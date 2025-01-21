@@ -80,7 +80,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | name | Form name. Will be the prefix of Field `id` | string | - |  |
 | preserve | Keep field value even when field removed. You can get the preserve field value by `getFieldsValue(true)` | boolean | true | 4.4.0 |
 | requiredMark | Required mark style. Can use required mark or optional mark. You can not config to single Form.Item since this is a Form level config | boolean \| `optional` \| ((label: ReactNode, info: { required: boolean }) => ReactNode) | true | `renderProps`: 5.9.0 |
-| scrollToFirstError | Auto scroll to first failed field when submit | boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) | false |  |
+| scrollToFirstError | Auto scroll to first failed field when submit | boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) \| { focus: boolean } | false |  |
 | size | Set field component size (antd components only) | `small` \| `middle` \| `large` | - |  |
 | validateMessages | Validation prompt template, description [see below](#validatemessages) | [ValidateMessages](https://github.com/ant-design/ant-design/blob/6234509d18bac1ac60fbb3f92a5b2c6a6361295a/components/locale/en_US.ts#L88-L134) | - |  |
 | validateTrigger | Config field validate trigger | string \| string\[] | `onChange` | 4.3.0 |
@@ -91,6 +91,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | onFinishFailed | Trigger after submitting the form and verifying data failed | function({ values, errorFields, outOfDate }) | - |  |
 | onValuesChange | Trigger when value updated | function(changedValues, allValues) | - |  |
 | clearOnDestroy | Clear form values when the form is uninstalled | boolean | false | 5.18.0 |
+
+> It accepts all props which native forms support but `onSubmit`.
 
 ### validateMessages
 
@@ -134,10 +136,10 @@ Form field component for data bidirectional binding, validation, layout, and so 
 | hidden | Whether to hide Form.Item (still collect and validate value) | boolean | false | 4.4.0 |
 | htmlFor | Set sub label `htmlFor` | string | - |  |
 | initialValue | Config sub default value. Form `initialValues` get higher priority when conflict | string | - | 4.2.0 |
-| label | Label text | ReactNode | - |  |
-| labelAlign | The text align of label | `left` \| `right` | `right` |  |
+| label | Label text. When there is no need for a label but it needs to be aligned with a colon, it can be set to null | ReactNode | - | null: 5.22.0 |
+| labelAlign | The text align of label, | `left` \| `right` | `right` |  |
 | labelCol | The layout of label. You can set `span` `offset` to something like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` same as with `<Col>`. You can set `labelCol` on Form which will not affect nest Item. If both exists, use Item first | [object](/components/grid/#col) | - |  |
-| messageVariables | The default validate field info | Record&lt;string, string> | - | 4.7.0 |
+| messageVariables | The default validate field info, description [see below](#messagevariables) | Record&lt;string, string> | - | 4.7.0 |
 | name | Field name, support array | [NamePath](#namepath) | - |  |
 | normalize | Normalize value from component value before passing to Form instance. Do not support async | (value, prevValue, prevValues) => any | - |  |
 | noStyle | No style for `true`, used as a pure field control. Will inherit parent Form.Item `validateStatus` if self `validateStatus` not configured | boolean | false |  |
@@ -187,7 +189,7 @@ related issue: [#34500](https://github.com/ant-design/ant-design/issues/34500)
 </Form.Item>
 ```
 
-You can ref [example](#form-demo-horizontal-login) to see detail.
+You can ref [example](#form-demo-inline-login) to see detail.
 
 When `shouldUpdate` is a function, it will be called by form values update. Providing original values and current value to compare. This is very helpful for rendering additional fields based on values:
 
@@ -226,6 +228,14 @@ You can modify the default verification information of Form.Item through `messag
     <Input />
   </Form.Item>
 </Form>
+```
+
+Since `5.20.2`, when you don't want to convert `${}`, you can use `\\${}` to skip:
+
+```jsx
+{ required: true, message: '${label} is convert, \\${label} is not convert' }
+
+// good is convert, ${label} is not convert
 ```
 
 ## Form.List
@@ -539,7 +549,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | fields | Validate rule for child elements, valid when `type` is `array` or `object` | Record&lt;string, [rule](#rule)> |  |
 | len | Length of string, number, array | number |  |
 | max | `type` required: max length of `string`, `number`, `array` | number |  |
-| message | Error message. Will auto generate by [template](#validatemessages) if not provided | string |  |
+| message | Error message. Will auto generate by [template](#validatemessages) if not provided | string \| ReactElement |  |
 | min | `type` required: min length of `string`, `number`, `array` | number |  |
 | pattern | Regex pattern | RegExp |  |
 | required | Required field | boolean |  |
@@ -707,4 +717,17 @@ const MyInput = (props) => (
 <Form.Item name="input">
   <MyInput />
 </Form.Item>;
+```
+
+### Why does clicking the label in the form change the component state?
+
+> Related issue: [#47031](https://github.com/ant-design/ant-design/issues/47031), [#43175](https://github.com/ant-design/ant-design/issues/43175), [#52152](https://github.com/ant-design/ant-design/issues/52152)
+
+Form label use [HTML label](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label) elements to wrap form controls, which focuses the corresponding control when clicked. This is the native behavior of label elements, designed to improve accessibility and user experience. This standard interaction pattern makes it easier for users to interact with form controls. If you need to disable this behavior, you can use `htmlFor={null}`, though it's generally not recommended.
+
+```diff
+- <Form.Item name="switch" label="Switch">
++ <Form.Item name="switch" label="Switch" htmlFor={null}>
+    <Switch />
+  </Form.Item>
 ```

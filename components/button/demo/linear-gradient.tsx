@@ -1,24 +1,20 @@
-import React, { useContext } from 'react';
-import { Button, ConfigProvider, Space } from 'antd';
+import React from 'react';
 import { AntDesignOutlined } from '@ant-design/icons';
-import { css } from '@emotion/css';
+import { Button, ConfigProvider, Space } from 'antd';
+import { createStyles } from 'antd-style';
 
-const App: React.FC = () => {
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const rootPrefixCls = getPrefixCls();
-  const linearGradientButton = css`
-    &.${rootPrefixCls}-btn-primary:not([disabled]):not(.${rootPrefixCls}-btn-dangerous) {
-      border-width: 0;
-
+const useStyle = createStyles(({ prefixCls, css }) => ({
+  linearGradientButton: css`
+    &.${prefixCls}-btn-primary:not([disabled]):not(.${prefixCls}-btn-dangerous) {
       > span {
         position: relative;
       }
 
       &::before {
         content: '';
-        background: linear-gradient(135deg, #6253E1, #04BEFE);
+        background: linear-gradient(135deg, #6253e1, #04befe);
         position: absolute;
-        inset: 0;
+        inset: -1px;
         opacity: 1;
         transition: all 0.3s;
         border-radius: inherit;
@@ -28,11 +24,16 @@ const App: React.FC = () => {
         opacity: 0;
       }
     }
-  `;
+  `,
+}));
+
+const App: React.FC = () => {
+  const { styles } = useStyle();
+
   return (
     <ConfigProvider
       button={{
-        className: linearGradientButton,
+        className: styles.linearGradientButton,
       }}
     >
       <Space>

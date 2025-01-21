@@ -49,6 +49,7 @@ export interface CalendarProps<DateType> {
   defaultValue?: DateType;
   mode?: CalendarMode;
   fullscreen?: boolean;
+  showWeek?: boolean;
   onChange?: (date: DateType) => void;
   onPanelChange?: (date: DateType, mode: CalendarMode) => void;
   onSelect?: (date: DateType, selectInfo: SelectInfo) => void;
@@ -89,6 +90,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       mode,
       validRange,
       fullscreen = true,
+      showWeek,
       onChange,
       onPanelChange,
       onSelect,
@@ -172,20 +174,6 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       onSelect?.(date, { source });
     };
 
-    // ====================== Locale ======================
-    const getDefaultLocale = () => {
-      const { locale } = props;
-      const result = {
-        ...enUS,
-        ...locale,
-      };
-      result.lang = {
-        ...result.lang,
-        ...locale?.lang,
-      };
-      return result;
-    };
-
     // ====================== Render ======================
     const dateRender = React.useCallback(
       (date: DateType, info: CellRenderInfo<DateType>): React.ReactNode => {
@@ -244,7 +232,9 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       [monthFullCellRender, monthCellRender, cellRender, fullCellRender],
     );
 
-    const [contextLocale] = useLocale('Calendar', getDefaultLocale);
+    const [contextLocale] = useLocale('Calendar', enUS);
+
+    const locale = { ...contextLocale, ...props.locale! };
 
     const mergedCellRender: RcBasePickerPanelProps['cellRender'] = (current, info) => {
       if (info.type === 'date') {
@@ -254,7 +244,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       if (info.type === 'month') {
         return monthRender(current, {
           ...info,
-          locale: contextLocale?.lang,
+          locale: locale?.lang,
         });
       }
     };
@@ -292,7 +282,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
             generateConfig={generateConfig}
             mode={mergedMode}
             fullscreen={fullscreen}
-            locale={contextLocale?.lang}
+            locale={locale?.lang}
             validRange={validRange}
             onChange={onInternalSelect}
             onModeChange={triggerModeChange}
@@ -301,7 +291,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
         <RCPickerPanel
           value={mergedValue}
           prefixCls={prefixCls}
-          locale={contextLocale?.lang}
+          locale={locale?.lang}
           generateConfig={generateConfig}
           cellRender={mergedCellRender}
           onSelect={(nextDate) => {
@@ -311,6 +301,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
           picker={panelMode}
           disabledDate={mergedDisabledDate}
           hideHeader
+          showWeek={showWeek}
         />
       </div>,
     );

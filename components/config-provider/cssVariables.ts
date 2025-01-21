@@ -1,7 +1,5 @@
-/* eslint-disable import/prefer-default-export, prefer-destructuring */
-
 import { generate } from '@ant-design/colors';
-import { TinyColor } from '@ctrl/tinycolor';
+import { FastColor } from '@ant-design/fast-color';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import { updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
 
@@ -13,21 +11,21 @@ const dynamicStyleMark = `-ant-${Date.now()}-${Math.random()}`;
 export function getStyle(globalPrefixCls: string, theme: Theme) {
   const variables: Record<string, string> = {};
 
-  const formatColor = (color: TinyColor, updater?: (cloneColor: TinyColor) => TinyColor) => {
+  const formatColor = (color: FastColor, updater?: (cloneColor: FastColor) => FastColor) => {
     let clone = color.clone();
     clone = updater?.(clone) || clone;
     return clone.toRgbString();
   };
 
   const fillColor = (colorVal: string, type: string) => {
-    const baseColor = new TinyColor(colorVal);
+    const baseColor = new FastColor(colorVal);
     const colorPalettes = generate(baseColor.toRgbString());
 
     variables[`${type}-color`] = formatColor(baseColor);
     variables[`${type}-color-disabled`] = colorPalettes[1];
     variables[`${type}-color-hover`] = colorPalettes[4];
     variables[`${type}-color-active`] = colorPalettes[6];
-    variables[`${type}-color-outline`] = baseColor.clone().setAlpha(0.2).toRgbString();
+    variables[`${type}-color-outline`] = baseColor.clone().setA(0.2).toRgbString();
     variables[`${type}-color-deprecated-bg`] = colorPalettes[0];
     variables[`${type}-color-deprecated-border`] = colorPalettes[2];
   };
@@ -36,7 +34,7 @@ export function getStyle(globalPrefixCls: string, theme: Theme) {
   if (theme.primaryColor) {
     fillColor(theme.primaryColor, 'primary');
 
-    const primaryColor = new TinyColor(theme.primaryColor);
+    const primaryColor = new FastColor(theme.primaryColor);
     const primaryColors = generate(primaryColor.toRgbString());
 
     // Legacy - We should use semantic naming standard
@@ -49,12 +47,12 @@ export function getStyle(globalPrefixCls: string, theme: Theme) {
     variables['primary-color-deprecated-t-20'] = formatColor(primaryColor, (c) => c.tint(20));
     variables['primary-color-deprecated-t-50'] = formatColor(primaryColor, (c) => c.tint(50));
     variables['primary-color-deprecated-f-12'] = formatColor(primaryColor, (c) =>
-      c.setAlpha(c.getAlpha() * 0.12),
+      c.setA(c.a * 0.12),
     );
 
-    const primaryActiveColor = new TinyColor(primaryColors[0]);
+    const primaryActiveColor = new FastColor(primaryColors[0]);
     variables['primary-color-active-deprecated-f-30'] = formatColor(primaryActiveColor, (c) =>
-      c.setAlpha(c.getAlpha() * 0.3),
+      c.setA(c.a * 0.3),
     );
     variables['primary-color-active-deprecated-d-02'] = formatColor(primaryActiveColor, (c) =>
       c.darken(2),

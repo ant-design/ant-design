@@ -17,7 +17,6 @@ const App: React.FC = () => (
       Custom Copy icon and replace tooltips text.
     </Paragraph>
     <Paragraph copyable={{ tooltips: false }}>Hide Copy tooltips.</Paragraph>
-    <Text copyable />
     <Paragraph
       copyable={{
         text: async () =>
@@ -30,6 +29,7 @@ const App: React.FC = () => (
     >
       Request copy text.
     </Paragraph>
+    <Text copyable={{ text: 'text to be copied' }} />
   </>
 );
 

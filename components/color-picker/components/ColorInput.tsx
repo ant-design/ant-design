@@ -3,18 +3,22 @@ import React, { useMemo } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import Select from '../../select';
-import type { Color } from '../color';
-import type { ColorFormatType, ColorPickerBaseProps } from '../interface';
+import type { AggregationColor } from '../color';
+import type { ColorFormatType } from '../interface';
 import { ColorFormat } from '../interface';
 import ColorAlphaInput from './ColorAlphaInput';
 import ColorHexInput from './ColorHexInput';
 import ColorHsbInput from './ColorHsbInput';
 import ColorRgbInput from './ColorRgbInput';
 
-interface ColorInputProps
-  extends Pick<ColorPickerBaseProps, 'prefixCls' | 'format' | 'onFormatChange' | 'disabledAlpha'> {
-  value?: Color;
-  onChange?: (value: Color) => void;
+interface ColorInputProps {
+  prefixCls: string;
+  format?: ColorFormatType;
+  onFormatChange?: (format: ColorFormatType) => void;
+  disabledAlpha?: boolean;
+  value?: AggregationColor;
+  onChange?: (value: AggregationColor) => void;
+  disabledFormat?: boolean;
 }
 
 const selectOptions = [ColorFormat.hex, ColorFormat.hsb, ColorFormat.rgb].map((format) => ({
@@ -23,7 +27,8 @@ const selectOptions = [ColorFormat.hex, ColorFormat.hsb, ColorFormat.rgb].map((f
 }));
 
 const ColorInput: FC<ColorInputProps> = (props) => {
-  const { prefixCls, format, value, disabledAlpha, onFormatChange, onChange } = props;
+  const { prefixCls, format, value, disabledAlpha, onFormatChange, onChange, disabledFormat } =
+    props;
   const [colorFormat, setColorFormat] = useMergedState(ColorFormat.hex, {
     value: format,
     onChange: onFormatChange,
@@ -50,17 +55,19 @@ const ColorInput: FC<ColorInputProps> = (props) => {
 
   return (
     <div className={`${colorInputPrefixCls}-container`}>
-      <Select
-        value={colorFormat}
-        variant="borderless"
-        getPopupContainer={(current) => current}
-        popupMatchSelectWidth={68}
-        placement="bottomRight"
-        onChange={handleFormatChange}
-        className={`${prefixCls}-format-select`}
-        size="small"
-        options={selectOptions}
-      />
+      {!disabledFormat && (
+        <Select
+          value={colorFormat}
+          variant="borderless"
+          getPopupContainer={(current) => current}
+          popupMatchSelectWidth={68}
+          placement="bottomRight"
+          onChange={handleFormatChange}
+          className={`${prefixCls}-format-select`}
+          size="small"
+          options={selectOptions}
+        />
+      )}
       <div className={colorInputPrefixCls}>{steppersNode}</div>
       {!disabledAlpha && (
         <ColorAlphaInput prefixCls={prefixCls} value={value} onChange={onChange} />

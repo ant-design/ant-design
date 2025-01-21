@@ -63,7 +63,6 @@ const main = async () => {
       components: {},
     };
 
-    // eslint-disable-next-line no-restricted-syntax
     project?.children?.forEach((file: any) => {
       // Global Token
       if (file.name === 'theme/interface') {
@@ -128,7 +127,7 @@ const main = async () => {
     }, {});
 
     fs.writeJsonSync(output, finalMeta, 'utf8');
-    // eslint-disable-next-line no-console
+
     console.log(`✅  Token Meta has been written to ${output}`);
   }
 };

@@ -1,22 +1,13 @@
 import { useContext } from 'react';
 import { genStyleUtils } from '@ant-design/cssinjs-utils';
+import type { GetCompUnitless } from '@ant-design/cssinjs-utils/es/util/genStyleUtils';
 
-import { ConfigContext } from '../../config-provider/context';
-import { genCommonStyle, genLinkStyle } from '../../style';
-import type {
-  AliasToken,
-  ComponentTokenMap,
-  SeedToken,
-} from '../interface';
+import { ConfigContext, defaultIconPrefixCls } from '../../config-provider/context';
+import { genCommonStyle, genLinkStyle, genIconStyle } from '../../style';
+import type { AliasToken, ComponentTokenMap, SeedToken } from '../interface';
+import useLocalToken, { unitless } from '../useToken';
 
-import localUseToken, { unitless } from '../useToken';
-import useResetIconStyle from './useResetIconStyle';
-
-export const {
-  genStyleHooks,
-  genComponentStyleHook,
-  genSubStyleComponent,
-} = genStyleUtils<
+export const { genStyleHooks, genComponentStyleHook, genSubStyleComponent } = genStyleUtils<
   ComponentTokenMap,
   AliasToken,
   SeedToken
@@ -29,35 +20,20 @@ export const {
     return {
       rootPrefixCls,
       iconPrefixCls,
-    }
-  },
-  useToken: () => {
-    const [theme, realToken, hashId, token, cssVar] = localUseToken();
-
-    return {
-      theme,
-      realToken,
-      hashId,
-      token,
-      cssVar,
     };
   },
+  useToken: () => {
+    const [theme, realToken, hashId, token, cssVar] = useLocalToken();
+    return { theme, realToken, hashId, token, cssVar };
+  },
   useCSP: () => {
-    const { csp, iconPrefixCls } = useContext(ConfigContext);
-
-    // Generate style for icons
-    useResetIconStyle(iconPrefixCls, csp);
-
+    const { csp } = useContext(ConfigContext);
     return csp ?? {};
   },
-  getResetStyles: (token) =>
-    [
-      {
-        // Link
-        '&': genLinkStyle(token),
-      },
-    ]
-  ,
+  getResetStyles: (token, config) => [
+    { '&': genLinkStyle(token) },
+    genIconStyle(config?.prefix.iconPrefixCls ?? defaultIconPrefixCls),
+  ],
   getCommonStyle: genCommonStyle,
-  getCompUnitless: () => unitless as any,
-})
+  getCompUnitless: (() => unitless) as GetCompUnitless<ComponentTokenMap, AliasToken>,
+});

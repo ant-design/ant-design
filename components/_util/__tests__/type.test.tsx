@@ -4,10 +4,6 @@ import type { GetProp, GetProps, GetRef } from '../type';
 
 describe('type', () => {
   class CC extends React.Component<{ bamboo?: number }> {
-    getBamboo() {
-      return this.props.bamboo;
-    }
-
     render() {
       return this.props.bamboo;
     }
@@ -33,6 +29,7 @@ describe('type', () => {
       type Props = GetProps<typeof FC>;
       const props: Props = { bamboo: 123 };
 
+      expect(FC).toBeTruthy();
       expect(props).toBeTruthy();
     });
 
@@ -89,6 +86,7 @@ describe('type', () => {
       type ListItemType = GetProp<typeof Optional, 'list'>[number];
 
       const item: ListItemType = { bamboo: '123' };
+      expect(Optional).toBeTruthy();
       expect(item).toBeTruthy();
     });
 

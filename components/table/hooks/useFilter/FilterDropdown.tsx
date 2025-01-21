@@ -1,10 +1,12 @@
 import * as React from 'react';
 import FilterFilled from '@ant-design/icons/FilterFilled';
+import type { AnyObject } from 'antd/es/_util/type';
 import classNames from 'classnames';
 import type { FieldDataNode } from 'rc-tree';
 import isEqual from 'rc-util/lib/isEqual';
 
 import type { FilterState } from '.';
+import extendsObject from '../../../_util/extendsObject';
 import useSyncState from '../../../_util/hooks/useSyncState';
 import { devUseWarning } from '../../../_util/warning';
 import Button from '../../../button';
@@ -119,7 +121,7 @@ function renderFilterItems({
 
 export type TreeColumnFilterItem = ColumnFilterItem & FilterTreeDataNode;
 
-export interface FilterDropdownProps<RecordType> {
+export interface FilterDropdownProps<RecordType = AnyObject> {
   tablePrefixCls: string;
   prefixCls: string;
   dropdownPrefixCls: string;
@@ -142,7 +144,9 @@ function wrapStringListType(keys?: FilterKey) {
   return (keys as string[]) || [];
 }
 
-function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
+const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
+  props: FilterDropdownProps<RecordType>,
+) => {
   const {
     tablePrefixCls,
     prefixCls,
@@ -162,14 +166,14 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   } = props;
 
   const {
-    filterDropdownOpen,
-    onFilterDropdownOpenChange,
     filterResetToDefaultFilteredValue,
     defaultFilteredValue,
-
+    filterDropdownProps = {},
     // Deprecated
+    filterDropdownOpen,
     filterDropdownVisible,
     onFilterDropdownVisibleChange,
+    onFilterDropdownOpenChange,
   } = column;
   const [visible, setVisible] = React.useState(false);
 
@@ -179,30 +183,33 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   );
   const triggerVisible = (newVisible: boolean) => {
     setVisible(newVisible);
+    filterDropdownProps.onOpenChange?.(newVisible);
+    // deprecated
     onFilterDropdownOpenChange?.(newVisible);
     onFilterDropdownVisibleChange?.(newVisible);
   };
 
+  // =================Warning===================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Table');
 
-    [
-      ['filterDropdownVisible', 'filterDropdownOpen', filterDropdownVisible],
-      [
-        'onFilterDropdownVisibleChange',
-        'onFilterDropdownOpenChange',
-        onFilterDropdownVisibleChange,
-      ],
-    ].forEach(([deprecatedName, newName, prop]) => {
-      warning.deprecated(
-        prop === undefined || prop === null,
-        deprecatedName as string,
-        newName as string,
-      );
+    const deprecatedList: [keyof typeof column, string][] = [
+      ['filterDropdownOpen', 'filterDropdownProps.open'],
+      ['filterDropdownVisible', 'filterDropdownProps.open'],
+      ['onFilterDropdownOpenChange', 'filterDropdownProps.onOpenChange'],
+      ['onFilterDropdownVisibleChange', 'filterDropdownProps.onOpenChange'],
+    ];
+
+    deprecatedList.forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in column), deprecatedName, newName);
     });
   }
 
-  const mergedVisible = filterDropdownOpen ?? filterDropdownVisible ?? visible;
+  const mergedVisible =
+    filterDropdownProps.open ??
+    filterDropdownOpen ?? // deprecated
+    filterDropdownVisible ?? // deprecated
+    visible; // inner state
 
   // ===================== Select Keys =====================
   const propFilteredKeys = filterState?.filteredKeys;
@@ -350,6 +357,8 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
   let dropdownContent: React.ReactNode;
 
+  const { direction, renderEmpty } = React.useContext(ConfigContext);
+
   if (typeof column.filterDropdown === 'function') {
     dropdownContent = column.filterDropdown({
       prefixCls: `${dropdownPrefixCls}-custom`,
@@ -368,12 +377,14 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   } else {
     const selectedKeys = getFilteredKeysSync() || [];
     const getFilterComponent = () => {
-      const empty = (
+      const empty = renderEmpty?.('Table.filter') ?? (
         <Empty
           image={Empty.PRESENTED_IMAGE_SIMPLE}
           description={locale.filterEmptyText}
-          imageStyle={{
-            height: 24,
+          styles={{
+            image: {
+              height: 24,
+            },
           }}
           style={{
             margin: 0,
@@ -509,50 +520,65 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     dropdownContent = <OverrideProvider selectable={undefined}>{dropdownContent}</OverrideProvider>;
   }
 
-  const menu = () => (
+  dropdownContent = (
     <FilterDropdownMenuWrapper className={`${prefixCls}-dropdown`}>
       {dropdownContent}
     </FilterDropdownMenuWrapper>
   );
 
-  let filterIcon: React.ReactNode;
-  if (typeof column.filterIcon === 'function') {
-    filterIcon = column.filterIcon(filtered);
-  } else if (column.filterIcon) {
-    filterIcon = column.filterIcon;
-  } else {
-    filterIcon = <FilterFilled />;
-  }
+  const getDropdownTrigger = () => {
+    let filterIcon: React.ReactNode;
+    if (typeof column.filterIcon === 'function') {
+      filterIcon = column.filterIcon(filtered);
+    } else if (column.filterIcon) {
+      filterIcon = column.filterIcon;
+    } else {
+      filterIcon = <FilterFilled />;
+    }
 
-  const { direction } = React.useContext(ConfigContext);
+    return (
+      <span
+        role="button"
+        tabIndex={-1}
+        className={classNames(`${prefixCls}-trigger`, {
+          active: filtered,
+        })}
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
+        {filterIcon}
+      </span>
+    );
+  };
+
+  const mergedDropdownProps = extendsObject<DropdownProps>(
+    {
+      trigger: ['click'],
+      placement: direction === 'rtl' ? 'bottomLeft' : 'bottomRight',
+      children: getDropdownTrigger(),
+      getPopupContainer,
+    },
+    {
+      ...filterDropdownProps,
+      rootClassName: classNames(rootClassName, filterDropdownProps.rootClassName),
+      open: mergedVisible,
+      onOpenChange: onVisibleChange,
+      dropdownRender: () => {
+        if (typeof filterDropdownProps?.dropdownRender === 'function') {
+          return filterDropdownProps.dropdownRender(dropdownContent);
+        }
+        return dropdownContent;
+      },
+    },
+  );
 
   return (
     <div className={`${prefixCls}-column`}>
       <span className={`${tablePrefixCls}-column-title`}>{children}</span>
-      <Dropdown
-        dropdownRender={menu}
-        trigger={['click']}
-        open={mergedVisible}
-        onOpenChange={onVisibleChange}
-        getPopupContainer={getPopupContainer}
-        placement={direction === 'rtl' ? 'bottomLeft' : 'bottomRight'}
-        rootClassName={rootClassName}
-      >
-        <span
-          role="button"
-          tabIndex={-1}
-          className={classNames(`${prefixCls}-trigger`, {
-            active: filtered,
-          })}
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
-        >
-          {filterIcon}
-        </span>
-      </Dropdown>
+      <Dropdown {...mergedDropdownProps} />
     </div>
   );
-}
+};
 
 export default FilterDropdown;

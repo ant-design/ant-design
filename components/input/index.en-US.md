@@ -54,6 +54,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | addonAfter | The label text displayed after (on the right side of) the input field | ReactNode | - |  |
 | addonBefore | The label text displayed before (on the left side of) the input field | ReactNode | - |  |
 | allowClear | If allow to remove input content with clear icon | boolean \| { clearIcon: ReactNode } | false |  |
+| ~~bordered~~ | Whether has border style | boolean | true | 4.5.0 |
 | classNames | Semantic DOM class | Record<[SemanticDOM](#input-1), string> | - | 5.4.0 |
 | count | Character count config | [CountConfig](#countconfig) | - | 5.10.0 |
 | defaultValue | The initial input content | string | - |  |
@@ -71,6 +72,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | variant | Variants of Input | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | onChange | Callback when user input | function(e) | - |  |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - |  |
+| onClear | Callback when click the clear button | () => void | - | 5.20.0 |
 
 > When `Input` is used in a `Form.Item` context, if the `Form.Item` has the `id` props defined then `value`, `defaultValue`, and `id` props of `Input` are automatically set.
 
@@ -139,7 +141,8 @@ Added in `5.16.0`.
 | size | The size of the input box | `small` \| `middle` \| `large` | `middle` |  |
 | variant | Variants of Input | `outlined` \| `borderless` \| `filled` | `outlined` |  |
 | value | The input content value | string | - |  |
-| onChange | Trigger when all the fields are filled | function(value: string) | - |  |
+| onChange | Trigger when all the fields are filled | (value: string) => void | - |  |
+| onInput | Trigger when the input value changes | (value: string[]) => void | - | `5.22.0` |
 
 #### VisibilityToggle
 
@@ -155,13 +158,13 @@ Added in `5.16.0`.
 | blur | Remove focus | - |  |
 | focus | Get focus | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | option - 4.10.0 |
 
-### Semantic DOM
+## Semantic DOM
 
-#### Input
+### Input
 
 <code src="./demo/_semantic_input.tsx" simplify="true"></code>
 
-#### Input.TextArea
+### Input.TextArea
 
 <code src="./demo/_semantic_textarea.tsx" simplify="true"></code>
 

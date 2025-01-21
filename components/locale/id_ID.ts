@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/id_ID';
 
 import type { Locale } from '.';
@@ -143,6 +142,9 @@ const localeValues: Locale = {
   },
   ColorPicker: {
     presetEmpty: 'Kosong',
+    transparent: 'Transparan',
+    singleColor: 'Warna tunggal',
+    gradientColor: 'Warna gradien',
   },
 };
 

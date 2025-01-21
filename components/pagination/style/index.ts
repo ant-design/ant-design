@@ -10,12 +10,7 @@ import {
 import type { SharedComponentToken, SharedInputToken } from '../../input/style/token';
 import { genBaseOutlinedStyle, genDisabledStyle } from '../../input/style/variants';
 import { genFocusOutline, genFocusStyle, resetComponent } from '../../style';
-import type {
-  FullToken,
-  GenerateStyle,
-  GetDefaultToken,
-  GenStyleFn,
-} from '../../theme/internal';
+import type { FullToken, GenerateStyle, GenStyleFn, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
@@ -66,17 +61,53 @@ export interface ComponentToken {
   miniOptionsSizeChangerTop: number;
 }
 
+/**
+ * @desc Pagination 组件的 Token
+ * @descEN Token for Pagination component
+ */
 export interface PaginationToken
   extends FullToken<'Pagination'>,
     SharedComponentToken,
     SharedInputToken {
+  /**
+   * @desc 输入框轮廓偏移量
+   * @descEN Outline offset of input
+   */
   inputOutlineOffset: number;
+  /**
+   * @desc 迷你选项横向外边距
+   * @descEN Horizontal margin of mini options
+   */
   paginationMiniOptionsMarginInlineStart: number | string;
+  /**
+   * @desc 迷你快速跳转输入框宽度
+   * @descEN Width of mini quick jumper input
+   */
   paginationMiniQuickJumperInputWidth: number | string;
+  /**
+   * @desc 页码横向内边距
+   * @descEN Horizontal padding of Pagination item
+   */
   paginationItemPaddingInline: number | string;
+  /**
+   * @desc 省略号字母间距
+   * @descEN Letter spacing of ellipsis
+   */
   paginationEllipsisLetterSpacing: number | string;
+  /**
+   * @desc 省略号文本缩进
+   * @descEN Text indent of ellipsis
+   */
   paginationEllipsisTextIndent: string;
+  /**
+   * @desc 斜杠横向外边距
+   * @descEN Horizontal margin of slash
+   */
   paginationSlashMarginInlineStart: number;
+  /**
+   * @desc 斜杠横向外边距
+   * @descEN Horizontal margin of slash
+   */
   paginationSlashMarginInlineEnd: number;
 }
 
@@ -334,7 +365,7 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
 };
 
 const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
-  const { componentCls, antCls } = token;
+  const { componentCls } = token;
 
   return {
     [`${componentCls}-jump-prev, ${componentCls}-jump-next`]: {
@@ -367,7 +398,6 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
           display: 'block',
           margin: 'auto',
           color: token.colorTextDisabled,
-          fontFamily: 'Arial, Helvetica, sans-serif',
           letterSpacing: token.paginationEllipsisLetterSpacing,
           textAlign: 'center',
           textIndent: token.paginationEllipsisTextIndent,
@@ -405,7 +435,7 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
       height: token.itemSize,
       color: token.colorText,
       fontFamily: token.fontFamily,
-      lineHeight: `${unit(token.itemSize)}`,
+      lineHeight: unit(token.itemSize),
       textAlign: 'center',
       verticalAlign: 'middle',
       listStyle: 'none',
@@ -415,7 +445,6 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
     },
 
     [`${componentCls}-prev, ${componentCls}-next`]: {
-      fontFamily: 'Arial, Helvetica, sans-serif',
       outline: 0,
 
       button: {
@@ -466,11 +495,6 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
       '&-size-changer': {
         display: 'inline-block',
         width: 'auto',
-
-        // https://github.com/ant-design/ant-design/issues/49258
-        [`${antCls}-select-arrow:not(:last-child)`]: {
-          opacity: 1,
-        },
       },
 
       '&-quick-jumper': {

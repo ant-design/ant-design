@@ -40,9 +40,9 @@ const useStyle = createStyles(({ token, css }) => {
           display: block;
           position: absolute;
           top: -5px;
-          left: -9px;
+          inset-inline-start: -9px;
           bottom: -5px;
-          right: -9px;
+          inset-inline-end: -9px;
         }
       }
       ${antCls}-typography-copy:not(${antCls}-typography-copy-success) {

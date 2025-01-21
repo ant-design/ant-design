@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/zh_CN';
 
 import type { Locale } from '.';
@@ -144,6 +143,9 @@ const localeValues: Locale = {
   },
   ColorPicker: {
     presetEmpty: '暂无',
+    transparent: '无色',
+    singleColor: '单色',
+    gradientColor: '渐变色',
   },
 };
 

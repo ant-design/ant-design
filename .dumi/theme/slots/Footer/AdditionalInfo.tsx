@@ -23,8 +23,8 @@ const locales = {
 const useStyle = createStyles(({ css, token }) => ({
   container: css`
     position: fixed;
-    left: 0;
-    right: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
     top: 0;
     bottom: 0;
     z-index: 99999999;

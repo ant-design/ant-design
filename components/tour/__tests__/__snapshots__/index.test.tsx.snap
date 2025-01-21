@@ -69,7 +69,7 @@ exports[`Tour Primary 1`] = `
               class="ant-tour-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-sm ant-tour-next-btn"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-tour-next-btn"
                 type="button"
               >
                 <span>
@@ -284,7 +284,7 @@ exports[`Tour controlled current 1`] = `
               class="ant-tour-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-sm ant-btn-background-ghost ant-tour-prev-btn"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-background-ghost ant-tour-prev-btn"
                 type="button"
               >
                 <span>
@@ -292,7 +292,7 @@ exports[`Tour controlled current 1`] = `
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-default ant-btn-sm ant-tour-next-btn"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-tour-next-btn"
                 type="button"
               >
                 <span>
@@ -413,7 +413,7 @@ exports[`Tour custom step pre btn & next btn className & style 1`] = `
           class="ant-tour-buttons"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-sm ant-tour-next-btn customClassName"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn customClassName"
             style="background-color: rgb(69, 69, 255);"
             type="button"
           >
@@ -429,6 +429,169 @@ exports[`Tour custom step pre btn & next btn className & style 1`] = `
 `;
 
 exports[`Tour rtl render component should be rendered correctly in RTL direction 1`] = `null`;
+
+exports[`Tour should support gap.offset 1`] = `
+<body>
+  <div>
+    <button
+      type="button"
+    >
+      Show
+    </button>
+    <div
+      class="ant-tour ant-tour-placement-bottom"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+    >
+      <div
+        class="ant-tour-arrow"
+        style="position: absolute; top: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tour-content"
+      >
+        <div
+          class="ant-tour-inner"
+        >
+          <button
+            class="ant-tour-close"
+            type="button"
+          >
+            <span
+              aria-label="close"
+              class="anticon anticon-close ant-tour-close-icon"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                fill-rule="evenodd"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                />
+              </svg>
+            </span>
+          </button>
+          <div
+            class="ant-tour-header"
+          >
+            <div
+              class="ant-tour-title"
+            >
+              Show in Center
+            </div>
+          </div>
+          <div
+            class="ant-tour-description"
+          >
+            Here is the content of Tour.
+          </div>
+          <div
+            class="ant-tour-footer"
+          >
+            <div
+              class="ant-tour-buttons"
+            >
+              <button
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
+                type="button"
+              >
+                <span>
+                  Finish
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      class="ant-tour-mask"
+      style="position: fixed; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 1001; pointer-events: none;"
+    >
+      <svg
+        style="width: 100%; height: 100%;"
+      >
+        <defs>
+          <mask
+            id="ant-tour-mask-test-id"
+          >
+            <rect
+              fill="white"
+              height="100vh"
+              width="100vw"
+              x="0"
+              y="0"
+            />
+            <rect
+              class="ant-tour-placeholder-animated"
+              fill="black"
+              height="200"
+              rx="2"
+              width="250"
+              x="90"
+              y="190"
+            />
+          </mask>
+        </defs>
+        <rect
+          fill="rgba(0,0,0,0.5)"
+          height="100%"
+          mask="url(#ant-tour-mask-test-id)"
+          width="100%"
+          x="0"
+          y="0"
+        />
+        <rect
+          fill="transparent"
+          height="190"
+          pointer-events="auto"
+          width="100%"
+          x="0"
+          y="0"
+        />
+        <rect
+          fill="transparent"
+          height="100%"
+          pointer-events="auto"
+          width="90"
+          x="0"
+          y="0"
+        />
+        <rect
+          fill="transparent"
+          height="calc(100vh - 390px)"
+          pointer-events="auto"
+          width="100%"
+          x="0"
+          y="390"
+        />
+        <rect
+          fill="transparent"
+          height="100%"
+          pointer-events="auto"
+          width="calc(100vw - 340px)"
+          x="340"
+          y="0"
+        />
+      </svg>
+    </div>
+  </div>
+  <div>
+    <div
+      class="ant-tour-target-placeholder"
+      style="left: 90px; top: 190px; width: 250px; height: 200px; position: fixed; pointer-events: none;"
+    />
+  </div>
+</body>
+`;
 
 exports[`Tour single 1`] = `
 <body>
@@ -499,7 +662,7 @@ exports[`Tour single 1`] = `
               class="ant-tour-buttons"
             >
               <button
-                class="ant-btn ant-btn-primary ant-btn-sm ant-tour-next-btn"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
                 type="button"
               >
                 <span>
@@ -673,7 +836,7 @@ exports[`Tour step support Primary 1`] = `
               class="ant-tour-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-sm ant-btn-background-ghost ant-tour-prev-btn"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-background-ghost ant-tour-prev-btn"
                 type="button"
               >
                 <span>
@@ -681,7 +844,7 @@ exports[`Tour step support Primary 1`] = `
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-default ant-btn-sm ant-tour-next-btn"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-tour-next-btn"
                 type="button"
               >
                 <span>

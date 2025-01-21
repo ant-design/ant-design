@@ -22,6 +22,7 @@ function renderCells(
     showContent,
     labelStyle: rootLabelStyle,
     contentStyle: rootContentStyle,
+    styles: rootStyles,
   }: CellConfig & DescriptionsContextProps,
 ) {
   return items.map(
@@ -36,6 +37,7 @@ function renderCells(
         contentStyle,
         span = 1,
         key,
+        styles,
       },
       index,
     ) => {
@@ -45,8 +47,20 @@ function renderCells(
             key={`${type}-${key || index}`}
             className={className}
             style={style}
-            labelStyle={{ ...rootLabelStyle, ...labelStyle }}
-            contentStyle={{ ...rootContentStyle, ...contentStyle }}
+            styles={{
+              label: {
+                ...rootLabelStyle,
+                ...rootStyles?.label,
+                ...labelStyle,
+                ...styles?.label,
+              },
+              content: {
+                ...rootContentStyle,
+                ...rootStyles?.content,
+                ...contentStyle,
+                ...styles?.content,
+              },
+            }}
             span={span}
             colon={colon}
             component={component}
@@ -63,7 +77,13 @@ function renderCells(
         <Cell
           key={`label-${key || index}`}
           className={className}
-          style={{ ...rootLabelStyle, ...style, ...labelStyle }}
+          style={{
+            ...rootLabelStyle,
+            ...rootStyles?.label,
+            ...style,
+            ...labelStyle,
+            ...styles?.label,
+          }}
           span={1}
           colon={colon}
           component={component[0]}
@@ -75,7 +95,13 @@ function renderCells(
         <Cell
           key={`content-${key || index}`}
           className={className}
-          style={{ ...rootContentStyle, ...style, ...contentStyle }}
+          style={{
+            ...rootContentStyle,
+            ...rootStyles?.content,
+            ...style,
+            ...contentStyle,
+            ...styles?.content,
+          }}
           span={span * 2 - 1}
           component={component[1]}
           itemPrefixCls={itemPrefixCls}

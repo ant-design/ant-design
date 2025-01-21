@@ -1,24 +1,25 @@
 import React, { useContext, useRef } from 'react';
 import classNames from 'classnames';
 import isVisible from 'rc-util/lib/Dom/isVisible';
-import { composeRef, supportRef } from 'rc-util/lib/ref';
+import { composeRef, getNodeRef, supportRef } from 'rc-util/lib/ref';
 
 import type { ConfigConsumerProps } from '../../config-provider';
 import { ConfigContext } from '../../config-provider';
 import { cloneElement } from '../reactNode';
+import type { WaveComponent } from './interface';
 import useStyle from './style';
 import useWave from './useWave';
 
 export interface WaveProps {
   disabled?: boolean;
   children?: React.ReactNode;
-  component?: 'Tag' | 'Button' | 'Checkbox' | 'Radio' | 'Switch';
+  component?: WaveComponent;
 }
 
 const Wave: React.FC<WaveProps> = (props) => {
   const { children, disabled, component } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
-  const containerRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLElement>(null!);
 
   // ============================== Style ===============================
   const prefixCls = getPrefixCls('wave');
@@ -63,7 +64,7 @@ const Wave: React.FC<WaveProps> = (props) => {
     return children ?? null;
   }
 
-  const ref = supportRef(children) ? composeRef((children as any).ref, containerRef) : containerRef;
+  const ref = supportRef(children) ? composeRef(getNodeRef(children), containerRef) : containerRef;
 
   return cloneElement(children, { ref });
 };

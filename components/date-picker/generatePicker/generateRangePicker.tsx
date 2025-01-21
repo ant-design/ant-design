@@ -23,14 +23,14 @@ import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
-import { getRangePlaceholder, transPlacement2DropdownAlign, useIcons } from '../util';
+import { getRangePlaceholder, useIcons } from '../util';
 import { TIME } from './constant';
 import type { RangePickerProps } from './interface';
 import useComponents from './useComponents';
 
-export default function generateRangePicker<DateType extends AnyObject>(
+const generateRangePicker = <DateType extends AnyObject = AnyObject>(
   generateConfig: GenerateConfig<DateType>,
-) {
+) => {
   type DateRangePickerProps = RangePickerProps<DateType>;
 
   const RangePicker = forwardRef<PickerRef, DateRangePickerProps>((props, ref) => {
@@ -117,7 +117,6 @@ export default function generateRangePicker<DateType extends AnyObject>(
           }
           disabled={mergedDisabled}
           ref={innerRef as any} // Need to modify PickerRef
-          popupAlign={transPlacement2DropdownAlign(direction, placement)}
           placement={placement}
           placeholder={getRangePlaceholder(locale, picker, placeholder)}
           suffixIcon={suffixNode}
@@ -179,4 +178,6 @@ export default function generateRangePicker<DateType extends AnyObject>(
   }
 
   return RangePicker;
-}
+};
+
+export default generateRangePicker;

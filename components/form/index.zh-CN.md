@@ -81,7 +81,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 | name | 表单名称，会作为表单字段 `id` 前缀使用 | string | - |  |
 | preserve | 当字段被删除时保留字段值。你可以通过 `getFieldsValue(true)` 来获取保留字段值 | boolean | true | 4.4.0 |
 | requiredMark | 必选样式，可以切换为必选或者可选展示样式。此为 Form 配置，Form.Item 无法单独配置 | boolean \| `optional` \| ((label: ReactNode, info: { required: boolean }) => ReactNode) | true | `renderProps`: 5.9.0 |
-| scrollToFirstError | 提交失败自动滚动到第一个错误字段 | boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) | false |  |
+| scrollToFirstError | 提交失败自动滚动到第一个错误字段 | boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) \| { focus: boolean } | false |  |
 | size | 设置字段组件的尺寸（仅限 antd 组件） | `small` \| `middle` \| `large` | - |  |
 | validateMessages | 验证提示模板，说明[见下](#validatemessages) | [ValidateMessages](https://github.com/ant-design/ant-design/blob/6234509d18bac1ac60fbb3f92a5b2c6a6361295a/components/locale/en_US.ts#L88-L134) | - |  |
 | validateTrigger | 统一设置字段触发验证的时机 | string \| string\[] | `onChange` | 4.3.0 |
@@ -92,6 +92,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 | onFinishFailed | 提交表单且数据验证失败后回调事件 | function({ values, errorFields, outOfDate }) | - |  |
 | onValuesChange | 字段值更新时触发回调事件 | function(changedValues, allValues) | - |  |
 | clearOnDestroy | 当表单被卸载时清空表单值 | boolean | false | 5.18.0 |
+
+> 支持原生 form 除 `onSubmit` 外的所有属性。
 
 ### validateMessages
 
@@ -135,10 +137,10 @@ const validateMessages = {
 | hidden | 是否隐藏字段（依然会收集和校验字段） | boolean | false | 4.4.0 |
 | htmlFor | 设置子元素 label `htmlFor` 属性 | string | - |  |
 | initialValue | 设置子元素默认值，如果与 Form 的 `initialValues` 冲突则以 Form 为准 | string | - | 4.2.0 |
-| label | `label` 标签的文本 | ReactNode | - |  |
+| label | `label` 标签的文本，当不需要 label 又需要与冒号对齐，可以设为 null | ReactNode | - | null: 5.22.0 |
 | labelAlign | 标签文本对齐方式 | `left` \| `right` | `right` |  |
 | labelCol | `label` 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`。你可以通过 Form 的 `labelCol` 进行统一设置，不会作用于嵌套 Item。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid-cn#col) | - |  |
-| messageVariables | 默认验证字段的信息 | Record&lt;string, string> | - | 4.7.0 |
+| messageVariables | 默认验证字段的信息，查看[详情](#messagevariables) | Record&lt;string, string> | - | 4.7.0 |
 | name | 字段名，支持数组 | [NamePath](#namepath) | - |  |
 | normalize | 组件获取值后进行转换，再放入 Form 中。不支持异步 | (value, prevValue, prevValues) => any | - |  |
 | noStyle | 为 `true` 时不带样式，作为纯字段控件使用。当自身没有 `validateStatus` 而父元素存在有 `validateStatus` 的 Form.Item 会继承父元素的 `validateStatus` | boolean | false |  |
@@ -152,7 +154,7 @@ const validateMessages = {
 | validateDebounce | 设置防抖，延迟毫秒数后进行校验 | number | - | 5.9.0 |
 | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string | - |  |
 | validateTrigger | 设置字段校验的时机 | string \| string\[] | `onChange` |  |
-| valuePropName | 子节点的值的属性。注意：Switch、Checkbox 的 valuePropName 应该是是 `checked`，否则无法获取这个两个组件的值。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | string | `value` |  |
+| valuePropName | 子节点的值的属性。注意：Switch、Checkbox 的 valuePropName 应该是 `checked`，否则无法获取这个两个组件的值。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | string | `value` |  |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 `labelCol`。你可以通过 Form 的 `wrapperCol` 进行统一设置，不会作用于嵌套 Item。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid-cn#col) | - |  |
 | layout | 表单项布局 | `horizontal` \| `vertical` | - | 5.18.0 |
 
@@ -188,7 +190,7 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 </Form.Item>
 ```
 
-你可以参考[示例](#form-demo-horizontal-login)查看具体使用场景。
+你可以参考[示例](#form-demo-inline-login)查看具体使用场景。
 
 当 `shouldUpdate` 为方法时，表单的每次数值更新都会调用该方法，提供原先的值与当前的值以供你比较是否需要更新。这对于是否根据值来渲染额外字段十分有帮助：
 
@@ -227,6 +229,14 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
     <Input />
   </Form.Item>
 </Form>
+```
+
+自 `5.20.2` 起，当你希望不要转译 `${}` 时，你可以通过 `\\${}` 来略过：
+
+```jsx
+{ required: true, message: '${label} is convert, \\${label} is not convert' }
+
+// good is convert, ${label} is not convert
 ```
 
 ## Form.List
@@ -538,7 +548,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | fields | 仅在 `type` 为 `array` 或 `object` 类型时有效，用于指定子元素的校验规则 | Record&lt;string, [rule](#rule)> |  |
 | len | string 类型时为字符串长度；number 类型时为确定数字； array 类型时为数组长度 | number |  |
 | max | 必须设置 `type`：string 类型为字符串最大长度；number 类型时为最大值；array 类型时为数组最大长度 | number |  |
-| message | 错误信息，不设置时会通过[模板](#validatemessages)自动生成 | string |  |
+| message | 错误信息，不设置时会通过[模板](#validatemessages)自动生成 | string \| ReactElement |  |
 | min | 必须设置 `type`：string 类型为字符串最小长度；number 类型时为最小值；array 类型时为数组最小长度 | number |  |
 | pattern | 正则表达式匹配 | RegExp |  |
 | required | 是否为必选字段 | boolean |  |
@@ -706,6 +716,19 @@ const MyInput = (props) => (
 <Form.Item name="input">
   <MyInput />
 </Form.Item>;
+```
+
+### 为什么表单点击 label 会更改组件状态？
+
+> 相关 issue：[#47031](https://github.com/ant-design/ant-design/issues/47031),[#43175](https://github.com/ant-design/ant-design/issues/43175), [#52152](https://github.com/ant-design/ant-design/issues/52152)
+
+表单 label 使用 [HTML label](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/label) 元素来包裹表单控件，从而实现点击 label 时聚焦到对应控件。这是 label 元素的原生行为，用于提升可访问性和用户体验，这种标准交互模式能让用户更容易操作表单控件。如果你不希望这种行为，可通过 `htmlFor={null}` 属性解除关联，通常不建议这样做。
+
+```diff
+- <Form.Item name="switch" label="Switch">
++ <Form.Item name="switch" label="Switch" htmlFor={null}>
+    <Switch />
+  </Form.Item>
 ```
 
 ### 有更多参考文档吗？

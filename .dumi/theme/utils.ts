@@ -181,6 +181,7 @@ export function isLocalStorageNameSupported() {
     storage.removeItem(testKey);
     return true;
   } catch (error) {
+    console.error('Your web browser does not support storing settings locally.', error);
     return false;
   }
 }

@@ -7,9 +7,15 @@ import { composeRef } from 'rc-util/lib/ref';
 import type { TooltipProps } from '../tooltip';
 import Tooltip from '../tooltip';
 
-const SliderTooltip = React.forwardRef<SliderRef, TooltipProps>((props, ref) => {
-  const { open } = props;
+export type SliderTooltipProps = TooltipProps & {
+  draggingDelete?: boolean;
+};
+
+const SliderTooltip = React.forwardRef<SliderRef, SliderTooltipProps>((props, ref) => {
+  const { open, draggingDelete } = props;
   const innerRef = useRef<any>(null);
+
+  const mergedOpen = open && !draggingDelete;
 
   const rafRef = useRef<number | null>(null);
 
@@ -26,16 +32,16 @@ const SliderTooltip = React.forwardRef<SliderRef, TooltipProps>((props, ref) => 
   }
 
   React.useEffect(() => {
-    if (open) {
+    if (mergedOpen) {
       keepAlign();
     } else {
       cancelKeepAlign();
     }
 
     return cancelKeepAlign;
-  }, [open, props.title]);
+  }, [mergedOpen, props.title]);
 
-  return <Tooltip ref={composeRef(innerRef, ref)} {...props} />;
+  return <Tooltip ref={composeRef(innerRef, ref)} {...props} open={mergedOpen} />;
 });
 
 if (process.env.NODE_ENV !== 'production') {

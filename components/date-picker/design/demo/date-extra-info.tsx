@@ -58,9 +58,7 @@ const useStyle = createStyles(({ token }) => ({
   `,
 }));
 
-const seeds = Array(30)
-  .fill(1)
-  .map(() => Math.random());
+const seeds = new Array(30).fill(1).map(() => Math.random());
 
 const getSales = (date: Dayjs) => Math.floor(seeds[date.date() % 30] * 10000);
 

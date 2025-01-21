@@ -770,7 +770,7 @@ exports[`renders components/anchor/demo/targetOffset.tsx extend context correctl
     </div>
   </div>
   <div
-    style="height: 30vh; background: rgba(0, 0, 0, 0.85); position: fixed; top: 0px; left: 0px; width: 75%; color: rgb(255, 255, 255);"
+    style="height: 30vh; background-color: rgba(0, 0, 0, 0.85); position: fixed; top: 0px; inset-inline-start: 0; width: 75%; color: rgb(255, 255, 255);"
   >
     <div>
       Fixed Top Block

@@ -8,14 +8,15 @@ import type { CollapseProps } from '../../collapse';
 import Collapse from '../../collapse';
 import { useLocale } from '../../locale';
 import { useToken } from '../../theme/internal';
-import type { Color } from '../color';
-import type { ColorPickerBaseProps, PresetsItem } from '../interface';
+import type { AggregationColor } from '../color';
+import type { PresetsItem } from '../interface';
 import { generateColor } from '../util';
 
-interface ColorPresetsProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
+interface ColorPresetsProps {
+  prefixCls: string;
   presets: PresetsItem[];
-  value?: Color;
-  onChange?: (value: Color) => void;
+  value?: AggregationColor;
+  onChange?: (value: AggregationColor) => void;
 }
 
 const genPresetColor = (list: PresetsItem[]) =>
@@ -24,7 +25,7 @@ const genPresetColor = (list: PresetsItem[]) =>
     return value;
   });
 
-const isBright = (value: Color, bgColorToken: string) => {
+export const isBright = (value: AggregationColor, bgColorToken: string) => {
   const { r, g, b, a } = value.toRgb();
   const hsv = new RcColor(value.toRgbString()).onBackground(bgColorToken).toHsv();
   if (a <= 0.5) {
@@ -34,7 +35,10 @@ const isBright = (value: Color, bgColorToken: string) => {
   return r * 0.299 + g * 0.587 + b * 0.114 > 192;
 };
 
-const genCollapsePanelKey = ({ label }: PresetsItem) => `panel-${label}`;
+const genCollapsePanelKey = (preset: PresetsItem, index: number) => {
+  const mergedKey = preset.key ?? index;
+  return `panel-${mergedKey}`;
+};
 
 const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color, onChange }) => {
   const [locale] = useLocale('ColorPicker');
@@ -47,25 +51,27 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
 
   const activeKeys = useMemo(
     () =>
-      presetsValue.reduce<string[]>((acc, preset) => {
+      presetsValue.reduce<string[]>((acc, preset, index) => {
         const { defaultOpen = true } = preset;
-        if (defaultOpen) acc.push(genCollapsePanelKey(preset));
+        if (defaultOpen) {
+          acc.push(genCollapsePanelKey(preset, index));
+        }
         return acc;
       }, []),
     [presetsValue],
   );
 
-  const handleClick = (colorValue: Color) => {
+  const handleClick = (colorValue: AggregationColor) => {
     onChange?.(colorValue);
   };
 
-  const items: CollapseProps['items'] = presetsValue.map((preset) => ({
-    key: genCollapsePanelKey(preset),
+  const items = presetsValue.map<NonNullable<CollapseProps['items']>[number]>((preset, index) => ({
+    key: genCollapsePanelKey(preset, index),
     label: <div className={`${colorPresetsPrefixCls}-label`}>{preset?.label}</div>,
     children: (
       <div className={`${colorPresetsPrefixCls}-items`}>
         {Array.isArray(preset?.colors) && preset.colors?.length > 0 ? (
-          (preset.colors as Color[]).map((presetColor, index) => (
+          (preset.colors as AggregationColor[]).map((presetColor, index) => (
             <ColorBlock
               // eslint-disable-next-line react/no-array-index-key
               key={`preset-${index}-${presetColor.toHexString()}`}

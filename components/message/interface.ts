@@ -3,7 +3,7 @@ import type * as React from 'react';
 export type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
 export interface ConfigOptions {
-  top?: number;
+  top?: string | number;
   duration?: number;
   prefixCls?: string;
   getContainer?: () => HTMLElement;

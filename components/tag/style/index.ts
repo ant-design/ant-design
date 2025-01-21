@@ -1,14 +1,10 @@
 import type React from 'react';
 import { unit } from '@ant-design/cssinjs';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
+import { FastColor } from '@ant-design/fast-color';
 
 import { resetComponent } from '../../style';
-import type {
-  FullToken,
-  GetDefaultToken,
-  GenStyleFn,
-} from '../../theme/internal';
+import type { FullToken, GetDefaultToken, GenStyleFn } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
@@ -144,7 +140,7 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Tag'>>[0]) => TagToken
 };
 
 export const prepareComponentToken: GetDefaultToken<'Tag'> = (token) => ({
-  defaultBg: new TinyColor(token.colorFillQuaternary)
+  defaultBg: new FastColor(token.colorFillQuaternary)
     .onBackground(token.colorBgContainer)
     .toHexString(),
   defaultColor: token.colorText,
