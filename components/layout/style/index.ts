@@ -4,7 +4,6 @@ import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
-import genLayoutLightStyle from './light';
 
 export interface ComponentToken {
   /** @deprecated Use headerBg instead */
@@ -28,7 +27,7 @@ export interface ComponentToken {
    * @desc 顶部高度
    * @descEN Height of header
    */
-  headerHeight: number;
+  headerHeight: number | string;
   /**
    * @desc 顶部内边距
    * @descEN Padding of header
@@ -58,7 +57,7 @@ export interface ComponentToken {
    * @desc 侧边栏开关高度
    * @descEN Height of sider trigger
    */
-  triggerHeight: number;
+  triggerHeight: number | string;
   /**
    * @desc 侧边栏开关背景色
    * @descEN Background Color of sider trigger
@@ -103,23 +102,14 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
     antCls, // .ant
     componentCls, // .ant-layout
     colorText,
-    triggerColor,
     footerBg,
-    triggerBg,
     headerHeight,
     headerPadding,
     headerColor,
     footerPadding,
-    triggerHeight,
-    zeroTriggerHeight,
-    zeroTriggerWidth,
-    motionDurationMid,
-    motionDurationSlow,
     fontSize,
-    borderRadius,
     bodyBg,
     headerBg,
-    siderBg,
   } = token;
 
   return {
@@ -148,98 +138,6 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
         flex: '0 0 auto',
       },
 
-      [`${componentCls}-sider`]: {
-        position: 'relative',
-
-        // fix firefox can't set width smaller than content on flex item
-        minWidth: 0,
-        background: siderBg,
-        transition: `all ${motionDurationMid}, background 0s`,
-
-        '&-children': {
-          height: '100%',
-          // Hack for fixing margin collapse bug
-          // https://github.com/ant-design/ant-design/issues/7967
-          // solution from https://stackoverflow.com/a/33132624/3040605
-          marginTop: -0.1,
-          paddingTop: 0.1,
-
-          [`${antCls}-menu${antCls}-menu-inline-collapsed`]: {
-            width: 'auto',
-          },
-        },
-
-        '&-has-trigger': {
-          paddingBottom: triggerHeight,
-        },
-
-        '&-right': {
-          order: 1,
-        },
-
-        '&-trigger': {
-          position: 'fixed',
-          bottom: 0,
-          zIndex: 1,
-          height: triggerHeight,
-          color: triggerColor,
-          lineHeight: unit(triggerHeight),
-          textAlign: 'center',
-          background: triggerBg,
-          cursor: 'pointer',
-          transition: `all ${motionDurationMid}`,
-        },
-
-        '&-zero-width': {
-          '> *': {
-            overflow: 'hidden',
-          },
-
-          '&-trigger': {
-            position: 'absolute',
-            top: headerHeight,
-            insetInlineEnd: token.calc(zeroTriggerWidth).mul(-1).equal(),
-            zIndex: 1,
-            width: zeroTriggerWidth,
-            height: zeroTriggerHeight,
-            color: triggerColor,
-            fontSize: token.fontSizeXL,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: siderBg,
-            borderStartStartRadius: 0,
-            borderStartEndRadius: borderRadius,
-            borderEndEndRadius: borderRadius,
-            borderEndStartRadius: 0,
-
-            cursor: 'pointer',
-            transition: `background ${motionDurationSlow} ease`,
-
-            '&::after': {
-              position: 'absolute',
-              inset: 0,
-              background: 'transparent',
-              transition: `all ${motionDurationSlow}`,
-              content: '""',
-            },
-
-            '&:hover::after': {
-              background: `rgba(255, 255, 255, 0.2)`,
-            },
-
-            '&-right': {
-              insetInlineStart: token.calc(zeroTriggerWidth).mul(-1).equal(),
-              borderStartStartRadius: borderRadius,
-              borderStartEndRadius: 0,
-              borderEndEndRadius: 0,
-              borderEndStartRadius: borderRadius,
-            },
-          },
-        },
-      },
-      // Light
-      ...genLayoutLightStyle(token),
       // RTL
       '&-rtl': {
         direction: 'rtl',
@@ -320,10 +218,12 @@ export const prepareComponentToken: GetDefaultToken<'Layout'> = (token) => {
 };
 
 // ============================== Export ==============================
+export const DEPRECATED_TOKENS: [keyof ComponentToken, keyof ComponentToken][] = [
+  ['colorBgBody', 'bodyBg'],
+  ['colorBgHeader', 'headerBg'],
+  ['colorBgTrigger', 'triggerBg'],
+];
+
 export default genStyleHooks('Layout', (token) => [genLayoutStyle(token)], prepareComponentToken, {
-  deprecatedTokens: [
-    ['colorBgBody', 'bodyBg'],
-    ['colorBgHeader', 'headerBg'],
-    ['colorBgTrigger', 'triggerBg'],
-  ],
+  deprecatedTokens: DEPRECATED_TOKENS,
 });

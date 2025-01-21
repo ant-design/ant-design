@@ -4,7 +4,7 @@ import type { MenuRef as RcMenuRef } from 'rc-menu';
 import { ItemGroup } from 'rc-menu';
 
 import { SiderContext } from '../layout/Sider';
-import type { ItemType, MenuItemType } from './hooks/useItems';
+import type { ItemType, MenuItemType } from './interface';
 import type { MenuProps } from './menu';
 import InternalMenu from './menu';
 import type { MenuTheme } from './MenuContext';
@@ -42,9 +42,8 @@ type CompoundedComponent = React.ForwardRefExoticComponent<GenericComponentProps
   ItemGroup: typeof ItemGroup;
 };
 
-interface GenericComponent extends Omit<CompoundedComponent, ''> {
-  <T extends MenuItemType>(props: GenericComponentProps<T>): ReturnType<CompoundedComponent>;
-}
+type GenericComponent = Omit<CompoundedComponent, ''> &
+  (<T extends MenuItemType>(props: GenericComponentProps<T>) => ReturnType<CompoundedComponent>);
 
 const Menu = forwardRef<MenuRef, MenuProps>((props, ref) => {
   const menuRef = useRef<RcMenuRef>(null);

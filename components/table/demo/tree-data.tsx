@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Space, Switch, Table } from 'antd';
 import type { TableColumnsType, TableProps } from 'antd';
 
-type TableRowSelection<T> = TableProps<T>['rowSelection'];
+type TableRowSelection<T extends object = object> = TableProps<T>['rowSelection'];
 
 interface DataType {
   key: React.ReactNode;
@@ -118,7 +118,7 @@ const App: React.FC = () => {
       <Space align="center" style={{ marginBottom: 16 }}>
         CheckStrictly: <Switch checked={checkStrictly} onChange={setCheckStrictly} />
       </Space>
-      <Table
+      <Table<DataType>
         columns={columns}
         rowSelection={{ ...rowSelection, checkStrictly }}
         dataSource={data}

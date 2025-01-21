@@ -1,4 +1,3 @@
-import type { FC, ReactNode } from 'react';
 import React, { Suspense } from 'react';
 import { Skeleton } from 'antd';
 import { createStyles } from 'antd-style';
@@ -42,13 +41,12 @@ const SandpackFallback = () => {
 };
 
 interface SandpackProps {
-  children?: ReactNode;
   dark?: boolean;
   autorun?: boolean;
   dependencies?: string;
 }
 
-const Sandpack: FC<SandpackProps> = ({
+const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
   children,
   dark,
   dependencies: extraDeps,

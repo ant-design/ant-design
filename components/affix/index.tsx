@@ -9,7 +9,7 @@ import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 import { getFixedBottom, getFixedTop, getTargetRect } from './utils';
 
-const TRIGGER_EVENTS = [
+const TRIGGER_EVENTS: (keyof WindowEventMap)[] = [
   'resize',
   'scroll',
   'touchstart',
@@ -17,7 +17,7 @@ const TRIGGER_EVENTS = [
   'touchend',
   'pageshow',
   'load',
-] as const;
+];
 
 function getDefaultTarget() {
   return typeof window !== 'undefined' ? window : null;
@@ -80,7 +80,7 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
   const status = React.useRef<AffixStatus>(AFFIX_STATUS_NONE);
 
   const prevTarget = React.useRef<Window | HTMLElement | null>(null);
-  const prevListener = React.useRef<EventListener>();
+  const prevListener = React.useRef<EventListener>(null);
 
   const placeholderNodeRef = React.useRef<HTMLDivElement>(null);
   const fixedNodeRef = React.useRef<HTMLDivElement>(null);

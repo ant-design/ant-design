@@ -5,7 +5,7 @@ import Modal from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { createEvent, fireEvent, render } from '../../../tests/utils';
 
 jest.mock('rc-util/lib/Portal');
 
@@ -39,6 +39,11 @@ describe('Modal', () => {
     expect(baseElement.querySelector('.ant-modal-close')).toBeFalsy();
     rerender(<Modal closeIcon={false} open />);
     expect(baseElement.querySelector('.ant-modal-close')).toBeFalsy();
+  });
+
+  it('support disable close button when setting disable to true', () => {
+    const { baseElement } = render(<Modal open closable={{ disabled: true }} />);
+    expect(baseElement.querySelector('.ant-modal-close')).toHaveAttribute('disabled');
   });
 
   it('render correctly', () => {
@@ -86,7 +91,12 @@ describe('Modal', () => {
       );
     };
     const { container } = render(<Demo />);
-    fireEvent.click(container.querySelectorAll('#trigger')[0]);
+    const triggerEle = container.querySelectorAll('#trigger')[0];
+    const clickEvent = createEvent.click(triggerEle) as any;
+    clickEvent.pageX = 100;
+    clickEvent.pageY = 100;
+    fireEvent(triggerEle, clickEvent);
+
     expect(
       (container.querySelectorAll('.ant-modal')[0] as HTMLDivElement).style.transformOrigin,
     ).toBeTruthy();
@@ -181,5 +191,21 @@ describe('Modal', () => {
     );
     expect(document.querySelector('.first-origin')).toMatchSnapshot();
     expect(document.querySelector('.second-props-origin')).toMatchSnapshot();
+  });
+
+  it('responsive width', () => {
+    render(
+      <Modal open width={{ xs: '90%', sm: '80%', md: '70%', lg: '60%', xl: '50%', xxl: '40%' }} />,
+    );
+
+    const modalEle = document.querySelector<HTMLDivElement>('.ant-modal')!;
+    expect(modalEle).toHaveStyle({
+      '--ant-modal-xs-width': '90%',
+      '--ant-modal-sm-width': '80%',
+      '--ant-modal-md-width': '70%',
+      '--ant-modal-lg-width': '60%',
+      '--ant-modal-xl-width': '50%',
+      '--ant-modal-xxl-width': '40%',
+    });
   });
 });

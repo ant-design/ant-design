@@ -2,7 +2,14 @@ import React from 'react';
 import { Badge, Descriptions, Table } from 'antd';
 import type { DescriptionsProps, TableProps } from 'antd';
 
-const dataSource = [
+interface DataType {
+  key: React.Key;
+  name: string;
+  age: number;
+  address: string;
+}
+
+const dataSource: DataType[] = [
   {
     key: '1',
     name: '胡彦斌',
@@ -17,7 +24,7 @@ const dataSource = [
   },
 ];
 
-const columns: TableProps['columns'] = [
+const columns: TableProps<DataType>['columns'] = [
   {
     title: '姓名',
     dataIndex: 'name',
@@ -111,7 +118,9 @@ const items: DescriptionsProps['items'] = [
   {
     key: '12',
     label: 'Config Info',
-    children: <Table size="small" pagination={false} dataSource={dataSource} columns={columns} />,
+    children: (
+      <Table<DataType> size="small" pagination={false} dataSource={dataSource} columns={columns} />
+    ),
   },
 ];
 

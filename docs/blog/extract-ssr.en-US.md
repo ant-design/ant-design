@@ -2,6 +2,9 @@
 title: SSR Static style export
 date: 2023-04-25
 author: zombieJ
+zhihu_url: https://zhuanlan.zhihu.com/p/639266657
+yuque_url: https://www.yuque.com/ant-design/ant-design/gyacdbtixle9bbm4
+juejin_url: https://juejin.cn/post/7322352551088603163
 ---
 
 For traditional js + css websites, SSR only needs to deal with the hydrate problem of the first rendering. With the introduction of CSS-in-JS technology, developers need to pay additional attention to how to export styles to HTML to ensure the correctness of the view. We provide a lot of implementation methods, and we just talk about the ideas here. If you need complete documentation or examples, please refer to [Customize Theme](/docs/react/customize-theme-cn).
@@ -92,7 +95,7 @@ renderToString(
 const styleText = extractStyle(cache);
 ```
 
-Of course, this is a little cumbersome for developers. So we extracted a three-party package to achieve this requirement:
+Of course, this is a little cumbersome for developers. So we extracted a third-party package to achieve this requirement:
 
 ```tsx
 import { extractStyle } from '@ant-design/static-style-extract';

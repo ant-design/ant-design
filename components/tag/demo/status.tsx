@@ -12,7 +12,7 @@ import { Divider, Flex, Tag } from 'antd';
 const App: React.FC = () => (
   <>
     <Divider orientation="left">Without icon</Divider>
-    <Flex gap="4px 0" wrap="wrap">
+    <Flex gap="4px 0" wrap>
       <Tag color="success">success</Tag>
       <Tag color="processing">processing</Tag>
       <Tag color="error">error</Tag>
@@ -20,7 +20,7 @@ const App: React.FC = () => (
       <Tag color="default">default</Tag>
     </Flex>
     <Divider orientation="left">With icon</Divider>
-    <Flex gap="4px 0" wrap="wrap">
+    <Flex gap="4px 0" wrap>
       <Tag icon={<CheckCircleOutlined />} color="success">
         success
       </Tag>

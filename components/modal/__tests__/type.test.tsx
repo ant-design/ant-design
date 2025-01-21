@@ -4,8 +4,28 @@ import Modal from '..';
 
 describe('Modal.typescript', () => {
   it('Modal.okType', () => {
-    const form = <Modal okType="danger" />;
+    const modal = <Modal okType="danger" />;
 
-    expect(form).toBeTruthy();
+    expect(modal).toBeTruthy();
+  });
+
+  it('Modal.styles', () => {
+    const style: React.CSSProperties = {
+      position: 'absolute',
+    };
+    const modal = (
+      <Modal
+        styles={{
+          header: style,
+          body: style,
+          footer: style,
+          mask: style,
+          wrapper: style,
+          content: style,
+        }}
+      />
+    );
+
+    expect(modal).toBeTruthy();
   });
 });

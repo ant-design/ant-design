@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import type { CascaderProps } from 'antd';
 import { Cascader } from 'antd';
-import type { SingleCascaderProps } from 'antd/es/cascader';
 
 interface Option {
   value: string;
@@ -34,7 +34,7 @@ const options: Option[] = [
 const App: React.FC = () => {
   const [text, setText] = useState('Unselect');
 
-  const onChange: SingleCascaderProps<Option>['onChange'] = (_, selectedOptions) => {
+  const onChange: CascaderProps<Option>['onChange'] = (_, selectedOptions) => {
     setText(selectedOptions.map((o) => o.label).join(', '));
   };
 

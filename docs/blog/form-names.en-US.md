@@ -75,33 +75,47 @@ rules={[{
 
 ## Final Result
 
-```tsx
+```tsx | demo
+/**
+ * defaultShowCode: true
+ */
 import React from 'react';
 import type { FormItemProps } from 'antd';
-import { Cascader, Form } from 'antd';
+import { Button, Cascader, DatePicker, Form as OriginForm } from 'antd';
+import dayjs from 'dayjs';
 
-export const AggregateFormItem = (
-  props: FormItemProps & { names?: FormItemProps<Record<string, any>>['name'][] },
-) => {
-  const form = Form.useFormInstance();
+interface AggregateProps<V = any> extends FormItemProps<V> {
+  names?: FormItemProps<V>['name'][];
+}
+
+const Aggregate = (props: AggregateProps) => {
+  const form = OriginForm.useFormInstance();
 
   const { names = [], rules = [], ...rest } = props;
   const [firstName, ...resetNames] = names;
+
   return (
     <>
-      <Form.Item
+      <OriginForm.Item
         name={firstName}
         // Convert the values of names into an array passed to children
-        getValueProps={() => ({ value: names.map((name) => form.getFieldValue(name)) })}
+        getValueProps={() => {
+          const value = names.map((name) => form.getFieldValue(name));
+          if (value.every((v) => v === undefined)) {
+            return undefined;
+          }
+          return { value };
+        }}
         getValueFromEvent={(values) => {
           // Set the form store values for names
-          form.setFields(names.map((name, index) => ({ name, value: values[index] })));
-          return values[0];
+          const fieldData = names.map((name, index) => ({ name, value: values?.[index] }));
+          form.setFields(fieldData);
+          return values?.[0];
         }}
-        rules={rules.map((thisRule) => {
-          if (typeof thisRule === 'object') {
+        rules={rules.map((rule) => {
+          if (typeof rule === 'object' && rule) {
             return {
-              ...thisRule,
+              ...rule,
               transform: () => {
                 // Set the values of the names fields for the rule value
                 const values = names.map((name) => form.getFieldValue(name));
@@ -109,39 +123,70 @@ export const AggregateFormItem = (
               },
             };
           }
-          return thisRule;
+          return rule;
         })}
         {...rest}
       />
       {/*  Bind other fields so they can getFieldValue to get values and setFields to set values */}
       {resetNames.map((name) => (
-        <Form.Item key={name?.toString()} name={name} noStyle />
+        <OriginForm.Item key={name?.toString()} name={name} noStyle />
       ))}
     </>
   );
 };
 
-const data = { province: 'Beijing', city: 'Haidian' };
-const options = [
-  { value: 'zhejiang', label: 'Zhejiang', children: [{ value: 'hangzhou', label: 'Hangzhou' }] },
-  { value: 'jiangsu', label: 'Jiangsu', children: [{ value: 'nanjing', label: 'Nanjing' }] },
-];
-const createUser = (values) => console.log(values);
+const data = {
+  province: 'Beijing',
+  city: 'Haidian',
+  startTime: dayjs(),
+  endTime: dayjs().add(1, 'month'),
+};
 
-export const Demo = () => (
-  <Form
-    initialValues={data}
-    onFinish={(values) => {
-      createUser(values);
-    }}
-  >
-    <AggregateFormItem label="Address" names={['province', 'city']} rules={[{ required: true }]}>
+const options = [
+  {
+    value: 'zhejiang',
+    label: 'Zhejiang',
+    children: [{ value: 'hangzhou', label: 'Hangzhou' }],
+  },
+  {
+    value: 'jiangsu',
+    label: 'Jiangsu',
+    children: [{ value: 'nanjing', label: 'Nanjing' }],
+  },
+];
+
+const Form = Object.assign(OriginForm, { Aggregate });
+
+export default () => (
+  <Form initialValues={data} onFinish={(value) => console.log(value)}>
+    <Form.Aggregate label="Address" names={['province', 'city']} rules={[{ required: true }]}>
       <Cascader options={options} placeholder="Please select" />
-    </AggregateFormItem>
+    </Form.Aggregate>
+
+    <Form.Item label="Address (use Default)" name="defaultAddress">
+      <Cascader options={options} placeholder="Please select" />
+    </Form.Item>
+
+    {/* Similarly, it also applies <DatePicker.RangePicker /> */}
+    <Form.Aggregate label="Date" names={['startTime', 'endTime']}>
+      <DatePicker.RangePicker />
+    </Form.Aggregate>
+
+    <Form.Item>
+      <Button htmlType="submit" type="primary">
+        Submit
+      </Button>
+    </Form.Item>
   </Form>
 );
 ```
 
 ## Summary
 
-By doing so, we have implemented a feature that allows for operating multiple `names` within a `Form.Item`, making the form logic clearer and easier to maintain. Additionally, there are some edge cases in this example that have not been considered. For instance, `setFields([{ name:'city', value:'nanjing' }])` will not update the selected value of `Cascader`. To achieve a refresh effect, you need to add `Form.useWatch(values => resetNames.map(name => get(values, name)), form);`. Feel free to explore more edge cases and handle them as needed.
+By doing so, we have implemented a feature that allows for operating multiple `names` within a `Form.Item`, making the form logic clearer and easier to maintain.
+
+In addition to the `Cascader` example in the text, it is also applicable to components such as `DatePicker.RangePicker`. In other words, this method can be used in any scenario that requires the aggregation of multiple fields.
+
+Additionally, there are some edge cases in this example that have not been considered. For instance, `setFields([{ name:'city', value:'nanjing' }])` will not update the selected value of `Cascader`. To achieve a refresh effect, you need to add `Form.useWatch(values => resetNames.map(name => get(values, name)), form);`.
+
+Feel free to explore more edge cases and handle them as needed.

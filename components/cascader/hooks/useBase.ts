@@ -1,15 +1,15 @@
 import * as React from 'react';
 
 import { ConfigContext } from '../../config-provider';
-import type { RenderEmptyHandler } from '../../config-provider';
+import type { DirectionType, RenderEmptyHandler } from '../../config-provider';
 
-export default function useBase(
+function useBase(
   customizePrefixCls?: string,
-  direction?: 'ltr' | 'rtl',
+  direction?: DirectionType,
 ): [
   prefixCls: string,
   cascaderPrefixCls: string,
-  direction?: 'ltr' | 'rtl',
+  direction?: DirectionType,
   renderEmpty?: RenderEmptyHandler,
 ] {
   const { getPrefixCls, direction: rootDirection, renderEmpty } = React.useContext(ConfigContext);
@@ -21,3 +21,5 @@ export default function useBase(
 
   return [prefixCls, cascaderPrefixCls, mergedDirection, renderEmpty];
 }
+
+export default useBase;

@@ -4,7 +4,7 @@ import { Button, Flex, Tooltip } from 'antd';
 
 const App: React.FC = () => (
   <Flex gap="small" vertical>
-    <Flex wrap="wrap" gap="small">
+    <Flex wrap gap="small">
       <Tooltip title="search">
         <Button type="primary" shape="circle" icon={<SearchOutlined />} />
       </Tooltip>
@@ -19,7 +19,7 @@ const App: React.FC = () => (
       </Tooltip>
       <Button icon={<SearchOutlined />}>Search</Button>
     </Flex>
-    <Flex wrap="wrap" gap="small">
+    <Flex wrap gap="small">
       <Tooltip title="search">
         <Button shape="circle" icon={<SearchOutlined />} />
       </Tooltip>
@@ -30,7 +30,7 @@ const App: React.FC = () => (
       <Button type="dashed" icon={<SearchOutlined />}>
         Search
       </Button>
-      <Button icon={<SearchOutlined />} href="https://www.google.com" />
+      <Button icon={<SearchOutlined />} href="https://www.google.com" target="_blank" />
     </Flex>
   </Flex>
 );

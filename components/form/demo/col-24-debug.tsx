@@ -3,7 +3,15 @@ import { Button, Divider, Form, Input, Select } from 'antd';
 
 const sharedItem = (
   <Form.Item
-    label={<a href="https://github.com/ant-design/ant-design/issues/36459">#36459</a>}
+    label={
+      <a
+        href="https://github.com/ant-design/ant-design/issues/36459"
+        target="_blank"
+        rel="noreferrer"
+      >
+        #36459
+      </a>
+    }
     initialValue={['bamboo']}
     name="select"
     style={{ boxShadow: '0 0 3px red' }}
@@ -32,7 +40,7 @@ const App: React.FC = () => {
   return (
     <>
       <Form
-        name="basic"
+        name="col-24-debug"
         labelCol={{ span: 24 }}
         wrapperCol={{ span: 24 }}
         initialValues={{ remember: true }}

@@ -4,7 +4,7 @@ import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { createEvent, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 
 const { OTP } = Input;
 
@@ -13,13 +13,13 @@ describe('Input.OTP', () => {
   mountTest(Input.OTP);
   rtlTest(Input.OTP);
 
-  function getText(container: HTMLElement) {
-    const inputList = container.querySelectorAll('input');
+  const getText = (container: HTMLElement) => {
+    const inputList = container.querySelectorAll<HTMLInputElement>('input');
     return Array.from(inputList)
       .map((input) => input.value || ' ')
       .join('')
       .replace(/\s*$/, '');
-  }
+  };
 
   beforeEach(() => {
     jest.useFakeTimers();
@@ -136,5 +136,68 @@ describe('Input.OTP', () => {
     // Type to trigger formatter
     fireEvent.input(container.querySelector('input')!, { target: { value: 'little' } });
     expect(getText(container)).toBe('LITTLE');
+  });
+
+  it('support mask prop', () => {
+    // default
+    const { container, rerender } = render(<OTP defaultValue="bamboo" />);
+    expect(getText(container)).toBe('bamboo');
+
+    // support string
+    rerender(<OTP defaultValue="bamboo" mask="*" />);
+    expect(getText(container)).toBe('******');
+
+    // support emoji
+    rerender(<OTP defaultValue="bamboo" mask="🔒" />);
+    expect(getText(container)).toBe('🔒🔒🔒🔒🔒🔒');
+  });
+
+  it('should throw Error when mask.length > 1', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<OTP mask="abc" />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Input.OTP] `mask` prop should be a single character.',
+    );
+    errSpy.mockRestore();
+  });
+
+  it('should not throw Error when mask.length <= 1', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<OTP mask="x" />);
+    expect(errSpy).not.toHaveBeenCalled();
+    errSpy.mockRestore();
+  });
+
+  it('support type', () => {
+    const { container } = render(<OTP type="number" />);
+    expect(container.querySelector('input')).toHaveAttribute('type', 'number');
+  });
+
+  it('should call onInput with a string array when input changes', () => {
+    const onInput = jest.fn();
+    const { container } = render(<OTP length={4} onInput={onInput} />);
+
+    const inputs = Array.from(container.querySelectorAll('input'));
+
+    fireEvent.input(inputs[0], { target: { value: '1' } });
+    expect(onInput).toHaveBeenCalledWith(['1']);
+
+    fireEvent.input(inputs[2], { target: { value: '3' } });
+    expect(onInput).toHaveBeenCalledWith(['1', '', '3']);
+
+    fireEvent.input(inputs[1], { target: { value: '2' } });
+    expect(onInput).toHaveBeenCalledWith(['1', '2', '3']);
+
+    fireEvent.input(inputs[3], { target: { value: '4' } });
+    expect(onInput).toHaveBeenCalledWith(['1', '2', '3', '4']);
+  });
+
+  it('disabled ctrl + z', () => {
+    const { container } = render(<OTP length={4} defaultValue="1234" />);
+    const inputEle = container.querySelector('input')!;
+    const event = createEvent.keyDown(inputEle, { key: 'z', ctrlKey: true });
+    fireEvent(inputEle, event);
+
+    expect(event.defaultPrevented).toBeTruthy();
   });
 });

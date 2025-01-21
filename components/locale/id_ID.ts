@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/id_ID';
 
 import type { Locale } from '.';
@@ -19,7 +18,7 @@ const localeValues: Locale = {
   },
   Table: {
     filterTitle: 'Menu filter',
-    filterConfirm: 'Oke',
+    filterConfirm: 'OK',
     filterReset: 'Reset',
     filterEmptyText: 'Tidak ada filter',
     filterCheckall: 'Pilih semua item',
@@ -42,12 +41,12 @@ const localeValues: Locale = {
     Finish: 'Selesai',
   },
   Modal: {
-    okText: 'Oke',
+    okText: 'OK',
     cancelText: 'Batal',
-    justOkText: 'Oke',
+    justOkText: 'OK',
   },
   Popconfirm: {
-    okText: 'Oke',
+    okText: 'OK',
     cancelText: 'Batal',
   },
   Transfer: {
@@ -59,6 +58,7 @@ const localeValues: Locale = {
     selectCurrent: 'Pilih halaman saat ini',
     removeCurrent: 'Hapus halaman saat ini',
     selectAll: 'Pilih semua data',
+    deselectAll: 'Batal pilih semua data',
     removeAll: 'Hapus semua data',
     selectInvert: 'Balikkan halaman saat ini',
   },
@@ -142,6 +142,9 @@ const localeValues: Locale = {
   },
   ColorPicker: {
     presetEmpty: 'Kosong',
+    transparent: 'Transparan',
+    singleColor: 'Warna tunggal',
+    gradientColor: 'Warna gradien',
   },
 };
 

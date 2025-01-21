@@ -551,6 +551,7 @@ Array [
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="left"
         />
@@ -570,6 +571,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="right"
         />
@@ -589,6 +591,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="alternate"
         />
@@ -770,7 +773,7 @@ exports[`renders components/timeline/demo/pending.tsx correctly 1`] = `
     </li>
   </ul>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     style="margin-top:16px"
     type="button"
   >

@@ -1,14 +1,14 @@
 import React from 'react';
-import { Button, Empty } from 'antd';
+import { Button, Empty, Typography } from 'antd';
 
 const App: React.FC = () => (
   <Empty
     image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
-    imageStyle={{ height: 60 }}
+    styles={{ image: { height: 60 } }}
     description={
-      <span>
+      <Typography.Text>
         Customize <a href="#API">Description</a>
-      </span>
+      </Typography.Text>
     }
   >
     <Button type="primary">Create Now</Button>

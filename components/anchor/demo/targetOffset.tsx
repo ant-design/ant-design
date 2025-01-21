@@ -1,6 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Anchor, Col, Row } from 'antd';
 
+const style: React.CSSProperties = {
+  height: '30vh',
+  backgroundColor: 'rgba(0, 0, 0, 0.85)',
+  position: 'fixed',
+  top: 0,
+  insetInlineStart: 0,
+  width: '75%',
+  color: '#fff',
+};
+
 const App: React.FC = () => {
   const topRef = React.useRef<HTMLDivElement>(null);
   const [targetOffset, setTargetOffset] = useState<number>();
@@ -30,38 +40,14 @@ const App: React.FC = () => {
           <Anchor
             targetOffset={targetOffset}
             items={[
-              {
-                key: 'part-1',
-                href: '#part-1',
-                title: 'Part 1',
-              },
-              {
-                key: 'part-2',
-                href: '#part-2',
-                title: 'Part 2',
-              },
-              {
-                key: 'part-3',
-                href: '#part-3',
-                title: 'Part 3',
-              },
+              { key: 'part-1', href: '#part-1', title: 'Part 1' },
+              { key: 'part-2', href: '#part-2', title: 'Part 2' },
+              { key: 'part-3', href: '#part-3', title: 'Part 3' },
             ]}
           />
         </Col>
       </Row>
-
-      <div
-        style={{
-          height: '30vh',
-          background: 'rgba(0,0,0,0.85)',
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '75%',
-          color: '#FFF',
-        }}
-        ref={topRef}
-      >
+      <div style={style} ref={topRef}>
         <div>Fixed Top Block</div>
       </div>
     </div>

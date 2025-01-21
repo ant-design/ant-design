@@ -2595,6 +2595,8 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
+              aria-valuemax="100"
+              aria-valuemin="0"
               aria-valuenow="60"
               class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
@@ -2773,6 +2775,8 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
+              aria-valuemax="100"
+              aria-valuemin="0"
               aria-valuenow="80"
               class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
@@ -3419,6 +3423,8 @@ exports[`renders components/steps/demo/progress.tsx extend context correctly 1`]
           class="ant-steps-progress-icon"
         >
           <div
+            aria-valuemax="100"
+            aria-valuemin="0"
             aria-valuenow="60"
             class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
             role="progressbar"
@@ -3541,7 +3547,7 @@ Array [
     class="ant-space-compact ant-space-compact-block"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
       type="button"
     >
       <span>
@@ -3549,7 +3555,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -3557,7 +3563,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -3565,7 +3571,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -3573,7 +3579,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -3581,7 +3587,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -3589,7 +3595,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-last-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-last-item"
       type="button"
     >
       <span>
@@ -3669,6 +3675,8 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
+              aria-valuemax="100"
+              aria-valuemin="0"
               aria-valuenow="0"
               class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
@@ -3852,6 +3860,8 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
+              aria-valuemax="100"
+              aria-valuemin="0"
               aria-valuenow="0"
               class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
@@ -4035,6 +4045,8 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
+              aria-valuemax="100"
+              aria-valuemin="0"
               aria-valuenow="0"
               class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
@@ -4218,6 +4230,8 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
+              aria-valuemax="100"
+              aria-valuemin="0"
               aria-valuenow="0"
               class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
@@ -5300,7 +5314,7 @@ Array [
     style="margin-top: 24px;"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -5327,6 +5341,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="small"
         />
@@ -5347,6 +5362,7 @@ Array [
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="default"
         />

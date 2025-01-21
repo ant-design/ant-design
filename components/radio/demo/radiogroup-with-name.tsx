@@ -2,12 +2,16 @@ import React from 'react';
 import { Radio } from 'antd';
 
 const App: React.FC = () => (
-  <Radio.Group name="radiogroup" defaultValue={1}>
-    <Radio value={1}>A</Radio>
-    <Radio value={2}>B</Radio>
-    <Radio value={3}>C</Radio>
-    <Radio value={4}>D</Radio>
-  </Radio.Group>
+  <Radio.Group
+    name="radiogroup"
+    defaultValue={1}
+    options={[
+      { value: 1, label: 'A' },
+      { value: 2, label: 'B' },
+      { value: 3, label: 'C' },
+      { value: 4, label: 'D' },
+    ]}
+  />
 );
 
 export default App;

@@ -98,12 +98,18 @@ describe('InputNumber', () => {
     ).toBe(true);
   });
 
-  it('deprecate bordered', () => {
+  it('Deprecation and usage tips', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const { container } = render(<InputNumber bordered={false} />);
-    expect(errorSpy).toHaveBeenCalledWith(
+    const { container } = render(<InputNumber bordered={false} type="number" changeOnWheel />);
+    expect(errorSpy).toHaveBeenNthCalledWith(
+      1,
       'Warning: [antd: InputNumber] `bordered` is deprecated. Please use `variant` instead.',
     );
+    expect(errorSpy).toHaveBeenNthCalledWith(
+      2,
+      'Warning: [antd: InputNumber] When `type=number` is used together with `changeOnWheel`, changeOnWheel may not work properly. Please delete `type=number` if it is not necessary.',
+    );
+
     expect(container.querySelector('.ant-input-number-borderless')).toBeTruthy();
     errorSpy.mockRestore();
   });

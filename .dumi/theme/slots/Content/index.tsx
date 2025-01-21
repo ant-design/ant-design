@@ -1,6 +1,5 @@
 import React, { useContext, useLayoutEffect, useMemo, useState } from 'react';
-import { Col, Flex, Typography } from 'antd';
-import { createStyles } from 'antd-style';
+import { Col, Flex, Space, Typography, Skeleton } from 'antd';
 import classNames from 'classnames';
 import { FormattedMessage, useRouteMeta } from 'dumi';
 
@@ -11,6 +10,7 @@ import type { DemoContextProps } from '../DemoContext';
 import DemoContext from '../DemoContext';
 import SiteContext from '../SiteContext';
 import InViewSuspense from './InViewSuspense';
+import { useStyle } from './DocAnchor';
 
 const Contributors = React.lazy(() => import('./Contributors'));
 const ColumnCard = React.lazy(() => import('./ColumnCard'));
@@ -18,23 +18,12 @@ const DocAnchor = React.lazy(() => import('./DocAnchor'));
 const DocMeta = React.lazy(() => import('./DocMeta'));
 const Footer = React.lazy(() => import('../Footer'));
 const PrevAndNext = React.lazy(() => import('../../common/PrevAndNext'));
-const ComponentChangelog = React.lazy(() => import('../../common/ComponentChangelog'));
 const EditButton = React.lazy(() => import('../../common/EditButton'));
 
-const useStyle = createStyles(({ token, css }) => ({
-  articleWrapper: css`
-    padding: 0 170px 32px 64px;
-    &.rtl {
-      padding: 0 64px 144px 170px;
-    }
-    @media only screen and (max-width: ${token.screenLG}px) {
-      &,
-      &.rtl {
-        padding: 0 ${token.paddingLG * 2}px;
-      }
-    }
-  `,
-}));
+const AvatarPlaceholder: React.FC<{ num?: number }> = ({ num = 6 }) =>
+  Array.from({ length: num }).map<React.ReactNode>((_, i) => (
+    <Skeleton.Avatar size="small" active key={i} style={{ marginInlineStart: i === 0 ? 0 : -8 }} />
+  ));
 
 const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
   const meta = useRouteMeta();
@@ -70,25 +59,22 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
         </InViewSuspense>
         <article className={classNames(styles.articleWrapper, { rtl: isRTL })}>
           {meta.frontmatter?.title ? (
-            <Typography.Title style={{ fontSize: 30, position: 'relative' }}>
-              <Flex gap="small">
-                <div>{meta.frontmatter?.title}</div>
-                <div>{meta.frontmatter?.subtitle}</div>
-                {!pathname.startsWith('/components/overview') && (
-                  <InViewSuspense fallback={null}>
-                    <EditButton
-                      title={<FormattedMessage id="app.content.edit-page" />}
-                      filename={meta.frontmatter.filename}
-                    />
-                  </InViewSuspense>
-                )}
-              </Flex>
-              {pathname.startsWith('/components/') && (
-                <InViewSuspense fallback={null}>
-                  <ComponentChangelog pathname={pathname} />
-                </InViewSuspense>
-              )}
-            </Typography.Title>
+            <Flex justify="space-between">
+              <Typography.Title style={{ fontSize: 32, position: 'relative' }}>
+                <Space>
+                  <span>{meta.frontmatter?.title}</span>
+                  <span>{meta.frontmatter?.subtitle}</span>
+                  {!pathname.startsWith('/components/overview') && (
+                    <InViewSuspense fallback={null}>
+                      <EditButton
+                        title={<FormattedMessage id="app.content.edit-page" />}
+                        filename={meta.frontmatter.filename}
+                      />
+                    </InViewSuspense>
+                  )}
+                </Space>
+              </Typography.Title>
+            </Flex>
           ) : null}
           <InViewSuspense fallback={null}>
             <DocMeta />
@@ -105,19 +91,19 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
                 version={meta.frontmatter.tag}
               />
             )}
-          <div style={{ minHeight: 'calc(100vh - 64px)', width: 'calc(100% - 10px)' }}>
-            {children}
-          </div>
-          <InViewSuspense>
+          <div style={{ minHeight: 'calc(100vh - 64px)' }}>{children}</div>
+          <InViewSuspense fallback={null}>
             <ColumnCard
               zhihuLink={meta.frontmatter.zhihu_url}
               yuqueLink={meta.frontmatter.yuque_url}
               juejinLink={meta.frontmatter.juejin_url}
             />
           </InViewSuspense>
-          <InViewSuspense fallback={<div style={{ height: 50, marginTop: 120 }} />}>
-            <Contributors filename={meta.frontmatter.filename} />
-          </InViewSuspense>
+          <div style={{ marginTop: 120 }}>
+            <InViewSuspense fallback={<AvatarPlaceholder />}>
+              <Contributors filename={meta.frontmatter.filename} />
+            </InViewSuspense>
+          </div>
         </article>
         <InViewSuspense fallback={null}>
           <PrevAndNext rtl={isRTL} />

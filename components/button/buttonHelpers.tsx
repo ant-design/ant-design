@@ -1,9 +1,10 @@
 import React from 'react';
 
 import { cloneElement, isFragment } from '../_util/reactNode';
+import { PresetColors } from '../theme/interface';
 import type { BaseButtonProps, LegacyButtonType } from './button';
 
-const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
+const rxTwoCNChar = /^[\u4E00-\u9FA5]{2}$/;
 export const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
 
 export function convertLegacyProps(
@@ -15,11 +16,11 @@ export function convertLegacyProps(
   return { type };
 }
 
-export function isString(str: any): str is string {
+export function isString(str: unknown): str is string {
   return typeof str === 'string';
 }
 
-export function isUnBorderedButtonType(type?: ButtonType) {
+export function isUnBorderedButtonVariant(type?: ButtonVariantType) {
   return type === 'text' || type === 'link';
 }
 
@@ -34,10 +35,22 @@ function splitCNCharsBySpace(child: React.ReactElement | string | number, needIn
     typeof child !== 'string' &&
     typeof child !== 'number' &&
     isString(child.type) &&
-    isTwoCNChar(child.props.children)
+    isTwoCNChar(
+      (
+        child as React.ReactElement<{
+          children: string;
+        }>
+      ).props.children,
+    )
   ) {
     return cloneElement(child, {
-      children: child.props.children.split('').join(SPACE),
+      children: (
+        child as React.ReactElement<{
+          children: string;
+        }>
+      ).props.children
+        .split('')
+        .join(SPACE),
     });
   }
 
@@ -53,7 +66,7 @@ function splitCNCharsBySpace(child: React.ReactElement | string | number, needIn
 }
 
 export function spaceChildren(children: React.ReactNode, needInserted: boolean) {
-  let isPrevChildPure: boolean = false;
+  let isPrevChildPure = false;
   const childList: React.ReactNode[] = [];
 
   React.Children.forEach(children, (child) => {
@@ -75,11 +88,25 @@ export function spaceChildren(children: React.ReactNode, needInserted: boolean) 
   );
 }
 
-const ButtonTypes = ['default', 'primary', 'dashed', 'link', 'text'] as const;
-export type ButtonType = (typeof ButtonTypes)[number];
+const _ButtonTypes = ['default', 'primary', 'dashed', 'link', 'text'] as const;
+export type ButtonType = (typeof _ButtonTypes)[number];
 
-const ButtonShapes = ['default', 'circle', 'round'] as const;
-export type ButtonShape = (typeof ButtonShapes)[number];
+const _ButtonShapes = ['default', 'circle', 'round'] as const;
+export type ButtonShape = (typeof _ButtonShapes)[number];
 
-const ButtonHTMLTypes = ['submit', 'button', 'reset'] as const;
-export type ButtonHTMLType = (typeof ButtonHTMLTypes)[number];
+const _ButtonHTMLTypes = ['submit', 'button', 'reset'] as const;
+export type ButtonHTMLType = (typeof _ButtonHTMLTypes)[number];
+
+export const _ButtonVariantTypes = [
+  'outlined',
+  'dashed',
+  'solid',
+  'filled',
+  'text',
+  'link',
+] as const;
+export type ButtonVariantType = (typeof _ButtonVariantTypes)[number];
+
+export const _ButtonColorTypes = ['default', 'primary', 'danger', ...PresetColors] as const;
+
+export type ButtonColorType = (typeof _ButtonColorTypes)[number];

@@ -28,7 +28,7 @@ interface StatisticReactProps extends FormatConfig {
 
 export type StatisticProps = HTMLAriaDataAttributes & StatisticReactProps;
 
-const Statistic: React.FC<StatisticProps & HTMLAriaDataAttributes> = (props) => {
+const Statistic: React.FC<StatisticProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,

@@ -2,8 +2,7 @@ import getScroll from '../getScroll';
 
 describe('getScroll', () => {
   it('getScroll target null', () => {
-    expect(getScroll(null, true)).toBe(0);
-    expect(getScroll(null, false)).toBe(0);
+    expect(getScroll(null)).toBe(0);
   });
 
   it('getScroll window', () => {
@@ -11,9 +10,8 @@ describe('getScroll', () => {
       window.pageXOffset = x;
       window.pageYOffset = y;
     });
-    window.scrollTo(200, 400);
-    expect(getScroll(window, true)).toBe(400);
-    expect(getScroll(window, false)).toBe(200);
+    window.scrollTo(0, 400);
+    expect(getScroll(window)).toBe(400);
     scrollToSpy.mockRestore();
   });
 
@@ -22,9 +20,8 @@ describe('getScroll', () => {
       document.documentElement.scrollLeft = x;
       document.documentElement.scrollTop = y;
     });
-    window.scrollTo(200, 400);
-    expect(getScroll(document, true)).toBe(400);
-    expect(getScroll(document, false)).toBe(200);
+    window.scrollTo(0, 400);
+    expect(getScroll(document)).toBe(400);
     scrollToSpy.mockRestore();
   });
 
@@ -34,9 +31,8 @@ describe('getScroll', () => {
       div.scrollLeft = x;
       div.scrollTop = y;
     });
-    window.scrollTo(200, 400);
-    expect(getScroll(div, true)).toBe(400);
-    expect(getScroll(div, false)).toBe(200);
+    window.scrollTo(0, 400);
+    expect(getScroll(div)).toBe(400);
     scrollToSpy.mockRestore();
   });
 
@@ -49,9 +45,14 @@ describe('getScroll', () => {
       div.documentElement.scrollLeft = x;
       div.documentElement.scrollTop = y;
     });
-    window.scrollTo(200, 400);
-    expect(getScroll(div, true)).toBe(400);
-    expect(getScroll(div, false)).toBe(200);
+    window.scrollTo(0, 400);
+    expect(getScroll(div)).toBe(400);
     scrollToSpy.mockRestore();
+  });
+
+  it('When window is undef, getScroll value is zero', () => {
+    const spy = jest.spyOn(global, 'window', 'get').mockImplementation(() => undefined as any);
+    expect(getScroll(null)).toBe(0);
+    spy.mockRestore();
   });
 });

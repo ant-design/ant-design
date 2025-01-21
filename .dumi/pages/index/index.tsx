@@ -5,8 +5,8 @@ import { createStyles, css } from 'antd-style';
 import useDark from '../../hooks/useDark';
 import useLocale from '../../hooks/useLocale';
 import BannerRecommends from './components/BannerRecommends';
-import PreviewBanner from './components/PreviewBanner';
 import Group from './components/Group';
+import PreviewBanner from './components/PreviewBanner';
 
 const ComponentsList = React.lazy(() => import('./components/ComponentsList'));
 const DesignFramework = React.lazy(() => import('./components/DesignFramework'));
@@ -15,7 +15,7 @@ const Theme = React.lazy(() => import('./components/Theme'));
 const useStyle = createStyles(() => ({
   image: css`
     position: absolute;
-    left: 0;
+    inset-inline-start: 0;
     top: -50px;
     height: 160px;
   `,
@@ -78,12 +78,13 @@ const Homepage: React.FC = () => {
         <Group
           title={locale.designTitle}
           description={locale.designDesc}
-          background={isRootDark ? 'rgb(57, 63, 74)' : '#F5F8FF'}
+          background={isRootDark ? '#393F4A' : '#F5F8FF'}
           decoration={
             <img
+              draggable={false}
               className={styles.image}
               src="https://gw.alipayobjects.com/zos/bmw-prod/ba37a413-28e6-4be4-b1c5-01be1a0ebb1c.svg"
-              alt=""
+              alt="bg"
             />
           }
         >

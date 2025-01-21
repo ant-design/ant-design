@@ -45,8 +45,8 @@ export interface AutoCompleteProps<
   popupMatchSelectWidth?: boolean | number;
 }
 
-function isSelectOptionOrSelectOptGroup(child: any): Boolean {
-  return child && child.type && (child.type.isSelectOption || child.type.isSelectOptGroup);
+function isSelectOptionOrSelectOptGroup(child: any): boolean {
+  return child?.type && (child.type.isSelectOption || child.type.isSelectOptGroup);
 }
 
 const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteProps> = (
@@ -170,7 +170,9 @@ const RefAutoComplete = React.forwardRef<RefSelectProps, AutoCompleteProps>(
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(RefAutoComplete);
+const PurePanel = genPurePanel(RefAutoComplete, 'dropdownAlign', (props: any) =>
+  omit(props, ['visible']),
+);
 
 RefAutoComplete.Option = Option;
 RefAutoComplete._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;

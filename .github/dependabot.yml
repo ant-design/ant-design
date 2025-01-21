@@ -5,34 +5,35 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: npm
+    directory: /
     schedule:
-      interval: "daily"
-    versioning-strategy: increase
+      interval: daily
     groups:
       rc-component-patch:
-        dependency-type: "production"
+        dependency-type: production
         patterns:
         - "rc-*"
         - "@rc-component*"
-        update-types: ["patch"]
+        update-types: [patch]
       dependencies:
-        dependency-type: "production"
+        dependency-type: production
         exclude-patterns:
         - "rc-*"
         - "@rc-component*"
-        update-types: ["major", "minor"]
+        update-types: [major, minor]
       dev-dependencies:
-        dependency-type: "development"
-        update-types: ["major"]
+        dependency-type: development
+        update-types: [major]
     ignore:
       - dependency-name: "@ant-design/cssinjs"
-  - package-ecosystem: "github-actions"
-    directory: "/"
+      - dependency-name: dayjs
+        versions: [1.x]
+  - package-ecosystem: github-actions
+    directory: /
     schedule:
-      interval: "daily"
+      interval: daily
     labels:
-      - "github-actions"
-      - "dependencies"
-      - "skip-verify-files"
+      - github-actions
+      - dependencies
+      - skip-verify-files

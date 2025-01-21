@@ -11,7 +11,7 @@ import {
   StarOutlined,
   WarningOutlined,
 } from '@ant-design/icons';
-import { Button, Dropdown, Menu, Space, Tooltip } from 'antd';
+import { Button, Dropdown, Space, Tooltip } from 'antd';
 
 const App: React.FC = () => (
   <div>
@@ -36,27 +36,25 @@ const App: React.FC = () => (
       </Tooltip>
       <Dropdown
         placement="bottomRight"
-        overlay={
-          <Menu
-            items={[
-              {
-                key: '1',
-                label: 'Report',
-                icon: <WarningOutlined />,
-              },
-              {
-                key: '2',
-                label: 'Mail',
-                icon: <MailOutlined />,
-              },
-              {
-                key: '3',
-                label: 'Mobile',
-                icon: <MobileOutlined />,
-              },
-            ]}
-          />
-        }
+        menu={{
+          items: [
+            {
+              key: '1',
+              label: 'Report',
+              icon: <WarningOutlined />,
+            },
+            {
+              key: '2',
+              label: 'Mail',
+              icon: <MailOutlined />,
+            },
+            {
+              key: '3',
+              label: 'Mobile',
+              icon: <MobileOutlined />,
+            },
+          ],
+        }}
         trigger={['click']}
       >
         <Button icon={<EllipsisOutlined />} />
@@ -89,24 +87,22 @@ const App: React.FC = () => (
       <Button type="primary">Button 4</Button>
       <Dropdown
         placement="bottomRight"
-        overlay={
-          <Menu
-            items={[
-              {
-                key: '1',
-                label: '1st item',
-              },
-              {
-                key: '2',
-                label: '2nd item',
-              },
-              {
-                key: '3',
-                label: '3rd item',
-              },
-            ]}
-          />
-        }
+        menu={{
+          items: [
+            {
+              key: '1',
+              label: '1st item',
+            },
+            {
+              key: '2',
+              label: '2nd item',
+            },
+            {
+              key: '3',
+              label: '3rd item',
+            },
+          ],
+        }}
         trigger={['click']}
       >
         <Button type="primary" icon={<EllipsisOutlined />} />

@@ -36,6 +36,7 @@ const App: React.FC = () => {
       case 'both':
         return ['icon', 'text'];
       case 'icon':
+        return ['icon'];
       default:
         return ['icon'];
     }

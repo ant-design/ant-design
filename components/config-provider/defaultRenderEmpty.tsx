@@ -4,8 +4,18 @@ import type { ConfigConsumerProps } from '.';
 import { ConfigContext } from '.';
 import Empty from '../empty';
 
+type ComponentName =
+  | 'Table'
+  | 'Table.filter' /* 👈 5.20.0+ */
+  | 'List'
+  | 'Select'
+  | 'TreeSelect'
+  | 'Cascader'
+  | 'Transfer'
+  | 'Mentions';
+
 interface EmptyProps {
-  componentName?: string;
+  componentName?: ComponentName;
 }
 
 const DefaultRenderEmpty: React.FC<EmptyProps> = (props) => {
@@ -22,13 +32,20 @@ const DefaultRenderEmpty: React.FC<EmptyProps> = (props) => {
     case 'Transfer':
     case 'Mentions':
       return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} className={`${prefix}-small`} />;
-    /* istanbul ignore next */
+    /**
+     * This type of component should satisfy the nullish coalescing operator(??) on the left-hand side.
+     * to let the component itself implement the logic.
+     * For example `Table.filter`.
+     */
+    case 'Table.filter':
+      // why `null`? legacy react16 node type `undefined` is not allowed.
+      return null;
     default:
       // Should never hit if we take all the component into consider.
       return <Empty />;
   }
 };
 
-export type RenderEmptyHandler = (componentName?: string) => React.ReactNode;
+export type RenderEmptyHandler = (componentName?: ComponentName) => React.ReactNode;
 
 export default DefaultRenderEmpty;

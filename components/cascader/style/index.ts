@@ -1,8 +1,7 @@
 import type { CSSProperties } from 'react';
 
 import { genCompactItemStyle } from '../../style/compact-item';
-import type { GlobalToken } from '../../theme';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GlobalToken } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
 import getColumnsStyle from './columns';
 
@@ -11,22 +10,27 @@ export interface ComponentToken {
    * @desc 选择器宽度
    * @descEN Width of Cascader
    */
-  controlWidth: number;
+  controlWidth: number | string;
   /**
    * @desc 选项宽度
    * @descEN Width of item
    */
-  controlItemWidth: number;
+  controlItemWidth: number | string;
   /**
    * @desc 下拉菜单高度
    * @descEN Height of dropdown
    */
-  dropdownHeight: number;
+  dropdownHeight: number | string;
   /**
    * @desc 选项选中时背景色
    * @descEN Background color of selected item
    */
   optionSelectedBg: string;
+  /**
+   * @desc 选项选中时文本颜色
+   * @descEN Text color when option is selected
+   */
+  optionSelectedColor: string;
   /**
    * @desc 选项选中时字重
    * @descEN Font weight of selected item
@@ -101,6 +105,7 @@ export const prepareComponentToken = (token: GlobalToken) => {
     optionSelectedFontWeight: token.fontWeightStrong,
     optionPadding: `${itemPaddingVertical}px ${token.paddingSM}px`,
     menuPadding: token.paddingXXS,
+    optionSelectedColor: token.colorText,
   };
 };
 

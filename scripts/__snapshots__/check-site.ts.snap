@@ -40,9 +40,9 @@ exports[`site test Component components/calendar en Page 1`] = `1`;
 
 exports[`site test Component components/calendar zh Page 1`] = `1`;
 
-exports[`site test Component components/card en Page 1`] = `4`;
+exports[`site test Component components/card en Page 1`] = `3`;
 
-exports[`site test Component components/card zh Page 1`] = `4`;
+exports[`site test Component components/card zh Page 1`] = `3`;
 
 exports[`site test Component components/carousel en Page 1`] = `2`;
 
@@ -56,9 +56,9 @@ exports[`site test Component components/checkbox en Page 1`] = `3`;
 
 exports[`site test Component components/checkbox zh Page 1`] = `3`;
 
-exports[`site test Component components/collapse en Page 1`] = `2`;
+exports[`site test Component components/collapse en Page 1`] = `3`;
 
-exports[`site test Component components/collapse zh Page 1`] = `2`;
+exports[`site test Component components/collapse zh Page 1`] = `3`;
 
 exports[`site test Component components/color-picker en Page 1`] = `2`;
 
@@ -156,13 +156,13 @@ exports[`site test Component components/pagination en Page 1`] = `1`;
 
 exports[`site test Component components/pagination zh Page 1`] = `1`;
 
-exports[`site test Component components/popconfirm en Page 1`] = `1`;
+exports[`site test Component components/popconfirm en Page 1`] = `2`;
 
-exports[`site test Component components/popconfirm zh Page 1`] = `1`;
+exports[`site test Component components/popconfirm zh Page 1`] = `2`;
 
-exports[`site test Component components/popover en Page 1`] = `1`;
+exports[`site test Component components/popover en Page 1`] = `2`;
 
-exports[`site test Component components/popover zh Page 1`] = `1`;
+exports[`site test Component components/popover zh Page 1`] = `2`;
 
 exports[`site test Component components/progress en Page 1`] = `4`;
 
@@ -184,9 +184,9 @@ exports[`site test Component components/result en Page 1`] = `1`;
 
 exports[`site test Component components/result zh Page 1`] = `1`;
 
-exports[`site test Component components/segmented en Page 1`] = `1`;
+exports[`site test Component components/segmented en Page 1`] = `2`;
 
-exports[`site test Component components/segmented zh Page 1`] = `1`;
+exports[`site test Component components/segmented zh Page 1`] = `2`;
 
 exports[`site test Component components/select en Page 1`] = `4`;
 
@@ -208,6 +208,10 @@ exports[`site test Component components/spin en Page 1`] = `1`;
 
 exports[`site test Component components/spin zh Page 1`] = `1`;
 
+exports[`site test Component components/splitter en Page 1`] = `2`;
+
+exports[`site test Component components/splitter zh Page 1`] = `2`;
+
 exports[`site test Component components/statistic en Page 1`] = `2`;
 
 exports[`site test Component components/statistic zh Page 1`] = `2`;
@@ -224,9 +228,9 @@ exports[`site test Component components/table en Page 1`] = `9`;
 
 exports[`site test Component components/table zh Page 1`] = `9`;
 
-exports[`site test Component components/tabs en Page 1`] = `2`;
+exports[`site test Component components/tabs en Page 1`] = `3`;
 
-exports[`site test Component components/tabs zh Page 1`] = `2`;
+exports[`site test Component components/tabs zh Page 1`] = `3`;
 
 exports[`site test Component components/tag en Page 1`] = `2`;
 

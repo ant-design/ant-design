@@ -6,7 +6,7 @@ const App: React.FC = () => (
     <Tooltip title="3 done / 3 in progress / 4 to do">
       <Progress percent={60} success={{ percent: 30 }} />
     </Tooltip>
-    <Flex gap="small" wrap="wrap">
+    <Flex gap="small" wrap>
       <Tooltip title="3 done / 3 in progress / 4 to do">
         <Progress percent={60} success={{ percent: 30 }} type="circle" />
       </Tooltip>

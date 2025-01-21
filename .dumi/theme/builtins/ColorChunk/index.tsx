@@ -1,12 +1,7 @@
 import * as React from 'react';
-import type { ColorInput } from '@ctrl/tinycolor';
-import { TinyColor } from '@ctrl/tinycolor';
+// @ts-ignore
+import { TinyColor } from 'dumi-plugin-color-chunk/component';
 import { createStyles } from 'antd-style';
-
-interface ColorChunkProps {
-  children?: React.ReactNode;
-  value?: ColorInput;
-}
 
 const useStyle = createStyles(({ token, css }) => ({
   codeSpan: css`
@@ -26,7 +21,11 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
 }));
 
-const ColorChunk: React.FC<ColorChunkProps> = (props) => {
+interface ColorChunkProps {
+  value: any;
+}
+
+const ColorChunk: React.FC<React.PropsWithChildren<ColorChunkProps>> = (props) => {
   const { styles } = useStyle();
   const { value, children } = props;
 

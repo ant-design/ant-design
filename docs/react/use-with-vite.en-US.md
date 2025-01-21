@@ -1,11 +1,11 @@
 ---
 group:
   title: Basic Usage
-order: 3
+order: 2
 title: Usage with Vite
 ---
 
-[Vite](https://vitejs.dev/) is one of the best React application development tools. We are going to use `antd` within it and modify the vite config for some customized needs.
+[Vite](https://vitejs.dev/) is one of the best React application development tools. Let's use `antd` within it.
 
 ## Install and Initialization
 

@@ -1,10 +1,8 @@
 import * as React from 'react';
 import { forwardRef } from 'react';
 import classNames from 'classnames';
-import type { TextAreaRef as RcTextAreaRef } from 'rc-textarea';
+import type { TextAreaRef as RcTextAreaRef, TextAreaProps as RcTextAreaProps } from 'rc-textarea';
 import RcTextArea from 'rc-textarea';
-import type { TextAreaProps as RcTextAreaProps } from 'rc-textarea/lib/interface';
-
 import getAllowClear from '../_util/getAllowClear';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
@@ -15,7 +13,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
-import type { Variant } from '../form/hooks/useVariants';
+import type { Variant } from '../config-provider';
 import useVariant from '../form/hooks/useVariants';
 import type { InputFocusOptions } from './Input';
 import { triggerFocus } from './Input';
@@ -96,7 +94,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const [variant, enableVariantCls] = useVariant(customVariant, bordered);
+  const [variant, enableVariantCls] = useVariant('textArea', customVariant, bordered);
 
   const mergedAllowClear = getAllowClear(allowClear ?? textArea?.allowClear);
 

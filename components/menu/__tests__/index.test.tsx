@@ -28,13 +28,13 @@ type MouseEvent = 'click' | 'mouseEnter' | 'mouseLeave';
 const { SubMenu } = Menu;
 
 describe('Menu', () => {
-  function triggerAllTimer() {
+  const triggerAllTimer = () => {
     for (let i = 0; i < 10; i += 1) {
       act(() => {
         jest.runAllTimers();
       });
     }
-  }
+  };
 
   const expectSubMenuBehavior = (
     defaultTestProps: MenuProps,
@@ -59,11 +59,10 @@ describe('Menu', () => {
     // React concurrent may delay creating this
     triggerAllTimer();
 
-    function getSubMenu() {
-      return container.querySelector<HTMLUListElement | HTMLDivElement>(
+    const getSubMenu = () =>
+      container.querySelector<HTMLUListElement | HTMLDivElement>(
         mode === 'inline' ? 'ul.ant-menu-sub.ant-menu-inline' : 'div.ant-menu-submenu-popup',
       );
-    }
 
     expect(
       getSubMenu()?.classList.contains('ant-menu-hidden') ||
@@ -85,16 +84,18 @@ describe('Menu', () => {
     }
   };
 
-  // window.requestAnimationFrame = callback => window.setTimeout(callback, 16);
-  // window.cancelAnimationFrame = window.clearTimeout;
+  let div: HTMLDivElement;
 
   beforeEach(() => {
     jest.useFakeTimers();
     jest.clearAllTimers();
+    div = document.createElement('div');
+    document.body.appendChild(div);
   });
 
   afterEach(() => {
     jest.useRealTimers();
+    document.body.removeChild(div);
   });
 
   mountTest(() => (
@@ -113,14 +114,11 @@ describe('Menu', () => {
         <Menu.SubMenu />
         {null}
       </>
-      {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
       <>
         <Menu.Item />
       </>
       {undefined}
-      {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
       <>
-        {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
         <>
           <Menu.Item />
         </>
@@ -137,17 +135,6 @@ describe('Menu', () => {
   );
 
   rtlTest(RtlDemo);
-
-  let div: HTMLDivElement;
-
-  beforeEach(() => {
-    div = document.createElement('div');
-    document.body.appendChild(div);
-  });
-
-  afterEach(() => {
-    document.body.removeChild(div);
-  });
 
   it('If has select nested submenu item ,the menu items on the grandfather level should be highlight', () => {
     const { container } = render(
@@ -1169,5 +1156,41 @@ describe('Menu', () => {
       </OverrideContext.Provider>,
     );
     expect(container.querySelector('.ant-menu-submenu-arrow')).toBeFalsy();
+  });
+
+  it('menu item with extra prop', () => {
+    const text = '⌘P';
+    const { container } = render(<Menu items={[{ label: 'profile', key: '1', extra: text }]} />);
+
+    expect(container.querySelector('.ant-menu-title-content-with-extra')).toBeInTheDocument();
+    expect(container.querySelector('.ant-menu-item-extra')?.textContent).toBe(text);
+  });
+
+  it('should prevent click events when disabled MenuItem with link', () => {
+    const onClick = jest.fn();
+    const { container } = render(
+      <Menu
+        mode="vertical"
+        items={[
+          {
+            key: '1',
+            disabled: true,
+            label: (
+              <a href="https://ant.design" onClick={onClick}>
+                Disabled Link
+              </a>
+            ),
+          },
+        ]}
+      />,
+    );
+    const link = container.querySelector('a')!;
+
+    expect(container.querySelector('.ant-menu-item')).toHaveClass('ant-menu-item-disabled');
+    expect(window.getComputedStyle(link).pointerEvents).toBe('none');
+    expect(link).toHaveStyle({
+      pointerEvents: 'none',
+      cursor: 'not-allowed',
+    });
   });
 });

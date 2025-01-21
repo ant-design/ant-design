@@ -41,6 +41,10 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
   copyTip: css`
     color: ${token.colorTextTertiary};
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
   `,
   copiedTip: css`
     .anticon {
@@ -80,6 +84,7 @@ const DesignPreviewer: FC<AntdPreviewerProps> = ({ children, title, description,
         {title}
       </a>
       {description && (
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: description is from markdown
         <div className={styles.description} dangerouslySetInnerHTML={{ __html: description }} />
       )}
       <div className={styles.copy}>
@@ -89,10 +94,10 @@ const DesignPreviewer: FC<AntdPreviewerProps> = ({ children, title, description,
             <span style={{ marginInlineStart: 8 }}>已复制，使用 Kitchen 插件即可粘贴</span>
           </div>
         ) : (
-          <div onClick={handleCopy} className={styles.copyTip}>
+          <button type="button" onClick={handleCopy} className={styles.copyTip}>
             <SketchOutlined />
             <span style={{ marginInlineStart: 8 }}>复制 Sketch JSON</span>
-          </div>
+          </button>
         )}
       </div>
       <div className={styles.demo} ref={demoRef}>

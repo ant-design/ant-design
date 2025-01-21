@@ -10,7 +10,7 @@ const App: React.FC = () => {
       <Slider min={2} max={10} value={stepsCount} onChange={setStepsCount} />
       <Typography.Title level={5}>Custom gap:</Typography.Title>
       <Slider step={4} min={0} max={40} value={stepsGap} onChange={setStepsGap} />
-      <Flex wrap="wrap" gap="middle" style={{ marginTop: 16 }}>
+      <Flex wrap gap="middle" style={{ marginTop: 16 }}>
         <Progress
           type="dashboard"
           steps={8}

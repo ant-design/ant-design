@@ -1,16 +1,18 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { useEvent } from 'rc-util';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import { getMergedStatus } from '../../_util/statusUtils';
 import type { InputStatus } from '../../_util/statusUtils';
+import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
+import type { Variant } from '../../config-provider';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import useSize from '../../config-provider/hooks/useSize';
 import type { SizeType } from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
-import type { Variant } from '../../form/hooks/useVariants';
+import type { FormItemStatusContextProps } from '../../form/context';
 import type { InputRef } from '../Input';
 import useStyle from '../style/otp';
 import OTPInput from './OTPInput';
@@ -22,7 +24,8 @@ export interface OTPRef {
   nativeElement: HTMLDivElement;
 }
 
-export interface OTPProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
+export interface OTPProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'onInput'> {
   prefixCls?: string;
   length?: number;
 
@@ -42,6 +45,12 @@ export interface OTPProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'on
   // Status
   disabled?: boolean;
   status?: InputStatus;
+
+  mask?: boolean | string;
+
+  type?: React.HTMLInputTypeAttribute;
+
+  onInput?: (value: string[]) => void;
 }
 
 function strToArr(str: string) {
@@ -61,8 +70,21 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     disabled,
     status: customStatus,
     autoFocus,
+    mask,
+    type,
+    onInput,
+    inputMode,
     ...restProps
   } = props;
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Input.OTP');
+    warning(
+      !(typeof mask === 'string' && mask.length > 1),
+      'usage',
+      '`mask` prop should be a single character.',
+    );
+  }
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('otp', customizePrefixCls);
@@ -85,7 +107,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   const formContext = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(formContext.status, customStatus);
 
-  const proxyFormContext = React.useMemo(
+  const proxyFormContext = React.useMemo<FormItemStatusContextProps>(
     () => ({
       ...formContext,
       status: mergedStatus,
@@ -128,6 +150,10 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
 
   const triggerValueCellsChange = useEvent((nextValueCells: string[]) => {
     setValueCells(nextValueCells);
+
+    if (onInput) {
+      onInput(nextValueCells);
+    }
 
     // Trigger if all cells are filled
     if (
@@ -182,7 +208,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     const nextCells = patchValue(index, txt);
 
     const nextIndex = Math.min(index + txt.length, length - 1);
-    if (nextIndex !== index) {
+    if (nextIndex !== index && nextCells[index] !== undefined) {
       refs.current[nextIndex]?.focus();
     }
 
@@ -194,10 +220,13 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   };
 
   // ======================== Render ========================
-  const inputSharedProps = {
+  const inputSharedProps: Partial<OTPInputProps> = {
     variant,
     disabled,
     status: mergedStatus as InputStatus,
+    mask,
+    type,
+    inputMode,
   };
 
   return wrapCSSVar(
@@ -216,10 +245,9 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
       )}
     >
       <FormItemInputContext.Provider value={proxyFormContext}>
-        {new Array(length).fill(0).map((_, index) => {
+        {Array.from({ length }).map((_, index) => {
           const key = `otp-${index}`;
           const singleValue = valueCells[index] || '';
-
           return (
             <OTPInput
               ref={(inputEle) => {

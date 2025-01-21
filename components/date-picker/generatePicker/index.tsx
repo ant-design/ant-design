@@ -6,7 +6,9 @@ import generateSinglePicker from './generateSinglePicker';
 
 export type { PickerLocale, PickerProps } from './interface';
 
-function generatePicker<DateType extends AnyObject>(generateConfig: GenerateConfig<DateType>) {
+const generatePicker = <DateType extends AnyObject = AnyObject>(
+  generateConfig: GenerateConfig<DateType>,
+) => {
   // =========================== Picker ===========================
   const { DatePicker, WeekPicker, MonthPicker, YearPicker, TimePicker, QuarterPicker } =
     generateSinglePicker(generateConfig);
@@ -26,6 +28,7 @@ function generatePicker<DateType extends AnyObject>(generateConfig: GenerateConf
   };
 
   const MergedDatePicker = DatePicker as MergedDatePickerType;
+
   MergedDatePicker.WeekPicker = WeekPicker;
   MergedDatePicker.MonthPicker = MonthPicker;
   MergedDatePicker.YearPicker = YearPicker;
@@ -38,6 +41,6 @@ function generatePicker<DateType extends AnyObject>(generateConfig: GenerateConf
   }
 
   return MergedDatePicker;
-}
+};
 
 export default generatePicker;

@@ -1,6 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
+import { FastColor } from '@ant-design/fast-color';
 
 import { genModalMaskStyle } from '../../modal/style';
 import { textEllipsis } from '../../style';
@@ -36,9 +36,25 @@ export interface ComponentToken {
   previewOperationColorDisabled: string;
 }
 
+/**
+ * @desc Image 组件的 Token
+ * @descEN Token for Image component
+ */
 export interface ImageToken extends FullToken<'Image'> {
+  /**
+   * @desc 预览类名
+   * @descEN Preview class name
+   */
   previewCls: string;
+  /**
+   * @desc 模态框遮罩背景色
+   * @descEN Background color of modal mask
+   */
   modalMaskBg: string;
+  /**
+   * @desc 预览切换按钮尺寸
+   * @descEN Size of preview switch button
+   */
   imagePreviewSwitchSize: number;
 }
 
@@ -59,7 +75,7 @@ export const genImageMaskStyle = (token: ImageToken): CSSObject => {
     alignItems: 'center',
     justifyContent: 'center',
     color: colorTextLightSolid,
-    background: new TinyColor('#000').setAlpha(0.5).toRgbString(),
+    background: new FastColor('#000').setA(0.5).toRgbString(),
     cursor: 'pointer',
     opacity: 0,
     transition: `opacity ${motionDurationSlow}`,
@@ -92,8 +108,8 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
     colorTextLightSolid,
   } = token;
 
-  const operationBg = new TinyColor(modalMaskBg).setAlpha(0.1);
-  const operationBgHover = operationBg.clone().setAlpha(0.2);
+  const operationBg = new FastColor(modalMaskBg).setA(0.1);
+  const operationBgHover = operationBg.clone().setA(0.2);
 
   return {
     [`${previewCls}-footer`]: {
@@ -101,13 +117,13 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
       bottom: marginXL,
       left: {
         _skip_check_: true,
-        value: 0,
+        value: '50%',
       },
-      width: '100%',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       color: token.previewOperationColor,
+      transform: 'translateX(-50%)',
     },
     [`${previewCls}-progress`]: {
       marginBottom: margin,
@@ -182,14 +198,14 @@ export const genPreviewSwitchStyle = (token: ImageToken): CSSObject => {
     motionDurationSlow,
   } = token;
 
-  const operationBg = new TinyColor(modalMaskBg).setAlpha(0.1);
-  const operationBgHover = operationBg.clone().setAlpha(0.2);
+  const operationBg = new FastColor(modalMaskBg).setA(0.1);
+  const operationBgHover = operationBg.clone().setA(0.2);
 
   return {
     [`${previewCls}-switch-left, ${previewCls}-switch-right`]: {
       position: 'fixed',
       insetBlockStart: '50%',
-      zIndex: token.calc(zIndexPopup).add(1).equal({ unit: false }),
+      zIndex: token.calc(zIndexPopup).add(1).equal(),
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -208,7 +224,7 @@ export const genPreviewSwitchStyle = (token: ImageToken): CSSObject => {
         background: operationBgHover.toRgbString(),
       },
 
-      [`&-disabled`]: {
+      '&-disabled': {
         '&, &:hover': {
           color: previewOperationColorDisabled,
           background: 'transparent',
@@ -308,7 +324,7 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
     {
       [`${componentCls}-preview-operations-wrapper`]: {
         position: 'fixed',
-        zIndex: token.calc(token.zIndexPopup).add(1).equal({ unit: false }),
+        zIndex: token.calc(token.zIndexPopup).add(1).equal(),
       },
       '&': [genPreviewOperationsStyle(token), genPreviewSwitchStyle(token)],
     },
@@ -353,18 +369,16 @@ const genPreviewMotion: GenerateStyle<ImageToken> = (token) => {
 
   return {
     [`${previewCls}-root`]: initZoomMotion(token, 'zoom'),
-    [`&`]: initFadeMotion(token, true),
+    '&': initFadeMotion(token, true),
   };
 };
 
 // ============================== Export ==============================
 export const prepareComponentToken: GetDefaultToken<'Image'> = (token) => ({
   zIndexPopup: token.zIndexPopupBase + 80,
-  previewOperationColor: new TinyColor(token.colorTextLightSolid).setAlpha(0.65).toRgbString(),
-  previewOperationHoverColor: new TinyColor(token.colorTextLightSolid).setAlpha(0.85).toRgbString(),
-  previewOperationColorDisabled: new TinyColor(token.colorTextLightSolid)
-    .setAlpha(0.25)
-    .toRgbString(),
+  previewOperationColor: new FastColor(token.colorTextLightSolid).setA(0.65).toRgbString(),
+  previewOperationHoverColor: new FastColor(token.colorTextLightSolid).setA(0.85).toRgbString(),
+  previewOperationColorDisabled: new FastColor(token.colorTextLightSolid).setA(0.25).toRgbString(),
   previewOperationSize: token.fontSizeIcon * 1.5, // FIXME: fontSizeIconLG
 });
 
@@ -375,7 +389,7 @@ export default genStyleHooks(
 
     const imageToken = mergeToken<ImageToken>(token, {
       previewCls,
-      modalMaskBg: new TinyColor('#000').setAlpha(0.45).toRgbString(), // FIXME: Shared Token
+      modalMaskBg: new FastColor('#000').setA(0.45).toRgbString(), // FIXME: Shared Token
       imagePreviewSwitchSize: token.controlHeightLG,
     });
 

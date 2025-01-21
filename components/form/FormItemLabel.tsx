@@ -44,6 +44,7 @@ export interface FormItemLabelProps {
    */
   requiredMark?: RequiredMark;
   tooltip?: LabelTooltipType;
+  vertical?: boolean;
 }
 
 const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixCls: string }> = ({
@@ -56,11 +57,11 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   required,
   requiredMark,
   tooltip,
+  vertical,
 }) => {
   const [formLocale] = useLocale('Form');
 
   const {
-    vertical,
     labelAlign: contextLabelAlign,
     labelCol: contextLabelCol,
     labelWrap,
@@ -92,8 +93,8 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   const haveColon = computedColon && !vertical;
 
   // Remove duplicated user input colon
-  if (haveColon && typeof label === 'string' && (label as string).trim() !== '') {
-    labelChildren = (label as string).replace(/[:|：]\s*$/, '');
+  if (haveColon && typeof label === 'string' && label.trim()) {
+    labelChildren = label.replace(/[:|：]\s*$/, '');
   }
 
   // Tooltip

@@ -6,14 +6,16 @@ const MyFormItemContext = React.createContext<(string | number)[]>([]);
 
 interface MyFormItemGroupProps {
   prefix: string | number | (string | number)[];
-  children: React.ReactNode;
 }
 
 function toArr(str: string | number | (string | number)[]): (string | number)[] {
   return Array.isArray(str) ? str : [str];
 }
 
-const MyFormItemGroup = ({ prefix, children }: MyFormItemGroupProps) => {
+const MyFormItemGroup: React.FC<React.PropsWithChildren<MyFormItemGroupProps>> = ({
+  prefix,
+  children,
+}) => {
   const prefixPath = React.useContext(MyFormItemContext);
   const concatPath = React.useMemo(() => [...prefixPath, ...toArr(prefix)], [prefixPath, prefix]);
 

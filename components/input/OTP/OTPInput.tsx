@@ -9,10 +9,14 @@ export interface OTPInputProps extends Omit<InputProps, 'onChange'> {
   onChange: (index: number, value: string) => void;
   /** Tell parent to do active offset */
   onActiveChange: (nextIndex: number) => void;
+
+  mask?: boolean | string;
 }
 
 const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
-  const { value, onChange, onActiveChange, index, ...restProps } = props;
+  const { value, onChange, onActiveChange, index, mask, ...restProps } = props;
+
+  const internalValue = value && typeof mask === 'string' ? mask : value;
 
   const onInternalChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     onChange(index, e.target.value);
@@ -33,11 +37,15 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
   };
 
   // ======================== Keyboard ========================
-  const onInternalKeyDown: React.KeyboardEventHandler<HTMLInputElement> = ({ key }) => {
+  const onInternalKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (event) => {
+    const { key, ctrlKey, metaKey } = event;
+
     if (key === 'ArrowLeft') {
       onActiveChange(index - 1);
     } else if (key === 'ArrowRight') {
       onActiveChange(index + 1);
+    } else if (key === 'z' && (ctrlKey || metaKey)) {
+      event.preventDefault();
     }
 
     syncSelection();
@@ -54,9 +62,10 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
   // ========================= Render =========================
   return (
     <Input
+      type={mask === true ? 'password' : 'text'}
       {...restProps}
       ref={inputRef}
-      value={value}
+      value={internalValue}
       onInput={onInternalChange}
       onFocus={syncSelection}
       onKeyDown={onInternalKeyDown}

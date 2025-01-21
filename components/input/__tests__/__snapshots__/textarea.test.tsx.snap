@@ -41,10 +41,9 @@ exports[`TextArea allowClear should change type when click 1`] = `
   <span
     class="ant-input-suffix"
   >
-    <span
+    <button
       class="ant-input-clear-icon"
-      role="button"
-      tabindex="-1"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -66,7 +65,7 @@ exports[`TextArea allowClear should change type when click 1`] = `
           />
         </svg>
       </span>
-    </span>
+    </button>
   </span>
 </span>
 `;
@@ -81,10 +80,9 @@ exports[`TextArea allowClear should change type when click 2`] = `
   <span
     class="ant-input-suffix"
   >
-    <span
+    <button
       class="ant-input-clear-icon ant-input-clear-icon-hidden"
-      role="button"
-      tabindex="-1"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -106,7 +104,7 @@ exports[`TextArea allowClear should change type when click 2`] = `
           />
         </svg>
       </span>
-    </span>
+    </button>
   </span>
 </span>
 `;
@@ -121,10 +119,9 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
   <span
     class="ant-input-suffix"
   >
-    <span
+    <button
       class="ant-input-clear-icon ant-input-clear-icon-hidden"
-      role="button"
-      tabindex="-1"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -146,7 +143,7 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
           />
         </svg>
       </span>
-    </span>
+    </button>
   </span>
 </span>
 `;
@@ -161,10 +158,9 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
   <span
     class="ant-input-suffix"
   >
-    <span
+    <button
       class="ant-input-clear-icon ant-input-clear-icon-hidden"
-      role="button"
-      tabindex="-1"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -186,7 +182,7 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
           />
         </svg>
       </span>
-    </span>
+    </button>
   </span>
 </span>
 `;
@@ -201,10 +197,9 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
   <span
     class="ant-input-suffix"
   >
-    <span
+    <button
       class="ant-input-clear-icon ant-input-clear-icon-hidden"
-      role="button"
-      tabindex="-1"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -226,7 +221,7 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
           />
         </svg>
       </span>
-    </span>
+    </button>
   </span>
 </span>
 `;
@@ -241,10 +236,9 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
   <span
     class="ant-input-suffix"
   >
-    <span
+    <button
       class="ant-input-clear-icon ant-input-clear-icon-hidden"
-      role="button"
-      tabindex="-1"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -266,7 +260,7 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
           />
         </svg>
       </span>
-    </span>
+    </button>
   </span>
 </span>
 `;
@@ -281,10 +275,9 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
   <span
     class="ant-input-suffix"
   >
-    <span
+    <button
       class="ant-input-clear-icon ant-input-clear-icon-hidden"
-      role="button"
-      tabindex="-1"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -306,7 +299,7 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
           />
         </svg>
       </span>
-    </span>
+    </button>
   </span>
 </span>
 `;
@@ -321,10 +314,9 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
   <span
     class="ant-input-suffix"
   >
-    <span
+    <button
       class="ant-input-clear-icon ant-input-clear-icon-hidden"
-      role="button"
-      tabindex="-1"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -346,7 +338,7 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
           />
         </svg>
       </span>
-    </span>
+    </button>
   </span>
 </span>
 `;

@@ -5,6 +5,8 @@ exports[`renders components/progress/demo/circle.tsx correctly 1`] = `
   class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
 >
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="75"
     class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
     role="progressbar"
@@ -57,6 +59,8 @@ exports[`renders components/progress/demo/circle.tsx correctly 1`] = `
     </div>
   </div>
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="70"
     class="ant-progress ant-progress-status-exception ant-progress-circle ant-progress-show-info ant-progress-default"
     role="progressbar"
@@ -127,6 +131,8 @@ exports[`renders components/progress/demo/circle.tsx correctly 1`] = `
     </div>
   </div>
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="100"
     class="ant-progress ant-progress-status-success ant-progress-circle ant-progress-show-info ant-progress-default"
     role="progressbar"
@@ -203,6 +209,8 @@ exports[`renders components/progress/demo/circle-micro.tsx correctly 1`] = `
   class="ant-flex ant-flex-align-center ant-flex-gap-small"
 >
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="60"
     class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-inline-circle ant-progress-show-info"
     role="progressbar"
@@ -211,44 +219,42 @@ exports[`renders components/progress/demo/circle-micro.tsx correctly 1`] = `
       class="ant-progress-inner"
       style="width:14px;height:14px;font-size:8.1px"
     >
-      <span>
-        <svg
-          class="ant-progress-circle"
-          role="presentation"
-          viewBox="0 0 100 100"
-        >
-          <circle
-            class="ant-progress-circle-trail"
-            cx="50"
-            cy="50"
-            r="40"
-            stroke="#e6f4ff"
-            stroke-linecap="round"
-            stroke-width="20"
-            style="stroke:#e6f4ff;stroke-dasharray:251.32741228718345px 251.32741228718345;stroke-dashoffset:0;transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
-          />
-          <circle
-            class="ant-progress-circle-path"
-            cx="50"
-            cy="50"
-            opacity="1"
-            r="40"
-            stroke-linecap="round"
-            stroke-width="20"
-            style="stroke-dasharray:251.32741228718345px 251.32741228718345;stroke-dashoffset:110.53096491487338;transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
-          />
-          <circle
-            class="ant-progress-circle-path"
-            cx="50"
-            cy="50"
-            opacity="0"
-            r="40"
-            stroke-linecap="round"
-            stroke-width="20"
-            style="stroke:#52C41A;stroke-dasharray:251.32741228718345px 251.32741228718345;stroke-dashoffset:251.31741228718346;transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
-          />
-        </svg>
-      </span>
+      <svg
+        class="ant-progress-circle"
+        role="presentation"
+        viewBox="0 0 100 100"
+      >
+        <circle
+          class="ant-progress-circle-trail"
+          cx="50"
+          cy="50"
+          r="40"
+          stroke="#e6f4ff"
+          stroke-linecap="round"
+          stroke-width="20"
+          style="stroke:#e6f4ff;stroke-dasharray:251.32741228718345px 251.32741228718345;stroke-dashoffset:0;transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+        />
+        <circle
+          class="ant-progress-circle-path"
+          cx="50"
+          cy="50"
+          opacity="1"
+          r="40"
+          stroke-linecap="round"
+          stroke-width="20"
+          style="stroke-dasharray:251.32741228718345px 251.32741228718345;stroke-dashoffset:110.53096491487338;transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+        />
+        <circle
+          class="ant-progress-circle-path"
+          cx="50"
+          cy="50"
+          opacity="0"
+          r="40"
+          stroke-linecap="round"
+          stroke-width="20"
+          style="stroke:#52C41A;stroke-dasharray:251.32741228718345px 251.32741228718345;stroke-dashoffset:251.31741228718346;transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+        />
+      </svg>
     </div>
   </div>
   <span>
@@ -262,6 +268,8 @@ exports[`renders components/progress/demo/circle-mini.tsx correctly 1`] = `
   class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
 >
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="30"
     class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
     role="progressbar"
@@ -314,6 +322,8 @@ exports[`renders components/progress/demo/circle-mini.tsx correctly 1`] = `
     </div>
   </div>
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="70"
     class="ant-progress ant-progress-status-exception ant-progress-circle ant-progress-show-info"
     role="progressbar"
@@ -384,6 +394,8 @@ exports[`renders components/progress/demo/circle-mini.tsx correctly 1`] = `
     </div>
   </div>
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="100"
     class="ant-progress ant-progress-status-success ant-progress-circle ant-progress-show-info"
     role="progressbar"
@@ -522,6 +534,8 @@ Array [
     style="margin-top:16px"
   >
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="50"
       class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-steps ant-progress-show-info ant-progress-default"
       role="progressbar"
@@ -617,6 +631,8 @@ Array [
       </div>
     </div>
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="100"
       class="ant-progress ant-progress-status-success ant-progress-circle ant-progress-steps ant-progress-show-info ant-progress-default"
       role="progressbar"
@@ -714,87 +730,93 @@ Array [
       class="ant-space-item"
     >
       <div
+        aria-valuemax="100"
+        aria-valuemin="0"
         aria-valuenow="50"
-        class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+        class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
         role="progressbar"
       >
         <div
           class="ant-progress-outer"
-          style="width:100%;height:8px"
+          style="width:100%"
         >
           <div
             class="ant-progress-inner"
           >
             <div
-              class="ant-progress-bg"
+              class="ant-progress-bg ant-progress-bg-outer"
               style="width:50%;height:8px;--progress-percent:0.5"
             />
           </div>
+          <span
+            class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+            title="50%"
+          >
+            50%
+          </span>
         </div>
-        <span
-          class="ant-progress-text"
-          title="50%"
-        >
-          50%
-        </span>
       </div>
     </div>
     <div
       class="ant-space-item"
     >
       <div
+        aria-valuemax="100"
+        aria-valuemin="0"
         aria-valuenow="50"
-        class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-small"
+        class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
         role="progressbar"
       >
         <div
           class="ant-progress-outer"
-          style="width:100%;height:6px"
+          style="width:100%"
         >
           <div
             class="ant-progress-inner"
           >
             <div
-              class="ant-progress-bg"
+              class="ant-progress-bg ant-progress-bg-outer"
               style="width:50%;height:6px;--progress-percent:0.5"
             />
           </div>
+          <span
+            class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+            title="50%"
+          >
+            50%
+          </span>
         </div>
-        <span
-          class="ant-progress-text"
-          title="50%"
-        >
-          50%
-        </span>
       </div>
     </div>
     <div
       class="ant-space-item"
     >
       <div
+        aria-valuemax="100"
+        aria-valuemin="0"
         aria-valuenow="50"
-        class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info"
+        class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info"
         role="progressbar"
       >
         <div
           class="ant-progress-outer"
-          style="width:300px;height:20px"
+          style="width:300px"
         >
           <div
             class="ant-progress-inner"
           >
             <div
-              class="ant-progress-bg"
+              class="ant-progress-bg ant-progress-bg-outer"
               style="width:50%;height:20px;--progress-percent:0.5"
             />
           </div>
+          <span
+            class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+            title="50%"
+          >
+            50%
+          </span>
         </div>
-        <span
-          class="ant-progress-text"
-          title="50%"
-        >
-          50%
-        </span>
       </div>
     </div>
   </div>,
@@ -808,6 +830,8 @@ Array [
       class="ant-space-item"
     >
       <div
+        aria-valuemax="100"
+        aria-valuemin="0"
         aria-valuenow="50"
         class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
         role="progressbar"
@@ -864,6 +888,8 @@ Array [
       class="ant-space-item"
     >
       <div
+        aria-valuemax="100"
+        aria-valuemin="0"
         aria-valuenow="50"
         class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-small"
         role="progressbar"
@@ -920,6 +946,8 @@ Array [
       class="ant-space-item"
     >
       <div
+        aria-valuemax="100"
+        aria-valuemin="0"
         aria-valuenow="50"
         class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-inline-circle ant-progress-show-info"
         role="progressbar"
@@ -928,43 +956,41 @@ Array [
           class="ant-progress-inner"
           style="width:20px;height:20px;font-size:9px"
         >
-          <span>
-            <svg
-              class="ant-progress-circle"
-              role="presentation"
-              viewBox="0 0 100 100"
-            >
-              <circle
-                class="ant-progress-circle-trail"
-                cx="50"
-                cy="50"
-                r="42.5"
-                stroke-linecap="round"
-                stroke-width="15"
-                style="stroke-dasharray:267.0353755551324px 267.0353755551324;stroke-dashoffset:0;transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
-              />
-              <circle
-                class="ant-progress-circle-path"
-                cx="50"
-                cy="50"
-                opacity="1"
-                r="42.5"
-                stroke-linecap="round"
-                stroke-width="15"
-                style="stroke-dasharray:267.0353755551324px 267.0353755551324;stroke-dashoffset:141.0176877775662;transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
-              />
-              <circle
-                class="ant-progress-circle-path"
-                cx="50"
-                cy="50"
-                opacity="0"
-                r="42.5"
-                stroke-linecap="round"
-                stroke-width="15"
-                style="stroke:#52C41A;stroke-dasharray:267.0353755551324px 267.0353755551324;stroke-dashoffset:267.0253755551324;transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
-              />
-            </svg>
-          </span>
+          <svg
+            class="ant-progress-circle"
+            role="presentation"
+            viewBox="0 0 100 100"
+          >
+            <circle
+              class="ant-progress-circle-trail"
+              cx="50"
+              cy="50"
+              r="42.5"
+              stroke-linecap="round"
+              stroke-width="15"
+              style="stroke-dasharray:267.0353755551324px 267.0353755551324;stroke-dashoffset:0;transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+            />
+            <circle
+              class="ant-progress-circle-path"
+              cx="50"
+              cy="50"
+              opacity="1"
+              r="42.5"
+              stroke-linecap="round"
+              stroke-width="15"
+              style="stroke-dasharray:267.0353755551324px 267.0353755551324;stroke-dashoffset:141.0176877775662;transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+            />
+            <circle
+              class="ant-progress-circle-path"
+              cx="50"
+              cy="50"
+              opacity="0"
+              r="42.5"
+              stroke-linecap="round"
+              stroke-width="15"
+              style="stroke:#52C41A;stroke-dasharray:267.0353755551324px 267.0353755551324;stroke-dashoffset:267.0253755551324;transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+            />
+          </svg>
         </div>
       </div>
     </div>
@@ -979,6 +1005,8 @@ Array [
       class="ant-space-item"
     >
       <div
+        aria-valuemax="100"
+        aria-valuemin="0"
         aria-valuenow="50"
         class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
         role="progressbar"
@@ -1035,6 +1063,8 @@ Array [
       class="ant-space-item"
     >
       <div
+        aria-valuemax="100"
+        aria-valuemin="0"
         aria-valuenow="50"
         class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-small"
         role="progressbar"
@@ -1091,6 +1121,8 @@ Array [
       class="ant-space-item"
     >
       <div
+        aria-valuemax="100"
+        aria-valuemin="0"
         aria-valuenow="50"
         class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
         role="progressbar"
@@ -1099,43 +1131,41 @@ Array [
           class="ant-progress-inner"
           style="width:20px;height:20px;font-size:9px"
         >
-          <span>
-            <svg
-              class="ant-progress-circle"
-              role="presentation"
-              viewBox="0 0 100 100"
-            >
-              <circle
-                class="ant-progress-circle-trail"
-                cx="50"
-                cy="50"
-                r="42.5"
-                stroke-linecap="round"
-                stroke-width="15"
-                style="stroke-dasharray:211.40300564781316px 267.0353755551324;stroke-dashoffset:0;transform:rotate(127.5deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
-              />
-              <circle
-                class="ant-progress-circle-path"
-                cx="50"
-                cy="50"
-                opacity="1"
-                r="42.5"
-                stroke-linecap="round"
-                stroke-width="15"
-                style="stroke-dasharray:211.40300564781316px 267.0353755551324;stroke-dashoffset:113.20150282390658;transform:rotate(127.5deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
-              />
-              <circle
-                class="ant-progress-circle-path"
-                cx="50"
-                cy="50"
-                opacity="0"
-                r="42.5"
-                stroke-linecap="round"
-                stroke-width="15"
-                style="stroke:#52C41A;stroke-dasharray:211.40300564781316px 267.0353755551324;stroke-dashoffset:211.39300564781317;transform:rotate(127.5deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
-              />
-            </svg>
-          </span>
+          <svg
+            class="ant-progress-circle"
+            role="presentation"
+            viewBox="0 0 100 100"
+          >
+            <circle
+              class="ant-progress-circle-trail"
+              cx="50"
+              cy="50"
+              r="42.5"
+              stroke-linecap="round"
+              stroke-width="15"
+              style="stroke-dasharray:211.40300564781316px 267.0353755551324;stroke-dashoffset:0;transform:rotate(127.5deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+            />
+            <circle
+              class="ant-progress-circle-path"
+              cx="50"
+              cy="50"
+              opacity="1"
+              r="42.5"
+              stroke-linecap="round"
+              stroke-width="15"
+              style="stroke-dasharray:211.40300564781316px 267.0353755551324;stroke-dashoffset:113.20150282390658;transform:rotate(127.5deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+            />
+            <circle
+              class="ant-progress-circle-path"
+              cx="50"
+              cy="50"
+              opacity="0"
+              r="42.5"
+              stroke-linecap="round"
+              stroke-width="15"
+              style="stroke:#52C41A;stroke-dasharray:211.40300564781316px 267.0353755551324;stroke-dashoffset:211.39300564781317;transform:rotate(127.5deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+            />
+          </svg>
         </div>
       </div>
     </div>
@@ -1150,6 +1180,8 @@ Array [
       class="ant-space-item"
     >
       <div
+        aria-valuemax="100"
+        aria-valuemin="0"
         aria-valuenow="50"
         class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info ant-progress-default"
         role="progressbar"
@@ -1182,6 +1214,8 @@ Array [
       class="ant-space-item"
     >
       <div
+        aria-valuemax="100"
+        aria-valuemin="0"
         aria-valuenow="50"
         class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info ant-progress-small"
         role="progressbar"
@@ -1214,6 +1248,8 @@ Array [
       class="ant-space-item"
     >
       <div
+        aria-valuemax="100"
+        aria-valuemin="0"
         aria-valuenow="50"
         class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info"
         role="progressbar"
@@ -1246,6 +1282,8 @@ Array [
       class="ant-space-item"
     >
       <div
+        aria-valuemax="100"
+        aria-valuemin="0"
         aria-valuenow="50"
         class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info"
         role="progressbar"
@@ -1283,6 +1321,8 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
   class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
 >
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="75"
     class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
     role="progressbar"
@@ -1335,6 +1375,8 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
     </div>
   </div>
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="75"
     class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
     role="progressbar"
@@ -1397,31 +1439,35 @@ exports[`renders components/progress/demo/dynamic.tsx correctly 1`] = `
     class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
   >
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="0"
-      class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+      class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
       <div
         class="ant-progress-outer"
-        style="width:100%;height:8px"
+        style="width:100%"
       >
         <div
           class="ant-progress-inner"
         >
           <div
-            class="ant-progress-bg"
+            class="ant-progress-bg ant-progress-bg-outer"
             style="width:0%;height:8px;--progress-percent:0"
           />
         </div>
+        <span
+          class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+          title="0%"
+        >
+          0%
+        </span>
       </div>
-      <span
-        class="ant-progress-text"
-        title="0%"
-      >
-        0%
-      </span>
     </div>
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="0"
       class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
       role="progressbar"
@@ -1478,7 +1524,7 @@ exports[`renders components/progress/demo/dynamic.tsx correctly 1`] = `
     class="ant-btn-group"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
       type="button"
     >
       <span
@@ -1506,7 +1552,7 @@ exports[`renders components/progress/demo/dynamic.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
       type="button"
     >
       <span
@@ -1545,6 +1591,8 @@ exports[`renders components/progress/demo/format.tsx correctly 1`] = `
   class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
 >
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="75"
     class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
     role="progressbar"
@@ -1597,6 +1645,8 @@ exports[`renders components/progress/demo/format.tsx correctly 1`] = `
     </div>
   </div>
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="100"
     class="ant-progress ant-progress-status-success ant-progress-circle ant-progress-show-info ant-progress-default"
     role="progressbar"
@@ -1656,59 +1706,65 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
   class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="99"
-    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
       class="ant-progress-outer"
-      style="width:100%;height:8px"
+      style="width:100%"
     >
       <div
         class="ant-progress-inner"
       >
         <div
-          class="ant-progress-bg"
+          class="ant-progress-bg ant-progress-bg-outer"
           style="width:99.9%;height:8px;background:linear-gradient(to right, #108ee9 0%, #87d068 100%);--progress-line-stroke-color:linear-gradient(to right, #108ee9 0%, #87d068 100%);--progress-percent:0.9990000000000001"
         />
       </div>
+      <span
+        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+        title="99.9%"
+      >
+        99.9%
+      </span>
     </div>
-    <span
-      class="ant-progress-text"
-      title="99.9%"
-    >
-      99.9%
-    </span>
   </div>
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="50"
-    class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
       class="ant-progress-outer"
-      style="width:100%;height:8px"
+      style="width:100%"
     >
       <div
         class="ant-progress-inner"
       >
         <div
-          class="ant-progress-bg"
+          class="ant-progress-bg ant-progress-bg-outer"
           style="width:50%;height:8px;background:linear-gradient(to right, #108ee9, #87d068);--progress-line-stroke-color:linear-gradient(to right, #108ee9, #87d068);--progress-percent:0.5"
         />
       </div>
+      <span
+        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+        title="50%"
+      >
+        50%
+      </span>
     </div>
-    <span
-      class="ant-progress-text"
-      title="50%"
-    >
-      50%
-    </span>
   </div>
   <div
     class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="90"
       class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
       role="progressbar"
@@ -1781,6 +1837,8 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
       </div>
     </div>
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="100"
       class="ant-progress ant-progress-status-success ant-progress-circle ant-progress-show-info ant-progress-default"
       role="progressbar"
@@ -1870,6 +1928,8 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
       </div>
     </div>
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="93"
       class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
       role="progressbar"
@@ -1946,6 +2006,8 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
     class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="90"
       class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
       role="progressbar"
@@ -2018,6 +2080,8 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
       </div>
     </div>
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="100"
       class="ant-progress ant-progress-status-success ant-progress-circle ant-progress-show-info ant-progress-default"
       role="progressbar"
@@ -2107,6 +2171,8 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
       </div>
     </div>
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="93"
       class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
       role="progressbar"
@@ -2182,159 +2248,456 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/progress/demo/info-position.tsx correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+>
+  <div
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="0"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-center ant-progress-line-position-inner ant-progress-show-info"
+    role="progressbar"
+  >
+    <div
+      class="ant-progress-outer"
+      style="width:200px"
+    >
+      <div
+        class="ant-progress-inner"
+      >
+        <div
+          class="ant-progress-bg ant-progress-bg-inner"
+          style="width:0%;height:20px;--progress-line-stroke-color:#E6F4FF;background:#E6F4FF;--progress-percent:0"
+        >
+          <span
+            class="ant-progress-text ant-progress-text-bright ant-progress-text-center ant-progress-text-inner"
+            title="0%"
+          >
+            0%
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="10"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-center ant-progress-line-position-inner ant-progress-show-info"
+    role="progressbar"
+  >
+    <div
+      class="ant-progress-outer"
+      style="width:300px"
+    >
+      <div
+        class="ant-progress-inner"
+      >
+        <div
+          class="ant-progress-bg ant-progress-bg-inner"
+          style="width:10%;height:20px;--progress-percent:0.1"
+        >
+          <span
+            class="ant-progress-text ant-progress-text-center ant-progress-text-inner"
+            title="10%"
+          >
+            10%
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="50"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-start ant-progress-line-position-inner ant-progress-show-info"
+    role="progressbar"
+  >
+    <div
+      class="ant-progress-outer"
+      style="width:300px"
+    >
+      <div
+        class="ant-progress-inner"
+      >
+        <div
+          class="ant-progress-bg ant-progress-bg-inner"
+          style="width:50%;height:20px;--progress-line-stroke-color:#B7EB8F;background:#B7EB8F;--progress-percent:0.5"
+        >
+          <span
+            class="ant-progress-text ant-progress-text-bright ant-progress-text-start ant-progress-text-inner"
+            title="50%"
+          >
+            50%
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="60"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-inner ant-progress-show-info"
+    role="progressbar"
+  >
+    <div
+      class="ant-progress-outer"
+      style="width:300px"
+    >
+      <div
+        class="ant-progress-inner"
+      >
+        <div
+          class="ant-progress-bg ant-progress-bg-inner"
+          style="width:60%;height:20px;--progress-line-stroke-color:#001342;background:#001342;--progress-percent:0.6"
+        >
+          <span
+            class="ant-progress-text ant-progress-text-end ant-progress-text-inner"
+            title="60%"
+          >
+            60%
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="100"
+    class="ant-progress ant-progress-status-success ant-progress-line ant-progress-line-align-center ant-progress-line-position-inner ant-progress-show-info"
+    role="progressbar"
+  >
+    <div
+      class="ant-progress-outer"
+      style="width:400px"
+    >
+      <div
+        class="ant-progress-inner"
+      >
+        <div
+          class="ant-progress-bg ant-progress-bg-inner"
+          style="width:100%;height:20px;--progress-percent:1"
+        >
+          <span
+            class="ant-progress-text ant-progress-text-center ant-progress-text-inner"
+            title="100%"
+          >
+            100%
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="60"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-start ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
+    role="progressbar"
+  >
+    <div
+      class="ant-progress-outer"
+      style="width:100%"
+    >
+      <span
+        class="ant-progress-text ant-progress-text-start ant-progress-text-outer"
+        title="60%"
+      >
+        60%
+      </span>
+      <div
+        class="ant-progress-inner"
+      >
+        <div
+          class="ant-progress-bg ant-progress-bg-outer"
+          style="width:60%;height:8px;--progress-percent:0.6"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="100"
+    class="ant-progress ant-progress-status-success ant-progress-line ant-progress-line-align-start ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
+    role="progressbar"
+  >
+    <div
+      class="ant-progress-outer"
+      style="width:100%"
+    >
+      <span
+        class="ant-progress-text ant-progress-text-start ant-progress-text-outer"
+      >
+        <span
+          aria-label="check-circle"
+          class="anticon anticon-check-circle"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="check-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+      <div
+        class="ant-progress-inner"
+      >
+        <div
+          class="ant-progress-bg ant-progress-bg-outer"
+          style="width:100%;height:8px;--progress-percent:1"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="60"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-center ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
+    role="progressbar"
+  >
+    <div
+      class="ant-progress-layout-bottom"
+    >
+      <div
+        class="ant-progress-inner"
+      >
+        <div
+          class="ant-progress-bg ant-progress-bg-outer"
+          style="width:60%;height:6px;--progress-percent:0.6"
+        />
+      </div>
+      <span
+        class="ant-progress-text ant-progress-text-center ant-progress-text-outer"
+        title="60%"
+      >
+        60%
+      </span>
+    </div>
+  </div>
+  <div
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="100"
+    class="ant-progress ant-progress-status-success ant-progress-line ant-progress-line-align-center ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
+    role="progressbar"
+  >
+    <div
+      class="ant-progress-layout-bottom"
+    >
+      <div
+        class="ant-progress-inner"
+      >
+        <div
+          class="ant-progress-bg ant-progress-bg-outer"
+          style="width:100%;height:8px;--progress-percent:1"
+        />
+      </div>
+      <span
+        class="ant-progress-text ant-progress-text-center ant-progress-text-outer"
+      >
+        <span
+          aria-label="check-circle"
+          class="anticon anticon-check-circle"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="check-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/progress/demo/line.tsx correctly 1`] = `
 <div
   class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
 >
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="30"
-    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
       class="ant-progress-outer"
-      style="width:100%;height:8px"
+      style="width:100%"
     >
       <div
         class="ant-progress-inner"
       >
         <div
-          class="ant-progress-bg"
+          class="ant-progress-bg ant-progress-bg-outer"
           style="width:30%;height:8px;--progress-percent:0.3"
         />
       </div>
+      <span
+        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+        title="30%"
+      >
+        30%
+      </span>
     </div>
-    <span
-      class="ant-progress-text"
-      title="30%"
-    >
-      30%
-    </span>
   </div>
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="50"
-    class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
       class="ant-progress-outer"
-      style="width:100%;height:8px"
+      style="width:100%"
     >
       <div
         class="ant-progress-inner"
       >
         <div
-          class="ant-progress-bg"
+          class="ant-progress-bg ant-progress-bg-outer"
           style="width:50%;height:8px;--progress-percent:0.5"
         />
       </div>
+      <span
+        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+        title="50%"
+      >
+        50%
+      </span>
     </div>
-    <span
-      class="ant-progress-text"
-      title="50%"
-    >
-      50%
-    </span>
   </div>
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="70"
-    class="ant-progress ant-progress-status-exception ant-progress-line ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-exception ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
       class="ant-progress-outer"
-      style="width:100%;height:8px"
+      style="width:100%"
     >
       <div
         class="ant-progress-inner"
       >
         <div
-          class="ant-progress-bg"
+          class="ant-progress-bg ant-progress-bg-outer"
           style="width:70%;height:8px;--progress-percent:0.7"
         />
       </div>
-    </div>
-    <span
-      class="ant-progress-text"
-    >
       <span
-        aria-label="close-circle"
-        class="anticon anticon-close-circle"
-        role="img"
+        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="close-circle"
-          fill="currentColor"
-          fill-rule="evenodd"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="close-circle"
+          class="anticon anticon-close-circle"
+          role="img"
         >
-          <path
-            d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="close-circle"
+            fill="currentColor"
+            fill-rule="evenodd"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+            />
+          </svg>
+        </span>
       </span>
-    </span>
+    </div>
   </div>
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="100"
-    class="ant-progress ant-progress-status-success ant-progress-line ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-success ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
       class="ant-progress-outer"
-      style="width:100%;height:8px"
+      style="width:100%"
     >
       <div
         class="ant-progress-inner"
       >
         <div
-          class="ant-progress-bg"
+          class="ant-progress-bg ant-progress-bg-outer"
           style="width:100%;height:8px;--progress-percent:1"
         />
       </div>
-    </div>
-    <span
-      class="ant-progress-text"
-    >
       <span
-        aria-label="check-circle"
-        class="anticon anticon-check-circle"
-        role="img"
+        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="check-circle"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="check-circle"
+          class="anticon anticon-check-circle"
+          role="img"
         >
-          <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="check-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+            />
+          </svg>
+        </span>
       </span>
-    </span>
+    </div>
   </div>
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="50"
-    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-default"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-default"
     role="progressbar"
   >
     <div
       class="ant-progress-outer"
-      style="width:100%;height:8px"
+      style="width:100%"
     >
       <div
         class="ant-progress-inner"
       >
         <div
-          class="ant-progress-bg"
+          class="ant-progress-bg ant-progress-bg-outer"
           style="width:50%;height:8px;--progress-percent:0.5"
         />
       </div>
@@ -2349,139 +2712,147 @@ exports[`renders components/progress/demo/line-mini.tsx correctly 1`] = `
   style="width:180px"
 >
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="30"
-    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-small"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
     role="progressbar"
   >
     <div
       class="ant-progress-outer"
-      style="width:100%;height:6px"
+      style="width:100%"
     >
       <div
         class="ant-progress-inner"
       >
         <div
-          class="ant-progress-bg"
+          class="ant-progress-bg ant-progress-bg-outer"
           style="width:30%;height:6px;--progress-percent:0.3"
         />
       </div>
+      <span
+        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+        title="30%"
+      >
+        30%
+      </span>
     </div>
-    <span
-      class="ant-progress-text"
-      title="30%"
-    >
-      30%
-    </span>
   </div>
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="50"
-    class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
+    class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
     role="progressbar"
   >
     <div
       class="ant-progress-outer"
-      style="width:100%;height:6px"
+      style="width:100%"
     >
       <div
         class="ant-progress-inner"
       >
         <div
-          class="ant-progress-bg"
+          class="ant-progress-bg ant-progress-bg-outer"
           style="width:50%;height:6px;--progress-percent:0.5"
         />
       </div>
+      <span
+        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+        title="50%"
+      >
+        50%
+      </span>
     </div>
-    <span
-      class="ant-progress-text"
-      title="50%"
-    >
-      50%
-    </span>
   </div>
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="70"
-    class="ant-progress ant-progress-status-exception ant-progress-line ant-progress-show-info ant-progress-small"
+    class="ant-progress ant-progress-status-exception ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
     role="progressbar"
   >
     <div
       class="ant-progress-outer"
-      style="width:100%;height:6px"
+      style="width:100%"
     >
       <div
         class="ant-progress-inner"
       >
         <div
-          class="ant-progress-bg"
+          class="ant-progress-bg ant-progress-bg-outer"
           style="width:70%;height:6px;--progress-percent:0.7"
         />
       </div>
-    </div>
-    <span
-      class="ant-progress-text"
-    >
       <span
-        aria-label="close-circle"
-        class="anticon anticon-close-circle"
-        role="img"
+        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="close-circle"
-          fill="currentColor"
-          fill-rule="evenodd"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="close-circle"
+          class="anticon anticon-close-circle"
+          role="img"
         >
-          <path
-            d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="close-circle"
+            fill="currentColor"
+            fill-rule="evenodd"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+            />
+          </svg>
+        </span>
       </span>
-    </span>
+    </div>
   </div>
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="100"
-    class="ant-progress ant-progress-status-success ant-progress-line ant-progress-show-info ant-progress-small"
+    class="ant-progress ant-progress-status-success ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
     role="progressbar"
   >
     <div
       class="ant-progress-outer"
-      style="width:100%;height:6px"
+      style="width:100%"
     >
       <div
         class="ant-progress-inner"
       >
         <div
-          class="ant-progress-bg"
+          class="ant-progress-bg ant-progress-bg-outer"
           style="width:100%;height:6px;--progress-percent:1"
         />
       </div>
-    </div>
-    <span
-      class="ant-progress-text"
-    >
       <span
-        aria-label="check-circle"
-        class="anticon anticon-check-circle"
-        role="img"
+        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="check-circle"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="check-circle"
+          class="anticon anticon-check-circle"
+          role="img"
         >
-          <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="check-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+            />
+          </svg>
+        </span>
       </span>
-    </span>
+    </div>
   </div>
 </div>
 `;
@@ -2491,35 +2862,39 @@ exports[`renders components/progress/demo/linecap.tsx correctly 1`] = `
   class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
 >
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="75"
-    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
       class="ant-progress-outer"
-      style="width:100%;height:8px"
+      style="width:100%"
     >
       <div
         class="ant-progress-inner"
         style="border-radius:0"
       >
         <div
-          class="ant-progress-bg"
+          class="ant-progress-bg ant-progress-bg-outer"
           style="width:75%;height:8px;border-radius:0;--progress-percent:0.75"
         />
       </div>
+      <span
+        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+        title="75%"
+      >
+        75%
+      </span>
     </div>
-    <span
-      class="ant-progress-text"
-      title="75%"
-    >
-      75%
-    </span>
   </div>
   <div
     class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="75"
       class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
       role="progressbar"
@@ -2572,6 +2947,8 @@ exports[`renders components/progress/demo/linecap.tsx correctly 1`] = `
       </div>
     </div>
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="75"
       class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
       role="progressbar"
@@ -2632,19 +3009,21 @@ exports[`renders components/progress/demo/segment.tsx correctly 1`] = `
   class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
 >
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="30"
-    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
       class="ant-progress-outer"
-      style="width:100%;height:8px"
+      style="width:100%"
     >
       <div
         class="ant-progress-inner"
       >
         <div
-          class="ant-progress-bg"
+          class="ant-progress-bg ant-progress-bg-outer"
           style="width:60%;height:8px;--progress-percent:0.6"
         />
         <div
@@ -2652,18 +3031,20 @@ exports[`renders components/progress/demo/segment.tsx correctly 1`] = `
           style="width:30%;height:8px"
         />
       </div>
+      <span
+        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+        title="60%"
+      >
+        60%
+      </span>
     </div>
-    <span
-      class="ant-progress-text"
-      title="60%"
-    >
-      60%
-    </span>
   </div>
   <div
     class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="30"
       class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
       role="progressbar"
@@ -2716,6 +3097,8 @@ exports[`renders components/progress/demo/segment.tsx correctly 1`] = `
       </div>
     </div>
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="30"
       class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
       role="progressbar"
@@ -2780,79 +3163,85 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
     style="width:300px"
   >
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="50"
-      class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+      class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
       <div
         class="ant-progress-outer"
-        style="width:100%;height:8px"
+        style="width:100%"
       >
         <div
           class="ant-progress-inner"
         >
           <div
-            class="ant-progress-bg"
+            class="ant-progress-bg ant-progress-bg-outer"
             style="width:50%;height:8px;--progress-percent:0.5"
           />
         </div>
+        <span
+          class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+          title="50%"
+        >
+          50%
+        </span>
       </div>
-      <span
-        class="ant-progress-text"
-        title="50%"
-      >
-        50%
-      </span>
     </div>
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="50"
-      class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-small"
+      class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
       role="progressbar"
     >
       <div
         class="ant-progress-outer"
-        style="width:100%;height:6px"
+        style="width:100%"
       >
         <div
           class="ant-progress-inner"
         >
           <div
-            class="ant-progress-bg"
+            class="ant-progress-bg ant-progress-bg-outer"
             style="width:50%;height:6px;--progress-percent:0.5"
           />
         </div>
+        <span
+          class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+          title="50%"
+        >
+          50%
+        </span>
       </div>
-      <span
-        class="ant-progress-text"
-        title="50%"
-      >
-        50%
-      </span>
     </div>
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="50"
-      class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info"
+      class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info"
       role="progressbar"
     >
       <div
         class="ant-progress-outer"
-        style="width:300px;height:20px"
+        style="width:300px"
       >
         <div
           class="ant-progress-inner"
         >
           <div
-            class="ant-progress-bg"
+            class="ant-progress-bg ant-progress-bg-outer"
             style="width:50%;height:20px;--progress-percent:0.5"
           />
         </div>
+        <span
+          class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+          title="50%"
+        >
+          50%
+        </span>
       </div>
-      <span
-        class="ant-progress-text"
-        title="50%"
-      >
-        50%
-      </span>
     </div>
   </div>
   <div
@@ -2860,6 +3249,8 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
     style="gap:30px"
   >
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="50"
       class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
       role="progressbar"
@@ -2912,6 +3303,8 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
       </div>
     </div>
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="50"
       class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-small"
       role="progressbar"
@@ -2964,6 +3357,8 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
       </div>
     </div>
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="50"
       class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-inline-circle ant-progress-show-info"
       role="progressbar"
@@ -2972,43 +3367,41 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
         class="ant-progress-inner"
         style="width:20px;height:20px;font-size:9px"
       >
-        <span>
-          <svg
-            class="ant-progress-circle"
-            role="presentation"
-            viewBox="0 0 100 100"
-          >
-            <circle
-              class="ant-progress-circle-trail"
-              cx="50"
-              cy="50"
-              r="42.5"
-              stroke-linecap="round"
-              stroke-width="15"
-              style="stroke-dasharray:267.0353755551324px 267.0353755551324;stroke-dashoffset:0;transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
-            />
-            <circle
-              class="ant-progress-circle-path"
-              cx="50"
-              cy="50"
-              opacity="1"
-              r="42.5"
-              stroke-linecap="round"
-              stroke-width="15"
-              style="stroke-dasharray:267.0353755551324px 267.0353755551324;stroke-dashoffset:141.0176877775662;transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
-            />
-            <circle
-              class="ant-progress-circle-path"
-              cx="50"
-              cy="50"
-              opacity="0"
-              r="42.5"
-              stroke-linecap="round"
-              stroke-width="15"
-              style="stroke:#52C41A;stroke-dasharray:267.0353755551324px 267.0353755551324;stroke-dashoffset:267.0253755551324;transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
-            />
-          </svg>
-        </span>
+        <svg
+          class="ant-progress-circle"
+          role="presentation"
+          viewBox="0 0 100 100"
+        >
+          <circle
+            class="ant-progress-circle-trail"
+            cx="50"
+            cy="50"
+            r="42.5"
+            stroke-linecap="round"
+            stroke-width="15"
+            style="stroke-dasharray:267.0353755551324px 267.0353755551324;stroke-dashoffset:0;transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+          />
+          <circle
+            class="ant-progress-circle-path"
+            cx="50"
+            cy="50"
+            opacity="1"
+            r="42.5"
+            stroke-linecap="round"
+            stroke-width="15"
+            style="stroke-dasharray:267.0353755551324px 267.0353755551324;stroke-dashoffset:141.0176877775662;transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+          />
+          <circle
+            class="ant-progress-circle-path"
+            cx="50"
+            cy="50"
+            opacity="0"
+            r="42.5"
+            stroke-linecap="round"
+            stroke-width="15"
+            style="stroke:#52C41A;stroke-dasharray:267.0353755551324px 267.0353755551324;stroke-dashoffset:267.0253755551324;transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+          />
+        </svg>
       </div>
     </div>
   </div>
@@ -3017,6 +3410,8 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
     style="gap:30px"
   >
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="50"
       class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
       role="progressbar"
@@ -3069,6 +3464,8 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
       </div>
     </div>
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="50"
       class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-small"
       role="progressbar"
@@ -3121,6 +3518,8 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
       </div>
     </div>
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="50"
       class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
       role="progressbar"
@@ -3129,43 +3528,41 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
         class="ant-progress-inner"
         style="width:20px;height:20px;font-size:9px"
       >
-        <span>
-          <svg
-            class="ant-progress-circle"
-            role="presentation"
-            viewBox="0 0 100 100"
-          >
-            <circle
-              class="ant-progress-circle-trail"
-              cx="50"
-              cy="50"
-              r="42.5"
-              stroke-linecap="round"
-              stroke-width="15"
-              style="stroke-dasharray:211.40300564781316px 267.0353755551324;stroke-dashoffset:0;transform:rotate(127.5deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
-            />
-            <circle
-              class="ant-progress-circle-path"
-              cx="50"
-              cy="50"
-              opacity="1"
-              r="42.5"
-              stroke-linecap="round"
-              stroke-width="15"
-              style="stroke-dasharray:211.40300564781316px 267.0353755551324;stroke-dashoffset:113.20150282390658;transform:rotate(127.5deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
-            />
-            <circle
-              class="ant-progress-circle-path"
-              cx="50"
-              cy="50"
-              opacity="0"
-              r="42.5"
-              stroke-linecap="round"
-              stroke-width="15"
-              style="stroke:#52C41A;stroke-dasharray:211.40300564781316px 267.0353755551324;stroke-dashoffset:211.39300564781317;transform:rotate(127.5deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
-            />
-          </svg>
-        </span>
+        <svg
+          class="ant-progress-circle"
+          role="presentation"
+          viewBox="0 0 100 100"
+        >
+          <circle
+            class="ant-progress-circle-trail"
+            cx="50"
+            cy="50"
+            r="42.5"
+            stroke-linecap="round"
+            stroke-width="15"
+            style="stroke-dasharray:211.40300564781316px 267.0353755551324;stroke-dashoffset:0;transform:rotate(127.5deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+          />
+          <circle
+            class="ant-progress-circle-path"
+            cx="50"
+            cy="50"
+            opacity="1"
+            r="42.5"
+            stroke-linecap="round"
+            stroke-width="15"
+            style="stroke-dasharray:211.40300564781316px 267.0353755551324;stroke-dashoffset:113.20150282390658;transform:rotate(127.5deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+          />
+          <circle
+            class="ant-progress-circle-path"
+            cx="50"
+            cy="50"
+            opacity="0"
+            r="42.5"
+            stroke-linecap="round"
+            stroke-width="15"
+            style="stroke:#52C41A;stroke-dasharray:211.40300564781316px 267.0353755551324;stroke-dashoffset:211.39300564781317;transform:rotate(127.5deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+          />
+        </svg>
       </div>
     </div>
   </div>
@@ -3174,6 +3571,8 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
     style="gap:30px"
   >
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="50"
       class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info ant-progress-default"
       role="progressbar"
@@ -3202,6 +3601,8 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
       </div>
     </div>
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="50"
       class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info ant-progress-small"
       role="progressbar"
@@ -3230,6 +3631,8 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
       </div>
     </div>
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="50"
       class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info"
       role="progressbar"
@@ -3258,6 +3661,8 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
       </div>
     </div>
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
       aria-valuenow="50"
       class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info"
       role="progressbar"
@@ -3294,6 +3699,8 @@ exports[`renders components/progress/demo/steps.tsx correctly 1`] = `
   class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
 >
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="50"
     class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info ant-progress-default"
     role="progressbar"
@@ -3322,6 +3729,8 @@ exports[`renders components/progress/demo/steps.tsx correctly 1`] = `
     </div>
   </div>
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="30"
     class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info ant-progress-default"
     role="progressbar"
@@ -3358,6 +3767,8 @@ exports[`renders components/progress/demo/steps.tsx correctly 1`] = `
     </div>
   </div>
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="100"
     class="ant-progress ant-progress-status-success ant-progress-steps ant-progress-show-info ant-progress-small"
     role="progressbar"
@@ -3411,6 +3822,8 @@ exports[`renders components/progress/demo/steps.tsx correctly 1`] = `
     </div>
   </div>
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="60"
     class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info ant-progress-default"
     role="progressbar"

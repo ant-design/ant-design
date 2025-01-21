@@ -8,7 +8,7 @@ import { convertLegacyProps } from '../button/buttonHelpers';
 export interface ActionButtonProps {
   type?: LegacyButtonType;
   actionFn?: (...args: any[]) => any | PromiseLike<any>;
-  close?: Function;
+  close?: (...args: any[]) => void;
   autoFocus?: boolean;
   prefixCls: string;
   buttonProps?: ButtonProps;
@@ -22,8 +22,8 @@ export interface ActionButtonProps {
   isSilent?: () => boolean;
 }
 
-function isThenable<T extends any>(thing?: PromiseLike<T>): boolean {
-  return !!(thing && thing.then);
+function isThenable<T>(thing?: PromiseLike<T>): boolean {
+  return !!thing?.then;
 }
 
 const ActionButton: React.FC<ActionButtonProps> = (props) => {
@@ -52,7 +52,9 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
     let timeoutId: ReturnType<typeof setTimeout> | null = null;
     if (autoFocus) {
       timeoutId = setTimeout(() => {
-        buttonRef.current?.focus();
+        buttonRef.current?.focus({
+          preventScroll: true,
+        });
       });
     }
     return () => {
@@ -111,7 +113,7 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
       clickedRef.current = false;
     } else {
       returnValueOfOnOk = actionFn();
-      if (!returnValueOfOnOk) {
+      if (!isThenable(returnValueOfOnOk)) {
         onInternalClose();
         return;
       }

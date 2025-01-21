@@ -178,6 +178,29 @@ describe('Drawer', () => {
     expect(baseElement.querySelectorAll('button.forceRender').length).toBe(1);
   });
 
+  describe('Drawer loading', () => {
+    it('have a spinner', () => {
+      const { container: wrapper } = render(
+        <Drawer open loading getContainer={false}>
+          Here is content of Drawer
+        </Drawer>,
+      );
+
+      triggerMotion();
+      expect(wrapper.firstChild).toMatchSnapshot();
+    });
+    it('have a custom loading', () => {
+      const { container } = render(
+        <Drawer open loading getContainer={false}>
+          Here is content of Drawer
+        </Drawer>,
+      );
+      triggerMotion();
+      const wrapper = container.querySelector<HTMLDivElement>('.ant-skeleton');
+      expect(wrapper).toBeTruthy();
+    });
+  });
+
   it('support closeIcon', () => {
     const { container: wrapper } = render(
       <Drawer open closable closeIcon={<span>close</span>} width={400} getContainer={false}>
@@ -376,5 +399,16 @@ describe('Drawer', () => {
     expect(baseElement.querySelector('.ant-drawer-close')).not.toBeNull();
     expect(baseElement.querySelector('.custom-close')).not.toBeNull();
     expect(baseElement.querySelector('*[aria-label="Close"]')).not.toBeNull();
+  });
+
+  it('drawerRender', () => {
+    const { container } = render(
+      <Drawer open getContainer={false} drawerRender={(dom) => <div id="test">{dom}</div>}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    triggerMotion();
+    expect(container.querySelector('#test')).toBeTruthy();
   });
 });
