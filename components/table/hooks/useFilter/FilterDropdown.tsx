@@ -416,7 +416,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
                   className={`${tablePrefixCls}-filter-dropdown-checkall`}
                   onChange={onCheckAll}
                 >
-                  {locale.filterCheckall}
+                  {locale.filterCheckAll}
                 </Checkbox>
               ) : null}
               <Tree<FilterTreeDataNode>
