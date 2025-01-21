@@ -1,7 +1,7 @@
 import React, { Children, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import omit from '@rc-component/util/lib/omit';
+import { useComposeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
-import { useComposeRef } from 'rc-util/lib/ref';
 
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -19,8 +19,8 @@ import type {
   ButtonVariantType,
 } from './buttonHelpers';
 import { isTwoCNChar, isUnBorderedButtonVariant, spaceChildren } from './buttonHelpers';
-import IconWrapper from './IconWrapper';
 import DefaultLoadingIcon from './DefaultLoadingIcon';
+import IconWrapper from './IconWrapper';
 import useStyle from './style';
 import Compact from './style/compact';
 
@@ -310,7 +310,7 @@ const InternalCompoundedButton = React.forwardRef<
       <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
         {icon}
       </IconWrapper>
-    ) : typeof loading === 'object' && loading.icon ? (
+    ) : loading && typeof loading === 'object' && loading.icon ? (
       <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
         {loading.icon}
       </IconWrapper>
