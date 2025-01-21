@@ -1,11 +1,11 @@
 import * as React from 'react';
 import type { JSX } from 'react';
+import { Field, FieldContext, ListContext } from '@rc-component/form';
+import type { FieldProps } from '@rc-component/form/lib/Field';
+import type { InternalNamePath, Meta } from '@rc-component/form/lib/interface';
 import useState from '@rc-component/util/lib/hooks/useState';
 import { supportRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
-import { Field, FieldContext, ListContext } from 'rc-field-form';
-import type { FieldProps } from 'rc-field-form/lib/Field';
-import type { InternalNamePath, Meta } from 'rc-field-form/lib/interface';
 
 import { cloneElement } from '../../_util/reactNode';
 import { devUseWarning } from '../../_util/warning';
