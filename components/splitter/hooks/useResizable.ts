@@ -52,8 +52,8 @@ export default function useResizable(items: ItemType[], pxSizes: number[], isRTL
 
       resizeInfos[i] = {
         resizable: mergedResizable,
-        startCollapsible: isRTL ? !!endCollapsible : !!startCollapsible,
-        endCollapsible: isRTL ? !!startCollapsible : !!endCollapsible,
+        startCollapsible: !!(isRTL ? endCollapsible : startCollapsible),
+        endCollapsible: !!(isRTL ? startCollapsible : endCollapsible),
       };
     }
 
