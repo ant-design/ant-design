@@ -13,7 +13,7 @@ export default function useResize(
   percentSizes: number[],
   containerSize: number | undefined,
   updateSizes: (sizes: number[]) => void,
-  isRTL?: boolean,
+  isRTL: boolean,
 ) {
   const limitSizes = items.map((item) => [item.min, item.max]);
 
