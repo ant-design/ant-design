@@ -89,7 +89,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | ghost | Make the collapse borderless and its background transparent | boolean | false | 4.4.0 |
 | size | Set the size of collapse | `large` \| `middle` \| `small` | `middle` | 5.2.0 |
 | onChange | Callback function executed when active panel is changed | function | - |  |
-| items | collapse items content | [ItemType](#ItemType) | - | 5.6.0 |
+| items | collapse items content | [ItemType](#itemtype) | - | 5.6.0 |
 
 ### ItemType
 

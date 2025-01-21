@@ -942,6 +942,8 @@ Array [
           >
             <a
               href="https://github.com/ant-design/ant-design/issues/36459"
+              rel="noreferrer"
+              target="_blank"
             >
               #36459
             </a>
@@ -1376,6 +1378,8 @@ Array [
           >
             <a
               href="https://github.com/ant-design/ant-design/issues/36459"
+              rel="noreferrer"
+              target="_blank"
             >
               #36459
             </a>
@@ -2465,6 +2469,7 @@ Array [
                     <input
                       class="ant-radio-input"
                       disabled=""
+                      name="test-id"
                       type="radio"
                       value="apple"
                     />
@@ -2485,6 +2490,7 @@ Array [
                     <input
                       class="ant-radio-input"
                       disabled=""
+                      name="test-id"
                       type="radio"
                       value="pear"
                     />
@@ -2753,7 +2759,6 @@ Array [
                     <div>
                       <div
                         class="ant-select-tree"
-                        role="tree"
                       >
                         <div>
                           <input
@@ -2778,6 +2783,7 @@ Array [
                         </div>
                         <div
                           class="ant-select-tree-list"
+                          role="tree"
                           style="position: relative;"
                         >
                           <div
@@ -2790,9 +2796,10 @@ Array [
                                 style="display: flex; flex-direction: column;"
                               >
                                 <div
-                                  aria-grabbed="false"
+                                  aria-expanded="false"
                                   class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                                   draggable="false"
+                                  role="treeitem"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -8871,6 +8878,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
                   <input
                     checked=""
                     class="ant-radio-button-input"
+                    name="test-id"
                     type="radio"
                     value="horizontal"
                   />
@@ -8890,6 +8898,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="test-id"
                     type="radio"
                     value="vertical"
                   />
@@ -8909,6 +8918,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="test-id"
                     type="radio"
                     value="inline"
                   />
@@ -11363,6 +11373,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="test-id"
                     type="radio"
                     value="true"
                   />
@@ -11383,6 +11394,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
                   <input
                     checked=""
                     class="ant-radio-button-input"
+                    name="test-id"
                     type="radio"
                     value="optional"
                   />
@@ -11402,6 +11414,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="test-id"
                     type="radio"
                     value="false"
                   />
@@ -11421,6 +11434,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="test-id"
                     type="radio"
                     value="customize"
                   />
@@ -11676,6 +11690,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="test-id"
                     type="radio"
                     value="small"
                   />
@@ -11696,6 +11711,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                   <input
                     checked=""
                     class="ant-radio-button-input"
+                    name="test-id"
                     type="radio"
                     value="default"
                   />
@@ -11715,6 +11731,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="test-id"
                     type="radio"
                     value="large"
                   />
@@ -11980,7 +11997,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                   <div>
                     <div
                       class="ant-select-tree"
-                      role="tree"
                     >
                       <div>
                         <input
@@ -12005,6 +12021,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                       </div>
                       <div
                         class="ant-select-tree-list"
+                        role="tree"
                         style="position: relative;"
                       >
                         <div
@@ -12017,9 +12034,10 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                               style="display: flex; flex-direction: column;"
                             >
                               <div
-                                aria-grabbed="false"
+                                aria-expanded="false"
                                 class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                                 draggable="false"
+                                role="treeitem"
                               >
                                 <span
                                   aria-hidden="true"
@@ -22220,6 +22238,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 >
                   <input
                     class="ant-radio-input"
+                    name="test-id"
                     type="radio"
                     value="a"
                   />
@@ -22239,6 +22258,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 >
                   <input
                     class="ant-radio-input"
+                    name="test-id"
                     type="radio"
                     value="b"
                   />
@@ -22258,6 +22278,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 >
                   <input
                     class="ant-radio-input"
+                    name="test-id"
                     type="radio"
                     value="c"
                   />
@@ -22314,6 +22335,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="test-id"
                     type="radio"
                     value="a"
                   />
@@ -22333,6 +22355,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="test-id"
                     type="radio"
                     value="b"
                   />
@@ -22352,6 +22375,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="test-id"
                     type="radio"
                     value="c"
                   />
@@ -28330,7 +28354,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   <div>
                     <div
                       class="ant-select-tree"
-                      role="tree"
                     >
                       <div>
                         <input
@@ -28355,6 +28378,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       </div>
                       <div
                         class="ant-select-tree-list"
+                        role="tree"
                         style="position: relative;"
                       >
                         <div
@@ -28367,9 +28391,10 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                               style="display: flex; flex-direction: column;"
                             >
                               <div
-                                aria-grabbed="false"
-                                class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
+                                aria-expanded="false"
+                                class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                                 draggable="false"
+                                role="treeitem"
                               >
                                 <span
                                   aria-hidden="true"
@@ -29968,10 +29993,9 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               <span
                 class="ant-input-suffix"
               >
-                <span
+                <button
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
-                  role="button"
-                  tabindex="-1"
+                  type="button"
                 >
                   <span
                     aria-label="close-circle"
@@ -29993,7 +30017,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       />
                     </svg>
                   </span>
-                </span>
+                </button>
                 <span
                   class="ant-form-item-feedback-icon ant-form-item-feedback-icon-success"
                 >
@@ -30151,10 +30175,9 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               <span
                 class="ant-input-suffix"
               >
-                <span
+                <button
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
-                  role="button"
-                  tabindex="-1"
+                  type="button"
                 >
                   <span
                     aria-label="close-circle"
@@ -30176,7 +30199,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       />
                     </svg>
                   </span>
-                </span>
+                </button>
                 <span
                   aria-label="eye-invisible"
                   class="anticon anticon-eye-invisible ant-input-password-icon"
@@ -30546,10 +30569,9 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               <span
                 class="ant-input-suffix"
               >
-                <span
+                <button
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
-                  role="button"
-                  tabindex="-1"
+                  type="button"
                 >
                   <span
                     aria-label="close-circle"
@@ -30571,7 +30593,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       />
                     </svg>
                   </span>
-                </span>
+                </button>
                 <span
                   class="ant-input-textarea-suffix"
                 >
@@ -30834,7 +30856,8 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
               aria-label="segmented control"
               class="ant-segmented"
               id="variant"
-              role="listbox"
+              role="radiogroup"
+              tabindex="0"
             >
               <div
                 class="ant-segmented-group"
@@ -30844,12 +30867,12 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                 >
                   <input
                     class="ant-segmented-item-input"
+                    name="test-id"
                     type="radio"
                   />
                   <div
                     aria-selected="false"
                     class="ant-segmented-item-label"
-                    role="option"
                     title="outlined"
                   >
                     outlined
@@ -30861,12 +30884,12 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                   <input
                     checked=""
                     class="ant-segmented-item-input"
+                    name="test-id"
                     type="radio"
                   />
                   <div
                     aria-selected="true"
                     class="ant-segmented-item-label"
-                    role="option"
                     title="filled"
                   >
                     filled
@@ -30877,12 +30900,12 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                 >
                   <input
                     class="ant-segmented-item-input"
+                    name="test-id"
                     type="radio"
                   />
                   <div
                     aria-selected="false"
                     class="ant-segmented-item-label"
-                    role="option"
                     title="borderless"
                   >
                     borderless

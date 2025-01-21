@@ -3,6 +3,7 @@ import { CloseOutlined } from '@ant-design/icons';
 
 import type { SelectProps } from '..';
 import Select from '..';
+import Form from '../../form';
 import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
@@ -123,6 +124,43 @@ describe('Select', () => {
         jest.runAllTimers();
       });
       expect(asFragment().firstChild).toMatchSnapshot();
+    });
+  });
+
+  describe('clear icon position', () => {
+    it('normal', () => {
+      const { container } = render(
+        <Select allowClear options={[{ value: '1', label: '1' }]} value="1" />,
+      );
+      expect(
+        getComputedStyle(container.querySelector('.ant-select-clear')!).insetInlineEnd,
+      ).toEqual('11px');
+    });
+
+    it('hasFeedback, has validateStatus', () => {
+      const { container } = render(
+        <Form>
+          <Form.Item hasFeedback validateStatus="error">
+            <Select allowClear options={[{ value: '1', label: '1' }]} value="1" />,
+          </Form.Item>
+        </Form>,
+      );
+      expect(
+        getComputedStyle(container.querySelector('.ant-select-clear')!).insetInlineEnd,
+      ).toEqual('33px');
+    });
+
+    it('hasFeedback, no validateStatus', () => {
+      const { container } = render(
+        <Form>
+          <Form.Item hasFeedback validateStatus="">
+            <Select allowClear options={[{ value: '1', label: '1' }]} value="1" />,
+          </Form.Item>
+        </Form>,
+      );
+      expect(
+        getComputedStyle(container.querySelector('.ant-select-clear')!).insetInlineEnd,
+      ).toEqual('11px');
     });
   });
 

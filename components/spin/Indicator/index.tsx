@@ -16,7 +16,10 @@ export default function Indicator(props: IndicatorProps) {
 
   if (indicator && React.isValidElement(indicator)) {
     return cloneElement(indicator, {
-      className: classNames(indicator.props.className, dotClassName),
+      className: classNames(
+        (indicator as React.ReactElement<{ className?: string }>).props.className,
+        dotClassName,
+      ),
       percent,
     });
   }

@@ -8,6 +8,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
+import isPrimitive from '../_util/isPrimitive';
 import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';
 import genPurePanel from '../_util/PurePanel';
@@ -175,7 +176,12 @@ const Dropdown: CompoundedComponent = (props) => {
 
   const [, token] = useToken();
 
-  const child = React.Children.only(children) as React.ReactElement<any>;
+  const child = React.Children.only(
+    isPrimitive(children) ? <span>{children}</span> : children,
+  ) as React.ReactElement<{
+    className?: string;
+    disabled?: boolean;
+  }>;
 
   const dropdownTrigger = cloneElement(child, {
     className: classNames(
@@ -309,20 +315,8 @@ const Dropdown: CompoundedComponent = (props) => {
   return wrapCSSVar(renderNode);
 };
 
-function postPureProps(props: DropdownProps) {
-  return {
-    ...props,
-    align: {
-      overflow: {
-        adjustX: false,
-        adjustY: false,
-      },
-    },
-  };
-}
-
 // We don't care debug panel
-const PurePanel = genPurePanel(Dropdown, 'dropdown', (prefixCls) => prefixCls, postPureProps);
+const PurePanel = genPurePanel(Dropdown, 'align', undefined, 'dropdown', (prefixCls) => prefixCls);
 
 /* istanbul ignore next */
 const WrapPurePanel: React.FC<DropdownProps> = (props) => (

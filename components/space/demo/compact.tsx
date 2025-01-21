@@ -202,6 +202,10 @@ const App: React.FC = () => (
       <Input placeholder="input here" />
       <ColorPicker />
     </Space.Compact>
+    <Space.Compact>
+      <Button type="primary">Button</Button>
+      <Input placeholder="input here" addonAfter="$" />
+    </Space.Compact>
   </Space>
 );
 
