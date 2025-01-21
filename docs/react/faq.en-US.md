@@ -69,7 +69,7 @@ Please refer to [Use custom date library](/docs/react/use-custom-date-library).
 
 ## It doesn't work when I change `defaultValue` dynamically.
 
-The `defaultXxxx` (e.g. `defaultValue`) of `Input`/`Select`(etc...) only works on the first render. It is a specification of React. Please read [React's documentation](https://facebook.github.io/react/docs/forms.html#controlled-components).
+The `defaultXxxx` (e.g. `defaultValue`) of `Input`/`Select`(etc...) only works on the first render. It is a specification of React. Please read [React's documentation](https://react.dev/reference/react-dom/components/input#controlling-an-input-with-a-state-variable).
 
 ## Why does modifying props in mutable way not trigger a component update?
 
@@ -77,7 +77,7 @@ antd use shallow compare of props to optimize performance. You should always pas
 
 ## After I set the `value` of an `Input`/`Select`(etc.) component, the value cannot be changed by user's action.
 
-Try `onChange` to change `value`, and please read [React's documentation](https://reactjs.org/docs/forms.html#controlled-components).
+Try `onChange` to change `value`, and please read [React's documentation](https://react.dev/reference/react-dom/components/input#controlling-an-input-with-a-state-variable).
 
 ## Components are not vertically aligned when placed in single row.
 

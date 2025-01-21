@@ -156,6 +156,7 @@ Array [
         class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs"
       >
         <div
+          aria-orientation="horizontal"
           class="ant-tabs-nav"
           role="tablist"
         >
@@ -187,7 +188,7 @@ Array [
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
                   role="tab"
-                  tabindex="0"
+                  tabindex="-1"
                 >
                   tab2
                 </div>
@@ -1084,6 +1085,7 @@ Array [
         class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs"
       >
         <div
+          aria-orientation="horizontal"
           class="ant-tabs-nav"
           role="tablist"
         >
@@ -1115,7 +1117,7 @@ Array [
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
                   role="tab"
-                  tabindex="0"
+                  tabindex="-1"
                 >
                   tab2
                 </div>
@@ -1201,6 +1203,7 @@ Array [
         class="ant-tabs ant-tabs-top ant-tabs-middle ant-card-head-tabs"
       >
         <div
+          aria-orientation="horizontal"
           class="ant-tabs-nav"
           role="tablist"
         >
@@ -1219,7 +1222,7 @@ Array [
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
                   role="tab"
-                  tabindex="0"
+                  tabindex="-1"
                 >
                   article
                 </div>
@@ -1245,7 +1248,7 @@ Array [
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
                   role="tab"
-                  tabindex="0"
+                  tabindex="-1"
                 >
                   project
                 </div>

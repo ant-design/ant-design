@@ -135,7 +135,7 @@ const App: React.FC = () => {
             <DescriptionItem
               title="Github"
               content={
-                <a href="http://github.com/ant-design/ant-design/">
+                <a href="http://github.com/ant-design/ant-design/" target="_blank" rel="noreferrer">
                   github.com/ant-design/ant-design/
                 </a>
               }

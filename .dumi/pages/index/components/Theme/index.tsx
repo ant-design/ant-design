@@ -6,7 +6,7 @@ import {
   HomeOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons';
-import { TinyColor } from '@ctrl/tinycolor';
+import { FastColor } from '@ant-design/fast-color';
 import type { ColorPickerProps, GetProp, MenuProps, ThemeConfig } from 'antd';
 import {
   Breadcrumb,
@@ -324,7 +324,7 @@ const ThemesInfo: Record<THEME, Partial<ThemeData>> = {
 const normalize = (value: number) => value / 255;
 
 function rgbToColorMatrix(color: string) {
-  const rgb = new TinyColor(color).toRgb();
+  const rgb = new FastColor(color).toRgb();
   const { r, g, b } = rgb;
 
   const invertValue = normalize(r) * 100;

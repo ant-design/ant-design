@@ -1,3 +1,5 @@
 import { extendTest } from '../../../tests/shared/demoTest';
 
-extendTest('mentions');
+extendTest('mentions', {
+  skip: ['autoSize.tsx'],
+});

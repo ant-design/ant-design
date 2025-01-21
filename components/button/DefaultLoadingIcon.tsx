@@ -23,12 +23,13 @@ const InnerLoadingIcon = forwardRef<HTMLSpanElement, InnerLoadingIconProps>((pro
   );
 });
 
-export type LoadingIconProps = {
+export type DefaultLoadingIconProps = {
   prefixCls: string;
   existIcon: boolean;
   loading?: boolean | object;
   className?: string;
   style?: React.CSSProperties;
+  mount: boolean;
 };
 
 const getCollapsedWidth = (): React.CSSProperties => ({
@@ -43,8 +44,8 @@ const getRealWidth = (node: HTMLElement): React.CSSProperties => ({
   transform: 'scale(1)',
 });
 
-const LoadingIcon: React.FC<LoadingIconProps> = (props) => {
-  const { prefixCls, loading, existIcon, className, style } = props;
+const DefaultLoadingIcon: React.FC<DefaultLoadingIconProps> = (props) => {
+  const { prefixCls, loading, existIcon, className, style, mount } = props;
   const visible = !!loading;
 
   if (existIcon) {
@@ -54,9 +55,11 @@ const LoadingIcon: React.FC<LoadingIconProps> = (props) => {
   return (
     <CSSMotion
       visible={visible}
-      // We do not really use this motionName
+      // Used for minus flex gap style only
       motionName={`${prefixCls}-loading-icon-motion`}
-      motionLeave={visible}
+      motionAppear={!mount}
+      motionEnter={!mount}
+      motionLeave={!mount}
       removeOnLeave
       onAppearStart={getCollapsedWidth}
       onAppearActive={getRealWidth}
@@ -65,17 +68,20 @@ const LoadingIcon: React.FC<LoadingIconProps> = (props) => {
       onLeaveStart={getRealWidth}
       onLeaveActive={getCollapsedWidth}
     >
-      {({ className: motionCls, style: motionStyle }, ref: React.Ref<HTMLSpanElement>) => (
-        <InnerLoadingIcon
-          prefixCls={prefixCls}
-          className={className}
-          style={{ ...style, ...motionStyle }}
-          ref={ref}
-          iconClassName={motionCls}
-        />
-      )}
+      {({ className: motionCls, style: motionStyle }, ref: React.Ref<HTMLSpanElement>) => {
+        const mergedStyle = { ...style, ...motionStyle };
+
+        return (
+          <InnerLoadingIcon
+            prefixCls={prefixCls}
+            className={classNames(className, motionCls)}
+            style={mergedStyle}
+            ref={ref}
+          />
+        );
+      }}
     </CSSMotion>
   );
 };
 
-export default LoadingIcon;
+export default DefaultLoadingIcon;

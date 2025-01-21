@@ -12,7 +12,7 @@ import Form from '../../form';
 import theme from '../../theme';
 import { AggregationColor } from '../color';
 import ColorPicker from '../ColorPicker';
-import type { ColorPickerProps, ColorValueType } from '../interface';
+import type { ColorPickerProps, ColorValueType, PresetsItem } from '../interface';
 import { generateColor } from '../util';
 
 function doMouseMove(
@@ -178,6 +178,7 @@ describe('ColorPicker', () => {
         onChange={handleColorChange}
         presets={[
           {
+            key: 'Recommended',
             label: 'Recommended',
             colors: [
               '#000000',
@@ -193,6 +194,7 @@ describe('ColorPicker', () => {
             ],
           },
           {
+            key: 'Recent',
             label: 'Recent',
             colors: [],
           },
@@ -243,7 +245,8 @@ describe('ColorPicker', () => {
   });
 
   describe('preset collapsed', () => {
-    const recommendedPreset = {
+    const recommendedPreset: PresetsItem = {
+      key: 'Recommended',
       label: 'Recommended',
       colors: ['#f00', '#0f0', '#00f'],
     };
@@ -263,6 +266,7 @@ describe('ColorPicker', () => {
           presets={[
             recommendedPreset,
             {
+              key: 'Recent',
               label: 'Recent',
               colors: ['#f00d', '#0f0d', '#00fd'],
               defaultOpen: false,
@@ -381,6 +385,7 @@ describe('ColorPicker', () => {
           open
           presets={[
             {
+              key: 'test',
               label: 'test',
               colors: ['#0000001A'],
             },
@@ -947,6 +952,22 @@ describe('ColorPicker', () => {
 
     const onChangeColor = onChange.mock.calls[0][0];
     expect(onChangeColor.toHexString()).toBe('#2ddcb4');
+  });
+
+  it('test the same key', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(
+      <ColorPicker
+        open
+        presets={[
+          { label: <span>aaa</span>, colors: ['#333'], key: 'a', defaultOpen: true },
+          { label: <span>bbb</span>, colors: ['#666'], key: 'b', defaultOpen: true },
+          { label: <span>ccc</span>, colors: ['#999'], key: 'c', defaultOpen: true },
+        ]}
+      />,
+    );
+    expect(errorSpy).not.toHaveBeenCalled();
+    errorSpy.mockRestore();
   });
 
   describe('should disable colorInput', () => {

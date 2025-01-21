@@ -45,7 +45,10 @@ const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
 
       if (React.isValidElement(leafIcon)) {
         return cloneElement(leafIcon, {
-          className: classNames(leafIcon.props.className || '', leafCls),
+          className: classNames(
+            (leafIcon as React.ReactElement<{ className?: string }>).props.className || '',
+            leafCls,
+          ),
         });
       }
 
@@ -65,7 +68,10 @@ const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
 
   if (React.isValidElement(switcher)) {
     return cloneElement(switcher, {
-      className: classNames(switcher.props.className || '', switcherCls),
+      className: classNames(
+        (switcher as React.ReactElement<{ className?: string }>).props.className || '',
+        switcherCls,
+      ),
     });
   }
 
