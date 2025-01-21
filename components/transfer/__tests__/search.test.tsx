@@ -9,21 +9,9 @@ describe('Transfer.Search', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   const dataSource = [
-    {
-      key: 'a',
-      title: 'a',
-      description: 'a',
-    },
-    {
-      key: 'b',
-      title: 'b',
-      description: 'b',
-    },
-    {
-      key: 'c',
-      title: 'c',
-      description: 'c',
-    },
+    { key: 'a', title: 'a', description: 'a' },
+    { key: 'b', title: 'b', description: 'b' },
+    { key: 'c', title: 'c', description: 'c' },
   ];
 
   afterEach(() => {

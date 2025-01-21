@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/en_US';
 
 import type { Locale } from '.';
@@ -59,6 +58,7 @@ const localeValues: Locale = {
     selectCurrent: 'Select current page',
     removeCurrent: 'Remove current page',
     selectAll: 'Select all data',
+    deselectAll: 'Deselect all data',
     removeAll: 'Remove all data',
     selectInvert: 'Invert current page',
   },
@@ -142,6 +142,9 @@ const localeValues: Locale = {
   },
   ColorPicker: {
     presetEmpty: 'Empty',
+    transparent: 'Transparent',
+    singleColor: 'Single',
+    gradientColor: 'Gradient',
   },
 };
 

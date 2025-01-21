@@ -29,8 +29,8 @@ function expectMatchChecked(container: HTMLElement, checkedList: boolean[]) {
 }
 
 describe('Segmented', () => {
-  mountTest(Segmented as any);
-  rtlTest(Segmented as any);
+  mountTest(() => <Segmented options={[]} />);
+  rtlTest(() => <Segmented options={[]} />);
 
   beforeAll(() => {
     jest.useFakeTimers();
@@ -61,7 +61,7 @@ describe('Segmented', () => {
         options={[
           { label: 'Daily', value: 'Daily' },
           { label: <div id="weekly">Weekly</div>, value: 'Weekly' },
-          { label: <h2>Monthly</h2>, value: 'Monthly' },
+          { label: <div className="little">Monthly</div>, value: 'Monthly' },
         ]}
       />,
     );
@@ -71,7 +71,7 @@ describe('Segmented', () => {
     expectMatchChecked(container, [true, false, false]);
 
     expect(container.querySelector('#weekly')?.textContent).toContain('Weekly');
-    expect(container.querySelectorAll('h2')[0].textContent).toContain('Monthly');
+    expect(container.querySelector('.little')?.textContent).toContain('Monthly');
   });
 
   it('render segmented with defaultValue', () => {
@@ -345,5 +345,16 @@ describe('Segmented', () => {
         .querySelectorAll(`div.${prefixCls}-item-label`)[1]
         .textContent?.includes('KanbanYes'),
     ).toBeTruthy();
+  });
+
+  it('all children should have a name property', () => {
+    const GROUP_NAME = 'GROUP_NAME';
+    const { container } = render(
+      <Segmented options={['iOS', 'Android', 'Web']} name={GROUP_NAME} />,
+    );
+
+    container.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach((el) => {
+      expect(el.name).toEqual(GROUP_NAME);
+    });
   });
 });

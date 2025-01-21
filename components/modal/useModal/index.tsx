@@ -31,7 +31,6 @@ const ElementsHolder = React.memo(
       }),
       [],
     );
-    // eslint-disable-next-line react/jsx-no-useless-fragment
     return <>{elements}</>;
   }),
 );
@@ -68,7 +67,7 @@ function useModal(): readonly [instance: HookAPI, contextHolder: React.ReactElem
         });
         let silent = false;
 
-        let closeFunc: Function | undefined;
+        let closeFunc: (() => void) | undefined;
         const modal = (
           <HookModal
             key={`modal-${uuid}`}

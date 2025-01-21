@@ -5,55 +5,63 @@ import { Menu } from 'antd';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
-function getItem(
-  label: React.ReactNode,
-  key: React.Key,
-  icon?: React.ReactNode,
-  children?: MenuItem[],
-  type?: 'group',
-): MenuItem {
-  return {
-    key,
-    icon,
-    children,
-    label,
-    type,
-  } as MenuItem;
-}
-
 const items: MenuItem[] = [
-  getItem('Navigation One', '1', <MailOutlined />, [
-    getItem('Option 1', '11'),
-    getItem('Option 2', '12'),
-    getItem('Option 3', '13'),
-    getItem('Option 4', '14'),
-  ]),
-  getItem('Navigation Two', '2', <AppstoreOutlined />, [
-    getItem('Option 1', '21'),
-    getItem('Option 2', '22'),
-    getItem('Submenu', '23', null, [
-      getItem('Option 1', '231'),
-      getItem('Option 2', '232'),
-      getItem('Option 3', '233'),
-    ]),
-    getItem('Submenu 2', '24', null, [
-      getItem('Option 1', '241'),
-      getItem('Option 2', '242'),
-      getItem('Option 3', '243'),
-    ]),
-  ]),
-  getItem('Navigation Three', '3', <SettingOutlined />, [
-    getItem('Option 1', '31'),
-    getItem('Option 2', '32'),
-    getItem('Option 3', '33'),
-    getItem('Option 4', '34'),
-  ]),
+  {
+    key: '1',
+    icon: <MailOutlined />,
+    label: 'Navigation One',
+    children: [
+      { key: '11', label: 'Option 1' },
+      { key: '12', label: 'Option 2' },
+      { key: '13', label: 'Option 3' },
+      { key: '14', label: 'Option 4' },
+    ],
+  },
+  {
+    key: '2',
+    icon: <AppstoreOutlined />,
+    label: 'Navigation Two',
+    children: [
+      { key: '21', label: 'Option 1' },
+      { key: '22', label: 'Option 2' },
+      {
+        key: '23',
+        label: 'Submenu',
+        children: [
+          { key: '231', label: 'Option 1' },
+          { key: '232', label: 'Option 2' },
+          { key: '233', label: 'Option 3' },
+        ],
+      },
+      {
+        key: '24',
+        label: 'Submenu 2',
+        children: [
+          { key: '241', label: 'Option 1' },
+          { key: '242', label: 'Option 2' },
+          { key: '243', label: 'Option 3' },
+        ],
+      },
+    ],
+  },
+  {
+    key: '3',
+    icon: <SettingOutlined />,
+    label: 'Navigation Three',
+    children: [
+      { key: '31', label: 'Option 1' },
+      { key: '32', label: 'Option 2' },
+      { key: '33', label: 'Option 3' },
+      { key: '34', label: 'Option 4' },
+    ],
+  },
 ];
 
 interface LevelKeysProps {
   key?: string;
   children?: LevelKeysProps[];
 }
+
 const getLevelKeys = (items1: LevelKeysProps[]) => {
   const key: Record<string, number> = {};
   const func = (items2: LevelKeysProps[], level = 1) => {
@@ -62,13 +70,14 @@ const getLevelKeys = (items1: LevelKeysProps[]) => {
         key[item.key] = level;
       }
       if (item.children) {
-        return func(item.children, level + 1);
+        func(item.children, level + 1);
       }
     });
   };
   func(items1);
   return key;
 };
+
 const levelKeys = getLevelKeys(items as LevelKeysProps[]);
 
 const App: React.FC = () => {

@@ -67,10 +67,16 @@ export interface TransferLocale {
   itemsUnit: string;
   remove?: string;
   selectAll?: string;
+  deselectAll?: string;
   selectCurrent?: string;
   selectInvert?: string;
   removeAll?: string;
   removeCurrent?: string;
+}
+
+export interface TransferSearchOption {
+  placeholder?: string;
+  defaultValue?: string;
 }
 
 export interface TransferProps<RecordType = any> {
@@ -93,7 +99,7 @@ export interface TransferProps<RecordType = any> {
   operationStyle?: CSSProperties;
   titles?: React.ReactNode[];
   operations?: string[];
-  showSearch?: boolean;
+  showSearch?: boolean | TransferSearchOption;
   filterOption?: (inputValue: string, item: RecordType, direction: TransferDirection) => boolean;
   locale?: Partial<TransferLocale>;
   footer?: (
@@ -342,7 +348,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     const holder = [...(isLeftDirection ? sourceSelectedKeys : targetSelectedKeys)];
     const holderSet = new Set(holder);
     const data = [...(isLeftDirection ? leftDataSource : rightDataSource)].filter(
-      (item) => !item.disabled,
+      (item) => !item?.disabled,
     );
     const currentSelectedIndex = data.findIndex((item) => item.key === selectedKey);
     // multiple select by hold down the shift key
@@ -403,8 +409,12 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const mergedStatus = getMergedStatus(status, customStatus);
   const mergedPagination = !children && pagination;
 
-  const leftActive = targetSelectedKeys.length > 0;
-  const rightActive = sourceSelectedKeys.length > 0;
+  const leftActive =
+    rightDataSource.filter((d) => targetSelectedKeys.includes(d.key as TransferKey) && !d.disabled)
+      .length > 0;
+  const rightActive =
+    leftDataSource.filter((d) => sourceSelectedKeys.includes(d.key as TransferKey) && !d.disabled)
+      .length > 0;
 
   const cls = classNames(
     prefixCls,

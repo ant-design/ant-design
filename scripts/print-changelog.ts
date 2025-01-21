@@ -1,9 +1,8 @@
-/* eslint-disable no-await-in-loop, no-console */
 import { spawn } from 'child_process';
 import path from 'path';
+import { input, select } from '@inquirer/prompts';
 import chalk from 'chalk';
 import fs from 'fs-extra';
-import inquirer from 'inquirer';
 import fetch from 'isomorphic-fetch';
 import jQuery from 'jquery';
 import jsdom from 'jsdom';
@@ -22,26 +21,27 @@ const QUERY_TITLE = '.gh-header-title .js-issue-title';
 const QUERY_DESCRIPTION_LINES = '.comment-body table tbody tr';
 const QUERY_AUTHOR = '.pull-discussion-timeline .TimelineItem:first .author:first';
 // https://github.com/orgs/ant-design/teams/ant-design-collaborators/members
+// no need filter: https://github.com/ant-design/ant-design/pull/49878#issuecomment-2227853899
 const MAINTAINERS = [
-  'zombiej',
-  'afc163',
-  'chenshuai2144',
-  'shaodahong',
-  'xrkffgg',
-  'AshoneA',
-  'yesmeck',
-  'bang88',
-  'yoyo837',
-  'hengkx',
-  'Rustin-Liu',
-  'fireairforce',
-  'kerm1it',
-  'madccc',
-  'MadCcc',
-  'li-jia-nan',
-  'kiner-tang',
-  'Wxh16144',
-].map((author) => author.toLowerCase());
+  // 'zombiej',
+  // 'afc163',
+  // 'chenshuai2144',
+  // 'shaodahong',
+  // 'xrkffgg',
+  // 'AshoneA',
+  // 'yesmeck',
+  // 'bang88',
+  // 'yoyo837',
+  // 'hengkx',
+  // 'Rustin-Liu',
+  // 'fireairforce',
+  // 'kerm1it',
+  // 'madccc',
+  // 'MadCcc',
+  // 'li-jia-nan',
+  // 'kiner-tang',
+  // 'Wxh16144',
+].map((author: string) => author.toLowerCase());
 
 const cwd = process.cwd();
 const git = simpleGit(cwd);
@@ -72,40 +72,32 @@ const getDescription = (entity?: Line): string => {
 
 async function printLog() {
   const tags = await git.tags();
-  const { fromVersion } = await inquirer.prompt([
-    {
-      type: 'list',
-      name: 'fromVersion',
-      message: '🏷  Please choose tag to compare with current branch:',
-      choices: tags.all
-        .filter((item) => !item.includes('experimental'))
-        .filter((item) => !item.includes('alpha'))
-        .filter((item) => !item.includes('resource'))
-        .reverse()
-        .slice(0, 50),
-    },
-  ]);
-  let { toVersion } = await inquirer.prompt([
-    {
-      type: 'list',
-      name: 'toVersion',
-      message: `🔀 Please choose branch to compare with ${chalk.magenta(fromVersion)}:`,
-      choices: ['master', '4.x-stable', '3.x-stable', 'feature', 'custom input ⌨️'],
-    },
-  ]);
+  const fromVersion = await select({
+    message: '🏷 Please choose tag to compare with current branch:',
+    choices: tags.all
+      .filter((item) => !item.includes('experimental'))
+      .filter((item) => !item.includes('alpha'))
+      .filter((item) => !item.includes('resource'))
+      .reverse()
+      .slice(0, 50)
+      .map((item) => ({ name: item, value: item })),
+  });
+
+  let toVersion = await select({
+    message: `🔀 Please choose branch to compare with ${chalk.magenta(fromVersion)}:`,
+    choices: ['master', '4.x-stable', '3.x-stable', 'feature', 'custom input ⌨️'].map((i) => ({
+      name: i,
+      value: i,
+    })),
+  });
 
   if (toVersion.startsWith('custom input')) {
-    const result = await inquirer.prompt([
-      {
-        type: 'input',
-        name: 'toVersion',
-        message: `🔀 Please input custom git hash id or branch name to compare with ${chalk.magenta(
-          fromVersion,
-        )}:`,
-        default: 'master',
-      },
-    ]);
-    toVersion = result.toVersion;
+    toVersion = await input({
+      default: 'master',
+      message: `🔀 Please input custom git hash id or branch name to compare with ${chalk.magenta(
+        fromVersion,
+      )}:`,
+    });
   }
 
   if (!/\d+\.\d+\.\d+/.test(fromVersion)) {
@@ -128,10 +120,14 @@ async function printLog() {
     const validatePRs: PR[] = [];
 
     console.log(
-      `[${i + 1}/${logs.all.length}]`,
-      hash.slice(0, 6),
-      '-',
-      prs.length ? prs.map((pr) => `#${pr}`).join(',') : '?',
+      chalk.green(
+        `[${i + 1}/${logs.all.length}]`,
+        hash.slice(0, 6),
+        '-',
+        prs.length
+          ? prs.map((pr) => `https://github.com/ant-design/ant-design/pull/${pr}`).join(',')
+          : '?',
+      ),
     );
     for (let j = 0; j < prs.length; j += 1) {
       const pr = prs[j];
@@ -185,8 +181,20 @@ async function printLog() {
         });
       });
 
-      const english = getDescription(lines.find((line) => line.text.includes('🇺🇸 English')));
-      const chinese = getDescription(lines.find((line) => line.text.includes('🇨🇳 Chinese')));
+      let english = getDescription(lines.find((line) => line.text.includes('🇺🇸 English')));
+      let chinese = getDescription(lines.find((line) => line.text.includes('🇨🇳 Chinese')));
+
+      if (/^-*$/.test(english)) {
+        english = prTitle;
+      } else {
+        english = english || chinese || prTitle;
+      }
+
+      if (/^-*$/.test(chinese)) {
+        chinese = prTitle;
+      } else {
+        chinese = chinese || english || prTitle;
+      }
 
       if (english) {
         console.log(`  🇺🇸  ${english}`);
@@ -200,8 +208,8 @@ async function printLog() {
         hash,
         title: prTitle,
         author: prAuthor,
-        english: english || chinese || prTitle,
-        chinese: chinese || english || prTitle,
+        english,
+        chinese,
       });
     }
 

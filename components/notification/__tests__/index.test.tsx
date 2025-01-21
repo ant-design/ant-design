@@ -3,8 +3,20 @@ import { UserOutlined } from '@ant-design/icons';
 
 import notification, { actWrapper } from '..';
 import { act, fireEvent } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
+import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
+
+// TODO: Remove this. Mock for React 19
+jest.mock('react-dom', () => {
+  const realReactDOM = jest.requireActual('react-dom');
+
+  if (realReactDOM.version.startsWith('19')) {
+    const realReactDOMClient = jest.requireActual('react-dom/client');
+    realReactDOM.createRoot = realReactDOMClient.createRoot;
+  }
+
+  return realReactDOM;
+});
 
 describe('notification', () => {
   beforeAll(() => {
@@ -136,7 +148,7 @@ describe('notification', () => {
     expect(document.querySelectorAll('.prefix-test-notification-notice')).toHaveLength(1);
     expect(document.querySelectorAll('.bamboo-check-circle')).toHaveLength(1);
 
-    ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: null! });
+    ConfigProvider.config({ prefixCls: defaultPrefixCls, iconPrefixCls: null! });
   });
 
   it('should be able to config prefixCls', async () => {
@@ -387,7 +399,7 @@ describe('notification', () => {
     expect(document.querySelectorAll('.with-false .ant-notification-notice-close').length).toBe(0);
   });
 
-  it('style.width could be overrided', async () => {
+  it('style.width could be override', async () => {
     act(() => {
       notification.open({
         message: 'Notification Title',
@@ -400,8 +412,5 @@ describe('notification', () => {
     });
     await awaitPromise();
     expect(document.querySelector('.with-style')).toHaveStyle({ width: '600px' });
-    expect(
-      document.querySelector('.ant-notification-notice-wrapper:has(.width-style)'),
-    ).toHaveStyle({ width: '' });
   });
 });

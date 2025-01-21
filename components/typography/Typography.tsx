@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type { JSX } from 'react';
 import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
 
@@ -17,7 +18,7 @@ export interface TypographyProps<C extends keyof JSX.IntrinsicElements>
   children?: React.ReactNode;
   /** @internal */
   component?: C;
-  ['aria-label']?: string;
+  'aria-label'?: string;
   direction?: DirectionType;
 }
 
@@ -42,6 +43,7 @@ const Typography = React.forwardRef<
     style,
     ...restProps
   } = props;
+
   const {
     getPrefixCls,
     direction: contextDirection,
@@ -49,23 +51,16 @@ const Typography = React.forwardRef<
   } = React.useContext<ConfigConsumerProps>(ConfigContext);
 
   const direction = typographyDirection ?? contextDirection;
-
-  let mergedRef = ref;
-  if (setContentRef) {
-    mergedRef = composeRef(ref, setContentRef);
-  }
+  const mergedRef = setContentRef ? composeRef(ref, setContentRef) : ref;
+  const prefixCls = getPrefixCls('typography', customizePrefixCls);
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Typography');
-
     warning.deprecated(!setContentRef, 'setContentRef', 'ref');
   }
 
-  const prefixCls = getPrefixCls('typography', customizePrefixCls);
-
   // Style
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
-
   const componentClassName = classNames(
     prefixCls,
     typography?.className,
@@ -92,5 +87,4 @@ if (process.env.NODE_ENV !== 'production') {
   Typography.displayName = 'Typography';
 }
 
-// es default export should use const instead of let
 export default Typography;

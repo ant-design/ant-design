@@ -1,12 +1,11 @@
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 
 import type { DrawerProps } from '..';
 import Drawer from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 const DrawerTest: React.FC<DrawerProps> = ({ getContainer }) => (
@@ -177,6 +176,29 @@ describe('Drawer', () => {
       </Drawer>,
     );
     expect(baseElement.querySelectorAll('button.forceRender').length).toBe(1);
+  });
+
+  describe('Drawer loading', () => {
+    it('have a spinner', () => {
+      const { container: wrapper } = render(
+        <Drawer open loading getContainer={false}>
+          Here is content of Drawer
+        </Drawer>,
+      );
+
+      triggerMotion();
+      expect(wrapper.firstChild).toMatchSnapshot();
+    });
+    it('have a custom loading', () => {
+      const { container } = render(
+        <Drawer open loading getContainer={false}>
+          Here is content of Drawer
+        </Drawer>,
+      );
+      triggerMotion();
+      const wrapper = container.querySelector<HTMLDivElement>('.ant-skeleton');
+      expect(wrapper).toBeTruthy();
+    });
   });
 
   it('support closeIcon', () => {
@@ -377,5 +399,16 @@ describe('Drawer', () => {
     expect(baseElement.querySelector('.ant-drawer-close')).not.toBeNull();
     expect(baseElement.querySelector('.custom-close')).not.toBeNull();
     expect(baseElement.querySelector('*[aria-label="Close"]')).not.toBeNull();
+  });
+
+  it('drawerRender', () => {
+    const { container } = render(
+      <Drawer open getContainer={false} drawerRender={(dom) => <div id="test">{dom}</div>}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    triggerMotion();
+    expect(container.querySelector('#test')).toBeTruthy();
   });
 });

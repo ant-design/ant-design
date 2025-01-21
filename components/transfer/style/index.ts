@@ -1,7 +1,7 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import { resetComponent, resetIcon, textEllipsis } from '../../style';
+import { operationUnit, resetComponent, resetIcon, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
@@ -10,32 +10,32 @@ export interface ComponentToken {
    * @desc 列表宽度
    * @descEN Width of list
    */
-  listWidth: number;
+  listWidth: number | string;
   /**
    * @desc 大号列表宽度
    * @descEN Width of large list
    */
-  listWidthLG: number;
+  listWidthLG: number | string;
   /**
    * @desc 列表高度
    * @descEN Height of list
    */
-  listHeight: number;
+  listHeight: number | string;
   /**
    * @desc 列表项高度
    * @descEN Height of list item
    */
-  itemHeight: number;
+  itemHeight: number | string;
   /**
    * @desc 列表项纵向内边距
    * @descEN Vertical padding of list item
    */
-  itemPaddingBlock: number;
+  itemPaddingBlock: number | string;
   /**
    * @desc 顶部高度
    * @descEN Height of header
    */
-  headerHeight: number;
+  headerHeight: number | string;
 }
 
 interface TransferToken extends FullToken<'Transfer'> {
@@ -57,6 +57,7 @@ const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
         width: 'auto',
         height: 'auto',
         minHeight: listHeight,
+        minWidth: 0,
       },
 
       // =================== Hook Components ===================
@@ -121,6 +122,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     itemPaddingBlock,
     controlItemBgActive,
     colorTextDisabled,
+    colorTextSecondary,
     listHeight,
     listWidth,
     listWidthLG,
@@ -137,6 +139,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     colorText,
     controlItemBgActiveHover,
   } = token;
+  const contentBorderRadius = unit(token.calc(borderRadiusLG).sub(lineWidth).equal());
 
   return {
     display: 'flex',
@@ -219,6 +222,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       padding: 0,
       overflow: 'auto',
       listStyle: 'none',
+      borderRadius: `0 0 ${contentBorderRadius} ${contentBorderRadius}`,
 
       '&-item': {
         display: 'flex',
@@ -241,20 +245,11 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
         },
 
         '&-remove': {
-          position: 'relative',
+          ...operationUnit(token),
           color: colorBorder,
 
-          cursor: 'pointer',
-          transition: `all ${motionDurationSlow}`,
-
-          '&:hover': {
-            color: token.colorLinkHover,
-          },
-
-          '&::after': {
-            position: 'absolute',
-            inset: `-${unit(itemPaddingBlock)} -50%`,
-            content: '""',
+          '&:hover, &:focus': {
+            color: colorTextSecondary,
           },
         },
 
@@ -350,17 +345,10 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
         alignSelf: 'center',
         margin: `0 ${unit(marginXS)}`,
         verticalAlign: 'middle',
+        gap: marginXXS,
 
-        [`${antCls}-btn`]: {
-          display: 'block',
-
-          '&:first-child': {
-            marginBottom: marginXXS,
-          },
-
-          [iconCls]: {
-            fontSize: fontSizeIcon,
-          },
+        [`${antCls}-btn ${iconCls}`]: {
+          fontSize: fontSizeIcon,
         },
       },
     },

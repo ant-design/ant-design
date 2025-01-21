@@ -2,33 +2,30 @@ import React, { useState } from 'react';
 import type { TableProps } from 'antd';
 import { Form, Input, InputNumber, Popconfirm, Table, Typography } from 'antd';
 
-interface Item {
+interface DataType {
   key: string;
   name: string;
   age: number;
   address: string;
 }
 
-const originData: Item[] = [];
-for (let i = 0; i < 100; i++) {
-  originData.push({
-    key: i.toString(),
-    name: `Edward ${i}`,
-    age: 32,
-    address: `London Park no. ${i}`,
-  });
-}
+const originData = Array.from({ length: 100 }).map<DataType>((_, i) => ({
+  key: i.toString(),
+  name: `Edward ${i}`,
+  age: 32,
+  address: `London Park no. ${i}`,
+}));
+
 interface EditableCellProps extends React.HTMLAttributes<HTMLElement> {
   editing: boolean;
   dataIndex: string;
   title: any;
   inputType: 'number' | 'text';
-  record: Item;
+  record: DataType;
   index: number;
-  children: React.ReactNode;
 }
 
-const EditableCell: React.FC<EditableCellProps> = ({
+const EditableCell: React.FC<React.PropsWithChildren<EditableCellProps>> = ({
   editing,
   dataIndex,
   title,
@@ -64,12 +61,12 @@ const EditableCell: React.FC<EditableCellProps> = ({
 
 const App: React.FC = () => {
   const [form] = Form.useForm();
-  const [data, setData] = useState(originData);
+  const [data, setData] = useState<DataType[]>(originData);
   const [editingKey, setEditingKey] = useState('');
 
-  const isEditing = (record: Item) => record.key === editingKey;
+  const isEditing = (record: DataType) => record.key === editingKey;
 
-  const edit = (record: Partial<Item> & { key: React.Key }) => {
+  const edit = (record: Partial<DataType> & { key: React.Key }) => {
     form.setFieldsValue({ name: '', age: '', address: '', ...record });
     setEditingKey(record.key);
   };
@@ -80,7 +77,7 @@ const App: React.FC = () => {
 
   const save = async (key: React.Key) => {
     try {
-      const row = (await form.validateFields()) as Item;
+      const row = (await form.validateFields()) as DataType;
 
       const newData = [...data];
       const index = newData.findIndex((item) => key === item.key);
@@ -124,11 +121,11 @@ const App: React.FC = () => {
     {
       title: 'operation',
       dataIndex: 'operation',
-      render: (_: any, record: Item) => {
+      render: (_: any, record: DataType) => {
         const editable = isEditing(record);
         return editable ? (
           <span>
-            <Typography.Link onClick={() => save(record.key)} style={{ marginRight: 8 }}>
+            <Typography.Link onClick={() => save(record.key)} style={{ marginInlineEnd: 8 }}>
               Save
             </Typography.Link>
             <Popconfirm title="Sure to cancel?" onConfirm={cancel}>
@@ -144,13 +141,13 @@ const App: React.FC = () => {
     },
   ];
 
-  const mergedColumns: TableProps['columns'] = columns.map((col) => {
+  const mergedColumns: TableProps<DataType>['columns'] = columns.map((col) => {
     if (!col.editable) {
       return col;
     }
     return {
       ...col,
-      onCell: (record: Item) => ({
+      onCell: (record: DataType) => ({
         record,
         inputType: col.dataIndex === 'age' ? 'number' : 'text',
         dataIndex: col.dataIndex,
@@ -162,19 +159,15 @@ const App: React.FC = () => {
 
   return (
     <Form form={form} component={false}>
-      <Table
+      <Table<DataType>
         components={{
-          body: {
-            cell: EditableCell,
-          },
+          body: { cell: EditableCell },
         }}
         bordered
         dataSource={data}
         columns={mergedColumns}
         rowClassName="editable-row"
-        pagination={{
-          onChange: cancel,
-        }}
+        pagination={{ onChange: cancel }}
       />
     </Form>
   );

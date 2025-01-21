@@ -16,12 +16,12 @@ const BehaviorPattern: React.FC = () => (
             {
               id: '707000085',
               label: '了解提示内容',
-              link: 'components-alert-index-tab-design-demo-content',
+              link: 'alert-index-tab-design-demo-content',
             },
             {
               id: '707000086',
               label: '了解提示类型',
-              link: 'components-alert-index-tab-design-demo-type',
+              link: 'alert-index-tab-design-demo-type',
             },
           ],
         },
@@ -29,7 +29,7 @@ const BehaviorPattern: React.FC = () => (
           id: '200000005',
           label: '针对提示进行操作',
           targetType: 'extension',
-          link: 'components-alert-index-tab-design-demo-action',
+          link: 'alert-index-tab-design-demo-action',
         },
       ],
     }}

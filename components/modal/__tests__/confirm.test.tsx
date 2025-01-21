@@ -4,12 +4,11 @@ import CSSMotion from 'rc-motion';
 import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
-import TestUtils from 'react-dom/test-utils';
 
 import type { ModalFuncProps } from '..';
 import Modal from '..';
-import { act, waitFakeTimer } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
+import { act, fireEvent, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import type { ModalFunc } from '../confirm';
 import destroyFns from '../destroyFns';
 
@@ -18,6 +17,18 @@ import destroyFns from '../destroyFns';
 const { confirm } = Modal;
 
 jest.mock('rc-motion');
+
+// TODO: Remove this. Mock for React 19
+jest.mock('react-dom', () => {
+  const realReactDOM = jest.requireActual('react-dom');
+
+  if (realReactDOM.version.startsWith('19')) {
+    const realReactDOMClient = jest.requireActual('react-dom/client');
+    realReactDOM.createRoot = realReactDOMClient.createRoot;
+  }
+
+  return realReactDOM;
+});
 
 (global as any).injectPromise = false;
 (global as any).rejectPromise = null;
@@ -83,7 +94,6 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-  /* eslint-disable no-console */
   // Hack error to remove act warning
   const originError = console.error;
   console.error = (...args) => {
@@ -94,7 +104,6 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
     originError(...args);
   };
-  /* eslint-enable */
 
   beforeEach(() => {
     jest.useFakeTimers();
@@ -191,9 +200,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     await waitFakeTimer();
 
     expect($$(`.ant-modal-confirm-confirm`)).toHaveLength(1);
-    TestUtils.Simulate.keyDown($$('.ant-modal')[0], {
-      keyCode: KeyCode.ESC,
-    });
+    fireEvent.keyDown($$('.ant-modal')[0], { keyCode: KeyCode.ESC });
 
     await waitFakeTimer(0);
 
@@ -344,7 +351,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         Modal[type]?.({
           title: 'title',
           content: 'content',
-          onOk: (_) => null, // eslint-disable-line no-unused-vars
+          onOk: (_) => null,
         });
         await waitFakeTimer();
         expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
@@ -585,7 +592,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(document.querySelectorAll('.my-btn').length).toBe(2);
     expect(document.querySelectorAll('.bamboo-smile').length).toBe(1);
     expect(document.querySelectorAll('.my-modal-confirm').length).toBe(1);
-    ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: undefined });
+    ConfigProvider.config({ prefixCls: defaultPrefixCls, iconPrefixCls: undefined });
   });
 
   it('should be able to config rootPrefixCls', async () => {
@@ -706,9 +713,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         await waitFakeTimer();
 
         expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
-        TestUtils.Simulate.keyDown($$('.ant-modal')[0], {
-          keyCode: KeyCode.ESC,
-        });
+        fireEvent.keyDown($$('.ant-modal')[0], { keyCode: KeyCode.ESC });
 
         await waitFakeTimer(0);
 
@@ -953,5 +958,25 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     await waitFakeTimer();
     expect(document.querySelector('.ant-btn-primary')?.textContent).toBe('test');
     ConfigProvider.config({ holderRender: undefined });
+  });
+
+  it('onCancel and onOk return any results and should be closed', async () => {
+    Modal.confirm({ onOk: () => true });
+    await waitFakeTimer();
+    $$('.ant-btn-primary')[0].click();
+    await waitFakeTimer();
+    expect(document.querySelector('.ant-modal-root')).toBeFalsy();
+
+    Modal.confirm({ onOk: () => false });
+    await waitFakeTimer();
+    $$('.ant-btn-primary')[0].click();
+    await waitFakeTimer();
+    expect(document.querySelector('.ant-modal-root')).toBeFalsy();
+
+    Modal.confirm({ onCancel: () => undefined });
+    await waitFakeTimer();
+    $$('.ant-btn')[0].click();
+    await waitFakeTimer();
+    expect(document.querySelector('.ant-modal-root')).toBeFalsy();
   });
 });

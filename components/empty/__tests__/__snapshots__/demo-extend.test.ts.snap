@@ -13,6 +13,9 @@ exports[`renders components/empty/demo/basic.tsx extend context correctly 1`] = 
       width="184"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        No data
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"
@@ -129,28 +132,32 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              readonly=""
-              role="combobox"
-              style="opacity: 0;"
-              type="search"
-              unselectable="on"
-              value=""
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                readonly=""
+                role="combobox"
+                style="opacity: 0;"
+                type="search"
+                unselectable="on"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-placeholder"
             />
           </span>
-          <span
-            class="ant-select-selection-placeholder"
-          />
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
@@ -238,28 +245,32 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              readonly=""
-              role="combobox"
-              style="opacity: 0;"
-              type="search"
-              unselectable="on"
-              value=""
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                readonly=""
+                role="combobox"
+                style="opacity: 0;"
+                type="search"
+                unselectable="on"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-placeholder"
             />
           </span>
-          <span
-            class="ant-select-selection-placeholder"
-          />
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
@@ -346,25 +357,29 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              role="combobox"
-              type="search"
-              value=""
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-placeholder"
             />
           </span>
-          <span
-            class="ant-select-selection-placeholder"
-          />
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
@@ -513,6 +528,7 @@ Array [
                 tabindex="0"
               >
                 <li
+                  aria-describedby="test-id"
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                   data-menu-id="rc-menu-uuid-test-selectAll"
                   role="menuitem"
@@ -537,11 +553,13 @@ Array [
                   >
                     <div
                       class="ant-tooltip-inner"
+                      id="test-id"
                       role="tooltip"
                     />
                   </div>
                 </div>
                 <li
+                  aria-describedby="test-id"
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                   data-menu-id="rc-menu-uuid-test-selectInvert"
                   role="menuitem"
@@ -566,6 +584,7 @@ Array [
                   >
                     <div
                       class="ant-tooltip-inner"
+                      id="test-id"
                       role="tooltip"
                     />
                   </div>
@@ -574,42 +593,7 @@ Array [
               <div
                 aria-hidden="true"
                 style="display: none;"
-              >
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  />
-                  <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  />
-                  <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    />
-                  </div>
-                </div>
-              </div>
+              />
             </div>
             <span
               class="ant-transfer-list-header-selected"
@@ -660,7 +644,7 @@ Array [
           class="ant-transfer-operation"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
             disabled=""
             type="button"
           >
@@ -689,7 +673,7 @@ Array [
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
             disabled=""
             type="button"
           >
@@ -770,6 +754,7 @@ Array [
                 tabindex="0"
               >
                 <li
+                  aria-describedby="test-id"
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                   data-menu-id="rc-menu-uuid-test-selectAll"
                   role="menuitem"
@@ -794,11 +779,13 @@ Array [
                   >
                     <div
                       class="ant-tooltip-inner"
+                      id="test-id"
                       role="tooltip"
                     />
                   </div>
                 </div>
                 <li
+                  aria-describedby="test-id"
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                   data-menu-id="rc-menu-uuid-test-selectInvert"
                   role="menuitem"
@@ -823,6 +810,7 @@ Array [
                   >
                     <div
                       class="ant-tooltip-inner"
+                      id="test-id"
                       role="tooltip"
                     />
                   </div>
@@ -831,42 +819,7 @@ Array [
               <div
                 aria-hidden="true"
                 style="display: none;"
-              >
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  />
-                  <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  />
-                  <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    />
-                  </div>
-                </div>
-              </div>
+              />
             </div>
             <span
               class="ant-transfer-list-header-selected"
@@ -1090,7 +1043,9 @@ exports[`renders components/empty/demo/customize.tsx extend context correctly 1`
   <div
     class="ant-empty-description"
   >
-    <span>
+    <span
+      class="ant-typography"
+    >
       Customize 
       <a
         href="#API"
@@ -1103,7 +1058,7 @@ exports[`renders components/empty/demo/customize.tsx extend context correctly 1`
     class="ant-empty-footer"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -1129,6 +1084,9 @@ exports[`renders components/empty/demo/description.tsx extend context correctly 
       width="184"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        No data
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"
@@ -1201,6 +1159,9 @@ exports[`renders components/empty/demo/simple.tsx extend context correctly 1`] =
       width="64"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        No data
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"

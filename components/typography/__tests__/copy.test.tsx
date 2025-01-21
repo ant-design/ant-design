@@ -135,10 +135,10 @@ describe('Typography copy', () => {
       copyTest({
         name: 'icon custom icon3',
         icon: [
-          <>
+          <React.Fragment key="a">
             <SmileOutlined />
             <SmileOutlined />
-          </>,
+          </React.Fragment>,
           <LikeOutlined key="b" />,
         ],
         iconClassNames: ['.anticon-smile', '.anticon-like'],
@@ -224,7 +224,7 @@ describe('Typography copy', () => {
     });
 
     it('the first parameter of onCopy is the click event', () => {
-      function onCopy(e?: React.MouseEvent<HTMLDivElement>) {
+      function onCopy(e?: React.MouseEvent<HTMLButtonElement>) {
         expect(e).not.toBeUndefined();
       }
 
@@ -327,5 +327,48 @@ describe('Typography copy', () => {
       </Base>,
     );
     expect(container.querySelector('.ant-typography-copy')).toBeTruthy();
+  });
+
+  it('tabIndex of copy button', () => {
+    const { container } = render(
+      <Base component="p" copyable={{ tabIndex: -1 }}>
+        test
+      </Base>,
+    );
+    expect(container.querySelector('.ant-typography-copy')?.getAttribute('tabIndex')).toBe('-1');
+  });
+
+  it('locale text for button tooltip', async () => {
+    const { container } = render(
+      <Base component="p" copyable>
+        test
+      </Base>,
+    );
+    fireEvent.mouseEnter(container.querySelectorAll('.ant-typography-copy')[0]);
+    await waitFakeTimer(1000, 100);
+    expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copy');
+
+    fireEvent.click(container.querySelectorAll('.ant-typography-copy')[0]);
+    expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copied');
+  });
+
+  it('copy array children', () => {
+    const spy = jest.spyOn(copyObj, 'default');
+
+    const bamboo = 'bamboo';
+    const little = 'little';
+
+    const { container } = render(
+      <Base component="p" copyable>
+        {bamboo}
+        {little}
+      </Base>,
+    );
+    fireEvent.click(container.querySelector('.ant-typography-copy')!);
+
+    // Check copy content
+    expect(spy.mock.calls[0][0]).toBe(`${bamboo}${little}`);
+
+    spy.mockRestore();
   });
 });

@@ -45,6 +45,7 @@ components/**/*.jsx
 /.history
 *.tmp
 artifacts.zip
+oss-artifacts.zip
 server/
 
 # Docs templates
@@ -73,3 +74,6 @@ __image_snapshots__/
 .eslintcache
 .node-version
 .node
+
+.env
+examples/

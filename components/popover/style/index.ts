@@ -18,18 +18,18 @@ export interface ComponentToken extends ArrowToken, ArrowOffsetToken {
    * @desc 气泡卡片宽度
    * @descEN Width of Popover
    */
-  width?: number;
+  width?: number | string;
   /**
    * @deprecated Please use `titleMinWidth` instead
    * @desc 气泡卡片最小宽度
    * @descEN Min width of Popover
    */
-  minWidth?: number;
+  minWidth?: number | string;
   /**
    * @desc 气泡卡片标题最小宽度
    * @descEN Min width of Popover title
    */
-  titleMinWidth: number;
+  titleMinWidth: number | string;
   /**
    * @desc 气泡卡片 z-index
    * @descEN z-index of Popover
@@ -47,8 +47,20 @@ export interface ComponentToken extends ArrowToken, ArrowOffsetToken {
   innerContentPadding: number | string;
 }
 
+/**
+ * @desc Popover 组件的 Token
+ * @descEN Token for Popover component
+ */
 export type PopoverToken = FullToken<'Popover'> & {
+  /**
+   * @desc 气泡卡片背景色
+   * @descEN Background color of Popover
+   */
   popoverBg: string;
+  /**
+   * @desc 气泡卡片文字颜色
+   * @descEN Text color of Popover
+   */
   popoverColor: string;
 };
 
@@ -88,8 +100,14 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         textAlign: 'start',
         cursor: 'auto',
         userSelect: 'text',
-        transformOrigin: `var(--arrow-x, 50%) var(--arrow-y, 50%)`,
+
+        // When use `autoArrow`, origin will follow the arrow position
+        '--valid-offset-x': 'var(--arrow-offset-horizontal, var(--arrow-x))',
+        transformOrigin: [`var(--valid-offset-x, 50%)`, `var(--arrow-y, 50%)`].join(' '),
+
         '--antd-arrow-background-color': colorBgElevated,
+        width: 'max-content',
+        maxWidth: '100vw',
 
         '&-rtl': {
           direction: 'rtl',

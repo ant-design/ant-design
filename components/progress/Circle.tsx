@@ -79,20 +79,19 @@ const Circle: React.FC<CircleProps> = (props) => {
     />
   );
 
-  return (
+  const smallCircle = width <= 20;
+  const node = (
     <div className={wrapperClassName} style={circleStyle}>
-      {width <= 20 ? (
-        <Tooltip title={children}>
-          <span>{circleContent}</span>
-        </Tooltip>
-      ) : (
-        <>
-          {circleContent}
-          {children}
-        </>
-      )}
+      {circleContent}
+      {!smallCircle && children}
     </div>
   );
+
+  if (smallCircle) {
+    return <Tooltip title={children}>{node}</Tooltip>;
+  }
+
+  return node;
 };
 
 export default Circle;

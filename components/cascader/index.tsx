@@ -19,13 +19,13 @@ import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import type { Variant } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
-import type { Variant } from '../form/hooks/useVariants';
 import useVariant from '../form/hooks/useVariants';
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements';
 import useSelectStyle from '../select/style';
@@ -107,7 +107,7 @@ const defaultSearchRender: ShowSearchType['render'] = (inputValue, path, prefixC
 export interface CascaderProps<
   OptionType extends DefaultOptionType = DefaultOptionType,
   ValueField extends keyof OptionType = keyof OptionType,
-  Multiple extends boolean = false,
+  Multiple extends boolean = boolean,
 > extends Omit<RcCascaderProps<OptionType, ValueField, Multiple>, 'checkable'> {
   multiple?: Multiple;
   size?: SizeType;
@@ -135,6 +135,12 @@ export interface CascaderProps<
    */
   variant?: Variant;
 }
+export type CascaderAutoProps<
+  OptionType extends DefaultOptionType = DefaultOptionType,
+  ValueField extends keyof OptionType = keyof OptionType,
+> =
+  | (CascaderProps<OptionType, ValueField> & { multiple?: false })
+  | (CascaderProps<OptionType, ValueField, true> & { multiple: true });
 
 export interface CascaderRef {
   focus: () => void;
@@ -218,7 +224,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
-  const [variant, enableVariantCls] = useVariant(customVariant, bordered);
+  const [variant, enableVariantCls] = useVariant('cascader', customVariant, bordered);
 
   // =================== No Found ====================
   const mergedNotFoundContent = notFoundContent || renderEmpty?.('Cascader') || (
@@ -348,9 +354,8 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 }) as unknown as (<
   OptionType extends DefaultOptionType = DefaultOptionType,
   ValueField extends keyof OptionType = keyof OptionType,
-  Multiple extends boolean = false,
 >(
-  props: React.PropsWithChildren<CascaderProps<OptionType, ValueField, Multiple>> &
+  props: React.PropsWithChildren<CascaderAutoProps<OptionType, ValueField>> &
     React.RefAttributes<CascaderRef>,
 ) => React.ReactElement) & {
   displayName: string;
@@ -365,7 +370,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(Cascader);
+const PurePanel = genPurePanel(Cascader, 'dropdownAlign', (props: any) => omit(props, ['visible']));
 
 Cascader.SHOW_PARENT = SHOW_PARENT;
 Cascader.SHOW_CHILD = SHOW_CHILD;

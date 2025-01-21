@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ColorPicker, Space } from 'antd';
 import type { ColorPickerProps, GetProp } from 'antd';
 
-type Color = GetProp<ColorPickerProps, 'value'>;
+type Color = Extract<GetProp<ColorPickerProps, 'value'>, string | { cleared: any }>;
 type Format = GetProp<ColorPickerProps, 'format'>;
 
 const HexCase: React.FC = () => {
@@ -28,7 +28,7 @@ const HexCase: React.FC = () => {
 };
 
 const HsbCase: React.FC = () => {
-  const [colorHsb, setColorHsb] = useState<ColorPickerProps['value']>('hsb(215, 91%, 100%)');
+  const [colorHsb, setColorHsb] = useState<Color>('hsb(215, 91%, 100%)');
   const [formatHsb, setFormatHsb] = useState<ColorPickerProps['format']>('hsb');
 
   const hsbString = React.useMemo(
@@ -50,7 +50,7 @@ const HsbCase: React.FC = () => {
 };
 
 const RgbCase: React.FC = () => {
-  const [colorRgb, setColorRgb] = useState<ColorPickerProps['value']>('rgb(22, 119, 255)');
+  const [colorRgb, setColorRgb] = useState<Color>('rgb(22, 119, 255)');
   const [formatRgb, setFormatRgb] = useState<ColorPickerProps['format']>('rgb');
 
   const rgbString = React.useMemo(

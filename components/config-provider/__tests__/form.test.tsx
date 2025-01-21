@@ -1,10 +1,9 @@
 import React from 'react';
 import type { ValidateMessages } from 'rc-field-form/es/interface';
-import { act } from 'react-dom/test-utils';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import ConfigProvider from '..';
-import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import type { FormInstance } from '../../form';
 import Form from '../../form';
@@ -54,7 +53,7 @@ describe('ConfigProvider.Form', () => {
       await act(async () => {
         try {
           await formRef.current?.validateFields();
-        } catch (e) {
+        } catch {
           // Do nothing
         }
       });
@@ -77,7 +76,7 @@ describe('ConfigProvider.Form', () => {
       await act(async () => {
         try {
           await formRef.current?.validateFields();
-        } catch (e) {
+        } catch {
           // Do nothing
         }
       });
@@ -127,7 +126,7 @@ describe('ConfigProvider.Form', () => {
       await act(async () => {
         try {
           await formRef.current?.validateFields();
-        } catch (e) {
+        } catch {
           // Do nothing
         }
       });

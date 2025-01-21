@@ -3,9 +3,9 @@ import userEvent from '@testing-library/user-event';
 import { resetWarned } from 'rc-util/lib/warning';
 
 import Alert from '..';
-import accessibilityTest from '../../../tests/shared/accessibilityTest';
+import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, render, screen, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, screen, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import Popconfirm from '../../popconfirm';
 import Tooltip from '../../tooltip';
@@ -26,8 +26,9 @@ describe('Alert', () => {
   });
 
   it('should show close button and could be closed', async () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const onClose = jest.fn();
-    render(
+    const { container } = render(
       <Alert
         message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
         type="warning"
@@ -36,13 +37,11 @@ describe('Alert', () => {
       />,
     );
 
-    await userEvent.click(screen.getByRole('button', { name: /close/i }));
-
-    act(() => {
-      jest.runAllTimers();
-    });
+    fireEvent.click(container.querySelector('.ant-alert-close-icon')!);
 
     expect(onClose).toHaveBeenCalledTimes(1);
+    expect(errSpy).not.toHaveBeenCalled();
+    errSpy.mockRestore();
   });
 
   it('custom action', () => {
@@ -82,7 +81,6 @@ describe('Alert', () => {
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     expect(warnSpy).toHaveBeenCalledTimes(0);
     // @ts-expect-error
-    // eslint-disable-next-line react/jsx-no-undef
     const ThrowError = () => <NotExisted />;
     render(
       <ErrorBoundary>

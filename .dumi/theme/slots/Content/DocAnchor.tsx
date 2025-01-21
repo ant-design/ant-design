@@ -5,10 +5,12 @@ import type { AnchorLinkItemProps } from 'antd/es/anchor/Anchor';
 import classNames from 'classnames';
 import { useRouteMeta, useTabMeta } from 'dumi';
 
-const useStyle = createStyles(({ token, css }) => {
+export const useStyle = createStyles(({ token, css }) => {
   const { antCls } = token;
   return {
-    toc: css`
+    anchorToc: css`
+      scrollbar-width: thin;
+      scrollbar-gutter: stable;
       ${antCls}-anchor {
         ${antCls}-anchor-link-title {
           font-size: ${token.fontSizeSM}px;
@@ -17,13 +19,13 @@ const useStyle = createStyles(({ token, css }) => {
     `,
     tocWrapper: css`
       position: fixed;
-      top: ${token.headerHeight + token.contentMarginTop - 8}px;
+      top: ${token.headerHeight + token.contentMarginTop - 4}px;
       inset-inline-end: 0;
-      width: 160px;
-      padding: ${token.paddingXS}px;
+      width: 148px;
+      padding: 0;
       border-radius: ${token.borderRadius}px;
       box-sizing: border-box;
-      margin-inline-end: calc(16px - 100vw + 100%);
+      margin-inline-end: calc(8px - 100vw + 100%);
       z-index: 10;
       .toc-debug {
         color: ${token.purple6};
@@ -46,15 +48,11 @@ const useStyle = createStyles(({ token, css }) => {
       }
     `,
     articleWrapper: css`
-      padding: 0 170px 32px 64px;
-
-      &.rtl {
-        padding: 0 64px 144px 170px;
-      }
+      padding-inline: 48px 164px;
+      padding-block: 0 32px;
 
       @media only screen and (max-width: ${token.screenLG}px) {
-        &,
-        &.rtl {
+        & {
           padding: 0 ${token.paddingLG * 2}px;
         }
       }
@@ -120,8 +118,8 @@ const DocAnchor: React.FC<DocAnchorProps> = ({ showDebug, debugDemos = [] }) => 
   return (
     <section className={styles.tocWrapper}>
       <Anchor
-        className={styles.toc}
         affix={false}
+        className={styles.anchorToc}
         targetOffset={token.anchorTop}
         showInkInFixed
         items={anchorItems.map<AnchorLinkItemProps>(renderAnchorItem)}

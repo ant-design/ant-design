@@ -25,6 +25,7 @@ demo:
 <code src="./demo/line.tsx">连接线</code>
 <code src="./demo/customized-icon.tsx">自定义图标</code>
 <code src="./demo/directory.tsx">目录</code>
+<code src="./demo/directory-debug.tsx" debug>目录 Debug</code>
 <code src="./demo/switcher-icon.tsx">自定义展开/折叠图标</code>
 <code src="./demo/virtual-scroll.tsx">虚拟滚动</code>
 <code src="./demo/drag-debug.tsx" debug>Drag Debug</code>
@@ -59,16 +60,17 @@ demo:
 | fieldNames | 自定义节点 title、key、children 的字段 | object | { title: `title`, key: `key`, children: `children` } | 4.17.0 |
 | filterTreeNode | 按需筛选树节点（高亮），返回 true | function(node) | - |  |
 | height | 设置虚拟滚动容器高度，设置后内部节点不再支持横向滚动 | number | - |  |
-| icon | 自定义树节点图标。 | ReactNode \| (props) => ReactNode | - |  |
+| icon | 在标题之前插入自定义图标。需要设置 `showIcon` 为 true | ReactNode \| (props) => ReactNode | - |  |
 | loadData | 异步加载数据 | function(node) | - |  |
 | loadedKeys | （受控）已经加载的节点，需要配合 `loadData` 使用 | string\[] | \[] |  |
 | multiple | 支持点选多个节点（节点本身） | boolean | false |  |
 | rootStyle | 添加在 Tree 最外层的 style | CSSProperties | - | 4.20.0 |
 | selectable | 是否可选中 | boolean | true |  |
 | selectedKeys | （受控）设置选中的树节点，多选需设置 `multiple` 为 true | string\[] | - |  |
-| showIcon | 是否展示 TreeNode title 前的图标，没有默认样式，如设置为 true，需要自行定义图标相关样式 | boolean | false |  |
+| showIcon | 控制是否展示 `icon` 节点，没有默认样式 | boolean | false |  |
 | showLine | 是否展示连接线 | boolean \| { showLeafIcon: ReactNode \| ((props: AntTreeNodeProps) => ReactNode) } | false |  |
-| switcherIcon | 自定义树节点的展开/折叠图标 | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |
+| switcherIcon | 自定义树节点的展开/折叠图标（带有默认 rotate 角度样式） | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |
+| switcherLoadingIcon | 自定义树节点的加载图标 | ReactNode | - | 5.20.0 |
 | titleRender | 自定义渲染节点 | (nodeData) => ReactNode | - | 4.5.0 |
 | treeData | treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（key 在整个树范围内唯一） | array&lt;{key, title, children, \[disabled, selectable]}> | - |  |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
@@ -132,10 +134,6 @@ demo:
 <ComponentTokenTable component="Tree"></ComponentTokenTable>
 
 ## FAQ
-
-### 在 showLine 时，如何隐藏子节点图标？
-
-文件图标通过 switcherIcon 来实现，如果不需要你可以覆盖对应的样式：<https://codesandbox.io/s/883vo47xp8>
 
 ### defaultExpandAll 在异步加载数据时为何不生效？
 

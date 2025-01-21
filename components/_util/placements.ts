@@ -1,4 +1,3 @@
-/* eslint-disable default-case */
 import type { AlignType, BuildInPlacements } from '@rc-component/trigger';
 
 import { getArrowOffsetToken } from '../style/placementArrow';
@@ -216,12 +215,12 @@ export default function getPlacements(config: PlacementsConfig) {
 
         case 'leftTop':
         case 'rightTop':
-          placementInfo.offset[1] = -arrowOffset.arrowOffsetHorizontal - halfArrowWidth;
+          placementInfo.offset[1] = -arrowOffset.arrowOffsetHorizontal * 2 + halfArrowWidth;
           break;
 
         case 'leftBottom':
         case 'rightBottom':
-          placementInfo.offset[1] = arrowOffset.arrowOffsetHorizontal + halfArrowWidth;
+          placementInfo.offset[1] = arrowOffset.arrowOffsetHorizontal * 2 - halfArrowWidth;
           break;
       }
     }

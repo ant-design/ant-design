@@ -30,23 +30,14 @@ const locales = {
 
 // ============================= Style =============================
 const useStyle = createStyles(({ token }) => {
-  const {
-    antCls,
-    iconCls,
-    fontFamily,
-    fontSize,
-    headerHeight,
-    menuItemBorder,
-    colorPrimary,
-    colorText,
-  } = token;
+  const { antCls, iconCls, fontFamily, fontSize, headerHeight, colorPrimary } = token;
 
   return {
     nav: css`
       height: 100%;
       font-size: ${fontSize}px;
       font-family: Avenir, ${fontFamily}, sans-serif;
-      border: 0;
+      border: 0 !important;
 
       &${antCls}-menu-horizontal {
         border-bottom: none;
@@ -57,25 +48,6 @@ const useStyle = createStyles(({ token }) => {
           padding-inline-end: ${token.paddingSM}px;
           padding-inline-start: ${token.paddingSM}px;
           line-height: ${headerHeight}px;
-
-          &::after {
-            top: 0;
-            right: 12px;
-            bottom: auto;
-            left: 12px;
-            border-width: ${menuItemBorder}px;
-          }
-
-          a {
-            color: ${colorText};
-          }
-
-          a:before {
-            position: absolute;
-            inset: 0;
-            background-color: transparent;
-            content: '';
-          }
         }
 
         & ${antCls}-menu-submenu-title ${iconCls} {
@@ -91,25 +63,6 @@ const useStyle = createStyles(({ token }) => {
 
       & > ${antCls}-menu-item, & > ${antCls}-menu-submenu {
         text-align: center;
-      }
-    `,
-    popoverMenuNav: css`
-      ${antCls}-menu-item,
-      ${antCls}-menu-submenu {
-        text-align: left;
-      }
-
-      ${antCls}-menu-item-group-title {
-        padding-inline-start: ${token.paddingLG}px;
-      }
-
-      ${antCls}-menu-item-group-list {
-        padding: 0 ${token.paddingLG}px;
-      }
-
-      ${antCls}-menu-item,
-      a {
-        color: #333;
       }
     `,
   };
@@ -143,7 +96,7 @@ const HeaderNavigation: React.FC<NavigationProps> = (props) => {
     activeMenuItem = 'docs/resources';
   }
 
-  let additional: MenuProps['items'];
+  let additional: MenuProps['items'] = [];
 
   const additionalItems: MenuProps['items'] = [
     {
@@ -234,50 +187,16 @@ const HeaderNavigation: React.FC<NavigationProps> = (props) => {
     },
     isZhCN
       ? {
+          key: 'mirror',
           label: (
             <a href="https://ant-design.antgroup.com" target="_blank" rel="noreferrer">
               国内镜像
             </a>
           ),
-          key: 'mirror',
-          children: [
-            {
-              label: (
-                <a href="https://ant-design.antgroup.com" target="_blank" rel="noreferrer">
-                  官方镜像
-                </a>
-              ),
-              icon: (
-                <img
-                  alt="logo"
-                  src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-                  width={16}
-                  style={{ verticalAlign: 'text-bottom' }}
-                />
-              ),
-              key: 'antgroup',
-            },
-            {
-              label: (
-                <a href="https://ant-design.gitee.io" target="_blank" rel="noreferrer">
-                  Gitee 镜像
-                </a>
-              ),
-              icon: (
-                <img
-                  alt="gitee"
-                  src="https://gw.alipayobjects.com/zos/bmw-prod/9e91e124-9bab-4113-b500-301412f6b370.svg"
-                  width={16}
-                  style={{ verticalAlign: 'text-bottom' }}
-                />
-              ),
-              key: 'gitee',
-            },
-          ],
         }
       : null,
     ...(additional ?? []),
-  ];
+  ].filter(Boolean);
 
   return (
     <Menu

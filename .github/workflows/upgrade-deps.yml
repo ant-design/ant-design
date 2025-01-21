@@ -21,10 +21,8 @@ jobs:
             .ncurc.js
             package.json
 
-      - name: setup node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
+      - name: setup bun
+        uses: oven-sh/setup-bun@v2
 
       - name: upgrade deps
         id: upgrade
@@ -32,7 +30,7 @@ jobs:
           if [ ! -d .tmp ] ; then
             mkdir .tmp
           fi
-          $(npx npm-check-updates -u > .tmp/upgrade-deps-logs.txt) 2>&1 || true
+          $(bunx npm-check-updates -u > .tmp/upgrade-deps-logs.txt) 2>&1 || true
           if [ -s .tmp/upgrade-deps-logs.txt ]; then
             cat .tmp/upgrade-deps-logs.txt
             echo "logs<<EOF" >> $GITHUB_OUTPUT
@@ -42,7 +40,7 @@ jobs:
 
       - name: create pull request
         id: cpr
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }} # Cannot be default!!!
           assignees: 'afc163, zombieJ, xrkffgg, MadCcc'

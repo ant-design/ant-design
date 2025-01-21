@@ -13,7 +13,7 @@ import {
   UsergroupAddOutlined,
   ZhihuOutlined,
 } from '@ant-design/icons';
-import { TinyColor } from '@ctrl/tinycolor';
+import { FastColor } from '@ant-design/fast-color';
 import { createStyles } from 'antd-style';
 import getAlphaColor from 'antd/es/theme/util/getAlphaColor';
 import { FormattedMessage, Link } from 'dumi';
@@ -37,7 +37,7 @@ const locales = {
 const useStyle = () => {
   const { isMobile } = useContext(SiteContext);
   return createStyles(({ token, css }) => {
-    const background = new TinyColor(getAlphaColor('#f0f3fa', '#fff'))
+    const background = new FastColor(getAlphaColor('#f0f3fa', '#fff'))
       .onBackground(token.colorBgContainer)
       .toHexString();
 
@@ -102,6 +102,11 @@ const Footer: React.FC = () => {
       title: <FormattedMessage id="app.footer.resources" />,
       items: [
         {
+          title: 'Ant Design X',
+          url: isZhCN ? 'https://ant-design-x.antgroup.com' : 'https://x.ant.design',
+          openExternal: true,
+        },
+        {
           title: 'Ant Design Charts',
           url: isZhCN ? 'https://ant-design-charts.antgroup.com' : 'https://charts.ant.design',
           openExternal: true,
@@ -112,7 +117,7 @@ const Footer: React.FC = () => {
           openExternal: true,
         },
         {
-          title: 'Ant Design Pro Components',
+          title: 'Pro Components',
           url: 'https://procomponents.ant.design',
           openExternal: true,
         },
@@ -124,6 +129,11 @@ const Footer: React.FC = () => {
         {
           title: 'Ant Design Mini',
           url: isZhCN ? 'https://ant-design-mini.antgroup.com/' : 'https://mini.ant.design',
+          openExternal: true,
+        },
+        {
+          title: 'Ant Design Web3',
+          url: isZhCN ? 'https://web3.antdigital.dev' : 'https://web3.ant.design',
           openExternal: true,
         },
         {
@@ -154,12 +164,6 @@ const Footer: React.FC = () => {
           title: 'qiankun',
           description: <FormattedMessage id="app.footer.qiankun" />,
           url: 'https://qiankun.umijs.org',
-          openExternal: true,
-        },
-        {
-          title: 'ahooks',
-          description: <FormattedMessage id="app.footer.hooks" />,
-          url: 'https://github.com/alibaba/hooks',
           openExternal: true,
         },
         {
@@ -202,7 +206,7 @@ const Footer: React.FC = () => {
               src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
               width={16}
               height={16}
-              alt="yuque"
+              alt="yuque logo"
             />
           ),
           title: <FormattedMessage id="app.footer.yuque.repo" />,
@@ -227,7 +231,7 @@ const Footer: React.FC = () => {
               src="https://gw.alipayobjects.com/zos/rmsportal/mZBWtboYbnMkTBaRIuWQ.png"
               width={16}
               height={16}
-              alt="seeconf"
+              alt="seeconf logo"
             />
           ),
           title: 'SEE Conf',
@@ -310,7 +314,7 @@ const Footer: React.FC = () => {
           src="https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg"
           width={22}
           height={22}
-          alt="Ant XTech"
+          alt="Ant XTech logo"
         />
       ),
       title: <FormattedMessage id="app.footer.more-product" />,
@@ -321,7 +325,7 @@ const Footer: React.FC = () => {
               src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
               width={16}
               height={16}
-              alt="yuque"
+              alt="yuque logo"
             />
           ),
           title: <FormattedMessage id="app.footer.yuque" />,
@@ -335,7 +339,7 @@ const Footer: React.FC = () => {
               src="https://gw.alipayobjects.com/zos/antfincdn/nc7Fc0XBg5/8a6844f5-a6ed-4630-9177-4fa5d0b7dd47.png"
               width={16}
               height={16}
-              alt="AntV"
+              alt="AntV logo"
             />
           ),
           title: 'AntV',
@@ -344,7 +348,7 @@ const Footer: React.FC = () => {
           openExternal: true,
         },
         {
-          icon: <img src="https://www.eggjs.org/logo.svg" alt="Egg" width={16} height={16} />,
+          icon: <img src="https://www.eggjs.org/logo.svg" alt="Egg logo" width={16} height={16} />,
           title: 'Egg',
           url: 'https://eggjs.org',
           description: <FormattedMessage id="app.footer.egg.slogan" />,
@@ -356,7 +360,7 @@ const Footer: React.FC = () => {
               src="https://gw.alipayobjects.com/zos/rmsportal/DMDOlAUhmktLyEODCMBR.ico"
               width={16}
               height={16}
-              alt="kitchen"
+              alt="Kitchen logo"
             />
           ),
           title: 'Kitchen',
@@ -370,7 +374,7 @@ const Footer: React.FC = () => {
               src="https://mdn.alipayobjects.com/huamei_j9rjmc/afts/img/A*3ittT5OEo2gAAAAAAAAAAAAADvGmAQ/original"
               width={16}
               height={16}
-              alt="Galacean"
+              alt="Galacean logo"
             />
           ),
           title: <FormattedMessage id="app.footer.galacean" />,
@@ -384,7 +388,7 @@ const Footer: React.FC = () => {
               src="https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg"
               width={16}
               height={16}
-              alt="xtech"
+              alt="xtech logo"
             />
           ),
           title: <FormattedMessage id="app.footer.xtech" />,

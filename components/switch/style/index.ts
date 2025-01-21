@@ -1,6 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
+import { FastColor } from '@ant-design/fast-color';
 
 import { genFocusStyle, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
@@ -11,22 +11,22 @@ export interface ComponentToken {
    *  @desc 开关高度
    *  @descEN Height of Switch
    */
-  trackHeight: number;
+  trackHeight: number | string;
   /**
    * @desc 小号开关高度
    * @descEN Height of small Switch
    */
-  trackHeightSM: number;
+  trackHeightSM: number | string;
   /**
    * @desc 开关最小宽度
    * @descEN Minimum width of Switch
    */
-  trackMinWidth: number;
+  trackMinWidth: number | string;
   /**
    * @desc 小号开关最小宽度
    * @descEN Minimum width of small Switch
    */
-  trackMinWidthSM: number;
+  trackMinWidthSM: number | string;
   /**
    * @desc 开关内边距
    * @descEN Padding of Switch
@@ -109,6 +109,11 @@ const genSwitchSmallStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
         [`${componentCls}-inner`]: {
           paddingInlineStart: innerMaxMarginSM,
           paddingInlineEnd: innerMinMarginSM,
+
+          [`${switchInnerCls}-checked, ${switchInnerCls}-unchecked`]: {
+            minHeight: trackHeightSM,
+          },
+
           [`${switchInnerCls}-checked`]: {
             marginInlineStart: `calc(-100% + ${trackPaddingCalc} - ${innerMaxMarginCalc})`,
             marginInlineEnd: `calc(100% - ${trackPaddingCalc} + ${innerMaxMarginCalc})`,
@@ -269,6 +274,7 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
           fontSize: token.fontSizeSM,
           transition: `margin-inline-start ${token.switchDuration} ease-in-out, margin-inline-end ${token.switchDuration} ease-in-out`,
           pointerEvents: 'none',
+          minHeight: trackHeight,
         },
 
         [`${switchInnerCls}-checked`]: {
@@ -328,7 +334,7 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
       boxSizing: 'border-box',
       minWidth: trackMinWidth,
       height: trackHeight,
-      lineHeight: `${unit(trackHeight)}`,
+      lineHeight: unit(trackHeight),
       verticalAlign: 'middle',
       background: token.colorTextQuaternary,
       border: '0',
@@ -388,7 +394,7 @@ export const prepareComponentToken: GetDefaultToken<'Switch'> = (token) => {
     handleBg: colorWhite,
     handleSize,
     handleSizeSM,
-    handleShadow: `0 2px 4px 0 ${new TinyColor('#00230b').setAlpha(0.2).toRgbString()}`,
+    handleShadow: `0 2px 4px 0 ${new FastColor('#00230b').setA(0.2).toRgbString()}`,
     innerMinMargin: handleSize / 2,
     innerMaxMargin: handleSize + padding + padding * 2,
     innerMinMarginSM: handleSizeSM / 2,

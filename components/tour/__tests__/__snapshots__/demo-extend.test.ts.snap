@@ -3,7 +3,7 @@
 exports[`renders components/tour/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -21,7 +21,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -33,7 +33,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -45,7 +45,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-icon-only"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
         type="button"
       >
         <span
@@ -155,7 +155,7 @@ Array [
             class="ant-tour-buttons"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-sm ant-tour-next-btn"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
               type="button"
             >
               <span>
@@ -172,10 +172,378 @@ Array [
 
 exports[`renders components/tour/demo/basic.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
+<div>
+  <button
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Begin Tour
+    </span>
+  </button>
+  <div
+    class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+    style="display: flex; margin-top: 12px;"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-row"
+      >
+        <div
+          class="ant-col ant-col-6"
+        >
+          <span
+            class="ant-typography"
+          >
+            Radius:
+          </span>
+        </div>
+        <div
+          class="ant-col ant-col-12"
+        >
+          <div
+            class="ant-slider ant-slider-horizontal"
+          >
+            <div
+              class="ant-slider-rail"
+            />
+            <div
+              class="ant-slider-track"
+              style="left: 0%; width: 8%;"
+            />
+            <div
+              class="ant-slider-step"
+            />
+            <div
+              aria-describedby="test-id"
+              aria-disabled="false"
+              aria-orientation="horizontal"
+              aria-valuemax="100"
+              aria-valuemin="0"
+              aria-valuenow="8"
+              class="ant-slider-handle"
+              role="slider"
+              style="left: 8%; transform: translateX(-50%);"
+              tabindex="0"
+            />
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; bottom: 0px; left: 0px;"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  id="test-id"
+                  role="tooltip"
+                >
+                  8
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-row"
+      >
+        <div
+          class="ant-col ant-col-6"
+        >
+          <span
+            class="ant-typography"
+          >
+             offset:
+          </span>
+        </div>
+        <div
+          class="ant-col ant-col-12"
+        >
+          <div
+            class="ant-slider ant-slider-horizontal"
+          >
+            <div
+              class="ant-slider-rail"
+            />
+            <div
+              class="ant-slider-track"
+              style="left: 0%; width: 4%;"
+            />
+            <div
+              class="ant-slider-step"
+            />
+            <div
+              aria-describedby="test-id"
+              aria-disabled="false"
+              aria-orientation="horizontal"
+              aria-valuemax="50"
+              aria-valuemin="0"
+              aria-valuenow="2"
+              class="ant-slider-handle"
+              role="slider"
+              style="left: 4%; transform: translateX(-50%);"
+              tabindex="0"
+            />
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; bottom: 0px; left: 0px;"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  id="test-id"
+                  role="tooltip"
+                >
+                  2
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-row"
+      >
+        <div
+          class="ant-col ant-col-6"
+        >
+          <span
+            class="ant-typography"
+          >
+            Horizontal offset:
+          </span>
+        </div>
+        <div
+          class="ant-col ant-col-12"
+        >
+          <div
+            class="ant-slider ant-slider-horizontal"
+          >
+            <div
+              class="ant-slider-rail"
+            />
+            <div
+              class="ant-slider-track"
+              style="left: 0%; width: 4%;"
+            />
+            <div
+              class="ant-slider-step"
+            />
+            <div
+              aria-describedby="test-id"
+              aria-disabled="false"
+              aria-orientation="horizontal"
+              aria-valuemax="50"
+              aria-valuemin="0"
+              aria-valuenow="2"
+              class="ant-slider-handle"
+              role="slider"
+              style="left: 4%; transform: translateX(-50%);"
+              tabindex="0"
+            />
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; bottom: 0px; left: 0px;"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  id="test-id"
+                  role="tooltip"
+                >
+                  2
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-row"
+      >
+        <div
+          class="ant-col ant-col-6"
+        >
+          <span
+            class="ant-typography"
+          >
+            Vertical offset:
+          </span>
+        </div>
+        <div
+          class="ant-col ant-col-12"
+        >
+          <div
+            class="ant-slider ant-slider-horizontal"
+          >
+            <div
+              class="ant-slider-rail"
+            />
+            <div
+              class="ant-slider-track"
+              style="left: 0%; width: 4%;"
+            />
+            <div
+              class="ant-slider-step"
+            />
+            <div
+              aria-describedby="test-id"
+              aria-disabled="false"
+              aria-orientation="horizontal"
+              aria-valuemax="50"
+              aria-valuemin="0"
+              aria-valuenow="2"
+              class="ant-slider-handle"
+              role="slider"
+              style="left: 4%; transform: translateX(-50%);"
+              tabindex="0"
+            />
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; bottom: 0px; left: 0px;"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  id="test-id"
+                  role="tooltip"
+                >
+                  2
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-tour ant-tour-placement-bottom"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+  >
+    <div
+      class="ant-tour-arrow"
+      style="position: absolute; top: 0px; left: 0px;"
+    />
+    <div
+      class="ant-tour-content"
+    >
+      <div
+        class="ant-tour-inner"
+      >
+        <button
+          class="ant-tour-close"
+          type="button"
+        >
+          <span
+            aria-label="close"
+            class="anticon anticon-close ant-tour-close-icon"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="close"
+              fill="currentColor"
+              fill-rule="evenodd"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+              />
+            </svg>
+          </span>
+        </button>
+        <div
+          class="ant-tour-cover"
+        >
+          <img
+            alt="tour.png"
+            src="https://user-images.githubusercontent.com/5378891/197385811-55df8480-7ff4-44bd-9d43-a7dade598d70.png"
+          />
+        </div>
+        <div
+          class="ant-tour-header"
+        >
+          <div
+            class="ant-tour-title"
+          >
+            Upload File
+          </div>
+        </div>
+        <div
+          class="ant-tour-description"
+        >
+          Put your files here.
+        </div>
+        <div
+          class="ant-tour-footer"
+        >
+          <div
+            class="ant-tour-buttons"
+          >
+            <button
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
+              type="button"
+            >
+              <span>
+                Finish
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/tour/demo/gap.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/tour/demo/indicator.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -193,7 +561,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -205,7 +573,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -217,7 +585,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-icon-only"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
         type="button"
       >
         <span
@@ -313,7 +681,7 @@ Array [
             class="ant-tour-buttons"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-sm ant-tour-next-btn"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
               type="button"
             >
               <span>
@@ -333,7 +701,7 @@ exports[`renders components/tour/demo/indicator.tsx extend context correctly 2`]
 exports[`renders components/tour/demo/mask.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -351,7 +719,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -363,7 +731,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -375,7 +743,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-icon-only"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
         type="button"
       >
         <span
@@ -485,7 +853,7 @@ Array [
             class="ant-tour-buttons"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-sm ant-tour-next-btn"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
               type="button"
             >
               <span>
@@ -505,7 +873,7 @@ exports[`renders components/tour/demo/mask.tsx extend context correctly 2`] = `[
 exports[`renders components/tour/demo/non-modal.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -523,7 +891,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -535,7 +903,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -547,7 +915,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-icon-only"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
         type="button"
       >
         <span
@@ -657,7 +1025,7 @@ Array [
             class="ant-tour-buttons"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-sm ant-tour-next-btn"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-tour-next-btn"
               type="button"
             >
               <span>
@@ -677,7 +1045,7 @@ exports[`renders components/tour/demo/non-modal.tsx extend context correctly 2`]
 exports[`renders components/tour/demo/placement.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -753,7 +1121,7 @@ Array [
             class="ant-tour-buttons"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-sm ant-tour-next-btn"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
               type="button"
             >
               <span>

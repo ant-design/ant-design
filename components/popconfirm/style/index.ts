@@ -9,6 +9,10 @@ export interface ComponentToken {
   zIndexPopup: number;
 }
 
+/**
+ * @desc Popconfirm 组件的 Token
+ * @descEN Token for Popconfirm component
+ */
 export interface PopconfirmToken extends FullToken<'Popconfirm'> {}
 
 // =============================== Base ===============================

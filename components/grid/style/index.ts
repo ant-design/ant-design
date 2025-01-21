@@ -1,18 +1,21 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import type { AliasToken, FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
-export interface ComponentToken {
-  //
-}
+// biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
+export interface ComponentToken {}
 
 interface GridRowToken extends FullToken<'Grid'> {
   //
 }
 
 interface GridColToken extends FullToken<'Grid'> {
+  /**
+   * @desc 网格列数
+   * @descEN Number of grid columns
+   */
   gridColumns: number;
 }
 
@@ -180,26 +183,34 @@ export const prepareColComponentToken: GetDefaultToken<'Grid'> = () => ({});
 // ============================== Export ==============================
 export const useRowStyle = genStyleHooks('Grid', genGridRowStyle, prepareRowComponentToken);
 
+export const getMediaSize = (token: AliasToken) => {
+  const mediaSizesMap = {
+    xs: token.screenXSMin,
+    sm: token.screenSMMin,
+    md: token.screenMDMin,
+    lg: token.screenLGMin,
+    xl: token.screenXLMin,
+    xxl: token.screenXXLMin,
+  } as const;
+
+  return mediaSizesMap;
+};
+
 export const useColStyle = genStyleHooks(
   'Grid',
   (token) => {
     const gridToken: GridColToken = mergeToken<GridColToken>(token, {
       gridColumns: 24, // Row is divided into 24 parts in Grid
     });
-    const gridMediaSizesMap = {
-      '-sm': gridToken.screenSMMin,
-      '-md': gridToken.screenMDMin,
-      '-lg': gridToken.screenLGMin,
-      '-xl': gridToken.screenXLMin,
-      '-xxl': gridToken.screenXXLMin,
-    } as const;
-    type GridMediaSize = keyof typeof gridMediaSizesMap;
+    const gridMediaSizesMap: Record<string, number> = getMediaSize(gridToken);
+    delete gridMediaSizesMap.xs;
+
     return [
       genGridColStyle(gridToken),
       genGridStyle(gridToken, ''),
       genGridStyle(gridToken, '-xs'),
       Object.keys(gridMediaSizesMap)
-        .map((key) => genGridMediaStyle(gridToken, gridMediaSizesMap[key as GridMediaSize], key))
+        .map((key) => genGridMediaStyle(gridToken, gridMediaSizesMap[key], `-${key}`))
         .reduce((pre, cur) => ({ ...pre, ...cur }), {}),
     ];
   },

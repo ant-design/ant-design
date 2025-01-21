@@ -1,9 +1,8 @@
-/* eslint-disable import/prefer-default-export */
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
-import type { CSSUtil } from 'antd/es/theme/util/genComponentStyleHook';
 
 import type { AliasToken } from '../theme/interface';
+import type { CSSUtil } from '../theme/internal';
 
 export interface ArrowToken {
   /** @internal */

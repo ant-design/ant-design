@@ -14,30 +14,34 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="2019"
-        >
-          2019
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              readonly=""
+              role="combobox"
+              style="opacity: 0;"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="2019"
+          >
+            2019
+          </span>
         </span>
       </div>
       <span
@@ -74,30 +78,34 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="Jan"
-        >
-          Jan
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              readonly=""
+              role="combobox"
+              style="opacity: 0;"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="Jan"
+          >
+            Jan
+          </span>
         </span>
       </div>
       <span
@@ -139,6 +147,7 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
           <input
             checked=""
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="month"
           />
@@ -146,7 +155,9 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Month
         </span>
       </label>
@@ -158,6 +169,7 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="year"
           />
@@ -165,7 +177,9 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Year
         </span>
       </label>
@@ -958,30 +972,34 @@ exports[`Calendar Calendar should support locale 1`] = `
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="2018年"
-        >
-          2018年
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              readonly=""
+              role="combobox"
+              style="opacity: 0;"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="2018年"
+          >
+            2018年
+          </span>
         </span>
       </div>
       <span
@@ -1018,30 +1036,34 @@ exports[`Calendar Calendar should support locale 1`] = `
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="10月"
-        >
-          10月
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              readonly=""
+              role="combobox"
+              style="opacity: 0;"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="10月"
+          >
+            10月
+          </span>
         </span>
       </div>
       <span
@@ -1083,6 +1105,7 @@ exports[`Calendar Calendar should support locale 1`] = `
           <input
             checked=""
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="month"
           />
@@ -1090,7 +1113,9 @@ exports[`Calendar Calendar should support locale 1`] = `
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           月
         </span>
       </label>
@@ -1102,6 +1127,7 @@ exports[`Calendar Calendar should support locale 1`] = `
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="year"
           />
@@ -1109,7 +1135,9 @@ exports[`Calendar Calendar should support locale 1`] = `
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           年
         </span>
       </label>
@@ -1902,30 +1930,34 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="2000"
-        >
-          2000
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              readonly=""
+              role="combobox"
+              style="opacity: 0;"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="2000"
+          >
+            2000
+          </span>
         </span>
       </div>
       <span
@@ -1962,30 +1994,34 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="Sep"
-        >
-          Sep
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              readonly=""
+              role="combobox"
+              style="opacity: 0;"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="Sep"
+          >
+            Sep
+          </span>
         </span>
       </div>
       <span
@@ -2027,6 +2063,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
           <input
             checked=""
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="month"
           />
@@ -2034,7 +2071,9 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Month
         </span>
       </label>
@@ -2046,6 +2085,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="year"
           />
@@ -2053,7 +2093,9 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Year
         </span>
       </label>
@@ -2846,30 +2888,34 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="2000"
-        >
-          2000
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              readonly=""
+              role="combobox"
+              style="opacity: 0;"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="2000"
+          >
+            2000
+          </span>
         </span>
       </div>
       <span
@@ -2906,30 +2952,34 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="Jan"
-        >
-          Jan
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              readonly=""
+              role="combobox"
+              style="opacity: 0;"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="Jan"
+          >
+            Jan
+          </span>
         </span>
       </div>
       <span
@@ -2971,6 +3021,7 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
           <input
             checked=""
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="month"
           />
@@ -2978,7 +3029,9 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Month
         </span>
       </label>
@@ -2990,6 +3043,7 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="year"
           />
@@ -2997,7 +3051,9 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Year
         </span>
       </label>

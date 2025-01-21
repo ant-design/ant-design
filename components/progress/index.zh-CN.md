@@ -34,6 +34,7 @@ demo:
 <code src="./demo/steps.tsx">步骤进度条</code>
 <code src="./demo/circle-steps.tsx" version="5.16.0">步骤进度圈</code>
 <code src="./demo/size.tsx">尺寸</code>
+<code src="./demo/info-position.tsx" version="5.18.0">改变进度数值位置</code>
 
 ## API
 
@@ -52,7 +53,7 @@ demo:
 | success | 成功进度条相关配置 | { percent: number, strokeColor: string } | - | - |
 | trailColor | 未完成的分段的颜色 | string | - | - |
 | type | 类型，可选 `line` `circle` `dashboard` | string | `line` | - |
-| size | 进度条的尺寸 | number \| \[number \| string, number] \| "small" \| "default" | "default" | v5.3.0 |
+| size | 进度条的尺寸 | number \| \[number \| string, number] \| { width: number, height: number } \| "small" \| "default" | "default" | 5.3.0, Object: 5.18.0 |
 
 ### `type="line"`
 
@@ -60,6 +61,7 @@ demo:
 | --- | --- | --- | --- | --- |
 | steps | 进度条总共步数 | number | - | - |
 | strokeColor | 进度条的色彩，传入 object 时为渐变。当有 `steps` 时支持传入一个数组。 | string \| string[] \| { from: string; to: string; direction: string } | - | 4.21.0: `string[]` |
+| percentPosition | 进度数值位置，传入对象，`align` 表示数值的水平位置，`type` 表示数值在进度条内部还是外部 | { align: string; type: string } | { align: \"end\", type: \"outer\" } | 5.18.0 |
 
 ### `type="circle"`
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MenuProps } from 'antd';
-import { Button, Dropdown } from 'antd';
+import { Button, Dropdown, Space } from 'antd';
 
 const items: MenuProps['items'] = [
   {
@@ -30,27 +30,30 @@ const items: MenuProps['items'] = [
 ];
 
 const App: React.FC = () => (
-  <>
-    <Dropdown menu={{ items }} placement="bottomLeft" arrow={{ pointAtCenter: true }}>
-      <Button>bottomLeft</Button>
-    </Dropdown>
-    <Dropdown menu={{ items }} placement="bottom" arrow={{ pointAtCenter: true }}>
-      <Button>bottom</Button>
-    </Dropdown>
-    <Dropdown menu={{ items }} placement="bottomRight" arrow={{ pointAtCenter: true }}>
-      <Button>bottomRight</Button>
-    </Dropdown>
-    <br />
-    <Dropdown menu={{ items }} placement="topLeft" arrow={{ pointAtCenter: true }}>
-      <Button>topLeft</Button>
-    </Dropdown>
-    <Dropdown menu={{ items }} placement="top" arrow={{ pointAtCenter: true }}>
-      <Button>top</Button>
-    </Dropdown>
-    <Dropdown menu={{ items }} placement="topRight" arrow={{ pointAtCenter: true }}>
-      <Button>topRight</Button>
-    </Dropdown>
-  </>
+  <Space direction="vertical">
+    <Space wrap>
+      <Dropdown menu={{ items }} placement="bottomLeft" arrow={{ pointAtCenter: true }}>
+        <Button>bottomLeft</Button>
+      </Dropdown>
+      <Dropdown menu={{ items }} placement="bottom" arrow={{ pointAtCenter: true }}>
+        <Button>bottom</Button>
+      </Dropdown>
+      <Dropdown menu={{ items }} placement="bottomRight" arrow={{ pointAtCenter: true }}>
+        <Button>bottomRight</Button>
+      </Dropdown>
+    </Space>
+    <Space wrap>
+      <Dropdown menu={{ items }} placement="topLeft" arrow={{ pointAtCenter: true }}>
+        <Button>topLeft</Button>
+      </Dropdown>
+      <Dropdown menu={{ items }} placement="top" arrow={{ pointAtCenter: true }}>
+        <Button>top</Button>
+      </Dropdown>
+      <Dropdown menu={{ items }} placement="topRight" arrow={{ pointAtCenter: true }}>
+        <Button>topRight</Button>
+      </Dropdown>
+    </Space>
+  </Space>
 );
 
 export default App;

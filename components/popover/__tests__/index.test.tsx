@@ -28,6 +28,15 @@ describe('Popover', () => {
     expect(container.querySelector('.ant-popover-inner-content')).toBeTruthy();
   });
 
+  it('should support defaultOpen', () => {
+    const { container } = render(
+      <Popover title="code" defaultOpen>
+        <span>show me your code</span>
+      </Popover>,
+    );
+    expect(container.querySelector('.ant-popover')).toBeTruthy();
+  });
+
   it('shows content for render functions', () => {
     const renderTitle = () => 'some-title';
     const renderContent = () => 'some-content';
@@ -114,5 +123,47 @@ describe('Popover', () => {
     expect(onOpenChange).toHaveBeenLastCalledWith(true, undefined);
     fireEvent.keyDown(triggerNode, { key: 'Escape', keyCode: 27 });
     expect(onOpenChange).toHaveBeenLastCalledWith(false, eventObject);
+  });
+
+  it('should not display overlay when the content is null/undefined', () => {
+    [null, undefined].forEach((item) => {
+      const { container } = render(
+        <Popover title={() => item} content={() => item} trigger="click">
+          <span>show me your code</span>
+        </Popover>,
+      );
+      fireEvent.click(container.querySelector<HTMLSpanElement>('span')!);
+      const popup = document.querySelector('.ant-popover');
+      expect(popup).toBe(null);
+    });
+  });
+
+  it('should apply custom styles to Popover', () => {
+    const customClassNames = {
+      body: 'custom-body',
+      root: 'custom-root',
+    };
+
+    const customStyles = {
+      body: { color: 'red' },
+      root: { backgroundColor: 'blue' },
+    };
+
+    const { container } = render(
+      <Popover classNames={customClassNames} overlay={<div />} styles={customStyles} open>
+        <button type="button">button</button>
+      </Popover>,
+    );
+
+    const popoverElement = container.querySelector('.ant-popover') as HTMLElement;
+    const popoverBodyElement = container.querySelector('.ant-popover-inner') as HTMLElement;
+
+    // 验证 classNames
+    expect(popoverElement.classList).toContain('custom-root');
+    expect(popoverBodyElement.classList).toContain('custom-body');
+
+    // 验证 styles
+    expect(popoverElement.style.backgroundColor).toBe('blue');
+    expect(popoverBodyElement.style.color).toBe('red');
   });
 });

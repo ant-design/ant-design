@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/ko_KR';
 
 import type { Locale } from '.';
@@ -140,6 +139,9 @@ const localeValues: Locale = {
   },
   ColorPicker: {
     presetEmpty: '미정',
+    transparent: '투명',
+    singleColor: '단색',
+    gradientColor: '그라데이션',
   },
 };
 

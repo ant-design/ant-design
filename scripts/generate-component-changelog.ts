@@ -1,4 +1,3 @@
-/* eslint-disable no-loop-func, no-console */
 // Collect from `changelog.md` to get all components changelog
 import path from 'path';
 import fs from 'fs-extra';
@@ -46,6 +45,7 @@ const miscKeys = [
   'Design Token',
   'MISC:',
   '杂项：',
+  'antd',
   '@ant-design/cssinjs',
   '@ant-design/icons',
   'rc-motion',
@@ -53,14 +53,17 @@ const miscKeys = [
   'reset.css',
   '📖',
   '🛠',
+  '📦',
   '🌐',
   ' locale ',
   ' RTL ',
+  '<img',
   '🇧🇪',
   '🇨🇦',
   '🇪🇸',
   '🇷🇺',
   '🇺🇦',
+  '🇵🇹',
   '🇲🇲',
   '🇸🇪',
   '🇻🇳',
@@ -71,6 +74,13 @@ const miscKeys = [
   '🇱🇹',
   '🇮🇸',
   '🇺🇿',
+  '🇯🇵',
+  '🇮🇩',
+  '🇵🇱',
+  '🇲🇳',
+  '🇳🇵',
+  '🇪🇬',
+  '🇦🇿',
 ];
 
 (() => {
@@ -83,6 +93,7 @@ const miscKeys = [
 
     // let lastGroup = '';
     let lastVersion = '';
+    let lastReleaseDate = '';
 
     // Split with lines
     const lines = content.split(/[\n\r]+/).filter((line) => line.trim());
@@ -90,7 +101,13 @@ const miscKeys = [
     // Changelog map
     const componentChangelog: Record<
       string,
-      { version: string; changelog: string; refs: string[] }[]
+      {
+        version: string;
+        changelog: string;
+        refs: string[];
+        releaseDate: string;
+        contributors: string[];
+      }[]
     > = {};
     Object.keys(componentNameMap).forEach((name) => {
       componentChangelog[name] = [];
@@ -110,6 +127,26 @@ const miscKeys = [
         continue;
       }
 
+      // Get release date
+      const matchReleaseDate = line.match(/`(\d{4}-\d{2}-\d{2})`/);
+      if (matchReleaseDate) {
+        lastReleaseDate = matchReleaseDate[1];
+      }
+
+      // Get Contributor name
+      const contributors: string[] = [];
+      const usernameMatches = line.match(/\[@([^\]]+)\]/g);
+
+      if (usernameMatches) {
+        usernameMatches.forEach((match) => {
+          const usernameMatch = match.match(/\[@([^\]]+)\]/);
+          if (usernameMatch) {
+            const username = usernameMatch[1];
+            contributors.push(username);
+          }
+        });
+      }
+
       // Start when get version
       if (!lastVersion) {
         continue;
@@ -127,7 +164,7 @@ const miscKeys = [
       }
 
       // Filter not is changelog
-      if (!line.trim().startsWith('-') && !line.includes('github.')) {
+      if (!line.trim().startsWith('-') && !line.includes('github.') && !line.includes('img')) {
         continue;
       }
 
@@ -139,7 +176,7 @@ const miscKeys = [
       changelogLine = changelogLine
         .replace(/\[([^\]]+)]\(([^)]+)\)/g, (...match) => {
           const [, title, ref] = match;
-          if (ref.includes('/pull/')) {
+          if (/\/(pull|issues|commit)\//.test(ref)) {
             refs.push(ref);
           }
 
@@ -166,6 +203,8 @@ const miscKeys = [
             version: lastVersion,
             changelog: changelogLine,
             refs,
+            releaseDate: lastReleaseDate,
+            contributors,
           });
           matched = true;
         }

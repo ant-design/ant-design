@@ -3,7 +3,6 @@ group:
   title: 其他
 order: 1
 title: 贡献指南
-toc: false
 ---
 
 这篇指南会指导你如何为 Ant Design 贡献自己的一份力量，请你在提 issue 或者 pull request 之前花几分钟来阅读一遍这篇指南。

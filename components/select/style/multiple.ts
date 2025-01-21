@@ -3,11 +3,8 @@ import { unit } from '@ant-design/cssinjs';
 
 import { resetIcon } from '../../style';
 import { mergeToken } from '../../theme/internal';
-import type { AliasToken } from '../../theme/internal';
-import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
+import type { AliasToken, TokenWithCommonCls } from '../../theme/internal';
 import type { SelectToken } from './token';
-
-export const FIXED_ITEM_MARGIN = 2;
 
 type SelectItemToken = Pick<
   SelectToken,
@@ -19,6 +16,8 @@ type SelectItemToken = Pick<
   | 'lineWidth'
   | 'calc'
   | 'inputPaddingHorizontalBase'
+  | 'INTERNAL_FIXED_ITEM_MARGIN'
+  | 'selectAffixPadding'
 >;
 
 /**
@@ -41,13 +40,21 @@ type SelectItemToken = Pick<
 export const getMultipleSelectorUnit = (
   token: Pick<
     SelectToken,
-    'max' | 'calc' | 'multipleSelectItemHeight' | 'paddingXXS' | 'lineWidth'
+    | 'max'
+    | 'calc'
+    | 'multipleSelectItemHeight'
+    | 'paddingXXS'
+    | 'lineWidth'
+    | 'INTERNAL_FIXED_ITEM_MARGIN'
   >,
 ) => {
-  const { multipleSelectItemHeight, paddingXXS, lineWidth } = token;
+  const { multipleSelectItemHeight, paddingXXS, lineWidth, INTERNAL_FIXED_ITEM_MARGIN } = token;
 
   const basePadding = token.max(token.calc(paddingXXS).sub(lineWidth).equal(), 0);
-  const containerPadding = token.max(token.calc(basePadding).sub(FIXED_ITEM_MARGIN).equal(), 0);
+  const containerPadding = token.max(
+    token.calc(basePadding).sub(INTERNAL_FIXED_ITEM_MARGIN).equal(),
+    0,
+  );
 
   return {
     basePadding,
@@ -87,6 +94,7 @@ export const genOverflowStyle = (
     | 'multipleItemBorderColorDisabled'
     | 'colorIcon'
     | 'colorIconHover'
+    | 'INTERNAL_FIXED_ITEM_MARGIN'
   >,
 ): CSSObject => {
   const {
@@ -99,6 +107,7 @@ export const genOverflowStyle = (
     multipleItemBorderColorDisabled,
     colorIcon,
     colorIconHover,
+    INTERNAL_FIXED_ITEM_MARGIN,
   } = token;
 
   const selectOverflowPrefixCls = `${componentCls}-selection-overflow`;
@@ -130,11 +139,11 @@ export const genOverflowStyle = (
         flex: 'none',
         boxSizing: 'border-box',
         maxWidth: '100%',
-        marginBlock: FIXED_ITEM_MARGIN,
+        marginBlock: INTERNAL_FIXED_ITEM_MARGIN,
         borderRadius: borderRadiusSM,
         cursor: 'default',
         transition: `font-size ${motionDurationSlow}, line-height ${motionDurationSlow}, height ${motionDurationSlow}`,
-        marginInlineEnd: token.calc(FIXED_ITEM_MARGIN).mul(2).equal(),
+        marginInlineEnd: token.calc(INTERNAL_FIXED_ITEM_MARGIN).mul(2).equal(),
         paddingInlineStart: paddingXS,
         paddingInlineEnd: token.calc(paddingXS).div(2).equal(),
 
@@ -181,7 +190,7 @@ const genSelectionStyle = (
   token: TokenWithCommonCls<AliasToken> & SelectItemToken,
   suffix?: string,
 ): CSSObject => {
-  const { componentCls } = token;
+  const { componentCls, INTERNAL_FIXED_ITEM_MARGIN } = token;
 
   const selectOverflowPrefixCls = `${componentCls}-selection-overflow`;
 
@@ -200,8 +209,8 @@ const genSelectionStyle = (
       // ========================= Selector =========================
       [`${componentCls}-selector`]: {
         display: 'flex',
-        flexWrap: 'wrap',
         alignItems: 'center',
+        width: '100%',
         height: '100%',
         // Multiple is little different that horizontal is follow the vertical
         paddingInline: multipleSelectorUnit.basePadding,
@@ -216,7 +225,7 @@ const genSelectionStyle = (
         '&:after': {
           display: 'inline-block',
           width: 0,
-          margin: `${unit(FIXED_ITEM_MARGIN)} 0`,
+          margin: `${unit(INTERNAL_FIXED_ITEM_MARGIN)} 0`,
           lineHeight: unit(selectItemHeight),
           visibility: 'hidden',
           content: '"\\a0"',
@@ -229,16 +238,40 @@ const genSelectionStyle = (
         lineHeight: unit(multipleSelectorUnit.itemLineHeight),
       },
 
+      // ========================== Wrap ===========================
+      [`${componentCls}-selection-wrap`]: {
+        alignSelf: 'flex-start',
+
+        '&:after': {
+          lineHeight: unit(selectItemHeight),
+          marginBlock: INTERNAL_FIXED_ITEM_MARGIN,
+        },
+      },
+
       // ========================== Input ==========================
-      [`${selectOverflowPrefixCls}-item + ${selectOverflowPrefixCls}-item`]: {
+      [`${componentCls}-prefix`]: {
+        marginInlineStart: token
+          .calc(token.inputPaddingHorizontalBase)
+          .sub(multipleSelectorUnit.basePadding)
+          .equal(),
+      },
+
+      [`${selectOverflowPrefixCls}-item + ${selectOverflowPrefixCls}-item,
+        ${componentCls}-prefix + ${componentCls}-selection-wrap
+      `]: {
         [`${componentCls}-selection-search`]: {
           marginInlineStart: 0,
+        },
+        [`${componentCls}-selection-placeholder`]: {
+          insetInlineStart: 0,
         },
       },
 
       // https://github.com/ant-design/ant-design/issues/44754
+      // Same as `wrap:after`
       [`${selectOverflowPrefixCls}-item-suffix`]: {
-        height: '100%',
+        minHeight: multipleSelectorUnit.itemHeight,
+        marginBlock: INTERNAL_FIXED_ITEM_MARGIN,
       },
 
       [`${componentCls}-selection-search`]: {
@@ -277,7 +310,10 @@ const genSelectionStyle = (
       [`${componentCls}-selection-placeholder`]: {
         position: 'absolute',
         top: '50%',
-        insetInlineStart: token.inputPaddingHorizontalBase,
+        insetInlineStart: token
+          .calc(token.inputPaddingHorizontalBase)
+          .sub(multipleSelectorUnit.basePadding)
+          .equal(),
         insetInlineEnd: token.inputPaddingHorizontalBase,
         transform: 'translateY(-50%)',
         transition: `all ${token.motionDurationSlow}`,

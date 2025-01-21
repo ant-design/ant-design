@@ -21,15 +21,21 @@ export type { BreadcrumbItemProps, BreadcrumbProps } from './breadcrumb';
 export { default as Button } from './button';
 export type { ButtonProps } from './button';
 export { default as Calendar } from './calendar';
-export type { CalendarProps } from './calendar';
+export type { CalendarMode, CalendarProps } from './calendar';
 export { default as Card } from './card';
 export type { CardProps } from './card';
 export { default as Carousel } from './carousel';
 export type { CarouselProps } from './carousel';
 export { default as Cascader } from './cascader';
-export type { CascaderProps } from './cascader';
+export type { CascaderProps, CascaderAutoProps } from './cascader';
+export type { CascaderPanelProps, CascaderPanelAutoProps } from './cascader/Panel';
 export { default as Checkbox } from './checkbox';
-export type { CheckboxOptionType, CheckboxProps, CheckboxRef } from './checkbox';
+export type {
+  CheckboxChangeEvent,
+  CheckboxOptionType,
+  CheckboxProps,
+  CheckboxRef,
+} from './checkbox';
 export { default as Col } from './col';
 export type { ColProps } from './col';
 export { default as Collapse } from './collapse';
@@ -84,7 +90,7 @@ export type { LayoutProps, SiderProps } from './layout';
 export { default as List } from './list';
 export type { ListProps } from './list';
 export { default as Mentions } from './mentions';
-export type { MentionProps } from './mentions';
+export type { MentionProps, MentionsProps } from './mentions';
 export { default as Menu } from './menu';
 export type { MenuItemProps, MenuProps, MenuRef, MenuTheme, SubMenuProps } from './menu';
 export { default as message } from './message';
@@ -165,7 +171,12 @@ export type { TreeSelectProps } from './tree-select';
 export { default as Typography } from './typography';
 export type { TypographyProps } from './typography';
 export { default as Upload } from './upload';
-export type { UploadFile, UploadProps } from './upload';
+export type { UploadFile, UploadProps, DraggerProps } from './upload';
 export { default as version } from './version';
 export { default as Watermark } from './watermark';
 export type { WatermarkProps } from './watermark';
+export { default as Splitter } from './splitter';
+export type { SplitterProps } from './splitter';
+
+// TODO: Remove in v6
+export { unstableSetRender } from './config-provider/UnstableContext';

@@ -2,6 +2,9 @@
 title: 依赖排查
 date: 2023-04-13
 author: zombieJ
+zhihu_url: https://zhuanlan.zhihu.com/p/639266509
+yuque_url: https://www.yuque.com/ant-design/ant-design/yi1lz5dg3iygwbed
+juejin_url: https://juejin.cn/post/7322296529783128101
 ---
 
 Ant Design 作为大型组件库，内部依赖十分复杂。有时候 antd 代码本身没有改动，但是底层依赖更新也可能导致开发者的构建失败。比如最近由于我的失误，一处[路径大小写错误](https://github.com/ant-design/ant-design/issues/41236)使得在 Linux 下会构建失败。

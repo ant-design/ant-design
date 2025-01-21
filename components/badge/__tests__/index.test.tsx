@@ -1,10 +1,9 @@
 import React from 'react';
-import { fireEvent, render } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
 
 import type { GetRef } from '../../_util/type';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { act, fireEvent, render, waitFakeTimer19 } from '../../../tests/utils';
 import Tooltip from '../../tooltip';
 import Badge from '../index';
 
@@ -27,19 +26,31 @@ describe('Badge', () => {
     jest.useRealTimers();
   });
 
-  it('no strict warning', () => {
+  it('no strict warning', async () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const { rerender } = render(
-      <Badge dot>
-        <span />
-      </Badge>,
-    );
+    const Comp = () => {
+      const [count, setCount] = React.useState<number | null>(9999);
 
-    rerender(
-      <Badge>
-        <span />
-      </Badge>,
-    );
+      return (
+        <>
+          <Badge count={count}>
+            <span>Badge</span>
+          </Badge>
+
+          <br />
+          <br />
+          <br />
+
+          <button type="button" onClick={() => setCount(null)}>
+            click
+          </button>
+        </>
+      );
+    };
+    const { container } = render(<Comp />);
+
+    fireEvent.click(container.querySelector('button')!);
+    await waitFakeTimer19();
 
     expect(errSpy).not.toHaveBeenCalled();
     errSpy.mockRestore();

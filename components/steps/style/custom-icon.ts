@@ -18,7 +18,7 @@ const genStepsCustomIconStyle: GenerateStyle<StepsToken, CSSObject> = (token) =>
           width: customIconSize,
           height: customIconSize,
           fontSize: customIconFontSize,
-          lineHeight: `${unit(customIconFontSize)}`,
+          lineHeight: unit(customIconSize),
         },
       },
     },

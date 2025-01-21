@@ -3,10 +3,10 @@ import { ConfigProvider, Tabs } from 'antd';
 import SourceCode from 'dumi/theme-default/builtins/SourceCode';
 import type { Tab } from 'rc-tabs/lib/interface';
 
+import BunLogo from './bun';
 import NpmLogo from './npm';
 import PnpmLogo from './pnpm';
 import YarnLogo from './yarn';
-import BunLogo from './bun';
 
 interface InstallProps {
   npm?: string;

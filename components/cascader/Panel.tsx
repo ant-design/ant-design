@@ -6,6 +6,7 @@ import type { PickType } from 'rc-cascader/lib/Panel';
 
 import type { CascaderProps, DefaultOptionType } from '.';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useBase from './hooks/useBase';
 import useCheckable from './hooks/useCheckable';
@@ -18,14 +19,20 @@ export type PanelPickType = Exclude<PickType, 'checkable'> | 'multiple' | 'rootC
 export type CascaderPanelProps<
   OptionType extends DefaultOptionType = DefaultOptionType,
   ValueField extends keyof OptionType = keyof OptionType,
-  Multiple extends boolean = false,
+  Multiple extends boolean = boolean,
 > = Pick<CascaderProps<OptionType, ValueField, Multiple>, PanelPickType>;
+
+export type CascaderPanelAutoProps<
+  OptionType extends DefaultOptionType = DefaultOptionType,
+  ValueField extends keyof OptionType = keyof OptionType,
+> =
+  | (CascaderPanelProps<OptionType, ValueField> & { multiple?: false })
+  | (CascaderPanelProps<OptionType, ValueField, true> & { multiple: true });
 
 function CascaderPanel<
   OptionType extends DefaultOptionType = DefaultOptionType,
   ValueField extends keyof OptionType = keyof OptionType,
-  Multiple extends boolean = false,
->(props: CascaderPanelProps<OptionType, ValueField, Multiple>) {
+>(props: CascaderPanelAutoProps<OptionType, ValueField>) {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -34,7 +41,11 @@ function CascaderPanel<
     notFoundContent,
     direction,
     expandIcon,
+    disabled: customDisabled,
   } = props;
+
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled ?? disabled;
 
   const [prefixCls, cascaderPrefixCls, mergedDirection, renderEmpty] = useBase(
     customizePrefixCls,
@@ -70,6 +81,7 @@ function CascaderPanel<
       direction={mergedDirection}
       expandIcon={mergedExpandIcon}
       loadingIcon={loadingIcon}
+      disabled={mergedDisabled}
     />,
   );
 }
