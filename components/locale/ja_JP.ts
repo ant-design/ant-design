@@ -21,7 +21,7 @@ const localeValues: Locale = {
     filterConfirm: 'OK',
     filterReset: 'リセット',
     filterEmptyText: 'フィルターなし',
-    filterCheckall: 'すべてを選択',
+    filterCheckAll: 'すべてを選択',
     filterSearchPlaceholder: 'フィルターで検索',
     emptyText: 'データなし',
     selectAll: 'ページ単位で選択',
