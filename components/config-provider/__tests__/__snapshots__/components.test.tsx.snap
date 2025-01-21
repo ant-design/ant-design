@@ -1755,6 +1755,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             <input
               checked=""
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -1774,6 +1775,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           >
             <input
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -2639,6 +2641,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           >
             <input
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -2659,6 +2662,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             <input
               checked=""
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -3058,6 +3062,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
               checked=""
               class="config-radio-button-input"
               disabled=""
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -3078,6 +3083,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             <input
               class="config-radio-button-input"
               disabled=""
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -3945,6 +3951,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             <input
               class="config-radio-button-input"
               disabled=""
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -3966,6 +3973,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
               checked=""
               class="config-radio-button-input"
               disabled=""
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -4362,6 +4370,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             <input
               checked=""
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -4381,6 +4390,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           >
             <input
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -5246,6 +5256,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           >
             <input
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -5266,6 +5277,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             <input
               checked=""
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -5662,6 +5674,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
             <input
               checked=""
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -5681,6 +5694,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
           >
             <input
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -6546,6 +6560,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
           >
             <input
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -6566,6 +6581,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
             <input
               checked=""
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -6962,6 +6978,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             <input
               checked=""
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -6981,6 +6998,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
           >
             <input
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -7846,6 +7864,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
           >
             <input
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -7866,6 +7885,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             <input
               checked=""
               class="config-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -8262,6 +8282,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -8281,6 +8302,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -9146,6 +9168,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -9166,6 +9189,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -9562,6 +9586,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -9581,6 +9606,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -10446,6 +10472,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="month"
             />
@@ -10466,6 +10493,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="year"
             />
@@ -16125,7 +16153,7 @@ exports[`ConfigProvider components Input configProvider 1`] = `
       >
         <input
           class="config-input config-input-outlined"
-          type="text"
+          type="search"
           value=""
         />
         <span
@@ -16225,7 +16253,7 @@ exports[`ConfigProvider components Input configProvider componentDisabled 1`] = 
         <input
           class="config-input config-input-disabled config-input-outlined"
           disabled=""
-          type="text"
+          type="search"
           value=""
         />
         <span
@@ -16326,7 +16354,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
       >
         <input
           class="config-input config-input-lg config-input-outlined"
-          type="text"
+          type="search"
           value=""
         />
         <span
@@ -16424,7 +16452,7 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
       >
         <input
           class="config-input config-input-outlined"
-          type="text"
+          type="search"
           value=""
         />
         <span
@@ -16522,7 +16550,7 @@ exports[`ConfigProvider components Input configProvider componentSize small 1`] 
       >
         <input
           class="config-input config-input-sm config-input-outlined"
-          type="text"
+          type="search"
           value=""
         />
         <span
@@ -16620,7 +16648,7 @@ exports[`ConfigProvider components Input normal 1`] = `
       >
         <input
           class="ant-input ant-input-outlined"
-          type="text"
+          type="search"
           value=""
         />
         <span
@@ -16718,7 +16746,7 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
       >
         <input
           class="ant-input ant-input-outlined"
-          type="text"
+          type="search"
           value=""
         />
         <span
@@ -22174,6 +22202,7 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
         <input
           checked=""
           class="config-radio-input"
+          name="test-id"
           type="radio"
         />
         <span
@@ -22197,6 +22226,7 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
         <input
           checked=""
           class="config-radio-button-input"
+          name="test-id"
           type="radio"
         />
         <span
@@ -22226,6 +22256,7 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
           checked=""
           class="config-radio-input"
           disabled=""
+          name="test-id"
           type="radio"
         />
         <span
@@ -22250,6 +22281,7 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
           checked=""
           class="config-radio-button-input"
           disabled=""
+          name="test-id"
           type="radio"
         />
         <span
@@ -22278,6 +22310,7 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
         <input
           checked=""
           class="config-radio-input"
+          name="test-id"
           type="radio"
         />
         <span
@@ -22301,6 +22334,7 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
         <input
           checked=""
           class="config-radio-button-input"
+          name="test-id"
           type="radio"
         />
         <span
@@ -22329,6 +22363,7 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
         <input
           checked=""
           class="config-radio-input"
+          name="test-id"
           type="radio"
         />
         <span
@@ -22352,6 +22387,7 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
         <input
           checked=""
           class="config-radio-button-input"
+          name="test-id"
           type="radio"
         />
         <span
@@ -22380,6 +22416,7 @@ exports[`ConfigProvider components Radio configProvider componentSize small 1`] 
         <input
           checked=""
           class="config-radio-input"
+          name="test-id"
           type="radio"
         />
         <span
@@ -22403,6 +22440,7 @@ exports[`ConfigProvider components Radio configProvider componentSize small 1`] 
         <input
           checked=""
           class="config-radio-button-input"
+          name="test-id"
           type="radio"
         />
         <span
@@ -22431,6 +22469,7 @@ exports[`ConfigProvider components Radio normal 1`] = `
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
         />
         <span
@@ -22454,6 +22493,7 @@ exports[`ConfigProvider components Radio normal 1`] = `
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
         />
         <span
@@ -22482,6 +22522,7 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
         <input
           checked=""
           class="prefix-Radio-input"
+          name="test-id"
           type="radio"
         />
         <span
@@ -22505,6 +22546,7 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
         <input
           checked=""
           class="prefix-Radio-button-input"
+          name="test-id"
           type="radio"
         />
         <span
@@ -28935,6 +28977,7 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
   class="config-tabs config-tabs-top"
 >
   <div
+    aria-orientation="horizontal"
     class="config-tabs-nav"
     role="tablist"
   >
@@ -29025,6 +29068,7 @@ exports[`ConfigProvider components Tabs configProvider componentDisabled 1`] = `
   class="config-tabs config-tabs-top"
 >
   <div
+    aria-orientation="horizontal"
     class="config-tabs-nav"
     role="tablist"
   >
@@ -29115,6 +29159,7 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
   class="config-tabs config-tabs-top config-tabs-large"
 >
   <div
+    aria-orientation="horizontal"
     class="config-tabs-nav"
     role="tablist"
   >
@@ -29205,6 +29250,7 @@ exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] 
   class="config-tabs config-tabs-top config-tabs-middle"
 >
   <div
+    aria-orientation="horizontal"
     class="config-tabs-nav"
     role="tablist"
   >
@@ -29295,6 +29341,7 @@ exports[`ConfigProvider components Tabs configProvider componentSize small 1`] =
   class="config-tabs config-tabs-top config-tabs-small"
 >
   <div
+    aria-orientation="horizontal"
     class="config-tabs-nav"
     role="tablist"
   >
@@ -29385,6 +29432,7 @@ exports[`ConfigProvider components Tabs normal 1`] = `
   class="ant-tabs ant-tabs-top"
 >
   <div
+    aria-orientation="horizontal"
     class="ant-tabs-nav"
     role="tablist"
   >
@@ -29475,6 +29523,7 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
   class="prefix-Tabs prefix-Tabs-top"
 >
   <div
+    aria-orientation="horizontal"
     class="prefix-Tabs-nav"
     role="tablist"
   >
@@ -41434,7 +41483,6 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
 <div>
   <div
     class="config-tree config-tree-icon-hide"
-    role="tree"
   >
     <div>
       <input
@@ -41459,6 +41507,7 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
     </div>
     <div
       class="config-tree-list"
+      role="tree"
       style="position: relative;"
     >
       <div
@@ -41470,9 +41519,10 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-grabbed="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              aria-expanded="false"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
+              role="treeitem"
             >
               <span
                 aria-hidden="true"
@@ -41499,7 +41549,6 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
   </div>
   <div
     class="config-tree config-tree-block-node config-tree-directory"
-    role="tree"
   >
     <div>
       <input
@@ -41524,6 +41573,7 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
     </div>
     <div
       class="config-tree-list"
+      role="tree"
       style="position: relative;"
     >
       <div
@@ -41535,9 +41585,10 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-grabbed="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              aria-expanded="false"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
+              role="treeitem"
             >
               <span
                 aria-hidden="true"
@@ -41592,7 +41643,6 @@ exports[`ConfigProvider components Tree configProvider componentDisabled 1`] = `
 <div>
   <div
     class="config-tree config-tree-icon-hide"
-    role="tree"
   >
     <div>
       <input
@@ -41617,6 +41667,7 @@ exports[`ConfigProvider components Tree configProvider componentDisabled 1`] = `
     </div>
     <div
       class="config-tree-list"
+      role="tree"
       style="position: relative;"
     >
       <div
@@ -41628,9 +41679,10 @@ exports[`ConfigProvider components Tree configProvider componentDisabled 1`] = `
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-grabbed="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              aria-expanded="false"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
+              role="treeitem"
             >
               <span
                 aria-hidden="true"
@@ -41657,7 +41709,6 @@ exports[`ConfigProvider components Tree configProvider componentDisabled 1`] = `
   </div>
   <div
     class="config-tree config-tree-block-node config-tree-directory"
-    role="tree"
   >
     <div>
       <input
@@ -41682,6 +41733,7 @@ exports[`ConfigProvider components Tree configProvider componentDisabled 1`] = `
     </div>
     <div
       class="config-tree-list"
+      role="tree"
       style="position: relative;"
     >
       <div
@@ -41693,9 +41745,10 @@ exports[`ConfigProvider components Tree configProvider componentDisabled 1`] = `
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-grabbed="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              aria-expanded="false"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
+              role="treeitem"
             >
               <span
                 aria-hidden="true"
@@ -41750,7 +41803,6 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
 <div>
   <div
     class="config-tree config-tree-icon-hide"
-    role="tree"
   >
     <div>
       <input
@@ -41775,6 +41827,7 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
     </div>
     <div
       class="config-tree-list"
+      role="tree"
       style="position: relative;"
     >
       <div
@@ -41786,9 +41839,10 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-grabbed="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              aria-expanded="false"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
+              role="treeitem"
             >
               <span
                 aria-hidden="true"
@@ -41815,7 +41869,6 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
   </div>
   <div
     class="config-tree config-tree-block-node config-tree-directory"
-    role="tree"
   >
     <div>
       <input
@@ -41840,6 +41893,7 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
     </div>
     <div
       class="config-tree-list"
+      role="tree"
       style="position: relative;"
     >
       <div
@@ -41851,9 +41905,10 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-grabbed="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              aria-expanded="false"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
+              role="treeitem"
             >
               <span
                 aria-hidden="true"
@@ -41908,7 +41963,6 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
 <div>
   <div
     class="config-tree config-tree-icon-hide"
-    role="tree"
   >
     <div>
       <input
@@ -41933,6 +41987,7 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
     </div>
     <div
       class="config-tree-list"
+      role="tree"
       style="position: relative;"
     >
       <div
@@ -41944,9 +41999,10 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-grabbed="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              aria-expanded="false"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
+              role="treeitem"
             >
               <span
                 aria-hidden="true"
@@ -41973,7 +42029,6 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
   </div>
   <div
     class="config-tree config-tree-block-node config-tree-directory"
-    role="tree"
   >
     <div>
       <input
@@ -41998,6 +42053,7 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
     </div>
     <div
       class="config-tree-list"
+      role="tree"
       style="position: relative;"
     >
       <div
@@ -42009,9 +42065,10 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-grabbed="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              aria-expanded="false"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
+              role="treeitem"
             >
               <span
                 aria-hidden="true"
@@ -42066,7 +42123,6 @@ exports[`ConfigProvider components Tree configProvider componentSize small 1`] =
 <div>
   <div
     class="config-tree config-tree-icon-hide"
-    role="tree"
   >
     <div>
       <input
@@ -42091,6 +42147,7 @@ exports[`ConfigProvider components Tree configProvider componentSize small 1`] =
     </div>
     <div
       class="config-tree-list"
+      role="tree"
       style="position: relative;"
     >
       <div
@@ -42102,9 +42159,10 @@ exports[`ConfigProvider components Tree configProvider componentSize small 1`] =
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-grabbed="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              aria-expanded="false"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
+              role="treeitem"
             >
               <span
                 aria-hidden="true"
@@ -42131,7 +42189,6 @@ exports[`ConfigProvider components Tree configProvider componentSize small 1`] =
   </div>
   <div
     class="config-tree config-tree-block-node config-tree-directory"
-    role="tree"
   >
     <div>
       <input
@@ -42156,6 +42213,7 @@ exports[`ConfigProvider components Tree configProvider componentSize small 1`] =
     </div>
     <div
       class="config-tree-list"
+      role="tree"
       style="position: relative;"
     >
       <div
@@ -42167,9 +42225,10 @@ exports[`ConfigProvider components Tree configProvider componentSize small 1`] =
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-grabbed="false"
-              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
+              aria-expanded="false"
+              class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
+              role="treeitem"
             >
               <span
                 aria-hidden="true"
@@ -42224,7 +42283,6 @@ exports[`ConfigProvider components Tree normal 1`] = `
 <div>
   <div
     class="ant-tree ant-tree-icon-hide"
-    role="tree"
   >
     <div>
       <input
@@ -42249,6 +42307,7 @@ exports[`ConfigProvider components Tree normal 1`] = `
     </div>
     <div
       class="ant-tree-list"
+      role="tree"
       style="position: relative;"
     >
       <div
@@ -42260,9 +42319,10 @@ exports[`ConfigProvider components Tree normal 1`] = `
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-grabbed="false"
-              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+              aria-expanded="false"
+              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
               draggable="false"
+              role="treeitem"
             >
               <span
                 aria-hidden="true"
@@ -42289,7 +42349,6 @@ exports[`ConfigProvider components Tree normal 1`] = `
   </div>
   <div
     class="ant-tree ant-tree-block-node ant-tree-directory"
-    role="tree"
   >
     <div>
       <input
@@ -42314,6 +42373,7 @@ exports[`ConfigProvider components Tree normal 1`] = `
     </div>
     <div
       class="ant-tree-list"
+      role="tree"
       style="position: relative;"
     >
       <div
@@ -42325,9 +42385,10 @@ exports[`ConfigProvider components Tree normal 1`] = `
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-grabbed="false"
-              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+              aria-expanded="false"
+              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
               draggable="false"
+              role="treeitem"
             >
               <span
                 aria-hidden="true"
@@ -42382,7 +42443,6 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
 <div>
   <div
     class="prefix-Tree prefix-Tree-icon-hide"
-    role="tree"
   >
     <div>
       <input
@@ -42407,6 +42467,7 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
     </div>
     <div
       class="prefix-Tree-list"
+      role="tree"
       style="position: relative;"
     >
       <div
@@ -42418,9 +42479,10 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-grabbed="false"
-              class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close prefix-Tree-treenode-leaf-last"
+              aria-expanded="false"
+              class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close prefix-Tree-treenode-leaf-last prefix-Tree-treenode-leaf"
               draggable="false"
+              role="treeitem"
             >
               <span
                 aria-hidden="true"
@@ -42447,7 +42509,6 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
   </div>
   <div
     class="prefix-Tree prefix-Tree-block-node prefix-Tree-directory"
-    role="tree"
   >
     <div>
       <input
@@ -42472,6 +42533,7 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
     </div>
     <div
       class="prefix-Tree-list"
+      role="tree"
       style="position: relative;"
     >
       <div
@@ -42483,9 +42545,10 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-grabbed="false"
-              class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close prefix-Tree-treenode-leaf-last"
+              aria-expanded="false"
+              class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close prefix-Tree-treenode-leaf-last prefix-Tree-treenode-leaf"
               draggable="false"
+              role="treeitem"
             >
               <span
                 aria-hidden="true"
@@ -42585,7 +42648,6 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
         </span>
         <div
           class="config-select-tree config-select-tree-active-focused"
-          role="tree"
         >
           <div>
             <input
@@ -42610,6 +42672,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
           </div>
           <div
             class="config-select-tree-list"
+            role="tree"
             style="position: relative;"
           >
             <div
@@ -42622,9 +42685,10 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-grabbed="false"
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last"
+                    aria-expanded="false"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last config-select-tree-treenode-leaf"
                     draggable="false"
+                    role="treeitem"
                   >
                     <span
                       aria-hidden="true"
@@ -42795,7 +42859,6 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
         </span>
         <div
           class="config-select-tree config-select-tree-active-focused"
-          role="tree"
         >
           <div>
             <input
@@ -42820,6 +42883,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
           </div>
           <div
             class="config-select-tree-list"
+            role="tree"
             style="position: relative;"
           >
             <div
@@ -42832,9 +42896,10 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-grabbed="false"
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last"
+                    aria-expanded="false"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last config-select-tree-treenode-leaf"
                     draggable="false"
+                    role="treeitem"
                   >
                     <span
                       aria-hidden="true"
@@ -42940,7 +43005,6 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
         </span>
         <div
           class="config-select-tree config-select-tree-active-focused"
-          role="tree"
         >
           <div>
             <input
@@ -42965,6 +43029,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
           </div>
           <div
             class="config-select-tree-list"
+            role="tree"
             style="position: relative;"
           >
             <div
@@ -42977,9 +43042,10 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-grabbed="false"
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last"
+                    aria-expanded="false"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last config-select-tree-treenode-leaf"
                     draggable="false"
+                    role="treeitem"
                   >
                     <span
                       aria-hidden="true"
@@ -43085,7 +43151,6 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize small
         </span>
         <div
           class="config-select-tree config-select-tree-active-focused"
-          role="tree"
         >
           <div>
             <input
@@ -43110,6 +43175,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize small
           </div>
           <div
             class="config-select-tree-list"
+            role="tree"
             style="position: relative;"
           >
             <div
@@ -43122,9 +43188,10 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize small
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-grabbed="false"
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last"
+                    aria-expanded="false"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-active config-select-tree-treenode-leaf-last config-select-tree-treenode-leaf"
                     draggable="false"
+                    role="treeitem"
                   >
                     <span
                       aria-hidden="true"
@@ -43230,7 +43297,6 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
         </span>
         <div
           class="ant-select-tree ant-select-tree-active-focused"
-          role="tree"
         >
           <div>
             <input
@@ -43255,6 +43321,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
           </div>
           <div
             class="ant-select-tree-list"
+            role="tree"
             style="position: relative;"
           >
             <div
@@ -43267,9 +43334,10 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-grabbed="false"
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-active ant-select-tree-treenode-leaf-last"
+                    aria-expanded="false"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-active ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
+                    role="treeitem"
                   >
                     <span
                       aria-hidden="true"
@@ -43375,7 +43443,6 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
         </span>
         <div
           class="prefix-TreeSelect-tree prefix-TreeSelect-tree-active-focused"
-          role="tree"
         >
           <div>
             <input
@@ -43400,6 +43467,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
           </div>
           <div
             class="prefix-TreeSelect-tree-list"
+            role="tree"
             style="position: relative;"
           >
             <div
@@ -43412,9 +43480,10 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-grabbed="false"
-                    class="prefix-TreeSelect-tree-treenode prefix-TreeSelect-tree-treenode-switcher-close prefix-TreeSelect-tree-treenode-active prefix-TreeSelect-tree-treenode-leaf-last"
+                    aria-expanded="false"
+                    class="prefix-TreeSelect-tree-treenode prefix-TreeSelect-tree-treenode-switcher-close prefix-TreeSelect-tree-treenode-active prefix-TreeSelect-tree-treenode-leaf-last prefix-TreeSelect-tree-treenode-leaf"
                     draggable="false"
+                    role="treeitem"
                   >
                     <span
                       aria-hidden="true"

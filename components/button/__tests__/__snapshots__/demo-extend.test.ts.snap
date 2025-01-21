@@ -492,6 +492,162 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
       </span>
     </button>
   </div>
+  <div
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+  >
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-pink ant-btn-variant-solid ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Solid
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-pink ant-btn-variant-outlined ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Outlined
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-pink ant-btn-variant-dashed ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Dashed
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-pink ant-btn-variant-filled ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Filled
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-pink ant-btn-variant-text ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Text
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-pink ant-btn-variant-link ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Link
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+  >
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-purple ant-btn-variant-solid ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Solid
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-purple ant-btn-variant-outlined ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Outlined
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-purple ant-btn-variant-dashed ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Dashed
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-purple ant-btn-variant-filled ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Filled
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-purple ant-btn-variant-text ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Text
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-purple ant-btn-variant-link ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Link
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+  >
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-cyan ant-btn-variant-solid ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Solid
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-cyan ant-btn-variant-outlined ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Outlined
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-cyan ant-btn-variant-dashed ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Dashed
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-cyan ant-btn-variant-filled ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Filled
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-cyan ant-btn-variant-text ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Text
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-cyan ant-btn-variant-link ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Link
+      </span>
+    </button>
+  </div>
 </div>
 `;
 
@@ -743,6 +899,7 @@ Array [
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="large"
         />
@@ -762,6 +919,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="default"
         />
@@ -781,6 +939,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="small"
         />
@@ -1434,7 +1593,7 @@ Array [
         >
           <input
             class="ant-input ant-input-lg ant-input-outlined"
-            type="text"
+            type="search"
             value=""
           />
           <span
@@ -2206,6 +2365,7 @@ Array [
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="start"
             />
@@ -2226,6 +2386,7 @@ Array [
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="end"
             />
@@ -3155,6 +3316,37 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
         </span>
       </span>
     </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-loading"
+      type="button"
+    >
+      <span
+        class="ant-btn-icon"
+      >
+        <span
+          aria-label="sync"
+          class="anticon anticon-sync anticon-spin"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="sync"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M168 504.2c1-43.7 10-86.1 26.9-126 17.3-41 42.1-77.7 73.7-109.4S337 212.3 378 195c42.4-17.9 87.4-27 133.9-27s91.5 9.1 133.8 27A341.5 341.5 0 01755 268.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.7 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c0-6.7-7.7-10.5-12.9-6.3l-56.4 44.1C765.8 155.1 646.2 92 511.8 92 282.7 92 96.3 275.6 92 503.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8zm756 7.8h-60c-4.4 0-7.9 3.5-8 7.8-1 43.7-10 86.1-26.9 126-17.3 41-42.1 77.8-73.7 109.4A342.45 342.45 0 01512.1 856a342.24 342.24 0 01-243.2-100.8c-9.9-9.9-19.2-20.4-27.8-31.4l60.2-47a8 8 0 00-3-14.1l-175.7-43c-5-1.2-9.9 2.6-9.9 7.7l-.7 181c0 6.7 7.7 10.5 12.9 6.3l56.4-44.1C258.2 868.9 377.8 932 512.2 932c229.2 0 415.5-183.7 419.8-411.8a8 8 0 00-8-8.2z"
+            />
+          </svg>
+        </span>
+      </span>
+      <span>
+        Loading Icon
+      </span>
+    </button>
   </div>
   <div
     class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
@@ -3232,6 +3424,37 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
             />
           </svg>
         </span>
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span
+        class="ant-btn-icon"
+      >
+        <span
+          aria-label="poweroff"
+          class="anticon anticon-poweroff"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="poweroff"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M705.6 124.9a8 8 0 00-11.6 7.2v64.2c0 5.5 2.9 10.6 7.5 13.6a352.2 352.2 0 0162.2 49.8c32.7 32.8 58.4 70.9 76.3 113.3a355 355 0 0127.9 138.7c0 48.1-9.4 94.8-27.9 138.7a355.92 355.92 0 01-76.3 113.3 353.06 353.06 0 01-113.2 76.4c-43.8 18.6-90.5 28-138.5 28s-94.7-9.4-138.5-28a353.06 353.06 0 01-113.2-76.4A355.92 355.92 0 01184 650.4a355 355 0 01-27.9-138.7c0-48.1 9.4-94.8 27.9-138.7 17.9-42.4 43.6-80.5 76.3-113.3 19-19 39.8-35.6 62.2-49.8 4.7-2.9 7.5-8.1 7.5-13.6V132c0-6-6.3-9.8-11.6-7.2C178.5 195.2 82 339.3 80 506.3 77.2 745.1 272.5 943.5 511.2 944c239 .5 432.8-193.3 432.8-432.4 0-169.2-97-315.7-238.4-386.7zM480 560h64c4.4 0 8-3.6 8-8V88c0-4.4-3.6-8-8-8h-64c-4.4 0-8 3.6-8 8v464c0 4.4 3.6 8 8 8z"
+            />
+          </svg>
+        </span>
+      </span>
+      <span>
+        Loading Icon
       </span>
     </button>
   </div>
@@ -3422,6 +3645,7 @@ Array [
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="large"
         />
@@ -3441,6 +3665,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="default"
         />
@@ -3460,6 +3685,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="small"
         />

@@ -901,7 +901,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <input
             class="ant-input ant-input-outlined"
-            type="text"
+            type="search"
             value="0571"
           />
           <span
@@ -950,16 +950,15 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           >
             <input
               class="ant-input"
-              type="text"
+              type="search"
               value="26888888"
             />
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon"
-                role="button"
-                tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -981,7 +980,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
           <span
@@ -1027,7 +1026,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <input
             class="ant-input ant-input-outlined"
-            type="text"
+            type="search"
             value="+1"
           />
           <span
@@ -8452,7 +8451,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             <div>
               <div
                 class="ant-select-tree"
-                role="tree"
               >
                 <div>
                   <input
@@ -8477,6 +8475,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                 </div>
                 <div
                   class="ant-select-tree-list"
+                  role="tree"
                   style="position: relative;"
                 >
                   <div
@@ -8489,9 +8488,10 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         style="display: flex; flex-direction: column;"
                       >
                         <div
-                          aria-grabbed="false"
+                          aria-expanded="true"
                           class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                           draggable="false"
+                          role="treeitem"
                         >
                           <span
                             aria-hidden="true"
@@ -8532,9 +8532,10 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </span>
                         </div>
                         <div
-                          aria-grabbed="false"
+                          aria-expanded="true"
                           class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
                           draggable="false"
+                          role="treeitem"
                         >
                           <span
                             aria-hidden="true"
@@ -8579,9 +8580,10 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </span>
                         </div>
                         <div
-                          aria-grabbed="false"
-                          class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-selected"
+                          aria-expanded="false"
+                          class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-selected ant-select-tree-treenode-leaf"
                           draggable="false"
+                          role="treeitem"
                         >
                           <span
                             aria-hidden="true"
@@ -8609,9 +8611,10 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </span>
                         </div>
                         <div
-                          aria-grabbed="false"
-                          class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
+                          aria-expanded="false"
+                          class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                           draggable="false"
+                          role="treeitem"
                         >
                           <span
                             aria-hidden="true"
@@ -8639,9 +8642,10 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </span>
                         </div>
                         <div
-                          aria-grabbed="false"
+                          aria-expanded="true"
                           class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                           draggable="false"
+                          role="treeitem"
                         >
                           <span
                             aria-hidden="true"
@@ -8686,9 +8690,10 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </span>
                         </div>
                         <div
-                          aria-grabbed="false"
-                          class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
+                          aria-expanded="false"
+                          class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                           draggable="false"
+                          role="treeitem"
                         >
                           <span
                             aria-hidden="true"
@@ -9370,6 +9375,41 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space-compact"
+    >
+      <button
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-first-item"
+        type="button"
+      >
+        <span>
+          Button
+        </span>
+      </button>
+      <span
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item ant-input-compact-last-item"
+      >
+        <span
+          class="ant-input-wrapper ant-input-group"
+        >
+          <input
+            class="ant-input ant-input-outlined"
+            placeholder="input here"
+            type="text"
+            value=""
+          />
+          <span
+            class="ant-input-group-addon"
+          >
+            $
+          </span>
+        </span>
+      </span>
     </div>
   </div>
 </div>
@@ -10918,7 +10958,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <input
             class="ant-input ant-input-outlined"
-            type="text"
+            type="search"
             value=""
           />
           <span
@@ -10963,7 +11003,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <input
             class="ant-input ant-input-outlined"
-            type="text"
+            type="search"
             value=""
           />
           <span
@@ -14524,7 +14564,7 @@ Array [
             <input
               class="ant-input ant-input-outlined"
               placeholder="Search"
-              type="text"
+              type="search"
               value=""
             />
             <span
@@ -16659,6 +16699,7 @@ Array [
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="small"
         />
@@ -16678,6 +16719,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="middle"
         />
@@ -16697,6 +16739,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="large"
         />
@@ -16716,6 +16759,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="customize"
         />

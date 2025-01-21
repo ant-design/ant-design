@@ -9,8 +9,8 @@ const treeData: TreeDataNode[] = [
     title: 'parent 0',
     key: '0-0',
     children: [
-      { title: 'leaf 0-0', key: '0-0-0', isLeaf: true },
-      { title: 'leaf 0-1', key: '0-0-1', isLeaf: true },
+      { title: 'leaf 0-0', key: '0-0-0', isLeaf: true, disabled: true },
+      { title: 'leaf 0-1', key: '0-0-1', isLeaf: true, disableCheckbox: true },
     ],
   },
   {
@@ -46,7 +46,9 @@ const BasicDemo = () => <DirectoryTree {...sharedProps} multiple treeData={treeD
 
 const NormalDemo = () => <Tree {...sharedProps} defaultSelectedKeys={['0-1']} />;
 
-const NormalCheckDemo = () => <Tree {...sharedProps} checkable defaultSelectedKeys={['0-1']} />;
+const NormalCheckDemo = () => (
+  <Tree {...sharedProps} checkable defaultSelectedKeys={['0-1', '0-0-0', '0-0-1', '0-1-1']} />
+);
 
 const NormalDragDemo = () => <Tree {...sharedProps} draggable defaultSelectedKeys={['0-1-0']} />;
 
