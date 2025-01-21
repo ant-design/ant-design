@@ -64,7 +64,7 @@ export default function useTheme(
         prefix: config?.prefixCls, // Same as prefixCls by default
         ...(typeof parentThemeConfig.cssVar === 'object' ? parentThemeConfig.cssVar : {}),
         ...(typeof themeConfig.cssVar === 'object' ? themeConfig.cssVar : {}),
-        key: themeConfig.cssVar?.key || parentThemeConfig.cssVar?.key || cssVarKey,
+        key: themeConfig.cssVar?.key ?? parentThemeConfig.cssVar?.key ?? cssVarKey,
       };
 
       // Base token
