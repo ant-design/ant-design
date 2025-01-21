@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-constructed-context-values */
 import path from 'path';
 import * as React from 'react';
 import { createCache, StyleProvider } from '@ant-design/cssinjs';
@@ -27,7 +26,7 @@ export type Options = {
   nameCheckPathOnly?: boolean;
 };
 
-function baseText(doInject: boolean, component: string, options: Options = {}) {
+function baseTest(doInject: boolean, component: string, options: Options = {}) {
   const files = globSync(`./components/${component}/demo/*.tsx`).filter(
     (file) => !file.includes('_semantic'),
   );
@@ -51,7 +50,7 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         Date.now = jest.fn(() => new Date('2016-11-22').getTime());
         jest.useFakeTimers().setSystemTime(new Date('2016-11-22'));
 
-        let Demo = require(`../../${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
+        let Demo = require(`../../${file}`).default;
         // Inject Trigger status unless skipped
         Demo = typeof Demo === 'function' ? <Demo /> : Demo;
         if (doInject) {
@@ -88,6 +87,11 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
             .filter((msg) => !isSafeWarning(msg, true))
             .sort();
 
+          // Console log the error messages for debugging
+          if (errorMessages.length) {
+            console.log(errSpy.mock.calls);
+          }
+
           expect(errorMessages).toMatchSnapshot();
         }
 
@@ -102,14 +106,14 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
  * Inject Trigger to force open in test snapshots
  */
 export function extendTest(component: string, options: Options = {}) {
-  baseText(true, component, options);
+  baseTest(true, component, options);
 }
 
 /**
  * Test all the demo snapshots
  */
 export default function demoTest(component: string, options: Options = {}) {
-  baseText(false, component, options);
+  baseTest(false, component, options);
 
   // Test component name is match the kebab-case
   const testName = test;
@@ -117,7 +121,7 @@ export default function demoTest(component: string, options: Options = {}) {
     const kebabName = kebabCase(component);
 
     // Path should exist
-    // eslint-disable-next-line global-require, import/no-dynamic-require
+
     const { default: Component } = require(`../../components/${kebabName}`);
 
     if (options.nameCheckPathOnly !== true) {

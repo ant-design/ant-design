@@ -14,7 +14,6 @@ exports[`Transfer.List should render correctly 1`] = `
         class="ant-checkbox ant-checkbox-indeterminate ant-wave-target"
       >
         <input
-          aria-checked="mixed"
           class="ant-checkbox-input"
           type="checkbox"
         />

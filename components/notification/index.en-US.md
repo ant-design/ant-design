@@ -59,7 +59,7 @@ The properties of config are as follows:
 | icon | Customized icon | ReactNode | - | - |
 | key | The unique identifier of the Notification | string | - | - |
 | message | The title of notification box (required) | ReactNode | - | - |
-| placement | Position of Notification, can be one of `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | string | `topRight` | - |
+| placement | Position of Notification, can be one of `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | string | `topRight` | - |
 | style | Customized inline style | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - | - |
 | role | The semantics of notification content recognized by screen readers. The default value is `alert`. When set as the default value, the screen reader will promptly interrupt any ongoing content reading and prioritize the notification content for immediate attention. | `alert \| status` | `alert` | 5.6.0 |
 | onClick | Specify a function that will be called when the notification is clicked | function | - | - |
@@ -75,7 +75,7 @@ The properties of config are as follows:
 | bottom | Distance from the bottom of the viewport, when `placement` is `bottom` `bottomRight` or `bottomLeft` (unit: pixels) | number | 24 |  |
 | closeIcon | Custom close icon | ReactNode | true | 5.7.0: close button will be hidden when setting to null or false |
 | getContainer | Return the mount node for Notification | () => HTMLNode | () => document.body |  |
-| placement | Position of Notification, can be one of `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | string | `topRight` |  |
+| placement | Position of Notification, can be one of `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | string | `topRight` |  |
 | showProgress | Show progress bar for auto-closing notification | boolean |  | 5.18.0 |
 | pauseOnHover | keep the timer running or not on hover | boolean | true | 5.18.0 |
 | rtl | Whether to enable RTL mode | boolean | false |  |

@@ -1,6 +1,6 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
+import { FastColor } from '@ant-design/fast-color';
 
 import type { GenerateStyle } from '../../theme/internal';
 import type { PickerToken, SharedPickerToken } from './token';
@@ -33,6 +33,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       height: cellHeight,
       transform: 'translateY(-50%)',
       content: '""',
+      pointerEvents: 'none',
     },
 
     // >>> Default
@@ -48,8 +49,8 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
     },
 
     // >>> Hover
-    [`&:hover:not(${pickerCellCls}-in-view),
-    &:hover:not(${pickerCellCls}-selected):not(${pickerCellCls}-range-start):not(${pickerCellCls}-range-end)`]:
+    [`&:hover:not(${pickerCellCls}-in-view):not(${pickerCellCls}-disabled),
+    &:hover:not(${pickerCellCls}-selected):not(${pickerCellCls}-range-start):not(${pickerCellCls}-range-end):not(${pickerCellCls}-disabled)`]:
       {
         [pickerCellInnerCls]: {
           background: cellHoverBg,
@@ -124,7 +125,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
     // >>> Disabled
     '&-disabled': {
       color: colorTextDisabled,
-      pointerEvents: 'none',
+      cursor: 'not-allowed',
 
       [pickerCellInnerCls]: {
         background: 'transparent',
@@ -264,6 +265,10 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           display: 'inline-flex',
           alignItems: 'center',
           justifyContent: 'center',
+
+          '&:empty': {
+            display: 'none',
+          },
         },
 
         '> button': {
@@ -464,10 +469,8 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
             },
           },
 
-          '&:hover td': {
-            '&:before': {
-              background: cellHoverBg,
-            },
+          '&:hover td:before': {
+            background: cellHoverBg,
           },
 
           '&-range-start td, &-range-end td, &-selected td, &-hover td': {
@@ -478,7 +481,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
               },
 
               [`&${componentCls}-cell-week`]: {
-                color: new TinyColor(colorTextLightSolid).setAlpha(0.5).toHexString(),
+                color: new FastColor(colorTextLightSolid).setA(0.5).toHexString(),
               },
 
               [pickerCellInnerCls]: {
@@ -570,7 +573,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
           '&::after': {
             display: 'block',
-            height: token.calc('100%').sub(timeCellHeight).equal(),
+            height: `calc(100% - ${unit(timeCellHeight)})`,
             content: '""',
           },
 
@@ -579,7 +582,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           },
 
           '&-active': {
-            background: new TinyColor(controlItemBgActive).setAlpha(0.2).toHexString(),
+            background: new FastColor(controlItemBgActive).setA(0.2).toHexString(),
           },
 
           '&:hover': {

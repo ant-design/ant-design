@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEvent } from 'rc-util';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 import raf from 'rc-util/lib/raf';
 
 import { ConfigContext } from '../../config-provider';
@@ -28,10 +28,16 @@ const useWave = (
     const { showEffect } = wave || {};
 
     // Customize wave effect
-    (showEffect || showWaveEffect)(targetNode, { className, token, component, event, hashId });
+    (showEffect || showWaveEffect)(targetNode, {
+      className,
+      token,
+      component,
+      event,
+      hashId,
+    });
   });
 
-  const rafId = React.useRef<number>();
+  const rafId = React.useRef<number>(null);
 
   // Merge trigger event into one for each frame
   const showDebounceWave: ShowWave = (event) => {

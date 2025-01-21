@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ColorPicker, Flex, Input } from 'antd';
-import { createStyles } from 'antd-style';
 import type { ColorPickerProps, GetProp } from 'antd';
+import { createStyles } from 'antd-style';
 import { generateColor } from 'antd/es/color-picker/util';
 import classNames from 'classnames';
 
@@ -61,7 +61,7 @@ const DebouncedColorPicker: React.FC<React.PropsWithChildren<ThemeColorPickerPro
     <ColorPicker
       value={value}
       onChange={setValue}
-      presets={[{ label: 'PresetColors', colors: PRESET_COLORS }]}
+      presets={[{ label: 'PresetColors', key: 'PresetColors', colors: PRESET_COLORS }]}
     >
       {children}
     </ColorPicker>
@@ -102,7 +102,6 @@ const ThemeColorPicker: React.FC<ThemeColorPickerProps> = ({ value, onChange, id
       <Flex gap="middle">
         {matchColors.map<React.ReactNode>(({ color, active, picker }) => {
           const colorNode = (
-            // eslint-disable-next-line jsx-a11y/label-has-associated-control
             <label
               key={color}
               className={classNames(styles.color, { [styles.colorActive]: active })}

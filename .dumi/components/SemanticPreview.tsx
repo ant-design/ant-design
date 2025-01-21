@@ -66,7 +66,7 @@ const useStyle = createStyles(({ token }, markPos: [number, number, number, numb
 
 export interface SemanticPreviewProps {
   semantics: { name: string; desc: string; version?: string }[];
-  children: React.ReactElement;
+  children: React.ReactElement<any>;
   height?: number;
 }
 
@@ -97,7 +97,7 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
   // ======================== Hover =========================
   const containerRef = React.useRef<HTMLDivElement>(null);
 
-  const timerRef = React.useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = React.useRef<ReturnType<typeof setTimeout>>(null);
 
   const [positionMotion, setPositionMotion] = React.useState<boolean>(false);
   const [hoverSemantic, setHoverSemantic] = React.useState<string | null>(null);
@@ -111,12 +111,14 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
       const targetElement = containerRef.current?.querySelector<HTMLElement>(`.${targetClassName}`);
       const containerRect = containerRef.current?.getBoundingClientRect();
       const targetRect = targetElement?.getBoundingClientRect();
+
       setMarkPos([
         (targetRect?.left || 0) - (containerRect?.left || 0),
         (targetRect?.top || 0) - (containerRect?.top || 0),
         targetRect?.width || 0,
         targetRect?.height || 0,
       ]);
+
       timerRef.current = setTimeout(() => {
         setPositionMotion(true);
       }, 10);

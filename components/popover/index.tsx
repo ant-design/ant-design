@@ -36,15 +36,25 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     mouseLeaveDelay = 0.1,
     onOpenChange,
     overlayStyle = {},
+    styles,
+    classNames: popoverClassNames,
     ...otherProps
   } = props;
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { popover, getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
   const rootPrefixCls = getPrefixCls();
 
-  const overlayCls = classNames(overlayClassName, hashId, cssVarCls);
+  const rootClassNames = classNames(
+    overlayClassName,
+    hashId,
+    cssVarCls,
+    popover?.classNames?.root,
+    popoverClassNames?.root,
+  );
+  const bodyClassNames = classNames(popover?.classNames?.body, popoverClassNames?.body);
+
   const [open, setOpen] = useMergedState(false, {
     value: props.open ?? props.visible,
     defaultValue: props.defaultOpen ?? props.defaultVisible,
@@ -77,10 +87,21 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
       trigger={trigger}
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
-      overlayStyle={overlayStyle}
       {...otherProps}
       prefixCls={prefixCls}
-      overlayClassName={overlayCls}
+      classNames={{ root: rootClassNames, body: bodyClassNames }}
+      styles={{
+        root: {
+          ...popover?.styles?.root,
+          ...popover?.style,
+          ...overlayStyle,
+          ...styles?.root,
+        },
+        body: {
+          ...popover?.styles?.body,
+          ...styles?.body,
+        },
+      }}
       ref={ref}
       open={open}
       onOpenChange={onInternalOpenChange}
@@ -95,7 +116,11 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
       {cloneElement(children, {
         onKeyDown: (e: React.KeyboardEvent<HTMLDivElement>) => {
           if (React.isValidElement(children)) {
-            children?.props.onKeyDown?.(e);
+            (
+              children as React.ReactElement<{
+                onKeyDown: React.KeyboardEventHandler<HTMLDivElement>;
+              }>
+            )?.props.onKeyDown?.(e);
           }
           onKeyDown(e);
         },

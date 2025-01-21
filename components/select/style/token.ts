@@ -113,9 +113,25 @@ export interface ComponentToken extends MultipleSelectorToken {
    * @descEN Inline end padding of arrow
    */
   showArrowPaddingInlineEnd: number;
+  /**
+   * @desc 悬浮态边框色
+   * @descEN Hover border color
+   */
+  hoverBorderColor: string;
+  /**
+   * @desc 激活态边框色
+   * @descEN Active border color
+   */
+  activeBorderColor: string;
+  /**
+   * @desc 激活态 outline 颜色
+   * @descEN Active outline color
+   */
+  activeOutlineColor: string;
 }
 
 export interface SelectorToken {
+  selectAffixPadding: number | string;
   inputPaddingHorizontalBase: number | string;
   multipleSelectItemHeight: number;
   selectHeight: number;
@@ -151,6 +167,10 @@ export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
 
     colorBgContainerDisabled,
     colorTextDisabled,
+
+    colorPrimaryHover,
+    colorPrimary,
+    controlOutline,
   } = token;
 
   // Item height default use `controlHeight - 2 * paddingXXS`,
@@ -196,5 +216,9 @@ export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
     multipleItemColorDisabled: colorTextDisabled,
     multipleItemBorderColorDisabled: 'transparent',
     showArrowPaddingInlineEnd: Math.ceil(token.fontSize * 1.25),
+    hoverBorderColor: colorPrimaryHover,
+    activeBorderColor: colorPrimary,
+    activeOutlineColor: controlOutline,
+    selectAffixPadding: paddingXXS,
   };
 };

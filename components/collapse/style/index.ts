@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react';
 import { unit } from '@ant-design/cssinjs';
 
-import { resetComponent, resetIcon } from '../../style';
+import { genFocusStyle, resetComponent, resetIcon } from '../../style';
 import { genCollapseMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
@@ -95,6 +95,14 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
 
       [`& > ${componentCls}-item`]: {
         borderBottom: borderBase,
+        '&:first-child': {
+          [`
+            &,
+            & > ${componentCls}-header`]: {
+            borderRadius: `${unit(collapsePanelBorderRadius)} ${unit(collapsePanelBorderRadius)} 0 0`,
+          },
+        },
+
         '&:last-child': {
           [`
             &,
@@ -115,13 +123,10 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
           lineHeight,
           cursor: 'pointer',
           transition: `all ${motionDurationSlow}, visibility 0s`,
+          ...genFocusStyle(token),
 
           [`> ${componentCls}-header-text`]: {
             flex: 'auto',
-          },
-
-          '&:focus': {
-            outline: 'none',
           },
 
           // >>>>> Arrow
@@ -149,7 +154,15 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
           },
         },
 
-        [`${componentCls}-icon-collapsible-only`]: {
+        [`${componentCls}-collapsible-header`]: {
+          cursor: 'default',
+          [`${componentCls}-header-text`]: {
+            flex: 'none',
+            cursor: 'pointer',
+          },
+        },
+
+        [`${componentCls}-collapsible-icon`]: {
           cursor: 'unset',
 
           [`${componentCls}-expand-icon`]: {

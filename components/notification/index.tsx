@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { render } from 'rc-util/lib/React/render';
 
 import { AppConfigContext } from '../app/context';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
+import { getReactRender } from '../config-provider/UnstableContext';
 import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface';
 import PurePanel from './PurePanel';
 import useNotification, { useInternalNotification } from './useNotification';
@@ -126,7 +126,9 @@ function flushNotice() {
 
     // Delay render to avoid sync issue
     act(() => {
-      render(
+      const reactRender = getReactRender();
+
+      reactRender(
         <GlobalHolderWrapper
           ref={(node) => {
             const { instance, sync } = node || {};
@@ -154,7 +156,6 @@ function flushNotice() {
 
   // >>> Execute task
   taskQueue.forEach((task) => {
-    // eslint-disable-next-line default-case
     switch (task.type) {
       case 'open': {
         act(() => {

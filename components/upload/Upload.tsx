@@ -391,7 +391,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   // use showRemoveIcon if it is specified explicitly
   const realShowRemoveIcon =
-    typeof showRemoveIcon === 'undefined' ? !mergedDisabled : !!showRemoveIcon;
+    typeof showRemoveIcon === 'undefined' ? !mergedDisabled : showRemoveIcon;
 
   const renderUploadList = (button?: React.ReactNode, buttonVisible?: boolean) => {
     if (!showUploadList) {
@@ -469,12 +469,13 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     );
   }
 
-  const uploadButtonCls = classNames(prefixCls, `${prefixCls}-select`, {
+  const uploadBtnCls = classNames(prefixCls, `${prefixCls}-select`, {
     [`${prefixCls}-disabled`]: mergedDisabled,
+    [`${prefixCls}-hidden`]: !children,
   });
 
   const uploadButton = (
-    <div className={uploadButtonCls} style={children ? undefined : { display: 'none' }}>
+    <div className={uploadBtnCls}>
       <RcUpload {...rcUploadProps} ref={upload} />
     </div>
   );

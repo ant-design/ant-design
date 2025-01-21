@@ -60,6 +60,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     getPopupContainer,
     autoAdjustOverflow = true,
     destroyTooltipOnHide,
+    disabledFormat,
     ...rest
   } = props;
 
@@ -220,7 +221,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   return wrapCSSVar(
     <Popover
       style={styles?.popup}
-      overlayInnerStyle={styles?.popupOverlayInner}
+      styles={{ body: styles?.popupOverlayInner }}
       onOpenChange={(visible) => {
         if (!visible || !mergedDisabled) {
           setPopupOpen(visible);
@@ -248,10 +249,11 @@ const ColorPicker: CompoundedComponent = (props) => {
             onActive={setActiveIndex}
             gradientDragging={gradientDragging}
             onGradientDragging={setGradientDragging}
+            disabledFormat={disabledFormat}
           />
         </ContextIsolator>
       }
-      overlayClassName={mergedPopupCls}
+      classNames={{ root: mergedPopupCls }}
       {...popoverProps}
     >
       {children || (
@@ -278,14 +280,15 @@ if (process.env.NODE_ENV !== 'production') {
 
 const PurePanel = genPurePanel(
   ColorPicker,
-  'color-picker',
-  /* istanbul ignore next */
-  (prefixCls) => prefixCls,
+  undefined,
   (props: ColorPickerProps) => ({
     ...props,
     placement: 'bottom' as TriggerPlacement,
     autoAdjustOverflow: false,
   }),
+  'color-picker',
+  /* istanbul ignore next */
+  (prefixCls) => prefixCls,
 );
 
 ColorPicker._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;

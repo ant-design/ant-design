@@ -25,6 +25,7 @@ import FloatButton from '../../float-button';
 import Form from '../../form';
 import Image from '../../image';
 import Input from '../../input';
+import InputNumber from '../../input-number';
 import Layout from '../../layout';
 import List from '../../list';
 import Mentions from '../../mentions';
@@ -44,6 +45,7 @@ import Skeleton from '../../skeleton';
 import Slider from '../../slider';
 import Space from '../../space';
 import Spin from '../../spin';
+import Splitter from '../../splitter';
 import Statistic from '../../statistic';
 import Steps from '../../steps';
 import Switch from '../../switch';
@@ -55,10 +57,9 @@ import Timeline from '../../timeline';
 import Tour from '../../tour';
 import Transfer from '../../transfer';
 import Tree from '../../tree';
+import TreeSelect from '../../tree-select';
 import Typography from '../../typography';
 import Upload from '../../upload';
-import InputNumber from '../../input-number';
-import TreeSelect from '../../tree-select';
 
 describe('ConfigProvider support style and className props', () => {
   it('Should Space classNames works', () => {
@@ -1549,6 +1550,17 @@ describe('ConfigProvider support style and className props', () => {
     const element = container.querySelector<HTMLDivElement>('.ant-dropdown');
     expect(element).toHaveClass('cp-dropdown');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('Should Splitter className & style works', () => {
+    const { container } = render(
+      <ConfigProvider splitter={{ className: 'cp-splitter', style: { backgroundColor: 'yellow' } }}>
+        <Splitter>test</Splitter>
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-splitter');
+    expect(element).toHaveClass('cp-splitter');
+    expect(element).toHaveStyle({ backgroundColor: 'yellow' });
   });
 
   it('Should Tour closeIcon works', () => {

@@ -32,7 +32,6 @@ Array [
       class="ant-checkbox ant-checkbox-indeterminate ant-wave-target"
     >
       <input
-        aria-checked="mixed"
         class="ant-checkbox-input"
         type="checkbox"
       />
@@ -143,7 +142,7 @@ Array [
   </p>,
   <p>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
       type="button"
     >
       <span>
@@ -151,7 +150,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
       style="margin: 0px 10px;"
       type="button"
     >
@@ -558,7 +557,6 @@ Array [
       class="ant-checkbox ant-checkbox-indeterminate ant-wave-target ant-checkbox-disabled"
     >
       <input
-        aria-checked="mixed"
         class="ant-checkbox-input"
         disabled=""
         type="checkbox"

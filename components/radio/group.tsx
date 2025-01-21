@@ -15,9 +15,12 @@ import type {
 } from './interface';
 import Radio from './radio';
 import useStyle from './style';
+import useId from 'rc-util/lib/hooks/useId';
 
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
+
+  const defaultName = useId();
 
   const {
     prefixCls: customizePrefixCls,
@@ -31,9 +34,10 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     style,
     id,
     optionType,
-    name,
+    name = defaultName,
     defaultValue,
     value: customizedValue,
+    block = false,
     onChange,
     onMouseEnter,
     onMouseLeave,
@@ -111,6 +115,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     {
       [`${groupPrefixCls}-${mergedSize}`]: mergedSize,
       [`${groupPrefixCls}-rtl`]: direction === 'rtl',
+      [`${groupPrefixCls}-block`]: block,
     },
     className,
     rootClassName,
@@ -120,8 +125,8 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
   );
 
   const memoizedValue = React.useMemo<RadioGroupContextProps>(
-    () => ({ onChange: onRadioChange, value, disabled, name, optionType }),
-    [onRadioChange, value, disabled, name, optionType],
+    () => ({ onChange: onRadioChange, value, disabled, name, optionType, block }),
+    [onRadioChange, value, disabled, name, optionType, block],
   );
 
   return wrapCSSVar(

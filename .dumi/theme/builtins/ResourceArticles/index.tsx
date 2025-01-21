@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import * as React from 'react';
 import { Avatar, Divider, Empty, Skeleton, Tabs } from 'antd';
 import { createStyles } from 'antd-style';

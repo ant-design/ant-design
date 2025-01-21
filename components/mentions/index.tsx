@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-named-as-default
 import * as React from 'react';
 import classNames from 'classnames';
 import RcMentions from 'rc-mentions';
@@ -164,7 +163,6 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
 
   const [variant, enableVariantCls] = useVariant('mentions', customVariant);
 
-  /* eslint-disable-next-line react/jsx-no-useless-fragment */ /* biome-ignore lint/complexity/noUselessFragments: avoid falsy value */
   const suffixNode = hasFeedback && <>{feedbackIcon}</>;
 
   const mergedClassName = classNames(
@@ -234,7 +232,7 @@ Mentions.Option = Option;
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(Mentions, 'mentions');
+const PurePanel = genPurePanel(Mentions, undefined, undefined, 'mentions');
 Mentions._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 Mentions.getMentions = (value = '', config: MentionsConfig = {}): MentionsEntity[] => {

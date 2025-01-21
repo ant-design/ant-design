@@ -26,7 +26,7 @@ jobs:
         id: site
         run: bun run site
         env:
-          NODE_OPTIONS: "--max_old_space_size=4096"
+          NODE_OPTIONS: --max_old_space_size=4096
       - name: run e2e test
         run: bun run test:site
       - name: upload site artifact

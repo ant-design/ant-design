@@ -47,6 +47,7 @@ export interface InternalSelectProps<
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<RcSelectProps<ValueType, OptionType>, 'mode'> {
   rootClassName?: string;
+  prefix?: React.ReactNode;
   suffixIcon?: React.ReactNode;
   size?: SizeType;
   disabled?: boolean;
@@ -118,6 +119,7 @@ const InternalSelect = <
     transitionName,
     tagRender,
     maxCount,
+    prefix,
     ...rest
   } = props;
 
@@ -292,6 +294,7 @@ const InternalSelect = <
       prefixCls={prefixCls}
       placement={memoPlacement}
       direction={direction}
+      prefix={prefix}
       suffixIcon={suffixIcon}
       menuItemSelectedIcon={itemIcon}
       removeIcon={removeIcon}
@@ -328,7 +331,7 @@ const Select = React.forwardRef(InternalSelect) as unknown as (<
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(Select);
+const PurePanel = genPurePanel(Select, 'dropdownAlign');
 
 Select.SECRET_COMBOBOX_MODE_DO_NOT_USE = SECRET_COMBOBOX_MODE_DO_NOT_USE;
 Select.Option = Option;

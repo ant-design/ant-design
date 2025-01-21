@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from 'react';
 import chalk from 'chalk';
 import cliProgress from 'cli-progress';

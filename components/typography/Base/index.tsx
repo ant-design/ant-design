@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type { JSX } from 'react';
 import EditOutlined from '@ant-design/icons/EditOutlined';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
@@ -10,7 +11,6 @@ import omit from 'rc-util/lib/omit';
 import { composeRef } from 'rc-util/lib/ref';
 
 import { isStyleSupport } from '../../_util/styleChecker';
-import TransButton from '../../_util/transButton';
 import { ConfigContext } from '../../config-provider';
 import useLocale from '../../locale/useLocale';
 import type { TooltipProps } from '../../tooltip';
@@ -31,7 +31,7 @@ export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
 
 export interface CopyConfig {
   text?: string | (() => string | Promise<string>);
-  onCopy?: (event?: React.MouseEvent<HTMLDivElement>) => void;
+  onCopy?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
   icon?: React.ReactNode;
   tooltips?: React.ReactNode;
   format?: 'text/plain' | 'text/html';
@@ -130,7 +130,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const [textLocale] = useLocale('Text');
 
   const typographyRef = React.useRef<HTMLElement>(null);
-  const editIconRef = React.useRef<HTMLDivElement>(null);
+  const editIconRef = React.useRef<HTMLButtonElement>(null);
 
   // ============================ MISC ============================
   const prefixCls = getPrefixCls('typography', customizePrefixCls);
@@ -349,14 +349,15 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const renderExpand = () => {
     const { expandable, symbol } = ellipsisConfig;
     return expandable ? (
-      <TransButton
+      <button
+        type="button"
         key="expand"
         className={`${prefixCls}-${expanded ? 'collapse' : 'expand'}`}
         onClick={(e) => onExpandClick(e!, { expanded: !expanded })}
         aria-label={expanded ? textLocale.collapse : textLocale?.expand}
       >
         {typeof symbol === 'function' ? symbol(expanded) : symbol}
-      </TransButton>
+      </button>
     ) : null;
   };
 
@@ -373,7 +374,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
     return triggerType.includes('icon') ? (
       <Tooltip key="edit" title={tooltip === false ? '' : editTitle}>
-        <TransButton
+        <button
+          type="button"
           ref={editIconRef}
           className={`${prefixCls}-edit`}
           onClick={onEditClick}
@@ -381,7 +383,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
           tabIndex={tabIndex}
         >
           {icon || <EditOutlined role="button" />}
-        </TransButton>
+        </button>
       </Tooltip>
     ) : null;
   };
@@ -461,7 +463,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               width={ellipsisWidth}
               onEllipsis={onJsEllipsis}
               expanded={expanded}
-              miscDeps={[copied, expanded, copyLoading, enableEdit, enableCopy]}
+              miscDeps={[copied, expanded, copyLoading, enableEdit, enableCopy, textLocale]}
             >
               {(node, canEllipsis) =>
                 wrapperDecorations(
