@@ -16,9 +16,6 @@ export const generateColorPalettes: GenerateColorMap = (baseColor: string) => {
     8: colors[6],
     9: colors[5],
     10: colors[4],
-    // 8: colors[9],
-    // 9: colors[8],
-    // 10: colors[7],
   };
 };
 
@@ -54,6 +51,7 @@ export const generateNeutralColorPalettes: GenerateNeutralColorMap = (
     colorBgBlur: getAlphaColor(colorTextBase, 0.04),
 
     colorBorder: getSolidColor(colorBgBase, 26),
+    colorBorderDisabled: getSolidColor(colorBgBase, 26),
     colorBorderSecondary: getSolidColor(colorBgBase, 19),
   };
 };
