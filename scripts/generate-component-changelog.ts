@@ -101,7 +101,13 @@ const miscKeys = [
     // Changelog map
     const componentChangelog: Record<
       string,
-      { version: string; changelog: string; refs: string[]; releaseDate: string }[]
+      {
+        version: string;
+        changelog: string;
+        refs: string[];
+        releaseDate: string;
+        contributors: string[];
+      }[]
     > = {};
     Object.keys(componentNameMap).forEach((name) => {
       componentChangelog[name] = [];
@@ -127,6 +133,20 @@ const miscKeys = [
         lastReleaseDate = matchReleaseDate[1];
       }
 
+      // Get Contributor name
+      const contributors: string[] = [];
+      const usernameMatches = line.match(/\[@([^\]]+)\]/g);
+
+      if (usernameMatches) {
+        usernameMatches.forEach((match) => {
+          const usernameMatch = match.match(/\[@([^\]]+)\]/);
+          if (usernameMatch) {
+            const username = usernameMatch[1];
+            contributors.push(username);
+          }
+        });
+      }
+
       // Start when get version
       if (!lastVersion) {
         continue;
@@ -144,7 +164,7 @@ const miscKeys = [
       }
 
       // Filter not is changelog
-      if (!line.trim().startsWith('-') && !line.includes('github.')) {
+      if (!line.trim().startsWith('-') && !line.includes('github.') && !line.includes('img')) {
         continue;
       }
 
@@ -156,7 +176,7 @@ const miscKeys = [
       changelogLine = changelogLine
         .replace(/\[([^\]]+)]\(([^)]+)\)/g, (...match) => {
           const [, title, ref] = match;
-          if (/\/(pull|issues)\//.test(ref)) {
+          if (/\/(pull|issues|commit)\//.test(ref)) {
             refs.push(ref);
           }
 
@@ -184,6 +204,7 @@ const miscKeys = [
             changelog: changelogLine,
             refs,
             releaseDate: lastReleaseDate,
+            contributors,
           });
           matched = true;
         }

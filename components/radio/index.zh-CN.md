@@ -15,6 +15,29 @@ demo:
 - 用于在多个备选项中选中单个状态。
 - 和 Select 的区别是，Radio 所有选项默认可见，方便用户在比较中选择，因此选项不宜过多。
 
+```tsx
+// 使用 Radio.Group 组件时，推荐的写法 ✅
+return (
+  <Radio.Group
+    value={value}
+    options={[
+      { value: 1, label: "A" },
+      { value: 2, label: "B"},
+      { value: 3, label: "C" },
+    ]}
+  />
+);
+
+// 不推荐的写法 🙅🏻‍♀️
+return (
+  <Radio.Group value={value}>
+    <Radio value={1}>A</Radio>
+    <Radio value={2}>B</Radio>
+    <Radio value={3}>C</Radio>
+  </Radio.Group>
+);
+```
+
 ## 代码演示
 
 <!-- prettier-ignore-start -->
@@ -59,7 +82,7 @@ demo:
 | buttonStyle | RadioButton 的风格样式，目前有描边和填色两种风格 | `outline` \| `solid` | `outline` |  |  |
 | defaultValue | 默认选中的值 | any | - |  |  |
 | disabled | 禁选所有子单选器 | boolean | false |  |  |
-| name | RadioGroup 下所有 `input[type="radio"]` 的 `name` 属性 | string | - |  |  |
+| name | RadioGroup 下所有 `input[type="radio"]` 的 `name` 属性。若未设置，则将回退到随机生成的名称 | string | - |  |  |
 | options | 以配置形式设置子元素 | string\[] \| number\[] \| Array&lt;[CheckboxOptionType](#checkboxoptiontype)> | - |  |  |
 | optionType | 用于设置 Radio `options` 类型 | `default` \| `button` | `default` | 4.4.0 |  |
 | size | 大小，只对按钮样式生效 | `large` \| `middle` \| `small` | - |  |  |

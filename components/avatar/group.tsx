@@ -121,7 +121,7 @@ const Group: React.FC<GroupProps> = (props) => {
     const mergeProps = {
       content: childrenHidden,
       ...max?.popover,
-      overlayClassName: classNames(`${groupPrefixCls}-popover`, max?.popover?.overlayClassName),
+      classNames: { root: classNames(`${groupPrefixCls}-popover`, max?.popover?.classNames?.root) },
       placement: mergePopoverPlacement,
       trigger: mergePopoverTrigger,
     };

@@ -119,7 +119,7 @@ export interface InternalTableProps<RecordType = AnyObject> extends TableProps<R
 
 const InternalTable = <RecordType extends AnyObject = AnyObject>(
   props: InternalTableProps<RecordType>,
-  ref: React.MutableRefObject<HTMLDivElement>,
+  ref: React.Ref<HTMLDivElement>,
 ) => {
   const {
     prefixCls: customizePrefixCls,
@@ -557,18 +557,18 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const virtualProps: { listItemHeight?: number } = {};
 
   const listItemHeight = React.useMemo(() => {
-    const { fontSize, lineHeight, padding, paddingXS, paddingSM } = token;
+    const { fontSize, lineHeight, lineWidth, padding, paddingXS, paddingSM } = token;
     const fontHeight = Math.floor(fontSize * lineHeight);
 
     switch (mergedSize) {
-      case 'large':
-        return padding * 2 + fontHeight;
+      case 'middle':
+        return paddingSM * 2 + fontHeight + lineWidth;
 
       case 'small':
-        return paddingXS * 2 + fontHeight;
+        return paddingXS * 2 + fontHeight + lineWidth;
 
       default:
-        return paddingSM * 2 + fontHeight;
+        return padding * 2 + fontHeight + lineWidth;
     }
   }, [token, mergedSize]);
 
@@ -615,4 +615,4 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   );
 };
 
-export default React.forwardRef(InternalTable as any) as RefInternalTable;
+export default React.forwardRef(InternalTable) as RefInternalTable;

@@ -147,6 +147,7 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
           <input
             checked=""
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="month"
           />
@@ -166,6 +167,7 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="year"
           />
@@ -1099,6 +1101,7 @@ exports[`Calendar Calendar should support locale 1`] = `
           <input
             checked=""
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="month"
           />
@@ -1118,6 +1121,7 @@ exports[`Calendar Calendar should support locale 1`] = `
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="year"
           />
@@ -2051,6 +2055,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
           <input
             checked=""
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="month"
           />
@@ -2070,6 +2075,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="year"
           />
@@ -3003,6 +3009,7 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
           <input
             checked=""
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="month"
           />
@@ -3022,6 +3029,7 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="year"
           />
