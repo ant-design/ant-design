@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import chalk from 'chalk';
 import fetch from 'isomorphic-fetch';
 import ora from 'ora';
@@ -18,9 +17,25 @@ function exitProcess(code = 1) {
 
 async function checkVersion() {
   spinner.start('正在检查当前版本是否已经存在');
-  const { versions } = await fetch('http://registry.npmjs.org/antd').then((res: Response) =>
-    res.json(),
+
+  const checkUrls = ['https://registry.npmmirror.com/antd', 'http://registry.npmjs.org/antd'];
+  const promises = checkUrls.map(
+    (url) =>
+      new Promise<Record<string, any>>((resolve) => {
+        fetch(url)
+          .then((res: Response) => res.json())
+          .then(({ versions }) => {
+            resolve(versions);
+          })
+          .catch(() => {
+            // Do nothing.
+          });
+      }),
   );
+
+  // Any one of the promises resolved, we can continue.
+  const versions = Promise.race(promises);
+
   if (version in versions) {
     spinner.fail(chalk.yellow('😈 Current version already exists. Forget update package.json?'));
     spinner.info(`${chalk.cyan(' => Current:')}: version`);

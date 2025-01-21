@@ -165,7 +165,15 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
   >
     <aside
       class="ant-layout-sider ant-layout-sider-dark"
-      style="background: rgb(255, 255, 255); flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
+      style="flex: 0 0 32px; max-width: 32px; min-width: 32px; width: 32px;"
+    >
+      <div
+        class="ant-layout-sider-children"
+      />
+    </aside>
+    <aside
+      class="ant-layout-sider ant-layout-sider-dark"
+      style="flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
     >
       <div
         class="ant-layout-sider-children"
@@ -174,7 +182,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
           class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
           data-menu-list="true"
           role="menu"
-          style="height: 100%; border-right: 0;"
+          style="border-right: 0;"
           tabindex="0"
         >
           <li
@@ -1079,7 +1087,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx extend context correc
       style="padding: 0px; background: rgb(255, 255, 255);"
     >
       <button
-        class="ant-btn ant-btn-text ant-btn-icon-only"
+        class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-icon-only"
         style="font-size: 16px; width: 64px; height: 64px;"
         type="button"
       >
@@ -1353,7 +1361,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
 >
   <aside
     class="ant-layout-sider ant-layout-sider-dark"
-    style="overflow: auto; height: 100vh; position: fixed; inset-inline-start: 0; top: 0px; bottom: 0px; flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
+    style="overflow: auto; height: 100vh; position: sticky; inset-inline-start: 0; top: 0px; bottom: 0px; flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
   >
     <div
       class="ant-layout-sider-children"
@@ -1768,7 +1776,6 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
   </aside>
   <div
     class="ant-layout"
-    style="margin-inline-start: 200px;"
   >
     <header
       class="ant-layout-header"
@@ -5174,8 +5181,4 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Breadcrumb] \`Breadcrumb.Item and Breadcrumb.Separator\` is deprecated. Please use \`items\` instead.",
-]
-`;
+exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 2`] = `[]`;

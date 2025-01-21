@@ -4,7 +4,7 @@ import { Keyframes, unit } from '@ant-design/cssinjs';
 import type { CSSUtil, FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
-export type ComponentToken = {
+export interface ComponentToken {
   /** @deprecated use gradientFromColor instead. */
   color: string;
   /** @deprecated use gradientToColor instead. */
@@ -39,7 +39,7 @@ export type ComponentToken = {
    * @descEN Line height of paragraph skeleton
    */
   paragraphLiHeight: number;
-};
+}
 
 const skeletonClsLoading = new Keyframes(`ant-skeleton-loading`, {
   '0%': {
@@ -147,10 +147,10 @@ const genSkeletonElementImage = (token: SkeletonToken): CSSObject => {
   const { skeletonImageCls, imageSizeBase, gradientFromColor, borderRadiusSM, calc } = token;
   return {
     [skeletonImageCls]: {
-      display: 'flex',
+      display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
-      verticalAlign: 'top',
+      verticalAlign: 'middle',
       background: gradientFromColor,
       borderRadius: borderRadiusSM,
       ...genSkeletonElementImageSize(calc(imageSizeBase).mul(2).equal()),

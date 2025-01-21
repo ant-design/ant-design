@@ -14,7 +14,7 @@ exports[`Empty rtl render component should be rendered correctly in RTL directio
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>
-        empty image
+        No data
       </title>
       <g
         fill="none"
@@ -92,7 +92,7 @@ exports[`Empty should render in RTL direction 1`] = `
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>
-        empty image
+        No data
       </title>
       <g
         fill="none"

@@ -51,11 +51,15 @@ import type {
   Theme,
   ThemeConfig,
   TimePickerConfig,
+  TooltipConfig,
+  PopoverConfig,
+  PopconfirmConfig,
   TourConfig,
   TransferConfig,
   TreeSelectConfig,
   Variant,
   WaveConfig,
+  EmptyConfig,
 } from './context';
 import {
   ConfigConsumer,
@@ -166,6 +170,7 @@ export interface ConfigProviderProps {
    */
   direction?: DirectionType;
   space?: SpaceConfig;
+  splitter?: ComponentStyleConfig;
   /**
    * @descCN 设置 `false` 时关闭虚拟滚动。
    * @descEN Close the virtual scrolling when setting `false`.
@@ -207,7 +212,7 @@ export interface ConfigProviderProps {
   floatButtonGroup?: FloatButtonGroupConfig;
   checkbox?: ComponentStyleConfig;
   descriptions?: ComponentStyleConfig;
-  empty?: ComponentStyleConfig;
+  empty?: EmptyConfig;
   badge?: BadgeConfig;
   radio?: ComponentStyleConfig;
   rate?: ComponentStyleConfig;
@@ -234,6 +239,9 @@ export interface ConfigProviderProps {
    */
   wave?: WaveConfig;
   tour?: TourConfig;
+  tooltip?: TooltipConfig;
+  popover?: PopoverConfig;
+  popconfirm?: PopconfirmConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -326,6 +334,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     componentSize,
     direction,
     space,
+    splitter,
     virtual,
     dropdownMatchSelectWidth,
     popupMatchSelectWidth,
@@ -387,6 +396,9 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     dropdown,
     warning: warningConfig,
     tour,
+    tooltip,
+    popover,
+    popconfirm,
     floatButtonGroup,
     variant,
     inputNumber,
@@ -428,6 +440,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     locale: locale || legacyLocale,
     direction,
     space,
+    splitter,
     virtual,
     popupMatchSelectWidth: popupMatchSelectWidth ?? dropdownMatchSelectWidth,
     popupOverflow,
@@ -486,6 +499,9 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     dropdown,
     warning: warningConfig,
     tour,
+    tooltip,
+    popover,
+    popconfirm,
     floatButtonGroup,
     variant,
     inputNumber,

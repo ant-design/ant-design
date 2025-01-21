@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 

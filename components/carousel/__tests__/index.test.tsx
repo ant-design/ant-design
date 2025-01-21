@@ -97,7 +97,6 @@ describe('Carousel', () => {
 
   describe('should works for dotPosition', () => {
     (['left', 'right', 'top', 'bottom'] as const).forEach((dotPosition) => {
-      // eslint-disable-next-line jest/valid-title
       it(dotPosition, () => {
         const { container } = render(
           <Carousel dotPosition={dotPosition}>

@@ -28,7 +28,7 @@ const App: React.FC = () => {
       <Segmented
         value={arrow}
         options={['Show', 'Hide', 'Center']}
-        onChange={(val: 'Show' | 'Hide' | 'Center') => setArrow(val)}
+        onChange={setArrow}
         style={{ marginBottom: 24 }}
       />
       <Flex vertical justify="center" align="center" className="demo">

@@ -12,7 +12,15 @@ exports[`QRCode test custom status render 1`] = `
       <div
         class="custom-expired"
       >
-        QR code expired
+        <span>
+          QR code expired
+        </span>
+        <button
+          id="refresh"
+          type="button"
+        >
+          refresh
+        </button>
       </div>
     </div>
     <canvas

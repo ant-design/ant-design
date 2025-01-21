@@ -3201,7 +3201,7 @@ Array [
     class="ant-space-compact ant-space-compact-block"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
       type="button"
     >
       <span>
@@ -3209,7 +3209,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -3217,7 +3217,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -3225,7 +3225,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -3233,7 +3233,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -3241,7 +3241,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -3249,7 +3249,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-last-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-last-item"
       type="button"
     >
       <span>
@@ -4950,7 +4950,7 @@ Array [
     </div>
   </div>,
   <div
-    style="line-height:260px;text-align:center;color:rgba(0, 0, 0, 0.45);background-color:rgba(0, 0, 0, 0.02);border-radius:8px;border:1px dashed #d9d9d9;margin-top:16px"
+    style="line-height:260px;text-align:center;color:rgba(0,0,0,0.45);background-color:rgba(0,0,0,0.02);border-radius:8px;border:1px dashed #d9d9d9;margin-top:16px"
   >
     First-content
   </div>,
@@ -4958,7 +4958,7 @@ Array [
     style="margin-top:24px"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -4983,6 +4983,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="small"
         />
@@ -5003,6 +5004,7 @@ Array [
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="default"
         />

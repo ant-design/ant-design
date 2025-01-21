@@ -7,6 +7,7 @@ on:
     branches:
       - master
       - feature
+      - next
 
 permissions:
   contents: read
@@ -26,7 +27,7 @@ jobs:
           bun run test:image
           tar -czvf imageSnapshots.tar.gz imageSnapshots/*
         env:
-          NODE_OPTIONS: "--max_old_space_size=4096"
+          NODE_OPTIONS: --max_old_space_size=4096
 
       # Upload `imageSnapshots` on master
       - name: upload report artifact

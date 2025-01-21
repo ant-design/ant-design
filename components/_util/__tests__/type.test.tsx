@@ -4,10 +4,6 @@ import type { GetProp, GetProps, GetRef } from '../type';
 
 describe('type', () => {
   class CC extends React.Component<{ bamboo?: number }> {
-    getBamboo() {
-      return this.props.bamboo;
-    }
-
     render() {
       return this.props.bamboo;
     }
