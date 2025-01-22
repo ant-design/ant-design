@@ -12,7 +12,7 @@ import defaultLocale from '../locale/en_US';
 import PreviewGroup, { icons } from './PreviewGroup';
 import useStyle from './style';
 
-export interface CompositionImage<P> extends React.FC<P> {
+export interface CompositionImage<T> extends React.FC<T> {
   PreviewGroup: typeof PreviewGroup;
 }
 
