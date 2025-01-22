@@ -7,9 +7,9 @@ import {
   Input,
   InputNumber,
   Mentions,
+  Segmented,
   Select,
   TreeSelect,
-  Segmented,
 } from 'antd';
 import type { FormProps } from 'antd';
 
@@ -41,7 +41,7 @@ const App: React.FC = () => {
       initialValues={{ variant: componentVariant }}
     >
       <Form.Item label="Form variant" name="variant">
-        <Segmented options={['outlined', 'filled', 'borderless']} />
+        <Segmented options={['outlined', 'filled', 'borderless', 'underlined']} />
       </Form.Item>
 
       <Form.Item label="Input" name="Input" rules={[{ required: true, message: 'Please input!' }]}>
