@@ -21,7 +21,7 @@ const localeValues: Locale = {
     filterConfirm: 'ΟΚ',
     filterReset: 'Επαναφορά',
     filterEmptyText: 'Χωρίς φίλτρα',
-    filterCheckall: 'Επιλογή όλων',
+    filterCheckAll: 'Επιλογή όλων',
     filterSearchPlaceholder: 'Αναζήτηση στα φίλτρα',
     emptyText: 'Δεν υπάρχουν δεδομένα',
     selectAll: 'Επιλογή τρέχουσας σελίδας',

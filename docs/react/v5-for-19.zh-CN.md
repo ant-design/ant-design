@@ -28,9 +28,7 @@ antd v5 默认兼容 React 16 ~ 18 版本，对于 React 19 版本，可以使�
 
 安装兼容包
 
-```bash
-npm install --save-dev @ant-design/v5-patch-for-react-19
-```
+<InstallDependencies npm='npm install @ant-design/v5-patch-for-react-19 --save' yarn='yarn add @ant-design/v5-patch-for-react-19' pnpm='pnpm add @ant-design/v5-patch-for-react-19 --save' bun='bun add @ant-design/v5-patch-for-react-19'></InstallDependencies>
 
 在应用入口处引入兼容包
 

@@ -38,7 +38,7 @@ title: Third-Party Libraries
 | Image Crop | [antd-img-crop](https://github.com/nanxiaobei/antd-img-crop) [react-image-crop](https://github.com/DominicTobias/react-image-crop) |
 | Keywords highlight | [react-highlight-words](https://github.com/bvaughn/react-highlight-words) |
 | Text Loop | [react-text-loop-next](https://github.com/samarmohan/react-text-loop-next) [react-fast-marquee](https://github.com/justin-chu/react-fast-marquee) |
-| Animation | [framer-motion](https://github.com/framer/motion) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://github.com/pmndrs/react-spring) |
+| Animation | [motion](https://github.com/framer/motion) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://github.com/pmndrs/react-spring) |
 | Page Footer | [rc-footer](https://github.com/react-component/footer) |
 | Number/Currency | [react-countup](https://www.npmjs.com/package/react-countup) [react-number-format](https://github.com/s-yadav/react-number-format) [react-currency-input-field](https://github.com/cchanxzy/react-currency-input-field) |
 | Application Frameworks | [umi](https://github.com/umijs/umi/) [remix](https://github.com/remix-run/remix) [refine](https://github.com/pankod/refine) |
@@ -46,6 +46,7 @@ title: Third-Party Libraries
 | Phone Input | [react-phone-number-input](https://gitlab.com/catamphetamine/react-phone-number-input) [antd-phone-input](https://github.com/ArtyomVancyan/antd-phone-input/) |
 | AI Chat | [pro-chat](https://github.com/ant-design/pro-chat) |
 | PDF | [react-pdf](https://github.com/diegomura/react-pdf) [@react-pdf/renderer](https://github.com/diegomura/react-pdf) |
+| React Gesture | [use-gesture](https://use-gesture.netlify.app) |
 
 ## Products we are using ✨
 

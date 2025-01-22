@@ -29,7 +29,7 @@ const genTagStatusStyle = (
       [`&${token.componentCls}-disabled`]: {
         color: token.colorTextDisabled,
         backgroundColor: token.colorBgContainerDisabled,
-        borderColor: token.colorBorder,
+        borderColor: token.colorBorderDisabled,
       },
     },
   };

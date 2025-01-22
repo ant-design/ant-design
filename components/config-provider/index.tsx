@@ -19,6 +19,7 @@ import type {
   BadgeConfig,
   ButtonConfig,
   CardConfig,
+  CardMetaConfig,
   CascaderConfig,
   CollapseConfig,
   ComponentStyleConfig,
@@ -226,6 +227,7 @@ export interface ConfigProviderProps {
   tag?: TagConfig;
   table?: TableConfig;
   card?: CardConfig;
+  cardMeta?: CardMetaConfig;
   tabs?: TabsConfig;
   timeline?: ComponentStyleConfig;
   timePicker?: TimePickerConfig;
@@ -386,6 +388,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     tag,
     table,
     card,
+    cardMeta,
     tabs,
     timeline,
     timePicker,
@@ -490,6 +493,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     tag,
     table,
     card,
+    cardMeta,
     tabs,
     timeline,
     timePicker,

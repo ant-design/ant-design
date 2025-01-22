@@ -1,4 +1,5 @@
-import type { Rule, RuleObject, RuleRender } from 'rc-field-form/lib/interface';
+import type { Rule, RuleObject, RuleRender } from '@rc-component/form/lib/interface';
+
 import { FormProvider } from './context';
 import ErrorList from './ErrorList';
 import type { ErrorListProps } from './ErrorList';

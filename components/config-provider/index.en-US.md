@@ -115,6 +115,7 @@ const {
 | breadcrumb | Set Breadcrumb common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | button | Set Button common props | { className?: string, style?: React.CSSProperties, classNames?: [ButtonProps\["classNames"\]](/components/button#api), styles?: [ButtonProps\["styles"\]](/components/button#api), autoInsertSpace?: boolean } | - | 5.6.0, autoInsertSpace: 5.17.0 |
 | card | Set Card common props | { className?: string, style?: React.CSSProperties, classNames?: [CardProps\["classNames"\]](/components/card#api), styles?: [CardProps\["styles"\]](/components/card#api) } | - | 5.7.0, `classNames` and `styles`: 5.14.0 |
+| cardMeta | Set Card.Meta common props | { className?: string, style?: React.CSSProperties, classNames?: [CardMetaProps\["classNames"\]](/components/card#api), styles?: [CardMetaProps\["styles"\]](/components/card#api) } | - | 6.0.0 |
 | calendar | Set Calendar common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | carousel | Set Carousel common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | cascader | Set Cascader common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
@@ -163,9 +164,9 @@ const {
 | timeline | Set Timeline common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | timePicker | Set TimePicker common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | tour | Set Tour common props | { closeIcon?: React.ReactNode } | - | 5.14.0 |
-| tooltip | Set Tooltip common props | { className?: string, style?: React.CSSProperties, classNames?:[Tooltip\["classNames"\]](/components/tooltip#api), styles?: [Tooltip\["styles"\]](/components/tooltip#api) } | - | 5.23.0 |
-| popover | Set Popover common props | { className?: string, style?: React.CSSProperties, classNames?:[Popover\["classNames"\]](/components/popover#api), styles?: [Popover\["styles"\]](/components/popover#api) } | - | 5.23.0 |
-| popconfirm | Set Popconfirm common props | { className?: string, style?: React.CSSProperties, classNames?:[Popconfirm\["classNames"\]](/components/popconfirm#api), styles?: [Popconfirm\["styles"\]](/components/popconfirm#api) } | - | 5.23.0 |
+| tooltip | Set Tooltip common props | { className?: string, style?: React.CSSProperties, classNames?:[Tooltip\["classNames"\]](/components/tooltip#api), styles?: [Tooltip\["styles"\]](/components/tooltip#api), arrow: boolean \| { pointAtCenter: boolean } } | - | 5.23.0, arrow: 6.0.0 |
+| popover | Set Popover common props | { className?: string, style?: React.CSSProperties, classNames?:[Popover\["classNames"\]](/components/popover#api), styles?: [Popover\["styles"\]](/components/popover#api), arrow: boolean \| { pointAtCenter: boolean } } | - | 5.23.0, arrow: 6.0.0 |
+| popconfirm | Set Popconfirm common props | { className?: string, style?: React.CSSProperties, classNames?:[Popconfirm\["classNames"\]](/components/popconfirm#api), styles?: [Popconfirm\["styles"\]](/components/popconfirm#api), arrow: boolean \| { pointAtCenter: boolean } } | - | 5.23.0, arrow: 6.0.0 |
 | transfer | Set Transfer common props | { className?: string, style?: React.CSSProperties, selectionsIcon?: React.ReactNode } | - | 5.7.0, selectionsIcon: 5.14.0 |
 | tree | Set Tree common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | typography | Set Typography common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
