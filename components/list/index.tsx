@@ -64,8 +64,8 @@ export interface ListProps<T> {
   locale?: ListLocale;
 
   styles?: {
-    headerWrapper?: React.CSSProperties;
-    footerWrapper?: React.CSSProperties;
+    header?: React.CSSProperties;
+    footer?: React.CSSProperties;
   };
 }
 
@@ -292,7 +292,7 @@ function InternalList<T>(
       <div ref={ref} style={{ ...list?.style, ...style }} className={classString} {...rest}>
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
         {header && (
-          <div className={`${prefixCls}-header`} style={styles?.headerWrapper}>
+          <div className={`${prefixCls}-header`} style={styles?.header}>
             {header}
           </div>
         )}
@@ -301,7 +301,7 @@ function InternalList<T>(
           {children}
         </Spin>
         {footer && (
-          <div className={`${prefixCls}-footer`} style={styles?.footerWrapper}>
+          <div className={`${prefixCls}-footer`} style={styles?.footer}>
             {footer}
           </div>
         )}
