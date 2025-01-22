@@ -17,7 +17,7 @@ import type {
 } from './interface';
 import { getCloseIcon, PureContent } from './PurePanel';
 import useStyle from './style';
-import { getMotion, getPlacementStyle } from './util';
+import { getMotion, getPlacementStyle, getCloseIconConfig } from './util';
 
 const DEFAULT_OFFSET = 24;
 const DEFAULT_DURATION = 4.5;
@@ -158,7 +158,7 @@ export function useInternalNotification(
 
       const realCloseIcon = getCloseIcon(
         noticePrefixCls,
-        typeof closeIcon !== 'undefined' ? closeIcon : notification?.closeIcon,
+        getCloseIconConfig(closeIcon, notificationConfig, notification),
       );
 
       return originOpen({

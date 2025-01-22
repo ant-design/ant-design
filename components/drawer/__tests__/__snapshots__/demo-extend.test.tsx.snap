@@ -29,7 +29,7 @@ Array [
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content"
+        class="ant-drawer-section"
         role="dialog"
       >
         <div
@@ -147,7 +147,7 @@ Array [
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content acss-1g5mw59"
+        class="ant-drawer-section acss-1g5mw59"
         role="dialog"
         style="box-shadow: -10px 0 10px #666;"
       >
@@ -239,7 +239,7 @@ Array [
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content acss-1g5mw59"
+        class="ant-drawer-section acss-1g5mw59"
         role="dialog"
         style="box-shadow: -10px 0 10px #666;"
       >
@@ -412,7 +412,7 @@ exports[`renders components/drawer/demo/config-provider.tsx extend context corre
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content"
+        class="ant-drawer-section"
         role="dialog"
       >
         <div
@@ -615,7 +615,7 @@ Array [
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content"
+        class="ant-drawer-section"
         role="dialog"
       >
         <div
@@ -771,7 +771,7 @@ Array [
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content"
+        class="ant-drawer-section"
         role="dialog"
       >
         <div
@@ -2846,7 +2846,7 @@ Array [
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content"
+        class="ant-drawer-section"
         role="dialog"
       >
         <div
@@ -2956,7 +2956,7 @@ Array [
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content"
+        class="ant-drawer-section"
         role="dialog"
       >
         <div
@@ -3003,7 +3003,7 @@ Array [
             >
               <div
                 aria-modal="true"
-                class="ant-drawer-content"
+                class="ant-drawer-section"
                 role="dialog"
               >
                 <div
@@ -3074,7 +3074,7 @@ Array [
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content"
+        class="ant-drawer-section"
         role="dialog"
       >
         <div
@@ -3277,7 +3277,7 @@ Array [
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content"
+        class="ant-drawer-section"
         role="dialog"
       >
         <div
@@ -3356,7 +3356,7 @@ exports[`renders components/drawer/demo/render-in-current.tsx extend context cor
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content"
+        class="ant-drawer-section"
         role="dialog"
       >
         <div
@@ -3595,7 +3595,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content"
+        class="ant-drawer-section"
         role="dialog"
       >
         <div
@@ -3661,7 +3661,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
             >
               <div
                 aria-modal="true"
-                class="ant-drawer-content"
+                class="ant-drawer-section"
                 role="dialog"
               >
                 <div
@@ -3746,7 +3746,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content"
+        class="ant-drawer-section"
         role="dialog"
       >
         <div
@@ -3856,7 +3856,7 @@ Array [
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content"
+        class="ant-drawer-section"
         role="dialog"
       >
         <div
@@ -4086,7 +4086,7 @@ Array [
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content"
+        class="ant-drawer-section"
         role="dialog"
       >
         <div

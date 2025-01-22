@@ -3,8 +3,10 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
+import useEvent from '@rc-component/util/lib/hooks/useEvent';
 import classNames from 'classnames';
-import useEvent from 'rc-util/lib/hooks/useEvent';
+
+import type { SplitterProps } from './interface';
 
 export interface SplitBarProps {
   index: number;
@@ -13,6 +15,8 @@ export interface SplitBarProps {
   resizable: boolean;
   startCollapsible: boolean;
   endCollapsible: boolean;
+  draggerIcon?: SplitterProps['draggerIcon'];
+  collapsibleIcon?: SplitterProps['collapsibleIcon'];
   onOffsetStart: (index: number) => void;
   onOffsetUpdate: (index: number, offsetX: number, offsetY: number) => void;
   onOffsetEnd: VoidFunction;
@@ -39,6 +43,8 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     ariaMin,
     ariaMax,
     resizable,
+    draggerIcon,
+    collapsibleIcon,
     startCollapsible,
     endCollapsible,
     onOffsetStart,
@@ -160,8 +166,22 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   };
 
   // ======================== Render ========================
-  const StartIcon = vertical ? UpOutlined : LeftOutlined;
-  const EndIcon = vertical ? DownOutlined : RightOutlined;
+  const [startIcon, endIcon, startCustomize, endCustomize] = React.useMemo(() => {
+    let startIcon = null;
+    let endIcon = null;
+    const startCustomize = collapsibleIcon?.start !== undefined;
+    const endCustomize = collapsibleIcon?.end !== undefined;
+
+    if (vertical) {
+      startIcon = startCustomize ? collapsibleIcon.start : <UpOutlined />;
+      endIcon = endCustomize ? collapsibleIcon.end : <DownOutlined />;
+    } else {
+      startIcon = startCustomize ? collapsibleIcon.start : <LeftOutlined />;
+      endIcon = endCustomize ? collapsibleIcon.end : <RightOutlined />;
+    }
+
+    return [startIcon, endIcon, startCustomize, endCustomize];
+  }, [collapsibleIcon, vertical]);
 
   return (
     <div
@@ -184,10 +204,15 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         className={classNames(`${splitBarPrefixCls}-dragger`, {
           [`${splitBarPrefixCls}-dragger-disabled`]: !resizable,
           [`${splitBarPrefixCls}-dragger-active`]: active,
+          [`${splitBarPrefixCls}-dragger-customize`]: !!draggerIcon,
         })}
         onMouseDown={onMouseDown}
         onTouchStart={onTouchStart}
-      />
+      >
+        {draggerIcon ? (
+          <div className={classNames(`${splitBarPrefixCls}-dragger-icon`)}>{draggerIcon}</div>
+        ) : null}
+      </div>
 
       {/* Start Collapsible */}
       {startCollapsible && (
@@ -195,15 +220,20 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
           className={classNames(
             `${splitBarPrefixCls}-collapse-bar`,
             `${splitBarPrefixCls}-collapse-bar-start`,
+            {
+              [`${splitBarPrefixCls}-collapse-bar-customize`]: startCustomize,
+            },
           )}
           onClick={() => onCollapse(index, 'start')}
         >
-          <StartIcon
+          <span
             className={classNames(
               `${splitBarPrefixCls}-collapse-icon`,
               `${splitBarPrefixCls}-collapse-start`,
             )}
-          />
+          >
+            {startIcon}
+          </span>
         </div>
       )}
 
@@ -213,15 +243,20 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
           className={classNames(
             `${splitBarPrefixCls}-collapse-bar`,
             `${splitBarPrefixCls}-collapse-bar-end`,
+            {
+              [`${splitBarPrefixCls}-collapse-bar-customize`]: endCustomize,
+            },
           )}
           onClick={() => onCollapse(index, 'end')}
         >
-          <EndIcon
+          <span
             className={classNames(
               `${splitBarPrefixCls}-collapse-icon`,
               `${splitBarPrefixCls}-collapse-end`,
             )}
-          />
+          >
+            {endIcon}
+          </span>
         </div>
       )}
     </div>

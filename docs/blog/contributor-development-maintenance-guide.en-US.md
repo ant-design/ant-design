@@ -80,7 +80,7 @@ Run `npm link "Project name"` in Ant Design
 Once we have verified, we can open PR to the repo. Noted that link may cause exceptions when running the test command. Therefore, we need to run the following commands locally to delete the package from link.
 
 ```bash
-npm unlink "rc-field-form" --no-save
+npm unlink "@rc-component/form" --no-save
 npm i
 ```
 

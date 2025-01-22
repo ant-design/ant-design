@@ -104,25 +104,6 @@ describe('Collapse', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  it('should trigger warning and keep compatibility when using disabled in Panel', () => {
-    const { container } = render(
-      <Collapse>
-        <Collapse.Panel disabled header="This is panel header 1" key="1">
-          content
-        </Collapse.Panel>
-      </Collapse>,
-    );
-
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Collapse.Panel] `disabled` is deprecated. Please use `collapsible="disabled"` instead.',
-    );
-
-    expect(container.querySelectorAll('.ant-collapse-item-disabled').length).toBe(1);
-
-    fireEvent.click(container.querySelector('.ant-collapse-header')!);
-    expect(container.querySelectorAll('.ant-collapse-item-active').length).toBe(0);
-  });
-
   it('should not trigger warning when using items instead of children', () => {
     render(
       <Collapse
@@ -211,32 +192,6 @@ describe('Collapse', () => {
     expect(panelRef2.current).toBe(document.querySelectorAll('.ant-collapse-item')[1]);
   });
 
-  describe('expandIconPosition', () => {
-    ['left', 'right'].forEach((pos) => {
-      it(`warning for legacy '${pos}'`, () => {
-        render(
-          <Collapse expandIconPosition={pos}>
-            <Collapse.Panel header="header" key="1" />
-          </Collapse>,
-        );
-
-        expect(errorSpy).toHaveBeenCalledWith(
-          'Warning: [antd: Collapse] `expandIconPosition` with `left` or `right` is deprecated. Please use `start` or `end` instead.',
-        );
-      });
-
-      it('position end', () => {
-        const { container } = render(
-          <Collapse expandIconPosition="end">
-            <Collapse.Panel header="header" key="1" />
-          </Collapse>,
-        );
-
-        expect(container.querySelector('.ant-collapse-icon-position-end')).toBeTruthy();
-      });
-    });
-  });
-
   it('Collapse.Panel usage', () => {
     const { container } = render(
       <Collapse bordered={false}>
@@ -276,24 +231,52 @@ describe('Collapse', () => {
   });
 
   it('should support styles and classNames', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      header: 'custom-header',
+      title: 'custom-title',
+      body: 'custom-body',
+      icon: 'custom-icon',
+    };
+    const customStyles = {
+      root: { color: 'red' },
+      header: { color: 'blue' },
+      title: { color: 'green' },
+      body: { color: 'yellow' },
+      icon: { color: 'purple' },
+    };
     const { container } = render(
       <Collapse
         activeKey={['1']}
+        styles={customStyles}
+        classNames={customClassNames}
         items={[
           {
             key: '1',
             label: 'title',
-            styles: { header: { color: 'red' }, body: { color: 'blue' } },
-            classNames: { header: 'header-class', body: 'body-class' },
           },
         ]}
       />,
     );
 
-    expect(container.querySelector('.ant-collapse-header')).toHaveClass('header-class');
-    expect(container.querySelector('.ant-collapse-content-box')).toHaveClass('body-class');
+    const rootElement = container.querySelector('.ant-collapse') as HTMLElement;
+    const headerElement = container.querySelector('.ant-collapse-header') as HTMLElement;
+    const titleElement = container.querySelector('.ant-collapse-title') as HTMLElement;
+    const bodyElement = container.querySelector('.ant-collapse-body') as HTMLElement;
+    const iconElement = container.querySelector('.ant-collapse-expand-icon') as HTMLElement;
 
-    expect(container.querySelector('.ant-collapse-header')).toHaveStyle({ color: 'red' });
-    expect(container.querySelector('.ant-collapse-content-box')).toHaveStyle({ color: 'blue' });
+    // check classNames
+    expect(rootElement.classList).toContain('custom-root');
+    expect(headerElement.classList).toContain('custom-header');
+    expect(titleElement.classList).toContain('custom-title');
+    expect(bodyElement.classList).toContain('custom-body');
+    expect(iconElement.classList).toContain('custom-icon');
+
+    // check styles
+    expect(rootElement.style.color).toBe('red');
+    expect(headerElement.style.color).toBe('blue');
+    expect(titleElement.style.color).toBe('green');
+    expect(bodyElement.style.color).toBe('yellow');
+    expect(iconElement.style.color).toBe('purple');
   });
 });

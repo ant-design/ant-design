@@ -673,244 +673,6 @@ exports[`ConfigProvider components Avatar prefixCls 1`] = `
 </span>
 `;
 
-exports[`ConfigProvider components BackTop configProvider 1`] = `
-<div
-  class="config-back-top"
->
-  <div
-    class="config-fade-appear config-fade-appear-start config-fade config-back-top-content"
-  >
-    <div
-      class="config-back-top-icon"
-    >
-      <span
-        aria-label="vertical-align-top"
-        class="anticon anticon-vertical-align-top"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="vertical-align-top"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M859.9 168H164.1c-4.5 0-8.1 3.6-8.1 8v60c0 4.4 3.6 8 8.1 8h695.8c4.5 0 8.1-3.6 8.1-8v-60c0-4.4-3.6-8-8.1-8zM518.3 355a8 8 0 00-12.6 0l-112 141.7a7.98 7.98 0 006.3 12.9h73.9V848c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V509.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 355z"
-          />
-        </svg>
-      </span>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components BackTop configProvider componentDisabled 1`] = `
-<div
-  class="config-back-top"
->
-  <div
-    class="config-fade-appear config-fade-appear-start config-fade config-back-top-content"
-  >
-    <div
-      class="config-back-top-icon"
-    >
-      <span
-        aria-label="vertical-align-top"
-        class="anticon anticon-vertical-align-top"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="vertical-align-top"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M859.9 168H164.1c-4.5 0-8.1 3.6-8.1 8v60c0 4.4 3.6 8 8.1 8h695.8c4.5 0 8.1-3.6 8.1-8v-60c0-4.4-3.6-8-8.1-8zM518.3 355a8 8 0 00-12.6 0l-112 141.7a7.98 7.98 0 006.3 12.9h73.9V848c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V509.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 355z"
-          />
-        </svg>
-      </span>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components BackTop configProvider componentSize large 1`] = `
-<div
-  class="config-back-top"
->
-  <div
-    class="config-fade-appear config-fade-appear-start config-fade config-back-top-content"
-  >
-    <div
-      class="config-back-top-icon"
-    >
-      <span
-        aria-label="vertical-align-top"
-        class="anticon anticon-vertical-align-top"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="vertical-align-top"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M859.9 168H164.1c-4.5 0-8.1 3.6-8.1 8v60c0 4.4 3.6 8 8.1 8h695.8c4.5 0 8.1-3.6 8.1-8v-60c0-4.4-3.6-8-8.1-8zM518.3 355a8 8 0 00-12.6 0l-112 141.7a7.98 7.98 0 006.3 12.9h73.9V848c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V509.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 355z"
-          />
-        </svg>
-      </span>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components BackTop configProvider componentSize middle 1`] = `
-<div
-  class="config-back-top"
->
-  <div
-    class="config-fade-appear config-fade-appear-start config-fade config-back-top-content"
-  >
-    <div
-      class="config-back-top-icon"
-    >
-      <span
-        aria-label="vertical-align-top"
-        class="anticon anticon-vertical-align-top"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="vertical-align-top"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M859.9 168H164.1c-4.5 0-8.1 3.6-8.1 8v60c0 4.4 3.6 8 8.1 8h695.8c4.5 0 8.1-3.6 8.1-8v-60c0-4.4-3.6-8-8.1-8zM518.3 355a8 8 0 00-12.6 0l-112 141.7a7.98 7.98 0 006.3 12.9h73.9V848c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V509.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 355z"
-          />
-        </svg>
-      </span>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components BackTop configProvider componentSize small 1`] = `
-<div
-  class="config-back-top"
->
-  <div
-    class="config-fade-appear config-fade-appear-start config-fade config-back-top-content"
-  >
-    <div
-      class="config-back-top-icon"
-    >
-      <span
-        aria-label="vertical-align-top"
-        class="anticon anticon-vertical-align-top"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="vertical-align-top"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M859.9 168H164.1c-4.5 0-8.1 3.6-8.1 8v60c0 4.4 3.6 8 8.1 8h695.8c4.5 0 8.1-3.6 8.1-8v-60c0-4.4-3.6-8-8.1-8zM518.3 355a8 8 0 00-12.6 0l-112 141.7a7.98 7.98 0 006.3 12.9h73.9V848c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V509.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 355z"
-          />
-        </svg>
-      </span>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components BackTop normal 1`] = `
-<div
-  class="ant-back-top"
->
-  <div
-    class="ant-fade-appear ant-fade-appear-start ant-fade ant-back-top-content"
-  >
-    <div
-      class="ant-back-top-icon"
-    >
-      <span
-        aria-label="vertical-align-top"
-        class="anticon anticon-vertical-align-top"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="vertical-align-top"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M859.9 168H164.1c-4.5 0-8.1 3.6-8.1 8v60c0 4.4 3.6 8 8.1 8h695.8c4.5 0 8.1-3.6 8.1-8v-60c0-4.4-3.6-8-8.1-8zM518.3 355a8 8 0 00-12.6 0l-112 141.7a7.98 7.98 0 006.3 12.9h73.9V848c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V509.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 355z"
-          />
-        </svg>
-      </span>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components BackTop prefixCls 1`] = `
-<div
-  class="prefix-BackTop"
->
-  <div
-    class="ant-fade-appear ant-fade-appear-start ant-fade prefix-BackTop-content"
-  >
-    <div
-      class="prefix-BackTop-icon"
-    >
-      <span
-        aria-label="vertical-align-top"
-        class="anticon anticon-vertical-align-top"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="vertical-align-top"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M859.9 168H164.1c-4.5 0-8.1 3.6-8.1 8v60c0 4.4 3.6 8 8.1 8h695.8c4.5 0 8.1-3.6 8.1-8v-60c0-4.4-3.6-8-8.1-8zM518.3 355a8 8 0 00-12.6 0l-112 141.7a7.98 7.98 0 006.3 12.9h73.9V848c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V509.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 355z"
-          />
-        </svg>
-      </span>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`ConfigProvider components Badge configProvider 1`] = `
 <div>
   <span
@@ -12490,7 +12252,7 @@ exports[`ConfigProvider components Collapse configProvider 1`] = `
         </span>
       </div>
       <span
-        class="config-collapse-header-text"
+        class="config-collapse-title"
       >
         Bamboo
       </span>
@@ -12537,7 +12299,7 @@ exports[`ConfigProvider components Collapse configProvider componentDisabled 1`]
         </span>
       </div>
       <span
-        class="config-collapse-header-text"
+        class="config-collapse-title"
       >
         Bamboo
       </span>
@@ -12584,7 +12346,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize large 1
         </span>
       </div>
       <span
-        class="config-collapse-header-text"
+        class="config-collapse-title"
       >
         Bamboo
       </span>
@@ -12631,7 +12393,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize middle 
         </span>
       </div>
       <span
-        class="config-collapse-header-text"
+        class="config-collapse-title"
       >
         Bamboo
       </span>
@@ -12678,7 +12440,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize small 1
         </span>
       </div>
       <span
-        class="config-collapse-header-text"
+        class="config-collapse-title"
       >
         Bamboo
       </span>
@@ -12725,7 +12487,7 @@ exports[`ConfigProvider components Collapse normal 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         Bamboo
       </span>
@@ -12772,7 +12534,7 @@ exports[`ConfigProvider components Collapse prefixCls 1`] = `
         </span>
       </div>
       <span
-        class="prefix-Collapse-header-text"
+        class="prefix-Collapse-title"
       >
         Bamboo
       </span>
@@ -14451,7 +14213,7 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
   >
     <div
       aria-modal="true"
-      class="config-drawer-content"
+      class="config-drawer-section"
       role="dialog"
     >
       <div
@@ -14522,7 +14284,7 @@ exports[`ConfigProvider components Drawer configProvider componentDisabled 1`] =
   >
     <div
       aria-modal="true"
-      class="config-drawer-content"
+      class="config-drawer-section"
       role="dialog"
     >
       <div
@@ -14593,7 +14355,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize large 1`]
   >
     <div
       aria-modal="true"
-      class="config-drawer-content"
+      class="config-drawer-section"
       role="dialog"
     >
       <div
@@ -14664,7 +14426,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize middle 1`
   >
     <div
       aria-modal="true"
-      class="config-drawer-content"
+      class="config-drawer-section"
       role="dialog"
     >
       <div
@@ -14735,7 +14497,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize small 1`]
   >
     <div
       aria-modal="true"
-      class="config-drawer-content"
+      class="config-drawer-section"
       role="dialog"
     >
       <div
@@ -14806,7 +14568,7 @@ exports[`ConfigProvider components Drawer normal 1`] = `
   >
     <div
       aria-modal="true"
-      class="ant-drawer-content"
+      class="ant-drawer-section"
       role="dialog"
     >
       <div
@@ -14877,7 +14639,7 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
   >
     <div
       aria-modal="true"
-      class="prefix-Drawer-content"
+      class="prefix-Drawer-section"
       role="dialog"
     >
       <div
@@ -29795,12 +29557,12 @@ exports[`ConfigProvider components Tags configProvider 1`] = `
 exports[`ConfigProvider components Tags configProvider componentDisabled 1`] = `
 <div>
   <span
-    class="config-tag"
+    class="config-tag config-tag-disabled"
   >
     Bamboo
   </span>
   <span
-    class="config-tag config-tag-checkable"
+    class="config-tag config-tag-checkable config-tag-checkable-disabled"
   >
     Light
   </span>

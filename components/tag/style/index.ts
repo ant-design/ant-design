@@ -1,10 +1,10 @@
 import type React from 'react';
 import { unit } from '@ant-design/cssinjs';
-import type { CSSInterpolation } from '@ant-design/cssinjs';
+import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { FastColor } from '@ant-design/fast-color';
 
 import { resetComponent } from '../../style';
-import type { FullToken, GetDefaultToken, GenStyleFn } from '../../theme/internal';
+import type { FullToken, GenStyleFn, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
@@ -34,14 +34,28 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
   const { paddingXXS, lineWidth, tagPaddingHorizontal, componentCls, calc } = token;
   const paddingInline = calc(tagPaddingHorizontal).sub(lineWidth).equal();
   const iconMarginInline = calc(paddingXXS).sub(lineWidth).equal();
+
+  const disabledStyle: CSSObject = {
+    color: token.colorTextDisabled,
+    cursor: 'not-allowed',
+    backgroundColor: token.colorBgContainerDisabled,
+    borderColor: token.colorBorderDisabled,
+    a: {
+      cursor: 'not-allowed',
+      pointerEvents: 'none',
+      color: token.colorTextDisabled,
+      '&:hover': {
+        color: token.colorTextDisabled,
+      },
+    },
+  };
+
   return {
     // Result
     [componentCls]: {
       ...resetComponent(token),
       display: 'inline-block',
       height: 'auto',
-      // https://github.com/ant-design/ant-design/pull/47504
-      marginInlineEnd: token.marginXS,
       paddingInline,
       fontSize: token.tagFontSize,
       lineHeight: token.tagLineHeight,
@@ -78,6 +92,14 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       [`&${componentCls}-has-color`]: {
         borderColor: 'transparent',
 
+        [`&${componentCls}-disabled`]: {
+          backgroundColor: `${token.colorBgContainerDisabled} !important`,
+          color: token.colorTextDisabled,
+          [`${componentCls}-close-icon`]: {
+            color: token.colorTextDisabled,
+          },
+        },
+
         [`&, a, a:hover, ${token.iconCls}-close, ${token.iconCls}-close:hover`]: {
           color: token.colorTextLightSolid,
         },
@@ -107,6 +129,31 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         '&:active': {
           backgroundColor: token.colorPrimaryActive,
         },
+
+        '&-disabled': {
+          cursor: 'not-allowed',
+
+          [`&:not(${componentCls}-checkable-checked)`]: {
+            color: token.colorTextDisabled,
+            '&:hover': {
+              backgroundColor: 'transparent',
+            },
+          },
+
+          [`&${componentCls}-checkable-checked`]: {
+            color: token.colorTextDisabled,
+            backgroundColor: token.colorBgContainerDisabled,
+          },
+
+          '&:hover, &:active': {
+            backgroundColor: token.colorBgContainerDisabled,
+            color: token.colorTextDisabled,
+          },
+
+          [`&:not(${componentCls}-checkable-checked):hover`]: {
+            color: token.colorTextDisabled,
+          },
+        },
       },
 
       '&-hidden': {
@@ -121,6 +168,29 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
     [`${componentCls}-borderless`]: {
       borderColor: 'transparent',
       background: token.tagBorderlessBg,
+    },
+
+    [`&${componentCls}-disabled`]: {
+      ...disabledStyle,
+
+      'a&': {
+        '&:hover, &:active': {
+          color: token.colorTextDisabled,
+        },
+      },
+
+      [`&${componentCls}-borderless, &${componentCls}-has-color`]: {
+        borderColor: 'transparent',
+        color: token.colorTextDisabled,
+      },
+
+      [`${componentCls}-close-icon`]: {
+        cursor: 'not-allowed',
+        color: token.colorTextDisabled,
+        '&:hover': {
+          color: token.colorTextDisabled,
+        },
+      },
     },
   };
 };

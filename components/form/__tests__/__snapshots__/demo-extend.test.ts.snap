@@ -23587,7 +23587,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
       class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-col ant-col-12 ant-col-offset-6 ant-form-item-control"
+        class="ant-col ant-col-14 ant-col-offset-6 ant-form-item-control"
       >
         <div
           class="ant-form-item-control-input"
@@ -23645,7 +23645,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
       class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-col ant-col-offset-6 ant-form-item-control"
+        class="ant-col ant-col-14 ant-col-offset-6 ant-form-item-control"
       >
         <div
           class="ant-form-item-control-input"
@@ -23973,7 +23973,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
       class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-col ant-col-offset-6 ant-form-item-control"
+        class="ant-col ant-col-14 ant-col-offset-6 ant-form-item-control"
       >
         <div
           class="ant-form-item-control-input"
@@ -33575,7 +33575,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
       class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-col ant-col-16 ant-col-offset-6 ant-form-item-control"
+        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14 ant-col-sm-offset-6"
       >
         <div
           class="ant-form-item-control-input"

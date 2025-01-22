@@ -7,17 +7,20 @@ import type { ClosableType } from '../_util/hooks/useClosable';
 import { ConfigContext } from '../config-provider';
 import Skeleton from '../skeleton';
 
-export interface DrawerClassNames extends NonNullable<RCDrawerProps['classNames']> {
-  header?: string;
-  body?: string;
-  footer?: string;
-}
+export type SemanticName =
+  | 'root'
+  | 'mask'
+  | 'header'
+  | 'title'
+  | 'extra'
+  | 'section'
+  | 'body'
+  | 'footer'
+  | 'wrapper';
 
-export interface DrawerStyles extends NonNullable<RCDrawerProps['styles']> {
-  header?: React.CSSProperties;
-  body?: React.CSSProperties;
-  footer?: React.CSSProperties;
-}
+export type DrawerClassNames = Partial<Record<SemanticName, string>>;
+
+export type DrawerStyles = Partial<Record<SemanticName, React.CSSProperties>>;
 
 export interface DrawerPanelProps {
   prefixCls: string;
@@ -112,9 +115,37 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
       >
         <div className={`${prefixCls}-header-title`}>
           {mergedCloseIcon}
-          {title && <div className={`${prefixCls}-title`}>{title}</div>}
+          {title && (
+            <div
+              className={classNames(
+                `${prefixCls}-title`,
+                drawerContext?.classNames?.title,
+                drawerClassNames?.title,
+              )}
+              style={{
+                ...drawerContext?.styles?.title,
+                ...drawerStyles?.title,
+              }}
+            >
+              {title}
+            </div>
+          )}
         </div>
-        {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
+        {extra && (
+          <div
+            className={classNames(
+              `${prefixCls}-extra`,
+              drawerContext?.classNames?.extra,
+              drawerClassNames?.extra,
+            )}
+            style={{
+              ...drawerContext?.styles?.extra,
+              ...drawerStyles?.extra,
+            }}
+          >
+            {extra}
+          </div>
+        )}
       </div>
     );
   }, [mergedClosable, mergedCloseIcon, extra, headerStyle, prefixCls, title]);

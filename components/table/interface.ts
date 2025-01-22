@@ -1,12 +1,13 @@
 import type * as React from 'react';
-import type { Reference } from 'rc-table';
+import type { Reference } from '@rc-component/table';
 import type {
+  ExpandableConfig,
   FixedType,
   GetComponentProps,
+  GetRowKey,
   ColumnType as RcColumnType,
   RenderedCell as RcRenderedCell,
-} from 'rc-table/lib/interface';
-import { ExpandableConfig, GetRowKey } from 'rc-table/lib/interface';
+} from '@rc-component/table/lib/interface';
 
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { AnyObject } from '../_util/type';
@@ -25,7 +26,7 @@ export type RefInternalTable = <RecordType = AnyObject>(
   props: React.PropsWithChildren<InternalTableProps<RecordType>> & React.RefAttributes<Reference>,
 ) => React.ReactElement;
 
-export { ExpandableConfig, GetRowKey };
+export type { ExpandableConfig, GetRowKey };
 
 export type Key = React.Key;
 
@@ -42,7 +43,11 @@ export interface TableLocale {
   filterConfirm?: React.ReactNode;
   filterReset?: React.ReactNode;
   filterEmptyText?: React.ReactNode;
+  /**
+   * @deprecated Please use `filterCheckAll` instead.
+   */
   filterCheckall?: React.ReactNode;
+  filterCheckAll?: React.ReactNode;
   filterSearchPlaceholder?: string;
   emptyText?: React.ReactNode | (() => React.ReactNode);
   selectAll?: React.ReactNode;

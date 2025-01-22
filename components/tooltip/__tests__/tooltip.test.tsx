@@ -1,14 +1,14 @@
 import React from 'react';
-import { spyElementPrototype } from 'rc-util/lib/test/domHook';
+import { spyElementPrototype } from '@rc-component/util/lib/test/domHook';
 
 import type { TooltipPlacement } from '..';
 import Tooltip from '..';
 import getPlacements from '../../_util/placements';
-import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
+import ConfigProvider from '../../config-provider';
 import DatePicker from '../../date-picker';
 import Input from '../../input';
 import Group from '../../input/Group';
@@ -204,44 +204,6 @@ describe('Tooltip', () => {
     expect(getComputedStyle(containerBlock.querySelector('button')!)?.display).toBe('block');
   });
 
-  it('should warn for arrowPointAtCenter', async () => {
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
-    render(
-      <Tooltip
-        title="xxxxx"
-        trigger="click"
-        mouseEnterDelay={0}
-        mouseLeaveDelay={0}
-        placement="bottomLeft"
-        arrowPointAtCenter
-        classNames={{ root: 'point-center-element' }}
-      >
-        <button type="button">Hello world!</button>
-      </Tooltip>,
-    );
-    expect(warnSpy).toHaveBeenLastCalledWith(
-      expect.stringContaining('`arrowPointAtCenter` is deprecated'),
-    );
-
-    render(
-      <Tooltip
-        title="xxxxx"
-        trigger="click"
-        mouseEnterDelay={0}
-        mouseLeaveDelay={0}
-        placement="bottomLeft"
-        arrow={{ arrowPointAtCenter: true }}
-        classNames={{ root: 'point-center-element' }}
-      >
-        <button type="button">Hello world!</button>
-      </Tooltip>,
-    );
-    expect(warnSpy).toHaveBeenCalledWith(
-      expect.stringContaining('`arrowPointAtCenter` in `arrow` is deprecated'),
-    );
-  });
-
   it('should works for date picker', async () => {
     const onOpenChange = jest.fn();
     const ref = React.createRef<any>();
@@ -344,7 +306,7 @@ describe('Tooltip', () => {
         const { container } = render(
           <Tooltip
             title="xxxxx"
-            transitionName=""
+            motion={{ motionName: '' }}
             mouseEnterDelay={0}
             placement={placement}
             autoAdjustOverflow={false}
@@ -480,86 +442,6 @@ describe('Tooltip', () => {
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
 
-  it('deprecated warning', async () => {
-    resetWarned();
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
-    // defaultVisible
-    const { container, rerender } = render(
-      <Tooltip defaultVisible title="bamboo">
-        <a />
-      </Tooltip>,
-    );
-    await waitFakeTimer();
-
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tooltip] `defaultVisible` is deprecated. Please use `defaultOpen` instead.',
-    );
-    expect(isTooltipOpen()).toBeTruthy();
-
-    // visible
-    rerender(
-      <Tooltip visible title="bamboo">
-        <a />
-      </Tooltip>,
-    );
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tooltip] `visible` is deprecated. Please use `open` instead.',
-    );
-
-    rerender(
-      <Tooltip visible={false} title="bamboo">
-        <a />
-      </Tooltip>,
-    );
-    await waitFakeTimer();
-    if (container.querySelector('.ant-zoom-big-fast-leave-active')) {
-      fireEvent.animationEnd(container.querySelector('.ant-zoom-big-fast-leave-active')!);
-    }
-    expect(isTooltipOpen()).toBeFalsy();
-
-    // onVisibleChange
-    rerender(
-      <Tooltip onVisibleChange={() => {}} title="bamboo">
-        <a />
-      </Tooltip>,
-    );
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tooltip] `onVisibleChange` is deprecated. Please use `onOpenChange` instead.',
-    );
-
-    // afterVisibleChange
-    rerender(
-      <Tooltip afterVisibleChange={() => {}} title="bamboo">
-        <a />
-      </Tooltip>,
-    );
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tooltip] `afterVisibleChange` is deprecated. Please use `afterOpenChange` instead.',
-    );
-
-    // Event Trigger
-    const onVisibleChange = jest.fn();
-    const afterVisibleChange = jest.fn();
-    rerender(
-      <Tooltip
-        visible
-        onVisibleChange={onVisibleChange}
-        afterVisibleChange={afterVisibleChange}
-        title="bamboo"
-      >
-        <a />
-      </Tooltip>,
-    );
-
-    fireEvent.mouseLeave(container.querySelector('a')!);
-    await waitFakeTimer();
-    expect(onVisibleChange).toHaveBeenCalled();
-    expect(afterVisibleChange).toHaveBeenCalled();
-
-    errSpy.mockRestore();
-  });
-
   it('not inject className when children className is not string type', () => {
     const HOC = ({ className }: { className: () => string }) => <span className={className()} />;
     const { container } = render(
@@ -590,18 +472,6 @@ describe('Tooltip', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('use ref.current.forcePopupAlign', async () => {
-    const ref = React.createRef<any>();
-    const error = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<Tooltip open ref={ref} />);
-    act(() => {
-      ref.current.forcePopupAlign();
-      jest.runAllTimers();
-    });
-    expect(error).toHaveBeenCalled();
-    error.mockRestore();
-  });
-
   it('should apply custom styles to Tooltip', () => {
     const customClassNames = {
       body: 'custom-body',
@@ -614,7 +484,7 @@ describe('Tooltip', () => {
     };
 
     const { container } = render(
-      <Tooltip classNames={customClassNames} overlay={<div />} styles={customStyles} visible>
+      <Tooltip classNames={customClassNames} overlay={<div />} styles={customStyles} open>
         <button type="button">button</button>
       </Tooltip>,
     );
@@ -629,5 +499,68 @@ describe('Tooltip', () => {
     // 验证 styles
     expect(tooltipElement.style.backgroundColor).toBe('blue');
     expect(tooltipBodyElement.style.color).toBe('red');
+  });
+
+  it('ConfigProvider support arrow props', () => {
+    const TooltipTestComponent = () => {
+      const [configArrow, setConfigArrow] = React.useState(true);
+
+      return (
+        <ConfigProvider
+          tooltip={{
+            arrow: configArrow,
+          }}
+        >
+          <button onClick={() => setConfigArrow(false)} className="configArrow" type="button">
+            showconfigArrow
+          </button>
+          <Tooltip open>
+            <div className="target">target</div>
+          </Tooltip>
+        </ConfigProvider>
+      );
+    };
+    const { container } = render(<TooltipTestComponent />);
+    const getTooltipArrow = () => container.querySelector('.ant-tooltip-arrow');
+    const configbtn = container.querySelector('.configArrow');
+
+    expect(getTooltipArrow()).not.toBeNull();
+    fireEvent.click(configbtn!);
+    expect(getTooltipArrow()).toBeNull();
+  });
+  it('ConfigProvider with arrow set to false, Tooltip arrow controlled by prop', () => {
+    const TooltipTestComponent = () => {
+      const [arrow, setArrow] = React.useState(true);
+
+      return (
+        <ConfigProvider
+          tooltip={{
+            arrow: false,
+          }}
+        >
+          <button onClick={() => setArrow(!arrow)} className="toggleArrow" type="button">
+            toggleArrow
+          </button>
+          <Tooltip open arrow={arrow}>
+            <div className="target">target</div>
+          </Tooltip>
+        </ConfigProvider>
+      );
+    };
+
+    const { container } = render(<TooltipTestComponent />);
+    const getTooltipArrow = () => container.querySelector('.ant-tooltip-arrow');
+    const toggleArrowBtn = container.querySelector('.toggleArrow');
+
+    // Initial render, arrow should be visible because Tooltip's arrow prop is true
+    expect(getTooltipArrow()).not.toBeNull();
+
+    // Click the toggleArrow button to hide the arrow
+    fireEvent.click(toggleArrowBtn!);
+    expect(getTooltipArrow()).toBeNull();
+
+    // Click the toggleArrow button again to show the arrow
+    fireEvent.click(toggleArrowBtn!);
+    expect(getTooltipArrow()).not.toBeNull();
   });
 });

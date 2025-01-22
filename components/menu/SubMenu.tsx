@@ -1,7 +1,7 @@
 import * as React from 'react';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
 import { SubMenu as RcSubMenu, useFullPath } from 'rc-menu';
-import omit from 'rc-util/lib/omit';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { cloneElement } from '../_util/reactNode';
@@ -12,11 +12,6 @@ import MenuContext from './MenuContext';
 export interface SubMenuProps extends Omit<SubMenuType, 'ref' | 'key' | 'children' | 'label'> {
   title?: React.ReactNode;
   children?: React.ReactNode;
-  /**
-   * @deprecated No longer needed, it can now be safely deleted.
-   * @see: https://github.com/ant-design/ant-design/pull/30638
-   */
-  level?: number;
 }
 
 const SubMenu: React.FC<SubMenuProps> = (props) => {

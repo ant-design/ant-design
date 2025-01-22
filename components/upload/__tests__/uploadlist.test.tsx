@@ -29,7 +29,7 @@ const fileList: UploadProps['fileList'] = [
 ];
 
 describe('Upload List', () => {
-  // Mock for rc-util raf
+  // Mock for rc-component/util raf
   window.requestAnimationFrame = (callback) => window.setTimeout(callback, 16);
   window.cancelAnimationFrame = (id) => window.clearTimeout(id);
 

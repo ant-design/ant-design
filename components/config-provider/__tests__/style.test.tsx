@@ -175,8 +175,8 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    const selectors = '.ant-drawer-content .ant-drawer-close .cp-test-close-icon';
-    expect(document.querySelector('.ant-drawer-content')).toHaveClass('test-class');
+    const selectors = '.ant-drawer-section .ant-drawer-close .cp-test-close-icon';
+    expect(document.querySelector('.ant-drawer-section')).toHaveClass('test-class');
     expect(document.querySelector<HTMLSpanElement>(selectors)).toBeTruthy();
   });
 
@@ -194,7 +194,7 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    const selectors = '.ant-drawer-content .ant-drawer-close .cp-test-close-icon';
+    const selectors = '.ant-drawer-section .ant-drawer-close .cp-test-close-icon';
     expect(document.querySelector<HTMLSpanElement>(selectors)).toBeTruthy();
     expect(document.querySelector('*[aria-label="Close Btn"]')).toBeTruthy();
   });
@@ -210,7 +210,7 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    expect(document.querySelector('.ant-drawer-content')).toHaveStyle(
+    expect(document.querySelector('.ant-drawer-section')).toHaveStyle(
       'color: red; font-size: 16px;',
     );
   });

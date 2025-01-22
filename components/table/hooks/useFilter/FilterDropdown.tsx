@@ -1,9 +1,9 @@
 import * as React from 'react';
 import FilterFilled from '@ant-design/icons/FilterFilled';
+import isEqual from '@rc-component/util/lib/isEqual';
 import type { AnyObject } from 'antd/es/_util/type';
 import classNames from 'classnames';
 import type { FieldDataNode } from 'rc-tree';
-import isEqual from 'rc-util/lib/isEqual';
 
 import type { FilterState } from '.';
 import extendsObject from '../../../_util/extendsObject';
@@ -203,6 +203,11 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     deprecatedList.forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in column), deprecatedName, newName);
     });
+    warning.deprecated(
+      !('filterCheckall' in locale),
+      'filterCheckall' as 'deprecated',
+      'locale.filterCheckAll',
+    );
   }
 
   const mergedVisible =
@@ -416,7 +421,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
                   className={`${tablePrefixCls}-filter-dropdown-checkall`}
                   onChange={onCheckAll}
                 >
-                  {locale.filterCheckall}
+                  {locale?.filterCheckall ?? locale?.filterCheckAll}
                 </Checkbox>
               ) : null}
               <Tree<FilterTreeDataNode>

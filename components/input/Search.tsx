@@ -1,7 +1,7 @@
 import * as React from 'react';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
+import { composeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
-import { composeRef } from 'rc-util/lib/ref';
 
 import { cloneElement } from '../_util/reactNode';
 import Button from '../button';

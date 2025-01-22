@@ -1,7 +1,7 @@
 import * as React from 'react';
+import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
+import KeyCode from '@rc-component/util/lib/KeyCode';
 import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import KeyCode from 'rc-util/lib/KeyCode';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
@@ -10,6 +10,7 @@ import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
 import Tooltip from '../tooltip';
+import useMergedArrow from '../tooltip/hook/useMergedArrow';
 import PurePanel, { Overlay } from './PurePanel';
 // CSSINJS
 import useStyle from './style';
@@ -38,13 +39,16 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     overlayStyle = {},
     styles,
     classNames: popoverClassNames,
-    ...otherProps
+    motion,
+    arrow: popoverArrow,
+    ...restProps
   } = props;
   const { popover, getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
   const rootPrefixCls = getPrefixCls();
+  const mergedArrow = useMergedArrow(popoverArrow, popover?.arrow);
 
   const rootClassNames = classNames(
     overlayClassName,
@@ -56,8 +60,8 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
   const bodyClassNames = classNames(popover?.classNames?.body, popoverClassNames?.body);
 
   const [open, setOpen] = useMergedState(false, {
-    value: props.open ?? props.visible,
-    defaultValue: props.defaultOpen ?? props.defaultVisible,
+    value: props.open,
+    defaultValue: props.defaultOpen,
   });
 
   const settingOpen = (
@@ -83,11 +87,12 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
 
   return wrapCSSVar(
     <Tooltip
+      arrow={mergedArrow}
       placement={placement}
       trigger={trigger}
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
-      {...otherProps}
+      {...restProps}
       prefixCls={prefixCls}
       classNames={{ root: rootClassNames, body: bodyClassNames }}
       styles={{
@@ -110,7 +115,13 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
           <Overlay prefixCls={prefixCls} title={titleNode} content={contentNode} />
         ) : null
       }
-      transitionName={getTransitionName(rootPrefixCls, 'zoom-big', otherProps.transitionName)}
+      motion={{
+        motionName: getTransitionName(
+          rootPrefixCls,
+          'zoom-big',
+          typeof motion?.motionName === 'string' ? motion?.motionName : undefined,
+        ),
+      }}
       data-popover-inject
     >
       {cloneElement(children, {

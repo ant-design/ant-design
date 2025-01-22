@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { List } from 'rc-field-form';
-import type { StoreValue, ValidatorRule } from 'rc-field-form/lib/interface';
+import { List } from '@rc-component/form';
+import type { StoreValue, ValidatorRule } from '@rc-component/form/lib/interface';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
@@ -9,8 +9,6 @@ import { FormItemPrefixContext } from './context';
 export interface FormListFieldData {
   name: number;
   key: number;
-  /** @deprecated No need anymore Use key instead */
-  fieldKey?: number;
 }
 
 export interface FormListOperation {

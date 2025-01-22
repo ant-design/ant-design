@@ -6938,11 +6938,7 @@ exports[`renders components/dropdown/demo/render-panel.tsx extend context correc
 </div>
 `;
 
-exports[`renders components/dropdown/demo/render-panel.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Dropdown] \`visible\` is deprecated. Please use \`open\` instead.",
-]
-`;
+exports[`renders components/dropdown/demo/render-panel.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/dropdown/demo/selectable.tsx extend context correctly 1`] = `
 Array [

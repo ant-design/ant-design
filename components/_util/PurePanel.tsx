@@ -1,5 +1,5 @@
 import * as React from 'react';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
 
 import ConfigProvider, { ConfigContext } from '../config-provider';
 import type { AnyObject } from './type';
@@ -19,7 +19,7 @@ export interface BaseProps {
 
 /* istanbul ignore next */
 const genPurePanel = <ComponentProps extends BaseProps = BaseProps>(
-  Component: any,
+  Component: React.ComponentType<Readonly<ComponentProps>>,
   alignPropName?: 'align' | 'dropdownAlign' | 'popupAlign',
   postProps?: (props: ComponentProps) => ComponentProps,
   defaultPrefixCls?: string,

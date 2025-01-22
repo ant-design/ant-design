@@ -9,7 +9,9 @@ import type { CardProps } from '../card';
 import type { CascaderProps } from '../cascader';
 import type { CollapseProps } from '../collapse';
 import type { DatePickerProps, RangePickerProps } from '../date-picker';
+import type { DescriptionsProps } from '../descriptions';
 import type { DrawerProps } from '../drawer';
+import type { EmptyProps } from '../empty';
 import type { FlexProps } from '../flex/interface';
 import type { FloatButtonGroupProps } from '../float-button/interface';
 import type { FormProps } from '../form/Form';
@@ -22,7 +24,11 @@ import type { MenuProps } from '../menu';
 import type { ModalProps } from '../modal';
 import type { ArgsProps } from '../notification/interface';
 import type { PaginationProps } from '../pagination';
+import type { PopconfirmProps } from '../popconfirm';
+import type { PopoverProps } from '../popover';
+import type { ResultProps } from '../result';
 import type { SelectProps } from '../select';
+import type { SliderProps } from '../slider';
 import type { SpaceProps } from '../space';
 import type { SpinProps } from '../spin';
 import type { TableProps } from '../table';
@@ -30,17 +36,14 @@ import type { TabsProps } from '../tabs';
 import type { TagProps } from '../tag';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { TimePickerProps } from '../time-picker';
+import type { TooltipProps } from '../tooltip';
 import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
 import type { TreeSelectProps } from '../tree-select';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
-import type { TooltipProps } from '../tooltip';
-import type { PopoverProps } from '../popover';
-import type { PopconfirmProps } from '../popconfirm';
-import type { DescriptionsProps } from '../descriptions';
-import type { SliderProps } from '../slider';
-import type { EmptyProps } from '../empty';
-
+import type { StatisticProps } from '../statistic';
+import type { RibbonProps } from '../badge/Ribbon';
+import type { SegmentedProps } from '../segmented';
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
 
@@ -133,7 +136,8 @@ export interface ImageConfig extends ComponentStyleConfig {
   preview?: Partial<Record<'closeIcon', React.ReactNode>>;
 }
 
-export type CollapseConfig = ComponentStyleConfig & Pick<CollapseProps, 'expandIcon'>;
+export type CollapseConfig = ComponentStyleConfig &
+  Pick<CollapseProps, 'expandIcon' | 'classNames' | 'styles'>;
 
 export type MenuConfig = ComponentStyleConfig & Pick<MenuProps, 'expandIcon'>;
 
@@ -187,18 +191,30 @@ export type SelectConfig = ComponentStyleConfig & Pick<SelectProps, 'showSearch'
 
 export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'classNames' | 'styles'>;
 
-export type TooltipConfig = Pick<TooltipProps, 'className' | 'style' | 'styles' | 'classNames'>;
+export type TooltipConfig = Pick<
+  TooltipProps,
+  'className' | 'style' | 'styles' | 'classNames' | 'arrow'
+>;
 
-export type PopoverConfig = Pick<PopoverProps, 'className' | 'style' | 'styles' | 'classNames'>;
+export type PopoverConfig = Pick<
+  PopoverProps,
+  'className' | 'style' | 'styles' | 'classNames' | 'arrow'
+>;
 
 export type PopconfirmConfig = Pick<
   PopconfirmProps,
-  'className' | 'style' | 'styles' | 'classNames'
+  'className' | 'style' | 'styles' | 'classNames' | 'arrow'
 >;
 
 export type SliderConfig = ComponentStyleConfig & Pick<SliderProps, 'styles' | 'classNames'>;
 
+export type SegmentedConfig = ComponentStyleConfig & Pick<SegmentedProps, 'classNames' | 'styles'>;
+
 export type SpinConfig = ComponentStyleConfig & Pick<SpinProps, 'indicator'>;
+
+export type StatisticConfig = ComponentStyleConfig & Pick<StatisticProps, 'classNames' | 'styles'>;
+
+export type ResultConfig = ComponentStyleConfig & Pick<ResultProps, 'classNames' | 'styles'>;
 
 export type InputNumberConfig = ComponentStyleConfig & Pick<InputNumberProps, 'variant'>;
 
@@ -213,6 +229,8 @@ export type RangePickerConfig = ComponentStyleConfig & Pick<RangePickerProps, 'v
 export type TimePickerConfig = ComponentStyleConfig & Pick<TimePickerProps, 'variant'>;
 
 export type MentionsConfig = ComponentStyleConfig & Pick<MentionsProps, 'variant'>;
+
+export type RibbonConfig = ComponentStyleConfig & Pick<RibbonProps, 'classNames' | 'styles'>;
 
 export type PopupOverflow = 'viewport' | 'scroll';
 
@@ -281,16 +299,16 @@ export interface ConfigConsumerProps {
   typography?: ComponentStyleConfig;
   skeleton?: ComponentStyleConfig;
   spin?: SpinConfig;
-  segmented?: ComponentStyleConfig;
+  segmented?: SegmentedConfig;
   steps?: ComponentStyleConfig;
-  statistic?: ComponentStyleConfig;
+  statistic?: StatisticConfig;
   image?: ImageConfig;
   layout?: ComponentStyleConfig;
   list?: ListConfig;
   mentions?: MentionsConfig;
   modal?: ModalConfig;
   progress?: ComponentStyleConfig;
-  result?: ComponentStyleConfig;
+  result?: ResultConfig;
   slider?: SliderConfig;
   breadcrumb?: ComponentStyleConfig;
   menu?: MenuConfig;
@@ -320,6 +338,7 @@ export interface ConfigConsumerProps {
   colorPicker?: ComponentStyleConfig;
   datePicker?: DatePickerConfig;
   rangePicker?: RangePickerConfig;
+  ribbon?: RibbonConfig;
   dropdown?: ComponentStyleConfig;
   flex?: FlexConfig;
   wave?: WaveConfig;
