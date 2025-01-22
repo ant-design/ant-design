@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Panel } from 'rc-dialog';
-import type { PanelProps } from 'rc-dialog/lib/Dialog/Content/Panel';
+import { Panel } from '@rc-component/dialog';
+import type { PanelProps } from '@rc-component/dialog/lib/Dialog/Content/Panel';
 
 import { withPureRenderTheme } from '../_util/PurePanel';
 import { ConfigContext } from '../config-provider';
