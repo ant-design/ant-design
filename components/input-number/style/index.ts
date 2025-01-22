@@ -250,7 +250,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           position: 'absolute',
           insetBlockStart: 0,
           insetInlineEnd: 0,
-          width: 0,
+          width: token.handleVisibleWidth,
           opacity: handleOpacity,
           height: '100%',
           borderStartStartRadius: 0,
@@ -469,7 +469,7 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
         width: token.handleWidth,
         opacity: 1,
       },
-      [`&:hover ${componentCls}-suffix`]: {
+      [`&:not(${componentCls}-affix-wrapper-without-controls):hover ${componentCls}-suffix`]: {
         marginInlineEnd: token.calc(token.handleWidth).add(paddingInline).equal(),
       },
     },

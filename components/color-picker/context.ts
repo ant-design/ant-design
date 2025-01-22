@@ -31,6 +31,7 @@ export interface PanelPickerContextProps {
   onGradientDragging: (dragging: boolean) => void;
 
   onClear?: () => void;
+  disabledFormat?: boolean;
 }
 
 export interface PanelPresetsContextProps {

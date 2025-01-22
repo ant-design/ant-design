@@ -4,7 +4,6 @@ import { resetWarned } from '../../_util/warning';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 
 describe('Collapse', () => {
-  // eslint-disable-next-line global-require
   const Collapse = require('..').default;
 
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -274,5 +273,27 @@ describe('Collapse', () => {
       'aria-label',
       'collapsed',
     );
+  });
+
+  it('should support styles and classNames', () => {
+    const { container } = render(
+      <Collapse
+        activeKey={['1']}
+        items={[
+          {
+            key: '1',
+            label: 'title',
+            styles: { header: { color: 'red' }, body: { color: 'blue' } },
+            classNames: { header: 'header-class', body: 'body-class' },
+          },
+        ]}
+      />,
+    );
+
+    expect(container.querySelector('.ant-collapse-header')).toHaveClass('header-class');
+    expect(container.querySelector('.ant-collapse-content-box')).toHaveClass('body-class');
+
+    expect(container.querySelector('.ant-collapse-header')).toHaveStyle({ color: 'red' });
+    expect(container.querySelector('.ant-collapse-content-box')).toHaveStyle({ color: 'blue' });
   });
 });

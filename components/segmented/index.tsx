@@ -12,6 +12,7 @@ import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
+import useId from 'rc-util/lib/hooks/useId';
 
 export type { SegmentedValue } from 'rc-segmented';
 
@@ -47,9 +48,12 @@ export interface SegmentedProps<ValueType = RcSegmentedValue>
   block?: boolean;
   /** Option to control the display size */
   size?: SizeType;
+  vertical?: boolean;
 }
 
 const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) => {
+  const defaultName = useId();
+
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -58,6 +62,8 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     options = [],
     size: customSize = 'middle',
     style,
+    vertical,
+    name = defaultName,
     ...restProps
   } = props;
 
@@ -98,6 +104,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-lg`]: mergedSize === 'large',
+      [`${prefixCls}-vertical`]: vertical,
     },
     hashId,
     cssVarCls,
@@ -108,12 +115,14 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
   return wrapCSSVar(
     <RcSegmented
       {...restProps}
+      name={name}
       className={cls}
       style={mergedStyle}
       options={extendedOptions}
       ref={ref}
       prefixCls={prefixCls}
       direction={direction}
+      vertical={vertical}
     />,
   );
 });

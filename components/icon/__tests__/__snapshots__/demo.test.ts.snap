@@ -315,6 +315,7 @@ exports[`renders components/icon/demo/iconfont.tsx correctly 1`] = `
     <span
       class="anticon"
       role="img"
+      style="color:#1877F2"
     >
       <svg
         aria-hidden="true"

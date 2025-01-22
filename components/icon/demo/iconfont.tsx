@@ -9,7 +9,7 @@ const IconFont = createFromIconfontCN({
 const App: React.FC = () => (
   <Space>
     <IconFont type="icon-tuichu" />
-    <IconFont type="icon-facebook" />
+    <IconFont type="icon-facebook" style={{ color: '#1877F2' }} />
     <IconFont type="icon-twitter" />
   </Space>
 );

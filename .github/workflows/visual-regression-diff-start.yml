@@ -8,7 +8,7 @@ name: 👀 Visual Regression Diff Start
 
 on:
   pull_request_target:
-    branches: [master, feature]
+    branches: [master, feature, next]
     types: [opened, synchronize, reopened]
 
 permissions:
@@ -34,4 +34,4 @@ jobs:
             <img src="https://github.com/ant-design/ant-design/assets/507615/5d52d8a2-f74e-4159-9792-c705b7bc1744" width="300" />
 
             <!-- VISUAL_DIFF_REGRESSION_HOOK -->
-          body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
+          body-include: <!-- VISUAL_DIFF_REGRESSION_HOOK -->

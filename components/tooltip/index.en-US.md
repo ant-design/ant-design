@@ -39,28 +39,11 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### Common API
 
-The following APIs are shared by Tooltip, Popconfirm, Popover.
+<embed src="./shared/sharedProps.en-US.md"></embed>
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| align | This value will be merged into placement's config, please refer to the settings [dom-align](https://github.com/yiminghe/dom-align) | object | - |  |
-| arrow | Change arrow's visible state and change whether the arrow is pointed at the center of target. | boolean \| { pointAtCenter: boolean } | true | 5.2.0 |
-| autoAdjustOverflow | Whether to adjust popup placement automatically when popup is off screen | boolean | true |  |
-| color | The background color | string | - | 4.3.0 |
-| defaultOpen | Whether the floating tooltip card is open by default | boolean | false | 4.23.0 |
-| destroyTooltipOnHide | Whether destroy tooltip when hidden | boolean | false |  |
-| fresh | Tooltip will cache content when it is closed by default. Setting this property will always keep updating | boolean | false | 5.10.0 |
-| getPopupContainer | The DOM container of the tip, the default behavior is to create a `div` element in `body` | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  |
-| mouseEnterDelay | Delay in seconds, before tooltip is shown on mouse enter | number | 0.1 |  |
-| mouseLeaveDelay | Delay in seconds, before tooltip is hidden on mouse leave | number | 0.1 |  |
-| overlayClassName | Class name of the tooltip card | string | - |  |
-| overlayStyle | Style of the tooltip card | object | - |  |
-| overlayInnerStyle | Style of the tooltip inner content | object | - |  |
-| placement | The position of the tooltip relative to the target, which can be one of `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string | `top` |  |
-| trigger | Tooltip trigger mode. Could be multiple by passing an array | `hover` \| `focus` \| `click` \| `contextMenu` \| Array&lt;string> | `hover` |  |
-| open | Whether the floating tooltip card is open or not. Use `visible` under 4.23.0 ([why?](/docs/react/faq#why-open)) | boolean | false | 4.23.0 |
-| zIndex | Config `z-index` of Tooltip | number | - |  |
-| onOpenChange | Callback executed when visibility of the tooltip card is changed | (open: boolean) => void | - | 4.23.0 |
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 
@@ -68,9 +51,12 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 
 ## FAQ
 
-### Why does the warning findDOMNode is deprecated some times appear in strict mode?
+### Why does the warning `findDOMNode is deprecated` sometimes appear in strict mode?
 
 This is due to the implementation of `rc-trigger`. `rc-trigger` forces children to accept ref, otherwise it will fall back to findDOMNode, so children need to be native html tags. If not, you need to use `React.forwardRef` transparently passes `ref` to native html tags.
+
+- `findDOMNode is deprecated` reproduce: <https://codesandbox.io/p/sandbox/finddomnode-c5hy96>
+- Using `forwardRef` to fix: <https://codesandbox.io/p/sandbox/no-finddomnode-warning-forked-gdxczs>
 
 ### Why sometime not work on HOC?
 

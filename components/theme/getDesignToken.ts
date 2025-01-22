@@ -2,12 +2,12 @@ import { createTheme, getComputedToken } from '@ant-design/cssinjs';
 
 import type { ThemeConfig } from '../config-provider/context';
 import type { AliasToken } from './interface';
-import defaultDerivative from './themes/default';
+import defaultTheme from './themes/default/theme';
 import seedToken from './themes/seed';
 import formatToken from './util/alias';
 
 const getDesignToken = (config?: ThemeConfig): AliasToken => {
-  const theme = config?.algorithm ? createTheme(config.algorithm) : createTheme(defaultDerivative);
+  const theme = config?.algorithm ? createTheme(config.algorithm) : defaultTheme;
   const mergedToken = {
     ...seedToken,
     ...config?.token,

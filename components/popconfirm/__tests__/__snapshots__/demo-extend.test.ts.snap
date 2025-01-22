@@ -3,7 +3,8 @@
 exports[`renders components/popconfirm/demo/async.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary"
+    aria-describedby="test-id"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -23,6 +24,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -76,7 +78,7 @@ Array [
               class="ant-popconfirm-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -84,7 +86,7 @@ Array [
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary ant-btn-sm"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -105,7 +107,8 @@ exports[`renders components/popconfirm/demo/async.tsx extend context correctly 2
 exports[`renders components/popconfirm/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-default ant-btn-dangerous"
+    aria-describedby="test-id"
+    class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
     type="button"
   >
     <span>
@@ -125,6 +128,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -178,7 +182,7 @@ Array [
               class="ant-popconfirm-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -186,7 +190,7 @@ Array [
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary ant-btn-sm"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -207,7 +211,8 @@ exports[`renders components/popconfirm/demo/basic.tsx extend context correctly 2
 exports[`renders components/popconfirm/demo/dynamic-trigger.tsx extend context correctly 1`] = `
 <div>
   <button
-    class="ant-btn ant-btn-default ant-btn-dangerous"
+    aria-describedby="test-id"
+    class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
     type="button"
   >
     <span>
@@ -227,6 +232,7 @@ exports[`renders components/popconfirm/demo/dynamic-trigger.tsx extend context c
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -280,7 +286,7 @@ exports[`renders components/popconfirm/demo/dynamic-trigger.tsx extend context c
               class="ant-popconfirm-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -288,7 +294,7 @@ exports[`renders components/popconfirm/demo/dynamic-trigger.tsx extend context c
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary ant-btn-sm"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -332,7 +338,8 @@ exports[`renders components/popconfirm/demo/dynamic-trigger.tsx extend context c
 exports[`renders components/popconfirm/demo/icon.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-default ant-btn-dangerous"
+    aria-describedby="test-id"
+    class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
     type="button"
   >
     <span>
@@ -352,6 +359,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -409,7 +417,7 @@ Array [
               class="ant-popconfirm-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -417,7 +425,7 @@ Array [
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary ant-btn-sm"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -438,7 +446,8 @@ exports[`renders components/popconfirm/demo/icon.tsx extend context correctly 2`
 exports[`renders components/popconfirm/demo/locale.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-default ant-btn-dangerous"
+    aria-describedby="test-id"
+    class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
     type="button"
   >
     <span>
@@ -458,6 +467,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -511,7 +521,7 @@ Array [
               class="ant-popconfirm-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -519,7 +529,7 @@ Array [
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary ant-btn-sm"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -546,7 +556,8 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
     style="white-space: nowrap;"
   >
     <button
-      class="ant-btn ant-btn-default"
+      aria-describedby="test-id"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
     >
@@ -567,6 +578,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -620,7 +632,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                 class="ant-popconfirm-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-default ant-btn-sm"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                   style="width: 80px; margin: 4px;"
                   type="button"
                 >
@@ -629,7 +641,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                   </span>
                 </button>
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                   style="width: 80px; margin: 4px;"
                   type="button"
                 >
@@ -644,7 +656,8 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-default"
+      aria-describedby="test-id"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
     >
@@ -665,6 +678,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -718,7 +732,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                 class="ant-popconfirm-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-default ant-btn-sm"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                   style="width: 80px; margin: 4px;"
                   type="button"
                 >
@@ -727,7 +741,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                   </span>
                 </button>
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                   style="width: 80px; margin: 4px;"
                   type="button"
                 >
@@ -742,7 +756,8 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-default"
+      aria-describedby="test-id"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
     >
@@ -763,6 +778,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -816,7 +832,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                 class="ant-popconfirm-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-default ant-btn-sm"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                   style="width: 80px; margin: 4px;"
                   type="button"
                 >
@@ -825,7 +841,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                   </span>
                 </button>
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                   style="width: 80px; margin: 4px;"
                   type="button"
                 >
@@ -848,7 +864,8 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
       class="ant-flex ant-flex-align-center ant-flex-vertical"
     >
       <button
-        class="ant-btn ant-btn-default"
+        aria-describedby="test-id"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -869,6 +886,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -922,7 +940,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                   class="ant-popconfirm-buttons"
                 >
                   <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                     style="width: 80px; margin: 4px;"
                     type="button"
                   >
@@ -931,7 +949,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                     style="width: 80px; margin: 4px;"
                     type="button"
                   >
@@ -946,7 +964,8 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default"
+        aria-describedby="test-id"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -967,6 +986,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -1020,7 +1040,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                   class="ant-popconfirm-buttons"
                 >
                   <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                     style="width: 80px; margin: 4px;"
                     type="button"
                   >
@@ -1029,7 +1049,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                     style="width: 80px; margin: 4px;"
                     type="button"
                   >
@@ -1044,7 +1064,8 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default"
+        aria-describedby="test-id"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1065,6 +1086,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -1118,7 +1140,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                   class="ant-popconfirm-buttons"
                 >
                   <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                     style="width: 80px; margin: 4px;"
                     type="button"
                   >
@@ -1127,7 +1149,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                     style="width: 80px; margin: 4px;"
                     type="button"
                   >
@@ -1146,7 +1168,8 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
       class="ant-flex ant-flex-align-center ant-flex-vertical"
     >
       <button
-        class="ant-btn ant-btn-default"
+        aria-describedby="test-id"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1167,6 +1190,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -1220,7 +1244,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                   class="ant-popconfirm-buttons"
                 >
                   <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                     style="width: 80px; margin: 4px;"
                     type="button"
                   >
@@ -1229,7 +1253,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                     style="width: 80px; margin: 4px;"
                     type="button"
                   >
@@ -1244,7 +1268,8 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default"
+        aria-describedby="test-id"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1265,6 +1290,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -1318,7 +1344,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                   class="ant-popconfirm-buttons"
                 >
                   <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                     style="width: 80px; margin: 4px;"
                     type="button"
                   >
@@ -1327,7 +1353,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                     style="width: 80px; margin: 4px;"
                     type="button"
                   >
@@ -1342,7 +1368,8 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default"
+        aria-describedby="test-id"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1363,6 +1390,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -1416,7 +1444,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                   class="ant-popconfirm-buttons"
                 >
                   <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                     style="width: 80px; margin: 4px;"
                     type="button"
                   >
@@ -1425,7 +1453,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                     style="width: 80px; margin: 4px;"
                     type="button"
                   >
@@ -1446,7 +1474,8 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
     style="white-space: nowrap;"
   >
     <button
-      class="ant-btn ant-btn-default"
+      aria-describedby="test-id"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
     >
@@ -1467,6 +1496,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -1520,7 +1550,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                 class="ant-popconfirm-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-default ant-btn-sm"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                   style="width: 80px; margin: 4px;"
                   type="button"
                 >
@@ -1529,7 +1559,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                   </span>
                 </button>
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                   style="width: 80px; margin: 4px;"
                   type="button"
                 >
@@ -1544,7 +1574,8 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-default"
+      aria-describedby="test-id"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
     >
@@ -1565,6 +1596,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -1618,7 +1650,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                 class="ant-popconfirm-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-default ant-btn-sm"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                   style="width: 80px; margin: 4px;"
                   type="button"
                 >
@@ -1627,7 +1659,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                   </span>
                 </button>
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                   style="width: 80px; margin: 4px;"
                   type="button"
                 >
@@ -1642,7 +1674,8 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-default"
+      aria-describedby="test-id"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
     >
@@ -1663,6 +1696,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -1716,7 +1750,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                 class="ant-popconfirm-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-default ant-btn-sm"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                   style="width: 80px; margin: 4px;"
                   type="button"
                 >
@@ -1725,7 +1759,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                   </span>
                 </button>
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                   style="width: 80px; margin: 4px;"
                   type="button"
                 >
@@ -1748,7 +1782,8 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
 exports[`renders components/popconfirm/demo/promise.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary"
+    aria-describedby="test-id"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -1768,6 +1803,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -1821,7 +1857,7 @@ Array [
               class="ant-popconfirm-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -1829,7 +1865,7 @@ Array [
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary ant-btn-sm"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -1913,7 +1949,7 @@ Array [
               class="ant-popconfirm-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -1921,7 +1957,7 @@ Array [
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary ant-btn-sm"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -2000,7 +2036,7 @@ Array [
               class="ant-popconfirm-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -2008,7 +2044,7 @@ Array [
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary ant-btn-sm"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -2057,7 +2093,7 @@ Array [
               class="ant-popconfirm-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -2065,7 +2101,7 @@ Array [
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary ant-btn-sm"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -2119,7 +2155,7 @@ Array [
               class="ant-popconfirm-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -2127,7 +2163,7 @@ Array [
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary ant-btn-sm"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -2305,7 +2341,7 @@ Array [
               class="ant-popconfirm-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -2313,7 +2349,7 @@ Array [
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary ant-btn-sm"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -2387,7 +2423,7 @@ Array [
               class="ant-popconfirm-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -2395,7 +2431,7 @@ Array [
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary ant-btn-sm"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                 type="button"
               >
                 <span>

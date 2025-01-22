@@ -19,7 +19,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -53,7 +53,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -87,7 +87,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -121,7 +121,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -158,7 +158,7 @@ exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -180,11 +180,12 @@ exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
         >
           <input
             accept=""
+            name="file"
             style="display: none;"
             type="file"
           />
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span
@@ -225,7 +226,8 @@ exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      aria-describedby="test-id"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -245,6 +247,7 @@ exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -293,7 +296,7 @@ exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
                 class="ant-popconfirm-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-default ant-btn-sm"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -301,7 +304,7 @@ exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
                   </span>
                 </button>
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -357,7 +360,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         value="https://ant.design"
       />
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -379,7 +382,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         value="https://ant.design"
       />
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -401,7 +404,8 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         value="git@github.com:ant-design/ant-design.git"
       />
       <button
-        class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
+        aria-describedby="test-id"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span
@@ -441,6 +445,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             copy git url
@@ -462,30 +467,34 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              readonly=""
-              role="combobox"
-              style="opacity: 0;"
-              type="search"
-              unselectable="on"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="Zhejiang"
-          >
-            Zhejiang
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                readonly=""
+                role="combobox"
+                style="opacity: 0;"
+                type="search"
+                unselectable="on"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="Zhejiang"
+            >
+              Zhejiang
+            </span>
           </span>
         </div>
         <div
@@ -643,83 +652,87 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         <div
           class="ant-select-selector"
         >
-          <div
-            class="ant-select-selection-overflow"
+          <span
+            class="ant-select-selection-wrap"
           >
             <div
-              class="ant-select-selection-overflow-item"
-              style="opacity: 1;"
-            >
-              <span
-                class="ant-select-selection-item"
-                title="Zhejianggggg"
-              >
-                <span
-                  class="ant-select-selection-item-content"
-                >
-                  Zhejianggggg
-                </span>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-selection-item-remove"
-                  style="user-select: none;"
-                  unselectable="on"
-                >
-                  <span
-                    aria-label="close"
-                    class="anticon anticon-close"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="close"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                      />
-                    </svg>
-                  </span>
-                </span>
-              </span>
-            </div>
-            <div
-              class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-              style="opacity: 1;"
+              class="ant-select-selection-overflow"
             >
               <div
-                class="ant-select-selection-search"
-                style="width: 0px;"
+                class="ant-select-selection-overflow-item"
+                style="opacity: 1;"
               >
-                <input
-                  aria-autocomplete="list"
-                  aria-controls="rc_select_TEST_OR_SSR_list"
-                  aria-expanded="false"
-                  aria-haspopup="listbox"
-                  aria-owns="rc_select_TEST_OR_SSR_list"
-                  autocomplete="off"
-                  class="ant-select-selection-search-input"
-                  id="rc_select_TEST_OR_SSR"
-                  readonly=""
-                  role="combobox"
-                  style="opacity: 0;"
-                  type="search"
-                  unselectable="on"
-                  value=""
-                />
                 <span
-                  aria-hidden="true"
-                  class="ant-select-selection-search-mirror"
+                  class="ant-select-selection-item"
+                  title="Zhejianggggg"
                 >
+                  <span
+                    class="ant-select-selection-item-content"
+                  >
+                    Zhejianggggg
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-selection-item-remove"
+                    style="user-select: none;"
+                    unselectable="on"
+                  >
+                    <span
+                      aria-label="close"
+                      class="anticon anticon-close"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="close"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
                 </span>
               </div>
+              <div
+                class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+                style="opacity: 1;"
+              >
+                <div
+                  class="ant-select-selection-search"
+                  style="width: 0px;"
+                >
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="rc_select_TEST_OR_SSR_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-owns="rc_select_TEST_OR_SSR_list"
+                    autocomplete="off"
+                    class="ant-select-selection-search-input"
+                    id="rc_select_TEST_OR_SSR"
+                    readonly=""
+                    role="combobox"
+                    style="opacity: 0;"
+                    type="search"
+                    unselectable="on"
+                    value=""
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-selection-search-mirror"
+                  >
+                  </span>
+                </div>
+              </div>
             </div>
-          </div>
+          </span>
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
@@ -892,14 +905,14 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <input
             class="ant-input ant-input-outlined"
-            type="text"
+            type="search"
             value="0571"
           />
           <span
             class="ant-input-group-addon"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
               type="button"
             >
               <span
@@ -941,16 +954,15 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           >
             <input
               class="ant-input"
-              type="text"
+              type="search"
               value="26888888"
             />
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon"
-                role="button"
-                tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -972,14 +984,14 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
           <span
             class="ant-input-group-addon"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
               type="button"
             >
               <span
@@ -1018,14 +1030,14 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <input
             class="ant-input ant-input-outlined"
-            type="text"
+            type="search"
             value="+1"
           />
           <span
             class="ant-input-group-addon"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
               type="button"
             >
               <span
@@ -1070,30 +1082,34 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              readonly=""
-              role="combobox"
-              style="opacity: 0;"
-              type="search"
-              unselectable="on"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="Option1"
-          >
-            Option1
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                readonly=""
+                role="combobox"
+                style="opacity: 0;"
+                type="search"
+                unselectable="on"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="Option1"
+            >
+              Option1
+            </span>
           </span>
         </div>
         <div
@@ -3123,7 +3139,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         value="input content"
       />
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -4356,30 +4372,34 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              readonly=""
-              role="combobox"
-              style="opacity: 0;"
-              type="search"
-              unselectable="on"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="Option1-1"
-          >
-            Option1-1
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                readonly=""
+                role="combobox"
+                style="opacity: 0;"
+                type="search"
+                unselectable="on"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="Option1-1"
+            >
+              Option1-1
+            </span>
           </span>
         </div>
         <div
@@ -4496,30 +4516,34 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              readonly=""
-              role="combobox"
-              style="opacity: 0;"
-              type="search"
-              unselectable="on"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="Option2-2"
-          >
-            Option2-2
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                readonly=""
+                role="combobox"
+                style="opacity: 0;"
+                type="search"
+                unselectable="on"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="Option2-2"
+            >
+              Option2-2
+            </span>
           </span>
         </div>
         <div
@@ -4644,30 +4668,34 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              readonly=""
-              role="combobox"
-              style="opacity: 0;"
-              type="search"
-              unselectable="on"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="Between"
-          >
-            Between
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                readonly=""
+                role="combobox"
+                style="opacity: 0;"
+                type="search"
+                unselectable="on"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="Between"
+            >
+              Between
+            </span>
           </span>
         </div>
         <div
@@ -4815,30 +4843,34 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              readonly=""
-              role="combobox"
-              style="opacity: 0;"
-              type="search"
-              unselectable="on"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="Sign Up"
-          >
-            Sign Up
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                readonly=""
+                role="combobox"
+                style="opacity: 0;"
+                type="search"
+                unselectable="on"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="Sign Up"
+            >
+              Sign Up
+            </span>
           </span>
         </div>
         <div
@@ -4956,26 +4988,30 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-placeholder"
-          >
-            Email
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-placeholder"
+            >
+              Email
+            </span>
           </span>
         </div>
         <div
@@ -6601,7 +6637,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                     class="ant-picker-ok"
                   >
                     <button
-                      class="ant-btn ant-btn-primary ant-btn-sm"
+                      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                       disabled=""
                       type="button"
                     >
@@ -6624,29 +6660,33 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              readonly=""
-              role="combobox"
-              style="opacity: 0;"
-              type="search"
-              unselectable="on"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-placeholder"
-          >
-            Select Address
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                readonly=""
+                role="combobox"
+                style="opacity: 0;"
+                type="search"
+                unselectable="on"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-placeholder"
+            >
+              Select Address
+            </span>
           </span>
         </div>
         <div
@@ -8356,7 +8396,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       class="ant-picker-ok"
                     >
                       <button
-                        class="ant-btn ant-btn-primary ant-btn-sm"
+                        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                         disabled=""
                         type="button"
                       >
@@ -8380,27 +8420,31 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="leaf1"
-          >
-            leaf1
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="leaf1"
+            >
+              leaf1
+            </span>
           </span>
         </div>
         <div
@@ -8411,7 +8455,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             <div>
               <div
                 class="ant-select-tree"
-                role="tree"
               >
                 <div>
                   <input
@@ -8436,6 +8479,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                 </div>
                 <div
                   class="ant-select-tree-list"
+                  role="tree"
                   style="position: relative;"
                 >
                   <div
@@ -8448,9 +8492,10 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         style="display: flex; flex-direction: column;"
                       >
                         <div
-                          aria-grabbed="false"
+                          aria-expanded="true"
                           class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                           draggable="false"
+                          role="treeitem"
                         >
                           <span
                             aria-hidden="true"
@@ -8491,9 +8536,10 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </span>
                         </div>
                         <div
-                          aria-grabbed="false"
+                          aria-expanded="true"
                           class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
                           draggable="false"
+                          role="treeitem"
                         >
                           <span
                             aria-hidden="true"
@@ -8538,9 +8584,10 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </span>
                         </div>
                         <div
-                          aria-grabbed="false"
-                          class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-selected"
+                          aria-expanded="false"
+                          class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-selected ant-select-tree-treenode-leaf"
                           draggable="false"
+                          role="treeitem"
                         >
                           <span
                             aria-hidden="true"
@@ -8568,9 +8615,10 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </span>
                         </div>
                         <div
-                          aria-grabbed="false"
-                          class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
+                          aria-expanded="false"
+                          class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                           draggable="false"
+                          role="treeitem"
                         >
                           <span
                             aria-hidden="true"
@@ -8598,9 +8646,10 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </span>
                         </div>
                         <div
-                          aria-grabbed="false"
+                          aria-expanded="true"
                           class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                           draggable="false"
+                          role="treeitem"
                         >
                           <span
                             aria-hidden="true"
@@ -8645,9 +8694,10 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </span>
                         </div>
                         <div
-                          aria-grabbed="false"
-                          class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
+                          aria-expanded="false"
+                          class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                           draggable="false"
+                          role="treeitem"
                         >
                           <span
                             aria-hidden="true"
@@ -8741,7 +8791,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </div>
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -8951,6 +9001,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         value=""
       />
       <div
+        aria-describedby="test-id"
         class="ant-color-picker-trigger ant-color-picker-compact-item ant-color-picker-compact-last-item"
       >
         <div
@@ -8970,6 +9021,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -9074,30 +9126,34 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         class="ant-select-selector"
                       >
                         <span
-                          class="ant-select-selection-search"
+                          class="ant-select-selection-wrap"
                         >
-                          <input
-                            aria-autocomplete="list"
-                            aria-controls="rc_select_TEST_OR_SSR_list"
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-owns="rc_select_TEST_OR_SSR_list"
-                            autocomplete="off"
-                            class="ant-select-selection-search-input"
-                            id="rc_select_TEST_OR_SSR"
-                            readonly=""
-                            role="combobox"
-                            style="opacity: 0;"
-                            type="search"
-                            unselectable="on"
-                            value=""
-                          />
-                        </span>
-                        <span
-                          class="ant-select-selection-item"
-                          title="HEX"
-                        >
-                          HEX
+                          <span
+                            class="ant-select-selection-search"
+                          >
+                            <input
+                              aria-autocomplete="list"
+                              aria-controls="rc_select_TEST_OR_SSR_list"
+                              aria-expanded="false"
+                              aria-haspopup="listbox"
+                              aria-owns="rc_select_TEST_OR_SSR_list"
+                              autocomplete="off"
+                              class="ant-select-selection-search-input"
+                              id="rc_select_TEST_OR_SSR"
+                              readonly=""
+                              role="combobox"
+                              style="opacity: 0;"
+                              type="search"
+                              unselectable="on"
+                              value=""
+                            />
+                          </span>
+                          <span
+                            class="ant-select-selection-item"
+                            title="HEX"
+                          >
+                            HEX
+                          </span>
                         </span>
                       </div>
                       <div
@@ -9327,6 +9383,41 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       </div>
     </div>
   </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space-compact"
+    >
+      <button
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-first-item"
+        type="button"
+      >
+        <span>
+          Button
+        </span>
+      </button>
+      <span
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item ant-input-compact-last-item"
+      >
+        <span
+          class="ant-input-wrapper ant-input-group"
+        >
+          <input
+            class="ant-input ant-input-outlined"
+            placeholder="input here"
+            type="text"
+            value=""
+          />
+          <span
+            class="ant-input-group-addon"
+          >
+            $
+          </span>
+        </span>
+      </span>
+    </div>
+  </div>
 </div>
 `;
 
@@ -9343,7 +9434,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx extend contex
       class="ant-space-compact ant-space-compact-vertical"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item"
         type="button"
       >
         <span>
@@ -9351,7 +9442,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx extend contex
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default ant-btn-compact-vertical-item"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-vertical-item"
         type="button"
       >
         <span>
@@ -9359,7 +9450,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx extend contex
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default ant-btn-compact-vertical-item ant-btn-compact-vertical-last-item"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-vertical-item ant-btn-compact-vertical-last-item"
         type="button"
       >
         <span>
@@ -9375,7 +9466,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx extend contex
       class="ant-space-compact ant-space-compact-vertical"
     >
       <button
-        class="ant-btn ant-btn-dashed ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item"
+        class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item"
         type="button"
       >
         <span>
@@ -9383,7 +9474,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx extend contex
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-dashed ant-btn-compact-vertical-item"
+        class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-compact-vertical-item"
         type="button"
       >
         <span>
@@ -9391,7 +9482,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx extend contex
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-dashed ant-btn-compact-vertical-item ant-btn-compact-vertical-last-item"
+        class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-compact-vertical-item ant-btn-compact-vertical-last-item"
         type="button"
       >
         <span>
@@ -9407,7 +9498,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx extend contex
       class="ant-space-compact ant-space-compact-vertical"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item"
         type="button"
       >
         <span>
@@ -9415,7 +9506,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx extend contex
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-vertical-item"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-vertical-item"
         type="button"
       >
         <span>
@@ -9423,7 +9514,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx extend contex
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-vertical-item ant-btn-compact-vertical-last-item"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-vertical-item ant-btn-compact-vertical-last-item"
         type="button"
       >
         <span>
@@ -9443,7 +9534,8 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
     class="ant-space-compact ant-space-compact-block"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-first-item"
+      aria-describedby="test-id"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-first-item"
       type="button"
     >
       <span
@@ -9483,6 +9575,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Like
@@ -9490,7 +9583,8 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item"
+      aria-describedby="test-id"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
       <span
@@ -9539,6 +9633,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Comment
@@ -9546,7 +9641,8 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item"
+      aria-describedby="test-id"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
       <span
@@ -9586,6 +9682,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Star
@@ -9593,7 +9690,8 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item"
+      aria-describedby="test-id"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
       <span
@@ -9633,6 +9731,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Heart
@@ -9640,7 +9739,8 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item"
+      aria-describedby="test-id"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
       <span
@@ -9680,6 +9780,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Share
@@ -9687,7 +9788,8 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item"
+      aria-describedby="test-id"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
       <span
@@ -9727,6 +9829,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Download
@@ -9734,7 +9837,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
       type="button"
     >
       <span
@@ -9772,6 +9875,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
         tabindex="0"
       >
         <li
+          aria-describedby="test-id"
           class="ant-dropdown-menu-item"
           data-menu-id="rc-menu-uuid-test-1"
           role="menuitem"
@@ -9815,11 +9919,13 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           >
             <div
               class="ant-tooltip-inner"
+              id="test-id"
               role="tooltip"
             />
           </div>
         </div>
         <li
+          aria-describedby="test-id"
           class="ant-dropdown-menu-item"
           data-menu-id="rc-menu-uuid-test-2"
           role="menuitem"
@@ -9863,11 +9969,13 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           >
             <div
               class="ant-tooltip-inner"
+              id="test-id"
               role="tooltip"
             />
           </div>
         </div>
         <li
+          aria-describedby="test-id"
           class="ant-dropdown-menu-item"
           data-menu-id="rc-menu-uuid-test-3"
           role="menuitem"
@@ -9911,6 +10019,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           >
             <div
               class="ant-tooltip-inner"
+              id="test-id"
               role="tooltip"
             />
           </div>
@@ -9927,7 +10036,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
     class="ant-space-compact ant-space-compact-block"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-compact-item ant-btn-compact-first-item"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-first-item"
       type="button"
     >
       <span>
@@ -9935,7 +10044,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-compact-item"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -9943,7 +10052,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-compact-item"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -9951,7 +10060,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-compact-item"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -9959,7 +10068,8 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-icon-only ant-btn-compact-item"
+      aria-describedby="test-id"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item"
       disabled=""
       type="button"
     >
@@ -10000,6 +10110,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Tooltip
@@ -10007,7 +10118,8 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-primary ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
+      aria-describedby="test-id"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
       type="button"
     >
       <span
@@ -10047,6 +10159,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Tooltip
@@ -10059,7 +10172,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
     class="ant-space-compact ant-space-compact-block"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
       type="button"
     >
       <span>
@@ -10067,7 +10180,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -10075,7 +10188,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -10083,7 +10196,8 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item"
+      aria-describedby="test-id"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       disabled=""
       type="button"
     >
@@ -10124,6 +10238,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Tooltip
@@ -10131,7 +10246,8 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item"
+      aria-describedby="test-id"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
       <span
@@ -10171,6 +10287,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Tooltip
@@ -10178,7 +10295,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-primary ant-btn-compact-item"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -10186,7 +10303,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
       type="button"
     >
       <span
@@ -10224,6 +10341,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
         tabindex="0"
       >
         <li
+          aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           data-menu-id="rc-menu-uuid-test-1"
           role="menuitem"
@@ -10248,11 +10366,13 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           >
             <div
               class="ant-tooltip-inner"
+              id="test-id"
               role="tooltip"
             />
           </div>
         </div>
         <li
+          aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           data-menu-id="rc-menu-uuid-test-2"
           role="menuitem"
@@ -10277,11 +10397,13 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           >
             <div
               class="ant-tooltip-inner"
+              id="test-id"
               role="tooltip"
             />
           </div>
         </div>
         <li
+          aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           data-menu-id="rc-menu-uuid-test-3"
           role="menuitem"
@@ -10306,6 +10428,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           >
             <div
               class="ant-tooltip-inner"
+              id="test-id"
               role="tooltip"
             />
           </div>
@@ -10333,7 +10456,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact ant-space-compact-block"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span>
@@ -10341,7 +10464,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-compact-item"
+        class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined ant-btn-compact-item"
         type="button"
       >
         <span>
@@ -10349,7 +10472,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-dashed ant-btn-compact-item"
+        class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-compact-item"
         type="button"
       >
         <span>
@@ -10357,7 +10480,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-text ant-btn-compact-item"
+        class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-compact-item"
         type="button"
       >
         <span>
@@ -10365,7 +10488,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-link ant-btn-compact-item"
+        class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-compact-item"
         type="button"
       >
         <span>
@@ -10373,7 +10496,8 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
+        aria-describedby="test-id"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
         disabled=""
         type="button"
       >
@@ -10414,6 +10538,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             Tooltip
@@ -10434,7 +10559,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span>
@@ -10465,7 +10590,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </span>
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -10502,30 +10627,34 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 class="ant-select-selector"
               >
                 <span
-                  class="ant-select-selection-search"
+                  class="ant-select-selection-wrap"
                 >
-                  <input
-                    aria-autocomplete="list"
-                    aria-controls="rc_select_TEST_OR_SSR_list"
-                    aria-expanded="false"
-                    aria-haspopup="listbox"
-                    aria-owns="rc_select_TEST_OR_SSR_list"
-                    autocomplete="off"
-                    class="ant-select-selection-search-input"
-                    id="rc_select_TEST_OR_SSR"
-                    readonly=""
-                    role="combobox"
-                    style="opacity: 0;"
-                    type="search"
-                    unselectable="on"
-                    value=""
-                  />
-                </span>
-                <span
-                  class="ant-select-selection-item"
-                  title="http://"
-                >
-                  http://
+                  <span
+                    class="ant-select-selection-search"
+                  >
+                    <input
+                      aria-autocomplete="list"
+                      aria-controls="rc_select_TEST_OR_SSR_list"
+                      aria-expanded="false"
+                      aria-haspopup="listbox"
+                      aria-owns="rc_select_TEST_OR_SSR_list"
+                      autocomplete="off"
+                      class="ant-select-selection-search-input"
+                      id="rc_select_TEST_OR_SSR"
+                      readonly=""
+                      role="combobox"
+                      style="opacity: 0;"
+                      type="search"
+                      unselectable="on"
+                      value=""
+                    />
+                  </span>
+                  <span
+                    class="ant-select-selection-item"
+                    title="http://"
+                  >
+                    http://
+                  </span>
                 </span>
               </div>
               <div
@@ -10651,30 +10780,34 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 class="ant-select-selector"
               >
                 <span
-                  class="ant-select-selection-search"
+                  class="ant-select-selection-wrap"
                 >
-                  <input
-                    aria-autocomplete="list"
-                    aria-controls="rc_select_TEST_OR_SSR_list"
-                    aria-expanded="false"
-                    aria-haspopup="listbox"
-                    aria-owns="rc_select_TEST_OR_SSR_list"
-                    autocomplete="off"
-                    class="ant-select-selection-search-input"
-                    id="rc_select_TEST_OR_SSR"
-                    readonly=""
-                    role="combobox"
-                    style="opacity: 0;"
-                    type="search"
-                    unselectable="on"
-                    value=""
-                  />
-                </span>
-                <span
-                  class="ant-select-selection-item"
-                  title=".com"
-                >
-                  .com
+                  <span
+                    class="ant-select-selection-search"
+                  >
+                    <input
+                      aria-autocomplete="list"
+                      aria-controls="rc_select_TEST_OR_SSR_list"
+                      aria-expanded="false"
+                      aria-haspopup="listbox"
+                      aria-owns="rc_select_TEST_OR_SSR_list"
+                      autocomplete="off"
+                      class="ant-select-selection-search-input"
+                      id="rc_select_TEST_OR_SSR"
+                      readonly=""
+                      role="combobox"
+                      style="opacity: 0;"
+                      type="search"
+                      unselectable="on"
+                      value=""
+                    />
+                  </span>
+                  <span
+                    class="ant-select-selection-item"
+                    title=".com"
+                  >
+                    .com
+                  </span>
                 </span>
               </div>
               <div
@@ -10822,7 +10955,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </span>
       <button
-        class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span
@@ -10865,14 +10998,14 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <input
             class="ant-input ant-input-outlined"
-            type="text"
+            type="search"
             value=""
           />
           <span
             class="ant-input-group-addon"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
               type="button"
             >
               <span
@@ -10910,14 +11043,14 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <input
             class="ant-input ant-input-outlined"
-            type="text"
+            type="search"
             value=""
           />
           <span
             class="ant-input-group-addon"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
               type="button"
             >
               <span
@@ -10948,7 +11081,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </span>
       <button
-        class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span
@@ -11020,7 +11153,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </span>
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-item"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
         type="button"
       >
         <span>
@@ -11100,7 +11233,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </span>
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -11116,7 +11249,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span>
@@ -11140,29 +11273,33 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 class="ant-select-selector"
               >
                 <span
-                  class="ant-select-selection-search"
+                  class="ant-select-selection-wrap"
                 >
-                  <input
-                    aria-autocomplete="list"
-                    aria-controls="rc_select_TEST_OR_SSR_list"
-                    aria-expanded="false"
-                    aria-haspopup="listbox"
-                    aria-owns="rc_select_TEST_OR_SSR_list"
-                    autocomplete="off"
-                    class="ant-select-selection-search-input"
-                    id="rc_select_TEST_OR_SSR"
-                    readonly=""
-                    role="combobox"
-                    style="opacity: 0;"
-                    type="search"
-                    unselectable="on"
-                    value=""
-                  />
-                </span>
-                <span
-                  class="ant-select-selection-placeholder"
-                >
-                  cascader
+                  <span
+                    class="ant-select-selection-search"
+                  >
+                    <input
+                      aria-autocomplete="list"
+                      aria-controls="rc_select_TEST_OR_SSR_list"
+                      aria-expanded="false"
+                      aria-haspopup="listbox"
+                      aria-owns="rc_select_TEST_OR_SSR_list"
+                      autocomplete="off"
+                      class="ant-select-selection-search-input"
+                      id="rc_select_TEST_OR_SSR"
+                      readonly=""
+                      role="combobox"
+                      style="opacity: 0;"
+                      type="search"
+                      unselectable="on"
+                      value=""
+                    />
+                  </span>
+                  <span
+                    class="ant-select-selection-placeholder"
+                  >
+                    cascader
+                  </span>
                 </span>
               </div>
               <div
@@ -11199,7 +11336,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <title>
-                                  Simple Empty
+                                  No data
                                 </title>
                                 <g
                                   fill="none"
@@ -11276,7 +11413,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </span>
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -11323,7 +11460,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </span>
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-item"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
         type="button"
       >
         <span>
@@ -11429,7 +11566,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -11448,7 +11585,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         class="ant-space-compact ant-space-compact-block ant-dropdown-button ant-dropdown-compact-item ant-dropdown-compact-first-item ant-dropdown-compact-last-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
           type="button"
         >
           <span>
@@ -11456,7 +11593,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
           type="button"
         >
           <span
@@ -11494,6 +11631,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-1"
               role="menuitem"
@@ -11503,7 +11641,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 class="ant-dropdown-menu-title-content"
               >
                 <button
-                  class="ant-btn ant-btn-default"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                   type="button"
                 >
                   <span>
@@ -11525,11 +11663,13 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-2"
               role="menuitem"
@@ -11554,6 +11694,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -11574,7 +11715,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -11596,7 +11737,8 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         value=""
       />
       <button
-        class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-last-item"
+        aria-describedby="test-id"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -11616,6 +11758,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -12332,28 +12475,32 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                   class="ant-select-selector"
                 >
                   <span
-                    class="ant-select-selection-search"
+                    class="ant-select-selection-wrap"
                   >
-                    <input
-                      aria-autocomplete="list"
-                      aria-controls="rc_select_TEST_OR_SSR_list"
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-owns="rc_select_TEST_OR_SSR_list"
-                      autocomplete="off"
-                      class="ant-select-selection-search-input"
-                      id="rc_select_TEST_OR_SSR"
-                      readonly=""
-                      role="combobox"
-                      style="opacity: 0;"
-                      type="search"
-                      unselectable="on"
-                      value=""
+                    <span
+                      class="ant-select-selection-search"
+                    >
+                      <input
+                        aria-autocomplete="list"
+                        aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-owns="rc_select_TEST_OR_SSR_list"
+                        autocomplete="off"
+                        class="ant-select-selection-search-input"
+                        id="rc_select_TEST_OR_SSR"
+                        readonly=""
+                        role="combobox"
+                        style="opacity: 0;"
+                        type="search"
+                        unselectable="on"
+                        value=""
+                      />
+                    </span>
+                    <span
+                      class="ant-select-selection-placeholder"
                     />
                   </span>
-                  <span
-                    class="ant-select-selection-placeholder"
-                  />
                 </div>
                 <div
                   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
@@ -12378,7 +12525,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <title>
-                              Simple Empty
+                              No data
                             </title>
                             <g
                               fill="none"
@@ -12562,30 +12709,34 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              readonly=""
-              role="combobox"
-              style="opacity: 0;"
-              type="search"
-              unselectable="on"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="Sign Up"
-          >
-            Sign Up
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                readonly=""
+                role="combobox"
+                style="opacity: 0;"
+                type="search"
+                unselectable="on"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="Sign Up"
+            >
+              Sign Up
+            </span>
           </span>
         </div>
         <div
@@ -13998,29 +14149,33 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              readonly=""
-              role="combobox"
-              style="opacity: 0;"
-              type="search"
-              unselectable="on"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-placeholder"
-          >
-            Select Address
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                readonly=""
+                role="combobox"
+                style="opacity: 0;"
+                type="search"
+                unselectable="on"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-placeholder"
+            >
+              Select Address
+            </span>
           </span>
         </div>
         <div
@@ -14147,7 +14302,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact ant-space-compact-vertical"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item ant-btn-compact-vertical-last-item"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item ant-btn-compact-vertical-last-item"
         type="button"
       >
         <span>
@@ -14180,7 +14335,7 @@ Array [
           value=""
         />
         <button
-          class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
           type="button"
         >
           <span
@@ -14292,30 +14447,34 @@ Array [
             class="ant-select-selector"
           >
             <span
-              class="ant-select-selection-search"
+              class="ant-select-selection-wrap"
             >
-              <input
-                aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-owns="rc_select_TEST_OR_SSR_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
-                readonly=""
-                role="combobox"
-                style="opacity: 0;"
-                type="search"
-                unselectable="on"
-                value=""
-              />
-            </span>
-            <span
-              class="ant-select-selection-item"
-              title="Opt1"
-            >
-              Opt1
+              <span
+                class="ant-select-selection-search"
+              >
+                <input
+                  aria-autocomplete="list"
+                  aria-controls="rc_select_TEST_OR_SSR_list"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-owns="rc_select_TEST_OR_SSR_list"
+                  autocomplete="off"
+                  class="ant-select-selection-search-input"
+                  id="rc_select_TEST_OR_SSR"
+                  readonly=""
+                  role="combobox"
+                  style="opacity: 0;"
+                  type="search"
+                  unselectable="on"
+                  value=""
+                />
+              </span>
+              <span
+                class="ant-select-selection-item"
+                title="Opt1"
+              >
+                Opt1
+              </span>
             </span>
           </div>
           <div
@@ -14428,7 +14587,7 @@ Array [
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-primary ant-btn-compact-item"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -14451,14 +14610,14 @@ Array [
             <input
               class="ant-input ant-input-outlined"
               placeholder="Search"
-              type="text"
+              type="search"
               value=""
             />
             <span
               class="ant-input-group-addon"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
                 type="button"
               >
                 <span
@@ -14489,7 +14648,7 @@ Array [
           </span>
         </span>
         <button
-          class="ant-btn ant-btn-primary ant-btn-compact-item"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
           type="button"
         >
           <span>
@@ -14506,7 +14665,7 @@ Array [
           value="mysite"
         />
         <button
-          class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
           type="button"
         >
           <span
@@ -16085,7 +16244,7 @@ Array [
                     class="ant-picker-ok"
                   >
                     <button
-                      class="ant-btn ant-btn-primary ant-btn-sm"
+                      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                       disabled=""
                       type="button"
                     >
@@ -16101,7 +16260,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-item"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
         type="button"
       >
         <span>
@@ -16119,29 +16278,33 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              readonly=""
-              role="combobox"
-              style="opacity: 0;"
-              type="search"
-              unselectable="on"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-placeholder"
-          >
-            Select Address
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                readonly=""
+                role="combobox"
+                style="opacity: 0;"
+                type="search"
+                unselectable="on"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-placeholder"
+            >
+              Select Address
+            </span>
           </span>
         </div>
         <div
@@ -16260,7 +16423,7 @@ Array [
         </span>
       </div>
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -16287,7 +16450,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -16304,7 +16467,8 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      aria-describedby="test-id"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -16324,6 +16488,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -16372,7 +16537,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
                 class="ant-popconfirm-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-default ant-btn-sm"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -16380,7 +16545,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
                   </span>
                 </button>
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -16398,7 +16563,8 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      aria-describedby="test-id"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       disabled=""
       type="button"
     >
@@ -16419,6 +16585,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -16467,7 +16634,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
                 class="ant-popconfirm-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-default ant-btn-sm"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -16475,7 +16642,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
                   </span>
                 </button>
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -16582,6 +16749,7 @@ Array [
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="small"
         />
@@ -16589,7 +16757,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         small
       </span>
     </label>
@@ -16601,6 +16771,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="middle"
         />
@@ -16608,7 +16779,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         middle
       </span>
     </label>
@@ -16620,6 +16793,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="large"
         />
@@ -16627,7 +16801,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         large
       </span>
     </label>
@@ -16639,6 +16815,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="customize"
         />
@@ -16646,7 +16823,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         customize
       </span>
     </label>
@@ -16660,7 +16839,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -16672,7 +16851,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -16684,7 +16863,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-dashed"
+        class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
         type="button"
       >
         <span>
@@ -16696,7 +16875,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-link"
+        class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
         type="button"
       >
         <span>
@@ -16874,7 +17053,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -16886,7 +17065,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -16898,7 +17077,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -16910,7 +17089,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -16922,7 +17101,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -16934,7 +17113,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -16946,7 +17125,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -16958,7 +17137,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -16970,7 +17149,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -16982,7 +17161,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -16994,7 +17173,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17006,7 +17185,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17018,7 +17197,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17030,7 +17209,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17042,7 +17221,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17054,7 +17233,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17066,7 +17245,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17078,7 +17257,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17090,7 +17269,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17102,7 +17281,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>

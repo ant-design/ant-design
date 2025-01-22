@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 import React from 'react';
 
 import type { ColumnType, TableProps } from '..';
@@ -89,16 +88,17 @@ describe('Table.sorter', () => {
           {
             title: 'Amount',
             dataIndex: 'estimatedTicketsLeft',
-            sorter: (a:any, b:any) => a.estimatedTicketsLeft - b.estimatedTicketsLeft,
+            sorter: (a: any, b: any) => a.estimatedTicketsLeft - b.estimatedTicketsLeft,
             sortDirections: ['descend', 'ascend'],
-            render: (text:any) => `${text} left`,
+            render: (text: any) => `${text} left`,
           },
           {
             title: '[%]',
             dataIndex: 'estimatedTicketsLeftPercentage',
-            sorter: (a:any, b:any) => a.estimatedTicketsLeftPercentage - b.estimatedTicketsLeftPercentage,
+            sorter: (a: any, b: any) =>
+              a.estimatedTicketsLeftPercentage - b.estimatedTicketsLeftPercentage,
             sortDirections: ['descend', 'ascend'],
-            render: (text:any) => `${text.toFixed(2)}%`,
+            render: (text: any) => `${text.toFixed(2)}%`,
           },
         ],
       },
@@ -306,8 +306,55 @@ describe('Table.sorter', () => {
     const sorter3 = handleChange.mock.calls[2][2];
     expect(sorter3.column).toBe(undefined);
     expect(sorter3.order).toBe(undefined);
-    expect(sorter3.field).toBe('name');
-    expect(sorter3.columnKey).toBe('name');
+    expect(sorter3.field).toBe(undefined);
+    expect(sorter3.columnKey).toBe(undefined);
+  });
+
+  it('should not retain sorter value when page changes after cancelling sort', () => {
+    const handleChange = jest.fn();
+    const { container } = render(
+      createTable({
+        onChange: handleChange,
+        pagination: { pageSize: 2 },
+      }),
+    );
+
+    // ascending sort
+    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
+    expect(handleChange).toHaveBeenCalledTimes(1);
+    let sorter = handleChange.mock.calls[0][2];
+    expect(sorter.column.dataIndex).toBe('name');
+    expect(sorter.order).toBe('ascend');
+    expect(sorter.field).toBe('name');
+    expect(sorter.columnKey).toBe('name');
+
+    // descending sort
+    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
+    expect(handleChange).toHaveBeenCalledTimes(2);
+    sorter = handleChange.mock.calls[1][2];
+    expect(sorter.column.dataIndex).toBe('name');
+    expect(sorter.order).toBe('descend');
+    expect(sorter.field).toBe('name');
+    expect(sorter.columnKey).toBe('name');
+
+    // cancel sort
+    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
+    expect(handleChange).toHaveBeenCalledTimes(3);
+    sorter = handleChange.mock.calls[2][2];
+    expect(sorter.column).toBe(undefined);
+    expect(sorter.order).toBe(undefined);
+    expect(sorter.field).toBe(undefined);
+    expect(sorter.columnKey).toBe(undefined);
+
+    // change page
+    fireEvent.click(container.querySelector('.ant-pagination-item-2')!);
+    expect(handleChange).toHaveBeenCalledTimes(4);
+    sorter = handleChange.mock.calls[3][2];
+
+    expect(sorter.column).toBe(undefined);
+    expect(sorter.order).toBe(undefined);
+    expect(sorter.field).toBe(undefined);
+    expect(sorter.columnKey).toBe(undefined);
   });
 
   it('hover header show sorter tooltip', () => {
@@ -467,7 +514,7 @@ describe('Table.sorter', () => {
     rerender(
       createTable({
         showSorterTooltip: {
-          overlayClassName: 'custom-tooltip',
+          classNames: { root: 'custom-tooltip' },
         },
       }),
     );
@@ -512,7 +559,7 @@ describe('Table.sorter', () => {
     expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
   });
 
-  it('renders custome sort icon correctly', () => {
+  it('renders custom sort icon correctly', () => {
     const sortIcon = ({ sortOrder }: { sortOrder?: SortOrder }): React.ReactNode => {
       let text: string;
       if (sortOrder === undefined) {
@@ -1141,7 +1188,10 @@ describe('Table.sorter', () => {
       <Table columns={groupColumns} {...dataProp} onChange={onChange} />,
     );
 
-    function clickToMatchExpect(index: number, sorter: { field: string; order: SortOrder }) {
+    function clickToMatchExpect(
+      index: number,
+      sorter: { field: string | undefined; order: SortOrder },
+    ) {
       fireEvent.click(container.querySelectorAll('.ant-table-column-sorters')[index]);
 
       expect(onChange).toHaveBeenCalledWith(
@@ -1157,12 +1207,12 @@ describe('Table.sorter', () => {
     // First
     clickToMatchExpect(0, { field: 'math', order: 'ascend' });
     clickToMatchExpect(0, { field: 'math', order: 'descend' });
-    clickToMatchExpect(0, { field: 'math', order: undefined as unknown as SortOrder });
+    clickToMatchExpect(0, { field: undefined, order: undefined as unknown as SortOrder });
 
     // Last
     clickToMatchExpect(1, { field: 'english', order: 'ascend' });
     clickToMatchExpect(1, { field: 'english', order: 'descend' });
-    clickToMatchExpect(1, { field: 'english', order: undefined as unknown as SortOrder });
+    clickToMatchExpect(1, { field: undefined, order: undefined as unknown as SortOrder });
   });
 
   // https://github.com/ant-design/ant-design/issues/37024

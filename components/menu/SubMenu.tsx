@@ -5,28 +5,18 @@ import omit from 'rc-util/lib/omit';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { cloneElement } from '../_util/reactNode';
-import type { MenuContextProps, MenuTheme } from './MenuContext';
+import type { SubMenuType } from './interface';
+import type { MenuContextProps } from './MenuContext';
 import MenuContext from './MenuContext';
 
-interface TitleEventEntity {
-  key: string;
-  domEvent: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>;
-}
-
-export interface SubMenuProps {
-  className?: string;
-  disabled?: boolean;
-  level?: number;
+export interface SubMenuProps extends Omit<SubMenuType, 'ref' | 'key' | 'children' | 'label'> {
   title?: React.ReactNode;
-  icon?: React.ReactNode;
-  style?: React.CSSProperties;
-  onTitleClick?: (e: TitleEventEntity) => void;
-  onTitleMouseEnter?: (e: TitleEventEntity) => void;
-  onTitleMouseLeave?: (e: TitleEventEntity) => void;
-  popupOffset?: [number, number];
-  popupClassName?: string;
   children?: React.ReactNode;
-  theme?: MenuTheme;
+  /**
+   * @deprecated No longer needed, it can now be safely deleted.
+   * @see: https://github.com/ant-design/ant-design/pull/30638
+   */
+  level?: number;
 }
 
 const SubMenu: React.FC<SubMenuProps> = (props) => {
@@ -53,7 +43,9 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
       <>
         {cloneElement(icon, {
           className: classNames(
-            React.isValidElement(icon) ? icon.props?.className : '',
+            React.isValidElement(icon)
+              ? (icon as React.ReactElement<{ className?: string }>).props?.className
+              : '',
             `${prefixCls}-item-icon`,
           ),
         })}
@@ -82,6 +74,8 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
         )}
         popupStyle={{
           zIndex,
+          // fix: https://github.com/ant-design/ant-design/issues/47826#issuecomment-2360737237
+          ...props.popupStyle,
         }}
       />
     </MenuContext.Provider>

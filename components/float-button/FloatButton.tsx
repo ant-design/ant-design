@@ -35,6 +35,7 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
     icon,
     description,
     tooltip,
+    htmlType = 'button',
     badge = {},
     ...restProps
   } = props;
@@ -107,7 +108,7 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
         {buttonNode}
       </a>
     ) : (
-      <button ref={ref} {...restProps} className={classString} style={mergedStyle} type="button">
+      <button ref={ref} {...restProps} className={classString} style={mergedStyle} type={htmlType}>
         {buttonNode}
       </button>
     ),

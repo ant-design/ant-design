@@ -96,6 +96,12 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
           content: '""',
         },
 
+        // Makes vertical dropdowns have a scrollbar once they become taller than the viewport.
+        '&-menu-vertical': {
+          maxHeight: '100vh',
+          overflowY: 'auto',
+        },
+
         [`&-trigger${antCls}-btn`]: {
           [`& > ${iconCls}-down, & > ${antCls}-btn-icon > ${iconCls}-down`]: {
             fontSize: fontSizeIcon,
@@ -227,7 +233,6 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
             position: 'relative',
             display: 'flex',
             alignItems: 'center',
-            whiteSpace: 'nowrap',
           },
 
           [`${menuCls}-item-icon`]: {
@@ -238,6 +243,12 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
 
           [`${menuCls}-title-content`]: {
             flex: 'auto',
+
+            '&-with-extra': {
+              display: 'inline-flex',
+              alignItems: 'center',
+              width: '100%',
+            },
 
             '> a': {
               color: 'inherit',
@@ -253,11 +264,18 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
                 content: '""',
               },
             },
+
+            [`${menuCls}-item-extra`]: {
+              paddingInlineStart: token.padding,
+              marginInlineStart: 'auto',
+              fontSize: token.fontSizeSM,
+              color: token.colorTextDescription,
+            },
           },
 
           // =========================== Item ===========================
           [`${menuCls}-item, ${menuCls}-submenu-title`]: {
-            clear: 'both',
+            display: 'flex',
             margin: 0,
             padding: `${unit(paddingBlock!)} ${unit(controlPaddingHorizontal)}`,
             color: token.colorText,

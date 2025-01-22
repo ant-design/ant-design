@@ -37,11 +37,15 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
   };
 
   // ======================== Keyboard ========================
-  const onInternalKeyDown: React.KeyboardEventHandler<HTMLInputElement> = ({ key }) => {
+  const onInternalKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (event) => {
+    const { key, ctrlKey, metaKey } = event;
+
     if (key === 'ArrowLeft') {
       onActiveChange(index - 1);
     } else if (key === 'ArrowRight') {
       onActiveChange(index + 1);
+    } else if (key === 'z' && (ctrlKey || metaKey)) {
+      event.preventDefault();
     }
 
     syncSelection();
@@ -58,6 +62,7 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
   // ========================= Render =========================
   return (
     <Input
+      type={mask === true ? 'password' : 'text'}
       {...restProps}
       ref={inputRef}
       value={internalValue}
@@ -67,7 +72,6 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
       onKeyUp={onInternalKeyUp}
       onMouseDown={syncSelection}
       onMouseUp={syncSelection}
-      type={mask === true ? 'password' : 'text'}
     />
   );
 });

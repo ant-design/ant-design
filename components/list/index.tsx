@@ -73,7 +73,7 @@ export interface ListLocale {
   emptyText: React.ReactNode;
 }
 
-function List<T>({
+function InternalList<T>({
   pagination = false as ListProps<T>['pagination'],
   prefixCls: customizePrefixCls,
   bordered = false,
@@ -95,7 +95,9 @@ function List<T>({
   locale,
   styles,
   ...rest
-}: ListProps<T>) {
+}  }: ListProps<T>,
+  ref: React.ForwardedRef<HTMLDivElement>,
+) {
   const paginationObj = pagination && typeof pagination === 'object' ? pagination : {};
 
   const [paginationCurrent, setPaginationCurrent] = React.useState(
@@ -286,7 +288,7 @@ function List<T>({
 
   return wrapCSSVar(
     <ListContext.Provider value={contextValue}>
-      <div style={{ ...list?.style, ...style }} className={classString} {...rest}>
+      <div ref={ref} style={{ ...list?.style, ...style }} className={classString} {...rest}>
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
         {header && (
           <div className={`${prefixCls}-header`} style={styles?.headerWrapper}>
@@ -309,9 +311,22 @@ function List<T>({
   );
 }
 
+const ListWithForwardRef = React.forwardRef(InternalList) as (<T>(
+  props: ListProps<T> & {
+    ref?: React.ForwardedRef<HTMLDivElement>;
+  },
+) => ReturnType<typeof InternalList>) &
+  Pick<React.FC, 'displayName'>;
+
 if (process.env.NODE_ENV !== 'production') {
-  List.displayName = 'List';
+  ListWithForwardRef.displayName = 'List';
 }
+
+type CompoundedComponent = typeof ListWithForwardRef & {
+  Item: typeof Item;
+};
+
+const List = ListWithForwardRef as CompoundedComponent;
 
 List.Item = Item;
 

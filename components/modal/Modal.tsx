@@ -7,6 +7,7 @@ import ContextIsolator from '../_util/ContextIsolator';
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
+import { Breakpoint } from '../_util/responsiveObserver';
 import { canUseDocElement } from '../_util/styleChecker';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
@@ -98,7 +99,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const wrapClassNameExtended = classNames(wrapClassName, {
-    [`${prefixCls}-centered`]: !!centered,
+    [`${prefixCls}-centered`]: centered ?? modalContext?.centered,
     [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
   });
 
@@ -107,7 +108,7 @@ const Modal: React.FC<ModalProps> = (props) => {
       <Footer {...props} onOk={handleOk} onCancel={handleCancel} />
     ) : null;
 
-  const [mergedClosable, mergedCloseIcon] = useClosable(
+  const [mergedClosable, mergedCloseIcon, closeBtnIsDisabled] = useClosable(
     pickClosable(props),
     pickClosable(modalContext),
     {
@@ -124,12 +125,36 @@ const Modal: React.FC<ModalProps> = (props) => {
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Modal', restProps.zIndex);
 
+  // =========================== Width ============================
+  const [numWidth, responsiveWidth] = React.useMemo<
+    [string | number | undefined, Partial<Record<Breakpoint, string | number>> | undefined]
+  >(() => {
+    if (width && typeof width === 'object') {
+      return [undefined, width];
+    }
+    return [width, undefined];
+  }, [width]);
+
+  const responsiveWidthVars = React.useMemo(() => {
+    const vars: Record<string, string> = {};
+    if (responsiveWidth) {
+      Object.keys(responsiveWidth).forEach((breakpoint) => {
+        const breakpointWidth = responsiveWidth[breakpoint as Breakpoint];
+        if (breakpointWidth !== undefined) {
+          vars[`--${prefixCls}-${breakpoint}-width`] =
+            typeof breakpointWidth === 'number' ? `${breakpointWidth}px` : breakpointWidth;
+        }
+      });
+    }
+    return vars;
+  }, [responsiveWidth]);
+
   // =========================== Render ===========================
   return wrapCSSVar(
     <ContextIsolator form space>
       <zIndexContext.Provider value={contextZIndex}>
         <Dialog
-          width={width}
+          width={numWidth}
           {...restProps}
           zIndex={zIndex}
           getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
@@ -139,13 +164,17 @@ const Modal: React.FC<ModalProps> = (props) => {
           visible={open ?? visible}
           mousePosition={restProps.mousePosition ?? mousePosition}
           onClose={handleCancel as any}
-          closable={mergedClosable}
+          closable={
+            mergedClosable
+              ? { disabled: closeBtnIsDisabled, closeIcon: mergedCloseIcon }
+              : mergedClosable
+          }
           closeIcon={mergedCloseIcon}
           focusTriggerAfterClose={focusTriggerAfterClose}
           transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
           maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
           className={classNames(hashId, className, modalContext?.className)}
-          style={{ ...modalContext?.style, ...style }}
+          style={{ ...modalContext?.style, ...style, ...responsiveWidthVars }}
           classNames={{
             ...modalContext?.classNames,
             ...modalClassNames,

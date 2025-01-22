@@ -71,18 +71,6 @@ const GlobalDemoStyles: React.FC = () => {
             border: 1px solid ${token.colorPrimary};
           }
 
-          &-expand-trigger {
-            position: relative;
-            color: #3b4357;
-            font-size: ${token.fontSizeXL}px;
-            cursor: pointer;
-            opacity: 0.75;
-            transition: all ${token.motionDurationSlow};
-            &:hover {
-              opacity: 1;
-            }
-          }
-
           &-title {
             position: absolute;
             top: -14px;
@@ -294,12 +282,13 @@ const GlobalDemoStyles: React.FC = () => {
             cursor: pointer;
           }
 
-          &-riddle {
-            width: 14px;
-            height: 14px;
+           &-codeblock {
+            width: 16px;
+            height: 16px;
             overflow: hidden;
             border: 0;
             cursor: pointer;
+            max-width: 100% !important;
           }
 
           &-codesandbox {
@@ -353,7 +342,18 @@ const GlobalDemoStyles: React.FC = () => {
           inset-inline-end: 0;
           display: flex;
           align-items: center;
-          column-gap: ${token.marginSM}px;
+          column-gap: ${token.marginXS}px;
+        }
+
+        ${antCls}-btn {
+          &.icon-enabled {
+            background-color: ${token.colorFillSecondary};
+            opacity: 1;
+            ${iconCls} {
+              color: ${token.colorTextBase};
+              font-weight: bold;
+            }
+          }
         }
 
         ${antCls}-row-rtl {

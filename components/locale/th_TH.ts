@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/th_TH';
 
 import type { Locale } from '.';
@@ -22,7 +21,7 @@ const localeValues: Locale = {
     filterConfirm: 'ยืนยัน',
     filterReset: 'รีเซ็ต',
     filterEmptyText: 'ไม่มีตัวกรอง',
-    filterCheckall: 'เลือกรายการทั้งหมด',
+    filterCheckAll: 'เลือกรายการทั้งหมด',
     filterSearchPlaceholder: 'ค้นหาตัวกรอง',
     emptyText: 'ไม่มีข้อมูล',
     selectAll: 'เลือกทั้งหมดในหน้านี้',

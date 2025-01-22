@@ -120,6 +120,10 @@ const getGroupRadioStyle: GenerateStyle<RadioToken> = (token) => {
         direction: 'rtl',
       },
 
+      [`&${groupPrefixCls}-block`]: {
+        display: 'flex',
+      },
+
       [`${antCls}-badge ${antCls}-badge-count`]: {
         zIndex: 1,
       },
@@ -168,6 +172,10 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
       marginInlineEnd: wrapperMarginInlineEnd,
       cursor: 'pointer',
 
+      '&:last-child': {
+        marginInlineEnd: 0,
+      },
+
       // RTL
       [`&${componentCls}-wrapper-rtl`]: {
         direction: 'rtl',
@@ -183,6 +191,11 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
         width: 0,
         overflow: 'hidden',
         content: '"\\a0"',
+      },
+
+      '&-block': {
+        flex: 1,
+        justifyContent: 'center',
       },
 
       // hashId 在 wrapper 上，只能铺平
@@ -542,6 +555,11 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
         backgroundColor: buttonCheckedBgDisabled,
         borderColor: colorBorder,
         boxShadow: 'none',
+      },
+
+      '&-block': {
+        flex: 1,
+        textAlign: 'center',
       },
     },
   };

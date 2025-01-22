@@ -2,7 +2,6 @@ import { createHash } from 'crypto';
 import fs from 'fs';
 import path from 'path';
 import createEmotionServer from '@emotion/server/create-instance';
-import chalk from 'chalk';
 import type { IApi, IRoute } from 'dumi';
 import ReactTechStack from 'dumi/dist/techStacks/react';
 import sylvanas from 'sylvanas';
@@ -37,7 +36,6 @@ export const getHash = (str: string, length = 8) =>
  * extends dumi internal tech stack, for customize previewer props
  */
 class AntdReactTechStack extends ReactTechStack {
-  // eslint-disable-next-line class-methods-use-this
   generatePreviewerProps(...[props, opts]: any) {
     props.pkgDependencyList = { ...devDependencies, ...dependencies };
     props.jsx ??= '';
@@ -127,7 +125,8 @@ class AntdReactTechStack extends ReactTechStack {
 
 const resolve = (p: string): string => require.resolve(p);
 
-const RoutesPlugin = (api: IApi) => {
+const RoutesPlugin = async (api: IApi) => {
+  const chalk = await import('chalk').then((m) => m.default);
   // const ssrCssFileName = `ssr-${Date.now()}.css`;
 
   const writeCSSFile = (key: string, hashKey: string, cssString: string) => {

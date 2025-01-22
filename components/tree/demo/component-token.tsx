@@ -47,7 +47,10 @@ const App: React.FC = () => {
         components: {
           Tree: {
             nodeHoverBg: '#fff2f0',
+            nodeHoverColor: '#1677ff',
             nodeSelectedBg: '#ffa39e',
+            nodeSelectedColor: '#fff',
+            indentSize: 80,
           },
         },
       }}
@@ -55,7 +58,7 @@ const App: React.FC = () => {
       <Tree
         checkable
         defaultExpandedKeys={['0-0-0', '0-0-1']}
-        defaultSelectedKeys={['0-0-0', '0-0-1']}
+        defaultSelectedKeys={['0-0-1']}
         defaultCheckedKeys={['0-0-0', '0-0-1']}
         onSelect={onSelect}
         onCheck={onCheck}

@@ -59,11 +59,11 @@ const App: React.FC = () => {
     <SemanticPreview
       semantics={[
         { name: 'header', desc: locale.header, version: '5.14.0' },
-        { name: 'body', desc: locale.body, version: '5.14.0' },
-        { name: 'extra', desc: locale.extra, version: '5.14.0' },
         { name: 'title', desc: locale.title, version: '5.14.0' },
-        { name: 'actions', desc: locale.actions, version: '5.14.0' },
+        { name: 'extra', desc: locale.extra, version: '5.14.0' },
         { name: 'cover', desc: locale.cover, version: '5.14.0' },
+        { name: 'body', desc: locale.body, version: '5.14.0' },
+        { name: 'actions', desc: locale.actions, version: '5.14.0' },
       ]}
     >
       <BlockCard>

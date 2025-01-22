@@ -1,8 +1,7 @@
-/* eslint-disable react/button-has-type */
-import React, { Children, createRef, useContext, useEffect, useMemo, useState } from 'react';
+import React, { Children, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import { composeRef } from 'rc-util/lib/ref';
+import { useComposeRef } from 'rc-util/lib/ref';
 
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -12,23 +11,31 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { useCompactItemContext } from '../space/Compact';
 import Group, { GroupSizeContext } from './button-group';
-import type { ButtonHTMLType, ButtonShape, ButtonType } from './buttonHelpers';
-import { isTwoCNChar, isUnBorderedButtonType, spaceChildren } from './buttonHelpers';
+import type {
+  ButtonColorType,
+  ButtonHTMLType,
+  ButtonShape,
+  ButtonType,
+  ButtonVariantType,
+} from './buttonHelpers';
+import { isTwoCNChar, isUnBorderedButtonVariant, spaceChildren } from './buttonHelpers';
 import IconWrapper from './IconWrapper';
-import LoadingIcon from './LoadingIcon';
+import DefaultLoadingIcon from './DefaultLoadingIcon';
 import useStyle from './style';
-import CompactCmp from './style/compactCmp';
+import Compact from './style/compact';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
 export interface BaseButtonProps {
   type?: ButtonType;
+  color?: ButtonColorType;
+  variant?: ButtonVariantType;
   icon?: React.ReactNode;
   iconPosition?: 'start' | 'end';
   shape?: ButtonShape;
   size?: SizeType;
   disabled?: boolean;
-  loading?: boolean | { delay?: number };
+  loading?: boolean | { delay?: number; icon?: React.ReactNode };
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
@@ -45,7 +52,7 @@ type MergedHTMLAttributes = Omit<
   React.HTMLAttributes<HTMLElement> &
     React.ButtonHTMLAttributes<HTMLElement> &
     React.AnchorHTMLAttributes<HTMLElement>,
-  'type'
+  'type' | 'color'
 >;
 
 export interface ButtonProps extends BaseButtonProps, MergedHTMLAttributes {
@@ -75,6 +82,16 @@ function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigTyp
   };
 }
 
+type ColorVariantPairType = [color?: ButtonColorType, variant?: ButtonVariantType];
+
+const ButtonTypeMap: Partial<Record<ButtonType, ColorVariantPairType>> = {
+  default: ['default', 'outlined'],
+  primary: ['primary', 'solid'],
+  dashed: ['default', 'dashed'],
+  link: ['primary', 'link'],
+  text: ['default', 'text'],
+};
+
 const InternalCompoundedButton = React.forwardRef<
   HTMLButtonElement | HTMLAnchorElement,
   ButtonProps
@@ -82,6 +99,8 @@ const InternalCompoundedButton = React.forwardRef<
   const {
     loading = false,
     prefixCls: customizePrefixCls,
+    color,
+    variant,
     type,
     danger = false,
     shape = 'default',
@@ -100,12 +119,30 @@ const InternalCompoundedButton = React.forwardRef<
     classNames: customClassNames,
     style: customStyle = {},
     autoInsertSpace,
+    autoFocus,
     ...rest
   } = props;
 
   // https://github.com/ant-design/ant-design/issues/47605
   // Compatible with original `type` behavior
   const mergedType = type || 'default';
+
+  const [mergedColor, mergedVariant] = useMemo<ColorVariantPairType>(() => {
+    if (color && variant) {
+      return [color, variant];
+    }
+
+    const colorVariantPair = ButtonTypeMap[mergedType] || [];
+
+    if (danger) {
+      return ['danger', colorVariantPair[1]];
+    }
+
+    return colorVariantPair;
+  }, [type, color, variant, danger]);
+
+  const isDanger = mergedColor === 'danger';
+  const mergedColorText = isDanger ? 'dangerous' : mergedColor;
 
   const { getPrefixCls, direction, button } = useContext(ConfigContext);
 
@@ -126,13 +163,26 @@ const InternalCompoundedButton = React.forwardRef<
 
   const [hasTwoCNChar, setHasTwoCNChar] = useState<boolean>(false);
 
-  const internalRef = createRef<HTMLButtonElement | HTMLAnchorElement>();
+  const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
 
-  const buttonRef = composeRef(ref, internalRef);
+  const mergedRef = useComposeRef(ref, buttonRef);
 
   const needInserted =
-    Children.count(children) === 1 && !icon && !isUnBorderedButtonType(mergedType);
+    Children.count(children) === 1 && !icon && !isUnBorderedButtonVariant(mergedVariant);
 
+  // ========================= Mount ==========================
+  // Record for mount status.
+  // This will help to no to show the animation of loading on the first mount.
+  const isMountRef = useRef(true);
+  React.useEffect(() => {
+    isMountRef.current = false;
+    return () => {
+      isMountRef.current = true;
+    };
+  }, []);
+
+  // ========================= Effect =========================
+  // Loading
   useEffect(() => {
     let delayTimer: ReturnType<typeof setTimeout> | null = null;
     if (loadingOrDelay.delay > 0) {
@@ -154,12 +204,13 @@ const InternalCompoundedButton = React.forwardRef<
     return cleanupTimer;
   }, [loadingOrDelay]);
 
+  // Two chinese characters check
   useEffect(() => {
     // FIXME: for HOC usage like <FormatMessage />
-    if (!buttonRef || !(buttonRef as any).current || !mergedInsertSpace) {
+    if (!buttonRef.current || !mergedInsertSpace) {
       return;
     }
-    const buttonText = (buttonRef as any).current.textContent;
+    const buttonText = buttonRef.current.textContent || '';
     if (needInserted && isTwoCNChar(buttonText)) {
       if (!hasTwoCNChar) {
         setHasTwoCNChar(true);
@@ -167,18 +218,29 @@ const InternalCompoundedButton = React.forwardRef<
     } else if (hasTwoCNChar) {
       setHasTwoCNChar(false);
     }
-  }, [buttonRef]);
+  });
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
-    const { onClick } = props;
-    // FIXME: https://github.com/ant-design/ant-design/issues/30207
-    if (innerLoading || mergedDisabled) {
-      e.preventDefault();
-      return;
+  // Auto focus
+  useEffect(() => {
+    if (autoFocus && buttonRef.current) {
+      buttonRef.current.focus();
     }
-    (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)?.(e);
-  };
+  }, []);
 
+  // ========================= Events =========================
+  const handleClick = React.useCallback(
+    (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
+      // FIXME: https://github.com/ant-design/ant-design/issues/30207
+      if (innerLoading || mergedDisabled) {
+        e.preventDefault();
+        return;
+      }
+      props.onClick?.(e);
+    },
+    [props.onClick, innerLoading, mergedDisabled],
+  );
+
+  // ========================== Warn ==========================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Button');
 
@@ -189,38 +251,43 @@ const InternalCompoundedButton = React.forwardRef<
     );
 
     warning(
-      !(ghost && isUnBorderedButtonType(mergedType)),
+      !(ghost && isUnBorderedButtonVariant(mergedVariant)),
       'usage',
       "`link` or `text` button can't be a `ghost` button.",
     );
   }
 
+  // ========================== Size ==========================
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
 
   const sizeFullName = useSize((ctxSize) => customizeSize ?? compactSize ?? groupSize ?? ctxSize);
 
-  const sizeCls = sizeFullName ? sizeClassNameMap[sizeFullName] || '' : '';
+  const sizeCls = sizeFullName ? (sizeClassNameMap[sizeFullName] ?? '') : '';
 
   const iconType = innerLoading ? 'loading' : icon;
 
   const linkButtonRestProps = omit(rest as ButtonProps & { navigate: any }, ['navigate']);
 
+  // ========================= Render =========================
   const classes = classNames(
     prefixCls,
     hashId,
     cssVarCls,
     {
       [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
+      // line(253 - 254): Compatible with versions earlier than 5.21.0
       [`${prefixCls}-${mergedType}`]: mergedType,
+      [`${prefixCls}-dangerous`]: danger,
+      [`${prefixCls}-color-${mergedColorText}`]: mergedColorText,
+      [`${prefixCls}-variant-${mergedVariant}`]: mergedVariant,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
-      [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonType(mergedType),
+      [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonVariant(mergedVariant),
       [`${prefixCls}-loading`]: innerLoading,
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && mergedInsertSpace && !innerLoading,
       [`${prefixCls}-block`]: block,
-      [`${prefixCls}-dangerous`]: danger,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-icon-end`]: iconPosition === 'end',
     },
@@ -243,8 +310,17 @@ const InternalCompoundedButton = React.forwardRef<
       <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
         {icon}
       </IconWrapper>
+    ) : loading && typeof loading === 'object' && loading.icon ? (
+      <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
+        {loading.icon}
+      </IconWrapper>
     ) : (
-      <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={innerLoading} />
+      <DefaultLoadingIcon
+        existIcon={!!icon}
+        prefixCls={prefixCls}
+        loading={innerLoading}
+        mount={isMountRef.current}
+      />
     );
 
   const kids =
@@ -260,7 +336,7 @@ const InternalCompoundedButton = React.forwardRef<
         href={mergedDisabled ? undefined : linkButtonRestProps.href}
         style={fullStyle}
         onClick={handleClick}
-        ref={buttonRef as React.Ref<HTMLAnchorElement>}
+        ref={mergedRef as React.Ref<HTMLAnchorElement>}
         tabIndex={mergedDisabled ? -1 : 0}
       >
         {iconNode}
@@ -277,16 +353,15 @@ const InternalCompoundedButton = React.forwardRef<
       style={fullStyle}
       onClick={handleClick}
       disabled={mergedDisabled}
-      ref={buttonRef as React.Ref<HTMLButtonElement>}
+      ref={mergedRef as React.Ref<HTMLButtonElement>}
     >
       {iconNode}
       {kids}
-      {/* Styles: compact */}
-      {!!compactItemClassnames && <CompactCmp key="compact" prefixCls={prefixCls} />}
+      {compactItemClassnames && <Compact prefixCls={prefixCls} />}
     </button>
   );
 
-  if (!isUnBorderedButtonType(mergedType)) {
+  if (!isUnBorderedButtonVariant(mergedVariant)) {
     buttonNode = (
       <Wave component="Button" disabled={innerLoading}>
         {buttonNode}

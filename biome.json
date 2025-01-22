@@ -1,5 +1,6 @@
 {
   "files": {
+    "ignoreUnknown": true,
     "ignore": [
       ".dumi/tmp*",
       ".dumi/scripts/clarity.js",
@@ -9,7 +10,8 @@
       "_site/**/*",
       "node_modules",
       "server",
-      "scripts/previewEditor/**/*"
+      "scripts/previewEditor/**/*",
+      "package.json"
     ]
   },
   "formatter": {
@@ -55,8 +57,17 @@
         "noAccumulatingSpread": "off"
       },
       "a11y": {
-        "useKeyWithClickEvents": "off"
+        "noAriaHiddenOnFocusable": "off",
+        "noLabelWithoutControl": "off",
+        "useFocusableInteractive": "off",
+        "useKeyWithClickEvents": "off",
+        "useSemanticElements": "off"
       }
+    }
+  },
+  "css": {
+    "formatter": {
+      "quoteStyle": "single"
     }
   },
   "overrides": [

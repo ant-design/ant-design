@@ -30,6 +30,7 @@ demo:
 <code src="./demo/out-of-range.tsx">超出边界</code>
 <code src="./demo/presuffix.tsx">前缀/后缀</code>
 <code src="./demo/status.tsx">自定义状态</code>
+<code src="./demo/focus.tsx" version="5.22.0">聚焦</code>
 <code src="./demo/controls.tsx" debug>图标按钮</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/debug-token.tsx" debug>覆盖组件样式</code>
@@ -71,11 +72,11 @@ demo:
 
 ## Ref
 
-| 名称          | 描述              | 版本   |
-| ------------- | ----------------- | ------ |
-| blur()        | 移除焦点          |        |
-| focus()       | 获取焦点          |        |
-| nativeElement | 获取原生 DOM 元素 | 5.17.3 |
+| 名称 | 说明 | 参数 | 版本 |
+| --- | --- | --- | --- |
+| blur() | 移除焦点 | - |  |
+| focus() | 获取焦点 | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | cursor - 5.22.0 |
+| nativeElement | 获取原生 DOM 元素 | - | 5.17.3 |
 
 ## 主题变量（Design Token）
 

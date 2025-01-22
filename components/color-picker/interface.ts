@@ -1,4 +1,5 @@
 import type { CSSProperties, FC, ReactNode } from 'react';
+import React from 'react';
 import type {
   ColorGenInput,
   ColorPickerProps as RcColorPickerProps,
@@ -33,7 +34,13 @@ export interface PresetsItem {
    * @default true
    */
   defaultOpen?: boolean;
+  /**
+   * The key of the panel
+   * @since 5.23.0
+   */
+  key?: React.Key;
 }
+
 export type TriggerType = 'click' | 'hover';
 
 export type TriggerPlacement = TooltipPlacement; // Alias, to prevent breaking changes.
@@ -85,7 +92,8 @@ export type ColorPickerProps = Omit<
   [key: `data-${string}`]: string;
   onOpenChange?: (open: boolean) => void;
   onFormatChange?: (format?: ColorFormatType) => void;
-  onChange?: (value: AggregationColor, hex: string) => void;
+  onChange?: (value: AggregationColor, css: string) => void;
   onClear?: () => void;
   onChangeComplete?: (value: AggregationColor) => void;
+  disabledFormat?: boolean;
 } & Pick<PopoverProps, 'getPopupContainer' | 'autoAdjustOverflow' | 'destroyTooltipOnHide'>;

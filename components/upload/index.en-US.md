@@ -154,7 +154,7 @@ For compatible case, we return File object when `beforeUpload` return `false`. I
 
 Chrome update will also break native upload. Please restart Chrome to finish the upload job.
 
-![](https://github.com/ant-design/ant-design/assets/507615/1509b25f-4cd3-41b2-9415-90394ad08273)
+<img alt="click restart button on Chrome" src="https://github.com/ant-design/ant-design/assets/507615/1509b25f-4cd3-41b2-9415-90394ad08273" width="800" />
 
 Ref:
 
