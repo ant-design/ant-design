@@ -3,10 +3,10 @@ import { Badge, Card, Space } from 'antd';
 
 const App: React.FC = () => (
   <Space direction="vertical" style={{ width: '100%' }}>
-    <Badge.Ribbon text="啦啦啦啦">
+    <Badge.Ribbon text={666}>
       <Card>推开窗户举起望远镜</Card>
     </Badge.Ribbon>
-    <Badge.Ribbon text="啦啦啦啦" color="purple">
+    <Badge.Ribbon text="啦啦啦啦" color="purple" title="test">
       <Card>推开窗户举起望远镜</Card>
     </Badge.Ribbon>
     <Badge.Ribbon text="啦啦啦啦" color="#2db7f5">

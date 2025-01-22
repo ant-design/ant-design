@@ -62,6 +62,7 @@ group: 数据展示
 | color | 自定义缎带的颜色 | string | - |  |
 | placement | 缎带的位置，`start` 和 `end` 随文字方向（RTL 或 LTR）变动 | `start` \| `end` | `end` |  |
 | text | 缎带中填入的内容 | ReactNode | - |  |
+| title | 设置鼠标放在 Ribbon 上时显示的文字 | string | - | 5.24.0 |
 
 ## Semantic DOM
 
