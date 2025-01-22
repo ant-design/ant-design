@@ -11837,6 +11837,12 @@ exports[`renders components/input/demo/variant.tsx extend context correctly 1`] 
     type="text"
     value=""
   />
+  <input
+    class="ant-input ant-input-underlined"
+    placeholder="Underlined"
+    type="text"
+    value=""
+  />
 </div>
 `;
 
