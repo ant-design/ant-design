@@ -73,29 +73,30 @@ export interface ListLocale {
   emptyText: React.ReactNode;
 }
 
-function InternalList<T>({
-  pagination = false as ListProps<T>['pagination'],
-  prefixCls: customizePrefixCls,
-  bordered = false,
-  split = true,
-  className,
-  rootClassName,
-  style,
-  children,
-  itemLayout,
-  loadMore,
-  grid,
-  dataSource = [],
-  size: customizeSize,
-  header,
-  footer,
-  loading = false,
-  rowKey,
-  renderItem,
-  locale,
-  styles,
-  ...rest
-}  }: ListProps<T>,
+function InternalList<T>(
+  {
+    pagination = false as ListProps<T>['pagination'],
+    prefixCls: customizePrefixCls,
+    bordered = false,
+    split = true,
+    className,
+    rootClassName,
+    style,
+    children,
+    itemLayout,
+    loadMore,
+    grid,
+    dataSource = [],
+    size: customizeSize,
+    header,
+    footer,
+    loading = false,
+    rowKey,
+    renderItem,
+    locale,
+    styles,
+    ...rest
+  }: ListProps<T>,
   ref: React.ForwardedRef<HTMLDivElement>,
 ) {
   const paginationObj = pagination && typeof pagination === 'object' ? pagination : {};
