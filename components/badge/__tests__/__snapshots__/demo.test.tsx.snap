@@ -2295,6 +2295,7 @@ exports[`renders components/badge/demo/ribbon.tsx correctly 1`] = `
       >
         <span
           class="ant-ribbon-text"
+          title="Hippies"
         >
           Hippies
         </span>
@@ -2337,6 +2338,7 @@ exports[`renders components/badge/demo/ribbon.tsx correctly 1`] = `
       >
         <span
           class="ant-ribbon-text"
+          title="Hippies"
         >
           Hippies
         </span>
@@ -2379,6 +2381,7 @@ exports[`renders components/badge/demo/ribbon.tsx correctly 1`] = `
       >
         <span
           class="ant-ribbon-text"
+          title="Hippies"
         >
           Hippies
         </span>
@@ -2421,6 +2424,7 @@ exports[`renders components/badge/demo/ribbon.tsx correctly 1`] = `
       >
         <span
           class="ant-ribbon-text"
+          title="Hippies"
         >
           Hippies
         </span>
@@ -2463,6 +2467,7 @@ exports[`renders components/badge/demo/ribbon.tsx correctly 1`] = `
       >
         <span
           class="ant-ribbon-text"
+          title="Hippies"
         >
           Hippies
         </span>
@@ -2505,6 +2510,7 @@ exports[`renders components/badge/demo/ribbon.tsx correctly 1`] = `
       >
         <span
           class="ant-ribbon-text"
+          title="Hippies"
         >
           Hippies
         </span>
@@ -2547,6 +2553,7 @@ exports[`renders components/badge/demo/ribbon.tsx correctly 1`] = `
       >
         <span
           class="ant-ribbon-text"
+          title="Hippies"
         >
           Hippies
         </span>
@@ -2589,6 +2596,7 @@ exports[`renders components/badge/demo/ribbon.tsx correctly 1`] = `
       >
         <span
           class="ant-ribbon-text"
+          title="Hippies"
         >
           Hippies
         </span>
@@ -2626,8 +2634,9 @@ exports[`renders components/badge/demo/ribbon-debug.tsx correctly 1`] = `
       >
         <span
           class="ant-ribbon-text"
+          title="666"
         >
-          啦啦啦啦
+          666
         </span>
         <div
           class="ant-ribbon-corner"
@@ -2655,6 +2664,7 @@ exports[`renders components/badge/demo/ribbon-debug.tsx correctly 1`] = `
       >
         <span
           class="ant-ribbon-text"
+          title="test"
         >
           啦啦啦啦
         </span>
@@ -2685,6 +2695,7 @@ exports[`renders components/badge/demo/ribbon-debug.tsx correctly 1`] = `
       >
         <span
           class="ant-ribbon-text"
+          title="啦啦啦啦"
         >
           啦啦啦啦
         </span>
@@ -2716,6 +2727,7 @@ exports[`renders components/badge/demo/ribbon-debug.tsx correctly 1`] = `
       >
         <span
           class="ant-ribbon-text"
+          title="啦啦啦啦"
         >
           啦啦啦啦
         </span>
@@ -2747,6 +2759,7 @@ exports[`renders components/badge/demo/ribbon-debug.tsx correctly 1`] = `
       >
         <span
           class="ant-ribbon-text"
+          title="啦啦啦啦"
         >
           啦啦啦啦
         </span>
