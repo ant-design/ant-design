@@ -90,15 +90,10 @@ interface LegacyTooltipProps
   afterVisibleChange?: RcTooltipProps['afterVisibleChange'];
 }
 
+type SemanticName = 'root' | 'body';
 export interface AbstractTooltipProps extends LegacyTooltipProps {
-  styles?: {
-    root?: React.CSSProperties;
-    body?: React.CSSProperties;
-  };
-  classNames?: {
-    root?: string;
-    body?: string;
-  };
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: Partial<Record<SemanticName, string>>;
   style?: React.CSSProperties;
   className?: string;
   rootClassName?: string;
