@@ -92,15 +92,10 @@ interface LegacyTooltipProps
   afterVisibleChange?: RcTooltipProps['afterVisibleChange'];
 }
 
+type SemanticName = 'root' | 'body';
 export interface AbstractTooltipProps extends LegacyTooltipProps {
-  styles?: {
-    root?: React.CSSProperties;
-    body?: React.CSSProperties;
-  };
-  classNames?: {
-    root?: string;
-    body?: string;
-  };
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: Partial<Record<SemanticName, string>>;
   style?: React.CSSProperties;
   className?: string;
   rootClassName?: string;
@@ -152,6 +147,17 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     builtinPlacements,
     arrowPointAtCenter = false,
     autoAdjustOverflow = true,
+    motion,
+    getPopupContainer,
+    placement = 'top',
+    mouseEnterDelay = 0.1,
+    mouseLeaveDelay = 0.1,
+    overlayStyle,
+    rootClassName,
+    overlayClassName,
+    styles,
+    classNames: tooltipClassNames,
+    ...restProps
   } = props;
 
   const mergedShowArrow = !!arrow;
@@ -260,19 +266,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     </ContextIsolator>
   );
 
-  const {
-    getPopupContainer,
-    placement = 'top',
-    mouseEnterDelay = 0.1,
-    mouseLeaveDelay = 0.1,
-    overlayStyle,
-    rootClassName,
-    overlayClassName,
-    styles,
-    classNames: tooltipClassNames,
-    ...otherProps
-  } = props;
-
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
@@ -317,11 +310,11 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
   const bodyClassNames = classNames(tooltip?.classNames?.body, tooltipClassNames?.body);
 
   // ============================ zIndex ============================
-  const [zIndex, contextZIndex] = useZIndex('Tooltip', otherProps.zIndex);
+  const [zIndex, contextZIndex] = useZIndex('Tooltip', restProps.zIndex);
 
   const content = (
     <RcTooltip
-      {...otherProps}
+      {...restProps}
       zIndex={zIndex}
       showArrow={mergedShowArrow}
       placement={placement}
