@@ -33,6 +33,8 @@ export interface TooltipRef {
   forceAlign: VoidFunction;
   /** Wrapped dom element. Not promise valid if child not support ref */
   nativeElement: HTMLElement;
+  /** Popup dom element */
+  popupElement: HTMLDivElement;
 }
 
 export type TooltipPlacement =
@@ -79,15 +81,10 @@ interface LegacyTooltipProps
   afterOpenChange?: RcTooltipProps['afterVisibleChange'];
 }
 
+type SemanticName = 'root' | 'body';
 export interface AbstractTooltipProps extends LegacyTooltipProps {
-  styles?: {
-    root?: React.CSSProperties;
-    body?: React.CSSProperties;
-  };
-  classNames?: {
-    root?: string;
-    body?: string;
-  };
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: Partial<Record<SemanticName, string>>;
   style?: React.CSSProperties;
   className?: string;
   rootClassName?: string;
@@ -169,6 +166,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
   React.useImperativeHandle(ref, () => ({
     forceAlign,
     nativeElement: tooltipRef.current?.nativeElement!,
+    popupElement: tooltipRef.current?.popupElement!,
   }));
 
   // ============================== Warn ==============================

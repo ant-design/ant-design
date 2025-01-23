@@ -2,6 +2,7 @@ import * as React from 'react';
 import type { JSX } from 'react';
 import classNames from 'classnames';
 import DescriptionsContext from './DescriptionsContext';
+import type { SemanticName } from './DescriptionsContext';
 
 function notEmpty(val: any) {
   return val !== undefined && val !== null;
@@ -17,14 +18,8 @@ export interface CellProps {
   labelStyle?: React.CSSProperties;
   /** @deprecated Please use `styles={{ content: {} }}` instead */
   contentStyle?: React.CSSProperties;
-  styles?: {
-    label?: React.CSSProperties;
-    content?: React.CSSProperties;
-  };
-  classNames?: {
-    label?: string;
-    content?: string;
-  };
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: Partial<Record<SemanticName, string>>;
   bordered?: boolean;
   label?: React.ReactNode;
   content?: React.ReactNode;

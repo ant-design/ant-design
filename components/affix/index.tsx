@@ -1,5 +1,4 @@
 import React from 'react';
-import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 
@@ -56,7 +55,9 @@ export interface AffixRef {
   updatePosition: ReturnType<typeof throttleByAnimationFrame>;
 }
 
-const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
+type InternalAffixProps = AffixProps & { onTestUpdatePosition?: any };
+
+const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
   const {
     style,
     offsetTop,
@@ -67,6 +68,8 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
     children,
     target,
     onChange,
+    onTestUpdatePosition,
+    ...restProps
   } = props;
 
   const { getPrefixCls, getTargetContainer } = React.useContext<ConfigConsumerProps>(ConfigContext);
@@ -162,7 +165,7 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
     status.current = AFFIX_STATUS_PREPARE;
     measure();
     if (process.env.NODE_ENV === 'test') {
-      (props as any)?.onTestUpdatePosition?.();
+      onTestUpdatePosition?.();
     }
   };
 
@@ -248,22 +251,9 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
 
   const mergedCls = classNames({ [rootCls]: affixStyle });
 
-  let otherProps = omit(props, [
-    'prefixCls',
-    'offsetTop',
-    'offsetBottom',
-    'target',
-    'onChange',
-    'rootClassName',
-  ]);
-
-  if (process.env.NODE_ENV === 'test') {
-    otherProps = omit(otherProps, ['onTestUpdatePosition' as any]);
-  }
-
   return wrapCSSVar(
     <ResizeObserver onResize={updatePosition}>
-      <div style={style} className={className} ref={placeholderNodeRef} {...otherProps}>
+      <div style={style} className={className} ref={placeholderNodeRef} {...restProps}>
         {affixStyle && <div style={placeholderStyle} aria-hidden="true" />}
         <div className={mergedCls} ref={fixedNodeRef} style={affixStyle}>
           <ResizeObserver onResize={updatePosition}>{children}</ResizeObserver>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createTheme } from '@ant-design/cssinjs';
+import { createTheme, StyleContext as CssInJsStyleContext } from '@ant-design/cssinjs';
 import IconContext from '@ant-design/icons/lib/components/Context';
 import useMemo from '@rc-component/util/lib/hooks/useMemo';
 import { merge } from '@rc-component/util/lib/utils/set';
@@ -19,6 +19,7 @@ import type {
   BadgeConfig,
   ButtonConfig,
   CardConfig,
+  CardMetaConfig,
   CascaderConfig,
   CollapseConfig,
   ComponentStyleConfig,
@@ -44,6 +45,7 @@ import type {
   PopoverConfig,
   PopupOverflow,
   RangePickerConfig,
+  RibbonConfig,
   SelectConfig,
   SpaceConfig,
   SpinConfig,
@@ -60,8 +62,6 @@ import type {
   TreeSelectConfig,
   Variant,
   WaveConfig,
-  RibbonConfig,
-  CardMetaConfig,
 } from './context';
 import {
   ConfigConsumer,
@@ -566,9 +566,11 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     },
   );
 
+  const { layer } = React.useContext(CssInJsStyleContext);
+
   const memoIconContextValue = React.useMemo(
-    () => ({ prefixCls: iconPrefixCls, csp }),
-    [iconPrefixCls, csp],
+    () => ({ prefixCls: iconPrefixCls, csp, layer: layer ? 'antd' : undefined }),
+    [iconPrefixCls, csp, layer],
   );
 
   let childNode = (
