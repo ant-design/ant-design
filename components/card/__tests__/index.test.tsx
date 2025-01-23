@@ -2,10 +2,11 @@ import '@testing-library/jest-dom';
 
 import React from 'react';
 import userEvent from '@testing-library/user-event';
+import ConfigProvider from 'antd/es/config-provider';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, screen } from '../../../tests/utils';
+import { fireEvent, render, screen } from '../../../tests/utils';
 import Button from '../../button/index';
 import Card from '../index';
 
@@ -193,5 +194,39 @@ describe('Card', () => {
       </Card>,
     );
     expect(container).toMatchSnapshot();
+  });
+
+  it('ConfigProvider support bordered for card', () => {
+    const TestComponent = () => {
+      const [bordered, setBordered] = React.useState<boolean | undefined>(undefined);
+      const [cardBordered, setCardBordered] = React.useState<boolean | undefined>(undefined);
+
+      return (
+        <div>
+          <button type="button" onClick={() => setBordered(false)}>
+            Set Config Bordered False
+          </button>
+          <button type="button" onClick={() => setCardBordered(true)}>
+            Set Card Bordered True
+          </button>
+          <ConfigProvider card={{ bordered }}>
+            <Card title="Card title" bordered={cardBordered}>
+              <p>Card content</p>
+            </Card>
+          </ConfigProvider>
+        </div>
+      );
+    };
+
+    const { container, getByText } = render(<TestComponent />);
+
+    // Check if the default `ant-card-bordered` exists
+    expect(container.querySelector('.ant-card-bordered')).toBeTruthy();
+
+    fireEvent.click(getByText('Set Config Bordered False'));
+    expect(container.querySelector('.ant-card-bordered')).toBeFalsy();
+
+    fireEvent.click(getByText('Set Card Bordered True'));
+    expect(container.querySelector('.ant-card-bordered')).toBeTruthy();
   });
 });
