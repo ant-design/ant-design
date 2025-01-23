@@ -242,8 +242,8 @@ const genBaseUnderlinedStyle = (
 
   return {
     [`&:not(${componentCls}-customize-input) ${componentCls}-selector`]: {
-      borderWidth: `0 0 ${token.lineWidth} 0`,
-      borderStyle: `none none ${unit(token.lineType)} none`,
+      borderWidth: `0 0 ${unit(token.lineWidth)} 0`,
+      borderStyle: `none none ${token.lineType} none`,
       borderColor: options.borderColor,
       background: token.selectorBg,
       borderRadius: 0,

@@ -371,7 +371,7 @@ export const genBaseUnderlinedStyle = (
   },
 ): CSSObject => ({
   background: token.colorBgContainer,
-  borderWidth: `0 0 ${token.lineWidth} 0`,
+  borderWidth: `0 0 ${unit(token.lineWidth)} 0`,
   borderStyle: `none none ${token.lineType} none`,
   borderColor: options.borderColor,
   borderRadius: 0,
