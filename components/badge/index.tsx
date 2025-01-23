@@ -15,7 +15,7 @@ import useStyle from './style';
 
 export type { ScrollNumberProps } from './ScrollNumber';
 
-type SemanticName = 'label' | 'content';
+type SemanticName = 'root' | 'indicator';
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   /** Number to show in badge */
   count?: React.ReactNode;
