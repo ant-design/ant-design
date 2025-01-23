@@ -1,7 +1,7 @@
 ## zh-CN
 
-可选 `outlined` `filled` `borderless` `underlined` 四种形态。
+Select 形态变体，可选 `outlined` `filled` `borderless` `underlined` 四种形态。
 
 ## en-US
 
-There are four variants to choose from, namely: `outlined` `filled` `borderless` and `underlined`.
+Variants of Select, there are four variants: `outlined` `filled` `borderless` and `underlined`.

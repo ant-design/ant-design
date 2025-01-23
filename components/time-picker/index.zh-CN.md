@@ -29,7 +29,7 @@ demo:
 <code src="./demo/change-on-scroll.tsx" version="5.14.0">滚动即改变</code>
 <code src="./demo/colored-popup.tsx" debug>色付きポップアップ</code>
 <code src="./demo/range-picker.tsx">范围选择器</code>
-<code src="./demo/variant.tsx" version="5.13.0">多种形态</code>
+<code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/suffix.tsx">前后缀</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>

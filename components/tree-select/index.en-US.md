@@ -23,6 +23,7 @@ demo:
 <code src="./demo/async.tsx">Asynchronous loading</code>
 <code src="./demo/treeLine.tsx">Show Tree Line</code>
 <code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/maxCount.tsx" version="5.23.0">Max Count</code>
 <code src="./demo/suffix.tsx" version="5.22.0">Prefix and Suffix</code>
