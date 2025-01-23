@@ -35,6 +35,7 @@ demo:
 <code src="./demo/suffix.tsx" version="5.22.0">前后缀</code>
 <code src="./demo/custom-dropdown.tsx">扩展菜单</code>
 <code src="./demo/placement.tsx">弹出位置</code>
+<code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/panel.tsx" version=">= 5.10.0">面板使用</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>

@@ -24,6 +24,7 @@ demo:
 <code src="./demo/async.tsx">异步加载</code>
 <code src="./demo/treeLine.tsx">线性样式</code>
 <code src="./demo/placement.tsx">弹出位置</code>
+<code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/maxCount.tsx" version="5.23.0">最大选中数量</code>
 <code src="./demo/suffix.tsx" version="5.22.0">前后缀</code>
