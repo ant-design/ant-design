@@ -60,7 +60,7 @@ demo:
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | steps | 进度条总共步数 | number | - | - |
-| rounding | 用于四舍五入数值的函数 | (number) => number | 5.24.0 |
+| rounding | 用于四舍五入数值的函数 | (step: number) => number | 5.24.0 |
 | strokeColor | 进度条的色彩，传入 object 时为渐变。当有 `steps` 时支持传入一个数组。 | string \| string[] \| { from: string; to: string; direction: string } | - | 4.21.0: `string[]` |
 | percentPosition | 进度数值位置，传入对象，`align` 表示数值的水平位置，`type` 表示数值在进度条内部还是外部 | { align: string; type: string } | { align: \"end\", type: \"outer\" } | 5.18.0 |
 
