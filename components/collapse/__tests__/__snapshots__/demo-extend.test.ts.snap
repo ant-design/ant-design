@@ -430,12 +430,14 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
         class="ant-collapse-item ant-collapse-item-active"
       >
         <div
-          aria-disabled="false"
-          aria-expanded="true"
-          class="ant-collapse-header ant-collapse-header-collapsible-only"
+          class="ant-collapse-header ant-collapse-collapsible-header"
         >
           <div
+            aria-disabled="false"
+            aria-expanded="true"
             class="ant-collapse-expand-icon"
+            role="button"
+            tabindex="0"
           >
             <span
               aria-label="expanded"
@@ -459,7 +461,11 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
             </span>
           </div>
           <span
+            aria-disabled="false"
+            aria-expanded="true"
             class="ant-collapse-header-text"
+            role="button"
+            tabindex="0"
           >
             This panel can only be collapsed by clicking text
           </span>
@@ -490,12 +496,14 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
         class="ant-collapse-item ant-collapse-item-active"
       >
         <div
-          aria-disabled="false"
-          aria-expanded="true"
-          class="ant-collapse-header ant-collapse-icon-collapsible-only"
+          class="ant-collapse-header ant-collapse-collapsible-icon"
         >
           <div
+            aria-disabled="false"
+            aria-expanded="true"
             class="ant-collapse-expand-icon"
+            role="button"
+            tabindex="0"
           >
             <span
               aria-label="expanded"
@@ -552,7 +560,7 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
         <div
           aria-disabled="true"
           aria-expanded="false"
-          class="ant-collapse-header"
+          class="ant-collapse-header ant-collapse-collapsible-disabled"
           role="button"
           tabindex="-1"
         >

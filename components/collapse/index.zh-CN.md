@@ -90,7 +90,7 @@ const items: CollapseProps['items'] = [
 | ghost | 使折叠面板透明且无边框 | boolean | false | 4.4.0 |
 | size | 设置折叠面板大小 | `large` \| `middle` \| `small` | `middle` | 5.2.0 |
 | onChange | 切换面板的回调 | function | - |  |
-| items | 折叠项目内容 | [ItemType](#ItemType) | - | 5.6.0 |
+| items | 折叠项目内容 | [ItemType](#itemtype) | - | 5.6.0 |
 
 ### ItemType
 

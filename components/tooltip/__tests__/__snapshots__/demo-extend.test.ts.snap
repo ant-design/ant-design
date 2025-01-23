@@ -5,8 +5,9 @@ Array [
   <div
     aria-label="segmented control"
     class="ant-segmented"
-    role="listbox"
+    role="radiogroup"
     style="margin-bottom: 24px;"
+    tabindex="0"
   >
     <div
       class="ant-segmented-group"
@@ -17,12 +18,12 @@ Array [
         <input
           checked=""
           class="ant-segmented-item-input"
+          name="test-id"
           type="radio"
         />
         <div
           aria-selected="true"
           class="ant-segmented-item-label"
-          role="option"
           title="Show"
         >
           Show
@@ -33,12 +34,12 @@ Array [
       >
         <input
           class="ant-segmented-item-input"
+          name="test-id"
           type="radio"
         />
         <div
           aria-selected="false"
           class="ant-segmented-item-label"
-          role="option"
           title="Hide"
         >
           Hide
@@ -49,12 +50,12 @@ Array [
       >
         <input
           class="ant-segmented-item-input"
+          name="test-id"
           type="radio"
         />
         <div
           aria-selected="false"
           class="ant-segmented-item-label"
-          role="option"
           title="Center"
         >
           Center
@@ -70,6 +71,7 @@ Array [
       style="white-space: nowrap;"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -91,6 +93,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             <span>
@@ -100,6 +103,7 @@ Array [
         </div>
       </div>
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -121,6 +125,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             <span>
@@ -130,6 +135,7 @@ Array [
         </div>
       </div>
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -151,6 +157,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             <span>
@@ -168,6 +175,7 @@ Array [
         class="ant-flex ant-flex-align-center ant-flex-vertical"
       >
         <button
+          aria-describedby="test-id"
           class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
@@ -189,6 +197,7 @@ Array [
           >
             <div
               class="ant-tooltip-inner"
+              id="test-id"
               role="tooltip"
             >
               <span>
@@ -198,6 +207,7 @@ Array [
           </div>
         </div>
         <button
+          aria-describedby="test-id"
           class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
@@ -219,6 +229,7 @@ Array [
           >
             <div
               class="ant-tooltip-inner"
+              id="test-id"
               role="tooltip"
             >
               <span>
@@ -228,6 +239,7 @@ Array [
           </div>
         </div>
         <button
+          aria-describedby="test-id"
           class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
@@ -249,6 +261,7 @@ Array [
           >
             <div
               class="ant-tooltip-inner"
+              id="test-id"
               role="tooltip"
             >
               <span>
@@ -262,6 +275,7 @@ Array [
         class="ant-flex ant-flex-align-center ant-flex-vertical"
       >
         <button
+          aria-describedby="test-id"
           class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
@@ -283,6 +297,7 @@ Array [
           >
             <div
               class="ant-tooltip-inner"
+              id="test-id"
               role="tooltip"
             >
               <span>
@@ -292,6 +307,7 @@ Array [
           </div>
         </div>
         <button
+          aria-describedby="test-id"
           class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
@@ -313,6 +329,7 @@ Array [
           >
             <div
               class="ant-tooltip-inner"
+              id="test-id"
               role="tooltip"
             >
               <span>
@@ -322,6 +339,7 @@ Array [
           </div>
         </div>
         <button
+          aria-describedby="test-id"
           class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
@@ -343,6 +361,7 @@ Array [
           >
             <div
               class="ant-tooltip-inner"
+              id="test-id"
               role="tooltip"
             >
               <span>
@@ -358,6 +377,7 @@ Array [
       style="white-space: nowrap;"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -379,6 +399,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             <span>
@@ -388,6 +409,7 @@ Array [
         </div>
       </div>
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -409,6 +431,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             <span>
@@ -418,6 +441,7 @@ Array [
         </div>
       </div>
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -439,6 +463,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             <span>
@@ -462,6 +487,7 @@ exports[`renders components/tooltip/demo/arrow-point-at-center.tsx extend contex
     class="ant-space-item"
   >
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
@@ -482,6 +508,7 @@ exports[`renders components/tooltip/demo/arrow-point-at-center.tsx extend contex
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Prompt Text
@@ -493,6 +520,7 @@ exports[`renders components/tooltip/demo/arrow-point-at-center.tsx extend contex
     class="ant-space-item"
   >
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
@@ -513,6 +541,7 @@ exports[`renders components/tooltip/demo/arrow-point-at-center.tsx extend contex
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Prompt Text
@@ -541,6 +570,7 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context
       style="width: 200%; display: flex; flex-direction: column; align-items: center; row-gap: 16px;"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
@@ -561,6 +591,7 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             Prompt Text
@@ -568,6 +599,7 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context
         </div>
       </div>
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
@@ -588,6 +620,7 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             Prompt Text
@@ -608,6 +641,7 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context
       style="width: 200%; display: flex; flex-direction: column; align-items: center; row-gap: 16px;"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
@@ -628,6 +662,7 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             Prompt Text
@@ -635,6 +670,7 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context
         </div>
       </div>
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
@@ -655,6 +691,7 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             Prompt Text
@@ -670,7 +707,9 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context
 
 exports[`renders components/tooltip/demo/basic.tsx extend context correctly 1`] = `
 Array [
-  <span>
+  <span
+    aria-describedby="test-id"
+  >
     Tooltip will show on mouse enter.
   </span>,
   <div
@@ -686,6 +725,7 @@ Array [
     >
       <div
         class="ant-tooltip-inner"
+        id="test-id"
         role="tooltip"
       >
         prompt text
@@ -717,6 +757,7 @@ Array [
       class="ant-space-item"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
@@ -737,6 +778,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             prompt text
@@ -748,6 +790,7 @@ Array [
       class="ant-space-item"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
@@ -768,6 +811,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             prompt text
@@ -779,6 +823,7 @@ Array [
       class="ant-space-item"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
@@ -799,6 +844,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             prompt text
@@ -810,6 +856,7 @@ Array [
       class="ant-space-item"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
@@ -830,6 +877,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             prompt text
@@ -841,6 +889,7 @@ Array [
       class="ant-space-item"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
@@ -861,6 +910,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             prompt text
@@ -872,6 +922,7 @@ Array [
       class="ant-space-item"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
@@ -892,6 +943,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             prompt text
@@ -903,6 +955,7 @@ Array [
       class="ant-space-item"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
@@ -923,6 +976,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             prompt text
@@ -934,6 +988,7 @@ Array [
       class="ant-space-item"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
@@ -954,6 +1009,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             prompt text
@@ -965,6 +1021,7 @@ Array [
       class="ant-space-item"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
@@ -985,6 +1042,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             prompt text
@@ -996,6 +1054,7 @@ Array [
       class="ant-space-item"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
@@ -1016,6 +1075,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             prompt text
@@ -1027,6 +1087,7 @@ Array [
       class="ant-space-item"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
@@ -1047,6 +1108,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             prompt text
@@ -1058,6 +1120,7 @@ Array [
       class="ant-space-item"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
@@ -1078,6 +1141,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             prompt text
@@ -1089,6 +1153,7 @@ Array [
       class="ant-space-item"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
@@ -1109,6 +1174,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             prompt text
@@ -1135,6 +1201,7 @@ Array [
       class="ant-space-item"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
@@ -1155,6 +1222,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
             style="background: rgb(255, 85, 0);"
           >
@@ -1167,6 +1235,7 @@ Array [
       class="ant-space-item"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
@@ -1187,6 +1256,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
             style="background: rgb(45, 183, 245);"
           >
@@ -1199,6 +1269,7 @@ Array [
       class="ant-space-item"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
@@ -1219,6 +1290,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
             style="background: rgb(135, 208, 104);"
           >
@@ -1231,6 +1303,7 @@ Array [
       class="ant-space-item"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
@@ -1251,6 +1324,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
             style="background: rgb(16, 142, 233);"
           >
@@ -1267,7 +1341,9 @@ exports[`renders components/tooltip/demo/colorful.tsx extend context correctly 2
 
 exports[`renders components/tooltip/demo/destroy-tooltip-on-hide.tsx extend context correctly 1`] = `
 Array [
-  <span>
+  <span
+    aria-describedby="test-id"
+  >
     Tooltip will destroy when hidden.
   </span>,
   <div
@@ -1283,6 +1359,7 @@ Array [
     >
       <div
         class="ant-tooltip-inner"
+        id="test-id"
         role="tooltip"
       >
         prompt text
@@ -1313,7 +1390,9 @@ exports[`renders components/tooltip/demo/disabled.tsx extend context correctly 1
   <div
     class="ant-space-item"
   >
-    <span>
+    <span
+      aria-describedby="test-id"
+    >
       Tooltip will show on mouse enter.
     </span>
     <div
@@ -1329,6 +1408,7 @@ exports[`renders components/tooltip/demo/disabled.tsx extend context correctly 1
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         />
       </div>
@@ -1347,6 +1427,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
     class="ant-space-item"
   >
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       disabled=""
       type="button"
@@ -1368,6 +1449,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Thanks for using antd. Have a nice day !
@@ -1379,6 +1461,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
     class="ant-space-item"
   >
     <input
+      aria-describedby="test-id"
       class="ant-input ant-input-disabled ant-input-outlined"
       disabled=""
       placeholder="disabled"
@@ -1398,6 +1481,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Thanks for using antd. Have a nice day !
@@ -1473,6 +1557,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
         class="ant-input-number-input-wrap"
       >
         <input
+          aria-describedby="test-id"
           autocomplete="off"
           class="ant-input-number-input"
           disabled=""
@@ -1495,6 +1580,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Thanks for using antd. Have a nice day !
@@ -1512,6 +1598,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
         class="ant-checkbox ant-wave-target ant-checkbox-disabled"
       >
         <input
+          aria-describedby="test-id"
           class="ant-checkbox-input"
           disabled=""
           type="checkbox"
@@ -1534,6 +1621,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Thanks for using antd. Have a nice day !
@@ -1545,6 +1633,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
     class="ant-space-item"
   >
     <div
+      aria-describedby="test-id"
       class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-disabled"
     >
       <div
@@ -1559,6 +1648,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
             <input
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-describedby="test-id"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
@@ -1602,7 +1692,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <title>
-                    Simple Empty
+                    No data
                   </title>
                   <g
                     fill="none"
@@ -1680,6 +1770,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Thanks for using antd. Have a nice day !
@@ -1701,6 +1792,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
     style="white-space: nowrap;"
   >
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
@@ -1722,6 +1814,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           <span>
@@ -1731,6 +1824,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       </div>
     </div>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
@@ -1752,6 +1846,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           <span>
@@ -1761,6 +1856,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       </div>
     </div>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
@@ -1782,6 +1878,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           <span>
@@ -1799,6 +1896,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       class="ant-flex ant-flex-align-center ant-flex-vertical"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -1820,6 +1918,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             <span>
@@ -1829,6 +1928,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
         </div>
       </div>
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -1850,6 +1950,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             <span>
@@ -1859,6 +1960,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
         </div>
       </div>
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -1880,6 +1982,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             <span>
@@ -1893,6 +1996,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       class="ant-flex ant-flex-align-center ant-flex-vertical"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -1914,6 +2018,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             <span>
@@ -1923,6 +2028,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
         </div>
       </div>
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -1944,6 +2050,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             <span>
@@ -1953,6 +2060,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
         </div>
       </div>
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -1974,6 +2082,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             <span>
@@ -1989,6 +2098,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
     style="white-space: nowrap;"
   >
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
@@ -2010,6 +2120,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           <span>
@@ -2019,6 +2130,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       </div>
     </div>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
@@ -2040,6 +2152,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           <span>
@@ -2049,6 +2162,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       </div>
     </div>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
@@ -2070,6 +2184,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           <span>

@@ -93,6 +93,7 @@ const useStyle = createStyles(({ token, css }) => {
         .dumi-default-search-popover {
           inset-inline-start: ${token.paddingSM}px;
           inset-inline-end: unset;
+          z-index: 1;
           &::before {
             inset-inline-start: 100px;
             inset-inline-end: unset;
@@ -356,7 +357,7 @@ const Header: React.FC = () => {
     <header className={headerClassName}>
       {isMobile && (
         <Popover
-          overlayClassName={styles.popoverMenu}
+          classNames={{ root: styles.popoverMenu }}
           placement="bottomRight"
           content={menu}
           trigger="click"

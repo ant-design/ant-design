@@ -60,7 +60,7 @@ config 参数如下：
 | icon | 自定义图标 | ReactNode | - | - |
 | key | 当前通知唯一标志 | string | - | - |
 | message | 通知提醒标题，必选 | ReactNode | - | - |
-| placement | 弹出位置，可选 `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | string | `topRight` | - |
+| placement | 弹出位置，可选 `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | string | `topRight` | - |
 | style | 自定义内联样式 | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - | - |
 | role | 供屏幕阅读器识别的通知内容语义，默认为 `alert`。此情况下屏幕阅读器会立即打断当前正在阅读的其他内容，转而阅读通知内容 | `alert \| status` | `alert` | 5.6.0 |
 | onClick | 点击通知时触发的回调函数 | function | - | - |
@@ -76,7 +76,7 @@ config 参数如下：
 | bottom | 消息从底部弹出时，距离底部的位置，单位像素 | number | 24 |  |
 | closeIcon | 自定义关闭图标 | ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 |
 | getContainer | 配置渲染节点的输出位置 | () => HTMLNode | () => document.body |  |
-| placement | 弹出位置，可选 `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | string | `topRight` |  |
+| placement | 弹出位置，可选 `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | string | `topRight` |  |
 | showProgress | 显示自动关闭通知框的进度条 | boolean |  | 5.18.0 |
 | pauseOnHover | 悬停时是否暂停计时器 | boolean | true | 5.18.0 |
 | rtl | 是否开启 RTL 模式 | boolean | false |  |

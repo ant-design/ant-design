@@ -1162,6 +1162,35 @@ describe('Menu', () => {
     const text = '⌘P';
     const { container } = render(<Menu items={[{ label: 'profile', key: '1', extra: text }]} />);
 
+    expect(container.querySelector('.ant-menu-title-content-with-extra')).toBeInTheDocument();
     expect(container.querySelector('.ant-menu-item-extra')?.textContent).toBe(text);
+  });
+
+  it('should prevent click events when disabled MenuItem with link', () => {
+    const onClick = jest.fn();
+    const { container } = render(
+      <Menu
+        mode="vertical"
+        items={[
+          {
+            key: '1',
+            disabled: true,
+            label: (
+              <a href="https://ant.design" onClick={onClick}>
+                Disabled Link
+              </a>
+            ),
+          },
+        ]}
+      />,
+    );
+    const link = container.querySelector('a')!;
+
+    expect(container.querySelector('.ant-menu-item')).toHaveClass('ant-menu-item-disabled');
+    expect(window.getComputedStyle(link).pointerEvents).toBe('none');
+    expect(link).toHaveStyle({
+      pointerEvents: 'none',
+      cursor: 'not-allowed',
+    });
   });
 });

@@ -15,6 +15,7 @@ exports[`Slider rtl render component should be rendered correctly in RTL directi
     class="ant-slider-step"
   />
   <div
+    aria-describedby="test-id"
     aria-disabled="false"
     aria-orientation="horizontal"
     aria-valuemax="100"
@@ -44,6 +45,7 @@ exports[`Slider should render in RTL direction 1`] = `
       class="ant-slider-step"
     />
     <div
+      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -55,7 +57,7 @@ exports[`Slider should render in RTL direction 1`] = `
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-rtl ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-rtl ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -67,6 +69,7 @@ exports[`Slider should render in RTL direction 1`] = `
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           30
@@ -91,6 +94,7 @@ exports[`Slider should show tooltip when hovering slider handler 1`] = `
   >
     <div
       class="ant-tooltip-inner"
+      id="test-id"
       role="tooltip"
     >
       30
@@ -113,6 +117,7 @@ exports[`Slider should show tooltip when hovering slider handler 2`] = `
   >
     <div
       class="ant-tooltip-inner"
+      id="test-id"
       role="tooltip"
     >
       30

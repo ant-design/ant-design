@@ -1,5 +1,5 @@
 import React from 'react';
-import { TinyColor } from '@ctrl/tinycolor';
+import { FastColor } from '@ant-design/fast-color';
 import { css, Global } from '@emotion/react';
 import { useTheme } from 'antd-style';
 
@@ -373,6 +373,24 @@ const GlobalStyle: React.FC = () => {
               }
             }
           }
+
+            /*
+              Api 表中某些属性用 del 标记，表示已废弃（但仍期望给开发者一个过渡期)用 css 标记出来。仅此而已。
+              有更多看法？移步讨论区: https://github.com/ant-design/ant-design/discussions/51298
+            */
+            tr:has(td:first-child > del) {
+              color: ${token.colorWarning} !important;
+              background-color: ${token.colorWarningBg} !important;
+              display: var(--antd-site-api-deprecated-display, none);
+
+              del {
+                color: ${token.colorWarning};
+              }
+
+              &:hover del {
+                text-decoration: none;
+              }
+            }
         }
 
         .grid-demo,
@@ -392,7 +410,7 @@ const GlobalStyle: React.FC = () => {
             background: ${demoGridColor};
 
             &:nth-child(2n + 1) {
-              background: ${new TinyColor(demoGridColor).setAlpha(0.75).toHex8String()};
+              background: ${new FastColor(demoGridColor).setA(0.75).toHexString()};
             }
           }
 
@@ -408,12 +426,12 @@ const GlobalStyle: React.FC = () => {
           }
 
           ${antCls}-row .demo-col-1 {
-            background: ${new TinyColor(demoGridColor).setAlpha(0.75).toHexString()};
+            background: ${new FastColor(demoGridColor).setA(0.75).toHexString()};
           }
 
           ${antCls}-row .demo-col-2,
             .code-box-demo ${antCls}-row .demo-col-2 {
-            background: ${new TinyColor(demoGridColor).setAlpha(0.75).toHexString()};
+            background: ${new FastColor(demoGridColor).setA(0.75).toHexString()};
           }
 
           ${antCls}-row .demo-col-3,
@@ -424,7 +442,7 @@ const GlobalStyle: React.FC = () => {
 
           ${antCls}-row .demo-col-4,
             .code-box-demo ${antCls}-row .demo-col-4 {
-            background: ${new TinyColor(demoGridColor).setAlpha(0.6).toHexString()};
+            background: ${new FastColor(demoGridColor).setA(0.6).toHexString()};
           }
 
           ${antCls}-row .demo-col-5,

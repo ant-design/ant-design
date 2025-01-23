@@ -37,6 +37,7 @@ const App: React.FC = () => {
   return (
     <DirectoryTree
       multiple
+      draggable
       defaultExpandAll
       onSelect={onSelect}
       onExpand={onExpand}

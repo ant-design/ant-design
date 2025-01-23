@@ -18,9 +18,9 @@ export default function useLegacyItems(items?: StepProps[], children?: React.Rea
     return items;
   }
 
-  const childrenItems = toArray(children).map((node: React.ReactElement<StepProps>) => {
+  const childrenItems = toArray(children).map((node) => {
     if (React.isValidElement(node)) {
-      const { props } = node;
+      const { props } = node as React.ReactElement<StepProps>;
       const item: StepProps = {
         ...props,
       };

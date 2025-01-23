@@ -75,10 +75,7 @@ describe('Upload List', () => {
     mockHeightGet.mockImplementation(() => size.height);
     mockSrcSet.mockImplementation(function fn() {
       // @ts-ignore
-      if (this.onload) {
-        // @ts-ignore
-        this.onload();
-      }
+      this.onload?.();
     });
 
     mockGetCanvasContext.mockReturnValue({
@@ -1629,8 +1626,8 @@ describe('Upload List', () => {
         <Upload fileList={list as UploadProps['defaultFileList']} listType="picture-card" />,
       );
       expect(wrapper.querySelectorAll('.ant-upload-select').length).toBe(1);
-      expect(wrapper.querySelectorAll<HTMLDivElement>('.ant-upload-select')[0]?.style.display).toBe(
-        'none',
+      expect(wrapper.querySelector<HTMLDivElement>('.ant-upload-select')).toHaveClass(
+        'ant-upload-hidden',
       );
       unmount();
     });
@@ -1654,8 +1651,8 @@ describe('Upload List', () => {
         />,
       );
       expect(wrapper.querySelectorAll('.ant-upload-select').length).toBe(1);
-      expect(wrapper.querySelectorAll<HTMLDivElement>('.ant-upload-select')[0]?.style.display).toBe(
-        'none',
+      expect(wrapper.querySelector<HTMLDivElement>('.ant-upload-select')).toHaveClass(
+        'ant-upload-hidden',
       );
       unmount();
     });

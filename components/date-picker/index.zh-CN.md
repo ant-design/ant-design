@@ -203,6 +203,7 @@ dayjs.locale('zh-cn');
 | renderExtraFooter | 在面板中添加额外的页脚 | (mode) => React.ReactNode | - |  |
 | value | 日期 | [dayjs](https://day.js.org/) | - |  |
 | onChange | 时间发生变化的回调，发生在用户选择时间时 | function(date: dayjs, dateString: string) | - |  |
+| showWeek | DatePicker 下展示当前周 | boolean | true | 5.14.0 |
 
 ### RangePicker
 

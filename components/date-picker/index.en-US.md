@@ -202,6 +202,7 @@ Added in `4.1.0`.
 | renderExtraFooter | Render extra footer in panel | (mode) => React.ReactNode | - |  |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
+| showWeek | Show week info when in DatePicker | boolean | true | 5.14.0 |
 
 ### RangePicker
 

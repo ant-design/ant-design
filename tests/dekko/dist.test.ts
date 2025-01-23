@@ -1,5 +1,5 @@
-const $ = require('dekko');
-const chalk = require('chalk');
+import $ from 'dekko';
+import chalk from 'chalk';
 
 $('dist')
   .isDirectory()

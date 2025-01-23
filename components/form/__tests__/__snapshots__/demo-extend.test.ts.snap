@@ -768,7 +768,9 @@ exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
                   class="ant-checkbox-inner"
                 />
               </span>
-              <span>
+              <span
+                class="ant-checkbox-label"
+              >
                 Remember me
               </span>
             </label>
@@ -942,6 +944,8 @@ Array [
           >
             <a
               href="https://github.com/ant-design/ant-design/issues/36459"
+              rel="noreferrer"
+              target="_blank"
             >
               #36459
             </a>
@@ -1376,6 +1380,8 @@ Array [
           >
             <a
               href="https://github.com/ant-design/ant-design/issues/36459"
+              rel="noreferrer"
+              target="_blank"
             >
               #36459
             </a>
@@ -2010,7 +2016,8 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -2022,9 +2029,6 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
               style="height: 0px; opacity: 0;"
             />
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -2076,7 +2080,8 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -2088,9 +2093,6 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
               style="height: 0px; opacity: 0;"
             />
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -2373,7 +2375,9 @@ Array [
         class="ant-checkbox-inner"
       />
     </span>
-    <span>
+    <span
+      class="ant-checkbox-label"
+    >
       Form disabled
     </span>
   </label>,
@@ -2423,7 +2427,9 @@ Array [
                     class="ant-checkbox-inner"
                   />
                 </span>
-                <span>
+                <span
+                  class="ant-checkbox-label"
+                >
                   Checkbox
                 </span>
               </label>
@@ -2469,6 +2475,7 @@ Array [
                     <input
                       class="ant-radio-input"
                       disabled=""
+                      name="test-id"
                       type="radio"
                       value="apple"
                     />
@@ -2476,7 +2483,9 @@ Array [
                       class="ant-radio-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-label"
+                  >
                      Apple 
                   </span>
                 </label>
@@ -2489,6 +2498,7 @@ Array [
                     <input
                       class="ant-radio-input"
                       disabled=""
+                      name="test-id"
                       type="radio"
                       value="pear"
                     />
@@ -2496,7 +2506,9 @@ Array [
                       class="ant-radio-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-label"
+                  >
                      Pear 
                   </span>
                 </label>
@@ -2757,7 +2769,6 @@ Array [
                     <div>
                       <div
                         class="ant-select-tree"
-                        role="tree"
                       >
                         <div>
                           <input
@@ -2782,6 +2793,7 @@ Array [
                         </div>
                         <div
                           class="ant-select-tree-list"
+                          role="tree"
                           style="position: relative;"
                         >
                           <div
@@ -2794,9 +2806,10 @@ Array [
                                 style="display: flex; flex-direction: column;"
                               >
                                 <div
-                                  aria-grabbed="false"
+                                  aria-expanded="false"
                                   class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                                   draggable="false"
+                                  role="treeitem"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -2950,7 +2963,7 @@ Array [
                       >
                         <li
                           aria-checked="false"
-                          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+                          class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-disabled"
                           data-path-key="zhejiang"
                           role="menuitemcheckbox"
                           title="Zhejiang"
@@ -5245,6 +5258,7 @@ Array [
                   class="ant-slider-step"
                 />
                 <div
+                  aria-describedby="test-id"
                   aria-disabled="true"
                   aria-orientation="horizontal"
                   aria-valuemax="100"
@@ -5267,6 +5281,7 @@ Array [
                   >
                     <div
                       class="ant-tooltip-inner"
+                      id="test-id"
                       role="tooltip"
                     >
                       0
@@ -5305,6 +5320,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
+                aria-describedby="test-id"
                 class="ant-color-picker-trigger ant-color-picker-trigger-disabled"
               >
                 <div
@@ -5324,6 +5340,7 @@ Array [
                 >
                   <div
                     class="ant-popover-inner"
+                    id="test-id"
                     role="tooltip"
                   >
                     <div
@@ -6102,7 +6119,8 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -6115,9 +6133,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
               Buggy!
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -6161,7 +6176,8 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -6174,9 +6190,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
               Buggy!
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -6255,7 +6268,8 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -6268,9 +6282,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
               Buggy!
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -6314,7 +6325,8 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -6327,9 +6339,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
               Buggy!
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -6434,7 +6443,8 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -6447,9 +6457,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
               Buggy!
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -6506,7 +6513,8 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -6519,9 +6527,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
               Buggy!
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -6618,7 +6623,8 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -6631,9 +6637,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
               Buggy!
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -6686,7 +6689,8 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -6699,9 +6703,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
               Buggy!
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -7334,7 +7335,9 @@ exports[`renders components/form/demo/dynamic-rule.tsx extend context correctly 
                   class="ant-checkbox-inner"
                 />
               </span>
-              <span>
+              <span
+                class="ant-checkbox-label"
+              >
                 Nickname is required
               </span>
             </label>
@@ -8891,6 +8894,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
                   <input
                     checked=""
                     class="ant-radio-button-input"
+                    name="test-id"
                     type="radio"
                     value="horizontal"
                   />
@@ -8898,7 +8902,9 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
                     class="ant-radio-button-inner"
                   />
                 </span>
-                <span>
+                <span
+                  class="ant-radio-button-label"
+                >
                   Horizontal
                 </span>
               </label>
@@ -8910,6 +8916,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="test-id"
                     type="radio"
                     value="vertical"
                   />
@@ -8917,7 +8924,9 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
                     class="ant-radio-button-inner"
                   />
                 </span>
-                <span>
+                <span
+                  class="ant-radio-button-label"
+                >
                   Vertical
                 </span>
               </label>
@@ -8929,6 +8938,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="test-id"
                     type="radio"
                     value="inline"
                   />
@@ -8936,7 +8946,9 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
                     class="ant-radio-button-inner"
                   />
                 </span>
-                <span>
+                <span
+                  class="ant-radio-button-label"
+                >
                   Inline
                 </span>
               </label>
@@ -9501,7 +9513,9 @@ exports[`renders components/form/demo/login.tsx extend context correctly 1`] = `
                     class="ant-checkbox-inner"
                   />
                 </span>
-                <span>
+                <span
+                  class="ant-checkbox-label"
+                >
                   Remember me
                 </span>
               </label>
@@ -10133,6 +10147,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
         >
           Nickname
           <span
+            aria-describedby="test-id"
             aria-label="question-circle"
             class="anticon anticon-question-circle ant-form-item-tooltip"
             role="img"
@@ -10168,6 +10183,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               >
                 What do you want others to call you?
@@ -11247,9 +11263,13 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
           </div>
         </div>
         <div
-          class="ant-form-item-extra"
+          class="ant-form-item-additional"
         >
-          We must make sure that your are a human.
+          <div
+            class="ant-form-item-extra"
+          >
+            We must make sure that your are a human.
+          </div>
         </div>
       </div>
     </div>
@@ -11284,7 +11304,9 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                   class="ant-checkbox-inner"
                 />
               </span>
-              <span>
+              <span
+                class="ant-checkbox-label"
+              >
                 I have read the 
                 <a
                   href=""
@@ -11379,6 +11401,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="test-id"
                     type="radio"
                     value="true"
                   />
@@ -11386,7 +11409,9 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
                     class="ant-radio-button-inner"
                   />
                 </span>
-                <span>
+                <span
+                  class="ant-radio-button-label"
+                >
                   Default
                 </span>
               </label>
@@ -11399,6 +11424,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
                   <input
                     checked=""
                     class="ant-radio-button-input"
+                    name="test-id"
                     type="radio"
                     value="optional"
                   />
@@ -11406,7 +11432,9 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
                     class="ant-radio-button-inner"
                   />
                 </span>
-                <span>
+                <span
+                  class="ant-radio-button-label"
+                >
                   Optional
                 </span>
               </label>
@@ -11418,6 +11446,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="test-id"
                     type="radio"
                     value="false"
                   />
@@ -11425,7 +11454,9 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
                     class="ant-radio-button-inner"
                   />
                 </span>
-                <span>
+                <span
+                  class="ant-radio-button-label"
+                >
                   Hidden
                 </span>
               </label>
@@ -11437,6 +11468,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="test-id"
                     type="radio"
                     value="customize"
                   />
@@ -11444,7 +11476,9 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
                     class="ant-radio-button-inner"
                   />
                 </span>
-                <span>
+                <span
+                  class="ant-radio-button-label"
+                >
                   Customize
                 </span>
               </label>
@@ -11469,6 +11503,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
         >
           Field A
           <span
+            aria-describedby="test-id"
             aria-label="question-circle"
             class="anticon anticon-question-circle ant-form-item-tooltip"
             role="img"
@@ -11504,6 +11539,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               >
                 This is a required field
@@ -11547,6 +11583,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
         >
           Field B
           <span
+            aria-describedby="test-id"
             aria-label="info-circle"
             class="anticon anticon-info-circle ant-form-item-tooltip"
             role="img"
@@ -11582,6 +11619,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               >
                 Tooltip with customize icon
@@ -11692,6 +11730,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="test-id"
                     type="radio"
                     value="small"
                   />
@@ -11699,7 +11738,9 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                     class="ant-radio-button-inner"
                   />
                 </span>
-                <span>
+                <span
+                  class="ant-radio-button-label"
+                >
                   Small
                 </span>
               </label>
@@ -11712,6 +11753,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                   <input
                     checked=""
                     class="ant-radio-button-input"
+                    name="test-id"
                     type="radio"
                     value="default"
                   />
@@ -11719,7 +11761,9 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                     class="ant-radio-button-inner"
                   />
                 </span>
-                <span>
+                <span
+                  class="ant-radio-button-label"
+                >
                   Default
                 </span>
               </label>
@@ -11731,6 +11775,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="test-id"
                     type="radio"
                     value="large"
                   />
@@ -11738,7 +11783,9 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                     class="ant-radio-button-inner"
                   />
                 </span>
-                <span>
+                <span
+                  class="ant-radio-button-label"
+                >
                   Large
                 </span>
               </label>
@@ -11996,7 +12043,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                   <div>
                     <div
                       class="ant-select-tree"
-                      role="tree"
                     >
                       <div>
                         <input
@@ -12021,6 +12067,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                       </div>
                       <div
                         class="ant-select-tree-list"
+                        role="tree"
                         style="position: relative;"
                       >
                         <div
@@ -12033,9 +12080,10 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                               style="display: flex; flex-direction: column;"
                             >
                               <div
-                                aria-grabbed="false"
+                                aria-expanded="false"
                                 class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                                 draggable="false"
+                                role="treeitem"
                               >
                                 <span
                                   aria-hidden="true"
@@ -21159,7 +21207,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
       class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
+        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16 ant-col-sm-offset-8"
       >
         <div
           class="ant-form-item-control-input"
@@ -22123,6 +22171,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 />
               </div>
               <div
+                aria-describedby="test-id"
                 aria-disabled="false"
                 aria-orientation="horizontal"
                 aria-valuemax="100"
@@ -22146,6 +22195,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 >
                   <div
                     class="ant-tooltip-inner"
+                    id="test-id"
                     role="tooltip"
                   >
                     0
@@ -22236,6 +22286,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 >
                   <input
                     class="ant-radio-input"
+                    name="test-id"
                     type="radio"
                     value="a"
                   />
@@ -22243,7 +22294,9 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                     class="ant-radio-inner"
                   />
                 </span>
-                <span>
+                <span
+                  class="ant-radio-label"
+                >
                   item 1
                 </span>
               </label>
@@ -22255,6 +22308,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 >
                   <input
                     class="ant-radio-input"
+                    name="test-id"
                     type="radio"
                     value="b"
                   />
@@ -22262,7 +22316,9 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                     class="ant-radio-inner"
                   />
                 </span>
-                <span>
+                <span
+                  class="ant-radio-label"
+                >
                   item 2
                 </span>
               </label>
@@ -22274,6 +22330,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 >
                   <input
                     class="ant-radio-input"
+                    name="test-id"
                     type="radio"
                     value="c"
                   />
@@ -22281,7 +22338,9 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                     class="ant-radio-inner"
                   />
                 </span>
-                <span>
+                <span
+                  class="ant-radio-label"
+                >
                   item 3
                 </span>
               </label>
@@ -22330,6 +22389,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="test-id"
                     type="radio"
                     value="a"
                   />
@@ -22337,7 +22397,9 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                     class="ant-radio-button-inner"
                   />
                 </span>
-                <span>
+                <span
+                  class="ant-radio-button-label"
+                >
                   item 1
                 </span>
               </label>
@@ -22349,6 +22411,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="test-id"
                     type="radio"
                     value="b"
                   />
@@ -22356,7 +22419,9 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                     class="ant-radio-button-inner"
                   />
                 </span>
-                <span>
+                <span
+                  class="ant-radio-button-label"
+                >
                   item 2
                 </span>
               </label>
@@ -22368,6 +22433,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="test-id"
                     type="radio"
                     value="c"
                   />
@@ -22375,7 +22441,9 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                     class="ant-radio-button-inner"
                   />
                 </span>
-                <span>
+                <span
+                  class="ant-radio-button-label"
+                >
                   item 3
                 </span>
               </label>
@@ -22438,7 +22506,9 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                         class="ant-checkbox-inner"
                       />
                     </span>
-                    <span>
+                    <span
+                      class="ant-checkbox-label"
+                    >
                       A
                     </span>
                   </label>
@@ -22464,7 +22534,9 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                         class="ant-checkbox-inner"
                       />
                     </span>
-                    <span>
+                    <span
+                      class="ant-checkbox-label"
+                    >
                       B
                     </span>
                   </label>
@@ -22488,7 +22560,9 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                         class="ant-checkbox-inner"
                       />
                     </span>
-                    <span>
+                    <span
+                      class="ant-checkbox-label"
+                    >
                       C
                     </span>
                   </label>
@@ -22512,7 +22586,9 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                         class="ant-checkbox-inner"
                       />
                     </span>
-                    <span>
+                    <span
+                      class="ant-checkbox-label"
+                    >
                       D
                     </span>
                   </label>
@@ -22536,7 +22612,9 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                         class="ant-checkbox-inner"
                       />
                     </span>
-                    <span>
+                    <span
+                      class="ant-checkbox-label"
+                    >
                       E
                     </span>
                   </label>
@@ -22560,7 +22638,9 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                         class="ant-checkbox-inner"
                       />
                     </span>
-                    <span>
+                    <span
+                      class="ant-checkbox-label"
+                    >
                       F
                     </span>
                   </label>
@@ -22983,10 +23063,14 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
           </div>
         </div>
         <div
-          class="ant-form-item-extra"
-          id="validate_other_upload_extra"
+          class="ant-form-item-additional"
         >
-          longgggggggggggggggggggggggggggggggggg
+          <div
+            class="ant-form-item-extra"
+            id="validate_other_upload_extra"
+          >
+            longgggggggggggggggggggggggggggggggggg
+          </div>
         </div>
       </div>
     </div>
@@ -23109,6 +23193,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-describedby="test-id"
               aria-required="true"
               class="ant-color-picker-trigger"
               id="validate_other_color-picker"
@@ -23130,6 +23215,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
               >
                 <div
                   class="ant-popover-inner"
+                  id="test-id"
                   role="tooltip"
                 >
                   <div
@@ -23965,7 +24051,8 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -23978,9 +24065,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               Should be combination of numbers & alphabets
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -24119,7 +24203,8 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -24132,9 +24217,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               The information is being validated...
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -24346,7 +24428,8 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -24359,9 +24442,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               Should be combination of numbers & alphabets
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -28257,7 +28337,8 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -28270,9 +28351,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               Something breaks the rule.
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -28350,7 +28428,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   <div>
                     <div
                       class="ant-select-tree"
-                      role="tree"
                     >
                       <div>
                         <input
@@ -28375,6 +28452,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       </div>
                       <div
                         class="ant-select-tree-list"
+                        role="tree"
                         style="position: relative;"
                       >
                         <div
@@ -28387,9 +28465,10 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                               style="display: flex; flex-direction: column;"
                             >
                               <div
-                                aria-grabbed="false"
-                                class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
+                                aria-expanded="false"
+                                class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                                 draggable="false"
+                                role="treeitem"
                               >
                                 <span
                                   aria-hidden="true"
@@ -28470,7 +28549,8 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -28483,9 +28563,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               Need to be checked
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -29152,7 +29229,8 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                     </div>
                   </div>
                   <div
-                    style="display: flex; flex-wrap: nowrap;"
+                    class="ant-form-item-additional"
+                    style="min-height: 24px;"
                   >
                     <div
                       class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -29165,9 +29243,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                         Please select right date
                       </div>
                     </div>
-                    <div
-                      style="width: 0px; height: 24px;"
-                    />
                   </div>
                 </div>
               </div>
@@ -29992,10 +30067,9 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               <span
                 class="ant-input-suffix"
               >
-                <span
+                <button
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
-                  role="button"
-                  tabindex="-1"
+                  type="button"
                 >
                   <span
                     aria-label="close-circle"
@@ -30017,7 +30091,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       />
                     </svg>
                   </span>
-                </span>
+                </button>
                 <span
                   class="ant-form-item-feedback-icon ant-form-item-feedback-icon-success"
                 >
@@ -30175,10 +30249,9 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               <span
                 class="ant-input-suffix"
               >
-                <span
+                <button
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
-                  role="button"
-                  tabindex="-1"
+                  type="button"
                 >
                   <span
                     aria-label="close-circle"
@@ -30200,7 +30273,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       />
                     </svg>
                   </span>
-                </span>
+                </button>
                 <span
                   aria-label="eye-invisible"
                   class="anticon anticon-eye-invisible ant-input-password-icon"
@@ -30570,10 +30643,9 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               <span
                 class="ant-input-suffix"
               >
-                <span
+                <button
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
-                  role="button"
-                  tabindex="-1"
+                  type="button"
                 >
                   <span
                     aria-label="close-circle"
@@ -30595,7 +30667,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       />
                     </svg>
                   </span>
-                </span>
+                </button>
                 <span
                   class="ant-input-textarea-suffix"
                 >
@@ -30634,7 +30706,8 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -30647,9 +30720,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               Should have something
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -30860,7 +30930,8 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
               aria-label="segmented control"
               class="ant-segmented"
               id="variant"
-              role="listbox"
+              role="radiogroup"
+              tabindex="0"
             >
               <div
                 class="ant-segmented-group"
@@ -30870,12 +30941,12 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                 >
                   <input
                     class="ant-segmented-item-input"
+                    name="test-id"
                     type="radio"
                   />
                   <div
                     aria-selected="false"
                     class="ant-segmented-item-label"
-                    role="option"
                     title="outlined"
                   >
                     outlined
@@ -30887,12 +30958,12 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                   <input
                     checked=""
                     class="ant-segmented-item-input"
+                    name="test-id"
                     type="radio"
                   />
                   <div
                     aria-selected="true"
                     class="ant-segmented-item-label"
-                    role="option"
                     title="filled"
                   >
                     filled
@@ -30903,12 +30974,12 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                 >
                   <input
                     class="ant-segmented-item-input"
+                    name="test-id"
                     type="radio"
                   />
                   <div
                     aria-selected="false"
                     class="ant-segmented-item-label"
-                    role="option"
                     title="borderless"
                   >
                     borderless
@@ -31244,7 +31315,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <title>
-                            Simple Empty
+                            No data
                           </title>
                           <g
                             fill="none"
@@ -31410,7 +31481,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <title>
-                                  Simple Empty
+                                  No data
                                 </title>
                                 <g
                                   fill="none"
@@ -31567,7 +31638,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <title>
-                            Simple Empty
+                            No data
                           </title>
                           <g
                             fill="none"
@@ -33752,7 +33823,8 @@ exports[`renders components/form/demo/without-form-create.tsx extend context cor
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -33765,9 +33837,6 @@ exports[`renders components/form/demo/without-form-create.tsx extend context cor
               A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>

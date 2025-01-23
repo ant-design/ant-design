@@ -224,6 +224,7 @@ exports[`renders components/space/demo/base.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
@@ -316,6 +317,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         value="git@github.com:ant-design/ant-design.git"
       />
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
@@ -620,7 +622,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         >
           <input
             class="ant-input ant-input-outlined"
-            type="text"
+            type="search"
             value="0571"
           />
           <span
@@ -669,16 +671,15 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
           >
             <input
               class="ant-input"
-              type="text"
+              type="search"
               value="26888888"
             />
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon"
-                role="button"
-                tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -700,7 +701,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
           <span
@@ -746,7 +747,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         >
           <input
             class="ant-input ant-input-outlined"
-            type="text"
+            type="search"
             value="+1"
           />
           <span
@@ -2030,12 +2031,48 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         value=""
       />
       <div
+        aria-describedby="test-id"
         class="ant-color-picker-trigger ant-color-picker-compact-item ant-color-picker-compact-last-item"
       >
         <div
           class="ant-color-picker-clear"
         />
       </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space-compact"
+    >
+      <button
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-first-item"
+        type="button"
+      >
+        <span>
+          Button
+        </span>
+      </button>
+      <span
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item ant-input-compact-last-item"
+      >
+        <span
+          class="ant-input-wrapper ant-input-group"
+        >
+          <input
+            class="ant-input ant-input-outlined"
+            placeholder="input here"
+            type="text"
+            value=""
+          />
+          <span
+            class="ant-input-group-addon"
+          >
+            $
+          </span>
+        </span>
+      </span>
     </div>
   </div>
 </div>
@@ -2150,6 +2187,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
     class="ant-space-compact ant-space-compact-block"
   >
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-first-item"
       type="button"
     >
@@ -2178,6 +2216,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -2215,6 +2254,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -2243,6 +2283,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -2271,6 +2312,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -2299,6 +2341,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -2392,6 +2435,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item"
       disabled=""
       type="button"
@@ -2421,6 +2465,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
       type="button"
     >
@@ -2478,6 +2523,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       disabled=""
       type="button"
@@ -2507,6 +2553,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -2625,6 +2672,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         </span>
       </button>
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
         disabled=""
         type="button"
@@ -2910,7 +2958,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         >
           <input
             class="ant-input ant-input-outlined"
-            type="text"
+            type="search"
             value=""
           />
           <span
@@ -2955,7 +3003,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         >
           <input
             class="ant-input ant-input-outlined"
-            type="text"
+            type="search"
             value=""
           />
           <span
@@ -3488,6 +3536,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         value=""
       />
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
@@ -4145,7 +4194,7 @@ Array [
             <input
               class="ant-input ant-input-outlined"
               placeholder="Search"
-              type="text"
+              type="search"
               value=""
             />
             <span
@@ -4395,6 +4444,7 @@ exports[`renders components/space/demo/debug.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
@@ -4407,6 +4457,7 @@ exports[`renders components/space/demo/debug.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       disabled=""
       type="button"
@@ -4505,6 +4556,7 @@ Array [
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="small"
         />
@@ -4512,7 +4564,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         small
       </span>
     </label>
@@ -4524,6 +4578,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="middle"
         />
@@ -4531,7 +4586,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         middle
       </span>
     </label>
@@ -4543,6 +4600,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="large"
         />
@@ -4550,7 +4608,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         large
       </span>
     </label>
@@ -4562,6 +4622,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="customize"
         />
@@ -4569,7 +4630,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         customize
       </span>
     </label>

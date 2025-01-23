@@ -2,13 +2,14 @@ import React, { Suspense, useRef, useState } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import { resetWarned } from 'rc-util/lib/warning';
 
-import Button from '..';
+import Button, { _ButtonVariantTypes } from '..';
 import type { GetRef } from '../../_util/type';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import theme from '../../theme';
+import { PresetColors } from '../../theme/interface';
 import type { BaseButtonProps } from '../button';
 
 describe('Button', () => {
@@ -473,5 +474,25 @@ describe('Button', () => {
     expect(darkContainer.firstChild).toHaveStyle({
       '--ant-button-solid-text-color': '#000',
     });
+  });
+
+  it('should render preset colors and variants correctly', () => {
+    PresetColors.forEach((color) => {
+      _ButtonVariantTypes.forEach((variant) => {
+        const { container } = render(
+          <Button color={color} variant={variant}>
+            {color}
+          </Button>,
+        );
+        expect(container.firstChild).toHaveClass(`ant-btn-color-${color}`);
+        expect(container.firstChild).toHaveClass(`ant-btn-variant-${variant}`);
+      });
+    });
+  });
+
+  it('autoFocus should work', () => {
+    const { container } = render(<Button autoFocus>button</Button>);
+
+    expect(container.querySelector('button')).toBe(document.activeElement);
   });
 });

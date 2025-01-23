@@ -1,10 +1,8 @@
 import * as React from 'react';
 import { forwardRef } from 'react';
 import classNames from 'classnames';
-import type { TextAreaRef as RcTextAreaRef } from 'rc-textarea';
+import type { TextAreaRef as RcTextAreaRef, TextAreaProps as RcTextAreaProps } from 'rc-textarea';
 import RcTextArea from 'rc-textarea';
-import type { TextAreaProps as RcTextAreaProps } from 'rc-textarea/lib/interface';
-
 import getAllowClear from '../_util/getAllowClear';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';

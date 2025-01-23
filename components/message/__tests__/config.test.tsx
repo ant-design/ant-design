@@ -6,6 +6,18 @@ import App from '../../app';
 import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
 
+// TODO: Remove this. Mock for React 19
+jest.mock('react-dom', () => {
+  const realReactDOM = jest.requireActual('react-dom');
+
+  if (realReactDOM.version.startsWith('19')) {
+    const realReactDOMClient = jest.requireActual('react-dom/client');
+    realReactDOM.createRoot = realReactDOMClient.createRoot;
+  }
+
+  return realReactDOM;
+});
+
 describe('message.config', () => {
   beforeAll(() => {
     actWrapper(act);
@@ -33,6 +45,19 @@ describe('message.config', () => {
     await awaitPromise();
     expect(document.querySelector('.ant-message')).toHaveStyle({
       top: '100px',
+    });
+  });
+
+  it('should be able to config top with string value', async () => {
+    message.config({
+      top: '10vh',
+    });
+
+    message.info('test message');
+    await awaitPromise();
+
+    expect(document.querySelector('.ant-message')).toHaveStyle({
+      top: '10vh',
     });
   });
 

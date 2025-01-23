@@ -21,7 +21,7 @@ const localeValues: Locale = {
     filterConfirm: 'OK',
     filterReset: 'Сбросить',
     filterEmptyText: 'Без фильтров',
-    filterCheckall: 'Выбрать все элементы',
+    filterCheckAll: 'Выбрать все элементы',
     filterSearchPlaceholder: 'Поиск в фильтрах',
     emptyText: 'Нет данных',
     selectAll: 'Выбрать всё',
@@ -80,6 +80,7 @@ const localeValues: Locale = {
     copy: 'Копировать',
     copied: 'Скопировано',
     expand: 'Раскрыть',
+    collapse: 'Свернуть',
   },
   Form: {
     optional: '(необязательно)',
@@ -137,6 +138,12 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'QR-код устарел',
     refresh: 'Обновить',
+  },
+  ColorPicker: {
+    presetEmpty: 'Пустой',
+    transparent: 'Прозрачный',
+    singleColor: 'Один цвет',
+    gradientColor: 'Градиент',
   },
 };
 

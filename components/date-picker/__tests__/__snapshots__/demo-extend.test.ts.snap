@@ -10636,6 +10636,7 @@ exports[`renders components/date-picker/demo/components.tsx extend context corre
                     class="ant-slider-step"
                   />
                   <div
+                    aria-describedby="test-id"
                     aria-disabled="false"
                     aria-orientation="horizontal"
                     aria-valuemax="365"
@@ -10659,6 +10660,7 @@ exports[`renders components/date-picker/demo/components.tsx extend context corre
                     >
                       <div
                         class="ant-tooltip-inner"
+                        id="test-id"
                         role="tooltip"
                       >
                         2016-01-01
@@ -47230,6 +47232,7 @@ Array [
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="topLeft"
         />
@@ -47237,7 +47240,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         topLeft
       </span>
     </label>
@@ -47249,6 +47254,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="topRight"
         />
@@ -47256,7 +47262,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         topRight
       </span>
     </label>
@@ -47268,6 +47276,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="bottomLeft"
         />
@@ -47275,7 +47284,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         bottomLeft
       </span>
     </label>
@@ -47287,6 +47298,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="bottomRight"
         />
@@ -47294,7 +47306,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         bottomRight
       </span>
     </label>
@@ -61481,6 +61495,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="large"
           />
@@ -61488,7 +61503,9 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Large
         </span>
       </label>
@@ -61501,6 +61518,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
           <input
             checked=""
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="middle"
           />
@@ -61508,7 +61526,9 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           middle
         </span>
       </label>
@@ -61520,6 +61540,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="small"
           />
@@ -61527,7 +61548,9 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Small
         </span>
       </label>

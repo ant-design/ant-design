@@ -1,6 +1,7 @@
 import type React from 'react';
 import { unit } from '@ant-design/cssinjs';
 
+import { getMediaSize } from '../../grid/style';
 import { genFocusStyle, resetComponent } from '../../style';
 import { initFadeMotion, initZoomMotion } from '../../style/motion';
 import type {
@@ -386,6 +387,30 @@ const genRTLStyle: GenerateStyle<ModalToken> = (token) => {
   };
 };
 
+const genResponsiveWidthStyle: GenerateStyle<ModalToken> = (token) => {
+  const { componentCls } = token;
+
+  const gridMediaSizesMap: Record<string, number> = getMediaSize(token);
+  delete gridMediaSizesMap.xs;
+
+  const responsiveStyles = Object.keys(gridMediaSizesMap).map((key) => ({
+    [`@media (min-width: ${unit(gridMediaSizesMap[key])})`]: {
+      width: `var(--${componentCls.replace('.', '')}-${key}-width)`,
+    },
+  }));
+
+  return {
+    [`${componentCls}-root`]: {
+      [componentCls]: [
+        {
+          width: `var(--${componentCls.replace('.', '')}-xs-width)`,
+        },
+        ...responsiveStyles,
+      ],
+    },
+  };
+};
+
 // ============================== Export ==============================
 export const prepareToken: (token: Parameters<GenStyleFn<'Modal'>>[0]) => ModalToken = (token) => {
   const headerPaddingVertical = token.padding;
@@ -453,6 +478,7 @@ export default genStyleHooks(
       genRTLStyle(modalToken),
       genModalMaskStyle(modalToken),
       initZoomMotion(modalToken, 'zoom'),
+      genResponsiveWidthStyle(modalToken),
     ];
   },
   prepareComponentToken,
