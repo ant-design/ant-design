@@ -23,6 +23,7 @@ import IconWrapper from './IconWrapper';
 import DefaultLoadingIcon from './DefaultLoadingIcon';
 import useStyle from './style';
 import Compact from './style/compact';
+import { useComponentConfig } from '../config-provider/context';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
@@ -144,9 +145,10 @@ const InternalCompoundedButton = React.forwardRef<
   const isDanger = mergedColor === 'danger';
   const mergedColorText = isDanger ? 'dangerous' : mergedColor;
 
-  const { getPrefixCls, direction, button } = useContext(ConfigContext);
+  const { getPrefixCls, direction } = useContext(ConfigContext);
+  const contextButton = useComponentConfig('button');
 
-  const mergedInsertSpace = autoInsertSpace ?? button?.autoInsertSpace ?? true;
+  const mergedInsertSpace = autoInsertSpace ?? contextButton.autoInsertSpace ?? true;
 
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
@@ -294,15 +296,15 @@ const InternalCompoundedButton = React.forwardRef<
     compactItemClassnames,
     className,
     rootClassName,
-    button?.className,
+    contextButton.className,
   );
 
-  const fullStyle: React.CSSProperties = { ...button?.style, ...customStyle };
+  const fullStyle: React.CSSProperties = { ...contextButton.style, ...customStyle };
 
-  const iconClasses = classNames(customClassNames?.icon, button?.classNames?.icon);
+  const iconClasses = classNames(customClassNames?.icon, contextButton.classNames.icon);
   const iconStyle: React.CSSProperties = {
     ...(styles?.icon || {}),
-    ...(button?.styles?.icon || {}),
+    ...(contextButton.styles.icon || {}),
   };
 
   const iconNode =
