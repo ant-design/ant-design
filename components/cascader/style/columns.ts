@@ -25,6 +25,7 @@ const getColumnsStyle: GenerateStyle<CascaderToken> = (token: CascaderToken): CS
         '&-checkbox': {
           top: 0,
           marginInlineEnd: token.paddingXS,
+          pointerEvents: 'unset',
         },
 
         // ==================== Menu ====================
