@@ -72,7 +72,7 @@ return (
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | validateSearch | 自定义触发验证逻辑 | (text: string, props: MentionsProps) => void | - |  |
 | value | 设置值 | string | - |  |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | onBlur | 失去焦点时触发 | () => void | - |  |
 | onChange | 值改变时触发 | (text: string) => void | - |  |
 | onClear | 按下清除按钮的回调 | () => void | - | 5.20.0 |
@@ -80,6 +80,7 @@ return (
 | onResize | resize 回调 | function({ width, height }) | - |  |
 | onSearch | 搜索时触发 | (text: string, prefix: string) => void | - |  |
 | onSelect | 选择选项时触发 | (option: OptionProps, prefix: string) => void | - |  |
+| onPopupScroll | 滚动时触发 | (event: Event) => void | - | 5.23.0 |
 | options | 选项配置 | [Options](#option) | [] | 5.1.0 |
 
 ### Mentions 方法

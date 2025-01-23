@@ -500,6 +500,7 @@ Array [
           >
             <input
               class="ant-radio-input"
+              name="test-id"
               type="radio"
               value="top"
             />
@@ -507,7 +508,9 @@ Array [
               class="ant-radio-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-label"
+          >
             top
           </span>
         </label>
@@ -520,6 +523,7 @@ Array [
             <input
               checked=""
               class="ant-radio-input"
+              name="test-id"
               type="radio"
               value="right"
             />
@@ -527,7 +531,9 @@ Array [
               class="ant-radio-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-label"
+          >
             right
           </span>
         </label>
@@ -539,6 +545,7 @@ Array [
           >
             <input
               class="ant-radio-input"
+              name="test-id"
               type="radio"
               value="bottom"
             />
@@ -546,7 +553,9 @@ Array [
               class="ant-radio-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-label"
+          >
             bottom
           </span>
         </label>
@@ -558,6 +567,7 @@ Array [
           >
             <input
               class="ant-radio-input"
+              name="test-id"
               type="radio"
               value="left"
             />
@@ -565,7 +575,9 @@ Array [
               class="ant-radio-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-label"
+          >
             left
           </span>
         </label>
@@ -3150,6 +3162,7 @@ Array [
           >
             <input
               class="ant-radio-input"
+              name="test-id"
               type="radio"
               value="top"
             />
@@ -3157,7 +3170,9 @@ Array [
               class="ant-radio-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-label"
+          >
             top
           </span>
         </label>
@@ -3169,6 +3184,7 @@ Array [
           >
             <input
               class="ant-radio-input"
+              name="test-id"
               type="radio"
               value="right"
             />
@@ -3176,7 +3192,9 @@ Array [
               class="ant-radio-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-label"
+          >
             right
           </span>
         </label>
@@ -3188,6 +3206,7 @@ Array [
           >
             <input
               class="ant-radio-input"
+              name="test-id"
               type="radio"
               value="bottom"
             />
@@ -3195,7 +3214,9 @@ Array [
               class="ant-radio-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-label"
+          >
             bottom
           </span>
         </label>
@@ -3208,6 +3229,7 @@ Array [
             <input
               checked=""
               class="ant-radio-input"
+              name="test-id"
               type="radio"
               value="left"
             />
@@ -3215,7 +3237,9 @@ Array [
               class="ant-radio-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-label"
+          >
             left
           </span>
         </label>

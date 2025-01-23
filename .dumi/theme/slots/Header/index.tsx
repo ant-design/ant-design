@@ -357,7 +357,7 @@ const Header: React.FC = () => {
     <header className={headerClassName}>
       {isMobile && (
         <Popover
-          overlayClassName={styles.popoverMenu}
+          classNames={{ root: styles.popoverMenu }}
           placement="bottomRight"
           content={menu}
           trigger="click"

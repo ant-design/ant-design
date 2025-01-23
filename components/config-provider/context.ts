@@ -9,7 +9,9 @@ import type { CardProps } from '../card';
 import type { CascaderProps } from '../cascader';
 import type { CollapseProps } from '../collapse';
 import type { DatePickerProps, RangePickerProps } from '../date-picker';
+import type { DescriptionsProps } from '../descriptions';
 import type { DrawerProps } from '../drawer';
+import type { EmptyProps } from '../empty';
 import type { FlexProps } from '../flex/interface';
 import type { FloatButtonGroupProps } from '../float-button/interface';
 import type { FormProps } from '../form/Form';
@@ -22,7 +24,10 @@ import type { MenuProps } from '../menu';
 import type { ModalProps } from '../modal';
 import type { ArgsProps } from '../notification/interface';
 import type { PaginationProps } from '../pagination';
+import type { PopconfirmProps } from '../popconfirm';
+import type { PopoverProps } from '../popover';
 import type { SelectProps } from '../select';
+import type { SliderProps } from '../slider';
 import type { SpaceProps } from '../space';
 import type { SpinProps } from '../spin';
 import type { TableProps } from '../table';
@@ -30,6 +35,7 @@ import type { TabsProps } from '../tabs';
 import type { TagProps } from '../tag';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { TimePickerProps } from '../time-picker';
+import type { TooltipProps } from '../tooltip';
 import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
 import type { TreeSelectProps } from '../tree-select';
@@ -133,8 +139,13 @@ export type MenuConfig = ComponentStyleConfig & Pick<MenuProps, 'expandIcon'>;
 
 export type TourConfig = Pick<TourProps, 'closeIcon'>;
 
+export type DescriptionsConfig = ComponentStyleConfig &
+  Pick<DescriptionsProps, 'classNames' | 'styles'>;
+
+export type EmptyConfig = ComponentStyleConfig & Pick<EmptyProps, 'classNames' | 'styles'>;
+
 export type ModalConfig = ComponentStyleConfig &
-  Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon' | 'closable'>;
+  Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon' | 'closable' | 'centered'>;
 
 export type TabsConfig = ComponentStyleConfig &
   Pick<TabsProps, 'indicator' | 'indicatorSize' | 'more' | 'moreIcon' | 'addIcon' | 'removeIcon'>;
@@ -176,6 +187,17 @@ export type SelectConfig = ComponentStyleConfig & Pick<SelectProps, 'showSearch'
 
 export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'classNames' | 'styles'>;
 
+export type TooltipConfig = Pick<TooltipProps, 'className' | 'style' | 'styles' | 'classNames'>;
+
+export type PopoverConfig = Pick<PopoverProps, 'className' | 'style' | 'styles' | 'classNames'>;
+
+export type PopconfirmConfig = Pick<
+  PopconfirmProps,
+  'className' | 'style' | 'styles' | 'classNames'
+>;
+
+export type SliderConfig = ComponentStyleConfig & Pick<SliderProps, 'styles' | 'classNames'>;
+
 export type SpinConfig = ComponentStyleConfig & Pick<SpinProps, 'indicator'>;
 
 export type InputNumberConfig = ComponentStyleConfig & Pick<InputNumberProps, 'variant'>;
@@ -198,7 +220,7 @@ export interface ListConfig extends ComponentStyleConfig {
   item?: Pick<ListItemProps, 'classNames' | 'styles'>;
 }
 
-export const Variants = ['outlined', 'borderless', 'filled'] as const;
+export const Variants = ['outlined', 'borderless', 'filled', 'underlined'] as const;
 
 export type Variant = (typeof Variants)[number];
 
@@ -216,34 +238,14 @@ export interface WaveConfig {
   showEffect?: ShowWaveEffect;
 }
 
-export interface ConfigConsumerProps {
-  getTargetContainer?: () => HTMLElement;
-  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
-  rootPrefixCls?: string;
-  iconPrefixCls: string;
-  getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => string;
-  renderEmpty?: RenderEmptyHandler;
-  /**
-   * @descCN 设置 [Content Security Policy](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP) 配置。
-   * @descEN Set the [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config.
-   */
-  csp?: CSPConfig;
-  /** @deprecated Please use `{ button: { autoInsertSpace: boolean }}` instead */
-  autoInsertSpaceInButton?: boolean;
-  variant?: Variant;
+export interface ConfigComponentProps {
   input?: InputConfig;
   textArea?: TextAreaConfig;
   inputNumber?: InputNumberConfig;
   pagination?: PaginationConfig;
-  locale?: Locale;
-  direction?: DirectionType;
   space?: SpaceConfig;
   splitter?: ComponentStyleConfig;
-  virtual?: boolean;
-  popupMatchSelectWidth?: boolean;
-  popupOverflow?: PopupOverflow;
   form?: FormConfig;
-  theme?: ThemeConfig;
   select?: SelectConfig;
   alert?: AlertConfig;
   anchor?: ComponentStyleConfig;
@@ -269,12 +271,12 @@ export interface ConfigConsumerProps {
   modal?: ModalConfig;
   progress?: ComponentStyleConfig;
   result?: ComponentStyleConfig;
-  slider?: ComponentStyleConfig;
+  slider?: SliderConfig;
   breadcrumb?: ComponentStyleConfig;
   menu?: MenuConfig;
   checkbox?: ComponentStyleConfig;
-  descriptions?: ComponentStyleConfig;
-  empty?: ComponentStyleConfig;
+  descriptions?: DescriptionsConfig;
+  empty?: EmptyConfig;
   badge?: BadgeConfig;
   radio?: ComponentStyleConfig;
   rate?: ComponentStyleConfig;
@@ -289,6 +291,9 @@ export interface ConfigConsumerProps {
   timeline?: ComponentStyleConfig;
   timePicker?: TimePickerConfig;
   tour?: TourConfig;
+  tooltip?: TooltipConfig;
+  popover?: PopoverConfig;
+  popconfirm?: PopconfirmConfig;
   upload?: ComponentStyleConfig;
   notification?: NotificationConfig;
   tree?: ComponentStyleConfig;
@@ -298,6 +303,29 @@ export interface ConfigConsumerProps {
   dropdown?: ComponentStyleConfig;
   flex?: FlexConfig;
   wave?: WaveConfig;
+}
+
+export interface ConfigConsumerProps extends ConfigComponentProps {
+  getTargetContainer?: () => HTMLElement;
+  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
+  rootPrefixCls?: string;
+  iconPrefixCls: string;
+  getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => string;
+  renderEmpty?: RenderEmptyHandler;
+  /**
+   * @descCN 设置 [Content Security Policy](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP) 配置。
+   * @descEN Set the [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config.
+   */
+  csp?: CSPConfig;
+  /** @deprecated Please use `{ button: { autoInsertSpace: boolean }}` instead */
+  autoInsertSpaceInButton?: boolean;
+  variant?: Variant;
+  virtual?: boolean;
+  locale?: Locale;
+  direction?: DirectionType;
+  popupMatchSelectWidth?: boolean;
+  popupOverflow?: PopupOverflow;
+  theme?: ThemeConfig;
   warning?: WarningContextProps;
 }
 
@@ -316,3 +344,43 @@ export const ConfigContext = React.createContext<ConfigConsumerProps>({
 });
 
 export const { Consumer: ConfigConsumer } = ConfigContext;
+
+const EMPTY_OBJECT = {};
+
+type GetClassNamesOrEmptyObject<Config extends { classNames?: any }> = Config extends {
+  classNames?: infer ClassNames;
+}
+  ? ClassNames
+  : object;
+
+type GetStylesOrEmptyObject<Config extends { styles?: any }> = Config extends {
+  styles?: infer Styles;
+}
+  ? Styles
+  : object;
+
+type ComponentReturnType<T extends keyof ConfigComponentProps> = Omit<
+  NonNullable<ConfigComponentProps[T]>,
+  'classNames' | 'styles'
+> & {
+  classNames: GetClassNamesOrEmptyObject<NonNullable<ConfigComponentProps[T]>>;
+  styles: GetStylesOrEmptyObject<NonNullable<ConfigComponentProps[T]>>;
+};
+
+/**
+ * Get ConfigProvider configured component props.
+ * This help to reduce bundle size for saving `?.` operator.
+ * Do not use as `useMemo` deps since we do not cache the object here.
+ *
+ * NOTE: not refactor this with `useMemo` since memo will cost another memory space,
+ * which will waste both compare calculation & memory.
+ */
+export function useComponentConfig<T extends keyof ConfigComponentProps>(propName: T) {
+  const context = React.useContext(ConfigContext);
+  const propValue = context[propName];
+  return {
+    classNames: EMPTY_OBJECT,
+    styles: EMPTY_OBJECT,
+    ...propValue,
+  } as ComponentReturnType<T>;
+}

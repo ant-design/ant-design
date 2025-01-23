@@ -20,9 +20,10 @@ import type {
 } from './buttonHelpers';
 import { isTwoCNChar, isUnBorderedButtonVariant, spaceChildren } from './buttonHelpers';
 import IconWrapper from './IconWrapper';
-import LoadingIcon from './LoadingIcon';
+import DefaultLoadingIcon from './DefaultLoadingIcon';
 import useStyle from './style';
 import Compact from './style/compact';
+import { useComponentConfig } from '../config-provider/context';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
@@ -35,7 +36,7 @@ export interface BaseButtonProps {
   shape?: ButtonShape;
   size?: SizeType;
   disabled?: boolean;
-  loading?: boolean | { delay?: number };
+  loading?: boolean | { delay?: number; icon?: React.ReactNode };
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
@@ -144,9 +145,10 @@ const InternalCompoundedButton = React.forwardRef<
   const isDanger = mergedColor === 'danger';
   const mergedColorText = isDanger ? 'dangerous' : mergedColor;
 
-  const { getPrefixCls, direction, button } = useContext(ConfigContext);
+  const { getPrefixCls, direction } = useContext(ConfigContext);
+  const contextButton = useComponentConfig('button');
 
-  const mergedInsertSpace = autoInsertSpace ?? button?.autoInsertSpace ?? true;
+  const mergedInsertSpace = autoInsertSpace ?? contextButton.autoInsertSpace ?? true;
 
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
@@ -163,12 +165,23 @@ const InternalCompoundedButton = React.forwardRef<
 
   const [hasTwoCNChar, setHasTwoCNChar] = useState<boolean>(false);
 
-  const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>();
+  const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
 
   const mergedRef = useComposeRef(ref, buttonRef);
 
   const needInserted =
     Children.count(children) === 1 && !icon && !isUnBorderedButtonVariant(mergedVariant);
+
+  // ========================= Mount ==========================
+  // Record for mount status.
+  // This will help to no to show the animation of loading on the first mount.
+  const isMountRef = useRef(true);
+  React.useEffect(() => {
+    isMountRef.current = false;
+    return () => {
+      isMountRef.current = true;
+    };
+  }, []);
 
   // ========================= Effect =========================
   // Loading
@@ -283,15 +296,15 @@ const InternalCompoundedButton = React.forwardRef<
     compactItemClassnames,
     className,
     rootClassName,
-    button?.className,
+    contextButton.className,
   );
 
-  const fullStyle: React.CSSProperties = { ...button?.style, ...customStyle };
+  const fullStyle: React.CSSProperties = { ...contextButton.style, ...customStyle };
 
-  const iconClasses = classNames(customClassNames?.icon, button?.classNames?.icon);
+  const iconClasses = classNames(customClassNames?.icon, contextButton.classNames.icon);
   const iconStyle: React.CSSProperties = {
     ...(styles?.icon || {}),
-    ...(button?.styles?.icon || {}),
+    ...(contextButton.styles.icon || {}),
   };
 
   const iconNode =
@@ -299,8 +312,17 @@ const InternalCompoundedButton = React.forwardRef<
       <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
         {icon}
       </IconWrapper>
+    ) : loading && typeof loading === 'object' && loading.icon ? (
+      <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
+        {loading.icon}
+      </IconWrapper>
     ) : (
-      <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={innerLoading} />
+      <DefaultLoadingIcon
+        existIcon={!!icon}
+        prefixCls={prefixCls}
+        loading={innerLoading}
+        mount={isMountRef.current}
+      />
     );
 
   const kids =

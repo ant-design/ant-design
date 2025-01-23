@@ -94,7 +94,11 @@ expect.addSnapshotSerializer({
     const { document } = new JSDOM().window;
     document.body.innerHTML = html;
 
-    const children = Array.from(document.body.childNodes);
+    const children = Array.from(document.body.childNodes).filter(
+      (node) =>
+        // Ignore `link` node since React 18 or blew not support this
+        node.nodeName !== 'LINK',
+    );
 
     // Clean up `data-reactroot` since React 18 do not have this
     // @ts-ignore

@@ -69,7 +69,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | suffix | The suffix icon for the Input | ReactNode | - |  |
 | type | The type of input, see: [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types)( use `Input.TextArea` instead of `type="textarea"`) | string | `text` |  |
 | value | The input content value | string | - |  |
-| variant | Variants of Input | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | onChange | Callback when user input | function(e) | - |  |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - |  |
 | onClear | Callback when click the clear button | () => void | - | 5.20.0 |
@@ -139,7 +139,7 @@ Added in `5.16.0`.
 | length | The number of input elements | number | 6 |  |
 | status | Set validation status | 'error' \| 'warning' | - |  |
 | size | The size of the input box | `small` \| `middle` \| `large` | `middle` |  |
-| variant | Variants of Input | `outlined` \| `borderless` \| `filled` | `outlined` |  |
+| variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | `underlined`: 5.24.0 |
 | value | The input content value | string | - |  |
 | onChange | Trigger when all the fields are filled | (value: string) => void | - |  |
 | onInput | Trigger when the input value changes | (value: string[]) => void | - | `5.22.0` |
@@ -158,13 +158,13 @@ Added in `5.16.0`.
 | blur | Remove focus | - |  |
 | focus | Get focus | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | option - 4.10.0 |
 
-### Semantic DOM
+## Semantic DOM
 
-#### Input
+### Input
 
 <code src="./demo/_semantic_input.tsx" simplify="true"></code>
 
-#### Input.TextArea
+### Input.TextArea
 
 <code src="./demo/_semantic_textarea.tsx" simplify="true"></code>
 

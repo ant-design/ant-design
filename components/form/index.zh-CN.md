@@ -85,7 +85,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 | size | 设置字段组件的尺寸（仅限 antd 组件） | `small` \| `middle` \| `large` | - |  |
 | validateMessages | 验证提示模板，说明[见下](#validatemessages) | [ValidateMessages](https://github.com/ant-design/ant-design/blob/6234509d18bac1ac60fbb3f92a5b2c6a6361295a/components/locale/en_US.ts#L88-L134) | - |  |
 | validateTrigger | 统一设置字段触发验证的时机 | string \| string\[] | `onChange` | 4.3.0 |
-| variant | 表单内控件变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| variant | 表单内控件变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | [object](/components/grid-cn#col) | - |  |
 | onFieldsChange | 字段更新时触发回调事件 | function(changedFields, allFields) | - |  |
 | onFinish | 提交表单且数据验证成功后回调事件 | function(values) | - |  |
@@ -716,6 +716,19 @@ const MyInput = (props) => (
 <Form.Item name="input">
   <MyInput />
 </Form.Item>;
+```
+
+### 为什么表单点击 label 会更改组件状态？
+
+> 相关 issue：[#47031](https://github.com/ant-design/ant-design/issues/47031),[#43175](https://github.com/ant-design/ant-design/issues/43175), [#52152](https://github.com/ant-design/ant-design/issues/52152)
+
+表单 label 使用 [HTML label](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/label) 元素来包裹表单控件，从而实现点击 label 时聚焦到对应控件。这是 label 元素的原生行为，用于提升可访问性和用户体验，这种标准交互模式能让用户更容易操作表单控件。如果你不希望这种行为，可通过 `htmlFor={null}` 属性解除关联，通常不建议这样做。
+
+```diff
+- <Form.Item name="switch" label="Switch">
++ <Form.Item name="switch" label="Switch" htmlFor={null}>
+    <Switch />
+  </Form.Item>
 ```
 
 ### 有更多参考文档吗？

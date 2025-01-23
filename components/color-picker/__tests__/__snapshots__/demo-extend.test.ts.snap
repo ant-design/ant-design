@@ -3,6 +3,7 @@
 exports[`renders components/color-picker/demo/allowClear.tsx extend context correctly 1`] = `
 Array [
   <div
+    aria-describedby="test-id"
     class="ant-color-picker-trigger"
   >
     <div
@@ -27,6 +28,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -401,6 +403,7 @@ exports[`renders components/color-picker/demo/allowClear.tsx extend context corr
 exports[`renders components/color-picker/demo/base.tsx extend context correctly 1`] = `
 Array [
   <div
+    aria-describedby="test-id"
     class="ant-color-picker-trigger"
   >
     <div
@@ -425,6 +428,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -797,6 +801,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
     class="ant-space-item"
   >
     <div
+      aria-describedby="test-id"
       class="ant-color-picker-trigger"
     >
       <div
@@ -821,6 +826,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -1185,6 +1191,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
     class="ant-space-item"
   >
     <div
+      aria-describedby="test-id"
       class="ant-color-picker-trigger"
     >
       <div
@@ -1209,6 +1216,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -1577,6 +1585,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
 exports[`renders components/color-picker/demo/disabled.tsx extend context correctly 1`] = `
 Array [
   <div
+    aria-describedby="test-id"
     class="ant-color-picker-trigger ant-color-picker-trigger-disabled"
   >
     <div
@@ -1606,6 +1615,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -1973,6 +1983,7 @@ exports[`renders components/color-picker/demo/disabled.tsx extend context correc
 exports[`renders components/color-picker/demo/disabled-alpha.tsx extend context correctly 1`] = `
 Array [
   <div
+    aria-describedby="test-id"
     class="ant-color-picker-trigger"
   >
     <div
@@ -1997,6 +2008,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -2279,6 +2291,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
         class="ant-space-item"
       >
         <div
+          aria-describedby="test-id"
           class="ant-color-picker-trigger"
         >
           <div
@@ -2303,6 +2316,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
@@ -2682,6 +2696,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
         class="ant-space-item"
       >
         <div
+          aria-describedby="test-id"
           class="ant-color-picker-trigger"
         >
           <div
@@ -2706,6 +2721,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
@@ -3303,6 +3319,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
         class="ant-space-item"
       >
         <div
+          aria-describedby="test-id"
           class="ant-color-picker-trigger"
         >
           <div
@@ -3327,6 +3344,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
@@ -3927,6 +3945,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
     class="ant-space-item"
   >
     <div
+      aria-describedby="test-id"
       class="ant-color-picker-trigger"
     >
       <div
@@ -3964,6 +3983,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -3981,7 +4001,8 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                   <div
                     aria-label="segmented control"
                     class="ant-segmented ant-segmented-sm"
-                    role="listbox"
+                    role="radiogroup"
+                    tabindex="0"
                   >
                     <div
                       class="ant-segmented-group"
@@ -3992,12 +4013,12 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                         <input
                           checked=""
                           class="ant-segmented-item-input"
+                          name="test-id"
                           type="radio"
                         />
                         <div
                           aria-selected="false"
                           class="ant-segmented-item-label"
-                          role="option"
                           title="Single"
                         >
                           Single
@@ -4008,12 +4029,12 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       >
                         <input
                           class="ant-segmented-item-input"
+                          name="test-id"
                           type="radio"
                         />
                         <div
                           aria-selected="true"
                           class="ant-segmented-item-label"
-                          role="option"
                           title="Gradient"
                         >
                           Gradient
@@ -4410,6 +4431,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
     class="ant-space-item"
   >
     <div
+      aria-describedby="test-id"
       class="ant-color-picker-trigger"
     >
       <div
@@ -4447,6 +4469,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -4872,6 +4895,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
         class="ant-space-item"
       >
         <div
+          aria-describedby="test-id"
           class="ant-color-picker-trigger"
         >
           <div
@@ -4896,6 +4920,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
@@ -5284,6 +5309,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
         class="ant-space-item"
       >
         <div
+          aria-describedby="test-id"
           class="ant-color-picker-trigger"
         >
           <div
@@ -5308,6 +5334,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
               style="width: 480px;"
             >
@@ -6249,6 +6276,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
 exports[`renders components/color-picker/demo/presets.tsx extend context correctly 1`] = `
 Array [
   <div
+    aria-describedby="test-id"
     class="ant-color-picker-trigger"
   >
     <div
@@ -6273,6 +6301,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -7068,6 +7097,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
     style="padding-bottom: 0px; position: relative; min-width: 0;"
   >
     <div
+      aria-describedby="test-id"
       class="ant-color-picker-trigger ant-popover-open ant-color-picker-trigger-active"
       style="margin: 0px;"
     >
@@ -7093,6 +7123,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -7472,6 +7503,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
         class="ant-space-item"
       >
         <div
+          aria-describedby="test-id"
           class="ant-color-picker-trigger ant-color-picker-sm"
         >
           <div
@@ -7496,6 +7528,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
@@ -7860,6 +7893,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
         class="ant-space-item"
       >
         <div
+          aria-describedby="test-id"
           class="ant-color-picker-trigger"
         >
           <div
@@ -7884,6 +7918,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
@@ -8248,6 +8283,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
         class="ant-space-item"
       >
         <div
+          aria-describedby="test-id"
           class="ant-color-picker-trigger ant-color-picker-lg"
         >
           <div
@@ -8272,6 +8308,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
@@ -8644,6 +8681,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
         class="ant-space-item"
       >
         <div
+          aria-describedby="test-id"
           class="ant-color-picker-trigger ant-color-picker-sm"
         >
           <div
@@ -8673,6 +8711,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
@@ -9037,6 +9076,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
         class="ant-space-item"
       >
         <div
+          aria-describedby="test-id"
           class="ant-color-picker-trigger"
         >
           <div
@@ -9066,6 +9106,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
@@ -9430,6 +9471,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
         class="ant-space-item"
       >
         <div
+          aria-describedby="test-id"
           class="ant-color-picker-trigger ant-color-picker-lg"
         >
           <div
@@ -9459,6 +9501,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
@@ -9834,6 +9877,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
     class="ant-space-item"
   >
     <div
+      aria-describedby="test-id"
       class="ant-color-picker-trigger"
     >
       <div
@@ -9863,6 +9907,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -10234,6 +10279,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
     class="ant-space-item"
   >
     <div
+      aria-describedby="test-id"
       class="ant-color-picker-trigger"
     >
       <div
@@ -10265,6 +10311,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -10629,6 +10676,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
     class="ant-space-item"
   >
     <div
+      aria-describedby="test-id"
       class="ant-color-picker-trigger"
     >
       <div
@@ -10677,6 +10725,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -11045,6 +11094,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
 exports[`renders components/color-picker/demo/trigger.tsx extend context correctly 1`] = `
 Array [
   <button
+    aria-describedby="test-id"
     class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     style="background-color: rgb(22, 119, 255);"
     type="button"
@@ -11066,6 +11116,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -11433,6 +11484,7 @@ exports[`renders components/color-picker/demo/trigger.tsx extend context correct
 exports[`renders components/color-picker/demo/trigger-event.tsx extend context correctly 1`] = `
 Array [
   <div
+    aria-describedby="test-id"
     class="ant-color-picker-trigger"
   >
     <div
@@ -11457,6 +11509,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div

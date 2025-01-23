@@ -13,6 +13,7 @@ import {
   genFilledStyle,
   genOutlinedGroupStyle,
   genOutlinedStyle,
+  genUnderlinedStyle,
 } from './variants';
 
 export type { ComponentToken };
@@ -393,6 +394,7 @@ const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       ...genOutlinedStyle(token),
       ...genFilledStyle(token),
       ...genBorderlessStyle(token),
+      ...genUnderlinedStyle(token),
 
       '&[type="color"]': {
         height: token.controlHeight,
@@ -421,6 +423,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
     // ========================= Input =========================
     [`${componentCls}-clear-icon`]: {
       margin: 0,
+      padding: 0,
       lineHeight: 0,
       color: token.colorTextQuaternary,
       fontSize: token.fontSizeIcon,
@@ -429,7 +432,9 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
       // https://codesandbox.io/s/wizardly-sun-u10br
       cursor: 'pointer',
       transition: `color ${token.motionDurationSlow}`,
-
+      border: 'none',
+      outline: 'none',
+      backgroundColor: 'transparent',
       '&:hover': {
         color: token.colorTextTertiary,
       },
@@ -548,6 +553,12 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         },
       },
     },
+
+    // 覆盖 affix-wrapper borderRadius！
+    [`${componentCls}-underlined`]: {
+      borderRadius: 0,
+    },
+
     [affixClsDisabled]: {
       // password disabled
       [`${iconCls}${componentCls}-password-icon`]: {
@@ -639,6 +650,14 @@ const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
             borderEndEndRadius: 0,
           },
         },
+        // Fix the issue of input use `addonAfter` param in space compact mode
+        // https://github.com/ant-design/ant-design/issues/52483
+        [`&:not(${componentCls}-compact-first-item)${componentCls}-compact-item`]: {
+          [`${componentCls}-affix-wrapper`]: {
+            borderStartStartRadius: 0,
+            borderEndStartRadius: 0,
+          },
+        },
       },
     },
   };
@@ -677,8 +696,6 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
           [`${searchPrefixCls}-button`]: {
             // Fix https://github.com/ant-design/ant-design/issues/47150
             marginInlineEnd: -1,
-            paddingTop: 0,
-            paddingBottom: 0,
             borderStartStartRadius: 0,
             borderEndStartRadius: 0,
             boxShadow: 'none',

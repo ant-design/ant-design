@@ -92,6 +92,7 @@ const getColumnsStyle: GenerateStyle<CascaderToken> = (token: CascaderToken): CS
 
             [`&-active:not(${cascaderMenuItemCls}-disabled)`]: {
               '&, &:hover': {
+                color: token.optionSelectedColor,
                 fontWeight: token.optionSelectedFontWeight,
                 backgroundColor: token.optionSelectedBg,
               },
