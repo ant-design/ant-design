@@ -15,7 +15,7 @@ const Steps: React.FC<ProgressStepsProps> = (props) => {
   const {
     size,
     steps,
-    rounding: customRounding = Math.round, ,
+    rounding: customRounding = Math.round,
     percent = 0,
     strokeWidth = 8,
     strokeColor,
