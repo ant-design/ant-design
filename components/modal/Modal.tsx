@@ -1,7 +1,7 @@
 import * as React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import Dialog from '@rc-component/dialog';
 import classNames from 'classnames';
-import Dialog from 'rc-dialog';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
@@ -73,6 +73,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
+    rootStyle,
     open,
     wrapClassName,
     centered,
@@ -116,8 +117,8 @@ const Modal: React.FC<ModalProps> = (props) => {
   );
 
   // ============================ Refs ============================
-  // Select `ant-modal-content` by `panelRef`
-  const panelRef = usePanelRef(`.${prefixCls}-content`);
+  // Select `ant-modal-section` by `panelRef`
+  const panelRef = usePanelRef(`.${prefixCls}-section`);
 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Modal', restProps.zIndex);
@@ -156,7 +157,18 @@ const Modal: React.FC<ModalProps> = (props) => {
           zIndex={zIndex}
           getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
           prefixCls={prefixCls}
-          rootClassName={classNames(hashId, rootClassName, cssVarCls, rootCls)}
+          rootClassName={classNames(
+            hashId,
+            rootClassName,
+            cssVarCls,
+            rootCls,
+            modalContext?.classNames?.root,
+            modalClassNames?.root,
+          )}
+          rootStyle={{
+            ...modalContext?.styles?.root,
+            ...modalStyles?.root,
+          }}
           footer={dialogFooter}
           visible={open}
           mousePosition={restProps.mousePosition ?? mousePosition}
@@ -171,13 +183,33 @@ const Modal: React.FC<ModalProps> = (props) => {
           transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
           maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
           className={classNames(hashId, className, modalContext?.className)}
-          style={{ ...modalContext?.style, ...style, ...responsiveWidthVars }}
-          classNames={{
-            ...modalContext?.classNames,
-            ...modalClassNames,
-            wrapper: classNames(wrapClassNameExtended, modalClassNames?.wrapper),
+          style={{
+            ...modalContext?.style,
+            ...style,
+            ...responsiveWidthVars,
           }}
-          styles={{ ...modalContext?.styles, ...modalStyles }}
+          classNames={{
+            mask: classNames(modalContext?.classNames?.mask, modalClassNames?.mask),
+            section: classNames(modalContext?.classNames?.section, modalClassNames?.section),
+            wrapper: classNames(
+              wrapClassNameExtended,
+              modalContext?.classNames?.wrapper,
+              modalClassNames?.wrapper,
+            ),
+            header: classNames(modalContext?.classNames?.header, modalClassNames?.header),
+            title: classNames(modalContext?.classNames?.title, modalClassNames?.title),
+            body: classNames(modalContext?.classNames?.body, modalClassNames?.body),
+            footer: classNames(modalContext?.classNames?.footer, modalClassNames?.footer),
+          }}
+          styles={{
+            mask: { ...modalContext?.styles?.mask, ...modalStyles?.mask },
+            section: { ...modalContext?.styles?.section, ...modalStyles?.section },
+            wrapper: { ...modalContext?.styles?.wrapper, ...modalStyles?.wrapper },
+            header: { ...modalContext?.styles?.header, ...modalStyles?.header },
+            title: { ...modalContext?.styles?.title, ...modalStyles?.title },
+            body: { ...modalContext?.styles?.body, ...modalStyles?.body },
+            footer: { ...modalContext?.styles?.footer, ...modalStyles?.footer },
+          }}
           panelRef={panelRef}
         >
           {loading ? (
