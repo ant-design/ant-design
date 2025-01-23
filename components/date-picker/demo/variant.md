@@ -1,7 +1,7 @@
 ## zh-CN
 
-可选 `outlined` `filled` `borderless` 三种形态。
+DatePicker 形态变体，可选 `outlined` `filled` `borderless` `underlined` 四种形态。
 
 ## en-US
 
-There are three variants: `outlined` `filled` and `borderless`.
+Variants of DatePicker, there are four variants: `outlined` `filled` `borderless` and `underlined`.

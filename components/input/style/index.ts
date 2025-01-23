@@ -13,6 +13,7 @@ import {
   genFilledStyle,
   genOutlinedGroupStyle,
   genOutlinedStyle,
+  genUnderlinedStyle,
 } from './variants';
 
 export type { ComponentToken };
@@ -393,6 +394,7 @@ const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       ...genOutlinedStyle(token),
       ...genFilledStyle(token),
       ...genBorderlessStyle(token),
+      ...genUnderlinedStyle(token),
 
       '&[type="color"]': {
         height: token.controlHeight,
@@ -551,6 +553,12 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         },
       },
     },
+
+    // 覆盖 affix-wrapper borderRadius！
+    [`${componentCls}-underlined`]: {
+      borderRadius: 0,
+    },
+
     [affixClsDisabled]: {
       // password disabled
       [`${iconCls}${componentCls}-password-icon`]: {
