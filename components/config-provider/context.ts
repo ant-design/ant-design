@@ -6,6 +6,7 @@ import type { AlertProps } from '../alert';
 import type { BadgeProps } from '../badge';
 import type { ButtonProps } from '../button';
 import type { CardProps } from '../card';
+import type { CardMetaProps } from '../card/Meta';
 import type { CascaderProps } from '../cascader';
 import type { CollapseProps } from '../collapse';
 import type { DatePickerProps, RangePickerProps } from '../date-picker';
@@ -173,6 +174,8 @@ export type TagConfig = ComponentStyleConfig & Pick<TagProps, 'closeIcon' | 'clo
 
 export type CardConfig = ComponentStyleConfig & Pick<CardProps, 'classNames' | 'styles'>;
 
+export type CardMetaConfig = ComponentStyleConfig & Pick<CardMetaProps, 'classNames' | 'styles'>;
+
 export type DrawerConfig = ComponentStyleConfig &
   Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon' | 'closable'>;
 
@@ -191,13 +194,19 @@ export type SelectConfig = ComponentStyleConfig & Pick<SelectProps, 'showSearch'
 
 export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'classNames' | 'styles'>;
 
-export type TooltipConfig = Pick<TooltipProps, 'className' | 'style' | 'styles' | 'classNames'>;
+export type TooltipConfig = Pick<
+  TooltipProps,
+  'className' | 'style' | 'styles' | 'classNames' | 'arrow'
+>;
 
-export type PopoverConfig = Pick<PopoverProps, 'className' | 'style' | 'styles' | 'classNames'>;
+export type PopoverConfig = Pick<
+  PopoverProps,
+  'className' | 'style' | 'styles' | 'classNames' | 'arrow'
+>;
 
 export type PopconfirmConfig = Pick<
   PopconfirmProps,
-  'className' | 'style' | 'styles' | 'classNames'
+  'className' | 'style' | 'styles' | 'classNames' | 'arrow'
 >;
 
 export type SliderConfig = ComponentStyleConfig & Pick<SliderProps, 'styles' | 'classNames'>;
@@ -319,6 +328,7 @@ export interface ConfigConsumerProps {
   tag?: TagConfig;
   table?: TableConfig;
   card?: CardConfig;
+  cardMeta?: CardMetaConfig;
   tabs?: TabsConfig;
   timeline?: ComponentStyleConfig;
   timePicker?: TimePickerConfig;

@@ -1,11 +1,16 @@
 import * as React from 'react';
+import FieldForm, { List, useWatch } from '@rc-component/form';
+import type { FormProps as RcFormProps } from '@rc-component/form/lib/Form';
+import type {
+  FormRef,
+  InternalNamePath,
+  ValidateErrorEntity,
+} from '@rc-component/form/lib/interface';
 import classNames from 'classnames';
-import FieldForm, { List, useWatch } from 'rc-field-form';
-import type { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
-import type { FormRef, InternalNamePath, ValidateErrorEntity } from 'rc-field-form/lib/interface';
 import type { Options } from 'scroll-into-view-if-needed';
 
 import { ConfigContext } from '../config-provider';
+import type { Variant } from '../config-provider';
 import DisabledContext, { DisabledContextProvider } from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
@@ -18,7 +23,6 @@ import type { FeedbackIcons } from './FormItem';
 import useForm from './hooks/useForm';
 import type { FormInstance } from './hooks/useForm';
 import useFormWarning from './hooks/useFormWarning';
-import type { Variant } from '../config-provider';
 import type { FormLabelAlign } from './interface';
 import useStyle from './style';
 import ValidateMessagesContext from './validateMessagesContext';

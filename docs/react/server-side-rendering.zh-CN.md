@@ -243,16 +243,15 @@ import path from 'path';
 import { extractStyle } from '@ant-design/cssinjs';
 import type Entity from '@ant-design/cssinjs/lib/Cache';
 
-export type DoExtraStyleOptions = {
+export interface DoExtraStyleOptions {
   cache: Entity;
   dir?: string;
   baseFileName?: string;
-};
-export function doExtraStyle({
-  cache,
-  dir = 'antd-output',
-  baseFileName = 'antd.min',
-}: DoExtraStyleOptions) {
+}
+
+export const doExtraStyle = (opts: DoExtraStyleOptions) => {
+  const { cache, dir = 'antd-output', baseFileName = 'antd.min' } = opts;
+
   const baseDir = path.resolve(__dirname, '../../static/css');
 
   const outputCssPath = path.join(baseDir, dir);
@@ -262,7 +261,10 @@ export function doExtraStyle({
   }
 
   const css = extractStyle(cache, true);
-  if (!css) return '';
+
+  if (!css) {
+    return '';
+  }
 
   const md5 = createHash('md5');
   const hash = md5.update(css).digest('hex');
@@ -271,12 +273,14 @@ export function doExtraStyle({
 
   const res = `_next/static/css/${dir}/${fileName}`;
 
-  if (fs.existsSync(fullpath)) return res;
+  if (fs.existsSync(fullpath)) {
+    return res;
+  }
 
   fs.writeFileSync(fullpath, css);
 
   return res;
-}
+};
 ```
 
 在 `_document.tsx` 中使用上述工具进行按需导出：

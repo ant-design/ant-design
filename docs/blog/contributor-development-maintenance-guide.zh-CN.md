@@ -76,7 +76,7 @@ npm i
 需要注意的是，link 可能会导致运行 test 命令时产生异常，因此，我们在本地验证完毕后，需要本地运行以下命令删除 link 过来的包：
 
 ```bash
-npm unlink "rc-field-form" --no-save
+npm unlink "@rc-component/form" --no-save
 npm i
 ```
 
