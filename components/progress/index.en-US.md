@@ -59,7 +59,7 @@ Properties that shared by all types.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | steps | The total step count | number | - | - |
-| rounding | The function to round the value | (step: number) => number | 5.24.0 |
+| rounding | The function to round the value | (step: number) => number | Math.round | 5.24.0 |
 | strokeColor | The color of progress bar, render `linear-gradient` when passing an object, could accept `string[]` when has `steps`. | string \| string[] \| { from: string; to: string; direction: string } | - | 4.21.0: `string[]` |
 | percentPosition | Progress value position, passed in object, `align` indicates the horizontal position of the value, `type` indicates whether the value is inside or outside the progress bar | { align: string; type: string } | { align: \"end\", type: \"outer\" } | 5.18.0 |
 
