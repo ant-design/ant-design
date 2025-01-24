@@ -37,7 +37,7 @@ const Divider: React.FC<DividerProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     type = 'horizontal',
-    orientation,
+    orientation = 'center',
     orientationMargin,
     className,
     rootClassName,
@@ -61,7 +61,7 @@ const Divider: React.FC<DividerProps> = (props) => {
     if (orientation === 'right') {
       return direction === 'rtl' ? 'start' : 'end';
     }
-    return orientation ?? 'center';
+    return orientation;
   }, [direction, orientation]);
 
   const hasMarginStart = mergedOrientation === 'start' && orientationMargin != null;
