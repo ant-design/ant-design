@@ -365,6 +365,8 @@ type ComponentReturnType<T extends keyof ConfigComponentProps> = Omit<
 > & {
   classNames: GetClassNamesOrEmptyObject<NonNullable<ConfigComponentProps[T]>>;
   styles: GetStylesOrEmptyObject<NonNullable<ConfigComponentProps[T]>>;
+  getPrefixCls: ConfigConsumerProps['getPrefixCls'];
+  direction: ConfigConsumerProps['direction'];
 };
 
 /**
@@ -377,10 +379,14 @@ type ComponentReturnType<T extends keyof ConfigComponentProps> = Omit<
  */
 export function useComponentConfig<T extends keyof ConfigComponentProps>(propName: T) {
   const context = React.useContext(ConfigContext);
+  const { getPrefixCls, direction } = context;
+
   const propValue = context[propName];
   return {
     classNames: EMPTY_OBJECT,
     styles: EMPTY_OBJECT,
     ...propValue,
+    getPrefixCls,
+    direction,
   } as ComponentReturnType<T>;
 }

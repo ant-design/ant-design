@@ -1,19 +1,20 @@
 import * as React from 'react';
 import { forwardRef } from 'react';
 import classNames from 'classnames';
-import type { TextAreaRef as RcTextAreaRef, TextAreaProps as RcTextAreaProps } from 'rc-textarea';
+import type { TextAreaProps as RcTextAreaProps, TextAreaRef as RcTextAreaRef } from 'rc-textarea';
 import RcTextArea from 'rc-textarea';
+
 import getAllowClear from '../_util/getAllowClear';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
+import type { Variant } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
-import type { Variant } from '../config-provider';
 import useVariant from '../form/hooks/useVariants';
 import type { InputFocusOptions } from './Input';
 import { triggerFocus } from './Input';
@@ -60,7 +61,16 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     deprecated(!('bordered' in props), 'bordered', 'variant');
   }
 
-  const { getPrefixCls, direction, textArea } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    allowClear: contextAllowClear,
+    autoComplete: contextAutoComplete,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('textArea');
 
   // ===================== Size =====================
   const mergedSize = useSize(customizeSize);
@@ -96,20 +106,20 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
 
   const [variant, enableVariantCls] = useVariant('textArea', customVariant, bordered);
 
-  const mergedAllowClear = getAllowClear(allowClear ?? textArea?.allowClear);
+  const mergedAllowClear = getAllowClear(allowClear ?? contextAllowClear);
 
   return wrapCSSVar(
     <RcTextArea
-      autoComplete={textArea?.autoComplete}
+      autoComplete={contextAutoComplete}
       {...rest}
-      style={{ ...textArea?.style, ...style }}
-      styles={{ ...textArea?.styles, ...styles }}
+      style={{ ...contextStyle, ...style }}
+      styles={{ ...contextStyles, ...styles }}
       disabled={mergedDisabled}
       allowClear={mergedAllowClear}
-      className={classNames(cssVarCls, rootCls, className, rootClassName, textArea?.className)}
+      className={classNames(cssVarCls, rootCls, className, rootClassName, contextClassName)}
       classNames={{
         ...classes,
-        ...textArea?.classNames,
+        ...contextClassNames,
         textarea: classNames(
           {
             [`${prefixCls}-sm`]: mergedSize === 'small',
@@ -117,7 +127,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
           },
           hashId,
           classes?.textarea,
-          textArea?.classNames?.textarea,
+          contextClassNames.textarea,
         ),
         variant: classNames(
           {
