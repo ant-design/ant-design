@@ -1,13 +1,13 @@
 import * as React from 'react';
 import type { JSX } from 'react';
 import EditOutlined from '@ant-design/icons/EditOutlined';
+import ResizeObserver from '@rc-component/resize-observer';
 import toArray from '@rc-component/util/lib/Children/toArray';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
 import omit from '@rc-component/util/lib/omit';
 import { composeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
-import ResizeObserver from 'rc-resize-observer';
 import type { AutoSizeType } from 'rc-textarea';
 
 import { isStyleSupport } from '../../_util/styleChecker';
