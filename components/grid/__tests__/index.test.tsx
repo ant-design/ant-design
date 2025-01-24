@@ -57,8 +57,7 @@ describe('Grid', () => {
 
   it('when typeof gutter is object', () => {
     const { container } = render(<Row gutter={{ xs: 8, sm: 16, md: 24 }} />);
-    expect(container.querySelector('div')!.style.marginLeft).toEqual('-4px');
-    expect(container.querySelector('div')!.style.marginRight).toEqual('-4px');
+    expect(container.querySelector('div')?.style.marginInline).toEqual('-4px');
   });
 
   it('when typeof gutter is object array', () => {
@@ -70,8 +69,7 @@ describe('Grid', () => {
         ]}
       />,
     );
-    expect(container.querySelector('div')!.style.marginLeft).toEqual('-4px');
-    expect(container.querySelector('div')!.style.marginRight).toEqual('-4px');
+    expect(container.querySelector('div')?.style.marginInline).toEqual('-4px');
   });
 
   it('when typeof gutter is object array in large screen', () => {
@@ -96,8 +94,7 @@ describe('Grid', () => {
     );
     expect(asFragment().firstChild).toMatchSnapshot();
 
-    expect(container.querySelector('div')?.style.marginLeft).toBe('-20px');
-    expect(container.querySelector('div')?.style.marginRight).toBe('-20px');
+    expect(container.querySelector('div')?.style.marginInline).toBe('-20px');
     expect(container.querySelector('div')?.style.marginTop).toBe('');
     expect(container.querySelector('div')?.style.marginBottom).toBe('');
   });
@@ -126,14 +123,12 @@ describe('Grid', () => {
 
   it('should work correct when gutter is object', () => {
     const { container } = render(<Row gutter={{ xs: 20 }} />);
-    expect(container.querySelector('div')!.style.marginLeft).toEqual('-10px');
-    expect(container.querySelector('div')!.style.marginRight).toEqual('-10px');
+    expect(container.querySelector('div')?.style.marginInline).toBe('-10px');
   });
 
   it('should work current when gutter is array', () => {
     const { container } = render(<Row gutter={[16, 20]} />);
-    expect(container.querySelector('div')?.style.marginLeft).toBe('-8px');
-    expect(container.querySelector('div')?.style.marginRight).toBe('-8px');
+    expect(container.querySelector('div')?.style.marginInline).toBe('-8px');
     expect(container.querySelector('div')?.style.marginTop).toBe('');
     expect(container.querySelector('div')?.style.marginBottom).toBe('');
   });
