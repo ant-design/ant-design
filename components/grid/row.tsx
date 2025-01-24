@@ -168,6 +168,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
 
   // Add gutter related style
   const rowStyle: React.CSSProperties = {};
+
   const horizontalGutter = gutters[0] != null && gutters[0] > 0 ? gutters[0] / -2 : undefined;
 
   if (horizontalGutter) {
