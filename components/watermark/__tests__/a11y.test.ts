@@ -1,6 +1,6 @@
 import accessibilityDemoTest from '../../../tests/shared/accessibilityTest';
 
-accessibilityDemoTest('segmented', {
+accessibilityDemoTest('watermark', {
   // we can add aria attributes to fix it
-  skip: ['custom.tsx', 'size-consistent.tsx'],
+  skip: ['custom.tsx'],
 });
