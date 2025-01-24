@@ -178,7 +178,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         fontSize: token.fontSize,
       },
 
-      [`&-horizontal${componentCls}-with-text-left${componentCls}-no-default-orientation-margin-left`]:
+      [`&-horizontal${componentCls}-with-text-start${componentCls}-no-default-orientation-margin-start`]:
         {
           '&::before': {
             width: 0,
@@ -193,7 +193,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
           },
         },
 
-      [`&-horizontal${componentCls}-with-text-right${componentCls}-no-default-orientation-margin-right`]:
+      [`&-horizontal${componentCls}-with-text-end${componentCls}-no-default-orientation-margin-end`]:
         {
           '&::before': {
             width: '100%',
