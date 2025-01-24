@@ -17,7 +17,7 @@ import type { Variant } from '../config-provider';
 import useVariant from '../form/hooks/useVariants';
 import type { InputFocusOptions } from './Input';
 import { triggerFocus } from './Input';
-import useStyle from './style';
+import useStyle from './style/textarea';
 
 export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix'> {
   /** @deprecated Use `variant` instead */
