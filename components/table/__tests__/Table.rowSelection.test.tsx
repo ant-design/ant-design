@@ -235,6 +235,9 @@ describe('Table.rowSelection', () => {
 
   it('fires selectMulti event', () => {
     const order: string[] = [];
+    const handleSelectMulti = jest.fn().mockImplementation(() => {
+      order.push('onSelectMultiple');
+    });
     const handleSelect = jest.fn().mockImplementation(() => {
       order.push('onSelect');
     });
@@ -244,6 +247,7 @@ describe('Table.rowSelection', () => {
     const rowSelection = {
       onChange: handleChange,
       onSelect: handleSelect,
+      onSelectMultiple: handleSelectMulti,
     };
     const { container } = render(createTable({ rowSelection }));
     fireEvent.click(container.querySelectorAll('tbody input[type="checkbox"]')[0], {
@@ -258,6 +262,12 @@ describe('Table.rowSelection', () => {
     fireEvent.click(container.querySelectorAll('tbody input[type="checkbox"]')[2], {
       shiftKey: true,
     });
+
+    expect(handleSelectMulti).toHaveBeenCalledWith(
+      true,
+      [data[0], data[1], data[2]],
+      [data[1], data[2]],
+    );
     expect(handleChange).toHaveBeenLastCalledWith(
       [0, 1, 2],
       [
@@ -271,9 +281,17 @@ describe('Table.rowSelection', () => {
     fireEvent.click(container.querySelectorAll('tbody input[type="checkbox"]')[0], {
       shiftKey: true,
     });
+    expect(handleSelectMulti).toHaveBeenCalledWith(false, [], [data[0], data[1], data[2]]);
     expect(handleChange).toHaveBeenLastCalledWith([], [], { type: 'multiple' });
 
-    expect(order).toEqual(['onSelect', 'onChange', 'onChange', 'onChange']);
+    expect(order).toEqual([
+      'onSelect',
+      'onChange',
+      'onSelectMultiple',
+      'onChange',
+      'onSelectMultiple',
+      'onChange',
+    ]);
   });
 
   it('reset last select key after deselect', async () => {
@@ -378,21 +396,27 @@ describe('Table.rowSelection', () => {
 
   it('fires selectAll event', () => {
     const order: string[] = [];
+    const handleSelectAll = jest.fn().mockImplementation(() => {
+      order.push('onSelectAll');
+    });
     const handleChange = jest.fn().mockImplementation(() => {
       order.push('onChange');
     });
     const rowSelection = {
       onChange: handleChange,
+      onSelectAll: handleSelectAll,
     };
     const { container } = render(createTable({ rowSelection }));
 
     const checkAll = container.querySelector('input[type="checkbox"]');
 
     fireEvent.click(checkAll!);
+    expect(handleSelectAll).toHaveBeenCalledWith(true, data, data);
 
-    expect(order).toEqual(['onChange']);
+    expect(order).toEqual(['onSelectAll', 'onChange']);
 
     fireEvent.click(checkAll!);
+    expect(handleSelectAll).toHaveBeenCalledWith(false, [], data);
   });
 
   it('works with selectAll option inside selection menu', () => {
@@ -433,11 +457,15 @@ describe('Table.rowSelection', () => {
     jest.useFakeTimers();
 
     const order: string[] = [];
+    const handleSelectInvert = jest.fn().mockImplementation(() => {
+      order.push('onSelectInvert');
+    });
     const handleChange = jest.fn().mockImplementation(() => {
       order.push('onChange');
     });
     const rowSelection = {
       onChange: handleChange,
+      onSelectInvert: handleSelectInvert,
       selections: true,
     };
     const { container } = render(createTable({ rowSelection }));
@@ -452,7 +480,8 @@ describe('Table.rowSelection', () => {
 
     fireEvent.click(container.querySelectorAll('li.ant-dropdown-menu-item')[1]);
 
-    expect(order).toEqual(['onChange', 'onChange']);
+    expect(handleSelectInvert).toHaveBeenCalledWith([1, 2, 3]);
+    expect(order).toEqual(['onChange', 'onSelectInvert', 'onChange']);
 
     jest.useRealTimers();
   });
@@ -463,8 +492,12 @@ describe('Table.rowSelection', () => {
     const handleChange = jest.fn().mockImplementation(() => {
       order.push('onChange');
     });
+    const handleSelectNone = jest.fn().mockImplementation(() => {
+      order.push('onSelectNone');
+    });
     const rowSelection = {
       onChange: handleChange,
+      onSelectNone: handleSelectNone,
       selections: true,
     };
     const { container } = render(createTable({ rowSelection }));
@@ -478,7 +511,8 @@ describe('Table.rowSelection', () => {
     const dropdownMenuItems = container.querySelectorAll('.ant-dropdown-menu-item');
     fireEvent.click(dropdownMenuItems[dropdownMenuItems.length - 1]);
 
-    expect(order).toEqual(['onChange', 'onChange']);
+    expect(handleSelectNone).toHaveBeenCalled();
+    expect(order).toEqual(['onChange', 'onSelectNone', 'onChange']);
   });
 
   it('fires selection event', () => {

@@ -83,6 +83,10 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     getCheckboxProps,
     onChange: onSelectionChange,
     onSelect,
+    onSelectAll,
+    onSelectInvert,
+    onSelectNone,
+    onSelectMultiple,
     columnWidth: selectionColWidth,
     type: selectionType,
     selections,
@@ -319,6 +323,10 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
               });
 
               const keys = Array.from(keySet);
+              if (onSelectInvert) {
+                warning.deprecated(false, 'onSelectInvert', 'onChange');
+                onSelectInvert(keys);
+              }
 
               setSelectedKeys(keys, 'invert');
             },
@@ -329,6 +337,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
             key: 'none',
             text: tableLocale.selectNone,
             onSelect() {
+              onSelectNone?.();
               setSelectedKeys(
                 Array.from(derivedSelectedKeySet).filter((key) => {
                   const checkProps = checkboxPropsMap.get(key);
@@ -393,6 +402,12 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         }
 
         const keys = Array.from(keySet);
+
+        onSelectAll?.(
+          !checkedCurrentAll,
+          keys.map((k) => getRecordByKey(k)),
+          changeKeys.map((k) => getRecordByKey(k)),
+        );
 
         setSelectedKeys(keys, 'all');
         updatePrevSelectedIndex(null);
@@ -538,8 +553,14 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
                   const isMultiple = derivedSelectedKeys.some((item) => recordKeys.includes(item));
 
                   if (shiftKey && checkStrictly && isMultiple) {
-                    multipleSelect(currentSelectedIndex, recordKeys, keySet);
+                    const changedKeys = multipleSelect(currentSelectedIndex, recordKeys, keySet);
                     const keys = Array.from(keySet);
+
+                    onSelectMultiple?.(
+                      !checked,
+                      keys.map((recordKey) => getRecordByKey(recordKey)),
+                      changedKeys.map((recordKey) => getRecordByKey(recordKey)),
+                    );
 
                     setSelectedKeys(keys, 'multiple');
                   } else {
@@ -695,6 +716,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
       mergedSelections,
       expandType,
       checkboxPropsMap,
+      onSelectMultiple,
       triggerSingleSelection,
       isCheckboxDisabled,
     ],
