@@ -18329,7 +18329,7 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
           tabindex="0"
         >
           <div
-            class="config-modal-content"
+            class="config-modal-section"
           >
             <button
               aria-label="Close"
@@ -18421,7 +18421,7 @@ exports[`ConfigProvider components Modal configProvider componentDisabled 1`] = 
           tabindex="0"
         >
           <div
-            class="config-modal-content"
+            class="config-modal-section"
           >
             <button
               aria-label="Close"
@@ -18513,7 +18513,7 @@ exports[`ConfigProvider components Modal configProvider componentSize large 1`] 
           tabindex="0"
         >
           <div
-            class="config-modal-content"
+            class="config-modal-section"
           >
             <button
               aria-label="Close"
@@ -18605,7 +18605,7 @@ exports[`ConfigProvider components Modal configProvider componentSize middle 1`]
           tabindex="0"
         >
           <div
-            class="config-modal-content"
+            class="config-modal-section"
           >
             <button
               aria-label="Close"
@@ -18697,7 +18697,7 @@ exports[`ConfigProvider components Modal configProvider componentSize small 1`] 
           tabindex="0"
         >
           <div
-            class="config-modal-content"
+            class="config-modal-section"
           >
             <button
               aria-label="Close"
@@ -18789,7 +18789,7 @@ exports[`ConfigProvider components Modal normal 1`] = `
           tabindex="0"
         >
           <div
-            class="ant-modal-content"
+            class="ant-modal-section"
           >
             <button
               aria-label="Close"
@@ -18881,7 +18881,7 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
           tabindex="0"
         >
           <div
-            class="prefix-Modal-content"
+            class="prefix-Modal-section"
           >
             <button
               aria-label="Close"

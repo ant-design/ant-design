@@ -846,7 +846,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
       await waitFakeTimer();
 
-      expect(document.querySelector(`.ant-modal-content`)).toMatchSnapshot();
+      expect(document.querySelector(`.ant-modal-section`)).toMatchSnapshot();
     });
   });
 

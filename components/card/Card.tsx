@@ -22,6 +22,8 @@ export interface CardTabListType extends Omit<Tab, 'label'> {
   label?: React.ReactNode;
 }
 
+type SemanticName = 'root' | 'header' | 'body' | 'extra' | 'title' | 'actions' | 'cover';
+
 export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
   prefixCls?: string;
   title?: React.ReactNode;
@@ -48,24 +50,8 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   activeTabKey?: string;
   defaultActiveTabKey?: string;
   tabProps?: TabsProps;
-  classNames?: {
-    root?: string;
-    header?: string;
-    body?: string;
-    extra?: string;
-    title?: string;
-    actions?: string;
-    cover?: string;
-  };
-  styles?: {
-    root?: React.CSSProperties;
-    header?: React.CSSProperties;
-    body?: React.CSSProperties;
-    extra?: React.CSSProperties;
-    title?: React.CSSProperties;
-    actions?: React.CSSProperties;
-    cover?: React.CSSProperties;
-  };
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 type CardClassNamesModule = keyof Exclude<CardProps['classNames'], undefined>;

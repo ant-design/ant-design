@@ -7,18 +7,22 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 
 const locales = {
   cn: {
+    root: '根元素',
     mask: '遮罩层元素',
     wrapper: '包裹层元素，一般用于动画容器',
-    content: 'Modal 容器元素',
+    section: 'Modal 容器元素',
     header: '头部元素',
+    title: '标题元素',
     body: '内容元素',
     footer: '底部元素',
   },
   en: {
+    root: 'Root element',
     mask: 'Mask element',
     wrapper: 'Wrapper element. Used for motion container',
-    content: 'Modal container element',
+    section: 'Modal container element',
     header: 'Header element',
+    title: 'Title element',
     body: 'Body element',
     footer: 'Footer element',
   },
@@ -56,10 +60,12 @@ const App: React.FC = () => {
   return (
     <SemanticPreview
       semantics={[
+        { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'mask', desc: locale.mask, version: '5.13.0' },
-        { name: 'content', desc: locale.content, version: '5.13.0' },
+        { name: 'section', desc: locale.section, version: '6.0.0' },
         { name: 'wrapper', desc: locale.wrapper, version: '5.13.0' },
         { name: 'header', desc: locale.header, version: '5.13.0' },
+        { name: 'title', desc: locale.title, version: '6.0.0' },
         { name: 'body', desc: locale.body, version: '5.13.0' },
         { name: 'footer', desc: locale.footer, version: '5.13.0' },
       ]}

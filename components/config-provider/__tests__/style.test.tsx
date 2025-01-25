@@ -819,7 +819,7 @@ describe('ConfigProvider support style and className props', () => {
         <Modal open>test</Modal>
       </ConfigProvider>,
     );
-    const selectors = '.ant-modal-content .ant-modal-close .cp-test-closeIcon';
+    const selectors = '.ant-modal-section .ant-modal-close .cp-test-closeIcon';
     const element = baseElement.querySelector<HTMLDivElement>('.ant-modal');
     expect(element).toHaveClass('cp-modal');
     expect(element).toHaveStyle({ background: 'red' });
