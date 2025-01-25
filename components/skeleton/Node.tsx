@@ -40,8 +40,8 @@ const SkeletonNode: React.FC<SkeletonNodeProps> = (props) => {
   return wrapCSSVar(
     <div className={cls} style={styles?.root}>
       <div
-        className={classNames(skeletonNodeClassNames?.node, `${prefixCls}-node`)}
-        style={{ ...styles?.node, ...style }}
+        className={classNames(skeletonNodeClassNames?.content, `${prefixCls}-node`)}
+        style={{ ...styles?.content, ...style }}
       >
         {children}
       </div>

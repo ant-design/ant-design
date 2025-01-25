@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-export type ElementSemanticName = 'avatar' | 'button' | 'root' | 'node' | 'input';
+export type ElementSemanticName = 'root' | 'content';
 
 export interface SkeletonElementProps {
   prefixCls?: string;

@@ -46,8 +46,8 @@ const SkeletonInput: React.FC<SkeletonInputProps> = (props) => {
     <div className={cls} style={styles?.root}>
       <Element
         prefixCls={`${prefixCls}-input`}
-        className={skeletonInputClassNames?.input}
-        style={{ ...styles?.input, ...style }}
+        className={skeletonInputClassNames?.content}
+        style={{ ...styles?.content, ...style }}
         size={size}
         {...rest}
       />

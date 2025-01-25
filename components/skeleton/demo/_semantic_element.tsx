@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { Divider, Flex, Segmented, Skeleton } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
@@ -14,25 +14,7 @@ const COMPONENT_MAP: Record<string, React.ElementType> = {
   button: Skeleton.Button,
   input: Skeleton.Input,
   node: Skeleton.Node,
-};
-
-const LOCALE_MAP: Record<string, { cn: string; en: string }> = {
-  avatar: {
-    cn: '头像',
-    en: 'Avatar',
-  },
-  button: {
-    cn: '按钮',
-    en: 'Button',
-  },
-  input: {
-    cn: '输入框',
-    en: 'Input',
-  },
-  node: {
-    cn: '节点',
-    en: 'Node',
-  },
+  image: Skeleton.Image,
 };
 
 const OPTIONS = [
@@ -47,6 +29,10 @@ const OPTIONS = [
   {
     value: 'input',
     label: 'Input',
+  },
+  {
+    value: 'image',
+    label: 'Image',
   },
   {
     value: 'node',
@@ -72,28 +58,26 @@ const PreviewContent: React.FC<PreviewContentProps> = ({ element, setElement, ..
   );
 };
 
+const locales = {
+  cn: {
+    root: '根元素',
+    content: '内容元素',
+  },
+  en: {
+    root: 'Root element',
+    content: 'Content element',
+  },
+};
+
 const App: React.FC = () => {
   const [element, setElement] = useState('avatar');
-  const locales = useMemo(
-    () => ({
-      cn: {
-        root: '根元素',
-        node: `${LOCALE_MAP[element].cn}元素`,
-      },
-      en: {
-        root: 'Root element',
-        node: `${LOCALE_MAP[element].en} element`,
-      },
-    }),
-    [element],
-  );
   const [locale] = useLocale(locales);
 
   return (
     <SemanticPreview
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: element, desc: locale.node, version: '6.0.0' },
+        { name: 'content', desc: locale.content, version: '6.0.0' },
       ]}
     >
       <PreviewContent element={element} setElement={setElement} />

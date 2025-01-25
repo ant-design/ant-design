@@ -44,8 +44,8 @@ const SkeletonAvatar: React.FC<AvatarProps> = (props) => {
     <div className={cls} style={styles?.root}>
       <Element
         prefixCls={`${prefixCls}-avatar`}
-        className={skeletonAvatarClassNames?.avatar}
-        style={{ ...styles?.avatar, ...style }}
+        className={skeletonAvatarClassNames?.content}
+        style={{ ...styles?.content, ...style }}
         shape={shape}
         size={size}
         {...rest}

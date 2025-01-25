@@ -46,8 +46,8 @@ const SkeletonButton: React.FC<SkeletonButtonProps> = (props) => {
     <div className={cls} style={styles?.root}>
       <Element
         prefixCls={`${prefixCls}-button`}
-        className={skeletonButtonClassNames?.button}
-        style={{ ...styles?.button, ...style }}
+        className={skeletonButtonClassNames?.content}
+        style={{ ...styles?.content, ...style }}
         size={size}
         {...rest}
       />
