@@ -26,7 +26,7 @@
     "react-component",
     "ui"
   ],
-  "sideEffects": false,
+  "sideEffects": ["*.css"],
   "main": "lib/index.js",
   "module": "es/index.js",
   "unpkg": "dist/antd.min.js",
