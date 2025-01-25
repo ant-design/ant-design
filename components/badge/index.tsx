@@ -15,6 +15,7 @@ import useStyle from './style';
 
 export type { ScrollNumberProps } from './ScrollNumber';
 
+type SemanticName = 'root' | 'indicator';
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   /** Number to show in badge */
   count?: React.ReactNode;
@@ -35,14 +36,8 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   offset?: [number | string, number | string];
   title?: string;
   children?: React.ReactNode;
-  classNames?: {
-    root?: string;
-    indicator?: string;
-  };
-  styles?: {
-    root?: React.CSSProperties;
-    indicator?: React.CSSProperties;
-  };
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
