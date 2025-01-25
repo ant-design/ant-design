@@ -357,7 +357,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
           updatePrevSelectedIndex(null);
         },
       }));
-  }, [selections, derivedSelectedKeySet, pageData, getRowKey, setSelectedKeys]);
+  }, [selections, derivedSelectedKeySet, pageData, getRowKey, onSelectInvert, setSelectedKeys]);
 
   // ======================= Columns ========================
   const transformColumns = useCallback(

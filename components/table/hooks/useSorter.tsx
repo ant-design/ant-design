@@ -473,6 +473,9 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
 
     return {
       sortColumns,
+      // Legacy
+      sortColumn: sortColumns[0]?.column,
+      sortOrder: sortColumns[0]?.order,
     };
   }, [mergedSorterStates]);
 

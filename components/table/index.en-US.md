@@ -212,7 +212,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | sorter | Sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If it is server-side sorting, set to `true`, but if you want to support multi-column sorting, you can set it to `{ multiple: number }` | function \| boolean \| { compare: function, multiple: number } | - |  |
 | sortOrder | Order of sorted values: `ascend` `descend` `null` | `ascend` \| `descend` \| null | - |  |
 | sortIcon | Customized sort icon | (props: { sortOrder }) => ReactNode | - | 5.6.0 |
-| title | Title of this column | ReactNode \| ({ sortOrder, sortColumn, filters }) => ReactNode | - |  |
+| title | Title of this column | ReactNode \| ({ sortColumns, filters }) => ReactNode | - |  |
 | width | Width of this column ([width not working?](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)) | string \| number | - |  |
 | minWidth | Min width of this column, only works when `tableLayout="auto"` | number | - | 5.21.0 |
 | hidden | Hidden this column | boolean | false | 5.13.0 |
