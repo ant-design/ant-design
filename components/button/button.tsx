@@ -380,6 +380,7 @@ const InternalCompoundedButton = React.forwardRef<
 });
 
 type CompoundedComponent = typeof InternalCompoundedButton & {
+  /** @deprecated Please use `Space.Compact` */
   Group: typeof Group;
   /** @internal */
   __ANT_BUTTON: boolean;

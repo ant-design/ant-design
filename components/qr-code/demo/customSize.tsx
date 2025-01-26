@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
-import { Button, QRCode } from 'antd';
+import { Button, QRCode, Space } from 'antd';
 
 const MIN_SIZE = 48;
 const MAX_SIZE = 300;
@@ -30,14 +30,14 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Button.Group style={{ marginBottom: 16 }}>
+      <Space.Compact style={{ marginBottom: 16 }}>
         <Button onClick={decline} disabled={size <= MIN_SIZE} icon={<MinusOutlined />}>
           Smaller
         </Button>
         <Button onClick={increase} disabled={size >= MAX_SIZE} icon={<PlusOutlined />}>
           Larger
         </Button>
-      </Button.Group>
+      </Space.Compact>
       <QRCode
         errorLevel="H"
         size={size}

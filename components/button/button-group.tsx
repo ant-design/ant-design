@@ -16,7 +16,7 @@ export interface ButtonGroupProps {
 
 export const GroupSizeContext = React.createContext<SizeType>(undefined);
 
-function ButtonGroup(props: ButtonGroupProps) {
+const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
   const { prefixCls: customizePrefixCls, size, className, ...others } = props;
@@ -40,6 +40,7 @@ function ButtonGroup(props: ButtonGroupProps) {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Button.Group');
 
+    warning.deprecated(false, 'Button.Group', 'Space.Compact');
     warning(!size || ['large', 'small', 'middle'].includes(size), 'usage', 'Invalid prop `size`.');
   }
 
