@@ -83,9 +83,6 @@ export type ItemRender<T = any> = (
 ) => React.ReactNode;
 
 type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
-type TransformFileHandler = (
-  file: RcFile,
-) => string | Blob | File | PromiseLike<string | Blob | File>;
 type BeforeUploadValueType = void | boolean | string | Blob | File;
 
 export interface UploadProps<T = any> extends Pick<RcUploadProps, 'capture' | 'hasControlInside'> {
@@ -125,8 +122,6 @@ export interface UploadProps<T = any> extends Pick<RcUploadProps, 'capture' | 'h
   locale?: UploadLocale;
   id?: string;
   previewFile?: PreviewFileHandler;
-  /** @deprecated Please use `beforeUpload` directly */
-  transformFile?: TransformFileHandler;
   iconRender?: (file: UploadFile<T>, listType?: UploadListType) => React.ReactNode;
   isImageUrl?: (file: UploadFile<T>) => boolean;
   progress?: UploadListProgressProps;
