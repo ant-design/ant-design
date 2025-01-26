@@ -375,7 +375,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
   };
 };
 
-const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
+export const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
   const { componentCls, controlHeightSM, lineWidth, calc } = token;
 
   const FIXED_CHROME_COLOR_HEIGHT = 16;
@@ -454,7 +454,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
   };
 };
 
-const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
+export const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
   const {
     componentCls,
     inputAffixPadding,
@@ -779,91 +779,6 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
   };
 };
 
-const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
-  const { componentCls, paddingLG } = token;
-  const textareaPrefixCls = `${componentCls}-textarea`;
-
-  return {
-    [textareaPrefixCls]: {
-      position: 'relative',
-
-      '&-show-count': {
-        // https://github.com/ant-design/ant-design/issues/33049
-        [`> ${componentCls}`]: {
-          height: '100%',
-        },
-
-        [`${componentCls}-data-count`]: {
-          position: 'absolute',
-          bottom: token.calc(token.fontSize).mul(token.lineHeight).mul(-1).equal(),
-          insetInlineEnd: 0,
-          color: token.colorTextDescription,
-          whiteSpace: 'nowrap',
-          pointerEvents: 'none',
-        },
-      },
-
-      [`
-        &-allow-clear > ${componentCls},
-        &-affix-wrapper${textareaPrefixCls}-has-feedback ${componentCls}
-      `]: {
-        paddingInlineEnd: paddingLG,
-      },
-
-      [`&-affix-wrapper${componentCls}-affix-wrapper`]: {
-        padding: 0,
-
-        [`> textarea${componentCls}`]: {
-          fontSize: 'inherit',
-          border: 'none',
-          outline: 'none',
-          background: 'transparent',
-
-          '&:focus': {
-            boxShadow: 'none !important',
-          },
-        },
-
-        [`${componentCls}-suffix`]: {
-          margin: 0,
-
-          '> *:not(:last-child)': {
-            marginInline: 0,
-          },
-
-          // Clear Icon
-          [`${componentCls}-clear-icon`]: {
-            position: 'absolute',
-            insetInlineEnd: token.paddingInline,
-            insetBlockStart: token.paddingXS,
-          },
-
-          // Feedback Icon
-          [`${textareaPrefixCls}-suffix`]: {
-            position: 'absolute',
-            top: 0,
-            insetInlineEnd: token.paddingInline,
-            bottom: 0,
-            zIndex: 1,
-            display: 'inline-flex',
-            alignItems: 'center',
-            margin: 'auto',
-            pointerEvents: 'none',
-          },
-        },
-      },
-
-      [`&-affix-wrapper${componentCls}-affix-wrapper-sm`]: {
-        [`${componentCls}-suffix`]: {
-          [`${componentCls}-clear-icon`]: {
-            insetInlineEnd: token.paddingInlineSM,
-          },
-        },
-      },
-    },
-  };
-};
-
 // ============================== Range ===============================
 const genRangeStyle: GenerateStyle<InputToken> = (token) => {
   const { componentCls } = token;
@@ -885,7 +800,6 @@ export default genStyleHooks(
 
     return [
       genInputStyle(inputToken),
-      genTextAreaStyle(inputToken),
       genAffixStyle(inputToken),
       genGroupStyle(inputToken),
       genSearchInputStyle(inputToken),
