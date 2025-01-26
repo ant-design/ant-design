@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useStyle from './style';
 
 export interface DividerProps {
@@ -24,7 +24,12 @@ export interface DividerProps {
 }
 
 const Divider: React.FC<DividerProps> = (props) => {
-  const { getPrefixCls, direction, divider } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: dividerClassName,
+    style: dividerStyle,
+  } = useComponentConfig('divider');
 
   const {
     prefixCls: customizePrefixCls,
@@ -49,7 +54,7 @@ const Divider: React.FC<DividerProps> = (props) => {
   const hasCustomMarginRight = orientation === 'right' && orientationMargin != null;
   const classString = classNames(
     prefixCls,
-    divider?.className,
+    dividerClassName,
     hashId,
     cssVarCls,
     `${prefixCls}-${type}`,
@@ -96,7 +101,7 @@ const Divider: React.FC<DividerProps> = (props) => {
   return wrapCSSVar(
     <div
       className={classString}
-      style={{ ...divider?.style, ...style }}
+      style={{ ...dividerStyle, ...style }}
       {...restProps}
       role="separator"
     >
