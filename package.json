@@ -348,11 +348,5 @@
   "title": "Ant Design",
   "tnpm": {
     "mode": "npm"
-  },
-  "overrides": {
-    "react-intl": "7.1.5"
-  },
-  "resolutions": {
-    "react-intl": "7.1.5"
   }
 }
