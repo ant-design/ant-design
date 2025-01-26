@@ -91,7 +91,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     bodyStyle = {},
     title,
     loading,
-    bordered: cardBordered,
+    bordered = true,
     size: customizeSize,
     type,
     cover,
@@ -109,7 +109,6 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   } = props;
 
   const { getPrefixCls, direction, card } = React.useContext(ConfigContext);
-  const mergedBordered = cardBordered ?? card?.bordered ?? true;
 
   // =================Warning===================
   if (process.env.NODE_ENV !== 'production') {
@@ -233,7 +232,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     card?.className,
     {
       [`${prefixCls}-loading`]: loading,
-      [`${prefixCls}-bordered`]: mergedBordered,
+      [`${prefixCls}-bordered`]: bordered,
       [`${prefixCls}-hoverable`]: hoverable,
       [`${prefixCls}-contain-grid`]: isContainGrid,
       [`${prefixCls}-contain-tabs`]: tabList?.length,
