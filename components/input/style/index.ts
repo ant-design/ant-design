@@ -793,14 +793,25 @@ const genRangeStyle: GenerateStyle<InputToken> = (token) => {
 };
 
 // ============================== Export ==============================
+export const useSharedStyle = genStyleHooks(
+  ['Input', 'Shared'],
+  (token) => {
+    const inputToken = mergeToken<InputToken>(token, initInputToken(token));
+
+    return [genInputStyle(inputToken), genAffixStyle(inputToken)];
+  },
+  initComponentToken,
+  {
+    resetFont: false,
+  },
+);
+
 export default genStyleHooks(
-  'Input',
+  ['Input', 'Component'],
   (token) => {
     const inputToken = mergeToken<InputToken>(token, initInputToken(token));
 
     return [
-      genInputStyle(inputToken),
-      genAffixStyle(inputToken),
       genGroupStyle(inputToken),
       genSearchInputStyle(inputToken),
       genRangeStyle(inputToken),
