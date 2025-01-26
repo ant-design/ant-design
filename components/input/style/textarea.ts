@@ -1,4 +1,3 @@
-import { genAffixStyle, genInputStyle } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import type { ComponentToken, InputToken } from './token';
@@ -98,7 +97,7 @@ export default genStyleHooks(
   (token) => {
     const inputToken = mergeToken<InputToken>(token, initInputToken(token));
 
-    return [genInputStyle(inputToken), genAffixStyle(inputToken), genTextAreaStyle(inputToken)];
+    return [genTextAreaStyle(inputToken)];
   },
   initComponentToken,
   {
