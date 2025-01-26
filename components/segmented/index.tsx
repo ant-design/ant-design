@@ -7,12 +7,12 @@ import type {
   SegmentedRawOption,
 } from 'rc-segmented';
 import RcSegmented from 'rc-segmented';
+import useId from 'rc-util/lib/hooks/useId';
 
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
-import useId from 'rc-util/lib/hooks/useId';
 
 export type { SegmentedValue } from 'rc-segmented';
 
@@ -67,7 +67,12 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     ...restProps
   } = props;
 
-  const { getPrefixCls, direction, segmented } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('segmented');
   const prefixCls = getPrefixCls('segmented', customizePrefixCls);
   // Style
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
@@ -99,7 +104,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
   const cls = classNames(
     className,
     rootClassName,
-    segmented?.className,
+    contextClassName,
     {
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-sm`]: mergedSize === 'small',
@@ -110,7 +115,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     cssVarCls,
   );
 
-  const mergedStyle: React.CSSProperties = { ...segmented?.style, ...style };
+  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
   return wrapCSSVar(
     <RcSegmented
