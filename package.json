@@ -350,9 +350,9 @@
     "mode": "npm"
   },
   "overrides": {
-    "react-intl": "7.0.4"
+    "react-intl": "7.1.5"
   },
   "resolutions": {
-    "react-intl": "7.0.4"
+    "react-intl": "7.1.5"
   }
 }
