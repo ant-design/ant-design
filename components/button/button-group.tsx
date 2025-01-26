@@ -16,7 +16,6 @@ export interface ButtonGroupProps {
 
 export const GroupSizeContext = React.createContext<SizeType>(undefined);
 
-/** @deprecated Please use `Space.Compact` */
 const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
@@ -60,6 +59,6 @@ const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
       <div {...others} className={classes} />
     </GroupSizeContext.Provider>
   );
-};
+}
 
 export default ButtonGroup;
