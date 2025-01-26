@@ -943,7 +943,7 @@ Array [
     </label>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left ant-divider-plain"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start ant-divider-plain"
     role="separator"
   >
     <span
@@ -2244,7 +2244,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left ant-divider-plain"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start ant-divider-plain"
     role="separator"
   >
     <span
@@ -3254,7 +3254,7 @@ Array [
     </label>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left ant-divider-plain"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start ant-divider-plain"
     role="separator"
   >
     <span

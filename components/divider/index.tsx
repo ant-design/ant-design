@@ -8,7 +8,15 @@ import useStyle from './style';
 export interface DividerProps {
   prefixCls?: string;
   type?: 'horizontal' | 'vertical';
-  orientation?: 'left' | 'right' | 'center';
+  /**
+   * @default center
+   */
+  orientation?:
+    | 'left'
+    | 'right'
+    | 'center'
+    | 'start' // 👈 5.24.0+
+    | 'end'; // 👈 5.24.0+
   orientationMargin?: string | number;
   className?: string;
   rootClassName?: string;
@@ -50,8 +58,21 @@ const Divider: React.FC<DividerProps> = (props) => {
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const hasChildren = !!children;
-  const hasCustomMarginLeft = orientation === 'left' && orientationMargin != null;
-  const hasCustomMarginRight = orientation === 'right' && orientationMargin != null;
+
+  const mergedOrientation = React.useMemo<'start' | 'end' | 'center'>(() => {
+    if (orientation === 'left') {
+      return direction === 'rtl' ? 'end' : 'start';
+    }
+    if (orientation === 'right') {
+      return direction === 'rtl' ? 'start' : 'end';
+    }
+    return orientation;
+  }, [direction, orientation]);
+
+  const hasMarginStart = mergedOrientation === 'start' && orientationMargin != null;
+
+  const hasMarginEnd = mergedOrientation === 'end' && orientationMargin != null;
+
   const classString = classNames(
     prefixCls,
     dividerClassName,
@@ -60,13 +81,13 @@ const Divider: React.FC<DividerProps> = (props) => {
     `${prefixCls}-${type}`,
     {
       [`${prefixCls}-with-text`]: hasChildren,
-      [`${prefixCls}-with-text-${orientation}`]: hasChildren,
+      [`${prefixCls}-with-text-${mergedOrientation}`]: hasChildren,
       [`${prefixCls}-dashed`]: !!dashed,
       [`${prefixCls}-${variant}`]: variant !== 'solid',
       [`${prefixCls}-plain`]: !!plain,
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-no-default-orientation-margin-left`]: hasCustomMarginLeft,
-      [`${prefixCls}-no-default-orientation-margin-right`]: hasCustomMarginRight,
+      [`${prefixCls}-no-default-orientation-margin-start`]: hasMarginStart,
+      [`${prefixCls}-no-default-orientation-margin-end`]: hasMarginEnd,
     },
     className,
     rootClassName,
@@ -83,8 +104,8 @@ const Divider: React.FC<DividerProps> = (props) => {
   }, [orientationMargin]);
 
   const innerStyle: React.CSSProperties = {
-    ...(hasCustomMarginLeft && { marginLeft: memoizedOrientationMargin }),
-    ...(hasCustomMarginRight && { marginRight: memoizedOrientationMargin }),
+    marginInlineStart: hasMarginStart ? memoizedOrientationMargin : undefined,
+    marginInlineEnd: hasMarginEnd ? memoizedOrientationMargin : undefined,
   };
 
   // Warning children not work in vertical mode
