@@ -161,7 +161,7 @@
     "@ant-design/happy-work-theme": "^1.0.0",
     "@ant-design/tools": "^18.0.3",
     "@ant-design/v5-patch-for-react-19": "^1.0.2",
-    "@antfu/eslint-config": "^3.11.2",
+    "@antfu/eslint-config": "^4.0.0",
     "@antv/g6": "^4.8.24",
     "@biomejs/biome": "^1.9.4",
     "@codecov/webpack-plugin": "^1.4.0",
