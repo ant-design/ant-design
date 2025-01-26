@@ -603,7 +603,7 @@ exports[`renders components/auto-complete/demo/custom.tsx extend context correct
           aria-haspopup="listbox"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
-          class="ant-input ant-input-outlined ant-select-selection-search-input custom"
+          class="ant-input-textarea ant-input-textarea-outlined ant-select-selection-search-input custom"
           id="rc_select_TEST_OR_SSR"
           placeholder="input here"
           role="combobox"

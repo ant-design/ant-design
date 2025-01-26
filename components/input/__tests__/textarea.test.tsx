@@ -226,7 +226,9 @@ describe('TextArea', () => {
 
   it('should support size', async () => {
     const { asFragment, container } = render(<TextArea size="large" />);
-    expect(container.querySelector('textarea')?.classList.contains('ant-input-lg')).toBe(true);
+    expect(container.querySelector('textarea')?.classList.contains('ant-input-textarea-lg')).toBe(
+      true,
+    );
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
@@ -247,7 +249,7 @@ describe('TextArea allowClear', () => {
     fireEvent.change(container.querySelector('textarea')!, { target: { value: '111' } });
     expect(container.querySelector('textarea')?.value).toEqual('111');
     expect(asFragment().firstChild).toMatchSnapshot();
-    fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
+    fireEvent.click(container.querySelector('.ant-input-textarea-clear-icon')!);
     expect(asFragment().firstChild).toMatchSnapshot();
     expect(container.querySelector('textarea')?.value).toEqual('');
   });
@@ -260,7 +262,7 @@ describe('TextArea allowClear', () => {
     );
     wrappers.forEach(({ asFragment, container }) => {
       expect(container.querySelector('textarea')?.value).toEqual('');
-      expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
+      expect(container.querySelector('.ant-input-textarea-clear-icon-hidden')).toBeTruthy();
       expect(asFragment().firstChild).toMatchSnapshot();
     });
   });
@@ -276,7 +278,7 @@ describe('TextArea allowClear', () => {
     );
     wrappers.forEach(({ asFragment, container }) => {
       expect(container.querySelector('textarea')?.value).toEqual('');
-      expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
+      expect(container.querySelector('.ant-input-textarea-clear-icon-hidden')).toBeTruthy();
       expect(asFragment().firstChild).toMatchSnapshot();
     });
   });
@@ -289,7 +291,7 @@ describe('TextArea allowClear', () => {
       argumentEventObjectValue = e.target.value;
     };
     const { container } = render(<TextArea allowClear defaultValue="111" onChange={onChange} />);
-    fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
+    fireEvent.click(container.querySelector('.ant-input-textarea-clear-icon')!);
     expect(argumentEventObjectType).toBe('click');
     expect(argumentEventObjectValue).toBe('');
     expect(container.querySelector('textarea')?.value).toBe('');
@@ -303,7 +305,7 @@ describe('TextArea allowClear', () => {
       argumentEventObjectValue = e.target.value;
     };
     const { container } = render(<TextArea allowClear value="111" onChange={onChange} />);
-    fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
+    fireEvent.click(container.querySelector('.ant-input-textarea-clear-icon')!);
     expect(argumentEventObjectType).toBe('click');
     expect(argumentEventObjectValue).toBe('');
     expect(container.querySelector('textarea')?.value).toBe('111');
@@ -313,14 +315,14 @@ describe('TextArea allowClear', () => {
     const { container, unmount } = render(<TextArea allowClear defaultValue="111" />, {
       container: document.body,
     });
-    fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
+    fireEvent.click(container.querySelector('.ant-input-textarea-clear-icon')!);
     expect(document.activeElement).toBe(container.querySelector('textarea'));
     unmount();
   });
 
   it('should not support allowClear when it is disabled', () => {
     const { container } = render(<TextArea allowClear defaultValue="111" disabled />);
-    expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
+    expect(container.querySelector('.ant-input-textarea-clear-icon-hidden')).toBeTruthy();
   });
 
   it('not block input when `value` is undefined', () => {
@@ -385,7 +387,7 @@ describe('TextArea allowClear', () => {
     isNativeElement();
 
     // Reset
-    fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
+    fireEvent.click(container.querySelector('.ant-input-textarea-clear-icon')!);
     isNativeElement();
   });
 
@@ -409,7 +411,7 @@ describe('TextArea allowClear', () => {
     fireEvent.change(container.querySelector('textarea')!, { target: { value: '111' } });
     expect(container.querySelector('textarea')?.value).toEqual('111');
 
-    fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
+    fireEvent.click(container.querySelector('.ant-input-textarea-clear-icon')!);
     expect(container.querySelector('textarea')?.value).toEqual('');
 
     unmount();
@@ -425,11 +427,11 @@ describe('TextArea allowClear', () => {
       },
     );
     container.querySelector('textarea')?.focus();
-    fireEvent.mouseDown(container.querySelector('.ant-input-clear-icon')!);
-    fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
-    fireEvent.mouseUp(container.querySelector('.ant-input-clear-icon')!);
-    fireEvent.focus(container.querySelector('.ant-input-clear-icon')!);
-    fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
+    fireEvent.mouseDown(container.querySelector('.ant-input-textarea-clear-icon')!);
+    fireEvent.click(container.querySelector('.ant-input-textarea-clear-icon')!);
+    fireEvent.mouseUp(container.querySelector('.ant-input-textarea-clear-icon')!);
+    fireEvent.focus(container.querySelector('.ant-input-textarea-clear-icon')!);
+    fireEvent.click(container.querySelector('.ant-input-textarea-clear-icon')!);
     expect(onBlur).not.toHaveBeenCalled();
     unmount();
   });
@@ -438,7 +440,7 @@ describe('TextArea allowClear', () => {
     const { container, unmount } = render(<TextArea allowClear defaultValue="111" />, {
       container: document.body,
     });
-    fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
+    fireEvent.click(container.querySelector('.ant-input-textarea-clear-icon')!);
     expect(document.activeElement).toBe(container.querySelector('textarea'));
     unmount();
   });
@@ -468,10 +470,10 @@ describe('TextArea allowClear', () => {
 
     const { container } = render(<Demo />);
     fireEvent.change(container.querySelector('textarea')!, { target: { value: 'test' } });
-    expect(container.querySelector('.ant-input-clear-icon')?.className).not.toContain(
-      'ant-input-clear-icon-hidden',
+    expect(container.querySelector('.ant-input-textarea-clear-icon')?.className).not.toContain(
+      'ant-input-textarea-clear-icon-hidden',
     );
-    fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
+    fireEvent.click(container.querySelector('.ant-input-textarea-clear-icon')!);
     expect(handleFocus).toHaveBeenCalledTimes(1);
 
     textareaSpy.mockRestore();
@@ -479,7 +481,7 @@ describe('TextArea allowClear', () => {
 
   it('should support custom clearIcon', () => {
     const { container } = render(<TextArea allowClear={{ clearIcon: 'clear' }} />);
-    expect(container.querySelector('.ant-input-clear-icon')?.textContent).toBe('clear');
+    expect(container.querySelector('.ant-input-textarea-clear-icon')?.textContent).toBe('clear');
   });
 
   it('classNames and styles should work', () => {
@@ -526,7 +528,7 @@ describe('TextArea allowClear', () => {
   it('legacy bordered should work', () => {
     const errSpy = jest.spyOn(console, 'error');
     const { container } = render(<TextArea bordered={false} />);
-    expect(container.querySelector('textarea')).toHaveClass('ant-input-borderless');
+    expect(container.querySelector('textarea')).toHaveClass('ant-input-textarea-borderless');
     expect(errSpy).toHaveBeenCalledWith(expect.stringContaining('`bordered` is deprecated'));
     errSpy.mockRestore();
   });

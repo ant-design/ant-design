@@ -98,7 +98,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     blur: () => innerRef.current?.blur(),
   }));
 
-  const prefixCls = getPrefixCls('input', customizePrefixCls);
+  const prefixCls = getPrefixCls('input-textarea', customizePrefixCls);
 
   // ===================== Style =====================
   const rootCls = useCSSVarCls(prefixCls);
@@ -136,18 +136,18 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
           getStatusClassNames(prefixCls, mergedStatus),
         ),
         affixWrapper: classNames(
-          `${prefixCls}-textarea-affix-wrapper`,
+          `${prefixCls}-affix-wrapper`,
           {
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
-            [`${prefixCls}-textarea-show-count`]: props.showCount || props.count?.show,
+            [`${prefixCls}-show-count`]: props.showCount || props.count?.show,
           },
           hashId,
         ),
       }}
       prefixCls={prefixCls}
-      suffix={hasFeedback && <span className={`${prefixCls}-textarea-suffix`}>{feedbackIcon}</span>}
+      suffix={hasFeedback && <span className={`${prefixCls}-suffix`}>{feedbackIcon}</span>}
       ref={innerRef}
     />,
   );

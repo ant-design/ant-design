@@ -5035,7 +5035,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <textarea
-                class="ant-input ant-input-outlined ant-input-disabled"
+                class="ant-input-textarea ant-input-textarea-outlined ant-input-textarea-disabled"
                 disabled=""
                 rows="4"
               />
@@ -9819,7 +9819,7 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
             class="ant-form-item-control-input-content"
           >
             <textarea
-              class="ant-input ant-input-outlined"
+              class="ant-input-textarea ant-input-textarea-outlined"
               id="nest-messages_user_introduction"
             />
           </div>
@@ -10988,20 +10988,20 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-outlined"
+              class="ant-input-textarea-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-textarea-show-count ant-input-textarea-outlined"
               data-count="0 / 100"
             >
               <textarea
                 aria-required="true"
-                class="ant-input"
+                class="ant-input-textarea"
                 id="register_intro"
                 maxlength="100"
               />
               <span
-                class="ant-input-suffix"
+                class="ant-input-textarea-suffix"
               >
                 <span
-                  class="ant-input-data-count"
+                  class="ant-input-textarea-data-count"
                 >
                   0 / 100
                 </span>
@@ -23920,7 +23920,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
             class="ant-form-item-control-input-content"
           >
             <textarea
-              class="ant-input ant-input-outlined"
+              class="ant-input-textarea ant-input-textarea-outlined"
               id="motto"
               rows="4"
             />
@@ -23957,7 +23957,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
           >
             <textarea
               aria-required="true"
-              class="ant-input ant-input-outlined"
+              class="ant-input-textarea ant-input-textarea-outlined"
               id="bio"
               rows="6"
             />
@@ -30634,17 +30634,17 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-textarea-allow-clear ant-input-outlined ant-input-status-error"
+              class="ant-input-textarea-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-textarea-show-count ant-input-textarea-textarea-allow-clear ant-input-textarea-outlined ant-input-textarea-status-error"
               data-count="0"
             >
               <textarea
-                class="ant-input"
+                class="ant-input-textarea"
               />
               <span
-                class="ant-input-suffix"
+                class="ant-input-textarea-suffix"
               >
                 <button
-                  class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
+                  class="ant-input-textarea-clear-icon ant-input-textarea-clear-icon-hidden ant-input-textarea-clear-icon-has-suffix"
                   type="button"
                 >
                   <span
@@ -30697,7 +30697,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   </span>
                 </span>
                 <span
-                  class="ant-input-data-count"
+                  class="ant-input-textarea-data-count"
                 >
                   0
                 </span>
@@ -31181,7 +31181,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
           >
             <textarea
               aria-required="true"
-              class="ant-input ant-input-filled"
+              class="ant-input-textarea ant-input-textarea-filled"
               id="TextArea"
             />
           </div>

@@ -585,24 +585,26 @@ describe('ConfigProvider support style and className props', () => {
         />
       </ConfigProvider>,
     );
-    const wrapperElement = container.querySelector<HTMLSpanElement>('.ant-input-affix-wrapper');
+    const wrapperElement = container.querySelector<HTMLSpanElement>(
+      '.ant-input-textarea-affix-wrapper',
+    );
     expect(wrapperElement).toHaveClass('cp-textArea');
     expect(wrapperElement).toHaveStyle({ backgroundColor: 'yellow' });
 
-    const inputElement = container.querySelector<HTMLTextAreaElement>('.ant-input');
+    const inputElement = container.querySelector<HTMLTextAreaElement>('.ant-input-textarea');
     expect(inputElement).toHaveClass('cp-classNames-textArea');
     expect(inputElement).toHaveStyle({ color: 'blue' });
     expect(inputElement?.getAttribute('autocomplete')).toBe('test-autocomplete');
     expect(inputElement?.getAttribute('autocomplete')).not.toBe('test-cp-autocomplete');
 
     const countElement = container.querySelector<HTMLSpanElement>(
-      '.ant-input-affix-wrapper .ant-input-data-count',
+      '.ant-input-textarea-affix-wrapper .ant-input-textarea-data-count',
     );
     expect(countElement).toHaveClass('cp-classNames-count');
     expect(countElement).toHaveStyle({ color: 'red' });
 
     expect(
-      container?.querySelector<HTMLSpanElement>('.ant-input-affix-wrapper .cp-test-icon'),
+      container?.querySelector<HTMLSpanElement>('.ant-input-textarea-affix-wrapper .cp-test-icon'),
     ).toBeTruthy();
   });
 
@@ -1619,7 +1621,7 @@ describe('ConfigProvider support style and className props', () => {
 
     expect(container.querySelector('.input-variant')).toHaveClass('ant-input-filled');
     expect(container.querySelector('.input-number-variant')).toHaveClass('ant-input-number-filled');
-    expect(container.querySelector('.textarea-variant')).toHaveClass('ant-input-filled');
+    expect(container.querySelector('.textarea-variant')).toHaveClass('ant-input-textarea-filled');
     expect(container.querySelector('.mentions-variant')).toHaveClass('ant-mentions-borderless');
     expect(container.querySelector('.select-variant')).toHaveClass('ant-select-filled');
     expect(container.querySelector('.cascader-variant')).toHaveClass('ant-select-outlined');

@@ -16305,7 +16305,7 @@ exports[`ConfigProvider components Input configProvider 1`] = `
     </span>
   </span>
   <textarea
-    class="config-input config-input-outlined"
+    class="config-input-textarea config-input-textarea-outlined"
   />
 </div>
 `;
@@ -16407,7 +16407,7 @@ exports[`ConfigProvider components Input configProvider componentDisabled 1`] = 
     </span>
   </span>
   <textarea
-    class="config-input config-input-outlined config-input-disabled"
+    class="config-input-textarea config-input-textarea-outlined config-input-textarea-disabled"
     disabled=""
   />
 </div>
@@ -16506,7 +16506,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
     </span>
   </span>
   <textarea
-    class="config-input config-input-lg config-input-outlined"
+    class="config-input-textarea config-input-textarea-lg config-input-textarea-outlined"
   />
 </div>
 `;
@@ -16604,7 +16604,7 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
     </span>
   </span>
   <textarea
-    class="config-input config-input-outlined"
+    class="config-input-textarea config-input-textarea-outlined"
   />
 </div>
 `;
@@ -16702,7 +16702,7 @@ exports[`ConfigProvider components Input configProvider componentSize small 1`] 
     </span>
   </span>
   <textarea
-    class="config-input config-input-sm config-input-outlined"
+    class="config-input-textarea config-input-textarea-sm config-input-textarea-outlined"
   />
 </div>
 `;
@@ -16800,7 +16800,7 @@ exports[`ConfigProvider components Input normal 1`] = `
     </span>
   </span>
   <textarea
-    class="ant-input ant-input-outlined"
+    class="ant-input-textarea ant-input-textarea-outlined"
   />
 </div>
 `;

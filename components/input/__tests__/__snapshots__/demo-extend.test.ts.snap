@@ -711,7 +711,7 @@ Array [
     />
   </div>,
   <textarea
-    class="ant-input ant-input-outlined"
+    class="ant-input-textarea ant-input-textarea-outlined"
     rows="1"
     style="width: 100px;"
   />,
@@ -5449,17 +5449,17 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear ant-input-outlined"
+    class="ant-input-textarea-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-textarea-allow-clear ant-input-textarea-outlined"
   >
     <textarea
-      class="ant-input"
+      class="ant-input-textarea"
       placeholder="textarea with clear icon"
     />
     <span
-      class="ant-input-suffix"
+      class="ant-input-textarea-suffix"
     >
       <button
-        class="ant-input-clear-icon ant-input-clear-icon-hidden"
+        class="ant-input-textarea-clear-icon ant-input-textarea-clear-icon-hidden"
         type="button"
       >
         <span
@@ -5493,7 +5493,7 @@ exports[`renders components/input/demo/allowClear.tsx extend context correctly 2
 exports[`renders components/input/demo/autosize-textarea.tsx extend context correctly 1`] = `
 Array [
   <textarea
-    class="ant-input ant-input-outlined"
+    class="ant-input-textarea ant-input-textarea-outlined"
     placeholder="Autosize height based on content lines"
     style="resize: none; height: 2px;"
   />,
@@ -5501,7 +5501,7 @@ Array [
     style="margin: 24px 0px;"
   />,
   <textarea
-    class="ant-input ant-input-outlined"
+    class="ant-input-textarea ant-input-textarea-outlined"
     placeholder="Autosize height with minimum and maximum number of lines"
     style="resize: none; height: -38px; min-height: -6px; max-height: -38px;"
   />,
@@ -5509,7 +5509,7 @@ Array [
     style="margin: 24px 0px;"
   />,
   <textarea
-    class="ant-input ant-input-outlined"
+    class="ant-input-textarea ant-input-textarea-outlined"
     placeholder="Controlled autosize"
     style="resize: none; height: -30px; min-height: -14px; max-height: -30px;"
   />,
@@ -5546,21 +5546,21 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     value=""
   />
   <textarea
-    class="ant-input ant-input-borderless"
+    class="ant-input-textarea ant-input-textarea-borderless"
     placeholder="Unbordered"
   />
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear ant-input-borderless"
+    class="ant-input-textarea-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-textarea-allow-clear ant-input-textarea-borderless"
   >
     <textarea
-      class="ant-input"
+      class="ant-input-textarea"
       placeholder="Unbordered"
     />
     <span
-      class="ant-input-suffix"
+      class="ant-input-textarea-suffix"
     >
       <button
-        class="ant-input-clear-icon ant-input-clear-icon-hidden"
+        class="ant-input-textarea-clear-icon ant-input-textarea-clear-icon-hidden"
         type="button"
       >
         <span
@@ -5665,17 +5665,17 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear ant-input-outlined"
+    class="ant-input-textarea-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-textarea-allow-clear ant-input-textarea-outlined"
     style="border: 2px solid #000;"
   >
     <textarea
-      class="ant-input"
+      class="ant-input-textarea"
     />
     <span
-      class="ant-input-suffix"
+      class="ant-input-textarea-suffix"
     >
       <button
-        class="ant-input-clear-icon ant-input-clear-icon-hidden"
+        class="ant-input-textarea-clear-icon ant-input-textarea-clear-icon-hidden"
         type="button"
       >
         <span
@@ -6525,27 +6525,27 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
     </span>
   </div>
   <textarea
-    class="ant-input ant-input-filled"
+    class="ant-input-textarea ant-input-textarea-filled"
     placeholder="Basic"
   />
   <textarea
-    class="ant-input ant-input-filled ant-input-status-error"
+    class="ant-input-textarea ant-input-textarea-filled ant-input-textarea-status-error"
     placeholder="Basic"
   >
     Filled Error
   </textarea>
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear ant-input-filled"
+    class="ant-input-textarea-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-textarea-allow-clear ant-input-textarea-filled"
   >
     <textarea
-      class="ant-input"
+      class="ant-input-textarea"
       placeholder="Allow Clear"
     />
     <span
-      class="ant-input-suffix"
+      class="ant-input-textarea-suffix"
     >
       <button
-        class="ant-input-clear-icon ant-input-clear-icon-hidden"
+        class="ant-input-textarea-clear-icon ant-input-textarea-clear-icon-hidden"
         type="button"
       >
         <span
@@ -6572,38 +6572,38 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-filled"
+    class="ant-input-textarea-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-textarea-show-count ant-input-textarea-filled"
     data-count="0"
   >
     <textarea
-      class="ant-input"
+      class="ant-input-textarea"
       placeholder="Show Count"
     />
     <span
-      class="ant-input-suffix"
+      class="ant-input-textarea-suffix"
     >
       <span
-        class="ant-input-data-count"
+        class="ant-input-textarea-data-count"
       >
         0
       </span>
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-filled ant-input-status-error"
+    class="ant-input-textarea-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-textarea-show-count ant-input-textarea-filled ant-input-textarea-status-error"
     data-count="12"
   >
     <textarea
-      class="ant-input"
+      class="ant-input-textarea"
       placeholder="Show Count"
     >
       Filled Error
     </textarea>
     <span
-      class="ant-input-suffix"
+      class="ant-input-textarea-suffix"
     >
       <span
-        class="ant-input-data-count"
+        class="ant-input-textarea-data-count"
       >
         12
       </span>
@@ -11436,40 +11436,40 @@ exports[`renders components/input/demo/show-count.tsx extend context correctly 1
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-outlined"
+    class="ant-input-textarea-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-textarea-show-count ant-input-textarea-outlined"
     data-count="0 / 100"
   >
     <textarea
-      class="ant-input"
+      class="ant-input-textarea"
       maxlength="100"
       placeholder="can resize"
     />
     <span
-      class="ant-input-suffix"
+      class="ant-input-textarea-suffix"
     >
       <span
-        class="ant-input-data-count"
+        class="ant-input-textarea-data-count"
       >
         0 / 100
       </span>
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-outlined"
+    class="ant-input-textarea-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-textarea-show-count ant-input-textarea-outlined"
     data-count="0 / 100"
     style="height: 120px; resize: none;"
   >
     <textarea
-      class="ant-input"
+      class="ant-input-textarea"
       maxlength="100"
       placeholder="disable resize"
       style="resize: none;"
     />
     <span
-      class="ant-input-suffix"
+      class="ant-input-textarea-suffix"
     >
       <span
-        class="ant-input-data-count"
+        class="ant-input-textarea-data-count"
       >
         0 / 100
       </span>
@@ -11703,13 +11703,13 @@ exports[`renders components/input/demo/status.tsx extend context correctly 2`] =
 exports[`renders components/input/demo/textarea.tsx extend context correctly 1`] = `
 Array [
   <textarea
-    class="ant-input ant-input-outlined"
+    class="ant-input-textarea ant-input-textarea-outlined"
     rows="4"
   />,
   <br />,
   <br />,
   <textarea
-    class="ant-input ant-input-outlined"
+    class="ant-input-textarea ant-input-textarea-outlined"
     maxlength="6"
     placeholder="maxLength is 6"
     rows="4"
@@ -11731,23 +11731,23 @@ Array [
     </span>
   </button>,
   <textarea
-    class="ant-input ant-input-outlined"
+    class="ant-input-textarea ant-input-textarea-outlined"
     rows="4"
   >
     The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows. The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows.
   </textarea>,
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear ant-input-outlined"
+    class="ant-input-textarea-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-textarea-allow-clear ant-input-textarea-outlined"
     style="width: 93px;"
   >
     <textarea
-      class="ant-input"
+      class="ant-input-textarea"
     />
     <span
-      class="ant-input-suffix"
+      class="ant-input-textarea-suffix"
     >
       <button
-        class="ant-input-clear-icon ant-input-clear-icon-hidden"
+        class="ant-input-textarea-clear-icon ant-input-textarea-clear-icon-hidden"
         type="button"
       >
         <span

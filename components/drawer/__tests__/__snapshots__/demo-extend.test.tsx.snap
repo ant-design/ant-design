@@ -2789,7 +2789,7 @@ Array [
                         >
                           <textarea
                             aria-required="true"
-                            class="ant-input ant-input-outlined"
+                            class="ant-input-textarea ant-input-textarea-outlined"
                             id="description"
                             placeholder="please enter url description"
                             rows="4"

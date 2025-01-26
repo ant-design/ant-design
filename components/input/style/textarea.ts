@@ -9,11 +9,21 @@ export { initComponentToken, initInputToken };
 
 const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
   const { componentCls, paddingLG } = token;
-  const textareaPrefixCls = `${componentCls}-textarea`;
 
   return {
-    [textareaPrefixCls]: {
+    [componentCls]: {
       position: 'relative',
+
+      // Reset height for `textarea`s
+      'textarea&': {
+        maxWidth: '100%', // prevent textarea resize from coming out of its container
+        height: 'auto',
+        minHeight: token.controlHeight,
+        lineHeight: token.lineHeight,
+        verticalAlign: 'bottom',
+        transition: `all ${token.motionDurationSlow}, height 0s`,
+        resize: 'vertical',
+      },
 
       '&-show-count': {
         // https://github.com/ant-design/ant-design/issues/33049
@@ -33,7 +43,7 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
 
       [`
         &-allow-clear > ${componentCls},
-        &-affix-wrapper${textareaPrefixCls}-has-feedback ${componentCls}
+        &-affix-wrapper${componentCls}-has-feedback ${componentCls}
       `]: {
         paddingInlineEnd: paddingLG,
       },
@@ -67,7 +77,7 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
           },
 
           // Feedback Icon
-          [`${textareaPrefixCls}-suffix`]: {
+          [`${componentCls}-suffix`]: {
             position: 'absolute',
             top: 0,
             insetInlineEnd: token.paddingInline,
@@ -98,7 +108,7 @@ export default genStyleHooks(
   (token) => {
     const inputToken = mergeToken<InputToken>(token, initInputToken(token));
 
-    return [genInputStyle(inputToken), genAffixStyle(inputToken), genTextAreaStyle(inputToken)];
+    return [genInputStyle(inputToken), genTextAreaStyle(inputToken), genAffixStyle(inputToken)];
   },
   initComponentToken,
   {
