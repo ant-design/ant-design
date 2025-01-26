@@ -94,7 +94,7 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
 
 // ============================== Export ==============================
 export default genStyleHooks(
-  'Input',
+  ['Input', 'TextArea'],
   (token) => {
     const inputToken = mergeToken<InputToken>(token, initInputToken(token));
 
