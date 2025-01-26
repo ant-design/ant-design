@@ -3,7 +3,7 @@ import toArray from '@rc-component/util/lib/Children/toArray';
 import classNames from 'classnames';
 
 import { isPresetSize, isValidGapNumber } from '../_util/gapSize';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import type { SizeType } from '../config-provider/SizeContext';
 import Compact from './Compact';
 import { SpaceContextProvider } from './context';
@@ -31,10 +31,18 @@ export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
-  const { getPrefixCls, space, direction: directionConfig } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction: directionConfig,
+    size: contextSize,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('space');
 
   const {
-    size = space?.size ?? 'small',
+    size = contextSize ?? 'small',
     align,
     className,
     rootClassName,
@@ -67,7 +75,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
 
   const rootClassNames = classNames(
     prefixCls,
-    space?.className,
+    contextClassName,
     hashId,
     `${prefixCls}-${direction}`,
     {
@@ -80,13 +88,13 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     rootClassName,
     cssVarCls,
     spaceClassNames?.root,
-    space?.classNames?.root,
+    contextClassNames.root,
   );
 
   const itemClassName = classNames(
     `${prefixCls}-item`,
     spaceClassNames?.item,
-    space?.classNames?.item,
+    contextClassNames.item,
   );
 
   // Calculate latest one
@@ -104,7 +112,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
         key={key}
         index={i}
         split={split}
-        style={styles?.item ?? space?.styles?.item}
+        style={styles?.item ?? contextStyles.item}
       >
         {child}
       </Item>
@@ -136,7 +144,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     <div
       ref={ref}
       className={rootClassNames}
-      style={{ ...gapStyle, ...space?.styles?.root, ...space?.style, ...styles?.root, ...style }}
+      style={{ ...gapStyle, ...contextStyles.root, ...contextStyle, ...styles?.root, ...style }}
       {...restProps}
     >
       <SpaceContextProvider value={spaceContext}>{nodes}</SpaceContextProvider>

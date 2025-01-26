@@ -12,6 +12,7 @@ export type { SearchProps } from './Search';
 export type { TextAreaProps } from './TextArea';
 
 type CompoundedComponent = typeof InternalInput & {
+  /** @deprecated Please use `Space.Compact` */
   Group: typeof Group;
   Search: typeof Search;
   TextArea: typeof TextArea;
