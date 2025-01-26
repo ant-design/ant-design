@@ -6,6 +6,7 @@ import { getSize } from './utils';
 
 interface ProgressStepsProps extends ProgressProps {
   steps: number;
+  rounding?: (step: number) => number;
   strokeColor?: string | string[];
   trailColor?: string;
 }
@@ -14,6 +15,7 @@ const Steps: React.FC<ProgressStepsProps> = (props) => {
   const {
     size,
     steps,
+    rounding: customRounding = Math.round,
     percent = 0,
     strokeWidth = 8,
     strokeColor,
@@ -21,7 +23,7 @@ const Steps: React.FC<ProgressStepsProps> = (props) => {
     prefixCls,
     children,
   } = props;
-  const current = Math.round(steps * (percent / 100));
+  const current = customRounding(steps * (percent / 100));
   const stepWidth = size === 'small' ? 2 : 14;
   const mergedSize = size ?? [stepWidth, strokeWidth];
   const [width, height] = getSize(mergedSize, 'step', { steps, strokeWidth });

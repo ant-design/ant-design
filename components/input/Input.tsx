@@ -10,8 +10,8 @@ import getAllowClear from '../_util/getAllowClear';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
 import type { Variant } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
@@ -74,7 +74,16 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     deprecated(!('bordered' in props), 'bordered', 'variant');
   }
 
-  const { getPrefixCls, direction, input } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    allowClear: contextAllowClear,
+    autoComplete: contextAutoComplete,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('input');
 
   const prefixCls = getPrefixCls('input', customizePrefixCls);
   const inputRef = useRef<InputRef>(null);
@@ -143,7 +152,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     </>
   );
 
-  const mergedAllowClear = getAllowClear(allowClear ?? input?.allowClear);
+  const mergedAllowClear = getAllowClear(allowClear ?? contextAllowClear);
 
   const [variant, enableVariantCls] = useVariant('input', customVariant, bordered);
 
@@ -151,13 +160,13 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     <RcInput
       ref={composeRef(ref, inputRef)}
       prefixCls={prefixCls}
-      autoComplete={input?.autoComplete}
+      autoComplete={contextAutoComplete}
       {...rest}
       disabled={mergedDisabled}
       onBlur={handleBlur}
       onFocus={handleFocus}
-      style={{ ...input?.style, ...style }}
-      styles={{ ...input?.styles, ...styles }}
+      style={{ ...contextStyle, ...style }}
+      styles={{ ...contextStyles, ...styles }}
       suffix={suffixNode}
       allowClear={mergedAllowClear}
       className={classNames(
@@ -166,7 +175,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
         cssVarCls,
         rootCls,
         compactItemClassnames,
-        input?.className,
+        contextClassName,
       )}
       onChange={handleChange}
       addonBefore={
@@ -185,7 +194,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       }
       classNames={{
         ...classes,
-        ...input?.classNames,
+        ...contextClassNames,
         input: classNames(
           {
             [`${prefixCls}-sm`]: mergedSize === 'small',
@@ -193,7 +202,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
             [`${prefixCls}-rtl`]: direction === 'rtl',
           },
           classes?.input,
-          input?.classNames?.input,
+          contextClassNames.input,
           hashId,
         ),
         variant: classNames(

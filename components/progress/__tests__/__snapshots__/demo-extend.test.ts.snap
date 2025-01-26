@@ -1653,10 +1653,10 @@ exports[`renders components/progress/demo/dynamic.tsx extend context correctly 1
     </div>
   </div>
   <div
-    class="ant-btn-group"
+    class="ant-space-compact"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-first-item"
       type="button"
     >
       <span
@@ -1684,7 +1684,7 @@ exports[`renders components/progress/demo/dynamic.tsx extend context correctly 1
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
       type="button"
     >
       <span
