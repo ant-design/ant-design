@@ -115,7 +115,7 @@
     "@rc-component/color-picker": "~2.0.1",
     "@rc-component/dialog": "~1.0.1",
     "@rc-component/form": "~1.0.0",
-    "@rc-component/mutate-observer": "^1.1.0",
+    "@rc-component/mutate-observer": "^2.0.0",
     "@rc-component/qrcode": "~1.0.0",
     "@rc-component/segmented": "~1.0.0",
     "@rc-component/table": "~1.0.0",
