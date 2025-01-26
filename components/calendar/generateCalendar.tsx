@@ -8,7 +8,7 @@ import type { CellRenderInfo } from 'rc-picker/lib/interface';
 
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import { useLocale } from '../locale';
 import CalendarHeader from './Header';
 import enUS from './locale/en_US';
@@ -95,7 +95,12 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       onPanelChange,
       onSelect,
     } = props;
-    const { getPrefixCls, direction, calendar } = React.useContext(ConfigContext);
+    const {
+      getPrefixCls,
+      direction,
+      className: contextClassName,
+      style: contextStyle,
+    } = useComponentConfig('calendar');
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const calendarPrefixCls = `${prefixCls}-calendar`;
 
@@ -258,13 +263,13 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
             [`${calendarPrefixCls}-mini`]: !fullscreen,
             [`${calendarPrefixCls}-rtl`]: direction === 'rtl',
           },
-          calendar?.className,
+          contextClassName,
           className,
           rootClassName,
           hashId,
           cssVarCls,
         )}
-        style={{ ...calendar?.style, ...style }}
+        style={{ ...contextStyle, ...style }}
       >
         {headerRender ? (
           headerRender({

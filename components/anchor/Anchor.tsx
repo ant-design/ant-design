@@ -8,8 +8,7 @@ import scrollTo from '../_util/scrollTo';
 import { devUseWarning } from '../_util/warning';
 import Affix from '../affix';
 import type { AffixProps } from '../affix';
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext, useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { AnchorLinkBaseProps } from './AnchorLink';
 import AnchorLink from './AnchorLink';
@@ -147,8 +146,14 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   const spanLinkNode = React.useRef<HTMLSpanElement>(null);
   const animating = React.useRef<boolean>(false);
 
-  const { direction, anchor, getTargetContainer, getPrefixCls } =
-    React.useContext<ConfigConsumerProps>(ConfigContext);
+  const {
+    direction,
+    getPrefixCls,
+    className: anchorClassName,
+    style: anchorStyle,
+  } = useComponentConfig('anchor');
+
+  const { getTargetContainer } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('anchor', customPrefixCls);
 
@@ -282,7 +287,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
-    anchor?.className,
+    anchorClassName,
   );
 
   const anchorClass = classNames(prefixCls, {
@@ -295,7 +300,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
 
   const wrapperStyle: React.CSSProperties = {
     maxHeight: offsetTop ? `calc(100vh - ${offsetTop}px)` : '100vh',
-    ...anchor?.style,
+    ...anchorStyle,
     ...style,
   };
 
