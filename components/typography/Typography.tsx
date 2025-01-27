@@ -1,8 +1,9 @@
 import * as React from 'react';
 import type { JSX } from 'react';
 import classNames from 'classnames';
-import type { ConfigConsumerProps, DirectionType } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+
+import type { DirectionType } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useStyle from './style';
 
 export interface TypographyProps<C extends keyof JSX.IntrinsicElements>
@@ -40,8 +41,9 @@ const Typography = React.forwardRef<
   const {
     getPrefixCls,
     direction: contextDirection,
-    typography,
-  } = React.useContext<ConfigConsumerProps>(ConfigContext);
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('typography');
 
   const direction = typographyDirection ?? contextDirection;
   const prefixCls = getPrefixCls('typography', customizePrefixCls);
@@ -50,7 +52,7 @@ const Typography = React.forwardRef<
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
   const componentClassName = classNames(
     prefixCls,
-    typography?.className,
+    contextClassName,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
@@ -60,7 +62,7 @@ const Typography = React.forwardRef<
     cssVarCls,
   );
 
-  const mergedStyle: React.CSSProperties = { ...typography?.style, ...style };
+  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
   return wrapCSSVar(
     // @ts-expect-error: Expression produces a union type that is too complex to represent.

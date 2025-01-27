@@ -21,6 +21,7 @@ export interface GroupProps {
   compact?: boolean;
 }
 
+/** @deprecated Please use `Space.Compact` */
 const Group: React.FC<GroupProps> = (props) => {
   const { getPrefixCls, direction } = useContext(ConfigContext);
   const { prefixCls: customizePrefixCls, className } = props;

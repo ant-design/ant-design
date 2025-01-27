@@ -9,7 +9,7 @@ import type { CSSMotionProps } from 'rc-motion';
 
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import type { CollapsibleType } from './CollapsePanel';
@@ -57,7 +57,15 @@ interface PanelProps {
 }
 
 const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
-  const { getPrefixCls, direction, collapse } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    expandIcon: contextExpandIcon,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('collapse');
 
   const {
     prefixCls: customizePrefixCls,
@@ -79,7 +87,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
   const rootPrefixCls = getPrefixCls();
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
-  const mergedExpandIcon = expandIcon ?? collapse?.expandIcon;
+  const mergedExpandIcon = expandIcon ?? contextExpandIcon;
 
   const renderExpandIcon = React.useCallback(
     (panelProps: PanelProps = {}) => {
@@ -99,12 +107,12 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
               className?: string;
             }>
           )?.props?.className,
-          collapse?.classNames?.icon,
+          contextClassNames.icon,
           collapseClassNames?.icon,
           `${prefixCls}-arrow`,
         ),
         style: {
-          ...collapse?.styles?.icon,
+          ...contextStyles.icon,
           ...styles?.icon,
         },
       }));
@@ -120,12 +128,12 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       [`${prefixCls}-ghost`]: !!ghost,
       [`${prefixCls}-${mergedSize}`]: mergedSize !== 'middle',
     },
-    collapse?.className,
+    contextClassName,
     className,
     rootClassName,
     hashId,
     cssVarCls,
-    collapse?.classNames?.root,
+    contextClassNames.root,
     collapseClassNames?.root,
   );
   const openMotion: CSSMotionProps = {
@@ -149,18 +157,18 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       expandIcon={renderExpandIcon}
       prefixCls={prefixCls}
       className={collapseClassName}
-      style={{ ...collapse?.styles?.root, ...collapse?.style, ...styles?.root, ...style }}
+      style={{ ...contextStyles.root, ...contextStyle, ...styles?.root, ...style }}
       classNames={{
-        header: classNames(collapse?.classNames?.header, collapseClassNames?.header),
-        title: classNames(collapse?.classNames?.title, collapseClassNames?.title),
-        body: classNames(collapse?.classNames?.body, collapseClassNames?.body),
-        icon: classNames(collapse?.classNames?.icon, collapseClassNames?.icon),
+        header: classNames(contextClassNames.header, collapseClassNames?.header),
+        title: classNames(contextClassNames.title, collapseClassNames?.title),
+        body: classNames(contextClassNames.body, collapseClassNames?.body),
+        icon: classNames(contextClassNames.icon, collapseClassNames?.icon),
       }}
       styles={{
-        header: { ...collapse?.styles?.header, ...styles?.header },
-        title: { ...collapse?.styles?.title, ...styles?.title },
-        body: { ...collapse?.styles?.body, ...styles?.body },
-        icon: { ...collapse?.styles?.icon, ...styles?.icon },
+        header: { ...contextStyles.header, ...styles?.header },
+        title: { ...contextStyles.title, ...styles?.title },
+        body: { ...contextStyles.body, ...styles?.body },
+        icon: { ...contextStyles.icon, ...styles?.icon },
       }}
     >
       {items}

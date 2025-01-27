@@ -20,6 +20,7 @@ import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { Variant } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -175,11 +176,13 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const restProps = omit(rest, ['suffixIcon']);
 
   const {
-    getPopupContainer: getContextPopupContainer,
     getPrefixCls,
-    popupOverflow,
-    cascader,
-  } = React.useContext(ConfigContext);
+    getPopupContainer: getContextPopupContainer,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('cascader');
+
+  const { popupOverflow } = React.useContext(ConfigContext);
 
   // =================== Form =====================
   const {
@@ -313,7 +316,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
         },
         getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
         compactItemClassnames,
-        cascader?.className,
+        contextClassName,
         className,
         rootClassName,
         rootCls,
@@ -322,7 +325,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
         cssVarCls,
       )}
       disabled={mergedDisabled}
-      style={{ ...cascader?.style, ...style }}
+      style={{ ...contextStyle, ...style }}
       {...(restProps as any)}
       builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
       direction={mergedDirection}

@@ -4,8 +4,7 @@ import classNames from 'classnames';
 
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
 import { devUseWarning } from '../_util/warning';
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import Skeleton from '../skeleton';
 import StatisticNumber from './Number';
 import useStyle from './style';
@@ -59,8 +58,14 @@ const Statistic: React.FC<StatisticProps> = (props) => {
     ...rest
   } = props;
 
-  const { getPrefixCls, direction, statistic } =
-    React.useContext<ConfigConsumerProps>(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('statistic');
 
   const prefixCls = getPrefixCls('statistic', customizePrefixCls);
 
@@ -91,10 +96,10 @@ const Statistic: React.FC<StatisticProps> = (props) => {
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
-    statistic?.className,
+    contextClassName,
     className,
     rootClassName,
-    statistic?.classNames?.root,
+    contextClassNames.root,
     statisticClassNames?.root,
     hashId,
     cssVarCls,
@@ -102,31 +107,31 @@ const Statistic: React.FC<StatisticProps> = (props) => {
 
   const headerClassNames = classNames(
     `${prefixCls}-header`,
-    statistic?.classNames?.header,
+    contextClassNames.header,
     statisticClassNames?.header,
   );
 
   const titleClassNames = classNames(
     `${prefixCls}-title`,
-    statistic?.classNames?.title,
+    contextClassNames.title,
     statisticClassNames?.title,
   );
 
   const contentClassNames = classNames(
     `${prefixCls}-content`,
-    statistic?.classNames?.content,
+    contextClassNames.content,
     statisticClassNames?.content,
   );
 
   const prefixClassNames = classNames(
     `${prefixCls}-content-prefix`,
-    statistic?.classNames?.prefix,
+    contextClassNames.prefix,
     statisticClassNames?.prefix,
   );
 
   const suffixClassNames = classNames(
     `${prefixCls}-content-suffix`,
-    statistic?.classNames?.suffix,
+    contextClassNames.suffix,
     statisticClassNames?.suffix,
   );
 
@@ -136,19 +141,13 @@ const Statistic: React.FC<StatisticProps> = (props) => {
     <div
       {...restProps}
       className={rootClassNames}
-      style={{ ...statistic?.styles?.root, ...styles?.root, ...statistic?.style, ...style }}
+      style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
       {title && (
-        <div
-          className={headerClassNames}
-          style={{ ...statistic?.styles?.header, ...styles?.header }}
-        >
-          <div
-            className={titleClassNames}
-            style={{ ...statistic?.styles?.title, ...styles?.title }}
-          >
+        <div className={headerClassNames} style={{ ...contextStyles.header, ...styles?.header }}>
+          <div className={titleClassNames} style={{ ...contextStyles.title, ...styles?.title }}>
             {title}
           </div>
         </div>
@@ -156,12 +155,12 @@ const Statistic: React.FC<StatisticProps> = (props) => {
       <Skeleton paragraph={false} loading={loading} className={`${prefixCls}-skeleton`}>
         <div
           className={contentClassNames}
-          style={{ ...valueStyle, ...statistic?.styles?.content, ...styles?.content }}
+          style={{ ...valueStyle, ...contextStyles.content, ...styles?.content }}
         >
           {prefix && (
             <span
               className={prefixClassNames}
-              style={{ ...statistic?.styles?.prefix, ...styles?.prefix }}
+              style={{ ...contextStyles.prefix, ...styles?.prefix }}
             >
               {prefix}
             </span>
@@ -170,7 +169,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
           {suffix && (
             <span
               className={suffixClassNames}
-              style={{ ...statistic?.styles?.suffix, ...styles?.suffix }}
+              style={{ ...contextStyles.suffix, ...styles?.suffix }}
             >
               {suffix}
             </span>

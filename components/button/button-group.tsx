@@ -40,6 +40,7 @@ const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Button.Group');
 
+    warning.deprecated(false, 'Button.Group', 'Space.Compact');
     warning(!size || ['large', 'small', 'middle'].includes(size), 'usage', 'Invalid prop `size`.');
   }
 
