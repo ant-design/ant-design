@@ -121,6 +121,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     [
       ['headStyle', 'styles.header'],
       ['bodyStyle', 'styles.body'],
+      ['bordered', 'variant'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
