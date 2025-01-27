@@ -129,7 +129,7 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
     let avatarNode: React.ReactNode;
     if (hasAvatar) {
       const avatarProps: SkeletonAvatarProps = {
-        className: classNames(contextClassNames?.avatar, skeletonClassNames?.avatar),
+        className: classNames(contextClassNames.avatar, skeletonClassNames?.avatar),
         prefixCls: `${prefixCls}-avatar`,
         ...getAvatarBasicProps(hasTitle, hasParagraph),
         ...getComponentProps(avatar),
