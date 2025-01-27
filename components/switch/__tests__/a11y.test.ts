@@ -1,3 +1,5 @@
 import accessibilityDemoTest from '../../../tests/shared/accessibilityTest';
 
-accessibilityDemoTest('switch', { disabledRules: ['button-name'] });
+accessibilityDemoTest('switch', {
+  disabledRules: ['button-name'],
+});

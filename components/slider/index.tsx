@@ -86,6 +86,13 @@ export interface SliderBaseProps {
   getTooltipPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   /** @deprecated `tooltipPlacement` is deprecated. Please use `tooltip.placement` instead. */
   tooltipPlacement?: TooltipPlacement;
+
+  // Accessibility
+  tabIndex?: SliderProps['tabIndex'];
+  ariaLabelForHandle?: SliderProps['ariaLabelForHandle'];
+  ariaLabelledByForHandle?: SliderProps['ariaLabelledByForHandle'];
+  ariaRequired?: SliderProps['ariaRequired'];
+  ariaValueTextFormatterForHandle?: SliderProps['ariaValueTextFormatterForHandle'];
 }
 
 export interface SliderSingleProps extends SliderBaseProps {
