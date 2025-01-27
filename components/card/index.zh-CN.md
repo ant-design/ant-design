@@ -39,7 +39,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 | --- | --- | --- | --- | --- |
 | actions | 卡片操作组，位置在卡片底部 | Array&lt;ReactNode> | - |  |
 | activeTabKey | 当前激活页签的 key | string | - |  |
-| bordered | 是否有边框 | boolean | true |  |
+| ~~bordered~~ | 是否有边框, 请使用 `variant` 替换 | boolean | true |  |
+| variant | 变体 | `outlined` \| `borderless` \| | `outlined` | 5.24.0 |
 | cover | 卡片封面 | ReactNode | - |  |
 | defaultActiveTabKey | 初始化选中页签的 key，如果没有设置 activeTabKey | string | `第一个页签的 key` |  |
 | extra | 卡片右上角的操作区域 | ReactNode | - |  |
