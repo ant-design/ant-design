@@ -29,6 +29,7 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   prefixCls?: string;
   title?: React.ReactNode;
   extra?: React.ReactNode;
+  /** @deprecated Please use `variant` instead */
   bordered?: boolean;
   /** @deprecated Please use `styles.header` instead */
   headStyle?: React.CSSProperties;
