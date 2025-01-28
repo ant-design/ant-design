@@ -72,21 +72,6 @@ export interface SliderBaseProps {
   onFocus?: React.FocusEventHandler<HTMLDivElement>;
   onBlur?: React.FocusEventHandler<HTMLDivElement>;
 
-  // Deprecated
-  /** @deprecated `tooltipPrefixCls` is deprecated. Please use `tooltip.prefixCls` instead. */
-  tooltipPrefixCls?: string;
-  /** @deprecated `tipFormatter` is deprecated. Please use `tooltip.formatter` instead. */
-  tipFormatter?: Formatter;
-  /** @deprecated `tooltipVisible` is deprecated. Please use `tooltip.open` instead. */
-  tooltipVisible?: boolean;
-  /**
-   * @deprecated `getTooltipPopupContainer` is deprecated. Please use `tooltip.getPopupContainer`
-   *   instead.
-   */
-  getTooltipPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
-  /** @deprecated `tooltipPlacement` is deprecated. Please use `tooltip.placement` instead. */
-  tooltipPlacement?: TooltipPlacement;
-
   // Accessibility
   tabIndex?: SliderProps['tabIndex'];
   ariaLabelForHandle?: SliderProps['ariaLabelForHandle'];
