@@ -44,7 +44,7 @@ const PreviewContent: React.FC<PreviewContentProps> = ({ element, setElement, ..
   const Element = COMPONENT_MAP[element];
 
   return (
-    <Flex vertical style={{ width: '100%' }}>
+    <Flex vertical style={{ width: 'fit-content', marginRight: 'auto' }}>
       <Segmented
         options={OPTIONS}
         value={element}
