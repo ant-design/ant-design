@@ -204,7 +204,6 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
         [`${prefixCls}-round`]: round,
       },
       contextClassNames?.root,
-      // skeleton?.className,
       skeletonClassNames?.root,
       contextClassName,
       className,
