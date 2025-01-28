@@ -1,4 +1,4 @@
-import React, { useContext, type AriaAttributes } from 'react';
+import React, { useContext } from 'react';
 import { QRCodeCanvas, QRCodeSVG } from '@rc-component/qrcode';
 import omit from '@rc-component/util/lib/omit';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
@@ -50,9 +50,10 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   };
 
   const a11yProps = pickAttrs(rest, true);
-  const restProps = omit<React.HTMLAttributes<HTMLDivElement>, keyof AriaAttributes>(
+
+  const restProps = omit<React.HTMLAttributes<HTMLDivElement>, keyof React.AriaAttributes>(
     rest,
-    Object.keys(a11yProps) as Array<keyof AriaAttributes>,
+    Object.keys(a11yProps) as (keyof React.AriaAttributes)[],
   );
 
   const qrCodeProps = {
