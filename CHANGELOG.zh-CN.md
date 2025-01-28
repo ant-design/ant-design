@@ -15,6 +15,27 @@ tag: vVERSION
 
 ---
 
+## 5.23.3
+
+`2025-01-28`
+
+龙年最后一版，祝各位新春愉快！🐲
+
+- ⌨️ MISC: 为所有组件的示例添加了可访问性测试，确保符合无障碍标准。并优化了部分组件的可访问性支持，改进了对屏幕阅读器和键盘操作的兼容性。[#51372](https://github.com/ant-design/ant-design/pull/51372) [@aojunhao123](https://github.com/aojunhao123)
+- 🐞 MISC: 修复导入 `antd/dist/reset.css` 文件的问题。[#52559](https://github.com/ant-design/ant-design/pull/52559) [@CaptainVolcom](https://github.com/CaptainVolcom)
+- 🐞 修复 Button `loading` 为 `null` 时抛错的问题。[#52508](https://github.com/ant-design/ant-design/pull/52508) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 修复 Table 最后一行边框颜色过渡问题。[#52549](https://github.com/ant-design/ant-design/pull/52549) [@DDDDD12138](https://github.com/DDDDD12138)
+- 💄 修复 Cascader 组件禁用状态下复选框的鼠标指针样式问题。[#52539](https://github.com/ant-design/ant-design/pull/52539) [@aojunhao123](https://github.com/aojunhao123)
+- 💄 修复 ConfigProvider 在 StyleProvider 配置 `layer` 时不会正确修改图标对应样式优先级的问题。[#52533](https://github.com/ant-design/ant-design/pull/52533) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Layout 切换侧边栏按钮在非 cssVar 模式下样式丢失的问题。. [#52537](https://github.com/ant-design/ant-design/pull/52537) [@afc163](https://github.com/afc163)
+- 🐞 修复 Tree 组件禁用状态下复选框的鼠标指针样式问题。[#52525](https://github.com/ant-design/ant-design/pull/52525) [@aojunhao123](https://github.com/aojunhao123)
+- notification
+  - 🐞 修复 notification `useNotification` 中 `closeIcon` 配置无效的问题。[#52516](https://github.com/ant-design/ant-design/pull/52516) [@typenoob](https://github.com/typenoob)
+  - 🐞 修复 notification 组件在 App 组件下的显示闪烁问题。[#52499](https://github.com/ant-design/ant-design/pull/52499) [@afc163](https://github.com/afc163)
+- RTL
+  - 🐞 修复 Splitter 在 rtl 模式下折叠行为异常的问题。[#52501](https://github.com/ant-design/ant-design/pull/52501) [@aojunhao123](https://github.com/aojunhao123)
+  - 💄 修复 Spin 在 rtl 模式下的样式问题。[#52538](https://github.com/ant-design/ant-design/pull/52538) [@afc163](https://github.com/afc163)
+
 ## 5.23.2
 
 `2025-01-20`

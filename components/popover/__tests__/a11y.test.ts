@@ -1,3 +1,5 @@
 import accessibilityDemoTest from '../../../tests/shared/accessibilityTest';
 
-accessibilityDemoTest('breadcrumb');
+accessibilityDemoTest('popover', {
+  skip: ['arrow.tsx'],
+});
