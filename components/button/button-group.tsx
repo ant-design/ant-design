@@ -24,18 +24,16 @@ const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
 
   const [, , hashId] = useToken();
 
-  let sizeCls = '';
-
-  switch (size) {
-    case 'large':
-      sizeCls = 'lg';
-      break;
-    case 'small':
-      sizeCls = 'sm';
-      break;
-    default:
-    // Do nothing
-  }
+  const sizeCls = React.useMemo<string>(() => {
+    switch (size) {
+      case 'large':
+        return 'lg';
+      case 'small':
+        return 'sm';
+      default:
+        return '';
+    }
+  }, [size]);
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Button.Group');
