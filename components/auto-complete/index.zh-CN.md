@@ -62,8 +62,10 @@ demo:
 | options | 数据化配置选项内容，相比 jsx 定义会获得更好的渲染性能 | { label, value }\[] | - |  |
 | placeholder | 输入框提示 | string | - |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
+| size | 控件大小 | `large` \| `middle` \| `small` | - |  |
 | value | 指定当前选中的条目 | string | - |  |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
 | onBlur | 失去焦点时的回调 | function() | - |  |
 | onChange | 选中 option，或 input 的 value 变化时，调用此函数 | function(value) | - |  |
 | onDropdownVisibleChange | 展开下拉菜单的回调 | function(open) | - |  |
@@ -71,6 +73,8 @@ demo:
 | onSearch | 搜索补全项的时候调用 | function(value) | - |  |
 | onSelect | 被选中时调用，参数为选中项的 value 值 | function(value, option) | - |  |
 | onClear | 清除内容时的回调 | function | - | 4.6.0 |
+| onInputKeyDown | 按键按下时回调 | (event: KeyboardEvent) => void | - |  |
+| onPopupScroll | 下拉列表滚动时的回调 | (event: UIEvent) => void | - |  |
 
 ## 方法
 

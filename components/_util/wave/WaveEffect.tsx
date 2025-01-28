@@ -4,7 +4,8 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 
-import { getReactRender, type UnmountType } from '../../config-provider/UnstableContext';
+import { getReactRender } from '../../config-provider/UnstableContext';
+import type { UnmountType } from '../../config-provider/UnstableContext';
 import { TARGET_CLS } from './interface';
 import type { ShowWaveEffect } from './interface';
 import { getTargetWaveColor } from './util';
