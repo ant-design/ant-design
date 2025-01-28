@@ -331,27 +331,27 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
 exports[`Input allowClear should support classNames and styles 1`] = `
 <div>
   <span
-    class="rc-input-affix-wrapper rc-input-outlined custom-class"
+    class="rc-component/input-affix-wrapper rc-component/input-outlined custom-class"
     style="background-color: red;"
   >
     <span
-      class="rc-input-prefix custom-prefix"
+      class="rc-component/input-prefix custom-prefix"
       style="color: blue;"
     >
       prefix
     </span>
     <input
-      class="rc-input custom-input"
+      class="rc-component/input custom-input"
       style="color: red;"
       type="text"
       value="123"
     />
     <span
-      class="rc-input-suffix custom-suffix"
+      class="rc-component/input-suffix custom-suffix"
       style="color: yellow;"
     >
       <span
-        class="rc-input-show-count-suffix rc-input-show-count-has-suffix custom-count"
+        class="rc-component/input-show-count-suffix rc-component/input-show-count-has-suffix custom-count"
         style="color: green;"
       >
         3
@@ -360,33 +360,33 @@ exports[`Input allowClear should support classNames and styles 1`] = `
     </span>
   </span>
   <span
-    class="rc-input-group-wrapper rc-input-group-wrapper-outlined custom-class"
+    class="rc-component/input-group-wrapper rc-component/input-group-wrapper-outlined custom-class"
     style="background-color: red;"
   >
     <span
-      class="rc-input-wrapper rc-input-group"
+      class="rc-component/input-wrapper rc-component/input-group"
     >
       <span
-        class="rc-input-affix-wrapper rc-input-outlined"
+        class="rc-component/input-affix-wrapper rc-component/input-outlined"
       >
         <span
-          class="rc-input-prefix custom-prefix"
+          class="rc-component/input-prefix custom-prefix"
           style="color: blue;"
         >
           prefix
         </span>
         <input
-          class="rc-input custom-input"
+          class="rc-component/input custom-input"
           style="color: red;"
           type="text"
           value="123"
         />
         <span
-          class="rc-input-suffix custom-suffix"
+          class="rc-component/input-suffix custom-suffix"
           style="color: yellow;"
         >
           <span
-            class="rc-input-show-count-suffix rc-input-show-count-has-suffix custom-count"
+            class="rc-component/input-show-count-suffix rc-component/input-show-count-has-suffix custom-count"
             style="color: green;"
           >
             3
@@ -395,33 +395,33 @@ exports[`Input allowClear should support classNames and styles 1`] = `
         </span>
       </span>
       <span
-        class="rc-input-group-addon"
+        class="rc-component/input-group-addon"
       >
         addon
       </span>
     </span>
   </span>
   <input
-    class="rc-input custom-input rc-input-outlined custom-class"
+    class="rc-component/input custom-input rc-component/input-outlined custom-class"
     style="color: red; background-color: red;"
     type="text"
     value="123"
   />
   <span
-    class="rc-input-group-wrapper rc-input-group-wrapper-outlined custom-class"
+    class="rc-component/input-group-wrapper rc-component/input-group-wrapper-outlined custom-class"
     style="background-color: red;"
   >
     <span
-      class="rc-input-wrapper rc-input-group"
+      class="rc-component/input-wrapper rc-component/input-group"
     >
       <input
-        class="rc-input custom-input rc-input-outlined"
+        class="rc-component/input custom-input rc-component/input-outlined"
         style="color: red;"
         type="text"
         value="123"
       />
       <span
-        class="rc-input-group-addon"
+        class="rc-component/input-group-addon"
       >
         addon
       </span>
