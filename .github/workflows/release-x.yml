@@ -1,10 +1,9 @@
-name: 🐦 Release to Tweet
+name: 🆇 Release to X
 
 on:
-  create
-
-permissions:
-  contents: read
+  workflow_dispatch:
+  release:
+    types: [published]
 
 jobs:
   tweet:
