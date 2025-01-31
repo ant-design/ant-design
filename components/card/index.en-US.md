@@ -38,7 +38,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | actions | The action list, shows at the bottom of the Card | Array&lt;ReactNode> | - |  |
 | activeTabKey | Current TabPane's key | string | - |  |
-| bordered | Toggles rendering of the border around the card | boolean | true |  |
+| ~~bordered~~ | Toggles rendering of the border around the card, please use `variant` instead | boolean | true |  |
+| variant | Variants of Card | `outlined` \| `borderless` \| | `outlined` | 5.24.0 |
 | cover | Card cover | ReactNode | - |  |
 | defaultActiveTabKey | Initial active TabPane's key, if `activeTabKey` is not set | string | `The key of first tab` |  |
 | extra | Content to render in the top-right corner of the card | ReactNode | - |  |

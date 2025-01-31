@@ -1,6 +1,4 @@
 import * as React from 'react';
-import useId from '@rc-component/util/lib/hooks/useId';
-import classNames from 'classnames';
 import type {
   SegmentedLabeledOption as RcSegmentedLabeledOption,
   SegmentedProps as RCSegmentedProps,
@@ -8,8 +6,10 @@ import type {
   SegmentedRawOption,
 } from '@rc-component/segmented';
 import RcSegmented from '@rc-component/segmented';
+import useId from '@rc-component/util/lib/hooks/useId';
+import classNames from 'classnames';
 
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
@@ -71,7 +71,14 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     ...restProps
   } = props;
 
-  const { getPrefixCls, direction, segmented } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('segmented');
   const prefixCls = getPrefixCls('segmented', customizePrefixCls);
   // Style
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
@@ -92,11 +99,11 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
                 <span
                   className={classNames(
                     `${prefixCls}-item-icon`,
-                    segmented?.classNames?.icon,
+                    contextClassNames.icon,
                     segmentedClassNames?.icon,
                   )}
                   style={{
-                    ...segmented?.styles?.icon,
+                    ...contextStyles.icon,
                     ...styles?.icon,
                   }}
                 >
@@ -115,9 +122,9 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
   const cls = classNames(
     className,
     rootClassName,
-    segmented?.className,
+    contextClassName,
     segmentedClassNames?.root,
-    segmented?.classNames?.root,
+    contextClassNames.root,
     {
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-sm`]: mergedSize === 'small',
@@ -129,8 +136,8 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
   );
 
   const mergedStyle: React.CSSProperties = {
-    ...segmented?.styles?.root,
-    ...segmented?.style,
+    ...contextStyles.root,
+    ...contextStyle,
     ...styles?.root,
     ...style,
   };
@@ -142,12 +149,12 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
       className={cls}
       style={mergedStyle}
       classNames={{
-        label: classNames(segmentedClassNames?.label, segmented?.classNames?.label),
-        item: classNames(segmentedClassNames?.item, segmented?.classNames?.item),
+        label: classNames(segmentedClassNames?.label, contextClassNames.label),
+        item: classNames(segmentedClassNames?.item, contextClassNames.item),
       }}
       styles={{
-        item: { ...segmented?.styles?.item, ...styles?.item },
-        label: { ...segmented?.styles?.label, ...styles?.label },
+        item: { ...contextStyles.item, ...styles?.item },
+        label: { ...contextStyles.label, ...styles?.label },
       }}
       options={extendedOptions}
       ref={ref}
