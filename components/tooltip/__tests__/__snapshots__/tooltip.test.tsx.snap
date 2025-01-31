@@ -1,10 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tooltip rtl render component should be rendered correctly in RTL direction 1`] = `<span />`;
+exports[`Tooltip rtl render component should be rendered correctly in RTL direction 1`] = `
+<span
+  aria-describedby="test-id"
+/>
+`;
 
 exports[`Tooltip should hide when mouse leave antd disabled component Button 1`] = `
 <button
-  class="ant-btn ant-btn-default"
+  aria-describedby="test-id"
+  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
   disabled=""
   type="button"
 />
@@ -13,6 +18,7 @@ exports[`Tooltip should hide when mouse leave antd disabled component Button 1`]
 exports[`Tooltip should hide when mouse leave antd disabled component Switch 1`] = `
 <button
   aria-checked="false"
+  aria-describedby="test-id"
   class="ant-switch ant-switch-disabled"
   disabled=""
   role="switch"
@@ -37,6 +43,7 @@ exports[`Tooltip should hide when mouse leave antd disabled component Switch 1`]
 exports[`Tooltip support arrow props by default 1`] = `
 <div>
   <div
+    aria-describedby="test-id"
     class="target ant-tooltip-open"
   >
     target
@@ -54,6 +61,7 @@ exports[`Tooltip support arrow props by default 1`] = `
     >
       <div
         class="ant-tooltip-inner"
+        id="test-id"
         role="tooltip"
       />
     </div>
@@ -64,6 +72,7 @@ exports[`Tooltip support arrow props by default 1`] = `
 exports[`Tooltip support arrow props pass false to hide arrow 1`] = `
 <div>
   <div
+    aria-describedby="test-id"
     class="target ant-tooltip-open"
   >
     target
@@ -77,6 +86,7 @@ exports[`Tooltip support arrow props pass false to hide arrow 1`] = `
     >
       <div
         class="ant-tooltip-inner"
+        id="test-id"
         role="tooltip"
       />
     </div>

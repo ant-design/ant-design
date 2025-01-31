@@ -43,7 +43,7 @@ const antRotate = new Keyframes('antRotate', {
 const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => {
   const { componentCls, calc } = token;
   return {
-    [`${componentCls}`]: {
+    [componentCls]: {
       ...resetComponent(token),
       position: 'absolute',
       display: 'none',
@@ -208,9 +208,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
       // ------------------------------
       [`${componentCls}-dot-progress`]: {
         position: 'absolute',
-        top: '50%',
-        transform: 'translateY(-50%)',
-        insetInlineStart: 0,
+        inset: 0,
       },
 
       // dots

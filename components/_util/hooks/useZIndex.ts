@@ -4,7 +4,14 @@ import useToken from '../../theme/useToken';
 import { devUseWarning } from '../warning';
 import zIndexContext from '../zindexContext';
 
-export type ZIndexContainer = 'Modal' | 'Drawer' | 'Popover' | 'Popconfirm' | 'Tooltip' | 'Tour';
+export type ZIndexContainer =
+  | 'Modal'
+  | 'Drawer'
+  | 'Popover'
+  | 'Popconfirm'
+  | 'Tooltip'
+  | 'Tour'
+  | 'FloatButton';
 
 export type ZIndexConsumer = 'SelectLike' | 'Dropdown' | 'DatePicker' | 'Menu' | 'ImagePreview';
 
@@ -18,6 +25,13 @@ const CONTAINER_OFFSET_MAX_COUNT = 10;
 
 export const CONTAINER_MAX_OFFSET = CONTAINER_OFFSET * CONTAINER_OFFSET_MAX_COUNT;
 
+/**
+ * Static function will default be the `CONTAINER_MAX_OFFSET`.
+ * But it still may have children component like Select, Dropdown.
+ * So the warning zIndex should exceed the `CONTAINER_MAX_OFFSET`.
+ */
+const CONTAINER_MAX_OFFSET_WITH_CHILDREN = CONTAINER_MAX_OFFSET + CONTAINER_OFFSET;
+
 export const containerBaseZIndexOffset: Record<ZIndexContainer, number> = {
   Modal: CONTAINER_OFFSET,
   Drawer: CONTAINER_OFFSET,
@@ -25,7 +39,9 @@ export const containerBaseZIndexOffset: Record<ZIndexContainer, number> = {
   Popconfirm: CONTAINER_OFFSET,
   Tooltip: CONTAINER_OFFSET,
   Tour: CONTAINER_OFFSET,
+  FloatButton: CONTAINER_OFFSET,
 };
+
 export const consumerBaseZIndexOffset: Record<ZIndexConsumer, number> = {
   SelectLike: 50,
   Dropdown: 50,
@@ -40,10 +56,10 @@ function isContainerType(type: ZIndexContainer | ZIndexConsumer): type is ZIndex
 
 type ReturnResult = [zIndex: number | undefined, contextZIndex: number];
 
-export function useZIndex(
+export const useZIndex = (
   componentType: ZIndexContainer | ZIndexConsumer,
   customZIndex?: number,
-): ReturnResult {
+): ReturnResult => {
   const [, token] = useToken();
   const parentZIndex = React.useContext(zIndexContext);
   const isContainer = isContainerType(componentType);
@@ -70,7 +86,7 @@ export function useZIndex(
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning(componentType);
 
-    const maxZIndex = token.zIndexPopupBase + CONTAINER_MAX_OFFSET;
+    const maxZIndex = token.zIndexPopupBase + CONTAINER_MAX_OFFSET_WITH_CHILDREN;
     const currentZIndex = result[0] || 0;
 
     warning(
@@ -81,4 +97,4 @@ export function useZIndex(
   }
 
   return result;
-}
+};

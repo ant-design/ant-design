@@ -113,6 +113,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
+                aria-describedby="test-id"
                 class="ant-color-picker-trigger"
                 id="color"
               >
@@ -158,6 +159,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
             >
               <div
                 class="ant-slider ant-slider-horizontal"
+                id="fontSize"
               >
                 <div
                   class="ant-slider-rail"
@@ -170,6 +172,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
                   class="ant-slider-step"
                 />
                 <div
+                  aria-describedby="test-id"
                   aria-disabled="false"
                   aria-orientation="horizontal"
                   aria-valuemax="100"
@@ -214,6 +217,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
             >
               <div
                 class="ant-slider ant-slider-horizontal"
+                id="zIndex"
               >
                 <div
                   class="ant-slider-rail"
@@ -226,6 +230,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
                   class="ant-slider-step"
                 />
                 <div
+                  aria-describedby="test-id"
                   aria-disabled="false"
                   aria-orientation="horizontal"
                   aria-valuemax="100"
@@ -270,6 +275,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
             >
               <div
                 class="ant-slider ant-slider-horizontal"
+                id="rotate"
               >
                 <div
                   class="ant-slider-rail"
@@ -282,6 +288,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
                   class="ant-slider-step"
                 />
                 <div
+                  aria-describedby="test-id"
                   aria-disabled="false"
                   aria-orientation="horizontal"
                   aria-valuemax="180"
@@ -786,7 +793,7 @@ Array [
     class="ant-flex ant-flex-gap-middle"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -794,7 +801,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -802,7 +809,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>

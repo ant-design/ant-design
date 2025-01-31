@@ -3,7 +3,7 @@ import type { Settings } from '@ant-design/react-slick';
 import SlickCarousel from '@ant-design/react-slick';
 import classNames from 'classnames';
 
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useStyle from './style';
 
 export type CarouselEffect = 'scrollx' | 'fade';
@@ -58,8 +58,13 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     id,
     ...otherProps
   } = props;
-  const { getPrefixCls, direction, carousel } = React.useContext(ConfigContext);
-  const slickRef = React.useRef<any>();
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('carousel');
+  const slickRef = React.useRef<any>(null);
 
   const goTo = (slide: number, dontAnimate = false) => {
     slickRef.current.slickGoTo(slide, dontAnimate);
@@ -88,8 +93,8 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
 
   const newProps = {
     vertical,
-    className: classNames(customClassName, carousel?.className),
-    style: { ...carousel?.style, ...style },
+    className: classNames(customClassName, contextClassName),
+    style: { ...contextStyle, ...style },
     ...otherProps,
   };
 

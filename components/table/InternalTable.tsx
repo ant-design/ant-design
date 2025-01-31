@@ -57,9 +57,9 @@ import useStyle from './style';
 
 export type { ColumnsType, TablePaginationConfig };
 
-const EMPTY_LIST: any[] = [];
+const EMPTY_LIST: AnyObject[] = [];
 
-interface ChangeEventInfo<RecordType> {
+interface ChangeEventInfo<RecordType = AnyObject> {
   pagination: {
     current?: number;
     pageSize?: number;
@@ -74,12 +74,7 @@ interface ChangeEventInfo<RecordType> {
   resetPagination: (current?: number, pageSize?: number) => void;
 }
 
-/** Same as `TableProps` but we need record parent render times */
-export interface InternalTableProps<RecordType> extends TableProps<RecordType> {
-  _renderTimes: number;
-}
-
-export interface TableProps<RecordType = any>
+export interface TableProps<RecordType = AnyObject>
   extends Omit<
     RcTableProps<RecordType>,
     | 'transformColumns'
@@ -117,9 +112,14 @@ export interface TableProps<RecordType = any>
   virtual?: boolean;
 }
 
+/** Same as `TableProps` but we need record parent render times */
+export interface InternalTableProps<RecordType = AnyObject> extends TableProps<RecordType> {
+  _renderTimes: number;
+}
+
 const InternalTable = <RecordType extends AnyObject = AnyObject>(
   props: InternalTableProps<RecordType>,
-  ref: React.MutableRefObject<HTMLDivElement>,
+  ref: React.Ref<HTMLDivElement>,
 ) => {
   const {
     prefixCls: customizePrefixCls,
@@ -176,9 +176,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const mergedColumns = React.useMemo(() => {
     const matched = new Set(Object.keys(screens).filter((m) => screens[m as Breakpoint]));
 
-    return baseColumns.filter(
-      (c) => !c.responsive || c.responsive.some((r: Breakpoint) => matched.has(r)),
-    );
+    return baseColumns.filter((c) => !c.responsive || c.responsive.some((r) => matched.has(r)));
   }, [baseColumns, screens]);
 
   const tableProps: TableProps<RecordType> = omit(props, ['className', 'style', 'columns']);
@@ -224,7 +222,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   }, [rawData]);
 
   const internalRefs: NonNullable<RcTableProps['internalRefs']> = {
-    body: React.useRef<HTMLDivElement>(),
+    body: React.useRef<HTMLDivElement>(null),
   } as NonNullable<RcTableProps['internalRefs']>;
 
   // ============================ Width =============================
@@ -559,18 +557,18 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const virtualProps: { listItemHeight?: number } = {};
 
   const listItemHeight = React.useMemo(() => {
-    const { fontSize, lineHeight, padding, paddingXS, paddingSM } = token;
+    const { fontSize, lineHeight, lineWidth, padding, paddingXS, paddingSM } = token;
     const fontHeight = Math.floor(fontSize * lineHeight);
 
     switch (mergedSize) {
-      case 'large':
-        return padding * 2 + fontHeight;
+      case 'middle':
+        return paddingSM * 2 + fontHeight + lineWidth;
 
       case 'small':
-        return paddingXS * 2 + fontHeight;
+        return paddingXS * 2 + fontHeight + lineWidth;
 
       default:
-        return paddingSM * 2 + fontHeight;
+        return padding * 2 + fontHeight + lineWidth;
     }
   }, [token, mergedSize]);
 
@@ -617,4 +615,4 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   );
 };
 
-export default React.forwardRef(InternalTable as any) as RefInternalTable;
+export default React.forwardRef(InternalTable) as RefInternalTable;

@@ -1,5 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
-
 import Pagination from 'rc-pagination/lib/locale/uz_UZ';
 
 import type { Locale } from '.';
@@ -26,15 +24,15 @@ const localeValues: Locale = {
   Table: {
     filterTitle: 'Filtr',
     filterConfirm: 'OK',
-    filterReset: 'Tshlash',
+    filterReset: 'Bekor qilish',
     filterEmptyText: 'Filtrlarsiz',
-    filterCheckall: 'Barcha elementlarni tanlash',
+    filterCheckAll: 'Barcha elementlarni tanlash',
     filterSearchPlaceholder: 'Filtrlarda qidiruv',
     emptyText: "Ma'lumotlar topilmadi",
     selectAll: 'Barchasini tanlash',
     selectInvert: 'Tanlovni aylantirish',
     selectNone: "Barcha ma'lumotlarni tozalang",
-    selectionAll: "Barcha ma'lumotlarni tanlash",
+    selectionAll: 'Barchasini tanlash',
     sortTitle: 'Tartiblash',
     expand: 'Satirni yozish',
     collapse: "Satirni yig'ish",
@@ -49,7 +47,7 @@ const localeValues: Locale = {
   },
   Modal: {
     okText: 'OK',
-    cancelText: "O'chirish",
+    cancelText: 'Yopish',
     justOkText: 'OK',
   },
   Popconfirm: {
@@ -59,8 +57,8 @@ const localeValues: Locale = {
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Qidiruv',
-    itemUnit: 'элем.',
-    itemsUnit: 'элем.',
+    itemUnit: 'elem.',
+    itemsUnit: 'elem.',
     remove: 'Oʻchirish',
     selectAll: "Barch ma'lumotlarni tanlash",
     selectCurrent: 'Joriy sahifani tanlash',
@@ -69,7 +67,7 @@ const localeValues: Locale = {
     removeCurrent: "Joriy sahifani o'chirish",
   },
   Upload: {
-    uploading: 'Yuklanish...',
+    uploading: 'Yuklanmoqda...',
     removeFile: "Faylni o'chirish",
     uploadError: 'Yuklashda xatolik yuz berdi',
     previewFile: "Faylni oldindan ko'rish",

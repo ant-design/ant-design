@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useEffect } from 'react';
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 

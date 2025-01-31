@@ -5,6 +5,7 @@ import extendsObject from '../_util/extendsObject';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import useSize from '../config-provider/hooks/useSize';
 import { Row } from '../grid';
@@ -68,28 +69,31 @@ export interface ListLocale {
   emptyText: React.ReactNode;
 }
 
-function List<T>({
-  pagination = false as ListProps<T>['pagination'],
-  prefixCls: customizePrefixCls,
-  bordered = false,
-  split = true,
-  className,
-  rootClassName,
-  style,
-  children,
-  itemLayout,
-  loadMore,
-  grid,
-  dataSource = [],
-  size: customizeSize,
-  header,
-  footer,
-  loading = false,
-  rowKey,
-  renderItem,
-  locale,
-  ...rest
-}: ListProps<T>) {
+function InternalList<T>(
+  {
+    pagination = false as ListProps<T>['pagination'],
+    prefixCls: customizePrefixCls,
+    bordered = false,
+    split = true,
+    className,
+    rootClassName,
+    style,
+    children,
+    itemLayout,
+    loadMore,
+    grid,
+    dataSource = [],
+    size: customizeSize,
+    header,
+    footer,
+    loading = false,
+    rowKey,
+    renderItem,
+    locale,
+    ...rest
+  }: ListProps<T>,
+  ref: React.ForwardedRef<HTMLDivElement>,
+) {
   const paginationObj = pagination && typeof pagination === 'object' ? pagination : {};
 
   const [paginationCurrent, setPaginationCurrent] = React.useState(
@@ -97,7 +101,13 @@ function List<T>({
   );
   const [paginationSize, setPaginationSize] = React.useState(paginationObj.defaultPageSize || 10);
 
-  const { getPrefixCls, renderEmpty, direction, list } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('list');
+  const { renderEmpty } = React.useContext(ConfigContext);
 
   const defaultPaginationProps = {
     current: 1,
@@ -180,7 +190,7 @@ function List<T>({
       [`${prefixCls}-something-after-last-item`]: isSomethingAfterLastItem(),
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
-    list?.className,
+    contextClassName,
     className,
     rootClassName,
     hashId,
@@ -280,7 +290,7 @@ function List<T>({
 
   return wrapCSSVar(
     <ListContext.Provider value={contextValue}>
-      <div style={{ ...list?.style, ...style }} className={classString} {...rest}>
+      <div ref={ref} style={{ ...contextStyle, ...style }} className={classString} {...rest}>
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
         {header && <div className={`${prefixCls}-header`}>{header}</div>}
         <Spin {...loadingProp}>
@@ -295,9 +305,22 @@ function List<T>({
   );
 }
 
+const ListWithForwardRef = React.forwardRef(InternalList) as (<T>(
+  props: ListProps<T> & {
+    ref?: React.ForwardedRef<HTMLDivElement>;
+  },
+) => ReturnType<typeof InternalList>) &
+  Pick<React.FC, 'displayName'>;
+
 if (process.env.NODE_ENV !== 'production') {
-  List.displayName = 'List';
+  ListWithForwardRef.displayName = 'List';
 }
+
+type CompoundedComponent = typeof ListWithForwardRef & {
+  Item: typeof Item;
+};
+
+const List = ListWithForwardRef as CompoundedComponent;
 
 List.Item = Item;
 

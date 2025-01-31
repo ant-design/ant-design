@@ -3,14 +3,13 @@ import classNames from 'classnames';
 import { debounce } from 'throttle-debounce';
 
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import Indicator from './Indicator';
 import useStyle from './style/index';
 import usePercent from './usePercent';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const SpinSizes = ['small', 'default', 'large'] as const;
-export type SpinSize = (typeof SpinSizes)[number];
+const _SpinSizes = ['small', 'default', 'large'] as const;
+export type SpinSize = (typeof _SpinSizes)[number];
 export type SpinIndicator = React.ReactElement<HTMLElement>;
 
 export interface SpinProps {
@@ -49,7 +48,7 @@ export type SpinType = React.FC<SpinProps> & {
 let defaultIndicator: React.ReactNode | undefined;
 
 function shouldDelay(spinning?: boolean, delay?: number): boolean {
-  return !!spinning && !!delay && !isNaN(Number(delay));
+  return !!spinning && !!delay && !Number.isNaN(Number(delay));
 }
 
 const Spin: SpinType = (props) => {
@@ -70,7 +69,13 @@ const Spin: SpinType = (props) => {
     ...restProps
   } = props;
 
-  const { getPrefixCls, direction, spin } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    indicator: contextIndicator,
+  } = useComponentConfig('spin');
 
   const prefixCls = getPrefixCls('spin', customizePrefixCls);
 
@@ -113,7 +118,7 @@ const Spin: SpinType = (props) => {
 
   const spinClassName = classNames(
     prefixCls,
-    spin?.className,
+    contextClassName,
     {
       [`${prefixCls}-sm`]: size === 'small',
       [`${prefixCls}-lg`]: size === 'large',
@@ -131,9 +136,9 @@ const Spin: SpinType = (props) => {
     [`${prefixCls}-blur`]: spinning,
   });
 
-  const mergedIndicator = indicator ?? spin?.indicator ?? defaultIndicator;
+  const mergedIndicator = indicator ?? contextIndicator ?? defaultIndicator;
 
-  const mergedStyle: React.CSSProperties = { ...spin?.style, ...style };
+  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
   const spinElement: React.ReactNode = (
     <div

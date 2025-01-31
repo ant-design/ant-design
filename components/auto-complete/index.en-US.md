@@ -51,16 +51,20 @@ Common props ref：[Common props](/docs/react/common-props)
 | defaultOpen | Initial open state of dropdown | boolean | - |  |
 | defaultValue | Initial selected option | string | - |  |
 | disabled | Whether disabled select | boolean | false |  |
+| dropdownRender | Customize dropdown content | (menus: ReactNode) => ReactNode | - | 4.24.0 |
 | popupClassName | The className of dropdown menu | string | - | 4.23.0 |
 | popupMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true |  |
 | filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns true, the option will be included in the filtered set; Otherwise, it will be excluded | boolean \| function(inputValue, option) | true |  |
+| getPopupContainer | Parent node of the dropdown. Default to body, if you encountered positioning problems during scroll, try changing to the scrollable area and position relative to it. [Example](https://codesandbox.io/s/4j168r7jw0) | function(triggerNode) | () => document.body |  |
 | notFoundContent | Specify content to show when no result matches | ReactNode | - |  |
 | open | Controlled open state of dropdown | boolean | - |  |
 | options | Select options. Will get better perf than jsx definition | { label, value }\[] | - |  |
 | placeholder | The placeholder of input | string | - |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
+| size | The size of the input box | `large` \| `middle` \| `small` | - |  |
 | value | Selected option | string | - |  |
 | variant | Variants of input | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
 | onBlur | Called when leaving the component | function() | - |  |
 | onChange | Called when selecting an option or changing an input value | function(value) | - |  |
 | onDropdownVisibleChange | Call when dropdown open | function(open) | - |  |
@@ -68,6 +72,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | onSearch | Called when searching items | function(value) | - |  |
 | onSelect | Called when a option is selected. param is option's value and option instance | function(value, option) | - |  |
 | onClear | Called when clear | function | - | 4.6.0 |
+| onInputKeyDown | Called when key pressed | (event: KeyboardEvent) => void | - |  |
+| onPopupScroll | Called when dropdown scrolls | (event: UIEvent) => void | - |  |
 
 ## Methods
 

@@ -73,7 +73,7 @@ exports[`renders components/skeleton/demo/children.tsx extend context correctly 
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -145,7 +145,9 @@ exports[`renders components/skeleton/demo/componentToken.tsx extend context corr
 exports[`renders components/skeleton/demo/componentToken.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/skeleton/demo/element.tsx extend context correctly 1`] = `
-Array [
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
@@ -182,27 +184,21 @@ Array [
         />
       </div>
     </div>
-  </div>,
-  <br />,
-  <br />,
+  </div>
   <div
     class="ant-skeleton ant-skeleton-element"
   >
     <span
       class="ant-skeleton-button"
     />
-  </div>,
-  <br />,
-  <br />,
+  </div>
   <div
     class="ant-skeleton ant-skeleton-element"
   >
     <span
       class="ant-skeleton-input"
     />
-  </div>,
-  <br />,
-  <br />,
+  </div>
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
@@ -239,6 +235,18 @@ Array [
       >
         <div
           class="ant-skeleton-image"
+          style="width: 160px;"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-skeleton ant-skeleton-element"
+      >
+        <div
+          class="ant-skeleton-image"
         >
           <span
             aria-label="dot-chart"
@@ -263,11 +271,11 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     class="ant-divider ant-divider-horizontal"
     role="separator"
-  />,
+  />
   <form
     class="ant-form ant-form-inline"
     style="margin: 16px 0px;"
@@ -424,6 +432,7 @@ Array [
                         <input
                           checked=""
                           class="ant-radio-button-input"
+                          name="test-id"
                           type="radio"
                           value="default"
                         />
@@ -431,7 +440,9 @@ Array [
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Default
                       </span>
                     </label>
@@ -443,6 +454,7 @@ Array [
                       >
                         <input
                           class="ant-radio-button-input"
+                          name="test-id"
                           type="radio"
                           value="large"
                         />
@@ -450,7 +462,9 @@ Array [
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Large
                       </span>
                     </label>
@@ -462,6 +476,7 @@ Array [
                       >
                         <input
                           class="ant-radio-button-input"
+                          name="test-id"
                           type="radio"
                           value="small"
                         />
@@ -469,7 +484,9 @@ Array [
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Small
                       </span>
                     </label>
@@ -520,6 +537,7 @@ Array [
                         <input
                           checked=""
                           class="ant-radio-button-input"
+                          name="test-id"
                           type="radio"
                           value="default"
                         />
@@ -527,7 +545,9 @@ Array [
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Default
                       </span>
                     </label>
@@ -539,6 +559,7 @@ Array [
                       >
                         <input
                           class="ant-radio-button-input"
+                          name="test-id"
                           type="radio"
                           value="square"
                         />
@@ -546,7 +567,9 @@ Array [
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Square
                       </span>
                     </label>
@@ -558,6 +581,7 @@ Array [
                       >
                         <input
                           class="ant-radio-button-input"
+                          name="test-id"
                           type="radio"
                           value="round"
                         />
@@ -565,7 +589,9 @@ Array [
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Round
                       </span>
                     </label>
@@ -577,6 +603,7 @@ Array [
                       >
                         <input
                           class="ant-radio-button-input"
+                          name="test-id"
                           type="radio"
                           value="circle"
                         />
@@ -584,7 +611,9 @@ Array [
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Circle
                       </span>
                     </label>
@@ -634,6 +663,7 @@ Array [
                       >
                         <input
                           class="ant-radio-button-input"
+                          name="test-id"
                           type="radio"
                           value="square"
                         />
@@ -641,7 +671,9 @@ Array [
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Square
                       </span>
                     </label>
@@ -654,6 +686,7 @@ Array [
                         <input
                           checked=""
                           class="ant-radio-button-input"
+                          name="test-id"
                           type="radio"
                           value="circle"
                         />
@@ -661,7 +694,9 @@ Array [
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Circle
                       </span>
                     </label>
@@ -673,8 +708,8 @@ Array [
         </div>
       </div>
     </div>
-  </form>,
-]
+  </form>
+</div>
 `;
 
 exports[`renders components/skeleton/demo/element.tsx extend context correctly 2`] = `[]`;

@@ -33,6 +33,7 @@ exports[`Tabs rtl render component should be rendered correctly in RTL direction
   class="ant-tabs ant-tabs-top ant-tabs-rtl"
 >
   <div
+    aria-orientation="horizontal"
     class="ant-tabs-nav"
     role="tablist"
   >
@@ -123,6 +124,7 @@ exports[`Tabs tabBarGutter should work 1`] = `
   class="ant-tabs ant-tabs-top"
 >
   <div
+    aria-orientation="horizontal"
     class="ant-tabs-nav"
     role="tablist"
   >
@@ -255,6 +257,7 @@ exports[`Tabs tabBarGutter should work 2`] = `
   class="ant-tabs ant-tabs-left"
 >
   <div
+    aria-orientation="vertical"
     class="ant-tabs-nav"
     role="tablist"
   >
@@ -387,6 +390,7 @@ exports[`Tabs tabPosition remove card 1`] = `
   class="ant-tabs ant-tabs-left"
 >
   <div
+    aria-orientation="vertical"
     class="ant-tabs-nav"
     role="tablist"
   >

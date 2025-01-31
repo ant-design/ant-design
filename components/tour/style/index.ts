@@ -1,5 +1,5 @@
 import { unit } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
+import { FastColor } from '@ant-design/fast-color';
 
 import { genFocusStyle, resetComponent } from '../../style';
 import type { ArrowOffsetToken } from '../../style/placementArrow';
@@ -36,7 +36,6 @@ export interface ComponentToken extends ArrowOffsetToken, ArrowToken {
 }
 
 interface TourToken extends FullToken<'Tour'> {
-  tourZIndexPopup: number;
   indicatorWidth: number | string;
   indicatorHeight: number | string;
   tourBorderRadius: number;
@@ -55,7 +54,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
     indicatorHeight,
     indicatorWidth,
     boxShadowTertiary,
-    tourZIndexPopup,
+    zIndexPopup,
     colorBgElevated,
     fontWeightStrong,
     marginXS,
@@ -75,7 +74,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
         ...resetComponent(token),
 
         position: 'absolute',
-        zIndex: tourZIndexPopup,
+        zIndex: zIndexPopup,
         maxWidth: 'fit-content',
         visibility: 'visible',
         width: 520,
@@ -144,7 +143,8 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
           },
           [`${componentCls}-header`]: {
             padding: `${unit(padding)} ${unit(padding)} ${unit(paddingXS)}`,
-
+            width: `calc(100% - ${unit(closeBtnSize)})`,
+            wordBreak: 'break-word',
             [`${componentCls}-title`]: {
               fontWeight: fontWeightStrong,
             },
@@ -267,8 +267,8 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
 export const prepareComponentToken: GetDefaultToken<'Tour'> = (token) => ({
   zIndexPopup: token.zIndexPopupBase + 70,
   closeBtnSize: token.fontSize * token.lineHeight,
-  primaryPrevBtnBg: new TinyColor(token.colorTextLightSolid).setAlpha(0.15).toRgbString(),
-  primaryNextBtnHoverBg: new TinyColor(token.colorBgTextHover)
+  primaryPrevBtnBg: new FastColor(token.colorTextLightSolid).setA(0.15).toRgbString(),
+  primaryNextBtnHoverBg: new FastColor(token.colorBgTextHover)
     .onBackground(token.colorWhite)
     .toRgbString(),
   ...getArrowOffsetToken({

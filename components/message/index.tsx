@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { render } from 'rc-util/lib/React/render';
 
 import { AppConfigContext } from '../app/context';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
+import { getReactRender } from '../config-provider/UnstableContext';
 import type {
   ArgsProps,
   ConfigOptions,
@@ -132,7 +132,9 @@ function flushNotice() {
 
     // Delay render to avoid sync issue
     act(() => {
-      render(
+      const reactRender = getReactRender();
+
+      reactRender(
         <GlobalHolderWrapper
           ref={(node) => {
             const { instance, sync } = node || {};

@@ -1,14 +1,15 @@
 import type React from 'react';
 import { unit } from '@ant-design/cssinjs';
 
+import { getMediaSize } from '../../grid/style';
 import { genFocusStyle, resetComponent } from '../../style';
 import { initFadeMotion, initZoomMotion } from '../../style/motion';
 import type {
   AliasToken,
   FullToken,
   GenerateStyle,
-  GlobalToken,
   GenStyleFn,
+  GlobalToken,
   TokenWithCommonCls,
 } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
@@ -73,16 +74,55 @@ export interface ComponentToken {
   confirmBtnsMarginTop: string | number;
 }
 
+/**
+ * @desc Modal 组件的 Token
+ * @descEN Token for Modal component
+ */
 export interface ModalToken extends FullToken<'Modal'> {
-  // Custom token here
+  /**
+   * @desc 模态框头部高度
+   * @descEN Height of modal header
+   */
   modalHeaderHeight: number | string;
+  /**
+   * @desc 模态框底部边框颜色
+   * @descEN Border color of modal footer
+   */
   modalFooterBorderColorSplit: string;
+  /**
+   * @desc 模态框底部边框样式
+   * @descEN Border style of modal footer
+   */
   modalFooterBorderStyle: string;
+  /**
+   * @desc 模态框底部边框宽度
+   * @descEN Border width of modal footer
+   */
   modalFooterBorderWidth: number | string;
+  /**
+   * @desc 模态框关闭图标颜色
+   * @descEN Color of modal close icon
+   */
   modalCloseIconColor: string;
+  /**
+   * @desc 模态框关闭图标悬停颜色
+   * @descEN Hover color of modal close icon
+   */
   modalCloseIconHoverColor: string;
+  /**
+   * @desc 模态框关闭按钮尺寸
+   * @descEN Size of modal close button
+   */
   modalCloseBtnSize: number | string;
+  /**
+   * @desc 模态框确认图标尺寸
+   * @descEN Size of modal confirm icon
+   */
   modalConfirmIconSize: number | string;
+  /**
+   * @desc 模态框标题高度
+   * @descEN Height of modal title
+   */
   modalTitleHeight: number | string;
 }
 
@@ -242,10 +282,14 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
             display: 'flex',
             fontSize: token.fontSizeLG,
             fontStyle: 'normal',
-            lineHeight: `${unit(token.modalCloseBtnSize)}`,
+            lineHeight: unit(token.modalCloseBtnSize),
             justifyContent: 'center',
             textTransform: 'none',
             textRendering: 'auto',
+          },
+
+          '&:disabled': {
+            pointerEvents: 'none',
           },
 
           '&:hover': {
@@ -343,6 +387,30 @@ const genRTLStyle: GenerateStyle<ModalToken> = (token) => {
   };
 };
 
+const genResponsiveWidthStyle: GenerateStyle<ModalToken> = (token) => {
+  const { componentCls } = token;
+
+  const gridMediaSizesMap: Record<string, number> = getMediaSize(token);
+  delete gridMediaSizesMap.xs;
+
+  const responsiveStyles = Object.keys(gridMediaSizesMap).map((key) => ({
+    [`@media (min-width: ${unit(gridMediaSizesMap[key])})`]: {
+      width: `var(--${componentCls.replace('.', '')}-${key}-width)`,
+    },
+  }));
+
+  return {
+    [`${componentCls}-root`]: {
+      [componentCls]: [
+        {
+          width: `var(--${componentCls.replace('.', '')}-xs-width)`,
+        },
+        ...responsiveStyles,
+      ],
+    },
+  };
+};
+
 // ============================== Export ==============================
 export const prepareToken: (token: Parameters<GenStyleFn<'Modal'>>[0]) => ModalToken = (token) => {
   const headerPaddingVertical = token.padding;
@@ -410,6 +478,7 @@ export default genStyleHooks(
       genRTLStyle(modalToken),
       genModalMaskStyle(modalToken),
       initZoomMotion(modalToken, 'zoom'),
+      genResponsiveWidthStyle(modalToken),
     ];
   },
   prepareComponentToken,

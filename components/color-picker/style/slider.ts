@@ -38,8 +38,7 @@ const genSliderStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
   return {
     // ======================== Slider ========================
     [`${componentCls}-slider`]: [
-      getTransBg(`${unit(colorPickerSliderHeight)}`, token.colorFillSecondary),
-
+      getTransBg(unit(colorPickerSliderHeight), token.colorFillSecondary),
       {
         margin: 0,
         padding: 0,

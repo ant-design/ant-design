@@ -1,6 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
+import { FastColor } from '@ant-design/fast-color';
 
 import { genFocusStyle, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
@@ -334,7 +334,7 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
       boxSizing: 'border-box',
       minWidth: trackMinWidth,
       height: trackHeight,
-      lineHeight: `${unit(trackHeight)}`,
+      lineHeight: unit(trackHeight),
       verticalAlign: 'middle',
       background: token.colorTextQuaternary,
       border: '0',
@@ -394,7 +394,7 @@ export const prepareComponentToken: GetDefaultToken<'Switch'> = (token) => {
     handleBg: colorWhite,
     handleSize,
     handleSizeSM,
-    handleShadow: `0 2px 4px 0 ${new TinyColor('#00230b').setAlpha(0.2).toRgbString()}`,
+    handleShadow: `0 2px 4px 0 ${new FastColor('#00230b').setA(0.2).toRgbString()}`,
     innerMinMargin: handleSize / 2,
     innerMaxMargin: handleSize + padding + padding * 2,
     innerMinMarginSM: handleSizeSM / 2,

@@ -12,15 +12,40 @@ const allIcons: { [key: PropertyKey]: any } = AntdIcons;
 const useStyle = createStyles(({ token, css }) => {
   const { antCls, iconCls } = token;
   return {
-    item: css`
+    iconItem: css`
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-inline-start: 0 !important;
+      margin-inline-end: 0 !important;
+      padding-inline-start: 0 !important;
+      padding-inline-end: 0 !important;
+      position: relative;
+      width: 200px;
+      height: 100px;
+      overflow: hidden;
+      color: #555;
+      text-align: center;
+      list-style: none;
+      background-color: inherit;
+      border-radius: ${token.borderRadiusSM}px;
+      cursor: pointer;
+      transition: all ${token.motionDurationSlow} ease-in-out;
+      ${token.iconCls} {
+        margin: ${token.marginXS}px 0;
+        font-size: 36px;
+        transition: transform ${token.motionDurationSlow} ease-in-out;
+        will-change: transform;
+      }
       &:hover {
-        color: #fff;
+        color: ${token.colorWhite};
         background-color: ${token.colorPrimary};
         ${iconCls} {
           transform: scale(1.3);
         }
         ${antCls}-badge {
-          color: #fff;
+          color: ${token.colorWhite};
         }
       }
       &.TwoTone:hover {
@@ -36,10 +61,10 @@ const useStyle = createStyles(({ token, css }) => {
         inset-inline-start: 0;
         width: 100%;
         height: 100%;
-        color: #fff;
-        line-height: 110px;
+        line-height: 100px;
+        color: ${token.colorTextLightSolid};
         text-align: center;
-        background-color: #1677ff;
+        background-color: ${token.colorPrimary};
         opacity: 0;
         transition: all ${token.motionDurationSlow} cubic-bezier(0.18, 0.89, 0.32, 1.28);
       }
@@ -81,7 +106,7 @@ const CopyableIcon: React.FC<CopyableIconProps> = (props) => {
   };
   return (
     <CopyToClipboard text={`<${name} />`} onCopy={onCopy}>
-      <li className={classNames(theme, styles.item, { copied: justCopied === name })}>
+      <li className={classNames(theme, styles.iconItem, { copied: justCopied === name })}>
         {React.createElement(allIcons[name])}
         <span className={styles.anticonCls}>
           <Badge dot={isNew}>{name}</Badge>

@@ -1,5 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
-
 import Pagination from 'rc-pagination/lib/locale/ru_RU';
 
 import type { Locale } from '.';
@@ -23,7 +21,7 @@ const localeValues: Locale = {
     filterConfirm: 'OK',
     filterReset: 'Сбросить',
     filterEmptyText: 'Без фильтров',
-    filterCheckall: 'Выбрать все элементы',
+    filterCheckAll: 'Выбрать все элементы',
     filterSearchPlaceholder: 'Поиск в фильтрах',
     emptyText: 'Нет данных',
     selectAll: 'Выбрать всё',
@@ -58,6 +56,7 @@ const localeValues: Locale = {
     itemsUnit: 'элем.',
     remove: 'Удалить',
     selectAll: 'Выбрать все данные',
+    deselectAll: 'Очистить все данные',
     selectCurrent: 'Выбрать текущую страницу',
     selectInvert: 'Инвертировать выбор',
     removeAll: 'Удалить все данные',
@@ -81,6 +80,7 @@ const localeValues: Locale = {
     copy: 'Копировать',
     copied: 'Скопировано',
     expand: 'Раскрыть',
+    collapse: 'Свернуть',
   },
   Form: {
     optional: '(необязательно)',
@@ -138,6 +138,12 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'QR-код устарел',
     refresh: 'Обновить',
+  },
+  ColorPicker: {
+    presetEmpty: 'Пустой',
+    transparent: 'Прозрачный',
+    singleColor: 'Один цвет',
+    gradientColor: 'Градиент',
   },
 };
 

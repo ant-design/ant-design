@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
-import { Button, ConfigProvider, Popover, Segmented } from 'antd';
+import { Button, ConfigProvider, Flex, Popover, Segmented } from 'antd';
+import type { PopoverProps } from 'antd';
 
 const text = <span>Title</span>;
 
@@ -13,9 +14,9 @@ const content = (
 );
 
 const App: React.FC = () => {
-  const [arrow, setArrow] = useState('Show');
+  const [arrow, setArrow] = useState<'Show' | 'Hide' | 'Center'>('Show');
 
-  const mergedArrow = useMemo(() => {
+  const mergedArrow = useMemo<PopoverProps['arrow']>(() => {
     if (arrow === 'Hide') {
       return false;
     }
@@ -33,11 +34,11 @@ const App: React.FC = () => {
     <ConfigProvider button={{ style: { width: buttonWidth, margin: 4 } }}>
       <Segmented
         options={['Show', 'Hide', 'Center']}
-        onChange={(val: string) => setArrow(val)}
+        onChange={setArrow}
         style={{ marginBottom: 24 }}
       />
-      <div className="demo">
-        <div style={{ marginInlineStart: buttonWidth + 4, whiteSpace: 'nowrap' }}>
+      <Flex vertical justify="center" align="center" className="demo">
+        <Flex justify="center" align="center" style={{ whiteSpace: 'nowrap' }}>
           <Popover placement="topLeft" title={text} content={content} arrow={mergedArrow}>
             <Button>TL</Button>
           </Popover>
@@ -47,30 +48,32 @@ const App: React.FC = () => {
           <Popover placement="topRight" title={text} content={content} arrow={mergedArrow}>
             <Button>TR</Button>
           </Popover>
-        </div>
-        <div style={{ width: buttonWidth, float: 'inline-start' }}>
-          <Popover placement="leftTop" title={text} content={content} arrow={mergedArrow}>
-            <Button>LT</Button>
-          </Popover>
-          <Popover placement="left" title={text} content={content} arrow={mergedArrow}>
-            <Button>Left</Button>
-          </Popover>
-          <Popover placement="leftBottom" title={text} content={content} arrow={mergedArrow}>
-            <Button>LB</Button>
-          </Popover>
-        </div>
-        <div style={{ width: buttonWidth, marginInlineStart: buttonWidth * 4 + 24 }}>
-          <Popover placement="rightTop" title={text} content={content} arrow={mergedArrow}>
-            <Button>RT</Button>
-          </Popover>
-          <Popover placement="right" title={text} content={content} arrow={mergedArrow}>
-            <Button>Right</Button>
-          </Popover>
-          <Popover placement="rightBottom" title={text} content={content} arrow={mergedArrow}>
-            <Button>RB</Button>
-          </Popover>
-        </div>
-        <div style={{ marginInlineStart: buttonWidth, clear: 'both', whiteSpace: 'nowrap' }}>
+        </Flex>
+        <Flex style={{ width: buttonWidth * 5 + 32 }} justify="space-between" align="center">
+          <Flex align="center" vertical>
+            <Popover placement="leftTop" title={text} content={content} arrow={mergedArrow}>
+              <Button>LT</Button>
+            </Popover>
+            <Popover placement="left" title={text} content={content} arrow={mergedArrow}>
+              <Button>Left</Button>
+            </Popover>
+            <Popover placement="leftBottom" title={text} content={content} arrow={mergedArrow}>
+              <Button>LB</Button>
+            </Popover>
+          </Flex>
+          <Flex align="center" vertical>
+            <Popover placement="rightTop" title={text} content={content} arrow={mergedArrow}>
+              <Button>RT</Button>
+            </Popover>
+            <Popover placement="right" title={text} content={content} arrow={mergedArrow}>
+              <Button>Right</Button>
+            </Popover>
+            <Popover placement="rightBottom" title={text} content={content} arrow={mergedArrow}>
+              <Button>RB</Button>
+            </Popover>
+          </Flex>
+        </Flex>
+        <Flex justify="center" align="center" style={{ whiteSpace: 'nowrap' }}>
           <Popover placement="bottomLeft" title={text} content={content} arrow={mergedArrow}>
             <Button>BL</Button>
           </Popover>
@@ -80,8 +83,8 @@ const App: React.FC = () => {
           <Popover placement="bottomRight" title={text} content={content} arrow={mergedArrow}>
             <Button>BR</Button>
           </Popover>
-        </div>
-      </div>
+        </Flex>
+      </Flex>
     </ConfigProvider>
   );
 };

@@ -30,7 +30,7 @@ By clicking the input box, you can select a time from a popup panel.
 <code src="./demo/range-picker.tsx">Time Range Picker</code>
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/status.tsx">Status</code>
-<code src="./demo/suffix.tsx" debug>Suffix</code>
+<code src="./demo/suffix.tsx">Prefix and Suffix</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
@@ -70,6 +70,7 @@ dayjs.extend(customParseFormat)
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | popupClassName | The className of panel | string | - |  |
 | popupStyle | The style of panel | CSSProperties | - |  |
+| prefix | The custom prefix | ReactNode | - | 5.22.0 |
 | renderExtraFooter | Called from time picker panel to render some addon to its bottom | () => ReactNode | - |  |
 | secondStep | Interval between seconds in picker | number | 1 |  |
 | showNow | Whether to show `Now` button on panel | boolean | - | 4.4.0 |
@@ -78,7 +79,7 @@ dayjs.extend(customParseFormat)
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | use12Hours | Display as 12 hours format, with default format `h:mm:ss a` | boolean | false |  |
 | value | To set time | [dayjs](http://day.js.org/) | - |  |
-| variant | Variants of picker | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| variant | Variants of picker | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | onCalendarChange | Callback function, can be executed when the start time or the end time of the range is changing. `info` argument is added in 4.4.0 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
 | onChange | A callback function, can be executed when the selected time is changing | function(time: dayjs, timeString: string): void | - |  |
 | onOpenChange | A callback function which will be called while panel opening/closing | (open: boolean) => void | - |  |

@@ -561,6 +561,7 @@ Array [
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="left"
         />
@@ -568,7 +569,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         Left
       </span>
     </label>
@@ -580,6 +583,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="right"
         />
@@ -587,7 +591,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         Right
       </span>
     </label>
@@ -599,6 +605,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="alternate"
         />
@@ -606,7 +613,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         Alternate
       </span>
     </label>
@@ -782,7 +791,7 @@ exports[`renders components/timeline/demo/pending.tsx extend context correctly 1
     </li>
   </ul>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     style="margin-top: 16px;"
     type="button"
   >

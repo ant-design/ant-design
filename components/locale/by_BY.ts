@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/by_BY';
 
 import type { Locale } from '.';
@@ -22,7 +21,7 @@ const localeValues: Locale = {
     filterConfirm: 'OK',
     filterReset: 'Скінуць',
     filterEmptyText: 'Без фільтраў',
-    filterCheckall: 'Выбраць усё',
+    filterCheckAll: 'Выбраць усё',
     filterSearchPlaceholder: 'Пошук фільтраў',
     emptyText: 'Няма даных',
     selectAll: 'Выбраць усё',

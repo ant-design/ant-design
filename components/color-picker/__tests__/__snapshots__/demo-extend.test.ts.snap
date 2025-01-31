@@ -3,6 +3,7 @@
 exports[`renders components/color-picker/demo/allowClear.tsx extend context correctly 1`] = `
 Array [
   <div
+    aria-describedby="test-id"
     class="ant-color-picker-trigger"
   >
     <div
@@ -27,6 +28,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -138,30 +140,34 @@ Array [
                     class="ant-select-selector"
                   >
                     <span
-                      class="ant-select-selection-search"
+                      class="ant-select-selection-wrap"
                     >
-                      <input
-                        aria-autocomplete="list"
-                        aria-controls="rc_select_TEST_OR_SSR_list"
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-owns="rc_select_TEST_OR_SSR_list"
-                        autocomplete="off"
-                        class="ant-select-selection-search-input"
-                        id="rc_select_TEST_OR_SSR"
-                        readonly=""
-                        role="combobox"
-                        style="opacity: 0;"
-                        type="search"
-                        unselectable="on"
-                        value=""
-                      />
-                    </span>
-                    <span
-                      class="ant-select-selection-item"
-                      title="HEX"
-                    >
-                      HEX
+                      <span
+                        class="ant-select-selection-search"
+                      >
+                        <input
+                          aria-autocomplete="list"
+                          aria-controls="rc_select_TEST_OR_SSR_list"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-owns="rc_select_TEST_OR_SSR_list"
+                          autocomplete="off"
+                          class="ant-select-selection-search-input"
+                          id="rc_select_TEST_OR_SSR"
+                          readonly=""
+                          role="combobox"
+                          style="opacity: 0;"
+                          type="search"
+                          unselectable="on"
+                          value=""
+                        />
+                      </span>
+                      <span
+                        class="ant-select-selection-item"
+                        title="HEX"
+                      >
+                        HEX
+                      </span>
                     </span>
                   </div>
                   <div
@@ -397,6 +403,7 @@ exports[`renders components/color-picker/demo/allowClear.tsx extend context corr
 exports[`renders components/color-picker/demo/base.tsx extend context correctly 1`] = `
 Array [
   <div
+    aria-describedby="test-id"
     class="ant-color-picker-trigger"
   >
     <div
@@ -421,6 +428,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -525,30 +533,34 @@ Array [
                     class="ant-select-selector"
                   >
                     <span
-                      class="ant-select-selection-search"
+                      class="ant-select-selection-wrap"
                     >
-                      <input
-                        aria-autocomplete="list"
-                        aria-controls="rc_select_TEST_OR_SSR_list"
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-owns="rc_select_TEST_OR_SSR_list"
-                        autocomplete="off"
-                        class="ant-select-selection-search-input"
-                        id="rc_select_TEST_OR_SSR"
-                        readonly=""
-                        role="combobox"
-                        style="opacity: 0;"
-                        type="search"
-                        unselectable="on"
-                        value=""
-                      />
-                    </span>
-                    <span
-                      class="ant-select-selection-item"
-                      title="HEX"
-                    >
-                      HEX
+                      <span
+                        class="ant-select-selection-search"
+                      >
+                        <input
+                          aria-autocomplete="list"
+                          aria-controls="rc_select_TEST_OR_SSR_list"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-owns="rc_select_TEST_OR_SSR_list"
+                          autocomplete="off"
+                          class="ant-select-selection-search-input"
+                          id="rc_select_TEST_OR_SSR"
+                          readonly=""
+                          role="combobox"
+                          style="opacity: 0;"
+                          type="search"
+                          unselectable="on"
+                          value=""
+                        />
+                      </span>
+                      <span
+                        class="ant-select-selection-item"
+                        title="HEX"
+                      >
+                        HEX
+                      </span>
                     </span>
                   </div>
                   <div
@@ -781,350 +793,280 @@ Array [
 
 exports[`renders components/color-picker/demo/base.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders components/color-picker/demo/change-completed.tsx extend context correctly 1`] = `
+exports[`renders components/color-picker/demo/controlled.tsx extend context correctly 1`] = `
 <div
-  class="ant-app"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
-    class="ant-color-picker-trigger"
+    class="ant-space-item"
   >
     <div
-      class="ant-color-picker-color-block"
+      aria-describedby="test-id"
+      class="ant-color-picker-trigger"
     >
       <div
-        class="ant-color-picker-color-block-inner"
-        style="background: rgb(22, 119, 255);"
-      />
-    </div>
-  </div>
-  <div
-    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-  >
-    <div
-      class="ant-popover-arrow"
-      style="position: absolute;"
-    />
-    <div
-      class="ant-popover-content"
-    >
-      <div
-        class="ant-popover-inner"
-        role="tooltip"
+        class="ant-color-picker-color-block"
       >
         <div
-          class="ant-popover-inner-content"
+          class="ant-color-picker-color-block-inner"
+          style="background: rgb(22, 119, 255);"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position: absolute;"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          id="test-id"
+          role="tooltip"
         >
           <div
-            class="ant-color-picker-inner"
+            class="ant-popover-inner-content"
           >
             <div
-              class="ant-color-picker-inner-content"
+              class="ant-color-picker-inner"
             >
               <div
-                class="ant-color-picker-panel"
+                class="ant-color-picker-inner-content"
               >
                 <div
-                  class="ant-color-picker-select"
+                  class="ant-color-picker-panel"
                 >
                   <div
-                    class="ant-color-picker-palette"
-                    style="position: relative;"
+                    class="ant-color-picker-select"
                   >
                     <div
-                      style="position: absolute; left: 91.37254901960785%; top: 0%; z-index: 1; transform: translate(-50%, -50%);"
+                      class="ant-color-picker-palette"
+                      style="position: relative;"
                     >
                       <div
-                        class="ant-color-picker-handler"
-                        style="background-color: rgb(22, 119, 255);"
-                      />
-                    </div>
-                    <div
-                      class="ant-color-picker-saturation"
-                      style="background-color: rgb(0, 0, 0);"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="ant-color-picker-slider-container"
-                >
-                  <div
-                    class="ant-color-picker-slider-group"
-                  >
-                    <div
-                      class="ant-slider ant-color-picker-slider ant-slider-horizontal"
-                    >
-                      <div
-                        class="ant-slider-rail ant-color-picker-slider-rail"
-                      />
-                      <div
-                        class="ant-slider-step"
-                      />
-                      <div
-                        aria-disabled="false"
-                        aria-orientation="horizontal"
-                        aria-valuemax="359"
-                        aria-valuemin="0"
-                        aria-valuenow="215"
-                        class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
-                        role="slider"
-                        style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 0, 0);"
-                        tabindex="0"
-                      />
-                    </div>
-                    <div
-                      class="ant-slider ant-color-picker-slider ant-slider-horizontal"
-                    >
-                      <div
-                        class="ant-slider-rail ant-color-picker-slider-rail"
-                      />
-                      <div
-                        class="ant-slider-step"
-                      />
-                      <div
-                        aria-disabled="false"
-                        aria-orientation="horizontal"
-                        aria-valuemax="100"
-                        aria-valuemin="0"
-                        aria-valuenow="100"
-                        class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
-                        role="slider"
-                        style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
-                        tabindex="0"
-                      />
-                    </div>
-                  </div>
-                  <div
-                    class="ant-color-picker-color-block"
-                  >
-                    <div
-                      class="ant-color-picker-color-block-inner"
-                      style="background: rgb(22, 119, 255);"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div
-                class="ant-color-picker-input-container"
-              >
-                <div
-                  class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
-                >
-                  <div
-                    class="ant-select-selector"
-                  >
-                    <span
-                      class="ant-select-selection-search"
-                    >
-                      <input
-                        aria-autocomplete="list"
-                        aria-controls="rc_select_TEST_OR_SSR_list"
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-owns="rc_select_TEST_OR_SSR_list"
-                        autocomplete="off"
-                        class="ant-select-selection-search-input"
-                        id="rc_select_TEST_OR_SSR"
-                        readonly=""
-                        role="combobox"
-                        style="opacity: 0;"
-                        type="search"
-                        unselectable="on"
-                        value=""
-                      />
-                    </span>
-                    <span
-                      class="ant-select-selection-item"
-                      title="HEX"
-                    >
-                      HEX
-                    </span>
-                  </div>
-                  <div
-                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
-                  >
-                    <div>
-                      <div
-                        id="rc_select_TEST_OR_SSR_list"
-                        role="listbox"
-                        style="height: 0px; width: 0px; overflow: hidden;"
+                        style="position: absolute; left: 91.37254901960785%; top: 0%; z-index: 1; transform: translate(-50%, -50%);"
                       >
                         <div
-                          aria-label="HEX"
-                          aria-selected="true"
-                          id="rc_select_TEST_OR_SSR_list_0"
-                          role="option"
-                        >
-                          hex
-                        </div>
-                        <div
-                          aria-label="HSB"
-                          aria-selected="false"
-                          id="rc_select_TEST_OR_SSR_list_1"
-                          role="option"
-                        >
-                          hsb
-                        </div>
+                          class="ant-color-picker-handler"
+                          style="background-color: rgb(22, 119, 255);"
+                        />
                       </div>
                       <div
-                        class="rc-virtual-list"
-                        style="position: relative;"
+                        class="ant-color-picker-saturation"
+                        style="background-color: rgb(0, 0, 0);"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="ant-color-picker-slider-container"
+                  >
+                    <div
+                      class="ant-color-picker-slider-group"
+                    >
+                      <div
+                        class="ant-slider ant-color-picker-slider ant-slider-horizontal"
                       >
                         <div
-                          class="rc-virtual-list-holder"
-                          style="max-height: 256px; overflow-y: auto;"
+                          class="ant-slider-rail ant-color-picker-slider-rail"
+                        />
+                        <div
+                          class="ant-slider-step"
+                        />
+                        <div
+                          aria-disabled="false"
+                          aria-orientation="horizontal"
+                          aria-valuemax="359"
+                          aria-valuemin="0"
+                          aria-valuenow="215"
+                          class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                          role="slider"
+                          style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 0, 0);"
+                          tabindex="0"
+                        />
+                      </div>
+                      <div
+                        class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                      >
+                        <div
+                          class="ant-slider-rail ant-color-picker-slider-rail"
+                        />
+                        <div
+                          class="ant-slider-step"
+                        />
+                        <div
+                          aria-disabled="false"
+                          aria-orientation="horizontal"
+                          aria-valuemax="100"
+                          aria-valuemin="0"
+                          aria-valuenow="100"
+                          class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                          role="slider"
+                          style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
+                          tabindex="0"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="ant-color-picker-color-block"
+                    >
+                      <div
+                        class="ant-color-picker-color-block-inner"
+                        style="background: rgb(22, 119, 255);"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-color-picker-input-container"
+                >
+                  <div
+                    class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                  >
+                    <div
+                      class="ant-select-selector"
+                    >
+                      <span
+                        class="ant-select-selection-wrap"
+                      >
+                        <span
+                          class="ant-select-selection-search"
                         >
-                          <div>
-                            <div
-                              class="rc-virtual-list-holder-inner"
-                              style="display: flex; flex-direction: column;"
-                            >
+                          <input
+                            aria-autocomplete="list"
+                            aria-controls="rc_select_TEST_OR_SSR_list"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-owns="rc_select_TEST_OR_SSR_list"
+                            autocomplete="off"
+                            class="ant-select-selection-search-input"
+                            id="rc_select_TEST_OR_SSR"
+                            readonly=""
+                            role="combobox"
+                            style="opacity: 0;"
+                            type="search"
+                            unselectable="on"
+                            value=""
+                          />
+                        </span>
+                        <span
+                          class="ant-select-selection-item"
+                          title="HEX"
+                        >
+                          HEX
+                        </span>
+                      </span>
+                    </div>
+                    <div
+                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                    >
+                      <div>
+                        <div
+                          id="rc_select_TEST_OR_SSR_list"
+                          role="listbox"
+                          style="height: 0px; width: 0px; overflow: hidden;"
+                        >
+                          <div
+                            aria-label="HEX"
+                            aria-selected="true"
+                            id="rc_select_TEST_OR_SSR_list_0"
+                            role="option"
+                          >
+                            hex
+                          </div>
+                          <div
+                            aria-label="HSB"
+                            aria-selected="false"
+                            id="rc_select_TEST_OR_SSR_list_1"
+                            role="option"
+                          >
+                            hsb
+                          </div>
+                        </div>
+                        <div
+                          class="rc-virtual-list"
+                          style="position: relative;"
+                        >
+                          <div
+                            class="rc-virtual-list-holder"
+                            style="max-height: 256px; overflow-y: auto;"
+                          >
+                            <div>
                               <div
-                                aria-selected="true"
-                                class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                                title="HEX"
+                                class="rc-virtual-list-holder-inner"
+                                style="display: flex; flex-direction: column;"
                               >
                                 <div
-                                  class="ant-select-item-option-content"
+                                  aria-selected="true"
+                                  class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                                  title="HEX"
                                 >
-                                  HEX
+                                  <div
+                                    class="ant-select-item-option-content"
+                                  >
+                                    HEX
+                                  </div>
+                                  <span
+                                    aria-hidden="true"
+                                    class="ant-select-item-option-state"
+                                    style="user-select: none;"
+                                    unselectable="on"
+                                  />
                                 </div>
-                                <span
-                                  aria-hidden="true"
-                                  class="ant-select-item-option-state"
-                                  style="user-select: none;"
-                                  unselectable="on"
-                                />
-                              </div>
-                              <div
-                                aria-selected="false"
-                                class="ant-select-item ant-select-item-option"
-                                title="HSB"
-                              >
                                 <div
-                                  class="ant-select-item-option-content"
+                                  aria-selected="false"
+                                  class="ant-select-item ant-select-item-option"
+                                  title="HSB"
                                 >
-                                  HSB
+                                  <div
+                                    class="ant-select-item-option-content"
+                                  >
+                                    HSB
+                                  </div>
+                                  <span
+                                    aria-hidden="true"
+                                    class="ant-select-item-option-state"
+                                    style="user-select: none;"
+                                    unselectable="on"
+                                  />
                                 </div>
-                                <span
-                                  aria-hidden="true"
-                                  class="ant-select-item-option-state"
-                                  style="user-select: none;"
-                                  unselectable="on"
-                                />
-                              </div>
-                              <div
-                                aria-selected="false"
-                                class="ant-select-item ant-select-item-option"
-                                title="RGB"
-                              >
                                 <div
-                                  class="ant-select-item-option-content"
+                                  aria-selected="false"
+                                  class="ant-select-item ant-select-item-option"
+                                  title="RGB"
                                 >
-                                  RGB
+                                  <div
+                                    class="ant-select-item-option-content"
+                                  >
+                                    RGB
+                                  </div>
+                                  <span
+                                    aria-hidden="true"
+                                    class="ant-select-item-option-state"
+                                    style="user-select: none;"
+                                    unselectable="on"
+                                  />
                                 </div>
-                                <span
-                                  aria-hidden="true"
-                                  class="ant-select-item-option-state"
-                                  style="user-select: none;"
-                                  unselectable="on"
-                                />
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-arrow"
-                    style="user-select: none;"
-                    unselectable="on"
-                  >
                     <span
-                      aria-label="down"
-                      class="anticon anticon-down ant-select-suffix"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="down"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                </div>
-                <div
-                  class="ant-color-picker-input"
-                >
-                  <span
-                    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
-                  >
-                    <span
-                      class="ant-input-prefix"
-                    >
-                      #
-                    </span>
-                    <input
-                      class="ant-input ant-input-sm"
-                      type="text"
-                      value="1677ff"
-                    />
-                  </span>
-                </div>
-                <div
-                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
-                >
-                  <div
-                    class="ant-input-number-handler-wrap"
-                  >
-                    <span
-                      aria-disabled="true"
-                      aria-label="Increase Value"
-                      class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
-                      role="button"
-                      unselectable="on"
-                    >
-                      <span
-                        aria-label="up"
-                        class="anticon anticon-up ant-input-number-handler-up-inner"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="up"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                          />
-                        </svg>
-                      </span>
-                    </span>
-                    <span
-                      aria-disabled="false"
-                      aria-label="Decrease Value"
-                      class="ant-input-number-handler ant-input-number-handler-down"
-                      role="button"
+                      aria-hidden="true"
+                      class="ant-select-arrow"
+                      style="user-select: none;"
                       unselectable="on"
                     >
                       <span
                         aria-label="down"
-                        class="anticon anticon-down ant-input-number-handler-down-inner"
+                        class="anticon anticon-down ant-select-suffix"
                         role="img"
                       >
                         <svg
@@ -1144,18 +1086,488 @@ exports[`renders components/color-picker/demo/change-completed.tsx extend contex
                     </span>
                   </div>
                   <div
-                    class="ant-input-number-input-wrap"
+                    class="ant-color-picker-input"
                   >
-                    <input
-                      aria-valuemax="100"
-                      aria-valuemin="0"
-                      aria-valuenow="100"
-                      autocomplete="off"
-                      class="ant-input-number-input"
-                      role="spinbutton"
-                      step="1"
-                      value="100%"
-                    />
+                    <span
+                      class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                    >
+                      <span
+                        class="ant-input-prefix"
+                      >
+                        #
+                      </span>
+                      <input
+                        class="ant-input ant-input-sm"
+                        type="text"
+                        value="1677ff"
+                      />
+                    </span>
+                  </div>
+                  <div
+                    class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                  >
+                    <div
+                      class="ant-input-number-handler-wrap"
+                    >
+                      <span
+                        aria-disabled="true"
+                        aria-label="Increase Value"
+                        class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                        role="button"
+                        unselectable="on"
+                      >
+                        <span
+                          aria-label="up"
+                          class="anticon anticon-up ant-input-number-handler-up-inner"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="up"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                      <span
+                        aria-disabled="false"
+                        aria-label="Decrease Value"
+                        class="ant-input-number-handler ant-input-number-handler-down"
+                        role="button"
+                        unselectable="on"
+                      >
+                        <span
+                          aria-label="down"
+                          class="anticon anticon-down ant-input-number-handler-down-inner"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </div>
+                    <div
+                      class="ant-input-number-input-wrap"
+                    >
+                      <input
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="100"
+                        autocomplete="off"
+                        class="ant-input-number-input"
+                        role="spinbutton"
+                        step="1"
+                        value="100%"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      aria-describedby="test-id"
+      class="ant-color-picker-trigger"
+    >
+      <div
+        class="ant-color-picker-color-block"
+      >
+        <div
+          class="ant-color-picker-color-block-inner"
+          style="background: rgb(22, 119, 255);"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position: absolute;"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          id="test-id"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="ant-color-picker-inner"
+            >
+              <div
+                class="ant-color-picker-inner-content"
+              >
+                <div
+                  class="ant-color-picker-panel"
+                >
+                  <div
+                    class="ant-color-picker-select"
+                  >
+                    <div
+                      class="ant-color-picker-palette"
+                      style="position: relative;"
+                    >
+                      <div
+                        style="position: absolute; left: 91.37254901960785%; top: 0%; z-index: 1; transform: translate(-50%, -50%);"
+                      >
+                        <div
+                          class="ant-color-picker-handler"
+                          style="background-color: rgb(22, 119, 255);"
+                        />
+                      </div>
+                      <div
+                        class="ant-color-picker-saturation"
+                        style="background-color: rgb(0, 0, 0);"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="ant-color-picker-slider-container"
+                  >
+                    <div
+                      class="ant-color-picker-slider-group"
+                    >
+                      <div
+                        class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                      >
+                        <div
+                          class="ant-slider-rail ant-color-picker-slider-rail"
+                        />
+                        <div
+                          class="ant-slider-step"
+                        />
+                        <div
+                          aria-disabled="false"
+                          aria-orientation="horizontal"
+                          aria-valuemax="359"
+                          aria-valuemin="0"
+                          aria-valuenow="215"
+                          class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                          role="slider"
+                          style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 0, 0);"
+                          tabindex="0"
+                        />
+                      </div>
+                      <div
+                        class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                      >
+                        <div
+                          class="ant-slider-rail ant-color-picker-slider-rail"
+                        />
+                        <div
+                          class="ant-slider-step"
+                        />
+                        <div
+                          aria-disabled="false"
+                          aria-orientation="horizontal"
+                          aria-valuemax="100"
+                          aria-valuemin="0"
+                          aria-valuenow="100"
+                          class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                          role="slider"
+                          style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
+                          tabindex="0"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="ant-color-picker-color-block"
+                    >
+                      <div
+                        class="ant-color-picker-color-block-inner"
+                        style="background: rgb(22, 119, 255);"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-color-picker-input-container"
+                >
+                  <div
+                    class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                  >
+                    <div
+                      class="ant-select-selector"
+                    >
+                      <span
+                        class="ant-select-selection-wrap"
+                      >
+                        <span
+                          class="ant-select-selection-search"
+                        >
+                          <input
+                            aria-autocomplete="list"
+                            aria-controls="rc_select_TEST_OR_SSR_list"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-owns="rc_select_TEST_OR_SSR_list"
+                            autocomplete="off"
+                            class="ant-select-selection-search-input"
+                            id="rc_select_TEST_OR_SSR"
+                            readonly=""
+                            role="combobox"
+                            style="opacity: 0;"
+                            type="search"
+                            unselectable="on"
+                            value=""
+                          />
+                        </span>
+                        <span
+                          class="ant-select-selection-item"
+                          title="HEX"
+                        >
+                          HEX
+                        </span>
+                      </span>
+                    </div>
+                    <div
+                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                    >
+                      <div>
+                        <div
+                          id="rc_select_TEST_OR_SSR_list"
+                          role="listbox"
+                          style="height: 0px; width: 0px; overflow: hidden;"
+                        >
+                          <div
+                            aria-label="HEX"
+                            aria-selected="true"
+                            id="rc_select_TEST_OR_SSR_list_0"
+                            role="option"
+                          >
+                            hex
+                          </div>
+                          <div
+                            aria-label="HSB"
+                            aria-selected="false"
+                            id="rc_select_TEST_OR_SSR_list_1"
+                            role="option"
+                          >
+                            hsb
+                          </div>
+                        </div>
+                        <div
+                          class="rc-virtual-list"
+                          style="position: relative;"
+                        >
+                          <div
+                            class="rc-virtual-list-holder"
+                            style="max-height: 256px; overflow-y: auto;"
+                          >
+                            <div>
+                              <div
+                                class="rc-virtual-list-holder-inner"
+                                style="display: flex; flex-direction: column;"
+                              >
+                                <div
+                                  aria-selected="true"
+                                  class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                                  title="HEX"
+                                >
+                                  <div
+                                    class="ant-select-item-option-content"
+                                  >
+                                    HEX
+                                  </div>
+                                  <span
+                                    aria-hidden="true"
+                                    class="ant-select-item-option-state"
+                                    style="user-select: none;"
+                                    unselectable="on"
+                                  />
+                                </div>
+                                <div
+                                  aria-selected="false"
+                                  class="ant-select-item ant-select-item-option"
+                                  title="HSB"
+                                >
+                                  <div
+                                    class="ant-select-item-option-content"
+                                  >
+                                    HSB
+                                  </div>
+                                  <span
+                                    aria-hidden="true"
+                                    class="ant-select-item-option-state"
+                                    style="user-select: none;"
+                                    unselectable="on"
+                                  />
+                                </div>
+                                <div
+                                  aria-selected="false"
+                                  class="ant-select-item ant-select-item-option"
+                                  title="RGB"
+                                >
+                                  <div
+                                    class="ant-select-item-option-content"
+                                  >
+                                    RGB
+                                  </div>
+                                  <span
+                                    aria-hidden="true"
+                                    class="ant-select-item-option-state"
+                                    style="user-select: none;"
+                                    unselectable="on"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-arrow"
+                      style="user-select: none;"
+                      unselectable="on"
+                    >
+                      <span
+                        aria-label="down"
+                        class="anticon anticon-down ant-select-suffix"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="down"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-color-picker-input"
+                  >
+                    <span
+                      class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                    >
+                      <span
+                        class="ant-input-prefix"
+                      >
+                        #
+                      </span>
+                      <input
+                        class="ant-input ant-input-sm"
+                        type="text"
+                        value="1677ff"
+                      />
+                    </span>
+                  </div>
+                  <div
+                    class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                  >
+                    <div
+                      class="ant-input-number-handler-wrap"
+                    >
+                      <span
+                        aria-disabled="true"
+                        aria-label="Increase Value"
+                        class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                        role="button"
+                        unselectable="on"
+                      >
+                        <span
+                          aria-label="up"
+                          class="anticon anticon-up ant-input-number-handler-up-inner"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="up"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                      <span
+                        aria-disabled="false"
+                        aria-label="Decrease Value"
+                        class="ant-input-number-handler ant-input-number-handler-down"
+                        role="button"
+                        unselectable="on"
+                      >
+                        <span
+                          aria-label="down"
+                          class="anticon anticon-down ant-input-number-handler-down-inner"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </div>
+                    <div
+                      class="ant-input-number-input-wrap"
+                    >
+                      <input
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="100"
+                        autocomplete="off"
+                        class="ant-input-number-input"
+                        role="spinbutton"
+                        step="1"
+                        value="100%"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1168,398 +1580,12 @@ exports[`renders components/color-picker/demo/change-completed.tsx extend contex
 </div>
 `;
 
-exports[`renders components/color-picker/demo/change-completed.tsx extend context correctly 2`] = `[]`;
-
-exports[`renders components/color-picker/demo/controlled.tsx extend context correctly 1`] = `
-Array [
-  <div
-    class="ant-color-picker-trigger"
-  >
-    <div
-      class="ant-color-picker-color-block"
-    >
-      <div
-        class="ant-color-picker-color-block-inner"
-        style="background: rgb(22, 119, 255);"
-      />
-    </div>
-  </div>,
-  <div
-    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-  >
-    <div
-      class="ant-popover-arrow"
-      style="position: absolute;"
-    />
-    <div
-      class="ant-popover-content"
-    >
-      <div
-        class="ant-popover-inner"
-        role="tooltip"
-      >
-        <div
-          class="ant-popover-inner-content"
-        >
-          <div
-            class="ant-color-picker-inner"
-          >
-            <div
-              class="ant-color-picker-inner-content"
-            >
-              <div
-                class="ant-color-picker-panel"
-              >
-                <div
-                  class="ant-color-picker-select"
-                >
-                  <div
-                    class="ant-color-picker-palette"
-                    style="position: relative;"
-                  >
-                    <div
-                      style="position: absolute; left: 91.37254901960785%; top: 0%; z-index: 1; transform: translate(-50%, -50%);"
-                    >
-                      <div
-                        class="ant-color-picker-handler"
-                        style="background-color: rgb(22, 119, 255);"
-                      />
-                    </div>
-                    <div
-                      class="ant-color-picker-saturation"
-                      style="background-color: rgb(0, 0, 0);"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="ant-color-picker-slider-container"
-                >
-                  <div
-                    class="ant-color-picker-slider-group"
-                  >
-                    <div
-                      class="ant-slider ant-color-picker-slider ant-slider-horizontal"
-                    >
-                      <div
-                        class="ant-slider-rail ant-color-picker-slider-rail"
-                      />
-                      <div
-                        class="ant-slider-step"
-                      />
-                      <div
-                        aria-disabled="false"
-                        aria-orientation="horizontal"
-                        aria-valuemax="359"
-                        aria-valuemin="0"
-                        aria-valuenow="215"
-                        class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
-                        role="slider"
-                        style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 0, 0);"
-                        tabindex="0"
-                      />
-                    </div>
-                    <div
-                      class="ant-slider ant-color-picker-slider ant-slider-horizontal"
-                    >
-                      <div
-                        class="ant-slider-rail ant-color-picker-slider-rail"
-                      />
-                      <div
-                        class="ant-slider-step"
-                      />
-                      <div
-                        aria-disabled="false"
-                        aria-orientation="horizontal"
-                        aria-valuemax="100"
-                        aria-valuemin="0"
-                        aria-valuenow="100"
-                        class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
-                        role="slider"
-                        style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
-                        tabindex="0"
-                      />
-                    </div>
-                  </div>
-                  <div
-                    class="ant-color-picker-color-block"
-                  >
-                    <div
-                      class="ant-color-picker-color-block-inner"
-                      style="background: rgb(22, 119, 255);"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div
-                class="ant-color-picker-input-container"
-              >
-                <div
-                  class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
-                >
-                  <div
-                    class="ant-select-selector"
-                  >
-                    <span
-                      class="ant-select-selection-search"
-                    >
-                      <input
-                        aria-autocomplete="list"
-                        aria-controls="rc_select_TEST_OR_SSR_list"
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-owns="rc_select_TEST_OR_SSR_list"
-                        autocomplete="off"
-                        class="ant-select-selection-search-input"
-                        id="rc_select_TEST_OR_SSR"
-                        readonly=""
-                        role="combobox"
-                        style="opacity: 0;"
-                        type="search"
-                        unselectable="on"
-                        value=""
-                      />
-                    </span>
-                    <span
-                      class="ant-select-selection-item"
-                      title="HEX"
-                    >
-                      HEX
-                    </span>
-                  </div>
-                  <div
-                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
-                  >
-                    <div>
-                      <div
-                        id="rc_select_TEST_OR_SSR_list"
-                        role="listbox"
-                        style="height: 0px; width: 0px; overflow: hidden;"
-                      >
-                        <div
-                          aria-label="HEX"
-                          aria-selected="true"
-                          id="rc_select_TEST_OR_SSR_list_0"
-                          role="option"
-                        >
-                          hex
-                        </div>
-                        <div
-                          aria-label="HSB"
-                          aria-selected="false"
-                          id="rc_select_TEST_OR_SSR_list_1"
-                          role="option"
-                        >
-                          hsb
-                        </div>
-                      </div>
-                      <div
-                        class="rc-virtual-list"
-                        style="position: relative;"
-                      >
-                        <div
-                          class="rc-virtual-list-holder"
-                          style="max-height: 256px; overflow-y: auto;"
-                        >
-                          <div>
-                            <div
-                              class="rc-virtual-list-holder-inner"
-                              style="display: flex; flex-direction: column;"
-                            >
-                              <div
-                                aria-selected="true"
-                                class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                                title="HEX"
-                              >
-                                <div
-                                  class="ant-select-item-option-content"
-                                >
-                                  HEX
-                                </div>
-                                <span
-                                  aria-hidden="true"
-                                  class="ant-select-item-option-state"
-                                  style="user-select: none;"
-                                  unselectable="on"
-                                />
-                              </div>
-                              <div
-                                aria-selected="false"
-                                class="ant-select-item ant-select-item-option"
-                                title="HSB"
-                              >
-                                <div
-                                  class="ant-select-item-option-content"
-                                >
-                                  HSB
-                                </div>
-                                <span
-                                  aria-hidden="true"
-                                  class="ant-select-item-option-state"
-                                  style="user-select: none;"
-                                  unselectable="on"
-                                />
-                              </div>
-                              <div
-                                aria-selected="false"
-                                class="ant-select-item ant-select-item-option"
-                                title="RGB"
-                              >
-                                <div
-                                  class="ant-select-item-option-content"
-                                >
-                                  RGB
-                                </div>
-                                <span
-                                  aria-hidden="true"
-                                  class="ant-select-item-option-state"
-                                  style="user-select: none;"
-                                  unselectable="on"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-arrow"
-                    style="user-select: none;"
-                    unselectable="on"
-                  >
-                    <span
-                      aria-label="down"
-                      class="anticon anticon-down ant-select-suffix"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="down"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                </div>
-                <div
-                  class="ant-color-picker-input"
-                >
-                  <span
-                    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
-                  >
-                    <span
-                      class="ant-input-prefix"
-                    >
-                      #
-                    </span>
-                    <input
-                      class="ant-input ant-input-sm"
-                      type="text"
-                      value="1677ff"
-                    />
-                  </span>
-                </div>
-                <div
-                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
-                >
-                  <div
-                    class="ant-input-number-handler-wrap"
-                  >
-                    <span
-                      aria-disabled="true"
-                      aria-label="Increase Value"
-                      class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
-                      role="button"
-                      unselectable="on"
-                    >
-                      <span
-                        aria-label="up"
-                        class="anticon anticon-up ant-input-number-handler-up-inner"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="up"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                          />
-                        </svg>
-                      </span>
-                    </span>
-                    <span
-                      aria-disabled="false"
-                      aria-label="Decrease Value"
-                      class="ant-input-number-handler ant-input-number-handler-down"
-                      role="button"
-                      unselectable="on"
-                    >
-                      <span
-                        aria-label="down"
-                        class="anticon anticon-down ant-input-number-handler-down-inner"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="down"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                          />
-                        </svg>
-                      </span>
-                    </span>
-                  </div>
-                  <div
-                    class="ant-input-number-input-wrap"
-                  >
-                    <input
-                      aria-valuemax="100"
-                      aria-valuemin="0"
-                      aria-valuenow="100"
-                      autocomplete="off"
-                      class="ant-input-number-input"
-                      role="spinbutton"
-                      step="1"
-                      value="100%"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>,
-]
-`;
-
 exports[`renders components/color-picker/demo/controlled.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/color-picker/demo/disabled.tsx extend context correctly 1`] = `
 Array [
   <div
+    aria-describedby="test-id"
     class="ant-color-picker-trigger ant-color-picker-trigger-disabled"
   >
     <div
@@ -1589,6 +1615,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -1693,30 +1720,34 @@ Array [
                     class="ant-select-selector"
                   >
                     <span
-                      class="ant-select-selection-search"
+                      class="ant-select-selection-wrap"
                     >
-                      <input
-                        aria-autocomplete="list"
-                        aria-controls="rc_select_TEST_OR_SSR_list"
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-owns="rc_select_TEST_OR_SSR_list"
-                        autocomplete="off"
-                        class="ant-select-selection-search-input"
-                        id="rc_select_TEST_OR_SSR"
-                        readonly=""
-                        role="combobox"
-                        style="opacity: 0;"
-                        type="search"
-                        unselectable="on"
-                        value=""
-                      />
-                    </span>
-                    <span
-                      class="ant-select-selection-item"
-                      title="HEX"
-                    >
-                      HEX
+                      <span
+                        class="ant-select-selection-search"
+                      >
+                        <input
+                          aria-autocomplete="list"
+                          aria-controls="rc_select_TEST_OR_SSR_list"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-owns="rc_select_TEST_OR_SSR_list"
+                          autocomplete="off"
+                          class="ant-select-selection-search-input"
+                          id="rc_select_TEST_OR_SSR"
+                          readonly=""
+                          role="combobox"
+                          style="opacity: 0;"
+                          type="search"
+                          unselectable="on"
+                          value=""
+                        />
+                      </span>
+                      <span
+                        class="ant-select-selection-item"
+                        title="HEX"
+                      >
+                        HEX
+                      </span>
                     </span>
                   </div>
                   <div
@@ -1952,6 +1983,7 @@ exports[`renders components/color-picker/demo/disabled.tsx extend context correc
 exports[`renders components/color-picker/demo/disabled-alpha.tsx extend context correctly 1`] = `
 Array [
   <div
+    aria-describedby="test-id"
     class="ant-color-picker-trigger"
   >
     <div
@@ -1976,6 +2008,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -2059,30 +2092,34 @@ Array [
                     class="ant-select-selector"
                   >
                     <span
-                      class="ant-select-selection-search"
+                      class="ant-select-selection-wrap"
                     >
-                      <input
-                        aria-autocomplete="list"
-                        aria-controls="rc_select_TEST_OR_SSR_list"
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-owns="rc_select_TEST_OR_SSR_list"
-                        autocomplete="off"
-                        class="ant-select-selection-search-input"
-                        id="rc_select_TEST_OR_SSR"
-                        readonly=""
-                        role="combobox"
-                        style="opacity: 0;"
-                        type="search"
-                        unselectable="on"
-                        value=""
-                      />
-                    </span>
-                    <span
-                      class="ant-select-selection-item"
-                      title="HEX"
-                    >
-                      HEX
+                      <span
+                        class="ant-select-selection-search"
+                      >
+                        <input
+                          aria-autocomplete="list"
+                          aria-controls="rc_select_TEST_OR_SSR_list"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-owns="rc_select_TEST_OR_SSR_list"
+                          autocomplete="off"
+                          class="ant-select-selection-search-input"
+                          id="rc_select_TEST_OR_SSR"
+                          readonly=""
+                          role="combobox"
+                          style="opacity: 0;"
+                          type="search"
+                          unselectable="on"
+                          value=""
+                        />
+                      </span>
+                      <span
+                        class="ant-select-selection-item"
+                        title="HEX"
+                      >
+                        HEX
+                      </span>
                     </span>
                   </div>
                   <div
@@ -2254,6 +2291,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
         class="ant-space-item"
       >
         <div
+          aria-describedby="test-id"
           class="ant-color-picker-trigger"
         >
           <div
@@ -2278,6 +2316,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
@@ -2382,30 +2421,34 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           class="ant-select-selector"
                         >
                           <span
-                            class="ant-select-selection-search"
+                            class="ant-select-selection-wrap"
                           >
-                            <input
-                              aria-autocomplete="list"
-                              aria-controls="rc_select_TEST_OR_SSR_list"
-                              aria-expanded="false"
-                              aria-haspopup="listbox"
-                              aria-owns="rc_select_TEST_OR_SSR_list"
-                              autocomplete="off"
-                              class="ant-select-selection-search-input"
-                              id="rc_select_TEST_OR_SSR"
-                              readonly=""
-                              role="combobox"
-                              style="opacity: 0;"
-                              type="search"
-                              unselectable="on"
-                              value=""
-                            />
-                          </span>
-                          <span
-                            class="ant-select-selection-item"
-                            title="HEX"
-                          >
-                            HEX
+                            <span
+                              class="ant-select-selection-search"
+                            >
+                              <input
+                                aria-autocomplete="list"
+                                aria-controls="rc_select_TEST_OR_SSR_list"
+                                aria-expanded="false"
+                                aria-haspopup="listbox"
+                                aria-owns="rc_select_TEST_OR_SSR_list"
+                                autocomplete="off"
+                                class="ant-select-selection-search-input"
+                                id="rc_select_TEST_OR_SSR"
+                                readonly=""
+                                role="combobox"
+                                style="opacity: 0;"
+                                type="search"
+                                unselectable="on"
+                                value=""
+                              />
+                            </span>
+                            <span
+                              class="ant-select-selection-item"
+                              title="HEX"
+                            >
+                              HEX
+                            </span>
                           </span>
                         </div>
                         <div
@@ -2653,6 +2696,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
         class="ant-space-item"
       >
         <div
+          aria-describedby="test-id"
           class="ant-color-picker-trigger"
         >
           <div
@@ -2677,6 +2721,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
@@ -2781,30 +2826,34 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           class="ant-select-selector"
                         >
                           <span
-                            class="ant-select-selection-search"
+                            class="ant-select-selection-wrap"
                           >
-                            <input
-                              aria-autocomplete="list"
-                              aria-controls="rc_select_TEST_OR_SSR_list"
-                              aria-expanded="false"
-                              aria-haspopup="listbox"
-                              aria-owns="rc_select_TEST_OR_SSR_list"
-                              autocomplete="off"
-                              class="ant-select-selection-search-input"
-                              id="rc_select_TEST_OR_SSR"
-                              readonly=""
-                              role="combobox"
-                              style="opacity: 0;"
-                              type="search"
-                              unselectable="on"
-                              value=""
-                            />
-                          </span>
-                          <span
-                            class="ant-select-selection-item"
-                            title="HSB"
-                          >
-                            HSB
+                            <span
+                              class="ant-select-selection-search"
+                            >
+                              <input
+                                aria-autocomplete="list"
+                                aria-controls="rc_select_TEST_OR_SSR_list"
+                                aria-expanded="false"
+                                aria-haspopup="listbox"
+                                aria-owns="rc_select_TEST_OR_SSR_list"
+                                autocomplete="off"
+                                class="ant-select-selection-search-input"
+                                id="rc_select_TEST_OR_SSR"
+                                readonly=""
+                                role="combobox"
+                                style="opacity: 0;"
+                                type="search"
+                                unselectable="on"
+                                value=""
+                              />
+                            </span>
+                            <span
+                              class="ant-select-selection-item"
+                              title="HSB"
+                            >
+                              HSB
+                            </span>
                           </span>
                         </div>
                         <div
@@ -3270,6 +3319,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
         class="ant-space-item"
       >
         <div
+          aria-describedby="test-id"
           class="ant-color-picker-trigger"
         >
           <div
@@ -3294,6 +3344,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
@@ -3398,30 +3449,34 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           class="ant-select-selector"
                         >
                           <span
-                            class="ant-select-selection-search"
+                            class="ant-select-selection-wrap"
                           >
-                            <input
-                              aria-autocomplete="list"
-                              aria-controls="rc_select_TEST_OR_SSR_list"
-                              aria-expanded="false"
-                              aria-haspopup="listbox"
-                              aria-owns="rc_select_TEST_OR_SSR_list"
-                              autocomplete="off"
-                              class="ant-select-selection-search-input"
-                              id="rc_select_TEST_OR_SSR"
-                              readonly=""
-                              role="combobox"
-                              style="opacity: 0;"
-                              type="search"
-                              unselectable="on"
-                              value=""
-                            />
-                          </span>
-                          <span
-                            class="ant-select-selection-item"
-                            title="RGB"
-                          >
-                            RGB
+                            <span
+                              class="ant-select-selection-search"
+                            >
+                              <input
+                                aria-autocomplete="list"
+                                aria-controls="rc_select_TEST_OR_SSR_list"
+                                aria-expanded="false"
+                                aria-haspopup="listbox"
+                                aria-owns="rc_select_TEST_OR_SSR_list"
+                                autocomplete="off"
+                                class="ant-select-selection-search-input"
+                                id="rc_select_TEST_OR_SSR"
+                                readonly=""
+                                role="combobox"
+                                style="opacity: 0;"
+                                type="search"
+                                unselectable="on"
+                                value=""
+                              />
+                            </span>
+                            <span
+                              class="ant-select-selection-item"
+                              title="RGB"
+                            >
+                              RGB
+                            </span>
                           </span>
                         </div>
                         <div
@@ -3890,6 +3945,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
     class="ant-space-item"
   >
     <div
+      aria-describedby="test-id"
       class="ant-color-picker-trigger"
     >
       <div
@@ -3927,6 +3983,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -3942,7 +3999,10 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                   class="ant-color-picker-operation"
                 >
                   <div
+                    aria-label="segmented control"
                     class="ant-segmented ant-segmented-sm"
+                    role="radiogroup"
+                    tabindex="0"
                   >
                     <div
                       class="ant-segmented-group"
@@ -3953,9 +4013,11 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                         <input
                           checked=""
                           class="ant-segmented-item-input"
+                          name="test-id"
                           type="radio"
                         />
                         <div
+                          aria-selected="false"
                           class="ant-segmented-item-label"
                           title="Single"
                         >
@@ -3967,9 +4029,11 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       >
                         <input
                           class="ant-segmented-item-input"
+                          name="test-id"
                           type="radio"
                         />
                         <div
+                          aria-selected="true"
                           class="ant-segmented-item-label"
                           title="Gradient"
                         >
@@ -4107,30 +4171,34 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       class="ant-select-selector"
                     >
                       <span
-                        class="ant-select-selection-search"
+                        class="ant-select-selection-wrap"
                       >
-                        <input
-                          aria-autocomplete="list"
-                          aria-controls="rc_select_TEST_OR_SSR_list"
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-owns="rc_select_TEST_OR_SSR_list"
-                          autocomplete="off"
-                          class="ant-select-selection-search-input"
-                          id="rc_select_TEST_OR_SSR"
-                          readonly=""
-                          role="combobox"
-                          style="opacity: 0;"
-                          type="search"
-                          unselectable="on"
-                          value=""
-                        />
-                      </span>
-                      <span
-                        class="ant-select-selection-item"
-                        title="HEX"
-                      >
-                        HEX
+                        <span
+                          class="ant-select-selection-search"
+                        >
+                          <input
+                            aria-autocomplete="list"
+                            aria-controls="rc_select_TEST_OR_SSR_list"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-owns="rc_select_TEST_OR_SSR_list"
+                            autocomplete="off"
+                            class="ant-select-selection-search-input"
+                            id="rc_select_TEST_OR_SSR"
+                            readonly=""
+                            role="combobox"
+                            style="opacity: 0;"
+                            type="search"
+                            unselectable="on"
+                            value=""
+                          />
+                        </span>
+                        <span
+                          class="ant-select-selection-item"
+                          title="HEX"
+                        >
+                          HEX
+                        </span>
                       </span>
                     </div>
                     <div
@@ -4363,6 +4431,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
     class="ant-space-item"
   >
     <div
+      aria-describedby="test-id"
       class="ant-color-picker-trigger"
     >
       <div
@@ -4400,6 +4469,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -4543,30 +4613,34 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       class="ant-select-selector"
                     >
                       <span
-                        class="ant-select-selection-search"
+                        class="ant-select-selection-wrap"
                       >
-                        <input
-                          aria-autocomplete="list"
-                          aria-controls="rc_select_TEST_OR_SSR_list"
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-owns="rc_select_TEST_OR_SSR_list"
-                          autocomplete="off"
-                          class="ant-select-selection-search-input"
-                          id="rc_select_TEST_OR_SSR"
-                          readonly=""
-                          role="combobox"
-                          style="opacity: 0;"
-                          type="search"
-                          unselectable="on"
-                          value=""
-                        />
-                      </span>
-                      <span
-                        class="ant-select-selection-item"
-                        title="HEX"
-                      >
-                        HEX
+                        <span
+                          class="ant-select-selection-search"
+                        >
+                          <input
+                            aria-autocomplete="list"
+                            aria-controls="rc_select_TEST_OR_SSR_list"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-owns="rc_select_TEST_OR_SSR_list"
+                            autocomplete="off"
+                            class="ant-select-selection-search-input"
+                            id="rc_select_TEST_OR_SSR"
+                            readonly=""
+                            role="combobox"
+                            style="opacity: 0;"
+                            type="search"
+                            unselectable="on"
+                            value=""
+                          />
+                        </span>
+                        <span
+                          class="ant-select-selection-item"
+                          title="HEX"
+                        >
+                          HEX
+                        </span>
                       </span>
                     </div>
                     <div
@@ -4821,6 +4895,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
         class="ant-space-item"
       >
         <div
+          aria-describedby="test-id"
           class="ant-color-picker-trigger"
         >
           <div
@@ -4845,6 +4920,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
@@ -4957,30 +5033,34 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                             class="ant-select-selector"
                           >
                             <span
-                              class="ant-select-selection-search"
+                              class="ant-select-selection-wrap"
                             >
-                              <input
-                                aria-autocomplete="list"
-                                aria-controls="rc_select_TEST_OR_SSR_list"
-                                aria-expanded="false"
-                                aria-haspopup="listbox"
-                                aria-owns="rc_select_TEST_OR_SSR_list"
-                                autocomplete="off"
-                                class="ant-select-selection-search-input"
-                                id="rc_select_TEST_OR_SSR"
-                                readonly=""
-                                role="combobox"
-                                style="opacity: 0;"
-                                type="search"
-                                unselectable="on"
-                                value=""
-                              />
-                            </span>
-                            <span
-                              class="ant-select-selection-item"
-                              title="HEX"
-                            >
-                              HEX
+                              <span
+                                class="ant-select-selection-search"
+                              >
+                                <input
+                                  aria-autocomplete="list"
+                                  aria-controls="rc_select_TEST_OR_SSR_list"
+                                  aria-expanded="false"
+                                  aria-haspopup="listbox"
+                                  aria-owns="rc_select_TEST_OR_SSR_list"
+                                  autocomplete="off"
+                                  class="ant-select-selection-search-input"
+                                  id="rc_select_TEST_OR_SSR"
+                                  readonly=""
+                                  role="combobox"
+                                  style="opacity: 0;"
+                                  type="search"
+                                  unselectable="on"
+                                  value=""
+                                />
+                              </span>
+                              <span
+                                class="ant-select-selection-item"
+                                title="HEX"
+                              >
+                                HEX
+                              </span>
                             </span>
                           </div>
                           <div
@@ -5229,6 +5309,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
         class="ant-space-item"
       >
         <div
+          aria-describedby="test-id"
           class="ant-color-picker-trigger"
         >
           <div
@@ -5253,6 +5334,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
               style="width: 480px;"
             >
@@ -5927,30 +6009,34 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                             class="ant-select-selector"
                           >
                             <span
-                              class="ant-select-selection-search"
+                              class="ant-select-selection-wrap"
                             >
-                              <input
-                                aria-autocomplete="list"
-                                aria-controls="rc_select_TEST_OR_SSR_list"
-                                aria-expanded="false"
-                                aria-haspopup="listbox"
-                                aria-owns="rc_select_TEST_OR_SSR_list"
-                                autocomplete="off"
-                                class="ant-select-selection-search-input"
-                                id="rc_select_TEST_OR_SSR"
-                                readonly=""
-                                role="combobox"
-                                style="opacity: 0;"
-                                type="search"
-                                unselectable="on"
-                                value=""
-                              />
-                            </span>
-                            <span
-                              class="ant-select-selection-item"
-                              title="HEX"
-                            >
-                              HEX
+                              <span
+                                class="ant-select-selection-search"
+                              >
+                                <input
+                                  aria-autocomplete="list"
+                                  aria-controls="rc_select_TEST_OR_SSR_list"
+                                  aria-expanded="false"
+                                  aria-haspopup="listbox"
+                                  aria-owns="rc_select_TEST_OR_SSR_list"
+                                  autocomplete="off"
+                                  class="ant-select-selection-search-input"
+                                  id="rc_select_TEST_OR_SSR"
+                                  readonly=""
+                                  role="combobox"
+                                  style="opacity: 0;"
+                                  type="search"
+                                  unselectable="on"
+                                  value=""
+                                />
+                              </span>
+                              <span
+                                class="ant-select-selection-item"
+                                title="HEX"
+                              >
+                                HEX
+                              </span>
                             </span>
                           </div>
                           <div
@@ -6190,6 +6276,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
 exports[`renders components/color-picker/demo/presets.tsx extend context correctly 1`] = `
 Array [
   <div
+    aria-describedby="test-id"
     class="ant-color-picker-trigger"
   >
     <div
@@ -6214,6 +6301,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -6318,30 +6406,34 @@ Array [
                     class="ant-select-selector"
                   >
                     <span
-                      class="ant-select-selection-search"
+                      class="ant-select-selection-wrap"
                     >
-                      <input
-                        aria-autocomplete="list"
-                        aria-controls="rc_select_TEST_OR_SSR_list"
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-owns="rc_select_TEST_OR_SSR_list"
-                        autocomplete="off"
-                        class="ant-select-selection-search-input"
-                        id="rc_select_TEST_OR_SSR"
-                        readonly=""
-                        role="combobox"
-                        style="opacity: 0;"
-                        type="search"
-                        unselectable="on"
-                        value=""
-                      />
-                    </span>
-                    <span
-                      class="ant-select-selection-item"
-                      title="HEX"
-                    >
-                      HEX
+                      <span
+                        class="ant-select-selection-search"
+                      >
+                        <input
+                          aria-autocomplete="list"
+                          aria-controls="rc_select_TEST_OR_SSR_list"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-owns="rc_select_TEST_OR_SSR_list"
+                          autocomplete="off"
+                          class="ant-select-selection-search-input"
+                          id="rc_select_TEST_OR_SSR"
+                          readonly=""
+                          role="combobox"
+                          style="opacity: 0;"
+                          type="search"
+                          unselectable="on"
+                          value=""
+                        />
+                      </span>
+                      <span
+                        class="ant-select-selection-item"
+                        title="HEX"
+                      >
+                        HEX
+                      </span>
                     </span>
                   </div>
                   <div
@@ -7005,6 +7097,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
     style="padding-bottom: 0px; position: relative; min-width: 0;"
   >
     <div
+      aria-describedby="test-id"
       class="ant-color-picker-trigger ant-popover-open ant-color-picker-trigger-active"
       style="margin: 0px;"
     >
@@ -7030,6 +7123,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -7134,30 +7228,34 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                       class="ant-select-selector"
                     >
                       <span
-                        class="ant-select-selection-search"
+                        class="ant-select-selection-wrap"
                       >
-                        <input
-                          aria-autocomplete="list"
-                          aria-controls="rc_select_TEST_OR_SSR_list"
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-owns="rc_select_TEST_OR_SSR_list"
-                          autocomplete="off"
-                          class="ant-select-selection-search-input"
-                          id="rc_select_TEST_OR_SSR"
-                          readonly=""
-                          role="combobox"
-                          style="opacity: 0;"
-                          type="search"
-                          unselectable="on"
-                          value=""
-                        />
-                      </span>
-                      <span
-                        class="ant-select-selection-item"
-                        title="HEX"
-                      >
-                        HEX
+                        <span
+                          class="ant-select-selection-search"
+                        >
+                          <input
+                            aria-autocomplete="list"
+                            aria-controls="rc_select_TEST_OR_SSR_list"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-owns="rc_select_TEST_OR_SSR_list"
+                            autocomplete="off"
+                            class="ant-select-selection-search-input"
+                            id="rc_select_TEST_OR_SSR"
+                            readonly=""
+                            role="combobox"
+                            style="opacity: 0;"
+                            type="search"
+                            unselectable="on"
+                            value=""
+                          />
+                        </span>
+                        <span
+                          class="ant-select-selection-item"
+                          title="HEX"
+                        >
+                          HEX
+                        </span>
                       </span>
                     </div>
                     <div
@@ -7405,6 +7503,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
         class="ant-space-item"
       >
         <div
+          aria-describedby="test-id"
           class="ant-color-picker-trigger ant-color-picker-sm"
         >
           <div
@@ -7429,6 +7528,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
@@ -7533,30 +7633,34 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           class="ant-select-selector"
                         >
                           <span
-                            class="ant-select-selection-search"
+                            class="ant-select-selection-wrap"
                           >
-                            <input
-                              aria-autocomplete="list"
-                              aria-controls="rc_select_TEST_OR_SSR_list"
-                              aria-expanded="false"
-                              aria-haspopup="listbox"
-                              aria-owns="rc_select_TEST_OR_SSR_list"
-                              autocomplete="off"
-                              class="ant-select-selection-search-input"
-                              id="rc_select_TEST_OR_SSR"
-                              readonly=""
-                              role="combobox"
-                              style="opacity: 0;"
-                              type="search"
-                              unselectable="on"
-                              value=""
-                            />
-                          </span>
-                          <span
-                            class="ant-select-selection-item"
-                            title="HEX"
-                          >
-                            HEX
+                            <span
+                              class="ant-select-selection-search"
+                            >
+                              <input
+                                aria-autocomplete="list"
+                                aria-controls="rc_select_TEST_OR_SSR_list"
+                                aria-expanded="false"
+                                aria-haspopup="listbox"
+                                aria-owns="rc_select_TEST_OR_SSR_list"
+                                autocomplete="off"
+                                class="ant-select-selection-search-input"
+                                id="rc_select_TEST_OR_SSR"
+                                readonly=""
+                                role="combobox"
+                                style="opacity: 0;"
+                                type="search"
+                                unselectable="on"
+                                value=""
+                              />
+                            </span>
+                            <span
+                              class="ant-select-selection-item"
+                              title="HEX"
+                            >
+                              HEX
+                            </span>
                           </span>
                         </div>
                         <div
@@ -7789,6 +7893,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
         class="ant-space-item"
       >
         <div
+          aria-describedby="test-id"
           class="ant-color-picker-trigger"
         >
           <div
@@ -7813,6 +7918,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
@@ -7917,30 +8023,34 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           class="ant-select-selector"
                         >
                           <span
-                            class="ant-select-selection-search"
+                            class="ant-select-selection-wrap"
                           >
-                            <input
-                              aria-autocomplete="list"
-                              aria-controls="rc_select_TEST_OR_SSR_list"
-                              aria-expanded="false"
-                              aria-haspopup="listbox"
-                              aria-owns="rc_select_TEST_OR_SSR_list"
-                              autocomplete="off"
-                              class="ant-select-selection-search-input"
-                              id="rc_select_TEST_OR_SSR"
-                              readonly=""
-                              role="combobox"
-                              style="opacity: 0;"
-                              type="search"
-                              unselectable="on"
-                              value=""
-                            />
-                          </span>
-                          <span
-                            class="ant-select-selection-item"
-                            title="HEX"
-                          >
-                            HEX
+                            <span
+                              class="ant-select-selection-search"
+                            >
+                              <input
+                                aria-autocomplete="list"
+                                aria-controls="rc_select_TEST_OR_SSR_list"
+                                aria-expanded="false"
+                                aria-haspopup="listbox"
+                                aria-owns="rc_select_TEST_OR_SSR_list"
+                                autocomplete="off"
+                                class="ant-select-selection-search-input"
+                                id="rc_select_TEST_OR_SSR"
+                                readonly=""
+                                role="combobox"
+                                style="opacity: 0;"
+                                type="search"
+                                unselectable="on"
+                                value=""
+                              />
+                            </span>
+                            <span
+                              class="ant-select-selection-item"
+                              title="HEX"
+                            >
+                              HEX
+                            </span>
                           </span>
                         </div>
                         <div
@@ -8173,6 +8283,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
         class="ant-space-item"
       >
         <div
+          aria-describedby="test-id"
           class="ant-color-picker-trigger ant-color-picker-lg"
         >
           <div
@@ -8197,6 +8308,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
@@ -8301,30 +8413,34 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           class="ant-select-selector"
                         >
                           <span
-                            class="ant-select-selection-search"
+                            class="ant-select-selection-wrap"
                           >
-                            <input
-                              aria-autocomplete="list"
-                              aria-controls="rc_select_TEST_OR_SSR_list"
-                              aria-expanded="false"
-                              aria-haspopup="listbox"
-                              aria-owns="rc_select_TEST_OR_SSR_list"
-                              autocomplete="off"
-                              class="ant-select-selection-search-input"
-                              id="rc_select_TEST_OR_SSR"
-                              readonly=""
-                              role="combobox"
-                              style="opacity: 0;"
-                              type="search"
-                              unselectable="on"
-                              value=""
-                            />
-                          </span>
-                          <span
-                            class="ant-select-selection-item"
-                            title="HEX"
-                          >
-                            HEX
+                            <span
+                              class="ant-select-selection-search"
+                            >
+                              <input
+                                aria-autocomplete="list"
+                                aria-controls="rc_select_TEST_OR_SSR_list"
+                                aria-expanded="false"
+                                aria-haspopup="listbox"
+                                aria-owns="rc_select_TEST_OR_SSR_list"
+                                autocomplete="off"
+                                class="ant-select-selection-search-input"
+                                id="rc_select_TEST_OR_SSR"
+                                readonly=""
+                                role="combobox"
+                                style="opacity: 0;"
+                                type="search"
+                                unselectable="on"
+                                value=""
+                              />
+                            </span>
+                            <span
+                              class="ant-select-selection-item"
+                              title="HEX"
+                            >
+                              HEX
+                            </span>
                           </span>
                         </div>
                         <div
@@ -8565,6 +8681,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
         class="ant-space-item"
       >
         <div
+          aria-describedby="test-id"
           class="ant-color-picker-trigger ant-color-picker-sm"
         >
           <div
@@ -8594,6 +8711,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
@@ -8698,30 +8816,34 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           class="ant-select-selector"
                         >
                           <span
-                            class="ant-select-selection-search"
+                            class="ant-select-selection-wrap"
                           >
-                            <input
-                              aria-autocomplete="list"
-                              aria-controls="rc_select_TEST_OR_SSR_list"
-                              aria-expanded="false"
-                              aria-haspopup="listbox"
-                              aria-owns="rc_select_TEST_OR_SSR_list"
-                              autocomplete="off"
-                              class="ant-select-selection-search-input"
-                              id="rc_select_TEST_OR_SSR"
-                              readonly=""
-                              role="combobox"
-                              style="opacity: 0;"
-                              type="search"
-                              unselectable="on"
-                              value=""
-                            />
-                          </span>
-                          <span
-                            class="ant-select-selection-item"
-                            title="HEX"
-                          >
-                            HEX
+                            <span
+                              class="ant-select-selection-search"
+                            >
+                              <input
+                                aria-autocomplete="list"
+                                aria-controls="rc_select_TEST_OR_SSR_list"
+                                aria-expanded="false"
+                                aria-haspopup="listbox"
+                                aria-owns="rc_select_TEST_OR_SSR_list"
+                                autocomplete="off"
+                                class="ant-select-selection-search-input"
+                                id="rc_select_TEST_OR_SSR"
+                                readonly=""
+                                role="combobox"
+                                style="opacity: 0;"
+                                type="search"
+                                unselectable="on"
+                                value=""
+                              />
+                            </span>
+                            <span
+                              class="ant-select-selection-item"
+                              title="HEX"
+                            >
+                              HEX
+                            </span>
                           </span>
                         </div>
                         <div
@@ -8954,6 +9076,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
         class="ant-space-item"
       >
         <div
+          aria-describedby="test-id"
           class="ant-color-picker-trigger"
         >
           <div
@@ -8983,6 +9106,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
@@ -9087,30 +9211,34 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           class="ant-select-selector"
                         >
                           <span
-                            class="ant-select-selection-search"
+                            class="ant-select-selection-wrap"
                           >
-                            <input
-                              aria-autocomplete="list"
-                              aria-controls="rc_select_TEST_OR_SSR_list"
-                              aria-expanded="false"
-                              aria-haspopup="listbox"
-                              aria-owns="rc_select_TEST_OR_SSR_list"
-                              autocomplete="off"
-                              class="ant-select-selection-search-input"
-                              id="rc_select_TEST_OR_SSR"
-                              readonly=""
-                              role="combobox"
-                              style="opacity: 0;"
-                              type="search"
-                              unselectable="on"
-                              value=""
-                            />
-                          </span>
-                          <span
-                            class="ant-select-selection-item"
-                            title="HEX"
-                          >
-                            HEX
+                            <span
+                              class="ant-select-selection-search"
+                            >
+                              <input
+                                aria-autocomplete="list"
+                                aria-controls="rc_select_TEST_OR_SSR_list"
+                                aria-expanded="false"
+                                aria-haspopup="listbox"
+                                aria-owns="rc_select_TEST_OR_SSR_list"
+                                autocomplete="off"
+                                class="ant-select-selection-search-input"
+                                id="rc_select_TEST_OR_SSR"
+                                readonly=""
+                                role="combobox"
+                                style="opacity: 0;"
+                                type="search"
+                                unselectable="on"
+                                value=""
+                              />
+                            </span>
+                            <span
+                              class="ant-select-selection-item"
+                              title="HEX"
+                            >
+                              HEX
+                            </span>
                           </span>
                         </div>
                         <div
@@ -9343,6 +9471,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
         class="ant-space-item"
       >
         <div
+          aria-describedby="test-id"
           class="ant-color-picker-trigger ant-color-picker-lg"
         >
           <div
@@ -9372,6 +9501,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
@@ -9476,30 +9606,34 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           class="ant-select-selector"
                         >
                           <span
-                            class="ant-select-selection-search"
+                            class="ant-select-selection-wrap"
                           >
-                            <input
-                              aria-autocomplete="list"
-                              aria-controls="rc_select_TEST_OR_SSR_list"
-                              aria-expanded="false"
-                              aria-haspopup="listbox"
-                              aria-owns="rc_select_TEST_OR_SSR_list"
-                              autocomplete="off"
-                              class="ant-select-selection-search-input"
-                              id="rc_select_TEST_OR_SSR"
-                              readonly=""
-                              role="combobox"
-                              style="opacity: 0;"
-                              type="search"
-                              unselectable="on"
-                              value=""
-                            />
-                          </span>
-                          <span
-                            class="ant-select-selection-item"
-                            title="HEX"
-                          >
-                            HEX
+                            <span
+                              class="ant-select-selection-search"
+                            >
+                              <input
+                                aria-autocomplete="list"
+                                aria-controls="rc_select_TEST_OR_SSR_list"
+                                aria-expanded="false"
+                                aria-haspopup="listbox"
+                                aria-owns="rc_select_TEST_OR_SSR_list"
+                                autocomplete="off"
+                                class="ant-select-selection-search-input"
+                                id="rc_select_TEST_OR_SSR"
+                                readonly=""
+                                role="combobox"
+                                style="opacity: 0;"
+                                type="search"
+                                unselectable="on"
+                                value=""
+                              />
+                            </span>
+                            <span
+                              class="ant-select-selection-item"
+                              title="HEX"
+                            >
+                              HEX
+                            </span>
                           </span>
                         </div>
                         <div
@@ -9743,6 +9877,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
     class="ant-space-item"
   >
     <div
+      aria-describedby="test-id"
       class="ant-color-picker-trigger"
     >
       <div
@@ -9772,6 +9907,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -9883,30 +10019,34 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       class="ant-select-selector"
                     >
                       <span
-                        class="ant-select-selection-search"
+                        class="ant-select-selection-wrap"
                       >
-                        <input
-                          aria-autocomplete="list"
-                          aria-controls="rc_select_TEST_OR_SSR_list"
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-owns="rc_select_TEST_OR_SSR_list"
-                          autocomplete="off"
-                          class="ant-select-selection-search-input"
-                          id="rc_select_TEST_OR_SSR"
-                          readonly=""
-                          role="combobox"
-                          style="opacity: 0;"
-                          type="search"
-                          unselectable="on"
-                          value=""
-                        />
-                      </span>
-                      <span
-                        class="ant-select-selection-item"
-                        title="HEX"
-                      >
-                        HEX
+                        <span
+                          class="ant-select-selection-search"
+                        >
+                          <input
+                            aria-autocomplete="list"
+                            aria-controls="rc_select_TEST_OR_SSR_list"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-owns="rc_select_TEST_OR_SSR_list"
+                            autocomplete="off"
+                            class="ant-select-selection-search-input"
+                            id="rc_select_TEST_OR_SSR"
+                            readonly=""
+                            role="combobox"
+                            style="opacity: 0;"
+                            type="search"
+                            unselectable="on"
+                            value=""
+                          />
+                        </span>
+                        <span
+                          class="ant-select-selection-item"
+                          title="HEX"
+                        >
+                          HEX
+                        </span>
                       </span>
                     </div>
                     <div
@@ -10139,6 +10279,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
     class="ant-space-item"
   >
     <div
+      aria-describedby="test-id"
       class="ant-color-picker-trigger"
     >
       <div
@@ -10170,6 +10311,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -10274,30 +10416,34 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       class="ant-select-selector"
                     >
                       <span
-                        class="ant-select-selection-search"
+                        class="ant-select-selection-wrap"
                       >
-                        <input
-                          aria-autocomplete="list"
-                          aria-controls="rc_select_TEST_OR_SSR_list"
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-owns="rc_select_TEST_OR_SSR_list"
-                          autocomplete="off"
-                          class="ant-select-selection-search-input"
-                          id="rc_select_TEST_OR_SSR"
-                          readonly=""
-                          role="combobox"
-                          style="opacity: 0;"
-                          type="search"
-                          unselectable="on"
-                          value=""
-                        />
-                      </span>
-                      <span
-                        class="ant-select-selection-item"
-                        title="HEX"
-                      >
-                        HEX
+                        <span
+                          class="ant-select-selection-search"
+                        >
+                          <input
+                            aria-autocomplete="list"
+                            aria-controls="rc_select_TEST_OR_SSR_list"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-owns="rc_select_TEST_OR_SSR_list"
+                            autocomplete="off"
+                            class="ant-select-selection-search-input"
+                            id="rc_select_TEST_OR_SSR"
+                            readonly=""
+                            role="combobox"
+                            style="opacity: 0;"
+                            type="search"
+                            unselectable="on"
+                            value=""
+                          />
+                        </span>
+                        <span
+                          class="ant-select-selection-item"
+                          title="HEX"
+                        >
+                          HEX
+                        </span>
                       </span>
                     </div>
                     <div
@@ -10530,6 +10676,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
     class="ant-space-item"
   >
     <div
+      aria-describedby="test-id"
       class="ant-color-picker-trigger"
     >
       <div
@@ -10578,6 +10725,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -10682,30 +10830,34 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       class="ant-select-selector"
                     >
                       <span
-                        class="ant-select-selection-search"
+                        class="ant-select-selection-wrap"
                       >
-                        <input
-                          aria-autocomplete="list"
-                          aria-controls="rc_select_TEST_OR_SSR_list"
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-owns="rc_select_TEST_OR_SSR_list"
-                          autocomplete="off"
-                          class="ant-select-selection-search-input"
-                          id="rc_select_TEST_OR_SSR"
-                          readonly=""
-                          role="combobox"
-                          style="opacity: 0;"
-                          type="search"
-                          unselectable="on"
-                          value=""
-                        />
-                      </span>
-                      <span
-                        class="ant-select-selection-item"
-                        title="HEX"
-                      >
-                        HEX
+                        <span
+                          class="ant-select-selection-search"
+                        >
+                          <input
+                            aria-autocomplete="list"
+                            aria-controls="rc_select_TEST_OR_SSR_list"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-owns="rc_select_TEST_OR_SSR_list"
+                            autocomplete="off"
+                            class="ant-select-selection-search-input"
+                            id="rc_select_TEST_OR_SSR"
+                            readonly=""
+                            role="combobox"
+                            style="opacity: 0;"
+                            type="search"
+                            unselectable="on"
+                            value=""
+                          />
+                        </span>
+                        <span
+                          class="ant-select-selection-item"
+                          title="HEX"
+                        >
+                          HEX
+                        </span>
                       </span>
                     </div>
                     <div
@@ -10942,7 +11094,8 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
 exports[`renders components/color-picker/demo/trigger.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary"
+    aria-describedby="test-id"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     style="background-color: rgb(22, 119, 255);"
     type="button"
   >
@@ -10963,6 +11116,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -11067,30 +11221,34 @@ Array [
                     class="ant-select-selector"
                   >
                     <span
-                      class="ant-select-selection-search"
+                      class="ant-select-selection-wrap"
                     >
-                      <input
-                        aria-autocomplete="list"
-                        aria-controls="rc_select_TEST_OR_SSR_list"
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-owns="rc_select_TEST_OR_SSR_list"
-                        autocomplete="off"
-                        class="ant-select-selection-search-input"
-                        id="rc_select_TEST_OR_SSR"
-                        readonly=""
-                        role="combobox"
-                        style="opacity: 0;"
-                        type="search"
-                        unselectable="on"
-                        value=""
-                      />
-                    </span>
-                    <span
-                      class="ant-select-selection-item"
-                      title="HEX"
-                    >
-                      HEX
+                      <span
+                        class="ant-select-selection-search"
+                      >
+                        <input
+                          aria-autocomplete="list"
+                          aria-controls="rc_select_TEST_OR_SSR_list"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-owns="rc_select_TEST_OR_SSR_list"
+                          autocomplete="off"
+                          class="ant-select-selection-search-input"
+                          id="rc_select_TEST_OR_SSR"
+                          readonly=""
+                          role="combobox"
+                          style="opacity: 0;"
+                          type="search"
+                          unselectable="on"
+                          value=""
+                        />
+                      </span>
+                      <span
+                        class="ant-select-selection-item"
+                        title="HEX"
+                      >
+                        HEX
+                      </span>
                     </span>
                   </div>
                   <div
@@ -11326,6 +11484,7 @@ exports[`renders components/color-picker/demo/trigger.tsx extend context correct
 exports[`renders components/color-picker/demo/trigger-event.tsx extend context correctly 1`] = `
 Array [
   <div
+    aria-describedby="test-id"
     class="ant-color-picker-trigger"
   >
     <div
@@ -11350,6 +11509,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -11454,30 +11614,34 @@ Array [
                     class="ant-select-selector"
                   >
                     <span
-                      class="ant-select-selection-search"
+                      class="ant-select-selection-wrap"
                     >
-                      <input
-                        aria-autocomplete="list"
-                        aria-controls="rc_select_TEST_OR_SSR_list"
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-owns="rc_select_TEST_OR_SSR_list"
-                        autocomplete="off"
-                        class="ant-select-selection-search-input"
-                        id="rc_select_TEST_OR_SSR"
-                        readonly=""
-                        role="combobox"
-                        style="opacity: 0;"
-                        type="search"
-                        unselectable="on"
-                        value=""
-                      />
-                    </span>
-                    <span
-                      class="ant-select-selection-item"
-                      title="HEX"
-                    >
-                      HEX
+                      <span
+                        class="ant-select-selection-search"
+                      >
+                        <input
+                          aria-autocomplete="list"
+                          aria-controls="rc_select_TEST_OR_SSR_list"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-owns="rc_select_TEST_OR_SSR_list"
+                          autocomplete="off"
+                          class="ant-select-selection-search-input"
+                          id="rc_select_TEST_OR_SSR"
+                          readonly=""
+                          role="combobox"
+                          style="opacity: 0;"
+                          type="search"
+                          unselectable="on"
+                          value=""
+                        />
+                      </span>
+                      <span
+                        class="ant-select-selection-item"
+                        title="HEX"
+                      >
+                        HEX
+                      </span>
                     </span>
                   </div>
                   <div

@@ -5,9 +5,10 @@ import userEvent from '@testing-library/user-event';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, screen } from '../../../tests/utils';
+import { fireEvent, render, screen } from '../../../tests/utils';
 import Button from '../../button/index';
 import Card from '../index';
+import ConfigProvider from '../../config-provider';
 
 describe('Card', () => {
   mountTest(Card);
@@ -193,5 +194,40 @@ describe('Card', () => {
       </Card>,
     );
     expect(container).toMatchSnapshot();
+  });
+  it('ConfigProvider support variant for card', () => {
+    const TestComponent = () => {
+      const [variant, setVariant] = React.useState<'borderless' | 'outlined'>('outlined');
+      const [cardVariant, setCardVariant] = React.useState<'borderless' | 'outlined' | undefined>(
+        undefined,
+      );
+
+      return (
+        <div>
+          <button type="button" onClick={() => setVariant('borderless')}>
+            Set borderless
+          </button>
+          <button type="button" onClick={() => setCardVariant('outlined')}>
+            Set outlined
+          </button>
+          <ConfigProvider variant={variant}>
+            <Card title="Card title" variant={cardVariant}>
+              <p>Card content</p>
+            </Card>
+          </ConfigProvider>
+        </div>
+      );
+    };
+
+    const { container, getByText } = render(<TestComponent />);
+
+    // Check if the default `ant-card-bordered` exists
+    expect(container.querySelector('.ant-card-bordered')).toBeTruthy();
+
+    fireEvent.click(getByText('Set borderless'));
+    expect(container.querySelector('.ant-card-bordered')).toBeFalsy();
+
+    fireEvent.click(getByText('Set outlined'));
+    expect(container.querySelector('.ant-card-bordered')).toBeTruthy();
   });
 });

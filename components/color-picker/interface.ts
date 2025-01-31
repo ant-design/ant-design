@@ -1,4 +1,5 @@
 import type { CSSProperties, FC, ReactNode } from 'react';
+import React from 'react';
 import type {
   ColorGenInput,
   ColorPickerProps as RcColorPickerProps,
@@ -16,13 +17,11 @@ export type Colors<T> = {
   percent: number;
 }[];
 
-export enum ColorFormat {
-  hex = 'hex',
-  rgb = 'rgb',
-  hsb = 'hsb',
-}
+export const FORMAT_HEX = 'hex';
+export const FORMAT_RGB = 'rgb';
+export const FORMAT_HSB = 'hsb';
 
-export type ColorFormatType = keyof typeof ColorFormat;
+export type ColorFormatType = typeof FORMAT_HEX | typeof FORMAT_RGB | typeof FORMAT_HSB;
 
 export interface PresetsItem {
   label: ReactNode;
@@ -33,7 +32,13 @@ export interface PresetsItem {
    * @default true
    */
   defaultOpen?: boolean;
+  /**
+   * The key of the panel
+   * @since 5.23.0
+   */
+  key?: React.Key;
 }
+
 export type TriggerType = 'click' | 'hover';
 
 export type TriggerPlacement = TooltipPlacement; // Alias, to prevent breaking changes.
@@ -85,7 +90,8 @@ export type ColorPickerProps = Omit<
   [key: `data-${string}`]: string;
   onOpenChange?: (open: boolean) => void;
   onFormatChange?: (format?: ColorFormatType) => void;
-  onChange?: (value: AggregationColor, hex: string) => void;
+  onChange?: (value: AggregationColor, css: string) => void;
   onClear?: () => void;
   onChangeComplete?: (value: AggregationColor) => void;
+  disabledFormat?: boolean;
 } & Pick<PopoverProps, 'getPopupContainer' | 'autoAdjustOverflow' | 'destroyTooltipOnHide'>;

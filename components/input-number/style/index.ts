@@ -1,17 +1,13 @@
 import { unit } from '@ant-design/cssinjs';
 
-import {
-  genBasicInputStyle,
-  genInputGroupStyle,
-  genPlaceholderStyle,
-  initInputToken,
-} from '../../input/style';
+import { genBasicInputStyle, genInputGroupStyle, genPlaceholderStyle, initInputToken } from '../../input/style';
 import {
   genBorderlessStyle,
   genFilledGroupStyle,
   genFilledStyle,
   genOutlinedGroupStyle,
   genOutlinedStyle,
+  genUnderlinedStyle,
 } from '../../input/style/variants';
 import { resetComponent, resetIcon } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
@@ -108,6 +104,14 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           '&:focus-within': {
             [`${componentCls}-handler-wrap`]: {
               background: handleBg,
+            },
+          },
+        }),
+        ...genUnderlinedStyle(token, {
+          [`${componentCls}-handler-wrap`]: {
+            background: handleBg,
+            [`${componentCls}-handler-down`]: {
+              borderBlockStart: `${unit(lineWidth)} ${lineType} ${handleBorderColor}`,
             },
           },
         }),
@@ -250,7 +254,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           position: 'absolute',
           insetBlockStart: 0,
           insetInlineEnd: 0,
-          width: 0,
+          width: token.handleVisibleWidth,
           opacity: handleOpacity,
           height: '100%',
           borderStartStartRadius: 0,
@@ -469,7 +473,7 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
         width: token.handleWidth,
         opacity: 1,
       },
-      [`&:hover ${componentCls}-suffix`]: {
+      [`&:not(${componentCls}-affix-wrapper-without-controls):hover ${componentCls}-suffix`]: {
         marginInlineEnd: token.calc(token.handleWidth).add(paddingInline).equal(),
       },
     },

@@ -29,6 +29,7 @@ When a numeric value needs to be provided.
 <code src="./demo/out-of-range.tsx">Out of range</code>
 <code src="./demo/presuffix.tsx">Prefix / Suffix</code>
 <code src="./demo/status.tsx">Status</code>
+<code src="./demo/focus.tsx" version="5.22.0">Focus</code>
 <code src="./demo/controls.tsx" debug>Icon</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/debug-token.tsx" debug>Override Component Style</code>
@@ -63,18 +64,18 @@ Common props ref：[Common props](/docs/react/common-props)
 | step | The number to which the current value is increased or decreased. It can be an integer or decimal | number \| string | 1 | - |
 | stringMode | Set value as string to support high precision decimals. Will return string value by `onChange` | boolean | false | 4.13.0 |
 | value | The current value | number | - | - |
-| variant | Variants of Input | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | onChange | The callback triggered when the value is changed | function(value: number \| string \| null) | - | - |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - | - |
 | onStep | The callback function that is triggered when click up or down buttons | (value: number, info: { offset: number, type: 'up' \| 'down' }) => void | - | 4.7.0 |
 
 ## Ref
 
-| Name          | Description            | Version |
-| ------------- | ---------------------- | ------- |
-| blur()        | Remove focus           |         |
-| focus()       | Get focus              |         |
-| nativeElement | The native DOM element | 5.17.3  |
+| Name | Description | Type | Version |
+| --- | --- | --- | --- |
+| blur() | Remove focus | - |  |
+| focus() | Get focus | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | cursor - 5.22.0 |
+| nativeElement | The native DOM element | - | 5.17.3 |
 
 ## Design Token
 

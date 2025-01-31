@@ -1,9 +1,16 @@
-import type { GetProp } from 'antd';
-import { Button, Empty, ConfigProvider, Table } from 'antd';
 import React, { useState } from 'react';
+import type { GetProp } from 'antd';
+import { Button, ConfigProvider, Empty, Table } from 'antd';
+
+interface DataType {
+  key: number;
+  name: string;
+  age: number;
+  address: string;
+}
 
 const genFakeData = (count = 5) =>
-  Array.from({ length: count }).map((_, index) => ({
+  Array.from({ length: count }).map<DataType>((_, index) => ({
     key: index,
     name: `Edward King ${index}`,
     age: 32 + index,
@@ -17,13 +24,13 @@ const renderEmpty: GetProp<typeof ConfigProvider, 'renderEmpty'> = (componentNam
 };
 
 function App() {
-  const [dataSource, setDataSource] = useState(genFakeData);
+  const [dataSource, setDataSource] = useState<DataType[]>(genFakeData);
 
   const handleToggle = () => {
     setDataSource(dataSource.length ? [] : genFakeData(Math.floor(Math.random() * 10)));
   };
 
-  const columns: GetProp<typeof Table, 'columns'> = [
+  const columns: GetProp<typeof Table<DataType>, 'columns'> = [
     {
       title: 'Name',
       dataIndex: 'name',
@@ -57,13 +64,11 @@ function App() {
     <ConfigProvider renderEmpty={renderEmpty}>
       {dataSource.length ? toggleButton : null}
       <div style={{ marginBlock: 8 }} />
-      <Table
+      <Table<DataType>
         bordered
         dataSource={dataSource}
         columns={columns}
-        locale={{
-          emptyText: <Empty description="No Data">{toggleButton}</Empty>,
-        }}
+        locale={{ emptyText: <Empty description="No Data">{toggleButton}</Empty> }}
       />
     </ConfigProvider>
   );

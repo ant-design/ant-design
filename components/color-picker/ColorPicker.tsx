@@ -14,6 +14,7 @@ import useSize from '../config-provider/hooks/useSize';
 import { FormItemInputContext } from '../form/context';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
+import { useCompactItemContext } from '../space/Compact';
 import { AggregationColor } from './color';
 import type { ColorPickerPanelProps } from './ColorPickerPanel';
 import ColorPickerPanel from './ColorPickerPanel';
@@ -59,6 +60,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     getPopupContainer,
     autoAdjustOverflow = true,
     destroyTooltipOnHide,
+    disabledFormat,
     ...rest
   } = props;
 
@@ -107,7 +109,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     }
   };
 
-  const onInternalChange: ColorPickerPanelProps['onChange'] = (data, pickColor) => {
+  const onInternalChange: ColorPickerPanelProps['onChange'] = (data, changeFromPickerDrag) => {
     let color: AggregationColor = generateColor(data as AggregationColor);
 
     // ignore alpha color
@@ -124,7 +126,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     }
 
     // Only for drag-and-drop color picking
-    if (!pickColor) {
+    if (!changeFromPickerDrag) {
       onInternalChangeComplete(color);
     }
   };
@@ -166,8 +168,12 @@ const ColorPicker: CompoundedComponent = (props) => {
   // ================== Form Status ==================
   const { status: contextStatus } = React.useContext(FormItemInputContext);
 
+  // ==================== Compact ====================
+  const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
+
   // ===================== Style =====================
-  const mergedSize = useSize(customizeSize);
+  const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
+
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   const rtlCls = { [`${prefixCls}-rtl`]: direction };
@@ -178,6 +184,7 @@ const ColorPicker: CompoundedComponent = (props) => {
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-lg`]: mergedSize === 'large',
     },
+    compactItemClassnames,
     colorPicker?.className,
     mergedRootCls,
     className,
@@ -214,7 +221,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   return wrapCSSVar(
     <Popover
       style={styles?.popup}
-      overlayInnerStyle={styles?.popupOverlayInner}
+      styles={{ body: styles?.popupOverlayInner }}
       onOpenChange={(visible) => {
         if (!visible || !mergedDisabled) {
           setPopupOpen(visible);
@@ -242,10 +249,11 @@ const ColorPicker: CompoundedComponent = (props) => {
             onActive={setActiveIndex}
             gradientDragging={gradientDragging}
             onGradientDragging={setGradientDragging}
+            disabledFormat={disabledFormat}
           />
         </ContextIsolator>
       }
-      overlayClassName={mergedPopupCls}
+      classNames={{ root: mergedPopupCls }}
       {...popoverProps}
     >
       {children || (
@@ -272,14 +280,15 @@ if (process.env.NODE_ENV !== 'production') {
 
 const PurePanel = genPurePanel(
   ColorPicker,
-  'color-picker',
-  /* istanbul ignore next */
-  (prefixCls) => prefixCls,
+  undefined,
   (props: ColorPickerProps) => ({
     ...props,
     placement: 'bottom' as TriggerPlacement,
     autoAdjustOverflow: false,
   }),
+  'color-picker',
+  /* istanbul ignore next */
+  (prefixCls) => prefixCls,
 );
 
 ColorPicker._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;

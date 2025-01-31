@@ -1,8 +1,6 @@
-/* eslint-disable no-restricted-syntax, no-console */
 // Attention: use all node builtin modules except `ali-oss`
 // Must keep our ak/sk safe
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 const OSS = require('ali-oss');
 const path = require('path');
 const fs = require('fs');
@@ -19,7 +17,7 @@ if (args.length < 2) {
 
 const ALI_OSS_BUCKET = 'antd-visual-diff';
 
-function retry(promise, retries, delay) {
+function retry(promise, retries, delay = 3000) {
   return new Promise((resolve, reject) => {
     const attempt = () => {
       promise.then(resolve).catch((error) => {
@@ -70,7 +68,7 @@ async function walkDir(dirPath) {
 
     if (fileStat.isDirectory()) {
       // Recursively call this func for subdirs
-      // eslint-disable-next-line no-await-in-loop
+
       fileList.push(...(await walkDir(filePath)));
     } else {
       fileList.push(filePath);
@@ -125,7 +123,7 @@ async function boot() {
   }
 
   const client = new OSS({
-    endpoint: 'oss-cn-shanghai.aliyuncs.com',
+    endpoint: 'oss-accelerate.aliyuncs.com',
     accessKeyId: process.env.ALI_OSS_AK_ID,
     accessKeySecret: process.env.ALI_OSS_AK_SECRET,
     bucket: ALI_OSS_BUCKET,
@@ -136,7 +134,7 @@ async function boot() {
   if (stat.isFile()) {
     const doUpload = uploadFile(client, workspacePath, refValue);
     try {
-      await retry(doUpload, 3, 1000);
+      await retry(doUpload, 3);
     } catch (err) {
       console.error(
         'Uploading file `%s` failed after retry %s, error: %s',
@@ -154,8 +152,7 @@ async function boot() {
     for (const file of fileList) {
       const doUpload = uploadFile(client, file, refValue);
       try {
-        // eslint-disable-next-line no-await-in-loop
-        await retry(doUpload, 3, 1000);
+        await retry(doUpload, 3);
       } catch (err) {
         console.warn(
           'Skip uploading file `%s` in folder `%s` failed after retry %s, error: %s',

@@ -357,6 +357,7 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
                         tabindex="-1"
                       >
                         <span
+                          aria-describedby="test-id"
                           class="ant-tooltip-open"
                         >
                           Tooltip
@@ -374,6 +375,7 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
                           >
                             <div
                               class="ant-tooltip-inner"
+                              id="test-id"
                               role="tooltip"
                             >
                               title
@@ -570,6 +572,7 @@ exports[`Table.filter renders menu correctly 1`] = `
     tabindex="0"
   >
     <li
+      aria-describedby="test-id"
       class="ant-dropdown-menu-item"
       data-menu-id="rc-menu-uuid-test-boy"
       role="menuitem"
@@ -599,6 +602,7 @@ exports[`Table.filter renders menu correctly 1`] = `
       </span>
     </li>
     <li
+      aria-describedby="test-id"
       class="ant-dropdown-menu-item"
       data-menu-id="rc-menu-uuid-test-girl"
       role="menuitem"
@@ -679,7 +683,7 @@ exports[`Table.filter renders menu correctly 1`] = `
     class="ant-table-filter-dropdown-btns"
   >
     <button
-      class="ant-btn ant-btn-link ant-btn-sm"
+      class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
       disabled=""
       type="button"
     >
@@ -688,7 +692,7 @@ exports[`Table.filter renders menu correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
       type="button"
     >
       <span>
@@ -710,6 +714,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
     tabindex="0"
   >
     <li
+      aria-describedby="test-id"
       class="ant-dropdown-menu-item"
       data-menu-id="rc-menu-uuid-test-boy"
       role="menuitem"
@@ -739,6 +744,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
       </span>
     </li>
     <li
+      aria-describedby="test-id"
       class="ant-dropdown-menu-item"
       data-menu-id="rc-menu-uuid-test-girl"
       role="menuitem"
@@ -819,7 +825,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
     class="ant-table-filter-dropdown-btns"
   >
     <button
-      class="ant-btn ant-btn-link ant-btn-sm"
+      class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
       disabled=""
       type="button"
     >
@@ -828,7 +834,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
       type="button"
     >
       <span>

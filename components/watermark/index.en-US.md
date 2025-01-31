@@ -77,3 +77,11 @@ When using an image watermark and the image loads abnormally, you can add `conte
   <div style={{ height: 500 }} />
 </Watermark>
 ```
+
+### Why `overflow: hidden` style is added since version 5.18.0?
+
+User can hide the watermark by setting the container height to 0 through the developer tool in the previous version. To avoid this situation, we added the `overflow: hidden` style to the container. When the container height changes, the content is also hidden. You can override the style to modify this behavior:
+
+```tsx
+<Watermark style={{ overflow: 'visible' }} />
+```

@@ -29,7 +29,10 @@ const App: React.FC = () => (
     treeData={treeData}
     height={233}
     defaultExpandAll
-    titleRender={(item) => <MemoTooltip title={item.title as any}>{item.title as any}</MemoTooltip>}
+    titleRender={(item) => {
+      const title = item.title as React.ReactNode;
+      return <MemoTooltip title={title}>{title}</MemoTooltip>;
+    }}
   />
 );
 

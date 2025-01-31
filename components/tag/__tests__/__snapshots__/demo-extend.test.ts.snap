@@ -143,6 +143,8 @@ Array [
   >
     <a
       href="https://github.com/ant-design/ant-design/issues/1862"
+      rel="noopener noreferrer"
+      target="_blank"
     >
       Link
     </a>
@@ -538,7 +540,7 @@ exports[`renders components/tag/demo/checkable.tsx extend context correctly 2`] 
 exports[`renders components/tag/demo/colorful.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -608,7 +610,7 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -906,7 +908,7 @@ Array [
     aria-live="assertive"
     id="DndLiveRegion-1"
     role="status"
-    style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+    style="position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
   />,
 ]
 `;
@@ -1034,7 +1036,7 @@ exports[`renders components/tag/demo/icon.tsx extend context correctly 2`] = `[]
 exports[`renders components/tag/demo/status.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -1074,7 +1076,7 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
