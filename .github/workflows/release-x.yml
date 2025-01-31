@@ -14,7 +14,7 @@ jobs:
         uses: nearform-actions/github-action-notify-twitter@master
         with:
           message: |
-            🤖 Ant Design just released antd@${{ github.event.ref }} ✨🎊✨ Check out the full release note: https://github.com/ant-design/ant-design/releases/tag/${{ github.event.ref }}
+            🤖 Ant Design just released antd@${{ github.event.release.tag_name }} ✨🎊✨ Check out the full release note: ${{ github.event.release.html_url }}
           twitter-app-key: ${{ secrets.TWITTER_API_KEY }}
           twitter-app-secret: ${{ secrets.TWITTER_API_SECRET }}
           twitter-access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
