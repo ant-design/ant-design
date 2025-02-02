@@ -31,12 +31,13 @@ demo:
 <code src="./demo/search.tsx">Search</code>
 <code src="./demo/lazy.tsx">Load Options Lazily</code>
 <code src="./demo/fields-name.tsx">Custom Field Names</code>
-<code src="./demo/suffix.tsx" debug>Custom Icons</code>
+<code src="./demo/suffix.tsx" version="5.22.0">Prefix and Suffix</code>
 <code src="./demo/custom-dropdown.tsx">Custom dropdown</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/panel.tsx" version=">= 5.10.0">Panel</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 
@@ -67,11 +68,12 @@ Common props ref：[Common props](/docs/react/common-props)
 | maxTagCount | Max tag count to show. `responsive` will cost render performance | number \| `responsive` | - | 4.17.0 |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode \| function(omittedValues) | - | 4.17.0 |
 | maxTagTextLength | Max tag text length to show | number | - | 4.17.0 |
-| notFoundContent | Specify content to show when no result matches | string | `Not Found` |  |
+| notFoundContent | Specify content to show when no result matches | ReactNode | `Not Found` |  |
 | open | Set visible of cascader popup | boolean | - | 4.17.0 |
 | options | The data options of cascade | [Option](#option)\[] | - |  |
 | placeholder | The input placeholder | string | - |  |
 | placement | Use preset popup align config from builtinPlacements | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 |
+| prefix | The custom prefix | ReactNode | - | 5.22.0 |
 | showSearch | Whether show search input in single mode | boolean \| [Object](#showsearch) | false |  |
 | size | The input size | `large` \| `middle` \| `small` | - |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |

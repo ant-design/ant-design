@@ -43,7 +43,7 @@ demo:
 <code src="./demo/placement.tsx">弹出位置</code>
 <code src="./demo/mode.tsx" debug>受控面板</code>
 <code src="./demo/start-end.tsx" debug>自定义日期范围选择</code>
-<code src="./demo/suffix.tsx" debug>后缀图标</code>
+<code src="./demo/suffix.tsx">前后缀</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
@@ -118,6 +118,7 @@ dayjs.locale('zh-cn');
 | placeholder | 输入框提示文字 | string \| \[string, string] | - |  |
 | placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | popupStyle | 额外的弹出日历样式 | CSSProperties | {} |  |
+| prefix | 自定义前缀 | ReactNode | - | 5.22.0 |
 | prevIcon | 自定义上一个图标 | ReactNode | - | 4.17.0 |
 | presets | 预设时间范围快捷选择, 自 `5.8.0` 起 value 支持函数返回值 | { label: React.ReactNode, value: Dayjs \| (() => Dayjs) }\[] | - |  |
 | size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | `large` \| `middle` \| `small` | - |  |
@@ -202,6 +203,7 @@ dayjs.locale('zh-cn');
 | renderExtraFooter | 在面板中添加额外的页脚 | (mode) => React.ReactNode | - |  |
 | value | 日期 | [dayjs](https://day.js.org/) | - |  |
 | onChange | 时间发生变化的回调，发生在用户选择时间时 | function(date: dayjs, dateString: string) | - |  |
+| showWeek | DatePicker 下展示当前周 | boolean | true | 5.14.0 |
 
 ### RangePicker
 

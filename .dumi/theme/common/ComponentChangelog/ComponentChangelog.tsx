@@ -1,6 +1,6 @@
 import React, { cloneElement, isValidElement } from 'react';
 import { BugOutlined } from '@ant-design/icons';
-import { Drawer, Flex, Grid, Popover, Tag, Timeline, Typography, Button } from 'antd';
+import { Button, Drawer, Flex, Grid, Popover, Tag, Timeline, Typography } from 'antd';
 import type { TimelineItemProps } from 'antd';
 import { createStyles } from 'antd-style';
 import semver from 'semver';
@@ -20,6 +20,7 @@ interface ChangelogInfo {
   version: string;
   changelog: string;
   refs: string[];
+  contributors: string[];
   releaseDate: string;
 }
 
@@ -76,7 +77,7 @@ const useStyle = createStyles(({ token, css }) => ({
     position: 'relative',
     [`> ${token.antCls}-drawer-body`]: {
       scrollbarWidth: 'thin',
-      scrollbarColor: 'unset',
+      scrollbarGutter: 'stable',
     },
   },
   versionWrap: css`
@@ -129,8 +130,9 @@ const ParseChangelog: React.FC<{ changelog: string }> = (props) => {
 
     for (let i = 0; i < changelog.length; i += 1) {
       const char = changelog[i];
+      const isDoubleAsterisk = char === '*' && changelog[i + 1] === '*';
 
-      if (char !== '`' && char !== '*') {
+      if (char !== '`' && !isDoubleAsterisk) {
         lastStr += char;
       } else {
         let node: React.ReactNode = lastStr;
@@ -144,7 +146,7 @@ const ParseChangelog: React.FC<{ changelog: string }> = (props) => {
         lastStr = '';
         if (char === '`') {
           isQuota = !isQuota;
-        } else if (char === '*' && changelog[i + 1] === '*') {
+        } else if (isDoubleAsterisk) {
           isBold = !isBold;
           i += 1; // Skip the next '*'
         }
@@ -159,14 +161,30 @@ const ParseChangelog: React.FC<{ changelog: string }> = (props) => {
   return <span>{parsedChangelog}</span>;
 };
 
-const RefLinks: React.FC<{ refs: string[] }> = ({ refs }) => {
+const RefLinks: React.FC<{ refs: string[]; contributors: string[] }> = ({ refs, contributors }) => {
   const { styles } = useStyle();
+
   return (
     <>
       {refs?.map((ref) => (
-        <a className={styles.linkRef} key={ref} href={ref} target="_blank" rel="noreferrer">
-          #{ref.match(/^.*\/(\d+)$/)?.[1]}
-        </a>
+        <React.Fragment key={ref}>
+          <a className={styles.linkRef} key={ref} href={ref} target="_blank" rel="noreferrer">
+            #{ref.match(/[^/]+$/)?.[0]}
+          </a>
+        </React.Fragment>
+      ))}
+      {contributors?.map((contributor) => (
+        <React.Fragment key={contributor}>
+          <a
+            className={styles.linkRef}
+            key={contributor}
+            href={`https://github.com/${contributor}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            @{contributor}
+          </a>
+        </React.Fragment>
       ))}
     </>
   );
@@ -175,16 +193,17 @@ const RefLinks: React.FC<{ refs: string[] }> = ({ refs }) => {
 const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[] }> = ({ changelogList }) => {
   const elements: React.ReactNode[] = [];
   const { styles } = useStyle();
-  for (let i = 0; i < changelogList.length; i += 1) {
-    const { refs, changelog } = changelogList[i];
+  const len = changelogList.length;
+  for (let i = 0; i < len; i += 1) {
+    const { refs, changelog, contributors } = changelogList[i];
     // Check if the next line is an image link and append it to the current line
-    if (i + 1 < changelogList.length && changelogList[i + 1].changelog.trim().startsWith('<img')) {
+    if (i + 1 < len && changelogList[i + 1].changelog.trim().startsWith('<img')) {
       const imgDom = new DOMParser().parseFromString(changelogList[i + 1].changelog, 'text/html');
-      const imgElement = imgDom.querySelector('img');
+      const imgElement = imgDom.querySelector<HTMLImageElement>('img');
       elements.push(
         <li key={i}>
           <ParseChangelog changelog={changelog} />
-          <RefLinks refs={refs} />
+          <RefLinks refs={refs} contributors={contributors} />
           <br />
           <img
             src={imgElement?.getAttribute('src') || ''}
@@ -198,7 +217,7 @@ const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[] }> = ({ cha
       elements.push(
         <li key={i}>
           <ParseChangelog changelog={changelog} />
-          <RefLinks refs={refs} />
+          <RefLinks refs={refs} contributors={contributors} />
         </li>,
       );
     }
@@ -304,7 +323,7 @@ const ComponentChangelog: React.FC<Readonly<React.PropsWithChildren>> = (props) 
   return (
     <>
       {isValidElement(children) &&
-        cloneElement(children as React.ReactElement, {
+        cloneElement(children as React.ReactElement<any>, {
           onClick: () => setShow(true),
         })}
       <Drawer

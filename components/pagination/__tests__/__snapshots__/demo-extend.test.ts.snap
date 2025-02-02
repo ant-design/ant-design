@@ -566,28 +566,32 @@ exports[`renders components/pagination/demo/all.tsx extend context correctly 1`]
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-label="Page Size"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            role="combobox"
-            type="search"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="10 / page"
-        >
-          10 / page
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-label="Page Size"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              role="combobox"
+              type="search"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="10 / page"
+          >
+            10 / page
+          </span>
         </span>
       </div>
       <div
@@ -1048,28 +1052,32 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <div
@@ -1386,29 +1394,33 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              disabled=""
-              id="rc_select_TEST_OR_SSR"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                disabled=""
+                id="rc_select_TEST_OR_SSR"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <div
@@ -1692,28 +1704,32 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <div
@@ -2041,29 +2057,33 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              disabled=""
-              id="rc_select_TEST_OR_SSR"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                disabled=""
+                id="rc_select_TEST_OR_SSR"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <div
@@ -2470,28 +2490,32 @@ exports[`renders components/pagination/demo/itemRender.tsx extend context correc
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-label="Page Size"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            role="combobox"
-            type="search"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="10 / page"
-        >
-          10 / page
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-label="Page Size"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              role="combobox"
+              type="search"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="10 / page"
+          >
+            10 / page
+          </span>
         </span>
       </div>
       <div
@@ -2813,28 +2837,32 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <div
@@ -3162,29 +3190,33 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              disabled=""
-              id="rc_select_TEST_OR_SSR"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                disabled=""
+                id="rc_select_TEST_OR_SSR"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <div
@@ -3593,28 +3625,32 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <div
@@ -4025,29 +4061,33 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              disabled=""
-              id="rc_select_TEST_OR_SSR"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                disabled=""
+                id="rc_select_TEST_OR_SSR"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <div
@@ -4430,28 +4470,32 @@ exports[`renders components/pagination/demo/more.tsx extend context correctly 1`
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-label="Page Size"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            role="combobox"
-            type="search"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="10 / page"
-        >
-          10 / page
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-label="Page Size"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              role="combobox"
+              type="search"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="10 / page"
+          >
+            10 / page
+          </span>
         </span>
       </div>
       <div
@@ -4631,6 +4675,7 @@ Array [
       title="2/5"
     >
       <input
+        aria-label="Go to"
         size="3"
         type="text"
         value="2"
@@ -4797,6 +4842,7 @@ Array [
       title="2/5"
     >
       <input
+        aria-label="Go to"
         disabled=""
         size="3"
         type="text"
@@ -4987,28 +5033,32 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="20 / page"
-          >
-            20 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="20 / page"
+            >
+              20 / page
+            </span>
           </span>
         </div>
         <div
@@ -5281,28 +5331,32 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="20 / page"
-          >
-            20 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="20 / page"
+            >
+              20 / page
+            </span>
           </span>
         </div>
         <div
@@ -5625,28 +5679,32 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <div
@@ -5963,29 +6021,33 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              disabled=""
-              id="rc_select_TEST_OR_SSR"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                disabled=""
+                id="rc_select_TEST_OR_SSR"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <div
@@ -6302,28 +6364,32 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <div
@@ -6640,29 +6706,33 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              disabled=""
-              id="rc_select_TEST_OR_SSR"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                disabled=""
+                id="rc_select_TEST_OR_SSR"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <div

@@ -4,7 +4,7 @@ import type { BaseSelectRef } from 'rc-select';
 import type { Placement } from 'rc-select/lib/BaseSelect';
 import type { TreeSelectProps as RcTreeSelectProps } from 'rc-tree-select';
 import RcTreeSelect, { SHOW_ALL, SHOW_CHILD, SHOW_PARENT, TreeNode } from 'rc-tree-select';
-import type { BaseOptionType, DefaultOptionType } from 'rc-tree-select/lib/TreeSelect';
+import type { DataNode } from 'rc-tree-select/lib/interface';
 import omit from 'rc-util/lib/omit';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
@@ -28,6 +28,7 @@ import useSelectStyle from '../select/style';
 import useIcons from '../select/useIcons';
 import useShowArrow from '../select/useShowArrow';
 import { useCompactItemContext } from '../space/Compact';
+import { useToken } from '../theme/internal';
 import type { AntTreeNodeProps, TreeProps } from '../tree';
 import type { SwitcherIcon } from '../tree/Tree';
 import SwitcherIconCom from '../tree/utils/iconUtil';
@@ -43,10 +44,8 @@ export interface LabeledValue {
 
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 
-export interface TreeSelectProps<
-  ValueType = any,
-  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
-> extends Omit<
+export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = DataNode>
+  extends Omit<
     RcTreeSelectProps<ValueType, OptionType>,
     | 'showTreeIcon'
     | 'treeMotion'
@@ -85,10 +84,7 @@ export interface TreeSelectProps<
   variant?: Variant;
 }
 
-const InternalTreeSelect = <
-  ValueType = any,
-  OptionType extends BaseOptionType | DefaultOptionType = BaseOptionType,
->(
+const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataNode>(
   props: TreeSelectProps<ValueType, OptionType>,
   ref: React.Ref<BaseSelectRef>,
 ) => {
@@ -102,7 +98,7 @@ const InternalTreeSelect = <
     treeCheckable,
     multiple,
     listHeight = 256,
-    listItemHeight = 26,
+    listItemHeight: customListItemHeight,
     placement,
     notFoundContent,
     switcherIcon,
@@ -122,6 +118,9 @@ const InternalTreeSelect = <
     variant: customVariant,
     dropdownStyle,
     tagRender,
+    maxCount,
+    showCheckedStrategy,
+    treeCheckStrictly,
     ...restProps
   } = props;
   const {
@@ -133,6 +132,9 @@ const InternalTreeSelect = <
     popupMatchSelectWidth: contextPopupMatchSelectWidth,
     popupOverflow,
   } = React.useContext(ConfigContext);
+
+  const [, token] = useToken();
+  const listItemHeight = customListItemHeight ?? token?.controlHeightSM + token?.paddingXXS;
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('TreeSelect');
@@ -187,6 +189,17 @@ const InternalTreeSelect = <
   );
 
   const isMultiple = !!(treeCheckable || multiple);
+
+  const mergedMaxCount = React.useMemo(() => {
+    if (
+      maxCount &&
+      ((showCheckedStrategy === 'SHOW_ALL' && !treeCheckStrictly) ||
+        showCheckedStrategy === 'SHOW_PARENT')
+    ) {
+      return undefined;
+    }
+    return maxCount;
+  }, [maxCount, showCheckedStrategy, treeCheckStrictly]);
 
   const showSuffixIcon = useShowArrow(props.suffixIcon, props.showArrow);
 
@@ -309,6 +322,9 @@ const InternalTreeSelect = <
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       treeExpandAction={treeExpandAction}
       tagRender={isMultiple ? tagRender : undefined}
+      maxCount={mergedMaxCount}
+      showCheckedStrategy={showCheckedStrategy}
+      treeCheckStrictly={treeCheckStrictly}
     />
   );
 
@@ -317,7 +333,7 @@ const InternalTreeSelect = <
 
 const TreeSelectRef = React.forwardRef(InternalTreeSelect) as <
   ValueType = any,
-  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
+  OptionType extends DataNode = DataNode,
 >(
   props: React.PropsWithChildren<TreeSelectProps<ValueType, OptionType>> &
     React.RefAttributes<BaseSelectRef>,
@@ -338,7 +354,9 @@ const TreeSelect = TreeSelectRef as CompoundedComponent;
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(TreeSelect);
+const PurePanel = genPurePanel(TreeSelect, 'dropdownAlign', (props: any) =>
+  omit(props, ['visible']),
+);
 
 TreeSelect.TreeNode = TreeNode;
 TreeSelect.SHOW_ALL = SHOW_ALL;

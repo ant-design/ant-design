@@ -345,10 +345,9 @@ describe('Typography copy', () => {
       </Base>,
     );
     fireEvent.mouseEnter(container.querySelectorAll('.ant-typography-copy')[0]);
-    await waitFakeTimer();
-    await waitFor(() => {
-      expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copy');
-    });
+    await waitFakeTimer(1000, 100);
+    expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copy');
+
     fireEvent.click(container.querySelectorAll('.ant-typography-copy')[0]);
     expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copied');
   });

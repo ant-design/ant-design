@@ -99,10 +99,18 @@ describe('QRCode test', () => {
     );
   });
   it('custom status render', () => {
+    const refreshCb = jest.fn();
     const customStatusRender: QRCodeProps['statusRender'] = (info) => {
       switch (info.status) {
         case 'expired':
-          return <div className="custom-expired">{info.locale?.expired}</div>;
+          return (
+            <div className="custom-expired">
+              <span>{info.locale?.expired}</span>
+              <button id="refresh" onClick={info.onRefresh} type="button">
+                refresh
+              </button>
+            </div>
+          );
         case 'loading':
           return <div className="custom-loading">Loading</div>;
         case 'scanned':
@@ -118,6 +126,7 @@ describe('QRCode test', () => {
           value="test"
           status="expired"
           statusRender={customStatusRender}
+          onRefresh={refreshCb}
         />
         <QRCode
           className="qrcode-loading"
@@ -134,8 +143,10 @@ describe('QRCode test', () => {
       </>,
     );
     expect(
-      container.querySelector<HTMLDivElement>('.qrcode-expired .custom-expired')?.textContent,
+      container.querySelector<HTMLDivElement>('.qrcode-expired .custom-expired>span')?.textContent,
     ).toBe('QR code expired');
+    fireEvent.click(container?.querySelector<HTMLButtonElement>('#refresh')!);
+    expect(refreshCb).toHaveBeenCalled();
     expect(
       container.querySelector<HTMLDivElement>('.qrcode-loading .custom-loading')?.textContent,
     ).toBe('Loading');
@@ -143,5 +154,39 @@ describe('QRCode test', () => {
       container.querySelector<HTMLDivElement>('.qrcode-scanned .custom-scanned')?.textContent,
     ).toBe('Scanned');
     expect(container).toMatchSnapshot();
+  });
+
+  it('should pass aria and data props to qrcode element', () => {
+    const { container } = render(<QRCode value="test" aria-label="Test QR Code" />);
+    const qrcodeElement = container.querySelector('.ant-qrcode canvas');
+    expect(qrcodeElement).toHaveAttribute('aria-label', 'Test QR Code');
+  });
+
+  it('should not pass other props to qrcode element', () => {
+    const { container } = render(
+      <QRCode
+        value="test"
+        aria-label="Test QR Code"
+        title="qr-title" // This prop should not be passed to canvas
+      />,
+    );
+
+    const qrcodeElement = container.querySelector('.ant-qrcode canvas');
+    expect(qrcodeElement).toHaveAttribute('aria-label', 'Test QR Code');
+    expect(qrcodeElement).not.toHaveAttribute('title', 'qr-title');
+  });
+
+  it('should work with both canvas and svg type', () => {
+    const ariaLabel = 'Test QR Code';
+    // test canvas type
+    const { container: canvasContainer } = render(
+      <QRCode value="test" type="canvas" aria-label={ariaLabel} />,
+    );
+    expect(canvasContainer.querySelector('canvas')).toHaveAttribute('aria-label', ariaLabel);
+    // test svg type
+    const { container: svgContainer } = render(
+      <QRCode value="test" type="svg" aria-label={ariaLabel} />,
+    );
+    expect(svgContainer.querySelector('svg')).toHaveAttribute('aria-label', ariaLabel);
   });
 });

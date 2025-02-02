@@ -19,7 +19,7 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
     headerHeight,
     zeroTriggerWidth,
     zeroTriggerHeight,
-    borderRadius,
+    borderRadiusLG,
     lightSiderBg,
     lightTriggerColor,
     lightTriggerBg,
@@ -69,12 +69,12 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
         transition: `all ${motionDurationMid}`,
       },
 
-      '&-zero-width': {
+      [`${componentCls}-zero-width`]: {
         '> *': {
           overflow: 'hidden',
         },
 
-        [`${componentCls}-trigger`]: {
+        '&-trigger': {
           position: 'absolute',
           top: headerHeight,
           insetInlineEnd: token.calc(zeroTriggerWidth).mul(-1).equal(),
@@ -87,11 +87,7 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
           alignItems: 'center',
           justifyContent: 'center',
           background: siderBg,
-          borderStartStartRadius: 0,
-          borderStartEndRadius: borderRadius,
-          borderEndEndRadius: borderRadius,
-          borderEndStartRadius: 0,
-
+          borderRadius: `0 ${unit(borderRadiusLG)} ${unit(borderRadiusLG)} 0`,
           cursor: 'pointer',
           transition: `background ${motionDurationSlow} ease`,
 
@@ -109,10 +105,7 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
 
           '&-right': {
             insetInlineStart: token.calc(zeroTriggerWidth).mul(-1).equal(),
-            borderStartStartRadius: borderRadius,
-            borderStartEndRadius: 0,
-            borderEndEndRadius: 0,
-            borderEndStartRadius: borderRadius,
+            borderRadius: `${unit(borderRadiusLG)} 0 0 ${unit(borderRadiusLG)}`,
           },
         },
       },

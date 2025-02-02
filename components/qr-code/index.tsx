@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { QRCodeCanvas, QRCodeSVG } from '@rc-component/qrcode';
 import classNames from 'classnames';
+import omit from 'rc-util/lib/omit';
+import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -8,8 +10,8 @@ import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import { useToken } from '../theme/internal';
 import type { QRCodeProps, QRProps } from './interface';
-import useStyle from './style/index';
 import QRcodeStatus from './QrcodeStatus';
+import useStyle from './style/index';
 
 const QRCode: React.FC<QRCodeProps> = (props) => {
   const [, token] = useToken();
@@ -41,11 +43,18 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     src: icon,
     x: undefined,
     y: undefined,
-    height: typeof iconSize === 'number' ? iconSize : iconSize?.height ?? 40,
-    width: typeof iconSize === 'number' ? iconSize : iconSize?.width ?? 40,
+    height: typeof iconSize === 'number' ? iconSize : (iconSize?.height ?? 40),
+    width: typeof iconSize === 'number' ? iconSize : (iconSize?.width ?? 40),
     excavate: true,
     crossOrigin: 'anonymous',
   };
+
+  const a11yProps = pickAttrs(rest, true);
+
+  const restProps = omit<React.HTMLAttributes<HTMLDivElement>, keyof React.AriaAttributes>(
+    rest,
+    Object.keys(a11yProps) as (keyof React.AriaAttributes)[],
+  );
 
   const qrCodeProps = {
     value,
@@ -55,6 +64,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     fgColor: color,
     style: { width: style?.width, height: style?.height },
     imageSettings: icon ? imageSettings : undefined,
+    ...a11yProps,
   };
 
   const [locale] = useLocale('QRCode');
@@ -87,7 +97,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   };
 
   return wrapCSSVar(
-    <div {...rest} className={mergedCls} style={mergedStyle}>
+    <div {...restProps} className={mergedCls} style={mergedStyle}>
       {status !== 'active' && (
         <div className={`${prefixCls}-mask`}>
           <QRcodeStatus

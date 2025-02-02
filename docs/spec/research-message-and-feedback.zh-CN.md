@@ -76,7 +76,7 @@ title: 消息与反馈
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*S03WS5uHqDsAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-**对话框 Model**
+**对话框 Modal**
 
 提醒用户完成当前工作流之外的重要操作（例如警告信息不安全）。
 

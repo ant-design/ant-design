@@ -26,7 +26,7 @@ export type Options = {
   nameCheckPathOnly?: boolean;
 };
 
-function baseText(doInject: boolean, component: string, options: Options = {}) {
+function baseTest(doInject: boolean, component: string, options: Options = {}) {
   const files = globSync(`./components/${component}/demo/*.tsx`).filter(
     (file) => !file.includes('_semantic'),
   );
@@ -87,6 +87,11 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
             .filter((msg) => !isSafeWarning(msg, true))
             .sort();
 
+          // Console log the error messages for debugging
+          if (errorMessages.length) {
+            console.log(errSpy.mock.calls);
+          }
+
           expect(errorMessages).toMatchSnapshot();
         }
 
@@ -101,14 +106,14 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
  * Inject Trigger to force open in test snapshots
  */
 export function extendTest(component: string, options: Options = {}) {
-  baseText(true, component, options);
+  baseTest(true, component, options);
 }
 
 /**
  * Test all the demo snapshots
  */
 export default function demoTest(component: string, options: Options = {}) {
-  baseText(false, component, options);
+  baseTest(false, component, options);
 
   // Test component name is match the kebab-case
   const testName = test;

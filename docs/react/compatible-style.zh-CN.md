@@ -65,7 +65,7 @@ export default () => (
 ## CSS 逻辑属性
 
 - 支持版本：`>=5.0.0`
-- MDN 文档：[:where](https://developer.mozilla.org/en-US/docs/Web/CSS/:where)
+- MDN 文档：[CSS Logical Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties)
 - 浏览器兼容性：[caniuse](https://caniuse.com/css-logical-props)
 - Chrome 最低支持版本：89
 - 默认启用：是
@@ -103,14 +103,17 @@ export default () => (
 - Chrome 最低支持版本：99
 - 默认启用：否
 
-Ant Design 从 `5.17.0` 起支持配置 `layer` 进行统一降权。经过降权后，antd 的样式将始终低于默认的 CSS 选择器优先级，以便于用户进行样式覆盖（请务必注意检查 `@layer` 浏览器兼容性）：
+Ant Design 从 `5.17.0` 起支持配置 `layer` 进行统一降权。经过降权后，antd 的样式将始终低于默认的 CSS 选择器优先级，以便于用户进行样式覆盖（请务必注意检查 `@layer` 浏览器兼容性）。StyleProvider 开启 `layer` 时，子元素**必须**包裹 ConfigProvider 以更新图标相关样式：
 
 ```tsx | pure
 import { StyleProvider } from '@ant-design/cssinjs';
+import { ConfigProvider } from 'antd';
 
 export default () => (
   <StyleProvider layer>
-    <MyApp />
+    <ConfigProvider>
+      <MyApp />
+    </ConfigProvider>
   </StyleProvider>
 );
 ```

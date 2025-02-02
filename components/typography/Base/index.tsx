@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type { JSX } from 'react';
 import EditOutlined from '@ant-design/icons/EditOutlined';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
@@ -462,7 +463,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               width={ellipsisWidth}
               onEllipsis={onJsEllipsis}
               expanded={expanded}
-              miscDeps={[copied, expanded, copyLoading, enableEdit, enableCopy]}
+              miscDeps={[copied, expanded, copyLoading, enableEdit, enableCopy, textLocale]}
             >
               {(node, canEllipsis) =>
                 wrapperDecorations(

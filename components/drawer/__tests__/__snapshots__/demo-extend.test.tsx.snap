@@ -500,6 +500,7 @@ Array [
           >
             <input
               class="ant-radio-input"
+              name="test-id"
               type="radio"
               value="top"
             />
@@ -520,6 +521,7 @@ Array [
             <input
               checked=""
               class="ant-radio-input"
+              name="test-id"
               type="radio"
               value="right"
             />
@@ -539,6 +541,7 @@ Array [
           >
             <input
               class="ant-radio-input"
+              name="test-id"
               type="radio"
               value="bottom"
             />
@@ -558,6 +561,7 @@ Array [
           >
             <input
               class="ant-radio-input"
+              name="test-id"
               type="radio"
               value="left"
             />
@@ -994,30 +998,34 @@ Array [
                               class="ant-select-selector"
                             >
                               <span
-                                class="ant-select-selection-search"
+                                class="ant-select-selection-wrap"
                               >
-                                <input
-                                  aria-autocomplete="list"
-                                  aria-controls="owner_list"
-                                  aria-expanded="false"
-                                  aria-haspopup="listbox"
-                                  aria-owns="owner_list"
-                                  aria-required="true"
-                                  autocomplete="off"
-                                  class="ant-select-selection-search-input"
-                                  id="owner"
-                                  readonly=""
-                                  role="combobox"
-                                  style="opacity: 0;"
-                                  type="search"
-                                  unselectable="on"
-                                  value=""
-                                />
-                              </span>
-                              <span
-                                class="ant-select-selection-placeholder"
-                              >
-                                Please select an owner
+                                <span
+                                  class="ant-select-selection-search"
+                                >
+                                  <input
+                                    aria-autocomplete="list"
+                                    aria-controls="owner_list"
+                                    aria-expanded="false"
+                                    aria-haspopup="listbox"
+                                    aria-owns="owner_list"
+                                    aria-required="true"
+                                    autocomplete="off"
+                                    class="ant-select-selection-search-input"
+                                    id="owner"
+                                    readonly=""
+                                    role="combobox"
+                                    style="opacity: 0;"
+                                    type="search"
+                                    unselectable="on"
+                                    value=""
+                                  />
+                                </span>
+                                <span
+                                  class="ant-select-selection-placeholder"
+                                >
+                                  Please select an owner
+                                </span>
                               </span>
                             </div>
                             <div
@@ -1171,30 +1179,34 @@ Array [
                               class="ant-select-selector"
                             >
                               <span
-                                class="ant-select-selection-search"
+                                class="ant-select-selection-wrap"
                               >
-                                <input
-                                  aria-autocomplete="list"
-                                  aria-controls="type_list"
-                                  aria-expanded="false"
-                                  aria-haspopup="listbox"
-                                  aria-owns="type_list"
-                                  aria-required="true"
-                                  autocomplete="off"
-                                  class="ant-select-selection-search-input"
-                                  id="type"
-                                  readonly=""
-                                  role="combobox"
-                                  style="opacity: 0;"
-                                  type="search"
-                                  unselectable="on"
-                                  value=""
-                                />
-                              </span>
-                              <span
-                                class="ant-select-selection-placeholder"
-                              >
-                                Please choose the type
+                                <span
+                                  class="ant-select-selection-search"
+                                >
+                                  <input
+                                    aria-autocomplete="list"
+                                    aria-controls="type_list"
+                                    aria-expanded="false"
+                                    aria-haspopup="listbox"
+                                    aria-owns="type_list"
+                                    aria-required="true"
+                                    autocomplete="off"
+                                    class="ant-select-selection-search-input"
+                                    id="type"
+                                    readonly=""
+                                    role="combobox"
+                                    style="opacity: 0;"
+                                    type="search"
+                                    unselectable="on"
+                                    value=""
+                                  />
+                                </span>
+                                <span
+                                  class="ant-select-selection-placeholder"
+                                >
+                                  Please choose the type
+                                </span>
                               </span>
                             </div>
                             <div
@@ -1353,30 +1365,34 @@ Array [
                               class="ant-select-selector"
                             >
                               <span
-                                class="ant-select-selection-search"
+                                class="ant-select-selection-wrap"
                               >
-                                <input
-                                  aria-autocomplete="list"
-                                  aria-controls="approver_list"
-                                  aria-expanded="false"
-                                  aria-haspopup="listbox"
-                                  aria-owns="approver_list"
-                                  aria-required="true"
-                                  autocomplete="off"
-                                  class="ant-select-selection-search-input"
-                                  id="approver"
-                                  readonly=""
-                                  role="combobox"
-                                  style="opacity: 0;"
-                                  type="search"
-                                  unselectable="on"
-                                  value=""
-                                />
-                              </span>
-                              <span
-                                class="ant-select-selection-placeholder"
-                              >
-                                Please choose the approver
+                                <span
+                                  class="ant-select-selection-search"
+                                >
+                                  <input
+                                    aria-autocomplete="list"
+                                    aria-controls="approver_list"
+                                    aria-expanded="false"
+                                    aria-haspopup="listbox"
+                                    aria-owns="approver_list"
+                                    aria-required="true"
+                                    autocomplete="off"
+                                    class="ant-select-selection-search-input"
+                                    id="approver"
+                                    readonly=""
+                                    role="combobox"
+                                    style="opacity: 0;"
+                                    type="search"
+                                    unselectable="on"
+                                    value=""
+                                  />
+                                </span>
+                                <span
+                                  class="ant-select-selection-placeholder"
+                                >
+                                  Please choose the approver
+                                </span>
                               </span>
                             </div>
                             <div
@@ -3138,6 +3154,7 @@ Array [
           >
             <input
               class="ant-radio-input"
+              name="test-id"
               type="radio"
               value="top"
             />
@@ -3157,6 +3174,7 @@ Array [
           >
             <input
               class="ant-radio-input"
+              name="test-id"
               type="radio"
               value="right"
             />
@@ -3176,6 +3194,7 @@ Array [
           >
             <input
               class="ant-radio-input"
+              name="test-id"
               type="radio"
               value="bottom"
             />
@@ -3196,6 +3215,7 @@ Array [
             <input
               checked=""
               class="ant-radio-input"
+              name="test-id"
               type="radio"
               value="left"
             />
@@ -4331,6 +4351,8 @@ Array [
                 </p>
                 <a
                   href="http://github.com/ant-design/ant-design/"
+                  rel="noreferrer"
+                  target="_blank"
                 >
                   github.com/ant-design/ant-design/
                 </a>

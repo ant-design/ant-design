@@ -169,10 +169,9 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -194,7 +193,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
       </div>
@@ -700,10 +699,9 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -725,7 +723,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
       </div>
@@ -2829,7 +2827,7 @@ Array [
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  Simple Empty
+                  No data
                 </title>
                 <g
                   fill="none"
@@ -3072,7 +3070,7 @@ Array [
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  Simple Empty
+                  No data
                 </title>
                 <g
                   fill="none"
@@ -3279,10 +3277,9 @@ Array [
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                role="button"
-                tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -3304,7 +3301,7 @@ Array [
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
         </div>
@@ -3324,7 +3321,7 @@ Array [
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  Simple Empty
+                  No data
                 </title>
                 <g
                   fill="none"
@@ -3589,10 +3586,9 @@ Array [
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                role="button"
-                tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -3614,7 +3610,7 @@ Array [
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
         </div>
@@ -3634,7 +3630,7 @@ Array [
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  Simple Empty
+                  No data
                 </title>
                 <g
                   fill="none"
@@ -7035,6 +7031,7 @@ Array [
             title="1/100"
           >
             <input
+              aria-label="Go to"
               size="3"
               type="text"
               value="1"
@@ -7576,6 +7573,7 @@ Array [
             title="1/100"
           >
             <input
+              aria-label="Go to"
               size="3"
               type="text"
               value="1"
@@ -8680,10 +8678,9 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -8705,7 +8702,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
       </div>
@@ -9191,10 +9188,9 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -9216,7 +9212,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
       </div>
@@ -9631,7 +9627,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  Simple Empty
+                  No data
                 </title>
                 <g
                   fill="none"
@@ -9874,7 +9870,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  Simple Empty
+                  No data
                 </title>
                 <g
                   fill="none"
@@ -10081,10 +10077,9 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                role="button"
-                tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -10106,7 +10101,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
         </div>
@@ -10126,7 +10121,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  Simple Empty
+                  No data
                 </title>
                 <g
                   fill="none"
@@ -10391,10 +10386,9 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                role="button"
-                tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -10416,7 +10410,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
         </div>
@@ -10436,7 +10430,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  Simple Empty
+                  No data
                 </title>
                 <g
                   fill="none"
@@ -10544,10 +10538,9 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                role="button"
-                tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -10569,7 +10562,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
         </div>
@@ -11443,10 +11436,9 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                role="button"
-                tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -11468,7 +11460,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
         </div>
@@ -11704,7 +11696,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
                                     <title>
-                                      Simple Empty
+                                      No data
                                     </title>
                                     <g
                                       fill="none"
@@ -11812,7 +11804,6 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
         >
           <div
             class="ant-tree ant-tree-icon-hide ant-tree-block-node"
-            role="tree"
           >
             <div>
               <input
@@ -11837,6 +11828,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
             </div>
             <div
               class="ant-tree-list"
+              role="tree"
               style="position: relative;"
             >
               <div
@@ -11848,9 +11840,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                     style="display: flex; flex-direction: column;"
                   >
                     <div
-                      aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-close"
+                      aria-expanded="false"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                       draggable="false"
+                      role="treeitem"
                     >
                       <span
                         aria-hidden="true"
@@ -11860,7 +11853,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                         class="ant-tree-switcher ant-tree-switcher-noop"
                       />
                       <span
+                        aria-checked="false"
+                        aria-label="Select 0-0"
                         class="ant-tree-checkbox"
+                        role="checkbox"
                       >
                         <span
                           class="ant-tree-checkbox-inner"
@@ -11878,9 +11874,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       </span>
                     </div>
                     <div
-                      aria-grabbed="false"
+                      aria-expanded="true"
                       class="ant-tree-treenode ant-tree-treenode-switcher-open"
                       draggable="false"
+                      role="treeitem"
                     >
                       <span
                         aria-hidden="true"
@@ -11910,7 +11907,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                         </span>
                       </span>
                       <span
+                        aria-checked="false"
+                        aria-label="Select 0-1"
                         class="ant-tree-checkbox"
+                        role="checkbox"
                       >
                         <span
                           class="ant-tree-checkbox-inner"
@@ -11928,9 +11928,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       </span>
                     </div>
                     <div
-                      aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-close"
+                      aria-expanded="false"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                       draggable="false"
+                      role="treeitem"
                     >
                       <span
                         aria-hidden="true"
@@ -11944,7 +11945,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                         class="ant-tree-switcher ant-tree-switcher-noop"
                       />
                       <span
+                        aria-checked="false"
+                        aria-label="Select 0-1-0"
                         class="ant-tree-checkbox"
+                        role="checkbox"
                       >
                         <span
                           class="ant-tree-checkbox-inner"
@@ -11962,9 +11966,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       </span>
                     </div>
                     <div
-                      aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+                      aria-expanded="false"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                       draggable="false"
+                      role="treeitem"
                     >
                       <span
                         aria-hidden="true"
@@ -11978,7 +11983,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                         class="ant-tree-switcher ant-tree-switcher-noop"
                       />
                       <span
+                        aria-checked="false"
+                        aria-label="Select 0-1-1"
                         class="ant-tree-checkbox"
+                        role="checkbox"
                       >
                         <span
                           class="ant-tree-checkbox-inner"
@@ -11996,9 +12004,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       </span>
                     </div>
                     <div
-                      aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-close"
+                      aria-expanded="false"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                       draggable="false"
+                      role="treeitem"
                     >
                       <span
                         aria-hidden="true"
@@ -12008,7 +12017,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                         class="ant-tree-switcher ant-tree-switcher-noop"
                       />
                       <span
+                        aria-checked="false"
+                        aria-label="Select 0-2"
                         class="ant-tree-checkbox"
+                        role="checkbox"
                       >
                         <span
                           class="ant-tree-checkbox-inner"
@@ -12026,9 +12038,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       </span>
                     </div>
                     <div
-                      aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-close"
+                      aria-expanded="false"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                       draggable="false"
+                      role="treeitem"
                     >
                       <span
                         aria-hidden="true"
@@ -12038,7 +12051,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                         class="ant-tree-switcher ant-tree-switcher-noop"
                       />
                       <span
+                        aria-checked="false"
+                        aria-label="Select 0-3"
                         class="ant-tree-checkbox"
+                        role="checkbox"
                       >
                         <span
                           class="ant-tree-checkbox-inner"
@@ -12056,9 +12072,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       </span>
                     </div>
                     <div
-                      aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+                      aria-expanded="false"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                       draggable="false"
+                      role="treeitem"
                     >
                       <span
                         aria-hidden="true"
@@ -12068,7 +12085,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                         class="ant-tree-switcher ant-tree-switcher-noop"
                       />
                       <span
+                        aria-checked="false"
+                        aria-label="Select 0-4"
                         class="ant-tree-checkbox"
+                        role="checkbox"
                       >
                         <span
                           class="ant-tree-checkbox-inner"
@@ -12190,7 +12210,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"

@@ -83,6 +83,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
     controlItemBgHover,
     controlItemBgActive,
     controlItemBgActiveHover,
+    prefixCls,
   } = token;
 
   const splitBarCls = `${componentCls}-bar`;
@@ -90,6 +91,18 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
   const splitPanelCls = `${componentCls}-panel`;
 
   const halfTriggerSize = token.calc(splitTriggerSize).div(2).equal();
+
+  const splitterBarPreviewOffsetVar = `${prefixCls}-bar-preview-offset`;
+
+  const splitterBarPreviewStyle: CSSObject = {
+    position: 'absolute',
+    background: token.colorPrimary,
+    opacity: 0.2,
+    pointerEvents: 'none',
+    transition: 'none',
+    zIndex: 1,
+    display: 'none',
+  };
 
   return {
     [componentCls]: {
@@ -112,14 +125,14 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           zIndex: 1,
 
           // Hover background
-          '&:before': {
+          '&::before': {
             content: '""',
             background: controlItemBgHover,
             ...centerStyle,
           },
 
           // Spinner
-          '&:after': {
+          '&::after': {
             content: '""',
             background: colorFill,
             ...centerStyle,
@@ -127,7 +140,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
           // Hover
           [`&:hover:not(${splitBarCls}-dragger-active)`]: {
-            '&:before': {
+            '&::before': {
               background: controlItemBgActive,
             },
           },
@@ -136,7 +149,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           '&-active': {
             zIndex: 2,
 
-            '&:before': {
+            '&::before': {
               background: controlItemBgActiveHover,
             },
           },
@@ -147,12 +160,12 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
             '&, &:hover, &-active': {
               cursor: 'default',
-              '&:before': {
+              '&::before': {
                 background: controlItemBgHover,
               },
             },
 
-            '&:after': {
+            '&::after': {
               display: 'none',
             },
           },
@@ -161,7 +174,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         // ======================= Collapse =======================
         [`${splitBarCls}-collapse-bar`]: {
           ...centerStyle,
-          zIndex: 1,
+          zIndex: token.zIndexPopupBase,
           background: controlItemBgHover,
           fontSize: token.fontSizeSM,
           borderRadius: token.borderRadiusXS,
@@ -217,18 +230,30 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         [`> ${splitBarCls}`]: {
           width: 0,
 
+          // ======================= Preview =======================
+          [`${splitBarCls}-preview`]: {
+            height: '100%',
+            width: splitBarSize,
+            ...splitterBarPreviewStyle,
+
+            [`&${splitBarCls}-preview-active`]: {
+              display: 'block',
+              transform: `translateX(var(--${splitterBarPreviewOffsetVar}))`,
+            },
+          },
+
           // ======================= Dragger =======================
           [`${splitBarCls}-dragger`]: {
             cursor: 'col-resize',
             height: '100%',
             width: splitTriggerSize,
 
-            '&:before': {
+            '&::before': {
               height: '100%',
               width: splitBarSize,
             },
 
-            '&:after': {
+            '&::after': {
               height: splitBarDraggableSize,
               width: splitBarSize,
             },
@@ -272,18 +297,30 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         [`> ${splitBarCls}`]: {
           height: 0,
 
+          // ======================= Preview =======================
+          [`${splitBarCls}-preview`]: {
+            height: splitBarSize,
+            width: '100%',
+            ...splitterBarPreviewStyle,
+
+            [`&${splitBarCls}-preview-active`]: {
+              display: 'block',
+              transform: `translateY(var(--${splitterBarPreviewOffsetVar}))`,
+            },
+          },
+
           // ======================= Dragger =======================
           [`${splitBarCls}-dragger`]: {
             cursor: 'row-resize',
             width: '100%',
             height: splitTriggerSize,
 
-            '&:before': {
+            '&::before': {
               width: '100%',
               height: splitBarSize,
             },
 
-            '&:after': {
+            '&::after': {
               width: splitBarDraggableSize,
               height: splitBarSize,
             },

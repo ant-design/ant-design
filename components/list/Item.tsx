@@ -7,19 +7,15 @@ import { ConfigContext } from '../config-provider';
 import { Col } from '../grid';
 import { ListContext } from './context';
 
+type SemanticName = 'actions' | 'extra';
+
 export interface ListItemProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
-  classNames?: {
-    actions?: string;
-    extra?: string;
-  };
+  classNames?: Partial<Record<SemanticName, string>>;
   children?: ReactNode;
   prefixCls?: string;
   style?: CSSProperties;
-  styles?: {
-    actions?: CSSProperties;
-    extra?: CSSProperties;
-  };
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   extra?: ReactNode;
   actions?: ReactNode[];
   colStyle?: CSSProperties;
@@ -107,7 +103,7 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
   };
 
   const prefixCls = getPrefixCls('list', customizePrefixCls);
-  const actionsContent = (actions && actions.length > 0) && (
+  const actionsContent = actions && actions.length > 0 && (
     <ul
       className={classNames(`${prefixCls}-item-action`, moduleClass('actions'))}
       key="actions"

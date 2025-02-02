@@ -93,13 +93,14 @@ const useStyle = createStyles(({ token, css }) => {
         .dumi-default-search-popover {
           inset-inline-start: ${token.paddingSM}px;
           inset-inline-end: unset;
+          z-index: 1;
           &::before {
             inset-inline-start: 100px;
             inset-inline-end: unset;
           }
           & > section {
             scrollbar-width: thin;
-            scrollbar-color: unset;
+            scrollbar-gutter: stable;
           }
         }
       }
@@ -142,7 +143,7 @@ const useStyle = createStyles(({ token, css }) => {
       .rc-virtual-list {
         .rc-virtual-list-holder {
           scrollbar-width: thin;
-          scrollbar-color: unset;
+          scrollbar-gutter: stable;
         }
       }
     `,
@@ -356,7 +357,7 @@ const Header: React.FC = () => {
     <header className={headerClassName}>
       {isMobile && (
         <Popover
-          overlayClassName={styles.popoverMenu}
+          classNames={{ root: styles.popoverMenu }}
           placement="bottomRight"
           content={menu}
           trigger="click"

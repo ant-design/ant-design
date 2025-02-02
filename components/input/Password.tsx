@@ -8,10 +8,10 @@ import { composeRef } from 'rc-util/lib/ref';
 
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
+import DisabledContext from '../config-provider/DisabledContext';
 import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import type { InputProps, InputRef } from './Input';
 import Input from './Input';
-import DisabledContext from '../config-provider/DisabledContext';
 
 const defaultIconRender = (visible: boolean): React.ReactNode =>
   visible ? <EyeOutlined /> : <EyeInvisibleOutlined />;
@@ -70,13 +70,13 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     if (visible) {
       removePasswordTimeout();
     }
-    setVisible((prevState) => {
-      const newState = !prevState;
-      if (typeof visibilityToggle === 'object') {
-        visibilityToggle.onVisibleChange?.(newState);
-      }
-      return newState;
-    });
+
+    const nextVisible = !visible;
+    setVisible(nextVisible);
+
+    if (typeof visibilityToggle === 'object') {
+      visibilityToggle.onVisibleChange?.(nextVisible);
+    }
   };
 
   const getIcon = (prefixCls: string) => {
