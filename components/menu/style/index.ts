@@ -474,6 +474,8 @@ const genMenuItemStyle = (token: MenuToken): CSSObject => {
 
       a: {
         color: 'inherit !important',
+        cursor: 'not-allowed',
+        pointerEvents: 'none',
       },
 
       [`> ${componentCls}-submenu-title`]: {
@@ -1018,6 +1020,7 @@ export default (prefixCls: string, rootCls: string = prefixCls, injectStyle = tr
         itemHoverColor: darkItemHoverColor,
         groupTitleColor: darkGroupTitleColor,
         itemSelectedColor: darkItemSelectedColor,
+        subMenuItemSelectedColor: darkItemSelectedColor,
         itemBg: darkItemBg,
         popupBg: darkPopupBg,
         subMenuItemBg: darkSubMenuItemBg,

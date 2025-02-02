@@ -3,7 +3,7 @@ import React from 'react';
 import type { TableProps } from '..';
 import Table from '..';
 import { resetWarned } from '../../_util/warning';
-import { act, fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { TableRowSelection } from '../interface';
 
@@ -1976,5 +1976,128 @@ describe('Table.rowSelection', () => {
     const changeEvent = onChangeMock.mock.calls[0][0];
     expect(changeEvent).toHaveProperty('target');
     expect(changeEvent.target).toHaveProperty('checked');
+  });
+
+  it('work with pagination and checkStrictly false', async () => {
+    const treeDataColumns = [
+      {
+        title: 'Name',
+        dataIndex: 'name',
+        key: 'name',
+      },
+      {
+        title: 'Age',
+        dataIndex: 'age',
+        key: 'age',
+      },
+      {
+        title: 'Address',
+        dataIndex: 'address',
+        key: 'address',
+      },
+    ];
+    const treeData = [
+      {
+        key: 1,
+        name: 'John Brown sr.',
+        age: 60,
+        children: [
+          {
+            key: 12,
+            name: 'John Brown jr.',
+            age: 9,
+          },
+          {
+            key: 121,
+            name: 'Jimmy Brown',
+            age: 16,
+          },
+        ],
+      },
+      {
+        key: 2,
+        name: 'Joe Black',
+        age: 32,
+      },
+      {
+        key: 11,
+        name: 'John Brown',
+        age: 42,
+        children: [
+          {
+            key: 1311,
+            name: 'Jim Green jr.',
+            age: 25,
+          },
+          {
+            key: 1312,
+            name: 'Jimmy Green sr.',
+            age: 18,
+          },
+        ],
+      },
+      {
+        key: 13,
+        name: 'Jim Green sr.',
+        age: 72,
+        children: [
+          {
+            key: 131,
+            name: 'Jim Green',
+            age: 42,
+          },
+        ],
+      },
+    ];
+    const rowSelection = {
+      getCheckboxProps: (record: { age: number }) => {
+        return 'children' in record
+          ? {
+              disabled: false,
+            }
+          : {
+              disabled: record.age <= 10,
+            };
+      },
+      checkStrictly: false,
+    };
+    const { container } = render(
+      <Table
+        rowSelection={rowSelection}
+        columns={treeDataColumns}
+        dataSource={treeData}
+        pagination={{ pageSize: 2 }}
+      />,
+    );
+
+    let firstRowCheckbox = container.querySelector('tbody tr:first-child input.ant-checkbox-input');
+    let secondRowCheckbox = container.querySelector(
+      'tbody tr:nth-child(2) input.ant-checkbox-input',
+    );
+    const nextPageBtn = container.querySelector('.ant-pagination-next .ant-pagination-item-link');
+    const prevPageBtn = container.querySelector('.ant-pagination-prev .ant-pagination-item-link');
+    // Check the first row and the second row, then click the next page.
+    fireEvent.click(firstRowCheckbox!);
+    fireEvent.click(secondRowCheckbox!);
+    fireEvent.click(nextPageBtn!);
+    // update row checkbox element.
+    firstRowCheckbox = container.querySelector('tbody tr:first-child input.ant-checkbox-input');
+    secondRowCheckbox = container.querySelector('tbody tr:nth-child(2) input.ant-checkbox-input');
+    // Check the first row and the second row again, then click the previous page.
+    fireEvent.click(firstRowCheckbox!);
+    fireEvent.click(secondRowCheckbox!);
+    fireEvent.click(prevPageBtn!);
+
+    const firstRowExpandBtn = container?.querySelector(
+      'tbody tr:first-child .ant-table-cell-with-append .ant-table-row-expand-icon',
+    );
+    fireEvent.click(firstRowExpandBtn!);
+    await waitFakeTimer();
+    const checkboxOfRowWithKey12 = container.querySelector(
+      'tbody tr[data-row-key="12"] input.ant-checkbox-input',
+    ) as HTMLInputElement;
+
+    expect(checkboxOfRowWithKey12).toBeTruthy();
+    expect(checkboxOfRowWithKey12!.checked).toBeFalsy();
   });
 });

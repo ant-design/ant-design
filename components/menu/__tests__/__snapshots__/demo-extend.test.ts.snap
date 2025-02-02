@@ -1856,6 +1856,40 @@ exports[`renders components/menu/demo/extra-style.tsx extend context correctly 1
                 />
               </div>
             </div>
+            <li
+              aria-disabled="true"
+              class="ant-menu-item ant-menu-item-disabled ant-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-3"
+              role="menuitem"
+              style="padding-left: 48px;"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                <a
+                  href="https://www.baidu.com"
+                >
+                  Link Option
+                </a>
+              </span>
+            </li>
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; top: 0px; left: 0px;"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
           </ul>
         </div>
         <ul
@@ -1935,6 +1969,40 @@ exports[`renders components/menu/demo/extra-style.tsx extend context correctly 1
               >
                 ⌘P
               </span>
+            </span>
+          </li>
+          <div
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          >
+            <div
+              class="ant-tooltip-arrow"
+              style="position: absolute; top: 0px; left: 0px;"
+            />
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+          <li
+            aria-disabled="true"
+            class="ant-menu-item ant-menu-item-disabled ant-menu-item-only-child"
+            data-menu-id="rc-menu-uuid-test-3"
+            role="menuitem"
+            style="padding-left: 48px;"
+          >
+            <span
+              class="ant-menu-title-content"
+            >
+              <a
+                href="https://www.baidu.com"
+              >
+                Link Option
+              </a>
             </span>
           </li>
           <div

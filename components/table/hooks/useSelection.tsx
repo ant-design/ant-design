@@ -197,7 +197,16 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
   }, [flattedData, getRowKey, getCheckboxProps]);
 
   const isCheckboxDisabled: GetCheckDisabled<RecordType> = useCallback(
-    (r: RecordType) => !!checkboxPropsMap.get(getRowKey(r))?.disabled,
+    (r: RecordType) => {
+      const rowKey = getRowKey(r);
+      let checkboxProps: Partial<CheckboxProps> | undefined;
+      if (checkboxPropsMap.has(rowKey)) {
+        checkboxProps = checkboxPropsMap.get(getRowKey(r));
+      } else {
+        checkboxProps = getCheckboxProps ? getCheckboxProps(r) : undefined;
+      }
+      return !!checkboxProps?.disabled;
+    },
     [checkboxPropsMap, getRowKey],
   );
 

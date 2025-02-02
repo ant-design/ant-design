@@ -310,7 +310,7 @@ const InternalCompoundedButton = React.forwardRef<
       <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
         {icon}
       </IconWrapper>
-    ) : typeof loading === 'object' && loading.icon ? (
+    ) : loading && typeof loading === 'object' && loading.icon ? (
       <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
         {loading.icon}
       </IconWrapper>

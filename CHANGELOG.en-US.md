@@ -15,9 +15,63 @@ tag: vVERSION
 
 ---
 
+## 5.23.3
+
+`2025-01-28`
+
+Last version of the Dragon Year, Happy Chinese New Year! 🐲
+
+- ⌨️ MISC: Add accessibility tests for all component demos to ensure compliance with accessibility standards. Optimize accessibility support for some components, improving compatibility with screen readers and keyboard operations. [#51372](https://github.com/ant-design/ant-design/pull/51372) [@aojunhao123](https://github.com/aojunhao123)
+- 🐞 MISC: Fix importing `antd/dist/reset.css` file issue. [#52559](https://github.com/ant-design/ant-design/pull/52559) [@CaptainVolcom](https://github.com/CaptainVolcom)
+- 🐞 Fix Button throwing error when `loading` is `null`. [#52508](https://github.com/ant-design/ant-design/pull/52508) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix Table last row border color transition issue. [#52549](https://github.com/ant-design/ant-design/pull/52549) [@DDDDD12138](https://github.com/DDDDD12138)
+- 💄 Fix Cascader checkbox cursor style in disabled state. [#52539](https://github.com/ant-design/ant-design/pull/52539) [@aojunhao123](https://github.com/aojunhao123)
+- 💄 Fix ConfigProvider not correctly modifying icon style priority when StyleProvider configures `layer`. [#52533](https://github.com/ant-design/ant-design/pull/52533) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Layout sidebar toggle button style missing in non-cssVar mode. [#52537](https://github.com/ant-design/ant-design/pull/52537) [@afc163](https://github.com/afc163)
+- 🐞 Fix Tree checkbox cursor style in disabled state. [#52525](https://github.com/ant-design/ant-design/pull/52525) [@aojunhao123](https://github.com/aojunhao123)
+- notification
+  - 🐞 Fix notification `useNotification` `closeIcon` configuration not working. [#52516](https://github.com/ant-design/ant-design/pull/52516) [@typenoob](https://github.com/typenoob)
+  - 🐞 Fix notification component display flicker issue under App component. [#52499](https://github.com/ant-design/ant-design/pull/52499) [@afc163](https://github.com/afc163)
+- RTL
+  - 🐞 Fix Splitter abnormal collapse behavior in RTL mode. [#52501](https://github.com/ant-design/ant-design/pull/52501) [@aojunhao123](https://github.com/aojunhao123)
+  - 💄 Fix Spin style issue in RTL mode. [#52538](https://github.com/ant-design/ant-design/pull/52538) [@afc163](https://github.com/afc163)
+
+## 5.23.2
+
+`2025-01-20`
+
+- 🐞 Fix Space.Compact throwing `Should not use more than one & in a selector` warning. [#52489](https://github.com/ant-design/ant-design/pull/52489)
+- 💄 Fix the Layout switching sidebar button style was lost. [#52477](https://github.com/ant-design/ant-design/pull/52477)
+- 💄 Fix the scroll bar height is not 0 when the first row of the virtual scroll Table is collapsed. [#52447](https://github.com/ant-design/ant-design/pull/52447) [@LeeSSHH](https://github.com/LeeSSHH)
+- 💄 Fix the last item in Descriptions did not correctly fill the remaining space. [#52410](https://github.com/ant-design/ant-design/pull/52410) [@anyuxuan](https://github.com/anyuxuan)
+- 💄 Fix extra margin for the last item in Radio. [#52433](https://github.com/ant-design/ant-design/pull/52433)
+- 💄 Fix the Input/Mentions clear button padding was incorrect. [#52407](https://github.com/ant-design/ant-design/pull/52407) [@ustcfury](https://github.com/ustcfury)
+- 💄 Fix rounded corners of `addonAfter` in Input compact mode. [#52490](https://github.com/ant-design/ant-design/pull/52490) [@DDDDD12138](https://github.com/DDDDD12138)
+- 💄 Fix Menu.Item links were still clickable and lacked disabled styles when in disabled state. [#52402](https://github.com/ant-design/ant-design/pull/52402) [@aojunhao123](https://github.com/aojunhao123)
+- TypeScript
+  - 🤖 MISC: Optimize PurePanel to use React.ComponentType type. [#52480](https://github.com/ant-design/ant-design/pull/52480)
+  - 🤖 Fix missing token type for Skeleton and Rate. [#52406](https://github.com/ant-design/ant-design/pull/52406) [@coding-ice](https://github.com/coding-ice)
+
+## 5.23.1
+
+`2025-01-13`
+
+- 🆕 Add Tree leaf node className for differentiate node type. [#52274](https://github.com/ant-design/ant-design/pull/52274) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 Fix DatePicker switch buttons is not hidden when `superPrevIcon/superNextIcon/prevIcon/nextIcon` is null. [#52327](https://github.com/ant-design/ant-design/pull/52327) [@afc163](https://github.com/afc163)
+- 🐞 Fix Select throws `error not a valid selector` in Jest tests. [#51844](https://github.com/ant-design/ant-design/pull/51844) [@renovate](https://github.com/renovate)
+- 🐞 Fix Layout.Sider under ConfigProvider directly, the `theme` not working. [#52302](https://github.com/ant-design/ant-design/pull/52302) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Splitter lost previous state when re-expanding. [#52222](https://github.com/ant-design/ant-design/pull/52222) [@jjlstruggle](https://github.com/jjlstruggle)
+- 🐞 Fix Table unexpected row selections when set `checkStrictly` to false in tree mode. [#52338](https://github.com/ant-design/ant-design/pull/52338) [@LeeSSHH](https://github.com/LeeSSHH)
+- Button
+  - 🐞 Fix Button alignment and icon centering by adjusting the icon size for icon-only Buttons. [#52353](https://github.com/ant-design/ant-design/pull/52353) [@afc163](https://github.com/afc163)
+  - 💄 Fix Button missing `box-shadow` style. [#52304](https://github.com/ant-design/ant-design/pull/52304) [@zombieJ](https://github.com/zombieJ)
+- RTL
+  - 💄 Fix Collapse arrow direction in RTL mode. [#52374](https://github.com/ant-design/ant-design/pull/52374) [@aojunhao123](https://github.com/aojunhao123)
+  - 💄 Fix Layout.Sider arrow direction in RTL mode. [#52374](https://github.com/ant-design/ant-design/pull/52374) [@aojunhao123](https://github.com/aojunhao123)
+
 ## 5.23.0
 
-`2024-01-06`
+`2025-01-06`
 
 - 🔥 TreeSelect support `maxCount` to limit the maximum number of selections. [#51759](https://github.com/ant-design/ant-design/pull/51759) [@aojunhao123](https://github.com/aojunhao123)
 - 🔥 Modal `width` support responsive size. [#51653](https://github.com/ant-design/ant-design/pull/51653) [@zombieJ](https://github.com/zombieJ)
@@ -46,7 +100,7 @@ tag: vVERSION
   - 🛠 Refactor Tree part code to Function Component for React 19 perf preparing. [#52209](https://github.com/ant-design/ant-design/pull/52209) [@li-jia-nan](https://github.com/li-jia-nan)
   - 💄 Optimize Tree `disabled` & `selected` node display style. [#52173](https://github.com/ant-design/ant-design/pull/52173) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🐞 Fix Slider crash when `tipFormatter` is undefined. [#52184](https://github.com/ant-design/ant-design/pull/52184) [@thinkasany](https://github.com/thinkasany)
-- 🐞 Fix Layout.Sider `trigger` style not correct. [46a8eff](https://github.com/ant-design/ant-design/commit/46a8eff) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix Layout.Sider `trigger` style not correct. [#46a8eff](https://github.com/ant-design/ant-design/commit/46a8eff) [@Wxh16144](https://github.com/Wxh16144)
 - Table
   - 🐞 Fix Table `fixed：right` is not working in `expandable`. [#52176](https://github.com/ant-design/ant-design/pull/52176) [@afc163](https://github.com/afc163)
   - 🐞 Fix Table sticky scrollbar not working in rtl direction. [#52176](https://github.com/ant-design/ant-design/pull/52176) [@afc163](https://github.com/afc163)
@@ -2085,7 +2139,7 @@ tag: vVERSION
 - 💄 Adjust Select, TreeSelect, Cascader always show the `arrow` by default when multiple. [#41028](https://github.com/ant-design/ant-design/pull/41028)
 - 🐞 Fix Form `Form.Item.useStatus` problem with sever-side-rendering. [#40977](https://github.com/ant-design/ant-design/pull/40977) [@AndyBoat](https://github.com/AndyBoat)
 - 🐞 MISC: Fix arrow shape in some components. [#40971](https://github.com/ant-design/ant-design/pull/40971)
-- 🐞 Fix Layout throw `React does not recognize the `suffixCls` prop on a DOM element` warning. [#40969](https://github.com/ant-design/ant-design/pull/40969)
+- 🐞 Fix Layout throw "React does not recognize the `suffixCls` prop on a DOM element" warning. [#40969](https://github.com/ant-design/ant-design/pull/40969)
 - 🐞 Fix Watermark that text will be displayed when the picture loads abnormally. [#40770](https://github.com/ant-design/ant-design/pull/40770) [@OriginRing](https://github.com/OriginRing)
 - 🐞 Image support flip function in preview mode. Fix Image `fallback` when used in ssr. [#40660](https://github.com/ant-design/ant-design/pull/40660)
 - 🐞 Fix Typography component is not centered in the Select component. [#40422](https://github.com/ant-design/ant-design/pull/40422) [@Yuiai01](https://github.com/Yuiai01)

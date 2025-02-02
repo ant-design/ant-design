@@ -15,9 +15,63 @@ tag: vVERSION
 
 ---
 
+## 5.23.3
+
+`2025-01-28`
+
+龙年最后一版，祝各位新春愉快！🐲
+
+- ⌨️ MISC: 为所有组件的示例添加了可访问性测试，确保符合无障碍标准。并优化了部分组件的可访问性支持，改进了对屏幕阅读器和键盘操作的兼容性。[#51372](https://github.com/ant-design/ant-design/pull/51372) [@aojunhao123](https://github.com/aojunhao123)
+- 🐞 MISC: 修复导入 `antd/dist/reset.css` 文件的问题。[#52559](https://github.com/ant-design/ant-design/pull/52559) [@CaptainVolcom](https://github.com/CaptainVolcom)
+- 🐞 修复 Button `loading` 为 `null` 时抛错的问题。[#52508](https://github.com/ant-design/ant-design/pull/52508) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 修复 Table 最后一行边框颜色过渡问题。[#52549](https://github.com/ant-design/ant-design/pull/52549) [@DDDDD12138](https://github.com/DDDDD12138)
+- 💄 修复 Cascader 组件禁用状态下复选框的鼠标指针样式问题。[#52539](https://github.com/ant-design/ant-design/pull/52539) [@aojunhao123](https://github.com/aojunhao123)
+- 💄 修复 ConfigProvider 在 StyleProvider 配置 `layer` 时不会正确修改图标对应样式优先级的问题。[#52533](https://github.com/ant-design/ant-design/pull/52533) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Layout 切换侧边栏按钮在非 cssVar 模式下样式丢失的问题。. [#52537](https://github.com/ant-design/ant-design/pull/52537) [@afc163](https://github.com/afc163)
+- 🐞 修复 Tree 组件禁用状态下复选框的鼠标指针样式问题。[#52525](https://github.com/ant-design/ant-design/pull/52525) [@aojunhao123](https://github.com/aojunhao123)
+- notification
+  - 🐞 修复 notification `useNotification` 中 `closeIcon` 配置无效的问题。[#52516](https://github.com/ant-design/ant-design/pull/52516) [@typenoob](https://github.com/typenoob)
+  - 🐞 修复 notification 组件在 App 组件下的显示闪烁问题。[#52499](https://github.com/ant-design/ant-design/pull/52499) [@afc163](https://github.com/afc163)
+- RTL
+  - 🐞 修复 Splitter 在 rtl 模式下折叠行为异常的问题。[#52501](https://github.com/ant-design/ant-design/pull/52501) [@aojunhao123](https://github.com/aojunhao123)
+  - 💄 修复 Spin 在 rtl 模式下的样式问题。[#52538](https://github.com/ant-design/ant-design/pull/52538) [@afc163](https://github.com/afc163)
+
+## 5.23.2
+
+`2025-01-20`
+
+- 🐞 修复 Space.Compact 抛出 `Should not use more than one & in a selector` 警告信息的问题。[#52489](https://github.com/ant-design/ant-design/pull/52489)
+- 💄 修复 Layout 切换侧边栏按钮样式丢失的问题。[#52477](https://github.com/ant-design/ant-design/pull/52477)
+- 💄 修复 Table 收起虚拟滚动表格第一行时滚动条高度不为 0 的问题。[#52447](https://github.com/ant-design/ant-design/pull/52447) [@LeeSSHH](https://github.com/LeeSSHH)
+- 💄 修复 Descriptions 最后一项未正确填充满剩余空间的问题。[#52410](https://github.com/ant-design/ant-design/pull/52410) [@anyuxuan](https://github.com/anyuxuan)
+- 💄 修复 Radio.Group 最后一项多余 margin 的问题。[#52433](https://github.com/ant-design/ant-design/pull/52433)
+- 💄 修复 Input/Mentions 清除按钮 padding 不正确的问题。[#52407](https://github.com/ant-design/ant-design/pull/52407) [@ustcfury](https://github.com/ustcfury)
+- 💄 修复 Input 紧凑模式中 `addonAfter` 的圆角问题。[#52490](https://github.com/ant-design/ant-design/pull/52490) [@DDDDD12138](https://github.com/DDDDD12138)
+- 💄 修复 Menu.Item 在禁用状态下链接仍可点击且缺少禁用样式的问题。[#52402](https://github.com/ant-design/ant-design/pull/52402) [@aojunhao123](https://github.com/aojunhao123)
+- TypeScript
+  - 🤖 MISC: 优化 PurePanel 使用 React.ComponentType 类型。[#52480](https://github.com/ant-design/ant-design/pull/52480)
+  - 🤖 修复 Skeleton 和 Rate 缺失的 token 类型。[#52406](https://github.com/ant-design/ant-design/pull/52406) [@coding-ice](https://github.com/coding-ice)
+
+## 5.23.1
+
+`2025-01-13`
+
+- 🆕 新增 Tree 组件叶子节点的 className 用于区分节点类型。[#52274](https://github.com/ant-design/ant-design/pull/52274) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 修复 DatePicker `superPrevIcon/superNextIcon/prevIcon/nextIcon` 设置为 null 时切换按钮依旧存在的问题。[#52327](https://github.com/ant-design/ant-design/pull/52327) [@afc163](https://github.com/afc163)
+- 🐞 修复 Select 组件在 jest 测试中报错 `not a valid selector` 的问题。[#51844](https://github.com/ant-design/ant-design/pull/51844) [@renovate](https://github.com/renovate)
+- 🐞 修复 Layout.Sider 直接嵌套在 ConfigProvider 下时，`theme` 配置无效的问题。[#52302](https://github.com/ant-design/ant-design/pull/52302) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Splitter 二次展开时丢失上一次状态的问题。[#52222](https://github.com/ant-design/ant-design/pull/52222) [@jjlstruggle](https://github.com/jjlstruggle)
+- 🐞 修复 Table 树形展示且设置 `checkStrictly` 为 false 时，某些行被错误选中的问题。[#52338](https://github.com/ant-design/ant-design/pull/52338) [@LeeSSHH](https://github.com/LeeSSHH)
+- Button
+  - 🐞 调整 Button 纯图标的大小从而修复按钮对齐和图标居中问题。[#52353](https://github.com/ant-design/ant-design/pull/52353) [@afc163](https://github.com/afc163)
+  - 💄 修复 Button 丢失阴影样式的问题。[#52304](https://github.com/ant-design/ant-design/pull/52304) [@zombieJ](https://github.com/zombieJ)
+- RTL
+  - 💄 修复 Collapse 在 RTL 模式下的箭头方向。[#52374](https://github.com/ant-design/ant-design/pull/52374) [@aojunhao123](https://github.com/aojunhao123)
+  - 💄 修复 Layout.Sider 在 RTL 模式下的箭头方向。[#52374](https://github.com/ant-design/ant-design/pull/52374) [@aojunhao123](https://github.com/aojunhao123)
+
 ## 5.23.0
 
-`2024-01-06`
+`2025-01-06`
 
 - 🔥 TreeSelect 新增 `maxCount` 属性以限制最大选择数量。[#51759](https://github.com/ant-design/ant-design/pull/51759) [@aojunhao123](https://github.com/aojunhao123)
 - 🔥 Modal `width` 支持响应式尺寸。[#51653](https://github.com/ant-design/ant-design/pull/51653) [@zombieJ](https://github.com/zombieJ)
@@ -45,7 +99,7 @@ tag: vVERSION
 - 🆕 Card 增加 `bodyPaddingSM`、`headerPaddingSM`、`bodyPadding`、`headerPadding` 组件 token。[#51762](https://github.com/ant-design/ant-design/pull/51762) [@thinkasany](https://github.com/thinkasany)
 - 🆕 ColorPicker `presets` 支持传入 `key`。[#51794](https://github.com/ant-design/ant-design/pull/51794) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 Cascader 新增 `optionSelectedColor` token。[#51769](https://github.com/ant-design/ant-design/pull/51769) [@thinkasany](https://github.com/thinkasany)
-- 🐞 修复 Layout.Sider `trigger` 样式不正确的问题。[46a8eff](https://github.com/ant-design/ant-design/commit/46a8eff) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 修复 Layout.Sider `trigger` 样式不正确的问题。[#46a8eff](https://github.com/ant-design/ant-design/commit/46a8eff) [@Wxh16144](https://github.com/Wxh16144)
 - Table
   - 🐞 修复 Table `expandable` 中设置 `fixed：right` 不生效的问题。[#52176](https://github.com/ant-design/ant-design/pull/52176) [@afc163](https://github.com/afc163)
   - 🐞 修复 Table `sticky` 模式下水平固定滚动条在 rtl 模式下不生效的问题。[#52176](https://github.com/ant-design/ant-design/pull/52176) [@afc163](https://github.com/afc163)
@@ -2086,7 +2140,7 @@ tag: vVERSION
 - 💄 调整 Select, TreeSelect, Cascader 在多选时总是默认显示下拉箭头。[#41028](https://github.com/ant-design/ant-design/pull/41028)
 - 🐞 修复 Form 组件 `Form.Item.useStatus` 导致的服务端渲染问题。[#40977](https://github.com/ant-design/ant-design/pull/40977) [@AndyBoat](https://github.com/AndyBoat)
 - 🐞 杂项：修复部分组件箭头形状问题。[#40971](https://github.com/ant-design/ant-design/pull/40971)
-- 🐞 修复 Layout 报错 `React does not recognize the `suffixCls` prop on a DOM element` 的问题。[#40969](https://github.com/ant-design/ant-design/pull/40969)
+- 🐞 修复 Layout 报错 "React does not recognize the `suffixCls` prop on a DOM element" 的问题。[#40969](https://github.com/ant-design/ant-design/pull/40969)
 - 🐞 修复 Watermark 组件图片加载异常时的问题，默认展示文字。[#40770](https://github.com/ant-design/ant-design/pull/40770) [@OriginRing](https://github.com/OriginRing)
 - 🐞 Image 预览新增图片翻转功能。并修复 Image `fallback` 在 ssr 下失效的问题。[#40660](https://github.com/ant-design/ant-design/pull/40660)
 - 🐞 修复 Select 中使用 Typography 不居中的问题。[#40422](https://github.com/ant-design/ant-design/pull/40422) [@Yuiai01](https://github.com/Yuiai01)

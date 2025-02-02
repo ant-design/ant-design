@@ -13,6 +13,7 @@ export default function useResize(
   percentSizes: number[],
   containerSize: number | undefined,
   updateSizes: (sizes: number[]) => void,
+  isRTL: boolean,
 ) {
   const limitSizes = items.map((item) => [item.min, item.max]);
 
@@ -119,9 +120,10 @@ export default function useResize(
   // ======================= Collapse =======================
   const onCollapse = (index: number, type: 'start' | 'end') => {
     const currentSizes = getPxSizes();
+    const adjustedType = isRTL ? (type === 'start' ? 'end' : 'start') : type;
 
-    const currentIndex = type === 'start' ? index : index + 1;
-    const targetIndex = type === 'start' ? index + 1 : index;
+    const currentIndex = adjustedType === 'start' ? index : index + 1;
+    const targetIndex = adjustedType === 'start' ? index + 1 : index;
 
     const currentSize = currentSizes[currentIndex];
     const targetSize = currentSizes[targetIndex];
@@ -146,7 +148,7 @@ export default function useResize(
       const targetCacheCollapsedSize = cacheCollapsedSize.current[index];
       const currentCacheCollapsedSize = totalSize - targetCacheCollapsedSize;
 
-      const shouldUseCache = 
+      const shouldUseCache =
         targetCacheCollapsedSize &&
         targetCacheCollapsedSize <= targetSizeMax &&
         targetCacheCollapsedSize >= targetSizeMin &&
