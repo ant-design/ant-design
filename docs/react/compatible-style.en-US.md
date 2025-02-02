@@ -103,14 +103,17 @@ When toggled, styles will downgrade CSS logical properties:
 - Minimum Chrome Version Supported: 99
 - Default Enabled: No
 
-Ant Design supports configuring `@layer` for unified css priority downgrade since `5.17.0`. After the downgrade, the style of antd will always be lower than the default CSS selector priority, so that users can override the style (please be sure to check the browser compatibility of `@layer`):
+Ant Design supports configuring `@layer` for unified css priority downgrade since `5.17.0`. After the downgrade, the style of antd will always be lower than the default CSS selector priority, so that users can override the style (please be sure to check the browser compatibility of `@layer`).When enable `layer`, the child element **must** wrap `ConfigProvider` to update the icon-related styles:
 
 ```tsx
 import { StyleProvider } from '@ant-design/cssinjs';
+import { ConfigProvider } from 'antd';
 
 export default () => (
   <StyleProvider layer>
-    <MyApp />
+    <ConfigProvider>
+      <MyApp />
+    </ConfigProvider>
   </StyleProvider>
 );
 ```

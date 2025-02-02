@@ -359,7 +359,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
                 )}
                 ${unit(calc(tablePaddingHorizontal).mul(-1).equal())}`,
                 [`${componentCls}-tbody > tr:last-child > td`]: {
-                  borderBottom: 0,
+                  borderBottomWidth: 0,
                   '&:first-child, &:last-child': {
                     borderRadius: 0,
                   },
