@@ -1,5 +1,6 @@
 import type * as React from 'react';
 
+type SemanticName = 'label' | 'content';
 export interface DescriptionsItemProps {
   prefixCls?: string;
   className?: string;
@@ -9,14 +10,8 @@ export interface DescriptionsItemProps {
   labelStyle?: React.CSSProperties;
   /** @deprecated Please use `styles={{ content: {} }}` instead */
   contentStyle?: React.CSSProperties;
-  styles?: {
-    label?: React.CSSProperties;
-    content?: React.CSSProperties;
-  };
-  classNames?: {
-    label?: string;
-    content?: string;
-  };
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: Partial<Record<SemanticName, string>>;
   children: React.ReactNode;
   span?: number;
 }

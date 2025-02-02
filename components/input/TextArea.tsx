@@ -18,6 +18,7 @@ import useVariant from '../form/hooks/useVariants';
 import type { InputFocusOptions } from './Input';
 import { triggerFocus } from './Input';
 import useStyle from './style';
+import { useCompactItemContext } from '../space/Compact';
 
 export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix'> {
   /** @deprecated Use `variant` instead */
@@ -62,9 +63,6 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
 
   const { getPrefixCls, direction, textArea } = React.useContext(ConfigContext);
 
-  // ===================== Size =====================
-  const mergedSize = useSize(customizeSize);
-
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
@@ -94,6 +92,12 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
+  // ===================== Compact Item =====================
+  const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
+
+  // ===================== Size =====================
+  const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
+
   const [variant, enableVariantCls] = useVariant('textArea', customVariant, bordered);
 
   const mergedAllowClear = getAllowClear(allowClear ?? textArea?.allowClear);
@@ -106,7 +110,14 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
       styles={{ ...textArea?.styles, ...styles }}
       disabled={mergedDisabled}
       allowClear={mergedAllowClear}
-      className={classNames(cssVarCls, rootCls, className, rootClassName, textArea?.className)}
+      className={classNames(
+        cssVarCls,
+        rootCls,
+        className,
+        rootClassName,
+        compactItemClassnames,
+        textArea?.className,
+      )}
       classNames={{
         ...classes,
         ...textArea?.classNames,

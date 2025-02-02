@@ -31,6 +31,8 @@ export interface DescriptionsItemType
   span?: number | 'filled' | { [key in Breakpoint]?: number };
 }
 
+type SemanticName = 'root' | 'header' | 'title' | 'extra' | 'label' | 'content';
+
 export interface DescriptionsProps {
   prefixCls?: string;
   className?: string;
@@ -49,22 +51,8 @@ export interface DescriptionsProps {
   colon?: boolean;
   labelStyle?: React.CSSProperties;
   contentStyle?: React.CSSProperties;
-  styles?: {
-    root?: React.CSSProperties;
-    header?: React.CSSProperties;
-    title?: React.CSSProperties;
-    extra?: React.CSSProperties;
-    label?: React.CSSProperties;
-    content?: React.CSSProperties;
-  };
-  classNames?: {
-    root?: string;
-    header?: string;
-    title?: string;
-    extra?: string;
-    label?: string;
-    content?: string;
-  };
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: Partial<Record<SemanticName, string>>;
   items?: DescriptionsItemType[];
   id?: string;
 }
