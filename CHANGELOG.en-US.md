@@ -17,7 +17,7 @@ tag: vVERSION
 
 ### 5.23.4
 
-`2025-02-03`
+`2025-02-04`
 
 First release in the Year of the Snake, wishing you a prosperous start! 🐍
 
