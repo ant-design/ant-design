@@ -21,7 +21,7 @@ tag: vVERSION
 
 First release in the Year of the Snake, wishing you a prosperous start! 🐍
 
-- 🐞 Fixed `Pagination` accessibility issue by supplementing missing ARIA attributes support.[#52616](https://github.com/ant-design/ant-design/pull/52616) [@aojunhao123](https://github.com/aojunhao123)  
+- ⌨️ Fixed `Pagination` accessibility issue by supplementing missing ARIA attributes support. [#52616](https://github.com/ant-design/ant-design/pull/52616) [@aojunhao123](https://github.com/aojunhao123)  
 - 🐞 Added `TextArea` component support in `Space.Compact`.[#52639](https://github.com/ant-design/ant-design/pull/52639) [@Can-Chen](https://github.com/Can-Chen)  
 - 🐞 Fixed identical text/background color issue in horizontal `Menu` with `theme="dark"`.[#52617](https://github.com/ant-design/ant-design/pull/52617) [@afc163](https://github.com/afc163)  
 - 🐞 Clarified misleading description of `Input.Search`'s `enterButton` property regarding its behavior and interactions.[#52614](https://github.com/ant-design/ant-design/pull/52614) [@Muhammad-Taif-Khan](https://github.com/Muhammad-Taif-Khan)  
