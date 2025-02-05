@@ -17,14 +17,16 @@ tag: vVERSION
 
 ## 5.23.4
 
-`2025-02-04`
+`2025-02-05`
 
 蛇年第一个版本，开工大吉！🐍
 
 - 🐞 修复 `Pagination` 可访问性问题，补充缺失的 ARIA 属性支持。[#52616](https://github.com/ant-design/ant-design/pull/52616) [@aojunhao123](https://github.com/aojunhao123)
 - 🐞 Space.Compact 支持 textarea 组件。[#52639](https://github.com/ant-design/ant-design/pull/52639) [@Can-Chen](https://github.com/Can-Chen)
 - 🐞 修复 Menu `theme="dark"` 时水平菜单的文字色和背景色同色的问题。[#52617](https://github.com/ant-design/ant-design/pull/52617) [@afc163](https://github.com/afc163)
-- 🐞 修复 Input.Search 的 `enterButton` 属性误导性描述，以阐明其行为以及与其他属性的交互。[#52614](https://github.com/ant-design/ant-design/pull/52614) [@Muhammad-Taif-Khan](https://github.com/Muhammad-Taif-Khan)
+- 🇦🇪 Tour 增加阿拉伯语的国际化翻译。 [#52642](https://github.com/ant-design/ant-design/pull/52642) [@Sagie501](https://github.com/Sagie501)
+- 🇮🇱 Tour 增加以色列的国际化翻译。[#52641](https://github.com/ant-design/ant-design/pull/52641) [@Sagie501](https://github.com/Sagie501)
+
 
 ## 5.23.3
 

@@ -17,14 +17,15 @@ tag: vVERSION
 
 ### 5.23.4
 
-`2025-02-04`
+`2025-02-05`
 
 First release in the Year of the Snake, wishing you a prosperous start! 🐍
 
-- ⌨️ Fixed `Pagination` accessibility issue by supplementing missing ARIA attributes support. [#52616](https://github.com/ant-design/ant-design/pull/52616) [@aojunhao123](https://github.com/aojunhao123)  
-- 🐞 Added `TextArea` component support in `Space.Compact`. [#52639](https://github.com/ant-design/ant-design/pull/52639) [@Can-Chen](https://github.com/Can-Chen)  
+- 🐞 Fixed Pagination accessibility issue by supplementing missing ARIA attributes support. [#52616](https://github.com/ant-design/ant-design/pull/52616) [@aojunhao123](https://github.com/aojunhao123)  
+- 🐞 Added TextArea component support in `Space.Compact`. [#52639](https://github.com/ant-design/ant-design/pull/52639) [@Can-Chen](https://github.com/Can-Chen)  
 - 🐞 Fixed Menu with `theme="dark"` and `mode="horizontal"` identical text/background color issue. [#52617](https://github.com/ant-design/ant-design/pull/52617) [@afc163](https://github.com/afc163)  
-- 🐞 Clarified misleading description of Input.Search's `enterButton` property regarding its behavior and interactions. [#52614](https://github.com/ant-design/ant-design/pull/52614) [@Muhammad-Taif-Khan](https://github.com/Muhammad-Taif-Khan)  
+- 🇦🇪 Add Tour Arabic translation. [#52642](https://github.com/ant-design/ant-design/pull/52642) [@Sagie501](https://github.com/Sagie501)
+- 🇮🇱 Add Tour Hebrew translation. [#52641](https://github.com/ant-design/ant-design/pull/52641) [@Sagie501](https://github.com/Sagie501)
 
 ## 5.23.3
 
