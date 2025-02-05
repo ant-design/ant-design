@@ -1020,6 +1020,7 @@ export default (prefixCls: string, rootCls: string = prefixCls, injectStyle = tr
         itemHoverColor: darkItemHoverColor,
         groupTitleColor: darkGroupTitleColor,
         itemSelectedColor: darkItemSelectedColor,
+        subMenuItemSelectedColor: darkItemSelectedColor,
         itemBg: darkItemBg,
         popupBg: darkPopupBg,
         subMenuItemBg: darkSubMenuItemBg,
