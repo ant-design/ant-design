@@ -5,7 +5,7 @@ import CSSMotion, { CSSMotionList } from 'rc-motion';
 
 import initCollapseMotion from '../_util/motion';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import { FormItemPrefixContext } from './context';
+import { FormContext, FormItemPrefixContext } from './context';
 import type { ValidateStatus } from './FormItem';
 import useDebounce from './hooks/useDebounce';
 import useStyle from './style';
@@ -50,7 +50,8 @@ const ErrorList: React.FC<ErrorListProps> = ({
   fieldId,
   onVisibleChanged,
 }) => {
-  const { prefixCls } = React.useContext(FormItemPrefixContext);
+  const { prefixCls } = React.useContext(FormItemPrefixContext);  
+  const { explainConfig } = React.useContext(FormContext);
 
   const baseClassName = `${prefixCls}-item-explain`;
 
@@ -91,10 +92,13 @@ const ErrorList: React.FC<ErrorListProps> = ({
     }));
   }, [fullKeyList]);
 
-  const helpProps: { id?: string } = {};
+  const helpProps: { id?: string; role?: string } = { role: 'alert' };
 
   if (fieldId) {
     helpProps.id = `${fieldId}_help`;
+  }  
+  if (explainConfig?.role === null) {
+    helpProps.role = undefined;
   }
 
   return wrapCSSVar(
@@ -119,7 +123,6 @@ const ErrorList: React.FC<ErrorListProps> = ({
               hashId,
             )}
             style={holderStyle}
-            role="alert"
           >
             <CSSMotionList
               keys={filledKeyFullKeyList}

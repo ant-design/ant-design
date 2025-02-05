@@ -34,6 +34,10 @@ export type ScrollFocusOptions = Options & {
   focus?: boolean;
 };
 
+export interface FormExplainConfig {
+  role?: 'alert' | null;
+}
+
 export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form'> {
   prefixCls?: string;
   colon?: boolean;
@@ -52,7 +56,8 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   /** @deprecated Will warning in future branch. Pls use `requiredMark` instead. */
   hideRequiredMark?: boolean;
   rootClassName?: string;
-  variant?: Variant;
+  variant?: Variant;  
+  explainConfig?: FormExplainConfig;
 }
 
 const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props, ref) => {
@@ -80,6 +85,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     style,
     feedbackIcons,
     variant,
+    explainConfig,
     ...restFormProps
   } = props;
 
@@ -149,6 +155,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
       itemRef: __INTERNAL__.itemRef,
       form: wrapForm,
       feedbackIcons,
+      explainConfig,
     }),
     [
       name,
@@ -160,6 +167,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
       mergedRequiredMark,
       wrapForm,
       feedbackIcons,
+      explainConfig,
     ],
   );
 
