@@ -64,6 +64,10 @@ Common props ref：[Common props](/docs/react/common-props)
   }
 </style>
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Empty"></ComponentTokenTable>

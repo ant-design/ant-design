@@ -38,15 +38,14 @@ export const genDirectoryStyle = ({
       },
     },
 
-    [`${treeCls}-switcher`]: {
-      marginInlineEnd: 0,
+    [`${treeCls}-switcher, ${treeCls}-checkbox, ${treeCls}-draggable-icon`]: {
+      zIndex: 1,
     },
 
     // ============= Selected =============
     '&-selected': {
       [`${treeCls}-switcher, ${treeCls}-draggable-icon`]: {
         color: directoryNodeSelectedColor,
-        zIndex: 1,
       },
 
       // >>> Title

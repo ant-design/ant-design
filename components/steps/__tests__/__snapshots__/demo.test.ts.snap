@@ -4950,7 +4950,7 @@ Array [
     </div>
   </div>,
   <div
-    style="line-height:260px;text-align:center;color:rgba(0, 0, 0, 0.45);background-color:rgba(0, 0, 0, 0.02);border-radius:8px;border:1px dashed #d9d9d9;margin-top:16px"
+    style="line-height:260px;text-align:center;color:rgba(0,0,0,0.45);background-color:rgba(0,0,0,0.02);border-radius:8px;border:1px dashed #d9d9d9;margin-top:16px"
   >
     First-content
   </div>,
@@ -4983,6 +4983,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="small"
         />
@@ -5003,6 +5004,7 @@ Array [
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="default"
         />

@@ -13,6 +13,7 @@ export default function useResize(
   percentSizes: number[],
   containerSize: number | undefined,
   updateSizes: (sizes: number[]) => void,
+  isRTL: boolean,
 ) {
   const limitSizes = items.map((item) => [item.min, item.max]);
 
@@ -29,6 +30,7 @@ export default function useResize(
 
   // Real px sizes
   const [cacheSizes, setCacheSizes] = React.useState<number[]>([]);
+  const cacheCollapsedSize = React.useRef<number[]>([]);
 
   /**
    * When start drag, check the direct is `start` or `end`.
@@ -118,9 +120,10 @@ export default function useResize(
   // ======================= Collapse =======================
   const onCollapse = (index: number, type: 'start' | 'end') => {
     const currentSizes = getPxSizes();
+    const adjustedType = isRTL ? (type === 'start' ? 'end' : 'start') : type;
 
-    const currentIndex = type === 'start' ? index : index + 1;
-    const targetIndex = type === 'start' ? index + 1 : index;
+    const currentIndex = adjustedType === 'start' ? index : index + 1;
+    const targetIndex = adjustedType === 'start' ? index + 1 : index;
 
     const currentSize = currentSizes[currentIndex];
     const targetSize = currentSizes[targetIndex];
@@ -129,6 +132,7 @@ export default function useResize(
       // Collapse directly
       currentSizes[currentIndex] = 0;
       currentSizes[targetIndex] += currentSize;
+      cacheCollapsedSize.current[index] = currentSize;
     } else {
       const totalSize = currentSize + targetSize;
 
@@ -141,8 +145,23 @@ export default function useResize(
       const limitEnd = Math.min(currentSizeMax, totalSize - targetSizeMin);
       const halfOffset = (limitEnd - limitStart) / 2;
 
-      currentSizes[currentIndex] -= halfOffset;
-      currentSizes[targetIndex] += halfOffset;
+      const targetCacheCollapsedSize = cacheCollapsedSize.current[index];
+      const currentCacheCollapsedSize = totalSize - targetCacheCollapsedSize;
+
+      const shouldUseCache =
+        targetCacheCollapsedSize &&
+        targetCacheCollapsedSize <= targetSizeMax &&
+        targetCacheCollapsedSize >= targetSizeMin &&
+        currentCacheCollapsedSize <= currentSizeMax &&
+        currentCacheCollapsedSize >= currentSizeMin;
+
+      if (shouldUseCache) {
+        currentSizes[targetIndex] = targetCacheCollapsedSize;
+        currentSizes[currentIndex] = currentCacheCollapsedSize;
+      } else {
+        currentSizes[currentIndex] -= halfOffset;
+        currentSizes[targetIndex] += halfOffset;
+      }
     }
 
     updateSizes(currentSizes);

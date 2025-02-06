@@ -77,14 +77,25 @@ jobs:
           const mergedStatus = diffPassed ? 'success' : hasDiffFailed ? 'failure' : 'pending';
           console.log('Status:', mergedStatus);
 
-          await github.rest.repos.createCommitStatus({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            sha: prHeadSha,
-            state: mergedStatus,
-            context: 'Visual Regression Diff Wait Approve',
-            description: diffPassed ? 'Visual diff is acceptable' : 'Visual diff is not pass',
+          const { data: currentStatuses } = await github.rest.repos.listCommitStatusesForRef({
+           owner: context.repo.owner,
+           repo: context.repo.repo,
+           ref: prHeadSha,
           });
+
+          const currentStatus = currentStatuses.find(status => status.context === 'Visual Regression Diff Wait Approve');
+          if (currentStatus && currentStatus.state === mergedStatus) {
+            console.log('Status has not changed, no need to update:', currentStatus.state);
+          } else {
+            await github.rest.repos.createCommitStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              sha: prHeadSha,
+              state: mergedStatus,
+              context: 'Visual Regression Diff Wait Approve',
+              description: diffPassed ? 'Visual diff is acceptable' : 'Visual diff is not pass',
+            });
+          }
 
           if (hasDiffSuccess || (hasDiffFailed && hasMemberApprove)) {
             return 'success';

@@ -82,7 +82,7 @@ const readPngs = (dir: string) => fs.readdirSync(dir).filter((n) => n.endsWith('
 
 const prettyList = (list: string[]) => list.map((i) => ` * ${i}`).join('\n');
 
-const ossDomain = `https://${ALI_OSS_BUCKET}.oss-cn-shanghai.aliyuncs.com`;
+const ossDomain = `https://${ALI_OSS_BUCKET}.oss-accelerate.aliyuncs.com`;
 
 async function downloadFile(url: string, destPath: string) {
   const response = await fetch(url);
@@ -270,13 +270,21 @@ function generateReport(
     return [mdStr, markdown2Html(mdStr)];
   }
 
-  let reportMdStr = `
-${commonHeader}
-${fullReport}
-
+  const summaryHeader = '<!-- summary -->';
+  const tableHeader = `
 | Expected (Branch ${targetBranch}) | Actual (Current PR) | Diff |
 | --- | --- | --- |
-    `.trim();
+  `.trim();
+
+  let reportMdStr = [
+    commonHeader,
+    isLocalEnv ? false : `${fullReport}`,
+    summaryHeader,
+    '\n',
+    tableHeader,
+  ]
+    .filter(Boolean)
+    .join('\n');
 
   reportMdStr += '\n';
 
@@ -316,9 +324,9 @@ ${fullReport}
   // tips for comment `Pass Visual Diff` will pass the CI
   if (!passed) {
     const summaryLine = [
-      changedCount > 0 && `🔄 **${changedCount}** changed`,
-      removedCount > 0 && `🛑 **${removedCount}** removed`,
-      addedCount > 0 && `🆕 **${addedCount}** added`,
+      changedCount > 0 && `🔄 \`${changedCount}\` changed`,
+      removedCount > 0 && `🛑 \`${removedCount}\` removed`,
+      addedCount > 0 && `🆕 \`${addedCount}\` added`,
     ]
       .filter(Boolean)
       .join(', ');
@@ -333,6 +341,9 @@ ${fullReport}
     ]
       .filter(Boolean)
       .join('\n');
+
+    reportMdStr = reportMdStr.replace(summaryHeader, `> **📊 Summary:** ${summaryLine}`);
+    fullVersionMd = fullVersionMd.replace(summaryHeader, `> **📊 Summary:** ${summaryLine}`);
   }
 
   // convert fullVersionMd to html
@@ -411,7 +422,6 @@ async function boot() {
       const currentImgExists = await fse.exists(currentImgPath);
       if (!currentImgExists) {
         console.log(chalk.red(`⛔️ Missing image: ${compareImgName}\n`));
-        // base img would use twice so we cannot move it
         await fse.copy(baseImgPath, path.join(baseImgReportDir, compareImgName));
         return {
           type: 'removed',
@@ -432,10 +442,8 @@ async function boot() {
           chalk.yellow(compareImgName),
           `${(mismatchedPxPercent * 100).toFixed(2)}%\n`,
         );
-        // copy/move compare imgs(x2) to report dir
-        // base img would use twice so we cannot move it
         await fse.copy(baseImgPath, path.join(baseImgReportDir, compareImgName));
-        await fse.move(currentImgPath, path.join(currentImgReportDir, compareImgName));
+        await fse.copy(currentImgPath, path.join(currentImgReportDir, compareImgName));
 
         return {
           type: 'changed',
@@ -473,7 +481,7 @@ async function boot() {
   }
 
   const newImgTask = newImgs.map((newImg) => async () => {
-    await fse.move(
+    await fse.copy(
       path.join(currentImgSourceDir, newImg),
       path.resolve(currentImgReportDir, newImg),
     );

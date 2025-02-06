@@ -47230,6 +47230,7 @@ Array [
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="topLeft"
         />
@@ -47249,6 +47250,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="topRight"
         />
@@ -47268,6 +47270,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="bottomLeft"
         />
@@ -47287,6 +47290,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="bottomRight"
         />
@@ -61481,6 +61485,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="large"
           />
@@ -61501,6 +61506,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
           <input
             checked=""
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="middle"
           />
@@ -61520,6 +61526,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
         >
           <input
             class="ant-radio-button-input"
+            name="test-id"
             type="radio"
             value="small"
           />

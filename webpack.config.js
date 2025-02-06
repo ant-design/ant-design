@@ -45,7 +45,7 @@ function addPluginsForProduction(config) {
         analyzerMode: 'static',
         openAnalyzer: false,
         reportFilename: '../report.html',
-      })
+      }),
     );
   }
   if (newConfig.mode === 'production' && !process.env.PRODUCTION_ONLY) {
@@ -53,7 +53,7 @@ function addPluginsForProduction(config) {
       new DuplicatePackageCheckerPlugin({
         verbose: true,
         emitError: true,
-      })
+      }),
     );
   }
 
@@ -62,10 +62,11 @@ function addPluginsForProduction(config) {
       enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
       bundleName: 'antd.min',
       uploadToken: process.env.CODECOV_TOKEN,
+      gitService: "github",
     }),
     new CircularDependencyPlugin({
       failOnError: true,
-    })
+    }),
   );
 
   return newConfig;

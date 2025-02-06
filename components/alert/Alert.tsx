@@ -76,9 +76,14 @@ const IconNode: React.FC<IconNodeProps> = (props) => {
   const iconType = iconMapFilled[type!] || null;
   if (icon) {
     return replaceElement(icon, <span className={`${prefixCls}-icon`}>{icon}</span>, () => ({
-      className: classNames(`${prefixCls}-icon`, {
-        [(icon as ReactElement).props.className]: (icon as ReactElement).props.className,
-      }),
+      className: classNames(
+        `${prefixCls}-icon`,
+        (
+          icon as ReactElement<{
+            className?: string;
+          }>
+        ).props.className,
+      ),
     })) as ReactElement;
   }
   return React.createElement(iconType, { className: `${prefixCls}-icon` });

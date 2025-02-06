@@ -5245,6 +5245,7 @@ Array [
         <input
           checked=""
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="a"
         />
@@ -5264,6 +5265,7 @@ Array [
       >
         <input
           class="ant-radio-button-input"
+          name="test-id"
           type="radio"
           value="b"
         />
@@ -5411,10 +5413,9 @@ Array [
     <span
       class="ant-input-suffix"
     >
-      <span
+      <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -5436,7 +5437,7 @@ Array [
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>,
   <br />,
@@ -5451,10 +5452,9 @@ Array [
     <span
       class="ant-input-suffix"
     >
-      <span
+      <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -5476,7 +5476,7 @@ Array [
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>,
 ]
@@ -5553,10 +5553,9 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     <span
       class="ant-input-suffix"
     >
-      <span
+      <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -5578,7 +5577,7 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>
   <span
@@ -5593,10 +5592,9 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     <span
       class="ant-input-suffix"
     >
-      <span
+      <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -5618,7 +5616,7 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>
   <span
@@ -5670,10 +5668,9 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     <span
       class="ant-input-suffix"
     >
-      <span
+      <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -5695,7 +5692,7 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>
   <input
@@ -5801,16 +5798,15 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
             <input
               class="ant-input"
               placeholder="input search text"
-              type="text"
+              type="search"
               value=""
             />
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                role="button"
-                tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -5832,7 +5828,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
           <span
@@ -6542,10 +6538,9 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
     <span
       class="ant-input-suffix"
     >
-      <span
+      <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -6567,7 +6562,7 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>
   <span
@@ -6810,13 +6805,13 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         class="ant-btn-icon"
       >
         <span
-          aria-label="copy"
-          class="anticon anticon-copy"
+          aria-label="search"
+          class="anticon anticon-search"
           role="img"
         >
           <svg
             aria-hidden="true"
-            data-icon="copy"
+            data-icon="search"
             fill="currentColor"
             focusable="false"
             height="1em"
@@ -6824,7 +6819,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
             width="1em"
           >
             <path
-              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+              d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
             />
           </svg>
         </span>
@@ -6845,7 +6840,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           class="ant-tooltip-inner"
           role="tooltip"
         >
-          copy git url
+          search git url
         </div>
       </div>
     </div>
@@ -7021,16 +7016,15 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         >
           <input
             class="ant-input"
-            type="text"
+            type="search"
             value="0571"
           />
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -7052,7 +7046,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
         <span
@@ -7101,16 +7095,15 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         >
           <input
             class="ant-input"
-            type="text"
+            type="search"
             value="26888888"
           />
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -7132,7 +7125,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
         <span
@@ -10965,7 +10958,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
         <input
           class="ant-input ant-input-outlined"
           placeholder="input search text"
-          type="text"
+          type="search"
           value=""
         />
         <span
@@ -11019,16 +11012,15 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           <input
             class="ant-input"
             placeholder="input search text"
-            type="text"
+            type="search"
             value=""
           />
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -11050,7 +11042,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
         <span
@@ -11109,16 +11101,15 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           <input
             class="ant-input"
             placeholder="input search text"
-            type="text"
+            type="search"
             value=""
           />
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -11140,7 +11131,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
         <span
@@ -11190,7 +11181,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
         <input
           class="ant-input ant-input-outlined"
           placeholder="input search text"
-          type="text"
+          type="search"
           value=""
         />
         <span
@@ -11243,16 +11234,15 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           <input
             class="ant-input ant-input-lg"
             placeholder="input search text"
-            type="text"
+            type="search"
             value=""
           />
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              role="button"
-              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -11274,7 +11264,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
         <span
@@ -11307,7 +11297,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           <input
             class="ant-input ant-input-lg"
             placeholder="input search text"
-            type="text"
+            type="search"
             value=""
           />
           <span
@@ -11366,7 +11356,7 @@ Array [
       <input
         class="ant-input ant-input-outlined"
         placeholder="input search loading default"
-        type="text"
+        type="search"
         value=""
       />
       <span
@@ -11414,7 +11404,7 @@ Array [
       <input
         class="ant-input ant-input-outlined"
         placeholder="input search loading with enterButton"
-        type="text"
+        type="search"
         value=""
       />
       <span
@@ -11462,7 +11452,7 @@ Array [
       <input
         class="ant-input ant-input-lg ant-input-outlined"
         placeholder="input search text"
-        type="text"
+        type="search"
         value=""
       />
       <span
@@ -11474,11 +11464,10 @@ Array [
         >
           <span
             class="ant-btn-icon ant-btn-loading-icon"
-            style="width: 0px; opacity: 0; transform: scale(0);"
           >
             <span
               aria-label="loading"
-              class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+              class="anticon anticon-loading anticon-spin"
               role="img"
             >
               <svg
@@ -11843,10 +11832,9 @@ Array [
     <span
       class="ant-input-suffix"
     >
-      <span
+      <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        role="button"
-        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -11868,7 +11856,7 @@ Array [
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>,
 ]
