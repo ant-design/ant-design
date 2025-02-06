@@ -71,7 +71,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
 
   const mergedAlign = align === undefined && direction === 'horizontal' ? 'center' : align;
   const prefixCls = getPrefixCls('space', customizePrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const rootClassNames = classNames(
     prefixCls,
@@ -140,7 +140,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     gapStyle.rowGap = verticalSize;
   }
 
-  return wrapCSSVar(
+  return (
     <div
       ref={ref}
       className={rootClassNames}
@@ -148,7 +148,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
       {...restProps}
     >
       <SpaceContextProvider value={spaceContext}>{nodes}</SpaceContextProvider>
-    </div>,
+    </div>
   );
 });
 

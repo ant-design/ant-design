@@ -159,7 +159,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
 
   // Style
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const [variant, enableVariantCls] = useVariant('mentions', customVariant);
 
@@ -173,7 +173,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     rootCls,
   );
 
-  const mentions = (
+  return (
     <RcMentions
       silent={loading}
       prefixCls={prefixCls}
@@ -212,8 +212,6 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
       {mentionOptions}
     </RcMentions>
   );
-
-  return wrapCSSVar(mentions);
 });
 
 type CompoundedComponent = typeof InternalMentions & {

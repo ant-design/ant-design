@@ -103,15 +103,14 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
 
   // ===================== Style =====================
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapSharedCSSVar, hashId, cssVarCls] = useSharedStyle(prefixCls, rootClassName);
-  const [wrapCSSVar] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useSharedStyle(prefixCls, rootClassName);
+  useStyle(prefixCls, rootCls);
 
   const [variant, enableVariantCls] = useVariant('textArea', customVariant, bordered);
 
   const mergedAllowClear = getAllowClear(allowClear ?? contextAllowClear);
 
-  return wrapSharedCSSVar(
-    wrapCSSVar(
+  return (
       <RcTextArea
         autoComplete={contextAutoComplete}
         {...rest}
@@ -154,8 +153,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
           hasFeedback && <span className={`${prefixCls}-textarea-suffix`}>{feedbackIcon}</span>
         }
         ref={innerRef}
-      />,
-    ),
+      />
   );
 });
 

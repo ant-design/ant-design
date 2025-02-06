@@ -65,7 +65,7 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
   const { getPrefixCls, direction, badge } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('badge', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   // ================================ Misc ================================
   const numberedDisplayCount = (
@@ -178,7 +178,7 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
   // <Badge status="success" />
   if (!children && hasStatus) {
     const statusTextColor = mergedStyle.color;
-    return wrapCSSVar(
+    return (
       <span
         {...restProps}
         className={badgeClassName}
@@ -193,11 +193,11 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
             {text}
           </span>
         )}
-      </span>,
+      </span>
     );
   }
 
-  return wrapCSSVar(
+  return (
     <span
       ref={ref}
       {...restProps}
@@ -257,7 +257,7 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
         }}
       </CSSMotion>
       {statusTextNode}
-    </span>,
+    </span>
   );
 });
 

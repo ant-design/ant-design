@@ -46,7 +46,7 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
   const { popover, getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
   const rootPrefixCls = getPrefixCls();
   const mergedArrow = useMergedArrow(popoverArrow, popover?.arrow);
 
@@ -85,7 +85,7 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
   const titleNode = getRenderPropValue(title);
   const contentNode = getRenderPropValue(content);
 
-  return wrapCSSVar(
+  return (
     <Tooltip
       arrow={mergedArrow}
       placement={placement}
@@ -136,7 +136,7 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
           onKeyDown(e);
         },
       })}
-    </Tooltip>,
+    </Tooltip>
   );
 });
 

@@ -104,7 +104,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const calendarPrefixCls = `${prefixCls}-calendar`;
 
-    const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, calendarPrefixCls);
+    const [hashId, cssVarCls] = useStyle(prefixCls, calendarPrefixCls);
 
     const today = generateConfig.getNow();
 
@@ -254,7 +254,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       }
     };
 
-    return wrapCSSVar(
+    return (
       <div
         className={classNames(
           calendarPrefixCls,
@@ -308,7 +308,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
           hideHeader
           showWeek={showWeek}
         />
-      </div>,
+      </div>
     );
   };
 

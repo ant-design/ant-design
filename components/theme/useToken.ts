@@ -116,7 +116,7 @@ export default function useToken(): [
   token: GlobalToken,
   hashId: string,
   realToken: GlobalToken,
-  cssVar?: DesignTokenProviderProps['cssVar'],
+  cssVar: DesignTokenProviderProps['cssVar'],
 ] {
   const {
     token: rootDesignToken,
@@ -125,6 +125,11 @@ export default function useToken(): [
     override,
     cssVar,
   } = React.useContext(DesignTokenContext);
+
+  const mergedCssVar = {
+    prefix: cssVar?.prefix,
+    key: cssVar?.key,
+  }
 
   const salt = `${version}-${hashed || ''}`;
 
@@ -137,12 +142,8 @@ export default function useToken(): [
       salt,
       override,
       getComputedToken,
-      // formatToken will not be consumed after 1.15.0 with getComputedToken.
-      // But token will break if @ant-design/cssinjs is under 1.15.0 without it
-      formatToken,
-      cssVar: cssVar && {
-        prefix: cssVar.prefix,
-        key: cssVar.key,
+      cssVar: {
+        ...mergedCssVar,
         unitless,
         ignore,
         preserve,
@@ -150,5 +151,5 @@ export default function useToken(): [
     },
   );
 
-  return [mergedTheme, realToken, hashed ? hashId : '', token, cssVar];
+  return [mergedTheme, realToken, hashed ? hashId : '', token, mergedCssVar];
 }

@@ -81,7 +81,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
   } = useComponentConfig('segmented');
   const prefixCls = getPrefixCls('segmented', customizePrefixCls);
   // Style
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   // ===================== Size =====================
   const mergedSize = useSize(customSize);
@@ -142,7 +142,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     ...style,
   };
 
-  return wrapCSSVar(
+  return (
     <RcSegmented
       {...restProps}
       name={name}
@@ -161,7 +161,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
       prefixCls={prefixCls}
       direction={direction}
       vertical={vertical}
-    />,
+    />
   );
 });
 

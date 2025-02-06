@@ -75,7 +75,7 @@ const Drawer: React.FC<DrawerProps> & {
 
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const getContainer =
     // 有可能为 false，所以不能直接判断
@@ -157,7 +157,7 @@ const Drawer: React.FC<DrawerProps> & {
     contextClassNames?.root,
   );
 
-  return wrapCSSVar(
+  return (
     <ContextIsolator form space>
       <zIndexContext.Provider value={contextZIndex}>
         <RcDrawer
@@ -205,7 +205,7 @@ const Drawer: React.FC<DrawerProps> & {
           <DrawerPanel prefixCls={prefixCls} {...rest} onClose={onClose} />
         </RcDrawer>
       </zIndexContext.Provider>
-    </ContextIsolator>,
+    </ContextIsolator>
   );
 };
 
@@ -229,7 +229,7 @@ const PurePanel: React.FC<Omit<DrawerPanelProps, 'prefixCls'> & PurePanelInterfa
 
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const cls = classNames(
     prefixCls,
@@ -240,10 +240,10 @@ const PurePanel: React.FC<Omit<DrawerPanelProps, 'prefixCls'> & PurePanelInterfa
     className,
   );
 
-  return wrapCSSVar(
+  return (
     <div className={cls} style={style}>
       <DrawerPanel prefixCls={prefixCls} {...restProps} />
-    </div>,
+    </div>
   );
 };
 

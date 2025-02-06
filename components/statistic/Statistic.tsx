@@ -69,7 +69,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
 
   const prefixCls = getPrefixCls('statistic', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   // ============================= Warning ==============================
   if (process.env.NODE_ENV !== 'production') {
@@ -137,7 +137,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
 
   const restProps = pickAttrs(rest, { aria: true, data: true });
 
-  return wrapCSSVar(
+  return (
     <div
       {...restProps}
       className={rootClassNames}
@@ -176,7 +176,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
           )}
         </div>
       </Skeleton>
-    </div>,
+    </div>
   );
 };
 

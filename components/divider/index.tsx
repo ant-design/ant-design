@@ -55,7 +55,7 @@ const Divider: React.FC<DividerProps> = (props) => {
   } = props;
   const prefixCls = getPrefixCls('divider', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const hasChildren = !!children;
 
@@ -119,7 +119,7 @@ const Divider: React.FC<DividerProps> = (props) => {
     );
   }
 
-  return wrapCSSVar(
+  return (
     <div
       className={classString}
       style={{ ...dividerStyle, ...style }}
@@ -131,7 +131,7 @@ const Divider: React.FC<DividerProps> = (props) => {
           {children}
         </span>
       )}
-    </div>,
+    </div>
   );
 };
 

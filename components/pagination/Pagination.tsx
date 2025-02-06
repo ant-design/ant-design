@@ -72,7 +72,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   const prefixCls = getPrefixCls('pagination', customizePrefixCls);
 
   // Style
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   // ============================== Size ==============================
   const mergedSize = useSize(customizeSize);
@@ -213,7 +213,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
 
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
-  return wrapCSSVar(
+  return (
     <>
       {token.wireframe && <BorderedStyle prefixCls={prefixCls} />}
       <RcPagination
@@ -228,7 +228,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
         showSizeChanger={mergedShowSizeChanger}
         sizeChangerRender={sizeChangerRender}
       />
-    </>,
+    </>
   );
 };
 

@@ -82,7 +82,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       const [variant, enableVariantCls] = useVariant('datePicker', customVariant, bordered);
 
       const rootCls = useCSSVarCls(prefixCls);
-      const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+      const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
       useImperativeHandle(ref, () => innerRef.current!);
 
@@ -151,7 +151,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       // ============================ zIndex ============================
       const [zIndex] = useZIndex('DatePicker', props.popupStyle?.zIndex as number);
 
-      return wrapCSSVar(
+      return (
         <ContextIsolator space>
           <RCPicker<DateType>
             ref={innerRef}
@@ -205,7 +205,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
             allowClear={mergedAllowClear}
             removeIcon={removeIcon}
           />
-        </ContextIsolator>,
+        </ContextIsolator>
       );
     });
 

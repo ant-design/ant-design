@@ -14,7 +14,7 @@ const SkeletonImage: React.FC<SkeletonImageProps> = (props) => {
   const { prefixCls: customizePrefixCls, className, rootClassName, style, active } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
   const cls = classNames(
     prefixCls,
     `${prefixCls}-element`,
@@ -27,7 +27,7 @@ const SkeletonImage: React.FC<SkeletonImageProps> = (props) => {
     cssVarCls,
   );
 
-  return wrapCSSVar(
+  return (
     <div className={cls}>
       <div className={classNames(`${prefixCls}-image`, className)} style={style}>
         <svg
@@ -39,7 +39,7 @@ const SkeletonImage: React.FC<SkeletonImageProps> = (props) => {
           <path d={path} className={`${prefixCls}-image-path`} />
         </svg>
       </div>
-    </div>,
+    </div>
   );
 };
 

@@ -48,11 +48,11 @@ const Basic = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((props, re
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('layout', customizePrefixCls);
 
-  const [wrapSSR, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const prefixWithSuffixCls = suffixCls ? `${prefixCls}-${suffixCls}` : prefixCls;
 
-  return wrapSSR(
+  return (
     <TagName
       className={classNames(
         customizePrefixCls || prefixWithSuffixCls,
@@ -62,7 +62,7 @@ const Basic = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((props, re
       )}
       ref={ref}
       {...others}
-    />,
+    />
   );
 });
 
@@ -93,7 +93,7 @@ const BasicLayout = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((pro
 
   const mergedHasSider = useHasSider(siders, children, hasSider);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
   const classString = classNames(
     prefixCls,
     {
@@ -121,12 +121,12 @@ const BasicLayout = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((pro
     [],
   );
 
-  return wrapCSSVar(
+  return (
     <LayoutContext.Provider value={contextValue}>
       <Tag ref={ref} className={classString} style={{ ...contextStyle, ...style }} {...passedProps}>
         {children}
       </Tag>
-    </LayoutContext.Provider>,
+    </LayoutContext.Provider>
   );
 });
 

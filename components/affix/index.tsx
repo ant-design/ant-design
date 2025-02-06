@@ -245,13 +245,13 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
     updatePosition();
   }, [target, offsetTop, offsetBottom]);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(affixPrefixCls);
+  const [hashId, cssVarCls] = useStyle(affixPrefixCls);
 
   const rootCls = classNames(rootClassName, hashId, affixPrefixCls, cssVarCls);
 
   const mergedCls = classNames({ [rootCls]: affixStyle });
 
-  return wrapCSSVar(
+  return (
     <ResizeObserver onResize={updatePosition}>
       <div style={style} className={className} ref={placeholderNodeRef} {...restProps}>
         {affixStyle && <div style={placeholderStyle} aria-hidden="true" />}
@@ -259,7 +259,7 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
           <ResizeObserver onResize={updatePosition}>{children}</ResizeObserver>
         </div>
       </div>
-    </ResizeObserver>,
+    </ResizeObserver>
   );
 });
 

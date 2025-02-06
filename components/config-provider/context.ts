@@ -106,21 +106,19 @@ export interface ThemeConfig {
    * @default false
    * @since 5.12.0
    */
-  cssVar?:
-    | {
-        /**
-         * @descCN css 变量的前缀
-         * @descEN Prefix for css variable.
-         * @default ant
-         */
-        prefix?: string;
-        /**
-         * @descCN 主题的唯一 key，版本低于 react@18 时需要手动设置。
-         * @descEN Unique key for theme, should be set manually < react@18.
-         */
-        key?: string;
-      }
-    | boolean;
+  cssVar?: {
+    /**
+     * @descCN css 变量的前缀
+     * @descEN Prefix for css variable.
+     * @default ant
+     */
+    prefix?: string;
+    /**
+     * @descCN 主题的唯一 key，版本低于 react@18 时需要手动设置。
+     * @descEN Unique key for theme, should be set manually < react@18.
+     */
+    key?: string;
+  }
 }
 
 export interface ComponentStyleConfig {

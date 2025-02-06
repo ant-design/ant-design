@@ -90,8 +90,8 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
   // Style
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapSharedCSSVar, hashId, cssVarCls] = useSharedStyle(prefixCls, rootClassName);
-  const [wrapCSSVar] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useSharedStyle(prefixCls, rootClassName);
+  useStyle(prefixCls, rootCls);
 
   // ===================== Compact Item =====================
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
@@ -157,8 +157,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
   const [variant, enableVariantCls] = useVariant('input', customVariant, bordered);
 
-  return wrapSharedCSSVar(
-    wrapCSSVar(
+  return (
       <RcInput
         ref={composeRef(ref, inputRef)}
         prefixCls={prefixCls}
@@ -238,8 +237,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
             hashId,
           ),
         }}
-      />,
-    ),
+      />
   );
 });
 

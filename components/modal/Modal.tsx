@@ -94,7 +94,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   const rootPrefixCls = getPrefixCls();
   // Style
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const wrapClassNameExtended = classNames(wrapClassName, {
     [`${prefixCls}-centered`]: centered ?? modalContext?.centered,
@@ -148,7 +148,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   }, [responsiveWidth]);
 
   // =========================== Render ===========================
-  return wrapCSSVar(
+  return (
     <ContextIsolator form space>
       <zIndexContext.Provider value={contextZIndex}>
         <Dialog
@@ -224,7 +224,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           )}
         </Dialog>
       </zIndexContext.Provider>
-    </ContextIsolator>,
+    </ContextIsolator>
   );
 };
 

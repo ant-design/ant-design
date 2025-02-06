@@ -108,7 +108,7 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
     style: contextStyle,
   } = useComponentConfig('skeleton');
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   if (loading || !('loading' in props)) {
     const hasAvatar = !!avatar;
@@ -180,11 +180,11 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
       cssVarCls,
     );
 
-    return wrapCSSVar(
+    return (
       <div className={cls} style={{ ...contextStyle, ...style }}>
         {avatarNode}
         {contentNode}
-      </div>,
+      </div>
     );
   }
   return children ?? null;

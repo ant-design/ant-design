@@ -41,7 +41,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   } = useComponentConfig('splitter');
   const prefixCls = getPrefixCls('splitter', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // ======================== Direct ========================
   const isVertical = layout === 'vertical';
@@ -159,7 +159,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
-  return wrapCSSVar(
+  return (
     <ResizeObserver onResize={onContainerResize}>
       <div style={mergedStyle} className={containerClassName}>
         {items.map((item, idx) => {
@@ -219,7 +219,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
           <div aria-hidden className={classNames(maskCls, `${maskCls}-${layout}`)} />
         )}
       </div>
-    </ResizeObserver>,
+    </ResizeObserver>
   );
 };
 

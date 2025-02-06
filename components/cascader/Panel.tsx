@@ -53,7 +53,7 @@ function CascaderPanel<
   );
 
   const rootCls = useCSSVarCls(cascaderPrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(cascaderPrefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(cascaderPrefixCls, rootCls);
   usePanelStyle(cascaderPrefixCls);
 
   const isRtl = mergedDirection === 'rtl';
@@ -71,7 +71,7 @@ function CascaderPanel<
 
   // ==================== Render =====================
 
-  return wrapCSSVar(
+  return (
     <Panel
       {...(props as Pick<RcCascaderProps, PickType>)}
       checkable={checkable}
@@ -82,7 +82,7 @@ function CascaderPanel<
       expandIcon={mergedExpandIcon}
       loadingIcon={loadingIcon}
       disabled={mergedDisabled}
-    />,
+    />
   );
 }
 

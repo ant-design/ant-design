@@ -145,7 +145,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
 
   const prefixCls = getPrefixCls('avatar', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const sizeCls = classNames({
     [`${prefixCls}-lg`]: size === 'large',
@@ -229,7 +229,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
   delete others.onError;
   delete others.gap;
 
-  return wrapCSSVar(
+  return (
     <span
       {...others}
       style={{ ...sizeStyle, ...responsiveSizeStyle, ...avatar?.style, ...others.style }}
@@ -237,7 +237,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
       ref={avatarNodeMergedRef}
     >
       {childrenToRender}
-    </span>,
+    </span>
   );
 };
 

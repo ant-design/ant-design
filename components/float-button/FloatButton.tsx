@@ -43,7 +43,7 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
   const groupShape = useContext<FloatButtonShape | undefined>(FloatButtonGroupContext);
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const mergedShape = groupShape || shape;
 
@@ -102,7 +102,7 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
     );
   }
 
-  return wrapCSSVar(
+  return (
     props.href ? (
       <a ref={ref} {...restProps} className={classString} style={mergedStyle}>
         {buttonNode}
@@ -111,7 +111,7 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
       <button ref={ref} {...restProps} className={classString} style={mergedStyle} type={htmlType}>
         {buttonNode}
       </button>
-    ),
+    )
   );
 });
 
