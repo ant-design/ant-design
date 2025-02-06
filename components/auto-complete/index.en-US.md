@@ -61,8 +61,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | options | Select options. Will get better perf than jsx definition | { label, value }\[] | - |  |
 | placeholder | The placeholder of input | string | - |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
+| size | The size of the input box | `large` \| `middle` \| `small` | - |  |
 | value | Selected option | string | - |  |
 | variant | Variants of input | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
 | onBlur | Called when leaving the component | function() | - |  |
 | onChange | Called when selecting an option or changing an input value | function(value) | - |  |
 | onDropdownVisibleChange | Call when dropdown open | function(open) | - |  |
@@ -70,6 +72,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | onSearch | Called when searching items | function(value) | - |  |
 | onSelect | Called when a option is selected. param is option's value and option instance | function(value, option) | - |  |
 | onClear | Called when clear | function | - | 4.6.0 |
+| onInputKeyDown | Called when key pressed | (event: KeyboardEvent) => void | - |  |
+| onPopupScroll | Called when dropdown scrolls | (event: UIEvent) => void | - |  |
 
 ## Methods
 

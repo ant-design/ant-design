@@ -15,6 +15,39 @@ tag: vVERSION
 
 ---
 
+### 5.23.4
+
+`2025-02-05`
+
+First release in the Year of the Snake, wishing you a prosperous start! 🐍
+
+- 🐞 Fixed Pagination accessibility issue by supplementing missing ARIA attributes support. [#52616](https://github.com/ant-design/ant-design/pull/52616) [@aojunhao123](https://github.com/aojunhao123)  
+- 🐞 Added TextArea component support in `Space.Compact`. [#52639](https://github.com/ant-design/ant-design/pull/52639) [@Can-Chen](https://github.com/Can-Chen)  
+- 🐞 Fixed Menu with `theme="dark"` and `mode="horizontal"` identical text/background color issue. [#52617](https://github.com/ant-design/ant-design/pull/52617) [@afc163](https://github.com/afc163)  
+- 🇦🇪 Add Tour Arabic translation. [#52642](https://github.com/ant-design/ant-design/pull/52642) [@Sagie501](https://github.com/Sagie501)
+- 🇮🇱 Add Tour Hebrew translation. [#52641](https://github.com/ant-design/ant-design/pull/52641) [@Sagie501](https://github.com/Sagie501)
+
+## 5.23.3
+
+`2025-01-28`
+
+Last version of the Dragon Year, Happy Chinese New Year! 🐲
+
+- ⌨️ MISC: Add accessibility tests for all component demos to ensure compliance with accessibility standards. Optimize accessibility support for some components, improving compatibility with screen readers and keyboard operations. [#51372](https://github.com/ant-design/ant-design/pull/51372) [@aojunhao123](https://github.com/aojunhao123)
+- 🐞 MISC: Fix importing `antd/dist/reset.css` file issue. [#52559](https://github.com/ant-design/ant-design/pull/52559) [@CaptainVolcom](https://github.com/CaptainVolcom)
+- 🐞 Fix Button throwing error when `loading` is `null`. [#52508](https://github.com/ant-design/ant-design/pull/52508) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix Table last row border color transition issue. [#52549](https://github.com/ant-design/ant-design/pull/52549) [@DDDDD12138](https://github.com/DDDDD12138)
+- 💄 Fix Cascader checkbox cursor style in disabled state. [#52539](https://github.com/ant-design/ant-design/pull/52539) [@aojunhao123](https://github.com/aojunhao123)
+- 💄 Fix ConfigProvider not correctly modifying icon style priority when StyleProvider configures `layer`. [#52533](https://github.com/ant-design/ant-design/pull/52533) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Layout sidebar toggle button style missing in non-cssVar mode. [#52537](https://github.com/ant-design/ant-design/pull/52537) [@afc163](https://github.com/afc163)
+- 🐞 Fix Tree checkbox cursor style in disabled state. [#52525](https://github.com/ant-design/ant-design/pull/52525) [@aojunhao123](https://github.com/aojunhao123)
+- notification
+  - 🐞 Fix notification `useNotification` `closeIcon` configuration not working. [#52516](https://github.com/ant-design/ant-design/pull/52516) [@typenoob](https://github.com/typenoob)
+  - 🐞 Fix notification component display flicker issue under App component. [#52499](https://github.com/ant-design/ant-design/pull/52499) [@afc163](https://github.com/afc163)
+- RTL
+  - 🐞 Fix Splitter abnormal collapse behavior in RTL mode. [#52501](https://github.com/ant-design/ant-design/pull/52501) [@aojunhao123](https://github.com/aojunhao123)
+  - 💄 Fix Spin style issue in RTL mode. [#52538](https://github.com/ant-design/ant-design/pull/52538) [@afc163](https://github.com/afc163)
+
 ## 5.23.2
 
 `2025-01-20`
