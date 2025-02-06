@@ -57,6 +57,10 @@ group:
 | description | 自定义错误内容，如果未指定会展示报错堆栈 | ReactNode | {{ error stack }} |  |
 | message | 自定义错误标题，如果未指定会展示原生报错信息 | ReactNode | {{ error }} |  |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Alert"></ComponentTokenTable>

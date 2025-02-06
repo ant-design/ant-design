@@ -20,6 +20,7 @@ export interface AlertRef {
   nativeElement: HTMLDivElement;
 }
 
+type SemanticName = 'root' | 'icon' | 'content' | 'message' | 'description' | 'action';
 export interface AlertProps {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */
   type?: 'success' | 'info' | 'warning' | 'error';
@@ -45,6 +46,8 @@ export interface AlertProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   rootClassName?: string;
   banner?: boolean;
   icon?: React.ReactNode;
@@ -69,24 +72,30 @@ interface IconNodeProps {
   icon: AlertProps['icon'];
   prefixCls: AlertProps['prefixCls'];
   description: AlertProps['description'];
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 const IconNode: React.FC<IconNodeProps> = (props) => {
-  const { icon, prefixCls, type } = props;
+  const { icon, prefixCls, type, className, style } = props;
   const iconType = iconMapFilled[type!] || null;
   if (icon) {
     return replaceElement(icon, <span className={`${prefixCls}-icon`}>{icon}</span>, () => ({
       className: classNames(
-        `${prefixCls}-icon`,
         (
           icon as ReactElement<{
             className?: string;
           }>
         ).props.className,
+        className,
       ),
+      style,
     })) as ReactElement;
   }
-  return React.createElement(iconType, { className: `${prefixCls}-icon` });
+  return React.createElement(iconType, {
+    className,
+    style,
+  });
 };
 
 type CloseIconProps = {
@@ -133,6 +142,8 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     closeIcon,
     action,
     id,
+    styles,
+    classNames: alertClassNames,
     ...otherProps
   } = props;
 
@@ -156,6 +167,8 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     closeIcon: contextCloseIcon,
     className: contextClassName,
     style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
   } = useComponentConfig('alert');
   const prefixCls = getPrefixCls('alert', customizePrefixCls);
 
@@ -206,6 +219,8 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     contextClassName,
     className,
     rootClassName,
+    contextClassNames.root,
+    alertClassNames?.root,
     cssVarCls,
     hashId,
   );
@@ -252,7 +267,13 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
           ref={composeRef(internalRef, setRef)}
           data-show={!closed}
           className={classNames(alertCls, motionClassName)}
-          style={{ ...contextStyle, ...style, ...motionStyle }}
+          style={{
+            ...contextStyles.root,
+            ...contextStyle,
+            ...styles?.root,
+            ...style,
+            ...motionStyle,
+          }}
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
           onClick={onClick}
@@ -261,17 +282,63 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
         >
           {isShowIcon ? (
             <IconNode
+              className={classNames(
+                `${prefixCls}-icon`,
+                alertClassNames?.icon,
+                contextClassNames.icon,
+              )}
+              style={{ ...contextStyles.icon, ...styles?.icon }}
               description={description}
               icon={props.icon}
               prefixCls={prefixCls}
               type={type}
             />
           ) : null}
-          <div className={`${prefixCls}-content`}>
-            {message ? <div className={`${prefixCls}-message`}>{message}</div> : null}
-            {description ? <div className={`${prefixCls}-description`}>{description}</div> : null}
+          <div
+            className={classNames(
+              `${prefixCls}-content`,
+              alertClassNames?.content,
+              contextClassNames.content,
+            )}
+            style={{ ...contextStyles.content, ...styles?.content }}
+          >
+            {message ? (
+              <div
+                className={classNames(
+                  `${prefixCls}-message`,
+                  alertClassNames?.message,
+                  contextClassNames.message,
+                )}
+                style={{ ...contextStyles.message, ...styles?.message }}
+              >
+                {message}
+              </div>
+            ) : null}
+            {description ? (
+              <div
+                className={classNames(
+                  `${prefixCls}-description`,
+                  alertClassNames?.description,
+                  contextClassNames.description,
+                )}
+                style={{ ...contextStyles.description, ...styles?.description }}
+              >
+                {description}
+              </div>
+            ) : null}
           </div>
-          {action ? <div className={`${prefixCls}-action`}>{action}</div> : null}
+          {action ? (
+            <div
+              className={classNames(
+                `${prefixCls}-action`,
+                alertClassNames?.action,
+                contextClassNames.action,
+              )}
+              style={{ ...contextStyles.action, ...styles?.action }}
+            >
+              {action}
+            </div>
+          ) : null}
           <CloseIconNode
             isClosable={isClosable}
             prefixCls={prefixCls}

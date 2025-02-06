@@ -200,4 +200,62 @@ describe('Alert', () => {
     expect(alertRef.current?.nativeElement).toBeTruthy();
     expect(alertRef.current?.nativeElement).toBe(element);
   });
+  it('should apply custom styles to Modal', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      icon: 'custom-icon',
+      content: 'custom-content',
+      message: 'custom-message',
+      description: 'custom-description',
+      action: 'custom-action',
+    };
+    const customStyles = {
+      root: { color: 'red' },
+      icon: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
+      content: { padding: '20px' },
+      message: { backgroundColor: 'blue' },
+      description: { fontSize: '20px' },
+      action: { color: 'green' },
+    };
+
+    render(
+      <Alert
+        styles={customStyles}
+        classNames={customClassNames}
+        message="Info Text"
+        showIcon
+        description="Info Description Info Description Info Description Info Description"
+        type="info"
+        action={
+          <div>
+            <button type="button">Accept</button>
+            <button type="button">Decline</button>
+          </div>
+        }
+      />,
+    );
+
+    const rootElement = document.querySelector('.ant-alert') as HTMLElement;
+    const iconElement = document.querySelector('.ant-alert-icon') as HTMLElement;
+    const contentElement = document.querySelector('.ant-alert-content') as HTMLElement;
+    const messageElement = document.querySelector('.ant-alert-message') as HTMLElement;
+    const descriptionElement = document.querySelector('.ant-alert-description') as HTMLElement;
+    const actionElement = document.querySelector('.ant-alert-action') as HTMLElement;
+
+    // check classNames
+    expect(rootElement.classList).toContain('custom-root');
+    expect(iconElement.classList).toContain('custom-icon');
+    expect(contentElement.classList).toContain('custom-content');
+    expect(messageElement.classList).toContain('custom-message');
+    expect(descriptionElement.classList).toContain('custom-description');
+    expect(actionElement.classList).toContain('custom-action');
+
+    // check styles
+    expect(rootElement.style.color).toBe('red');
+    expect(iconElement.style.backgroundColor).toBe('rgba(0, 0, 0, 0.5)');
+    expect(contentElement.style.padding).toBe('20px');
+    expect(messageElement.style.backgroundColor).toBe('blue');
+    expect(descriptionElement.style.fontSize).toBe('20px');
+    expect(actionElement.style.color).toBe('green');
+  });
 });
