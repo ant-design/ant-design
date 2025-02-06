@@ -4,7 +4,7 @@ import SlickCarousel from '@ant-design/react-slick';
 import classNames from 'classnames';
 
 import { useComponentConfig } from '../config-provider/context';
-import useStyle from './style';
+import useStyle, { DotDuration } from './style';
 
 export type CarouselEffect = 'scrollx' | 'fade';
 export type DotPosition = 'top' | 'bottom' | 'left' | 'right';
@@ -21,6 +21,7 @@ export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass'> {
   children?: React.ReactNode;
   dots?: boolean | { className?: string };
   waitForAnimate?: boolean;
+  showDotDuration?: boolean;
 }
 
 export interface CarouselRef {
@@ -56,6 +57,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     className: customClassName,
     style,
     id,
+    showDotDuration = false,
     ...otherProps
   } = props;
   const {
@@ -124,8 +126,14 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     rootClassName,
   );
 
+  const { autoplay = false, autoplaySpeed = 3000 } = props;
+  const mergedShowDuration = autoplay && showDotDuration;
+  const dotDurationStyle = mergedShowDuration
+    ? ({ [DotDuration]: `${autoplaySpeed / 1000}s` } as React.CSSProperties)
+    : {};
+
   return wrapCSSVar(
-    <div className={className} id={id}>
+    <div className={className} id={id} style={dotDurationStyle}>
       <SlickCarousel
         ref={slickRef}
         {...newProps}
