@@ -218,4 +218,23 @@ describe('Input.OTP', () => {
       expect(separator.textContent).toBe('|');
     });
   });
+
+  it('renders separator when separator is a string', () => {
+    const { container } = render(<OTP length={4} separator="-" />);
+    const separators = container.querySelectorAll(`.ant-otp-separator`);
+    expect(separators.length).toBe(3);
+    separators.forEach((separator) => {
+      expect(separator.textContent).toBe('-');
+    });
+  });
+
+  it('renders separator when separator is a element', () => {
+    const customSeparator = <div data-testid="custom-separator">X</div>;
+    const { getAllByTestId } = render(<OTP length={4} separator={customSeparator} />);
+    const separators = getAllByTestId('custom-separator');
+    expect(separators.length).toBe(3);
+    separators.forEach((separator) => {
+      expect(separator.textContent).toBe('X');
+    });
+  });
 });
