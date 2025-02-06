@@ -223,7 +223,7 @@ describe('Carousel', () => {
       ).toBe('3s');
     });
 
-    it('shuld show dot duration with custom autoplaySpeed', () => {
+    it('should show dot duration with custom autoplaySpeed', () => {
       const { container } = render(
         <Carousel autoplay autoplaySpeed={5000} showDotDuration>
           <div>1</div>
