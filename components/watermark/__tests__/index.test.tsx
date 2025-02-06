@@ -279,18 +279,19 @@ describe('Watermark', () => {
   it('should set watermark from cache correctly', async () => {
     const content = 'should set watermark from cache correctly';
 
-    jest.spyOn(HTMLCanvasElement.prototype, 'toDataURL').mockReturnValue('1');
+    let mockToDataURL = jest.spyOn(HTMLCanvasElement.prototype, 'toDataURL').mockReturnValue('1');
 
     const { container: container1 } = render(<Watermark content={content} />);
     await waitFakeTimer();
     expect(container1).toMatchSnapshot();
 
-    jest.spyOn(HTMLCanvasElement.prototype, 'toDataURL').mockReturnValue('2');
+    mockToDataURL.mockRestore();
+    mockToDataURL = jest.spyOn(HTMLCanvasElement.prototype, 'toDataURL').mockReturnValue('2');
 
     const { container: container2 } = render(<Watermark content={content} />);
     await waitFakeTimer();
     expect(container2).toMatchSnapshot();
 
-    HTMLCanvasElement.prototype.toDataURL.mockRestore();
+    mockToDataURL.mockRestore();
   });
 });
