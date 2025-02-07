@@ -16,7 +16,7 @@ const isTooltipProps = (item: TooltipProps | string): item is TooltipProps => {
 
 export interface RateProps extends RcRateProps {
   rootClassName?: string;
-  tooltips?: Array<TooltipProps | string>;
+  tooltips?: (TooltipProps | string)[];
 }
 
 const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
