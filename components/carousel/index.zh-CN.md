@@ -34,8 +34,7 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | arrows | 是否显示箭头 | boolean | false | 5.17.0 |
-| autoplay | 是否自动切换 | boolean | false |  |
-| showDotDuration | 是否显示指示点进度条（需开启`autoplay`，持续时间由`autoplaySpeed`决定） | boolean | false |
+| autoplay | 是否自动切换，如果为`object`可以指定`dotDuration`来展示指示点进度条（其持续时间由`autoplaySpeed`决定） | boolean \| { dotDuration?: boolean } | false |  |
 | autoplaySpeed | 自动切换的间隔（毫秒） | number | 3000 |  |
 | adaptiveHeight | 高度自适应 | boolean | false |  |
 | dotPosition | 面板指示点位置，可选 `top` `bottom` `left` `right` | string | `bottom` |  |
