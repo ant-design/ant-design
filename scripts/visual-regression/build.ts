@@ -245,7 +245,6 @@ function generateReport(
   prId: string,
   publicPath = '.',
 ): [string, string] {
-
   const passed = badCases.length === 0;
 
   const commonHeader = `
@@ -256,8 +255,13 @@ function generateReport(
   `.trim();
 
   const htmlReportLink = `${publicPath}/report.html`;
+  const tirPartyReportLink = `${publicPath}/index.html`;
 
-  const fullReport = `> 📖 <a href="${htmlReportLink}" target="_blank">View Full Report ↗︎</a>`;
+  const fullReport = [
+    `> 📖 <a href="${htmlReportLink}" target="_blank">View Full Report ↗︎</a>`,
+    `> 📖 <a href="${tirPartyReportLink}" target="_blank">View Tri-party Report ↗︎</a>`,
+  ].join('\n');
+
   if (passed) {
     const mdStr = [
       commonHeader,
@@ -526,7 +530,7 @@ async function boot() {
     await genTriPartyReport({
       badCases,
       publicPath,
-    })
+    });
     console.log(chalk.green('🎉 Tri-party report generated!'));
   } catch (e) {
     console.error(chalk.red('Tri-party report generation failed:'), e);
