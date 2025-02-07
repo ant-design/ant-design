@@ -3,13 +3,13 @@ import { Alert } from 'antd';
 
 const App: React.FC = () => (
   <>
-    <Alert message="Success Text" type="success" />
+    <Alert title="Success Text" type="success" />
     <br />
-    <Alert message="Info Text" type="info" />
+    <Alert title="Info Text" type="info" />
     <br />
-    <Alert message="Warning Text" type="warning" />
+    <Alert title="Warning Text" type="warning" />
     <br />
-    <Alert message="Error Text" type="error" />
+    <Alert title="Error Text" type="error" />
   </>
 );
 
