@@ -46,7 +46,7 @@ export function fillWindowEnv(window: Window | DOMWindow) {
     });
   }
 
-  // Fix css-animation or rc-motion deps on these
+  // Fix css-animation or @rc-component/motion deps on these
   // https://github.com/react-component/motion/blob/9c04ef1a210a4f3246c9becba6e33ea945e00669/src/util/motion.ts#L27-L35
   // https://github.com/yiminghe/css-animation/blob/a5986d73fd7dfce75665337f39b91483d63a4c8c/src/Event.js#L44
   win.AnimationEvent = win.AnimationEvent || win.Event;
