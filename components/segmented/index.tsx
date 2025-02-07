@@ -49,6 +49,7 @@ export interface SegmentedProps<ValueType = RcSegmentedValue>
   /** Option to control the display size */
   size?: SizeType;
   vertical?: boolean;
+  shape?: 'default' | 'round';
 }
 
 const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) => {
@@ -63,6 +64,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     size: customSize = 'middle',
     style,
     vertical,
+    shape = 'default',
     name = defaultName,
     ...restProps
   } = props;
@@ -110,6 +112,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-vertical`]: vertical,
+      [`${prefixCls}-shape-${shape}`]: shape !== 'default',
     },
     hashId,
     cssVarCls,
