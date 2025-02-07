@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.23.3",
+  "version": "5.23.4",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -26,7 +26,9 @@
     "react-component",
     "ui"
   ],
-  "sideEffects": ["*.css"],
+  "sideEffects": [
+    "*.css"
+  ],
   "main": "lib/index.js",
   "module": "es/index.js",
   "unpkg": "dist/antd.min.js",
@@ -146,7 +148,7 @@
     "rc-steps": "~6.0.1",
     "rc-switch": "~4.1.0",
     "rc-table": "~7.50.2",
-    "rc-tabs": "~15.5.0",
+    "rc-tabs": "~15.5.1",
     "rc-textarea": "~1.9.0",
     "rc-tooltip": "~6.4.0",
     "rc-tree": "~5.13.0",
