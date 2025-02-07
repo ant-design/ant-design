@@ -42,7 +42,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | disabled | If read only, unable to interact | boolean | false |  |
 | keyboard | Support keyboard operation | boolean | true | 5.18.0 |
 | style | The custom style object of rate | CSSProperties | - |  |
-| tooltips | Customize tooltip by each character | string\[] | - |  |
+| tooltips | Customize tooltip by each character | [TooltipProps](/components/tooltip-cn#api)[] \| string\[] | - |  |
 | value | The current value | number | - |  |
 | onBlur | Callback when component lose focus | function() | - |  |
 | onChange | Callback when select value | function(value: number) | - |  |
