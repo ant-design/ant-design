@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/vi_VN';
+import Pagination from '@rc-component/pagination/lib/locale/vi_VN';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/vi_VN';
