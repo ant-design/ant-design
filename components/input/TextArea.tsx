@@ -16,6 +16,7 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
+import { useCompactItemContext } from '../space/Compact';
 import type { InputFocusOptions } from './Input';
 import { triggerFocus } from './Input';
 import { useSharedStyle } from './style';
@@ -73,9 +74,6 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     styles: contextStyles,
   } = useComponentConfig('textArea');
 
-  // ===================== Size =====================
-  const mergedSize = useSize(customizeSize);
-
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
@@ -106,6 +104,12 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   const [wrapSharedCSSVar, hashId, cssVarCls] = useSharedStyle(prefixCls, rootClassName);
   const [wrapCSSVar] = useStyle(prefixCls, rootCls);
 
+  // ===================== Compact Item =====================
+  const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
+
+  // ===================== Size =====================
+  const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
+
   const [variant, enableVariantCls] = useVariant('textArea', customVariant, bordered);
 
   const mergedAllowClear = getAllowClear(allowClear ?? contextAllowClear);
@@ -119,7 +123,14 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
         styles={{ ...contextStyles, ...styles }}
         disabled={mergedDisabled}
         allowClear={mergedAllowClear}
-        className={classNames(cssVarCls, rootCls, className, rootClassName, contextClassName)}
+        className={classNames(
+          cssVarCls,
+          rootCls,
+          className,
+          rootClassName,
+          compactItemClassnames,
+          contextClassName,
+        )}
         classNames={{
           ...classes,
           ...contextClassNames,
