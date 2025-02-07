@@ -10,7 +10,7 @@ const contentStyle: React.CSSProperties = {
 };
 
 const App: React.FC = () => (
-  <Carousel autoplay showDotDuration autoplaySpeed={5000}>
+  <Carousel autoplay={{ dotDuration: true }} autoplaySpeed={5000}>
     <div>
       <h3 style={contentStyle}>1</h3>
     </div>
