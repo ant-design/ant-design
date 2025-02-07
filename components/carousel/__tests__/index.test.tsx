@@ -192,7 +192,7 @@ describe('Carousel', () => {
     errSpy.mockRestore();
   });
 
-  describe('should works for showDotDuration', () => {
+  describe('should works for dotDuration', () => {
     it('should not show dot duration', () => {
       const { container } = render(
         <Carousel autoplay>
@@ -210,7 +210,7 @@ describe('Carousel', () => {
 
     it('should show dot duration with default autoplaySpeed', () => {
       const { container } = render(
-        <Carousel autoplay showDotDuration>
+        <Carousel autoplay={{ dotDuration: true }}>
           <div>1</div>
           <div>2</div>
           <div>3</div>
@@ -225,7 +225,7 @@ describe('Carousel', () => {
 
     it('should show dot duration with custom autoplaySpeed', () => {
       const { container } = render(
-        <Carousel autoplay autoplaySpeed={5000} showDotDuration>
+        <Carousel autoplay={{ dotDuration: true }} autoplaySpeed={5000}>
           <div>1</div>
           <div>2</div>
           <div>3</div>
