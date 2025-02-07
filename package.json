@@ -120,7 +120,7 @@
     "@rc-component/mutate-observer": "^2.0.0",
     "@rc-component/qrcode": "~1.0.0",
     "@rc-component/segmented": "~1.0.0",
-    "@rc-component/table": "~1.0.0",
+    "@rc-component/table": "~1.0.2",
     "@rc-component/tooltip": "~1.0.0",
     "@rc-component/tour": "~1.15.1",
     "@rc-component/trigger": "^2.2.6",
