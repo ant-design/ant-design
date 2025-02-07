@@ -10036,10 +10036,10 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         You selected date: 2017-01-25
       </div>

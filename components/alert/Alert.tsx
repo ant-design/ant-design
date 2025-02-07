@@ -20,7 +20,7 @@ export interface AlertRef {
   nativeElement: HTMLDivElement;
 }
 
-type SemanticName = 'root' | 'icon' | 'content' | 'message' | 'description' | 'action';
+type SemanticName = 'root' | 'icon' | 'section' | 'title' | 'description' | 'actions';
 export interface AlertProps {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */
   type?: 'success' | 'info' | 'warning' | 'error';
@@ -32,6 +32,10 @@ export interface AlertProps {
    */
   closeText?: React.ReactNode;
   /** Content of Alert */
+  title?: React.ReactNode;
+  /**
+   * @deprecated please use `title` instead.
+   */
   message?: React.ReactNode;
   /** Additional content of Alert */
   description?: React.ReactNode;
@@ -128,6 +132,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     description,
     prefixCls: customizePrefixCls,
     message,
+    title,
     banner,
     className,
     rootClassName,
@@ -147,11 +152,18 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     ...otherProps
   } = props;
 
+  const mergedTitle = title ?? message;
+
   const [closed, setClosed] = React.useState(false);
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Alert');
-    warning.deprecated(!closeText, 'closeText', 'closable.closeIcon');
+    [
+      ['closeText', 'closable.closeIcon'],
+      ['message', 'title'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
   }
 
   const internalRef = React.useRef<HTMLDivElement>(null);
@@ -296,22 +308,22 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
           ) : null}
           <div
             className={classNames(
-              `${prefixCls}-content`,
-              alertClassNames?.content,
-              contextClassNames.content,
+              `${prefixCls}-section`,
+              alertClassNames?.section,
+              contextClassNames.section,
             )}
-            style={{ ...contextStyles.content, ...styles?.content }}
+            style={{ ...contextStyles.section, ...styles?.section }}
           >
-            {message ? (
+            {mergedTitle ? (
               <div
                 className={classNames(
-                  `${prefixCls}-message`,
-                  alertClassNames?.message,
-                  contextClassNames.message,
+                  `${prefixCls}-title`,
+                  alertClassNames?.title,
+                  contextClassNames.title,
                 )}
-                style={{ ...contextStyles.message, ...styles?.message }}
+                style={{ ...contextStyles.title, ...styles?.title }}
               >
-                {message}
+                {mergedTitle}
               </div>
             ) : null}
             {description ? (
@@ -330,11 +342,11 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
           {action ? (
             <div
               className={classNames(
-                `${prefixCls}-action`,
-                alertClassNames?.action,
-                contextClassNames.action,
+                `${prefixCls}-actions`,
+                alertClassNames?.actions,
+                contextClassNames.actions,
               )}
-              style={{ ...contextStyles.action, ...styles?.action }}
+              style={{ ...contextStyles.actions, ...styles?.actions }}
             >
               {action}
             </div>

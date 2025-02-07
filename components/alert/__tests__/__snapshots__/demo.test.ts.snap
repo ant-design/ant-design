@@ -27,16 +27,16 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Success Tips
       </div>
     </div>
     <div
-      class="ant-alert-action"
+      class="ant-alert-actions"
     >
       <button
         class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm"
@@ -101,10 +101,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Error Text
       </div>
@@ -115,7 +115,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-alert-action"
+      class="ant-alert-actions"
     >
       <button
         class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined ant-btn-sm"
@@ -134,16 +134,16 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Warning Text
       </div>
     </div>
     <div
-      class="ant-alert-action"
+      class="ant-alert-actions"
     >
       <div
         class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
@@ -196,10 +196,10 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Info Text
       </div>
@@ -210,7 +210,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-alert-action"
+      class="ant-alert-actions"
     >
       <div
         class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
@@ -298,10 +298,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Warning text
       </div>
@@ -333,10 +333,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Very long warning text warning text text text text text text text
       </div>
@@ -375,10 +375,10 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Warning text without icon
       </div>
@@ -411,10 +411,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Error text
       </div>
@@ -430,10 +430,10 @@ exports[`renders components/alert/demo/basic.tsx correctly 1`] = `
   role="alert"
 >
   <div
-    class="ant-alert-content"
+    class="ant-alert-section"
   >
     <div
-      class="ant-alert-message"
+      class="ant-alert-title"
     >
       Success Text
     </div>
@@ -449,10 +449,10 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text
       </div>
@@ -491,10 +491,10 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Error Text
       </div>
@@ -538,10 +538,10 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Error Text
       </div>
@@ -590,10 +590,10 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         showIcon = false
       </div>
@@ -625,10 +625,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Success Tips
       </div>
@@ -660,10 +660,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Informational Notes
       </div>
@@ -695,10 +695,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Warning
       </div>
@@ -730,10 +730,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Error
       </div>
@@ -765,10 +765,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Success Tips
       </div>
@@ -805,10 +805,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Informational Notes
       </div>
@@ -845,10 +845,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Warning
       </div>
@@ -885,10 +885,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Error
       </div>
@@ -910,10 +910,10 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Success Text
       </div>
@@ -931,10 +931,10 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Info Text
       </div>
@@ -952,10 +952,10 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Warning Text
       </div>
@@ -973,10 +973,10 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Error Text
       </div>
@@ -1028,10 +1028,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Success Tips
       </div>
@@ -1063,10 +1063,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Informational Notes
       </div>
@@ -1098,10 +1098,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Warning
       </div>
@@ -1160,10 +1160,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Error
       </div>
@@ -1195,10 +1195,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Success Tips
       </div>
@@ -1235,10 +1235,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Informational Notes
       </div>
@@ -1275,10 +1275,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Warning
       </div>
@@ -1342,10 +1342,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Error
       </div>
@@ -1367,10 +1367,10 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Alert Message Text
       </div>
@@ -1437,10 +1437,10 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Success Text
       </div>
@@ -1453,10 +1453,10 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Info Text
       </div>
@@ -1469,10 +1469,10 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Warning Text
       </div>
@@ -1485,10 +1485,10 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Error Text
       </div>

@@ -7,19 +7,19 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 const locales = {
   cn: {
     root: '根元素',
-    content: '内容元素',
+    section: '内容元素',
     icon: '图标元素',
-    message: '消息元素',
+    title: '标题元素',
     description: '描述元素',
-    action: '操作组元素',
+    actions: '操作组元素',
   },
   en: {
     root: 'Root element',
-    content: 'Content element',
+    section: 'Content element',
     icon: 'Icon element',
-    message: 'Message element',
+    title: 'title element',
     description: 'Description element',
-    action: 'Actions element',
+    actions: 'Actions element',
   },
 };
 
@@ -30,10 +30,10 @@ const App: React.FC = () => {
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'icon', desc: locale.icon, version: '6.0.0' },
-        { name: 'content', desc: locale.content, version: '6.0.0' },
-        { name: 'message', desc: locale.message, version: '6.0.0' },
+        { name: 'section', desc: locale.section, version: '6.0.0' },
+        { name: 'title', desc: locale.title, version: '6.0.0' },
         { name: 'description', desc: locale.description, version: '6.0.0' },
-        { name: 'action', desc: locale.action, version: '6.0.0' },
+        { name: 'actions', desc: locale.actions, version: '6.0.0' },
       ]}
     >
       <Alert

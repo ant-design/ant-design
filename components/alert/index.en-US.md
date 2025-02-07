@@ -44,17 +44,19 @@ Common props ref：[Common props](/docs/react/common-props)
 | closable | The config of closable, >=5.15.0: support `aria-*` | boolean \| ({ closeIcon?: React.ReactNode } & React.AriaAttributes) | `false` |  |
 | description | Additional content of Alert | ReactNode | - |  |
 | icon | Custom icon, effective when `showIcon` is true | ReactNode | - |  |
-| message | Content of Alert | ReactNode | - |  |
+| ~~message~~ | Content of Alert, please use `title` instead | ReactNode | - |  |
+| title | Content of Alert | ReactNode | - |  |
 | showIcon | Whether to show icon | boolean | false, in `banner` mode default is true |  |
 | type | Type of Alert styles, options: `success`, `info`, `warning`, `error` | string | `info`, in `banner` mode default is `warning` |  |
 | onClose | Callback when Alert is closed | (e: MouseEvent) => void | - |  |
 
 ### Alert.ErrorBoundary
 
-| Property    | Description                      | Type      | Default           | Version |
-| ----------- | -------------------------------- | --------- | ----------------- | ------- |
-| description | Custom error description to show | ReactNode | {{ error stack }} |         |
-| message     | Custom error message to show     | ReactNode | {{ error }}       |         |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| description | Custom error description to show | ReactNode | {{ error stack }} |  |
+| ~~message~~ | Custom error message to show, please use `title` instead | ReactNode | {{ error }} |  |
+| title | Custom error title to show | ReactNode | {{ error }} |  |
 
 ## Semantic DOM
 

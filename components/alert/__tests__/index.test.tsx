@@ -30,7 +30,7 @@ describe('Alert', () => {
     const onClose = jest.fn();
     const { container } = render(
       <Alert
-        message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
+        title="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
         type="warning"
         closable
         onClose={onClose}
@@ -130,15 +130,15 @@ describe('Alert', () => {
   });
 
   it('could accept none react element icon', () => {
-    render(<Alert message="Success Tips" type="success" showIcon icon="icon" />);
+    render(<Alert title="Success Tips" type="success" showIcon icon="icon" />);
 
     expect(screen.getByRole('alert')).toHaveTextContent(/success tips/i);
     expect(screen.getByRole('alert')).toHaveTextContent(/icon/i);
   });
 
-  it('should not render message div when no message', () => {
+  it('should not render title div when no title', () => {
     const { container } = render(<Alert description="description" />);
-    expect(!!container.querySelector('.ant-alert-message')).toBe(false);
+    expect(!!container.querySelector('.ant-alert-title')).toBe(false);
   });
 
   it('close button should be hidden when closeIcon setting to null or false', () => {
@@ -200,29 +200,29 @@ describe('Alert', () => {
     expect(alertRef.current?.nativeElement).toBeTruthy();
     expect(alertRef.current?.nativeElement).toBe(element);
   });
-  it('should apply custom styles to Modal', () => {
+  it('should apply custom styles to Alert', () => {
     const customClassNames = {
       root: 'custom-root',
       icon: 'custom-icon',
-      content: 'custom-content',
-      message: 'custom-message',
+      section: 'custom-section',
+      title: 'custom-title',
       description: 'custom-description',
-      action: 'custom-action',
+      actions: 'custom-actions',
     };
     const customStyles = {
       root: { color: 'red' },
       icon: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
-      content: { padding: '20px' },
-      message: { backgroundColor: 'blue' },
+      section: { padding: '20px' },
+      title: { backgroundColor: 'blue' },
       description: { fontSize: '20px' },
-      action: { color: 'green' },
+      actions: { color: 'green' },
     };
 
     render(
       <Alert
         styles={customStyles}
         classNames={customClassNames}
-        message="Info Text"
+        title="Info Text"
         showIcon
         description="Info Description Info Description Info Description Info Description"
         type="info"
@@ -237,24 +237,24 @@ describe('Alert', () => {
 
     const rootElement = document.querySelector('.ant-alert') as HTMLElement;
     const iconElement = document.querySelector('.ant-alert-icon') as HTMLElement;
-    const contentElement = document.querySelector('.ant-alert-content') as HTMLElement;
-    const messageElement = document.querySelector('.ant-alert-message') as HTMLElement;
+    const sectionElement = document.querySelector('.ant-alert-section') as HTMLElement;
+    const titleElement = document.querySelector('.ant-alert-title') as HTMLElement;
     const descriptionElement = document.querySelector('.ant-alert-description') as HTMLElement;
-    const actionElement = document.querySelector('.ant-alert-action') as HTMLElement;
+    const actionElement = document.querySelector('.ant-alert-actions') as HTMLElement;
 
     // check classNames
     expect(rootElement.classList).toContain('custom-root');
     expect(iconElement.classList).toContain('custom-icon');
-    expect(contentElement.classList).toContain('custom-content');
-    expect(messageElement.classList).toContain('custom-message');
+    expect(sectionElement.classList).toContain('custom-section');
+    expect(titleElement.classList).toContain('custom-title');
     expect(descriptionElement.classList).toContain('custom-description');
-    expect(actionElement.classList).toContain('custom-action');
+    expect(actionElement.classList).toContain('custom-actions');
 
     // check styles
     expect(rootElement.style.color).toBe('red');
     expect(iconElement.style.backgroundColor).toBe('rgba(0, 0, 0, 0.5)');
-    expect(contentElement.style.padding).toBe('20px');
-    expect(messageElement.style.backgroundColor).toBe('blue');
+    expect(sectionElement.style.padding).toBe('20px');
+    expect(titleElement.style.backgroundColor).toBe('blue');
     expect(descriptionElement.style.fontSize).toBe('20px');
     expect(actionElement.style.color).toBe('green');
   });
