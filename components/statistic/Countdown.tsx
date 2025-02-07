@@ -13,7 +13,7 @@ export interface CountdownProps extends StatisticProps {
   format?: string;
   onFinish?: () => void;
   onChange?: (value?: valueType) => void;
-  isPaused?: boolean;
+  paused?: boolean;
 }
 
 function getTime(value?: valueType) {
@@ -21,7 +21,7 @@ function getTime(value?: valueType) {
 }
 
 const Countdown: React.FC<CountdownProps> = (props) => {
-  const { value, format = 'HH:mm:ss', onChange, onFinish, isPaused, ...rest } = props;
+  const { value, format = 'HH:mm:ss', onChange, onFinish, paused, ...rest } = props;
 
   const forceUpdate = useForceUpdate();
 
@@ -38,7 +38,7 @@ const Countdown: React.FC<CountdownProps> = (props) => {
   };
 
   const updatePauseDuration = () => {
-    if (isPaused) {
+    if (paused) {
       pauseStartTime.current = Date.now();
     } else if (pauseStartTime.current !== null) {
       setPauseDuration(pauseDuration + (Date.now() - pauseStartTime.current));
@@ -58,7 +58,7 @@ const Countdown: React.FC<CountdownProps> = (props) => {
 
   const syncTimer = () => {
     countdown.current = setInterval(() => {
-      if (!isPaused) {
+      if (!paused) {
         updateCountdown();
       }
     }, REFRESH_INTERVAL);
@@ -74,7 +74,7 @@ const Countdown: React.FC<CountdownProps> = (props) => {
         countdown.current = null;
       }
     };
-  }, [value, isPaused]);
+  }, [value, paused]);
 
   const formatter: StatisticProps['formatter'] = (formatValue, config) =>
     formatCountdown(formatValue, { ...config, format }, pauseDuration);

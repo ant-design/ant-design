@@ -17,12 +17,12 @@ const onChange: CountdownProps['onChange'] = (val) => {
 };
 
 const App: React.FC = () => {
-  const [isPaused, setIsPaused] = useState(false);
+  const [paused, setPaused] = useState(false);
 
   return (
     <Row gutter={16}>
       <Col span={12}>
-        <Countdown title="Countdown" value={deadline} onFinish={onFinish} isPaused={isPaused} />
+        <Countdown title="Countdown" value={deadline} onFinish={onFinish} paused={paused} />
       </Col>
       <Col span={12}>
         <Countdown title="Million Seconds" value={deadline} format="HH:mm:ss:SSS" />
@@ -35,10 +35,10 @@ const App: React.FC = () => {
           title="Countdown with Start / Pause"
           value={deadline}
           onFinish={onFinish}
-          isPaused={isPaused}
+          paused={paused}
         />
-        <Button type="primary" onClick={() => setIsPaused(!isPaused)}>
-          {isPaused ? 'Start' : 'Pause'}
+        <Button type="primary" onClick={() => setPaused(!paused)}>
+          {paused ? 'Start' : 'Pause'}
         </Button>
       </Col>
       <Col span={12}>
