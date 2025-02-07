@@ -37,7 +37,7 @@ const App: React.FC = () => {
       ]}
     >
       <Alert
-        message="Info Text"
+        title="Info Text"
         showIcon
         description="Info Description Info Description Info Description Info Description"
         type="info"

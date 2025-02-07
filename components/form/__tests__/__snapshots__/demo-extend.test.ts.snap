@@ -7654,11 +7654,7 @@ exports[`renders components/form/demo/form-dependencies.tsx extend context corre
 </form>
 `;
 
-exports[`renders components/form/demo/form-dependencies.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Alert] \`message\` is deprecated. Please use \`title\` instead.",
-]
-`;
+exports[`renders components/form/demo/form-dependencies.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/form-in-modal.tsx extend context correctly 1`] = `
 Array [
@@ -30897,11 +30893,7 @@ exports[`renders components/form/demo/validate-trigger.tsx extend context correc
 </form>
 `;
 
-exports[`renders components/form/demo/validate-trigger.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Alert] \`message\` is deprecated. Please use \`title\` instead.",
-]
-`;
+exports[`renders components/form/demo/validate-trigger.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/variant.tsx extend context correctly 1`] = `
 <form
