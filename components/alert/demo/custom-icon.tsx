@@ -6,19 +6,19 @@ const icon = <SmileOutlined />;
 
 const App: React.FC = () => (
   <>
-    <Alert icon={icon} message="showIcon = false" type="success" />
+    <Alert icon={icon} title="showIcon = false" type="success" />
     <br />
-    <Alert icon={icon} message="Success Tips" type="success" showIcon />
+    <Alert icon={icon} title="Success Tips" type="success" showIcon />
     <br />
-    <Alert icon={icon} message="Informational Notes" type="info" showIcon />
+    <Alert icon={icon} title="Informational Notes" type="info" showIcon />
     <br />
-    <Alert icon={icon} message="Warning" type="warning" showIcon />
+    <Alert icon={icon} title="Warning" type="warning" showIcon />
     <br />
-    <Alert icon={icon} message="Error" type="error" showIcon />
+    <Alert icon={icon} title="Error" type="error" showIcon />
     <br />
     <Alert
       icon={icon}
-      message="Success Tips"
+      title="Success Tips"
       description="Detailed description and advice about successful copywriting."
       type="success"
       showIcon
@@ -26,7 +26,7 @@ const App: React.FC = () => (
     <br />
     <Alert
       icon={icon}
-      message="Informational Notes"
+      title="Informational Notes"
       description="Additional description and information about copywriting."
       type="info"
       showIcon
@@ -34,7 +34,7 @@ const App: React.FC = () => (
     <br />
     <Alert
       icon={icon}
-      message="Warning"
+      title="Warning"
       description="This is a warning notice about copywriting."
       type="warning"
       showIcon
@@ -42,7 +42,7 @@ const App: React.FC = () => (
     <br />
     <Alert
       icon={icon}
-      message="Error"
+      title="Error"
       description="This is an error message about copywriting."
       type="error"
       showIcon

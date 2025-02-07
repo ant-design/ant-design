@@ -18,7 +18,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Alert message={`You selected date: ${selectedValue?.format('YYYY-MM-DD')}`} />
+      <Alert title={`You selected date: ${selectedValue?.format('YYYY-MM-DD')}`} />
       <Calendar value={value} onSelect={onSelect} onPanelChange={onPanelChange} />
     </>
   );

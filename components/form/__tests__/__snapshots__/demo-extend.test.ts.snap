@@ -7552,10 +7552,10 @@ exports[`renders components/form/demo/form-dependencies.tsx extend context corre
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
          Try modify \`Password2\` and then modify \`Password\`
       </div>
@@ -30746,10 +30746,10 @@ exports[`renders components/form/demo/validate-trigger.tsx extend context correc
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Use 'max' rule, continue type chars to see it
       </div>
