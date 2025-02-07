@@ -112,7 +112,7 @@ const ComponentsBlock: React.FC = () => {
       <ModalPanel title="Ant Design" width="100%">
         {locale.text}
       </ModalPanel>
-      <Alert message={locale.infoText} type="info" />
+      <Alert title={locale.infoText} type="info" />
       {/* Line */}
       <div className={styles.flex}>
         <ColorPicker style={{ flex: 'none' }} />
@@ -209,7 +209,7 @@ const ComponentsBlock: React.FC = () => {
         <InternalMessage content={locale.release} type="success" />
       </div>
       <InternalTooltip title={locale.hello} placement="topLeft" className={styles.noMargin} />
-      <Alert message="Ant Design love you!" type="success" />
+      <Alert title="Ant Design love you!" type="success" />
     </Tilt>
   );
 };

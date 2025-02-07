@@ -7,10 +7,10 @@ exports[`ConfigProvider components Alert configProvider 1`] = `
   role="alert"
 >
   <div
-    class="config-alert-content"
+    class="config-alert-section"
   >
     <div
-      class="config-alert-message"
+      class="config-alert-title"
     >
       Bamboo is Little Light
     </div>
@@ -25,10 +25,10 @@ exports[`ConfigProvider components Alert configProvider componentDisabled 1`] = 
   role="alert"
 >
   <div
-    class="config-alert-content"
+    class="config-alert-section"
   >
     <div
-      class="config-alert-message"
+      class="config-alert-title"
     >
       Bamboo is Little Light
     </div>
@@ -43,10 +43,10 @@ exports[`ConfigProvider components Alert configProvider componentSize large 1`] 
   role="alert"
 >
   <div
-    class="config-alert-content"
+    class="config-alert-section"
   >
     <div
-      class="config-alert-message"
+      class="config-alert-title"
     >
       Bamboo is Little Light
     </div>
@@ -61,10 +61,10 @@ exports[`ConfigProvider components Alert configProvider componentSize middle 1`]
   role="alert"
 >
   <div
-    class="config-alert-content"
+    class="config-alert-section"
   >
     <div
-      class="config-alert-message"
+      class="config-alert-title"
     >
       Bamboo is Little Light
     </div>
@@ -79,10 +79,10 @@ exports[`ConfigProvider components Alert configProvider componentSize small 1`] 
   role="alert"
 >
   <div
-    class="config-alert-content"
+    class="config-alert-section"
   >
     <div
-      class="config-alert-message"
+      class="config-alert-title"
     >
       Bamboo is Little Light
     </div>
@@ -97,10 +97,10 @@ exports[`ConfigProvider components Alert normal 1`] = `
   role="alert"
 >
   <div
-    class="ant-alert-content"
+    class="ant-alert-section"
   >
     <div
-      class="ant-alert-message"
+      class="ant-alert-title"
     >
       Bamboo is Little Light
     </div>
@@ -115,10 +115,10 @@ exports[`ConfigProvider components Alert prefixCls 1`] = `
   role="alert"
 >
   <div
-    class="prefix-Alert-content"
+    class="prefix-Alert-section"
   >
     <div
-      class="prefix-Alert-message"
+      class="prefix-Alert-title"
     >
       Bamboo is Little Light
     </div>
@@ -28945,11 +28945,9 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="config-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -29036,11 +29034,9 @@ exports[`ConfigProvider components Tabs configProvider componentDisabled 1`] = `
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="config-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -29127,11 +29123,9 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="config-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -29218,11 +29212,9 @@ exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] 
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="config-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -29309,11 +29301,9 @@ exports[`ConfigProvider components Tabs configProvider componentSize small 1`] =
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="config-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -29400,11 +29390,9 @@ exports[`ConfigProvider components Tabs normal 1`] = `
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -29491,11 +29479,9 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="prefix-Tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
         <span
