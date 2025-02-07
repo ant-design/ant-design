@@ -134,7 +134,7 @@ describe('Select', () => {
       );
       expect(
         getComputedStyle(container.querySelector('.ant-select-clear')!).insetInlineEnd,
-      ).toEqual('11px');
+      ).toEqual('calc(var(--padding-sm) - 1px)');
     });
 
     it('hasFeedback, has validateStatus', () => {
@@ -147,7 +147,7 @@ describe('Select', () => {
       );
       expect(
         getComputedStyle(container.querySelector('.ant-select-clear')!).insetInlineEnd,
-      ).toEqual('33px');
+      ).toEqual('calc(calc(var(--padding-sm) - 1px) + var(--font-size) + var(--padding-xs))');
     });
 
     it('hasFeedback, no validateStatus', () => {
@@ -160,7 +160,7 @@ describe('Select', () => {
       );
       expect(
         getComputedStyle(container.querySelector('.ant-select-clear')!).insetInlineEnd,
-      ).toEqual('11px');
+      ).toEqual('calc(var(--padding-sm) - 1px)');
     });
   });
 

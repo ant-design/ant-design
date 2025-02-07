@@ -2,7 +2,7 @@
 
 exports[`renders components/empty/demo/basic.tsx correctly 1`] = `
 <div
-  class="ant-empty"
+  class="css-var-test-id ant-empty"
 >
   <div
     class="ant-empty-image"
@@ -82,7 +82,7 @@ exports[`renders components/empty/demo/config-provider.tsx correctly 1`] = `
 Array [
   <button
     aria-checked="true"
-    class="ant-switch ant-switch-checked"
+    class="ant-switch css-var-test-id ant-switch-checked"
     role="switch"
     type="button"
   >
@@ -105,11 +105,11 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal"
     role="separator"
   />,
   <div
-    class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
     style="width:100%"
   >
     <div
@@ -123,7 +123,7 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-select ant-select-outlined ant-select-css-var ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
         style="width:200px"
       >
         <div
@@ -195,7 +195,7 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-select ant-tree-select ant-select-outlined ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
+        class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
         style="width:200px"
       >
         <div
@@ -267,7 +267,7 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
         style="width:200px"
       >
         <div
@@ -336,7 +336,7 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-transfer"
+        class="ant-transfer css-var-test-id"
       >
         <div
           class="ant-transfer-list"
@@ -345,7 +345,7 @@ Array [
             class="ant-transfer-list-header"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -431,7 +431,7 @@ Array [
           class="ant-transfer-operation"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
+            class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
             disabled=""
             type="button"
           >
@@ -460,7 +460,7 @@ Array [
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
+            class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
             disabled=""
             type="button"
           >
@@ -496,7 +496,7 @@ Array [
             class="ant-transfer-list-header"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -591,17 +591,17 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-table-css-var ant-table-wrapper"
+        class="css-var-test-id ant-table-css-var ant-table-wrapper"
         style="margin-top:8px"
       >
         <div
-          class="ant-spin-nested-loading"
+          class="ant-spin-nested-loading css-var-test-id"
         >
           <div
             class="ant-spin-container"
           >
             <div
-              class="ant-table ant-table-empty ant-table-css-var"
+              class="ant-table ant-table-empty css-var-test-id ant-table-css-var"
             >
               <div
                 class="ant-table-container"
@@ -690,10 +690,10 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-list ant-list-split"
+        class="ant-list ant-list-split css-var-test-id"
       >
         <div
-          class="ant-spin-nested-loading"
+          class="ant-spin-nested-loading css-var-test-id"
         >
           <div
             class="ant-spin-container"
@@ -739,7 +739,7 @@ Array [
 
 exports[`renders components/empty/demo/customize.tsx correctly 1`] = `
 <div
-  class="ant-empty"
+  class="css-var-test-id ant-empty"
 >
   <div
     class="ant-empty-image"
@@ -754,7 +754,7 @@ exports[`renders components/empty/demo/customize.tsx correctly 1`] = `
     class="ant-empty-description"
   >
     <span
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       Customize 
       <a
@@ -768,7 +768,7 @@ exports[`renders components/empty/demo/customize.tsx correctly 1`] = `
     class="ant-empty-footer"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -781,7 +781,7 @@ exports[`renders components/empty/demo/customize.tsx correctly 1`] = `
 
 exports[`renders components/empty/demo/description.tsx correctly 1`] = `
 <div
-  class="ant-empty"
+  class="css-var-test-id ant-empty"
 >
   <div
     class="ant-empty-image"
@@ -854,7 +854,7 @@ exports[`renders components/empty/demo/description.tsx correctly 1`] = `
 
 exports[`renders components/empty/demo/simple.tsx correctly 1`] = `
 <div
-  class="ant-empty ant-empty-normal"
+  class="css-var-test-id ant-empty ant-empty-normal"
 >
   <div
     class="ant-empty-image"

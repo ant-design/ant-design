@@ -2,15 +2,15 @@
 
 exports[`renders components/statistic/demo/animated.tsx correctly 1`] = `
 <div
-  class="ant-row"
+  class="ant-row css-var-test-id"
   style="margin-left:-8px;margin-right:-8px"
 >
   <div
-    class="ant-col ant-col-12"
+    class="ant-col ant-col-12 css-var-test-id"
     style="padding-left:8px;padding-right:8px"
   >
     <div
-      class="ant-statistic"
+      class="ant-statistic css-var-test-id"
     >
       <div
         class="ant-statistic-header"
@@ -33,11 +33,11 @@ exports[`renders components/statistic/demo/animated.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-col ant-col-12"
+    class="ant-col ant-col-12 css-var-test-id"
     style="padding-left:8px;padding-right:8px"
   >
     <div
-      class="ant-statistic"
+      class="ant-statistic css-var-test-id"
     >
       <div
         class="ant-statistic-header"
@@ -64,15 +64,15 @@ exports[`renders components/statistic/demo/animated.tsx correctly 1`] = `
 
 exports[`renders components/statistic/demo/basic.tsx correctly 1`] = `
 <div
-  class="ant-row"
+  class="ant-row css-var-test-id"
   style="margin-left:-8px;margin-right:-8px"
 >
   <div
-    class="ant-col ant-col-12"
+    class="ant-col ant-col-12 css-var-test-id"
     style="padding-left:8px;padding-right:8px"
   >
     <div
-      class="ant-statistic"
+      class="ant-statistic css-var-test-id"
     >
       <div
         class="ant-statistic-header"
@@ -99,11 +99,11 @@ exports[`renders components/statistic/demo/basic.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-col ant-col-12"
+    class="ant-col ant-col-12 css-var-test-id"
     style="padding-left:8px;padding-right:8px"
   >
     <div
-      class="ant-statistic"
+      class="ant-statistic css-var-test-id"
     >
       <div
         class="ant-statistic-header"
@@ -134,7 +134,7 @@ exports[`renders components/statistic/demo/basic.tsx correctly 1`] = `
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       style="margin-top:16px"
       type="button"
     >
@@ -144,11 +144,11 @@ exports[`renders components/statistic/demo/basic.tsx correctly 1`] = `
     </button>
   </div>
   <div
-    class="ant-col ant-col-12"
+    class="ant-col ant-col-12 css-var-test-id"
     style="padding-left:8px;padding-right:8px"
   >
     <div
-      class="ant-statistic"
+      class="ant-statistic css-var-test-id"
     >
       <div
         class="ant-statistic-header"
@@ -160,7 +160,7 @@ exports[`renders components/statistic/demo/basic.tsx correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-skeleton ant-statistic-skeleton"
+        class="ant-skeleton ant-statistic-skeleton css-var-test-id"
       >
         <div
           class="ant-skeleton-content"
@@ -177,21 +177,21 @@ exports[`renders components/statistic/demo/basic.tsx correctly 1`] = `
 
 exports[`renders components/statistic/demo/card.tsx correctly 1`] = `
 <div
-  class="ant-row"
+  class="ant-row css-var-test-id"
   style="margin-left:-8px;margin-right:-8px"
 >
   <div
-    class="ant-col ant-col-12"
+    class="ant-col ant-col-12 css-var-test-id"
     style="padding-left:8px;padding-right:8px"
   >
     <div
-      class="ant-card"
+      class="ant-card css-var-test-id"
     >
       <div
         class="ant-card-body"
       >
         <div
-          class="ant-statistic"
+          class="ant-statistic css-var-test-id"
         >
           <div
             class="ant-statistic-header"
@@ -254,17 +254,17 @@ exports[`renders components/statistic/demo/card.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-col ant-col-12"
+    class="ant-col ant-col-12 css-var-test-id"
     style="padding-left:8px;padding-right:8px"
   >
     <div
-      class="ant-card"
+      class="ant-card css-var-test-id"
     >
       <div
         class="ant-card-body"
       >
         <div
-          class="ant-statistic"
+          class="ant-statistic css-var-test-id"
         >
           <div
             class="ant-statistic-header"
@@ -331,15 +331,15 @@ exports[`renders components/statistic/demo/card.tsx correctly 1`] = `
 
 exports[`renders components/statistic/demo/component-token.tsx correctly 1`] = `
 <div
-  class="ant-row"
+  class="ant-row css-var-test-id"
   style="margin-left:-8px;margin-right:-8px"
 >
   <div
-    class="ant-col ant-col-12"
+    class="ant-col ant-col-12 css-var-test-id"
     style="padding-left:8px;padding-right:8px"
   >
     <div
-      class="ant-statistic"
+      class="ant-statistic css-var-test-id"
     >
       <div
         class="ant-statistic-header"
@@ -366,11 +366,11 @@ exports[`renders components/statistic/demo/component-token.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-col ant-col-12"
+    class="ant-col ant-col-12 css-var-test-id"
     style="padding-left:8px;padding-right:8px"
   >
     <div
-      class="ant-statistic"
+      class="ant-statistic css-var-test-id"
     >
       <div
         class="ant-statistic-header"
@@ -401,7 +401,7 @@ exports[`renders components/statistic/demo/component-token.tsx correctly 1`] = `
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       style="margin-top:16px"
       type="button"
     >
@@ -411,11 +411,11 @@ exports[`renders components/statistic/demo/component-token.tsx correctly 1`] = `
     </button>
   </div>
   <div
-    class="ant-col ant-col-12"
+    class="ant-col ant-col-12 css-var-test-id"
     style="padding-left:8px;padding-right:8px"
   >
     <div
-      class="ant-statistic"
+      class="ant-statistic css-var-test-id"
     >
       <div
         class="ant-statistic-header"
@@ -427,7 +427,7 @@ exports[`renders components/statistic/demo/component-token.tsx correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-skeleton ant-statistic-skeleton"
+        class="ant-skeleton ant-statistic-skeleton css-var-test-id"
       >
         <div
           class="ant-skeleton-content"
@@ -444,15 +444,15 @@ exports[`renders components/statistic/demo/component-token.tsx correctly 1`] = `
 
 exports[`renders components/statistic/demo/countdown.tsx correctly 1`] = `
 <div
-  class="ant-row"
+  class="ant-row css-var-test-id"
   style="margin-left:-8px;margin-right:-8px"
 >
   <div
-    class="ant-col ant-col-12"
+    class="ant-col ant-col-12 css-var-test-id"
     style="padding-left:8px;padding-right:8px"
   >
     <div
-      class="ant-statistic"
+      class="ant-statistic css-var-test-id"
     >
       <div
         class="ant-statistic-header"
@@ -475,11 +475,11 @@ exports[`renders components/statistic/demo/countdown.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-col ant-col-12"
+    class="ant-col ant-col-12 css-var-test-id"
     style="padding-left:8px;padding-right:8px"
   >
     <div
-      class="ant-statistic"
+      class="ant-statistic css-var-test-id"
     >
       <div
         class="ant-statistic-header"
@@ -502,11 +502,11 @@ exports[`renders components/statistic/demo/countdown.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-col ant-col-24"
+    class="ant-col ant-col-24 css-var-test-id"
     style="padding-left:8px;padding-right:8px;margin-top:32px"
   >
     <div
-      class="ant-statistic"
+      class="ant-statistic css-var-test-id"
     >
       <div
         class="ant-statistic-header"
@@ -529,11 +529,11 @@ exports[`renders components/statistic/demo/countdown.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-col ant-col-12"
+    class="ant-col ant-col-12 css-var-test-id"
     style="padding-left:8px;padding-right:8px"
   >
     <div
-      class="ant-statistic"
+      class="ant-statistic css-var-test-id"
     >
       <div
         class="ant-statistic-header"
@@ -560,15 +560,15 @@ exports[`renders components/statistic/demo/countdown.tsx correctly 1`] = `
 
 exports[`renders components/statistic/demo/unit.tsx correctly 1`] = `
 <div
-  class="ant-row"
+  class="ant-row css-var-test-id"
   style="margin-left:-8px;margin-right:-8px"
 >
   <div
-    class="ant-col ant-col-12"
+    class="ant-col ant-col-12 css-var-test-id"
     style="padding-left:8px;padding-right:8px"
   >
     <div
-      class="ant-statistic"
+      class="ant-statistic css-var-test-id"
     >
       <div
         class="ant-statistic-header"
@@ -618,11 +618,11 @@ exports[`renders components/statistic/demo/unit.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-col ant-col-12"
+    class="ant-col ant-col-12 css-var-test-id"
     style="padding-left:8px;padding-right:8px"
   >
     <div
-      class="ant-statistic"
+      class="ant-statistic css-var-test-id"
     >
       <div
         class="ant-statistic-header"

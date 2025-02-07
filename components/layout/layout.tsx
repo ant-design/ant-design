@@ -48,7 +48,7 @@ const Basic = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((props, re
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('layout', customizePrefixCls);
 
-  const [hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId] = useStyle(prefixCls);
 
   const prefixWithSuffixCls = suffixCls ? `${prefixCls}-${suffixCls}` : prefixCls;
 
@@ -58,7 +58,6 @@ const Basic = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((props, re
         customizePrefixCls || prefixWithSuffixCls,
         className,
         hashId,
-        cssVarCls,
       )}
       ref={ref}
       {...others}

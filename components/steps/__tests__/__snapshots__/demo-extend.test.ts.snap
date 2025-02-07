@@ -3,7 +3,7 @@
 exports[`renders components/steps/demo/clickable.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-steps ant-steps-vertical"
+    class="ant-steps ant-steps-vertical css-var-test-id"
   >
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
@@ -115,11 +115,11 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal"
     role="separator"
   />,
   <div
-    class="ant-steps ant-steps-vertical"
+    class="ant-steps ant-steps-vertical css-var-test-id"
   >
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
@@ -238,7 +238,7 @@ exports[`renders components/steps/demo/clickable.tsx extend context correctly 2`
 exports[`renders components/steps/demo/component-token.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-steps ant-steps-vertical"
+    class="ant-steps ant-steps-vertical css-var-test-id"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -368,7 +368,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-steps ant-steps-vertical ant-steps-small"
+    class="ant-steps ant-steps-vertical css-var-test-id ant-steps-small"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -498,7 +498,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-steps ant-steps-vertical"
+    class="ant-steps ant-steps-vertical css-var-test-id"
   >
     <div
       class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-steps-item-active"
@@ -690,7 +690,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-steps ant-steps-vertical ant-steps-dot"
+    class="ant-steps ant-steps-vertical css-var-test-id ant-steps-dot"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -802,7 +802,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-steps ant-steps-vertical ant-steps-navigation"
+    class="ant-steps ant-steps-vertical css-var-test-id ant-steps-navigation"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -950,7 +950,7 @@ exports[`renders components/steps/demo/component-token.tsx extend context correc
 
 exports[`renders components/steps/demo/customized-progress-dot.tsx extend context correctly 1`] = `
 <div
-  class="ant-steps ant-steps-vertical ant-steps-dot"
+  class="ant-steps ant-steps-vertical css-var-test-id ant-steps-dot"
 >
   <div
     class="ant-steps-item ant-steps-item-finish"
@@ -972,7 +972,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
             class="ant-steps-icon-dot"
           />
           <div
-            class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+            class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <div
@@ -1035,7 +1035,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
             class="ant-steps-icon-dot"
           />
           <div
-            class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+            class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <div
@@ -1098,7 +1098,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
             class="ant-steps-icon-dot"
           />
           <div
-            class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+            class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <div
@@ -1161,7 +1161,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
             class="ant-steps-icon-dot"
           />
           <div
-            class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+            class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <div
@@ -1211,7 +1211,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
 
 exports[`renders components/steps/demo/error.tsx extend context correctly 1`] = `
 <div
-  class="ant-steps ant-steps-vertical"
+  class="ant-steps ant-steps-vertical css-var-test-id"
 >
   <div
     class="ant-steps-item ant-steps-item-finish ant-steps-next-error"
@@ -1359,7 +1359,7 @@ exports[`renders components/steps/demo/error.tsx extend context correctly 2`] = 
 
 exports[`renders components/steps/demo/icon.tsx extend context correctly 1`] = `
 <div
-  class="ant-steps ant-steps-vertical"
+  class="ant-steps ant-steps-vertical css-var-test-id"
 >
   <div
     class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-steps-item-active"
@@ -1557,10 +1557,10 @@ exports[`renders components/steps/demo/icon.tsx extend context correctly 2`] = `
 exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] = `
 <div>
   <div
-    class="ant-list ant-list-split"
+    class="ant-list ant-list-split css-var-test-id"
   >
     <div
-      class="ant-spin-nested-loading"
+      class="ant-spin-nested-loading css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -1578,7 +1578,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=0"
@@ -1605,7 +1605,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               </div>
             </div>
             <div
-              class="ant-steps ant-steps-horizontal ant-steps-label-vertical ant-steps-dot ant-steps-inline"
+              class="ant-steps ant-steps-horizontal css-var-test-id ant-steps-label-vertical ant-steps-dot ant-steps-inline"
               style="margin-top: 8px;"
             >
               <div
@@ -1646,7 +1646,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 </div>
               </div>
               <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
@@ -1703,7 +1703,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 </div>
               </div>
               <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
@@ -1760,7 +1760,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 </div>
               </div>
               <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
@@ -1791,7 +1791,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
@@ -1818,7 +1818,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               </div>
             </div>
             <div
-              class="ant-steps ant-steps-horizontal ant-steps-label-vertical ant-steps-dot ant-steps-inline"
+              class="ant-steps ant-steps-horizontal css-var-test-id ant-steps-label-vertical ant-steps-dot ant-steps-inline"
               style="margin-top: 8px;"
             >
               <div
@@ -1859,7 +1859,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 </div>
               </div>
               <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
@@ -1916,7 +1916,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 </div>
               </div>
               <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
@@ -1973,7 +1973,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 </div>
               </div>
               <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
@@ -2004,7 +2004,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
@@ -2031,7 +2031,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               </div>
             </div>
             <div
-              class="ant-steps ant-steps-horizontal ant-steps-label-vertical ant-steps-dot ant-steps-inline"
+              class="ant-steps ant-steps-horizontal css-var-test-id ant-steps-label-vertical ant-steps-dot ant-steps-inline"
               style="margin-top: 8px;"
             >
               <div
@@ -2072,7 +2072,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 </div>
               </div>
               <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
@@ -2129,7 +2129,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 </div>
               </div>
               <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
@@ -2186,7 +2186,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 </div>
               </div>
               <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
@@ -2217,7 +2217,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=3"
@@ -2244,7 +2244,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               </div>
             </div>
             <div
-              class="ant-steps ant-steps-horizontal ant-steps-label-vertical ant-steps-dot ant-steps-inline"
+              class="ant-steps ant-steps-horizontal css-var-test-id ant-steps-label-vertical ant-steps-dot ant-steps-inline"
               style="margin-top: 8px;"
             >
               <div
@@ -2285,7 +2285,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 </div>
               </div>
               <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
@@ -2342,7 +2342,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 </div>
               </div>
               <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
@@ -2399,7 +2399,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 </div>
               </div>
               <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
@@ -2432,7 +2432,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 2`] =
 exports[`renders components/steps/demo/label-placement.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-steps ant-steps-vertical"
+    class="ant-steps ant-steps-vertical css-var-test-id"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -2557,7 +2557,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-steps ant-steps-vertical ant-steps-with-progress"
+    class="ant-steps ant-steps-vertical ant-steps-with-progress css-var-test-id"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -2630,7 +2630,7 @@ Array [
               aria-valuemax="100"
               aria-valuemin="0"
               aria-valuenow="60"
-              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
+              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info css-var-test-id"
               role="progressbar"
             >
               <div
@@ -2737,7 +2737,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-steps ant-steps-vertical ant-steps-with-progress ant-steps-small"
+    class="ant-steps ant-steps-vertical ant-steps-with-progress css-var-test-id ant-steps-small"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -2810,7 +2810,7 @@ Array [
               aria-valuemax="100"
               aria-valuemin="0"
               aria-valuenow="80"
-              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
+              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info css-var-test-id"
               role="progressbar"
             >
               <div
@@ -2923,7 +2923,7 @@ exports[`renders components/steps/demo/label-placement.tsx extend context correc
 exports[`renders components/steps/demo/nav.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-steps ant-steps-vertical site-navigation-steps ant-steps-small ant-steps-navigation"
+    class="ant-steps ant-steps-vertical site-navigation-steps css-var-test-id ant-steps-small ant-steps-navigation"
   >
     <div
       class="ant-steps-item ant-steps-item-finish ant-steps-item-active"
@@ -3071,7 +3071,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-steps ant-steps-vertical site-navigation-steps ant-steps-navigation"
+    class="ant-steps ant-steps-vertical site-navigation-steps css-var-test-id ant-steps-navigation"
   >
     <div
       class="ant-steps-item ant-steps-item-finish ant-steps-item-active"
@@ -3217,7 +3217,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-steps ant-steps-vertical site-navigation-steps ant-steps-small ant-steps-navigation"
+    class="ant-steps ant-steps-vertical site-navigation-steps css-var-test-id ant-steps-small ant-steps-navigation"
   >
     <div
       class="ant-steps-item ant-steps-item-finish ant-steps-item-active"
@@ -3385,7 +3385,7 @@ exports[`renders components/steps/demo/nav.tsx extend context correctly 2`] = `[
 
 exports[`renders components/steps/demo/progress.tsx extend context correctly 1`] = `
 <div
-  class="ant-steps ant-steps-vertical ant-steps-with-progress"
+  class="ant-steps ant-steps-vertical ant-steps-with-progress css-var-test-id"
 >
   <div
     class="ant-steps-item ant-steps-item-finish"
@@ -3458,7 +3458,7 @@ exports[`renders components/steps/demo/progress.tsx extend context correctly 1`]
             aria-valuemax="100"
             aria-valuemin="0"
             aria-valuenow="60"
-            class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
+            class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info css-var-test-id"
             role="progressbar"
           >
             <div
@@ -3579,7 +3579,7 @@ Array [
     class="ant-space-compact ant-space-compact-block"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
       type="button"
     >
       <span>
@@ -3587,7 +3587,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -3595,7 +3595,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -3603,7 +3603,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -3611,7 +3611,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -3619,7 +3619,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -3627,7 +3627,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-last-item"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-last-item"
       type="button"
     >
       <span>
@@ -3637,7 +3637,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-steps ant-steps-vertical ant-steps-with-progress"
+    class="ant-steps ant-steps-vertical ant-steps-with-progress css-var-test-id"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -3710,7 +3710,7 @@ Array [
               aria-valuemax="100"
               aria-valuemin="0"
               aria-valuenow="0"
-              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
+              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info css-var-test-id"
               role="progressbar"
             >
               <div
@@ -3822,7 +3822,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-steps ant-steps-vertical ant-steps-with-progress ant-steps-small"
+    class="ant-steps ant-steps-vertical ant-steps-with-progress css-var-test-id ant-steps-small"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -3895,7 +3895,7 @@ Array [
               aria-valuemax="100"
               aria-valuemin="0"
               aria-valuenow="0"
-              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
+              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info css-var-test-id"
               role="progressbar"
             >
               <div
@@ -4007,7 +4007,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-steps ant-steps-vertical ant-steps-with-progress"
+    class="ant-steps ant-steps-vertical ant-steps-with-progress css-var-test-id"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -4080,7 +4080,7 @@ Array [
               aria-valuemax="100"
               aria-valuemin="0"
               aria-valuenow="0"
-              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
+              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info css-var-test-id"
               role="progressbar"
             >
               <div
@@ -4192,7 +4192,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-steps ant-steps-vertical ant-steps-with-progress ant-steps-small"
+    class="ant-steps ant-steps-vertical ant-steps-with-progress css-var-test-id ant-steps-small"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -4265,7 +4265,7 @@ Array [
               aria-valuemax="100"
               aria-valuemin="0"
               aria-valuenow="0"
-              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
+              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info css-var-test-id"
               role="progressbar"
             >
               <div
@@ -4384,7 +4384,7 @@ exports[`renders components/steps/demo/progress-debug.tsx extend context correct
 exports[`renders components/steps/demo/progress-dot.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-steps ant-steps-vertical ant-steps-dot"
+    class="ant-steps ant-steps-vertical css-var-test-id ant-steps-dot"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -4496,11 +4496,11 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal"
     role="separator"
   />,
   <div
-    class="ant-steps ant-steps-vertical ant-steps-dot"
+    class="ant-steps ant-steps-vertical css-var-test-id ant-steps-dot"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -4691,7 +4691,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
 exports[`renders components/steps/demo/progress-dot-small.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-steps ant-steps-vertical ant-steps-small ant-steps-dot"
+    class="ant-steps ant-steps-vertical css-var-test-id ant-steps-small ant-steps-dot"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -4803,11 +4803,11 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal"
     role="separator"
   />,
   <div
-    class="ant-steps ant-steps-vertical ant-steps-small ant-steps-dot"
+    class="ant-steps ant-steps-vertical css-var-test-id ant-steps-small ant-steps-dot"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -4997,7 +4997,7 @@ exports[`renders components/steps/demo/progress-dot-small.tsx extend context cor
 
 exports[`renders components/steps/demo/simple.tsx extend context correctly 1`] = `
 <div
-  class="ant-steps ant-steps-vertical"
+  class="ant-steps ant-steps-vertical css-var-test-id"
 >
   <div
     class="ant-steps-item ant-steps-item-finish"
@@ -5132,7 +5132,7 @@ exports[`renders components/steps/demo/simple.tsx extend context correctly 2`] =
 
 exports[`renders components/steps/demo/small-size.tsx extend context correctly 1`] = `
 <div
-  class="ant-steps ant-steps-vertical ant-steps-small"
+  class="ant-steps ant-steps-vertical css-var-test-id ant-steps-small"
 >
   <div
     class="ant-steps-item ant-steps-item-finish"
@@ -5247,7 +5247,7 @@ exports[`renders components/steps/demo/small-size.tsx extend context correctly 2
 exports[`renders components/steps/demo/step-next.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-steps ant-steps-vertical"
+    class="ant-steps ant-steps-vertical css-var-test-id"
   >
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
@@ -5346,7 +5346,7 @@ Array [
     style="margin-top: 24px;"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -5362,11 +5362,11 @@ exports[`renders components/steps/demo/step-next.tsx extend context correctly 2`
 exports[`renders components/steps/demo/steps-in-steps.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-radio-group ant-radio-group-outline ant-radio-css-var"
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
     style="margin-bottom: 16px;"
   >
     <label
-      class="ant-radio-wrapper ant-radio-css-var"
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -5388,7 +5388,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-css-var"
+      class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-checked"
@@ -5412,7 +5412,7 @@ Array [
     </label>
   </div>,
   <div
-    class="ant-steps ant-steps-vertical ant-steps-default"
+    class="ant-steps ant-steps-vertical css-var-test-id ant-steps-default"
   >
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
@@ -5444,13 +5444,13 @@ Array [
             class="ant-steps-item-description"
           >
             <div
-              class="ant-card ant-card-bordered"
+              class="ant-card ant-card-bordered css-var-test-id"
             >
               <div
                 class="ant-card-body"
               >
                 <div
-                  class="ant-steps ant-steps-vertical ant-steps-default"
+                  class="ant-steps ant-steps-vertical css-var-test-id ant-steps-default"
                 >
                   <div
                     class="ant-steps-item ant-steps-item-process ant-steps-item-active"
@@ -5637,7 +5637,7 @@ exports[`renders components/steps/demo/steps-in-steps.tsx extend context correct
 
 exports[`renders components/steps/demo/vertical.tsx extend context correctly 1`] = `
 <div
-  class="ant-steps ant-steps-vertical"
+  class="ant-steps ant-steps-vertical css-var-test-id"
 >
   <div
     class="ant-steps-item ant-steps-item-finish"
@@ -5766,7 +5766,7 @@ exports[`renders components/steps/demo/vertical.tsx extend context correctly 2`]
 
 exports[`renders components/steps/demo/vertical-small.tsx extend context correctly 1`] = `
 <div
-  class="ant-steps ant-steps-vertical ant-steps-small"
+  class="ant-steps ant-steps-vertical css-var-test-id ant-steps-small"
 >
   <div
     class="ant-steps-item ant-steps-item-finish"
@@ -5895,7 +5895,7 @@ exports[`renders components/steps/demo/vertical-small.tsx extend context correct
 
 exports[`renders components/steps/demo/wireframe.tsx extend context correctly 1`] = `
 <div
-  class="ant-steps ant-steps-vertical"
+  class="ant-steps ant-steps-vertical css-var-test-id"
 >
   <div
     class="ant-steps-item ant-steps-item-finish"

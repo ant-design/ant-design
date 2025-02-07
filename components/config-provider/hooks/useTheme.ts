@@ -61,11 +61,11 @@ export default function useTheme(
       });
 
       const cssVarKey = `css-var-${themeKey.replace(/:/g, '')}`;
-      const mergedCssVar = (themeConfig.cssVar ?? parentThemeConfig.cssVar) && {
+      const mergedCssVar = {
         prefix: config?.prefixCls, // Same as prefixCls by default
-        ...(typeof parentThemeConfig.cssVar === 'object' ? parentThemeConfig.cssVar : {}),
-        ...(typeof themeConfig.cssVar === 'object' ? themeConfig.cssVar : {}),
-        key: (typeof themeConfig.cssVar === 'object' && themeConfig.cssVar?.key) || cssVarKey,
+        ...parentThemeConfig.cssVar,
+        ...themeConfig.cssVar,
+        key: themeConfig.cssVar?.key || cssVarKey,
       };
 
       // Base token

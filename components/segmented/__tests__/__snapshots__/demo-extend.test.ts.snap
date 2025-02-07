@@ -3,7 +3,7 @@
 exports[`renders components/segmented/demo/basic.tsx extend context correctly 1`] = `
 <div
   aria-label="segmented control"
-  class="ant-segmented"
+  class="ant-segmented css-var-test-id"
   role="radiogroup"
   tabindex="0"
 >
@@ -100,7 +100,7 @@ exports[`renders components/segmented/demo/basic.tsx extend context correctly 2`
 exports[`renders components/segmented/demo/block.tsx extend context correctly 1`] = `
 <div
   aria-label="segmented control"
-  class="ant-segmented ant-segmented-block"
+  class="ant-segmented ant-segmented-block css-var-test-id"
   role="radiogroup"
   tabindex="0"
 >
@@ -165,7 +165,7 @@ exports[`renders components/segmented/demo/block.tsx extend context correctly 2`
 exports[`renders components/segmented/demo/componentToken.tsx extend context correctly 1`] = `
 <div
   aria-label="segmented control"
-  class="ant-segmented"
+  class="ant-segmented css-var-test-id"
   role="radiogroup"
   tabindex="0"
 >
@@ -262,7 +262,7 @@ exports[`renders components/segmented/demo/componentToken.tsx extend context cor
 exports[`renders components/segmented/demo/controlled.tsx extend context correctly 1`] = `
 <div
   aria-label="segmented control"
-  class="ant-segmented"
+  class="ant-segmented css-var-test-id"
   role="radiogroup"
   tabindex="0"
 >
@@ -328,7 +328,7 @@ exports[`renders components/segmented/demo/controlled-two.tsx extend context cor
 Array [
   <div
     aria-label="segmented control"
-    class="ant-segmented"
+    class="ant-segmented css-var-test-id"
     role="radiogroup"
     tabindex="0"
   >
@@ -389,7 +389,7 @@ Array [
     ,
   <div
     aria-label="segmented control"
-    class="ant-segmented"
+    class="ant-segmented css-var-test-id"
     role="radiogroup"
     tabindex="0"
   >
@@ -454,11 +454,11 @@ exports[`renders components/segmented/demo/controlled-two.tsx extend context cor
 
 exports[`renders components/segmented/demo/custom.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-flex-start ant-flex-gap-small ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-small ant-flex-vertical"
 >
   <div
     aria-label="segmented control"
-    class="ant-segmented"
+    class="ant-segmented css-var-test-id"
     role="radiogroup"
     tabindex="0"
   >
@@ -482,7 +482,7 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
             style="padding: 4px;"
           >
             <span
-              class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
+              class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
             >
               <img
                 src="https://api.dicebear.com/7.x/miniavs/svg?seed=8"
@@ -510,7 +510,7 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
             style="padding: 4px;"
           >
             <span
-              class="ant-avatar ant-avatar-circle ant-avatar-css-var"
+              class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
               style="background-color: rgb(245, 106, 0);"
             >
               <span
@@ -542,7 +542,7 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
             style="padding: 4px;"
           >
             <span
-              class="ant-avatar ant-avatar-circle ant-avatar-icon ant-avatar-css-var"
+              class="ant-avatar ant-avatar-circle ant-avatar-icon css-var-test-id ant-avatar-css-var"
               style="background-color: rgb(135, 208, 104);"
             >
               <span
@@ -575,7 +575,7 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
   </div>
   <div
     aria-label="segmented control"
-    class="ant-segmented"
+    class="ant-segmented css-var-test-id"
     role="radiogroup"
     tabindex="0"
   >
@@ -688,11 +688,11 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 2
 
 exports[`renders components/segmented/demo/disabled.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-flex-start ant-flex-gap-small ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-small ant-flex-vertical"
 >
   <div
     aria-label="segmented control"
-    class="ant-segmented ant-segmented-disabled"
+    class="ant-segmented ant-segmented-disabled css-var-test-id"
     role="radiogroup"
   >
     <div
@@ -754,7 +754,7 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
   </div>
   <div
     aria-label="segmented control"
-    class="ant-segmented"
+    class="ant-segmented css-var-test-id"
     role="radiogroup"
     tabindex="0"
   >
@@ -853,11 +853,11 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
 
 exports[`renders components/segmented/demo/dynamic.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-flex-start ant-flex-gap-small ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-small ant-flex-vertical"
 >
   <div
     aria-label="segmented control"
-    class="ant-segmented"
+    class="ant-segmented css-var-test-id"
     role="radiogroup"
     tabindex="0"
   >
@@ -916,7 +916,7 @@ exports[`renders components/segmented/demo/dynamic.tsx extend context correctly 
     </div>
   </div>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -931,7 +931,7 @@ exports[`renders components/segmented/demo/dynamic.tsx extend context correctly 
 exports[`renders components/segmented/demo/icon-only.tsx extend context correctly 1`] = `
 <div
   aria-label="segmented control"
-  class="ant-segmented"
+  class="ant-segmented css-var-test-id"
   role="radiogroup"
   tabindex="0"
 >
@@ -1021,11 +1021,11 @@ exports[`renders components/segmented/demo/icon-only.tsx extend context correctl
 
 exports[`renders components/segmented/demo/size.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-flex-start ant-flex-gap-small ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-small ant-flex-vertical"
 >
   <div
     aria-label="segmented control"
-    class="ant-segmented ant-segmented-lg"
+    class="ant-segmented ant-segmented-lg css-var-test-id"
     role="radiogroup"
     tabindex="0"
   >
@@ -1117,7 +1117,7 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
   </div>
   <div
     aria-label="segmented control"
-    class="ant-segmented"
+    class="ant-segmented css-var-test-id"
     role="radiogroup"
     tabindex="0"
   >
@@ -1209,7 +1209,7 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
   </div>
   <div
     aria-label="segmented control"
-    class="ant-segmented ant-segmented-sm"
+    class="ant-segmented ant-segmented-sm css-var-test-id"
     role="radiogroup"
     tabindex="0"
   >
@@ -1306,12 +1306,12 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 2`]
 
 exports[`renders components/segmented/demo/size-consistent.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
 >
   <div>
     <div
       aria-label="segmented control"
-      class="ant-segmented ant-segmented-lg"
+      class="ant-segmented ant-segmented-lg css-var-test-id"
       role="radiogroup"
       style="margin-inline-end: 6px;"
       tabindex="0"
@@ -1371,7 +1371,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg"
       type="button"
     >
       <span>
@@ -1382,7 +1382,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
   <div>
     <div
       aria-label="segmented control"
-      class="ant-segmented"
+      class="ant-segmented css-var-test-id"
       role="radiogroup"
       style="margin-inline-end: 6px;"
       tabindex="0"
@@ -1442,7 +1442,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
       </div>
     </div>
     <input
-      class="ant-input ant-input-outlined ant-input-css-var"
+      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
       placeholder="default size"
       style="width: 150px;"
       type="text"
@@ -1452,7 +1452,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
   <div>
     <div
       aria-label="segmented control"
-      class="ant-segmented ant-segmented-sm"
+      class="ant-segmented ant-segmented-sm css-var-test-id"
       role="radiogroup"
       style="margin-inline-end: 6px;"
       tabindex="0"
@@ -1512,7 +1512,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
       </div>
     </div>
     <div
-      class="ant-select ant-select-sm ant-select-outlined ant-select-css-var ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-sm ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       style="width: 150px;"
     >
       <div
@@ -1550,7 +1550,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
@@ -1640,7 +1640,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
 exports[`renders components/segmented/demo/vertical.tsx extend context correctly 1`] = `
 <div
   aria-label="segmented control"
-  class="ant-segmented ant-segmented-vertical ant-segmented-vertical"
+  class="ant-segmented ant-segmented-vertical ant-segmented-vertical css-var-test-id"
   role="radiogroup"
   tabindex="0"
 >
@@ -1731,7 +1731,7 @@ exports[`renders components/segmented/demo/vertical.tsx extend context correctly
 exports[`renders components/segmented/demo/with-icon.tsx extend context correctly 1`] = `
 <div
   aria-label="segmented control"
-  class="ant-segmented"
+  class="ant-segmented css-var-test-id"
   role="radiogroup"
   tabindex="0"
 >
@@ -1828,7 +1828,7 @@ exports[`renders components/segmented/demo/with-icon.tsx extend context correctl
 exports[`renders components/segmented/demo/with-name.tsx extend context correctly 1`] = `
 <div
   aria-label="segmented control"
-  class="ant-segmented"
+  class="ant-segmented css-var-test-id"
   role="radiogroup"
   tabindex="0"
 >

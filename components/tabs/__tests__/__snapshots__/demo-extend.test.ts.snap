@@ -3,14 +3,14 @@
 exports[`renders components/tabs/demo/animated.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <button
         aria-checked="true"
-        class="ant-switch ant-switch-checked"
+        class="ant-switch css-var-test-id ant-switch-checked"
         role="switch"
         type="button"
       >
@@ -38,7 +38,7 @@ Array [
     >
       <button
         aria-checked="true"
-        class="ant-switch ant-switch-checked"
+        class="ant-switch css-var-test-id ant-switch-checked"
         role="switch"
         type="button"
       >
@@ -63,7 +63,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-tabs ant-tabs-top ant-tabs-css-var"
+    class="ant-tabs ant-tabs-top css-var-test-id ant-tabs-css-var"
   >
     <div
       aria-orientation="horizontal"
@@ -162,7 +162,7 @@ Array [
           </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -207,7 +207,7 @@ exports[`renders components/tabs/demo/animated.tsx extend context correctly 2`] 
 
 exports[`renders components/tabs/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-tabs ant-tabs-top ant-tabs-css-var"
+  class="ant-tabs ant-tabs-top css-var-test-id ant-tabs-css-var"
 >
   <div
     aria-orientation="horizontal"
@@ -306,7 +306,7 @@ exports[`renders components/tabs/demo/basic.tsx extend context correctly 1`] = `
         </span>
       </button>
       <div
-        class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+        class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -349,7 +349,7 @@ exports[`renders components/tabs/demo/basic.tsx extend context correctly 2`] = `
 
 exports[`renders components/tabs/demo/card.tsx extend context correctly 1`] = `
 <div
-  class="ant-tabs ant-tabs-top ant-tabs-card ant-tabs-css-var"
+  class="ant-tabs ant-tabs-top ant-tabs-card css-var-test-id ant-tabs-css-var"
 >
   <div
     aria-orientation="horizontal"
@@ -448,7 +448,7 @@ exports[`renders components/tabs/demo/card.tsx extend context correctly 1`] = `
         </span>
       </button>
       <div
-        class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+        class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -494,7 +494,7 @@ exports[`renders components/tabs/demo/card-top.tsx extend context correctly 1`] 
   class="acss-1g7foe3"
 >
   <div
-    class="ant-tabs ant-tabs-top ant-tabs-card ant-tabs-css-var"
+    class="ant-tabs ant-tabs-top ant-tabs-card css-var-test-id ant-tabs-css-var"
   >
     <div
       aria-orientation="horizontal"
@@ -593,7 +593,7 @@ exports[`renders components/tabs/demo/card-top.tsx extend context correctly 1`] 
           </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -645,7 +645,7 @@ exports[`renders components/tabs/demo/card-top.tsx extend context correctly 2`] 
 
 exports[`renders components/tabs/demo/centered.tsx extend context correctly 1`] = `
 <div
-  class="ant-tabs ant-tabs-top ant-tabs-centered ant-tabs-css-var"
+  class="ant-tabs ant-tabs-top ant-tabs-centered css-var-test-id ant-tabs-css-var"
 >
   <div
     aria-orientation="horizontal"
@@ -744,7 +744,7 @@ exports[`renders components/tabs/demo/centered.tsx extend context correctly 1`] 
         </span>
       </button>
       <div
-        class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+        class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -788,7 +788,7 @@ exports[`renders components/tabs/demo/centered.tsx extend context correctly 2`] 
 exports[`renders components/tabs/demo/component-token.tsx extend context correctly 1`] = `
 <div>
   <div
-    class="ant-tabs ant-tabs-top ant-tabs-css-var"
+    class="ant-tabs ant-tabs-top css-var-test-id ant-tabs-css-var"
     style="margin-bottom: 32px;"
   >
     <div
@@ -888,7 +888,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
           </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -909,7 +909,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -938,7 +938,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-tabs ant-tabs-left ant-tabs-css-var"
+    class="ant-tabs ant-tabs-left css-var-test-id ant-tabs-css-var"
     style="margin-bottom: 32px;"
   >
     <div
@@ -1038,7 +1038,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
           </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -1059,7 +1059,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -1088,7 +1088,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-tabs ant-tabs-top ant-tabs-small ant-tabs-css-var"
+    class="ant-tabs ant-tabs-top ant-tabs-small css-var-test-id ant-tabs-css-var"
     style="margin-bottom: 32px;"
   >
     <div
@@ -1188,7 +1188,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
           </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -1209,7 +1209,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -1238,7 +1238,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-tabs ant-tabs-top ant-tabs-large ant-tabs-css-var"
+    class="ant-tabs ant-tabs-top ant-tabs-large css-var-test-id ant-tabs-css-var"
     style="margin-bottom: 32px;"
   >
     <div
@@ -1338,7 +1338,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
           </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -1359,7 +1359,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -1388,7 +1388,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-tabs ant-tabs-top ant-tabs-card ant-tabs-centered ant-tabs-css-var"
+    class="ant-tabs ant-tabs-top ant-tabs-card ant-tabs-centered css-var-test-id ant-tabs-css-var"
   >
     <div
       aria-orientation="horizontal"
@@ -1489,7 +1489,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
           </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -1527,7 +1527,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-tabs ant-tabs-top ant-tabs-small ant-tabs-card ant-tabs-centered ant-tabs-css-var"
+    class="ant-tabs ant-tabs-top ant-tabs-small ant-tabs-card ant-tabs-centered css-var-test-id ant-tabs-css-var"
   >
     <div
       aria-orientation="horizontal"
@@ -1628,7 +1628,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
           </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -1666,7 +1666,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-tabs ant-tabs-top ant-tabs-large ant-tabs-card ant-tabs-centered ant-tabs-css-var"
+    class="ant-tabs ant-tabs-top ant-tabs-large ant-tabs-card ant-tabs-centered css-var-test-id ant-tabs-css-var"
   >
     <div
       aria-orientation="horizontal"
@@ -1767,7 +1767,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
           </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -1815,7 +1815,7 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context corr
     style="margin-bottom: 16px;"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -1824,7 +1824,7 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context corr
     </button>
   </div>
   <div
-    class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-card ant-tabs-editable-card ant-tabs-css-var"
+    class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-card ant-tabs-editable-card css-var-test-id ant-tabs-css-var"
   >
     <div
       aria-orientation="horizontal"
@@ -1962,7 +1962,7 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context corr
           </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -2008,7 +2008,7 @@ exports[`renders components/tabs/demo/custom-indicator.tsx extend context correc
 Array [
   <div
     aria-label="segmented control"
-    class="ant-segmented"
+    class="ant-segmented css-var-test-id"
     role="radiogroup"
     style="margin-bottom: 8px;"
     tabindex="0"
@@ -2068,7 +2068,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-tabs ant-tabs-top ant-tabs-css-var"
+    class="ant-tabs ant-tabs-top css-var-test-id ant-tabs-css-var"
   >
     <div
       aria-orientation="horizontal"
@@ -2167,7 +2167,7 @@ Array [
           </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -2211,7 +2211,7 @@ exports[`renders components/tabs/demo/custom-indicator.tsx extend context correc
 
 exports[`renders components/tabs/demo/custom-tab-bar.tsx extend context correctly 1`] = `
 <div
-  class="ant-tabs ant-tabs-top ant-tabs-css-var"
+  class="ant-tabs ant-tabs-top css-var-test-id ant-tabs-css-var"
 >
   <div
     style="z-index: 1;"
@@ -2315,7 +2315,7 @@ exports[`renders components/tabs/demo/custom-tab-bar.tsx extend context correctl
           </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -2535,7 +2535,7 @@ exports[`renders components/tabs/demo/custom-tab-bar-node.tsx extend context cor
 
 exports[`renders components/tabs/demo/disabled.tsx extend context correctly 1`] = `
 <div
-  class="ant-tabs ant-tabs-top ant-tabs-css-var"
+  class="ant-tabs ant-tabs-top css-var-test-id ant-tabs-css-var"
 >
   <div
     aria-orientation="horizontal"
@@ -2634,7 +2634,7 @@ exports[`renders components/tabs/demo/disabled.tsx extend context correctly 1`] 
         </span>
       </button>
       <div
-        class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+        class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -2677,7 +2677,7 @@ exports[`renders components/tabs/demo/disabled.tsx extend context correctly 2`] 
 
 exports[`renders components/tabs/demo/editable-card.tsx extend context correctly 1`] = `
 <div
-  class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-card ant-tabs-editable-card ant-tabs-css-var"
+  class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-card ant-tabs-editable-card css-var-test-id ant-tabs-css-var"
 >
   <div
     aria-orientation="horizontal"
@@ -2858,7 +2858,7 @@ exports[`renders components/tabs/demo/editable-card.tsx extend context correctly
         </span>
       </button>
       <div
-        class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+        class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -2930,7 +2930,7 @@ exports[`renders components/tabs/demo/editable-card.tsx extend context correctly
 exports[`renders components/tabs/demo/extra.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-tabs ant-tabs-top ant-tabs-css-var"
+    class="ant-tabs ant-tabs-top css-var-test-id ant-tabs-css-var"
   >
     <div
       aria-orientation="horizontal"
@@ -3029,7 +3029,7 @@ Array [
           </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -3050,7 +3050,7 @@ Array [
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -3085,14 +3085,14 @@ Array [
     You can also specify its direction or both side
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal"
     role="separator"
   />,
   <div
-    class="ant-checkbox-group ant-checkbox-css-var"
+    class="ant-checkbox-group css-var-test-id ant-checkbox-css-var"
   >
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item ant-checkbox-css-var"
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-test-id ant-checkbox-css-var"
     >
       <span
         class="ant-checkbox ant-wave-target ant-checkbox-checked"
@@ -3114,7 +3114,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item ant-checkbox-css-var"
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-test-id ant-checkbox-css-var"
     >
       <span
         class="ant-checkbox ant-wave-target ant-checkbox-checked"
@@ -3139,7 +3139,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-tabs ant-tabs-top ant-tabs-css-var"
+    class="ant-tabs ant-tabs-top css-var-test-id ant-tabs-css-var"
   >
     <div
       aria-orientation="horizontal"
@@ -3150,7 +3150,7 @@ Array [
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined tabs-extra-demo-button"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined tabs-extra-demo-button"
           type="button"
         >
           <span>
@@ -3250,7 +3250,7 @@ Array [
           </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -3271,7 +3271,7 @@ Array [
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -3306,7 +3306,7 @@ exports[`renders components/tabs/demo/extra.tsx extend context correctly 2`] = `
 
 exports[`renders components/tabs/demo/icon.tsx extend context correctly 1`] = `
 <div
-  class="ant-tabs ant-tabs-top ant-tabs-css-var"
+  class="ant-tabs ant-tabs-top css-var-test-id ant-tabs-css-var"
 >
   <div
     aria-orientation="horizontal"
@@ -3440,7 +3440,7 @@ exports[`renders components/tabs/demo/icon.tsx extend context correctly 1`] = `
         </span>
       </button>
       <div
-        class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+        class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -3484,7 +3484,7 @@ exports[`renders components/tabs/demo/icon.tsx extend context correctly 2`] = `[
 exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
 <div>
   <div
-    class="ant-select ant-select-outlined ant-select-css-var ant-select-single ant-select-show-arrow"
+    class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     style="width: 200px;"
   >
     <div
@@ -3519,7 +3519,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
@@ -3654,7 +3654,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-select ant-select-outlined ant-select-css-var ant-select-single ant-select-show-arrow"
+    class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     style="width: 200px;"
   >
     <div
@@ -3689,7 +3689,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
@@ -3824,7 +3824,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-select ant-select-outlined ant-select-css-var ant-select-single ant-select-show-arrow"
+    class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     style="width: 200px;"
   >
     <div
@@ -3859,7 +3859,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
@@ -3983,7 +3983,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-select ant-select-outlined ant-select-css-var ant-select-single ant-select-show-arrow"
+    class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     style="width: 200px;"
   >
     <div
@@ -4018,7 +4018,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
@@ -4142,7 +4142,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-tabs ant-tabs-top ant-tabs-css-var"
+    class="ant-tabs ant-tabs-top css-var-test-id ant-tabs-css-var"
   >
     <div
       aria-orientation="horizontal"
@@ -4226,7 +4226,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
           </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -4259,7 +4259,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
           tabindex="0"
         >
           <div
-            class="ant-tabs ant-tabs-top ant-tabs-css-var"
+            class="ant-tabs ant-tabs-top css-var-test-id ant-tabs-css-var"
             style="height: 300px;"
           >
             <div
@@ -4614,7 +4614,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   </span>
                 </button>
                 <div
-                  class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+                  class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <ul
@@ -4663,7 +4663,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 2`] = `[
 exports[`renders components/tabs/demo/position.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
     style="margin-bottom: 24px;"
   >
     <div
@@ -4675,10 +4675,10 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-radio-group ant-radio-group-outline ant-radio-css-var"
+        class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
       >
         <label
-          class="ant-radio-button-wrapper ant-radio-css-var"
+          class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button"
@@ -4700,7 +4700,7 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-button-wrapper ant-radio-css-var"
+          class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button"
@@ -4722,7 +4722,7 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-css-var"
+          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
@@ -4745,7 +4745,7 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-button-wrapper ant-radio-css-var"
+          class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button"
@@ -4770,7 +4770,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-tabs ant-tabs-left ant-tabs-css-var"
+    class="ant-tabs ant-tabs-left css-var-test-id ant-tabs-css-var"
   >
     <div
       aria-orientation="vertical"
@@ -4869,7 +4869,7 @@ Array [
           </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -4914,11 +4914,11 @@ exports[`renders components/tabs/demo/position.tsx extend context correctly 2`] 
 exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
 <div>
   <div
-    class="ant-radio-group ant-radio-group-outline ant-radio-css-var"
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
     style="margin-bottom: 16px;"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-css-var"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
@@ -4941,7 +4941,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper ant-radio-css-var"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -4963,7 +4963,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper ant-radio-css-var"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -4986,7 +4986,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
     </label>
   </div>
   <div
-    class="ant-tabs ant-tabs-top ant-tabs-small ant-tabs-css-var"
+    class="ant-tabs ant-tabs-top ant-tabs-small css-var-test-id ant-tabs-css-var"
     style="margin-bottom: 32px;"
   >
     <div
@@ -5086,7 +5086,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
           </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -5124,7 +5124,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-tabs ant-tabs-top ant-tabs-small ant-tabs-card ant-tabs-css-var"
+    class="ant-tabs ant-tabs-top ant-tabs-small ant-tabs-card css-var-test-id ant-tabs-css-var"
     style="margin-bottom: 32px;"
   >
     <div
@@ -5224,7 +5224,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
           </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -5262,7 +5262,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-small ant-tabs-card ant-tabs-editable-card ant-tabs-css-var"
+    class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-small ant-tabs-card ant-tabs-editable-card css-var-test-id ant-tabs-css-var"
   >
     <div
       aria-orientation="horizontal"
@@ -5470,7 +5470,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
           </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -5543,11 +5543,11 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 2`] = `[
 exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
 <div>
   <div
-    class="ant-radio-group ant-radio-group-outline ant-radio-css-var"
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
     style="margin-bottom: 8px;"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-css-var"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
@@ -5570,7 +5570,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper ant-radio-css-var"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -5593,7 +5593,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
     </label>
   </div>
   <div
-    class="ant-tabs ant-tabs-top ant-tabs-css-var"
+    class="ant-tabs ant-tabs-top css-var-test-id ant-tabs-css-var"
     style="height: 220px;"
   >
     <div
@@ -6127,7 +6127,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
           </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul

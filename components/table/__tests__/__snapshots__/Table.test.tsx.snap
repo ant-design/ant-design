@@ -650,16 +650,16 @@ exports[`Table should render title 1`] = `
 
 exports[`Table support wireframe 1`] = `
 <div
-  class="ant-table-css-var ant-table-wrapper"
+  class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-test-id"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-empty ant-table-css-var"
+        class="ant-table ant-table-empty css-var-test-id ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -693,7 +693,7 @@ exports[`Table support wireframe 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-empty ant-empty-normal"
+                      class="css-var-test-id ant-empty ant-empty-normal"
                     >
                       <div
                         class="ant-empty-image"

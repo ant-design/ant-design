@@ -2,13 +2,13 @@
 
 exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-picker-calendar ant-picker-calendar-full"
+  class="ant-picker-calendar ant-picker-calendar-full css-var-test-id"
 >
   <div
     class="ant-picker-calendar-header"
   >
     <div
-      class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-css-var ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -45,7 +45,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
@@ -458,7 +458,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
       </span>
     </div>
     <div
-      class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-css-var ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -495,7 +495,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
@@ -772,10 +772,10 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
       </span>
     </div>
     <div
-      class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch ant-radio-css-var"
+      class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
     >
       <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-css-var"
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio-button ant-radio-button-checked"
@@ -798,7 +798,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
         </span>
       </label>
       <label
-        class="ant-radio-button-wrapper ant-radio-css-var"
+        class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio-button"
@@ -1601,13 +1601,13 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
   style="width: 300px; border: 1px solid #f0f0f0; border-radius: 8px;"
 >
   <div
-    class="ant-picker-calendar ant-picker-calendar-mini"
+    class="ant-picker-calendar ant-picker-calendar-mini css-var-test-id"
   >
     <div
       class="ant-picker-calendar-header"
     >
       <div
-        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select ant-select-css-var ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -1644,7 +1644,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -2057,7 +2057,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
         </span>
       </div>
       <div
-        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select ant-select-css-var ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -2094,7 +2094,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -2371,10 +2371,10 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
         </span>
       </div>
       <div
-        class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-picker-calendar-mode-switch ant-radio-css-var"
+        class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
       >
         <label
-          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-css-var"
+          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
@@ -2397,7 +2397,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
           </span>
         </label>
         <label
-          class="ant-radio-button-wrapper ant-radio-css-var"
+          class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button"
@@ -3199,13 +3199,13 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 2`] 
 exports[`renders components/calendar/demo/component-token.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-picker-calendar ant-picker-calendar-full"
+    class="ant-picker-calendar ant-picker-calendar-full css-var-test-id"
   >
     <div
       class="ant-picker-calendar-header"
     >
       <div
-        class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-css-var ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -3242,7 +3242,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -3655,7 +3655,7 @@ Array [
         </span>
       </div>
       <div
-        class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-css-var ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -3692,7 +3692,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -3969,10 +3969,10 @@ Array [
         </span>
       </div>
       <div
-        class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch ant-radio-css-var"
+        class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
       >
         <label
-          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-css-var"
+          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
@@ -3995,7 +3995,7 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-button-wrapper ant-radio-css-var"
+          class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button"
@@ -4791,13 +4791,13 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-picker-calendar ant-picker-calendar-mini"
+    class="ant-picker-calendar ant-picker-calendar-mini css-var-test-id"
   >
     <div
       class="ant-picker-calendar-header"
     >
       <div
-        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select ant-select-css-var ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -4834,7 +4834,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -5247,7 +5247,7 @@ Array [
         </span>
       </div>
       <div
-        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select ant-select-css-var ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -5284,7 +5284,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -5561,10 +5561,10 @@ Array [
         </span>
       </div>
       <div
-        class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-picker-calendar-mode-switch ant-radio-css-var"
+        class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
       >
         <label
-          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-css-var"
+          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
@@ -5587,7 +5587,7 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-button-wrapper ant-radio-css-var"
+          class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button"
@@ -6391,29 +6391,29 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
   style="width: 300px; border: 1px solid #f0f0f0; border-radius: 8px;"
 >
   <div
-    class="ant-picker-calendar ant-picker-calendar-mini"
+    class="ant-picker-calendar ant-picker-calendar-mini css-var-test-id"
   >
     <div
       style="padding: 8px;"
     >
       <h4
-        class="ant-typography"
+        class="ant-typography css-var-test-id"
       >
         Custom header
       </h4>
       <div
-        class="ant-row"
+        class="ant-row css-var-test-id"
         style="margin-left: -4px; margin-right: -4px;"
       >
         <div
-          class="ant-col"
+          class="ant-col css-var-test-id"
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div
-            class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-radio-css-var"
+            class="ant-radio-group ant-radio-group-outline ant-radio-group-small css-var-test-id ant-radio-css-var"
           >
             <label
-              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-css-var"
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
             >
               <span
                 class="ant-radio-button ant-radio-button-checked"
@@ -6436,7 +6436,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
               </span>
             </label>
             <label
-              class="ant-radio-button-wrapper ant-radio-css-var"
+              class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
             >
               <span
                 class="ant-radio-button"
@@ -6460,11 +6460,11 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
           </div>
         </div>
         <div
-          class="ant-col"
+          class="ant-col css-var-test-id"
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div
-            class="ant-select ant-select-sm ant-select-outlined my-year-select ant-select-css-var ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-sm ant-select-outlined my-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -6501,7 +6501,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
               </span>
             </div>
             <div
-              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div>
@@ -6935,11 +6935,11 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
           </div>
         </div>
         <div
-          class="ant-col"
+          class="ant-col css-var-test-id"
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div
-            class="ant-select ant-select-sm ant-select-outlined ant-select-css-var ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-sm ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -6976,7 +6976,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
               </span>
             </div>
             <div
-              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div>
@@ -8037,13 +8037,13 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
 
 exports[`renders components/calendar/demo/notice-calendar.tsx extend context correctly 1`] = `
 <div
-  class="ant-picker-calendar ant-picker-calendar-full"
+  class="ant-picker-calendar ant-picker-calendar-full css-var-test-id"
 >
   <div
     class="ant-picker-calendar-header"
   >
     <div
-      class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-css-var ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -8080,7 +8080,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
@@ -8493,7 +8493,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
       </span>
     </div>
     <div
-      class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-css-var ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -8530,7 +8530,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
@@ -8807,10 +8807,10 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
       </span>
     </div>
     <div
-      class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch ant-radio-css-var"
+      class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
     >
       <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-css-var"
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio-button ant-radio-button-checked"
@@ -8833,7 +8833,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
         </span>
       </label>
       <label
-        class="ant-radio-button-wrapper ant-radio-css-var"
+        class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio-button"
@@ -9107,7 +9107,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                     >
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-warning"
@@ -9121,7 +9121,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                       </li>
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-success"
@@ -9178,7 +9178,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                     >
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-warning"
@@ -9192,7 +9192,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                       </li>
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-success"
@@ -9206,7 +9206,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                       </li>
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-error"
@@ -9328,7 +9328,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                     >
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-warning"
@@ -9342,7 +9342,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                       </li>
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-success"
@@ -9356,7 +9356,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                       </li>
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-error"
@@ -9370,7 +9370,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                       </li>
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-error"
@@ -9384,7 +9384,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                       </li>
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-error"
@@ -9398,7 +9398,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                       </li>
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-error"
@@ -9902,7 +9902,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                     >
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-warning"
@@ -9916,7 +9916,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                       </li>
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-success"
@@ -9973,7 +9973,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                     >
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-warning"
@@ -9987,7 +9987,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                       </li>
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-success"
@@ -10001,7 +10001,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                       </li>
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-error"
@@ -10031,7 +10031,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
 exports[`renders components/calendar/demo/select.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-alert ant-alert-info ant-alert-no-icon"
+    class="ant-alert ant-alert-info ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -10046,13 +10046,13 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-picker-calendar ant-picker-calendar-full"
+    class="ant-picker-calendar ant-picker-calendar-full css-var-test-id"
   >
     <div
       class="ant-picker-calendar-header"
     >
       <div
-        class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-css-var ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -10089,7 +10089,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -10502,7 +10502,7 @@ Array [
         </span>
       </div>
       <div
-        class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-css-var ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -10539,7 +10539,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -10816,10 +10816,10 @@ Array [
         </span>
       </div>
       <div
-        class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch ant-radio-css-var"
+        class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
       >
         <label
-          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-css-var"
+          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
@@ -10842,7 +10842,7 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-button-wrapper ant-radio-css-var"
+          class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button"
@@ -11644,13 +11644,13 @@ exports[`renders components/calendar/demo/select.tsx extend context correctly 2`
 exports[`renders components/calendar/demo/week.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-picker-calendar ant-picker-calendar-full"
+    class="ant-picker-calendar ant-picker-calendar-full css-var-test-id"
   >
     <div
       class="ant-picker-calendar-header"
     >
       <div
-        class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-css-var ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -11687,7 +11687,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -12100,7 +12100,7 @@ Array [
         </span>
       </div>
       <div
-        class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-css-var ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -12137,7 +12137,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -12414,10 +12414,10 @@ Array [
         </span>
       </div>
       <div
-        class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch ant-radio-css-var"
+        class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
       >
         <label
-          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-css-var"
+          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
@@ -12440,7 +12440,7 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-button-wrapper ant-radio-css-var"
+          class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button"
@@ -13293,13 +13293,13 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-picker-calendar ant-picker-calendar-mini"
+    class="ant-picker-calendar ant-picker-calendar-mini css-var-test-id"
   >
     <div
       class="ant-picker-calendar-header"
     >
       <div
-        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select ant-select-css-var ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -13336,7 +13336,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -13749,7 +13749,7 @@ Array [
         </span>
       </div>
       <div
-        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select ant-select-css-var ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -13786,7 +13786,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -14063,10 +14063,10 @@ Array [
         </span>
       </div>
       <div
-        class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-picker-calendar-mode-switch ant-radio-css-var"
+        class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
       >
         <label
-          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-css-var"
+          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
@@ -14089,7 +14089,7 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-button-wrapper ant-radio-css-var"
+          class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button"

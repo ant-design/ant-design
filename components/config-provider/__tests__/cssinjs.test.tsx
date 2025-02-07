@@ -102,7 +102,6 @@ describe('ConfigProvider.DynamicTheme', () => {
     );
 
     const styles = Array.from(document.querySelectorAll('style'));
-
     expect(styles.length).toBeTruthy();
     styles.forEach((style) => {
       expect(style.innerHTML).toContain('@layer antd');
