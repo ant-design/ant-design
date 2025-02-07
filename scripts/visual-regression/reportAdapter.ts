@@ -1,6 +1,7 @@
 import fs from 'fs-extra';
 import fg from 'fast-glob';
 import path from 'path';
+import { PNG } from 'pngjs';
 // locked to v2.2.0
 import { getReportHtmlAfterPopulatingData, getReportJsonWithTotalStats } from 'cypress-image-diff-html-report/dist/common/utils'
 import type { IBadCase } from './build'
@@ -65,6 +66,23 @@ const extractFilenameComponents = (filename: string) => {
   }
 };
 
+
+// https://placehold.co/
+const imagesPlaceHold = {
+  genMissing: (w = 680, h = 280) => `https://placehold.co/${w}x${h}/transparent/red?text=MISS&font=lora`,
+  getRemoved: (w = 680, h = 280) => `https://placehold.co/${w}x${h}/transparent/red?text=REMOVED&font=lora`,
+  getAdded: (w = 680, h = 280) => `https://placehold.co/${w}x${h}/transparent/green?text=ADDED&font=lora`,
+}
+
+const getImageSize = (imagePath: string) => {
+  const png = PNG.sync.read(fs.readFileSync(imagePath));
+
+  return {
+    width: Math.floor(png.width),
+    height: Math.floor(png.height),
+  }
+}
+
 /**
  * 转化为特定格式 (cypress-image-diff-html-report 格式) 的报告
  * @example-json https://github.com/kien-ht/cypress-image-diff-html-report/blob/v2.2.0/playground/example.json
@@ -93,22 +111,29 @@ const convertReport = (options: Required<Options>) => {
       const tests = componentBadCases.map((badCase) => {
 
         let baselinePath, comparisonPath, diffPath;
+        const { filename, type } = badCase.raw
 
-        if (badCase.raw.type === 'changed') {
-          baselinePath = `${publicPath}/images/base/${badCase.raw.filename}`;
-          comparisonPath = `${publicPath}/images/current/${badCase.raw.filename}`;
-          diffPath = `${publicPath}/images/diff/${badCase.raw.filename}`;
-        } else if (badCase.raw.type === 'removed') {
-          baselinePath = `${publicPath}/images/base/${badCase.raw.filename}`;
-          comparisonPath = 'missing';
-          diffPath = 'Removed';
-        } else if (badCase.raw.type === 'added') {
-          baselinePath = 'missing';
-          comparisonPath = `${publicPath}/images/current/${badCase.raw.filename}`;
-          diffPath = 'Added';
+        if (type === 'changed') {
+          baselinePath = `${publicPath}/images/base/${filename}`;
+          comparisonPath = `${publicPath}/images/current/${filename}`;
+          diffPath = `${publicPath}/images/diff/${filename}`;
+        } else if (type === 'removed') {
+          const pathSuffix = `images/base/${filename}`;
+          const { width, height } = getImageSize(path.join(REPORT_DIR, pathSuffix));
+
+          baselinePath = `${publicPath}/${pathSuffix}`;
+          comparisonPath = imagesPlaceHold.genMissing(width, height); // Missing
+          diffPath = imagesPlaceHold.getRemoved(width, height); // Removed
+        } else if (type === 'added') {
+          const pathSuffix = `images/current/${filename}`;
+          const { width, height } = getImageSize(path.join(REPORT_DIR, pathSuffix));
+
+          baselinePath = imagesPlaceHold.genMissing(width, height); // Missing
+          comparisonPath = `${publicPath}/${pathSuffix}`;
+          diffPath = imagesPlaceHold.getAdded(width, height); // Added
         }
 
-        const name =[
+        const name = [
           `${specPath}/${badCase.demoName}.tsx`,
           `[${badCase.theme}]`,
           badCase.isCssVar && '(CSS Var)'
