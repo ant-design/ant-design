@@ -112,7 +112,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-vertical`]: vertical,
-      [`${prefixCls}-shape-${shape}`]: shape !== 'default',
+      [`${prefixCls}-shape-${shape}`]: shape === 'round',
     },
     hashId,
     cssVarCls,
