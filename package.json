@@ -125,7 +125,7 @@
     "@rc-component/qrcode": "~1.0.0",
     "@rc-component/resize-observer": "^1.0.0",
     "@rc-component/segmented": "~1.0.0",
-    "@rc-component/table": "~1.0.0",
+    "@rc-component/table": "~1.0.1",
     "@rc-component/textarea": "~1.0.0",
     "@rc-component/tooltip": "~1.0.0",
     "@rc-component/tour": "~1.15.1",
