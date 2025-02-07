@@ -128,11 +128,9 @@ Array [
           aria-controls="null-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="null-more"
           style="visibility:hidden;order:1"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -245,11 +243,9 @@ exports[`renders components/tabs/demo/basic.tsx correctly 1`] = `
         aria-controls="null-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="null-more"
         style="visibility:hidden;order:1"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -360,11 +356,9 @@ exports[`renders components/tabs/demo/card.tsx correctly 1`] = `
         aria-controls="null-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="null-more"
         style="visibility:hidden;order:1"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -478,11 +472,9 @@ exports[`renders components/tabs/demo/card-top.tsx correctly 1`] = `
           aria-controls="null-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="null-more"
           style="visibility:hidden;order:1"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -608,11 +600,9 @@ exports[`renders components/tabs/demo/centered.tsx correctly 1`] = `
         aria-controls="null-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="null-more"
         style="visibility:hidden;order:1"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -725,11 +715,9 @@ exports[`renders components/tabs/demo/component-token.tsx correctly 1`] = `
           aria-controls="null-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="null-more"
           style="visibility:hidden;order:1"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -850,11 +838,9 @@ exports[`renders components/tabs/demo/component-token.tsx correctly 1`] = `
           aria-controls="null-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="null-more"
           style="visibility:hidden;order:1"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -975,11 +961,9 @@ exports[`renders components/tabs/demo/component-token.tsx correctly 1`] = `
           aria-controls="null-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="null-more"
           style="visibility:hidden;order:1"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -1100,11 +1084,9 @@ exports[`renders components/tabs/demo/component-token.tsx correctly 1`] = `
           aria-controls="null-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="null-more"
           style="visibility:hidden;order:1"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -1226,11 +1208,9 @@ exports[`renders components/tabs/demo/component-token.tsx correctly 1`] = `
           aria-controls="null-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="null-more"
           style="visibility:hidden;order:1"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -1340,11 +1320,9 @@ exports[`renders components/tabs/demo/component-token.tsx correctly 1`] = `
           aria-controls="null-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="null-more"
           style="visibility:hidden;order:1"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -1454,11 +1432,9 @@ exports[`renders components/tabs/demo/component-token.tsx correctly 1`] = `
           aria-controls="null-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="null-more"
           style="visibility:hidden;order:1"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -1547,6 +1523,7 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx correctly 1`] = `
             <button
               aria-label="remove"
               class="ant-tabs-tab-remove"
+              role="tab"
               tabindex="0"
               type="button"
             >
@@ -1587,6 +1564,7 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx correctly 1`] = `
             <button
               aria-label="remove"
               class="ant-tabs-tab-remove"
+              role="tab"
               tabindex="-1"
               type="button"
             >
@@ -1624,11 +1602,9 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx correctly 1`] = `
           aria-controls="null-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="null-more"
           style="visibility:hidden;order:1"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -1802,11 +1778,9 @@ Array [
           aria-controls="null-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="null-more"
           style="visibility:hidden;order:1"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -1923,11 +1897,9 @@ exports[`renders components/tabs/demo/custom-tab-bar.tsx correctly 1`] = `
           aria-controls="null-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="null-more"
           style="visibility:hidden;order:1"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -2058,11 +2030,9 @@ exports[`renders components/tabs/demo/custom-tab-bar-node.tsx correctly 1`] = `
         aria-controls="null-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="null-more"
         style="visibility:hidden;order:1"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -2173,11 +2143,9 @@ exports[`renders components/tabs/demo/disabled.tsx correctly 1`] = `
         aria-controls="null-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="null-more"
         style="visibility:hidden;order:1"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -2252,6 +2220,7 @@ exports[`renders components/tabs/demo/editable-card.tsx correctly 1`] = `
           <button
             aria-label="remove"
             class="ant-tabs-tab-remove"
+            role="tab"
             tabindex="0"
             type="button"
           >
@@ -2292,6 +2261,7 @@ exports[`renders components/tabs/demo/editable-card.tsx correctly 1`] = `
           <button
             aria-label="remove"
             class="ant-tabs-tab-remove"
+            role="tab"
             tabindex="-1"
             type="button"
           >
@@ -2370,11 +2340,9 @@ exports[`renders components/tabs/demo/editable-card.tsx correctly 1`] = `
         aria-controls="null-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="null-more"
         style="visibility:hidden;order:1"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -2514,11 +2482,9 @@ Array [
           aria-controls="null-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="null-more"
           style="visibility:hidden;order:1"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -2710,11 +2676,9 @@ Array [
           aria-controls="null-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="null-more"
           style="visibility:hidden;order:1"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -2875,11 +2839,9 @@ exports[`renders components/tabs/demo/icon.tsx correctly 1`] = `
         aria-controls="null-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="null-more"
         style="visibility:hidden;order:1"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -3222,11 +3184,9 @@ exports[`renders components/tabs/demo/nest.tsx correctly 1`] = `
           aria-controls="null-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="null-more"
           style="visibility:hidden;order:1"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -3551,11 +3511,9 @@ exports[`renders components/tabs/demo/nest.tsx correctly 1`] = `
                   aria-controls="null-more-popup"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-hidden="true"
                   class="ant-tabs-nav-more"
                   id="null-more"
                   style="visibility:hidden;order:1"
-                  tabindex="-1"
                   type="button"
                 >
                   <span
@@ -3779,11 +3737,9 @@ Array [
           aria-controls="null-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="null-more"
           style="visibility:hidden;order:1"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -3969,11 +3925,9 @@ exports[`renders components/tabs/demo/size.tsx correctly 1`] = `
           aria-controls="null-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="null-more"
           style="visibility:hidden;order:1"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -4082,11 +4036,9 @@ exports[`renders components/tabs/demo/size.tsx correctly 1`] = `
           aria-controls="null-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="null-more"
           style="visibility:hidden;order:1"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -4158,6 +4110,7 @@ exports[`renders components/tabs/demo/size.tsx correctly 1`] = `
             <button
               aria-label="remove"
               class="ant-tabs-tab-remove"
+              role="tab"
               tabindex="0"
               type="button"
             >
@@ -4198,6 +4151,7 @@ exports[`renders components/tabs/demo/size.tsx correctly 1`] = `
             <button
               aria-label="remove"
               class="ant-tabs-tab-remove"
+              role="tab"
               tabindex="-1"
               type="button"
             >
@@ -4238,6 +4192,7 @@ exports[`renders components/tabs/demo/size.tsx correctly 1`] = `
             <button
               aria-label="remove"
               class="ant-tabs-tab-remove"
+              role="tab"
               tabindex="-1"
               type="button"
             >
@@ -4303,11 +4258,9 @@ exports[`renders components/tabs/demo/size.tsx correctly 1`] = `
           aria-controls="null-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="null-more"
           style="visibility:hidden;order:1"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -4879,11 +4832,9 @@ exports[`renders components/tabs/demo/slide.tsx correctly 1`] = `
           aria-controls="null-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="null-more"
           style="visibility:hidden;order:1"
-          tabindex="-1"
           type="button"
         >
           <span

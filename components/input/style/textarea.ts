@@ -45,6 +45,10 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
           border: 'none',
           outline: 'none',
           background: 'transparent',
+          minHeight: token
+            .calc(token.controlHeight)
+            .sub(token.calc(token.lineWidth).mul(2))
+            .equal(),
 
           '&:focus': {
             boxShadow: 'none !important',
