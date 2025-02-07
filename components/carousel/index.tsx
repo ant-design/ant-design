@@ -57,7 +57,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     className: customClassName,
     style,
     id,
-    autoplay,
+    autoplay = false,
     ...otherProps
   } = props;
   const {
