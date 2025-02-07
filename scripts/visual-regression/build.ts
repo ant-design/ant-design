@@ -15,6 +15,7 @@ import simpleGit from 'simple-git';
 import filter from 'lodash/filter';
 
 import markdown2Html from './convert';
+import { generate as genTriPartyReport } from './reportAdapter';
 
 const ROOT_DIR = process.cwd();
 const ALI_OSS_BUCKET = 'antd-visual-diff';
@@ -133,7 +134,7 @@ function getMdImageTag(desc: IImageDesc, extraCaption?: boolean) {
   return `![${alt}](${src}) ${alt}`;
 }
 
-interface IBadCase {
+export interface IBadCase {
   type: 'removed' | 'changed' | 'added';
   filename: string;
   /**
@@ -242,10 +243,8 @@ function generateReport(
   targetRef: string,
   currentRef: string,
   prId: string,
+  publicPath = '.',
 ): [string, string] {
-  const reportDirname = path.basename(REPORT_DIR);
-
-  const publicPath = isLocalEnv ? '.' : `${ossDomain}/pr-${prId}/${reportDirname}`;
 
   const passed = badCases.length === 0;
 
@@ -357,6 +356,8 @@ async function boot() {
   const { prId, baseRef: targetBranch = 'master', currentRef, maxWorkers } = args;
 
   const baseImgSourceDir = path.resolve(ROOT_DIR, `./imageSnapshots-${targetBranch}`);
+
+  const publicPath = isLocalEnv ? '.' : `${ossDomain}/pr-${prId}/${path.basename(REPORT_DIR)}`;
 
   /* --- prepare stage --- */
   console.log(
@@ -509,6 +510,7 @@ async function boot() {
     targetCommitSha,
     currentRef,
     prId,
+    publicPath,
   );
   await fse.writeFile(path.join(REPORT_DIR, './report.md'), reportMdStr);
   const htmlTemplate = await fse.readFile(path.join(__dirname, './report-template.html'), 'utf8');
@@ -518,6 +520,18 @@ async function boot() {
     htmlTemplate.replace('{{reportContent}}', reportHtmlStr),
     'utf-8',
   );
+
+  // 尝试生成三方报告，即便失败也可以用本地报告兜底
+  try {
+    await genTriPartyReport({
+      badCases,
+      publicPath,
+    })
+    console.log(chalk.green('🎉 Tri-party report generated!'));
+  } catch (e) {
+    console.error(chalk.red('Tri-party report generation failed:'), e);
+  }
+
   const tar = await import('tar');
   await tar.c(
     {
