@@ -5,7 +5,13 @@ order: 1
 title: 在 create-react-app 中使用
 ---
 
-[create-react-app](https://create-react-app.dev) 是业界曾经最优秀的 React 应用开发工具之一，本文会尝试使用 `create-react-app` 创建一个 `TypeScript` 项目，并引入 antd。（注意：React 官方已经废弃 `create-react-app` 脚手架，不再推荐）
+<!-- prettier-ignore -->
+:::warning
+注意：React 官方已经废弃 `create-react-app` 脚手架，不再推荐使用。
+详细信息参考 [官方仓库](https://github.com/facebook/create-react-app/blob/main/README.md)
+:::
+
+[create-react-app](https://create-react-app.dev) 是业界曾经最优秀的 React 应用开发工具之一，本文会尝试使用 `create-react-app` 创建一个 `TypeScript` 项目，并引入 antd。
 
 > `antd` 基于最新稳定版本的 TypeScript（`>=5.0.0`），请确保项目中使用匹配的版本。
 
