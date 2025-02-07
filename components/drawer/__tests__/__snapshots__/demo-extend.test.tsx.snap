@@ -490,10 +490,10 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-radio-group ant-radio-group-outline"
+        class="ant-radio-group ant-radio-group-outline ant-radio-css-var"
       >
         <label
-          class="ant-radio-wrapper"
+          class="ant-radio-wrapper ant-radio-css-var"
         >
           <span
             class="ant-radio ant-wave-target"
@@ -515,7 +515,7 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-wrapper ant-radio-wrapper-checked"
+          class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-css-var"
         >
           <span
             class="ant-radio ant-wave-target ant-radio-checked"
@@ -538,7 +538,7 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-wrapper"
+          class="ant-radio-wrapper ant-radio-css-var"
         >
           <span
             class="ant-radio ant-wave-target"
@@ -560,7 +560,7 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-wrapper"
+          class="ant-radio-wrapper ant-radio-css-var"
         >
           <span
             class="ant-radio ant-wave-target"
@@ -850,7 +850,7 @@ Array [
           style="padding-bottom: 80px;"
         >
           <form
-            class="ant-form ant-form-vertical ant-form-hide-required-mark"
+            class="ant-form ant-form-vertical ant-form-hide-required-mark ant-form-css-var"
           >
             <div
               class="ant-row"
@@ -861,7 +861,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-css-var"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -888,7 +888,7 @@ Array [
                         >
                           <input
                             aria-required="true"
-                            class="ant-input ant-input-outlined"
+                            class="ant-input ant-input-outlined ant-input-css-var"
                             id="name"
                             placeholder="Please enter user name"
                             type="text"
@@ -905,7 +905,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-css-var"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -931,7 +931,7 @@ Array [
                           class="ant-form-item-control-input-content"
                         >
                           <span
-                            class="ant-input-group-wrapper ant-input-group-wrapper-outlined"
+                            class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-css-var"
                             style="width: 100%;"
                           >
                             <span
@@ -973,7 +973,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-css-var"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -1000,7 +1000,7 @@ Array [
                         >
                           <div
                             aria-required="true"
-                            class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
+                            class="ant-select ant-select-outlined ant-select-in-form-item ant-select-css-var ant-select-single ant-select-show-arrow"
                           >
                             <div
                               class="ant-select-selector"
@@ -1037,7 +1037,7 @@ Array [
                               </span>
                             </div>
                             <div
-                              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+                              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
                               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150;"
                             >
                               <div>
@@ -1154,7 +1154,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-css-var"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -1181,7 +1181,7 @@ Array [
                         >
                           <div
                             aria-required="true"
-                            class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
+                            class="ant-select ant-select-outlined ant-select-in-form-item ant-select-css-var ant-select-single ant-select-show-arrow"
                           >
                             <div
                               class="ant-select-selector"
@@ -1218,7 +1218,7 @@ Array [
                               </span>
                             </div>
                             <div
-                              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+                              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
                               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150;"
                             >
                               <div>
@@ -1340,7 +1340,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-css-var"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -1367,7 +1367,7 @@ Array [
                         >
                           <div
                             aria-required="true"
-                            class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
+                            class="ant-select ant-select-outlined ant-select-in-form-item ant-select-css-var ant-select-single ant-select-show-arrow"
                           >
                             <div
                               class="ant-select-selector"
@@ -1404,7 +1404,7 @@ Array [
                               </span>
                             </div>
                             <div
-                              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+                              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
                               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150;"
                             >
                               <div>
@@ -1521,7 +1521,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-css-var"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -1547,7 +1547,7 @@ Array [
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-picker ant-picker-range ant-picker-outlined"
+                            class="ant-picker ant-picker-range ant-picker-outlined ant-picker-css-var"
                             style="width: 100%;"
                           >
                             <div
@@ -1634,7 +1634,7 @@ Array [
                             </span>
                           </div>
                           <div
-                            class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
+                            class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
                             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150;"
                           >
                             <div
@@ -2762,7 +2762,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-css-var"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -2789,7 +2789,7 @@ Array [
                         >
                           <textarea
                             aria-required="true"
-                            class="ant-input ant-input-outlined"
+                            class="ant-input ant-input-outlined ant-input-css-var"
                             id="description"
                             placeholder="please enter url description"
                             rows="4"
@@ -3152,10 +3152,10 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-radio-group ant-radio-group-outline"
+        class="ant-radio-group ant-radio-group-outline ant-radio-css-var"
       >
         <label
-          class="ant-radio-wrapper"
+          class="ant-radio-wrapper ant-radio-css-var"
         >
           <span
             class="ant-radio ant-wave-target"
@@ -3177,7 +3177,7 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-wrapper"
+          class="ant-radio-wrapper ant-radio-css-var"
         >
           <span
             class="ant-radio ant-wave-target"
@@ -3199,7 +3199,7 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-wrapper"
+          class="ant-radio-wrapper ant-radio-css-var"
         >
           <span
             class="ant-radio ant-wave-target"
@@ -3221,7 +3221,7 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-wrapper ant-radio-wrapper-checked"
+          class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-css-var"
         >
           <span
             class="ant-radio ant-wave-target ant-radio-checked"
@@ -3981,7 +3981,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
                 >
                   <img
                     src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
@@ -4027,7 +4027,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
                 >
                   <img
                     src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"

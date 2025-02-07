@@ -125,7 +125,7 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-select-css-var ant-select-single ant-select-show-arrow"
         style="width: 200px;"
       >
         <div
@@ -160,7 +160,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -238,7 +238,7 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
+        class="ant-select ant-tree-select ant-select-outlined ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
         style="width: 200px;"
       >
         <div
@@ -273,7 +273,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-css-var ant-tree-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -350,7 +350,7 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
         style="width: 200px;"
       >
         <div
@@ -382,7 +382,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -483,7 +483,7 @@ Array [
             class="ant-transfer-list-header"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -518,11 +518,11 @@ Array [
               </svg>
             </span>
             <div
-              class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
+              class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
-                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-css-var ant-dropdown-menu-css-var"
                 data-menu-list="true"
                 role="menu"
                 tabindex="0"
@@ -709,7 +709,7 @@ Array [
             class="ant-transfer-list-header"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -744,11 +744,11 @@ Array [
               </svg>
             </span>
             <div
-              class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
+              class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
-                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-css-var ant-dropdown-menu-css-var"
                 data-menu-list="true"
                 role="menu"
                 tabindex="0"
@@ -879,7 +879,7 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-table-wrapper"
+        class="ant-table-css-var ant-table-wrapper"
         style="margin-top: 8px;"
       >
         <div
@@ -889,7 +889,7 @@ Array [
             class="ant-spin-container"
           >
             <div
-              class="ant-table ant-table-empty"
+              class="ant-table ant-table-empty ant-table-css-var"
             >
               <div
                 class="ant-table-container"

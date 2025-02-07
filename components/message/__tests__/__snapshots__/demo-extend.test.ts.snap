@@ -3,7 +3,7 @@
 exports[`renders components/message/demo/component-token.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-message-notice ant-message-notice-pure-panel"
+    class="ant-message-notice ant-message-notice-pure-panel ant-message-css-var"
   >
     <div
       class="ant-message-notice-content"
@@ -38,7 +38,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-message-notice ant-message-notice-pure-panel"
+    class="ant-message-notice ant-message-notice-pure-panel ant-message-css-var"
   >
     <div
       class="ant-message-notice-content"
@@ -189,7 +189,7 @@ exports[`renders components/message/demo/other.tsx extend context correctly 2`] 
 
 exports[`renders components/message/demo/render-panel.tsx extend context correctly 1`] = `
 <div
-  class="ant-message-notice ant-message-notice-pure-panel"
+  class="ant-message-notice ant-message-notice-pure-panel ant-message-css-var"
 >
   <div
     class="ant-message-notice-content"

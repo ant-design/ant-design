@@ -177,7 +177,7 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
         class="ant-layout-sider-children"
       >
         <ul
-          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-menu-css-var"
           data-menu-list="true"
           role="menu"
           style="border-right:0"
@@ -441,7 +441,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx correctly 1`] = `
         class="demo-logo-vertical"
       />
       <ul
-        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-menu-css-var"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -608,7 +608,7 @@ exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
       class="demo-logo"
     />
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="flex:1;min-width:0"
@@ -774,7 +774,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
         class="demo-logo-vertical"
       />
       <ul
-        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-menu-css-var"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -1290,7 +1290,7 @@ exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
         class="demo-logo-vertical"
       />
       <ul
-        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-menu-css-var"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -1477,7 +1477,7 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
         class="demo-logo-vertical"
       />
       <ul
-        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-menu-css-var"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -1761,7 +1761,7 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
       class="demo-logo"
     />
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="flex:1;min-width:0"
@@ -2080,7 +2080,7 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
       class="demo-logo"
     />
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="flex:1;min-width:0"
@@ -2224,7 +2224,7 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
           class="ant-layout-sider-children"
         >
           <ul
-            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-menu-css-var"
             data-menu-list="true"
             role="menu"
             style="height:100%"
@@ -2451,7 +2451,7 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
       class="demo-logo"
     />
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="flex:1;min-width:0"
@@ -2550,7 +2550,7 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
         class="ant-layout-sider-children"
       >
         <ul
-          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-menu-css-var"
           data-menu-list="true"
           role="menu"
           style="height:100%;border-right:0"

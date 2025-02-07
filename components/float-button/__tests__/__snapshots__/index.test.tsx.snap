@@ -2,7 +2,7 @@
 
 exports[`FloatButton rtl render component should be rendered correctly in RTL direction 1`] = `
 <button
-  class="ant-float-btn ant-float-btn-default ant-float-btn-circle ant-float-btn-rtl"
+  class="ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle ant-float-btn-rtl"
   type="button"
 >
   <div
@@ -41,7 +41,7 @@ exports[`FloatButton rtl render component should be rendered correctly in RTL di
 
 exports[`FloatButton should correct render 1`] = `
 <button
-  class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+  class="ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle"
   type="button"
 >
   <div

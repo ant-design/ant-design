@@ -692,10 +692,10 @@ exports[`renders components/button/demo/danger.tsx correctly 1`] = `
 
 exports[`renders components/button/demo/debug-block.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -872,10 +872,10 @@ exports[`renders components/button/demo/debug-color-variant.tsx correctly 1`] = 
 exports[`renders components/button/demo/debug-icon.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline ant-radio-css-var"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
@@ -898,7 +898,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -920,7 +920,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -1503,7 +1503,7 @@ Array [
         </span>
       </button>
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large"
+        class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large ant-input-css-var"
         style="width:100px"
       >
         <span
@@ -2193,10 +2193,10 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-radio-group ant-radio-group-outline"
+        class="ant-radio-group ant-radio-group-outline ant-radio-css-var"
       >
         <label
-          class="ant-radio-button-wrapper"
+          class="ant-radio-button-wrapper ant-radio-css-var"
         >
           <span
             class="ant-radio-button"
@@ -2218,7 +2218,7 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-css-var"
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
@@ -3183,10 +3183,10 @@ exports[`renders components/button/demo/multiple.tsx correctly 1`] = `
 exports[`renders components/button/demo/size.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline ant-radio-css-var"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
@@ -3209,7 +3209,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -3231,7 +3231,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper ant-radio-css-var"
     >
       <span
         class="ant-radio-button"

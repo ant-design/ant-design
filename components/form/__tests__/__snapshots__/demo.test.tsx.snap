@@ -3,7 +3,7 @@
 exports[`renders components/form/demo/advanced-search.tsx correctly 1`] = `
 Array [
   <form
-    class="ant-form ant-form-horizontal"
+    class="ant-form ant-form-horizontal ant-form-css-var"
     id="advanced_search"
     style="max-width:none;background:rgba(0,0,0,0.02);border-radius:8px;padding:24px"
   >
@@ -16,7 +16,7 @@ Array [
         style="padding-left:12px;padding-right:12px"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-css-var"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -43,7 +43,7 @@ Array [
                 >
                   <input
                     aria-required="true"
-                    class="ant-input ant-input-outlined"
+                    class="ant-input ant-input-outlined ant-input-css-var"
                     id="advanced_search_field-0"
                     placeholder="placeholder"
                     type="text"
@@ -60,7 +60,7 @@ Array [
         style="padding-left:12px;padding-right:12px"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-css-var"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -87,7 +87,7 @@ Array [
                 >
                   <div
                     aria-required="true"
-                    class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-outlined ant-select-in-form-item ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <div
                       class="ant-select-selector"
@@ -162,7 +162,7 @@ Array [
         style="padding-left:12px;padding-right:12px"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-css-var"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -189,7 +189,7 @@ Array [
                 >
                   <input
                     aria-required="true"
-                    class="ant-input ant-input-outlined"
+                    class="ant-input ant-input-outlined ant-input-css-var"
                     id="advanced_search_field-2"
                     placeholder="placeholder"
                     type="text"
@@ -206,7 +206,7 @@ Array [
         style="padding-left:12px;padding-right:12px"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-css-var"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -233,7 +233,7 @@ Array [
                 >
                   <input
                     aria-required="true"
-                    class="ant-input ant-input-outlined"
+                    class="ant-input ant-input-outlined ant-input-css-var"
                     id="advanced_search_field-3"
                     placeholder="placeholder"
                     type="text"
@@ -250,7 +250,7 @@ Array [
         style="padding-left:12px;padding-right:12px"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-css-var"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -277,7 +277,7 @@ Array [
                 >
                   <div
                     aria-required="true"
-                    class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-outlined ant-select-in-form-item ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <div
                       class="ant-select-selector"
@@ -352,7 +352,7 @@ Array [
         style="padding-left:12px;padding-right:12px"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-css-var"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -379,7 +379,7 @@ Array [
                 >
                   <input
                     aria-required="true"
-                    class="ant-input ant-input-outlined"
+                    class="ant-input ant-input-outlined ant-input-css-var"
                     id="advanced_search_field-5"
                     placeholder="placeholder"
                     type="text"
@@ -464,12 +464,12 @@ Array [
 exports[`renders components/form/demo/basic.tsx correctly 1`] = `
 <form
   autocomplete="off"
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
   id="basic"
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -496,7 +496,7 @@ exports[`renders components/form/demo/basic.tsx correctly 1`] = `
           >
             <input
               aria-required="true"
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="basic_username"
               type="text"
               value=""
@@ -507,7 +507,7 @@ exports[`renders components/form/demo/basic.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -533,7 +533,7 @@ exports[`renders components/form/demo/basic.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-password ant-input-css-var"
             >
               <input
                 aria-required="true"
@@ -576,7 +576,7 @@ exports[`renders components/form/demo/basic.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -591,7 +591,7 @@ exports[`renders components/form/demo/basic.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item"
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target ant-checkbox-checked"
@@ -618,7 +618,7 @@ exports[`renders components/form/demo/basic.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -652,12 +652,12 @@ exports[`renders components/form/demo/col-24-debug.tsx correctly 1`] = `
 Array [
   <form
     autocomplete="off"
-    class="ant-form ant-form-horizontal"
+    class="ant-form ant-form-horizontal ant-form-css-var"
     id="col-24-debug"
     style="max-width:600px"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -684,7 +684,7 @@ Array [
             >
               <input
                 aria-required="true"
-                class="ant-input ant-input-outlined"
+                class="ant-input ant-input-outlined ant-input-css-var"
                 id="col-24-debug_username"
                 type="text"
                 value=""
@@ -695,7 +695,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -721,7 +721,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <span
-                class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
+                class="ant-input-affix-wrapper ant-input-outlined ant-input-password ant-input-css-var"
               >
                 <input
                   aria-required="true"
@@ -764,7 +764,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
       style="box-shadow:0 0 3px red"
     >
       <div
@@ -797,7 +797,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-select ant-select-outlined ant-select-in-form-item ant-select-multiple ant-select-show-arrow ant-select-show-search"
+                class="ant-select ant-select-outlined ant-select-in-form-item ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
                 style="width:70%"
               >
                 <div
@@ -918,7 +918,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -948,11 +948,11 @@ Array [
   </form>,
   <form
     autocomplete="off"
-    class="ant-form ant-form-horizontal"
+    class="ant-form ant-form-horizontal ant-form-css-var"
     id="responsive"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -979,7 +979,7 @@ Array [
             >
               <input
                 aria-required="true"
-                class="ant-input ant-input-outlined"
+                class="ant-input ant-input-outlined ant-input-css-var"
                 id="responsive_username"
                 type="text"
                 value=""
@@ -990,7 +990,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1016,7 +1016,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <span
-                class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
+                class="ant-input-affix-wrapper ant-input-outlined ant-input-password ant-input-css-var"
               >
                 <input
                   aria-required="true"
@@ -1059,7 +1059,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1092,10 +1092,10 @@ Array [
     role="separator"
   />,
   <form
-    class="ant-form ant-form-vertical"
+    class="ant-form ant-form-vertical ant-form-css-var"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
       style="box-shadow:0 0 3px red"
     >
       <div
@@ -1128,7 +1128,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-select ant-select-outlined ant-select-in-form-item ant-select-multiple ant-select-show-arrow ant-select-show-search"
+                class="ant-select ant-select-outlined ant-select-in-form-item ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
                 style="width:70%"
               >
                 <div
@@ -1249,7 +1249,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1275,7 +1275,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <input
-                class="ant-input ant-input-outlined"
+                class="ant-input ant-input-outlined ant-input-css-var"
                 id="col12"
                 type="text"
                 value=""
@@ -1291,12 +1291,12 @@ Array [
 
 exports[`renders components/form/demo/control-hooks.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
   id="control-hooks"
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1323,7 +1323,7 @@ exports[`renders components/form/demo/control-hooks.tsx correctly 1`] = `
           >
             <input
               aria-required="true"
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="control-hooks_note"
               type="text"
               value=""
@@ -1334,7 +1334,7 @@ exports[`renders components/form/demo/control-hooks.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1361,7 +1361,7 @@ exports[`renders components/form/demo/control-hooks.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -1430,7 +1430,7 @@ exports[`renders components/form/demo/control-hooks.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1494,12 +1494,12 @@ exports[`renders components/form/demo/control-hooks.tsx correctly 1`] = `
 
 exports[`renders components/form/demo/custom-feedback-icons.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
   id="custom-feedback-icons"
   style="max-width:600px"
 >
   <div
-    class="ant-form-item acss-140b0ev ant-form-item-with-help"
+    class="ant-form-item acss-140b0ev ant-form-css-var ant-form-item-with-help"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1525,7 +1525,7 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx correctly 1`] = 
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-css-var"
             >
               <input
                 aria-required="true"
@@ -1544,7 +1544,7 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx correctly 1`] = 
     </div>
   </div>
   <div
-    class="ant-form-item acss-140b0ev ant-form-item-with-help"
+    class="ant-form-item acss-140b0ev ant-form-css-var ant-form-item-with-help"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1570,7 +1570,7 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx correctly 1`] = 
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-css-var"
             >
               <input
                 aria-required="true"
@@ -1589,7 +1589,7 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx correctly 1`] = 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1621,11 +1621,11 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx correctly 1`] = 
 
 exports[`renders components/form/demo/customized-form-controls.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-inline"
+  class="ant-form ant-form-inline ant-form-css-var"
   id="customized_form_controls"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1654,13 +1654,13 @@ exports[`renders components/form/demo/customized-form-controls.tsx correctly 1`]
               id="customized_form_controls_price"
             >
               <input
-                class="ant-input ant-input-outlined"
+                class="ant-input ant-input-outlined ant-input-css-var"
                 style="width:100px"
                 type="text"
                 value="0"
               />
               <div
-                class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
+                class="ant-select ant-select-outlined ant-select-in-form-item ant-select-css-var ant-select-single ant-select-show-arrow"
                 style="width:80px;margin:0 8px"
               >
                 <div
@@ -1730,7 +1730,7 @@ exports[`renders components/form/demo/customized-form-controls.tsx correctly 1`]
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1763,7 +1763,7 @@ exports[`renders components/form/demo/customized-form-controls.tsx correctly 1`]
 exports[`renders components/form/demo/disabled.tsx correctly 1`] = `
 Array [
   <label
-    class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
+    class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-css-var"
   >
     <span
       class="ant-checkbox ant-wave-target ant-checkbox-checked"
@@ -1784,11 +1784,11 @@ Array [
     </span>
   </label>,
   <form
-    class="ant-form ant-form-horizontal"
+    class="ant-form ant-form-horizontal ant-form-css-var"
     style="max-width:600px"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1814,7 +1814,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <label
-                class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item"
+                class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item ant-checkbox-css-var"
               >
                 <span
                   class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -1841,7 +1841,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1866,10 +1866,10 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-radio-group ant-radio-group-outline"
+                class="ant-radio-group ant-radio-group-outline ant-radio-css-var"
               >
                 <label
-                  class="ant-radio-wrapper ant-radio-wrapper-disabled ant-radio-wrapper-in-form-item"
+                  class="ant-radio-wrapper ant-radio-wrapper-disabled ant-radio-wrapper-in-form-item ant-radio-css-var"
                 >
                   <span
                     class="ant-radio ant-wave-target ant-radio-disabled"
@@ -1892,7 +1892,7 @@ Array [
                   </span>
                 </label>
                 <label
-                  class="ant-radio-wrapper ant-radio-wrapper-disabled ant-radio-wrapper-in-form-item"
+                  class="ant-radio-wrapper ant-radio-wrapper-disabled ant-radio-wrapper-in-form-item ant-radio-css-var"
                 >
                   <span
                     class="ant-radio ant-wave-target ant-radio-disabled"
@@ -1921,7 +1921,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1946,7 +1946,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <input
-                class="ant-input ant-input-disabled ant-input-outlined"
+                class="ant-input ant-input-disabled ant-input-outlined ant-input-css-var"
                 disabled=""
                 type="text"
                 value=""
@@ -1957,7 +1957,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1982,7 +1982,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow ant-select-disabled"
+                class="ant-select ant-select-outlined ant-select-in-form-item ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled"
               >
                 <div
                   class="ant-select-selector"
@@ -2048,7 +2048,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2073,7 +2073,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow ant-select-disabled"
+                class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled"
               >
                 <div
                   class="ant-select-selector"
@@ -2139,7 +2139,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2164,7 +2164,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-disabled"
+                class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-disabled"
               >
                 <div
                   class="ant-select-selector"
@@ -2230,7 +2230,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2255,7 +2255,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-picker ant-picker-disabled ant-picker-outlined"
+                class="ant-picker ant-picker-disabled ant-picker-outlined ant-picker-css-var"
               >
                 <div
                   class="ant-picker-input"
@@ -2299,7 +2299,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2324,7 +2324,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-picker ant-picker-range ant-picker-disabled ant-picker-outlined"
+                class="ant-picker ant-picker-range ant-picker-disabled ant-picker-outlined ant-picker-css-var"
               >
                 <div
                   class="ant-picker-input"
@@ -2414,7 +2414,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2439,7 +2439,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-disabled"
+                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-css-var ant-input-number-disabled"
               >
                 <div
                   class="ant-input-number-handler-wrap"
@@ -2518,7 +2518,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2543,7 +2543,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <textarea
-                class="ant-input ant-input-outlined ant-input-disabled"
+                class="ant-input ant-input-outlined ant-input-css-var ant-input-disabled"
                 disabled=""
                 rows="4"
               />
@@ -2553,7 +2553,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2604,7 +2604,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2689,7 +2689,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2728,7 +2728,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2783,7 +2783,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2809,7 +2809,7 @@ Array [
             >
               <div
                 aria-describedby="test-id"
-                class="ant-color-picker-trigger ant-color-picker-trigger-disabled"
+                class="ant-color-picker-trigger ant-color-picker-css-var ant-color-picker-trigger-disabled"
               >
                 <div
                   class="ant-color-picker-clear"
@@ -2821,7 +2821,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -3152,11 +3152,11 @@ Array [
 
 exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3181,7 +3181,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               placeholder="unavailable choice"
               type="text"
               value="Buggy!"
@@ -3192,7 +3192,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item ant-form-css-var ant-form-item-with-help ant-form-item-has-error"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3217,7 +3217,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-outlined ant-input-status-error"
+              class="ant-input ant-input-outlined ant-input-status-error ant-input-css-var"
               placeholder="unavailable choice"
               type="text"
               value="Buggy!"
@@ -3228,7 +3228,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item ant-form-css-var ant-form-item-with-help ant-form-item-has-error"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3253,7 +3253,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-disabled ant-input-outlined ant-input-status-error"
+              class="ant-input ant-input-disabled ant-input-outlined ant-input-status-error ant-input-css-var"
               disabled=""
               placeholder="unavailable choice"
               type="text"
@@ -3265,7 +3265,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3290,7 +3290,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               placeholder="unavailable choice"
               type="text"
               value="Buggy!"
@@ -3301,7 +3301,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item ant-form-css-var ant-form-item-with-help ant-form-item-has-error"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3326,7 +3326,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-outlined ant-input-status-error"
+              class="ant-input ant-input-outlined ant-input-status-error ant-input-css-var"
               placeholder="unavailable choice"
               type="text"
               value="Buggy!"
@@ -3337,7 +3337,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item ant-form-css-var ant-form-item-with-help ant-form-item-has-error"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3362,7 +3362,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-disabled ant-input-outlined ant-input-status-error"
+              class="ant-input ant-input-disabled ant-input-outlined ant-input-status-error ant-input-css-var"
               disabled=""
               placeholder="unavailable choice"
               type="text"
@@ -3374,7 +3374,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3399,7 +3399,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-group-wrapper ant-input-group-wrapper-outlined"
+              class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-css-var"
             >
               <span
                 class="ant-input-wrapper ant-input-group"
@@ -3423,7 +3423,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item ant-form-css-var ant-form-item-with-help ant-form-item-has-error"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3448,7 +3448,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-group-wrapper-status-error"
+              class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-group-wrapper-status-error ant-input-css-var"
             >
               <span
                 class="ant-input-wrapper ant-input-group"
@@ -3472,7 +3472,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item ant-form-css-var ant-form-item-with-help ant-form-item-has-error"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3497,7 +3497,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-group-wrapper ant-input-group-wrapper-disabled ant-input-group-wrapper-outlined ant-input-group-wrapper-status-error"
+              class="ant-input-group-wrapper ant-input-group-wrapper-disabled ant-input-group-wrapper-outlined ant-input-group-wrapper-status-error ant-input-css-var"
             >
               <span
                 class="ant-input-wrapper ant-input-group"
@@ -3522,7 +3522,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3547,7 +3547,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-css-var"
             >
               <span
                 class="ant-input-prefix"
@@ -3567,7 +3567,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item ant-form-css-var ant-form-item-with-help ant-form-item-has-error"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3592,7 +3592,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-error"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-error ant-input-css-var"
             >
               <span
                 class="ant-input-prefix"
@@ -3612,7 +3612,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item ant-form-css-var ant-form-item-with-help ant-form-item-has-error"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3637,7 +3637,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-disabled ant-input-affix-wrapper-disabled ant-input-outlined ant-input-status-error"
+              class="ant-input-affix-wrapper ant-input-disabled ant-input-affix-wrapper-disabled ant-input-outlined ant-input-status-error ant-input-css-var"
             >
               <span
                 class="ant-input-prefix"
@@ -3662,12 +3662,12 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
 
 exports[`renders components/form/demo/dynamic-form-item.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
   id="dynamic_form_item"
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3757,7 +3757,7 @@ exports[`renders components/form/demo/dynamic-form-item.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3790,12 +3790,12 @@ exports[`renders components/form/demo/dynamic-form-item.tsx correctly 1`] = `
 exports[`renders components/form/demo/dynamic-form-items.tsx correctly 1`] = `
 <form
   autocomplete="off"
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
   id="dynamic_form_nest_item"
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3849,7 +3849,7 @@ exports[`renders components/form/demo/dynamic-form-items.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3882,7 +3882,7 @@ exports[`renders components/form/demo/dynamic-form-items.tsx correctly 1`] = `
 exports[`renders components/form/demo/dynamic-form-items-complex.tsx correctly 1`] = `
 <form
   autocomplete="off"
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
   id="dynamic_form_complex"
   style="max-width:600px"
 >
@@ -3934,7 +3934,7 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx correctly 1
         class="ant-card-body"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-css-var"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -3960,7 +3960,7 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx correctly 1
                   class="ant-form-item-control-input-content"
                 >
                   <input
-                    class="ant-input ant-input-outlined"
+                    class="ant-input ant-input-outlined ant-input-css-var"
                     id="dynamic_form_complex_items_0_name"
                     type="text"
                     value=""
@@ -3971,7 +3971,7 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx correctly 1
           </div>
         </div>
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-css-var"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -4036,12 +4036,12 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx correctly 1
 exports[`renders components/form/demo/dynamic-form-items-no-style.tsx correctly 1`] = `
 <form
   autocomplete="off"
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
   id="dynamic_form_no_style"
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4066,7 +4066,7 @@ exports[`renders components/form/demo/dynamic-form-items-no-style.tsx correctly 
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-form-item"
+              class="ant-form-item ant-form-css-var"
             >
               <div
                 class="ant-row ant-form-item-row"
@@ -4125,7 +4125,7 @@ exports[`renders components/form/demo/dynamic-form-items-no-style.tsx correctly 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4157,12 +4157,12 @@ exports[`renders components/form/demo/dynamic-form-items-no-style.tsx correctly 
 
 exports[`renders components/form/demo/dynamic-rule.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
   id="dynamic_rule"
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4189,7 +4189,7 @@ exports[`renders components/form/demo/dynamic-rule.tsx correctly 1`] = `
           >
             <input
               aria-required="true"
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="dynamic_rule_username"
               placeholder="Please input your name"
               type="text"
@@ -4201,7 +4201,7 @@ exports[`renders components/form/demo/dynamic-rule.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4227,7 +4227,7 @@ exports[`renders components/form/demo/dynamic-rule.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="dynamic_rule_nickname"
               placeholder="Please input your nickname"
               type="text"
@@ -4239,7 +4239,7 @@ exports[`renders components/form/demo/dynamic-rule.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4254,7 +4254,7 @@ exports[`renders components/form/demo/dynamic-rule.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target"
@@ -4279,7 +4279,7 @@ exports[`renders components/form/demo/dynamic-rule.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4311,12 +4311,12 @@ exports[`renders components/form/demo/dynamic-rule.tsx correctly 1`] = `
 
 exports[`renders components/form/demo/form-context.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
   id="basicForm"
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4343,7 +4343,7 @@ exports[`renders components/form/demo/form-context.tsx correctly 1`] = `
           >
             <input
               aria-required="true"
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="basicForm_group"
               type="text"
               value=""
@@ -4354,7 +4354,7 @@ exports[`renders components/form/demo/form-context.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4409,7 +4409,7 @@ exports[`renders components/form/demo/form-context.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4451,7 +4451,7 @@ exports[`renders components/form/demo/form-context.tsx correctly 1`] = `
 exports[`renders components/form/demo/form-dependencies.tsx correctly 1`] = `
 <form
   autocomplete="off"
-  class="ant-form ant-form-vertical"
+  class="ant-form ant-form-vertical ant-form-css-var"
   id="dependencies"
   style="max-width:600px"
 >
@@ -4490,7 +4490,7 @@ exports[`renders components/form/demo/form-dependencies.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4517,7 +4517,7 @@ exports[`renders components/form/demo/form-dependencies.tsx correctly 1`] = `
           >
             <input
               aria-required="true"
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="dependencies_password"
               type="text"
               value=""
@@ -4528,7 +4528,7 @@ exports[`renders components/form/demo/form-dependencies.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4555,7 +4555,7 @@ exports[`renders components/form/demo/form-dependencies.tsx correctly 1`] = `
           >
             <input
               aria-required="true"
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="dependencies_password2"
               type="text"
               value=""
@@ -4598,11 +4598,11 @@ Array [
 
 exports[`renders components/form/demo/form-item-path.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-vertical"
+  class="ant-form ant-form-vertical ant-form-css-var"
   id="form_item_path"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4628,7 +4628,7 @@ exports[`renders components/form/demo/form-item-path.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="form_item_path_user_name_firstName"
               type="text"
               value=""
@@ -4639,7 +4639,7 @@ exports[`renders components/form/demo/form-item-path.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4665,7 +4665,7 @@ exports[`renders components/form/demo/form-item-path.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="form_item_path_user_name_lastName"
               type="text"
               value=""
@@ -4676,7 +4676,7 @@ exports[`renders components/form/demo/form-item-path.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4702,7 +4702,7 @@ exports[`renders components/form/demo/form-item-path.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="form_item_path_user_age"
               type="text"
               value=""
@@ -4726,12 +4726,12 @@ exports[`renders components/form/demo/form-item-path.tsx correctly 1`] = `
 exports[`renders components/form/demo/getValueProps-normalize.tsx correctly 1`] = `
 <form
   autocomplete="off"
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
   id="getValueProps"
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4757,7 +4757,7 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-outlined"
+              class="ant-picker ant-picker-outlined ant-picker-css-var"
             >
               <div
                 class="ant-picker-input"
@@ -4827,7 +4827,7 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4860,11 +4860,11 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx correctly 1`] 
 exports[`renders components/form/demo/global-state.tsx correctly 1`] = `
 Array [
   <form
-    class="ant-form ant-form-inline"
+    class="ant-form ant-form-inline ant-form-css-var"
     id="global_state"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -4891,7 +4891,7 @@ Array [
             >
               <input
                 aria-required="true"
-                class="ant-input ant-input-outlined"
+                class="ant-input ant-input-outlined ant-input-css-var"
                 id="global_state_username"
                 type="text"
                 value=""
@@ -4924,11 +4924,11 @@ Array [
 
 exports[`renders components/form/demo/inline-login.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-inline"
+  class="ant-form ant-form-inline ant-form-css-var"
   id="horizontal_login"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4943,7 +4943,7 @@ exports[`renders components/form/demo/inline-login.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-css-var"
             >
               <span
                 class="ant-input-prefix"
@@ -4983,7 +4983,7 @@ exports[`renders components/form/demo/inline-login.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4998,7 +4998,7 @@ exports[`renders components/form/demo/inline-login.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-css-var"
             >
               <span
                 class="ant-input-prefix"
@@ -5038,7 +5038,7 @@ exports[`renders components/form/demo/inline-login.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5071,12 +5071,12 @@ exports[`renders components/form/demo/inline-login.tsx correctly 1`] = `
 
 exports[`renders components/form/demo/label-debug.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
   id="label-ellipsis"
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5106,7 +5106,7 @@ exports[`renders components/form/demo/label-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="label-ellipsis_username"
               type="text"
               value=""
@@ -5117,7 +5117,7 @@ exports[`renders components/form/demo/label-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5147,7 +5147,7 @@ exports[`renders components/form/demo/label-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-password ant-input-css-var"
             >
               <input
                 class="ant-input"
@@ -5193,11 +5193,11 @@ exports[`renders components/form/demo/label-debug.tsx correctly 1`] = `
 
 exports[`renders components/form/demo/layout.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5223,11 +5223,11 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-radio-group ant-radio-group-outline"
+              class="ant-radio-group ant-radio-group-outline ant-radio-css-var"
               id="layout"
             >
               <label
-                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item ant-radio-css-var"
               >
                 <span
                   class="ant-radio-button ant-radio-button-checked"
@@ -5250,7 +5250,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
                 </span>
               </label>
               <label
-                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item ant-radio-css-var"
               >
                 <span
                   class="ant-radio-button"
@@ -5272,7 +5272,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
                 </span>
               </label>
               <label
-                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item ant-radio-css-var"
               >
                 <span
                   class="ant-radio-button"
@@ -5300,7 +5300,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5325,7 +5325,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               placeholder="input placeholder"
               type="text"
               value=""
@@ -5336,7 +5336,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5361,7 +5361,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               placeholder="input placeholder"
               type="text"
               value=""
@@ -5372,7 +5372,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5404,12 +5404,12 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
 
 exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
   id="wrap"
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5438,7 +5438,7 @@ exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
           >
             <input
               aria-required="true"
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="wrap_username"
               type="text"
               value=""
@@ -5449,7 +5449,7 @@ exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5478,7 +5478,7 @@ exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
           >
             <input
               aria-required="true"
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="wrap_password"
               type="text"
               value=""
@@ -5489,7 +5489,7 @@ exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5533,11 +5533,11 @@ exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
 exports[`renders components/form/demo/layout-multiple.tsx correctly 1`] = `
 Array [
   <form
-    class="ant-form ant-form-horizontal"
+    class="ant-form ant-form-horizontal ant-form-css-var"
     id="layout-multiple-horizontal"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5564,7 +5564,7 @@ Array [
             >
               <input
                 aria-required="true"
-                class="ant-input ant-input-outlined"
+                class="ant-input ant-input-outlined ant-input-css-var"
                 id="layout-multiple-horizontal_horizontal"
                 type="text"
                 value=""
@@ -5575,7 +5575,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item ant-form-item-vertical"
+      class="ant-form-item ant-form-css-var ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5602,7 +5602,7 @@ Array [
             >
               <input
                 aria-required="true"
-                class="ant-input ant-input-outlined"
+                class="ant-input ant-input-outlined ant-input-css-var"
                 id="layout-multiple-horizontal_vertical"
                 type="text"
                 value=""
@@ -5615,11 +5615,11 @@ Array [
   </form>,
   <br />,
   <form
-    class="ant-form ant-form-vertical"
+    class="ant-form ant-form-vertical ant-form-css-var"
     id="layout-multiple-vertical"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5646,7 +5646,7 @@ Array [
             >
               <input
                 aria-required="true"
-                class="ant-input ant-input-outlined"
+                class="ant-input ant-input-outlined ant-input-css-var"
                 id="layout-multiple-vertical_vertical"
                 type="text"
                 value=""
@@ -5657,7 +5657,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item ant-form-item-horizontal"
+      class="ant-form-item ant-form-css-var ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5684,7 +5684,7 @@ Array [
             >
               <input
                 aria-required="true"
-                class="ant-input ant-input-outlined"
+                class="ant-input ant-input-outlined ant-input-css-var"
                 id="layout-multiple-vertical_horizontal"
                 type="text"
                 value=""
@@ -5700,12 +5700,12 @@ Array [
 
 exports[`renders components/form/demo/login.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
   id="login"
   style="max-width:360px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5720,7 +5720,7 @@ exports[`renders components/form/demo/login.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-css-var"
             >
               <span
                 class="ant-input-prefix"
@@ -5760,7 +5760,7 @@ exports[`renders components/form/demo/login.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5775,7 +5775,7 @@ exports[`renders components/form/demo/login.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-css-var"
             >
               <span
                 class="ant-input-prefix"
@@ -5815,7 +5815,7 @@ exports[`renders components/form/demo/login.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5833,7 +5833,7 @@ exports[`renders components/form/demo/login.tsx correctly 1`] = `
               class="ant-flex ant-flex-align-center ant-flex-justify-space-between"
             >
               <label
-                class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item"
+                class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item ant-checkbox-css-var"
               >
                 <span
                   class="ant-checkbox ant-wave-target ant-checkbox-checked"
@@ -5866,7 +5866,7 @@ exports[`renders components/form/demo/login.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5904,12 +5904,12 @@ exports[`renders components/form/demo/login.tsx correctly 1`] = `
 
 exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
   id="nest-messages"
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5936,7 +5936,7 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
           >
             <input
               aria-required="true"
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="nest-messages_user_name"
               type="text"
               value=""
@@ -5947,7 +5947,7 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5973,7 +5973,7 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="nest-messages_user_email"
               type="text"
               value=""
@@ -5984,7 +5984,7 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6010,7 +6010,7 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
+              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-css-var"
             >
               <div
                 class="ant-input-number-handler-wrap"
@@ -6089,7 +6089,7 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6115,7 +6115,7 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="nest-messages_user_website"
               type="text"
               value=""
@@ -6126,7 +6126,7 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6152,7 +6152,7 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <textarea
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="nest-messages_user_introduction"
             />
           </div>
@@ -6161,7 +6161,7 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6193,11 +6193,11 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
 
 exports[`renders components/form/demo/ref-item.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6223,7 +6223,7 @@ exports[`renders components/form/demo/ref-item.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="test"
               type="text"
               value=""
@@ -6234,7 +6234,7 @@ exports[`renders components/form/demo/ref-item.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6249,7 +6249,7 @@ exports[`renders components/form/demo/ref-item.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="list_0"
               type="text"
               value="light"
@@ -6280,12 +6280,12 @@ exports[`renders components/form/demo/ref-item.tsx correctly 1`] = `
 
 exports[`renders components/form/demo/register.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
   id="register"
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6312,7 +6312,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
           >
             <input
               aria-required="true"
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="register_email"
               type="text"
               value=""
@@ -6323,7 +6323,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6349,7 +6349,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-password ant-input-css-var"
             >
               <input
                 aria-required="true"
@@ -6392,7 +6392,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6418,7 +6418,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-password ant-input-css-var"
             >
               <input
                 aria-required="true"
@@ -6461,7 +6461,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6512,7 +6512,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
           >
             <input
               aria-required="true"
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="register_nickname"
               type="text"
               value=""
@@ -6523,7 +6523,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6550,7 +6550,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -6647,7 +6647,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6673,7 +6673,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-group-wrapper ant-input-group-wrapper-outlined"
+              class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-css-var"
               style="width:100%"
             >
               <span
@@ -6683,7 +6683,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                   class="ant-input-group-addon"
                 >
                   <div
-                    class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-outlined ant-select-css-var ant-select-single ant-select-show-arrow"
                     style="width:70px"
                   >
                     <div
@@ -6763,7 +6763,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6789,7 +6789,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined"
+              class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-css-var"
               style="width:100%"
             >
               <div
@@ -6874,7 +6874,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                   class="ant-input-number-group-addon"
                 >
                   <div
-                    class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-outlined ant-select-css-var ant-select-single ant-select-show-arrow"
                     style="width:70px"
                   >
                     <div
@@ -6944,7 +6944,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6971,7 +6971,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
+              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
             >
               <div
                 class="ant-select-selector"
@@ -6990,7 +6990,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                       aria-owns="register_website_list"
                       aria-required="true"
                       autocomplete="off"
-                      class="ant-input ant-input-outlined ant-select-selection-search-input"
+                      class="ant-input ant-input-outlined ant-select-selection-search-input ant-input-css-var"
                       id="register_website"
                       role="combobox"
                       type="search"
@@ -7011,7 +7011,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7037,7 +7037,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-outlined"
+              class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-outlined ant-input-css-var"
               data-count="0 / 100"
             >
               <textarea
@@ -7062,7 +7062,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7089,7 +7089,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
+              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -7158,7 +7158,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7192,7 +7192,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
               >
                 <input
                   aria-required="true"
-                  class="ant-input ant-input-outlined"
+                  class="ant-input ant-input-outlined ant-input-css-var"
                   id="register_captcha"
                   type="text"
                   value=""
@@ -7227,7 +7227,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7242,7 +7242,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target"
@@ -7273,7 +7273,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7305,10 +7305,10 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
 
 exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-vertical"
+  class="ant-form ant-form-vertical ant-form-css-var"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7340,11 +7340,11 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-radio-group ant-radio-group-outline"
+              class="ant-radio-group ant-radio-group-outline ant-radio-css-var"
               id="requiredMarkValue"
             >
               <label
-                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item ant-radio-css-var"
               >
                 <span
                   class="ant-radio-button"
@@ -7366,7 +7366,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
                 </span>
               </label>
               <label
-                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item ant-radio-css-var"
               >
                 <span
                   class="ant-radio-button ant-radio-button-checked"
@@ -7389,7 +7389,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
                 </span>
               </label>
               <label
-                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item ant-radio-css-var"
               >
                 <span
                   class="ant-radio-button"
@@ -7411,7 +7411,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
                 </span>
               </label>
               <label
-                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item ant-radio-css-var"
               >
                 <span
                   class="ant-radio-button"
@@ -7439,7 +7439,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7488,7 +7488,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               placeholder="input placeholder"
               type="text"
               value=""
@@ -7499,7 +7499,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7554,7 +7554,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               placeholder="input placeholder"
               type="text"
               value=""
@@ -7565,7 +7565,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7597,11 +7597,11 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
 
 exports[`renders components/form/demo/size.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal ant-form-default"
+  class="ant-form ant-form-horizontal ant-form-default ant-form-css-var"
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7627,11 +7627,11 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-radio-group ant-radio-group-outline ant-radio-group-default"
+              class="ant-radio-group ant-radio-group-outline ant-radio-group-default ant-radio-css-var"
               id="size"
             >
               <label
-                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item ant-radio-css-var"
               >
                 <span
                   class="ant-radio-button"
@@ -7653,7 +7653,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
                 </span>
               </label>
               <label
-                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item ant-radio-css-var"
               >
                 <span
                   class="ant-radio-button ant-radio-button-checked"
@@ -7676,7 +7676,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
                 </span>
               </label>
               <label
-                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item ant-radio-css-var"
               >
                 <span
                   class="ant-radio-button"
@@ -7704,7 +7704,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7729,7 +7729,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               type="text"
               value=""
             />
@@ -7739,7 +7739,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7764,7 +7764,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
+              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -7829,7 +7829,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7854,7 +7854,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
+              class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -7919,7 +7919,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7944,7 +7944,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -8009,7 +8009,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8034,7 +8034,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-default ant-picker-outlined"
+              class="ant-picker ant-picker-default ant-picker-outlined ant-picker-css-var"
             >
               <div
                 class="ant-picker-input"
@@ -8077,7 +8077,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8102,7 +8102,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
+              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-css-var"
             >
               <div
                 class="ant-input-number-handler-wrap"
@@ -8180,7 +8180,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8230,7 +8230,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8272,12 +8272,12 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
 
 exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
   id="time_related_controls"
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8303,7 +8303,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-outlined"
+              class="ant-picker ant-picker-outlined ant-picker-css-var"
             >
               <div
                 class="ant-picker-input"
@@ -8348,7 +8348,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8374,7 +8374,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-outlined"
+              class="ant-picker ant-picker-outlined ant-picker-css-var"
             >
               <div
                 class="ant-picker-input"
@@ -8419,7 +8419,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8445,7 +8445,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-outlined"
+              class="ant-picker ant-picker-outlined ant-picker-css-var"
             >
               <div
                 class="ant-picker-input"
@@ -8490,7 +8490,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8516,7 +8516,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-range ant-picker-outlined"
+              class="ant-picker ant-picker-range ant-picker-outlined ant-picker-css-var"
             >
               <div
                 class="ant-picker-input"
@@ -8607,7 +8607,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8633,7 +8633,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-range ant-picker-outlined"
+              class="ant-picker ant-picker-range ant-picker-outlined ant-picker-css-var"
             >
               <div
                 class="ant-picker-input"
@@ -8724,7 +8724,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8750,7 +8750,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-outlined"
+              class="ant-picker ant-picker-outlined ant-picker-css-var"
             >
               <div
                 class="ant-picker-input"
@@ -8798,7 +8798,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8832,10 +8832,10 @@ exports[`renders components/form/demo/useWatch.tsx correctly 1`] = `
 Array [
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical"
+    class="ant-form ant-form-vertical ant-form-css-var"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -8861,7 +8861,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <input
-                class="ant-input ant-input-outlined"
+                class="ant-input ant-input-outlined ant-input-css-var"
                 id="name"
                 type="text"
                 value=""
@@ -8872,7 +8872,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-css-var"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -8898,7 +8898,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
+                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-css-var"
               >
                 <div
                   class="ant-input-number-handler-wrap"
@@ -8993,11 +8993,11 @@ Array [
 exports[`renders components/form/demo/validate-only.tsx correctly 1`] = `
 <form
   autocomplete="off"
-  class="ant-form ant-form-vertical"
+  class="ant-form ant-form-vertical ant-form-css-var"
   id="validateOnly"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9024,7 +9024,7 @@ exports[`renders components/form/demo/validate-only.tsx correctly 1`] = `
           >
             <input
               aria-required="true"
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="validateOnly_name"
               type="text"
               value=""
@@ -9035,7 +9035,7 @@ exports[`renders components/form/demo/validate-only.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9062,7 +9062,7 @@ exports[`renders components/form/demo/validate-only.tsx correctly 1`] = `
           >
             <input
               aria-required="true"
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="validateOnly_age"
               type="text"
               value=""
@@ -9073,7 +9073,7 @@ exports[`renders components/form/demo/validate-only.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9126,12 +9126,12 @@ exports[`renders components/form/demo/validate-only.tsx correctly 1`] = `
 
 exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
   id="validate_other"
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9166,7 +9166,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9193,7 +9193,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-has-feedback ant-select-single ant-select-show-arrow"
+              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-has-feedback ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -9262,7 +9262,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9289,7 +9289,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-multiple ant-select-show-arrow ant-select-show-search"
+              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
             >
               <div
                 class="ant-select-selector"
@@ -9373,7 +9373,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9398,7 +9398,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
+              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-css-var"
             >
               <div
                 class="ant-input-number-handler-wrap"
@@ -9486,7 +9486,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9538,7 +9538,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9661,7 +9661,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9687,11 +9687,11 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-radio-group ant-radio-group-outline"
+              class="ant-radio-group ant-radio-group-outline ant-radio-css-var"
               id="validate_other_radio-group"
             >
               <label
-                class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
+                class="ant-radio-wrapper ant-radio-wrapper-in-form-item ant-radio-css-var"
               >
                 <span
                   class="ant-radio ant-wave-target"
@@ -9713,7 +9713,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                 </span>
               </label>
               <label
-                class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
+                class="ant-radio-wrapper ant-radio-wrapper-in-form-item ant-radio-css-var"
               >
                 <span
                   class="ant-radio ant-wave-target"
@@ -9735,7 +9735,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                 </span>
               </label>
               <label
-                class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
+                class="ant-radio-wrapper ant-radio-wrapper-in-form-item ant-radio-css-var"
               >
                 <span
                   class="ant-radio ant-wave-target"
@@ -9763,7 +9763,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9790,11 +9790,11 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-radio-group ant-radio-group-outline"
+              class="ant-radio-group ant-radio-group-outline ant-radio-css-var"
               id="validate_other_radio-button"
             >
               <label
-                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item ant-radio-css-var"
               >
                 <span
                   class="ant-radio-button"
@@ -9816,7 +9816,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                 </span>
               </label>
               <label
-                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item ant-radio-css-var"
               >
                 <span
                   class="ant-radio-button"
@@ -9838,7 +9838,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                 </span>
               </label>
               <label
-                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item ant-radio-css-var"
               >
                 <span
                   class="ant-radio-button"
@@ -9866,7 +9866,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9892,7 +9892,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-checkbox-group"
+              class="ant-checkbox-group ant-checkbox-css-var"
               id="validate_other_checkbox-group"
             >
               <div
@@ -9902,7 +9902,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                   class="ant-col ant-col-8"
                 >
                   <label
-                    class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item"
+                    class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item ant-checkbox-css-var"
                     style="line-height:32px"
                   >
                     <span
@@ -9929,7 +9929,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                   class="ant-col ant-col-8"
                 >
                   <label
-                    class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item"
+                    class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item ant-checkbox-css-var"
                     style="line-height:32px"
                   >
                     <span
@@ -9957,7 +9957,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                   class="ant-col ant-col-8"
                 >
                   <label
-                    class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
+                    class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-css-var"
                     style="line-height:32px"
                   >
                     <span
@@ -9983,7 +9983,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                   class="ant-col ant-col-8"
                 >
                   <label
-                    class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
+                    class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-css-var"
                     style="line-height:32px"
                   >
                     <span
@@ -10009,7 +10009,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                   class="ant-col ant-col-8"
                 >
                   <label
-                    class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
+                    class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-css-var"
                     style="line-height:32px"
                   >
                     <span
@@ -10035,7 +10035,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                   class="ant-col ant-col-8"
                 >
                   <label
-                    class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
+                    class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-css-var"
                     style="line-height:32px"
                   >
                     <span
@@ -10065,7 +10065,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -10393,7 +10393,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -10488,7 +10488,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -10579,7 +10579,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -10607,7 +10607,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
             <div
               aria-describedby="test-id"
               aria-required="true"
-              class="ant-color-picker-trigger"
+              class="ant-color-picker-trigger ant-color-picker-css-var"
               id="validate_other_color-picker"
             >
               <div
@@ -10620,7 +10620,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -10672,11 +10672,11 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
 
 exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
   style="padding-block:32px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -10704,7 +10704,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -10731,7 +10731,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
           >
             <input
               aria-required="true"
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="username"
               type="text"
               value=""
@@ -10742,7 +10742,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -10768,7 +10768,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
+              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -10834,7 +10834,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -10860,7 +10860,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
             class="ant-form-item-control-input-content"
           >
             <textarea
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="motto"
               rows="4"
             />
@@ -10870,7 +10870,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -10897,7 +10897,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
           >
             <textarea
               aria-required="true"
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="bio"
               rows="6"
             />
@@ -10907,7 +10907,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -10951,11 +10951,11 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
 
 exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
   style="max-width:600px"
 >
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item ant-form-css-var ant-form-item-with-help ant-form-item-has-error"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -10980,7 +10980,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-outlined ant-input-status-error"
+              class="ant-input ant-input-outlined ant-input-status-error ant-input-css-var"
               id="error"
               placeholder="unavailable choice"
               type="text"
@@ -10992,7 +10992,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-warning"
+    class="ant-form-item ant-form-css-var ant-form-item-has-warning"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -11017,7 +11017,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-warning"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-warning ant-input-css-var"
             >
               <span
                 class="ant-input-prefix"
@@ -11056,7 +11056,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-is-validating"
+    class="ant-form-item ant-form-css-var ant-form-item-with-help ant-form-item-has-feedback ant-form-item-is-validating"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -11081,7 +11081,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-validating"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-validating ant-input-css-var"
             >
               <input
                 class="ant-input"
@@ -11124,7 +11124,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
+    class="ant-form-item ant-form-css-var ant-form-item-has-feedback ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -11149,7 +11149,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-success"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-success ant-input-css-var"
             >
               <input
                 class="ant-input"
@@ -11192,7 +11192,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-warning"
+    class="ant-form-item ant-form-css-var ant-form-item-has-feedback ant-form-item-has-warning"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -11217,7 +11217,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-warning"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-warning ant-input-css-var"
             >
               <input
                 class="ant-input"
@@ -11260,7 +11260,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-error"
+    class="ant-form-item ant-form-css-var ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-error"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -11285,7 +11285,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-error"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-error ant-input-css-var"
             >
               <input
                 class="ant-input"
@@ -11329,7 +11329,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
+    class="ant-form-item ant-form-css-var ant-form-item-has-feedback ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -11354,7 +11354,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-outlined ant-picker-status-success ant-picker-has-feedback"
+              class="ant-picker ant-picker-outlined ant-picker-status-success ant-picker-has-feedback ant-picker-css-var"
               style="width:100%"
             >
               <div
@@ -11421,7 +11421,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-warning"
+    class="ant-form-item ant-form-css-var ant-form-item-has-feedback ant-form-item-has-warning"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -11446,7 +11446,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-outlined ant-picker-status-warning ant-picker-has-feedback"
+              class="ant-picker ant-picker-outlined ant-picker-status-warning ant-picker-has-feedback ant-picker-css-var"
               style="width:100%"
             >
               <div
@@ -11516,7 +11516,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-error"
+    class="ant-form-item ant-form-css-var ant-form-item-has-feedback ant-form-item-has-error"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -11541,7 +11541,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-range ant-picker-outlined ant-picker-status-error ant-picker-has-feedback"
+              class="ant-picker ant-picker-range ant-picker-outlined ant-picker-status-error ant-picker-has-feedback ant-picker-css-var"
               style="width:100%"
             >
               <div
@@ -11654,7 +11654,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-error"
+    class="ant-form-item ant-form-css-var ant-form-item-has-feedback ant-form-item-has-error"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -11679,7 +11679,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-status-error ant-select-has-feedback ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-status-error ant-select-has-feedback ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -11770,7 +11770,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-error"
+    class="ant-form-item ant-form-css-var ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-error"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -11795,7 +11795,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-status-error ant-select-has-feedback ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-status-error ant-select-has-feedback ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -11886,7 +11886,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-warning"
+    class="ant-form-item ant-form-css-var ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-warning"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -11911,7 +11911,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-select-status-warning ant-select-has-feedback ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-select-status-warning ant-select-has-feedback ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -12001,7 +12001,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
     style="margin-bottom:0"
   >
     <div
@@ -12027,7 +12027,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
+              class="ant-form-item ant-form-css-var ant-form-item-with-help ant-form-item-has-error"
               style="display:inline-block;width:calc(50% - 12px)"
             >
               <div
@@ -12043,7 +12043,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-picker ant-picker-outlined ant-picker-status-error"
+                        class="ant-picker ant-picker-outlined ant-picker-status-error ant-picker-css-var"
                       >
                         <div
                           class="ant-picker-input"
@@ -12091,7 +12091,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
               -
             </span>
             <div
-              class="ant-form-item"
+              class="ant-form-item ant-form-css-var"
               style="display:inline-block;width:calc(50% - 12px)"
             >
               <div
@@ -12107,7 +12107,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-picker ant-picker-outlined"
+                        class="ant-picker ant-picker-outlined ant-picker-css-var"
                       >
                         <div
                           class="ant-picker-input"
@@ -12155,7 +12155,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
+    class="ant-form-item ant-form-css-var ant-form-item-has-feedback ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -12180,7 +12180,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number-affix-wrapper ant-input-number-outlined ant-input-number-status-success ant-input-number-has-feedback"
+              class="ant-input-number-affix-wrapper ant-input-number-outlined ant-input-number-status-success ant-input-number-has-feedback ant-input-number-css-var"
               style="width:100%"
             >
               <div
@@ -12290,7 +12290,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
+    class="ant-form-item ant-form-css-var ant-form-item-has-feedback ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -12315,7 +12315,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-success"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-success ant-input-css-var"
             >
               <input
                 class="ant-input"
@@ -12382,7 +12382,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-warning"
+    class="ant-form-item ant-form-css-var ant-form-item-has-feedback ant-form-item-has-warning"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -12407,7 +12407,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-warning ant-input-password"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-warning ant-input-password ant-input-css-var"
             >
               <input
                 class="ant-input"
@@ -12472,7 +12472,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-error"
+    class="ant-form-item ant-form-css-var ant-form-item-has-feedback ant-form-item-has-error"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -12497,7 +12497,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-error ant-input-password"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-error ant-input-password ant-input-css-var"
             >
               <input
                 class="ant-input"
@@ -12588,7 +12588,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
+    class="ant-form-item ant-form-css-var ant-form-item-has-feedback ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -12616,37 +12616,37 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
               class="ant-otp"
             >
               <input
-                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input ant-input-css-var"
                 size="1"
                 type="text"
                 value=""
               />
               <input
-                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input ant-input-css-var"
                 size="1"
                 type="text"
                 value=""
               />
               <input
-                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input ant-input-css-var"
                 size="1"
                 type="text"
                 value=""
               />
               <input
-                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input ant-input-css-var"
                 size="1"
                 type="text"
                 value=""
               />
               <input
-                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input ant-input-css-var"
                 size="1"
                 type="text"
                 value=""
               />
               <input
-                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input ant-input-css-var"
                 size="1"
                 type="text"
                 value=""
@@ -12658,7 +12658,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-warning"
+    class="ant-form-item ant-form-css-var ant-form-item-has-feedback ant-form-item-has-warning"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -12686,37 +12686,37 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
               class="ant-otp"
             >
               <input
-                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input ant-input-css-var"
                 size="1"
                 type="text"
                 value=""
               />
               <input
-                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input ant-input-css-var"
                 size="1"
                 type="text"
                 value=""
               />
               <input
-                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input ant-input-css-var"
                 size="1"
                 type="text"
                 value=""
               />
               <input
-                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input ant-input-css-var"
                 size="1"
                 type="text"
                 value=""
               />
               <input
-                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input ant-input-css-var"
                 size="1"
                 type="text"
                 value=""
               />
               <input
-                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input ant-input-css-var"
                 size="1"
                 type="text"
                 value=""
@@ -12728,7 +12728,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-error"
+    class="ant-form-item ant-form-css-var ant-form-item-has-feedback ant-form-item-has-error"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -12756,37 +12756,37 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
               class="ant-otp"
             >
               <input
-                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input ant-input-css-var"
                 size="1"
                 type="text"
                 value=""
               />
               <input
-                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input ant-input-css-var"
                 size="1"
                 type="text"
                 value=""
               />
               <input
-                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input ant-input-css-var"
                 size="1"
                 type="text"
                 value=""
               />
               <input
-                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input ant-input-css-var"
                 size="1"
                 type="text"
                 value=""
               />
               <input
-                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input ant-input-css-var"
                 size="1"
                 type="text"
                 value=""
               />
               <input
-                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input ant-input-css-var"
                 size="1"
                 type="text"
                 value=""
@@ -12798,7 +12798,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-error"
+    class="ant-form-item ant-form-css-var ant-form-item-has-feedback ant-form-item-has-error"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -12823,7 +12823,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-mentions-affix-wrapper ant-mentions-outlined ant-mentions-status-error"
+              class="ant-mentions-affix-wrapper ant-mentions-outlined ant-mentions-status-error ant-mentions-css-var"
             >
               <div
                 class="ant-mentions"
@@ -12868,7 +12868,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-error"
+    class="ant-form-item ant-form-css-var ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-error"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -12893,7 +12893,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-textarea-allow-clear ant-input-outlined ant-input-status-error"
+              class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-textarea-allow-clear ant-input-outlined ant-input-status-error ant-input-css-var"
               data-count="0"
             >
               <textarea
@@ -12973,7 +12973,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
 exports[`renders components/form/demo/validate-trigger.tsx correctly 1`] = `
 <form
   autocomplete="off"
-  class="ant-form ant-form-vertical"
+  class="ant-form ant-form-vertical ant-form-css-var"
   id="trigger"
   style="max-width:600px"
 >
@@ -12993,7 +12993,7 @@ exports[`renders components/form/demo/validate-trigger.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -13019,7 +13019,7 @@ exports[`renders components/form/demo/validate-trigger.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-css-var"
             >
               <input
                 class="ant-input"
@@ -13038,7 +13038,7 @@ exports[`renders components/form/demo/validate-trigger.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -13064,7 +13064,7 @@ exports[`renders components/form/demo/validate-trigger.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-css-var"
             >
               <input
                 class="ant-input"
@@ -13083,7 +13083,7 @@ exports[`renders components/form/demo/validate-trigger.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -13109,7 +13109,7 @@ exports[`renders components/form/demo/validate-trigger.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-css-var"
             >
               <input
                 class="ant-input"
@@ -13132,11 +13132,11 @@ exports[`renders components/form/demo/validate-trigger.tsx correctly 1`] = `
 
 exports[`renders components/form/demo/variant.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -13244,7 +13244,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -13271,7 +13271,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
           >
             <input
               aria-required="true"
-              class="ant-input ant-input-filled"
+              class="ant-input ant-input-filled ant-input-css-var"
               id="Input"
               type="text"
               value=""
@@ -13282,7 +13282,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -13308,7 +13308,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item ant-input-number-filled"
+              class="ant-input-number ant-input-number-in-form-item ant-input-number-filled ant-input-number-css-var"
               style="width:100%"
             >
               <div
@@ -13389,7 +13389,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -13416,7 +13416,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
           >
             <textarea
               aria-required="true"
-              class="ant-input ant-input-filled"
+              class="ant-input ant-input-filled ant-input-css-var"
               id="TextArea"
             />
           </div>
@@ -13425,7 +13425,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -13451,7 +13451,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-mentions ant-mentions-filled"
+              class="ant-mentions ant-mentions-filled ant-mentions-css-var"
             >
               <textarea
                 aria-required="true"
@@ -13466,7 +13466,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -13493,7 +13493,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-select ant-select-filled ant-select-in-form-item ant-select-single ant-select-show-arrow"
+              class="ant-select ant-select-filled ant-select-in-form-item ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -13560,7 +13560,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -13587,7 +13587,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-select ant-cascader ant-select-filled ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-cascader ant-select-filled ant-select-in-form-item ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -13654,7 +13654,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -13681,7 +13681,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-select ant-tree-select ant-select-filled ant-select-in-form-item ant-select-single ant-select-show-arrow"
+              class="ant-select ant-tree-select ant-select-filled ant-select-in-form-item ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -13748,7 +13748,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -13774,7 +13774,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-filled"
+              class="ant-picker ant-picker-filled ant-picker-css-var"
             >
               <div
                 class="ant-picker-input"
@@ -13819,7 +13819,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -13845,7 +13845,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-range ant-picker-filled"
+              class="ant-picker ant-picker-range ant-picker-filled ant-picker-css-var"
             >
               <div
                 class="ant-picker-input"
@@ -13936,7 +13936,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -13969,10 +13969,10 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
 exports[`renders components/form/demo/warning-only.tsx correctly 1`] = `
 <form
   autocomplete="off"
-  class="ant-form ant-form-vertical"
+  class="ant-form ant-form-vertical ant-form-css-var"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -13999,7 +13999,7 @@ exports[`renders components/form/demo/warning-only.tsx correctly 1`] = `
           >
             <input
               aria-required="true"
-              class="ant-input ant-input-outlined"
+              class="ant-input ant-input-outlined ant-input-css-var"
               id="url"
               placeholder="input placeholder"
               type="text"
@@ -14011,7 +14011,7 @@ exports[`renders components/form/demo/warning-only.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -14063,11 +14063,11 @@ exports[`renders components/form/demo/warning-only.tsx correctly 1`] = `
 
 exports[`renders components/form/demo/without-form-create.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
   style="max-width:600px"
 >
   <div
-    class="ant-form-item ant-form-item-with-help"
+    class="ant-form-item ant-form-css-var ant-form-item-with-help"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -14092,7 +14092,7 @@ exports[`renders components/form/demo/without-form-create.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
+              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-css-var"
             >
               <div
                 class="ant-input-number-handler-wrap"

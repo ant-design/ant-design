@@ -8,7 +8,7 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
     class="ant-picker-calendar-header"
   >
     <div
-      class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -72,7 +72,7 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
       </span>
     </div>
     <div
-      class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -136,10 +136,10 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
       </span>
     </div>
     <div
-      class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch"
+      class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch ant-radio-css-var"
     >
       <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-css-var"
       >
         <span
           class="ant-radio-button ant-radio-button-checked"
@@ -162,7 +162,7 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
         </span>
       </label>
       <label
-        class="ant-radio-button-wrapper"
+        class="ant-radio-button-wrapper ant-radio-css-var"
       >
         <span
           class="ant-radio-button"
@@ -966,7 +966,7 @@ exports[`Calendar Calendar should support locale 1`] = `
     class="ant-picker-calendar-header"
   >
     <div
-      class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -1030,7 +1030,7 @@ exports[`Calendar Calendar should support locale 1`] = `
       </span>
     </div>
     <div
-      class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -1094,10 +1094,10 @@ exports[`Calendar Calendar should support locale 1`] = `
       </span>
     </div>
     <div
-      class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch"
+      class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch ant-radio-css-var"
     >
       <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-css-var"
       >
         <span
           class="ant-radio-button ant-radio-button-checked"
@@ -1120,7 +1120,7 @@ exports[`Calendar Calendar should support locale 1`] = `
         </span>
       </label>
       <label
-        class="ant-radio-button-wrapper"
+        class="ant-radio-button-wrapper ant-radio-css-var"
       >
         <span
           class="ant-radio-button"
@@ -1924,7 +1924,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
     class="ant-picker-calendar-header"
   >
     <div
-      class="ant-select ant-select-rtl ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-rtl ant-select-outlined ant-picker-calendar-year-select ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -1988,7 +1988,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
       </span>
     </div>
     <div
-      class="ant-select ant-select-rtl ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-rtl ant-select-outlined ant-picker-calendar-month-select ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -2052,10 +2052,10 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
       </span>
     </div>
     <div
-      class="ant-radio-group ant-radio-group-outline ant-radio-group-rtl ant-picker-calendar-mode-switch"
+      class="ant-radio-group ant-radio-group-outline ant-radio-group-rtl ant-picker-calendar-mode-switch ant-radio-css-var"
     >
       <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-rtl"
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-rtl ant-radio-css-var"
       >
         <span
           class="ant-radio-button ant-radio-button-checked"
@@ -2078,7 +2078,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
         </span>
       </label>
       <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-rtl"
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-rtl ant-radio-css-var"
       >
         <span
           class="ant-radio-button"
@@ -2882,7 +2882,7 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
     class="ant-picker-calendar-header"
   >
     <div
-      class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -2946,7 +2946,7 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
       </span>
     </div>
     <div
-      class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -3010,10 +3010,10 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
       </span>
     </div>
     <div
-      class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch"
+      class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch ant-radio-css-var"
     >
       <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-css-var"
       >
         <span
           class="ant-radio-button ant-radio-button-checked"
@@ -3036,7 +3036,7 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
         </span>
       </label>
       <label
-        class="ant-radio-button-wrapper"
+        class="ant-radio-button-wrapper ant-radio-css-var"
       >
         <span
           class="ant-radio-button"

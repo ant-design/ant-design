@@ -157,7 +157,7 @@ Array [
         </div>
       </div>
       <div
-        class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs"
+        class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs ant-tabs-css-var"
       >
         <div
           aria-orientation="horizontal"
@@ -241,7 +241,7 @@ Array [
               </span>
             </button>
             <div
-              class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
+              class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
@@ -967,7 +967,7 @@ exports[`renders components/card/demo/meta.tsx extend context correctly 1`] = `
         class="ant-card-meta-avatar"
       >
         <span
-          class="ant-avatar ant-avatar-circle ant-avatar-image"
+          class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
         >
           <img
             src="https://api.dicebear.com/7.x/miniavs/svg?seed=8"
@@ -1125,7 +1125,7 @@ Array [
         </div>
       </div>
       <div
-        class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs"
+        class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs ant-tabs-css-var"
       >
         <div
           aria-orientation="horizontal"
@@ -1209,7 +1209,7 @@ Array [
               </span>
             </button>
             <div
-              class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
+              class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
@@ -1266,7 +1266,7 @@ Array [
         class="ant-card-head-wrapper"
       />
       <div
-        class="ant-tabs ant-tabs-top ant-tabs-middle ant-card-head-tabs"
+        class="ant-tabs ant-tabs-top ant-tabs-middle ant-card-head-tabs ant-tabs-css-var"
       >
         <div
           aria-orientation="horizontal"
@@ -1365,7 +1365,7 @@ Array [
               </span>
             </button>
             <div
-              class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
+              class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul

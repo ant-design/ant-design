@@ -8,7 +8,7 @@ exports[`renders components/menu/demo/component-token.tsx extend context correct
     class="ant-space-item"
   >
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -232,7 +232,7 @@ exports[`renders components/menu/demo/component-token.tsx extend context correct
           />
         </div>
         <div
-          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-submenu-placement-bottomLeft"
+          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var ant-menu-submenu-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -249,7 +249,7 @@ exports[`renders components/menu/demo/component-token.tsx extend context correct
       style="display: none;"
     />
     <ul
-      class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-inline-collapsed"
+      class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-inline-collapsed ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="width: 56px;"
@@ -453,7 +453,7 @@ exports[`renders components/menu/demo/component-token.tsx extend context correct
           />
         </div>
         <div
-          class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-submenu-placement-rightTop"
+          class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-css-var ant-menu-submenu-placement-rightTop"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -631,7 +631,7 @@ exports[`renders components/menu/demo/component-token.tsx extend context correct
           />
         </div>
         <div
-          class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-submenu-placement-rightTop"
+          class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-css-var ant-menu-submenu-placement-rightTop"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -725,7 +725,7 @@ exports[`renders components/menu/demo/component-token.tsx extend context correct
                 />
               </div>
               <div
-                class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-submenu-placement-rightTop"
+                class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-css-var ant-menu-submenu-placement-rightTop"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <ul
@@ -812,7 +812,7 @@ exports[`renders components/menu/demo/component-token.tsx extend context correct
     class="ant-space-item"
   >
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -1036,7 +1036,7 @@ exports[`renders components/menu/demo/component-token.tsx extend context correct
           />
         </div>
         <div
-          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-submenu-placement-bottomLeft"
+          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var ant-menu-submenu-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -1057,7 +1057,7 @@ exports[`renders components/menu/demo/component-token.tsx extend context correct
     class="ant-space-item"
   >
     <ul
-      class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+      class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="width: 256px;"
@@ -1259,7 +1259,7 @@ exports[`renders components/menu/demo/component-token.tsx extend context correct
           />
         </div>
         <div
-          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-css-var"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -1577,7 +1577,7 @@ exports[`renders components/menu/demo/component-token.tsx extend context correct
           />
         </div>
         <div
-          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-css-var"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -1674,7 +1674,7 @@ exports[`renders components/menu/demo/component-token.tsx extend context correct
                 />
               </div>
               <div
-                class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+                class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-css-var"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <ul
@@ -1772,7 +1772,7 @@ exports[`renders components/menu/demo/extra-style.tsx extend context correctly 1
     class="ant-space-item"
   >
     <ul
-      class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+      class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="width: 256px;"
@@ -1821,7 +1821,7 @@ exports[`renders components/menu/demo/extra-style.tsx extend context correctly 1
           />
         </div>
         <div
-          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -2110,7 +2110,7 @@ exports[`renders components/menu/demo/extra-style.tsx extend context correctly 1
     class="ant-space-item"
   >
     <ul
-      class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark"
+      class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="width: 256px;"
@@ -2202,7 +2202,7 @@ exports[`renders components/menu/demo/extra-style.tsx extend context correctly 2
 exports[`renders components/menu/demo/horizontal.tsx extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light"
+    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -2426,7 +2426,7 @@ Array [
         />
       </div>
       <div
-        class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-submenu-placement-bottomLeft"
+        class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var ant-menu-submenu-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -2450,7 +2450,7 @@ exports[`renders components/menu/demo/horizontal.tsx extend context correctly 2`
 exports[`renders components/menu/demo/horizontal-dark.tsx extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
+    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -2674,7 +2674,7 @@ Array [
         />
       </div>
       <div
-        class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-submenu-placement-bottomLeft"
+        class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-css-var ant-menu-submenu-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -2698,7 +2698,7 @@ exports[`renders components/menu/demo/horizontal-dark.tsx extend context correct
 exports[`renders components/menu/demo/inline.tsx extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     style="width: 256px;"
@@ -2747,7 +2747,7 @@ Array [
         />
       </div>
       <div
-        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -3133,7 +3133,7 @@ Array [
         />
       </div>
       <div
-        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -3230,7 +3230,7 @@ Array [
               />
             </div>
             <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
@@ -3356,7 +3356,7 @@ Array [
         />
       </div>
       <div
-        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -3617,7 +3617,7 @@ exports[`renders components/menu/demo/inline-collapsed.tsx extend context correc
     </span>
   </button>
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -3818,7 +3818,7 @@ exports[`renders components/menu/demo/inline-collapsed.tsx extend context correc
         />
       </div>
       <div
-        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-css-var"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -4136,7 +4136,7 @@ exports[`renders components/menu/demo/inline-collapsed.tsx extend context correc
         />
       </div>
       <div
-        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-css-var"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -4233,7 +4233,7 @@ exports[`renders components/menu/demo/inline-collapsed.tsx extend context correc
               />
             </div>
             <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-css-var"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
@@ -4348,7 +4348,7 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     style="width: 256px;"
@@ -4499,7 +4499,7 @@ Array [
         />
       </div>
       <div
-        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -4600,7 +4600,7 @@ Array [
               />
             </div>
             <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
@@ -4776,7 +4776,7 @@ Array [
             />
           </div>
           <div
-            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <ul
@@ -4897,7 +4897,7 @@ Array [
         />
       </div>
       <div
-        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -5107,7 +5107,7 @@ exports[`renders components/menu/demo/menu-v4.tsx extend context correctly 2`] =
 exports[`renders components/menu/demo/sider-current.tsx extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     style="width: 256px;"
@@ -5156,7 +5156,7 @@ Array [
         />
       </div>
       <div
-        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -5339,7 +5339,7 @@ Array [
         />
       </div>
       <div
-        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -5436,7 +5436,7 @@ Array [
               />
             </div>
             <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
@@ -5671,7 +5671,7 @@ Array [
               />
             </div>
             <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
@@ -5875,7 +5875,7 @@ Array [
             />
           </div>
           <div
-            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <ul
@@ -6110,7 +6110,7 @@ Array [
             />
           </div>
           <div
-            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <ul
@@ -6263,7 +6263,7 @@ Array [
         />
       </div>
       <div
-        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -6442,7 +6442,7 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-inline-collapsed"
+    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-inline-collapsed ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -6490,7 +6490,7 @@ Array [
         />
       </div>
       <div
-        class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-submenu-placement-rightTop"
+        class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-css-var ant-menu-submenu-placement-rightTop"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -6597,7 +6597,7 @@ Array [
         />
       </div>
       <div
-        class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-submenu-placement-rightTop"
+        class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-css-var ant-menu-submenu-placement-rightTop"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -6656,7 +6656,7 @@ Array [
               />
             </div>
             <div
-              class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-submenu-placement-rightTop"
+              class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-css-var ant-menu-submenu-placement-rightTop"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
@@ -6762,7 +6762,7 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark"
+    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     style="width: 256px;"
@@ -6811,7 +6811,7 @@ Array [
         />
       </div>
       <div
-        class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-submenu-placement-rightTop"
+        class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var ant-menu-submenu-placement-rightTop"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -7039,7 +7039,7 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     style="width: 256px;"
@@ -7190,7 +7190,7 @@ Array [
         />
       </div>
       <div
-        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -7287,7 +7287,7 @@ Array [
               />
             </div>
             <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
@@ -7459,7 +7459,7 @@ Array [
             />
           </div>
           <div
-            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <ul
@@ -7580,7 +7580,7 @@ Array [
         />
       </div>
       <div
-        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -7816,7 +7816,7 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     style="width: 256px;"
@@ -7865,7 +7865,7 @@ Array [
         />
       </div>
       <div
-        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-css-var"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -8183,7 +8183,7 @@ Array [
         />
       </div>
       <div
-        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-css-var"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -8280,7 +8280,7 @@ Array [
               />
             </div>
             <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-css-var"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
@@ -8402,7 +8402,7 @@ Array [
         />
       </div>
       <div
-        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-css-var"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -8555,7 +8555,7 @@ exports[`renders components/menu/demo/theme.tsx extend context correctly 2`] = `
 exports[`renders components/menu/demo/vertical.tsx extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     style="width: 256px;"
@@ -8603,7 +8603,7 @@ Array [
         />
       </div>
       <div
-        class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-submenu-placement-rightTop"
+        class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var ant-menu-submenu-placement-rightTop"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -8815,7 +8815,7 @@ Array [
         />
       </div>
       <div
-        class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-submenu-placement-rightTop"
+        class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var ant-menu-submenu-placement-rightTop"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -8909,7 +8909,7 @@ Array [
               />
             </div>
             <div
-              class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-submenu-placement-rightTop"
+              class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var ant-menu-submenu-placement-rightTop"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
@@ -9028,7 +9028,7 @@ Array [
         />
       </div>
       <div
-        class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-submenu-placement-rightTop"
+        class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var ant-menu-submenu-placement-rightTop"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul

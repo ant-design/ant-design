@@ -70,7 +70,7 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
 >
   <div
     aria-modal="true"
-    class="ant-modal ant-modal-pure-panel"
+    class="ant-modal ant-modal-pure-panel ant-css-var"
     role="dialog"
     style="width:100%"
   >
@@ -154,7 +154,7 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
   </div>
   <div
     aria-modal="true"
-    class="ant-modal ant-modal-pure-panel"
+    class="ant-modal ant-modal-pure-panel ant-css-var"
     role="dialog"
     style="width:100%"
   >
@@ -238,7 +238,7 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
   </div>
   <div
     aria-modal="true"
-    class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-success"
+    class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-success ant-css-var"
     role="dialog"
     style="width:200px"
   >
@@ -310,7 +310,7 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
   </div>
   <div
     aria-modal="true"
-    class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-confirm"
+    class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-confirm ant-css-var"
     role="dialog"
     style="width:300px"
   >
@@ -732,7 +732,7 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
 >
   <div
     aria-modal="true"
-    class="ant-modal ant-modal-pure-panel"
+    class="ant-modal ant-modal-pure-panel ant-css-var"
     role="dialog"
     style="width:100%;height:200px"
   >
@@ -816,7 +816,7 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
   </div>
   <div
     aria-modal="true"
-    class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-success"
+    class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-success ant-css-var"
     role="dialog"
     style="width:200px;height:150px"
   >
@@ -888,7 +888,7 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
   </div>
   <div
     aria-modal="true"
-    class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-confirm"
+    class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-confirm ant-css-var"
     role="dialog"
     style="width:300px;height:200px"
   >
@@ -973,7 +973,7 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
   </div>
   <div
     aria-modal="true"
-    class="ant-modal ant-modal-pure-panel"
+    class="ant-modal ant-modal-pure-panel ant-css-var"
     role="dialog"
     style="width:380px;height:200px"
   >
@@ -1216,7 +1216,7 @@ exports[`renders components/modal/demo/wireframe.tsx correctly 1`] = `
 >
   <div
     aria-modal="true"
-    class="ant-modal ant-modal-pure-panel"
+    class="ant-modal ant-modal-pure-panel ant-css-var"
     role="dialog"
     style="width:100%"
   >
@@ -1300,7 +1300,7 @@ exports[`renders components/modal/demo/wireframe.tsx correctly 1`] = `
   </div>
   <div
     aria-modal="true"
-    class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-success"
+    class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-success ant-css-var"
     role="dialog"
     style="width:200px"
   >
@@ -1372,7 +1372,7 @@ exports[`renders components/modal/demo/wireframe.tsx correctly 1`] = `
   </div>
   <div
     aria-modal="true"
-    class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-confirm"
+    class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-confirm ant-css-var"
     role="dialog"
     style="width:300px"
   >

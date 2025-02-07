@@ -3,7 +3,7 @@
 exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
 <DocumentFragment>
   <ul
-    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -167,7 +167,7 @@ exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
 exports[`Menu all types must be available in the "items" syntax 1`] = `
 <DocumentFragment>
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -339,7 +339,7 @@ exports[`Menu all types must be available in the "items" syntax 1`] = `
 
 exports[`Menu rtl render component should be rendered correctly in RTL direction 1`] = `
 <ul
-  class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-menu-rtl"
+  class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-menu-rtl ant-menu-css-var"
   data-menu-list="true"
   dir="rtl"
   role="menu"
@@ -396,7 +396,7 @@ exports[`Menu rtl render component should be rendered correctly in RTL direction
 exports[`Menu should controlled collapse work 1`] = `
 <DocumentFragment>
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -445,7 +445,7 @@ exports[`Menu should controlled collapse work 1`] = `
 exports[`Menu should controlled collapse work 2`] = `
 <DocumentFragment>
   <ul
-    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-menu-inline-collapsed"
+    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-menu-inline-collapsed ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     tabindex="0"

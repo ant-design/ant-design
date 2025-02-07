@@ -11,7 +11,7 @@ exports[`renders components/badge/demo/basic.tsx extend context correctly 1`] = 
       class="ant-badge"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
@@ -45,7 +45,7 @@ exports[`renders components/badge/demo/basic.tsx extend context correctly 1`] = 
       class="ant-badge"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
@@ -68,7 +68,7 @@ exports[`renders components/badge/demo/basic.tsx extend context correctly 1`] = 
       class="ant-badge"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
@@ -122,7 +122,7 @@ exports[`renders components/badge/demo/change.tsx extend context correctly 1`] =
           class="ant-badge"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
@@ -259,7 +259,7 @@ exports[`renders components/badge/demo/change.tsx extend context correctly 1`] =
           class="ant-badge"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
@@ -1382,7 +1382,7 @@ exports[`renders components/badge/demo/component-token.tsx extend context correc
       class="ant-badge"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
@@ -1578,7 +1578,7 @@ exports[`renders components/badge/demo/link.tsx extend context correctly 1`] = `
     class="ant-badge"
   >
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-square"
+      class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
     >
       <span
         class="ant-avatar-string"
@@ -1628,7 +1628,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           class="ant-badge"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
@@ -1662,7 +1662,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           class="ant-badge"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
@@ -1696,7 +1696,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           class="ant-badge"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
@@ -1730,7 +1730,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           class="ant-badge"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
@@ -1765,7 +1765,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           class="ant-badge ant-badge-status"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
@@ -1785,7 +1785,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           class="ant-badge ant-badge-status"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
@@ -1805,7 +1805,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           class="ant-badge ant-badge-status"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
@@ -1825,7 +1825,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           class="ant-badge ant-badge-status"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
@@ -1845,7 +1845,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           class="ant-badge ant-badge-status"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
@@ -1921,7 +1921,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           class="ant-badge"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
@@ -1944,7 +1944,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           class="ant-badge"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
@@ -2125,7 +2125,7 @@ exports[`renders components/badge/demo/offset.tsx extend context correctly 1`] =
   class="ant-badge"
 >
   <span
-    class="ant-avatar ant-avatar-lg ant-avatar-square"
+    class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
   >
     <span
       class="ant-avatar-string"
@@ -2167,7 +2167,7 @@ exports[`renders components/badge/demo/overflow.tsx extend context correctly 1`]
       class="ant-badge"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
@@ -2211,7 +2211,7 @@ exports[`renders components/badge/demo/overflow.tsx extend context correctly 1`]
       class="ant-badge"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
@@ -2234,7 +2234,7 @@ exports[`renders components/badge/demo/overflow.tsx extend context correctly 1`]
       class="ant-badge"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
@@ -2257,7 +2257,7 @@ exports[`renders components/badge/demo/overflow.tsx extend context correctly 1`]
       class="ant-badge"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
@@ -2796,7 +2796,7 @@ exports[`renders components/badge/demo/size.tsx extend context correctly 1`] = `
       class="ant-badge"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
@@ -2830,7 +2830,7 @@ exports[`renders components/badge/demo/size.tsx extend context correctly 1`] = `
       class="ant-badge"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
@@ -3024,7 +3024,7 @@ exports[`renders components/badge/demo/title.tsx extend context correctly 1`] = 
       class="ant-badge"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
@@ -3058,7 +3058,7 @@ exports[`renders components/badge/demo/title.tsx extend context correctly 1`] = 
       class="ant-badge"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"

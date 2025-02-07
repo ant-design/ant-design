@@ -1462,7 +1462,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
   >
     <input
       aria-describedby="test-id"
-      class="ant-input ant-input-disabled ant-input-outlined"
+      class="ant-input ant-input-disabled ant-input-outlined ant-input-css-var"
       disabled=""
       placeholder="disabled"
       type="text"
@@ -1493,7 +1493,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
     class="ant-space-item"
   >
     <div
-      class="ant-input-number ant-input-number-outlined ant-input-number-disabled"
+      class="ant-input-number ant-input-number-outlined ant-input-number-css-var ant-input-number-disabled"
     >
       <div
         class="ant-input-number-handler-wrap"
@@ -1592,7 +1592,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
     class="ant-space-item"
   >
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-css-var"
     >
       <span
         class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -1634,7 +1634,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
   >
     <div
       aria-describedby="test-id"
-      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-disabled"
+      class="ant-select ant-select-outlined ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled"
     >
       <div
         class="ant-select-selector"
@@ -1670,7 +1670,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150;"
       >
         <div>

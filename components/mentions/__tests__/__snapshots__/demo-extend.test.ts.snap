@@ -3,7 +3,7 @@
 exports[`renders components/mentions/demo/allowClear.tsx extend context correctly 1`] = `
 Array [
   <span
-    class="ant-mentions-affix-wrapper ant-mentions-outlined"
+    class="ant-mentions-affix-wrapper ant-mentions-outlined ant-mentions-css-var"
   >
     <div
       class="ant-mentions"
@@ -48,7 +48,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-mentions-affix-wrapper ant-mentions-outlined"
+    class="ant-mentions-affix-wrapper ant-mentions-outlined ant-mentions-css-var"
   >
     <div
       class="ant-mentions"
@@ -93,7 +93,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-mentions-affix-wrapper ant-mentions-outlined"
+    class="ant-mentions-affix-wrapper ant-mentions-outlined ant-mentions-css-var"
   >
     <div
       class="ant-mentions"
@@ -142,7 +142,7 @@ exports[`renders components/mentions/demo/allowClear.tsx extend context correctl
 
 exports[`renders components/mentions/demo/async.tsx extend context correctly 1`] = `
 <div
-  class="ant-mentions ant-mentions-outlined"
+  class="ant-mentions ant-mentions-outlined ant-mentions-css-var"
   style="width: 100%;"
 >
   <textarea
@@ -175,7 +175,7 @@ exports[`renders components/mentions/demo/autoSize.tsx extend context correctly 
 
 exports[`renders components/mentions/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-mentions ant-mentions-outlined"
+  class="ant-mentions ant-mentions-outlined ant-mentions-css-var"
   style="width: 100%;"
 >
   <textarea
@@ -194,7 +194,7 @@ exports[`renders components/mentions/demo/component-token.tsx extend context cor
   style="padding-bottom: 0px; position: relative; min-width: 0;"
 >
   <div
-    class="ant-mentions ant-mentions-outlined"
+    class="ant-mentions ant-mentions-outlined ant-mentions-css-var"
     style="width: 100%; margin: 0px;"
   >
     <textarea
@@ -210,7 +210,7 @@ exports[`renders components/mentions/demo/component-token.tsx extend context cor
         @
       </span>
       <div
-        class="ant-mentions-dropdown ant-mentions-dropdown-placement-bottomRight"
+        class="ant-mentions-dropdown ant-mentions-css-var ant-mentions-dropdown-placement-bottomRight"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -254,10 +254,10 @@ exports[`renders components/mentions/demo/component-token.tsx extend context cor
 
 exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -283,7 +283,7 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-mentions ant-mentions-outlined"
+              class="ant-mentions ant-mentions-outlined ant-mentions-css-var"
             >
               <textarea
                 class="rc-textarea"
@@ -297,7 +297,7 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -323,7 +323,7 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-mentions ant-mentions-outlined"
+              class="ant-mentions ant-mentions-outlined ant-mentions-css-var"
             >
               <textarea
                 aria-required="true"
@@ -339,7 +339,7 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -394,7 +394,7 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 2`] 
 
 exports[`renders components/mentions/demo/placement.tsx extend context correctly 1`] = `
 <div
-  class="ant-mentions ant-mentions-outlined"
+  class="ant-mentions ant-mentions-outlined ant-mentions-css-var"
   style="width: 100%;"
 >
   <textarea
@@ -408,7 +408,7 @@ exports[`renders components/mentions/demo/placement.tsx extend context correctly
 
 exports[`renders components/mentions/demo/prefix.tsx extend context correctly 1`] = `
 <div
-  class="ant-mentions ant-mentions-outlined"
+  class="ant-mentions ant-mentions-outlined ant-mentions-css-var"
   style="width: 100%;"
 >
   <textarea
@@ -427,7 +427,7 @@ Array [
     style="margin-bottom: 10px;"
   >
     <div
-      class="ant-mentions ant-mentions-disabled ant-mentions-outlined"
+      class="ant-mentions ant-mentions-disabled ant-mentions-outlined ant-mentions-css-var"
       style="width: 100%;"
     >
       <textarea
@@ -439,7 +439,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-mentions ant-mentions-outlined"
+    class="ant-mentions ant-mentions-outlined ant-mentions-css-var"
     style="width: 100%;"
   >
     <textarea
@@ -459,7 +459,7 @@ exports[`renders components/mentions/demo/render-panel.tsx extend context correc
   style="padding-bottom: 0px; position: relative; min-width: 0;"
 >
   <div
-    class="ant-mentions ant-mentions-outlined"
+    class="ant-mentions ant-mentions-outlined ant-mentions-css-var"
     style="width: 100%; margin: 0px;"
   >
     <textarea
@@ -475,7 +475,7 @@ exports[`renders components/mentions/demo/render-panel.tsx extend context correc
         @
       </span>
       <div
-        class="ant-mentions-dropdown ant-mentions-dropdown-placement-bottomRight"
+        class="ant-mentions-dropdown ant-mentions-css-var ant-mentions-dropdown-placement-bottomRight"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -525,7 +525,7 @@ exports[`renders components/mentions/demo/status.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <div
-      class="ant-mentions ant-mentions-outlined ant-mentions-status-error"
+      class="ant-mentions ant-mentions-outlined ant-mentions-status-error ant-mentions-css-var"
     >
       <textarea
         class="rc-textarea"
@@ -539,7 +539,7 @@ exports[`renders components/mentions/demo/status.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <div
-      class="ant-mentions ant-mentions-outlined ant-mentions-status-warning"
+      class="ant-mentions ant-mentions-outlined ant-mentions-status-warning ant-mentions-css-var"
     >
       <textarea
         class="rc-textarea"
@@ -560,7 +560,7 @@ exports[`renders components/mentions/demo/variant.tsx extend context correctly 1
   style="gap: 12px;"
 >
   <div
-    class="ant-mentions ant-mentions-outlined"
+    class="ant-mentions ant-mentions-outlined ant-mentions-css-var"
   >
     <textarea
       class="rc-textarea"
@@ -569,7 +569,7 @@ exports[`renders components/mentions/demo/variant.tsx extend context correctly 1
     />
   </div>
   <div
-    class="ant-mentions ant-mentions-filled"
+    class="ant-mentions ant-mentions-filled ant-mentions-css-var"
   >
     <textarea
       class="rc-textarea"
@@ -578,7 +578,7 @@ exports[`renders components/mentions/demo/variant.tsx extend context correctly 1
     />
   </div>
   <div
-    class="ant-mentions ant-mentions-borderless"
+    class="ant-mentions ant-mentions-borderless ant-mentions-css-var"
   >
     <textarea
       class="rc-textarea"
@@ -587,7 +587,7 @@ exports[`renders components/mentions/demo/variant.tsx extend context correctly 1
     />
   </div>
   <div
-    class="ant-mentions ant-mentions-underlined"
+    class="ant-mentions ant-mentions-underlined ant-mentions-css-var"
   >
     <textarea
       class="rc-textarea"

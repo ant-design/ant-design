@@ -11,7 +11,7 @@ exports[`Card correct pass tabList props 1`] = `
       class="ant-card-head-wrapper"
     />
     <div
-      class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-large ant-tabs-card ant-tabs-editable-card ant-card-head-tabs"
+      class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-large ant-tabs-card ant-tabs-editable-card ant-card-head-tabs ant-tabs-css-var"
     >
       <div
         aria-orientation="horizontal"

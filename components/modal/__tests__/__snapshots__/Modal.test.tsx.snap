@@ -50,7 +50,7 @@ exports[`Modal render correctly 1`] = `
 <div>
   <div>
     <div
-      class="ant-modal-root"
+      class="ant-modal-root ant-modal-css-var"
     >
       <div
         class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
@@ -144,7 +144,7 @@ exports[`Modal render without footer 1`] = `
 <div>
   <div>
     <div
-      class="ant-modal-root"
+      class="ant-modal-root ant-modal-css-var"
     >
       <div
         class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
@@ -218,7 +218,7 @@ exports[`Modal rtl render component should be rendered correctly in RTL directio
 
 exports[`Modal support closeIcon 1`] = `
 <div
-  class="ant-modal-root"
+  class="ant-modal-root ant-modal-css-var"
 >
   <div
     class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"

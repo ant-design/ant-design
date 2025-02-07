@@ -2,7 +2,7 @@
 
 exports[`Table.pagination Accepts pagination as true 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="ant-table-css-var ant-table-wrapper"
 >
   <div
     class="ant-spin-nested-loading"
@@ -11,7 +11,7 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table"
+        class="ant-table ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -169,7 +169,7 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
 
 exports[`Table.pagination renders pagination correctly 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="ant-table-css-var ant-table-wrapper"
 >
   <div
     class="ant-spin-nested-loading"
@@ -178,7 +178,7 @@ exports[`Table.pagination renders pagination correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table"
+        class="ant-table ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -327,7 +327,7 @@ exports[`Table.pagination renders pagination correctly 1`] = `
 
 exports[`Table.pagination renders pagination topLeft and bottomRight 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="ant-table-css-var ant-table-wrapper"
 >
   <div
     class="ant-spin-nested-loading"
@@ -336,7 +336,7 @@ exports[`Table.pagination renders pagination topLeft and bottomRight 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table"
+        class="ant-table ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -494,7 +494,7 @@ exports[`Table.pagination renders pagination topLeft and bottomRight 1`] = `
 
 exports[`Table.pagination should not crash when trigger onChange in render 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="ant-table-css-var ant-table-wrapper"
 >
   <div
     class="ant-spin-nested-loading"
@@ -503,7 +503,7 @@ exports[`Table.pagination should not crash when trigger onChange in render 1`] =
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-empty"
+        class="ant-table ant-table-empty ant-table-css-var"
       >
         <div
           class="ant-table-container"

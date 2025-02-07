@@ -502,10 +502,10 @@ exports[`renders components/descriptions/demo/border.tsx extend context correctl
 exports[`renders components/descriptions/demo/component-token.tsx extend context correctly 1`] = `
 <div>
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline ant-radio-css-var"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
+      class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-checked"
@@ -528,7 +528,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -550,7 +550,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -1602,10 +1602,10 @@ exports[`renders components/descriptions/demo/responsive.tsx extend context corr
 exports[`renders components/descriptions/demo/size.tsx extend context correctly 1`] = `
 <div>
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline ant-radio-css-var"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
+      class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-checked"
@@ -1628,7 +1628,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -1650,7 +1650,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -2067,10 +2067,10 @@ Array [
     role="separator"
   />,
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline ant-radio-css-var"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
+      class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-checked"
@@ -2093,7 +2093,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -2594,7 +2594,7 @@ exports[`renders components/descriptions/demo/text.tsx extend context correctly 
                 class="ant-descriptions-item-content"
               >
                 <div
-                  class="ant-table-wrapper"
+                  class="ant-table-css-var ant-table-wrapper"
                 >
                   <div
                     class="ant-spin-nested-loading"
@@ -2603,7 +2603,7 @@ exports[`renders components/descriptions/demo/text.tsx extend context correctly 
                       class="ant-spin-container"
                     >
                       <div
-                        class="ant-table ant-table-small"
+                        class="ant-table ant-table-small ant-table-css-var"
                       >
                         <div
                           class="ant-table-container"

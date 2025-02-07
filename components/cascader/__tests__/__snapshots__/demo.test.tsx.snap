@@ -2,7 +2,7 @@
 
 exports[`renders components/cascader/demo/basic.tsx correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -67,7 +67,7 @@ exports[`renders components/cascader/demo/basic.tsx correctly 1`] = `
 
 exports[`renders components/cascader/demo/change-on-select.tsx correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -130,7 +130,7 @@ exports[`renders components/cascader/demo/change-on-select.tsx correctly 1`] = `
 
 exports[`renders components/cascader/demo/component-token.tsx correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -195,7 +195,7 @@ exports[`renders components/cascader/demo/component-token.tsx correctly 1`] = `
 
 exports[`renders components/cascader/demo/custom-dropdown.tsx correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -260,7 +260,7 @@ exports[`renders components/cascader/demo/custom-dropdown.tsx correctly 1`] = `
 
 exports[`renders components/cascader/demo/custom-render.tsx correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
   style="width:100%"
 >
   <div
@@ -381,7 +381,7 @@ exports[`renders components/cascader/demo/custom-trigger.tsx correctly 1`] = `
 
 exports[`renders components/cascader/demo/default-value.tsx correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -474,7 +474,7 @@ exports[`renders components/cascader/demo/default-value.tsx correctly 1`] = `
 
 exports[`renders components/cascader/demo/disabled-option.tsx correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -537,7 +537,7 @@ exports[`renders components/cascader/demo/disabled-option.tsx correctly 1`] = `
 
 exports[`renders components/cascader/demo/fields-name.tsx correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -602,7 +602,7 @@ exports[`renders components/cascader/demo/fields-name.tsx correctly 1`] = `
 
 exports[`renders components/cascader/demo/hover.tsx correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -665,7 +665,7 @@ exports[`renders components/cascader/demo/hover.tsx correctly 1`] = `
 
 exports[`renders components/cascader/demo/lazy.tsx correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -728,7 +728,7 @@ exports[`renders components/cascader/demo/lazy.tsx correctly 1`] = `
 
 exports[`renders components/cascader/demo/multiple.tsx correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-outlined ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
   style="width:100%"
 >
   <div
@@ -835,7 +835,7 @@ exports[`renders components/cascader/demo/panel.tsx correctly 1`] = `
     </span>
   </button>
   <div
-    class="ant-cascader-panel"
+    class="ant-cascader-panel ant-cascader-css-var"
   >
     <div
       class="ant-cascader-menus"
@@ -920,7 +920,7 @@ exports[`renders components/cascader/demo/panel.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-cascader-panel"
+    class="ant-cascader-panel ant-cascader-css-var"
   >
     <div
       class="ant-cascader-menus"
@@ -1019,7 +1019,7 @@ exports[`renders components/cascader/demo/panel.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-cascader-panel ant-cascader-panel-empty"
+    class="ant-cascader-panel ant-cascader-panel-empty ant-cascader-css-var"
   >
     <div
       class="ant-empty ant-empty-normal ant-empty-small"
@@ -1076,10 +1076,10 @@ exports[`renders components/cascader/demo/panel.tsx correctly 1`] = `
 exports[`renders components/cascader/demo/placement.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline ant-radio-css-var"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
@@ -1102,7 +1102,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -1124,7 +1124,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -1146,7 +1146,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -1171,7 +1171,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -1240,7 +1240,7 @@ exports[`renders components/cascader/demo/render-panel.tsx correctly 1`] = `
   style="padding-bottom:0;position:relative;min-width:0"
 >
   <div
-    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
     style="margin:0"
   >
     <div
@@ -1307,7 +1307,7 @@ exports[`renders components/cascader/demo/render-panel.tsx correctly 1`] = `
 
 exports[`renders components/cascader/demo/search.tsx correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
 >
   <div
     class="ant-select-selector"
@@ -1370,7 +1370,7 @@ exports[`renders components/cascader/demo/search.tsx correctly 1`] = `
 exports[`renders components/cascader/demo/showCheckedStrategy.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-select ant-cascader ant-select-outlined ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
     style="width:100%"
   >
     <div
@@ -1488,7 +1488,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-cascader ant-select-outlined ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
     style="width:100%"
   >
     <div
@@ -1609,7 +1609,7 @@ Array [
 exports[`renders components/cascader/demo/size.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-select ant-cascader ant-select-lg ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-lg ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -1671,7 +1671,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -1733,7 +1733,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-cascader ant-select-sm ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-sm ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -1805,7 +1805,7 @@ exports[`renders components/cascader/demo/status.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-cascader ant-select-outlined ant-select-status-error ant-select-single ant-select-allow-clear ant-select-show-arrow"
+      class="ant-select ant-cascader ant-select-outlined ant-select-status-error ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -1871,7 +1871,7 @@ exports[`renders components/cascader/demo/status.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-cascader ant-select-outlined ant-select-status-warning ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
+      class="ant-select ant-cascader ant-select-outlined ant-select-status-warning ant-select-css-var ant-cascader-css-var ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -1954,7 +1954,7 @@ exports[`renders components/cascader/demo/status.tsx correctly 1`] = `
 exports[`renders components/cascader/demo/suffix.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -2018,7 +2018,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -2064,7 +2064,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -2128,7 +2128,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -2192,7 +2192,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -2284,7 +2284,7 @@ exports[`renders components/cascader/demo/variant.tsx correctly 1`] = `
   class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-select ant-cascader ant-select-borderless ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-borderless ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -2346,7 +2346,7 @@ exports[`renders components/cascader/demo/variant.tsx correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-select ant-cascader ant-select-filled ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-filled ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -2408,7 +2408,7 @@ exports[`renders components/cascader/demo/variant.tsx correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -2470,7 +2470,7 @@ exports[`renders components/cascader/demo/variant.tsx correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-select ant-cascader ant-select-underlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-underlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"

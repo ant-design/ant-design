@@ -8,7 +8,7 @@ exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -180,7 +180,7 @@ exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
       style="display:none"
     />
     <ul
-      class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-inline-collapsed"
+      class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-inline-collapsed ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="width:56px"
@@ -369,7 +369,7 @@ exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -545,7 +545,7 @@ exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <ul
-      class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+      class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="width:256px"
@@ -804,7 +804,7 @@ exports[`renders components/menu/demo/extra-style.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <ul
-      class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+      class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="width:256px"
@@ -940,7 +940,7 @@ exports[`renders components/menu/demo/extra-style.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <ul
-      class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark"
+      class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="width:256px"
@@ -992,7 +992,7 @@ exports[`renders components/menu/demo/extra-style.tsx correctly 1`] = `
 exports[`renders components/menu/demo/horizontal.tsx correctly 1`] = `
 Array [
   <ul
-    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light"
+    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -1169,7 +1169,7 @@ Array [
 exports[`renders components/menu/demo/horizontal-dark.tsx correctly 1`] = `
 Array [
   <ul
-    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
+    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -1346,7 +1346,7 @@ Array [
 exports[`renders components/menu/demo/inline.tsx correctly 1`] = `
 Array [
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     style="width:256px"
@@ -1652,7 +1652,7 @@ exports[`renders components/menu/demo/inline-collapsed.tsx correctly 1`] = `
     </span>
   </button>
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -1927,7 +1927,7 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     style="width:256px"
@@ -2186,7 +2186,7 @@ Array [
 exports[`renders components/menu/demo/sider-current.tsx correctly 1`] = `
 Array [
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     style="width:256px"
@@ -2473,7 +2473,7 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-inline-collapsed"
+    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-inline-collapsed ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -2621,7 +2621,7 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark"
+    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     style="width:256px"
@@ -2751,7 +2751,7 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     style="width:256px"
@@ -3032,7 +3032,7 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     style="width:256px"
@@ -3230,7 +3230,7 @@ Array [
 exports[`renders components/menu/demo/vertical.tsx correctly 1`] = `
 Array [
   <ul
-    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     style="width:256px"

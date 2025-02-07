@@ -4469,10 +4469,10 @@ exports[`renders components/upload/demo/upload-png-only.tsx correctly 1`] = `
 
 exports[`renders components/upload/demo/upload-with-aliyun-oss.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-form-css-var"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-css-var"
   >
     <div
       class="ant-row ant-form-item-row"

@@ -450,7 +450,7 @@ exports[`renders components/notification/demo/placement.tsx extend context corre
 
 exports[`renders components/notification/demo/render-panel.tsx extend context correctly 1`] = `
 <div
-  class="ant-notification-notice-pure-panel"
+  class="ant-notification-notice-pure-panel ant-notification-css-var"
 >
   <div
     class="ant-notification-notice ant-notification-notice-closable"
@@ -633,7 +633,7 @@ exports[`renders components/notification/demo/stack.tsx extend context correctly
           class="ant-space-item"
         >
           <div
-            class="ant-input-number ant-input-number-outlined"
+            class="ant-input-number ant-input-number-outlined ant-input-number-css-var"
           >
             <div
               class="ant-input-number-handler-wrap"

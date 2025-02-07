@@ -334,13 +334,13 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         style="width: 20%;"
         type="text"
         value="0571"
       />
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-last-item"
+        class="ant-input ant-input-outlined ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
         style="width: 30%;"
         type="text"
         value="26888888"
@@ -354,7 +354,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <input
-        class="ant-input ant-input-sm ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-sm ant-input-outlined ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         style="width: calc(100% - 200px);"
         type="text"
         value="https://ant.design"
@@ -376,7 +376,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         style="width: calc(100% - 200px);"
         type="text"
         value="https://ant.design"
@@ -398,7 +398,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         style="width: calc(100% - 200px);"
         type="text"
         value="git@github.com:ant-design/ant-design.git"
@@ -461,7 +461,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <div
-        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -498,7 +498,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -632,7 +632,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </div>
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-last-item"
+        class="ant-input ant-input-outlined ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
         style="width: 50%;"
         type="text"
         value="Xihu District, Hangzhou"
@@ -646,7 +646,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <div
-        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-css-var ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
         style="width: 50%;"
       >
         <div
@@ -735,7 +735,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -883,7 +883,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </div>
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-last-item"
+        class="ant-input ant-input-outlined ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
         style="width: 50%;"
         type="text"
         value="Xihu District, Hangzhou"
@@ -897,7 +897,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         style="width: 30%;"
       >
         <span
@@ -943,7 +943,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </span>
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-css-var ant-input-compact-item"
         style="width: 50%;"
       >
         <span
@@ -1022,7 +1022,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </span>
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item ant-input-compact-last-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
         style="width: 20%;"
       >
         <span
@@ -1076,7 +1076,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <div
-        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -1113,7 +1113,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -1220,13 +1220,13 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </div>
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item"
+        class="ant-input ant-input-outlined ant-input-css-var ant-input-compact-item"
         style="width: 50%;"
         type="text"
         value="input content"
       />
       <div
-        class="ant-input-number ant-input-number-outlined ant-input-number-compact-item ant-input-number-compact-last-item"
+        class="ant-input-number ant-input-number-outlined ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-last-item"
       >
         <div
           class="ant-input-number-handler-wrap"
@@ -1308,13 +1308,13 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         style="width: 50%;"
         type="text"
         value="input content"
       />
       <div
-        class="ant-picker ant-picker-outlined ant-picker-compact-item ant-picker-compact-last-item"
+        class="ant-picker ant-picker-outlined ant-picker-compact-item ant-picker-compact-last-item ant-picker-css-var"
         style="width: 50%;"
       >
         <div
@@ -1353,7 +1353,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </div>
       </div>
       <div
-        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -1936,7 +1936,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <div
-        class="ant-picker ant-picker-range ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item"
+        class="ant-picker ant-picker-range ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item ant-picker-css-var"
         style="width: 70%;"
       >
         <div
@@ -2020,7 +2020,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </div>
       <div
-        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
+        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -3133,7 +3133,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </div>
       </div>
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item"
+        class="ant-input ant-input-outlined ant-input-css-var ant-input-compact-item"
         style="width: 30%;"
         type="text"
         value="input content"
@@ -3155,13 +3155,13 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         style="width: 30%;"
         type="text"
         value="input content"
       />
       <div
-        class="ant-picker ant-picker-range ant-picker-outlined ant-picker-compact-item ant-picker-compact-last-item"
+        class="ant-picker ant-picker-range ant-picker-outlined ant-picker-compact-item ant-picker-compact-last-item ant-picker-css-var"
         style="width: 70%;"
       >
         <div
@@ -3245,7 +3245,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </div>
       <div
-        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
+        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -4366,7 +4366,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <div
-        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -4403,7 +4403,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -4510,7 +4510,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </div>
       <div
-        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-last-item ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-last-item ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -4547,7 +4547,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -4662,7 +4662,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <div
-        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -4699,7 +4699,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -4806,14 +4806,14 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </div>
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item"
+        class="ant-input ant-input-outlined ant-input-css-var ant-input-compact-item"
         placeholder="Minimum"
         style="width: 100px; text-align: center;"
         type="text"
         value=""
       />
       <input
-        class="ant-input ant-input-disabled ant-input-outlined site-input-split ant-input-compact-item"
+        class="ant-input ant-input-disabled ant-input-outlined site-input-split ant-input-css-var ant-input-compact-item"
         disabled=""
         placeholder="~"
         style="width: 30px; border-left: 0; border-right: 0; pointer-events: none;"
@@ -4821,7 +4821,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         value=""
       />
       <input
-        class="ant-input ant-input-outlined site-input-right ant-input-compact-item ant-input-compact-last-item"
+        class="ant-input ant-input-outlined site-input-right ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
         placeholder="Maximum"
         style="width: 100px; text-align: center;"
         type="text"
@@ -4836,7 +4836,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <div
-        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-css-var ant-select-single ant-select-show-arrow"
         style="width: 30%;"
       >
         <div
@@ -4874,7 +4874,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -4981,7 +4981,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </div>
       <div
-        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-last-item ant-select-auto-complete ant-select-single ant-select-show-search"
+        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-last-item ant-select-auto-complete ant-select-css-var ant-select-single ant-select-show-search"
         style="width: 70%;"
       >
         <div
@@ -5015,7 +5015,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -5095,7 +5095,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <div
-        class="ant-picker ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item"
+        class="ant-picker ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item ant-picker-css-var"
         style="width: 70%;"
       >
         <div
@@ -5137,7 +5137,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </div>
       </div>
       <div
-        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -6653,7 +6653,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </div>
       </div>
       <div
-        class="ant-select ant-cascader ant-select-outlined ant-select-compact-item ant-select-compact-last-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
+        class="ant-select ant-cascader ant-select-outlined ant-select-compact-item ant-select-compact-last-item ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
         style="width: 70%;"
       >
         <div
@@ -6690,7 +6690,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
         >
           <div>
@@ -6813,7 +6813,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <div
-        class="ant-picker ant-picker-range ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item"
+        class="ant-picker ant-picker-range ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item ant-picker-css-var"
       >
         <div
           class="ant-picker-input"
@@ -6899,7 +6899,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </div>
       <div
-        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
+        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -8413,7 +8413,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </div>
       </div>
       <div
-        class="ant-select ant-tree-select ant-select-outlined ant-select-compact-item ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-tree-select ant-select-outlined ant-select-compact-item ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
         style="width: 60%;"
       >
         <div
@@ -8448,7 +8448,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-css-var ant-tree-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; max-height: 400px; overflow: auto;"
         >
           <div>
@@ -8807,13 +8807,13 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact"
     >
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         placeholder="input here"
         type="text"
         value=""
       />
       <div
-        class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-compact-item"
+        class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-css-var ant-input-number-compact-item"
       >
         <div
           class="ant-input-number-wrapper ant-input-number-group"
@@ -8900,7 +8900,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </div>
       </div>
       <div
-        class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-compact-item ant-input-number-compact-last-item"
+        class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-last-item"
       >
         <div
           class="ant-input-number-wrapper ant-input-number-group"
@@ -8995,21 +8995,21 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact"
     >
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         placeholder="input here"
         type="text"
         value=""
       />
       <div
         aria-describedby="test-id"
-        class="ant-color-picker-trigger ant-color-picker-compact-item ant-color-picker-compact-last-item"
+        class="ant-color-picker-trigger ant-color-picker-compact-item ant-color-picker-compact-last-item ant-color-picker-css-var"
       >
         <div
           class="ant-color-picker-clear"
         />
       </div>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-color-picker-css-var ant-popover-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -9120,7 +9120,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                     class="ant-color-picker-input-container"
                   >
                     <div
-                      class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                      class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-css-var ant-select-single ant-select-show-arrow"
                     >
                       <div
                         class="ant-select-selector"
@@ -9157,7 +9157,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         </span>
                       </div>
                       <div
-                        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomRight"
                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                       >
                         <div>
@@ -9284,7 +9284,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       class="ant-color-picker-input"
                     >
                       <span
-                        class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                        class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input ant-input-css-var"
                       >
                         <span
                           class="ant-input-prefix"
@@ -9299,7 +9299,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       </span>
                     </div>
                     <div
-                      class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                      class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                     >
                       <div
                         class="ant-input-number-handler-wrap"
@@ -9398,7 +9398,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </button>
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item ant-input-compact-last-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -9865,11 +9865,11 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <div
-      class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomRight"
+      class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-css-var ant-dropdown-placement-bottomRight"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <ul
-        class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+        class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-css-var ant-dropdown-menu-css-var"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -10331,11 +10331,11 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <div
-      class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomRight"
+      class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-css-var ant-dropdown-placement-bottomRight"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <ul
-        class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+        class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-css-var ant-dropdown-menu-css-var"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -10567,7 +10567,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-css-var ant-input-compact-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -10606,13 +10606,13 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         placeholder="prefix"
         type="text"
         value=""
       />
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-css-var ant-input-compact-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -10621,7 +10621,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             class="ant-input-group-addon"
           >
             <div
-              class="ant-select ant-select-outlined select-before ant-select-single ant-select-show-arrow"
+              class="ant-select ant-select-outlined select-before ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -10658,7 +10658,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 </span>
               </div>
               <div
-                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div>
@@ -10774,7 +10774,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             class="ant-input-group-addon"
           >
             <div
-              class="ant-select ant-select-outlined select-after ant-select-single ant-select-show-arrow"
+              class="ant-select ant-select-outlined select-after ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -10811,7 +10811,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 </span>
               </div>
               <div
-                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div>
@@ -10991,7 +10991,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -11036,7 +11036,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </span>
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-css-var ant-input-compact-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -11117,7 +11117,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -11161,7 +11161,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item ant-input-compact-last-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -11206,7 +11206,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -11257,7 +11257,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-css-var ant-input-compact-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -11266,7 +11266,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             class="ant-input-group-addon"
           >
             <div
-              class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
               style="width: 150px;"
             >
               <div
@@ -11303,7 +11303,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 </span>
               </div>
               <div
-                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div>
@@ -11429,7 +11429,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -11468,7 +11468,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-css-var ant-input-compact-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -11522,7 +11522,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </span>
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item ant-input-compact-last-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -11621,11 +11621,11 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           </span>
         </button>
         <div
-          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomRight"
+          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-css-var ant-dropdown-placement-bottomRight"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
-            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-css-var ant-dropdown-menu-css-var"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -11731,7 +11731,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         placeholder="Debug Popover context"
         type="text"
         value=""
@@ -11765,7 +11765,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
               class="ant-popover-inner-content"
             >
               <input
-                class="ant-input ant-input-outlined"
+                class="ant-input ant-input-outlined ant-input-css-var"
                 placeholder="Left Border"
                 type="text"
                 value=""
@@ -11775,7 +11775,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 role="separator"
               />
               <div
-                class="ant-picker ant-picker-outlined"
+                class="ant-picker ant-picker-outlined ant-picker-css-var"
               >
                 <div
                   class="ant-picker-input"
@@ -11813,7 +11813,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 </div>
               </div>
               <div
-                class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+                class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150;"
               >
                 <div
@@ -12392,7 +12392,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 role="separator"
               />
               <div
-                class="ant-input-number ant-input-number-outlined"
+                class="ant-input-number ant-input-number-outlined ant-input-number-css-var"
               >
                 <div
                   class="ant-input-number-handler-wrap"
@@ -12469,7 +12469,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 role="separator"
               />
               <div
-                class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+                class="ant-select ant-select-outlined ant-select-css-var ant-select-single ant-select-show-arrow"
               >
                 <div
                   class="ant-select-selector"
@@ -12503,7 +12503,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                   </span>
                 </div>
                 <div
-                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150;"
                 >
                   <div>
@@ -12603,7 +12603,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <div
-        class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-compact-item ant-input-number-compact-first-item ant-input-number-compact-last-item"
+        class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-first-item ant-input-number-compact-last-item"
       >
         <div
           class="ant-input-number-wrapper ant-input-number-group"
@@ -12703,7 +12703,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <div
-        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-compact-last-item ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-compact-last-item ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -12740,7 +12740,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -12855,7 +12855,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <div
-        class="ant-picker ant-picker-range ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item ant-picker-compact-last-item"
+        class="ant-picker ant-picker-range ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item ant-picker-compact-last-item ant-picker-css-var"
         style="width: 70%;"
       >
         <div
@@ -12939,7 +12939,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </div>
       <div
-        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
+        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -14060,7 +14060,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <div
-        class="ant-input-number ant-input-number-outlined ant-input-number-compact-item ant-input-number-compact-first-item ant-input-number-compact-last-item"
+        class="ant-input-number ant-input-number-outlined ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-first-item ant-input-number-compact-last-item"
       >
         <div
           class="ant-input-number-handler-wrap"
@@ -14142,7 +14142,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <div
-        class="ant-select ant-cascader ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-compact-last-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
+        class="ant-select ant-cascader ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-compact-last-item ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
         style="width: 70%;"
       >
         <div
@@ -14179,7 +14179,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
         >
           <div>
@@ -14328,7 +14328,7 @@ Array [
         class="ant-space-compact"
       >
         <input
-          class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+          class="ant-input ant-input-outlined ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
           placeholder="Typing..."
           style="width: 90px;"
           type="text"
@@ -14367,7 +14367,7 @@ Array [
         class="ant-space-compact"
       >
         <div
-          class="ant-input-number ant-input-number-outlined ant-input-number-compact-item"
+          class="ant-input-number ant-input-number-outlined ant-input-number-css-var ant-input-number-compact-item"
         >
           <div
             class="ant-input-number-handler-wrap"
@@ -14441,7 +14441,7 @@ Array [
           </div>
         </div>
         <div
-          class="ant-select ant-select-outlined ant-select-compact-item ant-select-single ant-select-show-arrow"
+          class="ant-select ant-select-outlined ant-select-compact-item ant-select-css-var ant-select-single ant-select-show-arrow"
         >
           <div
             class="ant-select-selector"
@@ -14478,7 +14478,7 @@ Array [
             </span>
           </div>
           <div
-            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <div>
@@ -14601,7 +14601,7 @@ Array [
         class="ant-space-compact"
       >
         <span
-          class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item"
+          class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-css-var ant-input-compact-item"
           style="width: 110px;"
         >
           <span
@@ -14660,7 +14660,7 @@ Array [
         class="ant-space-compact"
       >
         <input
-          class="ant-input ant-input-outlined ant-input-compact-item"
+          class="ant-input ant-input-outlined ant-input-css-var ant-input-compact-item"
           type="text"
           value="mysite"
         />
@@ -14703,7 +14703,7 @@ Array [
       class="ant-space-compact"
     >
       <div
-        class="ant-picker ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item"
+        class="ant-picker ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item ant-picker-css-var"
       >
         <div
           class="ant-picker-input"
@@ -14744,7 +14744,7 @@ Array [
         </div>
       </div>
       <div
-        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -16272,7 +16272,7 @@ Array [
       class="ant-space-compact"
     >
       <div
-        class="ant-select ant-cascader ant-select-outlined ant-select-compact-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
+        class="ant-select ant-cascader ant-select-outlined ant-select-compact-item ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -16308,7 +16308,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
         >
           <div>
@@ -16738,10 +16738,10 @@ exports[`renders components/space/demo/gap-in-line.tsx extend context correctly 
 exports[`renders components/space/demo/size.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline ant-radio-css-var"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
+      class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-checked"
@@ -16764,7 +16764,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -16786,7 +16786,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -16808,7 +16808,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"

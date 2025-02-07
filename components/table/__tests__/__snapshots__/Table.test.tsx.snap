@@ -2,7 +2,7 @@
 
 exports[`Table renders JSX correctly 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="ant-table-css-var ant-table-wrapper"
 >
   <div
     class="ant-spin-nested-loading"
@@ -11,7 +11,7 @@ exports[`Table renders JSX correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table"
+        class="ant-table ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -112,7 +112,7 @@ exports[`Table renders JSX correctly 1`] = `
 
 exports[`Table rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-table-wrapper ant-table-wrapper-rtl"
+  class="ant-table-css-var ant-table-wrapper ant-table-wrapper-rtl"
 >
   <div
     class="ant-spin-nested-loading"
@@ -121,7 +121,7 @@ exports[`Table rtl render component should be rendered correctly in RTL directio
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-empty ant-table-rtl"
+        class="ant-table ant-table-empty ant-table-css-var ant-table-rtl"
       >
         <div
           class="ant-table-container"
@@ -214,7 +214,7 @@ exports[`Table rtl render component should be rendered correctly in RTL directio
 exports[`Table should render title 1`] = `
 <div>
   <div
-    class="ant-table-wrapper"
+    class="ant-table-css-var ant-table-wrapper"
   >
     <div
       class="ant-spin-nested-loading"
@@ -223,7 +223,7 @@ exports[`Table should render title 1`] = `
         class="ant-spin-container"
       >
         <div
-          class="ant-table ant-table-empty"
+          class="ant-table ant-table-empty ant-table-css-var"
         >
           <div
             class="ant-table-container"
@@ -650,7 +650,7 @@ exports[`Table should render title 1`] = `
 
 exports[`Table support wireframe 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="ant-table-css-var ant-table-wrapper"
 >
   <div
     class="ant-spin-nested-loading"
@@ -659,7 +659,7 @@ exports[`Table support wireframe 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-empty"
+        class="ant-table ant-table-empty ant-table-css-var"
       >
         <div
           class="ant-table-container"

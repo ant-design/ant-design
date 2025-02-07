@@ -723,10 +723,10 @@ Array [
   <!-- -->,
    ,
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline ant-radio-css-var"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
+      class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-checked"
@@ -749,7 +749,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -771,7 +771,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"

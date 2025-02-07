@@ -28,7 +28,7 @@ exports[`renders components/anchor/demo/basic.tsx extend context correctly 1`] =
         class=""
       >
         <div
-          class="ant-anchor-wrapper"
+          class="ant-anchor-css-var ant-anchor-wrapper"
           style="max-height: 100vh;"
         >
           <div
@@ -109,7 +109,7 @@ exports[`renders components/anchor/demo/component-token.tsx extend context corre
         class=""
       >
         <div
-          class="ant-anchor-wrapper"
+          class="ant-anchor-css-var ant-anchor-wrapper"
           style="max-height: 100vh;"
         >
           <div
@@ -164,7 +164,7 @@ exports[`renders components/anchor/demo/component-token.tsx extend context corre
 
 exports[`renders components/anchor/demo/customizeHighlight.tsx extend context correctly 1`] = `
 <div
-  class="ant-anchor-wrapper"
+  class="ant-anchor-css-var ant-anchor-wrapper"
   style="max-height: 100vh;"
 >
   <div
@@ -245,7 +245,7 @@ Array [
         class=""
       >
         <div
-          class="ant-anchor-wrapper ant-anchor-wrapper-horizontal"
+          class="ant-anchor-css-var ant-anchor-wrapper ant-anchor-wrapper-horizontal"
           style="max-height: 100vh;"
         >
           <div
@@ -314,7 +314,7 @@ exports[`renders components/anchor/demo/horizontal.tsx extend context correctly 
 
 exports[`renders components/anchor/demo/legacy-anchor.tsx extend context correctly 1`] = `
 <div
-  class="ant-anchor-wrapper"
+  class="ant-anchor-css-var ant-anchor-wrapper"
   style="max-height: 100vh;"
 >
   <div
@@ -390,7 +390,7 @@ exports[`renders components/anchor/demo/legacy-anchor.tsx extend context correct
 
 exports[`renders components/anchor/demo/onChange.tsx extend context correctly 1`] = `
 <div
-  class="ant-anchor-wrapper"
+  class="ant-anchor-css-var ant-anchor-wrapper"
   style="max-height: 100vh;"
 >
   <div
@@ -462,7 +462,7 @@ exports[`renders components/anchor/demo/onChange.tsx extend context correctly 2`
 
 exports[`renders components/anchor/demo/onClick.tsx extend context correctly 1`] = `
 <div
-  class="ant-anchor-wrapper"
+  class="ant-anchor-css-var ant-anchor-wrapper"
   style="max-height: 100vh;"
 >
   <div
@@ -560,7 +560,7 @@ exports[`renders components/anchor/demo/replace.tsx extend context correctly 1`]
         class=""
       >
         <div
-          class="ant-anchor-wrapper"
+          class="ant-anchor-css-var ant-anchor-wrapper"
           style="max-height: 100vh;"
         >
           <div
@@ -615,7 +615,7 @@ exports[`renders components/anchor/demo/replace.tsx extend context correctly 2`]
 
 exports[`renders components/anchor/demo/static.tsx extend context correctly 1`] = `
 <div
-  class="ant-anchor-wrapper"
+  class="ant-anchor-css-var ant-anchor-wrapper"
   style="max-height: 100vh;"
 >
   <div
@@ -720,7 +720,7 @@ exports[`renders components/anchor/demo/targetOffset.tsx extend context correctl
           class=""
         >
           <div
-            class="ant-anchor-wrapper"
+            class="ant-anchor-css-var ant-anchor-wrapper"
             style="max-height: 100vh;"
           >
             <div

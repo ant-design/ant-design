@@ -472,7 +472,7 @@ exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
             style="padding:4px"
           >
             <span
-              class="ant-avatar ant-avatar-circle ant-avatar-image"
+              class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
             >
               <img
                 src="https://api.dicebear.com/7.x/miniavs/svg?seed=8"
@@ -500,7 +500,7 @@ exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
             style="padding:4px"
           >
             <span
-              class="ant-avatar ant-avatar-circle"
+              class="ant-avatar ant-avatar-circle ant-avatar-css-var"
               style="background-color:#f56a00"
             >
               <span
@@ -532,7 +532,7 @@ exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
             style="padding:4px"
           >
             <span
-              class="ant-avatar ant-avatar-circle ant-avatar-icon"
+              class="ant-avatar ant-avatar-circle ant-avatar-icon ant-avatar-css-var"
               style="background-color:#87d068"
             >
               <span
@@ -1422,7 +1422,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
       </div>
     </div>
     <input
-      class="ant-input ant-input-outlined"
+      class="ant-input ant-input-outlined ant-input-css-var"
       placeholder="default size"
       style="width:150px"
       type="text"
@@ -1492,7 +1492,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-select ant-select-sm ant-select-outlined ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-sm ant-select-outlined ant-select-css-var ant-select-single ant-select-show-arrow"
       style="width:150px"
     >
       <div

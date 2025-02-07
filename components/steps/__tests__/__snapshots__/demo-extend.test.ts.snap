@@ -1578,7 +1578,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=0"
@@ -1791,7 +1791,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
@@ -2004,7 +2004,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
@@ -2217,7 +2217,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=3"
@@ -5362,11 +5362,11 @@ exports[`renders components/steps/demo/step-next.tsx extend context correctly 2`
 exports[`renders components/steps/demo/steps-in-steps.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline ant-radio-css-var"
     style="margin-bottom: 16px;"
   >
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -5388,7 +5388,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
+      class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-checked"

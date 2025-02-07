@@ -179,7 +179,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
         class="ant-layout-sider-children"
       >
         <ul
-          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-menu-css-var"
           data-menu-list="true"
           role="menu"
           style="border-right: 0;"
@@ -228,7 +228,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
               />
             </div>
             <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
@@ -546,7 +546,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
               />
             </div>
             <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
@@ -729,7 +729,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
               />
             </div>
             <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
@@ -952,7 +952,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx extend context correc
         class="demo-logo-vertical"
       />
       <ul
-        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-menu-css-var"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -1178,7 +1178,7 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
       class="demo-logo"
     />
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="flex: 1; min-width: 0;"
@@ -1317,7 +1317,7 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
           />
         </div>
         <div
-          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-submenu-placement-bottomLeft"
+          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-css-var ant-menu-submenu-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -1414,7 +1414,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
         class="demo-logo-vertical"
       />
       <ul
-        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-menu-css-var"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -2080,7 +2080,7 @@ exports[`renders components/layout/demo/responsive.tsx extend context correctly 
         class="demo-logo-vertical"
       />
       <ul
-        class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-inline-collapsed"
+        class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-inline-collapsed ant-menu-css-var"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -2372,7 +2372,7 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
         class="demo-logo-vertical"
       />
       <ul
-        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-menu-css-var"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -2522,7 +2522,7 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
             />
           </div>
           <div
-            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-css-var"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <ul
@@ -2673,7 +2673,7 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
             />
           </div>
           <div
-            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-css-var"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <ul
@@ -2903,7 +2903,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
       class="demo-logo"
     />
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="flex: 1; min-width: 0;"
@@ -3414,7 +3414,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
           />
         </div>
         <div
-          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-submenu-placement-bottomLeft"
+          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-css-var ant-menu-submenu-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -3508,7 +3508,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
       class="demo-logo"
     />
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="flex: 1; min-width: 0;"
@@ -3647,7 +3647,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
           />
         </div>
         <div
-          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-submenu-placement-bottomLeft"
+          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-css-var ant-menu-submenu-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -3720,7 +3720,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
           class="ant-layout-sider-children"
         >
           <ul
-            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-menu-css-var"
             data-menu-list="true"
             role="menu"
             style="height: 100%;"
@@ -3769,7 +3769,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                 />
               </div>
               <div
-                class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+                class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <ul
@@ -4087,7 +4087,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                 />
               </div>
               <div
-                class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+                class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <ul
@@ -4270,7 +4270,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                 />
               </div>
               <div
-                class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+                class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <ul
@@ -4452,7 +4452,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
       class="demo-logo"
     />
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="flex: 1; min-width: 0;"
@@ -4591,7 +4591,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
           />
         </div>
         <div
-          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-submenu-placement-bottomLeft"
+          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-css-var ant-menu-submenu-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -4619,7 +4619,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
         class="ant-layout-sider-children"
       >
         <ul
-          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-menu-css-var"
           data-menu-list="true"
           role="menu"
           style="height: 100%; border-right: 0;"
@@ -4668,7 +4668,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
               />
             </div>
             <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
@@ -4986,7 +4986,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
               />
             </div>
             <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
@@ -5169,7 +5169,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
               />
             </div>
             <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light ant-menu-css-var"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul

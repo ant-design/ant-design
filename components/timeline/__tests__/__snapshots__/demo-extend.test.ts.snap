@@ -2,7 +2,7 @@
 
 exports[`renders components/timeline/demo/alternate.tsx extend context correctly 1`] = `
 <ul
-  class="ant-timeline ant-timeline-alternate"
+  class="ant-timeline ant-timeline-alternate ant-timeline-css-var"
 >
   <li
     class="ant-timeline-item ant-timeline-item-left"
@@ -149,7 +149,7 @@ exports[`renders components/timeline/demo/alternate.tsx extend context correctly
 
 exports[`renders components/timeline/demo/basic.tsx extend context correctly 1`] = `
 <ul
-  class="ant-timeline"
+  class="ant-timeline ant-timeline-css-var"
 >
   <li
     class="ant-timeline-item"
@@ -218,7 +218,7 @@ exports[`renders components/timeline/demo/basic.tsx extend context correctly 2`]
 
 exports[`renders components/timeline/demo/color.tsx extend context correctly 1`] = `
 <ul
-  class="ant-timeline"
+  class="ant-timeline ant-timeline-css-var"
 >
   <li
     class="ant-timeline-item"
@@ -387,7 +387,7 @@ exports[`renders components/timeline/demo/color.tsx extend context correctly 2`]
 
 exports[`renders components/timeline/demo/component-token.tsx extend context correctly 1`] = `
 <ul
-  class="ant-timeline"
+  class="ant-timeline ant-timeline-css-var"
 >
   <li
     class="ant-timeline-item"
@@ -456,7 +456,7 @@ exports[`renders components/timeline/demo/component-token.tsx extend context cor
 
 exports[`renders components/timeline/demo/custom.tsx extend context correctly 1`] = `
 <ul
-  class="ant-timeline"
+  class="ant-timeline ant-timeline-css-var"
 >
   <li
     class="ant-timeline-item"
@@ -549,11 +549,11 @@ exports[`renders components/timeline/demo/custom.tsx extend context correctly 2`
 exports[`renders components/timeline/demo/label.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline ant-radio-css-var"
     style="margin-bottom: 20px;"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
+      class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-checked"
@@ -576,7 +576,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -598,7 +598,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -621,7 +621,7 @@ Array [
     </label>
   </div>,
   <ul
-    class="ant-timeline ant-timeline-label"
+    class="ant-timeline ant-timeline-label ant-timeline-css-var"
   >
     <li
       class="ant-timeline-item ant-timeline-item-left"
@@ -707,7 +707,7 @@ exports[`renders components/timeline/demo/label.tsx extend context correctly 2`]
 exports[`renders components/timeline/demo/pending.tsx extend context correctly 1`] = `
 <div>
   <ul
-    class="ant-timeline ant-timeline-pending"
+    class="ant-timeline ant-timeline-pending ant-timeline-css-var"
   >
     <li
       class="ant-timeline-item"
@@ -806,7 +806,7 @@ exports[`renders components/timeline/demo/pending.tsx extend context correctly 2
 
 exports[`renders components/timeline/demo/right.tsx extend context correctly 1`] = `
 <ul
-  class="ant-timeline ant-timeline-right"
+  class="ant-timeline ant-timeline-right ant-timeline-css-var"
 >
   <li
     class="ant-timeline-item ant-timeline-item-right"
@@ -899,7 +899,7 @@ exports[`renders components/timeline/demo/right.tsx extend context correctly 2`]
 
 exports[`renders components/timeline/demo/wireframe.tsx extend context correctly 1`] = `
 <ul
-  class="ant-timeline"
+  class="ant-timeline ant-timeline-css-var"
 >
   <li
     class="ant-timeline-item"

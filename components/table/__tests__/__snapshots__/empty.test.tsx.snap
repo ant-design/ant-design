@@ -2,7 +2,7 @@
 
 exports[`Table renders empty table 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="ant-table-css-var ant-table-wrapper"
 >
   <div
     class="ant-spin-nested-loading"
@@ -11,7 +11,7 @@ exports[`Table renders empty table 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-empty"
+        class="ant-table ant-table-empty ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -149,7 +149,7 @@ exports[`Table renders empty table 1`] = `
 
 exports[`Table renders empty table when emptyText is null 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="ant-table-css-var ant-table-wrapper"
 >
   <div
     class="ant-spin-nested-loading"
@@ -158,7 +158,7 @@ exports[`Table renders empty table when emptyText is null 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-empty"
+        class="ant-table ant-table-empty ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -247,7 +247,7 @@ exports[`Table renders empty table when emptyText is null 1`] = `
 
 exports[`Table renders empty table with custom emptyText 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="ant-table-css-var ant-table-wrapper"
 >
   <div
     class="ant-spin-nested-loading"
@@ -256,7 +256,7 @@ exports[`Table renders empty table with custom emptyText 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-empty"
+        class="ant-table ant-table-empty ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -633,7 +633,7 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
 
 exports[`Table renders empty table without emptyText when loading 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="ant-table-css-var ant-table-wrapper"
 >
   <div
     class="ant-spin-nested-loading"
@@ -670,7 +670,7 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
       class="ant-spin-container ant-spin-blur"
     >
       <div
-        class="ant-table ant-table-empty"
+        class="ant-table ant-table-empty ant-table-css-var"
       >
         <div
           class="ant-table-container"

@@ -5,7 +5,7 @@ exports[`renders components/splitter/demo/collapsible.tsx correctly 1`] = `
   class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-splitter ant-splitter-horizontal"
+    class="ant-splitter ant-splitter-horizontal ant-splitter-css-var"
     style="box-shadow:0 0 10px rgba(0, 0, 0, 0.1);height:200px"
   >
     <div
@@ -53,7 +53,7 @@ exports[`renders components/splitter/demo/collapsible.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-splitter ant-splitter-vertical"
+    class="ant-splitter ant-splitter-vertical ant-splitter-css-var"
     style="box-shadow:0 0 10px rgba(0, 0, 0, 0.1);height:300px"
   >
     <div
@@ -108,7 +108,7 @@ exports[`renders components/splitter/demo/control.tsx correctly 1`] = `
   class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-splitter ant-splitter-horizontal"
+    class="ant-splitter ant-splitter-horizontal ant-splitter-css-var"
     style="height:200px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
   >
     <div
@@ -197,7 +197,7 @@ exports[`renders components/splitter/demo/control.tsx correctly 1`] = `
 exports[`renders components/splitter/demo/customize.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-splitter ant-splitter-horizontal"
+    class="ant-splitter ant-splitter-horizontal ant-splitter-css-var"
     style="height:200px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
   >
     <div
@@ -320,7 +320,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-splitter ant-splitter-vertical"
+    class="ant-splitter ant-splitter-vertical ant-splitter-css-var"
     style="height:200px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
   >
     <div
@@ -404,7 +404,7 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
     [true, 0, false]
   </h3>
   <div
-    class="ant-splitter ant-splitter-horizontal"
+    class="ant-splitter ant-splitter-horizontal ant-splitter-css-var"
     style="height:200px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
   >
     <div
@@ -490,7 +490,7 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
     [false, 0, true]
   </h3>
   <div
-    class="ant-splitter ant-splitter-horizontal"
+    class="ant-splitter ant-splitter-horizontal ant-splitter-css-var"
     style="height:200px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
   >
     <div
@@ -576,7 +576,7 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
     Start have min & max
   </h3>
   <div
-    class="ant-splitter ant-splitter-horizontal"
+    class="ant-splitter ant-splitter-horizontal ant-splitter-css-var"
     style="height:200px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
   >
     <div
@@ -633,7 +633,7 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
     End have min & max
   </h3>
   <div
-    class="ant-splitter ant-splitter-horizontal"
+    class="ant-splitter ant-splitter-horizontal ant-splitter-css-var"
     style="height:200px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
   >
     <div
@@ -689,7 +689,7 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
 
 exports[`renders components/splitter/demo/group.tsx correctly 1`] = `
 <div
-  class="ant-splitter ant-splitter-horizontal"
+  class="ant-splitter ant-splitter-horizontal ant-splitter-css-var"
   style="height:300px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
 >
   <div
@@ -724,7 +724,7 @@ exports[`renders components/splitter/demo/group.tsx correctly 1`] = `
     style="flex-basis:auto;flex-grow:1"
   >
     <div
-      class="ant-splitter ant-splitter-vertical"
+      class="ant-splitter ant-splitter-vertical ant-splitter-css-var"
     >
       <div
         class="ant-splitter-panel"
@@ -783,7 +783,7 @@ exports[`renders components/splitter/demo/lazy.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-splitter ant-splitter-horizontal"
+      class="ant-splitter ant-splitter-horizontal ant-splitter-css-var"
       style="height:200px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
     >
       <div
@@ -839,7 +839,7 @@ exports[`renders components/splitter/demo/lazy.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-splitter ant-splitter-vertical"
+      class="ant-splitter ant-splitter-vertical ant-splitter-css-var"
       style="height:200px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
     >
       <div
@@ -896,7 +896,7 @@ exports[`renders components/splitter/demo/lazy.tsx correctly 1`] = `
 
 exports[`renders components/splitter/demo/multiple.tsx correctly 1`] = `
 <div
-  class="ant-splitter ant-splitter-horizontal"
+  class="ant-splitter ant-splitter-horizontal ant-splitter-css-var"
   style="height:200px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
 >
   <div
@@ -980,7 +980,7 @@ exports[`renders components/splitter/demo/multiple.tsx correctly 1`] = `
 
 exports[`renders components/splitter/demo/nested-in-tabs.tsx correctly 1`] = `
 <div
-  class="ant-tabs ant-tabs-top"
+  class="ant-tabs ant-tabs-top ant-tabs-css-var"
 >
   <div
     aria-orientation="horizontal"
@@ -1082,7 +1082,7 @@ exports[`renders components/splitter/demo/nested-in-tabs.tsx correctly 1`] = `
 
 exports[`renders components/splitter/demo/size.tsx correctly 1`] = `
 <div
-  class="ant-splitter ant-splitter-horizontal"
+  class="ant-splitter ant-splitter-horizontal ant-splitter-css-var"
   style="height:200px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
 >
   <div
@@ -1133,7 +1133,7 @@ exports[`renders components/splitter/demo/size.tsx correctly 1`] = `
 
 exports[`renders components/splitter/demo/vertical.tsx correctly 1`] = `
 <div
-  class="ant-splitter ant-splitter-vertical"
+  class="ant-splitter ant-splitter-vertical ant-splitter-css-var"
   style="height:300px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
 >
   <div

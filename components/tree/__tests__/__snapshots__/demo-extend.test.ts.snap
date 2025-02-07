@@ -3538,7 +3538,7 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
     <br />
     showLeafIcon: 
     <div
-      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -3575,7 +3575,7 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
@@ -4500,7 +4500,7 @@ exports[`renders components/tree/demo/multiple-line.tsx extend context correctly
 exports[`renders components/tree/demo/search.tsx extend context correctly 1`] = `
 <div>
   <span
-    class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
+    class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-css-var"
     style="margin-bottom: 8px;"
   >
     <span

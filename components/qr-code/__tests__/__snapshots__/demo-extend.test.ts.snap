@@ -71,7 +71,7 @@ exports[`renders components/qr-code/demo/base.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <input
-      class="ant-input ant-input-outlined"
+      class="ant-input ant-input-outlined ant-input-css-var"
       maxlength="60"
       placeholder="-"
       type="text"

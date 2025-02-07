@@ -8,7 +8,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined"
+      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-css-var"
     >
       <div
         class="ant-input-number-wrapper ant-input-number-group"
@@ -104,7 +104,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined"
+      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-css-var"
     >
       <div
         class="ant-input-number-wrapper ant-input-number-group"
@@ -113,7 +113,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
           class="ant-input-number-group-addon"
         >
           <div
-            class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-outlined ant-select-css-var ant-select-single ant-select-show-arrow"
             style="width: 60px;"
           >
             <div
@@ -151,7 +151,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
               </span>
             </div>
             <div
-              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div>
@@ -336,7 +336,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
           class="ant-input-number-group-addon"
         >
           <div
-            class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-outlined ant-select-css-var ant-select-single ant-select-show-arrow"
             style="width: 60px;"
           >
             <div
@@ -374,7 +374,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
               </span>
             </div>
             <div
-              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-css-var ant-select-dropdown-placement-bottomLeft"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div>
@@ -522,7 +522,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined"
+      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-css-var"
     >
       <div
         class="ant-input-number-wrapper ant-input-number-group"
@@ -631,7 +631,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined"
+      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-css-var"
     >
       <div
         class="ant-input-number-wrapper ant-input-number-group"
@@ -640,7 +640,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
           class="ant-input-number-group-addon"
         >
           <div
-            class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+            class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
             style="width: 150px;"
           >
             <div
@@ -677,7 +677,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
               </span>
             </div>
             <div
-              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div>
@@ -860,7 +860,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-disabled ant-input-number-group-wrapper-outlined"
+      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-disabled ant-input-number-group-wrapper-outlined ant-input-number-css-var"
     >
       <div
         class="ant-input-number-wrapper ant-input-number-group"
@@ -975,7 +975,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-disabled ant-input-number-group-wrapper-outlined"
+      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-disabled ant-input-number-group-wrapper-outlined ant-input-number-css-var"
     >
       <div
         class="ant-input-number-wrapper ant-input-number-group"
@@ -1102,7 +1102,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
 
 exports[`renders components/input-number/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-input-number ant-input-number-outlined"
+  class="ant-input-number ant-input-number-outlined ant-input-number-css-var"
 >
   <div
     class="ant-input-number-handler-wrap"
@@ -1183,7 +1183,7 @@ exports[`renders components/input-number/demo/basic.tsx extend context correctly
 
 exports[`renders components/input-number/demo/change-on-wheel.tsx extend context correctly 1`] = `
 <div
-  class="ant-input-number ant-input-number-outlined"
+  class="ant-input-number ant-input-number-outlined ant-input-number-css-var"
 >
   <div
     class="ant-input-number-handler-wrap"
@@ -1264,7 +1264,7 @@ exports[`renders components/input-number/demo/change-on-wheel.tsx extend context
 
 exports[`renders components/input-number/demo/controls.tsx extend context correctly 1`] = `
 <div
-  class="ant-input-number ant-input-number-outlined"
+  class="ant-input-number ant-input-number-outlined ant-input-number-css-var"
 >
   <div
     class="ant-input-number-handler-wrap"
@@ -1350,7 +1350,7 @@ exports[`renders components/input-number/demo/controls.tsx extend context correc
 
 exports[`renders components/input-number/demo/digit.tsx extend context correctly 1`] = `
 <div
-  class="ant-input-number ant-input-number-outlined"
+  class="ant-input-number ant-input-number-outlined ant-input-number-css-var"
   style="width: 200px;"
 >
   <div
@@ -1433,7 +1433,7 @@ exports[`renders components/input-number/demo/digit.tsx extend context correctly
 exports[`renders components/input-number/demo/disabled.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-input-number ant-input-number-outlined ant-input-number-disabled"
+    class="ant-input-number ant-input-number-outlined ant-input-number-css-var ant-input-number-disabled"
   >
     <div
       class="ant-input-number-handler-wrap"
@@ -1536,7 +1536,7 @@ exports[`renders components/input-number/demo/filled-debug.tsx extend context co
     style="gap: 12px;"
   >
     <div
-      class="ant-input-number ant-input-number-filled"
+      class="ant-input-number ant-input-number-filled ant-input-number-css-var"
     >
       <div
         class="ant-input-number-handler-wrap"
@@ -1610,7 +1610,7 @@ exports[`renders components/input-number/demo/filled-debug.tsx extend context co
       </div>
     </div>
     <div
-      class="ant-input-number ant-input-number-filled ant-input-number-disabled"
+      class="ant-input-number ant-input-number-filled ant-input-number-css-var ant-input-number-disabled"
     >
       <div
         class="ant-input-number-handler-wrap"
@@ -1685,7 +1685,7 @@ exports[`renders components/input-number/demo/filled-debug.tsx extend context co
       </div>
     </div>
     <div
-      class="ant-input-number ant-input-number-filled ant-input-number-status-error"
+      class="ant-input-number ant-input-number-filled ant-input-number-status-error ant-input-number-css-var"
     >
       <div
         class="ant-input-number-handler-wrap"
@@ -1764,7 +1764,7 @@ exports[`renders components/input-number/demo/filled-debug.tsx extend context co
     style="gap: 12px;"
   >
     <div
-      class="ant-input-number-affix-wrapper ant-input-number-filled"
+      class="ant-input-number-affix-wrapper ant-input-number-filled ant-input-number-css-var"
     >
       <span
         class="ant-input-number-prefix"
@@ -1847,7 +1847,7 @@ exports[`renders components/input-number/demo/filled-debug.tsx extend context co
       </div>
     </div>
     <div
-      class="ant-input-number-affix-wrapper ant-input-number-disabled ant-input-number-affix-wrapper-disabled ant-input-number-filled"
+      class="ant-input-number-affix-wrapper ant-input-number-disabled ant-input-number-affix-wrapper-disabled ant-input-number-filled ant-input-number-css-var"
     >
       <span
         class="ant-input-number-prefix"
@@ -1931,7 +1931,7 @@ exports[`renders components/input-number/demo/filled-debug.tsx extend context co
       </div>
     </div>
     <div
-      class="ant-input-number-affix-wrapper ant-input-number-filled ant-input-number-status-error"
+      class="ant-input-number-affix-wrapper ant-input-number-filled ant-input-number-status-error ant-input-number-css-var"
     >
       <span
         class="ant-input-number-prefix"
@@ -2019,7 +2019,7 @@ exports[`renders components/input-number/demo/filled-debug.tsx extend context co
     style="gap: 12px;"
   >
     <div
-      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-filled"
+      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-filled ant-input-number-css-var"
     >
       <div
         class="ant-input-number-wrapper ant-input-number-group"
@@ -2111,7 +2111,7 @@ exports[`renders components/input-number/demo/filled-debug.tsx extend context co
       </div>
     </div>
     <div
-      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-disabled ant-input-number-group-wrapper-filled"
+      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-disabled ant-input-number-group-wrapper-filled ant-input-number-css-var"
     >
       <div
         class="ant-input-number-wrapper ant-input-number-group"
@@ -2204,7 +2204,7 @@ exports[`renders components/input-number/demo/filled-debug.tsx extend context co
       </div>
     </div>
     <div
-      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-filled ant-input-number-group-wrapper-status-error"
+      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-filled ant-input-number-group-wrapper-status-error ant-input-number-css-var"
     >
       <div
         class="ant-input-number-wrapper ant-input-number-group"
@@ -2301,7 +2301,7 @@ exports[`renders components/input-number/demo/filled-debug.tsx extend context co
     style="gap: 12px;"
   >
     <div
-      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-filled"
+      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-filled ant-input-number-css-var"
     >
       <div
         class="ant-input-number-wrapper ant-input-number-group"
@@ -2388,7 +2388,7 @@ exports[`renders components/input-number/demo/filled-debug.tsx extend context co
       </div>
     </div>
     <div
-      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-disabled ant-input-number-group-wrapper-filled"
+      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-disabled ant-input-number-group-wrapper-filled ant-input-number-css-var"
     >
       <div
         class="ant-input-number-wrapper ant-input-number-group"
@@ -2476,7 +2476,7 @@ exports[`renders components/input-number/demo/filled-debug.tsx extend context co
       </div>
     </div>
     <div
-      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-filled ant-input-number-group-wrapper-status-error"
+      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-filled ant-input-number-group-wrapper-status-error ant-input-number-css-var"
     >
       <div
         class="ant-input-number-wrapper ant-input-number-group"
@@ -2568,7 +2568,7 @@ exports[`renders components/input-number/demo/filled-debug.tsx extend context co
     style="gap: 12px;"
   >
     <div
-      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-filled"
+      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-filled ant-input-number-css-var"
     >
       <div
         class="ant-input-number-wrapper ant-input-number-group"
@@ -2655,7 +2655,7 @@ exports[`renders components/input-number/demo/filled-debug.tsx extend context co
       </div>
     </div>
     <div
-      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-disabled ant-input-number-group-wrapper-filled"
+      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-disabled ant-input-number-group-wrapper-filled ant-input-number-css-var"
     >
       <div
         class="ant-input-number-wrapper ant-input-number-group"
@@ -2743,7 +2743,7 @@ exports[`renders components/input-number/demo/filled-debug.tsx extend context co
       </div>
     </div>
     <div
-      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-filled ant-input-number-group-wrapper-status-error"
+      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-filled ant-input-number-group-wrapper-status-error ant-input-number-css-var"
     >
       <div
         class="ant-input-number-wrapper ant-input-number-group"
@@ -2901,7 +2901,7 @@ exports[`renders components/input-number/demo/focus.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-input-number ant-input-number-outlined"
+      class="ant-input-number ant-input-number-outlined ant-input-number-css-var"
       style="width: 100%;"
     >
       <div
@@ -2989,7 +2989,7 @@ exports[`renders components/input-number/demo/formatter.tsx extend context corre
     class="ant-space-item"
   >
     <div
-      class="ant-input-number ant-input-number-outlined"
+      class="ant-input-number ant-input-number-outlined ant-input-number-css-var"
     >
       <div
         class="ant-input-number-handler-wrap"
@@ -3067,7 +3067,7 @@ exports[`renders components/input-number/demo/formatter.tsx extend context corre
     class="ant-space-item"
   >
     <div
-      class="ant-input-number ant-input-number-outlined"
+      class="ant-input-number ant-input-number-outlined ant-input-number-css-var"
     >
       <div
         class="ant-input-number-handler-wrap"
@@ -3156,7 +3156,7 @@ exports[`renders components/input-number/demo/keyboard.tsx extend context correc
     class="ant-space-item"
   >
     <div
-      class="ant-input-number ant-input-number-outlined"
+      class="ant-input-number ant-input-number-outlined ant-input-number-css-var"
     >
       <div
         class="ant-input-number-handler-wrap"
@@ -3236,7 +3236,7 @@ exports[`renders components/input-number/demo/keyboard.tsx extend context correc
     class="ant-space-item"
   >
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-css-var"
     >
       <span
         class="ant-checkbox ant-wave-target ant-checkbox-checked"
@@ -3270,7 +3270,7 @@ exports[`renders components/input-number/demo/out-of-range.tsx extend context co
     class="ant-space-item"
   >
     <div
-      class="ant-input-number ant-input-number-outlined ant-input-number-out-of-range"
+      class="ant-input-number ant-input-number-outlined ant-input-number-css-var ant-input-number-out-of-range"
     >
       <div
         class="ant-input-number-handler-wrap"
@@ -3366,7 +3366,7 @@ exports[`renders components/input-number/demo/out-of-range.tsx extend context co
 exports[`renders components/input-number/demo/presuffix.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-input-number-affix-wrapper ant-input-number-outlined"
+    class="ant-input-number-affix-wrapper ant-input-number-outlined ant-input-number-css-var"
     style="width: 100%;"
   >
     <span
@@ -3451,7 +3451,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined"
+    class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-css-var"
     style="width: 100%;"
   >
     <div
@@ -3567,7 +3567,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-input-number-affix-wrapper ant-input-number-disabled ant-input-number-affix-wrapper-disabled ant-input-number-outlined"
+    class="ant-input-number-affix-wrapper ant-input-number-disabled ant-input-number-affix-wrapper-disabled ant-input-number-outlined ant-input-number-css-var"
     style="width: 100%;"
   >
     <span
@@ -3653,7 +3653,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-input-number-affix-wrapper ant-input-number-outlined"
+    class="ant-input-number-affix-wrapper ant-input-number-outlined ant-input-number-css-var"
     style="width: 100%;"
   >
     <div
@@ -3745,7 +3745,7 @@ exports[`renders components/input-number/demo/render-panel.tsx extend context co
   style="display: flex; flex-direction: column; row-gap: 16px;"
 >
   <div
-    class="ant-input-number ant-input-number-outlined"
+    class="ant-input-number ant-input-number-outlined ant-input-number-css-var"
     style="width: 100%;"
   >
     <div
@@ -3832,7 +3832,7 @@ exports[`renders components/input-number/demo/size.tsx extend context correctly 
     class="ant-space-item"
   >
     <div
-      class="ant-input-number ant-input-number-lg ant-input-number-outlined"
+      class="ant-input-number ant-input-number-lg ant-input-number-outlined ant-input-number-css-var"
     >
       <div
         class="ant-input-number-handler-wrap"
@@ -3912,7 +3912,7 @@ exports[`renders components/input-number/demo/size.tsx extend context correctly 
     class="ant-space-item"
   >
     <div
-      class="ant-input-number ant-input-number-outlined"
+      class="ant-input-number ant-input-number-outlined ant-input-number-css-var"
     >
       <div
         class="ant-input-number-handler-wrap"
@@ -3992,7 +3992,7 @@ exports[`renders components/input-number/demo/size.tsx extend context correctly 
     class="ant-space-item"
   >
     <div
-      class="ant-input-number ant-input-number-sm ant-input-number-outlined"
+      class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-input-number-css-var"
     >
       <div
         class="ant-input-number-handler-wrap"
@@ -4082,7 +4082,7 @@ exports[`renders components/input-number/demo/status.tsx extend context correctl
     class="ant-space-item"
   >
     <div
-      class="ant-input-number ant-input-number-outlined ant-input-number-status-error"
+      class="ant-input-number ant-input-number-outlined ant-input-number-status-error ant-input-number-css-var"
       style="width: 100%;"
     >
       <div
@@ -4160,7 +4160,7 @@ exports[`renders components/input-number/demo/status.tsx extend context correctl
     class="ant-space-item"
   >
     <div
-      class="ant-input-number ant-input-number-outlined ant-input-number-status-warning"
+      class="ant-input-number ant-input-number-outlined ant-input-number-status-warning ant-input-number-css-var"
       style="width: 100%;"
     >
       <div
@@ -4238,7 +4238,7 @@ exports[`renders components/input-number/demo/status.tsx extend context correctl
     class="ant-space-item"
   >
     <div
-      class="ant-input-number-affix-wrapper ant-input-number-outlined ant-input-number-status-error"
+      class="ant-input-number-affix-wrapper ant-input-number-outlined ant-input-number-status-error ant-input-number-css-var"
       style="width: 100%;"
     >
       <span
@@ -4346,7 +4346,7 @@ exports[`renders components/input-number/demo/status.tsx extend context correctl
     class="ant-space-item"
   >
     <div
-      class="ant-input-number-affix-wrapper ant-input-number-outlined ant-input-number-status-warning"
+      class="ant-input-number-affix-wrapper ant-input-number-outlined ant-input-number-status-warning ant-input-number-css-var"
       style="width: 100%;"
     >
       <span
@@ -4461,7 +4461,7 @@ exports[`renders components/input-number/demo/variant.tsx extend context correct
   style="gap: 12px;"
 >
   <div
-    class="ant-input-number ant-input-number-outlined"
+    class="ant-input-number ant-input-number-outlined ant-input-number-css-var"
     style="width: 200px;"
   >
     <div
@@ -4536,7 +4536,7 @@ exports[`renders components/input-number/demo/variant.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-input-number ant-input-number-filled"
+    class="ant-input-number ant-input-number-filled ant-input-number-css-var"
     style="width: 200px;"
   >
     <div
@@ -4611,7 +4611,7 @@ exports[`renders components/input-number/demo/variant.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-input-number ant-input-number-borderless"
+    class="ant-input-number ant-input-number-borderless ant-input-number-css-var"
     style="width: 200px;"
   >
     <div
@@ -4686,7 +4686,7 @@ exports[`renders components/input-number/demo/variant.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-input-number ant-input-number-underlined"
+    class="ant-input-number ant-input-number-underlined ant-input-number-css-var"
     style="width: 200px;"
   >
     <div

@@ -23,7 +23,7 @@ exports[`renders components/list/demo/basic.tsx extend context correctly 1`] = `
               class="ant-list-item-meta-avatar"
             >
               <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image"
+                class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
               >
                 <img
                   src="https://api.dicebear.com/7.x/miniavs/svg?seed=0"
@@ -60,7 +60,7 @@ exports[`renders components/list/demo/basic.tsx extend context correctly 1`] = `
               class="ant-list-item-meta-avatar"
             >
               <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image"
+                class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
               >
                 <img
                   src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
@@ -97,7 +97,7 @@ exports[`renders components/list/demo/basic.tsx extend context correctly 1`] = `
               class="ant-list-item-meta-avatar"
             >
               <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image"
+                class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
               >
                 <img
                   src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
@@ -134,7 +134,7 @@ exports[`renders components/list/demo/basic.tsx extend context correctly 1`] = `
               class="ant-list-item-meta-avatar"
             >
               <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image"
+                class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
               >
                 <img
                   src="https://api.dicebear.com/7.x/miniavs/svg?seed=3"
@@ -433,7 +433,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=0"
@@ -470,7 +470,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
@@ -507,7 +507,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
@@ -544,7 +544,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=3"
@@ -607,7 +607,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=0"
@@ -644,7 +644,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
@@ -681,7 +681,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
@@ -718,7 +718,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=3"
@@ -1862,10 +1862,10 @@ Array [
           class="ant-space-item"
         >
           <div
-            class="ant-radio-group ant-radio-group-outline"
+            class="ant-radio-group ant-radio-group-outline ant-radio-css-var"
           >
             <label
-              class="ant-radio-button-wrapper"
+              class="ant-radio-button-wrapper ant-radio-css-var"
             >
               <span
                 class="ant-radio-button"
@@ -1887,7 +1887,7 @@ Array [
               </span>
             </label>
             <label
-              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-css-var"
             >
               <span
                 class="ant-radio-button ant-radio-button-checked"
@@ -1910,7 +1910,7 @@ Array [
               </span>
             </label>
             <label
-              class="ant-radio-button-wrapper"
+              class="ant-radio-button-wrapper ant-radio-css-var"
             >
               <span
                 class="ant-radio-button"
@@ -1952,10 +1952,10 @@ Array [
           class="ant-space-item"
         >
           <div
-            class="ant-radio-group ant-radio-group-outline"
+            class="ant-radio-group ant-radio-group-outline ant-radio-css-var"
           >
             <label
-              class="ant-radio-button-wrapper"
+              class="ant-radio-button-wrapper ant-radio-css-var"
             >
               <span
                 class="ant-radio-button"
@@ -1977,7 +1977,7 @@ Array [
               </span>
             </label>
             <label
-              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-css-var"
             >
               <span
                 class="ant-radio-button ant-radio-button-checked"
@@ -2000,7 +2000,7 @@ Array [
               </span>
             </label>
             <label
-              class="ant-radio-button-wrapper"
+              class="ant-radio-button-wrapper ant-radio-css-var"
             >
               <span
                 class="ant-radio-button"
@@ -2048,7 +2048,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=0"
@@ -2085,7 +2085,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
@@ -2122,7 +2122,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
@@ -2159,7 +2159,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=3"
@@ -2773,7 +2773,7 @@ exports[`renders components/list/demo/vertical.tsx extend context correctly 1`] 
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=0"
@@ -2936,7 +2936,7 @@ exports[`renders components/list/demo/vertical.tsx extend context correctly 1`] 
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
@@ -3099,7 +3099,7 @@ exports[`renders components/list/demo/vertical.tsx extend context correctly 1`] 
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"

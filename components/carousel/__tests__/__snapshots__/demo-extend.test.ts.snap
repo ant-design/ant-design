@@ -1146,11 +1146,11 @@ exports[`renders components/carousel/demo/fade.tsx extend context correctly 2`] 
 exports[`renders components/carousel/demo/position.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline ant-radio-css-var"
     style="margin-bottom: 8px;"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
@@ -1173,7 +1173,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -1195,7 +1195,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -1217,7 +1217,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper ant-radio-css-var"
     >
       <span
         class="ant-radio-button"

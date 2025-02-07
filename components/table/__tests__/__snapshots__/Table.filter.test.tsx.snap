@@ -98,7 +98,7 @@ exports[`Table.filter renders custom content correctly 1`] = `
 
 exports[`Table.filter renders custom filter icon as ReactNode 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="ant-table-css-var ant-table-wrapper"
 >
   <div
     class="ant-spin-nested-loading"
@@ -107,7 +107,7 @@ exports[`Table.filter renders custom filter icon as ReactNode 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table"
+        class="ant-table ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -203,7 +203,7 @@ exports[`Table.filter renders custom filter icon as ReactNode 1`] = `
 
 exports[`Table.filter renders custom filter icon as string correctly 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="ant-table-css-var ant-table-wrapper"
 >
   <div
     class="ant-spin-nested-loading"
@@ -212,7 +212,7 @@ exports[`Table.filter renders custom filter icon as string correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table"
+        class="ant-table ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -314,7 +314,7 @@ exports[`Table.filter renders custom filter icon correctly 1`] = `
 
 exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="ant-table-css-var ant-table-wrapper"
 >
   <div
     class="ant-spin-nested-loading"
@@ -323,7 +323,7 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
       class="ant-spin-container"
     >
       <div
-        class="ant-table"
+        class="ant-table ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -442,7 +442,7 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
 
 exports[`Table.filter renders filter correctly 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="ant-table-css-var ant-table-wrapper"
 >
   <div
     class="ant-spin-nested-loading"
@@ -451,7 +451,7 @@ exports[`Table.filter renders filter correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table"
+        class="ant-table ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -566,7 +566,7 @@ exports[`Table.filter renders menu correctly 1`] = `
   class="ant-table-filter-dropdown"
 >
   <ul
-    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-css-var ant-dropdown-menu-css-var"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -582,7 +582,7 @@ exports[`Table.filter renders menu correctly 1`] = `
         class="ant-dropdown-menu-title-content"
       >
         <label
-          class="ant-checkbox-wrapper"
+          class="ant-checkbox-wrapper ant-checkbox-css-var"
         >
           <span
             class="ant-checkbox ant-wave-target"
@@ -612,7 +612,7 @@ exports[`Table.filter renders menu correctly 1`] = `
         class="ant-dropdown-menu-title-content"
       >
         <label
-          class="ant-checkbox-wrapper"
+          class="ant-checkbox-wrapper ant-checkbox-css-var"
         >
           <span
             class="ant-checkbox ant-wave-target"
@@ -708,7 +708,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
   class="ant-table-filter-dropdown"
 >
   <ul
-    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-css-var ant-dropdown-menu-css-var"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -724,7 +724,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
         class="ant-dropdown-menu-title-content"
       >
         <label
-          class="ant-radio-wrapper"
+          class="ant-radio-wrapper ant-radio-css-var"
         >
           <span
             class="ant-radio ant-wave-target"
@@ -754,7 +754,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
         class="ant-dropdown-menu-title-content"
       >
         <label
-          class="ant-radio-wrapper"
+          class="ant-radio-wrapper ant-radio-css-var"
         >
           <span
             class="ant-radio ant-wave-target"

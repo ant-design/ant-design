@@ -6,7 +6,7 @@ exports[`Anchor Render render items and ignore jsx children 1`] = `
     class=""
   >
     <div
-      class="ant-anchor-wrapper"
+      class="ant-anchor-css-var ant-anchor-wrapper"
       style="max-height: 100vh;"
     >
       <div
@@ -38,7 +38,7 @@ exports[`Anchor Render renders items correctly 1`] = `
     class=""
   >
     <div
-      class="ant-anchor-wrapper"
+      class="ant-anchor-css-var ant-anchor-wrapper"
       style="max-height: 100vh;"
     >
       <div
@@ -114,7 +114,7 @@ exports[`Anchor Render renders items correctly#horizontal 1`] = `
     class=""
   >
     <div
-      class="ant-anchor-wrapper"
+      class="ant-anchor-css-var ant-anchor-wrapper"
       style="max-height: 100vh;"
     >
       <div

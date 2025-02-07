@@ -12,7 +12,7 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -65,7 +65,7 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
         class="ant-transfer-list-body-search-wrapper"
       >
         <span
-          class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search"
+          class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search ant-input-css-var"
         >
           <span
             class="ant-input-prefix"
@@ -270,7 +270,7 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -323,7 +323,7 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
         class="ant-transfer-list-body-search-wrapper"
       >
         <span
-          class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search"
+          class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search ant-input-css-var"
         >
           <span
             class="ant-input-prefix"
@@ -466,7 +466,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target"
@@ -524,7 +524,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
           title="content1"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -549,7 +549,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
           title="content2"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -574,7 +574,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
           title="content3"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -599,7 +599,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
           title="content4"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -624,7 +624,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
           title="content5"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -649,7 +649,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
           title="content6"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -674,7 +674,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
           title="content7"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -699,7 +699,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
           title="content8"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -724,7 +724,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
           title="content9"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -749,7 +749,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
           title="content10"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -774,7 +774,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
           title="content11"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -866,7 +866,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target"
@@ -924,7 +924,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
           title="content12"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -949,7 +949,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
           title="content13"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -974,7 +974,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
           title="content14"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -999,7 +999,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
           title="content15"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -1024,7 +1024,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
           title="content16"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -1049,7 +1049,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
           title="content17"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -1074,7 +1074,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
           title="content18"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -1099,7 +1099,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
           title="content19"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -1124,7 +1124,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
           title="content20"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -1162,7 +1162,7 @@ Array [
         class="ant-transfer-list-header"
       >
         <label
-          class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
         >
           <span
             class="ant-checkbox ant-wave-target"
@@ -1220,7 +1220,7 @@ Array [
             title="content1"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -1246,7 +1246,7 @@ Array [
             title="content2"
           >
             <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target"
@@ -1271,7 +1271,7 @@ Array [
             title="content3"
           >
             <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target"
@@ -1296,7 +1296,7 @@ Array [
             title="content4"
           >
             <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target"
@@ -1321,7 +1321,7 @@ Array [
             title="content5"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -1347,7 +1347,7 @@ Array [
             title="content6"
           >
             <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target"
@@ -1372,7 +1372,7 @@ Array [
             title="content7"
           >
             <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target"
@@ -1397,7 +1397,7 @@ Array [
             title="content8"
           >
             <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target"
@@ -1422,7 +1422,7 @@ Array [
             title="content9"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -1448,7 +1448,7 @@ Array [
             title="content10"
           >
             <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target"
@@ -1473,7 +1473,7 @@ Array [
             title="content11"
           >
             <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target"
@@ -1565,7 +1565,7 @@ Array [
         class="ant-transfer-list-header"
       >
         <label
-          class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
         >
           <span
             class="ant-checkbox ant-wave-target"
@@ -1623,7 +1623,7 @@ Array [
             title="content12"
           >
             <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target"
@@ -1648,7 +1648,7 @@ Array [
             title="content13"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -1674,7 +1674,7 @@ Array [
             title="content14"
           >
             <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target"
@@ -1699,7 +1699,7 @@ Array [
             title="content15"
           >
             <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target"
@@ -1724,7 +1724,7 @@ Array [
             title="content16"
           >
             <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target"
@@ -1749,7 +1749,7 @@ Array [
             title="content17"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -1775,7 +1775,7 @@ Array [
             title="content18"
           >
             <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target"
@@ -1800,7 +1800,7 @@ Array [
             title="content19"
           >
             <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target"
@@ -1825,7 +1825,7 @@ Array [
             title="content20"
           >
             <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target"
@@ -1859,7 +1859,7 @@ Array [
         class="ant-transfer-list-header"
       >
         <label
-          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
         >
           <span
             class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -2031,7 +2031,7 @@ Array [
         class="ant-transfer-list-header"
       >
         <label
-          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
         >
           <span
             class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -2145,7 +2145,7 @@ Array [
         class="ant-transfer-list-header"
       >
         <label
-          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
         >
           <span
             class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -2198,7 +2198,7 @@ Array [
           class="ant-transfer-list-body-search-wrapper"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search"
+            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search ant-input-css-var"
           >
             <span
               class="ant-input-prefix"
@@ -2383,7 +2383,7 @@ Array [
         class="ant-transfer-list-header"
       >
         <label
-          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
         >
           <span
             class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -2436,7 +2436,7 @@ Array [
           class="ant-transfer-list-body-search-wrapper"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search"
+            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search ant-input-css-var"
           >
             <span
               class="ant-input-prefix"
@@ -2563,7 +2563,7 @@ Array [
         class="ant-transfer-list-header"
       >
         <label
-          class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
         >
           <span
             class="ant-checkbox ant-wave-target"
@@ -2615,7 +2615,7 @@ Array [
           class="ant-transfer-list-body-customize-wrapper"
         >
           <div
-            class="ant-table-wrapper"
+            class="ant-table-css-var ant-table-wrapper"
           >
             <div
               class="ant-spin-nested-loading"
@@ -2624,7 +2624,7 @@ Array [
                 class="ant-spin-container"
               >
                 <div
-                  class="ant-table ant-table-small"
+                  class="ant-table ant-table-small ant-table-css-var"
                 >
                   <div
                     class="ant-table-container"
@@ -2652,7 +2652,7 @@ Array [
                                 class="ant-table-selection"
                               >
                                 <label
-                                  class="ant-checkbox-wrapper"
+                                  class="ant-checkbox-wrapper ant-checkbox-css-var"
                                 >
                                   <span
                                     class="ant-checkbox ant-wave-target"
@@ -2700,7 +2700,7 @@ Array [
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -2744,7 +2744,7 @@ Array [
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -2787,7 +2787,7 @@ Array [
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -2830,7 +2830,7 @@ Array [
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -2873,7 +2873,7 @@ Array [
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -2917,7 +2917,7 @@ Array [
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -2960,7 +2960,7 @@ Array [
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -3003,7 +3003,7 @@ Array [
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -3046,7 +3046,7 @@ Array [
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -3090,7 +3090,7 @@ Array [
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -3295,7 +3295,7 @@ Array [
         class="ant-transfer-list-header"
       >
         <label
-          class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
         >
           <span
             class="ant-checkbox ant-wave-target"
@@ -3347,7 +3347,7 @@ Array [
           class="ant-transfer-list-body-customize-wrapper"
         >
           <div
-            class="ant-table-wrapper"
+            class="ant-table-css-var ant-table-wrapper"
           >
             <div
               class="ant-spin-nested-loading"
@@ -3356,7 +3356,7 @@ Array [
                 class="ant-spin-container"
               >
                 <div
-                  class="ant-table ant-table-small"
+                  class="ant-table ant-table-small ant-table-css-var"
                 >
                   <div
                     class="ant-table-container"
@@ -3384,7 +3384,7 @@ Array [
                                 class="ant-table-selection"
                               >
                                 <label
-                                  class="ant-checkbox-wrapper"
+                                  class="ant-checkbox-wrapper ant-checkbox-css-var"
                                 >
                                   <span
                                     class="ant-checkbox ant-wave-target"
@@ -3420,7 +3420,7 @@ Array [
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -3449,7 +3449,7 @@ Array [
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -3479,7 +3479,7 @@ Array [
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -3508,7 +3508,7 @@ Array [
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -3537,7 +3537,7 @@ Array [
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -3566,7 +3566,7 @@ Array [
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -3596,7 +3596,7 @@ Array [
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -3625,7 +3625,7 @@ Array [
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -3654,7 +3654,7 @@ Array [
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -3842,7 +3842,7 @@ exports[`renders components/transfer/demo/custom-item.tsx correctly 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -4015,7 +4015,7 @@ exports[`renders components/transfer/demo/custom-item.tsx correctly 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -4132,7 +4132,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target"
@@ -4185,7 +4185,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
           title="content1"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -4210,7 +4210,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
           title="content2"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -4235,7 +4235,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
           title="content4"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -4260,7 +4260,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
           title="content5"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -4285,7 +4285,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
           title="content7"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -4310,7 +4310,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
           title="content8"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -4335,7 +4335,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
           title="content10"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -4427,7 +4427,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target"
@@ -4480,7 +4480,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
           title="content3"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -4505,7 +4505,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
           title="content6"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -4530,7 +4530,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
           title="content9"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
           >
             <span
               class="ant-checkbox ant-wave-target"
@@ -4853,7 +4853,7 @@ Array [
         class="ant-transfer-list-header"
       >
         <label
-          class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
         >
           <span
             class="ant-checkbox ant-wave-target"
@@ -4911,7 +4911,7 @@ Array [
             title="content1"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -4937,7 +4937,7 @@ Array [
             title="content2"
           >
             <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target"
@@ -4962,7 +4962,7 @@ Array [
             title="content4"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -4988,7 +4988,7 @@ Array [
             title="content5"
           >
             <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target"
@@ -5013,7 +5013,7 @@ Array [
             title="content7"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -5039,7 +5039,7 @@ Array [
             title="content8"
           >
             <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target"
@@ -5064,7 +5064,7 @@ Array [
             title="content10"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -5090,7 +5090,7 @@ Array [
             title="content11"
           >
             <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target"
@@ -5115,7 +5115,7 @@ Array [
             title="content13"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -5141,7 +5141,7 @@ Array [
             title="content14"
           >
             <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target"
@@ -5166,7 +5166,7 @@ Array [
             title="content16"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -5192,7 +5192,7 @@ Array [
             title="content17"
           >
             <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target"
@@ -5217,7 +5217,7 @@ Array [
             title="content19"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -5243,7 +5243,7 @@ Array [
             title="content20"
           >
             <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox ant-checkbox-css-var"
             >
               <span
                 class="ant-checkbox ant-wave-target"
@@ -5596,7 +5596,7 @@ exports[`renders components/transfer/demo/search.tsx correctly 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -5649,7 +5649,7 @@ exports[`renders components/transfer/demo/search.tsx correctly 1`] = `
         class="ant-transfer-list-body-search-wrapper"
       >
         <span
-          class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search"
+          class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search ant-input-css-var"
         >
           <span
             class="ant-input-prefix"
@@ -5834,7 +5834,7 @@ exports[`renders components/transfer/demo/search.tsx correctly 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -5887,7 +5887,7 @@ exports[`renders components/transfer/demo/search.tsx correctly 1`] = `
         class="ant-transfer-list-body-search-wrapper"
       >
         <span
-          class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search"
+          class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search ant-input-css-var"
         >
           <span
             class="ant-input-prefix"
@@ -6020,7 +6020,7 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
         class="ant-transfer-list-header"
       >
         <label
-          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
         >
           <span
             class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -6192,7 +6192,7 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
         class="ant-transfer-list-header"
       >
         <label
-          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
         >
           <span
             class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -6306,7 +6306,7 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
         class="ant-transfer-list-header"
       >
         <label
-          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
         >
           <span
             class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -6359,7 +6359,7 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
           class="ant-transfer-list-body-search-wrapper"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search"
+            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search ant-input-css-var"
           >
             <span
               class="ant-input-prefix"
@@ -6544,7 +6544,7 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
         class="ant-transfer-list-header"
       >
         <label
-          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox ant-checkbox-css-var"
         >
           <span
             class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -6597,7 +6597,7 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
           class="ant-transfer-list-body-search-wrapper"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search"
+            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search ant-input-css-var"
           >
             <span
               class="ant-input-prefix"
@@ -6750,7 +6750,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
           class="ant-transfer-list-body-search-wrapper"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search"
+            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search ant-input-css-var"
           >
             <span
               class="ant-input-prefix"
@@ -6816,7 +6816,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
           class="ant-transfer-list-body-customize-wrapper"
         >
           <div
-            class="ant-table-wrapper"
+            class="ant-table-css-var ant-table-wrapper"
           >
             <div
               class="ant-spin-nested-loading"
@@ -6825,7 +6825,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                 class="ant-spin-container"
               >
                 <div
-                  class="ant-table ant-table-small"
+                  class="ant-table ant-table-small ant-table-css-var"
                 >
                   <div
                     class="ant-table-container"
@@ -6853,7 +6853,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                                 class="ant-table-selection"
                               >
                                 <label
-                                  class="ant-checkbox-wrapper"
+                                  class="ant-checkbox-wrapper ant-checkbox-css-var"
                                 >
                                   <span
                                     class="ant-checkbox ant-wave-target"
@@ -6928,7 +6928,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -6972,7 +6972,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -7016,7 +7016,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -7060,7 +7060,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -7104,7 +7104,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -7148,7 +7148,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -7192,7 +7192,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -7236,7 +7236,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -7280,7 +7280,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -7324,7 +7324,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -7548,7 +7548,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
           class="ant-transfer-list-body-search-wrapper"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search"
+            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search ant-input-css-var"
           >
             <span
               class="ant-input-prefix"
@@ -7614,7 +7614,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
           class="ant-transfer-list-body-customize-wrapper"
         >
           <div
-            class="ant-table-wrapper"
+            class="ant-table-css-var ant-table-wrapper"
           >
             <div
               class="ant-spin-nested-loading"
@@ -7623,7 +7623,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                 class="ant-spin-container"
               >
                 <div
-                  class="ant-table ant-table-small ant-table-empty"
+                  class="ant-table ant-table-small ant-table-empty ant-table-css-var"
                 >
                   <div
                     class="ant-table-container"
@@ -7651,7 +7651,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                                 class="ant-table-selection"
                               >
                                 <label
-                                  class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+                                  class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-css-var"
                                 >
                                   <span
                                     class="ant-checkbox ant-wave-target ant-checkbox-disabled"
