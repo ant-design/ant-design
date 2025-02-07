@@ -30,6 +30,11 @@ const localeValues: Locale = {
     triggerAsc: 'ترتيب تصاعدي',
     cancelSort: 'إلغاء الترتيب',
   },
+  Tour: {
+    Next: 'التالي',
+    Previous: 'السابق',
+    Finish: 'إنهاء',
+  },
   Modal: {
     okText: 'تأكيد',
     cancelText: 'إلغاء',

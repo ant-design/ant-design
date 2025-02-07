@@ -30,6 +30,11 @@ const localeValues: Locale = {
     triggerAsc: 'לחץ למיון לפי סדר עולה',
     cancelSort: 'לחץ כדי לבטל את המיון',
   },
+  Tour: {
+    Next: 'הבא',
+    Previous: 'הקודם',
+    Finish: 'סיום',
+  },
   Modal: {
     okText: 'אישור',
     cancelText: 'ביטול',
