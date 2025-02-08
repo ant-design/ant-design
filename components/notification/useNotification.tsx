@@ -147,7 +147,7 @@ export function useInternalNotification(
         description,
         icon,
         type,
-        btn,
+        actions,
         className,
         style,
         role = 'alert',
@@ -172,7 +172,7 @@ export function useInternalNotification(
             type={type}
             message={message}
             description={description}
-            btn={btn}
+            actions={actions}
             role={role}
           />
         ),

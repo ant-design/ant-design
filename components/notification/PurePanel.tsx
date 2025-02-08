@@ -51,8 +51,7 @@ const typeToIcon = {
 };
 
 export const PureContent: React.FC<PureContentProps> = (props) => {
-  const { prefixCls, icon, type, message, description, actions, btn, role = 'alert' } = props;
-  const mergedActions = actions ?? btn;
+  const { prefixCls, icon, type, message, description, actions, role = 'alert' } = props;
   let iconNode: React.ReactNode = null;
   if (icon) {
     iconNode = <span className={`${prefixCls}-icon`}>{icon}</span>;
@@ -66,7 +65,7 @@ export const PureContent: React.FC<PureContentProps> = (props) => {
       {iconNode}
       <div className={`${prefixCls}-message`}>{message}</div>
       <div className={`${prefixCls}-description`}>{description}</div>
-      {mergedActions && <div className={`${prefixCls}-actions`}>{mergedActions}</div>}
+      {actions && <div className={`${prefixCls}-actions`}>{actions}</div>}
     </div>
   );
 };
