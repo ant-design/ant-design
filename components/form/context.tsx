@@ -6,7 +6,7 @@ import type { Meta } from 'rc-field-form/lib/interface';
 import omit from 'rc-util/lib/omit';
 
 import type { ColProps } from '../grid/col';
-import type { FormExplainConfig, FormInstance, RequiredMark } from './Form';
+import type { FormInstance, RequiredMark } from './Form';
 import type { FeedbackIcons, ValidateStatus } from './FormItem';
 import type { Variant } from '../config-provider';
 import type { FormLabelAlign } from './interface';
@@ -24,7 +24,6 @@ export interface FormContextProps {
   itemRef: (name: (string | number)[]) => (node: React.ReactElement) => void;
   form?: FormInstance;
   feedbackIcons?: FeedbackIcons;
-  explainConfig?: FormExplainConfig;
 }
 
 export const FormContext = React.createContext<FormContextProps>({

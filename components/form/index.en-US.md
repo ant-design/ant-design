@@ -72,7 +72,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | fields | Control of form fields through state management (such as redux). Not recommended for non-strong demand. View [example](#form-demo-global-state) | [FieldData](#fielddata)\[] | - |  |
 | form | Form control instance created by `Form.useForm()`. Automatically created when not provided | [FormInstance](#forminstance) | - |  |
 | feedbackIcons | Can be passed custom icons while `Form.Item` element has `hasFeedback` | [FeedbackIcons](#feedbackicons) | - | 5.9.0 |
-| explainConfig | Configure `explain` validation element, including overriding whether the error should have `role="alert"` | `optional` | - |  |
 | initialValues | Set value by Form initialization or reset | object | - |  |
 | labelAlign | The text align of label of all items | `left` \| `right` | `right` |  |
 | labelWrap | whether label can be wrap | boolean | false | 4.18.0 |

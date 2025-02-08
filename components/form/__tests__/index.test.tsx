@@ -107,34 +107,6 @@ describe('Form', () => {
       await changeValue(0, 'test');
       await changeValue(0, '');
       // should show error with correct message and show correct styles
-      expect(container.querySelector('.ant-form-item-explain')).toHaveAttribute('role', 'alert');
-      expect(container.querySelector('.ant-form-item-explain-error')).toHaveTextContent(
-        "'test' is required",
-      );
-      expect(container.querySelector('.ant-input-status-error')).toBeTruthy();
-      expect(container.querySelector('.ant-form-item-has-error')).toBeTruthy();
-
-      expect(onChange).toHaveBeenCalled();
-    });
-
-    it('should show alert without alert role when form field is required but empty if explainConfig has role set to null', async () => {
-      const onChange = jest.fn();
-
-      const { container } = render(
-        <Form explainConfig={{ role: null }}>
-          <Form.Item>
-            <Form.Item name="test" label="test" initialValue="bamboo" rules={[{ required: true }]}>
-              <Input onChange={onChange} />
-            </Form.Item>
-          </Form.Item>
-        </Form>,
-      );
-
-      // user type something and clear
-      await changeValue(0, 'test');
-      await changeValue(0, '');
-
-      // should show alert with correct message and show correct styles
       expect(container.querySelector('.ant-form-item-explain')).not.toHaveAttribute('role');
       expect(container.querySelector('.ant-form-item-explain-error')).toHaveTextContent(
         "'test' is required",
@@ -1082,32 +1054,10 @@ describe('Form', () => {
     );
   });
 
-  it('validation message should has alert role', async () => {
+  it('validation message should have correct error', async () => {
     // https://github.com/ant-design/ant-design/issues/25711
     const { container } = render(
       <Form validateMessages={{ required: 'name is good!' }}>
-        <Form.Item name="test" rules={[{ required: true }]}>
-          <input />
-        </Form.Item>
-        <Form.Item>
-          <Button htmlType="submit">Submit</Button>
-        </Form.Item>
-      </Form>,
-    );
-
-    fireEvent.submit(container.querySelector('form')!);
-    await waitFakeTimer();
-
-    expect(container.querySelector('.ant-form-item-explain')).toHaveAttribute('role', 'alert');
-    expect(container.querySelector('.ant-form-item-explain-error')).toHaveTextContent(
-      'name is good!',
-    );
-  });
-
-  it('validation message should not have alert role if explainConfig has role set to null', async () => {
-    // https://github.com/ant-design/ant-design/issues/25711
-    const { container } = render(
-      <Form validateMessages={{ required: 'name is good!' }} explainConfig={{ role: null }}>
         <Form.Item name="test" rules={[{ required: true }]}>
           <input />
         </Form.Item>
