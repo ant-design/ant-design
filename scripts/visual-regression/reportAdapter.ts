@@ -3,16 +3,17 @@ import fg from 'fast-glob';
 import path from 'path';
 import { PNG } from 'pngjs';
 // locked to v2.2.0
-import { getReportHtmlAfterPopulatingData, getReportJsonWithTotalStats } from 'cypress-image-diff-html-report/dist/common/utils'
-import type { IBadCase } from './build'
+import {
+  getReportHtmlAfterPopulatingData,
+  getReportJsonWithTotalStats,
+} from 'cypress-image-diff-html-report/dist/common/utils';
+import type { IBadCase } from './build';
 
 const ROOT = path.resolve(__dirname, '../../');
 const REPORT_DIR = path.join(ROOT, 'visualRegressionReport');
 
-const components = fg.sync(
-  'components/*/index.ts[x]',
-  { cwd: ROOT }
-)
+const components = fg
+  .sync('components/*/index.ts[x]', { cwd: ROOT })
   .reduce((acc, file) => {
     const basePath = path.dirname(file);
     if (
@@ -32,22 +33,12 @@ const components = fg.sync(
 const processedComponents = new Set<string>();
 const extractFilenameComponents = (filename: string) => {
   const parts = filename.split('.');
-  const _extension = parts.pop();
 
   const isCssVar = parts.at(-1) === 'css-var';
+  const [firstHalf, theme] = parts as any[];
 
-  let theme: 'dark' | 'compact' | 'default' = 'default';
-  let firstHalf: string = '';
-
-  if (isCssVar) {
-    [firstHalf, theme] = (parts.pop(), parts) as any[];
-  } else if (parts.length >= 2) {
-    [firstHalf, theme] = parts as any[];
-  }
-
-  let componentName: string = '';
-  let demoName: string = '';
-
+  let componentName = '';
+  let demoName = '';
 
   for (const component of components) {
     if (firstHalf?.length && firstHalf.startsWith(component)) {
@@ -63,16 +54,18 @@ const extractFilenameComponents = (filename: string) => {
     demoName,
     theme,
     isCssVar,
-  }
+  };
 };
-
 
 // https://placehold.co/
 const imagesPlaceHold = {
-  genMissing: (w = 680, h = 280) => `https://placehold.co/${w}x${h}/transparent/red?text=MISS&font=lora`,
-  getRemoved: (w = 680, h = 280) => `https://placehold.co/${w}x${h}/transparent/red?text=REMOVED&font=lora`,
-  getAdded: (w = 680, h = 280) => `https://placehold.co/${w}x${h}/transparent/green?text=ADDED&font=lora`,
-}
+  genMissing: (w = 680, h = 280) =>
+    `https://placehold.co/${w}x${h}/transparent/red?text=MISS&font=lora`,
+  getRemoved: (w = 680, h = 280) =>
+    `https://placehold.co/${w}x${h}/transparent/red?text=REMOVED&font=lora`,
+  getAdded: (w = 680, h = 280) =>
+    `https://placehold.co/${w}x${h}/transparent/green?text=ADDED&font=lora`,
+};
 
 const getImageSize = (imagePath: string) => {
   const png = PNG.sync.read(fs.readFileSync(imagePath));
@@ -80,8 +73,8 @@ const getImageSize = (imagePath: string) => {
   return {
     width: Math.floor(png.width),
     height: Math.floor(png.height),
-  }
-}
+  };
+};
 
 /**
  * 转化为特定格式 (cypress-image-diff-html-report 格式) 的报告
@@ -96,22 +89,25 @@ const convertReport = (options: Required<Options>) => {
 
   const processedBadCases = badCases.map((badCase) => ({
     raw: badCase,
-    ...extractFilenameComponents(badCase.filename)
+    ...extractFilenameComponents(badCase.filename),
   }));
 
-  Array
-    .from(processedComponents)
+  Array.from(processedComponents)
     .sort((a, b) => b.length - a.length)
     .forEach((component) => {
-      const componentBadCases = processedBadCases.filter((badCase) => badCase.componentName === component);
+      const componentBadCases = processedBadCases.filter(
+        (badCase) => badCase.componentName === component,
+      );
 
       const specPath = path.join('components', component, '__tests__/image.test.ts');
 
       // https://github.com/kien-ht/cypress-image-diff-html-report/blob/v2.2.0/playground/example.json#L61-L70
       const tests = componentBadCases.map((badCase) => {
+        let baselinePath;
+        let comparisonPath;
+        let diffPath;
 
-        let baselinePath, comparisonPath, diffPath;
-        const { filename, type } = badCase.raw
+        const { filename, type } = badCase.raw;
 
         if (type === 'changed') {
           baselinePath = `${publicPath}/images/base/${filename}`;
@@ -136,11 +132,13 @@ const convertReport = (options: Required<Options>) => {
         const name = [
           `${specPath}/${badCase.demoName}.tsx`,
           `[${badCase.theme}]`,
-          badCase.isCssVar && '(CSS Var)'
-        ].filter(Boolean).join(' ');
+          badCase.isCssVar && '(CSS Var)',
+        ]
+          .filter(Boolean)
+          .join(' ');
 
         return {
-          status: "fail",
+          status: 'fail',
           name,
           percentage: badCase.raw.weight,
           failureThreshold: 0.1, // 由 scripts/visual-regression/build.ts 决定
@@ -149,15 +147,15 @@ const convertReport = (options: Required<Options>) => {
           baselinePath,
           diffPath,
           comparisonPath,
-        }
-      })
+        };
+      });
 
       // https://github.com/kien-ht/cypress-image-diff-html-report/blob/v2.2.0/playground/example.json#L57-L73
       const suite = {
         name: component,
         path: specPath,
-        tests
-      }
+        tests,
+      };
 
       suites.push(suite);
     });
@@ -173,8 +171,8 @@ const convertReport = (options: Required<Options>) => {
     duration: Math.floor(Math.random() * 1000),
     browserName: 'chrome',
     browserVersion: 'unknown',
-    cypressVersion: "10.8.0" // 写死
-  }
+    cypressVersion: '10.8.0', // 写死
+  };
 };
 
 interface Options {
@@ -184,8 +182,8 @@ interface Options {
 
 const defaultOptions: Required<Options> = {
   badCases: [],
-  publicPath: '.'
-}
+  publicPath: '.',
+};
 
 export const generate = async (opt: Options) => {
   const options = { ...defaultOptions, ...opt };
@@ -193,15 +191,15 @@ export const generate = async (opt: Options) => {
   const reportJson = convertReport(options);
 
   // copied from https://github.com/kien-ht/cypress-image-diff-html-report/blob/v2.2.0/src/core.ts#L17-L27
-  const jsonWithTotalStats = getReportJsonWithTotalStats(reportJson as any)
-  const html = await getReportHtmlAfterPopulatingData(jsonWithTotalStats)
+  const jsonWithTotalStats = getReportJsonWithTotalStats(reportJson as any);
+  const html = await getReportHtmlAfterPopulatingData(jsonWithTotalStats);
 
-  const target = path.join(REPORT_DIR, 'index.html')
+  const target = path.join(REPORT_DIR, 'index.html');
 
   try {
-    await fs.ensureFile(target)
-    await fs.writeFile(target, html)
+    await fs.ensureFile(target);
+    await fs.writeFile(target, html);
   } catch (err) {
-    throw Error((err as Error).message)
+    throw new Error((err as Error).message);
   }
-}
+};
