@@ -34,7 +34,7 @@ const processedComponents = new Set<string>();
 const extractFilenameComponents = (filename: string) => {
   const parts = filename.split('.');
 
-  const isCssVar = parts.at(-1) === 'css-var';
+  const isCssVar = filename.endsWith('.css-var.png');
   const [firstHalf, theme] = parts as any[];
 
   let componentName = '';
@@ -101,7 +101,6 @@ const convertReport = (options: Required<Options>) => {
 
       const specPath = path.join('components', component, '__tests__/image.test.ts');
 
-      // https://github.com/kien-ht/cypress-image-diff-html-report/blob/v2.2.0/playground/example.json#L61-L70
       const tests = componentBadCases.map((badCase) => {
         let baselinePath;
         let comparisonPath;
@@ -137,6 +136,7 @@ const convertReport = (options: Required<Options>) => {
           .filter(Boolean)
           .join(' ');
 
+        // https://github.com/kien-ht/cypress-image-diff-html-report/blob/v2.2.0/playground/example.json#L61-L70
         return {
           status: 'fail',
           name,
@@ -164,7 +164,7 @@ const convertReport = (options: Required<Options>) => {
     total,
     totalPassed: 0,
     totalFailed: total,
-    suites,
+    suites: suites.sort((a, b) => a.name.localeCompare(b.name)),
     // \\\\\\ 不那么重要的字段 \\\\\\
     startedAt: new Date().toISOString(),
     endedAt: new Date().toISOString(),
