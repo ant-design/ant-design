@@ -7,10 +7,10 @@ import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { getTransitionName } from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
-import { ConfigContext } from '../config-provider';
 import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
 import Tooltip from '../tooltip';
 import PurePanel, { Overlay } from './PurePanel';
+import { useComponentConfig } from '../config-provider/context';
 // CSSINJS
 import useStyle from './style';
 
@@ -40,7 +40,13 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     classNames: popoverClassNames,
     ...otherProps
   } = props;
-  const { popover, getPrefixCls } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('popover');
 
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
@@ -50,10 +56,11 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     overlayClassName,
     hashId,
     cssVarCls,
-    popover?.classNames?.root,
+    contextClassName,
+    contextClassNames.root,
     popoverClassNames?.root,
   );
-  const bodyClassNames = classNames(popover?.classNames?.body, popoverClassNames?.body);
+  const bodyClassNames = classNames(contextClassNames.body, popoverClassNames?.body);
 
   const [open, setOpen] = useMergedState(false, {
     value: props.open ?? props.visible,
@@ -92,13 +99,13 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
       classNames={{ root: rootClassNames, body: bodyClassNames }}
       styles={{
         root: {
-          ...popover?.styles?.root,
-          ...popover?.style,
+          ...contextStyles.root,
+          ...contextStyle,
           ...overlayStyle,
           ...styles?.root,
         },
         body: {
-          ...popover?.styles?.body,
+          ...contextStyles.body,
           ...styles?.body,
         },
       }}
