@@ -23,6 +23,7 @@ demo:
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/vertical.tsx" version="5.21.0">垂直方向</code>
 <code src="./demo/block.tsx">Block 分段选择器</code>
+<code src="./demo/shape.tsx" version="5.24.0">胶囊形状</code>
 <code src="./demo/disabled.tsx">不可用</code>
 <code src="./demo/controlled.tsx">受控模式</code>
 <code src="./demo/custom.tsx">自定义渲染</code>
@@ -30,7 +31,6 @@ demo:
 <code src="./demo/size.tsx">三种大小</code>
 <code src="./demo/with-icon.tsx">设置图标</code>
 <code src="./demo/icon-only.tsx">只设置图标</code>
-<code src="./demo/shape.tsx" version="5.24.0">胶囊形状</code>
 <code src="./demo/with-name.tsx" version="5.23.0">配合 name 使用</code>
 <code src="./demo/controlled-two.tsx" debug>受控同步模式</code>
 <code src="./demo/size-consistent.tsx" debug>统一高度</code>
