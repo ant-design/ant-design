@@ -49,7 +49,8 @@ The properties of config are as follows:
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| btn | Customized button group | ReactNode | - | - |
+| actions | Customized button group | ReactNode | - | 5.24.0 |
+| ~~btn~~ | Customized close button group, please use `actions` instead | ReactNode | - | - |
 | className | Customized CSS class | string | - | - |
 | closeIcon | Custom close icon | ReactNode | true | 5.7.0: close button will be hidden when setting to null or false |
 | description | The content of notification box (required) | ReactNode | - | - |
