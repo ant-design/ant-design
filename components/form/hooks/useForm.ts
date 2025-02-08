@@ -9,6 +9,11 @@ import { getFieldId, toArray } from '../util';
 
 export interface FormInstance<Values = any> extends RcFormInstance<Values> {
   scrollToField: (name: NamePath, options?: ScrollOptions) => void;
+  /**
+   * Focus to field. If field not exists, it will do nothing.
+   * @description This method will not trigger scrolling.
+   * @since 5.22.0
+   */
   focusField: (name: NamePath) => void;
   /** @internal: This is an internal usage. Do not use in your prod */
   __INTERNAL__: {
