@@ -3940,9 +3940,13 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       value=""
     />
     <span
-      style="color:red"
+      class="ant-otp-separator"
     >
-      —
+      <span
+        style="color:red"
+      >
+        —
+      </span>
     </span>
     <input
       class="ant-input ant-input-outlined ant-otp-input"

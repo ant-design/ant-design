@@ -42,7 +42,7 @@ export interface OTPProps
   value?: string;
   onChange?: (value: string) => void;
   formatter?: (value: string) => string;
-  separator?: ((index: number) => ReactNode | string) | ReactNode | string;
+  separator?: ((index: number) => ReactNode) | ReactNode;
 
   // Status
   disabled?: boolean;
@@ -233,19 +233,8 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   };
 
   const renderSeparator = (index: number) => {
-    if (typeof separator === 'function') {
-      const result = separator(index);
-      if (typeof result === 'string') {
-        return <span className={`${prefixCls}-separator`}>{result}</span>;
-      }
-      return result;
-    }
-
-    if (typeof separator === 'string') {
-      return <span className={`${prefixCls}-separator`}>{separator}</span>;
-    }
-
-    return separator;
+    const result = typeof separator === 'function' ? separator(index) : separator;
+    return result ? <span className={`${prefixCls}-separator`}>{result}</span> : null;
   };
 
   return wrapCSSVar(
