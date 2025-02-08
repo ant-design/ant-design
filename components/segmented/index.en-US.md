@@ -22,6 +22,7 @@ This component is available since `antd@4.20.0`.
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/vertical.tsx" version="5.21.0">Vertical Direction</code>
 <code src="./demo/block.tsx">Block Segmented</code>
+<code src="./demo/shape.tsx" version="5.24.0">Round shape</code>
 <code src="./demo/disabled.tsx">Disabled</code>
 <code src="./demo/controlled.tsx">Controlled mode</code>
 <code src="./demo/custom.tsx">Custom Render</code>
@@ -29,7 +30,6 @@ This component is available since `antd@4.20.0`.
 <code src="./demo/size.tsx">Three sizes of Segmented</code>
 <code src="./demo/with-icon.tsx">With Icon</code>
 <code src="./demo/icon-only.tsx">With Icon only</code>
-<code src="./demo/shape.tsx" version="5.24.0">Round shape</code>
 <code src="./demo/with-name.tsx" version="5.23.0">With name</code>
 <code src="./demo/controlled-two.tsx" debug>Controlled Synced mode</code>
 <code src="./demo/size-consistent.tsx" debug>Consistent height</code>
