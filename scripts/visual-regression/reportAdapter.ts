@@ -130,7 +130,7 @@ const convertReport = (options: Required<Options>) => {
         }
 
         const name = [
-          `${specPath}/${badCase.demoName}.tsx`,
+          `$components/demo/${badCase.demoName}.tsx`,
           `[${badCase.theme}]`,
           badCase.isCssVar && '(CSS Var)',
         ]
