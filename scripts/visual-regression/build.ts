@@ -15,7 +15,7 @@ import simpleGit from 'simple-git';
 import filter from 'lodash/filter';
 
 import markdown2Html from './convert';
-import { generate as genTriPartyReport } from './reportAdapter';
+import { generate as genAlternativeReport } from './reportAdapter';
 
 const ROOT_DIR = process.cwd();
 const ALI_OSS_BUCKET = 'antd-visual-diff';
@@ -255,11 +255,11 @@ function generateReport(
   `.trim();
 
   const htmlReportLink = `${publicPath}/report.html`;
-  const tirPartyReportLink = `${publicPath}/index.html`;
+  const alternativeReportLink = `${publicPath}/index.html`;
 
   const fullReport = [
     `> 📖 <a href="${htmlReportLink}" target="_blank">View Full Report ↗︎</a>`,
-    `> 📖 <a href="${tirPartyReportLink}" target="_blank">View Tri-party Report ↗︎</a>`,
+    `> 📖 <a href="${alternativeReportLink}" target="_blank">Alternative Report ↗︎</a>`,
   ].join('\n');
 
   if (passed) {
@@ -525,15 +525,15 @@ async function boot() {
     'utf-8',
   );
 
-  // 尝试生成三方报告，即便失败也可以用本地报告兜底
+  // 尝试生成替代报告，即便失败也可以用原来报告兜底
   try {
-    await genTriPartyReport({
+    await genAlternativeReport({
       badCases,
       publicPath,
     });
-    console.log(chalk.green('🎉 Tri-party report generated!'));
-  } catch (e) {
-    console.error(chalk.red('Tri-party report generation failed:'), e);
+    console.log(chalk.green('🎉 Alternative report generated!'));
+  } catch {
+    console.error(chalk.red('😢 Alternative report generation failed'));
   }
 
   const tar = await import('tar');
