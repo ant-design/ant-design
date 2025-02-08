@@ -5,7 +5,7 @@ import { useComposeRef } from 'rc-util/lib/ref';
 
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -19,11 +19,10 @@ import type {
   ButtonVariantType,
 } from './buttonHelpers';
 import { isTwoCNChar, isUnBorderedButtonVariant, spaceChildren } from './buttonHelpers';
-import IconWrapper from './IconWrapper';
 import DefaultLoadingIcon from './DefaultLoadingIcon';
+import IconWrapper from './IconWrapper';
 import useStyle from './style';
 import Compact from './style/compact';
-import { useComponentConfig } from '../config-provider/context';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
@@ -145,10 +144,17 @@ const InternalCompoundedButton = React.forwardRef<
   const isDanger = mergedColor === 'danger';
   const mergedColorText = isDanger ? 'dangerous' : mergedColor;
 
-  const { getPrefixCls, direction } = useContext(ConfigContext);
-  const contextButton = useComponentConfig('button');
+  const {
+    getPrefixCls,
+    direction,
+    autoInsertSpace: contextAutoInsertSpace,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('button');
 
-  const mergedInsertSpace = autoInsertSpace ?? contextButton.autoInsertSpace ?? true;
+  const mergedInsertSpace = autoInsertSpace ?? contextAutoInsertSpace ?? true;
 
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
@@ -296,15 +302,15 @@ const InternalCompoundedButton = React.forwardRef<
     compactItemClassnames,
     className,
     rootClassName,
-    contextButton.className,
+    contextClassName,
   );
 
-  const fullStyle: React.CSSProperties = { ...contextButton.style, ...customStyle };
+  const fullStyle: React.CSSProperties = { ...contextStyle, ...customStyle };
 
-  const iconClasses = classNames(customClassNames?.icon, contextButton.classNames.icon);
+  const iconClasses = classNames(customClassNames?.icon, contextClassNames.icon);
   const iconStyle: React.CSSProperties = {
     ...(styles?.icon || {}),
-    ...(contextButton.styles.icon || {}),
+    ...(contextStyles.icon || {}),
   };
 
   const iconNode =
@@ -374,6 +380,7 @@ const InternalCompoundedButton = React.forwardRef<
 });
 
 type CompoundedComponent = typeof InternalCompoundedButton & {
+  /** @deprecated Please use `Space.Compact` */
   Group: typeof Group;
   /** @internal */
   __ANT_BUTTON: boolean;

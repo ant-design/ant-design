@@ -13,7 +13,7 @@ import { composeRef } from 'rc-util/lib/ref';
 import type { ClosableType } from '../_util/hooks/useClosable';
 import { replaceElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useStyle from './style';
 
 export interface AlertRef {
@@ -149,7 +149,14 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     nativeElement: internalRef.current!,
   }));
 
-  const { getPrefixCls, direction, alert } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    closable: contextClosable,
+    closeIcon: contextCloseIcon,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('alert');
   const prefixCls = getPrefixCls('alert', customizePrefixCls);
 
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
@@ -181,8 +188,8 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
       return true;
     }
 
-    return !!alert?.closable;
-  }, [closeText, closeIcon, closable, alert?.closable]);
+    return !!contextClosable;
+  }, [closeText, closeIcon, closable, contextClosable]);
 
   // banner mode defaults to Icon
   const isShowIcon = banner && showIcon === undefined ? true : showIcon;
@@ -196,7 +203,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
       [`${prefixCls}-banner`]: !!banner,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
-    alert?.className,
+    contextClassName,
     className,
     rootClassName,
     cssVarCls,
@@ -215,20 +222,20 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     if (closeIcon !== undefined) {
       return closeIcon;
     }
-    if (typeof alert?.closable === 'object' && alert?.closable?.closeIcon) {
-      return alert?.closable?.closeIcon;
+    if (typeof contextClosable === 'object' && contextClosable.closeIcon) {
+      return contextClosable.closeIcon;
     }
-    return alert?.closeIcon;
-  }, [closeIcon, closable, closeText, alert?.closeIcon]);
+    return contextCloseIcon;
+  }, [closeIcon, closable, closeText, contextCloseIcon]);
 
   const mergedAriaProps = React.useMemo<React.AriaAttributes>(() => {
-    const merged = closable ?? alert?.closable;
+    const merged = closable ?? contextClosable;
     if (typeof merged === 'object') {
       const { closeIcon: _, ...ariaProps } = merged;
       return ariaProps;
     }
     return {};
-  }, [closable, alert?.closable]);
+  }, [closable, contextClosable]);
 
   return wrapCSSVar(
     <CSSMotion
@@ -245,7 +252,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
           ref={composeRef(internalRef, setRef)}
           data-show={!closed}
           className={classNames(alertCls, motionClassName)}
-          style={{ ...alert?.style, ...style, ...motionStyle }}
+          style={{ ...contextStyle, ...style, ...motionStyle }}
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
           onClick={onClick}

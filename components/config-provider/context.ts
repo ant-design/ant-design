@@ -167,7 +167,8 @@ export type NotificationConfig = ComponentStyleConfig & Pick<ArgsProps, 'closeIc
 
 export type TagConfig = ComponentStyleConfig & Pick<TagProps, 'closeIcon' | 'closable'>;
 
-export type CardConfig = ComponentStyleConfig & Pick<CardProps, 'classNames' | 'styles'>;
+export type CardConfig = ComponentStyleConfig &
+  Pick<CardProps, 'classNames' | 'styles' | 'variant'>;
 
 export type DrawerConfig = ComponentStyleConfig &
   Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon' | 'closable'>;
@@ -365,6 +366,9 @@ type ComponentReturnType<T extends keyof ConfigComponentProps> = Omit<
 > & {
   classNames: GetClassNamesOrEmptyObject<NonNullable<ConfigComponentProps[T]>>;
   styles: GetStylesOrEmptyObject<NonNullable<ConfigComponentProps[T]>>;
+  getPrefixCls: ConfigConsumerProps['getPrefixCls'];
+  direction: ConfigConsumerProps['direction'];
+  getPopupContainer: ConfigConsumerProps['getPopupContainer'];
 };
 
 /**
@@ -377,10 +381,15 @@ type ComponentReturnType<T extends keyof ConfigComponentProps> = Omit<
  */
 export function useComponentConfig<T extends keyof ConfigComponentProps>(propName: T) {
   const context = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, getPopupContainer } = context;
+
   const propValue = context[propName];
   return {
     classNames: EMPTY_OBJECT,
     styles: EMPTY_OBJECT,
     ...propValue,
+    getPrefixCls,
+    direction,
+    getPopupContainer,
   } as ComponentReturnType<T>;
 }

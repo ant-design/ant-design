@@ -54,7 +54,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | addonAfter | The label text displayed after (on the right side of) the input field | ReactNode | - |  |
 | addonBefore | The label text displayed before (on the left side of) the input field | ReactNode | - |  |
 | allowClear | If allow to remove input content with clear icon | boolean \| { clearIcon: ReactNode } | false |  |
-| ~~bordered~~ | Whether has border style | boolean | true | 4.5.0 |
+| ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | 4.5.0 |
 | classNames | Semantic DOM class | Record<[SemanticDOM](#input-1), string> | - | 5.4.0 |
 | count | Character count config | [CountConfig](#countconfig) | - | 5.10.0 |
 | defaultValue | The initial input content | string | - |  |
@@ -109,7 +109,7 @@ The rest of the props of `Input.TextArea` are the same as the original [textarea
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| enterButton | Whether to show an enter button after input. This property conflicts with the `addonAfter` property | ReactNode | false |
+| enterButton | false displays the default button color, true uses the primary color, or you can provide a custom button. Conflicts with addonAfter. | ReactNode | false |
 | loading | Search box with loading | boolean | false |
 | onSearch | The callback function triggered when you click on the search-icon, the clear-icon or press the Enter key | function(value, event, { source: "input" \| "clear" }) | - |
 

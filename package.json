@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.23.2",
+  "version": "5.23.4",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -26,7 +26,9 @@
     "react-component",
     "ui"
   ],
-  "sideEffects": false,
+  "sideEffects": [
+    "*.css"
+  ],
   "main": "lib/index.js",
   "module": "es/index.js",
   "unpkg": "dist/antd.min.js",
@@ -135,7 +137,7 @@
     "rc-menu": "~9.16.0",
     "rc-motion": "^2.9.5",
     "rc-notification": "~5.6.2",
-    "rc-pagination": "~5.0.0",
+    "rc-pagination": "~5.1.0",
     "rc-picker": "~4.9.2",
     "rc-progress": "~4.0.0",
     "rc-rate": "~2.13.0",
@@ -146,7 +148,7 @@
     "rc-steps": "~6.0.1",
     "rc-switch": "~4.1.0",
     "rc-table": "~7.50.2",
-    "rc-tabs": "~15.5.0",
+    "rc-tabs": "~15.5.1",
     "rc-textarea": "~1.9.0",
     "rc-tooltip": "~6.4.0",
     "rc-tree": "~5.13.0",
@@ -161,7 +163,7 @@
     "@ant-design/happy-work-theme": "^1.0.0",
     "@ant-design/tools": "^18.0.3",
     "@ant-design/v5-patch-for-react-19": "^1.0.2",
-    "@antfu/eslint-config": "^3.11.2",
+    "@antfu/eslint-config": "^4.0.0",
     "@antv/g6": "^4.8.24",
     "@biomejs/biome": "^1.9.4",
     "@codecov/webpack-plugin": "^1.4.0",
@@ -348,11 +350,5 @@
   "title": "Ant Design",
   "tnpm": {
     "mode": "npm"
-  },
-  "overrides": {
-    "react-intl": "7.0.4"
-  },
-  "resolutions": {
-    "react-intl": "7.0.4"
   }
 }
