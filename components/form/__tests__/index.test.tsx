@@ -450,6 +450,33 @@ describe('Form', () => {
     });
   });
 
+  describe('focusField', () => {
+    // Using `id` to query the node (this is a fallback action); scrollToFirstError is the same.
+    it('should work with id', () => {
+      const MyComponent = ({ id }: { id?: string }) => <input type="text" id={id} />;
+
+      let formInstance: any;
+      const Demo = () => {
+        const [form] = Form.useForm();
+        formInstance = form;
+        return (
+          <Form>
+            <Form.Item name="test">
+              <MyComponent />
+            </Form.Item>
+          </Form>
+        );
+      };
+
+      const { getByRole } = render(<Demo />);
+      const input = getByRole('textbox');
+
+      expect(input.id).toBe('test');
+      formInstance.focusField('test');
+      expect(input).toHaveFocus();
+    });
+  });
+
   describe('scrollToFirstError', () => {
     it('should work with scrollToFirstError', async () => {
       const onFinishFailed = jest.fn();
