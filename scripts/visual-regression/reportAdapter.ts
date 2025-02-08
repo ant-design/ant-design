@@ -200,6 +200,7 @@ export const generate = async (opt: Options) => {
     await fs.ensureFile(target);
     await fs.writeFile(target, html);
   } catch (err) {
+    fs.removeSync(target);
     throw new Error((err as Error).message);
   }
 };

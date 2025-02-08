@@ -232,7 +232,7 @@ async function run() {
 
   // ==================== 对比快照 ==================
   const reportFile = path.join(ROOT, 'visualRegressionReport', 'report.html');
-  const triPartyReportFile = path.join(ROOT, 'visualRegressionReport', 'index.html');
+  const alternativeReportFile = path.join(ROOT, 'visualRegressionReport', 'index.html');
   fs.emptyDirSync(path.dirname(reportFile));
   // https://github.com/ant-design/ant-design/wiki/Development#run-visual-regression-diff-locally
   runImageTests([visualTestsScript, `--base-ref=${baseRef}`, `--pr-id=local`]);
@@ -247,7 +247,7 @@ async function run() {
 
   if (needOpen) {
     open(reportFile);
-    fs.existsSync(triPartyReportFile) && open(triPartyReportFile);
+    fs.existsSync(alternativeReportFile) && open(alternativeReportFile);
   }
 }
 
