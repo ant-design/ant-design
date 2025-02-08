@@ -7306,9 +7306,13 @@ Array [
           >
             <thead>
               <tr>
-                <th
-                  aria-label="empty cell"
-                />
+                <th>
+                  <span
+                    style="width:0;height:0;position:absolute;overflow:hidden;opacity:0"
+                  >
+                    Week
+                  </span>
+                </th>
                 <th>
                   Su
                 </th>
@@ -8313,9 +8317,13 @@ Array [
           >
             <thead>
               <tr>
-                <th
-                  aria-label="empty cell"
-                />
+                <th>
+                  <span
+                    style="width:0;height:0;position:absolute;overflow:hidden;opacity:0"
+                  >
+                    Week
+                  </span>
+                </th>
                 <th>
                   Su
                 </th>
