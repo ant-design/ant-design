@@ -12,6 +12,7 @@ const locale: PickerLocale = {
     backToToday: 'Nazaj na trenutni datum',
     ok: 'OK',
     clear: 'Počisti',
+    week: 'Teden',
     month: 'Mesec',
     year: 'Leto',
     timeSelect: 'Izberi čas',
