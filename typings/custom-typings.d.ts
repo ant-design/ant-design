@@ -1,6 +1,3 @@
-// eslint-disable-next-line unused-imports/no-unused-imports
-import React from 'react';
-
 declare module '*.svg' {
   import * as React from 'react';
 
