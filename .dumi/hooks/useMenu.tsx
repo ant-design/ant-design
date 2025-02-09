@@ -42,6 +42,21 @@ interface MenuItemLabelProps {
 const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
   const { styles } = useStyle();
   const { before, after, link, title, subtitle, search, tag, className } = props;
+  const tagColor = React.useMemo<string>(() => {
+    if (isVersionNumber(tag)) {
+      return 'success';
+    }
+    if (tag?.toUpperCase() === 'NEW') {
+      return 'success';
+    }
+    if (tag?.toUpperCase() === 'UPDATED') {
+      return 'processing';
+    }
+    if (tag?.toUpperCase() === 'DEPRECATED') {
+      return 'red';
+    }
+    return '';
+  }, [tag]);
   if (!before && !after) {
     return (
       <Link to={`${link}${search}`} className={classnames(className, { [styles.link]: tag })}>
@@ -50,11 +65,7 @@ const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
           {subtitle && <span className={styles.subtitle}>{subtitle}</span>}
         </Space>
         {tag && (
-          <Tag
-            bordered={false}
-            className={classnames(styles.tag)}
-            color={isVersionNumber(tag) || tag === 'New' ? 'success' : 'processing'}
-          >
+          <Tag bordered={false} className={classnames(styles.tag)} color={tagColor}>
             {tag.replace('VERSION', version)}
           </Tag>
         )}
