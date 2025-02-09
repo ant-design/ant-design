@@ -1,4 +1,6 @@
-// https://github.com/facebook/create-react-app/blob/f09d3d3a52c1b938cecc977c2bbc0942ea0a7e70/packages/react-scripts/lib/react-app.d.ts#L42-L49
+// eslint-disable-next-line unused-imports/no-unused-imports
+import React from 'react';
+
 declare module '*.svg' {
   import * as React from 'react';
 
@@ -29,3 +31,9 @@ declare module '@npmcli/run-script' {
 declare module '@microflash/rehype-figure';
 
 declare module 'dekko';
+
+declare module 'react' {
+  interface CSSProperties {
+    [key: `--${string | number}`]: string | number | undefined; // 允许 CSS 变量
+  }
+}
