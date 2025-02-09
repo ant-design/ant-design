@@ -327,18 +327,17 @@ describe('Skeleton', () => {
     expect(nodeElement).toHaveStyle(elementStyle);
     expect(nodeElement).toHaveClass(customClassNames.node!.content);
 
-    // Image is a derived component of node
     const { container: imageContainer } = genSkeletonImage({
-      styles: customStyles.node,
-      classNames: customClassNames.node,
+      styles: customStyles.image,
+      classNames: customClassNames.image,
     });
 
     const imageRootElement = imageContainer.querySelector('.ant-skeleton');
     expect(imageRootElement).toHaveStyle(rootStyle);
-    expect(imageRootElement).toHaveClass(customClassNames.node!.root);
+    expect(imageRootElement).toHaveClass(customClassNames.image!.root);
 
-    const imageElement = imageContainer.querySelector('.ant-skeleton-node');
+    const imageElement = imageContainer.querySelector('.ant-skeleton-image');
     expect(imageElement).toHaveStyle(elementStyle);
-    expect(imageElement).toHaveClass(customClassNames.node!.content);
+    expect(imageElement).toHaveClass(customClassNames.image!.content);
   });
 });

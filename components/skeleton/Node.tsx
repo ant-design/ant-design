@@ -7,6 +7,7 @@ import useStyle from './style';
 
 export interface SkeletonNodeProps extends Omit<SkeletonElementProps, 'size' | 'shape'> {
   children?: React.ReactNode;
+  internalClassName?: string;
 }
 
 const SkeletonNode: React.FC<SkeletonNodeProps> = (props) => {
@@ -15,6 +16,7 @@ const SkeletonNode: React.FC<SkeletonNodeProps> = (props) => {
     className,
     classNames: skeletonNodeClassNames,
     rootClassName,
+    internalClassName,
     style,
     styles,
     active,
@@ -40,7 +42,10 @@ const SkeletonNode: React.FC<SkeletonNodeProps> = (props) => {
   return wrapCSSVar(
     <div className={cls} style={styles?.root}>
       <div
-        className={classNames(skeletonNodeClassNames?.content, `${prefixCls}-node`)}
+        className={classNames(
+          skeletonNodeClassNames?.content,
+          internalClassName || `${prefixCls}-node`,
+        )}
         style={{ ...styles?.content, ...style }}
       >
         {children}
