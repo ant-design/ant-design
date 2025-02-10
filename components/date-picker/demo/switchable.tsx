@@ -23,7 +23,7 @@ const App: React.FC = () => {
 
   return (
     <Space>
-      <Select value={type} onChange={setType}>
+      <Select aria-label="Picker Type" value={type} onChange={setType}>
         <Option value="time">Time</Option>
         <Option value="date">Date</Option>
         <Option value="week">Week</Option>

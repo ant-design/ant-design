@@ -1,6 +1,6 @@
 import accessibilityDemoTest from '../../../tests/shared/accessibilityTest';
 
-accessibilityDemoTest('checkbox', {
+accessibilityDemoTest('typography', {
   // we can set aria attributes to fix it
-  skip: ['custom-line-width.tsx', 'disabled.tsx'],
+  skip: ['suffix.tsx', 'ellipsis.tsx', 'ellipsis-controlled.tsx'],
 });
