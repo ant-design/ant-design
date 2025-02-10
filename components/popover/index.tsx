@@ -49,12 +49,13 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    arrow: contextArrow,
   } = useComponentConfig('popover');
 
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
   const rootPrefixCls = getPrefixCls();
-  const mergedArrow = useMergedArrow(popoverArrow, popover?.arrow);
+  const mergedArrow = useMergedArrow(popoverArrow, contextArrow);
 
   const rootClassNames = classNames(
     overlayClassName,

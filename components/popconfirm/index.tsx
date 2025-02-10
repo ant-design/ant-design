@@ -60,12 +60,13 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    arrow: contextArrow,
   } = useComponentConfig('popconfirm');
   const [open, setOpen] = useMergedState(false, {
     value: props.open,
     defaultValue: props.defaultOpen,
   });
-  const mergedArrow = useMergedArrow(popconfirmArrow, popconfirm?.arrow);
+  const mergedArrow = useMergedArrow(popconfirmArrow, contextArrow);
 
   const settingOpen: PopoverProps['onOpenChange'] = (value, e) => {
     setOpen(value, true);

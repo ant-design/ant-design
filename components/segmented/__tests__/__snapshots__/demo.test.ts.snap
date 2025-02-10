@@ -1063,8 +1063,9 @@ exports[`renders components/segmented/demo/shape.tsx correctly 1`] = `
         type="radio"
       />
       <div
-        aria-selected="true"
+        aria-checked="true"
         class="ant-segmented-item-label"
+        role="radio"
       >
         <span
           class="ant-segmented-item-icon"
@@ -1101,8 +1102,9 @@ exports[`renders components/segmented/demo/shape.tsx correctly 1`] = `
         type="radio"
       />
       <div
-        aria-selected="false"
+        aria-checked="false"
         class="ant-segmented-item-label"
+        role="radio"
       >
         <span
           class="ant-segmented-item-icon"
