@@ -309,7 +309,6 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 
 | Name | Description | Type | Version |
 | --- | --- | --- | --- |
-| focusField | Focus to field. _(This method will not trigger scroll operation)_ | (name: [NamePath](#namepath)) => void | 5.22.0 |
 | getFieldError | Get the error messages by the field name | (name: [NamePath](#namepath)) => string\[] |  |
 | getFieldInstance | Get field instance | (name: [NamePath](#namepath)) => any | 4.4.0 |
 | getFieldsError | Get the error messages by the fields name. Return as an array | (nameList?: [NamePath](#namepath)\[]) => FieldError\[] |  |

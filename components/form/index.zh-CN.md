@@ -308,7 +308,6 @@ Form.List 渲染表单相关操作函数。
 
 | 名称 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
-| focusField | 聚焦到对应字段。_该方法不会触发滚动操作_ | (name: [NamePath](#namepath)) => void | 5.22.0 |
 | getFieldError | 获取对应字段名的错误信息 | (name: [NamePath](#namepath)) => string\[] |  |
 | getFieldInstance | 获取对应字段实例 | (name: [NamePath](#namepath)) => any | 4.4.0 |
 | getFieldsError | 获取一组字段名对应的错误信息，返回为数组形式 | (nameList?: [NamePath](#namepath)\[]) => FieldError\[] |  |
