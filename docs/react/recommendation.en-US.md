@@ -44,7 +44,7 @@ title: Third-Party Libraries
 | Application Frameworks | [umi](https://github.com/umijs/umi/) [remix](https://github.com/remix-run/remix) [refine](https://github.com/pankod/refine) |
 | Flow-based UI | [pro-flow](https://github.com/ant-design/pro-flow) [react-flow](https://github.com/wbkd/react-flow) [x6](https://github.com/antvis/x6) |
 | Phone Input | [react-phone-number-input](https://gitlab.com/catamphetamine/react-phone-number-input) [antd-phone-input](https://github.com/ArtyomVancyan/antd-phone-input/) |
-| AI Chat | [pro-chat](https://github.com/ant-design/pro-chat) |
+| AI Chat | [Ant Design X](https://github.com/ant-design/x) |
 | PDF | [react-pdf](https://github.com/diegomura/react-pdf) [@react-pdf/renderer](https://github.com/diegomura/react-pdf) |
 | React Gesture | [use-gesture](https://use-gesture.netlify.app) |
 

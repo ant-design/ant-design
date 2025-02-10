@@ -119,7 +119,6 @@ const ErrorList: React.FC<ErrorListProps> = ({
               hashId,
             )}
             style={holderStyle}
-            role="alert"
           >
             <CSSMotionList
               keys={filledKeyFullKeyList}
