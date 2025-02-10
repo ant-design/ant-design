@@ -1,8 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 
 export type SemanticName = 'root' | 'section' | 'avatar' | 'title' | 'description';
 export interface CardMetaProps {
@@ -28,8 +26,13 @@ const Meta: React.FC<CardMetaProps> = (props) => {
     styles,
     ...restProps
   } = props;
-
-  const { getPrefixCls, cardMeta } = React.useContext<ConfigConsumerProps>(ConfigContext);
+  const {
+    getPrefixCls,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('cardMeta');
 
   const prefixCls = getPrefixCls('card', customizePrefixCls);
   const metaPrefixCls = `${prefixCls}-meta`;
@@ -37,59 +40,59 @@ const Meta: React.FC<CardMetaProps> = (props) => {
   const rootClassNames = classNames(
     metaPrefixCls,
     className,
-    cardMeta?.className,
-    cardMeta?.classNames?.root,
+    contextClassName,
+    contextClassNames.root,
     cardMetaClassNames?.root,
   );
 
   const rootStyles = {
-    ...cardMeta?.styles?.root,
-    ...cardMeta?.style,
+    ...contextStyles.root,
+    ...contextStyle,
     ...styles?.root,
     ...style,
   };
 
   const avatarClassNames = classNames(
     `${metaPrefixCls}-avatar`,
-    cardMeta?.classNames?.avatar,
+    contextClassNames.avatar,
     cardMetaClassNames?.avatar,
   );
 
   const avatarStyles = {
-    ...cardMeta?.styles?.avatar,
+    ...contextStyles.avatar,
     ...styles?.avatar,
   };
 
   const titleClassNames = classNames(
     `${metaPrefixCls}-title`,
-    cardMeta?.classNames?.title,
+    contextClassNames.title,
     cardMetaClassNames?.title,
   );
 
   const titleStyles = {
-    ...cardMeta?.styles?.title,
+    ...contextStyles.title,
     ...styles?.title,
   };
 
   const descriptionClassNames = classNames(
     `${metaPrefixCls}-description`,
-    cardMeta?.classNames?.description,
+    contextClassNames.description,
     cardMetaClassNames?.description,
   );
 
   const descriptionStyles = {
-    ...cardMeta?.styles?.description,
+    ...contextStyles.description,
     ...styles?.description,
   };
 
   const sectionClassNames = classNames(
     `${metaPrefixCls}-section`,
-    cardMeta?.classNames?.section,
+    contextClassNames.section,
     cardMetaClassNames?.section,
   );
 
   const sectionStyles = {
-    ...cardMeta?.styles?.section,
+    ...contextStyles.section,
     ...styles?.section,
   };
 
