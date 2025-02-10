@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 5.24.0
 
-`2025-02-10`
+`2025-02-11`
 
 - 🆕 Carousel 支持展示指示点进度。[#52672](https://github.com/ant-design/ant-design/pull/52672) [@yellowryan](https://github.com/yellowryan)
 - 🆕 Input.OTP 支持 `separator` 属性。[#52668](https://github.com/ant-design/ant-design/pull/52668) [@HaceraI](https://github.com/HaceraI)

@@ -17,7 +17,7 @@ tag: vVERSION
 
 ### 5.24.0
 
-`2025-02-10`
+`2025-02-11`
 
 - 🆕 Carousel support show dot duration. [#52672](https://github.com/ant-design/ant-design/pull/52672) [@yellowryan](https://github.com/yellowryan)
 - 🆕 Input.OTP support `separator` prop. [#52668](https://github.com/ant-design/ant-design/pull/52668) [@HaceraI](https://github.com/HaceraI)
