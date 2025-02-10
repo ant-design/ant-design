@@ -448,6 +448,30 @@ describe('Form', () => {
         getForm: () => form,
       };
     });
+
+    it('should work with id', () => {
+      const MyComponent = ({ id }: { id?: string }) => <input type="text" id={id} />;
+
+      let formInstance: any;
+      const Demo = () => {
+        const [form] = Form.useForm();
+        formInstance = form;
+        return (
+          <Form>
+            <Form.Item name="test">
+              <MyComponent />
+            </Form.Item>
+          </Form>
+        );
+      };
+
+      const { getByRole } = render(<Demo />);
+      const input = getByRole('textbox');
+
+      expect(input.id).toBe('test');
+      formInstance.scrollToField('test');
+      expect(scrollIntoView).toHaveBeenCalledWith(input, expect.any(Object));
+    });
   });
 
   describe('scrollToFirstError', () => {
