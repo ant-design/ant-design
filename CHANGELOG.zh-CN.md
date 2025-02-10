@@ -21,7 +21,7 @@ tag: vVERSION
 
 - 🆕 Carousel 支持展示指示点进度。[#52672](https://github.com/ant-design/ant-design/pull/52672) [@yellowryan](https://github.com/yellowryan)
 - 🆕 Input.OTP 支持 `separator` 属性。[#52668](https://github.com/ant-design/ant-design/pull/52668) [@HaceraI](https://github.com/HaceraI)
-- 🆕 Description 增加 `labelColor` 组建 token。[#52700](https://github.com/ant-design/ant-design/pull/52700) [@guoyunhe](https://github.com/guoyunhe)
+- 🆕 Descriptions 增加 `labelColor` 组建 token。[#52700](https://github.com/ant-design/ant-design/pull/52700) [@guoyunhe](https://github.com/guoyunhe)
 - 🆕 Segmented 支持 `shape="round"` 的胶囊形状的样式。[#52685](https://github.com/ant-design/ant-design/pull/52685) [@afc163](https://github.com/afc163)
 - 🆕 ConfigProvider 支持 Card 组件的 `bordered` 配置。[#52552](https://github.com/ant-design/ant-design/pull/52552) [@thinkasany](https://github.com/thinkasany)
 - 🆕 Progress/Step 支持使用 `rounding` 属性自定义取整方法。[#52017](https://github.com/ant-design/ant-design/pull/52017) [@yanghoxom](https://github.com/yanghoxom)
@@ -32,7 +32,7 @@ tag: vVERSION
 - 🐞 修复 DatePicker.RangePicker 弹出窗体自动调整位置时，面板的箭头位置不正确的问题。[#52719](https://github.com/ant-design/ant-design/pull/52719) [@zombieJ](https://github.com/zombieJ)
 - 🐞 修正 locale 中 `filterCheckall` 为 `filterCheckAll`。[#52517](https://github.com/ant-design/ant-design/pull/52517) [@thinkasany](https://github.com/thinkasany)
 - 💄 修复 Button 预设值按钮的阴影色在暗色背景下显示突兀的问题。[#52701](https://github.com/ant-design/ant-design/pull/52701) [@afc163](https://github.com/afc163)
-- 💄 修复 Segmented 组件在暗黑模式下的动画过渡效果不自然。[#52708](https://github.com/ant-design/ant-design/pull/52708) [@yellowryan](https://github.com/yellowryan)
+- 💄 修复 Segmented 组件在暗黑模式下的动画过渡效果不自然的问题。[#52708](https://github.com/ant-design/ant-design/pull/52708) [@yellowryan](https://github.com/yellowryan)
 - 💄 拆分 Input 和 TextArea 样式。[#52570](https://github.com/ant-design/ant-design/pull/52570) [@guoyunhe](https://github.com/guoyunhe)
 - 💄 修复 Input 和 Select 在 css var 模式下的样式问题。[#52554](https://github.com/ant-design/ant-design/pull/52554) [@li-jia-nan](https://github.com/li-jia-nan)
 - ⌨️ Form field error 移除 role="alert" 以提升可访问性。[#52661](https://github.com/ant-design/ant-design/pull/52661) [@mellis481](https://github.com/mellis481)
