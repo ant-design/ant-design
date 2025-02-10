@@ -28,7 +28,7 @@ tag: vVERSION
 - 🆕 Divider `orientation` support `start` and `end`. [#52567](https://github.com/ant-design/ant-design/pull/52567) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 Add `underlined` to `variant` of Input, InputNumber, Mentions, Form, Select, Cascader, TreeSelect, DatePicker and TimePicker. [#52546](https://github.com/ant-design/ant-design/pull/52546) [@ustcfury](https://github.com/ustcfury)
 - 🆕 ConfigProvider support global config of Modal `centered` . [#52343](https://github.com/ant-design/ant-design/pull/52343) [@guoyunhe](https://github.com/guoyunhe)
-- 🆕 Add `ant-checkbox-label` class name for Checkbox. [#52322](https://github.com/ant-design/ant-design/pull/52322) [@guoyunhe](https://github.com/guoyunhe)
+- 🆕 Add `label` class name for Checkbox and Radio. [#52322](https://github.com/ant-design/ant-design/pull/52322) [@guoyunhe](https://github.com/guoyunhe)
 - 🐞 Fix DatePicker.RangePicker arrow position when popup auto adjust position. [#52719](https://github.com/ant-design/ant-design/pull/52719) [@zombieJ](https://github.com/zombieJ)
 - 🐞 Update locale `filterCheckall` to `filterCheckAll`. [#52517](https://github.com/ant-design/ant-design/pull/52517) [@thinkasany](https://github.com/thinkasany)
 - 💄 Fix Button shadow color appearing awkward on dark backgrounds. [#52701](https://github.com/ant-design/ant-design/pull/52701) [@afc163](https://github.com/afc163)

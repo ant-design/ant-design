@@ -28,7 +28,7 @@ tag: vVERSION
 - 🆕 Divider 的 `orientation` 属性支持 `start` 和 `end`.[#52567](https://github.com/ant-design/ant-design/pull/52567) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 为 Input、InputNumber、Mentions、Form、Select、Cascader、TreeSelect、DatePicker、TimePicker 组件的 `variant` 添加 `underlined` 属性。[#52546](https://github.com/ant-design/ant-design/pull/52546) [@ustcfury](https://github.com/ustcfury)
 - 🆕 ConfigProvider 支持 Modal `centered` 全局配置。[#52343](https://github.com/ant-design/ant-design/pull/52343) [@guoyunhe](https://github.com/guoyunhe)
-- 🆕 为 Checkbox 增加 `ant-checkbox-label` 类名。[#52322](https://github.com/ant-design/ant-design/pull/52322) [@guoyunhe](https://github.com/guoyunhe)
+- 🆕 为 Checkbox 和 Radio 增加 `label` 类名。[#52322](https://github.com/ant-design/ant-design/pull/52322) [@guoyunhe](https://github.com/guoyunhe)
 - 🐞 修复 DatePicker.RangePicker 弹出窗体自动调整位置时，面板的箭头位置不正确的问题。[#52719](https://github.com/ant-design/ant-design/pull/52719) [@zombieJ](https://github.com/zombieJ)
 - 🐞 修正 locale 中 `filterCheckall` 为 `filterCheckAll`。[#52517](https://github.com/ant-design/ant-design/pull/52517) [@thinkasany](https://github.com/thinkasany)
 - 💄 修复 Button 预设值按钮的阴影色在暗色背景下显示突兀的问题。[#52701](https://github.com/ant-design/ant-design/pull/52701) [@afc163](https://github.com/afc163)
