@@ -7,13 +7,13 @@ import type { SliderRef } from 'rc-slider/lib/Slider';
 
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { AbstractTooltipProps, TooltipPlacement } from '../tooltip';
 import SliderInternalContext from './Context';
 import SliderTooltip from './SliderTooltip';
 import useStyle from './style';
 import useRafLock from './useRafLock';
+import { useComponentConfig } from '../config-provider/context';
 
 export type SliderMarks = RcSliderProps['marks'];
 
@@ -142,11 +142,14 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
   const { vertical } = props;
 
   const {
-    direction: contextDirection,
-    slider,
     getPrefixCls,
+    direction: contextDirection,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
     getPopupContainer,
-  } = React.useContext(ConfigContext);
+  } = useComponentConfig('slider');
   const contextDisabled = React.useContext(DisabledContext);
   const mergedDisabled = disabled ?? contextDisabled;
 
@@ -203,8 +206,8 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
 
   const rootClassNames = classNames(
     className,
-    slider?.className,
-    slider?.classNames?.root,
+    contextClassName,
+    contextClassNames.root,
     sliderClassNames?.root,
     rootClassName,
     {
@@ -356,40 +359,40 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
 
   // ============================== Render ==============================
   const rootStyle: React.CSSProperties = {
-    ...slider?.styles?.root,
-    ...slider?.style,
+    ...contextStyles.root,
+    ...contextStyle,
     ...styles?.root,
     ...style,
   };
 
   const mergedTracks = {
-    ...slider?.styles?.tracks,
+    ...contextStyles.tracks,
     ...styles?.tracks,
   };
 
-  const mergedTracksClassNames = classNames(slider?.classNames?.tracks, sliderClassNames?.tracks);
+  const mergedTracksClassNames = classNames(contextClassNames.tracks, sliderClassNames?.tracks);
 
   return wrapCSSVar(
     // @ts-ignore
     <RcSlider
       {...restProps}
       classNames={{
-        handle: classNames(slider?.classNames?.handle, sliderClassNames?.handle),
-        rail: classNames(slider?.classNames?.rail, sliderClassNames?.rail),
-        track: classNames(slider?.classNames?.track, sliderClassNames?.track),
+        handle: classNames(contextClassNames.handle, sliderClassNames?.handle),
+        rail: classNames(contextClassNames.rail, sliderClassNames?.rail),
+        track: classNames(contextClassNames.track, sliderClassNames?.track),
         ...(mergedTracksClassNames ? { tracks: mergedTracksClassNames } : {}),
       }}
       styles={{
         handle: {
-          ...slider?.styles?.handle,
+          ...contextStyles.handle,
           ...styles?.handle,
         },
         rail: {
-          ...slider?.styles?.rail,
+          ...contextStyles.rail,
           ...styles?.rail,
         },
         track: {
-          ...slider?.styles?.track,
+          ...contextStyles.track,
           ...styles?.track,
         },
         ...(Object.keys(mergedTracks).length ? { tracks: mergedTracks } : {}),

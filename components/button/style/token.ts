@@ -1,9 +1,13 @@
 import type { CSSProperties } from 'react';
+import type { CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
 
 import { AggregationColor } from '../../color-picker/color';
 import { isBright } from '../../color-picker/components/ColorPresets';
-import type { FullToken, GenStyleFn, GetDefaultToken } from '../../theme/internal';
+import type { FullToken, GenStyleFn, GetDefaultToken, PresetColorKey } from '../../theme/internal';
 import { getLineHeight, mergeToken } from '../../theme/internal';
+import { PresetColors } from '../../theme/interface';
+import getAlphaColor from '../../theme/util/getAlphaColor';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -219,7 +223,15 @@ export interface ComponentToken {
   contentLineHeightSM: number;
 }
 
-export interface ButtonToken extends FullToken<'Button'> {
+type ShadowColorMap = {
+  /**
+   * @desc 预设按钮的阴影色
+   * @descEN Shadow colors of preset button
+   */
+  [Key in `${PresetColorKey}ShadowColor`]: string;
+};
+
+export interface ButtonToken extends FullToken<'Button'>, ShadowColorMap {
   /**
    * @desc 按钮横向内边距
    * @descEN Horizontal padding of button
@@ -263,7 +275,16 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
     ? '#000'
     : '#fff';
 
+  const shadowColorTokens = PresetColors.reduce<CSSObject>(
+    (prev: CSSObject, colorKey: PresetColorKey) => ({
+      ...prev,
+      [`${colorKey}ShadowColor`]: `0 ${unit(token.controlOutlineWidth)} 0 ${getAlphaColor(token[`${colorKey}1`], token.colorBgContainer)}`,
+    }),
+    {},
+  );
+
   return {
+    ...shadowColorTokens,
     fontWeight: 400,
     defaultShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlTmpOutline}`,
     primaryShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlOutline}`,

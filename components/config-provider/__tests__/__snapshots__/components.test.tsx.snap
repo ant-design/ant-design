@@ -15571,7 +15571,6 @@ exports[`ConfigProvider components Form configProvider 1`] = `
         >
           <div
             class="config-form-item-explain config-form-show-help-appear config-form-show-help-appear-start config-form-show-help config-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="config-form-show-help-item-appear config-form-show-help-item-appear-start config-form-show-help-item config-form-item-explain-error"
@@ -15624,7 +15623,6 @@ exports[`ConfigProvider components Form configProvider componentDisabled 1`] = `
         >
           <div
             class="config-form-item-explain config-form-show-help-appear config-form-show-help-appear-start config-form-show-help config-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="config-form-show-help-item-appear config-form-show-help-item-appear-start config-form-show-help-item config-form-item-explain-error"
@@ -15676,7 +15674,6 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
         >
           <div
             class="config-form-item-explain config-form-show-help-appear config-form-show-help-appear-start config-form-show-help config-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="config-form-show-help-item-appear config-form-show-help-item-appear-start config-form-show-help-item config-form-item-explain-error"
@@ -15728,7 +15725,6 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
         >
           <div
             class="config-form-item-explain config-form-show-help-appear config-form-show-help-appear-start config-form-show-help config-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="config-form-show-help-item-appear config-form-show-help-item-appear-start config-form-show-help-item config-form-item-explain-error"
@@ -15780,7 +15776,6 @@ exports[`ConfigProvider components Form configProvider componentSize small 1`] =
         >
           <div
             class="config-form-item-explain config-form-show-help-appear config-form-show-help-appear-start config-form-show-help config-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="config-form-show-help-item-appear config-form-show-help-item-appear-start config-form-show-help-item config-form-item-explain-error"
@@ -15832,7 +15827,6 @@ exports[`ConfigProvider components Form normal 1`] = `
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item ant-form-item-explain-error"
@@ -15884,7 +15878,6 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
         >
           <div
             class="prefix-Form-item-explain prefix-Form-show-help-appear prefix-Form-show-help-appear-start prefix-Form-show-help prefix-Form-item-explain-connected"
-            role="alert"
           >
             <div
               class="prefix-Form-show-help-item-appear prefix-Form-show-help-item-appear-start prefix-Form-show-help-item prefix-Form-item-explain-error"
@@ -22466,7 +22459,6 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
 exports[`ConfigProvider components Rate configProvider 1`] = `
 <ul
   class="config-rate"
-  role="radiogroup"
   tabindex="0"
 >
   <li
@@ -22765,7 +22757,6 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
 exports[`ConfigProvider components Rate configProvider componentDisabled 1`] = `
 <ul
   class="config-rate config-rate-disabled"
-  role="radiogroup"
   tabindex="-1"
 >
   <li
@@ -23064,7 +23055,6 @@ exports[`ConfigProvider components Rate configProvider componentDisabled 1`] = `
 exports[`ConfigProvider components Rate configProvider componentSize large 1`] = `
 <ul
   class="config-rate"
-  role="radiogroup"
   tabindex="0"
 >
   <li
@@ -23363,7 +23353,6 @@ exports[`ConfigProvider components Rate configProvider componentSize large 1`] =
 exports[`ConfigProvider components Rate configProvider componentSize middle 1`] = `
 <ul
   class="config-rate"
-  role="radiogroup"
   tabindex="0"
 >
   <li
@@ -23662,7 +23651,6 @@ exports[`ConfigProvider components Rate configProvider componentSize middle 1`] 
 exports[`ConfigProvider components Rate configProvider componentSize small 1`] = `
 <ul
   class="config-rate"
-  role="radiogroup"
   tabindex="0"
 >
   <li
@@ -23961,7 +23949,6 @@ exports[`ConfigProvider components Rate configProvider componentSize small 1`] =
 exports[`ConfigProvider components Rate normal 1`] = `
 <ul
   class="ant-rate"
-  role="radiogroup"
   tabindex="0"
 >
   <li
@@ -24260,7 +24247,6 @@ exports[`ConfigProvider components Rate normal 1`] = `
 exports[`ConfigProvider components Rate prefixCls 1`] = `
 <ul
   class="prefix-Rate"
-  role="radiogroup"
   tabindex="0"
 >
   <li
