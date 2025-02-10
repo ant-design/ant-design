@@ -90,7 +90,7 @@ describe('Form', () => {
   });
 
   describe('noStyle Form.Item', () => {
-    it('should show alert when form field is required but empty', async () => {
+    it('should show error when form field is required but empty', async () => {
       const onChange = jest.fn();
 
       const { container } = render(
@@ -106,8 +106,8 @@ describe('Form', () => {
       // user type something and clear
       await changeValue(0, 'test');
       await changeValue(0, '');
-
-      // should show alert with correct message and show correct styles
+      // should show error with correct message and show correct styles
+      expect(container.querySelector('.ant-form-item-explain')).not.toHaveAttribute('role');
       expect(container.querySelector('.ant-form-item-explain-error')).toHaveTextContent(
         "'test' is required",
       );
@@ -447,6 +447,30 @@ describe('Form', () => {
         },
         getForm: () => form,
       };
+    });
+
+    it('should work with id', () => {
+      const MyComponent = ({ id }: { id?: string }) => <input type="text" id={id} />;
+
+      let formInstance: any;
+      const Demo = () => {
+        const [form] = Form.useForm();
+        formInstance = form;
+        return (
+          <Form>
+            <Form.Item name="test">
+              <MyComponent />
+            </Form.Item>
+          </Form>
+        );
+      };
+
+      const { getByRole } = render(<Demo />);
+      const input = getByRole('textbox');
+
+      expect(input.id).toBe('test');
+      formInstance.scrollToField('test');
+      expect(scrollIntoView).toHaveBeenCalledWith(input, expect.any(Object));
     });
   });
 
@@ -1054,7 +1078,7 @@ describe('Form', () => {
     );
   });
 
-  it('validation message should has alert role', async () => {
+  it('validation message should have correct error', async () => {
     // https://github.com/ant-design/ant-design/issues/25711
     const { container } = render(
       <Form validateMessages={{ required: 'name is good!' }}>
@@ -1070,6 +1094,7 @@ describe('Form', () => {
     fireEvent.submit(container.querySelector('form')!);
     await waitFakeTimer();
 
+    expect(container.querySelector('.ant-form-item-explain')).not.toHaveAttribute('role');
     expect(container.querySelector('.ant-form-item-explain-error')).toHaveTextContent(
       'name is good!',
     );
