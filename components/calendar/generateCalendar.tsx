@@ -106,11 +106,14 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
     // ====================== Warning =======================
     if (process.env.NODE_ENV !== 'production') {
       const warning = devUseWarning('Calendar');
-
-      warning.deprecated(!dateFullCellRender, 'dateFullCellRender', 'fullCellRender');
-      warning.deprecated(!dateCellRender, 'dateCellRender', 'cellRender');
-      warning.deprecated(!monthFullCellRender, 'monthFullCellRender', 'fullCellRender');
-      warning.deprecated(!monthCellRender, 'monthCellRender', 'cellRender');
+      [
+        ['dateFullCellRender', 'fullCellRender'],
+        ['dateCellRender', 'cellRender'],
+        ['monthFullCellRender', 'fullCellRender'],
+        ['monthCellRender', 'cellRender'],
+      ].forEach(([deprecatedName, newName]) => {
+        warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+      });
     }
 
     // ====================== State =======================
