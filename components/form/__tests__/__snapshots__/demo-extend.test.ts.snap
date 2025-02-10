@@ -2020,7 +2020,6 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
             id="custom-feedback-icons_custom-feedback-test-item_help"
-            role="alert"
           >
             <div
               class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item"
@@ -2084,7 +2083,6 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
             id="custom-feedback-icons_custom-feedback-test-item2_help"
-            role="alert"
           >
             <div
               class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item"
@@ -5721,7 +5719,6 @@ Array [
             >
               <ul
                 class="ant-rate ant-rate-disabled"
-                role="radiogroup"
                 tabindex="-1"
               >
                 <li
@@ -6110,7 +6107,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item ant-form-item-explain-error"
@@ -6167,7 +6163,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item ant-form-item-explain-error"
@@ -6259,7 +6254,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item ant-form-item-explain-error"
@@ -6316,7 +6310,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item ant-form-item-explain-error"
@@ -6434,7 +6427,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item ant-form-item-explain-error"
@@ -6504,7 +6496,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item ant-form-item-explain-error"
@@ -6614,7 +6605,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item ant-form-item-explain-error"
@@ -6680,7 +6670,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item ant-form-item-explain-error"
@@ -22609,7 +22598,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             <ul
               class="ant-rate"
               id="validate_other_rate"
-              role="radiogroup"
               tabindex="0"
             >
               <li
@@ -23982,7 +23970,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item ant-form-item-explain-error"
@@ -24134,7 +24121,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item ant-form-item-explain-validating"
@@ -24359,7 +24345,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item ant-form-item-explain-error"
@@ -28268,7 +28253,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item ant-form-item-explain-error"
@@ -28480,7 +28464,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item ant-form-item-explain-warning"
@@ -29160,7 +29143,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   >
                     <div
                       class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
-                      role="alert"
                     >
                       <div
                         class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item ant-form-item-explain-error"
@@ -30637,7 +30619,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item ant-form-item-explain-error"
@@ -33738,7 +33719,6 @@ exports[`renders components/form/demo/without-form-create.tsx extend context cor
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item"
