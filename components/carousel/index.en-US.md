@@ -33,7 +33,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | arrows | Whether to show switch arrows | boolean | false | 5.17.0 |
-| autoplay | Whether to scroll automatically, If it is `object`, you can specify `dotDuration` to display the progress bar (its duration is determined by `autoplaySpeed`) | boolean \| { dotDuration?: boolean } | false |  |
+| autoplay | Whether to scroll automatically, you can specify `autoplay={{ dotDuration: true }}` to display the progress bar | boolean \| { dotDuration?: boolean } | false |  |
 | autoplaySpeed | Delay between each auto scroll (in milliseconds) | number | 3000 |  |
 | adaptiveHeight | Adjust the slide's height automatically | boolean | false |  |
 | dotPosition | The position of the dots, which can be one of `top` `bottom` `left` `right` | string | `bottom` |  |
