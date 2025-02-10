@@ -19,7 +19,7 @@ tag: vVERSION
 
 `2025-02-11`
 
-- 🆕 Notification 支持 `actions` 属性。[#52703](https://github.com/ant-design/ant-design/pull/52703) [@thinkasany](https://github.com/thinkasany)
+- 🆕 Notification 支持 `actions` 属性并废弃 `btn` 属性。[#52703](https://github.com/ant-design/ant-design/pull/52703) [@thinkasany](https://github.com/thinkasany)
 - 🆕 Carousel 支持展示指示点进度。[#52672](https://github.com/ant-design/ant-design/pull/52672) [@yellowryan](https://github.com/yellowryan)
 - 🆕 Input.OTP 支持 `separator` 属性。[#52668](https://github.com/ant-design/ant-design/pull/52668) [@HaceraI](https://github.com/HaceraI)
 - 🆕 Descriptions 增加 `labelColor` 组件 token。[#52700](https://github.com/ant-design/ant-design/pull/52700) [@guoyunhe](https://github.com/guoyunhe)
