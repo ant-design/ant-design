@@ -22564,7 +22564,6 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
 exports[`ConfigProvider components Rate configProvider 1`] = `
 <ul
   class="config-rate"
-  role="radiogroup"
   tabindex="0"
 >
   <li
@@ -22863,7 +22862,6 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
 exports[`ConfigProvider components Rate configProvider componentDisabled 1`] = `
 <ul
   class="config-rate config-rate-disabled"
-  role="radiogroup"
   tabindex="-1"
 >
   <li
@@ -23162,7 +23160,6 @@ exports[`ConfigProvider components Rate configProvider componentDisabled 1`] = `
 exports[`ConfigProvider components Rate configProvider componentSize large 1`] = `
 <ul
   class="config-rate"
-  role="radiogroup"
   tabindex="0"
 >
   <li
@@ -23461,7 +23458,6 @@ exports[`ConfigProvider components Rate configProvider componentSize large 1`] =
 exports[`ConfigProvider components Rate configProvider componentSize middle 1`] = `
 <ul
   class="config-rate"
-  role="radiogroup"
   tabindex="0"
 >
   <li
@@ -23760,7 +23756,6 @@ exports[`ConfigProvider components Rate configProvider componentSize middle 1`] 
 exports[`ConfigProvider components Rate configProvider componentSize small 1`] = `
 <ul
   class="config-rate"
-  role="radiogroup"
   tabindex="0"
 >
   <li
@@ -24059,7 +24054,6 @@ exports[`ConfigProvider components Rate configProvider componentSize small 1`] =
 exports[`ConfigProvider components Rate normal 1`] = `
 <ul
   class="ant-rate"
-  role="radiogroup"
   tabindex="0"
 >
   <li
@@ -24358,7 +24352,6 @@ exports[`ConfigProvider components Rate normal 1`] = `
 exports[`ConfigProvider components Rate prefixCls 1`] = `
 <ul
   class="prefix-Rate"
-  role="radiogroup"
   tabindex="0"
 >
   <li
