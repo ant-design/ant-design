@@ -11,6 +11,7 @@ const datePickerLocale: PickerLocale = {
     backToToday: 'Վերադառնալ այսօր',
     ok: 'Օկ',
     clear: 'Մաքրել',
+    week: 'Շաբաթ',
     month: 'Ամիս',
     year: 'Տարի',
     timeSelect: 'ընտրեք ժամը',

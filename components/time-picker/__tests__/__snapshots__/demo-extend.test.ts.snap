@@ -35293,7 +35293,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
         <input
           aria-invalid="false"
           autocomplete="off"
-          placeholder="Filled"
+          placeholder="Outlined"
           size="10"
           value=""
         />
@@ -36851,7 +36851,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
           aria-invalid="false"
           autocomplete="off"
           date-range="start"
-          placeholder="Filled"
+          placeholder="Outlined Start"
           size="10"
           value=""
         />
@@ -36891,7 +36891,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
           aria-invalid="false"
           autocomplete="off"
           date-range="end"
-          placeholder=""
+          placeholder="Outlined End"
           size="10"
           value=""
         />
@@ -40013,7 +40013,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
           aria-invalid="false"
           autocomplete="off"
           date-range="start"
-          placeholder="Filled"
+          placeholder="Filled Start"
           size="10"
           value=""
         />
@@ -40053,7 +40053,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
           aria-invalid="false"
           autocomplete="off"
           date-range="end"
-          placeholder=""
+          placeholder="Filled End"
           size="10"
           value=""
         />
@@ -43175,7 +43175,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
           aria-invalid="false"
           autocomplete="off"
           date-range="start"
-          placeholder="Borderless"
+          placeholder="Borderless Start"
           size="10"
           value=""
         />
@@ -43215,7 +43215,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
           aria-invalid="false"
           autocomplete="off"
           date-range="end"
-          placeholder=""
+          placeholder="Borderless End"
           size="10"
           value=""
         />

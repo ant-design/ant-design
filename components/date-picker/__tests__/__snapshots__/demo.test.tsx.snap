@@ -11,7 +11,7 @@ exports[`renders components/date-picker/demo/allow-empty.tsx correctly 1`] = `
       aria-invalid="false"
       autocomplete="off"
       date-range="start"
-      placeholder=""
+      placeholder="Allow Empty"
       size="12"
       value=""
     />
@@ -7180,6 +7180,7 @@ exports[`renders components/date-picker/demo/switchable.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
+      aria-label="Picker Type"
       class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
     >
       <div
@@ -7196,6 +7197,7 @@ exports[`renders components/date-picker/demo/switchable.tsx correctly 1`] = `
               aria-controls="undefined_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Picker Type"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -7485,7 +7487,7 @@ exports[`renders components/date-picker/demo/variant.tsx correctly 1`] = `
           aria-invalid="false"
           autocomplete="off"
           date-range="start"
-          placeholder="Outlined"
+          placeholder="Outlined Start"
           size="12"
           value=""
         />
@@ -7525,7 +7527,7 @@ exports[`renders components/date-picker/demo/variant.tsx correctly 1`] = `
           aria-invalid="false"
           autocomplete="off"
           date-range="end"
-          placeholder=""
+          placeholder="Outlined End"
           size="12"
           value=""
         />
@@ -7611,7 +7613,7 @@ exports[`renders components/date-picker/demo/variant.tsx correctly 1`] = `
           aria-invalid="false"
           autocomplete="off"
           date-range="start"
-          placeholder="Filled"
+          placeholder="Filled Start"
           size="12"
           value=""
         />
@@ -7651,7 +7653,7 @@ exports[`renders components/date-picker/demo/variant.tsx correctly 1`] = `
           aria-invalid="false"
           autocomplete="off"
           date-range="end"
-          placeholder=""
+          placeholder="Filled End"
           size="12"
           value=""
         />
@@ -7737,7 +7739,7 @@ exports[`renders components/date-picker/demo/variant.tsx correctly 1`] = `
           aria-invalid="false"
           autocomplete="off"
           date-range="start"
-          placeholder="Borderless"
+          placeholder="Borderless Start"
           size="12"
           value=""
         />
@@ -7777,7 +7779,7 @@ exports[`renders components/date-picker/demo/variant.tsx correctly 1`] = `
           aria-invalid="false"
           autocomplete="off"
           date-range="end"
-          placeholder=""
+          placeholder="Borderless End"
           size="12"
           value=""
         />
