@@ -147,6 +147,7 @@ export function useInternalNotification(
         description,
         icon,
         type,
+        btn,
         actions,
         className,
         style,
@@ -155,6 +156,10 @@ export function useInternalNotification(
         closable,
         ...restConfig
       } = config;
+      if (process.env.NODE_ENV !== 'production') {
+        warning.deprecated(!btn, 'btn', 'actions');
+      }
+      const mergedActions = actions ?? btn;
 
       const realCloseIcon = getCloseIcon(
         noticePrefixCls,
@@ -172,7 +177,7 @@ export function useInternalNotification(
             type={type}
             message={message}
             description={description}
-            actions={actions}
+            actions={mergedActions}
             role={role}
           />
         ),
