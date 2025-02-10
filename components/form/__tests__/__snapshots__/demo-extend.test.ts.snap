@@ -3794,7 +3794,7 @@ Array [
                 >
                   <div
                     class="ant-picker-range-arrow"
-                    style="inset-inline-start: 0;"
+                    style="left: 0px;"
                   />
                   <div
                     class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -16312,7 +16312,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
               >
                 <div
                   class="ant-picker-range-arrow"
-                  style="inset-inline-start: 0;"
+                  style="left: 0px;"
                 />
                 <div
                   class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -17542,7 +17542,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
               >
                 <div
                   class="ant-picker-range-arrow"
-                  style="inset-inline-start: 0;"
+                  style="left: 0px;"
                 />
                 <div
                   class="ant-picker-panel-container ant-picker-datetime-panel-container"
@@ -26855,7 +26855,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               >
                 <div
                   class="ant-picker-range-arrow"
-                  style="inset-inline-start: 0;"
+                  style="left: 0px;"
                 />
                 <div
                   class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -32456,7 +32456,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
               >
                 <div
                   class="ant-picker-range-arrow"
-                  style="inset-inline-start: 0;"
+                  style="left: 0px;"
                 />
                 <div
                   class="ant-picker-panel-container ant-picker-date-panel-container"

@@ -3,6 +3,7 @@ group:
   title: Basic Usage
 order: 1
 title: Usage with create-react-app
+tag: Deprecated
 ---
 
 <!-- prettier-ignore -->

@@ -94,7 +94,7 @@ Array [
     >
       <div
         class="ant-picker-range-arrow"
-        style="inset-inline-start: 0;"
+        style="left: 0px;"
       />
       <div
         class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -9439,7 +9439,7 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -12301,7 +12301,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -13527,7 +13527,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -17728,7 +17728,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -18928,7 +18928,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-datetime-panel-container"
@@ -23298,7 +23298,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -24507,7 +24507,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-datetime-panel-container"
@@ -27784,7 +27784,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -29010,7 +29010,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -31472,7 +31472,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -32673,7 +32673,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -36157,7 +36157,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -40819,7 +40819,7 @@ exports[`renders components/date-picker/demo/mode.tsx extend context correctly 1
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-month-panel-container"
@@ -48030,7 +48030,7 @@ Array [
     >
       <div
         class="ant-picker-range-arrow"
-        style="inset-inline-start: 0;"
+        style="left: 0px;"
       />
       <div
         class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -49871,7 +49871,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -51089,7 +51089,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-datetime-panel-container"
@@ -53272,7 +53272,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -54472,7 +54472,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-datetime-panel-container"
@@ -56620,7 +56620,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-week-panel-container"
@@ -57966,7 +57966,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-month-panel-container"
@@ -58450,7 +58450,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-quarter-panel-container"
@@ -58764,7 +58764,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-year-panel-container"
@@ -59889,7 +59889,7 @@ exports[`renders components/date-picker/demo/select-in-range.tsx extend context 
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -61098,7 +61098,7 @@ exports[`renders components/date-picker/demo/select-in-range.tsx extend context 
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-month-panel-container"
@@ -62526,7 +62526,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -69864,7 +69864,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -71065,7 +71065,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -73134,7 +73134,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -75811,7 +75811,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -78383,7 +78383,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-week-panel-container"
@@ -83632,7 +83632,7 @@ exports[`renders components/date-picker/demo/time.tsx extend context correctly 1
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-datetime-panel-container"
@@ -85799,7 +85799,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -87613,7 +87613,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -89427,7 +89427,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-date-panel-container"
