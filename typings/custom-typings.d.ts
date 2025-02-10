@@ -7,6 +7,14 @@ declare module '*.svg' {
   export default src;
 }
 
+declare module 'react' {
+  // eslint-disable-next-line unused-imports/no-unused-imports
+  import * as React from 'react';
+  interface CSSProperties {
+    [key: `--${string | number}`]: string | number | undefined; // 允许 CSS 变量
+  }
+}
+
 declare module 'rc-util*';
 
 declare module 'jsonml-to-react-element';
@@ -28,9 +36,3 @@ declare module '@npmcli/run-script' {
 declare module '@microflash/rehype-figure';
 
 declare module 'dekko';
-
-declare module 'react' {
-  interface CSSProperties {
-    [key: `--${string | number}`]: string | number | undefined; // 允许 CSS 变量
-  }
-}
