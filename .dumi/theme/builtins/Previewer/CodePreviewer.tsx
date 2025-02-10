@@ -95,7 +95,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
 
   const entryName = 'index.tsx';
   const entryCode = asset.dependencies[entryName].value;
-  
+
   const previewDemo = useRef<React.ReactNode>(null);
   const demoContainer = useRef<HTMLElement>(null);
   const {

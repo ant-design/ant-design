@@ -20,11 +20,11 @@ import { cloneElement, isFragment } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
-import { ConfigContext } from '../config-provider';
 import { useToken } from '../theme/internal';
 import PurePanel from './PurePanel';
 import useStyle from './style';
 import { parseColor } from './util';
+import { useComponentConfig } from '../config-provider/context';
 
 export type { AdjustOverflow, PlacementsConfig };
 
@@ -34,6 +34,8 @@ export interface TooltipRef {
   forceAlign: VoidFunction;
   /** Wrapped dom element. Not promise valid if child not support ref */
   nativeElement: HTMLElement;
+  /** Popup dom element */
+  popupElement: HTMLDivElement;
 }
 
 export type TooltipPlacement =
@@ -166,8 +168,11 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     direction,
-    tooltip,
-  } = React.useContext(ConfigContext);
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('tooltip');
 
   // ============================== Ref ===============================
   const warning = devUseWarning('Tooltip');
@@ -185,6 +190,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       forceAlign();
     },
     nativeElement: tooltipRef.current?.nativeElement!,
+    popupElement: tooltipRef.current?.popupElement!,
   }));
 
   // ============================== Warn ==============================
@@ -299,12 +305,12 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     rootClassName,
     hashId,
     cssVarCls,
-    tooltip?.className,
-    tooltip?.classNames?.root,
+    contextClassName,
+    contextClassNames.root,
     tooltipClassNames?.root,
   );
 
-  const bodyClassNames = classNames(tooltip?.classNames?.body, tooltipClassNames?.body);
+  const bodyClassNames = classNames(contextClassNames.body, tooltipClassNames?.body);
 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Tooltip', restProps.zIndex);
@@ -322,13 +328,13 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       styles={{
         root: {
           ...arrowContentStyle,
-          ...tooltip?.styles?.root,
-          ...tooltip?.style,
+          ...contextStyles.root,
+          ...contextStyle,
           ...overlayStyle,
           ...styles?.root,
         },
         body: {
-          ...tooltip?.styles?.body,
+          ...contextStyles.body,
           ...overlayInnerStyle,
           ...styles?.body,
           ...colorInfo.overlayStyle,

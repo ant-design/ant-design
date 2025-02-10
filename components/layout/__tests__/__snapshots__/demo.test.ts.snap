@@ -229,6 +229,7 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
               role="menu"
             >
               <li
+                aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                 role="menuitem"
                 style="padding-left:48px"
@@ -241,6 +242,7 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
                 </span>
               </li>
               <li
+                aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-only-child"
                 role="menuitem"
                 style="padding-left:48px"
@@ -253,6 +255,7 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
                 </span>
               </li>
               <li
+                aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-only-child"
                 role="menuitem"
                 style="padding-left:48px"
@@ -265,6 +268,7 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
                 </span>
               </li>
               <li
+                aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-only-child"
                 role="menuitem"
                 style="padding-left:48px"
@@ -443,6 +447,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx correctly 1`] = `
         tabindex="0"
       >
         <li
+          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-selected"
           role="menuitem"
           style="padding-left:24px"
@@ -474,6 +479,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx correctly 1`] = `
           </span>
         </li>
         <li
+          aria-describedby="test-id"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -505,6 +511,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx correctly 1`] = `
           </span>
         </li>
         <li
+          aria-describedby="test-id"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -608,6 +615,7 @@ exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
       tabindex="0"
     >
       <li
+        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity:1;order:0"
@@ -620,6 +628,7 @@ exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
         </span>
       </li>
       <li
+        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
         role="menuitem"
         style="opacity:1;order:1"
@@ -632,6 +641,7 @@ exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
         </span>
       </li>
       <li
+        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity:1;order:2"
@@ -770,6 +780,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
         tabindex="0"
       >
         <li
+          aria-describedby="test-id"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -801,6 +812,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
           </span>
         </li>
         <li
+          aria-describedby="test-id"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -832,6 +844,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
           </span>
         </li>
         <li
+          aria-describedby="test-id"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -863,6 +876,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
           </span>
         </li>
         <li
+          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-selected"
           role="menuitem"
           style="padding-left:24px"
@@ -894,6 +908,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
           </span>
         </li>
         <li
+          aria-describedby="test-id"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -925,6 +940,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
           </span>
         </li>
         <li
+          aria-describedby="test-id"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -956,6 +972,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
           </span>
         </li>
         <li
+          aria-describedby="test-id"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -987,6 +1004,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
           </span>
         </li>
         <li
+          aria-describedby="test-id"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -1278,6 +1296,7 @@ exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
         tabindex="0"
       >
         <li
+          aria-describedby="test-id"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -1309,6 +1328,7 @@ exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
           </span>
         </li>
         <li
+          aria-describedby="test-id"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -1340,6 +1360,7 @@ exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
           </span>
         </li>
         <li
+          aria-describedby="test-id"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -1371,6 +1392,7 @@ exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
           </span>
         </li>
         <li
+          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-selected"
           role="menuitem"
           style="padding-left:24px"
@@ -1461,6 +1483,7 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
         tabindex="0"
       >
         <li
+          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-selected"
           role="menuitem"
           style="padding-left:24px"
@@ -1492,6 +1515,7 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
           </span>
         </li>
         <li
+          aria-describedby="test-id"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -1605,6 +1629,7 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
           </div>
         </li>
         <li
+          aria-describedby="test-id"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -1743,6 +1768,7 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
       tabindex="0"
     >
       <li
+        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity:1;order:0"
@@ -1755,6 +1781,7 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
         </span>
       </li>
       <li
+        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
         role="menuitem"
         style="opacity:1;order:1"
@@ -1767,6 +1794,7 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
         </span>
       </li>
       <li
+        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity:1;order:2"
@@ -1779,6 +1807,7 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
         </span>
       </li>
       <li
+        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity:1;order:3"
@@ -1791,6 +1820,7 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
         </span>
       </li>
       <li
+        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity:1;order:4"
@@ -1803,6 +1833,7 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
         </span>
       </li>
       <li
+        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity:1;order:5"
@@ -1815,6 +1846,7 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
         </span>
       </li>
       <li
+        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity:1;order:6"
@@ -1827,6 +1859,7 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
         </span>
       </li>
       <li
+        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity:1;order:7"
@@ -1839,6 +1872,7 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
         </span>
       </li>
       <li
+        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity:1;order:8"
@@ -1851,6 +1885,7 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
         </span>
       </li>
       <li
+        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity:1;order:9"
@@ -1863,6 +1898,7 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
         </span>
       </li>
       <li
+        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity:1;order:10"
@@ -1875,6 +1911,7 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
         </span>
       </li>
       <li
+        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity:1;order:11"
@@ -1887,6 +1924,7 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
         </span>
       </li>
       <li
+        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity:1;order:12"
@@ -1899,6 +1937,7 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
         </span>
       </li>
       <li
+        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity:1;order:13"
@@ -1911,6 +1950,7 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
         </span>
       </li>
       <li
+        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity:1;order:14"
@@ -2047,6 +2087,7 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
       tabindex="0"
     >
       <li
+        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity:1;order:0"
@@ -2059,6 +2100,7 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
         </span>
       </li>
       <li
+        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
         role="menuitem"
         style="opacity:1;order:1"
@@ -2071,6 +2113,7 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
         </span>
       </li>
       <li
+        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity:1;order:2"
@@ -2232,6 +2275,7 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
                 role="menu"
               >
                 <li
+                  aria-describedby="test-id"
                   class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                   role="menuitem"
                   style="padding-left:48px"
@@ -2244,6 +2288,7 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
                   </span>
                 </li>
                 <li
+                  aria-describedby="test-id"
                   class="ant-menu-item ant-menu-item-only-child"
                   role="menuitem"
                   style="padding-left:48px"
@@ -2256,6 +2301,7 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
                   </span>
                 </li>
                 <li
+                  aria-describedby="test-id"
                   class="ant-menu-item ant-menu-item-only-child"
                   role="menuitem"
                   style="padding-left:48px"
@@ -2268,6 +2314,7 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
                   </span>
                 </li>
                 <li
+                  aria-describedby="test-id"
                   class="ant-menu-item ant-menu-item-only-child"
                   role="menuitem"
                   style="padding-left:48px"
@@ -2410,6 +2457,7 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
       tabindex="0"
     >
       <li
+        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity:1;order:0"
@@ -2422,6 +2470,7 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
         </span>
       </li>
       <li
+        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
         role="menuitem"
         style="opacity:1;order:1"
@@ -2434,6 +2483,7 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
         </span>
       </li>
       <li
+        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity:1;order:2"
@@ -2551,6 +2601,7 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
               role="menu"
             >
               <li
+                aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                 role="menuitem"
                 style="padding-left:48px"
@@ -2563,6 +2614,7 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
                 </span>
               </li>
               <li
+                aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-only-child"
                 role="menuitem"
                 style="padding-left:48px"
@@ -2575,6 +2627,7 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
                 </span>
               </li>
               <li
+                aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-only-child"
                 role="menuitem"
                 style="padding-left:48px"
@@ -2587,6 +2640,7 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
                 </span>
               </li>
               <li
+                aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-only-child"
                 role="menuitem"
                 style="padding-left:48px"

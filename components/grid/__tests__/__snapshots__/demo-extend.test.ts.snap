@@ -76,7 +76,7 @@ exports[`renders components/grid/demo/basic.tsx extend context correctly 2`] = `
 exports[`renders components/grid/demo/flex.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -110,7 +110,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -144,7 +144,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -178,7 +178,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -212,7 +212,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -246,7 +246,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -287,7 +287,7 @@ exports[`renders components/grid/demo/flex.tsx extend context correctly 2`] = `[
 exports[`renders components/grid/demo/flex-align.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -337,7 +337,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -387,7 +387,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -444,7 +444,7 @@ exports[`renders components/grid/demo/flex-align.tsx extend context correctly 2`
 exports[`renders components/grid/demo/flex-order.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -478,7 +478,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -519,7 +519,7 @@ exports[`renders components/grid/demo/flex-order.tsx extend context correctly 2`
 exports[`renders components/grid/demo/flex-stretch.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -545,7 +545,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -571,7 +571,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -624,7 +624,7 @@ exports[`renders components/grid/demo/flex-stretch.tsx extend context correctly 
 exports[`renders components/grid/demo/gutter.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -679,7 +679,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -734,7 +734,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -924,6 +924,7 @@ Array [
         />
       </div>
       <div
+        aria-describedby="test-id"
         aria-disabled="false"
         aria-orientation="horizontal"
         aria-valuemax="5"
@@ -947,6 +948,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             16
@@ -1040,6 +1042,7 @@ Array [
         />
       </div>
       <div
+        aria-describedby="test-id"
         aria-disabled="false"
         aria-orientation="horizontal"
         aria-valuemax="5"
@@ -1063,6 +1066,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             16
@@ -1156,6 +1160,7 @@ Array [
         />
       </div>
       <div
+        aria-describedby="test-id"
         aria-disabled="false"
         aria-orientation="horizontal"
         aria-valuemax="5"
@@ -1179,6 +1184,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             4
