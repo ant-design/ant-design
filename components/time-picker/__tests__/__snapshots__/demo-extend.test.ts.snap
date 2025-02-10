@@ -46337,7 +46337,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
           aria-invalid="false"
           autocomplete="off"
           date-range="start"
-          placeholder="Underlined"
+          placeholder="Underlined Start"
           size="10"
           value=""
         />
@@ -46377,7 +46377,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
           aria-invalid="false"
           autocomplete="off"
           date-range="end"
-          placeholder=""
+          placeholder="Underlined End"
           size="10"
           value=""
         />

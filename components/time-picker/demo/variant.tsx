@@ -19,7 +19,7 @@ const App: React.FC = () => (
     </Flex>
     <Flex gap={8}>
       <TimePicker variant="underlined" placeholder="Underlined" />
-      <RangePicker variant="underlined" placeholder={['Underlined', '']} />
+      <RangePicker variant="underlined" placeholder={['Underlined Start', 'Underlined End']} />
     </Flex>
   </Flex>
 );
