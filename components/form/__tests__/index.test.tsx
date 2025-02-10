@@ -448,10 +448,7 @@ describe('Form', () => {
         getForm: () => form,
       };
     });
-  });
 
-  describe('focusField', () => {
-    // Using `id` to query the node (this is a fallback action); scrollToFirstError is the same.
     it('should work with id', () => {
       const MyComponent = ({ id }: { id?: string }) => <input type="text" id={id} />;
 
@@ -472,8 +469,8 @@ describe('Form', () => {
       const input = getByRole('textbox');
 
       expect(input.id).toBe('test');
-      formInstance.focusField('test');
-      expect(input).toHaveFocus();
+      formInstance.scrollToField('test');
+      expect(scrollIntoView).toHaveBeenCalledWith(input, expect.any(Object));
     });
   });
 
