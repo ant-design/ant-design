@@ -73,6 +73,30 @@ const App: React.FC = () => (
         ]}
       />
     </Flex>
+    <Flex gap={8}>
+      <Select
+        placeholder="Underlined"
+        variant="underlined"
+        style={{ flex: 1 }}
+        options={[
+          { value: 'jack', label: 'Jack' },
+          { value: 'lucy', label: 'Lucy' },
+          { value: 'Yiminghe', label: 'yiminghe' },
+        ]}
+      />
+      <Select
+        mode="multiple"
+        defaultValue={['lucy']}
+        placeholder="Underlined"
+        variant="underlined"
+        style={{ flex: 1 }}
+        options={[
+          { value: 'jack', label: 'Jack' },
+          { value: 'lucy', label: 'Lucy' },
+          { value: 'Yiminghe', label: 'yiminghe' },
+        ]}
+      />
+    </Flex>
   </Flex>
 );
 

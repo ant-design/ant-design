@@ -218,6 +218,7 @@ exports[`renders components/progress/demo/circle-micro.tsx extend context correc
     role="progressbar"
   >
     <div
+      aria-describedby="test-id"
       class="ant-progress-inner"
       style="width: 14px; height: 14px; font-size: 8.1px;"
     >
@@ -271,6 +272,7 @@ exports[`renders components/progress/demo/circle-micro.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           <span
@@ -518,6 +520,7 @@ Array [
       class="ant-slider-step"
     />
     <div
+      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="10"
@@ -541,6 +544,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           5
@@ -567,6 +571,7 @@ Array [
       class="ant-slider-step"
     />
     <div
+      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="40"
@@ -590,6 +595,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           8
@@ -1023,6 +1029,7 @@ Array [
         role="progressbar"
       >
         <div
+          aria-describedby="test-id"
           class="ant-progress-inner"
           style="width: 20px; height: 20px; font-size: 9px;"
         >
@@ -1075,6 +1082,7 @@ Array [
           >
             <div
               class="ant-tooltip-inner"
+              id="test-id"
               role="tooltip"
             >
               <span
@@ -1222,6 +1230,7 @@ Array [
         role="progressbar"
       >
         <div
+          aria-describedby="test-id"
           class="ant-progress-inner"
           style="width: 20px; height: 20px; font-size: 9px;"
         >
@@ -1274,6 +1283,7 @@ Array [
           >
             <div
               class="ant-tooltip-inner"
+              id="test-id"
               role="tooltip"
             >
               <span
@@ -1643,10 +1653,10 @@ exports[`renders components/progress/demo/dynamic.tsx extend context correctly 1
     </div>
   </div>
   <div
-    class="ant-btn-group"
+    class="ant-space-compact"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-first-item"
       type="button"
     >
       <span
@@ -1674,7 +1684,7 @@ exports[`renders components/progress/demo/dynamic.tsx extend context correctly 1
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
       type="button"
     >
       <span
@@ -3145,6 +3155,7 @@ exports[`renders components/progress/demo/segment.tsx extend context correctly 1
   class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
 >
   <div
+    aria-describedby="test-id"
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="30"
@@ -3188,6 +3199,7 @@ exports[`renders components/progress/demo/segment.tsx extend context correctly 1
     >
       <div
         class="ant-tooltip-inner"
+        id="test-id"
         role="tooltip"
       >
         3 done / 3 in progress / 4 to do
@@ -3198,6 +3210,7 @@ exports[`renders components/progress/demo/segment.tsx extend context correctly 1
     class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <div
+      aria-describedby="test-id"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="30"
@@ -3264,6 +3277,7 @@ exports[`renders components/progress/demo/segment.tsx extend context correctly 1
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           3 done / 3 in progress / 4 to do
@@ -3271,6 +3285,7 @@ exports[`renders components/progress/demo/segment.tsx extend context correctly 1
       </div>
     </div>
     <div
+      aria-describedby="test-id"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="30"
@@ -3337,6 +3352,7 @@ exports[`renders components/progress/demo/segment.tsx extend context correctly 1
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           3 done / 3 in progress / 4 to do
@@ -3559,6 +3575,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
       role="progressbar"
     >
       <div
+        aria-describedby="test-id"
         class="ant-progress-inner"
         style="width: 20px; height: 20px; font-size: 9px;"
       >
@@ -3611,6 +3628,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             <span
@@ -3744,6 +3762,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
       role="progressbar"
     >
       <div
+        aria-describedby="test-id"
         class="ant-progress-inner"
         style="width: 20px; height: 20px; font-size: 9px;"
       >
@@ -3796,6 +3815,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             <span

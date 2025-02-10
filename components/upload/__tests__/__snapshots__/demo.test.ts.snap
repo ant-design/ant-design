@@ -366,6 +366,7 @@ exports[`renders components/upload/demo/component-token.tsx correctly 1`] = `
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -736,6 +737,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx correctly 1`] = `
           class="ant-upload-list-item-container"
         >
           <div
+            aria-describedby="test-id"
             class="ant-upload-list-item ant-upload-list-item-error"
           >
             <div
@@ -992,6 +994,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx correctly 1`] = `
           class="ant-upload-list-item-container"
         >
           <div
+            aria-describedby="test-id"
             class="ant-upload-list-item ant-upload-list-item-error"
           >
             <div
@@ -1366,6 +1369,7 @@ exports[`renders components/upload/demo/defaultFileList.tsx correctly 1`] = `
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -1962,6 +1966,7 @@ exports[`renders components/upload/demo/drag-sorting.tsx correctly 1`] = `
         tabindex="0"
       >
         <div
+          aria-describedby="test-id"
           class="ant-upload-list-item ant-upload-list-item-error"
         >
           <div
@@ -2277,6 +2282,7 @@ exports[`renders components/upload/demo/file-type.tsx correctly 1`] = `
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -2365,6 +2371,7 @@ exports[`renders components/upload/demo/file-type.tsx correctly 1`] = `
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -2453,6 +2460,7 @@ exports[`renders components/upload/demo/file-type.tsx correctly 1`] = `
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -3220,6 +3228,7 @@ exports[`renders components/upload/demo/picture-card.tsx correctly 1`] = `
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -3476,6 +3485,7 @@ exports[`renders components/upload/demo/picture-circle.tsx correctly 1`] = `
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -3800,6 +3810,7 @@ exports[`renders components/upload/demo/picture-style.tsx correctly 1`] = `
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -4246,6 +4257,7 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx correctly 
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div

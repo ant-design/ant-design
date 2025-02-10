@@ -2776,6 +2776,7 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
     tabindex="0"
   >
     <li
+      aria-describedby="test-id"
       class="ant-rate-star ant-rate-star-full"
     >
       <div
@@ -2846,6 +2847,7 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           terrible
@@ -2853,6 +2855,7 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       </div>
     </div>
     <li
+      aria-describedby="test-id"
       class="ant-rate-star ant-rate-star-full"
     >
       <div
@@ -2923,6 +2926,7 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           bad
@@ -2930,6 +2934,7 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       </div>
     </div>
     <li
+      aria-describedby="test-id"
       class="ant-rate-star ant-rate-star-full"
     >
       <div
@@ -3000,6 +3005,7 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           normal
@@ -3007,6 +3013,7 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       </div>
     </div>
     <li
+      aria-describedby="test-id"
       class="ant-rate-star ant-rate-star-zero"
     >
       <div
@@ -3077,6 +3084,7 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           good
@@ -3084,6 +3092,7 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       </div>
     </div>
     <li
+      aria-describedby="test-id"
       class="ant-rate-star ant-rate-star-zero"
     >
       <div
@@ -3154,6 +3163,7 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           wonderful
