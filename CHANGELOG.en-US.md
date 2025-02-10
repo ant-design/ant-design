@@ -15,15 +15,45 @@ tag: vVERSION
 
 ---
 
+### 5.24.0
+
+`2025-02-10`
+
+- 🆕 Carousel support show dot duration. [#52672](https://github.com/ant-design/ant-design/pull/52672) [@yellowryan](https://github.com/yellowryan)
+- 🆕 Input.OTP support `separator` prop. [#52668](https://github.com/ant-design/ant-design/pull/52668) [@HaceraI](https://github.com/HaceraI)
+- 🆕 feat(Descriptions): add labelColor theme token. [#52700](https://github.com/ant-design/ant-design/pull/52700) [@guoyunhe](https://github.com/guoyunhe)
+- 🆕 Segmented supports `shape="round"`. [#52685](https://github.com/ant-design/ant-design/pull/52685) [@afc163](https://github.com/afc163)
+- 🆕 ConfigProvider support `bordered` for Card. [#52552](https://github.com/ant-design/ant-design/pull/52552) [@thinkasany](https://github.com/thinkasany)
+- 🆕 Progress/Step supports custom rounding with `rounding` prop. [#52017](https://github.com/ant-design/ant-design/pull/52017) [@yanghoxom](https://github.com/yanghoxom)
+- 🆕 Divider `orientation` support `start` and `end`. [#52567](https://github.com/ant-design/ant-design/pull/52567) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 Add `underlined` to `variant` of Input, InputNumber, Mentions, Form, Select, Cascader, TreeSelect, DatePicker and TimePicker. [#52546](https://github.com/ant-design/ant-design/pull/52546) [@ustcfury](https://github.com/ustcfury)
+- 🆕 ConfigProvider support global config of Modal `centered` . [#52343](https://github.com/ant-design/ant-design/pull/52343) [@guoyunhe](https://github.com/guoyunhe)
+- 🆕 Add `ant-checkbox-label` class name for Checkbox. [#52322](https://github.com/ant-design/ant-design/pull/52322) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 Fix DatePicker.RangePicker arrow position when popup auto adjust position. [#52719](https://github.com/ant-design/ant-design/pull/52719) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Update locale `filterCheckall` to `filterCheckAll`. [#52517](https://github.com/ant-design/ant-design/pull/52517) [@thinkasany](https://github.com/thinkasany)
+- 💄 Fix Button shadow color appearing awkward on dark backgrounds. [#52701](https://github.com/ant-design/ant-design/pull/52701) [@afc163](https://github.com/afc163)
+- 💄 Fixed the unnatural animation transition effect of Segmented component in dark mode. [#52708](https://github.com/ant-design/ant-design/pull/52708) [@yellowryan](https://github.com/yellowryan)
+- 💄 Separate style of Input and TextArea. [#52570](https://github.com/ant-design/ant-design/pull/52570) [@guoyunhe](https://github.com/guoyunhe)
+- 💄 Fix Input and Select style issue under css var mode. [#52554](https://github.com/ant-design/ant-design/pull/52554) [@li-jia-nan](https://github.com/li-jia-nan)
+- ⌨️ Remove role="alert" from Form field error to improve screen reader experience. [#52661](https://github.com/ant-design/ant-design/pull/52661) [@mellis481](https://github.com/mellis481)
+- ⌨️ Improve accessibility by adding localized labels for empty table header and panel buttons. [#52689](https://github.com/ant-design/ant-design/pull/52689) [@aojunhao123](https://github.com/aojunhao123)
+- ⌨️ Improve Tabs accessibility by fixing error `Certain ARIA roles must contain particular children`. [#52677](https://github.com/ant-design/ant-design/pull/52677) [@afc163](https://github.com/afc163)
+- ⌨️ Add screen reader support for Tooltip. [#52293](https://github.com/ant-design/ant-design/pull/52293) [@aojunhao123](https://github.com/aojunhao123)
+- TypeScript
+  - 🤖 Seperate type of Button `onClick` event by `href`. [#52654](https://github.com/ant-design/ant-design/pull/52654) [@Brew-Brew](https://github.com/Brew-Brew)
+  - 🤖 Deprecate Button.Group, prefer Space.Compact. [#52572](https://github.com/ant-design/ant-design/pull/52572) [@guoyunhe](https://github.com/guoyunhe)
+  - 🤖 Deprecate Input.Group, prefer Space.Compact. [#52571](https://github.com/ant-design/ant-design/pull/52571) [@guoyunhe](https://github.com/guoyunhe)
+  - 🤖 Tooltip export TooltipRef type. [#49230](https://github.com/ant-design/ant-design/pull/49230) [@nuintun](https://github.com/nuintun)
+
 ### 5.23.4
 
 `2025-02-05`
 
 First release in the Year of the Snake, wishing you a prosperous start! 🐍
 
-- 🐞 Fixed Pagination accessibility issue by supplementing missing ARIA attributes support. [#52616](https://github.com/ant-design/ant-design/pull/52616) [@aojunhao123](https://github.com/aojunhao123)  
-- 🐞 Added TextArea component support in `Space.Compact`. [#52639](https://github.com/ant-design/ant-design/pull/52639) [@Can-Chen](https://github.com/Can-Chen)  
-- 🐞 Fixed Menu with `theme="dark"` and `mode="horizontal"` identical text/background color issue. [#52617](https://github.com/ant-design/ant-design/pull/52617) [@afc163](https://github.com/afc163)  
+- 🐞 Fixed Pagination accessibility issue by supplementing missing ARIA attributes support. [#52616](https://github.com/ant-design/ant-design/pull/52616) [@aojunhao123](https://github.com/aojunhao123)
+- 🐞 Added TextArea component support in `Space.Compact`. [#52639](https://github.com/ant-design/ant-design/pull/52639) [@Can-Chen](https://github.com/Can-Chen)
+- 🐞 Fixed Menu with `theme="dark"` and `mode="horizontal"` identical text/background color issue. [#52617](https://github.com/ant-design/ant-design/pull/52617) [@afc163](https://github.com/afc163)
 - 🇦🇪 Add Tour Arabic translation. [#52642](https://github.com/ant-design/ant-design/pull/52642) [@Sagie501](https://github.com/Sagie501)
 - 🇮🇱 Add Tour Hebrew translation. [#52641](https://github.com/ant-design/ant-design/pull/52641) [@Sagie501](https://github.com/Sagie501)
 
