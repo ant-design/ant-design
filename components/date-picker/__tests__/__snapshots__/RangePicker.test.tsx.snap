@@ -122,7 +122,7 @@ Array [
     </div>
     <div
       class="ant-picker-active-bar"
-      style="position: absolute; width: 0px; inset-inline-start: 0;"
+      style="position: absolute; width: 0px; left: 0px;"
     />
     <span
       class="ant-picker-suffix"
@@ -157,7 +157,7 @@ Array [
     >
       <div
         class="ant-picker-range-arrow"
-        style="inset-inline-start: 0;"
+        style="left: 0px;"
       />
       <div
         class="ant-picker-panel-container ant-picker-date-panel-container"

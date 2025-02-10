@@ -14753,7 +14753,7 @@ Array [
     >
       <div
         class="ant-picker-range-arrow"
-        style="inset-inline-start: 0;"
+        style="left: 0px;"
       />
       <div
         class="ant-picker-panel-container ant-picker-time-panel-container"
@@ -25818,7 +25818,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-time-panel-container"
@@ -27422,7 +27422,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-time-panel-container"
@@ -32200,7 +32200,7 @@ exports[`renders components/time-picker/demo/suffix.tsx extend context correctly
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-time-panel-container"
@@ -36936,7 +36936,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-time-panel-container"
@@ -40098,7 +40098,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-time-panel-container"
@@ -43260,7 +43260,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
       >
         <div
           class="ant-picker-range-arrow"
-          style="inset-inline-start: 0;"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container ant-picker-time-panel-container"
