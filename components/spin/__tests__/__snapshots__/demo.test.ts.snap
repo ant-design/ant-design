@@ -153,10 +153,10 @@ exports[`renders components/spin/demo/delayAndDebounce.tsx correctly 1`] = `
         role="alert"
       >
         <div
-          class="ant-alert-content"
+          class="ant-alert-section"
         >
           <div
-            class="ant-alert-message"
+            class="ant-alert-title"
           >
             Alert message title
           </div>
@@ -254,10 +254,10 @@ exports[`renders components/spin/demo/nested.tsx correctly 1`] = `
         role="alert"
       >
         <div
-          class="ant-alert-content"
+          class="ant-alert-section"
         >
           <div
-            class="ant-alert-message"
+            class="ant-alert-title"
           >
             Alert message title
           </div>
@@ -675,10 +675,10 @@ exports[`renders components/spin/demo/tip.tsx correctly 1`] = `
         role="alert"
       >
         <div
-          class="ant-alert-content"
+          class="ant-alert-section"
         >
           <div
-            class="ant-alert-message"
+            class="ant-alert-title"
           >
             Alert message title
           </div>

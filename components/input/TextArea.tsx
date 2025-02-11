@@ -16,6 +16,7 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
+import { useCompactItemContext } from '../space/Compact';
 import type { InputFocusOptions } from './Input';
 import { triggerFocus } from './Input';
 import { useSharedStyle } from './style';
@@ -73,9 +74,6 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     styles: contextStyles,
   } = useComponentConfig('textArea');
 
-  // ===================== Size =====================
-  const mergedSize = useSize(customizeSize);
-
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
@@ -106,54 +104,65 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   const [hashId, cssVarCls] = useSharedStyle(prefixCls, rootClassName);
   useStyle(prefixCls, rootCls);
 
+  // ===================== Compact Item =====================
+  const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
+
+  // ===================== Size =====================
+  const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
+
   const [variant, enableVariantCls] = useVariant('textArea', customVariant, bordered);
 
   const mergedAllowClear = getAllowClear(allowClear ?? contextAllowClear);
 
   return (
-      <RcTextArea
-        autoComplete={contextAutoComplete}
-        {...rest}
-        style={{ ...contextStyle, ...style }}
-        styles={{ ...contextStyles, ...styles }}
-        disabled={mergedDisabled}
-        allowClear={mergedAllowClear}
-        className={classNames(cssVarCls, rootCls, className, rootClassName, contextClassName)}
-        classNames={{
-          ...classes,
-          ...contextClassNames,
-          textarea: classNames(
-            {
-              [`${prefixCls}-sm`]: mergedSize === 'small',
-              [`${prefixCls}-lg`]: mergedSize === 'large',
-            },
-            hashId,
-            classes?.textarea,
-            contextClassNames.textarea,
-          ),
-          variant: classNames(
-            {
-              [`${prefixCls}-${variant}`]: enableVariantCls,
-            },
-            getStatusClassNames(prefixCls, mergedStatus),
-          ),
-          affixWrapper: classNames(
-            `${prefixCls}-textarea-affix-wrapper`,
-            {
-              [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-              [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
-              [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
-              [`${prefixCls}-textarea-show-count`]: props.showCount || props.count?.show,
-            },
-            hashId,
-          ),
-        }}
-        prefixCls={prefixCls}
-        suffix={
-          hasFeedback && <span className={`${prefixCls}-textarea-suffix`}>{feedbackIcon}</span>
-        }
-        ref={innerRef}
-      />
+    <RcTextArea
+      autoComplete={contextAutoComplete}
+      {...rest}
+      style={{ ...contextStyle, ...style }}
+      styles={{ ...contextStyles, ...styles }}
+      disabled={mergedDisabled}
+      allowClear={mergedAllowClear}
+      className={classNames(
+        cssVarCls,
+        rootCls,
+        className,
+        rootClassName,
+        compactItemClassnames,
+        contextClassName,
+      )}
+      classNames={{
+        ...classes,
+        ...contextClassNames,
+        textarea: classNames(
+          {
+            [`${prefixCls}-sm`]: mergedSize === 'small',
+            [`${prefixCls}-lg`]: mergedSize === 'large',
+          },
+          hashId,
+          classes?.textarea,
+          contextClassNames.textarea,
+        ),
+        variant: classNames(
+          {
+            [`${prefixCls}-${variant}`]: enableVariantCls,
+          },
+          getStatusClassNames(prefixCls, mergedStatus),
+        ),
+        affixWrapper: classNames(
+          `${prefixCls}-textarea-affix-wrapper`,
+          {
+            [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
+            [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
+            [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
+            [`${prefixCls}-textarea-show-count`]: props.showCount || props.count?.show,
+          },
+          hashId,
+        ),
+      }}
+      prefixCls={prefixCls}
+      suffix={hasFeedback && <span className={`${prefixCls}-textarea-suffix`}>{feedbackIcon}</span>}
+      ref={innerRef}
+    />
   );
 });
 

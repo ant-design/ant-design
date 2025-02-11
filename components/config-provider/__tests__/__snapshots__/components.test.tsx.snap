@@ -7,10 +7,10 @@ exports[`ConfigProvider components Alert configProvider 1`] = `
   role="alert"
 >
   <div
-    class="config-alert-content"
+    class="config-alert-section"
   >
     <div
-      class="config-alert-message"
+      class="config-alert-title"
     >
       Bamboo is Little Light
     </div>
@@ -25,10 +25,10 @@ exports[`ConfigProvider components Alert configProvider componentDisabled 1`] = 
   role="alert"
 >
   <div
-    class="config-alert-content"
+    class="config-alert-section"
   >
     <div
-      class="config-alert-message"
+      class="config-alert-title"
     >
       Bamboo is Little Light
     </div>
@@ -43,10 +43,10 @@ exports[`ConfigProvider components Alert configProvider componentSize large 1`] 
   role="alert"
 >
   <div
-    class="config-alert-content"
+    class="config-alert-section"
   >
     <div
-      class="config-alert-message"
+      class="config-alert-title"
     >
       Bamboo is Little Light
     </div>
@@ -61,10 +61,10 @@ exports[`ConfigProvider components Alert configProvider componentSize middle 1`]
   role="alert"
 >
   <div
-    class="config-alert-content"
+    class="config-alert-section"
   >
     <div
-      class="config-alert-message"
+      class="config-alert-title"
     >
       Bamboo is Little Light
     </div>
@@ -79,10 +79,10 @@ exports[`ConfigProvider components Alert configProvider componentSize small 1`] 
   role="alert"
 >
   <div
-    class="config-alert-content"
+    class="config-alert-section"
   >
     <div
-      class="config-alert-message"
+      class="config-alert-title"
     >
       Bamboo is Little Light
     </div>
@@ -97,10 +97,10 @@ exports[`ConfigProvider components Alert normal 1`] = `
   role="alert"
 >
   <div
-    class="ant-alert-content"
+    class="ant-alert-section"
   >
     <div
-      class="ant-alert-message"
+      class="ant-alert-title"
     >
       Bamboo is Little Light
     </div>
@@ -115,10 +115,10 @@ exports[`ConfigProvider components Alert prefixCls 1`] = `
   role="alert"
 >
   <div
-    class="prefix-Alert-content"
+    class="prefix-Alert-section"
   >
     <div
-      class="prefix-Alert-message"
+      class="prefix-Alert-title"
     >
       Bamboo is Little Light
     </div>
@@ -15570,7 +15570,6 @@ exports[`ConfigProvider components Form configProvider 1`] = `
         >
           <div
             class="config-form-item-explain config-form-show-help-appear config-form-show-help-appear-start config-form-show-help config-form-css-var config-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="config-form-show-help-item-appear config-form-show-help-item-appear-start config-form-show-help-item config-form-item-explain-error"
@@ -15618,7 +15617,6 @@ exports[`ConfigProvider components Form configProvider componentDisabled 1`] = `
         >
           <div
             class="config-form-item-explain config-form-show-help-appear config-form-show-help-appear-start config-form-show-help config-form-css-var config-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="config-form-show-help-item-appear config-form-show-help-item-appear-start config-form-show-help-item config-form-item-explain-error"
@@ -15665,7 +15663,6 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
         >
           <div
             class="config-form-item-explain config-form-show-help-appear config-form-show-help-appear-start config-form-show-help config-form-css-var config-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="config-form-show-help-item-appear config-form-show-help-item-appear-start config-form-show-help-item config-form-item-explain-error"
@@ -15712,7 +15709,6 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
         >
           <div
             class="config-form-item-explain config-form-show-help-appear config-form-show-help-appear-start config-form-show-help config-form-css-var config-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="config-form-show-help-item-appear config-form-show-help-item-appear-start config-form-show-help-item config-form-item-explain-error"
@@ -15759,7 +15755,6 @@ exports[`ConfigProvider components Form configProvider componentSize small 1`] =
         >
           <div
             class="config-form-item-explain config-form-show-help-appear config-form-show-help-appear-start config-form-show-help config-form-css-var config-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="config-form-show-help-item-appear config-form-show-help-item-appear-start config-form-show-help-item config-form-item-explain-error"
@@ -15806,7 +15801,6 @@ exports[`ConfigProvider components Form normal 1`] = `
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-css-var ant-form-item-explain-connected"
-            role="alert"
           >
             <div
               class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item ant-form-item-explain-error"
@@ -15853,7 +15847,6 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
         >
           <div
             class="prefix-Form-item-explain prefix-Form-show-help-appear prefix-Form-show-help-appear-start prefix-Form-show-help prefix-Form-css-var prefix-Form-item-explain-connected"
-            role="alert"
           >
             <div
               class="prefix-Form-show-help-item-appear prefix-Form-show-help-item-appear-start prefix-Form-show-help-item prefix-Form-item-explain-error"
@@ -22431,7 +22424,6 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
 exports[`ConfigProvider components Rate configProvider 1`] = `
 <ul
   class="config-rate"
-  role="radiogroup"
   tabindex="0"
 >
   <li
@@ -22730,7 +22722,6 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
 exports[`ConfigProvider components Rate configProvider componentDisabled 1`] = `
 <ul
   class="config-rate config-rate-disabled"
-  role="radiogroup"
   tabindex="-1"
 >
   <li
@@ -23029,7 +23020,6 @@ exports[`ConfigProvider components Rate configProvider componentDisabled 1`] = `
 exports[`ConfigProvider components Rate configProvider componentSize large 1`] = `
 <ul
   class="config-rate"
-  role="radiogroup"
   tabindex="0"
 >
   <li
@@ -23328,7 +23318,6 @@ exports[`ConfigProvider components Rate configProvider componentSize large 1`] =
 exports[`ConfigProvider components Rate configProvider componentSize middle 1`] = `
 <ul
   class="config-rate"
-  role="radiogroup"
   tabindex="0"
 >
   <li
@@ -23627,7 +23616,6 @@ exports[`ConfigProvider components Rate configProvider componentSize middle 1`] 
 exports[`ConfigProvider components Rate configProvider componentSize small 1`] = `
 <ul
   class="config-rate"
-  role="radiogroup"
   tabindex="0"
 >
   <li
@@ -23926,7 +23914,6 @@ exports[`ConfigProvider components Rate configProvider componentSize small 1`] =
 exports[`ConfigProvider components Rate normal 1`] = `
 <ul
   class="ant-rate"
-  role="radiogroup"
   tabindex="0"
 >
   <li
@@ -24225,7 +24212,6 @@ exports[`ConfigProvider components Rate normal 1`] = `
 exports[`ConfigProvider components Rate prefixCls 1`] = `
 <ul
   class="prefix-Rate"
-  role="radiogroup"
   tabindex="0"
 >
   <li
@@ -28910,11 +28896,9 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="config-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -29001,11 +28985,9 @@ exports[`ConfigProvider components Tabs configProvider componentDisabled 1`] = `
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="config-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -29092,11 +29074,9 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="config-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -29183,11 +29163,9 @@ exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] 
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="config-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -29274,11 +29252,9 @@ exports[`ConfigProvider components Tabs configProvider componentSize small 1`] =
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="config-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -29365,11 +29341,9 @@ exports[`ConfigProvider components Tabs normal 1`] = `
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -29456,11 +29430,9 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="prefix-Tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
         <span

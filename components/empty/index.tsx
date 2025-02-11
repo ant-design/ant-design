@@ -2,11 +2,11 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import DefaultEmptyImg from './empty';
 import SimpleEmptyImg from './simple';
 import useStyle from './style';
+import { useComponentConfig } from '../config-provider/context';
 
 const defaultEmptyImg = <DefaultEmptyImg />;
 const simpleEmptyImg = <SimpleEmptyImg />;
@@ -49,7 +49,14 @@ const Empty: CompoundedComponent = (props) => {
     styles,
     ...restProps
   } = props;
-  const { getPrefixCls, direction, empty } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('empty');
 
   const prefixCls = getPrefixCls('empty', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
@@ -82,26 +89,26 @@ const Empty: CompoundedComponent = (props) => {
         hashId,
         cssVarCls,
         prefixCls,
-        empty?.className,
+        contextClassName,
         {
           [`${prefixCls}-normal`]: image === simpleEmptyImg,
           [`${prefixCls}-rtl`]: direction === 'rtl',
         },
         className,
         rootClassName,
-        empty?.classNames?.root,
+        contextClassNames.root,
         emptyClassNames?.root,
       )}
-      style={{ ...empty?.styles?.root, ...empty?.style, ...styles?.root, ...style }}
+      style={{ ...contextStyles.root, ...contextStyle, ...styles?.root, ...style }}
       {...restProps}
     >
       <div
         className={classNames(
           `${prefixCls}-image`,
-          empty?.classNames?.image,
+          contextClassNames.image,
           emptyClassNames?.image,
         )}
-        style={{ ...imageStyle, ...empty?.styles?.image, ...styles?.image }}
+        style={{ ...imageStyle, ...contextStyles.image, ...styles?.image }}
       >
         {imageNode}
       </div>
@@ -109,10 +116,10 @@ const Empty: CompoundedComponent = (props) => {
         <div
           className={classNames(
             `${prefixCls}-description`,
-            empty?.classNames?.description,
+            contextClassNames.description,
             emptyClassNames?.description,
           )}
-          style={{ ...empty?.styles?.description, ...styles?.description }}
+          style={{ ...contextStyles.description, ...styles?.description }}
         >
           {des}
         </div>
@@ -121,11 +128,11 @@ const Empty: CompoundedComponent = (props) => {
         <div
           className={classNames(
             `${prefixCls}-footer`,
-            empty?.classNames?.footer,
+            contextClassNames.footer,
             emptyClassNames?.footer,
           )}
           style={{
-            ...empty?.styles?.footer,
+            ...contextStyles.footer,
             ...styles?.footer,
           }}
         >

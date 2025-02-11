@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
 import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
@@ -54,13 +54,19 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     classNames: popconfirmClassNames,
     ...restProps
   } = props;
-
-  const { getPrefixCls, popconfirm } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+    arrow: contextArrow,
+  } = useComponentConfig('popconfirm');
   const [open, setOpen] = useMergedState(false, {
     value: props.open,
     defaultValue: props.defaultOpen,
   });
-  const mergedArrow = useMergedArrow(popconfirmArrow, popconfirm?.arrow);
+  const mergedArrow = useMergedArrow(popconfirmArrow, contextArrow);
 
   const settingOpen: PopoverProps['onOpenChange'] = (value, e) => {
     setOpen(value, true);
@@ -89,11 +95,12 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
   const prefixCls = getPrefixCls('popconfirm', customizePrefixCls);
   const rootClassNames = classNames(
     prefixCls,
+    contextClassName,
     overlayClassName,
-    popconfirm?.classNames?.root,
+    contextClassNames.root,
     popconfirmClassNames?.root,
   );
-  const bodyClassNames = classNames(popconfirm?.classNames?.body, popconfirmClassNames?.body);
+  const bodyClassNames = classNames(contextClassNames.body, popconfirmClassNames?.body);
 
   useStyle(prefixCls);
 
@@ -109,13 +116,13 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
       classNames={{ root: rootClassNames, body: bodyClassNames }}
       styles={{
         root: {
-          ...popconfirm?.styles?.root,
-          ...popconfirm?.style,
+          ...contextStyles.root,
+          ...contextStyle,
           ...overlayStyle,
           ...styles?.root,
         },
         body: {
-          ...popconfirm?.styles?.body,
+          ...contextStyles.body,
           ...styles?.body,
         },
       }}

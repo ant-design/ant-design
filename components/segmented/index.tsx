@@ -51,6 +51,7 @@ export interface SegmentedProps<ValueType = RcSegmentedValue>
   vertical?: boolean;
   classNames?: Partial<Record<SemanticName, string>>;
   styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  shape?: 'default' | 'round';
 }
 
 const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) => {
@@ -65,6 +66,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     size: customSize = 'middle',
     style,
     vertical,
+    shape = 'default',
     name = defaultName,
     styles,
     classNames: segmentedClassNames,
@@ -130,6 +132,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-vertical`]: vertical,
+      [`${prefixCls}-shape-${shape}`]: shape === 'round',
     },
     hashId,
     cssVarCls,

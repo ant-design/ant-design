@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { matchScreen } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import DEFAULT_COLUMN_MAP from './constant';
@@ -78,7 +78,14 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     classNames: descriptionsClassNames,
     ...restProps
   } = props;
-  const { getPrefixCls, direction, descriptions } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('descriptions');
   const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
   const screens = useBreakpoint();
 
@@ -120,15 +127,15 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
       labelStyle,
       contentStyle,
       styles: {
-        content: { ...descriptions?.styles?.content, ...styles?.content },
-        label: { ...descriptions?.styles?.label, ...styles?.label },
+        content: { ...contextStyles.content, ...styles?.content },
+        label: { ...contextStyles.label, ...styles?.label },
       },
       classNames: {
-        label: classNames(descriptions?.classNames?.label, descriptionsClassNames?.label),
-        content: classNames(descriptions?.classNames?.content, descriptionsClassNames?.content),
+        label: classNames(contextClassNames.label, descriptionsClassNames?.label),
+        content: classNames(contextClassNames.content, descriptionsClassNames?.content),
       },
     }),
-    [labelStyle, contentStyle, styles, descriptionsClassNames, descriptions],
+    [labelStyle, contentStyle, styles, descriptionsClassNames, contextClassNames, contextStyles],
   );
 
   return (
@@ -136,8 +143,8 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
       <div
         className={classNames(
           prefixCls,
-          descriptions?.className,
-          descriptions?.classNames?.root,
+          contextClassName,
+          contextClassNames.root,
           descriptionsClassNames?.root,
           {
             [`${prefixCls}-${mergedSize}`]: mergedSize && mergedSize !== 'default',
@@ -149,27 +156,27 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
           hashId,
           cssVarCls,
         )}
-        style={{ ...descriptions?.style, ...descriptions?.styles?.root, ...styles?.root, ...style }}
+        style={{ ...contextStyle, ...contextStyles.root, ...styles?.root, ...style }}
         {...restProps}
       >
         {(title || extra) && (
           <div
             className={classNames(
               `${prefixCls}-header`,
-              descriptions?.classNames?.header,
+              contextClassNames.header,
               descriptionsClassNames?.header,
             )}
-            style={{ ...descriptions?.styles?.header, ...styles?.header }}
+            style={{ ...contextStyles.header, ...styles?.header }}
           >
             {title && (
               <div
                 className={classNames(
                   `${prefixCls}-title`,
-                  descriptions?.classNames?.title,
+                  contextClassNames.title,
                   descriptionsClassNames?.title,
                 )}
                 style={{
-                  ...descriptions?.styles?.title,
+                  ...contextStyles.title,
                   ...styles?.title,
                 }}
               >
@@ -180,10 +187,10 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
               <div
                 className={classNames(
                   `${prefixCls}-extra`,
-                  descriptions?.classNames?.extra,
+                  contextClassNames.extra,
                   descriptionsClassNames?.extra,
                 )}
-                style={{ ...descriptions?.styles?.extra, ...styles?.extra }}
+                style={{ ...contextStyles.extra, ...styles?.extra }}
               >
                 {extra}
               </div>

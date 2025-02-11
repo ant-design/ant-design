@@ -118,7 +118,7 @@ export interface ThemeConfig {
      * @descEN Unique key for theme, should be set manually < react@18.
      */
     key?: string;
-  }
+  };
 }
 
 export interface ComponentStyleConfig {
@@ -154,7 +154,8 @@ export type ModalConfig = ComponentStyleConfig &
 export type TabsConfig = ComponentStyleConfig &
   Pick<TabsProps, 'indicator' | 'indicatorSize' | 'more' | 'moreIcon' | 'addIcon' | 'removeIcon'>;
 
-export type AlertConfig = ComponentStyleConfig & Pick<AlertProps, 'closable' | 'closeIcon'>;
+export type AlertConfig = ComponentStyleConfig &
+  Pick<AlertProps, 'closable' | 'closeIcon' | 'classNames' | 'styles'>;
 
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
 

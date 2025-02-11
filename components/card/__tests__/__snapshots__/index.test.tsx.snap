@@ -42,6 +42,7 @@ exports[`Card correct pass tabList props 1`] = `
               <button
                 aria-label="remove"
                 class="ant-tabs-tab-remove"
+                role="tab"
                 tabindex="0"
                 type="button"
               >
@@ -84,6 +85,7 @@ exports[`Card correct pass tabList props 1`] = `
               <button
                 aria-label="remove"
                 class="ant-tabs-tab-remove"
+                role="tab"
                 tabindex="-1"
                 type="button"
               >
@@ -179,11 +181,9 @@ exports[`Card correct pass tabList props 1`] = `
             aria-controls="rc-tabs-test-more-popup"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-hidden="true"
             class="ant-tabs-nav-more"
             id="rc-tabs-test-more"
             style="visibility: hidden; order: 1;"
-            tabindex="-1"
             type="button"
           >
             <span

@@ -134,11 +134,9 @@ Array [
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -278,11 +276,9 @@ exports[`renders components/tabs/demo/basic.tsx extend context correctly 1`] = `
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -420,11 +416,9 @@ exports[`renders components/tabs/demo/card.tsx extend context correctly 1`] = `
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -565,11 +559,9 @@ exports[`renders components/tabs/demo/card-top.tsx extend context correctly 1`] 
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -716,11 +708,9 @@ exports[`renders components/tabs/demo/centered.tsx extend context correctly 1`] 
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -860,11 +850,9 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -1010,11 +998,9 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -1160,11 +1146,9 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -1310,11 +1294,9 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -1461,11 +1443,9 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -1600,11 +1580,9 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -1739,11 +1717,9 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -1855,6 +1831,7 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context corr
             <button
               aria-label="remove"
               class="ant-tabs-tab-remove"
+              role="tab"
               tabindex="0"
               type="button"
             >
@@ -1897,6 +1874,7 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context corr
             <button
               aria-label="remove"
               class="ant-tabs-tab-remove"
+              role="tab"
               tabindex="-1"
               type="button"
             >
@@ -1934,11 +1912,9 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context corr
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -2025,8 +2001,9 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="start"
         >
           start
@@ -2042,8 +2019,9 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="true"
+          aria-checked="true"
           class="ant-segmented-item-label"
+          role="radio"
           title="center"
         >
           center
@@ -2058,8 +2036,9 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="end"
         >
           end
@@ -2139,11 +2118,9 @@ Array [
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -2287,11 +2264,9 @@ exports[`renders components/tabs/demo/custom-tab-bar.tsx extend context correctl
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -2606,11 +2581,9 @@ exports[`renders components/tabs/demo/disabled.tsx extend context correctly 1`] 
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -2708,6 +2681,7 @@ exports[`renders components/tabs/demo/editable-card.tsx extend context correctly
           <button
             aria-label="remove"
             class="ant-tabs-tab-remove"
+            role="tab"
             tabindex="0"
             type="button"
           >
@@ -2750,6 +2724,7 @@ exports[`renders components/tabs/demo/editable-card.tsx extend context correctly
           <button
             aria-label="remove"
             class="ant-tabs-tab-remove"
+            role="tab"
             tabindex="-1"
             type="button"
           >
@@ -2830,11 +2805,9 @@ exports[`renders components/tabs/demo/editable-card.tsx extend context correctly
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -3001,11 +2974,9 @@ Array [
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -3222,11 +3193,9 @@ Array [
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -3412,11 +3381,9 @@ exports[`renders components/tabs/demo/icon.tsx extend context correctly 1`] = `
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -4198,11 +4165,9 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -4586,11 +4551,9 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   aria-controls="rc-tabs-test-more-popup"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-hidden="true"
                   class="ant-tabs-nav-more"
                   id="rc-tabs-test-more"
                   style="visibility: hidden; order: 1;"
-                  tabindex="-1"
                   type="button"
                 >
                   <span
@@ -4841,11 +4804,9 @@ Array [
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -5058,11 +5019,9 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -5196,11 +5155,9 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -5293,6 +5250,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
             <button
               aria-label="remove"
               class="ant-tabs-tab-remove"
+              role="tab"
               tabindex="0"
               type="button"
             >
@@ -5335,6 +5293,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
             <button
               aria-label="remove"
               class="ant-tabs-tab-remove"
+              role="tab"
               tabindex="-1"
               type="button"
             >
@@ -5377,6 +5336,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
             <button
               aria-label="remove"
               class="ant-tabs-tab-remove"
+              role="tab"
               tabindex="-1"
               type="button"
             >
@@ -5442,11 +5402,9 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
           <span
@@ -6099,11 +6057,9 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
           <span

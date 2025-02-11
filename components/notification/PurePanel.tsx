@@ -9,6 +9,7 @@ import classNames from 'classnames';
 import { Notice } from 'rc-notification';
 import type { NoticeProps } from 'rc-notification/lib/Notice';
 
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { IconType } from './interface';
@@ -35,7 +36,9 @@ export interface PureContentProps {
   icon?: React.ReactNode;
   message?: React.ReactNode;
   description?: React.ReactNode;
+  /** @deprecated Please use `actions` instead */
   btn?: React.ReactNode;
+  actions?: React.ReactNode;
   type?: IconType;
   role?: 'alert' | 'status';
 }
@@ -48,7 +51,7 @@ const typeToIcon = {
 };
 
 export const PureContent: React.FC<PureContentProps> = (props) => {
-  const { prefixCls, icon, type, message, description, btn, role = 'alert' } = props;
+  const { prefixCls, icon, type, message, description, actions, role = 'alert' } = props;
   let iconNode: React.ReactNode = null;
   if (icon) {
     iconNode = <span className={`${prefixCls}-icon`}>{icon}</span>;
@@ -62,7 +65,7 @@ export const PureContent: React.FC<PureContentProps> = (props) => {
       {iconNode}
       <div className={`${prefixCls}-message`}>{message}</div>
       <div className={`${prefixCls}-description`}>{description}</div>
-      {btn && <div className={`${prefixCls}-btn`}>{btn}</div>}
+      {actions && <div className={`${prefixCls}-actions`}>{actions}</div>}
     </div>
   );
 };
@@ -83,13 +86,18 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     message,
     description,
     btn,
+    actions,
     closable = true,
     closeIcon,
     className: notificationClassName,
     ...restProps
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
-
+  const mergedActions = actions ?? btn;
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Notification');
+    warning.deprecated(!btn, 'btn', 'actions');
+  }
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
   const noticePrefixCls = `${prefixCls}-notice`;
 
@@ -118,7 +126,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
             type={type}
             message={message}
             description={description}
-            btn={btn}
+            actions={mergedActions}
           />
         }
       />
