@@ -12,6 +12,21 @@ function isVersionNumber(value?: string) {
   return value && /^\d+\.\d+\.\d+$/.test(value);
 }
 
+const getTagColor = (val?: string) => {
+  if (isVersionNumber(val)) {
+    return 'success';
+  }
+  if (val?.toUpperCase() === 'NEW') {
+    return 'success';
+  }
+  if (val?.toUpperCase() === 'UPDATED') {
+    return 'processing';
+  }
+  if (val?.toUpperCase() === 'DEPRECATED') {
+    return 'red';
+  }
+};
+
 const useStyle = createStyles(({ css, token }) => ({
   link: css`
     display: flex;
@@ -42,6 +57,7 @@ interface MenuItemLabelProps {
 const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
   const { styles } = useStyle();
   const { before, after, link, title, subtitle, search, tag, className } = props;
+
   if (!before && !after) {
     return (
       <Link to={`${link}${search}`} className={classnames(className, { [styles.link]: tag })}>
@@ -50,11 +66,7 @@ const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
           {subtitle && <span className={styles.subtitle}>{subtitle}</span>}
         </Space>
         {tag && (
-          <Tag
-            bordered={false}
-            className={classnames(styles.tag)}
-            color={isVersionNumber(tag) || tag === 'New' ? 'success' : 'processing'}
-          >
+          <Tag bordered={false} className={classnames(styles.tag)} color={getTagColor(tag)}>
             {tag.replace('VERSION', version)}
           </Tag>
         )}

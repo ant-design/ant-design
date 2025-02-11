@@ -6174,10 +6174,10 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         You selected date: 2017-01-25
       </div>
@@ -7338,9 +7338,13 @@ Array [
           >
             <thead>
               <tr>
-                <th
-                  aria-label="empty cell"
-                />
+                <th>
+                  <span
+                    style="width:0;height:0;position:absolute;overflow:hidden;opacity:0"
+                  >
+                    Week
+                  </span>
+                </th>
                 <th>
                   Su
                 </th>
@@ -8349,9 +8353,13 @@ Array [
           >
             <thead>
               <tr>
-                <th
-                  aria-label="empty cell"
-                />
+                <th>
+                  <span
+                    style="width:0;height:0;position:absolute;overflow:hidden;opacity:0"
+                  >
+                    Week
+                  </span>
+                </th>
                 <th>
                   Su
                 </th>

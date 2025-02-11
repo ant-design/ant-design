@@ -109,7 +109,7 @@ The rest of the props of `Input.TextArea` are the same as the original [textarea
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| enterButton | Whether to show an enter button after input. This property conflicts with the `addonAfter` property | ReactNode | false |
+| enterButton | false displays the default button color, true uses the primary color, or you can provide a custom button. Conflicts with addonAfter. | ReactNode | false |
 | loading | Search box with loading | boolean | false |
 | onSearch | The callback function triggered when you click on the search-icon, the clear-icon or press the Enter key | function(value, event, { source: "input" \| "clear" }) | - |
 
@@ -135,6 +135,7 @@ Added in `5.16.0`.
 | defaultValue | Default value | string | - |  |
 | disabled | Whether the input is disabled | boolean | false |  |
 | formatter | Format display, blank fields will be filled with ` ` | (value: string) => string | - |  |
+| separator | render the separator after the input box of the specified index | ((index: number) => ReactNode) \| ReactNode | - |  |
 | mask | Custom display, the original value will not be modified | boolean \| string | `false` | `5.17.0` |
 | length | The number of input elements | number | 6 |  |
 | status | Set validation status | 'error' \| 'warning' | - |  |

@@ -3,7 +3,7 @@ import { Alert, Form, Input } from 'antd';
 
 const App: React.FC = () => (
   <Form name="trigger" style={{ maxWidth: 600 }} layout="vertical" autoComplete="off">
-    <Alert message="Use 'max' rule, continue type chars to see it" />
+    <Alert title="Use 'max' rule, continue type chars to see it" />
 
     <Form.Item
       hasFeedback

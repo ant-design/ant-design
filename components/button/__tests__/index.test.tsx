@@ -495,4 +495,22 @@ describe('Button', () => {
 
     expect(container.querySelector('button')).toBe(document.activeElement);
   });
+
+  it('calls onClick when clicked (button case)', () => {
+    const handleClick = jest.fn();
+    const { getByRole } = render(<Button onClick={handleClick}>Click Me</Button>);
+    fireEvent.click(getByRole('button'));
+    expect(handleClick).toHaveBeenCalled();
+  });
+
+  it('calls onClick when clicked (anchor case)', () => {
+    const handleClick = jest.fn();
+    const { getByRole } = render(
+      <Button href="https://example.com" onClick={handleClick}>
+        Link
+      </Button>,
+    );
+    fireEvent.click(getByRole('link'));
+    expect(handleClick).toHaveBeenCalled();
+  });
 });

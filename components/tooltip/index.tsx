@@ -20,12 +20,12 @@ import { cloneElement, isFragment } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
-import { ConfigContext } from '../config-provider';
 import { useToken } from '../theme/internal';
 import useMergedArrow from './hook/useMergedArrow';
 import PurePanel from './PurePanel';
 import useStyle from './style';
 import { parseColor } from './util';
+import { useComponentConfig } from '../config-provider/context';
 
 export type { AdjustOverflow, PlacementsConfig };
 
@@ -149,9 +149,13 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     direction,
-    tooltip,
-  } = React.useContext(ConfigContext);
-  const mergedArrow = useMergedArrow(tooltipArrow, tooltip?.arrow);
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+    arrow: contextArrow,
+  } = useComponentConfig('tooltip');
+  const mergedArrow = useMergedArrow(tooltipArrow, contextArrow);
   const mergedShowArrow = mergedArrow.show;
 
   // ============================== Ref ===============================
@@ -264,12 +268,12 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     rootClassName,
     hashId,
     cssVarCls,
-    tooltip?.className,
-    tooltip?.classNames?.root,
+    contextClassName,
+    contextClassNames.root,
     tooltipClassNames?.root,
   );
 
-  const bodyClassNames = classNames(tooltip?.classNames?.body, tooltipClassNames?.body);
+  const bodyClassNames = classNames(contextClassNames.body, tooltipClassNames?.body);
 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Tooltip', restProps.zIndex);
@@ -287,13 +291,13 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       styles={{
         root: {
           ...arrowContentStyle,
-          ...tooltip?.styles?.root,
-          ...tooltip?.style,
+          ...contextStyles.root,
+          ...contextStyle,
           ...overlayStyle,
           ...styles?.root,
         },
         body: {
-          ...tooltip?.styles?.body,
+          ...contextStyles.body,
           ...overlayInnerStyle,
           ...styles?.body,
           ...colorInfo.overlayStyle,

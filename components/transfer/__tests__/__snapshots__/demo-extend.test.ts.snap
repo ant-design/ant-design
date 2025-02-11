@@ -7101,6 +7101,7 @@ Array [
             title="1/100"
           >
             <input
+              aria-label="Go to"
               size="3"
               type="text"
               value="1"
@@ -7648,6 +7649,7 @@ Array [
             title="1/100"
           >
             <input
+              aria-label="Go to"
               size="3"
               type="text"
               value="1"
