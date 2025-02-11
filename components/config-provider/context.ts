@@ -272,6 +272,7 @@ export interface ConfigComponentProps {
   form?: FormConfig;
   select?: SelectConfig;
   alert?: AlertConfig;
+  affix?: ComponentStyleConfig;
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
   divider?: ComponentStyleConfig;
