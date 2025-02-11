@@ -108,7 +108,7 @@
   "dependencies": {
     "@ant-design/colors": "^7.2.0",
     "@ant-design/cssinjs": "^2.0.0-alpha.2",
-    "@ant-design/cssinjs-utils": "^2.0.0-alpha.0",
+    "@ant-design/cssinjs-utils": "^2.0.0-alpha.1",
     "@ant-design/fast-color": "^2.0.6",
     "@ant-design/icons": "^5.6.1",
     "@ant-design/react-slick": "~1.1.2",
@@ -331,6 +331,10 @@
     "webpack": "^5.97.1",
     "webpack-bundle-analyzer": "^4.10.2",
     "xhr-mock": "^2.5.1"
+  },
+  "overrides": {
+    "@ant-design/cssinjs": "^2.0.0-alpha.2",
+    "@ant-design/cssinjs-utils": "^2.0.0-alpha.1"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"

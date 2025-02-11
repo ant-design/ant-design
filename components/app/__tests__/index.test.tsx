@@ -246,7 +246,7 @@ describe('App', () => {
 
     it('should warn if component is false and cssVarCls is not empty', () => {
       render(
-        <ConfigProvider theme={{ cssVar: true }}>
+        <ConfigProvider>
           <App component={false} />
         </ConfigProvider>,
       );
