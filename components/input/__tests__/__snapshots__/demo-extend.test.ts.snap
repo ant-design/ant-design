@@ -10520,27 +10520,27 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
     />
   </div>
   <h5
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     With custom string separator
   </h5>
   <div
-    class="ant-otp"
+    class="ant-otp css-var-test-id"
   >
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
@@ -10551,40 +10551,40 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
       -
     </span>
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
   </div>
   <h5
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     With custom JSX separator
   </h5>
   <div
-    class="ant-otp"
+    class="ant-otp css-var-test-id"
   >
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
@@ -10599,25 +10599,25 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
       </span>
     </span>
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""

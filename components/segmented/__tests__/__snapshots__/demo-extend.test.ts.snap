@@ -1064,7 +1064,7 @@ exports[`renders components/segmented/demo/icon-only.tsx extend context correctl
 exports[`renders components/segmented/demo/shape.tsx extend context correctly 1`] = `
 <div
   aria-label="segmented control"
-  class="ant-segmented ant-segmented-shape-round"
+  class="ant-segmented ant-segmented-shape-round css-var-test-id"
   role="radiogroup"
   tabindex="0"
 >
