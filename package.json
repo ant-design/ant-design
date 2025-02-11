@@ -115,7 +115,7 @@
     "@babel/runtime": "^7.26.0",
     "@rc-component/collapse": "~1.0.1",
     "@rc-component/color-picker": "~2.0.1",
-    "@rc-component/dialog": "~1.0.1",
+    "@rc-component/dialog": "~1.1.0",
     "@rc-component/form": "~1.0.0",
     "@rc-component/mutate-observer": "^2.0.0",
     "@rc-component/qrcode": "~1.0.0",
