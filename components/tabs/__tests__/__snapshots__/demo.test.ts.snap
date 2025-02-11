@@ -2567,7 +2567,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         left
       </span>
     </label>
@@ -2587,7 +2589,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         right
       </span>
     </label>
@@ -3591,7 +3595,9 @@ Array [
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             top
           </span>
         </label>
@@ -3611,7 +3617,9 @@ Array [
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             bottom
           </span>
         </label>
@@ -3632,7 +3640,9 @@ Array [
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             left
           </span>
         </label>
@@ -3652,7 +3662,9 @@ Array [
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             right
           </span>
         </label>
@@ -3795,7 +3807,9 @@ exports[`renders components/tabs/demo/size.tsx correctly 1`] = `
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Small
       </span>
     </label>
@@ -3815,7 +3829,9 @@ exports[`renders components/tabs/demo/size.tsx correctly 1`] = `
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Middle
       </span>
     </label>
@@ -3835,7 +3851,9 @@ exports[`renders components/tabs/demo/size.tsx correctly 1`] = `
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Large
       </span>
     </label>
@@ -4338,7 +4356,9 @@ exports[`renders components/tabs/demo/slide.tsx correctly 1`] = `
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Horizontal
       </span>
     </label>
@@ -4358,7 +4378,9 @@ exports[`renders components/tabs/demo/slide.tsx correctly 1`] = `
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Vertical
       </span>
     </label>

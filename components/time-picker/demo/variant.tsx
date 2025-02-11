@@ -17,6 +17,10 @@ const App: React.FC = () => (
       <TimePicker variant="borderless" placeholder="Borderless" />
       <RangePicker variant="borderless" placeholder={['Borderless Start', 'Borderless End']} />
     </Flex>
+    <Flex gap={8}>
+      <TimePicker variant="underlined" placeholder="Underlined" />
+      <RangePicker variant="underlined" placeholder={['Underlined Start', 'Underlined End']} />
+    </Flex>
   </Flex>
 );
 
