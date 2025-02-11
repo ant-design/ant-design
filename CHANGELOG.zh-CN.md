@@ -30,6 +30,7 @@ tag: vVERSION
 - 🆕 为 Input、InputNumber、Mentions、Form、Select、Cascader、TreeSelect、DatePicker、TimePicker 组件的 `variant` 添加 `underlined` 属性。[#52546](https://github.com/ant-design/ant-design/pull/52546) [@ustcfury](https://github.com/ustcfury)
 - 🆕 ConfigProvider 支持 Modal `centered` 全局配置。[#52343](https://github.com/ant-design/ant-design/pull/52343) [@guoyunhe](https://github.com/guoyunhe)
 - 🆕 为 Checkbox 和 Radio 增加 `label` 类名。[#52322](https://github.com/ant-design/ant-design/pull/52322) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 修复 Tooltip/Popover/Popconfirm/Dropdown 在 React 19 下 children 为自定义组件时弹层位置错乱的问题。[react-component/util#623](https://github.com/react-component/util/pull/623) [@zombieJ](https://github.com/zombieJ)
 - 🐞 修复 DatePicker.RangePicker 弹出窗体自动调整位置时，面板的箭头位置不正确的问题。[#52719](https://github.com/ant-design/ant-design/pull/52719) [@zombieJ](https://github.com/zombieJ)
 - 🐞 修正 locale 中 `filterCheckall` 为 `filterCheckAll`。[#52517](https://github.com/ant-design/ant-design/pull/52517) [@thinkasany](https://github.com/thinkasany)
 - 🐞 修复 Form `scrollToField` 和 `scrollToFirstError` 无法聚焦 antd 组件的问题。[#52726](https://github.com/ant-design/ant-design/pull/52726) [@Wxh16144](https://github.com/Wxh16144)
