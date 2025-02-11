@@ -817,7 +817,7 @@ describe('ConfigProvider support style and className props', () => {
           closable: { 'aria-label': 'close' },
         }}
       >
-        <Alert message="Test Message" />
+        <Alert title="Test Message" />
       </ConfigProvider>,
     );
     expect(container.querySelector<HTMLDivElement>('.ant-alert')).toHaveClass('test-class');
@@ -833,7 +833,7 @@ describe('ConfigProvider support style and className props', () => {
           },
         }}
       >
-        <Alert message="Test Message" />
+        <Alert title="Test Message" />
       </ConfigProvider>,
     );
 

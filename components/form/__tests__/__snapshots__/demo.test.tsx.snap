@@ -2847,7 +2847,6 @@ Array [
             >
               <ul
                 class="ant-rate ant-rate-disabled"
-                role="radiogroup"
                 tabindex="-1"
               >
                 <li
@@ -4480,10 +4479,10 @@ exports[`renders components/form/demo/form-dependencies.tsx correctly 1`] = `
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
          Try modify \`Password2\` and then modify \`Password\`
       </div>
@@ -10093,7 +10092,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
             <ul
               class="ant-rate"
               id="validate_other_rate"
-              role="radiogroup"
               tabindex="0"
             >
               <li
@@ -12983,10 +12981,10 @@ exports[`renders components/form/demo/validate-trigger.tsx correctly 1`] = `
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Use 'max' rule, continue type chars to see it
       </div>
@@ -13180,8 +13178,9 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
                     type="radio"
                   />
                   <div
-                    aria-selected="false"
+                    aria-checked="false"
                     class="ant-segmented-item-label"
+                    role="radio"
                     title="outlined"
                   >
                     outlined
@@ -13197,8 +13196,9 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
                     type="radio"
                   />
                   <div
-                    aria-selected="true"
+                    aria-checked="true"
                     class="ant-segmented-item-label"
+                    role="radio"
                     title="filled"
                   >
                     filled
@@ -13213,8 +13213,9 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
                     type="radio"
                   />
                   <div
-                    aria-selected="false"
+                    aria-checked="false"
                     class="ant-segmented-item-label"
+                    role="radio"
                     title="borderless"
                   >
                     borderless
@@ -13229,8 +13230,9 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
                     type="radio"
                   />
                   <div
-                    aria-selected="false"
+                    aria-checked="false"
                     class="ant-segmented-item-label"
+                    role="radio"
                     title="underlined"
                   >
                     underlined
