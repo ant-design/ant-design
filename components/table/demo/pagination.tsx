@@ -9,7 +9,7 @@ type TablePaginationPosition<T extends object> = NonNullable<
 >[number];
 
 interface DataType {
-  key: string;
+  id: string;
   name: string;
   age: number;
   address: string;
@@ -81,21 +81,21 @@ const columns: ColumnsType<DataType> = [
 
 const data: DataType[] = [
   {
-    key: '1',
+    id: '1',
     name: 'John Brown',
     age: 32,
     address: 'New York No. 1 Lake Park',
     tags: ['nice', 'developer'],
   },
   {
-    key: '2',
+    id: '2',
     name: 'Jim Green',
     age: 42,
     address: 'London No. 1 Lake Park',
     tags: ['loser'],
   },
   {
-    key: '3',
+    id: '3',
     name: 'Joe Black',
     age: 32,
     address: 'Sydney No. 1 Lake Park',

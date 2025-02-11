@@ -3,7 +3,7 @@ import { Checkbox, Divider, Table } from 'antd';
 import type { CheckboxOptionType, TableColumnsType } from 'antd';
 
 interface DataType {
-  key: React.Key;
+  id: React.Key;
   name: string;
   age: number;
   address: string;
@@ -22,13 +22,13 @@ const columns: TableColumnsType<DataType> = [
 
 const data: DataType[] = [
   {
-    key: '1',
+    id: '1',
     name: 'John Brown',
     age: 32,
     address: 'New York Park',
   },
   {
-    key: '2',
+    id: '2',
     name: 'Jim Green',
     age: 40,
     address: 'London Park',

@@ -3,7 +3,7 @@ import { Table } from 'antd';
 import type { TableProps } from 'antd';
 
 interface DataType {
-  key: string;
+  id: number;
   name: string;
   money: string;
   address: string;
@@ -29,19 +29,19 @@ const columns: TableProps<DataType>['columns'] = [
 
 const data: DataType[] = [
   {
-    key: '1',
+    id: 1,
     name: 'John Brown',
     money: '￥300,000.00',
     address: 'New York No. 1 Lake Park',
   },
   {
-    key: '2',
+    id: 2,
     name: 'Jim Green',
     money: '￥1,256,000.00',
     address: 'London No. 1 Lake Park',
   },
   {
-    key: '3',
+    id: 3,
     name: 'Joe Black',
     money: '￥120,000.00',
     address: 'Sydney No. 1 Lake Park',

@@ -22,7 +22,7 @@ const useStyle = createStyles(({ css, token }) => {
 });
 
 interface DataType {
-  key: React.Key;
+  id: React.Key;
   name: string;
   age: number;
   address: string;
@@ -46,7 +46,7 @@ const columns: TableColumnsType<DataType> = [
 ];
 
 const dataSource = Array.from({ length: 100 }).map<DataType>((_, i) => ({
-  key: i,
+  id: i,
   name: `Edward King ${i}`,
   age: 32,
   address: `London, Park Lane no. ${i}`,

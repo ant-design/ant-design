@@ -101,6 +101,7 @@ describe('Sorter.value.test.tsx', () => {
       return (
         <>
           <Table
+            rowKey="key"
             columns={columns}
             dataSource={tableData}
             onChange={onChange}
@@ -207,6 +208,7 @@ describe('Sorter.value.test.tsx', () => {
       return (
         <>
           <Table
+            rowKey="key"
             columns={tableData.columns}
             dataSource={tableData.data}
             onChange={onChange}

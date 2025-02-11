@@ -34,7 +34,7 @@ describe('Table.order', () => {
   ];
 
   function createTable(props: TableProps<any> = {}) {
-    return <Table columns={columns} dataSource={data} {...props} />;
+    return <Table rowKey="key" columns={columns} dataSource={data} {...props} />;
   }
 
   it('warning if duplicated SELECTION_COLUMN', () => {

@@ -20,13 +20,13 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Sv8XQ50NB40AAA
 ```jsx
 const dataSource = [
   {
-    key: '1',
+    id: '1',
     name: '胡彦斌',
     age: 32,
     address: '西湖区湖底公园1号',
   },
   {
-    key: '2',
+    id: '2',
     name: '胡彦祖',
     age: 42,
     address: '西湖区湖底公园1号',
@@ -131,7 +131,7 @@ const columns = [
 | locale | 默认文案设置，目前包括排序、过滤、空数据文案 | object | [默认值](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/zh_CN.tsx#L20-L37) |  |
 | pagination | 分页器，参考[配置项](#pagination)或 [pagination](/components/pagination-cn) 文档，设为 false 时不展示和进行分页 | object \| `false` | - |  |
 | rowClassName | 表格行的类名 | function(record, index): string | - |  |
-| rowKey | 表格行 key 的取值，可以是字符串或一个函数 | string \| function(record): string | `key` |  |
+| rowKey | 表格行 key 的取值，可以是字符串或一个函数 | string \| function(record): string | `id` |  |
 | rowSelection | 表格行是否可选择，[配置项](#rowselection) | object | - |  |
 | rowHoverable | 表格行是否开启 hover 交互 | boolean | true | 5.16.0 |
 | scroll | 表格是否可滚动，也可以指定滚动区域的宽、高，[配置项](#scroll) | object | - |  |
@@ -307,7 +307,7 @@ import { Table } from 'antd';
 import type { TableColumnsType } from 'antd';
 
 interface User {
-  key: number;
+  id: number;
   name: string;
 }
 
@@ -321,7 +321,7 @@ const columns: TableColumnsType<User> = [
 
 const data: User[] = [
   {
-    key: 0,
+    id: 0,
     name: 'Jack',
   },
 ];
@@ -347,11 +347,11 @@ TypeScript 里使用 Table 的 [CodeSandbox 实例](https://codesandbox.io/s/ser
 
 ## 注意
 
-按照 [React 的规范](https://zh-hans.react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key)，所有的列表必须绑定 `key`。在 Table 中，`dataSource` 和 `columns` 里的数据值都需要指定 `key` 值。对于 `dataSource` 默认将每列数据的 `key` 属性作为唯一的标识。
+按照 [React 的规范](https://zh-hans.react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key)，所有的列表必须绑定 `key`。在 Table 中，`dataSource` 和 `columns` 里的数据值都需要指定 `key` 值。对于 `dataSource` 默认将每列数据的 `id` 属性作为唯一的标识。
 
 ![控制台警告](https://os.alipayobjects.com/rmsportal/luLdLvhPOiRpyss.png)
 
-如果 `dataSource[i].key` 没有提供，你应该使用 `rowKey` 来指定 `dataSource` 的主键，如下所示。若没有指定，控制台会出现以上的提示，表格组件也会出现各类奇怪的错误。
+如果 `dataSource[i].id` 没有提供，你应该使用 `rowKey` 来指定 `dataSource` 的主键，如下所示。若没有指定，控制台会出现以上的提示，表格组件也会出现各类奇怪的错误。
 
 ```jsx
 // 比如你的数据主键是 uid

@@ -19,13 +19,13 @@ Specify `dataSource` of Table as an array of data.
 ```jsx
 const dataSource = [
   {
-    key: '1',
+    id: '1',
     name: 'Mike',
     age: 32,
     address: '10 Downing Street',
   },
   {
-    key: '2',
+    id: '2',
     name: 'John',
     age: 42,
     address: '10 Downing Street',
@@ -129,7 +129,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | locale | The i18n text including filter, sort, empty text, etc | object | [Default Value](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/en_US.tsx#L19-L37) |  |
 | pagination | Config of pagination. You can ref table pagination [config](#pagination) or full [`pagination`](/components/pagination/) document, hide it by setting it to `false` | object \| `false` | - |  |
 | rowClassName | Row's className | function(record, index): string | - |  |
-| rowKey | Row's unique key, could be a string or function that returns a string | string \| function(record): string | `key` |  |
+| rowKey | Row's unique key, could be a string or function that returns a string | string \| function(record): string | `id` |  |
 | rowSelection | Row selection [config](#rowselection) | object | - |  |
 | rowHoverable | Row hover | boolean | true | 5.16.0 |
 | scroll | Whether the table can be scrollable, [config](#scroll) | object | - |  |
@@ -304,7 +304,7 @@ import { Table } from 'antd';
 import type { TableColumnsType } from 'antd';
 
 interface User {
-  key: number;
+  id: number;
   name: string;
 }
 
@@ -318,7 +318,7 @@ const columns: TableColumnsType<User> = [
 
 const data: User[] = [
   {
-    key: 0,
+    id: 0,
     name: 'Jack',
   },
 ];

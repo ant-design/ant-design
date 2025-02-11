@@ -5,7 +5,7 @@ import type { ResizeCallbackData } from 'react-resizable';
 import { Resizable } from 'react-resizable';
 
 interface DataType {
-  key: React.Key;
+  id: React.Key;
   date: string;
   amount: number;
   type: string;
@@ -39,21 +39,21 @@ const ResizableTitle: React.FC<Readonly<React.HTMLAttributes<any> & TitlePropsTy
 
 const data: DataType[] = [
   {
-    key: 0,
+    id: 0,
     date: '2018-02-11',
     amount: 120,
     type: 'income',
     note: 'transfer',
   },
   {
-    key: 1,
+    id: 1,
     date: '2018-03-11',
     amount: 243,
     type: 'income',
     note: 'transfer',
   },
   {
-    key: 2,
+    id: 2,
     date: '2018-04-11',
     amount: 98,
     type: 'income',

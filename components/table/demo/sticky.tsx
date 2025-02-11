@@ -3,7 +3,7 @@ import { Switch, Table } from 'antd';
 import type { TableColumnsType } from 'antd';
 
 interface DataType {
-  key: React.Key;
+  id: React.Key;
   name: string;
   age: number;
   address: string;
@@ -77,7 +77,7 @@ const columns: TableColumnsType<DataType> = [
 ];
 
 const dataSource = Array.from({ length: 100 }).map<DataType>((_, i) => ({
-  key: i,
+  id: i,
   name: `Edward ${i}`,
   age: 32,
   address: `London Park no. ${i}`,

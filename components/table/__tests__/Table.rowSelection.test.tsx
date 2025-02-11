@@ -36,7 +36,7 @@ describe('Table.rowSelection', () => {
   ];
 
   function createTable(props: TableProps<any> = {}) {
-    return <Table columns={columns} dataSource={data} rowSelection={{}} {...props} />;
+    return <Table rowKey="key" columns={columns} dataSource={data} rowSelection={{}} {...props} />;
   }
 
   function renderedNames(container: ReturnType<typeof render>['container']) {
@@ -706,6 +706,7 @@ describe('Table.rowSelection', () => {
   it('should allow dynamic getCheckboxProps', () => {
     const { container, rerender } = render(
       <Table
+        rowKey="key"
         columns={columns}
         dataSource={data}
         rowSelection={{
@@ -720,6 +721,7 @@ describe('Table.rowSelection', () => {
 
     rerender(
       <Table
+        rowKey="key"
         columns={columns}
         dataSource={data}
         rowSelection={{
@@ -845,6 +847,7 @@ describe('Table.rowSelection', () => {
   it('should keep all checked state when remove item from dataSource', () => {
     const { container, rerender } = render(
       <Table
+        rowKey="key"
         rowSelection={{
           selectedRowKeys: [0, 1, 2, 3],
         }}
@@ -861,6 +864,7 @@ describe('Table.rowSelection', () => {
 
     rerender(
       <Table
+        rowKey="key"
         rowSelection={{
           selectedRowKeys: [1, 2, 3],
         }}
@@ -879,11 +883,17 @@ describe('Table.rowSelection', () => {
   // https://github.com/ant-design/ant-design/issues/11042
   it('add columnTitle for rowSelection', () => {
     const { container, rerender } = render(
-      <Table columns={columns} dataSource={data} rowSelection={{ columnTitle: '多选' }} />,
+      <Table
+        rowKey="key"
+        columns={columns}
+        dataSource={data}
+        rowSelection={{ columnTitle: '多选' }}
+      />,
     );
     expect(container.querySelector('thead tr th')?.textContent).toBe('多选');
     rerender(
       <Table
+        rowKey="key"
         columns={columns}
         dataSource={data}
         rowSelection={{
@@ -898,6 +908,7 @@ describe('Table.rowSelection', () => {
   it('columnTitle for rowSelection to be renderProps', () => {
     const { container } = render(
       <Table
+        rowKey="key"
         columns={columns}
         dataSource={data}
         rowSelection={{
@@ -949,7 +960,7 @@ describe('Table.rowSelection', () => {
     };
 
     const { container } = render(
-      <Table columns={filterColumns} dataSource={data} rowSelection={rowSelection} />,
+      <Table rowKey="key" columns={filterColumns} dataSource={data} rowSelection={rowSelection} />,
     );
 
     function clickFilter(indexList: number[]) {
@@ -1018,7 +1029,13 @@ describe('Table.rowSelection', () => {
       },
     ];
     const { container } = render(
-      <Table columns={columns} dataSource={newData} childrenColumnName="test" rowSelection={{}} />,
+      <Table
+        rowKey="key"
+        columns={columns}
+        dataSource={newData}
+        childrenColumnName="test"
+        rowSelection={{}}
+      />,
     );
     const checkboxes = container.querySelectorAll('input');
     const objectContaining: { checked?: boolean; indeterminate?: boolean } = {};
@@ -1050,6 +1067,7 @@ describe('Table.rowSelection', () => {
     ];
     const { container } = render(
       <Table
+        rowKey="key"
         columns={columns}
         dataSource={newData}
         childrenColumnName="list"
@@ -1711,6 +1729,7 @@ describe('Table.rowSelection', () => {
       ];
       const { container, rerender } = render(
         <Table
+          rowKey="key"
           expandable={{
             defaultExpandAllRows: true,
           }}
@@ -1779,6 +1798,7 @@ describe('Table.rowSelection', () => {
 
       rerender(
         <Table
+          rowKey="key"
           expandable={{
             defaultExpandAllRows: true,
           }}
@@ -1917,6 +1937,7 @@ describe('Table.rowSelection', () => {
 
     const { container } = render(
       <Table
+        rowKey="key"
         rowSelection={{
           type: 'checkbox',
           getCheckboxProps,
@@ -1953,6 +1974,7 @@ describe('Table.rowSelection', () => {
 
     const { container } = render(
       <Table
+        rowKey="key"
         rowSelection={{
           type: 'radio',
           getCheckboxProps,
@@ -2063,6 +2085,7 @@ describe('Table.rowSelection', () => {
     };
     const { container } = render(
       <Table
+        rowKey="key"
         rowSelection={rowSelection}
         columns={treeDataColumns}
         dataSource={treeData}

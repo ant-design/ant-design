@@ -40,7 +40,9 @@ const data = [
 
 describe('Table.expand', () => {
   it('click to expand', () => {
-    const { container, asFragment } = render(<Table columns={columns} dataSource={data} />);
+    const { container, asFragment } = render(
+      <Table rowKey="key" columns={columns} dataSource={data} />,
+    );
     fireEvent.click(container.querySelector('.ant-table-row-expand-icon')!);
     expect(asFragment().firstChild).toMatchSnapshot();
   });
@@ -48,6 +50,7 @@ describe('Table.expand', () => {
   it('expandRowByClick should not block click icon', () => {
     const { container } = render(
       <Table
+        rowKey="key"
         columns={columns}
         dataSource={[John, Jim]}
         expandable={{
@@ -66,6 +69,7 @@ describe('Table.expand', () => {
   it('show expandIcon', () => {
     const { container } = render(
       <Table
+        rowKey="key"
         columns={[{ dataIndex: 'key' }]}
         dataSource={[{ key: 233 }]}
         expandable={{
@@ -77,7 +81,9 @@ describe('Table.expand', () => {
   });
 
   it('row indent padding should be 0px when indentSize defined as 0', () => {
-    const { container } = render(<Table indentSize={0} columns={columns} dataSource={data} />);
+    const { container } = render(
+      <Table rowKey="key" indentSize={0} columns={columns} dataSource={data} />,
+    );
 
     fireEvent.click(container.querySelector('.ant-table-row-expand-icon')!);
     expect(container.querySelector<HTMLElement>('.indent-level-1')?.style.paddingLeft).toEqual(
@@ -86,7 +92,7 @@ describe('Table.expand', () => {
   });
 
   it('has right aria-expanded state', () => {
-    const { container } = render(<Table columns={columns} dataSource={data} />);
+    const { container } = render(<Table rowKey="key" columns={columns} dataSource={data} />);
     expect(container.querySelector('[aria-expanded=false]')).toBeTruthy();
     fireEvent.click(container.querySelector('.ant-table-row-expand-icon')!);
     expect(container.querySelector('[aria-expanded=true]')).toBeTruthy();
@@ -96,6 +102,7 @@ describe('Table.expand', () => {
     it('basic', () => {
       const { container } = render(
         <Table
+          rowKey="key"
           columns={[{ dataIndex: 'key' }]}
           dataSource={[{ key: 'bamboo' }]}
           expandable={{
@@ -115,6 +122,7 @@ describe('Table.expand', () => {
     it('work with selection', () => {
       const { container } = render(
         <Table
+          rowKey="key"
           columns={[{ dataIndex: 'key' }]}
           dataSource={[{ key: 'bamboo' }]}
           expandable={{

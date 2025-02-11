@@ -26,6 +26,7 @@ describe('Table.sorter', () => {
   function createTable(tableProps: TableProps<any> = {}, columnProps = {}) {
     return (
       <Table
+        rowKey="key"
         columns={[{ ...column, ...columnProps }]}
         dataSource={data}
         pagination={false}
@@ -105,6 +106,7 @@ describe('Table.sorter', () => {
     ];
     const TableSorter: React.FC = () => (
       <Table
+        rowKey="key"
         columns={columns}
         dataSource={tableData}
         onChange={onChange}
@@ -619,7 +621,7 @@ describe('Table.sorter', () => {
       { key: 2, name: 'Tom', age: 21 },
       { key: 3, name: 'Jerry', age: 22 },
     ];
-    const { container } = render(<Table columns={columns} dataSource={testData} />);
+    const { container } = render(<Table rowKey="key" columns={columns} dataSource={testData} />);
 
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
   });
@@ -636,7 +638,7 @@ describe('Table.sorter', () => {
       { key: 2, name: 'Tom', age: 21 },
       { key: 3, name: 'Jerry', age: 22 },
     ];
-    const { container } = render(<Table columns={columns} dataSource={testData} />);
+    const { container } = render(<Table rowKey="key" columns={columns} dataSource={testData} />);
     expect(container.querySelector('.custom-title')?.textContent).toEqual('');
     fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
     expect(container.querySelector('.custom-title')?.textContent).toEqual('ascend');
@@ -656,7 +658,7 @@ describe('Table.sorter', () => {
       { key: 2, name: 'Tom', age: 21 },
       { key: 3, name: 'Jerry', age: 22 },
     ];
-    const { container } = render(<Table columns={columns} dataSource={testData} />);
+    const { container } = render(<Table rowKey="key" columns={columns} dataSource={testData} />);
 
     const getNameColumn = () =>
       container.querySelectorAll<HTMLElement>('.ant-table-column-has-sorters')[0];
@@ -698,6 +700,7 @@ describe('Table.sorter', () => {
       };
       return (
         <Table
+          rowKey="key"
           columns={columns}
           pagination={pagination}
           dataSource={testData}
@@ -760,6 +763,7 @@ describe('Table.sorter', () => {
       };
       return (
         <Table
+          rowKey="key"
           columns={columns}
           pagination={pagination}
           dataSource={testData}
@@ -821,6 +825,7 @@ describe('Table.sorter', () => {
       };
       return (
         <Table
+          rowKey="key"
           columns={columns}
           pagination={pagination}
           dataSource={testData}
@@ -1030,7 +1035,7 @@ describe('Table.sorter', () => {
 
   it('should support defaultOrder in Column', () => {
     const { asFragment } = render(
-      <Table dataSource={[{ key: '1', age: 1 }]}>
+      <Table rowKey="key" dataSource={[{ key: '1', age: 1 }]}>
         <Table.Column title="Age" dataIndex="age" sorter defaultSortOrder="ascend" key="age" />
       </Table>,
     );
@@ -1142,7 +1147,7 @@ describe('Table.sorter', () => {
       },
     ];
     const dataProp = { data: groupData };
-    const { container } = render(<Table columns={groupColumns} {...dataProp} />);
+    const { container } = render(<Table rowKey="key" columns={groupColumns} {...dataProp} />);
 
     expect(
       container
@@ -1185,7 +1190,7 @@ describe('Table.sorter', () => {
     const onChange = jest.fn();
     const dataProp = { data: groupData };
     const { container } = render(
-      <Table columns={groupColumns} {...dataProp} onChange={onChange} />,
+      <Table rowKey="key" columns={groupColumns} {...dataProp} onChange={onChange} />,
     );
 
     function clickToMatchExpect(
@@ -1281,7 +1286,7 @@ describe('Table.sorter', () => {
     const onChange = jest.fn();
 
     const { container } = render(
-      <Table columns={columns} dataSource={tableData} onChange={onChange} />,
+      <Table rowKey="key" columns={columns} dataSource={tableData} onChange={onChange} />,
     );
     const sorterColumns = Array.from(container.querySelectorAll('.ant-table-column-has-sorters'));
     expect(sorterColumns.length).toBe(3);

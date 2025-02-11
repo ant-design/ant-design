@@ -3,7 +3,7 @@ import { Table } from 'antd';
 import type { TableColumnsType, TableProps } from 'antd';
 
 interface DataType {
-  key: React.Key;
+  id: React.Key;
   name: string;
   chinese: number;
   math: number;
@@ -43,28 +43,28 @@ const columns: TableColumnsType<DataType> = [
 
 const data: DataType[] = [
   {
-    key: '1',
+    id: '1',
     name: 'John Brown',
     chinese: 98,
     math: 60,
     english: 70,
   },
   {
-    key: '2',
+    id: '2',
     name: 'Jim Green',
     chinese: 98,
     math: 66,
     english: 89,
   },
   {
-    key: '3',
+    id: '3',
     name: 'Joe Black',
     chinese: 98,
     math: 90,
     english: 70,
   },
   {
-    key: '4',
+    id: '4',
     name: 'Jim Red',
     chinese: 88,
     math: 99,

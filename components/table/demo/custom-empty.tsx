@@ -3,7 +3,7 @@ import type { GetProp } from 'antd';
 import { Button, ConfigProvider, Empty, Table } from 'antd';
 
 interface DataType {
-  key: number;
+  id: number;
   name: string;
   age: number;
   address: string;
@@ -11,7 +11,7 @@ interface DataType {
 
 const genFakeData = (count = 5) =>
   Array.from({ length: count }).map<DataType>((_, index) => ({
-    key: index,
+    id: index,
     name: `Edward King ${index}`,
     age: 32 + index,
     address: `London, Park Lane no. ${index}`,

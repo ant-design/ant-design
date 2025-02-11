@@ -7,6 +7,7 @@ describe('Table.Virtual', () => {
   it('should work', () => {
     const { container } = render(
       <Table
+        rowKey="key"
         virtual
         scroll={{ x: 100, y: 100 }}
         columns={[
@@ -60,6 +61,7 @@ describe('Table.Virtual', () => {
 
     const { container } = render(
       <Table
+        rowKey="key"
         virtual
         components={components}
         scroll={{ y: 100 }}
@@ -109,10 +111,11 @@ describe('Table.Virtual', () => {
           upgradeNum: 'Upgraded: 56',
         });
       }
-      return <Table columns={columns} dataSource={data} pagination={false} />;
+      return <Table rowKey="key" columns={columns} dataSource={data} pagination={false} />;
     };
     const { container } = render(
       <Table
+        rowKey="key"
         columns={[
           {
             dataIndex: 'key',

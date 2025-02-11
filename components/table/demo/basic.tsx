@@ -3,7 +3,7 @@ import { Flex, Space, Table, Tag } from 'antd';
 import type { TableProps } from 'antd';
 
 interface DataType {
-  key: string;
+  id: number;
   name: string;
   age: number;
   address: string;
@@ -61,21 +61,21 @@ const columns: TableProps<DataType>['columns'] = [
 
 const data: DataType[] = [
   {
-    key: '1',
+    id: 1,
     name: 'John Brown',
     age: 32,
     address: 'New York No. 1 Lake Park',
     tags: ['nice', 'developer'],
   },
   {
-    key: '2',
+    id: 2,
     name: 'Jim Green',
     age: 42,
     address: 'London No. 1 Lake Park',
     tags: ['loser'],
   },
   {
-    key: '3',
+    id: 3,
     name: 'Joe Black',
     age: 32,
     address: 'Sydney No. 1 Lake Park',

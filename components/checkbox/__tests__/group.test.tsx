@@ -210,6 +210,7 @@ describe('CheckboxGroup', () => {
     const { container } = render(
       <Checkbox.Group onChange={onChange}>
         <Table
+          rowKey="key"
           dataSource={[{ key: 1, value: '1' }]}
           columns={[{ title: 'title', dataIndex: 'value' }]}
           rowSelection={{}}

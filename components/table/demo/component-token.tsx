@@ -11,7 +11,7 @@ type ExpandableConfig<T extends object> = GetProp<TableProps<T>, 'expandable'>;
 type TableRowSelection<T extends object> = GetProp<TableProps<T>, 'rowSelection'>;
 
 interface DataType {
-  key: number;
+  id: number;
   name: string;
   age: number;
   address: string;
@@ -62,7 +62,7 @@ const columns: ColumnsType<DataType> = [
 ];
 
 const dataSource = Array.from({ length: 10 }).map<DataType>((_, i) => ({
-  key: i,
+  id: i,
   name: 'John Brown',
   age: Number(`${i}2`),
   address: `New York No. ${i} Lake Park`,

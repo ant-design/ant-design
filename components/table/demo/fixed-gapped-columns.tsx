@@ -22,7 +22,7 @@ const useStyle = createStyles(({ css, token }) => {
 });
 
 interface DataType {
-  key: React.Key;
+  id: React.Key;
   name: string;
   age: number;
   address: string;
@@ -80,8 +80,8 @@ const columns: TableColumnsType<DataType> = [
 ];
 
 const dataSource: DataType[] = [
-  { key: '1', name: 'Olivia', age: 32, address: 'New York Park' },
-  { key: '2', name: 'Ethan', age: 40, address: 'London Park' },
+  { id: '1', name: 'Olivia', age: 32, address: 'New York Park' },
+  { id: '2', name: 'Ethan', age: 40, address: 'London Park' },
 ];
 
 const App: React.FC = () => {

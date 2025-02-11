@@ -24,14 +24,14 @@ const useStyle = createStyles(({ css, token }) => {
 const { Text } = Typography;
 
 interface DataType {
-  key: string;
+  id: string;
   name: string;
   borrow: number;
   repayment: number;
 }
 
 interface FixedDataType {
-  key: React.Key;
+  id: React.Key;
   name: string;
   description: string;
 }
@@ -53,25 +53,25 @@ const columns: TableColumnsType<DataType> = [
 
 const dataSource: DataType[] = [
   {
-    key: '1',
+    id: '1',
     name: 'John Brown',
     borrow: 10,
     repayment: 33,
   },
   {
-    key: '2',
+    id: '2',
     name: 'Jim Green',
     borrow: 100,
     repayment: 0,
   },
   {
-    key: '3',
+    id: '3',
     name: 'Joe Black',
     borrow: 10,
     repayment: 10,
   },
   {
-    key: '4',
+    id: '4',
     name: 'Jim Red',
     borrow: 75,
     repayment: 45,
@@ -92,7 +92,7 @@ const fixedColumns: TableColumnsType<FixedDataType> = [
 ];
 
 const fixedDataSource = Array.from({ length: 20 }).map<FixedDataType>((_, i) => ({
-  key: i,
+  id: i,
   name: ['Light', 'Bamboo', 'Little'][i % 3],
   description: 'Everything that has a beginning, has an end.',
 }));

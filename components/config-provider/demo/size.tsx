@@ -63,6 +63,7 @@ const App: React.FC = () => {
           <Button>Button</Button>
           <Card title="Card">
             <Table
+              rowKey="key"
               columns={[
                 { title: 'Name', dataIndex: 'name' },
                 { title: 'Age', dataIndex: 'age' },

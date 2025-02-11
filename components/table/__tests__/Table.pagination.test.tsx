@@ -31,7 +31,9 @@ describe('Table.pagination', () => {
   const pagination = { className: 'my-page', pageSize: 2 };
 
   function createTable(props?: TableProps<any>) {
-    return <Table columns={columns} dataSource={data} pagination={pagination} {...props} />;
+    return (
+      <Table rowKey="key" columns={columns} dataSource={data} pagination={pagination} {...props} />
+    );
   }
 
   function renderedNames(container: ReturnType<typeof render>['container']) {

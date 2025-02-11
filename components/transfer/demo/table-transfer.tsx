@@ -43,6 +43,7 @@ const TableTransfer: React.FC<TableTransferProps> = (props) => {
 
         return (
           <Table
+            rowKey="key"
             rowSelection={rowSelection}
             columns={columns}
             dataSource={filteredItems}

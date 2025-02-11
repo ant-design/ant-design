@@ -4,14 +4,14 @@ import type { TableColumnsType } from 'antd';
 import { Badge, Dropdown, Space, Table } from 'antd';
 
 interface ExpandedDataType {
-  key: React.Key;
+  id: React.Key;
   date: string;
   name: string;
   upgradeNum: string;
 }
 
 interface DataType {
-  key: React.Key;
+  id: React.Key;
   name: string;
   platform: string;
   version: string;
@@ -26,14 +26,14 @@ const items = [
 ];
 
 const expandDataSource = Array.from({ length: 3 }).map<ExpandedDataType>((_, i) => ({
-  key: i.toString(),
+  id: i.toString(),
   date: '2014-12-24 23:12:00',
   name: 'This is production name',
   upgradeNum: 'Upgraded: 56',
 }));
 
 const dataSource = Array.from({ length: 3 }).map<DataType>((_, i) => ({
-  key: i.toString(),
+  id: i.toString(),
   name: 'Screen',
   platform: 'iOS',
   version: '10.3.4.5654',

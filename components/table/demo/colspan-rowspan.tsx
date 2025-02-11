@@ -3,7 +3,7 @@ import { Table } from 'antd';
 import type { TableProps } from 'antd';
 
 interface DataType {
-  key: string;
+  id: number;
   name: string;
   age: number;
   tel: string;
@@ -24,7 +24,7 @@ const sharedOnCell = (_: DataType, index?: number) => {
 const columns: TableProps<DataType>['columns'] = [
   {
     title: 'RowHead',
-    dataIndex: 'key',
+    dataIndex: 'id',
     rowScope: 'row',
   },
   {
@@ -74,7 +74,7 @@ const columns: TableProps<DataType>['columns'] = [
 
 const data: DataType[] = [
   {
-    key: '1',
+    id: 1,
     name: 'John Brown',
     age: 32,
     tel: '0571-22098909',
@@ -82,7 +82,7 @@ const data: DataType[] = [
     address: 'New York No. 1 Lake Park',
   },
   {
-    key: '2',
+    id: 2,
     name: 'Jim Green',
     tel: '0571-22098333',
     phone: 18889898888,
@@ -90,7 +90,7 @@ const data: DataType[] = [
     address: 'London No. 1 Lake Park',
   },
   {
-    key: '3',
+    id: 3,
     name: 'Joe Black',
     age: 32,
     tel: '0575-22098909',
@@ -98,7 +98,7 @@ const data: DataType[] = [
     address: 'Sydney No. 1 Lake Park',
   },
   {
-    key: '4',
+    id: 4,
     name: 'Jim Red',
     age: 18,
     tel: '0575-22098909',
@@ -106,7 +106,7 @@ const data: DataType[] = [
     address: 'London No. 2 Lake Park',
   },
   {
-    key: '5',
+    id: 5,
     name: 'Jake White',
     age: 18,
     tel: '0575-22098909',

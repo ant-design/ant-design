@@ -62,6 +62,7 @@ const TableTransfer = ({ leftColumns, rightColumns, ...restProps }: TableTransfe
 
       return (
         <Table
+          rowKey="key"
           rowSelection={rowSelection}
           columns={columns}
           dataSource={filteredItems}

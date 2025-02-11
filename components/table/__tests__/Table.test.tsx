@@ -36,7 +36,7 @@ describe('Table', () => {
     ];
 
     const { asFragment } = render(
-      <Table dataSource={data} pagination={false}>
+      <Table rowKey="key" dataSource={data} pagination={false}>
         <ColumnGroup title="Name">
           <Column title="First Name" dataIndex="firstName" key="firstName" />
           <Column title="Last Name" dataIndex="lastName" key="lastName" />
@@ -129,7 +129,7 @@ describe('Table', () => {
   it('support onHeaderCell', () => {
     const onClick = jest.fn();
     const { container } = render(
-      <Table columns={[{ title: 'title', onHeaderCell: () => ({ onClick }) }]} />,
+      <Table rowKey="key" columns={[{ title: 'title', onHeaderCell: () => ({ onClick }) }]} />,
     );
     fireEvent.click(container.querySelector('th')!);
     expect(onClick).toHaveBeenCalled();
@@ -476,6 +476,7 @@ describe('Table', () => {
   it('support disable row hover', () => {
     const { container } = render(
       <Table
+        rowKey="name"
         columns={[
           {
             title: 'Name',

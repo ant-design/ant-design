@@ -11,7 +11,7 @@ const RenderTimes: React.FC = () => {
 };
 
 interface DataType {
-  key: React.Key;
+  id: React.Key;
   name: string;
   age: number;
   address: string;
@@ -45,7 +45,7 @@ const columns: TableColumnsType<DataType> = [
 
 function genData(length: number) {
   return Array.from({ length }).map<DataType>((_, i) => ({
-    key: i,
+    id: i,
     name: `Edward King ${i}`,
     age: 32,
     address: `London, Park Lane no. ${i}`,

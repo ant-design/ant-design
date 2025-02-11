@@ -132,7 +132,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     dataSource,
     pagination,
     rowSelection,
-    rowKey = 'key',
+    rowKey = 'id',
     rowClassName,
     columns,
     children,

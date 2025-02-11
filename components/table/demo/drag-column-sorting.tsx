@@ -19,7 +19,7 @@ import { Table } from 'antd';
 import type { TableColumnsType } from 'antd';
 
 interface DataType {
-  key: string;
+  id: string;
   name: string;
   gender: string;
   age: number;
@@ -79,7 +79,7 @@ const TableHeaderCell: React.FC<HeaderCellProps> = (props) => {
 
 const dataSource: DataType[] = [
   {
-    key: '1',
+    id: '1',
     name: 'John Brown',
     gender: 'male',
     age: 32,
@@ -87,7 +87,7 @@ const dataSource: DataType[] = [
     address: 'London No. 1 Lake Park',
   },
   {
-    key: '2',
+    id: '2',
     name: 'Jim Green',
     gender: 'female',
     age: 42,
@@ -95,7 +95,7 @@ const dataSource: DataType[] = [
     address: 'London No. 1 Lake Park',
   },
   {
-    key: '3',
+    id: '3',
     name: 'Joe Black',
     gender: 'female',
     age: 32,
@@ -103,7 +103,7 @@ const dataSource: DataType[] = [
     address: 'Sidney No. 1 Lake Park',
   },
   {
-    key: '4',
+    id: '4',
     name: 'George Hcc',
     gender: 'male',
     age: 20,
@@ -173,7 +173,6 @@ const App: React.FC = () => {
       <SortableContext items={columns.map((i) => i.key)} strategy={horizontalListSortingStrategy}>
         <DragIndexContext.Provider value={dragIndex}>
           <Table<DataType>
-            rowKey="key"
             columns={columns}
             dataSource={dataSource}
             components={{

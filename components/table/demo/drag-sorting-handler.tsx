@@ -15,7 +15,7 @@ import { Button, Table } from 'antd';
 import type { TableColumnsType } from 'antd';
 
 interface DataType {
-  key: string;
+  id: string;
   name: string;
   age: number;
   address: string;
@@ -50,9 +50,9 @@ const columns: TableColumnsType<DataType> = [
 ];
 
 const initialData: DataType[] = [
-  { key: '1', name: 'John Brown', age: 32, address: 'Long text Long' },
-  { key: '2', name: 'Jim Green', age: 42, address: 'London No. 1 Lake Park' },
-  { key: '3', name: 'Joe Black', age: 32, address: 'Sidney No. 1 Lake Park' },
+  { id: '1', name: 'John Brown', age: 32, address: 'Long text Long' },
+  { id: '2', name: 'Jim Green', age: 42, address: 'London No. 1 Lake Park' },
+  { id: '3', name: 'Joe Black', age: 32, address: 'Sidney No. 1 Lake Park' },
 ];
 
 interface RowProps extends React.HTMLAttributes<HTMLTableRowElement> {
@@ -95,8 +95,8 @@ const App: React.FC = () => {
   const onDragEnd = ({ active, over }: DragEndEvent) => {
     if (active.id !== over?.id) {
       setDataSource((prevState) => {
-        const activeIndex = prevState.findIndex((record) => record.key === active?.id);
-        const overIndex = prevState.findIndex((record) => record.key === over?.id);
+        const activeIndex = prevState.findIndex((record) => record.id === active?.id);
+        const overIndex = prevState.findIndex((record) => record.id === over?.id);
         return arrayMove(prevState, activeIndex, overIndex);
       });
     }
@@ -104,9 +104,9 @@ const App: React.FC = () => {
 
   return (
     <DndContext modifiers={[restrictToVerticalAxis]} onDragEnd={onDragEnd}>
-      <SortableContext items={dataSource.map((i) => i.key)} strategy={verticalListSortingStrategy}>
+      <SortableContext items={dataSource.map((i) => i.id)} strategy={verticalListSortingStrategy}>
         <Table<DataType>
-          rowKey="key"
+          rowKey="id"
           components={{ body: { row: Row } }}
           columns={columns}
           dataSource={dataSource}

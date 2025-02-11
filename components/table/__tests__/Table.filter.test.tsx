@@ -58,7 +58,9 @@ describe('Table.filter', () => {
   }
 
   function createTable(props?: TableProps<any>) {
-    return <Table columns={[column]} dataSource={data} pagination={false} {...props} />;
+    return (
+      <Table rowKey="key" columns={[column]} dataSource={data} pagination={false} {...props} />
+    );
   }
 
   function renderedNames(container: ReturnType<typeof render>['container']) {
@@ -827,7 +829,7 @@ describe('Table.filter', () => {
         setFilters(filter);
       };
       return (
-        <Table dataSource={data} onChange={handleChange}>
+        <Table rowKey="key" dataSource={data} onChange={handleChange}>
           <Column
             title="name"
             dataIndex="name"
@@ -903,7 +905,7 @@ describe('Table.filter', () => {
       { key: 2, name: 'Tom', age: 21 },
       { key: 3, name: 'Jerry', age: 22 },
     ];
-    const { container } = render(<Table columns={columns} dataSource={testData} />);
+    const { container } = render(<Table rowKey="key" columns={columns} dataSource={testData} />);
 
     expect(renderedNames(container)).toEqual(['Jack']);
   });
@@ -1566,7 +1568,7 @@ describe('Table.filter', () => {
           >
             Set
           </Button>
-          <Table columns={columns} dataSource={data} />
+          <Table rowKey="key" columns={columns} dataSource={data} />
         </div>
       );
     };
@@ -1606,7 +1608,7 @@ describe('Table.filter', () => {
     const onFilter = jest.fn((value, record) => record.key === value);
     const columns: TableProps['columns'] = [{ dataIndex: 'key', filteredValue: [5], onFilter }];
     const testData = [{ key: 1 }, { key: 3 }, { key: 5 }];
-    const { container } = render(<Table columns={columns} dataSource={testData} />);
+    const { container } = render(<Table rowKey="key" columns={columns} dataSource={testData} />);
 
     expect(onFilter).toHaveBeenCalled();
     expect(container.querySelectorAll('tbody tr')).toHaveLength(1);
@@ -1614,7 +1616,7 @@ describe('Table.filter', () => {
 
   it('jsx work', () => {
     const { container } = render(
-      <Table dataSource={data}>
+      <Table rowKey="key" dataSource={data}>
         <Table.Column
           title="Name"
           dataIndex="name"
@@ -1874,6 +1876,7 @@ describe('Table.filter', () => {
       ];
       return (
         <Table
+          rowKey="key"
           columns={columns}
           onChange={handleChange}
           dataSource={[
@@ -2067,7 +2070,7 @@ describe('Table.filter', () => {
           <span className="rest-btn" onClick={handleClick}>
             refresh
           </span>
-          <Table columns={cs} dataSource={ddd} />
+          <Table rowKey="key" columns={cs} dataSource={ddd} />
         </div>
       );
     };
@@ -2931,7 +2934,7 @@ describe('Table.filter', () => {
       { key: 2, name: 'Tom', age: 21 },
       { key: 3, name: 'Jerry', age: 22 },
     ];
-    const { container } = render(<Table columns={columns} dataSource={testData} />);
+    const { container } = render(<Table rowKey="key" columns={columns} dataSource={testData} />);
 
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
@@ -3034,6 +3037,7 @@ describe('Table.filter', () => {
     const TestDemo = ({ renderEmpty }: any) => (
       <ConfigProvider renderEmpty={renderEmpty}>
         <Table
+          rowKey="name"
           dataSource={[{ name: 'John Brown' }]}
           columns={[
             {

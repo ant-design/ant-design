@@ -5,7 +5,7 @@ import type { TableColumnsType, TableProps } from 'antd';
 type TableRowSelection<T extends object = object> = TableProps<T>['rowSelection'];
 
 interface DataType {
-  key: React.ReactNode;
+  id: React.ReactNode;
   name: string;
   age: number;
   address: string;
@@ -33,19 +33,19 @@ const columns: TableColumnsType<DataType> = [
 ];
 
 const dataSource = Array.from({ length: 15 }).map<DataType>((_, i) => ({
-  key: `key${i}`,
+  id: `key${i}`,
   name: `Edward ${i}`,
   age: 32,
   address: `London Park no. ${i}`,
   children: [
     {
-      key: `subKey${i}1`,
+      id: `subKey${i}1`,
       name: 'Brown',
       age: 16,
       address: 'New York No. 3 Lake Park',
     },
     {
-      key: `subKey${i}2`,
+      id: `subKey${i}2`,
       name: 'Jimmy',
       age: 16,
       address: 'New York No. 3 Lake Park',

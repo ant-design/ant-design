@@ -97,7 +97,7 @@ const EditableCell: React.FC<React.PropsWithChildren<EditableCellProps>> = ({
 };
 
 interface DataType {
-  key: React.Key;
+  id: React.Key;
   name: string;
   age: string;
   address: string;
@@ -108,13 +108,13 @@ type ColumnTypes = Exclude<TableProps<DataType>['columns'], undefined>;
 const App: React.FC = () => {
   const [dataSource, setDataSource] = useState<DataType[]>([
     {
-      key: '0',
+      id: '0',
       name: 'Edward King 0',
       age: '32',
       address: 'London, Park Lane no. 0',
     },
     {
-      key: '1',
+      id: '1',
       name: 'Edward King 1',
       age: '32',
       address: 'London, Park Lane no. 1',
@@ -124,7 +124,7 @@ const App: React.FC = () => {
   const [count, setCount] = useState(2);
 
   const handleDelete = (key: React.Key) => {
-    const newData = dataSource.filter((item) => item.key !== key);
+    const newData = dataSource.filter((item) => item.id !== key);
     setDataSource(newData);
   };
 
@@ -148,7 +148,7 @@ const App: React.FC = () => {
       dataIndex: 'operation',
       render: (_, record) =>
         dataSource.length >= 1 ? (
-          <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.key)}>
+          <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.id)}>
             <a>Delete</a>
           </Popconfirm>
         ) : null,
@@ -157,7 +157,7 @@ const App: React.FC = () => {
 
   const handleAdd = () => {
     const newData: DataType = {
-      key: count,
+      id: count,
       name: `Edward King ${count}`,
       age: '32',
       address: `London, Park Lane no. ${count}`,
@@ -168,7 +168,7 @@ const App: React.FC = () => {
 
   const handleSave = (row: DataType) => {
     const newData = [...dataSource];
-    const index = newData.findIndex((item) => row.key === item.key);
+    const index = newData.findIndex((item) => row.id === item.id);
     const item = newData[index];
     newData.splice(index, 1, {
       ...item,

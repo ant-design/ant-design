@@ -4,7 +4,7 @@ import { Flex, Space, Table, Tag } from 'antd';
 const { Column, ColumnGroup } = Table;
 
 interface DataType {
-  key: React.Key;
+  id: React.Key;
   firstName: string;
   lastName: string;
   age: number;
@@ -14,7 +14,7 @@ interface DataType {
 
 const data: DataType[] = [
   {
-    key: '1',
+    id: '1',
     firstName: 'John',
     lastName: 'Brown',
     age: 32,
@@ -22,7 +22,7 @@ const data: DataType[] = [
     tags: ['nice', 'developer'],
   },
   {
-    key: '2',
+    id: '2',
     firstName: 'Jim',
     lastName: 'Green',
     age: 42,
@@ -30,7 +30,7 @@ const data: DataType[] = [
     tags: ['loser'],
   },
   {
-    key: '3',
+    id: '3',
     firstName: 'Joe',
     lastName: 'Black',
     age: 32,

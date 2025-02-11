@@ -13,7 +13,7 @@ import { Table } from 'antd';
 import type { TableColumnsType } from 'antd';
 
 interface DataType {
-  key: string;
+  id: string;
   name: string;
   age: number;
   address: string;

@@ -3,7 +3,7 @@ import { Table } from 'antd';
 import type { TableColumnsType } from 'antd';
 
 interface DataType {
-  key: React.Key;
+  id: React.Key;
   name: string;
   age: number;
   address: string;
@@ -25,7 +25,7 @@ const columns: TableColumnsType<DataType> = [
 ];
 
 const dataSource = Array.from({ length: 200 }).map<DataType>((_, key) => ({
-  key,
+  id: key,
   name: 'Sample Name',
   age: 30 + (key % 5),
   address: `Sample Address ${key}`,

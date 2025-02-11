@@ -3,14 +3,14 @@ import type { TableProps } from 'antd';
 import { Form, Input, InputNumber, Popconfirm, Table, Typography } from 'antd';
 
 interface DataType {
-  key: string;
+  id: string;
   name: string;
   age: number;
   address: string;
 }
 
 const originData = Array.from({ length: 100 }).map<DataType>((_, i) => ({
-  key: i.toString(),
+  id: i.toString(),
   name: `Edward ${i}`,
   age: 32,
   address: `London Park no. ${i}`,
@@ -64,11 +64,11 @@ const App: React.FC = () => {
   const [data, setData] = useState<DataType[]>(originData);
   const [editingKey, setEditingKey] = useState('');
 
-  const isEditing = (record: DataType) => record.key === editingKey;
+  const isEditing = (record: DataType) => record.id === editingKey;
 
   const edit = (record: Partial<DataType> & { key: React.Key }) => {
     form.setFieldsValue({ name: '', age: '', address: '', ...record });
-    setEditingKey(record.key);
+    setEditingKey(record.id);
   };
 
   const cancel = () => {
@@ -80,7 +80,7 @@ const App: React.FC = () => {
       const row = (await form.validateFields()) as DataType;
 
       const newData = [...data];
-      const index = newData.findIndex((item) => key === item.key);
+      const index = newData.findIndex((item) => key === item.id);
       if (index > -1) {
         const item = newData[index];
         newData.splice(index, 1, {
@@ -125,7 +125,7 @@ const App: React.FC = () => {
         const editable = isEditing(record);
         return editable ? (
           <span>
-            <Typography.Link onClick={() => save(record.key)} style={{ marginInlineEnd: 8 }}>
+            <Typography.Link onClick={() => save(record.id)} style={{ marginInlineEnd: 8 }}>
               Save
             </Typography.Link>
             <Popconfirm title="Sure to cancel?" onConfirm={cancel}>

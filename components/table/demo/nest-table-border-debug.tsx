@@ -4,7 +4,7 @@ import type { TableColumnsType, TableProps } from 'antd';
 import { Badge, Dropdown, Form, Space, Switch, Table } from 'antd';
 
 interface DataType {
-  key: React.Key;
+  id: React.Key;
   name: string;
   platform: string;
   version: string;
@@ -14,7 +14,7 @@ interface DataType {
 }
 
 interface ExpandedDataType {
-  key: React.Key;
+  id: React.Key;
   date: string;
   name: string;
   upgradeNum: string;
@@ -58,7 +58,7 @@ const expandedColumns: TableProps<ExpandedDataType>['columns'] = [
 ];
 
 const expandedDataSource = Array.from({ length: 3 }).map<ExpandedDataType>((_, i) => ({
-  key: i,
+  id: i,
   date: '2014-12-24 23:12:00',
   name: 'This is production name',
   upgradeNum: 'Upgraded: 56',
@@ -84,7 +84,7 @@ const columns: TableColumnsType<DataType> = [
 ];
 
 const dataSource = Array.from({ length: 3 }).map<DataType>((_, i) => ({
-  key: i,
+  id: i,
   name: 'Screem',
   platform: 'iOS',
   version: '10.3.4.5654',

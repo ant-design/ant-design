@@ -34,7 +34,7 @@ describe('Table.typescript', () => {
     interface RecordType {
       key: string;
     }
-    const table = <Table<RecordType> dataSource={[{ key: 'Bamboo' }]} />;
+    const table = <Table<RecordType> rowKey="key" dataSource={[{ key: 'Bamboo' }]} />;
     expect(table).toBeTruthy();
   });
 

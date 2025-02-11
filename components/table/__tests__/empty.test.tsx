@@ -49,7 +49,9 @@ const columnsFixed: ColumnsType<any> = [
 
 describe('Table', () => {
   it('renders empty table', () => {
-    const { asFragment } = render(<Table dataSource={[]} columns={columns} pagination={false} />);
+    const { asFragment } = render(
+      <Table rowKey="key" dataSource={[]} columns={columns} pagination={false} />,
+    );
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
@@ -77,7 +79,13 @@ describe('Table', () => {
 
     it('should work', async () => {
       const { container, asFragment } = render(
-        <Table dataSource={[]} columns={columnsFixed} pagination={false} scroll={{ x: 1 }} />,
+        <Table
+          rowKey="key"
+          dataSource={[]}
+          columns={columnsFixed}
+          pagination={false}
+          scroll={{ x: 1 }}
+        />,
       );
 
       triggerResize(container.querySelector('.ant-table')!);
@@ -91,7 +99,13 @@ describe('Table', () => {
 
   it('renders empty table when emptyText is null', () => {
     const { container, asFragment } = render(
-      <Table dataSource={[]} columns={columns} pagination={false} locale={{ emptyText: null }} />,
+      <Table
+        rowKey="key"
+        dataSource={[]}
+        columns={columns}
+        pagination={false}
+        locale={{ emptyText: null }}
+      />,
     );
 
     expect(container.querySelector('.ant-table-placeholder>.ant-table-cell')?.hasChildNodes()).toBe(
@@ -104,6 +118,7 @@ describe('Table', () => {
   it('renders empty table with custom emptyText', () => {
     const { asFragment } = render(
       <Table
+        rowKey="key"
         dataSource={[]}
         columns={columns}
         pagination={false}
@@ -114,7 +129,7 @@ describe('Table', () => {
   });
 
   it('renders empty table without emptyText when loading', () => {
-    const { asFragment } = render(<Table dataSource={[]} columns={columns} loading />);
+    const { asFragment } = render(<Table rowKey="key" dataSource={[]} columns={columns} loading />);
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 });

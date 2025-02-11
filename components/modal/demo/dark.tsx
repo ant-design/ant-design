@@ -156,7 +156,12 @@ const expandColumns: TableProps<ExpandDataType>['columns'] = [
 ];
 
 const expandedRowRender = () => (
-  <Table<ExpandDataType> columns={expandColumns} dataSource={expandDataSource} pagination={false} />
+  <Table<ExpandDataType>
+    rowKey="key"
+    columns={expandColumns}
+    dataSource={expandDataSource}
+    pagination={false}
+  />
 );
 
 const columnsNest: TableProps<NestDataType>['columns'] = [
@@ -238,6 +243,7 @@ const TableTransfer: React.FC<
         return (
           <Table<DataType>
             id="components-transfer-table"
+            rowKey="key"
             rowSelection={rowSelection}
             columns={columns}
             dataSource={filteredItems}
@@ -468,9 +474,15 @@ const Demo: React.FC = () => {
             </TreeNode>
           </TreeNode>
         </Tree>
-        <Table<RecordType> columns={columns} dataSource={dataSource} footer={() => 'Footer'} />
+        <Table<RecordType>
+          rowKey="key"
+          columns={columns}
+          dataSource={dataSource}
+          footer={() => 'Footer'}
+        />
         <Table<DataTableType>
           columns={columnsTable}
+          rowKey="key"
           dataSource={summaryDataSource}
           pagination={false}
           id="table-demo-summary"
@@ -505,11 +517,13 @@ const Demo: React.FC = () => {
         />
         <br />
         <Table<NestDataType>
+          rowKey="key"
           columns={columnsNest}
           expandable={{ expandedRowRender }}
           dataSource={nestDataSource}
         />
         <Table<FixedDataType>
+          rowKey="key"
           columns={columnsFixed}
           dataSource={fixedDataSource}
           scroll={{ x: 1300, y: 100 }}
