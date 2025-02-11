@@ -15,7 +15,7 @@ tag: vVERSION
 
 ---
 
-### 5.24.0
+## 5.24.0
 
 `2025-02-11`
 
@@ -48,7 +48,7 @@ tag: vVERSION
   - 🤖 Deprecate Input.Group, prefer Space.Compact. [#52571](https://github.com/ant-design/ant-design/pull/52571) [@guoyunhe](https://github.com/guoyunhe)
   - 🤖 Tooltip export TooltipRef type. [#49230](https://github.com/ant-design/ant-design/pull/49230) [@nuintun](https://github.com/nuintun)
 
-### 5.23.4
+## 5.23.4
 
 `2025-02-05`
 
