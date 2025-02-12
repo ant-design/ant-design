@@ -258,7 +258,7 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
   return wrapCSSVar(
     <ResizeObserver onResize={updatePosition}>
       <div
-        style={{ ...style, ...contextStyle }}
+        style={{ ...contextStyle, ...style }}
         className={classNames(className, contextClassName)}
         ref={placeholderNodeRef}
         {...restProps}
