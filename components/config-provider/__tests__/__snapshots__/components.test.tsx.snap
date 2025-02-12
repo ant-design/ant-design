@@ -28891,10 +28891,9 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
 exports[`ConfigProvider components Tabs configProvider 1`] = `
 <div
   class="config-tabs config-tabs-top"
-  indicator="[object Object]"
-  more="[object Object]"
 >
   <div
+    aria-orientation="horizontal"
     class="config-tabs-nav"
     role="tablist"
   >
@@ -28932,14 +28931,30 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="config-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
-        More
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
       </button>
     </div>
   </div>
@@ -28965,10 +28980,9 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
 exports[`ConfigProvider components Tabs configProvider componentDisabled 1`] = `
 <div
   class="config-tabs config-tabs-top"
-  indicator="[object Object]"
-  more="[object Object]"
 >
   <div
+    aria-orientation="horizontal"
     class="config-tabs-nav"
     role="tablist"
   >
@@ -29006,14 +29020,30 @@ exports[`ConfigProvider components Tabs configProvider componentDisabled 1`] = `
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="config-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
-        More
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
       </button>
     </div>
   </div>
@@ -29039,10 +29069,9 @@ exports[`ConfigProvider components Tabs configProvider componentDisabled 1`] = `
 exports[`ConfigProvider components Tabs configProvider componentSize large 1`] = `
 <div
   class="config-tabs config-tabs-top config-tabs-large"
-  indicator="[object Object]"
-  more="[object Object]"
 >
   <div
+    aria-orientation="horizontal"
     class="config-tabs-nav"
     role="tablist"
   >
@@ -29080,14 +29109,30 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="config-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
-        More
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
       </button>
     </div>
   </div>
@@ -29113,10 +29158,9 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
 exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] = `
 <div
   class="config-tabs config-tabs-top config-tabs-middle"
-  indicator="[object Object]"
-  more="[object Object]"
 >
   <div
+    aria-orientation="horizontal"
     class="config-tabs-nav"
     role="tablist"
   >
@@ -29154,14 +29198,30 @@ exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] 
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="config-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
-        More
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
       </button>
     </div>
   </div>
@@ -29187,10 +29247,9 @@ exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] 
 exports[`ConfigProvider components Tabs configProvider componentSize small 1`] = `
 <div
   class="config-tabs config-tabs-top config-tabs-small"
-  indicator="[object Object]"
-  more="[object Object]"
 >
   <div
+    aria-orientation="horizontal"
     class="config-tabs-nav"
     role="tablist"
   >
@@ -29228,14 +29287,30 @@ exports[`ConfigProvider components Tabs configProvider componentSize small 1`] =
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="config-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
-        More
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
       </button>
     </div>
   </div>
@@ -29261,10 +29336,9 @@ exports[`ConfigProvider components Tabs configProvider componentSize small 1`] =
 exports[`ConfigProvider components Tabs normal 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
-  indicator="[object Object]"
-  more="[object Object]"
 >
   <div
+    aria-orientation="horizontal"
     class="ant-tabs-nav"
     role="tablist"
   >
@@ -29302,14 +29376,30 @@ exports[`ConfigProvider components Tabs normal 1`] = `
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
-        More
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
       </button>
     </div>
   </div>
@@ -29335,10 +29425,9 @@ exports[`ConfigProvider components Tabs normal 1`] = `
 exports[`ConfigProvider components Tabs prefixCls 1`] = `
 <div
   class="prefix-Tabs prefix-Tabs-top"
-  indicator="[object Object]"
-  more="[object Object]"
 >
   <div
+    aria-orientation="horizontal"
     class="prefix-Tabs-nav"
     role="tablist"
   >
@@ -29376,14 +29465,30 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="prefix-Tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
-        More
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
       </button>
     </div>
   </div>

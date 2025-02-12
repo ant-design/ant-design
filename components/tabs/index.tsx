@@ -5,7 +5,7 @@ import PlusOutlined from '@ant-design/icons/PlusOutlined';
 import classNames from 'classnames';
 import type { TabsProps as RcTabsProps } from '@rc-component/tabs';
 import RcTabs from '@rc-component/tabs';
-import type { GetIndicatorSize } from 'rc-tabs/lib/hooks/useIndicator';
+import type { GetIndicatorSize } from '@rc-component/tabs/lib/hooks/useIndicator';
 import type { EditableConfig, MoreProps } from '@rc-component/tabs/lib/interface';
 
 import { devUseWarning } from '../_util/warning';

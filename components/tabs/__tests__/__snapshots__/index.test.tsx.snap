@@ -3,8 +3,6 @@
 exports[`Tabs renderTabBar custom-tab-bar 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
-  indicator="[object Object]"
-  more="[object Object]"
 >
   <div>
     custom-tab-bar
@@ -33,10 +31,9 @@ exports[`Tabs renderTabBar custom-tab-bar 1`] = `
 exports[`Tabs rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-tabs ant-tabs-top ant-tabs-rtl"
-  indicator="[object Object]"
-  more="[object Object]"
 >
   <div
+    aria-orientation="horizontal"
     class="ant-tabs-nav"
     role="tablist"
   >
@@ -74,14 +71,30 @@ exports[`Tabs rtl render component should be rendered correctly in RTL direction
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
-        More
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
       </button>
     </div>
   </div>
@@ -107,10 +120,9 @@ exports[`Tabs rtl render component should be rendered correctly in RTL direction
 exports[`Tabs tabBarGutter should work 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
-  indicator="[object Object]"
-  more="[object Object]"
 >
   <div
+    aria-orientation="horizontal"
     class="ant-tabs-nav"
     role="tablist"
   >
@@ -174,14 +186,30 @@ exports[`Tabs tabBarGutter should work 1`] = `
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="rc-tabs-test-more"
         style="margin-left: 0px; visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
-        More
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
       </button>
     </div>
   </div>
@@ -223,10 +251,9 @@ exports[`Tabs tabBarGutter should work 1`] = `
 exports[`Tabs tabBarGutter should work 2`] = `
 <div
   class="ant-tabs ant-tabs-left"
-  indicator="[object Object]"
-  more="[object Object]"
 >
   <div
+    aria-orientation="vertical"
     class="ant-tabs-nav"
     role="tablist"
   >
@@ -290,14 +317,30 @@ exports[`Tabs tabBarGutter should work 2`] = `
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="rc-tabs-test-more"
         style="margin-left: 0px; visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
-        More
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
       </button>
     </div>
   </div>
@@ -339,10 +382,9 @@ exports[`Tabs tabBarGutter should work 2`] = `
 exports[`Tabs tabPosition remove card 1`] = `
 <div
   class="ant-tabs ant-tabs-left"
-  indicator="[object Object]"
-  more="[object Object]"
 >
   <div
+    aria-orientation="vertical"
     class="ant-tabs-nav"
     role="tablist"
   >
@@ -380,14 +422,30 @@ exports[`Tabs tabPosition remove card 1`] = `
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
-        More
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
       </button>
     </div>
     <div

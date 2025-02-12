@@ -64,10 +64,9 @@ Array [
   </div>,
   <div
     class="ant-tabs ant-tabs-top"
-    indicator="[object Object]"
-    more="[object Object]"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -103,7 +102,7 @@ Array [
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Little
             </div>
@@ -118,7 +117,7 @@ Array [
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Light
             </div>
@@ -135,17 +134,33 @@ Array [
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
-          More
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -191,10 +206,9 @@ exports[`renders components/tabs/demo/animated.tsx extend context correctly 2`] 
 exports[`renders components/tabs/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
-  indicator="[object Object]"
-  more="[object Object]"
 >
   <div
+    aria-orientation="horizontal"
     class="ant-tabs-nav"
     role="tablist"
   >
@@ -230,7 +244,7 @@ exports[`renders components/tabs/demo/basic.tsx extend context correctly 1`] = `
             class="ant-tabs-tab-btn"
             id="rc-tabs-test-tab-2"
             role="tab"
-            tabindex="0"
+            tabindex="-1"
           >
             Tab 2
           </div>
@@ -245,7 +259,7 @@ exports[`renders components/tabs/demo/basic.tsx extend context correctly 1`] = `
             class="ant-tabs-tab-btn"
             id="rc-tabs-test-tab-3"
             role="tab"
-            tabindex="0"
+            tabindex="-1"
           >
             Tab 3
           </div>
@@ -262,17 +276,33 @@ exports[`renders components/tabs/demo/basic.tsx extend context correctly 1`] = `
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
-        More
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
       </button>
       <div
-        class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+        class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -316,10 +346,9 @@ exports[`renders components/tabs/demo/basic.tsx extend context correctly 2`] = `
 exports[`renders components/tabs/demo/card.tsx extend context correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top ant-tabs-card"
-  indicator="[object Object]"
-  more="[object Object]"
 >
   <div
+    aria-orientation="horizontal"
     class="ant-tabs-nav"
     role="tablist"
   >
@@ -355,7 +384,7 @@ exports[`renders components/tabs/demo/card.tsx extend context correctly 1`] = `
             class="ant-tabs-tab-btn"
             id="rc-tabs-test-tab-2"
             role="tab"
-            tabindex="0"
+            tabindex="-1"
           >
             Tab 2
           </div>
@@ -370,7 +399,7 @@ exports[`renders components/tabs/demo/card.tsx extend context correctly 1`] = `
             class="ant-tabs-tab-btn"
             id="rc-tabs-test-tab-3"
             role="tab"
-            tabindex="0"
+            tabindex="-1"
           >
             Tab 3
           </div>
@@ -387,17 +416,33 @@ exports[`renders components/tabs/demo/card.tsx extend context correctly 1`] = `
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
-        More
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
       </button>
       <div
-        class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+        class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -444,10 +489,9 @@ exports[`renders components/tabs/demo/card-top.tsx extend context correctly 1`] 
 >
   <div
     class="ant-tabs ant-tabs-top ant-tabs-card"
-    indicator="[object Object]"
-    more="[object Object]"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -483,7 +527,7 @@ exports[`renders components/tabs/demo/card-top.tsx extend context correctly 1`] 
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab Title 2
             </div>
@@ -498,7 +542,7 @@ exports[`renders components/tabs/demo/card-top.tsx extend context correctly 1`] 
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab Title 3
             </div>
@@ -515,17 +559,33 @@ exports[`renders components/tabs/demo/card-top.tsx extend context correctly 1`] 
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
-          More
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -578,10 +638,9 @@ exports[`renders components/tabs/demo/card-top.tsx extend context correctly 2`] 
 exports[`renders components/tabs/demo/centered.tsx extend context correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top ant-tabs-centered"
-  indicator="[object Object]"
-  more="[object Object]"
 >
   <div
+    aria-orientation="horizontal"
     class="ant-tabs-nav"
     role="tablist"
   >
@@ -617,7 +676,7 @@ exports[`renders components/tabs/demo/centered.tsx extend context correctly 1`] 
             class="ant-tabs-tab-btn"
             id="rc-tabs-test-tab-2"
             role="tab"
-            tabindex="0"
+            tabindex="-1"
           >
             Tab 2
           </div>
@@ -632,7 +691,7 @@ exports[`renders components/tabs/demo/centered.tsx extend context correctly 1`] 
             class="ant-tabs-tab-btn"
             id="rc-tabs-test-tab-3"
             role="tab"
-            tabindex="0"
+            tabindex="-1"
           >
             Tab 3
           </div>
@@ -649,17 +708,33 @@ exports[`renders components/tabs/demo/centered.tsx extend context correctly 1`] 
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
-        More
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
       </button>
       <div
-        class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+        class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -704,11 +779,10 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
 <div>
   <div
     class="ant-tabs ant-tabs-top"
-    indicator="[object Object]"
-    more="[object Object]"
     style="margin-bottom: 32px;"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -744,7 +818,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -759,7 +833,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 3
             </div>
@@ -776,17 +850,33 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
-          More
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -837,11 +927,10 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
   </div>
   <div
     class="ant-tabs ant-tabs-left"
-    indicator="[object Object]"
-    more="[object Object]"
     style="margin-bottom: 32px;"
   >
     <div
+      aria-orientation="vertical"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -877,7 +966,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -892,7 +981,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 3
             </div>
@@ -909,17 +998,33 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
-          More
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -970,11 +1075,10 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
   </div>
   <div
     class="ant-tabs ant-tabs-top ant-tabs-small"
-    indicator="[object Object]"
-    more="[object Object]"
     style="margin-bottom: 32px;"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -1010,7 +1114,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -1025,7 +1129,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 3
             </div>
@@ -1042,17 +1146,33 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
-          More
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -1103,11 +1223,10 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
   </div>
   <div
     class="ant-tabs ant-tabs-top ant-tabs-large"
-    indicator="[object Object]"
-    more="[object Object]"
     style="margin-bottom: 32px;"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -1143,7 +1262,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -1158,7 +1277,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 3
             </div>
@@ -1175,17 +1294,33 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
-          More
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -1236,10 +1371,9 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
   </div>
   <div
     class="ant-tabs ant-tabs-top ant-tabs-card ant-tabs-centered"
-    indicator="[object Object]"
-    more="[object Object]"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -1277,7 +1411,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -1309,17 +1443,33 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
-          More
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -1358,10 +1508,9 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
   </div>
   <div
     class="ant-tabs ant-tabs-top ant-tabs-small ant-tabs-card ant-tabs-centered"
-    indicator="[object Object]"
-    more="[object Object]"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -1399,7 +1548,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -1431,17 +1580,33 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
-          More
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -1480,10 +1645,9 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
   </div>
   <div
     class="ant-tabs ant-tabs-top ant-tabs-large ant-tabs-card ant-tabs-centered"
-    indicator="[object Object]"
-    more="[object Object]"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -1521,7 +1685,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -1553,17 +1717,33 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
-          More
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -1621,10 +1801,9 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context corr
   </div>
   <div
     class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-card ant-tabs-editable-card"
-    indicator="[object Object]"
-    more="[object Object]"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -1652,6 +1831,7 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context corr
             <button
               aria-label="remove"
               class="ant-tabs-tab-remove"
+              role="tab"
               tabindex="0"
               type="button"
             >
@@ -1687,14 +1867,15 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context corr
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
             <button
               aria-label="remove"
               class="ant-tabs-tab-remove"
-              tabindex="0"
+              role="tab"
+              tabindex="-1"
               type="button"
             >
               <span
@@ -1731,17 +1912,33 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context corr
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
-          More
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -1851,10 +2048,9 @@ Array [
   </div>,
   <div
     class="ant-tabs ant-tabs-top"
-    indicator="[object Object]"
-    more="[object Object]"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -1890,7 +2086,7 @@ Array [
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -1905,7 +2101,7 @@ Array [
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 3
             </div>
@@ -1922,17 +2118,33 @@ Array [
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
-          More
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -1977,13 +2189,12 @@ exports[`renders components/tabs/demo/custom-indicator.tsx extend context correc
 exports[`renders components/tabs/demo/custom-tab-bar.tsx extend context correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
-  indicator="[object Object]"
-  more="[object Object]"
 >
   <div
     style="z-index: 1;"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
       style="background: rgb(255, 255, 255);"
@@ -2020,7 +2231,7 @@ exports[`renders components/tabs/demo/custom-tab-bar.tsx extend context correctl
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -2035,7 +2246,7 @@ exports[`renders components/tabs/demo/custom-tab-bar.tsx extend context correctl
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 3
             </div>
@@ -2053,17 +2264,33 @@ exports[`renders components/tabs/demo/custom-tab-bar.tsx extend context correctl
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
-          More
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -2284,10 +2511,9 @@ exports[`renders components/tabs/demo/custom-tab-bar-node.tsx extend context cor
 exports[`renders components/tabs/demo/disabled.tsx extend context correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
-  indicator="[object Object]"
-  more="[object Object]"
 >
   <div
+    aria-orientation="horizontal"
     class="ant-tabs-nav"
     role="tablist"
   >
@@ -2338,7 +2564,7 @@ exports[`renders components/tabs/demo/disabled.tsx extend context correctly 1`] 
             class="ant-tabs-tab-btn"
             id="rc-tabs-test-tab-3"
             role="tab"
-            tabindex="0"
+            tabindex="-1"
           >
             Tab 3
           </div>
@@ -2355,17 +2581,33 @@ exports[`renders components/tabs/demo/disabled.tsx extend context correctly 1`] 
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
-        More
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
       </button>
       <div
-        class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+        class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -2409,10 +2651,9 @@ exports[`renders components/tabs/demo/disabled.tsx extend context correctly 2`] 
 exports[`renders components/tabs/demo/editable-card.tsx extend context correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-card ant-tabs-editable-card"
-  indicator="[object Object]"
-  more="[object Object]"
 >
   <div
+    aria-orientation="horizontal"
     class="ant-tabs-nav"
     role="tablist"
   >
@@ -2440,6 +2681,7 @@ exports[`renders components/tabs/demo/editable-card.tsx extend context correctly
           <button
             aria-label="remove"
             class="ant-tabs-tab-remove"
+            role="tab"
             tabindex="0"
             type="button"
           >
@@ -2475,14 +2717,15 @@ exports[`renders components/tabs/demo/editable-card.tsx extend context correctly
             class="ant-tabs-tab-btn"
             id="rc-tabs-test-tab-2"
             role="tab"
-            tabindex="0"
+            tabindex="-1"
           >
             Tab 2
           </div>
           <button
             aria-label="remove"
             class="ant-tabs-tab-remove"
-            tabindex="0"
+            role="tab"
+            tabindex="-1"
             type="button"
           >
             <span
@@ -2517,7 +2760,7 @@ exports[`renders components/tabs/demo/editable-card.tsx extend context correctly
             class="ant-tabs-tab-btn"
             id="rc-tabs-test-tab-3"
             role="tab"
-            tabindex="0"
+            tabindex="-1"
           >
             Tab 3
           </div>
@@ -2562,17 +2805,33 @@ exports[`renders components/tabs/demo/editable-card.tsx extend context correctly
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
-        More
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
       </button>
       <div
-        class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+        class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -2645,10 +2904,9 @@ exports[`renders components/tabs/demo/extra.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-tabs ant-tabs-top"
-    indicator="[object Object]"
-    more="[object Object]"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -2684,7 +2942,7 @@ Array [
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -2699,7 +2957,7 @@ Array [
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 3
             </div>
@@ -2716,17 +2974,33 @@ Array [
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
-          More
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -2837,10 +3111,9 @@ Array [
   <br />,
   <div
     class="ant-tabs ant-tabs-top"
-    indicator="[object Object]"
-    more="[object Object]"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -2888,7 +3161,7 @@ Array [
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -2903,7 +3176,7 @@ Array [
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 3
             </div>
@@ -2920,17 +3193,33 @@ Array [
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
-          More
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -2987,10 +3276,9 @@ exports[`renders components/tabs/demo/extra.tsx extend context correctly 2`] = `
 exports[`renders components/tabs/demo/icon.tsx extend context correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
-  indicator="[object Object]"
-  more="[object Object]"
 >
   <div
+    aria-orientation="horizontal"
     class="ant-tabs-nav"
     role="tablist"
   >
@@ -3011,7 +3299,7 @@ exports[`renders components/tabs/demo/icon.tsx extend context correctly 1`] = `
             class="ant-tabs-tab-btn"
             id="rc-tabs-test-tab-1"
             role="tab"
-            tabindex="0"
+            tabindex="-1"
           >
             <span
               class="ant-tabs-tab-icon"
@@ -3093,17 +3381,33 @@ exports[`renders components/tabs/demo/icon.tsx extend context correctly 1`] = `
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
-        More
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
       </button>
       <div
-        class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+        class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -3806,10 +4110,9 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-tabs ant-tabs-top"
-    indicator="[object Object]"
-    more="[object Object]"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -3845,7 +4148,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -3862,17 +4165,33 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
-          More
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -3906,11 +4225,10 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         >
           <div
             class="ant-tabs ant-tabs-top"
-            indicator="[object Object]"
-            more="[object Object]"
             style="height: 300px;"
           >
             <div
+              aria-orientation="horizontal"
               class="ant-tabs-nav"
               role="tablist"
             >
@@ -3931,7 +4249,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-0"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 0
                     </div>
@@ -3961,7 +4279,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-2"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 2
                     </div>
@@ -3976,7 +4294,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-3"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 3
                     </div>
@@ -3991,7 +4309,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-4"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 4
                     </div>
@@ -4006,7 +4324,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-5"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 5
                     </div>
@@ -4021,7 +4339,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-6"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 6
                     </div>
@@ -4036,7 +4354,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-7"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 7
                     </div>
@@ -4051,7 +4369,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-8"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 8
                     </div>
@@ -4066,7 +4384,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-9"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 9
                     </div>
@@ -4081,7 +4399,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-10"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 10
                     </div>
@@ -4096,7 +4414,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-11"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 11
                     </div>
@@ -4111,7 +4429,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-12"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 12
                     </div>
@@ -4126,7 +4444,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-13"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 13
                     </div>
@@ -4141,7 +4459,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-14"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 14
                     </div>
@@ -4156,7 +4474,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-15"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 15
                     </div>
@@ -4171,7 +4489,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-16"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 16
                     </div>
@@ -4186,7 +4504,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-17"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 17
                     </div>
@@ -4201,7 +4519,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-18"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 18
                     </div>
@@ -4216,7 +4534,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-19"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       Tab 19
                     </div>
@@ -4233,17 +4551,33 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   aria-controls="rc-tabs-test-more-popup"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-hidden="true"
                   class="ant-tabs-nav-more"
                   id="rc-tabs-test-more"
                   style="visibility: hidden; order: 1;"
-                  tabindex="-1"
                   type="button"
                 >
-                  More
+                  <span
+                    aria-label="ellipsis"
+                    class="anticon anticon-ellipsis"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="ellipsis"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                      />
+                    </svg>
+                  </span>
                 </button>
                 <div
-                  class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+                  class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <ul
@@ -4400,10 +4734,9 @@ Array [
   </div>,
   <div
     class="ant-tabs ant-tabs-left"
-    indicator="[object Object]"
-    more="[object Object]"
   >
     <div
+      aria-orientation="vertical"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -4439,7 +4772,7 @@ Array [
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -4454,7 +4787,7 @@ Array [
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 3
             </div>
@@ -4471,17 +4804,33 @@ Array [
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
-          More
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -4599,11 +4948,10 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-tabs ant-tabs-top ant-tabs-small"
-    indicator="[object Object]"
-    more="[object Object]"
     style="margin-bottom: 32px;"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -4639,7 +4987,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
@@ -4654,7 +5002,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 3
             </div>
@@ -4671,17 +5019,33 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
-          More
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -4720,11 +5084,10 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-tabs ant-tabs-top ant-tabs-small ant-tabs-card"
-    indicator="[object Object]"
-    more="[object Object]"
     style="margin-bottom: 32px;"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -4760,7 +5123,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Card Tab 2
             </div>
@@ -4775,7 +5138,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Card Tab 3
             </div>
@@ -4792,17 +5155,33 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
-          More
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -4841,10 +5220,9 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-small ant-tabs-card ant-tabs-editable-card"
-    indicator="[object Object]"
-    more="[object Object]"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -4872,6 +5250,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
             <button
               aria-label="remove"
               class="ant-tabs-tab-remove"
+              role="tab"
               tabindex="0"
               type="button"
             >
@@ -4907,14 +5286,15 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 2
             </div>
             <button
               aria-label="remove"
               class="ant-tabs-tab-remove"
-              tabindex="0"
+              role="tab"
+              tabindex="-1"
               type="button"
             >
               <span
@@ -4949,14 +5329,15 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab 3
             </div>
             <button
               aria-label="remove"
               class="ant-tabs-tab-remove"
-              tabindex="0"
+              role="tab"
+              tabindex="-1"
               type="button"
             >
               <span
@@ -5021,17 +5402,33 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
-          More
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -5155,11 +5552,10 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-tabs ant-tabs-top"
-    indicator="[object Object]"
-    more="[object Object]"
     style="height: 220px;"
   >
     <div
+      aria-orientation="horizontal"
       class="ant-tabs-nav"
       role="tablist"
     >
@@ -5181,7 +5577,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-0"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-0
             </div>
@@ -5213,7 +5609,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-2"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-2
             </div>
@@ -5229,7 +5625,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-3"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-3
             </div>
@@ -5245,7 +5641,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-4"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-4
             </div>
@@ -5261,7 +5657,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-5"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-5
             </div>
@@ -5277,7 +5673,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-6"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-6
             </div>
@@ -5293,7 +5689,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-7"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-7
             </div>
@@ -5309,7 +5705,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-8"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-8
             </div>
@@ -5325,7 +5721,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-9"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-9
             </div>
@@ -5341,7 +5737,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-10"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-10
             </div>
@@ -5357,7 +5753,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-11"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-11
             </div>
@@ -5373,7 +5769,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-12"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-12
             </div>
@@ -5389,7 +5785,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-13"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-13
             </div>
@@ -5405,7 +5801,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-14"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-14
             </div>
@@ -5421,7 +5817,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-15"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-15
             </div>
@@ -5437,7 +5833,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-16"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-16
             </div>
@@ -5453,7 +5849,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-17"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-17
             </div>
@@ -5469,7 +5865,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-18"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-18
             </div>
@@ -5485,7 +5881,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-19"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-19
             </div>
@@ -5501,7 +5897,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-20"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-20
             </div>
@@ -5517,7 +5913,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-21"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-21
             </div>
@@ -5533,7 +5929,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-22"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-22
             </div>
@@ -5549,7 +5945,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-23"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-23
             </div>
@@ -5565,7 +5961,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-24"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-24
             </div>
@@ -5581,7 +5977,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-25"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-25
             </div>
@@ -5597,7 +5993,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-26"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-26
             </div>
@@ -5613,7 +6009,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-27"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-27
             </div>
@@ -5644,7 +6040,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
               class="ant-tabs-tab-btn"
               id="rc-tabs-test-tab-29"
               role="tab"
-              tabindex="0"
+              tabindex="-1"
             >
               Tab-29
             </div>
@@ -5661,17 +6057,33 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
           aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-hidden="true"
           class="ant-tabs-nav-more"
           id="rc-tabs-test-more"
           style="visibility: hidden; order: 1;"
-          tabindex="-1"
           type="button"
         >
-          More
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </button>
         <div
-          class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
+          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
