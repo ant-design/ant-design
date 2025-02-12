@@ -245,7 +245,7 @@ describe('notification.hooks', () => {
         React.useEffect(() => {
           api.info({
             className,
-            message: 'Notification Title',
+            title: 'Notification Title',
             duration: 0,
           });
         }, []);

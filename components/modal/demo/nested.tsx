@@ -104,7 +104,7 @@ const Demo: React.FC = () => {
                 onClick={() => {
                   message.success('Hello World');
                   notification.success({
-                    message: 'Hello World',
+                    title: 'Hello World',
                   });
                 }}
               >
@@ -115,7 +115,7 @@ const Demo: React.FC = () => {
                 onClick={() => {
                   messageInstance.success('Hello World');
                   notificationInstance.success({
-                    message: 'Hello World',
+                    title: 'Hello World',
                   });
                 }}
               >

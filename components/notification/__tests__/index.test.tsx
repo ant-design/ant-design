@@ -49,7 +49,7 @@ describe('notification', () => {
 
     for (let i = 0; i < 5; i += 1) {
       notification.open({
-        message: 'Notification Title',
+        title: 'Notification Title',
         duration: 0,
       });
     }
@@ -65,14 +65,14 @@ describe('notification', () => {
 
   it('should be able to hide manually', async () => {
     notification.open({
-      message: 'Notification Title 1',
+      title: 'Notification Title 1',
       duration: 0,
       key: '1',
     });
     await awaitPromise();
 
     notification.open({
-      message: 'Notification Title 2',
+      title: 'Notification Title 2',
       duration: 0,
       key: '2',
     });
@@ -96,13 +96,13 @@ describe('notification', () => {
 
   it('should be able to destroy globally', async () => {
     notification.open({
-      message: 'Notification Title 1',
+      title: 'Notification Title 1',
       duration: 0,
     });
     await awaitPromise();
 
     notification.open({
-      message: 'Notification Title 2',
+      title: 'Notification Title 2',
       duration: 0,
     });
 
@@ -131,7 +131,7 @@ describe('notification', () => {
     });
 
     notification.open({
-      message: 'whatever',
+      title: 'whatever',
     });
     await awaitPromise();
 
@@ -141,7 +141,7 @@ describe('notification', () => {
   it('should be able to global config rootPrefixCls', async () => {
     ConfigProvider.config({ prefixCls: 'prefix-test', iconPrefixCls: 'bamboo' });
 
-    notification.success({ message: 'Notification Title', duration: 0 });
+    notification.success({ title: 'Notification Title', duration: 0 });
     await awaitPromise();
 
     expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
@@ -157,7 +157,7 @@ describe('notification', () => {
     });
 
     notification.open({
-      message: 'Notification Title',
+      title: 'Notification Title',
       duration: 0,
     });
     await awaitPromise();
@@ -177,7 +177,7 @@ describe('notification', () => {
 
     list.forEach((type) => {
       notification[type]({
-        message: 'Notification Title',
+        title: 'Notification Title',
         duration: 0,
         description: 'This is the content of the notification.',
       });
@@ -194,7 +194,7 @@ describe('notification', () => {
     const list = ['success', 'info', 'warning', 'error'] as const;
     list.forEach((type) => {
       notification[type]({
-        message: 'Notification Title',
+        title: 'Notification Title',
         duration: 0,
         description: 'This is the content of the notification.',
       });
@@ -211,7 +211,7 @@ describe('notification', () => {
     const onClick = jest.fn();
 
     notification.open({
-      message: 'Notification Title',
+      title: 'Notification Title',
       duration: 0,
       onClick,
     });
@@ -225,7 +225,7 @@ describe('notification', () => {
 
   it('support closeIcon', async () => {
     notification.open({
-      message: 'Notification Title',
+      title: 'Notification Title',
       duration: 0,
       closeIcon: <span className="test-customize-icon" />,
     });
@@ -241,7 +241,7 @@ describe('notification', () => {
 
     // Global Icon
     notification.open({
-      message: 'Notification Title',
+      title: 'Notification Title',
       duration: 0,
     });
     await awaitPromise();
@@ -250,7 +250,7 @@ describe('notification', () => {
 
     // Notice Icon
     notification.open({
-      message: 'Notification Title',
+      title: 'Notification Title',
       duration: 0,
       closeIcon: <span className="replace-icon" />,
     });
@@ -272,7 +272,7 @@ describe('notification', () => {
 
     // Global Icon
     notification.open({
-      message: 'Notification Title',
+      title: 'Notification Title',
       duration: 0,
     });
     await awaitPromise();
@@ -282,7 +282,7 @@ describe('notification', () => {
 
     // Notice Icon
     notification.open({
-      message: 'Notification Title',
+      title: 'Notification Title',
       duration: 0,
       closable: {
         closeIcon: <span className="replace-icon" />,
@@ -302,7 +302,7 @@ describe('notification', () => {
     const list = ['1', '2'];
     list.forEach((type) => {
       notification.open({
-        message: 'Notification Title',
+        title: 'Notification Title',
         closeIcon: <span className={`test-customize-icon-${type}`} />,
         duration: 0,
       });
@@ -321,7 +321,7 @@ describe('notification', () => {
     });
 
     notification.open({
-      message: 'whatever',
+      title: 'whatever',
     });
     await awaitPromise();
 
@@ -330,7 +330,7 @@ describe('notification', () => {
 
   it('support icon', async () => {
     notification.open({
-      message: 'Notification Title',
+      title: 'Notification Title',
       duration: 0,
       icon: <UserOutlined />,
     });
@@ -342,7 +342,7 @@ describe('notification', () => {
   it('support props', () => {
     act(() => {
       notification.open({
-        message: 'Notification Title',
+        title: 'Notification Title',
         duration: 0,
         props: { 'data-testid': 'test-notification' },
       });
@@ -354,7 +354,7 @@ describe('notification', () => {
   it('support role', async () => {
     act(() => {
       notification.open({
-        message: 'Notification Title',
+        title: 'Notification Title',
         duration: 0,
         role: 'status',
       });
@@ -369,24 +369,24 @@ describe('notification', () => {
     });
     act(() => {
       notification.open({
-        message: 'Notification Title',
+        title: 'Notification Title',
         duration: 0,
         className: 'normal',
       });
       notification.open({
-        message: 'Notification Title',
+        title: 'Notification Title',
         duration: 0,
         className: 'custom',
         closeIcon: <span className="custom-close-icon">Close</span>,
       });
       notification.open({
-        message: 'Notification Title',
+        title: 'Notification Title',
         duration: 0,
         closeIcon: null,
         className: 'with-null',
       });
       notification.open({
-        message: 'Notification Title',
+        title: 'Notification Title',
         duration: 0,
         closeIcon: false,
         className: 'with-false',
@@ -402,7 +402,7 @@ describe('notification', () => {
   it('style.width could be override', async () => {
     act(() => {
       notification.open({
-        message: 'Notification Title',
+        title: 'Notification Title',
         duration: 0,
         style: {
           width: 600,
