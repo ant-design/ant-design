@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
+import RcCSSMotion from '@rc-component/motion';
+import { genCSSMotion as genRcCSSMotion } from '@rc-component/motion/lib/CSSMotion';
 import KeyCode from '@rc-component/util/lib/KeyCode';
 import { resetWarned } from '@rc-component/util/lib/warning';
-import CSSMotion from 'rc-motion';
-import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
 
 import type { ModalFuncProps } from '..';
 import Modal from '..';
@@ -16,7 +16,7 @@ import destroyFns from '../destroyFns';
 
 const { confirm } = Modal;
 
-jest.mock('rc-motion');
+jest.mock('@rc-component/motion');
 
 // TODO: Remove this. Mock for React 19
 jest.mock('react-dom', () => {
@@ -70,10 +70,11 @@ jest.mock('../../_util/ActionButton', () => {
 });
 
 describe('Modal.confirm triggers callbacks correctly', () => {
-  // Inject CSSMotion to replace with No transition support
-  const MockCSSMotion = genCSSMotion(false);
-  Object.keys(MockCSSMotion).forEach((key) => {
-    (CSSMotion as any)[key] = (MockCSSMotion as any)[key];
+  // Inject `@rc-component/motion` to replace with No transition support
+  const MockRcCSSMotion = genRcCSSMotion(false);
+  Object.keys(MockRcCSSMotion).forEach((key) => {
+    // @ts-ignore
+    RcCSSMotion[key] = MockRcCSSMotion[key];
   });
 
   // // Mock for @rc-component/util raf
