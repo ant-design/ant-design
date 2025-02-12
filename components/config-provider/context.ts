@@ -171,7 +171,8 @@ export type TextAreaConfig = ComponentStyleConfig &
 export type ButtonConfig = ComponentStyleConfig &
   Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace'>;
 
-export type NotificationConfig = ComponentStyleConfig & Pick<ArgsProps, 'closeIcon'>;
+export type NotificationConfig = ComponentStyleConfig &
+  Pick<ArgsProps, 'closeIcon' | 'classNames' | 'styles'>;
 
 export type TagConfig = ComponentStyleConfig & Pick<TagProps, 'closeIcon' | 'closable'>;
 

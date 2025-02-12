@@ -59,7 +59,8 @@ The properties of config are as follows:
 | pauseOnHover | keep the timer running or not on hover | boolean | true | 5.18.0 |
 | icon | Customized icon | ReactNode | - | - |
 | key | The unique identifier of the Notification | string | - | - |
-| message | The title of notification box (required) | ReactNode | - | - |
+| title | The title of notification box (required) | ReactNode | - | 6.0.0 |
+| ~~message~~ | The title of notification box (required), please use `title` instead | ReactNode | - | - |
 | placement | Position of Notification, can be one of `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | string | `topRight` | - |
 | style | Customized inline style | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - | - |
 | role | The semantics of notification content recognized by screen readers. The default value is `alert`. When set as the default value, the screen reader will promptly interrupt any ongoing content reading and prioritize the notification content for immediate attention. | `alert \| status` | `alert` | 5.6.0 |
@@ -117,6 +118,10 @@ notification.config({
 | rtl | Whether to enable RTL mode | boolean | false |  |
 | top | Distance from the top of the viewport, when `placement` is `top` `topRight` or `topLeft` (unit: pixels) | number | 24 |  |
 | maxCount | Max Notification show, drop oldest if exceed limit | number | - | 4.17.0 |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 
