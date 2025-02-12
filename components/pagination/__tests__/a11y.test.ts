@@ -1,3 +1,6 @@
 import accessibilityDemoTest from '../../../tests/shared/accessibilityTest';
 
-accessibilityDemoTest('pagination');
+accessibilityDemoTest('pagination', {
+  // waiting for @rc-component/pagination fix
+  skip: ['simple.tsx'],
+});

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useMemo, useRef } from 'react';
+import CSSMotion from '@rc-component/motion';
 import classnames from 'classnames';
-import CSSMotion from 'rc-motion';
 
 import type { PresetStatusColorType } from '../_util/colors';
 import { isPresetColor } from '../_util/colors';

@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
+import { CSSMotionList } from '@rc-component/motion';
 import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
-import { CSSMotionList } from 'rc-motion';
 
 import { COLOR_IMAGES, getClosetColor } from './colorUtil';
 

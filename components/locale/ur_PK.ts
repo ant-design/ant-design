@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/ur_PK';
+import Pagination from '@rc-component/pagination/lib/locale/ur_PK';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/ur_PK';

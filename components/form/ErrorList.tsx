@@ -1,7 +1,7 @@
 import * as React from 'react';
+import type { CSSMotionProps } from '@rc-component/motion';
+import CSSMotion, { CSSMotionList } from '@rc-component/motion';
 import classNames from 'classnames';
-import type { CSSMotionProps } from 'rc-motion';
-import CSSMotion, { CSSMotionList } from 'rc-motion';
 
 import initCollapseMotion from '../_util/motion';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';

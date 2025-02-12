@@ -1,7 +1,7 @@
 import React from 'react';
+import CSSMotion from '@rc-component/motion';
+import { genCSSMotion } from '@rc-component/motion/lib/CSSMotion';
 import KeyCode from '@rc-component/util/lib/KeyCode';
-import CSSMotion from 'rc-motion';
-import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
 
 import Modal from '..';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -12,7 +12,7 @@ import zhCN from '../../locale/zh_CN';
 import type { ModalFunc } from '../confirm';
 
 jest.mock('@rc-component/util/lib/Portal');
-jest.mock('rc-motion');
+jest.mock('@rc-component/motion');
 
 // TODO: Remove this. Mock for React 19
 jest.mock('react-dom', () => {

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
+import CSSMotion from '@rc-component/motion';
+import { genCSSMotion } from '@rc-component/motion/lib/CSSMotion';
 import KeyCode from '@rc-component/util/lib/KeyCode';
 import { resetWarned } from '@rc-component/util/lib/warning';
-import CSSMotion from 'rc-motion';
-import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
 
 import type { ModalFuncProps } from '..';
 import Modal from '..';
@@ -16,7 +16,7 @@ import destroyFns from '../destroyFns';
 
 const { confirm } = Modal;
 
-jest.mock('rc-motion');
+jest.mock('@rc-component/motion');
 
 // TODO: Remove this. Mock for React 19
 jest.mock('react-dom', () => {

@@ -2,8 +2,8 @@ import * as React from 'react';
 import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
 import DownloadOutlined from '@ant-design/icons/DownloadOutlined';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
+import CSSMotion from '@rc-component/motion';
 import classNames from 'classnames';
-import CSSMotion from 'rc-motion';
 
 import { ConfigContext } from '../../config-provider';
 import Progress from '../../progress';
