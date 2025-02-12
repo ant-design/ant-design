@@ -3,14 +3,14 @@ import type { Settings } from '@ant-design/react-slick';
 import SlickCarousel from '@ant-design/react-slick';
 import classNames from 'classnames';
 
-import { ConfigContext } from '../config-provider';
-import useStyle from './style';
+import { useComponentConfig } from '../config-provider/context';
+import useStyle, { DotDuration } from './style';
 
 export type CarouselEffect = 'scrollx' | 'fade';
 export type DotPosition = 'top' | 'bottom' | 'left' | 'right';
 
 // Carousel
-export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass'> {
+export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass' | 'autoplay'> {
   effect?: CarouselEffect;
   style?: React.CSSProperties;
   prefixCls?: string;
@@ -21,6 +21,7 @@ export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass'> {
   children?: React.ReactNode;
   dots?: boolean | { className?: string };
   waitForAnimate?: boolean;
+  autoplay?: boolean | { dotDuration?: boolean };
 }
 
 export interface CarouselRef {
@@ -56,9 +57,15 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     className: customClassName,
     style,
     id,
+    autoplay = false,
     ...otherProps
   } = props;
-  const { getPrefixCls, direction, carousel } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('carousel');
   const slickRef = React.useRef<any>(null);
 
   const goTo = (slide: number, dontAnimate = false) => {
@@ -88,8 +95,9 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
 
   const newProps = {
     vertical,
-    className: classNames(customClassName, carousel?.className),
-    style: { ...carousel?.style, ...style },
+    className: classNames(customClassName, contextClassName),
+    style: { ...contextStyle, ...style },
+    autoplay: !!autoplay,
     ...otherProps,
   };
 
@@ -119,8 +127,15 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     rootClassName,
   );
 
+  const { autoplaySpeed = 3000 } = props;
+  const mergedShowDuration =
+    autoplay && (typeof autoplay === 'object' ? autoplay.dotDuration : false);
+  const dotDurationStyle = mergedShowDuration
+    ? ({ [DotDuration]: `${autoplaySpeed / 1000}s` } as React.CSSProperties)
+    : {};
+
   return wrapCSSVar(
-    <div className={className} id={id}>
+    <div className={className} id={id} style={dotDurationStyle}>
       <SlickCarousel
         ref={slickRef}
         {...newProps}

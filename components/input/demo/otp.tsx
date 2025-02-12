@@ -32,6 +32,13 @@ const App: React.FC = () => {
       <Input.OTP variant="filled" {...sharedProps} />
       <Title level={5}>With custom display character</Title>
       <Input.OTP mask="🔒" {...sharedProps} />
+      <Title level={5}>With custom string separator</Title>
+      <Input.OTP separator={(index) => (index === 2 ? '-' : undefined)} {...sharedProps} />
+      <Title level={5}>With custom JSX separator</Title>
+      <Input.OTP
+        separator={(index) => index === 1 && <span style={{ color: 'red' }}>—</span>}
+        {...sharedProps}
+      />
     </Flex>
   );
 };

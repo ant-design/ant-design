@@ -155,7 +155,9 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Month
         </span>
       </label>
@@ -175,7 +177,9 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Year
         </span>
       </label>
@@ -1109,7 +1113,9 @@ exports[`Calendar Calendar should support locale 1`] = `
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           月
         </span>
       </label>
@@ -1129,7 +1135,9 @@ exports[`Calendar Calendar should support locale 1`] = `
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           年
         </span>
       </label>
@@ -2063,7 +2071,9 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Month
         </span>
       </label>
@@ -2083,7 +2093,9 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Year
         </span>
       </label>
@@ -3017,7 +3029,9 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Month
         </span>
       </label>
@@ -3037,7 +3051,9 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Year
         </span>
       </label>
