@@ -462,4 +462,15 @@ describe('notification', () => {
     expect(document.querySelector('.actions-class')).toHaveStyle({ background: 'green' });
     expect(document.querySelector('.icon-class')).toHaveStyle({ color: 'blue' });
   });
+  it('message API compatibility test', async () => {
+    act(() => {
+      notification.warning({
+        message: 'Warning Message',
+        duration: 0,
+        className: 'warning-message',
+      });
+    });
+    await awaitPromise();
+    expect(document.querySelector('.warning-message')).toHaveTextContent('Warning Message');
+  });
 });
