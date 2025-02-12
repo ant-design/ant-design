@@ -56,6 +56,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -80,11 +81,13 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -109,6 +112,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -586,6 +590,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -610,11 +615,13 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -639,6 +646,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -1056,6 +1064,7 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -1080,11 +1089,13 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -1109,6 +1120,7 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -1527,6 +1539,7 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -1551,11 +1564,13 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -1580,6 +1595,7 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -1896,6 +1912,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -1920,11 +1937,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -1949,6 +1968,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -2370,6 +2390,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -2394,11 +2415,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -2423,6 +2446,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -2736,6 +2760,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -2760,11 +2785,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -2789,6 +2816,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -2979,6 +3007,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -3003,11 +3032,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -3032,6 +3063,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -3164,6 +3196,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -3188,11 +3221,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -3217,6 +3252,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -3473,6 +3509,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -3497,11 +3534,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -3526,6 +3565,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -3723,6 +3763,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -3747,11 +3788,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -3776,6 +3819,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -4526,6 +4570,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -4550,11 +4595,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -4579,6 +4626,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -5146,6 +5194,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -5170,11 +5219,13 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -5199,6 +5250,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -5631,6 +5683,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -5655,11 +5708,13 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -5684,6 +5739,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -6062,6 +6118,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -6086,11 +6143,13 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -6115,6 +6174,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -6431,6 +6491,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -6455,11 +6516,13 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -6484,6 +6547,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -6633,6 +6697,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -6657,11 +6722,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectCurrent"
               role="menuitem"
@@ -6686,11 +6753,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -6715,6 +6784,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -7031,6 +7101,7 @@ Array [
             title="1/100"
           >
             <input
+              aria-label="Go to"
               size="3"
               type="text"
               value="1"
@@ -7174,6 +7245,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -7198,11 +7270,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectCurrent"
               role="menuitem"
@@ -7227,11 +7301,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -7256,6 +7332,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -7572,6 +7649,7 @@ Array [
             title="1/100"
           >
             <input
+              aria-label="Go to"
               size="3"
               type="text"
               value="1"
@@ -7705,6 +7783,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -7729,11 +7808,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -7758,6 +7839,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -8214,6 +8296,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-removeAll"
               role="menuitem"
@@ -8238,6 +8321,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -8563,6 +8647,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -8587,11 +8672,13 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -8616,6 +8703,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -9073,6 +9161,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -9097,11 +9186,13 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -9126,6 +9217,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -9534,6 +9626,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -9558,11 +9651,13 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -9587,6 +9682,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -9777,6 +9873,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -9801,11 +9898,13 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -9830,6 +9929,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -9962,6 +10062,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -9986,11 +10087,13 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -10015,6 +10118,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -10271,6 +10375,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -10295,11 +10400,13 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -10324,6 +10431,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -10657,6 +10765,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                       tabindex="0"
                                     >
                                       <li
+                                        aria-describedby="test-id"
                                         class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                         data-menu-id="rc-menu-uuid-test-all"
                                         role="menuitem"
@@ -10681,11 +10790,13 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                         >
                                           <div
                                             class="ant-tooltip-inner"
+                                            id="test-id"
                                             role="tooltip"
                                           />
                                         </div>
                                       </div>
                                       <li
+                                        aria-describedby="test-id"
                                         class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                         data-menu-id="rc-menu-uuid-test-invert"
                                         role="menuitem"
@@ -10710,11 +10821,13 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                         >
                                           <div
                                             class="ant-tooltip-inner"
+                                            id="test-id"
                                             role="tooltip"
                                           />
                                         </div>
                                       </div>
                                       <li
+                                        aria-describedby="test-id"
                                         class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                         data-menu-id="rc-menu-uuid-test-none"
                                         role="menuitem"
@@ -10739,6 +10852,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                         >
                                           <div
                                             class="ant-tooltip-inner"
+                                            id="test-id"
                                             role="tooltip"
                                           />
                                         </div>
@@ -11556,6 +11670,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                       tabindex="0"
                                     >
                                       <li
+                                        aria-describedby="test-id"
                                         class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                         data-menu-id="rc-menu-uuid-test-all"
                                         role="menuitem"
@@ -11580,11 +11695,13 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                         >
                                           <div
                                             class="ant-tooltip-inner"
+                                            id="test-id"
                                             role="tooltip"
                                           />
                                         </div>
                                       </div>
                                       <li
+                                        aria-describedby="test-id"
                                         class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                         data-menu-id="rc-menu-uuid-test-invert"
                                         role="menuitem"
@@ -11609,11 +11726,13 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                         >
                                           <div
                                             class="ant-tooltip-inner"
+                                            id="test-id"
                                             role="tooltip"
                                           />
                                         </div>
                                       </div>
                                       <li
+                                        aria-describedby="test-id"
                                         class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                         data-menu-id="rc-menu-uuid-test-none"
                                         role="menuitem"
@@ -11638,6 +11757,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                         >
                                           <div
                                             class="ant-tooltip-inner"
+                                            id="test-id"
                                             role="tooltip"
                                           />
                                         </div>

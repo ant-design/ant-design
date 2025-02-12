@@ -18,7 +18,7 @@ const localeValues: Locale = {
     filterConfirm: 'OK',
     filterReset: 'Réinitialiser',
     filterEmptyText: 'Aucun filtre',
-    filterCheckall: 'Tout sélectionner',
+    filterCheckAll: 'Tout sélectionner',
     filterSearchPlaceholder: 'Chercher dans les filtres',
     emptyText: 'Aucune donnée',
     selectAll: 'Sélectionner la page actuelle',

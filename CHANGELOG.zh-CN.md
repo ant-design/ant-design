@@ -15,6 +15,52 @@ tag: vVERSION
 
 ---
 
+## 5.24.0
+
+`2025-02-11`
+
+- 🆕 Notification 支持 `actions` 属性并废弃 `btn` 属性。[#52703](https://github.com/ant-design/ant-design/pull/52703) [@thinkasany](https://github.com/thinkasany)
+- 🆕 Carousel 支持展示指示点进度。[#52672](https://github.com/ant-design/ant-design/pull/52672) [@yellowryan](https://github.com/yellowryan)
+- 🆕 Input.OTP 支持 `separator` 属性。[#52668](https://github.com/ant-design/ant-design/pull/52668) [@HaceraI](https://github.com/HaceraI)
+- 🆕 Descriptions 增加 `labelColor` 组件 token。[#52700](https://github.com/ant-design/ant-design/pull/52700) [@guoyunhe](https://github.com/guoyunhe)
+- 🆕 Segmented 支持 `shape="round"` 的胶囊形状的样式。[#52685](https://github.com/ant-design/ant-design/pull/52685) [@afc163](https://github.com/afc163)
+- 🆕 ConfigProvider 支持 Card 组件的 `variant` 配置。[#52552](https://github.com/ant-design/ant-design/pull/52552) [@thinkasany](https://github.com/thinkasany)
+- 🆕 Progress/Step 支持使用 `rounding` 属性自定义取整方法。[#52017](https://github.com/ant-design/ant-design/pull/52017) [@yanghoxom](https://github.com/yanghoxom)
+- 🆕 Divider 的 `orientation` 属性支持 `start` 和 `end`.[#52567](https://github.com/ant-design/ant-design/pull/52567) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 为 Input、InputNumber、Mentions、Form、Select、Cascader、TreeSelect、DatePicker、TimePicker 组件的 `variant` 添加 `underlined` 属性。[#52546](https://github.com/ant-design/ant-design/pull/52546) [@ustcfury](https://github.com/ustcfury)
+- 🆕 ConfigProvider 支持 Modal `centered` 全局配置。[#52343](https://github.com/ant-design/ant-design/pull/52343) [@guoyunhe](https://github.com/guoyunhe)
+- 🆕 为 Checkbox 和 Radio 增加 `label` 类名。[#52322](https://github.com/ant-design/ant-design/pull/52322) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 修复 Tooltip/Popover/Popconfirm/Dropdown 在 React 19 下 children 为自定义组件时弹层位置错乱的问题。[react-component/util#623](https://github.com/react-component/util/pull/623) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 DatePicker.RangePicker 弹出窗体自动调整位置时，面板的箭头位置不正确的问题。[#52719](https://github.com/ant-design/ant-design/pull/52719) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修正 locale 中 `filterCheckall` 为 `filterCheckAll`。[#52517](https://github.com/ant-design/ant-design/pull/52517) [@thinkasany](https://github.com/thinkasany)
+- 🐞 修复 Form `scrollToField` 和 `scrollToFirstError` 无法聚焦 antd 组件的问题。[#52726](https://github.com/ant-design/ant-design/pull/52726) [@Wxh16144](https://github.com/Wxh16144)
+- 💄 修复 Button 预设值按钮的阴影色在暗色背景下显示突兀的问题。[#52701](https://github.com/ant-design/ant-design/pull/52701) [@afc163](https://github.com/afc163)
+- 💄 修复 Segmented 组件在暗黑模式下的动画过渡效果不自然的问题。[#52708](https://github.com/ant-design/ant-design/pull/52708) [@yellowryan](https://github.com/yellowryan)
+- 💄 拆分 Input 和 TextArea 样式。[#52570](https://github.com/ant-design/ant-design/pull/52570) [@guoyunhe](https://github.com/guoyunhe)
+- 💄 修复 Input 和 Select 在 css var 模式下的样式问题。[#52554](https://github.com/ant-design/ant-design/pull/52554) [@li-jia-nan](https://github.com/li-jia-nan)
+- ⌨️ Form field error 移除 role="alert" 以提升可访问性。[#52661](https://github.com/ant-design/ant-design/pull/52661) [@mellis481](https://github.com/mellis481)
+- ⌨️ 优化无障碍体验，为空表头和面板按钮添加本地化标签。[#52689](https://github.com/ant-design/ant-design/pull/52689) [@aojunhao123](https://github.com/aojunhao123)
+- ⌨️ 优化 Tabs 组件的可访问性，修复 `Certain ARIA roles must contain particular children` 的报错。[#52677](https://github.com/ant-design/ant-design/pull/52677) [@afc163](https://github.com/afc163)
+- ⌨️ 为 Tooltip 添加读屏器支持。[#52293](https://github.com/ant-design/ant-design/pull/52293) [@aojunhao123](https://github.com/aojunhao123)
+- TypeScript
+  - 🤖 Button 根据 `href` 属性区分 `onClick` 事件类型。[#52654](https://github.com/ant-design/ant-design/pull/52654) [@Brew-Brew](https://github.com/Brew-Brew)
+  - 🤖 废弃 Button.Group, 推荐 Space.Compact。[#52572](https://github.com/ant-design/ant-design/pull/52572) [@guoyunhe](https://github.com/guoyunhe)
+  - 🤖 废弃 Input.Group，推荐 Space.Compact。[#52571](https://github.com/ant-design/ant-design/pull/52571) [@guoyunhe](https://github.com/guoyunhe)
+  - 🤖 Tooltip 导出 TooltipRef 类型。[#49230](https://github.com/ant-design/ant-design/pull/49230) [@nuintun](https://github.com/nuintun)
+
+## 5.23.4
+
+`2025-02-05`
+
+蛇年第一个版本，开工大吉！🐍
+
+- 🐞 修复 Pagination 可访问性问题，补充缺失的 ARIA 属性支持。[#52616](https://github.com/ant-design/ant-design/pull/52616) [@aojunhao123](https://github.com/aojunhao123)
+- 🐞 Space.Compact 支持 textarea 组件。[#52639](https://github.com/ant-design/ant-design/pull/52639) [@Can-Chen](https://github.com/Can-Chen)
+- 🐞 修复 Menu `theme="dark"` 时水平菜单的文字色和背景色同色的问题。[#52617](https://github.com/ant-design/ant-design/pull/52617) [@afc163](https://github.com/afc163)
+- 🇪🇬 Tour 增加阿拉伯文(埃及) (ar_EG) 的翻译。 [#52642](https://github.com/ant-design/ant-design/pull/52642) [@Sagie501](https://github.com/Sagie501)
+- 🇮🇱 Tour 增加以色列的国际化翻译。[#52641](https://github.com/ant-design/ant-design/pull/52641) [@Sagie501](https://github.com/Sagie501)
+
+
 ## 5.23.3
 
 `2025-01-28`

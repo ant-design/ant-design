@@ -23,7 +23,9 @@ exports[`renders components/radio/demo/badge.tsx extend context correctly 1`] = 
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Click Me
       </span>
     </label>
@@ -65,7 +67,9 @@ exports[`renders components/radio/demo/badge.tsx extend context correctly 1`] = 
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Not Me
       </span>
     </label>
@@ -108,7 +112,9 @@ exports[`renders components/radio/demo/basic.tsx extend context correctly 1`] = 
       class="ant-radio-inner"
     />
   </span>
-  <span>
+  <span
+    class="ant-radio-label"
+  >
     Radio
   </span>
 </label>
@@ -138,7 +144,9 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         Test
       </span>
     </label>
@@ -162,7 +170,9 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         Disabled
       </span>
     </label>
@@ -190,7 +200,9 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Hangzhou
         </span>
       </label>
@@ -210,7 +222,9 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Shanghai
         </span>
       </label>
@@ -230,7 +244,9 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Beijing
         </span>
       </label>
@@ -250,7 +266,9 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Chengdu
         </span>
       </label>
@@ -280,7 +298,9 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Hangzhou
         </span>
       </label>
@@ -301,7 +321,9 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Shanghai
         </span>
       </label>
@@ -322,7 +344,9 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Beijing
         </span>
       </label>
@@ -343,7 +367,9 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Chengdu
         </span>
       </label>
@@ -372,7 +398,9 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Hangzhou
         </span>
       </label>
@@ -392,7 +420,9 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Shanghai
         </span>
       </label>
@@ -412,7 +442,9 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Beijing
         </span>
       </label>
@@ -432,7 +464,9 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
             class="ant-radio-button-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-button-label"
+        >
           Chengdu
         </span>
       </label>
@@ -479,7 +513,9 @@ exports[`renders components/radio/demo/debug-upload.tsx extend context correctly
                 class="ant-radio-inner"
               />
             </span>
-            <span>
+            <span
+              class="ant-radio-label"
+            >
               Radio
             </span>
           </label>
@@ -522,7 +558,9 @@ exports[`renders components/radio/demo/debug-upload.tsx extend context correctly
                 class="ant-checkbox-inner"
               />
             </span>
-            <span>
+            <span
+              class="ant-checkbox-label"
+            >
               Checkbox
             </span>
           </label>
@@ -555,7 +593,9 @@ Array [
         class="ant-radio-inner"
       />
     </span>
-    <span>
+    <span
+      class="ant-radio-label"
+    >
       Disabled
     </span>
   </label>,
@@ -575,7 +615,9 @@ Array [
         class="ant-radio-inner"
       />
     </span>
-    <span>
+    <span
+      class="ant-radio-label"
+    >
       Disabled
     </span>
   </label>,
@@ -618,7 +660,9 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Hangzhou
       </span>
     </label>
@@ -638,7 +682,9 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Shanghai
       </span>
     </label>
@@ -658,7 +704,9 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Beijing
       </span>
     </label>
@@ -678,7 +726,9 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Chengdu
       </span>
     </label>
@@ -703,7 +753,9 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Hangzhou
       </span>
     </label>
@@ -724,7 +776,9 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Shanghai
       </span>
     </label>
@@ -744,7 +798,9 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Beijing
       </span>
     </label>
@@ -764,7 +820,9 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Chengdu
       </span>
     </label>
@@ -790,7 +848,9 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Hangzhou
       </span>
     </label>
@@ -811,7 +871,9 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Shanghai
       </span>
     </label>
@@ -832,7 +894,9 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Beijing
       </span>
     </label>
@@ -853,7 +917,9 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Chengdu
       </span>
     </label>
@@ -887,7 +953,9 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Hangzhou
       </span>
     </label>
@@ -907,7 +975,9 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Shanghai
       </span>
     </label>
@@ -927,7 +997,9 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Beijing
       </span>
     </label>
@@ -947,7 +1019,9 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Chengdu
       </span>
     </label>
@@ -971,7 +1045,9 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Hangzhou
       </span>
     </label>
@@ -992,7 +1068,9 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Shanghai
       </span>
     </label>
@@ -1013,7 +1091,9 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Beijing
       </span>
     </label>
@@ -1033,7 +1113,9 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Chengdu
       </span>
     </label>
@@ -1064,7 +1146,9 @@ exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1
         class="ant-radio-inner"
       />
     </span>
-    <span>
+    <span
+      class="ant-radio-label"
+    >
       <div
         class="ant-flex ant-flex-align-center ant-flex-justify-center ant-flex-gap-small ant-flex-vertical"
       >
@@ -1108,7 +1192,9 @@ exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1
         class="ant-radio-inner"
       />
     </span>
-    <span>
+    <span
+      class="ant-radio-label"
+    >
       <div
         class="ant-flex ant-flex-align-center ant-flex-justify-center ant-flex-gap-small ant-flex-vertical"
       >
@@ -1152,7 +1238,9 @@ exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1
         class="ant-radio-inner"
       />
     </span>
-    <span>
+    <span
+      class="ant-radio-label"
+    >
       <div
         class="ant-flex ant-flex-align-center ant-flex-justify-center ant-flex-gap-small ant-flex-vertical"
       >
@@ -1196,7 +1284,9 @@ exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1
         class="ant-radio-inner"
       />
     </span>
-    <span>
+    <span
+      class="ant-radio-label"
+    >
       <div
         class="ant-flex ant-flex-align-center ant-flex-justify-center ant-flex-gap-small ant-flex-vertical"
       >
@@ -1253,7 +1343,9 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         Apple
       </span>
     </label>
@@ -1273,7 +1365,9 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         Pear
       </span>
     </label>
@@ -1293,7 +1387,9 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         Orange
       </span>
     </label>
@@ -1318,7 +1414,9 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Apple
       </span>
     </label>
@@ -1338,7 +1436,9 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Pear
       </span>
     </label>
@@ -1358,7 +1458,9 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Orange
       </span>
     </label>
@@ -1382,7 +1484,9 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Apple
       </span>
     </label>
@@ -1403,7 +1507,9 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Pear
       </span>
     </label>
@@ -1423,7 +1529,9 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Orange
       </span>
     </label>
@@ -1455,7 +1563,9 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
         class="ant-radio-inner"
       />
     </span>
-    <span>
+    <span
+      class="ant-radio-label"
+    >
       Option A
     </span>
   </label>
@@ -1475,7 +1585,9 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
         class="ant-radio-inner"
       />
     </span>
-    <span>
+    <span
+      class="ant-radio-label"
+    >
       Option B
     </span>
   </label>
@@ -1495,7 +1607,9 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
         class="ant-radio-inner"
       />
     </span>
-    <span>
+    <span
+      class="ant-radio-label"
+    >
       Option C
     </span>
   </label>
@@ -1515,7 +1629,9 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
         class="ant-radio-inner"
       />
     </span>
-    <span>
+    <span
+      class="ant-radio-label"
+    >
       More...
     </span>
   </label>
@@ -1546,7 +1662,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         Apple
       </span>
     </label>
@@ -1566,7 +1684,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         Pear
       </span>
     </label>
@@ -1586,7 +1706,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         Orange
       </span>
     </label>
@@ -1612,7 +1734,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         Apple
       </span>
     </label>
@@ -1632,7 +1756,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         Pear
       </span>
     </label>
@@ -1653,7 +1779,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         Orange
       </span>
     </label>
@@ -1680,7 +1808,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Apple
       </span>
     </label>
@@ -1700,7 +1830,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Pear
       </span>
     </label>
@@ -1721,7 +1853,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Orange
       </span>
     </label>
@@ -1748,7 +1882,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Apple
       </span>
     </label>
@@ -1768,7 +1904,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Pear
       </span>
     </label>
@@ -1789,7 +1927,9 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Orange
       </span>
     </label>
@@ -1820,7 +1960,9 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx extend context c
         class="ant-radio-inner"
       />
     </span>
-    <span>
+    <span
+      class="ant-radio-label"
+    >
       A
     </span>
   </label>
@@ -1840,7 +1982,9 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx extend context c
         class="ant-radio-inner"
       />
     </span>
-    <span>
+    <span
+      class="ant-radio-label"
+    >
       B
     </span>
   </label>
@@ -1860,7 +2004,9 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx extend context c
         class="ant-radio-inner"
       />
     </span>
-    <span>
+    <span
+      class="ant-radio-label"
+    >
       C
     </span>
   </label>
@@ -1880,7 +2026,9 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx extend context c
         class="ant-radio-inner"
       />
     </span>
-    <span>
+    <span
+      class="ant-radio-label"
+    >
       D
     </span>
   </label>
@@ -1913,7 +2061,9 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Hangzhou
       </span>
     </label>
@@ -1933,7 +2083,9 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Shanghai
       </span>
     </label>
@@ -1953,7 +2105,9 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Beijing
       </span>
     </label>
@@ -1973,7 +2127,9 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Chengdu
       </span>
     </label>
@@ -1998,7 +2154,9 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Hangzhou
       </span>
     </label>
@@ -2018,7 +2176,9 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Shanghai
       </span>
     </label>
@@ -2038,7 +2198,9 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Beijing
       </span>
     </label>
@@ -2058,7 +2220,9 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Chengdu
       </span>
     </label>
@@ -2083,7 +2247,9 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Hangzhou
       </span>
     </label>
@@ -2103,7 +2269,9 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Shanghai
       </span>
     </label>
@@ -2123,7 +2291,9 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Beijing
       </span>
     </label>
@@ -2143,7 +2313,9 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-button-label"
+      >
         Chengdu
       </span>
     </label>
@@ -2175,7 +2347,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         A
       </span>
     </label>
@@ -2195,7 +2369,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         B
       </span>
     </label>
@@ -2215,7 +2391,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         C
       </span>
     </label>
@@ -2235,7 +2413,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         D
       </span>
     </label>
@@ -2262,7 +2442,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         A
       </span>
     </label>
@@ -2283,7 +2465,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         B
       </span>
     </label>
@@ -2304,7 +2488,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         C
       </span>
     </label>
@@ -2325,7 +2511,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         D
       </span>
     </label>
