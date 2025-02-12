@@ -969,9 +969,10 @@ exports[`renders components/splitter/demo/multiple.tsx extend context correctly 
 exports[`renders components/splitter/demo/nested-in-tabs.tsx extend context correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
+  indicator="[object Object]"
+  more="[object Object]"
 >
   <div
-    aria-orientation="horizontal"
     class="ant-tabs-nav"
     role="tablist"
   >
@@ -1007,7 +1008,7 @@ exports[`renders components/splitter/demo/nested-in-tabs.tsx extend context corr
             class="ant-tabs-tab-btn"
             id="rc-tabs-test-tab-2"
             role="tab"
-            tabindex="-1"
+            tabindex="0"
           >
             Splitter Tab
           </div>
@@ -1024,33 +1025,17 @@ exports[`renders components/splitter/demo/nested-in-tabs.tsx extend context corr
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
+        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
+        tabindex="-1"
         type="button"
       >
-        <span
-          aria-label="ellipsis"
-          class="anticon anticon-ellipsis"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="ellipsis"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-            />
-          </svg>
-        </span>
+        More
       </button>
       <div
-        class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
+        class="ant-tabs-dropdown ant-tabs-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul

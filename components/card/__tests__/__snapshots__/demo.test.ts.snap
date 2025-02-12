@@ -154,9 +154,10 @@ Array [
       </div>
       <div
         class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs"
+        indicator="[object Object]"
+        more="[object Object]"
       >
         <div
-          aria-orientation="horizontal"
           class="ant-tabs-nav"
           role="tablist"
         >
@@ -188,7 +189,7 @@ Array [
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
                   role="tab"
-                  tabindex="-1"
+                  tabindex="0"
                 >
                   tab2
                 </div>
@@ -205,30 +206,14 @@ Array [
               aria-controls="null-more-popup"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-hidden="true"
               class="ant-tabs-nav-more"
               id="null-more"
               style="visibility:hidden;order:1"
+              tabindex="-1"
               type="button"
             >
-              <span
-                aria-label="ellipsis"
-                class="anticon anticon-ellipsis"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="ellipsis"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                  />
-                </svg>
-              </span>
+              More
             </button>
           </div>
         </div>
@@ -1081,9 +1066,10 @@ Array [
       </div>
       <div
         class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs"
+        indicator="[object Object]"
+        more="[object Object]"
       >
         <div
-          aria-orientation="horizontal"
           class="ant-tabs-nav"
           role="tablist"
         >
@@ -1115,7 +1101,7 @@ Array [
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
                   role="tab"
-                  tabindex="-1"
+                  tabindex="0"
                 >
                   tab2
                 </div>
@@ -1132,30 +1118,14 @@ Array [
               aria-controls="null-more-popup"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-hidden="true"
               class="ant-tabs-nav-more"
               id="null-more"
               style="visibility:hidden;order:1"
+              tabindex="-1"
               type="button"
             >
-              <span
-                aria-label="ellipsis"
-                class="anticon anticon-ellipsis"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="ellipsis"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                  />
-                </svg>
-              </span>
+              More
             </button>
           </div>
         </div>
@@ -1197,9 +1167,10 @@ Array [
       />
       <div
         class="ant-tabs ant-tabs-top ant-tabs-middle ant-card-head-tabs"
+        indicator="[object Object]"
+        more="[object Object]"
       >
         <div
-          aria-orientation="horizontal"
           class="ant-tabs-nav"
           role="tablist"
         >
@@ -1218,7 +1189,7 @@ Array [
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
                   role="tab"
-                  tabindex="-1"
+                  tabindex="0"
                 >
                   article
                 </div>
@@ -1244,7 +1215,7 @@ Array [
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
                   role="tab"
-                  tabindex="-1"
+                  tabindex="0"
                 >
                   project
                 </div>
@@ -1261,30 +1232,14 @@ Array [
               aria-controls="null-more-popup"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-hidden="true"
               class="ant-tabs-nav-more"
               id="null-more"
               style="visibility:hidden;order:1"
+              tabindex="-1"
               type="button"
             >
-              <span
-                aria-label="ellipsis"
-                class="anticon anticon-ellipsis"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="ellipsis"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                  />
-                </svg>
-              </span>
+              More
             </button>
           </div>
           <div
