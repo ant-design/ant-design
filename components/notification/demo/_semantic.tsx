@@ -9,7 +9,6 @@ const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPanel } = notification;
 const locales = {
   cn: {
     root: '根元素',
-    content: '内容元素',
     icon: '图标元素',
     title: '标题元素',
     description: '描述元素',
@@ -17,7 +16,6 @@ const locales = {
   },
   en: {
     root: 'Root element',
-    content: 'Content element',
     icon: 'Icon element',
     title: 'title element',
     description: 'Description element',
@@ -31,7 +29,6 @@ const App: React.FC = () => {
     <SemanticPreview
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'content', desc: locale.content, version: '6.0.0' },
         { name: 'icon', desc: locale.icon, version: '6.0.0' },
         { name: 'title', desc: locale.title, version: '6.0.0' },
         { name: 'description', desc: locale.description, version: '6.0.0' },

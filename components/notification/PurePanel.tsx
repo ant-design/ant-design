@@ -180,18 +180,13 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     >
       <PurePanelStyle prefixCls={prefixCls} />
       <Notice
-        style={{ ...contextStyles.content, ...styles?.content, ...contextStyle, ...style }}
+        style={{ ...contextStyle, ...style }}
         {...restProps}
         prefixCls={prefixCls}
         eventKey="pure"
         duration={null}
         closable={closable}
-        className={classNames(
-          notificationClassName,
-          contextClassName,
-          contextClassNames.content,
-          notificationClassNames?.content,
-        )}
+        className={classNames(notificationClassName, contextClassName)}
         closeIcon={getCloseIcon(prefixCls, closeIcon)}
         content={
           <PureContent

@@ -18,7 +18,7 @@ export type NotificationPlacement = (typeof NotificationPlacements)[number];
 
 export type IconType = 'success' | 'info' | 'error' | 'warning';
 
-export type SemanticName = 'root' | 'content' | 'title' | 'description' | 'actions' | 'icon';
+export type SemanticName = 'root' | 'title' | 'description' | 'actions' | 'icon';
 export interface ArgsProps {
   /** @deprecated Please use `title` instead */
   message?: React.ReactNode;
