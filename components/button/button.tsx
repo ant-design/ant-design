@@ -158,7 +158,7 @@ const InternalCompoundedButton = React.forwardRef<
 
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const disabled = useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
@@ -340,7 +340,7 @@ const InternalCompoundedButton = React.forwardRef<
     children || children === 0 ? spaceChildren(children, needInserted && mergedInsertSpace) : null;
 
   if (linkButtonRestProps.href !== undefined) {
-    return wrapCSSVar(
+    return (
       <a
         {...linkButtonRestProps}
         className={classNames(classes, {
@@ -354,7 +354,7 @@ const InternalCompoundedButton = React.forwardRef<
       >
         {iconNode}
         {kids}
-      </a>,
+      </a>
     );
   }
 
@@ -381,7 +381,7 @@ const InternalCompoundedButton = React.forwardRef<
       </Wave>
     );
   }
-  return wrapCSSVar(buttonNode);
+  return buttonNode;
 });
 
 type CompoundedComponent = typeof InternalCompoundedButton & {

@@ -62,7 +62,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     const [variant, enableVariantCls] = useVariant('rangePicker', customVariant, bordered);
 
     const rootCls = useCSSVarCls(prefixCls);
-    const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+    const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
     // =================== Warning =====================
     if (process.env.NODE_ENV !== 'production') {
@@ -104,7 +104,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     // ============================ zIndex ============================
     const [zIndex] = useZIndex('DatePicker', props.popupStyle?.zIndex as number);
 
-    return wrapCSSVar(
+    return (
       <ContextIsolator space>
         <RCRangePicker<DateType>
           separator={
@@ -160,7 +160,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
           }}
           allowClear={mergedAllowClear}
         />
-      </ContextIsolator>,
+      </ContextIsolator>
     );
   });
 

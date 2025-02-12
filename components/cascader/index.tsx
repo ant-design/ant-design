@@ -216,9 +216,9 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const rootPrefixCls = getPrefixCls();
 
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapSelectCSSVar, hashId, cssVarCls] = useSelectStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useSelectStyle(prefixCls, rootCls);
   const cascaderRootCls = useCSSVarCls(cascaderPrefixCls);
-  const [wrapCascaderCSSVar] = useStyle(cascaderPrefixCls, cascaderRootCls);
+  useStyle(cascaderPrefixCls, cascaderRootCls);
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
@@ -302,7 +302,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const [zIndex] = useZIndex('SelectLike', restProps.dropdownStyle?.zIndex as number);
 
   // ==================== Render =====================
-  const renderNode = (
+  return (
     <RcCascader
       prefixCls={prefixCls}
       className={classNames(
@@ -347,8 +347,6 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       ref={ref}
     />
   );
-
-  return wrapCascaderCSSVar(wrapSelectCSSVar(renderNode));
 }) as unknown as (<
   OptionType extends DefaultOptionType = DefaultOptionType,
   ValueField extends keyof OptionType = keyof OptionType,

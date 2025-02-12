@@ -99,7 +99,7 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
 
 exports[`Table.sorter should support defaultOrder in Column 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="ant-table-css-var ant-table-wrapper"
 >
   <div
     class="ant-spin-nested-loading"
@@ -108,7 +108,7 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table"
+        class="ant-table ant-table-css-var"
       >
         <div
           class="ant-table-container"

@@ -119,7 +119,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
   const mergedSize = useSize(customizeSize);
   const rows = useRow(mergedColumn, mergedItems);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   // ======================== Render ========================
   const contextValue = React.useMemo(
@@ -138,7 +138,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     [labelStyle, contentStyle, styles, descriptionsClassNames, contextClassNames, contextStyles],
   );
 
-  return wrapCSSVar(
+  return (
     <DescriptionsContext.Provider value={contextValue}>
       <div
         className={classNames(
@@ -216,7 +216,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
           </table>
         </div>
       </div>
-    </DescriptionsContext.Provider>,
+    </DescriptionsContext.Provider>
   );
 };
 

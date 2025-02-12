@@ -102,9 +102,9 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const noticePrefixCls = `${prefixCls}-notice`;
 
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  return wrapCSSVar(
+  return (
     <div
       className={classNames(`${noticePrefixCls}-pure-panel`, hashId, className, cssVarCls, rootCls)}
     >
@@ -130,7 +130,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
           />
         }
       />
-    </div>,
+    </div>
   );
 };
 

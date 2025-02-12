@@ -151,7 +151,7 @@ const InternalSelect = <
   const [variant, enableVariantCls] = useVariants('select', customizeVariant, bordered);
 
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const mode = React.useMemo(() => {
     const { mode: m } = props as InternalSelectProps<OptionType>;
@@ -280,7 +280,7 @@ const InternalSelect = <
   const [zIndex] = useZIndex('SelectLike', dropdownStyle?.zIndex as number);
 
   // ====================== Render =======================
-  return wrapCSSVar(
+  return (
     <RcSelect<ValueType, OptionType>
       ref={ref}
       virtual={virtual}
@@ -309,7 +309,7 @@ const InternalSelect = <
       dropdownStyle={{ ...dropdownStyle, zIndex }}
       maxCount={isMultiple ? maxCount : undefined}
       tagRender={isMultiple ? tagRender : undefined}
-    />,
+    />
   );
 };
 

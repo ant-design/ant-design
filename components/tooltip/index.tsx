@@ -253,7 +253,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       : childProps.className;
 
   // Style
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, !injectFromPopover);
+  const [hashId, cssVarCls] = useStyle(prefixCls, !injectFromPopover);
 
   // Color
   const colorInfo = parseColor(prefixCls, color);
@@ -325,9 +325,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     </RcTooltip>
   );
 
-  return wrapCSSVar(
-    <zIndexContext.Provider value={contextZIndex}>{content}</zIndexContext.Provider>,
-  );
+  return <zIndexContext.Provider value={contextZIndex}>{content}</zIndexContext.Provider>;
 });
 
 type CompoundedComponent = typeof InternalTooltip & {

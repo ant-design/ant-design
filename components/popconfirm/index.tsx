@@ -102,9 +102,9 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
   );
   const bodyClassNames = classNames(contextClassNames.body, popconfirmClassNames?.body);
 
-  const [wrapCSSVar] = useStyle(prefixCls);
+  useStyle(prefixCls);
 
-  return wrapCSSVar(
+  return (
     <Popover
       arrow={mergedArrow}
       {...omit(restProps, ['title'])}
@@ -140,7 +140,7 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
       data-popover-inject
     >
       {children}
-    </Popover>,
+    </Popover>
   );
 });
 

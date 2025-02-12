@@ -28,7 +28,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   } = props;
   const { getPrefixCls, direction, tour } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('tour', customizePrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
   const [, token] = useToken();
 
   const mergedSteps = React.useMemo<TourProps['steps']>(
@@ -72,7 +72,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Tour', restProps.zIndex);
 
-  return wrapCSSVar(
+  return (
     <zIndexContext.Provider value={contextZIndex}>
       <RCTour
         {...restProps}
@@ -85,7 +85,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
         builtinPlacements={builtinPlacements}
         steps={mergedSteps}
       />
-    </zIndexContext.Provider>,
+    </zIndexContext.Provider>
   );
 };
 

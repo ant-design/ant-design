@@ -40,7 +40,7 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
   const rootPrefixCls = getPrefixCls();
 
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const [zIndex] = useZIndex(
     'ImagePreview',
@@ -68,13 +68,13 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
     };
   }, [preview]);
 
-  return wrapCSSVar(
+  return (
     <RcImage.PreviewGroup
       preview={mergedPreview}
       previewPrefixCls={previewPrefixCls}
       icons={icons}
       {...otherProps}
-    />,
+    />
   );
 };
 

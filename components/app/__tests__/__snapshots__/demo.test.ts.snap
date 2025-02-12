@@ -2,17 +2,17 @@
 
 exports[`renders components/app/demo/basic.tsx correctly 1`] = `
 <div
-  class="ant-app"
+  class="ant-app css-var-test-id"
 >
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
     style="flex-wrap:wrap"
   >
     <div
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -24,7 +24,7 @@ exports[`renders components/app/demo/basic.tsx correctly 1`] = `
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -36,7 +36,7 @@ exports[`renders components/app/demo/basic.tsx correctly 1`] = `
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -50,17 +50,17 @@ exports[`renders components/app/demo/basic.tsx correctly 1`] = `
 
 exports[`renders components/app/demo/config.tsx correctly 1`] = `
 <div
-  class="ant-app"
+  class="ant-app css-var-test-id"
 >
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
     style="flex-wrap:wrap"
   >
     <div
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -72,7 +72,7 @@ exports[`renders components/app/demo/config.tsx correctly 1`] = `
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>

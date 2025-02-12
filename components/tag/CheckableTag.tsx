@@ -47,7 +47,7 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
 
   const prefixCls = getPrefixCls('tag', customizePrefixCls);
   // Style
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const cls = classNames(
     prefixCls,
@@ -62,14 +62,14 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
     cssVarCls,
   );
 
-  return wrapCSSVar(
+  return (
     <span
       {...restProps}
       ref={ref}
       style={{ ...style, ...tag?.style }}
       className={cls}
       onClick={handleClick}
-    />,
+    />
   );
 });
 

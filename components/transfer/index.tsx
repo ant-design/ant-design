@@ -161,7 +161,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('transfer', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   // Fill record with `key`
   const [mergedDataSource, leftDataSource, rightDataSource] = useData(
@@ -439,7 +439,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const mergedSelectionsIcon = selectionsIcon ?? transfer?.selectionsIcon;
 
-  return wrapCSSVar(
+  return (
     <div className={cls} style={{ ...transfer?.style, ...style }}>
       <List<KeyWise<RecordType>>
         prefixCls={`${prefixCls}-list`}
@@ -504,7 +504,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         selectionsIcon={mergedSelectionsIcon}
         {...listLocale}
       />
-    </div>,
+    </div>
   );
 };
 

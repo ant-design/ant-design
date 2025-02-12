@@ -194,7 +194,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     dropIndicatorRender,
   };
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
   const [, token] = useToken();
 
   const itemHeight = token.paddingXS / 2 + (token.Tree?.titleHeight || token.controlHeightSM);
@@ -234,7 +234,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     />
   );
 
-  return wrapCSSVar(
+  return (
     // @ts-ignore
     <RcTree
       itemHeight={itemHeight}
@@ -263,7 +263,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
       draggable={draggableConfig}
     >
       {children}
-    </RcTree>,
+    </RcTree>
   );
 });
 

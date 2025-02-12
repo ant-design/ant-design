@@ -1,8 +1,8 @@
 import React, { Suspense, useContext } from 'react';
 import { BugOutlined, CodeOutlined, ExperimentOutlined } from '@ant-design/icons';
-import { ConfigProvider, Tooltip, Button } from 'antd';
-import { DumiDemoGrid, FormattedMessage, DumiDemo } from 'dumi';
 import { css, Global } from '@emotion/react';
+import { Button, Tooltip } from 'antd';
+import { DumiDemo, DumiDemoGrid, FormattedMessage } from 'dumi';
 
 import useLayoutState from '../../../hooks/useLayoutState';
 import useLocale from '../../../hooks/useLocale';
@@ -111,16 +111,14 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
           />
         </Tooltip>
       </span>
-      <ConfigProvider theme={{ cssVar: enableCssVar, hashed: !enableCssVar }}>
-        <DumiDemoGrid
-          items={demos}
-          demoRender={(item) => (
-            <Suspense key={item.demo.id} fallback={<DemoFallback />}>
-              <DumiDemo {...item} />
-            </Suspense>
-          )}
-        />
-      </ConfigProvider>
+      <DumiDemoGrid
+        items={demos}
+        demoRender={(item) => (
+          <Suspense key={item.demo.id} fallback={<DemoFallback />}>
+            <DumiDemo {...item} />
+          </Suspense>
+        )}
+      />
     </div>
   );
 };

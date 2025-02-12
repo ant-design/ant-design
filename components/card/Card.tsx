@@ -156,7 +156,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   }, [children]);
 
   const prefixCls = getPrefixCls('card', customizePrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const loadingBlock = (
     <Skeleton loading active paragraph={{ rows: 4 }} title={false}>
@@ -267,13 +267,13 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     ...style,
   };
 
-  return wrapCSSVar(
+  return (
     <div ref={ref} {...divProps} className={classString} style={mergedStyle}>
       {head}
       {coverDom}
       {body}
       {actionDom}
-    </div>,
+    </div>
   );
 });
 

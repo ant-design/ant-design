@@ -291,11 +291,11 @@ describe('message.hooks', () => {
 
     render(<Demo />);
 
-    const msg = document.querySelector('.fontSize');
+    const msg = document.querySelector('.ant-message-css-var');
 
     expect(msg).toBeTruthy();
     expect(msg).toHaveStyle({
-      fontSize: '20px',
+      '--ant-font-size': '20px',
     });
   });
 });

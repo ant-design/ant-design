@@ -3,7 +3,7 @@
 exports[`renders components/slider/demo/basic.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-slider ant-slider-horizontal"
+    class="ant-slider css-var-test-id ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
@@ -29,7 +29,7 @@ Array [
     />
   </div>,
   <div
-    class="ant-slider ant-slider-horizontal"
+    class="ant-slider css-var-test-id ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
@@ -67,7 +67,7 @@ Array [
   Disabled: ,
   <button
     aria-checked="false"
-    class="ant-switch ant-switch-small"
+    class="ant-switch ant-switch-small css-var-test-id"
     role="switch"
     type="button"
   >
@@ -91,7 +91,7 @@ Array [
 exports[`renders components/slider/demo/component-token.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-slider ant-slider-disabled ant-slider-horizontal"
+    class="ant-slider css-var-test-id ant-slider-disabled ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
@@ -116,7 +116,7 @@ Array [
     />
   </div>,
   <div
-    class="ant-slider ant-slider-horizontal"
+    class="ant-slider css-var-test-id ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
@@ -155,7 +155,7 @@ Array [
     style="display:inline-block;height:300px;margin-inline-start:70px"
   >
     <div
-      class="ant-slider ant-slider-vertical"
+      class="ant-slider css-var-test-id ant-slider-vertical"
     >
       <div
         class="ant-slider-rail"
@@ -185,7 +185,7 @@ Array [
     style="display:inline-block;height:300px;margin-inline-start:70px"
   >
     <div
-      class="ant-slider ant-slider-vertical"
+      class="ant-slider css-var-test-id ant-slider-vertical"
     >
       <div
         class="ant-slider-rail"
@@ -225,7 +225,7 @@ Array [
     style="display:inline-block;height:300px;margin-inline-start:70px"
   >
     <div
-      class="ant-slider ant-slider-vertical ant-slider-with-marks"
+      class="ant-slider css-var-test-id ant-slider-vertical ant-slider-with-marks"
     >
       <div
         class="ant-slider-rail"
@@ -313,7 +313,7 @@ Array [
 
 exports[`renders components/slider/demo/draggableTrack.tsx correctly 1`] = `
 <div
-  class="ant-slider ant-slider-horizontal"
+  class="ant-slider css-var-test-id ant-slider-horizontal"
 >
   <div
     class="ant-slider-rail"
@@ -352,7 +352,7 @@ exports[`renders components/slider/demo/draggableTrack.tsx correctly 1`] = `
 
 exports[`renders components/slider/demo/editable.tsx correctly 1`] = `
 <div
-  class="ant-slider ant-slider-horizontal"
+  class="ant-slider css-var-test-id ant-slider-horizontal"
 >
   <div
     class="ant-slider-rail"
@@ -392,7 +392,7 @@ exports[`renders components/slider/demo/editable.tsx correctly 1`] = `
 exports[`renders components/slider/demo/event.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-slider ant-slider-horizontal"
+    class="ant-slider css-var-test-id ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
@@ -418,7 +418,7 @@ Array [
     />
   </div>,
   <div
-    class="ant-slider ant-slider-horizontal"
+    class="ant-slider css-var-test-id ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
@@ -480,7 +480,7 @@ exports[`renders components/slider/demo/icon-slider.tsx correctly 1`] = `
     </svg>
   </span>
   <div
-    class="ant-slider ant-slider-horizontal"
+    class="ant-slider css-var-test-id ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
@@ -529,20 +529,20 @@ exports[`renders components/slider/demo/icon-slider.tsx correctly 1`] = `
 
 exports[`renders components/slider/demo/input-number.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   style="width:100%"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-row"
+      class="ant-row css-var-test-id"
     >
       <div
-        class="ant-col ant-col-12"
+        class="ant-col ant-col-12 css-var-test-id"
       >
         <div
-          class="ant-slider ant-slider-horizontal"
+          class="ant-slider css-var-test-id ant-slider-horizontal"
         >
           <div
             class="ant-slider-rail"
@@ -569,10 +569,10 @@ exports[`renders components/slider/demo/input-number.tsx correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col ant-col-4"
+        class="ant-col ant-col-4 css-var-test-id"
       >
         <div
-          class="ant-input-number ant-input-number-outlined"
+          class="ant-input-number ant-input-number-outlined css-var-test-id ant-input-number-css-var"
           style="margin:0 16px"
         >
           <div
@@ -655,13 +655,13 @@ exports[`renders components/slider/demo/input-number.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-row"
+      class="ant-row css-var-test-id"
     >
       <div
-        class="ant-col ant-col-12"
+        class="ant-col ant-col-12 css-var-test-id"
       >
         <div
-          class="ant-slider ant-slider-horizontal"
+          class="ant-slider css-var-test-id ant-slider-horizontal"
         >
           <div
             class="ant-slider-rail"
@@ -688,10 +688,10 @@ exports[`renders components/slider/demo/input-number.tsx correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col ant-col-4"
+        class="ant-col ant-col-4 css-var-test-id"
       >
         <div
-          class="ant-input-number ant-input-number-outlined"
+          class="ant-input-number ant-input-number-outlined css-var-test-id ant-input-number-css-var"
           style="margin:0 16px"
         >
           <div
@@ -779,7 +779,7 @@ Array [
     included=true
   </h4>,
   <div
-    class="ant-slider ant-slider-horizontal ant-slider-with-marks"
+    class="ant-slider css-var-test-id ant-slider-horizontal ant-slider-with-marks"
   >
     <div
       class="ant-slider-rail"
@@ -852,7 +852,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-slider ant-slider-horizontal ant-slider-with-marks"
+    class="ant-slider css-var-test-id ant-slider-horizontal ant-slider-with-marks"
   >
     <div
       class="ant-slider-rail"
@@ -938,7 +938,7 @@ Array [
     included=false
   </h4>,
   <div
-    class="ant-slider ant-slider-horizontal ant-slider-with-marks"
+    class="ant-slider css-var-test-id ant-slider-horizontal ant-slider-with-marks"
   >
     <div
       class="ant-slider-rail"
@@ -1010,7 +1010,7 @@ Array [
     marks & step
   </h4>,
   <div
-    class="ant-slider ant-slider-horizontal ant-slider-with-marks"
+    class="ant-slider css-var-test-id ant-slider-horizontal ant-slider-with-marks"
   >
     <div
       class="ant-slider-rail"
@@ -1086,7 +1086,7 @@ Array [
     step=null
   </h4>,
   <div
-    class="ant-slider ant-slider-horizontal ant-slider-with-marks"
+    class="ant-slider css-var-test-id ant-slider-horizontal ant-slider-with-marks"
   >
     <div
       class="ant-slider-rail"
@@ -1163,7 +1163,7 @@ Array [
 
 exports[`renders components/slider/demo/multiple.tsx correctly 1`] = `
 <div
-  class="ant-slider ant-slider-horizontal"
+  class="ant-slider css-var-test-id ant-slider-horizontal"
 >
   <div
     class="ant-slider-rail"
@@ -1222,7 +1222,7 @@ exports[`renders components/slider/demo/multiple.tsx correctly 1`] = `
 exports[`renders components/slider/demo/reverse.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-slider ant-slider-horizontal"
+    class="ant-slider css-var-test-id ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
@@ -1248,7 +1248,7 @@ Array [
     />
   </div>,
   <div
-    class="ant-slider ant-slider-horizontal"
+    class="ant-slider css-var-test-id ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
@@ -1286,7 +1286,7 @@ Array [
   Reversed: ,
   <button
     aria-checked="true"
-    class="ant-switch ant-switch-small ant-switch-checked"
+    class="ant-switch ant-switch-small css-var-test-id ant-switch-checked"
     role="switch"
     type="button"
   >
@@ -1310,7 +1310,7 @@ Array [
 exports[`renders components/slider/demo/tip-formatter.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-slider ant-slider-horizontal"
+    class="ant-slider css-var-test-id ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
@@ -1336,7 +1336,7 @@ Array [
     />
   </div>,
   <div
-    class="ant-slider ant-slider-horizontal"
+    class="ant-slider css-var-test-id ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
@@ -1370,7 +1370,7 @@ Array [
     style="display:inline-block;height:300px;margin-inline-start:70px"
   >
     <div
-      class="ant-slider ant-slider-vertical"
+      class="ant-slider css-var-test-id ant-slider-vertical"
     >
       <div
         class="ant-slider-rail"
@@ -1400,7 +1400,7 @@ Array [
     style="display:inline-block;height:300px;margin-inline-start:70px"
   >
     <div
-      class="ant-slider ant-slider-vertical"
+      class="ant-slider css-var-test-id ant-slider-vertical"
     >
       <div
         class="ant-slider-rail"
@@ -1440,7 +1440,7 @@ Array [
     style="display:inline-block;height:300px;margin-inline-start:70px"
   >
     <div
-      class="ant-slider ant-slider-vertical ant-slider-with-marks"
+      class="ant-slider css-var-test-id ant-slider-vertical ant-slider-with-marks"
     >
       <div
         class="ant-slider-rail"

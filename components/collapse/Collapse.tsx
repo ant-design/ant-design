@@ -85,7 +85,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
   const mergedSize = useSize((ctx) => customizeSize ?? ctx ?? 'middle');
   const prefixCls = getPrefixCls('collapse', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const mergedExpandIcon = expandIcon ?? contextExpandIcon;
 
@@ -148,7 +148,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     return null;
   }, [children]);
 
-  return wrapCSSVar(
+  return (
     // @ts-ignore
     <RcCollapse
       ref={ref}
@@ -172,7 +172,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       }}
     >
       {items}
-    </RcCollapse>,
+    </RcCollapse>
   );
 });
 

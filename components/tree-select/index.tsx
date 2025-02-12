@@ -165,8 +165,8 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
 
   const rootCls = useCSSVarCls(prefixCls);
   const treeSelectRootCls = useCSSVarCls(treeSelectPrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useSelectStyle(prefixCls, rootCls);
-  const [treeSelectWrapCSSVar] = useStyle(treeSelectPrefixCls, treePrefixCls, treeSelectRootCls);
+  const [hashId, cssVarCls] = useSelectStyle(prefixCls, rootCls);
+  useStyle(treeSelectPrefixCls, treePrefixCls, treeSelectRootCls);
 
   const [variant, enableVariantCls] = useVariant('treeSelect', customVariant, bordered);
 
@@ -285,7 +285,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
   // ============================ zIndex ============================
   const [zIndex] = useZIndex('SelectLike', dropdownStyle?.zIndex as number);
 
-  const returnNode = (
+  return (
     <RcTreeSelect
       virtual={virtual}
       disabled={mergedDisabled}
@@ -322,8 +322,6 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
       treeCheckStrictly={treeCheckStrictly}
     />
   );
-
-  return wrapCSSVar(treeSelectWrapCSSVar(returnNode));
 };
 
 const TreeSelectRef = React.forwardRef(InternalTreeSelect) as <

@@ -663,7 +663,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
         override: mergedToken,
         ...parsedComponents,
       },
-      cssVar: cssVar as Exclude<ThemeConfig['cssVar'], boolean>,
+      cssVar,
     };
   }, [mergedTheme]);
 

@@ -79,7 +79,7 @@ const Spin: SpinType = (props) => {
 
   const prefixCls = getPrefixCls('spin', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const [spinning, setSpinning] = React.useState<boolean>(
     () => customSpinning && !shouldDelay(customSpinning, delay),
@@ -156,7 +156,7 @@ const Spin: SpinType = (props) => {
   );
 
   if (isNestedPattern) {
-    return wrapCSSVar(
+    return (
       <div
         {...restProps}
         className={classNames(`${prefixCls}-nested-loading`, wrapperClassName, hashId, cssVarCls)}
@@ -165,12 +165,12 @@ const Spin: SpinType = (props) => {
         <div className={containerClassName} key="container">
           {children}
         </div>
-      </div>,
+      </div>
     );
   }
 
   if (fullscreen) {
-    return wrapCSSVar(
+    return (
       <div
         className={classNames(
           `${prefixCls}-fullscreen`,
@@ -183,11 +183,11 @@ const Spin: SpinType = (props) => {
         )}
       >
         {spinElement}
-      </div>,
+      </div>
     );
   }
 
-  return wrapCSSVar(spinElement);
+  return spinElement;
 };
 
 Spin.setDefaultIndicator = (indicator: React.ReactNode) => {

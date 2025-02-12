@@ -114,7 +114,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     typeof dots === 'boolean' ? false : dots?.className,
   );
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const className = classNames(
     prefixCls,
@@ -134,7 +134,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     ? ({ [DotDuration]: `${autoplaySpeed / 1000}s` } as React.CSSProperties)
     : {};
 
-  return wrapCSSVar(
+  return (
     <div className={className} id={id} style={dotDurationStyle}>
       <SlickCarousel
         ref={slickRef}
@@ -148,7 +148,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
         verticalSwiping={vertical}
         waitForAnimate={waitForAnimate}
       />
-    </div>,
+    </div>
   );
 });
 

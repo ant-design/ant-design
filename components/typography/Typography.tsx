@@ -49,7 +49,7 @@ const Typography = React.forwardRef<
   const prefixCls = getPrefixCls('typography', customizePrefixCls);
 
   // Style
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
   const componentClassName = classNames(
     prefixCls,
     contextClassName,
@@ -64,11 +64,11 @@ const Typography = React.forwardRef<
 
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
-  return wrapCSSVar(
+  return (
     // @ts-expect-error: Expression produces a union type that is too complex to represent.
     <Component className={componentClassName} style={mergedStyle} ref={ref} {...restProps}>
       {children}
-    </Component>,
+    </Component>
   );
 });
 

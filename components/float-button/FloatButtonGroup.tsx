@@ -44,7 +44,7 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
 
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const groupPrefixCls = `${prefixCls}-group`;
 
@@ -127,7 +127,7 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
   }
 
   // ========================= Render =========================
-  return wrapCSSVar(
+  return (
     <FloatButtonGroupProvider value={shape}>
       <div
         ref={floatButtonGroupRef}
@@ -158,7 +158,7 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
           children
         )}
       </div>
-    </FloatButtonGroupProvider>,
+    </FloatButtonGroupProvider>
   );
 };
 

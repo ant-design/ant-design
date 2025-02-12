@@ -145,7 +145,7 @@ const Result: ResultType = ({
   const prefixCls = getPrefixCls('result', customizePrefixCls);
 
   // Style
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const rootClassNames = classNames(
     prefixCls,
@@ -198,7 +198,7 @@ const Result: ResultType = ({
     ...style,
   };
 
-  return wrapCSSVar(
+  return (
     <div className={rootClassNames} style={rootStyles}>
       <Icon
         className={iconClassNames}
@@ -227,7 +227,7 @@ const Result: ResultType = ({
           {children}
         </div>
       )}
-    </div>,
+    </div>
   );
 };
 

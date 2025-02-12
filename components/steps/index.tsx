@@ -85,7 +85,7 @@ const Steps: CompoundedComponent = (props) => {
 
   const prefixCls = getPrefixCls('steps', props.prefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const isInline = props.type === 'inline';
   const iconPrefix = getPrefixCls('', props.iconPrefix);
@@ -134,7 +134,7 @@ const Steps: CompoundedComponent = (props) => {
   const itemRender = (item: StepProps, stepItem: React.ReactNode) =>
     item.description ? <Tooltip title={item.description}>{stepItem}</Tooltip> : stepItem;
 
-  return wrapCSSVar(
+  return (
     <RcSteps
       icons={icons}
       {...restProps}
@@ -148,7 +148,7 @@ const Steps: CompoundedComponent = (props) => {
       prefixCls={prefixCls}
       iconPrefix={iconPrefix}
       className={stepsClassName}
-    />,
+    />
   );
 };
 

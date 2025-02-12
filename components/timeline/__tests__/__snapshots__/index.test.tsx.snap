@@ -2,7 +2,7 @@
 
 exports[`TimeLine rtl render component should be rendered correctly in RTL direction 1`] = `
 <ul
-  class="ant-timeline ant-timeline-rtl"
+  class="ant-timeline ant-timeline-rtl ant-timeline-css-var"
 />
 `;
 

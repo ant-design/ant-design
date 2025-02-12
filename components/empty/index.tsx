@@ -59,7 +59,7 @@ const Empty: CompoundedComponent = (props) => {
   } = useComponentConfig('empty');
 
   const prefixCls = getPrefixCls('empty', customizePrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const [locale] = useLocale('Empty');
 
@@ -83,7 +83,7 @@ const Empty: CompoundedComponent = (props) => {
     });
   }
 
-  return wrapCSSVar(
+  return (
     <div
       className={classNames(
         hashId,
@@ -139,7 +139,7 @@ const Empty: CompoundedComponent = (props) => {
           {children}
         </div>
       )}
-    </div>,
+    </div>
   );
 };
 

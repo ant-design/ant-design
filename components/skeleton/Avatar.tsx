@@ -25,7 +25,7 @@ const SkeletonAvatar: React.FC<AvatarProps> = (props) => {
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const cls = classNames(
     prefixCls,
@@ -40,7 +40,7 @@ const SkeletonAvatar: React.FC<AvatarProps> = (props) => {
     cssVarCls,
   );
 
-  return wrapCSSVar(
+  return (
     <div className={cls} style={styles?.root}>
       <Element
         prefixCls={`${prefixCls}-avatar`}
@@ -50,7 +50,7 @@ const SkeletonAvatar: React.FC<AvatarProps> = (props) => {
         size={size}
         {...rest}
       />
-    </div>,
+    </div>
   );
 };
 

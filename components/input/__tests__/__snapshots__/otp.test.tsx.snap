@@ -5,37 +5,37 @@ exports[`Input.OTP rtl render component should be rendered correctly in RTL dire
   class="ant-otp ant-otp-rtl"
 >
   <input
-    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input"
+    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input ant-input-css-var"
     size="1"
     type="text"
     value=""
   />
   <input
-    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input"
+    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input ant-input-css-var"
     size="1"
     type="text"
     value=""
   />
   <input
-    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input"
+    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input ant-input-css-var"
     size="1"
     type="text"
     value=""
   />
   <input
-    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input"
+    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input ant-input-css-var"
     size="1"
     type="text"
     value=""
   />
   <input
-    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input"
+    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input ant-input-css-var"
     size="1"
     type="text"
     value=""
   />
   <input
-    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input"
+    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input ant-input-css-var"
     size="1"
     type="text"
     value=""

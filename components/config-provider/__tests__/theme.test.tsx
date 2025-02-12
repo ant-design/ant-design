@@ -211,7 +211,7 @@ describe('ConfigProvider.Theme', () => {
     };
 
     render(
-      <ConfigProvider theme={{ hashed: true, cssVar: true }}>
+      <ConfigProvider theme={{ hashed: true }}>
         <ConfigProvider theme={{ inherit: false }}>
           <Demo />
         </ConfigProvider>

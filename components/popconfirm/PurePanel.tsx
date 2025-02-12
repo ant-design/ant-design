@@ -110,15 +110,15 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
 
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('popconfirm', customizePrefixCls);
-  const [wrapCSSVar] = useStyle(prefixCls);
+  useStyle(prefixCls);
 
-  return wrapCSSVar(
+  return (
     <PopoverPurePanel
       placement={placement}
       className={classNames(prefixCls, className)}
       style={style}
       content={<Overlay prefixCls={prefixCls} {...restProps} />}
-    />,
+    />
   );
 };
 

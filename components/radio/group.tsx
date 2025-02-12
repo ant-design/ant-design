@@ -68,7 +68,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
 
   // Style
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   let childrenToRender = children;
   // 如果存在 options, 优先使用
@@ -129,7 +129,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     [onRadioChange, value, disabled, name, optionType, block],
   );
 
-  return wrapCSSVar(
+  return (
     <div
       {...pickAttrs(props, { aria: true, data: true })}
       className={classString}
@@ -144,7 +144,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
       <RadioGroupContextProvider value={memoizedValue}>
         {childrenToRender}
       </RadioGroupContextProvider>
-    </div>,
+    </div>
   );
 });
 
