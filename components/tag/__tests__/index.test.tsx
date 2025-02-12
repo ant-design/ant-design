@@ -276,4 +276,10 @@ describe('Tag', () => {
     expect(container.querySelector('.custom-icon')).toHaveStyle({ color: 'red' });
     expect(container.querySelector('.custom-content')).toHaveStyle({ backgroundColor: 'blue' });
   });
+  it('should handle invalid icon gracefully', () => {
+    const { container } = render(<Tag icon="">tag</Tag>);
+    const iconElement = container.querySelector('svg');
+    expect(container).not.toBeNull();
+    expect(iconElement).toBeNull();
+  });
 });
