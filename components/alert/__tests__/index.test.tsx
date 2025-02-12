@@ -204,7 +204,7 @@ describe('Alert', () => {
   it('should accept bigint as children in ErrorBoundary', () => {
     const { container } = render(
       <div id="bigint-id">
-        <ErrorBoundary>{BigInt(12345678901234567890n)}</ErrorBoundary>
+        <ErrorBoundary>{BigInt(12345678901234567890n).toString()}</ErrorBoundary>
       </div>,
     );
     const element = container.querySelector<HTMLDivElement>('#bigint-id');

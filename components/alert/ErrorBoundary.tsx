@@ -2,10 +2,12 @@ import * as React from 'react';
 
 import Alert from './Alert';
 
+type CompatibleReactNode = Exclude<React.ReactNode, bigint>;
+
 interface ErrorBoundaryProps {
-  message?: React.ReactNode;
-  description?: React.ReactNode;
-  children?: React.ReactNode;
+  message?: CompatibleReactNode;
+  description?: CompatibleReactNode;
+  children?: CompatibleReactNode;
   id?: string;
 }
 
@@ -46,10 +48,6 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
           }
         />
       );
-    }
-
-    if (typeof children === 'bigint') {
-      return children.toString();
     }
 
     return children;
