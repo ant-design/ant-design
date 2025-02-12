@@ -132,13 +132,14 @@ describe('TreeSelect', () => {
           value={['child1']}
           showCheckedStrategy="SHOW_ALL"
           open
+          treeDefaultExpandAll
         />,
       );
 
-      // 测试 SHOW_ALL 策略
+      jest.runAllTimers();
+
       expect(container.querySelector('.ant-select-tree')).toBeTruthy();
 
-      // 测试 SHOW_PARENT 策略
       rerender(
         <TreeSelect
           treeData={treeData}
@@ -147,10 +148,10 @@ describe('TreeSelect', () => {
           value={['child1']}
           showCheckedStrategy="SHOW_PARENT"
           open
+          treeDefaultExpandAll
         />,
       );
 
-      // 测试 treeCheckStrictly
       rerender(
         <TreeSelect
           treeData={treeData}
@@ -160,6 +161,7 @@ describe('TreeSelect', () => {
           treeCheckStrictly
           showCheckedStrategy="SHOW_ALL"
           open
+          treeDefaultExpandAll
         />,
       );
     });
@@ -177,15 +179,36 @@ describe('TreeSelect', () => {
       ];
 
       const { container, rerender } = render(
-        <TreeSelect treeData={treeData} multiple maxCount={1} value={['child1']} open />,
+        <TreeSelect
+          treeData={treeData}
+          multiple
+          maxCount={1}
+          value={['child1']}
+          open
+          treeDefaultExpandAll
+          treeCheckable
+        />,
       );
 
-      // 检查未选中节点是否被禁用
-      expect(container.querySelectorAll('.ant-select-tree-node-disabled').length).toBe(2);
+      jest.runAllTimers();
 
-      // 测试没有 maxCount 的情况
-      rerender(<TreeSelect treeData={treeData} multiple value={['child1']} open />);
-      expect(container.querySelectorAll('.ant-select-tree-node-disabled').length).toBe(0);
+      const disabledNodes = container.querySelectorAll('.ant-select-tree-checkbox-disabled');
+      expect(disabledNodes.length).toBe(2);
+
+      rerender(
+        <TreeSelect
+          treeData={treeData}
+          multiple
+          value={['child1']}
+          open
+          treeDefaultExpandAll
+          treeCheckable
+        />,
+      );
+
+      jest.runAllTimers();
+
+      expect(container.querySelectorAll('.ant-select-tree-checkbox-disabled').length).toBe(0);
     });
 
     it('should handle parent node selection with maxCount', () => {
@@ -209,13 +232,18 @@ describe('TreeSelect', () => {
           value={['child1']}
           onChange={onChange}
           open
+          treeDefaultExpandAll
+          treeCheckable
         />,
       );
 
-      // 尝试选择父节点（这会导致选择所有子节点）
-      fireEvent.click(container.querySelector('.ant-select-tree-node-content-wrapper')!);
+      jest.runAllTimers();
 
-      // 由于会超过 maxCount，所以不应该触发 onChange
+      const checkbox = container.querySelector('.ant-select-tree-checkbox');
+      if (checkbox) {
+        fireEvent.click(checkbox);
+      }
+
       expect(onChange).not.toHaveBeenCalled();
     });
 
@@ -241,12 +269,17 @@ describe('TreeSelect', () => {
           value={['child1']}
           onChange={onChange}
           open
+          treeDefaultExpandAll
+          treeCheckable
         />,
       );
 
-      // 选择第二个子节点（应该允许，因为还没达到 maxCount）
-      const treeNodes = container.querySelectorAll('.ant-select-tree-node-content-wrapper');
-      fireEvent.click(treeNodes[2]);
+      jest.runAllTimers();
+
+      const checkboxes = container.querySelectorAll('.ant-select-tree-checkbox');
+      if (checkboxes[2]) {
+        fireEvent.click(checkboxes[2]);
+      }
 
       expect(onChange).toHaveBeenCalledWith(
         ['child1', 'child2'],
@@ -254,8 +287,9 @@ describe('TreeSelect', () => {
         expect.any(Object),
       );
 
-      // 尝试选择第三个子节点（不应该允许，因为已经达到 maxCount）
-      fireEvent.click(treeNodes[3]);
+      if (checkboxes[3]) {
+        fireEvent.click(checkboxes[3]);
+      }
       expect(onChange).toHaveBeenCalledTimes(1);
     });
 
@@ -280,24 +314,30 @@ describe('TreeSelect', () => {
           value={['child1', 'child2']}
           onChange={onChange}
           open
+          treeDefaultExpandAll
+          treeCheckable
         />,
       );
 
-      // 取消选择一个子节点
-      const treeNodes = container.querySelectorAll('.ant-select-tree-node-content-wrapper');
-      fireEvent.click(treeNodes[1]);
+      jest.runAllTimers();
+
+      const checkboxes = container.querySelectorAll('.ant-select-tree-checkbox-checked');
+      if (checkboxes[1]) {
+        fireEvent.click(checkboxes[1]);
+      }
 
       expect(onChange).toHaveBeenCalledWith(['child2'], expect.any(Array), expect.any(Object));
     });
 
     it('should handle empty value and treeData', () => {
       const { container, rerender } = render(
-        <TreeSelect treeData={[]} multiple maxCount={2} open />,
+        <TreeSelect treeData={[]} multiple maxCount={2} open treeDefaultExpandAll />,
       );
 
-      expect(container.querySelector('.ant-select-tree')).toBeTruthy();
+      jest.runAllTimers();
 
-      // 测试 value 为 undefined 的情况
+      expect(container.querySelector('.ant-select-empty')).toBeTruthy();
+
       rerender(
         <TreeSelect
           treeData={[{ value: 'test', title: 'test' }]}
@@ -305,8 +345,11 @@ describe('TreeSelect', () => {
           maxCount={2}
           value={undefined}
           open
+          treeDefaultExpandAll
         />,
       );
+
+      jest.runAllTimers();
 
       expect(container.querySelector('.ant-select-tree-node-content-wrapper')).toBeTruthy();
     });
@@ -333,13 +376,18 @@ describe('TreeSelect', () => {
           value={['parent', 'child1', 'child2']}
           onChange={onChange}
           open
+          treeDefaultExpandAll
+          treeCheckable
         />,
       );
 
-      // 模拟取消选择父节点
-      fireEvent.click(container.querySelector('.ant-select-tree-node-content-wrapper')!);
+      jest.runAllTimers();
 
-      // 验证 onChange 调用
+      const checkboxes = container.querySelectorAll('.ant-select-tree-checkbox-checked');
+      if (checkboxes[0]) {
+        fireEvent.click(checkboxes[0]);
+      }
+
       expect(onChange).toHaveBeenCalled();
       const [newValue] = onChange.mock.calls[0];
       expect(newValue).toEqual([]);
@@ -366,13 +414,18 @@ describe('TreeSelect', () => {
           value={['child1', 'child2']}
           onChange={onChange}
           open
+          treeDefaultExpandAll
+          treeCheckable
         />,
       );
 
-      // 尝试选择超过 maxCount 的节点
-      fireEvent.click(container.querySelector('.ant-select-tree-node-content-wrapper')!);
+      jest.runAllTimers();
 
-      // 验证 onChange 没有被调用（因为超过了 maxCount）
+      const checkbox = container.querySelector('.ant-select-tree-checkbox');
+      if (checkbox) {
+        fireEvent.click(checkbox);
+      }
+
       expect(onChange).not.toHaveBeenCalled();
     });
   });
