@@ -228,12 +228,13 @@ describe('TreeSelect', () => {
         <TreeSelect
           treeData={treeData}
           multiple
-          maxCount={2}
-          value={['child1']}
+          maxCount={1}
+          value={[]}
           onChange={onChange}
           open
           treeDefaultExpandAll
           treeCheckable
+          treeCheckStrictly
         />,
       );
 
@@ -271,6 +272,7 @@ describe('TreeSelect', () => {
           open
           treeDefaultExpandAll
           treeCheckable
+          treeCheckStrictly
         />,
       );
 
@@ -287,10 +289,12 @@ describe('TreeSelect', () => {
         expect.any(Object),
       );
 
+      onChange.mockClear();
+
       if (checkboxes[3]) {
         fireEvent.click(checkboxes[3]);
       }
-      expect(onChange).toHaveBeenCalledTimes(1);
+      expect(onChange).not.toHaveBeenCalled();
     });
 
     it('should handle deselection correctly when maxCount is reached', () => {
@@ -378,6 +382,7 @@ describe('TreeSelect', () => {
           open
           treeDefaultExpandAll
           treeCheckable
+          treeCheckStrictly
         />,
       );
 
@@ -410,12 +415,13 @@ describe('TreeSelect', () => {
         <TreeSelect
           treeData={treeData}
           multiple
-          maxCount={2}
-          value={['child1', 'child2']}
+          maxCount={1}
+          value={['child1']}
           onChange={onChange}
           open
           treeDefaultExpandAll
           treeCheckable
+          treeCheckStrictly
         />,
       );
 
