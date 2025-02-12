@@ -122,12 +122,6 @@ export function useInternalNotification(
   notificationConfig?: HolderProps,
 ): readonly [NotificationInstance, React.ReactElement] {
   const holderRef = React.useRef<HolderRef>(null);
-  const {
-    className: contextClassName,
-    style: contextStyle,
-    classNames: contextClassNames,
-    styles: contextStyles,
-  } = useComponentConfig('notification');
   const warning = devUseWarning('Notification');
 
   // ================================ API ================================
@@ -146,6 +140,10 @@ export function useInternalNotification(
       }
 
       const { open: originOpen, prefixCls, notification } = holderRef.current;
+      const contextClassName = notification?.className || {};
+      const contextStyle = notification?.style || {};
+      const contextClassNames = notification?.classNames || {};
+      const contextStyles = notification?.styles || {};
 
       const noticePrefixCls = `${prefixCls}-notice`;
       const {
