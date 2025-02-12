@@ -15380,6 +15380,7 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
                   </th>
                   <th
                     aria-sort="descending"
+                    aria-label="Age"
                     class="ant-table-cell ant-table-column-sort ant-table-column-has-sorters"
                     scope="col"
                     tabindex="0"
