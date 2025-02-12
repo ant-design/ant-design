@@ -1,8 +1,8 @@
 import React from 'react';
-import { UserOutlined } from '@ant-design/icons';
+import { SmileOutlined, UserOutlined } from '@ant-design/icons';
 
 import notification, { actWrapper } from '..';
-import { act, fireEvent } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
 
@@ -412,5 +412,54 @@ describe('notification', () => {
     });
     await awaitPromise();
     expect(document.querySelector('.with-style')).toHaveStyle({ width: '600px' });
+  });
+  it('support classnames', async () => {
+    const TestComponent: React.FC = () => {
+      const [api, contextHolder] = notification.useNotification();
+
+      const openNotification = () => {
+        api.open({
+          title: 'Notification Title',
+          duration: 0,
+          icon: <SmileOutlined />,
+          actions: <button type="button">My Button</button>,
+          styles: {
+            root: { color: 'red' },
+            title: { fontSize: 23 },
+            description: { fontWeight: 'bold' },
+            actions: { background: 'green' },
+            icon: { color: 'blue' },
+          },
+          classNames: {
+            root: 'root-class',
+            title: 'title-class',
+            description: 'description-class',
+            actions: 'actions-class',
+            icon: 'icon-class',
+          },
+        });
+      };
+
+      return (
+        <>
+          {contextHolder}
+          <button type="button" onClick={openNotification}>
+            open
+          </button>
+        </>
+      );
+    };
+    const { getByText } = render(<TestComponent />);
+
+    act(() => {
+      getByText('open').click();
+    });
+
+    await awaitPromise();
+    expect(document.querySelector('.root-class')).toHaveStyle({ color: 'red' });
+    expect(document.querySelector('.title-class')).toHaveStyle({ fontSize: '23px' });
+    expect(document.querySelector('.description-class')).toHaveStyle({ fontWeight: 'bold' });
+    expect(document.querySelector('.actions-class')).toHaveStyle({ background: 'green' });
+    expect(document.querySelector('.icon-class')).toHaveStyle({ color: 'blue' });
   });
 });
