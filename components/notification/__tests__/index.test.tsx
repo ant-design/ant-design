@@ -464,6 +464,7 @@ describe('notification', () => {
   });
   it('message API compatibility test', async () => {
     act(() => {
+      // @ts-ignore
       notification.warning({
         message: 'Warning Message',
         duration: 0,
