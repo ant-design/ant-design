@@ -3,10 +3,10 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import PlusOutlined from '@ant-design/icons/PlusOutlined';
 import classNames from 'classnames';
-import type { TabsProps as RcTabsProps } from 'rc-tabs';
-import RcTabs from 'rc-tabs';
+import type { TabsProps as RcTabsProps } from '@rc-component/tabs';
+import RcTabs from '@rc-component/tabs';
 import type { GetIndicatorSize } from 'rc-tabs/lib/hooks/useIndicator';
-import type { EditableConfig, MoreProps } from 'rc-tabs/lib/interface';
+import type { EditableConfig, MoreProps } from '@rc-component/tabs/lib/interface';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
