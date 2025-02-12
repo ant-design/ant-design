@@ -6,18 +6,20 @@ import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { isPresetColor, isPresetStatusColor } from '../_util/colors';
 import type { ClosableType } from '../_util/hooks/useClosable';
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
-import { replaceElement } from '../_util/reactNode';
+import { cloneElement, replaceElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
+import DisabledContext from '../config-provider/DisabledContext';
 import CheckableTag from './CheckableTag';
 import useStyle from './style';
 import PresetCmp from './style/presetCmp';
 import StatusCmp from './style/statusCmp';
-import DisabledContext from '../config-provider/DisabledContext';
 
 export type { CheckableTagProps } from './CheckableTag';
 
+type SemanticName = 'root' | 'icon' | 'content';
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   prefixCls?: string;
   className?: string;
@@ -33,6 +35,8 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   href?: string;
   target?: string;
   disabled?: boolean;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagProps>(
@@ -50,14 +54,23 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       disabled: customDisabled,
       href,
       target,
+      styles,
+      classNames: tagClassNames,
       ...props
     } = tagProps;
 
     // ===================== Disabled =====================
     const disabled = React.useContext(DisabledContext);
     const mergedDisabled = customDisabled ?? disabled;
-
-    const { getPrefixCls, direction, tag: tagContext } = React.useContext(ConfigContext);
+    const {
+      getPrefixCls,
+      direction,
+      className: contextClassName,
+      style: contextStyle,
+      classNames: contextClassNames,
+      styles: contextStyles,
+    } = useComponentConfig('tag');
+    const { tag: tagContext } = React.useContext(ConfigContext);
     const [visible, setVisible] = React.useState(true);
 
     const domProps = omit(props, ['closeIcon', 'closable']);
@@ -68,7 +81,9 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
 
     const tagStyle: React.CSSProperties = {
       backgroundColor: color && !isInternalColor ? color : undefined,
-      ...tagContext?.style,
+      ...contextStyles.root,
+      ...styles?.root,
+      ...contextStyle,
       ...style,
     };
 
@@ -77,7 +92,9 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     // Style
     const tagClassName = classNames(
       prefixCls,
-      tagContext?.className,
+      contextClassName,
+      contextClassNames.root,
+      tagClassNames?.root,
       {
         [`${prefixCls}-${color}`]: isInternalColor,
         [`${prefixCls}-has-color`]: color && !isInternalColor,
@@ -127,12 +144,30 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       typeof props.onClick === 'function' ||
       (children && (children as React.ReactElement<any>).type === 'a');
 
-    const iconNode: React.ReactNode = icon || null;
+    const iconNode: React.ReactNode = icon
+      ? cloneElement(icon, {
+          className: classNames(
+            React.isValidElement(icon)
+              ? (icon as React.ReactElement<{ className?: string }>).props?.className
+              : '',
+            contextClassNames.icon,
+            tagClassNames?.icon,
+          ),
+          style: { ...contextStyles.icon, ...styles?.icon },
+        })
+      : null;
 
     const child: React.ReactNode = iconNode ? (
       <>
         {iconNode}
-        {children && <span>{children}</span>}
+        {children && (
+          <span
+            className={classNames(contextClassNames.content, tagClassNames?.content)}
+            style={{ ...contextStyles.content, ...styles?.content }}
+          >
+            {children}
+          </span>
+        )}
       </>
     ) : (
       children
