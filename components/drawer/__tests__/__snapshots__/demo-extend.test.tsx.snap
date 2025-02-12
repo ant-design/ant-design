@@ -2897,7 +2897,7 @@ Array [
             class="ant-skeleton ant-skeleton-active ant-drawer-body-skeleton css-var-test-id"
           >
             <div
-              class="ant-skeleton-content"
+              class="ant-skeleton-section"
             >
               <ul
                 class="ant-skeleton-paragraph"

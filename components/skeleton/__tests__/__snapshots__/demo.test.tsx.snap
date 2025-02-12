@@ -5,7 +5,7 @@ exports[`renders components/skeleton/demo/active.tsx correctly 1`] = `
   class="ant-skeleton ant-skeleton-active css-var-test-id"
 >
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -29,7 +29,7 @@ exports[`renders components/skeleton/demo/basic.tsx correctly 1`] = `
   class="ant-skeleton css-var-test-id"
 >
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -92,7 +92,7 @@ exports[`renders components/skeleton/demo/complex.tsx correctly 1`] = `
     />
   </div>
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -115,7 +115,7 @@ exports[`renders components/skeleton/demo/componentToken.tsx correctly 1`] = `
   class="ant-skeleton ant-skeleton-active css-var-test-id"
 >
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -224,7 +224,7 @@ exports[`renders components/skeleton/demo/element.tsx correctly 1`] = `
         class="ant-skeleton ant-skeleton-element css-var-test-id"
       >
         <div
-          class="ant-skeleton-image"
+          class="ant-skeleton-node"
           style="width:160px"
         />
       </div>
@@ -236,7 +236,7 @@ exports[`renders components/skeleton/demo/element.tsx correctly 1`] = `
         class="ant-skeleton ant-skeleton-element css-var-test-id"
       >
         <div
-          class="ant-skeleton-image"
+          class="ant-skeleton-node"
         >
           <span
             aria-label="dot-chart"
@@ -751,7 +751,7 @@ Array [
                 />
               </div>
               <div
-                class="ant-skeleton-content"
+                class="ant-skeleton-section"
               >
                 <h3
                   class="ant-skeleton-title"
@@ -780,7 +780,7 @@ Array [
                 />
               </div>
               <div
-                class="ant-skeleton-content"
+                class="ant-skeleton-section"
               >
                 <h3
                   class="ant-skeleton-title"
@@ -809,7 +809,7 @@ Array [
                 />
               </div>
               <div
-                class="ant-skeleton-content"
+                class="ant-skeleton-section"
               >
                 <h3
                   class="ant-skeleton-title"
