@@ -463,6 +463,7 @@ describe('notification', () => {
     expect(document.querySelector('.icon-class')).toHaveStyle({ color: 'blue' });
   });
   it('message API compatibility test', async () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     act(() => {
       // @ts-ignore
       notification.warning({
@@ -473,5 +474,8 @@ describe('notification', () => {
     });
     await awaitPromise();
     expect(document.querySelector('.warning-message')).toHaveTextContent('Warning Message');
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Notification] `message` is deprecated. Please use `title` instead.',
+    );
   });
 });
