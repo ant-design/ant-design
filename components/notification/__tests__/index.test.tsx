@@ -477,5 +477,6 @@ describe('notification', () => {
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: Notification] `message` is deprecated. Please use `title` instead.',
     );
+    errSpy.mockRestore();
   });
 });
