@@ -144,18 +144,16 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       typeof props.onClick === 'function' ||
       (children && (children as React.ReactElement<any>).type === 'a');
 
-    const iconNode: React.ReactNode = icon
-      ? cloneElement(icon, {
-          className: classNames(
-            React.isValidElement(icon)
-              ? (icon as React.ReactElement<{ className?: string }>).props?.className
-              : '',
-            contextClassNames.icon,
-            tagClassNames?.icon,
-          ),
-          style: { ...contextStyles.icon, ...styles?.icon },
-        })
-      : null;
+    const iconNode: React.ReactNode = cloneElement(icon, {
+      className: classNames(
+        React.isValidElement(icon)
+          ? (icon as React.ReactElement<{ className?: string }>).props?.className
+          : '',
+        contextClassNames.icon,
+        tagClassNames?.icon,
+      ),
+      style: { ...contextStyles.icon, ...styles?.icon },
+    });
 
     const child: React.ReactNode = iconNode ? (
       <>
