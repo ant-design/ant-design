@@ -17,7 +17,7 @@ const App: React.FC = () => {
 
   const openNotification = (placement: NotificationPlacement) => {
     api.info({
-      message: `Notification ${placement}`,
+      title: `Notification ${placement}`,
       description:
         'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
       placement,

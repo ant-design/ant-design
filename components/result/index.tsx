@@ -6,11 +6,11 @@ import WarningFilled from '@ant-design/icons/WarningFilled';
 import classNames from 'classnames';
 
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
 import noFound from './noFound';
 import serverError from './serverError';
 import useStyle from './style';
 import unauthorized from './unauthorized';
+import { useComponentConfig } from '../config-provider/context';
 
 export const IconMap = {
   success: CheckCircleFilled,
@@ -133,7 +133,14 @@ const Result: ResultType = ({
   styles,
   classNames: resultClassNames,
 }) => {
-  const { getPrefixCls, direction, result } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('result');
 
   const prefixCls = getPrefixCls('result', customizePrefixCls);
 
@@ -144,50 +151,50 @@ const Result: ResultType = ({
     prefixCls,
     `${prefixCls}-${status}`,
     customizeClassName,
-    result?.className,
+    contextClassName,
     rootClassName,
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
     hashId,
     cssVarCls,
-    result?.classNames?.root,
+    contextClassNames.root,
     resultClassNames?.root,
   );
 
   const titleClassNames = classNames(
     `${prefixCls}-title`,
-    result?.classNames?.title,
+    contextClassNames.title,
     resultClassNames?.title,
   );
 
   const subTitleClassNames = classNames(
     `${prefixCls}-subtitle`,
-    result?.classNames?.subTitle,
+    contextClassNames.subTitle,
     resultClassNames?.subTitle,
   );
 
   const extraClassNames = classNames(
     `${prefixCls}-extra`,
-    result?.classNames?.extra,
+    contextClassNames.extra,
     resultClassNames?.extra,
   );
 
   const bodyClassNames = classNames(
     `${prefixCls}-body`,
-    result?.classNames?.body,
+    contextClassNames.body,
     resultClassNames?.body,
   );
 
   const iconClassNames = classNames(
     `${prefixCls}-icon`,
     { [`${prefixCls}-image`]: ExceptionStatus.includes(`${status}`) },
-    result?.classNames?.icon,
+    contextClassNames.icon,
     resultClassNames?.icon,
   );
 
   const rootStyles: React.CSSProperties = {
-    ...result?.styles?.root,
+    ...contextStyles.root,
     ...styles?.root,
-    ...result?.style,
+    ...contextStyle,
     ...style,
   };
 
@@ -195,17 +202,17 @@ const Result: ResultType = ({
     <div className={rootClassNames} style={rootStyles}>
       <Icon
         className={iconClassNames}
-        style={{ ...result?.styles?.icon, ...styles?.icon }}
+        style={{ ...contextStyles.icon, ...styles?.icon }}
         status={status}
         icon={icon}
       />
-      <div className={titleClassNames} style={{ ...result?.styles?.title, ...styles?.title }}>
+      <div className={titleClassNames} style={{ ...contextStyles.title, ...styles?.title }}>
         {title}
       </div>
       {subTitle && (
         <div
           className={subTitleClassNames}
-          style={{ ...result?.styles?.subTitle, ...styles?.subTitle }}
+          style={{ ...contextStyles.subTitle, ...styles?.subTitle }}
         >
           {subTitle}
         </div>
@@ -213,10 +220,10 @@ const Result: ResultType = ({
       <Extra
         className={extraClassNames}
         extra={extra}
-        style={{ ...result?.styles?.extra, ...styles?.extra }}
+        style={{ ...contextStyles.extra, ...styles?.extra }}
       />
       {children && (
-        <div className={bodyClassNames} style={{ ...result?.styles?.body, ...styles?.body }}>
+        <div className={bodyClassNames} style={{ ...contextStyles.body, ...styles?.body }}>
           {children}
         </div>
       )}

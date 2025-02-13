@@ -142,14 +142,14 @@ const {
 | mentions | Set Mentions common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | message | Set Message common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | modal | Set Modal common props | { className?: string, style?: React.CSSProperties, classNames?: [ModalProps\["classNames"\]](/components/modal#api), styles?: [ModalProps\["styles"\]](/components/modal#api), closeIcon?: React.ReactNode } | - | 5.7.0, `classNames` and `styles`: 5.10.0, `closeIcon`: 5.14.0 |
-| notification | Set Notification common props | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode } | - | 5.7.0, `closeIcon`: 5.14.0 |
+| notification | Set Notification common props | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode, classNames?: [NotificationConfig\["classNames"\]](/components/notification#api), styles?: [NotificationConfig\["styles"\]](/components/notification#api) } | - | 5.7.0, `closeIcon`: 5.14.0, `classNames` and `styles`: 6.0.0 |
 | pagination | Set Pagination common props | { showSizeChanger?: boolean, className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | progress | Set Progress common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | radio | Set Radio common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | rate | Set Rate common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | result | Set Result common props | { className?: string, style?: React.CSSProperties , classNames?: [ResultProps\["classNames"\]](/components/result#api), styles?: [ResultProps\["styles"\]](/components/result#api)} | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
 | ribbon | Set Ribbon common props | { className?: string, style?: React.CSSProperties, , classNames?: [RibbonProps\["classNames"\]](/components/badge#api), styles?: [RibbonProps\["styles"\]](/components/badge#api) } | - | 6.0.0 |
-| skeleton | Set Skeleton common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| skeleton | Set Skeleton common props | { className?: string, style?: React.CSSProperties, classNames?: [SkeletonProps\["classNames"\]](/components/skeleton#api), styles?: [SkeletonProps\["styles"\]](/components/skeleton#api) } | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
 | segmented | Set Segmented common props | { className?: string, style?: React.CSSProperties, classNames?: [SegmentedProps\["classNames"\]](/components/segmented#api), styles?: [SegmentedProps\["styles"\]](/components/segmented#api) } | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
 | select | Set Select common props | { className?: string, showSearch?: boolean, style?: React.CSSProperties } | - | 5.7.0 |
 | slider | Set Slider common props | { className?: string, style?: React.CSSProperties, classNames?: [SliderProps\["classNames"\]](/components/slider#api), styles?: [SliderProps\["styles"\]](/components/slider#api) } | - | 5.7.0, `classNames` and `styles`: 5.23.0 |
@@ -161,7 +161,7 @@ const {
 | steps | Set Steps common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | table | Set Table common props | { className?: string, style?: React.CSSProperties, expandable?: { expandIcon?: props => React.ReactNode } } | - | 5.7.0, expandable: 5.14.0 |
 | tabs | Set Tabs common props | { className?: string, style?: React.CSSProperties, indicator?: { size?: GetIndicatorSize, align?: `start` \| `center` \| `end` }, moreIcon?: ReactNode, addIcon?: ReactNode, removeIcon?: ReactNode } | - | 5.7.0, `moreIcon` and `addIcon`: 5.14.0, `removeIcon`: 5.15.0 |
-| tag | Set Tag common props | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode } | - | 5.7.0, closeIcon: 5.14.0 |
+| tag | Set Tag common props | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode, classNames?: [TagProps\["classNames"\]](/components/tag#semantic-dom), styles?: [TagProps\["styles"\]](/components/tag#semantic-dom) } | - | 5.7.0, closeIcon: 5.14.0, `classNames` and `styles`: 6.0.0 |
 | timeline | Set Timeline common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | timePicker | Set TimePicker common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | tour | Set Tour common props | { closeIcon?: React.ReactNode } | - | 5.14.0 |

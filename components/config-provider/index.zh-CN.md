@@ -144,14 +144,14 @@ const {
 | mentions | 设置 Mentions 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | message | 设置 Message 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | modal | 设置 Modal 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [ModalProps\["classNames"\]](/components/modal-cn#api), styles?: [ModalProps\["styles"\]](/components/modal-cn#api), closeIcon?: React.ReactNode } | - | 5.7.0, `classNames` 和 `styles`: 5.10.0, `closeIcon`: 5.14.0 |
-| notification | 设置 Notification 组件的通用属性 | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode } | - | 5.7.0, `closeIcon`: 5.14.0 |
+| notification | 设置 Notification 组件的通用属性 | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode, classNames?: [NotificationConfig\["classNames"\]](/components/notification-cn#api), styles?: [NotificationConfig\["styles"\]](/components/notification-cn#api) } | - | 5.7.0, `closeIcon`: 5.14.0, `classNames` 和 `styles`: 6.0.0 |
 | pagination | 设置 Pagination 组件的通用属性 | { showSizeChanger?: boolean, className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | progress | 设置 Progress 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | radio | 设置 Radio 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | rate | 设置 Rate 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | result | 设置 Result 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [ResultProps\["classNames"\]](/components/result-cn#api), styles?: [ResultProps\["styles"\]](/components/result-cn#api) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
 | ribbon | 设置 Ribbon 组件的通用属性 | { className?: string, style?: React.CSSProperties, , classNames?: [RibbonProps\["classNames"\]](/components/badge-cn#api), styles?: [RibbonProps\["styles"\]](/components/badge-cn#api) } | - | 6.0.0 |
-| skeleton | 设置 Skeleton 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| skeleton | 设置 Skeleton 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [SkeletonProps\["classNames"\]](/components/skeleton-cn#api), styles?: [SkeletonProps\["styles"\]](/components/skeleton-cn#api) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
 | segmented | 设置 Segmented 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [SegmentedProps\["classNames"\]](/components/segmented-cn#api), styles?: [SegmentedProps\["styles"\]](/components/segmented-cn#api) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
 | select | 设置 Select 组件的通用属性 | { className?: string, showSearch?: boolean, style?: React.CSSProperties } | - | 5.7.0 |
 | slider | 设置 Slider 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [SliderProps\["classNames"\]](/components/slider-cn#api), styles?: [SliderProps\["styles"\]](/components/slider-cn#api) } | - | 5.7.0, `classNames` 和 `styles`: 5.23.0 |
@@ -163,7 +163,7 @@ const {
 | steps | 设置 Steps 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | table | 设置 Table 组件的通用属性 | { className?: string, style?: React.CSSProperties, expandable?: { expandIcon?: props => React.ReactNode } } | - | 5.7.0, expandable: 5.14.0 |
 | tabs | 设置 Tabs 组件的通用属性 | { className?: string, style?: React.CSSProperties, indicator?: { size?: GetIndicatorSize, align?: `start` \| `center` \| `end` }, moreIcon?: ReactNode, addIcon?: ReactNode, removeIcon?: ReactNode } | - | 5.7.0, `moreIcon` and `addIcon`: 5.14.0, `removeIcon`: 5.15.0 |
-| tag | 设置 Tag 组件的通用属性 | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode } | - | 5.7.0, closeIcon: 5.14.0 |
+| tag | 设置 Tag 组件的通用属性 | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode, classNames?: [TagProps\["classNames"\]](/components/tag-cn#semantic-dom), styles?: [TagProps\["styles"\]](/components/tag-cn#semantic-dom) } | - | 5.7.0, closeIcon: 5.14.0, `classNames` 和 `styles`: 6.0.0 |
 | timeline | 设置 Timeline 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | timePicker | 设置 TimePicker 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | tour | 设置 Tour 组件的通用属性 | { closeIcon?: React.ReactNode } | - | 5.14.0 |

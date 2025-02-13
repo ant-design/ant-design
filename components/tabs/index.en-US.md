@@ -70,7 +70,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onTabClick | Callback executed when tab is clicked | (key: string, event: MouseEvent) => void | - |  |
 | onTabScroll | Trigger when tab scroll | ({ direction: `left` \| `right` \| `top` \| `bottom` }) => void | - | 4.3.0 |
 
-More option at [rc-tabs tabs](https://github.com/react-component/tabs#tabs)
+More option at [@rc-component/tabs](https://github.com/react-component/tabs#tabs)
 
 ### TabItemType
 

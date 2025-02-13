@@ -4,8 +4,8 @@ import classNames from 'classnames';
 import type { PresetColorType } from '../_util/colors';
 import { isPresetColor } from '../_util/colors';
 import type { LiteralUnion } from '../_util/type';
-import { ConfigContext } from '../config-provider';
 import useStyle from './style/ribbon';
+import { useComponentConfig } from '../config-provider/context';
 
 type RibbonPlacement = 'start' | 'end';
 
@@ -37,7 +37,14 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
     styles,
     classNames: ribbonClassNames,
   } = props;
-  const { getPrefixCls, direction, ribbon } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('ribbon');
   const prefixCls = getPrefixCls('ribbon', customizePrefixCls);
 
   const wrapperCls = `${prefixCls}-wrapper`;
@@ -52,8 +59,8 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
       [`${prefixCls}-color-${color}`]: colorInPreset,
     },
     className,
-    ribbon?.className,
-    ribbon?.classNames?.indicator,
+    contextClassName,
+    contextClassNames.indicator,
     ribbonClassNames?.indicator,
   );
 
@@ -71,17 +78,17 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
         hashId,
         cssVarCls,
         ribbonClassNames?.root,
-        ribbon?.classNames?.root,
+        contextClassNames.root,
       )}
-      style={{ ...ribbon?.styles?.root, ...styles?.root }}
+      style={{ ...contextStyles.root, ...styles?.root }}
     >
       {children}
       <div
         className={classNames(ribbonCls, hashId)}
         style={{
           ...colorStyle,
-          ...ribbon?.styles?.indicator,
-          ...ribbon?.style,
+          ...contextStyles.indicator,
+          ...contextStyle,
           ...styles?.indicator,
           ...style,
         }}
@@ -90,9 +97,9 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
           className={classNames(
             `${prefixCls}-content`,
             ribbonClassNames?.content,
-            ribbon?.classNames?.content,
+            contextClassNames.content,
           )}
-          style={{ ...ribbon?.styles?.content, ...styles?.content }}
+          style={{ ...contextStyles.content, ...styles?.content }}
         >
           {text}
         </span>

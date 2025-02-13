@@ -133,7 +133,7 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       wordWrap: 'break-word',
     },
 
-    [`${noticeCls}-message`]: {
+    [`${noticeCls}-title`]: {
       marginBottom: token.marginXS,
       color: colorTextHeading,
       fontSize: fontSizeLG,
@@ -145,11 +145,11 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       color: colorText,
     },
 
-    [`${noticeCls}-closable ${noticeCls}-message`]: {
+    [`${noticeCls}-closable ${noticeCls}-title`]: {
       paddingInlineEnd: token.paddingLG,
     },
 
-    [`${noticeCls}-with-icon ${noticeCls}-message`]: {
+    [`${noticeCls}-with-icon ${noticeCls}-title`]: {
       marginBottom: token.marginXS,
       marginInlineStart: token.calc(token.marginSM).add(notificationIconSize).equal(),
       fontSize: fontSizeLG,
