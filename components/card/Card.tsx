@@ -1,7 +1,7 @@
 import * as React from 'react';
 import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import type { Tab } from 'rc-tabs/lib/interface';
+import type { Tab } from '@rc-component/tabs/lib/interface';
 
 import { devUseWarning } from '../_util/warning';
 import useSize from '../config-provider/hooks/useSize';
