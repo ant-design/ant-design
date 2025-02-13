@@ -246,9 +246,8 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
           // Inform the screen-reader so it can tell the visually impaired user which column is sorted
           if (sortOrder) {
             cell['aria-sort'] = sortOrder === 'ascend' ? 'ascending' : 'descending';
-          } else {
-            cell['aria-label'] = displayTitle || '';
           }
+          cell['aria-label'] = displayTitle || '';
           cell.className = classNames(cell.className, `${prefixCls}-column-has-sorters`);
           cell.tabIndex = 0;
           if (column.ellipsis) {
