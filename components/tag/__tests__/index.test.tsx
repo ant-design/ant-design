@@ -251,4 +251,35 @@ describe('Tag', () => {
     );
     expect(container.querySelector('.ant-tag-close-icon')?.textContent).toEqual('X');
   });
+  it('should apply classNames and styles correctly', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      icon: 'custom-icon',
+      content: 'custom-content',
+    };
+
+    const customStyles = {
+      root: { backgroundColor: 'green' },
+      icon: { color: 'red' },
+      content: { backgroundColor: 'blue' },
+    };
+    const { container } = render(
+      <Tag icon={<CheckCircleOutlined />} classNames={customClassNames} styles={customStyles}>
+        ant
+      </Tag>,
+    );
+
+    const rootElement = container.querySelector('.ant-tag') as HTMLElement;
+
+    expect(rootElement.classList).toContain('custom-root');
+    expect(rootElement.style.backgroundColor).toBe('green');
+    expect(container.querySelector('.custom-icon')).toHaveStyle({ color: 'red' });
+    expect(container.querySelector('.custom-content')).toHaveStyle({ backgroundColor: 'blue' });
+  });
+  it('should handle invalid icon gracefully', () => {
+    const { container } = render(<Tag icon="">tag</Tag>);
+    const iconElement = container.querySelector('svg');
+    expect(container).not.toBeNull();
+    expect(iconElement).toBeNull();
+  });
 });
