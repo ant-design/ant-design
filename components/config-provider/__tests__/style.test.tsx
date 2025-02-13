@@ -1396,7 +1396,7 @@ describe('ConfigProvider support style and className props', () => {
             closeIcon: <span className="cp-test-icon">cp-test-icon</span>,
           }}
         >
-          <button type="button" onClick={() => api.open({ message: 'test', duration: 0 })}>
+          <button type="button" onClick={() => api.open({ title: 'test', duration: 0 })}>
             test
           </button>
           {holder}

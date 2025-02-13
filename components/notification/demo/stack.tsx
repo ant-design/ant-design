@@ -16,7 +16,7 @@ const App: React.FC = () => {
 
   const openNotification = () => {
     api.open({
-      message: 'Notification Title',
+      title: 'Notification Title',
       description: `${new Array(Math.round(Math.random() * 5) + 1)
         .fill('This is the content of the notification.')
         .join('\n')}`,

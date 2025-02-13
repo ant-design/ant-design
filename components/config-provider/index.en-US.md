@@ -141,7 +141,7 @@ const {
 | mentions | Set Mentions common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | message | Set Message common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | modal | Set Modal common props | { className?: string, style?: React.CSSProperties, classNames?: [ModalProps\["classNames"\]](/components/modal#api), styles?: [ModalProps\["styles"\]](/components/modal#api), closeIcon?: React.ReactNode } | - | 5.7.0, `classNames` and `styles`: 5.10.0, `closeIcon`: 5.14.0 |
-| notification | Set Notification common props | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode } | - | 5.7.0, `closeIcon`: 5.14.0 |
+| notification | Set Notification common props | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode, classNames?: [NotificationConfig\["classNames"\]](/components/notification#api), styles?: [NotificationConfig\["styles"\]](/components/notification#api) } | - | 5.7.0, `closeIcon`: 5.14.0, `classNames` and `styles`: 6.0.0 |
 | pagination | Set Pagination common props | { showSizeChanger?: boolean, className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | progress | Set Progress common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | radio | Set Radio common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
