@@ -27,8 +27,8 @@ export default function useSelection<T extends { key: TransferKey }>(
   // Prepare `dataSource` keys
   const [leftKeys, rightKeys] = React.useMemo(
     () => [
-      new Set(leftDataSource.map((src) => src.key)),
-      new Set(rightDataSource.map((src) => src.key)),
+      new Set(leftDataSource.map<React.Key>((src) => src.key)),
+      new Set(rightDataSource.map<React.Key>((src) => src.key)),
     ],
     [leftDataSource, rightDataSource],
   );
