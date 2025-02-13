@@ -25,6 +25,10 @@ module.exports = {
     if (rcOrg.some((prefix) => name.startsWith(prefix))) {
       // `^` always upgrade latest, otherwise follow semver.
       if (operator === '^') {
+        // Remove when the `next` branch is merged into `master` branch.
+        if (name === '@rc-component/mutate-observer') {
+          return 'minor';
+        }
         return 'latest';
       }
     }
