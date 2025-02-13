@@ -33,7 +33,7 @@ const useStyle = createStyles(({ token, css }) => {
   `;
 });
 
-const items = new Array(3).fill(null).map((_, i) => {
+const items = Array.from({ length: 3 }).map((_, i) => {
   const id = String(i + 1);
   return {
     label: `Tab Title ${id}`,
