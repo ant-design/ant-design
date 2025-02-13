@@ -270,7 +270,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         willChange: 'transform, width',
       },
 
-      '&-shape-round': {
+      [`&${componentCls}-shape-round`]: {
         borderRadius: 9999,
         [`${componentCls}-item, ${componentCls}-thumb`]: {
           borderRadius: 9999,
