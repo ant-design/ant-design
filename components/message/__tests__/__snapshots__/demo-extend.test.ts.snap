@@ -31,7 +31,9 @@ Array [
             />
           </svg>
         </span>
-        <span>
+        <span
+          class=""
+        >
           Hello World!
         </span>
       </div>
@@ -66,7 +68,9 @@ Array [
             />
           </svg>
         </span>
-        <span>
+        <span
+          class=""
+        >
           Hello World!
         </span>
       </div>
@@ -217,7 +221,9 @@ exports[`renders components/message/demo/render-panel.tsx extend context correct
           />
         </svg>
       </span>
-      <span>
+      <span
+        class=""
+      >
         Hello World!
       </span>
     </div>
