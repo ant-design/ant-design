@@ -267,12 +267,13 @@ describe('TreeSelect', () => {
           treeData={treeData}
           multiple
           maxCount={2}
-          value={['child1']}
+          value={[{ value: 'child1', label: 'child1' }]}
           onChange={onChange}
           open
           treeDefaultExpandAll
           treeCheckable
           treeCheckStrictly
+          labelInValue
         />,
       );
 
@@ -284,8 +285,11 @@ describe('TreeSelect', () => {
       }
 
       expect(onChange).toHaveBeenCalledWith(
-        ['child1', 'child2'],
-        expect.any(Array),
+        [
+          { value: 'child1', label: 'child1', disabled: false, halfChecked: undefined },
+          { value: 'child2', label: 'child2', disabled: false, halfChecked: undefined },
+        ],
+        null,
         expect.any(Object),
       );
 
@@ -377,12 +381,17 @@ describe('TreeSelect', () => {
         <TreeSelect
           treeData={treeData}
           multiple
-          value={['parent', 'child1', 'child2']}
+          value={[
+            { value: 'parent', label: 'parent' },
+            { value: 'child1', label: 'child1' },
+            { value: 'child2', label: 'child2' },
+          ]}
           onChange={onChange}
           open
           treeDefaultExpandAll
           treeCheckable
           treeCheckStrictly
+          labelInValue
         />,
       );
 
@@ -395,7 +404,10 @@ describe('TreeSelect', () => {
 
       expect(onChange).toHaveBeenCalled();
       const [newValue] = onChange.mock.calls[0];
-      expect(newValue).toEqual([]);
+      expect(newValue).toEqual([
+        { value: 'child1', label: 'child1', disabled: undefined, halfChecked: undefined },
+        { value: 'child2', label: 'child2', disabled: undefined, halfChecked: undefined },
+      ]);
     });
 
     it('should handle maxCount limit correctly', () => {
