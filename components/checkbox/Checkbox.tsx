@@ -54,7 +54,7 @@ export interface CheckboxChangeEvent {
   nativeEvent: MouseEvent;
 }
 
-type SemanticName = 'root' | 'input' | 'label';
+type SemanticName = 'root' | 'icon' | 'label';
 export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent> {
   indeterminate?: boolean;
   classNames?: Partial<Record<SemanticName, string>>;
@@ -164,8 +164,8 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     hashId,
   );
   const checkboxClass = classNames(
-    checkboxClassNames?.input,
-    contextClassNames.input,
+    checkboxClassNames?.icon,
+    contextClassNames.icon,
     { [`${prefixCls}-indeterminate`]: indeterminate },
     TARGET_CLS,
     hashId,
@@ -190,7 +190,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
           onClick={onInputClick}
           prefixCls={prefixCls}
           className={checkboxClass}
-          style={{ ...contextStyles.input, ...styles?.input }}
+          style={{ ...contextStyles.icon, ...styles?.icon }}
           disabled={mergedDisabled}
           ref={mergedRef}
         />
