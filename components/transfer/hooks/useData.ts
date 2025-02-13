@@ -23,13 +23,14 @@ const useData = <RecordType extends AnyObject>(
 
   const [leftDataSource, rightDataSource] = React.useMemo(() => {
     const leftData: KeyWise<RecordType>[] = [];
-    const rightData = Array.from<KeyWise<RecordType>>({ length: (targetKeys || []).length });
+    const rightData: KeyWise<RecordType>[] = new Array((targetKeys || []).length);
     const targetKeysMap = groupKeysMap(targetKeys || []);
     mergedDataSource.forEach((record) => {
       // rightData should be ordered by targetKeys
       // leftData should be ordered by dataSource
       if (targetKeysMap.has(record.key)) {
-        (rightData as any)[targetKeysMap.get(record.key) as any] = record;
+        const idx = targetKeysMap.get(record.key)!;
+        (rightData as any)[idx] = record;
       } else {
         leftData.push(record as any);
       }
