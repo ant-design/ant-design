@@ -154,7 +154,7 @@ export function useInternalMessage(
       }
 
       const { open: originOpen, prefixCls, message } = holderRef.current;
-      const contextClassName = message?.classNames || {};
+      const contextClassName = message?.className || {};
       const contextClassNames = message?.classNames || {};
       const contextStyle = message?.style || {};
       const contextStyles = message?.styles || {};
