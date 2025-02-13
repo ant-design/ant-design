@@ -111,10 +111,10 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
         {/* @ts-ignore */}
         <RcCheckbox
           {...radioProps}
-          className={classNames(radioClassNames?.input, contextClassNames.input, {
+          className={classNames(radioClassNames?.icon, contextClassNames.icon, {
             [TARGET_CLS]: !isButtonType,
           })}
-          style={{ ...contextStyles.input, ...styles?.input }}
+          style={{ ...contextStyles.icon, ...styles?.icon }}
           type="radio"
           prefixCls={prefixCls}
           ref={mergedRef}

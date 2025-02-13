@@ -41,7 +41,7 @@ export interface RadioGroupContextProps {
   block?: boolean;
 }
 
-type SemanticName = 'root' | 'input' | 'label';
+type SemanticName = 'root' | 'icon' | 'label';
 export interface RadioProps extends AbstractCheckboxProps<RadioChangeEvent> {
   /**
    * Control the appearance for Radio to display as button or not
