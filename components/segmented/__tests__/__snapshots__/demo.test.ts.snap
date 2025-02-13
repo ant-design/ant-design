@@ -1056,16 +1056,8 @@ exports[`renders components/segmented/demo/shape.tsx correctly 1`] = `
     <div
       class="ant-segmented-group"
     >
-      <input
-        checked=""
-        class="ant-segmented-item-input"
-        name="test-id"
-        type="radio"
-      />
-      <div
-        aria-checked="true"
-        class="ant-segmented-item-label"
-        role="radio"
+      <label
+        class="ant-segmented-item"
       >
         <input
           class="ant-segmented-item-input"
@@ -1073,8 +1065,9 @@ exports[`renders components/segmented/demo/shape.tsx correctly 1`] = `
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="small"
         >
           small
@@ -1090,8 +1083,9 @@ exports[`renders components/segmented/demo/shape.tsx correctly 1`] = `
           type="radio"
         />
         <div
-          aria-selected="true"
+          aria-checked="true"
           class="ant-segmented-item-label"
+          role="radio"
           title="middle"
         >
           middle
@@ -1106,8 +1100,9 @@ exports[`renders components/segmented/demo/shape.tsx correctly 1`] = `
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="large"
         >
           large
@@ -1134,8 +1129,9 @@ exports[`renders components/segmented/demo/shape.tsx correctly 1`] = `
           type="radio"
         />
         <div
-          aria-selected="true"
+          aria-checked="true"
           class="ant-segmented-item-label"
+          role="radio"
         >
           <span
             class="ant-segmented-item-icon"
@@ -1161,21 +1157,10 @@ exports[`renders components/segmented/demo/shape.tsx correctly 1`] = `
               </svg>
             </span>
           </span>
-        </span>
-      </div>
-    </label>
-    <label
-      class="ant-segmented-item"
-    >
-      <input
-        class="ant-segmented-item-input"
-        name="test-id"
-        type="radio"
-      />
-      <div
-        aria-checked="false"
-        class="ant-segmented-item-label"
-        role="radio"
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
       >
         <input
           class="ant-segmented-item-input"
@@ -1183,8 +1168,9 @@ exports[`renders components/segmented/demo/shape.tsx correctly 1`] = `
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
         >
           <span
             class="ant-segmented-item-icon"
