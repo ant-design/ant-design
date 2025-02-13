@@ -300,7 +300,7 @@ describe('TreeSelect', () => {
       if (checkboxes[2]) {
         fireEvent.click(checkboxes[2]);
       }
-      expect(onChange).not.toHaveBeenCalled();
+      expect(onChange.mock.calls.length).toBe(0);
     });
 
     it('should handle deselection correctly when maxCount is reached', () => {
