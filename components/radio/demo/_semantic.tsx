@@ -11,8 +11,8 @@ const locales = {
     label: '文本元素',
   },
   en: {
-    root: 'Icon element',
-    icon: 'Input element',
+    root: 'Root element',
+    icon: 'Icon element',
     label: 'Label element',
   },
 };
