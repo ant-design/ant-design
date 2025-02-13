@@ -187,6 +187,7 @@ export interface ConfigProviderProps {
   theme?: ThemeConfig;
   warning?: WarningContextProps;
   alert?: AlertConfig;
+  affix?: ComponentStyleConfig;
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
   calendar?: ComponentStyleConfig;
@@ -333,6 +334,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     csp: customCsp,
     autoInsertSpaceInButton,
     alert,
+    affix,
     anchor,
     form,
     locale,
@@ -443,6 +445,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     csp,
     autoInsertSpaceInButton,
     alert,
+    affix,
     anchor,
     locale: locale || legacyLocale,
     direction,
