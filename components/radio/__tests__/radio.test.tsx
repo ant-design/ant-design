@@ -98,7 +98,7 @@ describe('Radio', () => {
     expect(onClick).toHaveBeenCalledTimes(3);
     expect(onRootClick).toHaveBeenCalledTimes(3);
   });
-  it('should support custom styles for Card.Meta', () => {
+  it('should support custom styles', () => {
     const customClassNames = {
       root: 'custom-root',
       input: 'custom-input',
