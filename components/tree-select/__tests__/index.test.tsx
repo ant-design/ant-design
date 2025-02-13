@@ -279,9 +279,11 @@ describe('TreeSelect', () => {
 
       jest.runAllTimers();
 
-      const checkboxes = container.querySelectorAll('.ant-select-tree-checkbox');
-      if (checkboxes[2]) {
-        fireEvent.click(checkboxes[2]);
+      const checkboxes = container.querySelectorAll(
+        '.ant-select-tree-checkbox:not(.ant-select-tree-checkbox-checked)',
+      );
+      if (checkboxes[1]) {
+        fireEvent.click(checkboxes[1]);
       }
 
       expect(onChange).toHaveBeenCalledWith(
@@ -295,8 +297,8 @@ describe('TreeSelect', () => {
 
       onChange.mockClear();
 
-      if (checkboxes[3]) {
-        fireEvent.click(checkboxes[3]);
+      if (checkboxes[2]) {
+        fireEvent.click(checkboxes[2]);
       }
       expect(onChange).not.toHaveBeenCalled();
     });
