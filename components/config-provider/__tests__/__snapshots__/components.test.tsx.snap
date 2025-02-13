@@ -29602,11 +29602,12 @@ exports[`ConfigProvider components Tags configProvider 1`] = `
   >
     Bamboo
   </span>
-  <span
+  <button
     class="config-tag config-tag-checkable"
+    type="button"
   >
     Light
-  </span>
+  </button>
 </div>
 `;
 
@@ -29617,11 +29618,12 @@ exports[`ConfigProvider components Tags configProvider componentDisabled 1`] = `
   >
     Bamboo
   </span>
-  <span
+  <button
     class="config-tag config-tag-checkable"
+    type="button"
   >
     Light
-  </span>
+  </button>
 </div>
 `;
 
@@ -29632,11 +29634,12 @@ exports[`ConfigProvider components Tags configProvider componentSize large 1`] =
   >
     Bamboo
   </span>
-  <span
+  <button
     class="config-tag config-tag-checkable"
+    type="button"
   >
     Light
-  </span>
+  </button>
 </div>
 `;
 
@@ -29647,11 +29650,12 @@ exports[`ConfigProvider components Tags configProvider componentSize middle 1`] 
   >
     Bamboo
   </span>
-  <span
+  <button
     class="config-tag config-tag-checkable"
+    type="button"
   >
     Light
-  </span>
+  </button>
 </div>
 `;
 
@@ -29662,11 +29666,12 @@ exports[`ConfigProvider components Tags configProvider componentSize small 1`] =
   >
     Bamboo
   </span>
-  <span
+  <button
     class="config-tag config-tag-checkable"
+    type="button"
   >
     Light
-  </span>
+  </button>
 </div>
 `;
 
@@ -29677,11 +29682,12 @@ exports[`ConfigProvider components Tags normal 1`] = `
   >
     Bamboo
   </span>
-  <span
+  <button
     class="ant-tag ant-tag-checkable"
+    type="button"
   >
     Light
-  </span>
+  </button>
 </div>
 `;
 
@@ -29692,11 +29698,12 @@ exports[`ConfigProvider components Tags prefixCls 1`] = `
   >
     Bamboo
   </span>
-  <span
+  <button
     class="prefix-Tags prefix-Tags-checkable"
+    type="button"
   >
     Light
-  </span>
+  </button>
 </div>
 `;
 
