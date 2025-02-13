@@ -72,7 +72,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | onTabClick | tab 被点击的回调 | (key: string, event: MouseEvent) => void | - |  |
 | onTabScroll | tab 滚动时触发 | ({ direction: `left` \| `right` \| `top` \| `bottom` }) => void | - | 4.3.0 |
 
-> 更多属性查看 [rc-tabs tabs](https://github.com/react-component/tabs#tabs)
+> 更多属性查看 [@rc-component/tabs](https://github.com/react-component/tabs#tabs)
 
 ### TabItemType
 
