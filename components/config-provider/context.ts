@@ -46,6 +46,7 @@ import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
 import type { TreeSelectProps } from '../tree-select';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
+import type { CheckboxProps } from '../checkbox';
 
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
@@ -141,6 +142,8 @@ export interface ImageConfig extends ComponentStyleConfig {
 
 export type CollapseConfig = ComponentStyleConfig &
   Pick<CollapseProps, 'expandIcon' | 'classNames' | 'styles'>;
+
+export type CheckboxConfig = ComponentStyleConfig & Pick<CheckboxProps, 'classNames' | 'styles'>;
 
 export type MenuConfig = ComponentStyleConfig & Pick<MenuProps, 'expandIcon'>;
 
@@ -303,7 +306,7 @@ export interface ConfigComponentProps {
   slider?: SliderConfig;
   breadcrumb?: ComponentStyleConfig;
   menu?: MenuConfig;
-  checkbox?: ComponentStyleConfig;
+  checkbox?: CheckboxConfig;
   descriptions?: DescriptionsConfig;
   empty?: EmptyConfig;
   badge?: BadgeConfig;

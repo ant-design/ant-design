@@ -103,4 +103,34 @@ describe('Checkbox', () => {
     expect(onClick).toHaveBeenCalledTimes(3);
     expect(onRootClick).toHaveBeenCalledTimes(3);
   });
+  it('should support custom styles', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      input: 'custom-input',
+      label: 'custom-label',
+    };
+
+    const customStyles = {
+      root: { backgroundColor: 'red' },
+      input: { backgroundColor: 'black' },
+      label: { backgroundColor: 'gray' },
+    };
+    const { container } = render(
+      <Checkbox classNames={customClassNames} styles={customStyles}>
+        Checkbox
+      </Checkbox>,
+    );
+
+    const rootElement = container.querySelector('.ant-checkbox-wrapper') as HTMLElement;
+    const inputElement = container.querySelector('.ant-checkbox') as HTMLElement;
+    const labelElement = container.querySelector('.ant-checkbox-label') as HTMLElement;
+
+    expect(rootElement.classList).toContain('custom-root');
+    expect(inputElement.classList).toContain('custom-input');
+    expect(labelElement.classList).toContain('custom-label');
+
+    expect(rootElement.style.backgroundColor).toBe('red');
+    expect(inputElement.style.backgroundColor).toBe('black');
+    expect(labelElement.style.backgroundColor).toBe('gray');
+  });
 });
