@@ -41,6 +41,7 @@ export interface RadioGroupContextProps {
   block?: boolean;
 }
 
+type SemanticName = 'root' | 'input' | 'label';
 export interface RadioProps extends AbstractCheckboxProps<RadioChangeEvent> {
   /**
    * Control the appearance for Radio to display as button or not
@@ -49,6 +50,8 @@ export interface RadioProps extends AbstractCheckboxProps<RadioChangeEvent> {
    * @internal
    */
   optionType?: RadioGroupOptionType;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 export interface RadioChangeEventTarget extends RadioProps {

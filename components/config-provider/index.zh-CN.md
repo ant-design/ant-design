@@ -147,7 +147,7 @@ const {
 | notification | 设置 Notification 组件的通用属性 | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode, classNames?: [NotificationConfig\["classNames"\]](/components/notification-cn#api), styles?: [NotificationConfig\["styles"\]](/components/notification-cn#api) } | - | 5.7.0, `closeIcon`: 5.14.0, `classNames` 和 `styles`: 6.0.0 |
 | pagination | 设置 Pagination 组件的通用属性 | { showSizeChanger?: boolean, className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | progress | 设置 Progress 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| radio | 设置 Radio 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| radio | 设置 Radio 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [RadioConfig\["classNames"\]](/components/radio-cn#api), styles?: [RadioConfig\["styles"\]](/components/radio-cn#api) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
 | rate | 设置 Rate 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | result | 设置 Result 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [ResultProps\["classNames"\]](/components/result-cn#api), styles?: [ResultProps\["styles"\]](/components/result-cn#api) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
 | ribbon | 设置 Ribbon 组件的通用属性 | { className?: string, style?: React.CSSProperties, , classNames?: [RibbonProps\["classNames"\]](/components/badge-cn#api), styles?: [RibbonProps\["styles"\]](/components/badge-cn#api) } | - | 6.0.0 |

@@ -7,7 +7,7 @@ import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { TARGET_CLS } from '../_util/wave/interface';
 import useBubbleLock from '../checkbox/useBubbleLock';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FormItemInputContext } from '../form/context';
@@ -19,7 +19,14 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
   const groupContext = React.useContext(RadioGroupContext);
   const radioOptionTypeContext = React.useContext(RadioOptionTypeContext);
 
-  const { getPrefixCls, direction, radio } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('radio');
   const innerRef = React.useRef<RadioRef>(null);
   const mergedRef = composeRef(ref, innerRef);
   const { isFormItemInput } = React.useContext(FormItemInputContext);
@@ -42,6 +49,8 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     children,
     style,
     title,
+    classNames: radioClassNames,
+    styles,
     ...restProps
   } = props;
   const radioPrefixCls = getPrefixCls('radio', customizePrefixCls);
@@ -75,9 +84,11 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
       [`${prefixCls}-wrapper-in-form-item`]: isFormItemInput,
       [`${prefixCls}-wrapper-block`]: !!groupContext?.block,
     },
-    radio?.className,
+    contextClassName,
     className,
     rootClassName,
+    contextClassNames.root,
+    radioClassNames?.root,
     hashId,
     cssVarCls,
     rootCls,
@@ -91,7 +102,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     <Wave component="Radio" disabled={radioProps.disabled}>
       <label
         className={wrapperClassString}
-        style={{ ...radio?.style, ...style }}
+        style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
         onMouseEnter={props.onMouseEnter}
         onMouseLeave={props.onMouseLeave}
         title={title}
@@ -100,13 +111,27 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
         {/* @ts-ignore */}
         <RcCheckbox
           {...radioProps}
-          className={classNames(radioProps.className, { [TARGET_CLS]: !isButtonType })}
+          className={classNames(radioClassNames?.input, contextClassNames.input, {
+            [TARGET_CLS]: !isButtonType,
+          })}
+          style={{ ...contextStyles.input, ...styles?.input }}
           type="radio"
           prefixCls={prefixCls}
           ref={mergedRef}
           onClick={onInputClick}
         />
-        {children !== undefined ? <span className={`${prefixCls}-label`}>{children}</span> : null}
+        {children !== undefined ? (
+          <span
+            className={classNames(
+              `${prefixCls}-label`,
+              contextClassNames.label,
+              radioClassNames?.label,
+            )}
+            style={{ ...contextStyles.label, ...styles?.label }}
+          >
+            {children}
+          </span>
+        ) : null}
       </label>
     </Wave>,
   );
