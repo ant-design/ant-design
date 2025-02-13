@@ -149,11 +149,11 @@ describe('Table.sorter', () => {
 
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
     expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('descending');
-    expect(getNameColumn()?.getAttribute('aria-label')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-label')).toEqual('Name');
 
     fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
     expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('ascending');
-    expect(getNameColumn()?.getAttribute('aria-label')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-label')).toEqual('Name');
 
     fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
     expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
