@@ -40,7 +40,7 @@ const App: React.FC = () => (
           theme={{
             components: {
               Button: {
-                colorBorderDisabled: 'rgba(0, 0, 0, 0.12)',
+                borderColorDisabled: 'rgba(0, 0, 0, 0.12)',
                 colorBgContainerDisabled: 'transparent',
               },
             },
