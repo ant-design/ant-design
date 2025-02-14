@@ -132,7 +132,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     dataSource,
     pagination,
     rowSelection,
-    rowKey = 'key',
+    rowKey: customizeRowKey,
     rowClassName,
     columns,
     children,
@@ -153,14 +153,6 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   } = props;
 
   const warning = devUseWarning('Table');
-
-  if (process.env.NODE_ENV !== 'production') {
-    warning(
-      !(typeof rowKey === 'function' && rowKey.length > 1),
-      'usage',
-      '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
-    );
-  }
 
   const baseColumns = React.useMemo(
     () => columns || (convertChildrenToColumns(children) as ColumnsType<RecordType>),
@@ -238,6 +230,16 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   }));
 
   // ============================ RowKey ============================
+  const rowKey = customizeRowKey || table?.rowKey || 'key';
+
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !(typeof rowKey === 'function' && rowKey.length > 1),
+      'usage',
+      '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
+    );
+  }
+
   const getRowKey = React.useMemo<GetRowKey<RecordType>>(() => {
     if (typeof rowKey === 'function') {
       return rowKey;
