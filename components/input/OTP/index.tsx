@@ -8,7 +8,6 @@ import type { InputStatus } from '../../_util/statusUtils';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import type { Variant } from '../../config-provider';
-import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import useSize from '../../config-provider/hooks/useSize';
 import type { SizeType } from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
@@ -100,8 +99,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
 
   // ========================= Root =========================
   // Style
-  const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   // ========================= Size =========================
   const mergedSize = useSize((ctx) => customSize ?? ctx);
