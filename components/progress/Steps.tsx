@@ -6,7 +6,6 @@ import { getSize } from './utils';
 
 interface ProgressStepsProps extends ProgressProps {
   steps: number;
-  rounding?: (step: number) => number;
   strokeColor?: string | string[];
   trailColor?: string;
 }
