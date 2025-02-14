@@ -93,10 +93,6 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
           alignItems: 'center',
           padding: `0 ${unit(inputPaddingHorizontalBase)}`,
 
-          [`${componentCls}-selection-search-input`]: {
-            height: selectHeightWithoutBorder,
-          },
-
           '&:after': {
             lineHeight: unit(selectHeightWithoutBorder),
           },
