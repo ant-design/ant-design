@@ -40,15 +40,10 @@ export const PureContent: React.FC<PureContentProps> = ({
   styles,
 }) => {
   const iconElement = icon || (type && TypeIcon[type]);
-  const iconNode: React.ReactNode = cloneElement(iconElement, {
-    className: classNames(
-      React.isValidElement(iconElement)
-        ? (iconElement as React.ReactElement<{ className?: string }>).props?.className
-        : '',
-      PureContentClassNames?.icon,
-    ),
-    style: { ...styles?.icon },
-  });
+  const iconNode: React.ReactNode = cloneElement(iconElement, (currentProps) => ({
+    className: classNames(currentProps?.className, PureContentClassNames?.icon),
+    style: { ...currentProps?.style, ...styles?.icon },
+  }));
   return (
     <div className={classNames(`${prefixCls}-custom-content`, `${prefixCls}-${type}`)}>
       {iconNode}
