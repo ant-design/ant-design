@@ -107,6 +107,6 @@ export const _ButtonVariantTypes = [
 ] as const;
 export type ButtonVariantType = (typeof _ButtonVariantTypes)[number];
 
-export const _ButtonColorTypes = ['default', 'primary', 'danger', ...PresetColors] as const;
+export const _ButtonColorTypes = ['default', 'primary', 'danger', 'info', ...PresetColors] as const;
 
 export type ButtonColorType = (typeof _ButtonColorTypes)[number];
