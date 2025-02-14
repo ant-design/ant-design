@@ -23,8 +23,9 @@ import type { ListItemProps } from '../list';
 import type { Locale } from '../locale';
 import type { MentionsProps } from '../mentions';
 import type { MenuProps } from '../menu';
+import type { ArgsProps as MessageProps } from '../message';
 import type { ModalProps } from '../modal';
-import type { ArgsProps } from '../notification/interface';
+import type { ArgsProps as NotificationProps } from '../notification';
 import type { PaginationProps } from '../pagination';
 import type { PopconfirmProps } from '../popconfirm';
 import type { PopoverProps } from '../popover';
@@ -175,8 +176,10 @@ export type TextAreaConfig = ComponentStyleConfig &
 export type ButtonConfig = ComponentStyleConfig &
   Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace'>;
 
+export type MessageConfig = ComponentStyleConfig & Pick<MessageProps, 'classNames' | 'styles'>;
+
 export type NotificationConfig = ComponentStyleConfig &
-  Pick<ArgsProps, 'closeIcon' | 'classNames' | 'styles'>;
+  Pick<NotificationProps, 'closeIcon' | 'classNames' | 'styles'>;
 
 export type TagConfig = ComponentStyleConfig &
   Pick<TagProps, 'closeIcon' | 'closable' | 'classNames' | 'styles'>;
@@ -319,7 +322,7 @@ export interface ConfigComponentProps {
   switch?: ComponentStyleConfig;
   transfer?: TransferConfig;
   avatar?: ComponentStyleConfig;
-  message?: ComponentStyleConfig;
+  message?: MessageConfig;
   tag?: TagConfig;
   table?: TableConfig;
   card?: CardConfig;

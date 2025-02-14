@@ -39,6 +39,7 @@ import type {
   ListConfig,
   MentionsConfig,
   MenuConfig,
+  MessageConfig,
   ModalConfig,
   NotificationConfig,
   PaginationConfig,
@@ -226,7 +227,7 @@ export interface ConfigProviderProps {
   switch?: ComponentStyleConfig;
   transfer?: TransferConfig;
   avatar?: ComponentStyleConfig;
-  message?: ComponentStyleConfig;
+  message?: MessageConfig;
   tag?: TagConfig;
   table?: TableConfig;
   card?: CardConfig;
