@@ -85,6 +85,27 @@ const App: React.FC = () => (
         </Button>
       </Flex>
     </ConfigProvider>
+
+    <Flex gap="small" wrap>
+      <Button color="info" variant="solid">
+        Solid
+      </Button>
+      <Button color="info" variant="outlined">
+        Outlined
+      </Button>
+      <Button color="info" variant="dashed">
+        Dashed
+      </Button>
+      <Button color="info" variant="filled">
+        Filled
+      </Button>
+      <Button color="info" variant="text">
+        Text
+      </Button>
+      <Button color="info" variant="link">
+        Link
+      </Button>
+    </Flex>
   </Flex>
 );
 
