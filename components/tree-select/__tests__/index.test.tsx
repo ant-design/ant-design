@@ -382,6 +382,122 @@ describe('TreeSelect', () => {
 
       expect(container.querySelector('.ant-select-tree-node-content-wrapper')).toBeTruthy();
     });
+
+    it('should handle single value with maxCount', () => {
+      const onChange = jest.fn();
+      const treeData = [
+        {
+          value: 'parent',
+          title: 'parent',
+          children: [
+            { value: 'child1', title: 'child1' },
+            { value: 'child2', title: 'child2' },
+          ],
+        },
+      ];
+
+      const { container } = render(
+        <TreeSelect
+          treeData={treeData}
+          multiple
+          maxCount={1}
+          value={{ value: 'child1', label: 'child1' }}
+          onChange={onChange}
+          open
+          treeDefaultExpandAll
+          treeCheckable
+          treeCheckStrictly
+          labelInValue
+        />,
+      );
+
+      jest.runAllTimers();
+
+      const checkboxes = container.querySelectorAll(
+        '.ant-select-tree-checkbox:not(.ant-select-tree-checkbox-checked)',
+      );
+      if (checkboxes[1]) {
+        fireEvent.click(checkboxes[1]);
+      }
+
+      expect(onChange).not.toHaveBeenCalled();
+    });
+
+    it('should handle non-labeled value with maxCount', () => {
+      const onChange = jest.fn();
+      const treeData = [
+        {
+          value: 'parent',
+          title: 'parent',
+          children: [
+            { value: 'child1', title: 'child1' },
+            { value: 'child2', title: 'child2' },
+          ],
+        },
+      ];
+
+      const { container } = render(
+        <TreeSelect
+          treeData={treeData}
+          multiple
+          maxCount={1}
+          value="child1"
+          onChange={onChange}
+          open
+          treeDefaultExpandAll
+          treeCheckable
+          treeCheckStrictly
+        />,
+      );
+
+      jest.runAllTimers();
+
+      const checkboxes = container.querySelectorAll(
+        '.ant-select-tree-checkbox:not(.ant-select-tree-checkbox-checked)',
+      );
+      if (checkboxes[1]) {
+        fireEvent.click(checkboxes[1]);
+      }
+
+      expect(onChange).not.toHaveBeenCalled();
+    });
+
+    it('should handle undefined value with maxCount', () => {
+      const onChange = jest.fn();
+      const treeData = [
+        {
+          value: 'parent',
+          title: 'parent',
+          children: [
+            { value: 'child1', title: 'child1' },
+            { value: 'child2', title: 'child2' },
+          ],
+        },
+      ];
+
+      const { container } = render(
+        <TreeSelect
+          treeData={treeData}
+          multiple
+          maxCount={1}
+          value={undefined}
+          onChange={onChange}
+          open
+          treeDefaultExpandAll
+          treeCheckable
+          treeCheckStrictly
+        />,
+      );
+
+      jest.runAllTimers();
+
+      const checkboxes = container.querySelectorAll('.ant-select-tree-checkbox');
+      if (checkboxes[1]) {
+        fireEvent.click(checkboxes[1]);
+      }
+
+      expect(onChange).toHaveBeenCalled();
+    });
   });
 
   describe('handleChange', () => {
