@@ -5,7 +5,6 @@ import toArray from 'rc-util/lib/Children/toArray';
 import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
 import Avatar from './Avatar';
@@ -86,8 +85,7 @@ const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
 
   const prefixCls = getPrefixCls('avatar', customizePrefixCls);
   const groupPrefixCls = `${prefixCls}-group`;
-  const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const cls = classNames(
     groupPrefixCls,
@@ -95,7 +93,6 @@ const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
       [`${groupPrefixCls}-rtl`]: direction === 'rtl',
     },
     cssVarCls,
-    rootCls,
     className,
     rootClassName,
     hashId,

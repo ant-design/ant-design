@@ -7,7 +7,6 @@ import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import type { AvatarContextType, AvatarSize } from './AvatarContext';
@@ -144,8 +143,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
   }
 
   const prefixCls = getPrefixCls('avatar', customizePrefixCls);
-  const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const sizeCls = classNames({
     [`${prefixCls}-lg`]: size === 'large',
@@ -166,7 +164,6 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
       [`${prefixCls}-icon`]: !!icon,
     },
     cssVarCls,
-    rootCls,
     className,
     rootClassName,
     hashId,
