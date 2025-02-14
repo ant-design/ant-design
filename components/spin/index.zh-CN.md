@@ -47,6 +47,10 @@ demo:
 
   你可以自定义全局默认 Spin 的元素。
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## 主题变量（Design Token）
 
 <ComponentTokenTable component="Spin"></ComponentTokenTable>

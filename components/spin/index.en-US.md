@@ -46,6 +46,10 @@ Common props ref：[Common props](/docs/react/common-props)
 
   You can define default spin element globally.
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Spin"></ComponentTokenTable>
