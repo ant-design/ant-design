@@ -29,7 +29,8 @@ const useData = <RecordType extends AnyObject>(
       // rightData should be ordered by targetKeys
       // leftData should be ordered by dataSource
       if (targetKeysMap.has(record.key)) {
-        (rightData as any)[targetKeysMap.get(record.key) as any] = record;
+        const idx = targetKeysMap.get(record.key)!;
+        (rightData as any)[idx] = record;
       } else {
         leftData.push(record as any);
       }
