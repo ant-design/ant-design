@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import * as React from 'react';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
@@ -11,7 +10,6 @@ import pickAttrs from 'rc-util/lib/pickAttrs';
 import { composeRef } from 'rc-util/lib/ref';
 
 import type { ClosableType } from '../_util/hooks/useClosable';
-import { replaceElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useStyle from './style';
@@ -57,13 +55,6 @@ export interface AlertProps {
   id?: string;
 }
 
-const iconMapFilled = {
-  success: CheckCircleFilled,
-  info: InfoCircleFilled,
-  error: CloseCircleFilled,
-  warning: ExclamationCircleFilled,
-};
-
 interface IconNodeProps {
   type: AlertProps['type'];
   icon: AlertProps['icon'];
@@ -73,20 +64,18 @@ interface IconNodeProps {
 
 const IconNode: React.FC<IconNodeProps> = (props) => {
   const { icon, prefixCls, type } = props;
-  const iconType = iconMapFilled[type!] || null;
-  if (icon) {
-    return replaceElement(icon, <span className={`${prefixCls}-icon`}>{icon}</span>, () => ({
-      className: classNames(
-        `${prefixCls}-icon`,
-        (
-          icon as ReactElement<{
-            className?: string;
-          }>
-        ).props.className,
-      ),
-    })) as ReactElement;
+  const { successIcon, infoIcon, warningIcon, errorIcon } = useComponentConfig('alert');
+  const iconMapFilled = {
+    success: successIcon || <CheckCircleFilled />,
+    info: infoIcon || <InfoCircleFilled />,
+    error: errorIcon || <CloseCircleFilled />,
+    warning: warningIcon || <ExclamationCircleFilled />,
+  };
+  const mergedIcon = icon || iconMapFilled[type!];
+  if (mergedIcon) {
+    return <span className={`${prefixCls}-icon`}>{mergedIcon}</span>;
   }
-  return React.createElement(iconType, { className: `${prefixCls}-icon` });
+  return null;
 };
 
 type CloseIconProps = {

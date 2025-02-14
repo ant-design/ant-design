@@ -150,7 +150,13 @@ export type ModalConfig = ComponentStyleConfig &
 export type TabsConfig = ComponentStyleConfig &
   Pick<TabsProps, 'indicator' | 'indicatorSize' | 'more' | 'moreIcon' | 'addIcon' | 'removeIcon'>;
 
-export type AlertConfig = ComponentStyleConfig & Pick<AlertProps, 'closable' | 'closeIcon'>;
+export type AlertConfig = ComponentStyleConfig &
+  Pick<AlertProps, 'closable' | 'closeIcon'> & {
+    successIcon?: React.ReactElement;
+    infoIcon?: React.ReactElement;
+    warningIcon?: React.ReactElement;
+    errorIcon?: React.ReactElement;
+  };
 
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
 
