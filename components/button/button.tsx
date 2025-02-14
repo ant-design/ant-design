@@ -88,7 +88,7 @@ const ButtonTypeMap: Partial<Record<ButtonType, ColorVariantPairType>> = {
   default: ['default', 'outlined'],
   primary: ['primary', 'solid'],
   dashed: ['default', 'dashed'],
-  link: ['primary', 'link'],
+  link: ['info', 'link'],
   text: ['default', 'text'],
 };
 
@@ -243,12 +243,12 @@ const InternalCompoundedButton = React.forwardRef<
         e.preventDefault();
         return;
       }
-     
-    props.onClick?.(
-      'href' in props
-        ? (e as React.MouseEvent<HTMLAnchorElement, MouseEvent>)
-        : (e as React.MouseEvent<HTMLButtonElement, MouseEvent>)
-    );
+
+      props.onClick?.(
+        'href' in props
+          ? (e as React.MouseEvent<HTMLAnchorElement, MouseEvent>)
+          : (e as React.MouseEvent<HTMLButtonElement, MouseEvent>),
+      );
     },
     [props.onClick, innerLoading, mergedDisabled],
   );
