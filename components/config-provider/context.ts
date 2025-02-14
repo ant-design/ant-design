@@ -345,6 +345,7 @@ export interface ConfigComponentProps {
   dropdown?: ComponentStyleConfig;
   flex?: FlexConfig;
   wave?: WaveConfig;
+  watermark?: ComponentStyleConfig;
 }
 
 export interface ConfigConsumerProps extends ConfigComponentProps {
