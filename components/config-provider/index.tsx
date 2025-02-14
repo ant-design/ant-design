@@ -251,6 +251,7 @@ export interface ConfigProviderProps {
   tooltip?: TooltipConfig;
   popover?: PopoverConfig;
   popconfirm?: PopconfirmConfig;
+  watermark?: ComponentStyleConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -415,6 +416,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     variant,
     inputNumber,
     treeSelect,
+    watermark,
   } = props;
 
   // =================================== Context ===================================
@@ -521,6 +523,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     variant,
     inputNumber,
     treeSelect,
+    watermark,
   };
 
   if (process.env.NODE_ENV !== 'production') {

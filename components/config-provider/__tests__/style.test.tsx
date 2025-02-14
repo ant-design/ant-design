@@ -61,6 +61,7 @@ import Tree from '../../tree';
 import TreeSelect from '../../tree-select';
 import Typography from '../../typography';
 import Upload from '../../upload';
+import Watermark from '../../watermark';
 
 describe('ConfigProvider support style and className props', () => {
   it('Should Space classNames works', () => {
@@ -162,6 +163,22 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
     expect(container.querySelector('.ant-divider'))?.toHaveStyle({ color: 'red', height: '80px' });
+  });
+
+  it('Should Watermark className and style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        watermark={{
+          className: 'config-provider-className',
+          style: { color: 'red' },
+        }}
+      >
+        <Watermark content="Ant Design">
+          <div style={{ height: 500 }} />
+        </Watermark>
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.config-provider-className'))?.toHaveStyle({ color: 'red' });
   });
 
   it('Should Drawer className & closeIcon works', () => {
