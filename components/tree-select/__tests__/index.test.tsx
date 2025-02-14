@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, cleanup } from '@testing-library/react';
 import TreeSelect, { TreeNode } from '..';
 import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
@@ -294,11 +294,30 @@ describe('TreeSelect', () => {
         null,
         expect.any(Object),
       );
-
+      cleanup();
+      const { container: newContainer } = render(
+        <TreeSelect
+          treeData={treeData}
+          multiple
+          maxCount={2}
+          value={[
+            { value: 'child1', label: 'child1' },
+            { value: 'child2', label: 'child2' },
+          ]}
+          onChange={onChange}
+          open
+          treeDefaultExpandAll
+          treeCheckable
+          treeCheckStrictly
+          labelInValue
+        />,
+      );
       onChange.mockClear();
-
-      if (checkboxes[2]) {
-        fireEvent.click(checkboxes[2]);
+      const newCheckboxes = newContainer.querySelectorAll(
+        '.ant-select-tree-checkbox:not(.ant-select-tree-checkbox-checked)',
+      );
+      if (newCheckboxes[2]) {
+        fireEvent.click(newCheckboxes[2]);
       }
       expect(onChange.mock.calls.length).toBe(0);
     });
