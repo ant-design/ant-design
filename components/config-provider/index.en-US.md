@@ -145,7 +145,7 @@ const {
 | notification | Set Notification common props | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode, classNames?: [NotificationConfig\["classNames"\]](/components/notification#api), styles?: [NotificationConfig\["styles"\]](/components/notification#api) } | - | 5.7.0, `closeIcon`: 5.14.0, `classNames` and `styles`: 6.0.0 |
 | pagination | Set Pagination common props | { showSizeChanger?: boolean, className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | progress | Set Progress common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| radio | Set Radio common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| radio | Set Radio common props | { className?: string, style?: React.CSSProperties, classNames?: [RadioConfig\["classNames"\]](/components/radio#api), styles?: [RadioConfig\["styles"\]](/components/radio#api) } | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
 | rate | Set Rate common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | result | Set Result common props | { className?: string, style?: React.CSSProperties , classNames?: [ResultProps\["classNames"\]](/components/result#api), styles?: [ResultProps\["styles"\]](/components/result#api)} | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
 | ribbon | Set Ribbon common props | { className?: string, style?: React.CSSProperties, , classNames?: [RibbonProps\["classNames"\]](/components/badge#api), styles?: [RibbonProps\["styles"\]](/components/badge#api) } | - | 6.0.0 |
