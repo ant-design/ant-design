@@ -3,7 +3,7 @@ import { unit } from '@ant-design/cssinjs';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { FastColor } from '@ant-design/fast-color';
 
-import { resetComponent } from '../../style';
+import { resetComponent, genFocusStyle } from '../../style';
 import type { FullToken, GetDefaultToken, GenStyleFn } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
@@ -69,6 +69,12 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         color: token.colorTextDescription,
         cursor: 'pointer',
         transition: `all ${token.motionDurationMid}`,
+        padding: 0,
+        overflow: 'hidden',
+        backgroundColor: 'transparent',
+        border: 'none',
+        outline: 'none',
+        ...genFocusStyle(token),
 
         '&:hover': {
           color: token.colorTextHeading,
@@ -107,6 +113,8 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         '&:active': {
           backgroundColor: token.colorPrimaryActive,
         },
+
+        ...genFocusStyle(token),
       },
 
       '&-hidden': {
