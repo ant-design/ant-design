@@ -122,7 +122,7 @@ const {
 | cardMeta | 设置 Card.Meta 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [CardMetaProps\["classNames"\]](/components/card-cn#api), styles?: [CardMetaProps\["styles"\]](/components/card-cn#api) } | - | 6.0.0 |
 | carousel | 设置 Carousel 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | cascader | 设置 Cascader 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| checkbox | 设置 Checkbox 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| checkbox | 设置 Checkbox 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [CheckboxConfig\["classNames"\]](/components/checkbox-cn#api), styles?: [CheckboxConfig\["styles"\]](/components/checkbox-cn#api) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
 | collapse | 设置 Collapse 组件的通用属性 | { className?: string, style?: React.CSSProperties, expandIcon?: (props) => ReactNode, classNames?: [CollapseProps\["classNames"\]](/components/collapse-cn#api), styles?: [CollapseProps\["styles"\]](/components/collapse-cn#api) } | - | 5.7.0, expandIcon: 5.15.0, `classNames` 和 `styles`: 6.0.0 |
 | colorPicker | 设置 ColorPicker 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | datePicker | 设置 DatePicker 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |

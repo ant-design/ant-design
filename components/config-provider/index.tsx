@@ -21,6 +21,7 @@ import type {
   CardConfig,
   CardMetaConfig,
   CascaderConfig,
+  CheckboxConfig,
   CollapseConfig,
   ComponentStyleConfig,
   ConfigConsumerProps,
@@ -214,7 +215,7 @@ export interface ConfigProviderProps {
   breadcrumb?: ComponentStyleConfig;
   menu?: MenuConfig;
   floatButtonGroup?: FloatButtonGroupConfig;
-  checkbox?: ComponentStyleConfig;
+  checkbox?: CheckboxConfig;
   descriptions?: ComponentStyleConfig;
   empty?: EmptyConfig;
   badge?: BadgeConfig;
