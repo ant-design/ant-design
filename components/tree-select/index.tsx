@@ -189,13 +189,23 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     }
     return maxCount;
   }, [maxCount, showCheckedStrategy, treeCheckStrictly]);
-
+  type LabeledValue = {
+    value: any;
+    label: React.ReactNode;
+  };
   const processedTreeData = React.useMemo(() => {
     if (!mergedMaxCount || !isMultiple || !treeData || !value) {
       return treeData;
     }
+    function isLabeledValue(val: unknown): val is LabeledValue {
+      return !!val && typeof val === 'object' && 'value' in val;
+    }
 
-    const valueArr = Array.isArray(value) ? value : value ? [value] : [];
+    const valueArr = Array.isArray(value)
+      ? value.map((item) => (isLabeledValue(item) ? (item as LabeledValue).value : item))
+      : value
+        ? [isLabeledValue(value) ? (value as LabeledValue).value : value]
+        : [];
     const isMaxReached = valueArr.length >= mergedMaxCount;
 
     const processNode = (nodes: DataNode[]): DataNode[] => {
