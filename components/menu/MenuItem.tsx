@@ -4,7 +4,6 @@ import type { MenuItemProps as RcMenuItemProps } from 'rc-menu';
 import { Item } from 'rc-menu';
 import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'rc-util/lib/omit';
-import { createStyles } from 'antd-style';
 import { cloneElement } from '../_util/reactNode';
 import type { SiderContextProps } from '../layout/Sider';
 import { SiderContext } from '../layout/Sider';
@@ -35,17 +34,7 @@ type GenericComponent = Omit<MenuItemComponent, ''> &
     ...args: RestArgs<MenuItemComponent>
   ) => ReturnType<MenuItemComponent>);
 
-const useStyle = createStyles(({ css }) => ({
-  extraText: css`
-      color: var(--ant-menu-group-title-color);
-      width: 40%;
-      font-weight: 500;
-      padding-left: 2px;
-    `,
-}));
-
 const MenuItem: GenericComponent = (props) => {
-  const { styles } = useStyle();
   const { className, children, icon, title, danger, extra } = props;
   const {
     prefixCls,
@@ -61,7 +50,12 @@ const MenuItem: GenericComponent = (props) => {
       <>
         <span className={classNames(`${prefixCls}-title-content`)}>{children}</span>
         {extra && (
-          <span className={classNames(`${prefixCls}-title-content`, `${styles.extraText}`)}>
+          <span
+            className={classNames(
+              `${prefixCls}-title-content`,
+              `${prefixCls}-title-content-with-extra`,
+            )}
+          >
             {extra}
           </span>
         )}
