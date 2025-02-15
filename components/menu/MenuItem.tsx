@@ -38,7 +38,7 @@ type GenericComponent = Omit<MenuItemComponent, ''> &
 const useStyle = createStyles(({ css }) => ({
   extraText: css`
       color: var(--ant-menu-group-title-color);
-      width: 30%;
+      width: 40%;
       font-weight: 500;
       padding-left: 2px;
     `,
