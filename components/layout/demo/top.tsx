@@ -3,7 +3,7 @@ import { Breadcrumb, Layout, Menu, theme } from 'antd';
 
 const { Header, Content, Footer } = Layout;
 
-const items = new Array(15).fill(null).map((_, index) => ({
+const items = Array.from({ length: 15 }).map((_, index) => ({
   key: index + 1,
   label: `nav ${index + 1}`,
 }));
