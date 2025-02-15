@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.23.4",
+  "version": "5.24.0",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -138,7 +138,7 @@
     "rc-motion": "^2.9.5",
     "rc-notification": "~5.6.3",
     "rc-pagination": "~5.1.0",
-    "rc-picker": "~4.11.0",
+    "rc-picker": "~4.11.1",
     "rc-progress": "~4.0.0",
     "rc-rate": "~2.13.1",
     "rc-resize-observer": "^1.4.3",
@@ -147,7 +147,7 @@
     "rc-slider": "~11.1.8",
     "rc-steps": "~6.0.1",
     "rc-switch": "~4.1.0",
-    "rc-table": "~7.50.2",
+    "rc-table": "~7.50.3",
     "rc-tabs": "~15.5.1",
     "rc-textarea": "~1.9.0",
     "rc-tooltip": "~6.4.0",
