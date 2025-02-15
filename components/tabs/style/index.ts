@@ -159,7 +159,7 @@ const genCardStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
           background: cardBg,
           border: `${unit(token.lineWidth)} ${token.lineType} ${colorBorderSecondary}`,
           transition: `all ${token.motionDurationSlow} ${token.motionEaseInOut}`,
-          height: cardHeight,
+          minHeight: cardHeight,
         },
 
         [`${componentCls}-tab-active`]: {
