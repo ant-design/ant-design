@@ -646,7 +646,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
 
           '&-with-extra': {
             color: 'rgba(0,0,0,0.45)',
-            width: '30%',
+            width: '40%',
             fontWeight: '500',
             paddingLeft: '2px',
           },
