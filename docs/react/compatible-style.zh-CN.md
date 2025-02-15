@@ -204,17 +204,23 @@ root.render(
 
 ### antd 配置 `@layer`
 
+如前所述，使用 StyleProvider 时必须包裹 ConfigProvider 以更新图标相关样式：
+
 ```tsx
 import { StyleProvider } from '@ant-design/cssinjs';
 
 export default () => (
   <StyleProvider layer>
-    <MyApp />
+    <ConfigProvider>
+      <MyApp />
+    </ConfigProvider>
   </StyleProvider>
 );
 ```
 
 ### TailwindCSS 排布 `@layer`
+
+#### TailwindCSS v3
 
 在 global.css 中，调整 `@layer` 来控制样式的覆盖顺序。让 `tailwind-base` 置于 `antd` 之前：
 
@@ -226,6 +232,16 @@ export default () => (
 }
 @tailwind components;
 @tailwind utilities;
+```
+
+#### TailwindCSS v4
+
+在 global.css 中，调整 `@layer` 来控制样式的覆盖顺序，让 `antd` 置于恰当位置：
+
+```less
+@layer theme, base, antd, components, utilities;
+
+@import 'tailwindcss';
 ```
 
 ### reset.css
