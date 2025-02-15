@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type { ReactNode } from 'react';
 import classNames from 'classnames';
 import useEvent from 'rc-util/lib/hooks/useEvent';
 import pickAttrs from 'rc-util/lib/pickAttrs';
@@ -16,7 +17,7 @@ import type { InputRef } from '../Input';
 import useStyle from '../style/otp';
 import OTPInput from './OTPInput';
 import type { OTPInputProps } from './OTPInput';
-import type { ReactNode } from 'react';
+import Separator from './Separator';
 
 export interface OTPRef {
   focus: VoidFunction;
@@ -230,11 +231,6 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     inputMode,
   };
 
-  const renderSeparator = (index: number) => {
-    const result = typeof separator === 'function' ? separator(index) : separator;
-    return result ? <span className={`${prefixCls}-separator`}>{result}</span> : null;
-  };
-
   return wrapCSSVar(
     <div
       {...domAttrs}
@@ -270,7 +266,9 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
                 autoFocus={index === 0 && autoFocus}
                 {...inputSharedProps}
               />
-              {separator && index < length - 1 && renderSeparator(index)}
+              {index < length - 1 && (
+                <Separator separator={separator} index={index} prefixCls={prefixCls} />
+              )}
             </React.Fragment>
           );
         })}
