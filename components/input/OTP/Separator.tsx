@@ -16,7 +16,7 @@ const Separator: React.FC<Readonly<SeparatorProps>> = (props) => {
 };
 
 if (process.env.NODE_ENV !== 'production') {
-  Separator.displayName = 'OTP.Separator';
+  Separator.displayName = 'Separator';
 }
 
 export default Separator;

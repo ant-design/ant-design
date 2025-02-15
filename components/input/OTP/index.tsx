@@ -1,5 +1,4 @@
 import * as React from 'react';
-import type { ReactNode } from 'react';
 import classNames from 'classnames';
 import useEvent from 'rc-util/lib/hooks/useEvent';
 import pickAttrs from 'rc-util/lib/pickAttrs';
@@ -42,7 +41,7 @@ export interface OTPProps
   value?: string;
   onChange?: (value: string) => void;
   formatter?: (value: string) => string;
-  separator?: ((index: number) => ReactNode) | ReactNode;
+  separator?: ((index: number) => React.ReactNode) | React.ReactNode;
 
   // Status
   disabled?: boolean;

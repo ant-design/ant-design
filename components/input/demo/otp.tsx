@@ -32,7 +32,7 @@ const App: React.FC = () => {
       <Input.OTP variant="filled" {...sharedProps} />
       <Title level={5}>With custom display character</Title>
       <Input.OTP mask="🔒" {...sharedProps} />
-      <Title level={5}>With custom ReactNode separator</Title>
+      <Title level={5}>With custom JSX separator</Title>
       <Input.OTP separator={<span>/</span>} {...sharedProps} />
       <Title level={5}>With custom function separator</Title>
       <Input.OTP
