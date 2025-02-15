@@ -58,8 +58,10 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     style,
     id,
     autoplay = false,
+    autoplaySpeed = 3000,
     ...otherProps
   } = props;
+
   const {
     getPrefixCls,
     direction,
@@ -127,11 +129,11 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     rootClassName,
   );
 
-  const { autoplaySpeed = 3000 } = props;
   const mergedShowDuration =
     autoplay && (typeof autoplay === 'object' ? autoplay.dotDuration : false);
-  const dotDurationStyle = mergedShowDuration
-    ? ({ [DotDuration]: `${autoplaySpeed / 1000}s` } as React.CSSProperties)
+
+  const dotDurationStyle: React.CSSProperties = mergedShowDuration
+    ? { [DotDuration]: `${autoplaySpeed}ms` }
     : {};
 
   return wrapCSSVar(
@@ -146,6 +148,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
         nextArrow={nextArrow}
         draggable={draggable}
         verticalSwiping={vertical}
+        autoplaySpeed={autoplaySpeed}
         waitForAnimate={waitForAnimate}
       />
     </div>,
