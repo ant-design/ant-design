@@ -221,6 +221,11 @@ export interface ComponentToken {
    * @descEN Line height of small button content
    */
   contentLineHeightSM: number;
+  /**
+   * @desc type='default'禁用下的背景颜色
+   * @descE background color when type='default' is disabled
+   */
+  colorBgDefaultDisabled: string;
 }
 
 type ShadowColorMap = {
@@ -282,6 +287,7 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
     }),
     {},
   );
+  const colorBgDefaultDisabled = token.colorBgDefaultDisabled ?? token.colorBgContainerDisabled;
 
   return {
     ...shadowColorTokens,
@@ -336,5 +342,6 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
       (token.controlHeightLG - contentFontSizeLG * contentLineHeightLG) / 2 - token.lineWidth,
       0,
     ),
+    colorBgDefaultDisabled,
   };
 };
