@@ -1,3 +1,5 @@
+import React from 'react';
+
 import type { OTPProps } from '.';
 
 interface SeparatorProps {

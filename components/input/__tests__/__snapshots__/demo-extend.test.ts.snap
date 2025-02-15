@@ -10522,56 +10522,6 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
   <h5
     class="ant-typography"
   >
-    With custom string separator
-  </h5>
-  <div
-    class="ant-otp"
-  >
-    <input
-      class="ant-input ant-input-outlined ant-otp-input"
-      size="1"
-      type="text"
-      value=""
-    />
-    <input
-      class="ant-input ant-input-outlined ant-otp-input"
-      size="1"
-      type="text"
-      value=""
-    />
-    <input
-      class="ant-input ant-input-outlined ant-otp-input"
-      size="1"
-      type="text"
-      value=""
-    />
-    <span
-      class="ant-otp-separator"
-    >
-      -
-    </span>
-    <input
-      class="ant-input ant-input-outlined ant-otp-input"
-      size="1"
-      type="text"
-      value=""
-    />
-    <input
-      class="ant-input ant-input-outlined ant-otp-input"
-      size="1"
-      type="text"
-      value=""
-    />
-    <input
-      class="ant-input ant-input-outlined ant-otp-input"
-      size="1"
-      type="text"
-      value=""
-    />
-  </div>
-  <h5
-    class="ant-typography"
-  >
     With custom JSX separator
   </h5>
   <div
@@ -10583,6 +10533,95 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
       type="text"
       value=""
     />
+    <span
+      class="ant-otp-separator"
+    >
+      <span>
+        /
+      </span>
+    </span>
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <span
+      class="ant-otp-separator"
+    >
+      <span>
+        /
+      </span>
+    </span>
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <span
+      class="ant-otp-separator"
+    >
+      <span>
+        /
+      </span>
+    </span>
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <span
+      class="ant-otp-separator"
+    >
+      <span>
+        /
+      </span>
+    </span>
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <span
+      class="ant-otp-separator"
+    >
+      <span>
+        /
+      </span>
+    </span>
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+  </div>
+  <h5
+    class="ant-typography"
+  >
+    With custom function separator
+  </h5>
+  <div
+    class="ant-otp"
+  >
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <span
+      class="ant-otp-separator"
+    >
+      <span
+        style="color: blue;"
+      >
+        —
+      </span>
+    </span>
     <input
       class="ant-input ant-input-outlined ant-otp-input"
       size="1"
@@ -10604,18 +10643,45 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
       type="text"
       value=""
     />
+    <span
+      class="ant-otp-separator"
+    >
+      <span
+        style="color: blue;"
+      >
+        —
+      </span>
+    </span>
     <input
       class="ant-input ant-input-outlined ant-otp-input"
       size="1"
       type="text"
       value=""
     />
+    <span
+      class="ant-otp-separator"
+    >
+      <span
+        style="color: red;"
+      >
+        —
+      </span>
+    </span>
     <input
       class="ant-input ant-input-outlined ant-otp-input"
       size="1"
       type="text"
       value=""
     />
+    <span
+      class="ant-otp-separator"
+    >
+      <span
+        style="color: blue;"
+      >
+        —
+      </span>
+    </span>
     <input
       class="ant-input ant-input-outlined ant-otp-input"
       size="1"
