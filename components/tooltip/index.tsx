@@ -203,7 +203,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       ['arrowPointAtCenter', 'arrow={{ pointAtCenter: true }}'],
       ['overlayStyle', 'styles={{ root: {} }}'],
       ['overlayInnerStyle', 'styles={{ body: {} }}'],
-      ['overlayClassName', 'classNames={{ root: {} }}'],
+      ['overlayClassName', 'classNames={{ root: "" }}'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
