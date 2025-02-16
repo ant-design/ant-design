@@ -16,7 +16,6 @@ import type { InputRef } from '../Input';
 import useStyle from '../style/otp';
 import OTPInput from './OTPInput';
 import type { OTPInputProps } from './OTPInput';
-import Separator from './Separator';
 
 export interface OTPRef {
   focus: VoidFunction;
@@ -57,6 +56,21 @@ export interface OTPProps
 function strToArr(str: string) {
   return (str || '').split('');
 }
+
+interface SeparatorProps {
+  index: number;
+  prefixCls: string;
+  separator: OTPProps['separator'];
+}
+
+const Separator: React.FC<Readonly<SeparatorProps>> = (props) => {
+  const { index, prefixCls, separator } = props;
+  const separatorNode = typeof separator === 'function' ? separator(index) : separator;
+  if (!separatorNode) {
+    return null;
+  }
+  return <span className={`${prefixCls}-separator`}>{separatorNode}</span>;
+};
 
 const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   const {

@@ -10522,7 +10522,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
   <h5
     class="ant-typography"
   >
-    With custom JSX separator
+    With custom ReactNode separator
   </h5>
   <div
     class="ant-otp"
