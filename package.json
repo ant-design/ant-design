@@ -120,6 +120,7 @@
     "@rc-component/mutate-observer": "^2.0.0",
     "@rc-component/qrcode": "~1.0.0",
     "@rc-component/segmented": "~1.1.0",
+    "@rc-component/switch": "~1.0.0",
     "@rc-component/table": "~1.0.2",
     "@rc-component/tabs": "~1.0.0",
     "@rc-component/tooltip": "~1.0.0",
@@ -148,7 +149,6 @@
     "rc-select": "~14.16.6",
     "rc-slider": "~11.1.8",
     "rc-steps": "~6.0.1",
-    "rc-switch": "~4.1.0",
     "rc-textarea": "~1.9.0",
     "rc-tree": "~5.13.0",
     "rc-tree-select": "~5.27.0",
@@ -338,7 +338,7 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "510 KiB",
+      "limit": "511 KiB",
       "gzip": true
     },
     {

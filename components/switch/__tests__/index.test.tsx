@@ -88,4 +88,30 @@ describe('Switch', () => {
     rerender(<Switch unCheckedChildren="0" />);
     expect(container.querySelector('.ant-switch-inner-unchecked')).toHaveStyle('min-height: 22px');
   });
+  it('support styles and classNames', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      content: 'custom-content',
+    };
+    const customStyles = {
+      root: { color: 'red' },
+      content: { color: 'blue' },
+    };
+    const { container } = render(
+      <Switch
+        checkedChildren="on"
+        unCheckedChildren="off"
+        defaultChecked
+        styles={customStyles}
+        classNames={customClassNames}
+      />,
+    );
+    const root = container.querySelector('.ant-switch') as HTMLElement;
+    const content = container.querySelector('.ant-switch-inner-checked') as HTMLElement;
+    expect(root).toHaveClass('custom-root');
+    expect(content).toHaveClass('custom-content');
+
+    expect(root).toHaveStyle('color: red');
+    expect(content).toHaveStyle('color: blue');
+  });
 });

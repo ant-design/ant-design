@@ -33,6 +33,7 @@ import type { PopoverProps } from '../popover';
 import type { RadioProps } from '../radio';
 import type { ResultProps } from '../result';
 import type { SegmentedProps } from '../segmented';
+import type { SwitchProps } from '../switch';
 import type { SelectProps } from '../select';
 import type { SkeletonProps } from '../skeleton';
 import type { SliderProps } from '../slider';
@@ -234,6 +235,8 @@ export type SpinConfig = ComponentStyleConfig &
 
 export type StatisticConfig = ComponentStyleConfig & Pick<StatisticProps, 'classNames' | 'styles'>;
 
+export type SwitchStyleConfig = ComponentStyleConfig & Pick<SwitchProps, 'classNames' | 'styles'>;
+
 export type ResultConfig = ComponentStyleConfig & Pick<ResultProps, 'classNames' | 'styles'>;
 
 export type RadioConfig = ComponentStyleConfig & Pick<RadioProps, 'classNames' | 'styles'>;
@@ -321,7 +324,7 @@ export interface ConfigComponentProps {
   badge?: BadgeConfig;
   radio?: RadioConfig;
   rate?: ComponentStyleConfig;
-  switch?: ComponentStyleConfig;
+  switch?: SwitchStyleConfig;
   transfer?: TransferConfig;
   avatar?: ComponentStyleConfig;
   message?: MessageConfig;
