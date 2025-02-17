@@ -17,11 +17,18 @@ export interface ComponentToken extends TreeSharedToken {}
 interface TreeSelectToken extends FullToken<'TreeSelect'> {
   treePrefixCls: string;
 }
-
+const disabledStyle = {
+  opacity: 0.5,
+  cursor: 'not-allowed',
+  transition: 'none !important',
+};
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<TreeSelectToken> = (token) => {
-  const { componentCls, treePrefixCls, colorBgElevated } = token;
+  const { componentCls, treePrefixCls, colorBgElevated, paddingXS, calc } = token;
   const treeCls = `.${treePrefixCls}`;
+  // Pre-calculate padding values.
+  const paddingX = unit(paddingXS);
+  const paddingY = unit(calc(paddingXS).div(2).equal());
 
   return [
     // ======================================================
@@ -30,7 +37,7 @@ const genBaseStyle: GenerateStyle<TreeSelectToken> = (token) => {
     {
       [`${componentCls}-dropdown`]: [
         {
-          padding: `${unit(token.paddingXS)} ${unit(token.calc(token.paddingXS).div(2).equal())}`,
+          padding: `${paddingX} ${paddingY}`,
         },
 
         // ====================== Tree ======================
@@ -67,6 +74,21 @@ const genBaseStyle: GenerateStyle<TreeSelectToken> = (token) => {
               [`${treeCls}-switcher-icon svg`]: {
                 transform: 'rotate(90deg)',
               },
+            },
+          },
+        },
+
+        // ==================== MaxCount ====================
+        {
+          '&-max-count-reached': {
+            // 直接定位目标元素，避免多层嵌套
+            [`${treeCls}-treenode:not(.ant-select-tree-node-selected)`]: {
+              [`${treeCls}-checkbox:not(.ant-select-tree-checkbox-checked)`]: disabledStyle,
+              [`${treeCls}-checkbox:not(.ant-select-tree-checkbox-checked) + span`]: disabledStyle,
+              [`${treeCls}-node-content-wrapper:not(.ant-select-tree-node-content-wrapper-checked):hover`]:
+                {
+                  backgroundColor: 'transparent',
+                },
             },
           },
         },
