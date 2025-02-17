@@ -607,63 +607,7 @@ const genDangerousStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   ),
 });
 
-const genInfoStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
-  color: token.colorInfo,
-  boxShadow: token.defaultShadow,
-
-  ...genSolidButtonStyle(
-    token,
-    token.dangerColor,
-    token.colorInfo,
-    {
-      background: token.colorInfoHover,
-    },
-    {
-      background: token.colorInfoActive,
-    },
-  ),
-
-  ...genOutlinedDashedButtonStyle(
-    token,
-    token.colorInfo,
-    token.colorBgContainer,
-    {
-      color: token.colorInfoHover,
-      borderColor: token.colorInfoBorderHover,
-    },
-    {
-      color: token.colorInfoActive,
-      borderColor: token.colorInfoActive,
-    },
-  ),
-
-  ...genDashedButtonStyle(token),
-
-  ...genFilledButtonStyle(
-    token,
-    token.colorInfoBg,
-    {
-      background: token.colorInfoBgHover,
-    },
-    {
-      background: token.colorInfoBorder,
-    },
-  ),
-
-  ...genTextLinkButtonStyle(
-    token,
-    token.colorInfo,
-    'text',
-    {
-      color: token.colorInfoHover,
-      background: token.colorInfoBg,
-    },
-    {
-      color: token.colorInfoHover,
-      background: token.colorInfoBorder,
-    },
-  ),
-
+const genLinkStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   ...genTextLinkButtonStyle(
     token,
     token.colorLink,
@@ -701,7 +645,7 @@ const genColorButtonStyle: GenerateStyle<ButtonToken> = (token) => {
     [`${componentCls}-color-default`]: genDefaultButtonStyle(token),
     [`${componentCls}-color-primary`]: genPrimaryButtonStyle(token),
     [`${componentCls}-color-dangerous`]: genDangerousStyle(token),
-    [`${componentCls}-color-info`]: genInfoStyle(token),
+    [`${componentCls}-color-link`]: genLinkStyle(token),
 
     ...genPresetColorStyle(token),
   };
