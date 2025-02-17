@@ -19,11 +19,11 @@ export default function Looper(props: IndicatorProps) {
   // ===================== Render =====================
   return (
     <>
-      <span className={classNames(holderClassName, percent > 0 && hideClassName)}>
-        <span
-          className={classNames(dotClassName, className, `${prefixCls}-dot-spin`)}
-          style={style}
-        >
+      <span
+        className={classNames(holderClassName, className, percent > 0 && hideClassName)}
+        style={style}
+      >
+        <span className={classNames(dotClassName, `${prefixCls}-dot-spin`)}>
           {[1, 2, 3, 4].map((i) => (
             <i className={`${prefixCls}-dot-item`} key={i} />
           ))}
