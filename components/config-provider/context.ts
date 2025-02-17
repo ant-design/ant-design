@@ -9,6 +9,7 @@ import type { ButtonProps } from '../button';
 import type { CardProps } from '../card';
 import type { CardMetaProps } from '../card/Meta';
 import type { CascaderProps } from '../cascader';
+import type { CheckboxProps } from '../checkbox';
 import type { CollapseProps } from '../collapse';
 import type { DatePickerProps, RangePickerProps } from '../date-picker';
 import type { DescriptionsProps } from '../descriptions';
@@ -29,6 +30,7 @@ import type { ArgsProps as NotificationProps } from '../notification';
 import type { PaginationProps } from '../pagination';
 import type { PopconfirmProps } from '../popconfirm';
 import type { PopoverProps } from '../popover';
+import type { RadioProps } from '../radio';
 import type { ResultProps } from '../result';
 import type { SegmentedProps } from '../segmented';
 import type { SelectProps } from '../select';
@@ -47,8 +49,6 @@ import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
 import type { TreeSelectProps } from '../tree-select';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
-import type { CheckboxProps } from '../checkbox';
-import type { RadioProps } from '../radio';
 
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
@@ -229,7 +229,8 @@ export type SkeletonConfig = ComponentStyleConfig & Pick<SkeletonProps, 'styles'
 
 export type SegmentedConfig = ComponentStyleConfig & Pick<SegmentedProps, 'classNames' | 'styles'>;
 
-export type SpinConfig = ComponentStyleConfig & Pick<SpinProps, 'indicator'>;
+export type SpinConfig = ComponentStyleConfig &
+  Pick<SpinProps, 'indicator' | 'classNames' | 'styles'>;
 
 export type StatisticConfig = ComponentStyleConfig & Pick<StatisticProps, 'classNames' | 'styles'>;
 

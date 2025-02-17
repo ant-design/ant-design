@@ -156,7 +156,7 @@ const {
 | switch | Set Switch common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | space | Set Space common props, ref [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number`, className?: string, style?: React.CSSProperties, classNames?: [SpaceProps\["classNames"\]](/components/space#api), styles?: [SpaceProps\["styles"\]](/components/space#api) } | - | 5.6.0 |
 | splitter | Set Splitter common props | { className?: string, style?: React.CSSProperties } | - | 5.21.0 |
-| spin | Set Spin common props | { className?: string, style?: React.CSSProperties, indicator?: React.ReactElement } | - | 5.7.0, indicator: 5.20.0 |
+| spin | Set Spin common props | { className?: string, style?: React.CSSProperties, indicator?: React.ReactElement, classNames?:[SpinConfig\["classNames"\]](/components/spin#semantic-dom), styles?: [SpinConfig\["styles"\]](/components/spin#semantic-dom) } | - | 5.7.0, indicator: 5.20.0, `classNames` and `styles`: 6.0.0 |
 | statistic | Set Statistic common props | { className?: string, style?: React.CSSProperties, classNames?: [StatisticProps\["classNames"\]](/components/statistic#semantic-dom), styles?: [StatisticProps\["styles"\]](/components/statistic#semantic-dom)} | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
 | steps | Set Steps common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | table | Set Table common props | { className?: string, style?: React.CSSProperties, expandable?: { expandIcon?: props => React.ReactNode } } | - | 5.7.0, expandable: 5.14.0 |

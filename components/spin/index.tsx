@@ -11,7 +11,7 @@ import usePercent from './usePercent';
 const _SpinSizes = ['small', 'default', 'large'] as const;
 export type SpinSize = (typeof _SpinSizes)[number];
 export type SpinIndicator = React.ReactElement<HTMLElement>;
-
+type SemanticName = 'root' | 'mask' | 'indicator';
 export interface SpinProps {
   /** Customize prefix class name */
   prefixCls?: string;
@@ -38,6 +38,8 @@ export interface SpinProps {
   /** Display a backdrop with the `Spin` component */
   fullscreen?: boolean;
   percent?: number | 'auto';
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 export type SpinType = React.FC<SpinProps> & {
@@ -66,15 +68,19 @@ const Spin: SpinType = (props) => {
     fullscreen = false,
     indicator,
     percent,
+    classNames: spinClassNames,
+    styles,
     ...restProps
   } = props;
 
   const {
     getPrefixCls,
     direction,
+    indicator: contextIndicator,
     className: contextClassName,
     style: contextStyle,
-    indicator: contextIndicator,
+    classNames: contextClassNames,
+    styles: contextStyles,
   } = useComponentConfig('spin');
 
   const prefixCls = getPrefixCls('spin', customizePrefixCls);
@@ -128,6 +134,8 @@ const Spin: SpinType = (props) => {
     },
     className,
     !fullscreen && rootClassName,
+    !fullscreen && spinClassNames?.root,
+    !fullscreen && contextClassNames.root,
     hashId,
     cssVarCls,
   );
@@ -138,17 +146,24 @@ const Spin: SpinType = (props) => {
 
   const mergedIndicator = indicator ?? contextIndicator ?? defaultIndicator;
 
+  const rootStyle: React.CSSProperties = { ...contextStyles.root, ...styles?.root };
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
   const spinElement: React.ReactNode = (
     <div
       {...restProps}
-      style={mergedStyle}
+      style={fullscreen ? mergedStyle : { ...rootStyle, ...mergedStyle }}
       className={spinClassName}
       aria-live="polite"
       aria-busy={spinning}
     >
-      <Indicator prefixCls={prefixCls} indicator={mergedIndicator} percent={mergedPercent} />
+      <Indicator
+        className={classNames(spinClassNames?.indicator, contextClassNames.indicator)}
+        style={{ ...contextStyles.indicator, ...styles?.indicator }}
+        prefixCls={prefixCls}
+        indicator={mergedIndicator}
+        percent={mergedPercent}
+      />
       {tip && (isNestedPattern || fullscreen) ? (
         <div className={`${prefixCls}-text`}>{tip}</div>
       ) : null}
@@ -180,7 +195,10 @@ const Spin: SpinType = (props) => {
           rootClassName,
           hashId,
           cssVarCls,
+          spinClassNames?.mask,
+          contextClassNames.mask,
         )}
+        style={{ ...contextStyles.mask, ...styles?.mask }}
       >
         {spinElement}
       </div>,
