@@ -597,6 +597,8 @@ const genSizeStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
     cardPaddingLG,
     horizontalItemPaddingSM,
     horizontalItemPaddingLG,
+    cardHeight,
+    calc,
   } = token;
   return {
     [componentCls]: {
@@ -623,7 +625,7 @@ const genSizeStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
       [`&${componentCls}-small`]: {
         [`> ${componentCls}-nav`]: {
           [`${componentCls}-tab`]: {
-            minHeight: 'auto',
+            minHeight: calc(cardHeight).mul(0.9).equal(),
             padding: cardPaddingSM,
           },
         },
