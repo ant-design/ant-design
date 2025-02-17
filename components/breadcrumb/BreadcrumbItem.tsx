@@ -1,11 +1,15 @@
 import * as React from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
+
 import { ConfigContext } from '../config-provider';
 import type { DropdownProps } from '../dropdown/dropdown';
 import Dropdown from '../dropdown/dropdown';
 import type { ItemType } from './Breadcrumb';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
 import { renderItem } from './useItemRender';
+import BreadcrumbContext from './BreadcrumbContext';
+import { cloneElement } from '../_util/reactNode';
+import classNames from 'classnames';
 
 export interface SeparatorType {
   separator?: React.ReactNode;
@@ -30,12 +34,14 @@ export interface BreadcrumbItemProps extends SeparatorType {
   dropdownProps?: DropdownProps;
   onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
   className?: string;
+  style?: React.CSSProperties;
   children?: React.ReactNode;
 }
 
 export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => {
   const { prefixCls, separator = '/', children, menu, dropdownProps, href } = props;
-
+  const breadcrumbContext = React.useContext(BreadcrumbContext);
+  const { classNames: mergedClassNames, styles: mergedStyles } = breadcrumbContext;
   /** If overlay is have Wrap a Dropdown */
   const renderBreadcrumbNode = (breadcrumbItem: React.ReactNode) => {
     if (menu) {
@@ -77,10 +83,15 @@ export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => 
 
   // wrap to dropDown
   const link = renderBreadcrumbNode(children);
+  const linkNode = cloneElement(link, (oriProps) => ({
+    className: classNames(oriProps?.className, mergedClassNames?.item),
+    style: { ...mergedStyles?.item, ...oriProps?.style },
+  }));
+
   if (link !== undefined && link !== null) {
     return (
       <>
-        <li>{link}</li>
+        <li>{linkNode}</li>
         {separator && <BreadcrumbSeparator>{separator}</BreadcrumbSeparator>}
       </>
     );
