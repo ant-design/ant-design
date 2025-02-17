@@ -48,7 +48,13 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ## Semantic DOM
 
+### default
+
 <code src="./demo/_semantic.tsx" simplify="true"></code>
+
+### fullscreen
+
+<code src="./demo/_semantic_fullscreen.tsx" simplify="true"></code>
 
 ## Design Token
 

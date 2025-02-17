@@ -6,28 +6,28 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 
 const locales = {
   cn: {
-    root: '根元素(fullscreen 为 false 时才有效)',
+    mask: '遮罩层元素',
     indicator: '指示器元素',
   },
   en: {
-    root: 'Root element(effective when fullscreen is false)',
+    mask: 'Mask element',
     indicator: 'Indicator element',
   },
 };
 
 const SpinBlock = (props: any) => {
   return (
-    <div
-      style={{
-        position: 'relative',
-        width: 500,
-        height: 100,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-      <Spin percent={0} {...props} />
+    <div style={{ position: 'absolute', inset: 0 }}>
+      <div style={{ position: 'relative', width: '100%', height: 150 }}>
+        <Spin
+          percent={0}
+          fullscreen
+          styles={{
+            mask: { position: 'absolute', height: '100%', width: '100%' },
+          }}
+          {...props}
+        />
+      </div>
     </div>
   );
 };
@@ -38,7 +38,7 @@ const App: React.FC = () => {
   return (
     <SemanticPreview
       semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
+        { name: 'mask', desc: locale.mask, version: '6.0.0' },
         { name: 'indicator', desc: locale.indicator, version: '6.0.0' },
       ]}
     >
