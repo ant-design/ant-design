@@ -426,6 +426,19 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
     token.colorTextDisabled,
     token.colorBorder,
   ),
+
+  ...genTextLinkButtonStyle(
+    token,
+    token.textTextColor,
+    'link',
+    {
+      color: token.colorLinkHover,
+      background: token.linkHoverBg,
+    },
+    {
+      color: token.colorLinkActive,
+    },
+  ),
 });
 
 const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
