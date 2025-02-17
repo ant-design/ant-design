@@ -24,7 +24,7 @@ const App: React.FC = () => {
         { name: 'content', desc: locale.content, version: '6.0.0' },
       ]}
     >
-      <Switch checkedChildren="on" unCheckedChildren="off" defaultChecked />
+      <Switch checkedChildren="on" unCheckedChildren="off" defaultChecked disabled />
     </SemanticPreview>
   );
 };
