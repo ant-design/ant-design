@@ -131,6 +131,20 @@ const App: React.FC = () => (
           };
         })}
       />
+      <Tabs
+        defaultActiveKey="1"
+        centered
+        type="editable-card"
+        items={Array.from({ length: 3 }).map((_, i) => {
+          const id = String(i + 1);
+          return {
+            disabled: i === 2,
+            label: `Tab ${id}`,
+            key: id,
+            children: `Content of Tab Pane ${id}`,
+          };
+        })}
+      />
     </div>
   </ConfigProvider>
 );
