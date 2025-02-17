@@ -666,13 +666,13 @@ const genInfoStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
 
   ...genTextLinkButtonStyle(
     token,
-    token.colorInfo,
+    token.colorLink,
     'link',
     {
-      color: token.colorInfoHover,
+      color: token.colorLinkHover,
     },
     {
-      color: token.colorInfoActive,
+      color: token.colorLinkActive,
     },
   ),
 

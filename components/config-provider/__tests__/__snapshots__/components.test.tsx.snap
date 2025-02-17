@@ -27178,7 +27178,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                             class="config-table-filter-dropdown-btns"
                           >
                             <button
-                              class="config-btn config-btn-link config-btn-color-primary config-btn-variant-link config-btn-sm"
+                              class="config-btn config-btn-link config-btn-color-info config-btn-variant-link config-btn-sm"
                               disabled=""
                               type="button"
                             >
@@ -27488,7 +27488,7 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                             class="config-table-filter-dropdown-btns"
                           >
                             <button
-                              class="config-btn config-btn-link config-btn-color-primary config-btn-variant-link config-btn-sm"
+                              class="config-btn config-btn-link config-btn-color-info config-btn-variant-link config-btn-sm"
                               disabled=""
                               type="button"
                             >
@@ -27798,7 +27798,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                             class="config-table-filter-dropdown-btns"
                           >
                             <button
-                              class="config-btn config-btn-link config-btn-color-primary config-btn-variant-link config-btn-sm"
+                              class="config-btn config-btn-link config-btn-color-info config-btn-variant-link config-btn-sm"
                               disabled=""
                               type="button"
                             >
@@ -28107,7 +28107,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                             class="config-table-filter-dropdown-btns"
                           >
                             <button
-                              class="config-btn config-btn-link config-btn-color-primary config-btn-variant-link config-btn-sm"
+                              class="config-btn config-btn-link config-btn-color-info config-btn-variant-link config-btn-sm"
                               disabled=""
                               type="button"
                             >
@@ -28416,7 +28416,7 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                             class="config-table-filter-dropdown-btns"
                           >
                             <button
-                              class="config-btn config-btn-link config-btn-color-primary config-btn-variant-link config-btn-sm"
+                              class="config-btn config-btn-link config-btn-color-info config-btn-variant-link config-btn-sm"
                               disabled=""
                               type="button"
                             >
@@ -28725,7 +28725,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                             class="ant-table-filter-dropdown-btns"
                           >
                             <button
-                              class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
+                              class="ant-btn ant-btn-link ant-btn-color-info ant-btn-variant-link ant-btn-sm"
                               disabled=""
                               type="button"
                             >
@@ -29034,7 +29034,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                             class="prefix-Table-filter-dropdown-btns"
                           >
                             <button
-                              class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
+                              class="ant-btn ant-btn-link ant-btn-color-info ant-btn-variant-link ant-btn-sm"
                               disabled=""
                               type="button"
                             >
