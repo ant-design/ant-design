@@ -155,7 +155,7 @@ const {
 | segmented | 设置 Segmented 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [SegmentedProps\["classNames"\]](/components/segmented-cn#api), styles?: [SegmentedProps\["styles"\]](/components/segmented-cn#api) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
 | select | 设置 Select 组件的通用属性 | { className?: string, showSearch?: boolean, style?: React.CSSProperties } | - | 5.7.0 |
 | slider | 设置 Slider 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [SliderProps\["classNames"\]](/components/slider-cn#api), styles?: [SliderProps\["styles"\]](/components/slider-cn#api) } | - | 5.7.0, `classNames` 和 `styles`: 5.23.0 |
-| switch | 设置 Switch 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| switch | 设置 Switch 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [SwitchStyleConfig\["classNames"\]](/components/switch-cn#semantic-dom), styles?: [SwitchStyleConfig\["styles"\]](/components/switch-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
 | space | 设置 Space 的通用属性，参考 [Space](/components/space-cn) | { size: `small` \| `middle` \| `large` \| `number`, className?: string, style?: React.CSSProperties, classNames?: [SpaceProps\["classNames"\]](/components/space-cn#api), styles?: [SpaceProps\["styles"\]](/components/space-cn#api) } | - | 5.6.0 |
 | splitter | 设置 Splitter 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.21.0 |
 | spin | 设置 Spin 组件的通用属性 | { className?: string, style?: React.CSSProperties, indicator?: React.ReactElement } | - | 5.7.0, indicator: 5.20.0 |
