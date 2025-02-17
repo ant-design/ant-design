@@ -3872,7 +3872,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
   <h5
     class="ant-typography"
   >
-    With custom string separator
+    With custom ReactNode separator
   </h5>
   <div
     class="ant-otp"
@@ -3883,12 +3883,13 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       type="text"
       value=""
     />
-    <input
-      class="ant-input ant-input-outlined ant-otp-input"
-      size="1"
-      type="text"
-      value=""
-    />
+    <span
+      class="ant-otp-separator"
+    >
+      <span>
+        /
+      </span>
+    </span>
     <input
       class="ant-input ant-input-outlined ant-otp-input"
       size="1"
@@ -3898,7 +3899,9 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
     <span
       class="ant-otp-separator"
     >
-      -
+      <span>
+        /
+      </span>
     </span>
     <input
       class="ant-input ant-input-outlined ant-otp-input"
@@ -3906,12 +3909,39 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       type="text"
       value=""
     />
+    <span
+      class="ant-otp-separator"
+    >
+      <span>
+        /
+      </span>
+    </span>
     <input
       class="ant-input ant-input-outlined ant-otp-input"
       size="1"
       type="text"
       value=""
     />
+    <span
+      class="ant-otp-separator"
+    >
+      <span>
+        /
+      </span>
+    </span>
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <span
+      class="ant-otp-separator"
+    >
+      <span>
+        /
+      </span>
+    </span>
     <input
       class="ant-input ant-input-outlined ant-otp-input"
       size="1"
@@ -3922,7 +3952,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
   <h5
     class="ant-typography"
   >
-    With custom JSX separator
+    With custom function separator
   </h5>
   <div
     class="ant-otp"
@@ -3933,6 +3963,15 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       type="text"
       value=""
     />
+    <span
+      class="ant-otp-separator"
+    >
+      <span
+        style="color:blue"
+      >
+        —
+      </span>
+    </span>
     <input
       class="ant-input ant-input-outlined ant-otp-input"
       size="1"
@@ -3954,18 +3993,45 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       type="text"
       value=""
     />
+    <span
+      class="ant-otp-separator"
+    >
+      <span
+        style="color:blue"
+      >
+        —
+      </span>
+    </span>
     <input
       class="ant-input ant-input-outlined ant-otp-input"
       size="1"
       type="text"
       value=""
     />
+    <span
+      class="ant-otp-separator"
+    >
+      <span
+        style="color:red"
+      >
+        —
+      </span>
+    </span>
     <input
       class="ant-input ant-input-outlined ant-otp-input"
       size="1"
       type="text"
       value=""
     />
+    <span
+      class="ant-otp-separator"
+    >
+      <span
+        style="color:blue"
+      >
+        —
+      </span>
+    </span>
     <input
       class="ant-input ant-input-outlined ant-otp-input"
       size="1"
