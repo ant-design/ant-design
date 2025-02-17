@@ -1,5 +1,5 @@
 import React from 'react';
-import { Spin } from 'antd';
+import { Spin, Switch } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -18,14 +18,25 @@ const locales = {
 };
 
 const SpinBlock = (props: any) => {
+  const [fullscreen, setFullscreen] = React.useState(false);
   return (
-    <div style={{ position: 'relative', width: 500, height: 400 }}>
-      <Spin
-        percent={0}
-        fullscreen
-        styles={{ mask: { position: 'absolute', height: '100%', width: '100%' } }}
-        {...props}
+    <div>
+      <Switch
+        checkedChildren="fullscreen"
+        unCheckedChildren="fullscreen"
+        checked={fullscreen}
+        onChange={() => setFullscreen(!fullscreen)}
       />
+      <div style={{ position: 'relative', width: 500, height: 140, marginTop: 20 }}>
+        <Spin
+          percent={0}
+          fullscreen={fullscreen}
+          styles={
+            fullscreen ? { mask: { position: 'absolute', height: '100%', width: '100%' } } : {}
+          }
+          {...props}
+        />
+      </div>
     </div>
   );
 };
