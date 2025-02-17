@@ -15,6 +15,18 @@ tag: vVERSION
 
 ---
 
+
+## 5.24.1
+
+`2025-02-17`
+
+- 🐞 修复 Button 配置 `color` 为 `primary` 并且 `variant` 为 `text` 或 `link` 时，没有取用正确的色板的问题。[#52812](https://github.com/ant-design/ant-design/pull/52812) [@zombieJ](https://github.com/zombieJ)
+- 💄 修复 Input.Group 与 Input.OTP 由于 css 变量未定义导致样式异常的问题。[#52799](https://github.com/ant-design/ant-design/pull/52799) [@afc163](https://github.com/afc163)
+- 🐞 修复 DatePicker 的 `prefix` 内容多时会换行的问题。[#52776](https://github.com/ant-design/ant-design/pull/52776) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 修复 Table 列标题在排序时丢失 `aria-label` 的问题。[#52772](https://github.com/ant-design/ant-design/pull/52772) [@mellis481](https://github.com/mellis481)
+- 🐞 修复 Alert.ErrorBoundary 在 `@types/react@18.x` 中无法作为 JSX 组件使用的类型错误问题。[#52766](https://github.com/ant-design/ant-design/pull/52766) [@afc163](https://github.com/afc163)
+- 💄 修复 Segmented 设置 `size` 时，`shape` 不生效的问题。[#52757](https://github.com/ant-design/ant-design/pull/52757) [@yellowryan](https://github.com/yellowryan)
+
 ## 5.24.0
 
 `2025-02-11`
