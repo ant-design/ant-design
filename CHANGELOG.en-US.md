@@ -15,6 +15,17 @@ tag: vVERSION
 
 ---
 
+## 5.24.1
+
+`2025-02-17`
+
+- 🐞 Fix Button with `color` to be `primary` and `variant` to be `text` or `link` will not use correct color. [#52812](https://github.com/ant-design/ant-design/pull/52812) [@zombieJ](https://github.com/zombieJ)
+- 💄 Fix Input.Group & Input.OTP style issues caused by undefined CSS variables. [#52799](https://github.com/ant-design/ant-design/pull/52799) [@afc163](https://github.com/afc163)
+- 🐞 Fix DatePicker with long content `prefix` breaks the layout. [#52776](https://github.com/ant-design/ant-design/pull/52776) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 Fix Table title missing `aria-label` when sorting. [#52772](https://github.com/ant-design/ant-design/pull/52772) [@mellis481](https://github.com/mellis481)
+- 🐞 Fix Alert.ErrorBoundary type error when used as a JSX component with `@types/react@18.x`. [#52766](https://github.com/ant-design/ant-design/pull/52766) [@afc163](https://github.com/afc163)
+- 💄 Fix Segmented `shape` not working with `size`. [#52757](https://github.com/ant-design/ant-design/pull/52757) [@yellowryan](https://github.com/yellowryan)
+
 ## 5.24.0
 
 `2025-02-11`
