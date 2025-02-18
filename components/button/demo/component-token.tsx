@@ -67,6 +67,24 @@ const App: React.FC = () => (
         <Button disabled>Legacy Blue Disabled</Button>
       </ConfigProvider>
     </Flex>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: '#FF0000',
+        },
+      }}
+    >
+      <Flex gap="small" wrap>
+        <Button type="text">Text</Button>
+        <Button type="link">Link</Button>
+        <Button color="primary" variant="text">
+          Primary Text
+        </Button>
+        <Button color="primary" variant="link">
+          Primary Link
+        </Button>
+      </Flex>
+    </ConfigProvider>
   </Flex>
 );
 
