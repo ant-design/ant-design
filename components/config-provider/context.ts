@@ -4,6 +4,7 @@ import type { WarningContextProps } from '../_util/warning';
 import type { ShowWaveEffect } from '../_util/wave/interface';
 import type { AlertProps } from '../alert';
 import type { BadgeProps } from '../badge';
+import type { BreadcrumbProps } from '../breadcrumb';
 import type { RibbonProps } from '../badge/Ribbon';
 import type { ButtonProps } from '../button';
 import type { CardProps } from '../card';
@@ -169,6 +170,9 @@ export type AlertConfig = ComponentStyleConfig &
 
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
 
+export type BreadcrumbConfig = ComponentStyleConfig &
+  Pick<BreadcrumbProps, 'classNames' | 'styles'>;
+
 export type InputConfig = ComponentStyleConfig &
   Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
@@ -316,7 +320,7 @@ export interface ConfigComponentProps {
   progress?: ComponentStyleConfig;
   result?: ResultConfig;
   slider?: SliderConfig;
-  breadcrumb?: ComponentStyleConfig;
+  breadcrumb?: BreadcrumbConfig;
   menu?: MenuConfig;
   checkbox?: CheckboxConfig;
   descriptions?: DescriptionsConfig;

@@ -951,7 +951,9 @@ exports[`ConfigProvider components Breadcrumb configProvider 1`] = `
   class="config-breadcrumb"
 >
   <ol>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -964,7 +966,9 @@ exports[`ConfigProvider components Breadcrumb configProvider 1`] = `
     >
       /
     </li>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -980,7 +984,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentDisabled 1
   class="config-breadcrumb"
 >
   <ol>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -993,7 +999,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentDisabled 1
     >
       /
     </li>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1009,7 +1017,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize large
   class="config-breadcrumb"
 >
   <ol>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1022,7 +1032,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize large
     >
       /
     </li>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1038,7 +1050,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize middl
   class="config-breadcrumb"
 >
   <ol>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1051,7 +1065,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize middl
     >
       /
     </li>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1067,7 +1083,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize small
   class="config-breadcrumb"
 >
   <ol>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1080,7 +1098,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize small
     >
       /
     </li>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1096,7 +1116,9 @@ exports[`ConfigProvider components Breadcrumb normal 1`] = `
   class="ant-breadcrumb"
 >
   <ol>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="ant-breadcrumb-link"
       >
@@ -1109,7 +1131,9 @@ exports[`ConfigProvider components Breadcrumb normal 1`] = `
     >
       /
     </li>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="ant-breadcrumb-link"
       >
@@ -1125,7 +1149,9 @@ exports[`ConfigProvider components Breadcrumb prefixCls 1`] = `
   class="prefix-Breadcrumb"
 >
   <ol>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="prefix-Breadcrumb-link"
       >
@@ -1138,7 +1164,9 @@ exports[`ConfigProvider components Breadcrumb prefixCls 1`] = `
     >
       /
     </li>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="prefix-Breadcrumb-link"
       >
