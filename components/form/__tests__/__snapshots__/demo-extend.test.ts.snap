@@ -1948,7 +1948,7 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+                  class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link"
                   type="button"
                 >
                   <span>

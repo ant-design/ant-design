@@ -39,7 +39,6 @@ export default antfu(
       'unicorn/prefer-number-properties': 'off',
       'unicorn/prefer-node-protocol': 'off',
       'unicorn/prefer-includes': 'off', // TODO: remove this
-      'unicorn/no-new-array': 'off',
       'unicorn/prefer-string-starts-ends-with': 'off', // TODO: remove this
       'regexp/no-unused-capturing-group': 'off',
       'regexp/no-misleading-capturing-group': 'off',
