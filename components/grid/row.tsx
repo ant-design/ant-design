@@ -86,7 +86,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
-  const screens = useBreakpoint(true, null);
+  const screens = useBreakpoint<ScreenMap | null>(true, null);
 
   const mergedAlign = useMergedPropByScreen(align, screens);
   const mergedJustify = useMergedPropByScreen(justify, screens);
