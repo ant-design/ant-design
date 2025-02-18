@@ -110,7 +110,7 @@ exports[`Tabs rtl render component should be rendered correctly in RTL direction
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
         id="rc-tabs-test-panel-xx"
         role="tabpanel"
-        tabindex="0"
+        tabindex="-1"
       />
     </div>
   </div>
@@ -225,7 +225,7 @@ exports[`Tabs tabBarGutter should work 1`] = `
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
         id="rc-tabs-test-panel-null"
         role="tabpanel"
-        tabindex="0"
+        tabindex="-1"
       />
       <div
         aria-hidden="false"
@@ -233,7 +233,7 @@ exports[`Tabs tabBarGutter should work 1`] = `
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
         id="rc-tabs-test-panel-null"
         role="tabpanel"
-        tabindex="0"
+        tabindex="-1"
       />
       <div
         aria-hidden="false"
@@ -241,7 +241,7 @@ exports[`Tabs tabBarGutter should work 1`] = `
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
         id="rc-tabs-test-panel-null"
         role="tabpanel"
-        tabindex="0"
+        tabindex="-1"
       />
     </div>
   </div>
@@ -356,7 +356,7 @@ exports[`Tabs tabBarGutter should work 2`] = `
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
         id="rc-tabs-test-panel-null"
         role="tabpanel"
-        tabindex="0"
+        tabindex="-1"
       />
       <div
         aria-hidden="false"
@@ -364,7 +364,7 @@ exports[`Tabs tabBarGutter should work 2`] = `
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
         id="rc-tabs-test-panel-null"
         role="tabpanel"
-        tabindex="0"
+        tabindex="-1"
       />
       <div
         aria-hidden="false"
@@ -372,7 +372,7 @@ exports[`Tabs tabBarGutter should work 2`] = `
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
         id="rc-tabs-test-panel-null"
         role="tabpanel"
-        tabindex="0"
+        tabindex="-1"
       />
     </div>
   </div>
