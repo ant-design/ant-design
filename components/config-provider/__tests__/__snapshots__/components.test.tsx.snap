@@ -29012,7 +29012,7 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
         class="config-tabs-tabpane config-tabs-tabpane-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
-        tabindex="0"
+        tabindex="-1"
       />
     </div>
   </div>
@@ -29101,7 +29101,7 @@ exports[`ConfigProvider components Tabs configProvider componentDisabled 1`] = `
         class="config-tabs-tabpane config-tabs-tabpane-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
-        tabindex="0"
+        tabindex="-1"
       />
     </div>
   </div>
@@ -29190,7 +29190,7 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
         class="config-tabs-tabpane config-tabs-tabpane-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
-        tabindex="0"
+        tabindex="-1"
       />
     </div>
   </div>
@@ -29279,7 +29279,7 @@ exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] 
         class="config-tabs-tabpane config-tabs-tabpane-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
-        tabindex="0"
+        tabindex="-1"
       />
     </div>
   </div>
@@ -29368,7 +29368,7 @@ exports[`ConfigProvider components Tabs configProvider componentSize small 1`] =
         class="config-tabs-tabpane config-tabs-tabpane-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
-        tabindex="0"
+        tabindex="-1"
       />
     </div>
   </div>
@@ -29457,7 +29457,7 @@ exports[`ConfigProvider components Tabs normal 1`] = `
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
-        tabindex="0"
+        tabindex="-1"
       />
     </div>
   </div>
@@ -29546,7 +29546,7 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
         class="prefix-Tabs-tabpane prefix-Tabs-tabpane-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
-        tabindex="0"
+        tabindex="-1"
       />
     </div>
   </div>
