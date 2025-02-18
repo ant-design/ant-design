@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -323,5 +324,48 @@ describe('Breadcrumb', () => {
         }}
       />,
     ).toBeTruthy();
+  });
+  it('support classNames and styles', async () => {
+    const customClassNames = {
+      root: 'custom-root',
+      item: 'custom-item',
+      separator: 'custom-separator',
+    };
+    const customStyles = {
+      root: { color: 'red' },
+      item: { color: 'green' },
+      separator: { color: 'blue' },
+    };
+    const { container } = render(
+      <Breadcrumb
+        styles={customStyles}
+        classNames={customClassNames}
+        items={[
+          {
+            href: '',
+            title: 'Home',
+          },
+          {
+            href: '',
+            title: (
+              <>
+                <span>Application List</span>
+              </>
+            ),
+          },
+          {
+            title: 'Application',
+          },
+        ]}
+      />,
+    );
+    const root = container.querySelector('.ant-breadcrumb') as HTMLElement;
+    const item = container.querySelector('.custom-item') as HTMLElement;
+    const separator = container.querySelector('.ant-breadcrumb-separator') as HTMLElement;
+    expect(root.classList).toContain('custom-root');
+    expect(separator.classList).toContain('custom-separator');
+    expect(root.style.color).toBe('red');
+    expect(item.style.color).toBe('green');
+    expect(separator.style.color).toBe('blue');
   });
 });

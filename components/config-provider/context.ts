@@ -4,11 +4,13 @@ import type { WarningContextProps } from '../_util/warning';
 import type { ShowWaveEffect } from '../_util/wave/interface';
 import type { AlertProps } from '../alert';
 import type { BadgeProps } from '../badge';
+import type { BreadcrumbProps } from '../breadcrumb';
 import type { RibbonProps } from '../badge/Ribbon';
 import type { ButtonProps } from '../button';
 import type { CardProps } from '../card';
 import type { CardMetaProps } from '../card/Meta';
 import type { CascaderProps } from '../cascader';
+import type { CheckboxProps } from '../checkbox';
 import type { CollapseProps } from '../collapse';
 import type { DatePickerProps, RangePickerProps } from '../date-picker';
 import type { DescriptionsProps } from '../descriptions';
@@ -23,14 +25,18 @@ import type { ListItemProps } from '../list';
 import type { Locale } from '../locale';
 import type { MentionsProps } from '../mentions';
 import type { MenuProps } from '../menu';
+import type { ArgsProps as MessageProps } from '../message';
 import type { ModalProps } from '../modal';
-import type { ArgsProps } from '../notification/interface';
+import type { ArgsProps as NotificationProps } from '../notification';
 import type { PaginationProps } from '../pagination';
 import type { PopconfirmProps } from '../popconfirm';
 import type { PopoverProps } from '../popover';
+import type { RadioProps } from '../radio';
 import type { ResultProps } from '../result';
 import type { SegmentedProps } from '../segmented';
+import type { SwitchProps } from '../switch';
 import type { SelectProps } from '../select';
+import type { SkeletonProps } from '../skeleton';
 import type { SliderProps } from '../slider';
 import type { SpaceProps } from '../space';
 import type { SpinProps } from '../spin';
@@ -132,6 +138,7 @@ export interface TableConfig extends ComponentStyleConfig {
   expandable?: {
     expandIcon?: NonNullable<TableProps['expandable']>['expandIcon'];
   };
+  rowKey?: string;
 }
 
 export interface ImageConfig extends ComponentStyleConfig {
@@ -140,6 +147,8 @@ export interface ImageConfig extends ComponentStyleConfig {
 
 export type CollapseConfig = ComponentStyleConfig &
   Pick<CollapseProps, 'expandIcon' | 'classNames' | 'styles'>;
+
+export type CheckboxConfig = ComponentStyleConfig & Pick<CheckboxProps, 'classNames' | 'styles'>;
 
 export type MenuConfig = ComponentStyleConfig & Pick<MenuProps, 'expandIcon'>;
 
@@ -161,6 +170,9 @@ export type AlertConfig = ComponentStyleConfig &
 
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
 
+export type BreadcrumbConfig = ComponentStyleConfig &
+  Pick<BreadcrumbProps, 'classNames' | 'styles'>;
+
 export type InputConfig = ComponentStyleConfig &
   Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
@@ -170,9 +182,13 @@ export type TextAreaConfig = ComponentStyleConfig &
 export type ButtonConfig = ComponentStyleConfig &
   Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace'>;
 
-export type NotificationConfig = ComponentStyleConfig & Pick<ArgsProps, 'closeIcon'>;
+export type MessageConfig = ComponentStyleConfig & Pick<MessageProps, 'classNames' | 'styles'>;
 
-export type TagConfig = ComponentStyleConfig & Pick<TagProps, 'closeIcon' | 'closable'>;
+export type NotificationConfig = ComponentStyleConfig &
+  Pick<NotificationProps, 'closeIcon' | 'classNames' | 'styles'>;
+
+export type TagConfig = ComponentStyleConfig &
+  Pick<TagProps, 'closeIcon' | 'closable' | 'classNames' | 'styles'>;
 
 export type CardConfig = ComponentStyleConfig &
   Pick<CardProps, 'classNames' | 'styles' | 'variant'>;
@@ -214,13 +230,20 @@ export type PopconfirmConfig = Pick<
 
 export type SliderConfig = ComponentStyleConfig & Pick<SliderProps, 'styles' | 'classNames'>;
 
+export type SkeletonConfig = ComponentStyleConfig & Pick<SkeletonProps, 'styles' | 'classNames'>;
+
 export type SegmentedConfig = ComponentStyleConfig & Pick<SegmentedProps, 'classNames' | 'styles'>;
 
-export type SpinConfig = ComponentStyleConfig & Pick<SpinProps, 'indicator'>;
+export type SpinConfig = ComponentStyleConfig &
+  Pick<SpinProps, 'indicator' | 'classNames' | 'styles'>;
 
 export type StatisticConfig = ComponentStyleConfig & Pick<StatisticProps, 'classNames' | 'styles'>;
 
+export type SwitchStyleConfig = ComponentStyleConfig & Pick<SwitchProps, 'classNames' | 'styles'>;
+
 export type ResultConfig = ComponentStyleConfig & Pick<ResultProps, 'classNames' | 'styles'>;
+
+export type RadioConfig = ComponentStyleConfig & Pick<RadioProps, 'classNames' | 'styles'>;
 
 export type InputNumberConfig = ComponentStyleConfig & Pick<InputNumberProps, 'variant'>;
 
@@ -272,6 +295,7 @@ export interface ConfigComponentProps {
   form?: FormConfig;
   select?: SelectConfig;
   alert?: AlertConfig;
+  affix?: ComponentStyleConfig;
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
   divider?: ComponentStyleConfig;
@@ -283,7 +307,7 @@ export interface ConfigComponentProps {
   collapse?: CollapseConfig;
   floatButtonGroup?: FloatButtonGroupConfig;
   typography?: ComponentStyleConfig;
-  skeleton?: ComponentStyleConfig;
+  skeleton?: SkeletonConfig;
   spin?: SpinConfig;
   segmented?: SegmentedConfig;
   steps?: ComponentStyleConfig;
@@ -296,18 +320,18 @@ export interface ConfigComponentProps {
   progress?: ComponentStyleConfig;
   result?: ResultConfig;
   slider?: SliderConfig;
-  breadcrumb?: ComponentStyleConfig;
+  breadcrumb?: BreadcrumbConfig;
   menu?: MenuConfig;
-  checkbox?: ComponentStyleConfig;
+  checkbox?: CheckboxConfig;
   descriptions?: DescriptionsConfig;
   empty?: EmptyConfig;
   badge?: BadgeConfig;
-  radio?: ComponentStyleConfig;
+  radio?: RadioConfig;
   rate?: ComponentStyleConfig;
-  switch?: ComponentStyleConfig;
+  switch?: SwitchStyleConfig;
   transfer?: TransferConfig;
   avatar?: ComponentStyleConfig;
-  message?: ComponentStyleConfig;
+  message?: MessageConfig;
   tag?: TagConfig;
   table?: TableConfig;
   card?: CardConfig;
@@ -329,6 +353,7 @@ export interface ConfigComponentProps {
   dropdown?: ComponentStyleConfig;
   flex?: FlexConfig;
   wave?: WaveConfig;
+  watermark?: ComponentStyleConfig;
 }
 
 export interface ConfigConsumerProps extends ConfigComponentProps {

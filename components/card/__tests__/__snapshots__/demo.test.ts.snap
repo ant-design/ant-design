@@ -242,7 +242,7 @@ Array [
               aria-hidden="false"
               class="ant-tabs-tabpane ant-tabs-tabpane-active"
               role="tabpanel"
-              tabindex="0"
+              tabindex="-1"
             />
           </div>
         </div>
@@ -491,11 +491,11 @@ exports[`renders components/card/demo/grid-card.tsx correctly 1`] = `
 exports[`renders components/card/demo/in-column.tsx correctly 1`] = `
 <div
   class="ant-row"
-  style="margin-left:-8px;margin-right:-8px"
+  style="margin-inline:-8px"
 >
   <div
     class="ant-col ant-col-8"
-    style="padding-left:8px;padding-right:8px"
+    style="padding-inline:8px"
   >
     <div
       class="ant-card"
@@ -522,7 +522,7 @@ exports[`renders components/card/demo/in-column.tsx correctly 1`] = `
   </div>
   <div
     class="ant-col ant-col-8"
-    style="padding-left:8px;padding-right:8px"
+    style="padding-inline:8px"
   >
     <div
       class="ant-card"
@@ -549,7 +549,7 @@ exports[`renders components/card/demo/in-column.tsx correctly 1`] = `
   </div>
   <div
     class="ant-col ant-col-8"
-    style="padding-left:8px;padding-right:8px"
+    style="padding-inline:8px"
   >
     <div
       class="ant-card"
@@ -699,7 +699,7 @@ exports[`renders components/card/demo/loading.tsx correctly 1`] = `
         class="ant-skeleton ant-skeleton-active"
       >
         <div
-          class="ant-skeleton-content"
+          class="ant-skeleton-section"
         >
           <ul
             class="ant-skeleton-paragraph"
@@ -805,7 +805,7 @@ exports[`renders components/card/demo/loading.tsx correctly 1`] = `
         class="ant-skeleton ant-skeleton-active"
       >
         <div
-          class="ant-skeleton-content"
+          class="ant-skeleton-section"
         >
           <ul
             class="ant-skeleton-paragraph"
@@ -1169,7 +1169,7 @@ Array [
               aria-hidden="false"
               class="ant-tabs-tabpane ant-tabs-tabpane-active"
               role="tabpanel"
-              tabindex="0"
+              tabindex="-1"
             />
           </div>
         </div>
@@ -1307,7 +1307,7 @@ Array [
               aria-hidden="false"
               class="ant-tabs-tabpane ant-tabs-tabpane-active"
               role="tabpanel"
-              tabindex="0"
+              tabindex="-1"
             />
           </div>
         </div>

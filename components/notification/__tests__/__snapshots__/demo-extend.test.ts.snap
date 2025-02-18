@@ -482,7 +482,7 @@ exports[`renders components/notification/demo/render-panel.tsx extend context co
           </svg>
         </span>
         <div
-          class="ant-notification-notice-message"
+          class="ant-notification-notice-title"
         >
           Hello World!
         </div>
@@ -492,7 +492,7 @@ exports[`renders components/notification/demo/render-panel.tsx extend context co
           Hello World?
         </div>
         <div
-          class="ant-notification-notice-btn"
+          class="ant-notification-notice-actions"
         >
           <button
             class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"

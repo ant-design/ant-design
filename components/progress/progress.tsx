@@ -58,6 +58,7 @@ export interface ProgressProps extends ProgressAriaProps {
   steps?: number | { count: number; gap: number };
   percentPosition?: PercentPositionType;
   children?: React.ReactNode;
+  rounding?: (step: number) => number;
 }
 
 const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) => {

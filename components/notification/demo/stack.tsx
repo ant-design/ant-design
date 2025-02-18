@@ -16,10 +16,11 @@ const App: React.FC = () => {
 
   const openNotification = () => {
     api.open({
-      message: 'Notification Title',
-      description: `${new Array(Math.round(Math.random() * 5) + 1)
-        .fill('This is the content of the notification.')
-        .join('\n')}`,
+      title: 'Notification Title',
+      description: `${Array.from(
+        { length: Math.round(Math.random() * 5) + 1 },
+        () => 'This is the content of the notification.',
+      ).join('\n')}`,
       duration: null,
     });
   };

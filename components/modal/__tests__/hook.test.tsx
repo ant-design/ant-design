@@ -1,6 +1,6 @@
 import React from 'react';
-import CSSMotion from '@rc-component/motion';
-import { genCSSMotion } from '@rc-component/motion/lib/CSSMotion';
+import RcCSSMotion from '@rc-component/motion';
+import { genCSSMotion as genRcCSSMotion } from '@rc-component/motion/lib/CSSMotion';
 import KeyCode from '@rc-component/util/lib/KeyCode';
 
 import Modal from '..';
@@ -27,11 +27,11 @@ jest.mock('react-dom', () => {
 });
 
 describe('Modal.hook', () => {
-  // Inject CSSMotion to replace with No transition support
-  const MockCSSMotion = genCSSMotion(false);
-  Object.keys(MockCSSMotion).forEach((key) => {
+  // Inject `@rc-component/motion` to replace with No transition support
+  const MockRcCSSMotion = genRcCSSMotion(false);
+  Object.keys(MockRcCSSMotion).forEach((key) => {
     // @ts-ignore
-    CSSMotion[key] = MockCSSMotion[key];
+    RcCSSMotion[key] = MockRcCSSMotion[key];
   });
 
   it('hooks support context', () => {

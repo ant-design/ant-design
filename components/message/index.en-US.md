@@ -110,6 +110,10 @@ message.config({
 | rtl | Whether to enable RTL mode | boolean | false |  |
 | top | Distance from top | string \| number | 8 |  |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Message"></ComponentTokenTable>

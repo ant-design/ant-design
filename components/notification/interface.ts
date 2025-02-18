@@ -18,10 +18,15 @@ export type NotificationPlacement = (typeof NotificationPlacements)[number];
 
 export type IconType = 'success' | 'info' | 'error' | 'warning';
 
+export type SemanticName = 'root' | 'title' | 'description' | 'actions' | 'icon';
 export interface ArgsProps {
-  message: React.ReactNode;
+  /** @deprecated Please use `title` instead */
+  message?: React.ReactNode;
+  title: React.ReactNode;
   description?: React.ReactNode;
+  /** @deprecated Please use `actions` instead */
   btn?: React.ReactNode;
+  actions?: React.ReactNode;
   key?: React.Key;
   onClose?: () => void;
   duration?: number | null;
@@ -31,6 +36,8 @@ export interface ArgsProps {
   placement?: NotificationPlacement;
   style?: React.CSSProperties;
   className?: string;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   readonly type?: IconType;
   onClick?: () => void;
   closeIcon?: React.ReactNode;

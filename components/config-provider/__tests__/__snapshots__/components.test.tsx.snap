@@ -127,7 +127,9 @@ exports[`ConfigProvider components Alert prefixCls 1`] = `
 `;
 
 exports[`ConfigProvider components Anchor configProvider 1`] = `
-<div>
+<div
+  class=""
+>
   <div
     class=""
   >
@@ -159,7 +161,9 @@ exports[`ConfigProvider components Anchor configProvider 1`] = `
 `;
 
 exports[`ConfigProvider components Anchor configProvider componentDisabled 1`] = `
-<div>
+<div
+  class=""
+>
   <div
     class=""
   >
@@ -191,7 +195,9 @@ exports[`ConfigProvider components Anchor configProvider componentDisabled 1`] =
 `;
 
 exports[`ConfigProvider components Anchor configProvider componentSize large 1`] = `
-<div>
+<div
+  class=""
+>
   <div
     class=""
   >
@@ -223,7 +229,9 @@ exports[`ConfigProvider components Anchor configProvider componentSize large 1`]
 `;
 
 exports[`ConfigProvider components Anchor configProvider componentSize middle 1`] = `
-<div>
+<div
+  class=""
+>
   <div
     class=""
   >
@@ -255,7 +263,9 @@ exports[`ConfigProvider components Anchor configProvider componentSize middle 1`
 `;
 
 exports[`ConfigProvider components Anchor configProvider componentSize small 1`] = `
-<div>
+<div
+  class=""
+>
   <div
     class=""
   >
@@ -287,7 +297,9 @@ exports[`ConfigProvider components Anchor configProvider componentSize small 1`]
 `;
 
 exports[`ConfigProvider components Anchor normal 1`] = `
-<div>
+<div
+  class=""
+>
   <div
     class=""
   >
@@ -319,7 +331,9 @@ exports[`ConfigProvider components Anchor normal 1`] = `
 `;
 
 exports[`ConfigProvider components Anchor prefixCls 1`] = `
-<div>
+<div
+  class=""
+>
   <div
     class=""
   >
@@ -937,7 +951,9 @@ exports[`ConfigProvider components Breadcrumb configProvider 1`] = `
   class="config-breadcrumb"
 >
   <ol>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -950,7 +966,9 @@ exports[`ConfigProvider components Breadcrumb configProvider 1`] = `
     >
       /
     </li>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -966,7 +984,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentDisabled 1
   class="config-breadcrumb"
 >
   <ol>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -979,7 +999,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentDisabled 1
     >
       /
     </li>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -995,7 +1017,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize large
   class="config-breadcrumb"
 >
   <ol>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1008,7 +1032,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize large
     >
       /
     </li>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1024,7 +1050,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize middl
   class="config-breadcrumb"
 >
   <ol>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1037,7 +1065,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize middl
     >
       /
     </li>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1053,7 +1083,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize small
   class="config-breadcrumb"
 >
   <ol>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1066,7 +1098,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize small
     >
       /
     </li>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1082,7 +1116,9 @@ exports[`ConfigProvider components Breadcrumb normal 1`] = `
   class="ant-breadcrumb"
 >
   <ol>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="ant-breadcrumb-link"
       >
@@ -1095,7 +1131,9 @@ exports[`ConfigProvider components Breadcrumb normal 1`] = `
     >
       /
     </li>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="ant-breadcrumb-link"
       >
@@ -1111,7 +1149,9 @@ exports[`ConfigProvider components Breadcrumb prefixCls 1`] = `
   class="prefix-Breadcrumb"
 >
   <ol>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="prefix-Breadcrumb-link"
       >
@@ -1124,7 +1164,9 @@ exports[`ConfigProvider components Breadcrumb prefixCls 1`] = `
     >
       /
     </li>
-    <li>
+    <li
+      class=""
+    >
       <span
         class="prefix-Breadcrumb-link"
       >
@@ -25405,7 +25447,7 @@ exports[`ConfigProvider components Skeleton configProvider 1`] = `
     />
   </div>
   <div
-    class="config-skeleton-content"
+    class="config-skeleton-section"
   >
     <h3
       class="config-skeleton-title"
@@ -25433,7 +25475,7 @@ exports[`ConfigProvider components Skeleton configProvider componentDisabled 1`]
     />
   </div>
   <div
-    class="config-skeleton-content"
+    class="config-skeleton-section"
   >
     <h3
       class="config-skeleton-title"
@@ -25461,7 +25503,7 @@ exports[`ConfigProvider components Skeleton configProvider componentSize large 1
     />
   </div>
   <div
-    class="config-skeleton-content"
+    class="config-skeleton-section"
   >
     <h3
       class="config-skeleton-title"
@@ -25489,7 +25531,7 @@ exports[`ConfigProvider components Skeleton configProvider componentSize middle 
     />
   </div>
   <div
-    class="config-skeleton-content"
+    class="config-skeleton-section"
   >
     <h3
       class="config-skeleton-title"
@@ -25517,7 +25559,7 @@ exports[`ConfigProvider components Skeleton configProvider componentSize small 1
     />
   </div>
   <div
-    class="config-skeleton-content"
+    class="config-skeleton-section"
   >
     <h3
       class="config-skeleton-title"
@@ -25545,7 +25587,7 @@ exports[`ConfigProvider components Skeleton normal 1`] = `
     />
   </div>
   <div
-    class="ant-skeleton-content"
+    class="ant-skeleton-section"
   >
     <h3
       class="ant-skeleton-title"
@@ -25573,7 +25615,7 @@ exports[`ConfigProvider components Skeleton prefixCls 1`] = `
     />
   </div>
   <div
-    class="prefix-Skeleton-content"
+    class="prefix-Skeleton-section"
   >
     <h3
       class="prefix-Skeleton-title"
@@ -28970,7 +29012,7 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
         class="config-tabs-tabpane config-tabs-tabpane-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
-        tabindex="0"
+        tabindex="-1"
       />
     </div>
   </div>
@@ -29059,7 +29101,7 @@ exports[`ConfigProvider components Tabs configProvider componentDisabled 1`] = `
         class="config-tabs-tabpane config-tabs-tabpane-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
-        tabindex="0"
+        tabindex="-1"
       />
     </div>
   </div>
@@ -29148,7 +29190,7 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
         class="config-tabs-tabpane config-tabs-tabpane-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
-        tabindex="0"
+        tabindex="-1"
       />
     </div>
   </div>
@@ -29237,7 +29279,7 @@ exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] 
         class="config-tabs-tabpane config-tabs-tabpane-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
-        tabindex="0"
+        tabindex="-1"
       />
     </div>
   </div>
@@ -29326,7 +29368,7 @@ exports[`ConfigProvider components Tabs configProvider componentSize small 1`] =
         class="config-tabs-tabpane config-tabs-tabpane-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
-        tabindex="0"
+        tabindex="-1"
       />
     </div>
   </div>
@@ -29415,7 +29457,7 @@ exports[`ConfigProvider components Tabs normal 1`] = `
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
-        tabindex="0"
+        tabindex="-1"
       />
     </div>
   </div>
@@ -29504,7 +29546,7 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
         class="prefix-Tabs-tabpane prefix-Tabs-tabpane-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
-        tabindex="0"
+        tabindex="-1"
       />
     </div>
   </div>
