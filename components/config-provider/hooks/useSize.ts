@@ -10,7 +10,7 @@ const useSize = <T>(customSize?: T | ((ctxSize: SizeType) => T)): T => {
       return size as T;
     }
     if (typeof customSize === 'string') {
-      return customSize ?? size;
+      return customSize || size;
     }
     if (customSize instanceof Function) {
       return customSize(size);
