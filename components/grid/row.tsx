@@ -96,7 +96,6 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   const [wrapCSSVar, hashId, cssVarCls] = useRowStyle(prefixCls);
 
   const gutters = useGutter(gutter, screens);
-
   const classes = classNames(
     prefixCls,
     {
@@ -112,7 +111,6 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
 
   // Add gutter related style
   const rowStyle: React.CSSProperties = {};
-
   const horizontalGutter = gutters[0] != null && gutters[0] > 0 ? gutters[0] / -2 : undefined;
 
   if (horizontalGutter) {
