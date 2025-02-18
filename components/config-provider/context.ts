@@ -3,6 +3,7 @@ import * as React from 'react';
 import type { WarningContextProps } from '../_util/warning';
 import type { ShowWaveEffect } from '../_util/wave/interface';
 import type { AlertProps } from '../alert';
+import type { AnchorProps } from '../anchor';
 import type { BadgeProps } from '../badge';
 import type { BreadcrumbProps } from '../breadcrumb';
 import type { RibbonProps } from '../badge/Ribbon';
@@ -165,6 +166,8 @@ export type ModalConfig = ComponentStyleConfig &
 export type TabsConfig = ComponentStyleConfig &
   Pick<TabsProps, 'indicator' | 'indicatorSize' | 'more' | 'moreIcon' | 'addIcon' | 'removeIcon'>;
 
+export type AnchorStyleConfig = ComponentStyleConfig & Pick<AnchorProps, 'classNames' | 'styles'>;
+
 export type AlertConfig = ComponentStyleConfig &
   Pick<AlertProps, 'closable' | 'closeIcon' | 'classNames' | 'styles'>;
 
@@ -296,7 +299,7 @@ export interface ConfigComponentProps {
   select?: SelectConfig;
   alert?: AlertConfig;
   affix?: ComponentStyleConfig;
-  anchor?: ComponentStyleConfig;
+  anchor?: AnchorStyleConfig;
   button?: ButtonConfig;
   divider?: ComponentStyleConfig;
   drawer?: DrawerConfig;
