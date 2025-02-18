@@ -2216,7 +2216,7 @@ Array [
                               class="ant-table-filter-dropdown-btns"
                             >
                               <button
-                                class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
+                                class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
                                 disabled=""
                                 type="button"
                               >
@@ -3643,7 +3643,7 @@ Array [
                               class="ant-table-filter-dropdown-btns"
                             >
                               <button
-                                class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
+                                class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
                                 disabled=""
                                 type="button"
                               >
@@ -4011,7 +4011,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                                 class="ant-space-item"
                               >
                                 <button
-                                  class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
+                                  class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
                                   type="button"
                                 >
                                   <span>
@@ -4023,7 +4023,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                                 class="ant-space-item"
                               >
                                 <button
-                                  class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
+                                  class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
                                   type="button"
                                 >
                                   <span>
@@ -4147,7 +4147,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                                 class="ant-space-item"
                               >
                                 <button
-                                  class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
+                                  class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
                                   type="button"
                                 >
                                   <span>
@@ -4159,7 +4159,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                                 class="ant-space-item"
                               >
                                 <button
-                                  class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
+                                  class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
                                   type="button"
                                 >
                                   <span>
@@ -4361,7 +4361,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                                 class="ant-space-item"
                               >
                                 <button
-                                  class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
+                                  class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
                                   type="button"
                                 >
                                   <span>
@@ -4373,7 +4373,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                                 class="ant-space-item"
                               >
                                 <button
-                                  class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
+                                  class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
                                   type="button"
                                 >
                                   <span>
@@ -6827,7 +6827,7 @@ Array [
                               class="ant-table-filter-dropdown-btns"
                             >
                               <button
-                                class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
+                                class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
                                 disabled=""
                                 type="button"
                               >
@@ -10804,7 +10804,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                             class="ant-table-filter-dropdown-btns"
                           >
                             <button
-                              class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
+                              class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
                               disabled=""
                               type="button"
                             >
@@ -11102,7 +11102,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                             class="ant-table-filter-dropdown-btns"
                           >
                             <button
-                              class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
+                              class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
                               disabled=""
                               type="button"
                             >
@@ -11588,7 +11588,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                             class="ant-table-filter-dropdown-btns"
                           >
                             <button
-                              class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
+                              class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
                               disabled=""
                               type="button"
                             >
@@ -11886,7 +11886,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                             class="ant-table-filter-dropdown-btns"
                           >
                             <button
-                              class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
+                              class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
                               disabled=""
                               type="button"
                             >
@@ -13637,7 +13637,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                             class="ant-table-filter-dropdown-btns"
                           >
                             <button
-                              class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
+                              class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
                               disabled=""
                               type="button"
                             >
@@ -15141,7 +15141,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                             class="ant-table-filter-dropdown-btns"
                           >
                             <button
-                              class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
+                              class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
                               disabled=""
                               type="button"
                             >
@@ -15402,7 +15402,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                             class="ant-table-filter-dropdown-btns"
                           >
                             <button
-                              class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
+                              class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
                               disabled=""
                               type="button"
                             >
@@ -21965,7 +21965,7 @@ Array [
                               class="ant-table-filter-dropdown-btns"
                             >
                               <button
-                                class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
+                                class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
                                 disabled=""
                                 type="button"
                               >
@@ -22305,7 +22305,7 @@ Array [
                               class="ant-table-filter-dropdown-btns"
                             >
                               <button
-                                class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
+                                class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
                                 disabled=""
                                 type="button"
                               >

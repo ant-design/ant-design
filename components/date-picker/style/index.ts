@@ -331,6 +331,12 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             },
           },
 
+          [`&${antCls}-slide-up-appear, &${antCls}-slide-up-enter`]: {
+            [`${componentCls}-range-arrow${componentCls}-range-arrow`]: {
+              transition: 'none',
+            },
+          },
+
           [`&${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-dropdown-placement-topLeft,
           &${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-dropdown-placement-topRight,
           &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-dropdown-placement-topLeft,
