@@ -12,6 +12,7 @@ import {
   genDisabledStyle,
   genFilledStyle,
   genOutlinedStyle,
+  genUnderlinedStyle,
 } from '../../input/style/variants';
 import { resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
@@ -152,6 +153,9 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           },
         },
       },
+
+      // 覆盖 affix-wrapper borderRadius！
+      ...genUnderlinedStyle(token),
 
       '&-disabled': {
         '> textarea': {

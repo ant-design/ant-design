@@ -46,6 +46,8 @@ export interface ComponentToken {
 
 interface CarouselToken extends FullToken<'Carousel'> {}
 
+export const DotDuration = '--dot-duration';
+
 const genCarouselStyle: GenerateStyle<CarouselToken> = (token) => {
   const { componentCls, antCls } = token;
 
@@ -268,6 +270,21 @@ const genDotsStyle: GenerateStyle<CarouselToken> = (token) => {
             verticalAlign: 'top',
             transition: `all ${motionDurationSlow}`,
 
+            '&::after': {
+              display: 'block',
+              position: 'absolute',
+              top: 0,
+              insetInlineStart: 0,
+              width: 0,
+              height: dotHeight,
+              content: '""',
+              background: colorBgContainer,
+              borderRadius: dotHeight,
+              opacity: 1,
+              outline: 'none',
+              cursor: 'pointer',
+            },
+
             button: {
               position: 'relative',
               display: 'block',
@@ -284,7 +301,7 @@ const genDotsStyle: GenerateStyle<CarouselToken> = (token) => {
               opacity: 0.2,
               transition: `all ${motionDurationSlow}`,
 
-              '&: hover, &:focus': {
+              '&: hover': {
                 opacity: 0.75,
               },
 
@@ -297,14 +314,22 @@ const genDotsStyle: GenerateStyle<CarouselToken> = (token) => {
 
             '&.slick-active': {
               width: token.dotActiveWidth,
+              position: 'relative',
 
-              '& button': {
-                background: colorBgContainer,
+              '&: hover': {
                 opacity: 1,
               },
-
-              '&: hover, &:focus': {
+              '&::after': {
+                width: '100%',
+                display: 'block',
+                content: '""',
+                position: 'absolute',
+                insetInlineStart: 0,
+                top: 0,
+                background: colorBgContainer,
                 opacity: 1,
+                borderRadius: dotHeight,
+                transition: `width var(${DotDuration}) ease-out`,
               },
             },
           },
@@ -371,10 +396,20 @@ const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = (token) => {
 
           button: reverseSizeOfDot,
 
+          '&::after': {
+            ...reverseSizeOfDot,
+            height: 0,
+          },
+
           '&.slick-active': {
             ...reverseSizeOfDot,
 
             button: reverseSizeOfDot,
+
+            '&::after': {
+              ...reverseSizeOfDot,
+              transition: `height var(${DotDuration}) ease-out`,
+            },
           },
         },
       },

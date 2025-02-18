@@ -149,11 +149,11 @@ describe('Table.sorter', () => {
 
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
     expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('descending');
-    expect(getNameColumn()?.getAttribute('aria-label')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-label')).toEqual('Name');
 
     fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
     expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('ascending');
-    expect(getNameColumn()?.getAttribute('aria-label')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-label')).toEqual('Name');
 
     fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
     expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
@@ -626,8 +626,8 @@ describe('Table.sorter', () => {
 
   // https://github.com/ant-design/ant-design/issues/11246#issuecomment-405009167
   it('Allow column title as render props with sortOrder argument', () => {
-    const title: NonNullable<TableProps['columns']>[number]['title'] = ({ sortOrder }) => (
-      <div className="custom-title">{sortOrder}</div>
+    const title: NonNullable<TableProps['columns']>[number]['title'] = ({ sortColumns }) => (
+      <div className="custom-title">{sortColumns?.[0]?.order}</div>
     );
     const columns: TableProps['columns'] = [{ title, key: 'group', sorter: true }];
     const testData = [

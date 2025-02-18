@@ -18,17 +18,5 @@ module.exports = {
     return check.some((prefix) => name.startsWith(prefix));
   },
   // https://github.com/raineorshine/npm-check-updates#target
-  target: (name, semver) => {
-    const { operator } = semver[0] ?? {};
-
-    // rc-component
-    if (rcOrg.some((prefix) => name.startsWith(prefix))) {
-      // `^` always upgrade latest, otherwise follow semver.
-      if (operator === '^') {
-        return 'latest';
-      }
-    }
-
-    return 'semver';
-  },
+  target: () => `semver`,
 };

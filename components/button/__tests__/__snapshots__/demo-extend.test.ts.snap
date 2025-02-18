@@ -959,7 +959,7 @@ Array [
     </label>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left ant-divider-plain"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start ant-divider-plain"
     role="separator"
   >
     <span
@@ -2428,7 +2428,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left ant-divider-plain"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start ant-divider-plain"
     role="separator"
   >
     <span
@@ -3207,7 +3207,11 @@ Array [
 ]
 `;
 
-exports[`renders components/button/demo/legacy-group.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/button/demo/legacy-group.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Button.Group] \`Button.Group\` is deprecated. Please use \`Space.Compact\` instead.",
+]
+`;
 
 exports[`renders components/button/demo/linear-gradient.tsx extend context correctly 1`] = `
 <div
@@ -3757,7 +3761,7 @@ Array [
     </label>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left ant-divider-plain"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start ant-divider-plain"
     role="separator"
   >
     <span

@@ -68,7 +68,7 @@ jobs:
 
       # We need get persist-index first
       - name: download image snapshot artifact
-        uses: dawidd6/action-download-artifact@v7
+        uses: dawidd6/action-download-artifact@v8
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -90,7 +90,7 @@ jobs:
       - name: download report artifact
         id: download_report
         if: ${{ needs.upstream-workflow-summary.outputs.build-status == 'success' || needs.upstream-workflow-summary.outputs.build-status == 'failure' }}
-        uses: dawidd6/action-download-artifact@v7
+        uses: dawidd6/action-download-artifact@v8
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -166,7 +166,7 @@ jobs:
             });
             const prHeadSha = prResponse.data.head.sha;
 
-            const fullContent = `${{ toJSON(steps.report.outputs.content) }}`;
+            const fullContent = ${{ toJSON(steps.report.outputs.content) }};
             const hasVisualDiffSuccess = fullContent.includes('VISUAL_DIFF_SUCCESS');
             const hasVisualDiffFailed = fullContent.includes('VISUAL_DIFF_FAILED');
 

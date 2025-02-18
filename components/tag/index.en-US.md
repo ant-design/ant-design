@@ -57,6 +57,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | checked  | Checked status of Tag                           | boolean           | false   |
 | onChange | Callback executed when Tag is checked/unchecked | (checked) => void | -       |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Tag"></ComponentTokenTable>

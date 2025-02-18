@@ -212,7 +212,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | sorter | Sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If it is server-side sorting, set to `true`, but if you want to support multi-column sorting, you can set it to `{ multiple: number }` | function \| boolean \| { compare: function, multiple: number } | - |  |
 | sortOrder | Order of sorted values: `ascend` `descend` `null` | `ascend` \| `descend` \| null | - |  |
 | sortIcon | Customized sort icon | (props: { sortOrder }) => ReactNode | - | 5.6.0 |
-| title | Title of this column | ReactNode \| ({ sortOrder, sortColumn, filters }) => ReactNode | - |  |
+| title | Title of this column | ReactNode \| ({ sortColumns, filters }) => ReactNode | - |  |
 | width | Width of this column ([width not working?](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)) | string \| number | - |  |
 | minWidth | Min width of this column, only works when `tableLayout="auto"` | number | - | 5.21.0 |
 | hidden | Hidden this column | boolean | false | 5.13.0 |
@@ -279,10 +279,6 @@ Properties for row selection.
 | onCell | Set props on per cell. Same as `onCell` in column | function(record, rowIndex) | - | 5.5.0 |
 | onChange | Callback executed when selected rows change | function(selectedRowKeys, selectedRows, info: { type }) | - | `info.type`: 4.21.0 |
 | onSelect | Callback executed when select/deselect one row | function(record, selected, selectedRows, nativeEvent) | - |  |
-| onSelectAll | Callback executed when select/deselect all rows | function(selected, selectedRows, changeRows) | - |  |
-| onSelectInvert | Callback executed when row selection is inverted | function(selectedRowKeys) | - |  |
-| onSelectNone | Callback executed when row selection is cleared | function() | - |  |
-| onSelectMultiple | Callback executed when row selection is changed by pressing shift | function(selected, selectedRows, changeRows) | - |  |
 
 ### scroll
 

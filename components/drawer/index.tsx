@@ -1,9 +1,9 @@
 import * as React from 'react';
+import type { CSSMotionProps } from '@rc-component/motion';
 import classNames from 'classnames';
 import type { DrawerProps as RcDrawerProps } from 'rc-drawer';
 import RcDrawer from 'rc-drawer';
 import type { Placement } from 'rc-drawer/lib/Drawer';
-import type { CSSMotionProps } from 'rc-motion';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import { useZIndex } from '../_util/hooks/useZIndex';
@@ -11,6 +11,7 @@ import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import { usePanelRef } from '../watermark/context';
 import type { DrawerClassNames, DrawerPanelProps, DrawerStyles } from './DrawerPanel';
 import DrawerPanel from './DrawerPanel';
@@ -62,7 +63,15 @@ const Drawer: React.FC<DrawerProps> & {
     ...rest
   } = props;
 
-  const { getPopupContainer, getPrefixCls, direction, drawer } = React.useContext(ConfigContext);
+  const {
+    getPopupContainer,
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('drawer');
 
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
 
@@ -135,7 +144,6 @@ const Drawer: React.FC<DrawerProps> & {
 
   // =========================== Render ===========================
   const { classNames: propClassNames = {}, styles: propStyles = {}, rootStyle } = rest;
-  const { classNames: contextClassNames = {}, styles: contextStyles = {} } = drawer || {};
 
   const drawerClassName = classNames(
     {
@@ -185,9 +193,9 @@ const Drawer: React.FC<DrawerProps> & {
           push={push}
           width={mergedWidth}
           height={mergedHeight}
-          style={{ ...drawer?.style, ...style }}
-          rootStyle={{ ...rootStyle, ...contextStyles?.root, ...propStyles?.root }}
-          className={classNames(drawer?.className, className)}
+          style={{ ...contextStyle, ...style }}
+          rootStyle={{ ...rootStyle, ...contextStyles.root, ...propStyles.root }}
+          className={classNames(contextClassName, className)}
           rootClassName={drawerClassName}
           getContainer={getContainer}
           afterOpenChange={afterOpenChange}

@@ -54,7 +54,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | addonAfter | The label text displayed after (on the right side of) the input field | ReactNode | - |  |
 | addonBefore | The label text displayed before (on the left side of) the input field | ReactNode | - |  |
 | allowClear | If allow to remove input content with clear icon | boolean \| { clearIcon: ReactNode } | false |  |
-| ~~bordered~~ | Whether has border style | boolean | true | 4.5.0 |
+| ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | 4.5.0 |
 | classNames | Semantic DOM class | Record<[SemanticDOM](#input-1), string> | - | 5.4.0 |
 | count | Character count config | [CountConfig](#countconfig) | - | 5.10.0 |
 | defaultValue | The initial input content | string | - |  |
@@ -69,7 +69,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | suffix | The suffix icon for the Input | ReactNode | - |  |
 | type | The type of input, see: [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types)( use `Input.TextArea` instead of `type="textarea"`) | string | `text` |  |
 | value | The input content value | string | - |  |
-| variant | Variants of Input | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | onChange | Callback when user input | function(e) | - |  |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - |  |
 | onClear | Callback when click the clear button | () => void | - | 5.20.0 |
@@ -109,7 +109,7 @@ The rest of the props of `Input.TextArea` are the same as the original [textarea
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| enterButton | Whether to show an enter button after input. This property conflicts with the `addonAfter` property | ReactNode | false |
+| enterButton | false displays the default button color, true uses the primary color, or you can provide a custom button. Conflicts with addonAfter. | ReactNode | false |
 | loading | Search box with loading | boolean | false |
 | onSearch | The callback function triggered when you click on the search-icon, the clear-icon or press the Enter key | function(value, event, { source: "input" \| "clear" }) | - |
 
@@ -135,11 +135,12 @@ Added in `5.16.0`.
 | defaultValue | Default value | string | - |  |
 | disabled | Whether the input is disabled | boolean | false |  |
 | formatter | Format display, blank fields will be filled with ` ` | (value: string) => string | - |  |
+| separator | render the separator after the input box of the specified index | ((index: number) => ReactNode) \| ReactNode | - | 5.24.0 |
 | mask | Custom display, the original value will not be modified | boolean \| string | `false` | `5.17.0` |
 | length | The number of input elements | number | 6 |  |
 | status | Set validation status | 'error' \| 'warning' | - |  |
 | size | The size of the input box | `small` \| `middle` \| `large` | `middle` |  |
-| variant | Variants of Input | `outlined` \| `borderless` \| `filled` | `outlined` |  |
+| variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | `underlined`: 5.24.0 |
 | value | The input content value | string | - |  |
 | onChange | Trigger when all the fields are filled | (value: string) => void | - |  |
 | onInput | Trigger when the input value changes | (value: string[]) => void | - | `5.22.0` |

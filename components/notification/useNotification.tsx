@@ -6,6 +6,7 @@ import type { NotificationAPI, NotificationConfig as RcNotificationConfig } from
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import type { NotificationConfig as CPNotificationConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useToken } from '../theme/internal';
@@ -17,7 +18,7 @@ import type {
 } from './interface';
 import { getCloseIcon, PureContent } from './PurePanel';
 import useStyle from './style';
-import { getMotion, getPlacementStyle, getCloseIconConfig } from './util';
+import { getCloseIconConfig, getMotion, getPlacementStyle } from './util';
 
 const DEFAULT_OFFSET = 24;
 const DEFAULT_DURATION = 4.5;
@@ -68,7 +69,8 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     pauseOnHover = true,
     showProgress,
   } = props;
-  const { getPrefixCls, getPopupContainer, notification, direction } = useContext(ConfigContext);
+  const { getPrefixCls, getPopupContainer, direction } = useComponentConfig('notification');
+  const { notification } = useContext(ConfigContext);
   const [, token] = useToken();
 
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
@@ -120,7 +122,6 @@ export function useInternalNotification(
   notificationConfig?: HolderProps,
 ): readonly [NotificationInstance, React.ReactElement] {
   const holderRef = React.useRef<HolderRef>(null);
-
   const warning = devUseWarning('Notification');
 
   // ================================ API ================================
@@ -139,22 +140,39 @@ export function useInternalNotification(
       }
 
       const { open: originOpen, prefixCls, notification } = holderRef.current;
+      const contextClassName = notification?.className || {};
+      const contextStyle = notification?.style || {};
+      const contextClassNames = notification?.classNames || {};
+      const contextStyles = notification?.styles || {};
 
       const noticePrefixCls = `${prefixCls}-notice`;
-
       const {
+        title,
         message,
         description,
         icon,
         type,
         btn,
+        actions,
         className,
         style,
         role = 'alert',
         closeIcon,
         closable,
+        classNames: configClassNames,
+        styles,
         ...restConfig
       } = config;
+      if (process.env.NODE_ENV !== 'production') {
+        [
+          ['btn', 'actions'],
+          ['message', 'title'],
+        ].forEach(([deprecatedName, newName]) => {
+          warning.deprecated(!(deprecatedName in config), deprecatedName, newName);
+        });
+      }
+      const mergedTitle = title ?? message;
+      const mergedActions = actions ?? btn;
 
       const realCloseIcon = getCloseIcon(
         noticePrefixCls,
@@ -170,18 +188,32 @@ export function useInternalNotification(
             prefixCls={noticePrefixCls}
             icon={icon}
             type={type}
-            message={message}
+            title={mergedTitle}
             description={description}
-            btn={btn}
+            actions={mergedActions}
             role={role}
+            classNames={{
+              icon: classNames(contextClassNames.icon, configClassNames?.icon),
+              title: classNames(contextClassNames.title, configClassNames?.title),
+              description: classNames(contextClassNames.description, configClassNames?.description),
+              actions: classNames(contextClassNames.actions, configClassNames?.actions),
+            }}
+            styles={{
+              icon: { ...contextStyles.icon, ...styles?.icon },
+              title: { ...contextStyles.title, ...styles?.title },
+              description: { ...contextStyles.description, ...styles?.description },
+              actions: { ...contextStyles.actions, ...styles?.actions },
+            }}
           />
         ),
         className: classNames(
           type && `${noticePrefixCls}-${type}`,
           className,
-          notification?.className,
+          contextClassName,
+          configClassNames?.root,
+          contextClassNames.root,
         ),
-        style: { ...notification?.style, ...style },
+        style: { ...contextStyle, ...style, ...contextStyles.root, ...styles?.root },
         closeIcon: realCloseIcon,
         closable: closable ?? !!realCloseIcon,
       });

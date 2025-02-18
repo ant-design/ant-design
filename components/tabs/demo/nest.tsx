@@ -74,7 +74,7 @@ const App: React.FC = () => {
                 tabPosition={childPos}
                 type={childType}
                 style={{ height: 300 }}
-                items={new Array(20).fill(null).map((_, index) => {
+                items={Array.from({ length: 20 }).map((_, index) => {
                   const key = String(index);
                   return {
                     label: `Tab ${key}`,

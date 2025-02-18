@@ -22,8 +22,9 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="true"
+          aria-checked="true"
           class="ant-segmented-item-label"
+          role="radio"
           title="Show"
         >
           Show
@@ -38,8 +39,9 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Hide"
         >
           Hide
@@ -54,8 +56,9 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Center"
         >
           Center
@@ -326,7 +329,7 @@ exports[`renders components/tooltip/demo/basic.tsx correctly 1`] = `
 exports[`renders components/tooltip/demo/colorful.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -510,7 +513,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span

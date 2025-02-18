@@ -129,12 +129,16 @@ function itemRender(currentRoute, params, items, paths) {
   return isLast ? (
     <span>{currentRoute.title}</span>
   ) : (
-    <Link to={`/${paths.join("/")}`}>{currentRoute.title}</Link>
+    <Link to={`/${paths.join('/')}`}>{currentRoute.title}</Link>
   );
 }
 
 return <Breadcrumb itemRender={itemRender} items={items} />;
 ```
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

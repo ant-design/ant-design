@@ -20,9 +20,9 @@ return (
   <Radio.Group
     value={value}
     options={[
-      { value: 1, label: "A" },
-      { value: 2, label: "B"},
-      { value: 3, label: "C" },
+      { value: 1, label: 'A' },
+      { value: 2, label: 'B' },
+      { value: 3, label: 'C' },
     ]}
   />
 );
@@ -108,6 +108,10 @@ Radio group can wrap a group of `Radio`。
 | ------- | ------------ |
 | blur()  | Remove focus |
 | focus() | Get focus    |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

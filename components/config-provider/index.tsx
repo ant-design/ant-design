@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createTheme } from '@ant-design/cssinjs';
+import { createTheme, StyleContext as CssInJsStyleContext } from '@ant-design/cssinjs';
 import IconContext from '@ant-design/icons/lib/components/Context';
 import useMemo from '@rc-component/util/lib/hooks/useMemo';
 import { merge } from '@rc-component/util/lib/utils/set';
@@ -19,7 +19,9 @@ import type {
   BadgeConfig,
   ButtonConfig,
   CardConfig,
+  CardMetaConfig,
   CascaderConfig,
+  CheckboxConfig,
   CollapseConfig,
   ComponentStyleConfig,
   ConfigConsumerProps,
@@ -37,14 +39,18 @@ import type {
   ListConfig,
   MentionsConfig,
   MenuConfig,
+  MessageConfig,
   ModalConfig,
   NotificationConfig,
   PaginationConfig,
   PopconfirmConfig,
   PopoverConfig,
   PopupOverflow,
+  RadioConfig,
   RangePickerConfig,
+  RibbonConfig,
   SelectConfig,
+  SkeletonConfig,
   SpaceConfig,
   SpinConfig,
   TableConfig,
@@ -60,8 +66,6 @@ import type {
   TreeSelectConfig,
   Variant,
   WaveConfig,
-  RibbonConfig,
-  CardMetaConfig,
 } from './context';
 import {
   ConfigConsumer,
@@ -186,6 +190,7 @@ export interface ConfigProviderProps {
   theme?: ThemeConfig;
   warning?: WarningContextProps;
   alert?: AlertConfig;
+  affix?: ComponentStyleConfig;
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
   calendar?: ComponentStyleConfig;
@@ -196,7 +201,7 @@ export interface ConfigProviderProps {
   divider?: ComponentStyleConfig;
   drawer?: DrawerConfig;
   typography?: ComponentStyleConfig;
-  skeleton?: ComponentStyleConfig;
+  skeleton?: SkeletonConfig;
   spin?: SpinConfig;
   segmented?: ComponentStyleConfig;
   statistic?: ComponentStyleConfig;
@@ -212,17 +217,17 @@ export interface ConfigProviderProps {
   breadcrumb?: ComponentStyleConfig;
   menu?: MenuConfig;
   floatButtonGroup?: FloatButtonGroupConfig;
-  checkbox?: ComponentStyleConfig;
+  checkbox?: CheckboxConfig;
   descriptions?: ComponentStyleConfig;
   empty?: EmptyConfig;
   badge?: BadgeConfig;
-  radio?: ComponentStyleConfig;
+  radio?: RadioConfig;
   rate?: ComponentStyleConfig;
   ribbon?: RibbonConfig;
   switch?: ComponentStyleConfig;
   transfer?: TransferConfig;
   avatar?: ComponentStyleConfig;
-  message?: ComponentStyleConfig;
+  message?: MessageConfig;
   tag?: TagConfig;
   table?: TableConfig;
   card?: CardConfig;
@@ -246,6 +251,7 @@ export interface ConfigProviderProps {
   tooltip?: TooltipConfig;
   popover?: PopoverConfig;
   popconfirm?: PopconfirmConfig;
+  watermark?: ComponentStyleConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -332,6 +338,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     csp: customCsp,
     autoInsertSpaceInButton,
     alert,
+    affix,
     anchor,
     form,
     locale,
@@ -409,6 +416,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     variant,
     inputNumber,
     treeSelect,
+    watermark,
   } = props;
 
   // =================================== Context ===================================
@@ -442,6 +450,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     csp,
     autoInsertSpaceInButton,
     alert,
+    affix,
     anchor,
     locale: locale || legacyLocale,
     direction,
@@ -514,6 +523,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     variant,
     inputNumber,
     treeSelect,
+    watermark,
   };
 
   if (process.env.NODE_ENV !== 'production') {
@@ -566,9 +576,11 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     },
   );
 
+  const { layer } = React.useContext(CssInJsStyleContext);
+
   const memoIconContextValue = React.useMemo(
-    () => ({ prefixCls: iconPrefixCls, csp }),
-    [iconPrefixCls, csp],
+    () => ({ prefixCls: iconPrefixCls, csp, layer: layer ? 'antd' : undefined }),
+    [iconPrefixCls, csp, layer],
   );
 
   let childNode = (

@@ -1,15 +1,14 @@
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
+import CSSMotion from '@rc-component/motion';
 import useEvent from '@rc-component/util/lib/hooks/useEvent';
 import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
 import classNames from 'classnames';
-import CSSMotion from 'rc-motion';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { devUseWarning } from '../_util/warning';
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FloatButtonGroupProvider } from './context';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
@@ -35,10 +34,13 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
     ...floatButtonProps
   } = props;
 
-  const { direction, getPrefixCls, floatButtonGroup } =
-    React.useContext<ConfigConsumerProps>(ConfigContext);
+  const {
+    direction,
+    getPrefixCls,
+    closeIcon: contextCloseIcon,
+  } = useComponentConfig('floatButtonGroup');
 
-  const mergedCloseIcon = closeIcon ?? floatButtonGroup?.closeIcon ?? <CloseOutlined />;
+  const mergedCloseIcon = closeIcon ?? contextCloseIcon ?? <CloseOutlined />;
 
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
