@@ -224,13 +224,11 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
       }
 
       const isLastItem = index === childrenLength - 1;
-      return cloneElement(element, (oriProps) => ({
+      return cloneElement(element, {
         separator: isLastItem ? '' : separator,
-        className: classNames(oriProps?.className, mergedClassNames?.item),
-        style: { ...mergedStyles?.item, ...oriProps?.style },
         // eslint-disable-next-line react/no-array-index-key
         key: index,
-      }));
+      });
     });
   }
 

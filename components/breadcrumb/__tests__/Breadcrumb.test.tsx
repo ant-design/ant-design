@@ -360,10 +360,9 @@ describe('Breadcrumb', () => {
       />,
     );
     const root = container.querySelector('.ant-breadcrumb') as HTMLElement;
-    const item = container.querySelector('.ant-breadcrumb-link') as HTMLElement;
+    const item = container.querySelector('.custom-item') as HTMLElement;
     const separator = container.querySelector('.ant-breadcrumb-separator') as HTMLElement;
     expect(root.classList).toContain('custom-root');
-    expect(item.classList).toContain('custom-item');
     expect(separator.classList).toContain('custom-separator');
     expect(root.style.color).toBe('red');
     expect(item.style.color).toBe('green');

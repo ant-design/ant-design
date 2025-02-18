@@ -5,11 +5,9 @@ import { ConfigContext } from '../config-provider';
 import type { DropdownProps } from '../dropdown/dropdown';
 import Dropdown from '../dropdown/dropdown';
 import type { ItemType } from './Breadcrumb';
+import BreadcrumbContext from './BreadcrumbContext';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
 import { renderItem } from './useItemRender';
-import BreadcrumbContext from './BreadcrumbContext';
-import { cloneElement } from '../_util/reactNode';
-import classNames from 'classnames';
 
 export interface SeparatorType {
   separator?: React.ReactNode;
@@ -83,15 +81,13 @@ export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => 
 
   // wrap to dropDown
   const link = renderBreadcrumbNode(children);
-  const linkNode = cloneElement(link, (oriProps) => ({
-    className: classNames(oriProps?.className, mergedClassNames?.item),
-    style: { ...mergedStyles?.item, ...oriProps?.style },
-  }));
 
   if (link !== undefined && link !== null) {
     return (
       <>
-        <li>{linkNode}</li>
+        <li className={mergedClassNames?.item} style={mergedStyles?.item}>
+          {link}
+        </li>
         {separator && <BreadcrumbSeparator>{separator}</BreadcrumbSeparator>}
       </>
     );
