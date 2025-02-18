@@ -3,10 +3,13 @@ import DoubleLeftOutlined from '@ant-design/icons/DoubleLeftOutlined';
 import DoubleRightOutlined from '@ant-design/icons/DoubleRightOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
+import type {
+  PaginationLocale,
+  PaginationProps as RcPaginationProps,
+} from '@rc-component/pagination';
+import RcPagination from '@rc-component/pagination';
+import enUS from '@rc-component/pagination/lib/locale/en_US';
 import classNames from 'classnames';
-import type { PaginationLocale, PaginationProps as RcPaginationProps } from 'rc-pagination';
-import RcPagination from 'rc-pagination';
-import enUS from 'rc-pagination/lib/locale/en_US';
 
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';

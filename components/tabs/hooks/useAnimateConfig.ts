@@ -1,4 +1,4 @@
-import type { CSSMotionProps } from 'rc-motion';
+import type { CSSMotionProps } from '@rc-component/motion';
 import type { AnimatedConfig } from '@rc-component/tabs/lib/interface';
 
 import type { TabsProps } from '..';
