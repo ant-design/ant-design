@@ -5,6 +5,7 @@ import type { Breakpoint, ScreenMap } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
 import useBreakpoint from './hooks/useBreakpoint';
+import useGutter from './hooks/useGutter';
 import RowContext from './RowContext';
 import type { RowContextState } from './RowContext';
 import { useRowStyle } from './style';
@@ -24,7 +25,6 @@ type ResponsiveLike<T> = {
   [key in Responsive]?: T;
 };
 
-type Gap = number | undefined;
 export type Gutter = number | undefined | Partial<Record<Breakpoint, number>>;
 
 type ResponsiveAligns = ResponsiveLike<(typeof _RowAligns)[number]>;
@@ -91,30 +91,12 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   const mergedAlign = useMergedPropByScreen(align, screens);
   const mergedJustify = useMergedPropByScreen(justify, screens);
 
-  const getGutter = (): [Gap, Gap] => {
-    const results: [Gap, Gap] = [undefined, undefined];
-    const normalizedGutter = Array.isArray(gutter) ? gutter : [gutter, undefined];
-    normalizedGutter.forEach((g, index) => {
-      if (typeof g === 'object') {
-        for (let i = 0; i < responsiveArray.length; i++) {
-          const breakpoint: Breakpoint = responsiveArray[i];
-          if (screens[breakpoint] && g[breakpoint] !== undefined) {
-            results[index] = g[breakpoint] as number;
-            break;
-          }
-        }
-      } else {
-        results[index] = g;
-      }
-    });
-    return results;
-  };
-
   const prefixCls = getPrefixCls('row', customizePrefixCls);
 
   const [wrapCSSVar, hashId, cssVarCls] = useRowStyle(prefixCls);
 
-  const gutters = getGutter();
+  const gutters = useGutter(gutter, screens);
+
   const classes = classNames(
     prefixCls,
     {
