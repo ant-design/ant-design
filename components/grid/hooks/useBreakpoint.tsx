@@ -5,7 +5,7 @@ import useForceUpdate from '../../_util/hooks/useForceUpdate';
 import type { ScreenMap } from '../../_util/responsiveObserver';
 import useResponsiveObserver from '../../_util/responsiveObserver';
 
-function useBreakpoint(refreshOnChange = true, defaultScreens: ScreenMap = {}): ScreenMap {
+function useBreakpoint(refreshOnChange = true, defaultScreens: ScreenMap | null = {}): ScreenMap {
   const screensRef = useRef<ScreenMap>(defaultScreens);
   const forceUpdate = useForceUpdate();
   const responsiveObserver = useResponsiveObserver();
@@ -21,7 +21,7 @@ function useBreakpoint(refreshOnChange = true, defaultScreens: ScreenMap = {}): 
     return () => responsiveObserver.unsubscribe(token);
   }, []);
 
-  return screensRef.current;
+  return screensRef.current!;
 }
 
 export default useBreakpoint;

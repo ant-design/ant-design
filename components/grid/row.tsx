@@ -39,7 +39,7 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
 
 function useMergedPropByScreen(
   oriProp: RowProps['align'] | RowProps['justify'],
-  screen: ScreenMap,
+  screen: ScreenMap | null,
 ) {
   const [prop, setProp] = React.useState(typeof oriProp === 'string' ? oriProp : '');
 
@@ -53,7 +53,7 @@ function useMergedPropByScreen(
     for (let i = 0; i < responsiveArray.length; i++) {
       const breakpoint: Breakpoint = responsiveArray[i];
       // if do not match, do nothing
-      if (!screen[breakpoint]) {
+      if (!screen || !screen[breakpoint]) {
         continue;
       }
       const curVal = oriProp[breakpoint];
@@ -86,14 +86,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
-  const screens = useBreakpoint(true, {
-    xs: true,
-    sm: true,
-    md: true,
-    lg: true,
-    xl: true,
-    xxl: true,
-  });
+  const screens = useBreakpoint(true, null);
 
   const mergedAlign = useMergedPropByScreen(align, screens);
   const mergedJustify = useMergedPropByScreen(justify, screens);
