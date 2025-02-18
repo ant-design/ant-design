@@ -1,8 +1,11 @@
 import React, { useMemo, useRef } from 'react';
 import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
-import type { MasonryItem as MasonryItemType } from './interface';
-
+export interface MasonryItemType {
+  key?: React.Key;
+  height?: number;
+  render: () => React.ReactNode;
+}
 interface MasonryItemProps {
   item: MasonryItemType;
   index: number;

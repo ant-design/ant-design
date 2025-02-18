@@ -11,12 +11,34 @@ import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
-import useResponsiveObserver, { responsiveArray, ScreenMap } from '../_util/responsiveObserver';
+import useResponsiveObserver, { responsiveArray } from '../_util/responsiveObserver';
+import type { Breakpoint, ScreenMap } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import { Gap, Gutter, MasonryProps } from './interface';
 import MasonryItem from './MasonryItem';
+import type { MasonryItemType } from './MasonryItem';
 import useStyle from './style';
+
+export type Gap = number | undefined;
+export type Gutter = number | undefined | Partial<Record<Breakpoint, number>>;
+export type Key = string | number;
+
+export interface MasonryProps {
+  /** Number of columns in the masonry grid layout */
+  columns: number | Partial<Record<Breakpoint, number>>;
+
+  /** Spacing between items */
+  gutter?: Gutter | [Gutter, Gutter];
+
+  /** When true, items are placed sequentially */
+  sequential?: boolean;
+
+  items: MasonryItemType[];
+
+  prefixCls?: string;
+
+  keepAspectRatio?: boolean;
+}
 
 const getNearestNumber = (value: number) => {
   return Math.round((value + Number.EPSILON) * 100) / 100;
@@ -52,7 +74,7 @@ const Masonry: React.FC<MasonryProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const responsiveObserver = useResponsiveObserver();
   const itemPrefixCls = `${prefixCls}-item`;
-  const mansoryCls = classNames(prefixCls, hashId, cssVarCls);
+  const masonryCls = classNames(prefixCls, hashId, cssVarCls);
 
   useEffect(() => {
     const token = responsiveObserver.subscribe((screen) => {
@@ -220,7 +242,7 @@ const Masonry: React.FC<MasonryProps> = ({
       <div
         ref={containerRef}
         data-testid="masonry-container"
-        className={mansoryCls}
+        className={masonryCls}
         style={{ height: containerHeight }}
       >
         {items.map((item, index) => (

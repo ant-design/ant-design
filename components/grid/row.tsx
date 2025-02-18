@@ -2,7 +2,11 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 import type { Breakpoint, ScreenMap } from '../_util/responsiveObserver';
-import useResponsiveObserver, { responsiveArray } from '../_util/responsiveObserver';
+// 新增 useBreakpoint 导入
+import useBreakpoint from './hooks/useBreakpoint';
+// 保留 responsiveArray 导入
+import { responsiveArray } from '../_util/responsiveObserver';
+
 import { ConfigContext } from '../config-provider';
 import RowContext from './RowContext';
 import type { RowContextState } from './RowContext';
@@ -85,50 +89,14 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
-  const [screens, setScreens] = React.useState<ScreenMap>({
-    xs: true,
-    sm: true,
-    md: true,
-    lg: true,
-    xl: true,
-    xxl: true,
-  });
-  // to save screens info when responsiveObserve callback had been call
-  const [curScreens, setCurScreens] = React.useState<ScreenMap>({
-    xs: false,
-    sm: false,
-    md: false,
-    lg: false,
-    xl: false,
-    xxl: false,
-  });
+  // 改为使用 useBreakpoint() 仅用于 screens
+  const screens = useBreakpoint();
 
-  // ================================== calc responsive data ==================================
-  const mergedAlign = useMergedPropByScreen(align, curScreens);
+  // 将 useMergedPropByScreen 的第二个参数替换为 screens
+  const mergedAlign = useMergedPropByScreen(align, screens);
+  const mergedJustify = useMergedPropByScreen(justify, screens);
 
-  const mergedJustify = useMergedPropByScreen(justify, curScreens);
-
-  const gutterRef = React.useRef<Gutter | [Gutter, Gutter]>(gutter);
-
-  const responsiveObserver = useResponsiveObserver();
-
-  // ================================== Effect ==================================
-  React.useEffect(() => {
-    const token = responsiveObserver.subscribe((screen) => {
-      setCurScreens(screen);
-      const currentGutter = gutterRef.current || 0;
-      if (
-        (!Array.isArray(currentGutter) && typeof currentGutter === 'object') ||
-        (Array.isArray(currentGutter) &&
-          (typeof currentGutter[0] === 'object' || typeof currentGutter[1] === 'object'))
-      ) {
-        setScreens(screen);
-      }
-    });
-    return () => responsiveObserver.unsubscribe(token);
-  }, []);
-
-  // ================================== Render ==================================
+  // getGutter 仍使用 screens 来计算
   const getGutter = (): [Gap, Gap] => {
     const results: [Gap, Gap] = [undefined, undefined];
     const normalizedGutter = Array.isArray(gutter) ? gutter : [gutter, undefined];
