@@ -50,7 +50,7 @@ interface Section {
   top: number;
 }
 
-type SemanticName = 'root' | 'item' | 'title';
+type SemanticName = 'root' | 'item' | 'title' | 'indicator';
 export interface AnchorProps {
   prefixCls?: string;
   className?: string;
@@ -305,9 +305,14 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     [`${prefixCls}-fixed`]: !affix && !showInkInFixed,
   });
 
-  const inkClass = classNames(`${prefixCls}-ink`, {
-    [`${prefixCls}-ink-visible`]: activeLink,
-  });
+  const inkClass = classNames(
+    `${prefixCls}-ink`,
+    contextClassNames.indicator,
+    anchorClassNames?.indicator,
+    {
+      [`${prefixCls}-ink-visible`]: activeLink,
+    },
+  );
 
   const wrapperStyle: React.CSSProperties = {
     maxHeight: offsetTop ? `calc(100vh - ${offsetTop}px)` : '100vh',
@@ -329,7 +334,11 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   const anchorContent = (
     <div ref={wrapperRef} className={wrapperClass} style={wrapperStyle}>
       <div className={anchorClass}>
-        <span className={inkClass} ref={spanLinkNode} />
+        <span
+          className={inkClass}
+          ref={spanLinkNode}
+          style={{ ...contextStyles.indicator, ...styles?.indicator }}
+        />
         {'items' in props ? createNestedLink(items) : children}
       </div>
     </div>

@@ -9,11 +9,13 @@ const locales = {
     root: '根元素',
     item: 'Item 元素',
     title: '标题元素',
+    indicator: '指示器元素',
   },
   en: {
     root: 'Root Element',
     item: 'Item Element',
     title: 'Title Element',
+    indicator: 'Indicator Element',
   },
 };
 
@@ -63,6 +65,7 @@ const App: React.FC = () => {
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'item', desc: locale.item, version: '6.0.0' },
         { name: 'title', desc: locale.title, version: '6.0.0' },
+        { name: 'indicator', desc: locale.indicator, version: '6.0.0' },
       ]}
     >
       <Block />
