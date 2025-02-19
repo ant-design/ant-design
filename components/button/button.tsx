@@ -88,7 +88,8 @@ const ButtonTypeMap: Partial<Record<ButtonType, ColorVariantPairType>> = {
   default: ['default', 'outlined'],
   primary: ['primary', 'solid'],
   dashed: ['default', 'dashed'],
-  link: ['primary', 'link'],
+  // `link` is not a real color but we should compatible with it
+  link: ['link' as any, 'link'],
   text: ['default', 'text'],
 };
 

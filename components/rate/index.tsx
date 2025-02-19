@@ -5,7 +5,7 @@ import RcRate from 'rc-rate';
 import type { RateRef, RateProps as RcRateProps } from 'rc-rate/lib/Rate';
 import type { StarProps as RcStarProps } from 'rc-rate/lib/Star';
 
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import Tooltip, { TooltipProps } from '../tooltip';
 import useStyle from './style';
@@ -45,13 +45,19 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
     return <Tooltip title={tooltipsItem as string}>{node}</Tooltip>;
   };
 
-  const { getPrefixCls, direction, rate } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('rate');
+
   const ratePrefixCls = getPrefixCls('rate', prefixCls);
 
   // Style
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(ratePrefixCls);
 
-  const mergedStyle: React.CSSProperties = { ...rate?.style, ...style };
+  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
@@ -64,7 +70,7 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
       characterRender={characterRender}
       disabled={mergedDisabled}
       {...rest}
-      className={classNames(className, rootClassName, hashId, cssVarCls, rate?.className)}
+      className={classNames(className, rootClassName, hashId, cssVarCls, contextClassName)}
       style={mergedStyle}
       prefixCls={ratePrefixCls}
       direction={direction}

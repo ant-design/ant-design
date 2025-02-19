@@ -2,12 +2,10 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 import type { Breakpoint, ScreenMap } from '../_util/responsiveObserver';
-// 新增 useBreakpoint 导入
-import useBreakpoint from './hooks/useBreakpoint';
-// 保留 responsiveArray 导入
 import { responsiveArray } from '../_util/responsiveObserver';
-
 import { ConfigContext } from '../config-provider';
+import useBreakpoint from './hooks/useBreakpoint';
+import useGutter from './hooks/useGutter';
 import RowContext from './RowContext';
 import type { RowContextState } from './RowContext';
 import { useRowStyle } from './style';
@@ -27,7 +25,6 @@ type ResponsiveLike<T> = {
   [key in Responsive]?: T;
 };
 
-type Gap = number | undefined;
 export type Gutter = number | undefined | Partial<Record<Breakpoint, number>>;
 
 type ResponsiveAligns = ResponsiveLike<(typeof _RowAligns)[number]>;
@@ -42,7 +39,7 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
 
 function useMergedPropByScreen(
   oriProp: RowProps['align'] | RowProps['justify'],
-  screen: ScreenMap,
+  screen: ScreenMap | null,
 ) {
   const [prop, setProp] = React.useState(typeof oriProp === 'string' ? oriProp : '');
 
@@ -56,7 +53,7 @@ function useMergedPropByScreen(
     for (let i = 0; i < responsiveArray.length; i++) {
       const breakpoint: Breakpoint = responsiveArray[i];
       // if do not match, do nothing
-      if (!screen[breakpoint]) {
+      if (!screen || !screen[breakpoint]) {
         continue;
       }
       const curVal = oriProp[breakpoint];
@@ -89,38 +86,16 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
-  // 改为使用 useBreakpoint() 仅用于 screens
-  const screens = useBreakpoint();
+  const screens = useBreakpoint(true, null);
 
-  // 将 useMergedPropByScreen 的第二个参数替换为 screens
   const mergedAlign = useMergedPropByScreen(align, screens);
   const mergedJustify = useMergedPropByScreen(justify, screens);
-
-  // getGutter 仍使用 screens 来计算
-  const getGutter = (): [Gap, Gap] => {
-    const results: [Gap, Gap] = [undefined, undefined];
-    const normalizedGutter = Array.isArray(gutter) ? gutter : [gutter, undefined];
-    normalizedGutter.forEach((g, index) => {
-      if (typeof g === 'object') {
-        for (let i = 0; i < responsiveArray.length; i++) {
-          const breakpoint: Breakpoint = responsiveArray[i];
-          if (screens[breakpoint] && g[breakpoint] !== undefined) {
-            results[index] = g[breakpoint] as number;
-            break;
-          }
-        }
-      } else {
-        results[index] = g;
-      }
-    });
-    return results;
-  };
 
   const prefixCls = getPrefixCls('row', customizePrefixCls);
 
   const [wrapCSSVar, hashId, cssVarCls] = useRowStyle(prefixCls);
 
-  const gutters = getGutter();
+  const gutters = useGutter(gutter, screens);
   const classes = classNames(
     prefixCls,
     {
