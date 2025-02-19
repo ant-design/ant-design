@@ -121,6 +121,8 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     maxCount,
     showCheckedStrategy,
     treeCheckStrictly,
+    value,
+    treeData,
     ...restProps
   } = props;
   const {
@@ -175,19 +177,6 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
 
   const [variant, enableVariantCls] = useVariant('treeSelect', customVariant, bordered);
 
-  const mergedDropdownClassName = classNames(
-    popupClassName || dropdownClassName,
-    `${treeSelectPrefixCls}-dropdown`,
-    {
-      [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',
-    },
-    rootClassName,
-    cssVarCls,
-    rootCls,
-    treeSelectRootCls,
-    hashId,
-  );
-
   const isMultiple = !!(treeCheckable || multiple);
 
   const mergedMaxCount = React.useMemo(() => {
@@ -200,6 +189,68 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     }
     return maxCount;
   }, [maxCount, showCheckedStrategy, treeCheckStrictly]);
+  type LabeledValue = {
+    value: any;
+    label: React.ReactNode;
+  };
+  const processedTreeData = React.useMemo(() => {
+    if (!mergedMaxCount || !isMultiple || !treeData || !value) {
+      return treeData;
+    }
+    function isLabeledValue(val: unknown): val is LabeledValue {
+      return !!val && typeof val === 'object' && 'value' in val;
+    }
+
+    const valueArr = Array.isArray(value)
+      ? value.map((item) => (isLabeledValue(item) ? (item as LabeledValue).value : item))
+      : value
+        ? [isLabeledValue(value) ? (value as LabeledValue).value : value]
+        : [];
+    const isMaxReached = valueArr.length >= mergedMaxCount;
+
+    const processNode = (nodes: DataNode[]): DataNode[] => {
+      return nodes.map((node) => {
+        const newNode = { ...node };
+
+        if (node.children?.length) {
+          const childValues = node.children.map((child) => child.value as NonNullable<ValueType>);
+          const selectedChildCount = childValues.filter((v) => valueArr.includes(v as any)).length;
+
+          if (selectedChildCount === childValues.length) {
+            newNode.disabled = false;
+          } else {
+            const remainingCount = mergedMaxCount - (valueArr.length - selectedChildCount);
+            const unselectedChildCount = childValues.length - selectedChildCount;
+            newNode.disabled = isMaxReached || unselectedChildCount > remainingCount;
+          }
+
+          newNode.children = processNode(node.children);
+        } else {
+          newNode.disabled =
+            isMaxReached && !valueArr.includes(node.value as NonNullable<ValueType>);
+        }
+
+        return newNode;
+      });
+    };
+
+    return processNode(treeData as DataNode[]);
+  }, [mergedMaxCount, isMultiple, treeData, value, treeCheckStrictly]);
+
+  const dropdownPrefixCls = `${treeSelectPrefixCls}-dropdown`;
+  const dropdownClassNames = {
+    [`${dropdownPrefixCls}`]: true,
+    [`${dropdownPrefixCls}-rtl`]: direction === 'rtl',
+  };
+  const mergedDropdownClassName = classNames(
+    popupClassName || dropdownClassName,
+    dropdownClassNames,
+    rootClassName,
+    cssVarCls,
+    rootCls,
+    treeSelectRootCls,
+    hashId,
+  );
 
   const showSuffixIcon = useShowArrow(props.suffixIcon, props.showArrow);
 
@@ -290,6 +341,36 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
   // ============================ zIndex ============================
   const [zIndex] = useZIndex('SelectLike', dropdownStyle?.zIndex as number);
 
+  const handleChange = (newValue: ValueType, labelList: any, extra: any) => {
+    const { triggerNode, checked } = extra || {};
+
+    if (mergedMaxCount && Array.isArray(newValue) && newValue.length > mergedMaxCount) {
+      return;
+    }
+
+    if (!checked && triggerNode?.children?.length) {
+      const getChildValues = (node: any): ValueType[] => {
+        const values: ValueType[] = [];
+        const stack = [node];
+        while (stack.length) {
+          const n = stack.pop();
+          if (n.value !== undefined) values.push(n.value);
+          if (n.children) stack.push(...n.children);
+        }
+        return values;
+      };
+
+      const childValues = getChildValues(triggerNode);
+      const newValueArray = Array.isArray(newValue) ? newValue : [newValue];
+      const filteredValue = newValueArray.filter((v) => !childValues.includes(v));
+      const finalValue = Array.isArray(newValue) ? filteredValue : filteredValue[0];
+      restProps.onChange?.(finalValue, labelList, extra);
+      return;
+    }
+
+    restProps.onChange?.(newValue, labelList, extra);
+  };
+
   const returnNode = (
     <RcTreeSelect
       virtual={virtual}
@@ -325,6 +406,9 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
       maxCount={mergedMaxCount}
       showCheckedStrategy={showCheckedStrategy}
       treeCheckStrictly={treeCheckStrictly}
+      treeData={processedTreeData}
+      value={value}
+      onChange={handleChange}
     />
   );
 
