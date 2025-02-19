@@ -135,14 +135,10 @@ export const initComponentToken = (
   const mergedFontSizeSM = inputFontSizeSM || mergedFontSize;
   const mergedFontSizeLG = inputFontSizeLG || fontSizeLG;
 
-  const paddingBlock = Math.max(
-    Math.round(((controlHeight - mergedFontSize * lineHeight) / 2) * 10) / 10 - lineWidth,
-    0,
-  );
-  const paddingBlockSM = Math.max(
-    Math.round(((controlHeightSM - mergedFontSizeSM * lineHeight) / 2) * 10) / 10 - lineWidth,
-    0,
-  );
+  const paddingBlock =
+    Math.round(((controlHeight - mergedFontSize * lineHeight) / 2) * 10) / 10 - lineWidth;
+  const paddingBlockSM =
+    Math.round(((controlHeightSM - mergedFontSizeSM * lineHeight) / 2) * 10) / 10 - lineWidth;
   const paddingBlockLG =
     Math.ceil(((controlHeightLG - mergedFontSizeLG * lineHeightLG) / 2) * 10) / 10 - lineWidth;
 
