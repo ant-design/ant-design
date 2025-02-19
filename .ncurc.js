@@ -12,9 +12,6 @@ module.exports = {
   dep: ['prod'], // check only prod dependencies
   // https://github.com/raineorshine/npm-check-updates#filter
   filter: (name) => {
-    if (name === '@ant-design/cssinjs') {
-      return false;
-    }
     return check.some((prefix) => name.startsWith(prefix));
   },
   // https://github.com/raineorshine/npm-check-updates#target
