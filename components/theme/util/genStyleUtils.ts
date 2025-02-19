@@ -3,7 +3,7 @@ import { genStyleUtils } from '@ant-design/cssinjs-utils';
 import type { GetCompUnitless } from '@ant-design/cssinjs-utils/es/util/genStyleUtils';
 
 import { ConfigContext, defaultIconPrefixCls } from '../../config-provider/context';
-import { genCommonStyle, genLinkStyle, genIconStyle } from '../../style';
+import { genCommonStyle, genIconStyle, genLinkStyle } from '../../style';
 import type { AliasToken, ComponentTokenMap, SeedToken } from '../interface';
 import useLocalToken, { unitless } from '../useToken';
 
@@ -31,7 +31,7 @@ export const { genStyleHooks, genComponentStyleHook, genSubStyleComponent } = ge
     return csp ?? {};
   },
   getResetStyles: (token, config) => [
-    { '&': genLinkStyle(token) },
+    genLinkStyle(token),
     genIconStyle(config?.prefix.iconPrefixCls ?? defaultIconPrefixCls),
   ],
   getCommonStyle: genCommonStyle,
