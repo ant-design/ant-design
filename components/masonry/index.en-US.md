@@ -35,7 +35,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- |
 | columns | Number of columns, can be a fixed number or responsive config | `number \| { xs?: number; sm?: number; md?: number }` | - |
 | gutter | Gap between items, can be a fixed number, responsive config, or \[horizontal, vertical\] config | `Gap` \| `[Gap, Gap]` | `0` |
-| sequential | When true, items are placed sequentially (logical start-to-end, top-to-bottom) | `boolean` | `false` |
+| sequential | Layout items sequentially. Will not change the column when removing items. | `boolean` | `false` |
 | items | Masonry items | `<T = MasonryItem>[]` | - |
 
 ### MasonryItem

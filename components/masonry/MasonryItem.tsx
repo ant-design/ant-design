@@ -25,19 +25,21 @@ const MasonryItem = React.forwardRef<HTMLDivElement, MasonryItemProps>((props, r
 
   // ====================== Render ======================
   const renderNode = useMemo(() => {
-    if (typeof item === 'object' && item.children !== null && item.children !== undefined) {
-      return item.children;
-    }
-    return itemRender?.({ ...item, index });
+    return item.children ?? itemRender?.({ ...item, index });
   }, [item, itemRender]);
 
   return (
     <CSSMotion motionAppear visible motionName={`${itemPrefix}-fade`}>
       {({ className: motionClassName, style: motionStyle, ref: motionRef }) => {
+        const mergedStyle: React.CSSProperties = { ...motionStyle, ...style };
+        if (item.height) {
+          mergedStyle.height = item.height;
+        }
+
         return (
           <div
             ref={composeRef(ref, motionRef)}
-            style={{ ...motionStyle, ...style }}
+            style={mergedStyle}
             className={classNames(itemPrefix, motionClassName)}
           >
             {renderNode}

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { CSSProperties } from 'react';
 import { useEvent } from '@rc-component/util';
+import isEqual from '@rc-component/util/lib/isEqual';
 import raf from '@rc-component/util/lib/raf';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
@@ -13,6 +14,7 @@ import type { RowProps } from '../grid';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import useGutter from '../grid/hooks/useGutter';
 import usePositions from './hooks/usePositions';
+import type { ItemHeightData } from './hooks/usePositions';
 import useRefs from './hooks/useRefs';
 import MasonryItem from './MasonryItem';
 import type { MasonryItemType } from './MasonryItem';
@@ -106,17 +108,21 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     raf.cancel(rafRef.current);
   };
 
-  const [itemHeights, setItemHeights] = React.useState<number[]>([]);
+  const [itemHeights, setItemHeights] = React.useState<ItemHeightData[]>([]);
 
   const collectItemSize = useEvent(() => {
     clearRaf();
     rafRef.current = raf(() => {
-      const nextItemsHeight = items.map((item, index) => {
-        const itemEle = getItemRef(item.key ?? index);
+      const nextItemsHeight = items.map((item, index): ItemHeightData => {
+        const itemKey = item.key ?? index;
+        const itemEle = getItemRef(itemKey);
         const rect = itemEle?.getBoundingClientRect();
-        return rect ? rect.height : 0;
+        return [itemKey, rect ? rect.height : 0];
       });
-      setItemHeights(nextItemsHeight);
+
+      setItemHeights((prevItemsHeight) =>
+        isEqual(prevItemsHeight, nextItemsHeight) ? prevItemsHeight : nextItemsHeight,
+      );
     });
   });
 
@@ -148,7 +154,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
       >
         {items.map((item, index) => {
           const key = item.key ?? index;
-          const itemPosition = itemPositions[index];
+          const itemPosition = itemPositions.get(key);
           const { column: columnIndex = 0 } = itemPosition || {};
 
           const itemStyle: CSSProperties = {
