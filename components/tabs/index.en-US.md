@@ -93,6 +93,10 @@ More option at [@rc-component/tabs](https://github.com/react-component/tabs#tabs
 | icon                                      | The custom icon | ReactNode | -       |         |
 | [DropdownProps](/components/dropdown#api) |                 |           |         |         |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Tabs"></ComponentTokenTable>

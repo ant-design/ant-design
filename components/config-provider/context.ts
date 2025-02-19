@@ -164,7 +164,17 @@ export type ModalConfig = ComponentStyleConfig &
   Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon' | 'closable' | 'centered'>;
 
 export type TabsConfig = ComponentStyleConfig &
-  Pick<TabsProps, 'indicator' | 'indicatorSize' | 'more' | 'moreIcon' | 'addIcon' | 'removeIcon'>;
+  Pick<
+    TabsProps,
+    | 'indicator'
+    | 'indicatorSize'
+    | 'more'
+    | 'moreIcon'
+    | 'addIcon'
+    | 'removeIcon'
+    | 'classNames'
+    | 'styles'
+  >;
 
 export type AnchorStyleConfig = ComponentStyleConfig & Pick<AnchorProps, 'classNames' | 'styles'>;
 
