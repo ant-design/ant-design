@@ -153,7 +153,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   const internalFormatter = (txt: string) => (formatter ? formatter(txt) : txt);
 
   // ======================== Values ========================
-  const [valueCells, setValueCells] = React.useState<string[]>(
+  const [valueCells, setValueCells] = React.useState<string[]>(() =>
     strToArr(internalFormatter(defaultValue || '')),
   );
 
