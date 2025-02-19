@@ -144,8 +144,10 @@ export const initComponentToken = (
       Math.round(((controlHeightSM - mergedFontSizeSM * lineHeight) / 2) * 10) / 10 - lineWidth,
       0,
     ),
-    paddingBlockLG:
+    paddingBlockLG: Math.max(
       Math.ceil(((controlHeightLG - mergedFontSizeLG * lineHeightLG) / 2) * 10) / 10 - lineWidth,
+      0,
+    ),
     paddingInline: paddingSM - lineWidth,
     paddingInlineSM: controlPaddingHorizontalSM - lineWidth,
     paddingInlineLG: controlPaddingHorizontal - lineWidth,
