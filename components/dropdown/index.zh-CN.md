@@ -73,7 +73,7 @@ demo:
 | loading | 设置按钮载入状态，和 [Button](/components/button-cn#api) 一致 | boolean \| { delay: number, icon: ReactNode } | false | icon: 5.23.0 |
 | danger | 设置危险按钮 | boolean | - | 4.23.0 |
 | icon | 右侧的 icon | ReactNode | - |  |
-| size | 按钮大小，和 [Button](/components/button-cn#api) 一致 | string | `default` |  |
+| size | 按钮大小，和 [Button](/components/button-cn#api) 一致 | string | `middle` |  |
 | type | 按钮类型，和 [Button](/components/button-cn#api) 一致 | string | `default` |  |
 | onClick | 点击左侧按钮的回调，和 [Button](/components/button-cn#api) 一致 | (event) => void | - |  |
 

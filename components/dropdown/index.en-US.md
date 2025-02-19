@@ -69,7 +69,7 @@ Same props from Dropdown. And includes additional props:
 | loading | Set the loading status of button, the same as [Button](/components/button/#api) | boolean \| { delay: number, icon: ReactNode } | false | icon: 5.23.0 |
 | danger | Set the danger status of button | boolean | - | 4.23.0 |
 | icon | Icon (appears on the right) | ReactNode | - |  |
-| size | Size of the button, the same as [Button](/components/button/#api) | string | `default` |  |
+| size | Size of the button, the same as [Button](/components/button/#api) | string | `middle` |  |
 | type | Type of the button, the same as [Button](/components/button/#api) | string | `default` |  |
 | onClick | The same as [Button](/components/button/#api): called when you click the button on the left | (event) => void | - |  |
 
