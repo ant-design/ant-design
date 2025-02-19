@@ -13,10 +13,7 @@ export const genMasonryStyle: GenerateStyle<MasonryToken> = (token: MasonryToken
 
   return {
     [componentCls]: {
-      width: '100%',
-      minHeight: 0,
       position: 'relative',
-      margin: '0 auto',
       boxSizing: 'border-box',
 
       [`& > ${componentCls}-item`]: {

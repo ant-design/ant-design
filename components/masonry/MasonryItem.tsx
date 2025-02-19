@@ -1,72 +1,68 @@
-import React, { useMemo, useRef } from 'react';
-import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
+import React, { useMemo } from 'react';
+
+import type { MasonryProps } from './Masonry';
 
 export interface MasonryItemType {
   key?: React.Key;
   height?: number;
-  render: () => React.ReactNode;
+  children?: React.ReactNode;
 }
-interface MasonryItemProps {
-  item: MasonryItemType;
-  index: number;
-  style: React.CSSProperties;
+interface MasonryItemProps extends Pick<MasonryProps, 'itemRender'> {
   prefixCls: string;
+  item: MasonryItemType;
+  style: React.CSSProperties;
 }
 
-const MasonryItem = ({ item, style, index, prefixCls }: MasonryItemProps) => {
-  const itemPrefixCls = `${prefixCls}-item`;
-  const itemRef = useRef<HTMLDivElement>(null);
+const MasonryItem = React.forwardRef<HTMLDivElement, MasonryItemProps>((props, ref) => {
+  const { item, style, prefixCls, itemRender } = props;
 
-  const renderNode = useMemo(() => item.render(), [item.render]);
+  // ====================== Render ======================
+  const renderNode = useMemo(() => item.children ?? itemRender?.(item), [item, itemRender]);
 
-  const setDimensions = () => {
-    if (itemRef.current) {
-      itemRef.current.setAttribute('data-width', String(itemRef.current.clientWidth));
-      itemRef.current.setAttribute(
-        'data-height',
-        String(item.height ?? itemRef.current.clientHeight),
-      );
-    }
-  };
+  // const itemRef = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
-    if (itemRef.current) {
-      setDimensions();
+  // const setDimensions = () => {
+  //   if (itemRef.current) {
+  //     itemRef.current.setAttribute('data-width', String(itemRef.current.clientWidth));
+  //     itemRef.current.setAttribute(
+  //       'data-height',
+  //       String(item.height ?? itemRef.current.clientHeight),
+  //     );
+  //   }
+  // };
 
-      const images = itemRef.current.getElementsByTagName('img');
+  // useLayoutEffect(() => {
+  //   if (itemRef.current) {
+  //     setDimensions();
 
-      const imageLoadPromises = Array.from(images).map(
-        (img) =>
-          new Promise((resolve) => {
-            img.addEventListener('load', resolve, { once: true });
-            img.addEventListener('error', resolve, { once: true });
-          }),
-      );
+  //     const images = itemRef.current.getElementsByTagName('img');
 
-      // Update height after all images are loaded
-      Promise.all(imageLoadPromises).then(setDimensions);
+  //     const imageLoadPromises = Array.from(images).map(
+  //       (img) =>
+  //         new Promise((resolve) => {
+  //           img.addEventListener('load', resolve, { once: true });
+  //           img.addEventListener('error', resolve, { once: true });
+  //         }),
+  //     );
 
-      // Cleanup
-      return () => {
-        Array.from(images).forEach((img) => {
-          img.removeEventListener('load', setDimensions);
-          img.removeEventListener('error', setDimensions);
-        });
-      };
-    }
-  }, [item.key]);
+  //     // Update height after all images are loaded
+  //     Promise.all(imageLoadPromises).then(setDimensions);
+
+  //     // Cleanup
+  //     return () => {
+  //       Array.from(images).forEach((img) => {
+  //         img.removeEventListener('load', setDimensions);
+  //         img.removeEventListener('error', setDimensions);
+  //       });
+  //     };
+  //   }
+  // }, [item.key]);
 
   return (
-    <div
-      ref={itemRef}
-      key={item.key ?? index}
-      style={style}
-      className={itemPrefixCls}
-      {...{ [`data-${itemPrefixCls}`]: item.key }}
-    >
+    <div ref={ref} style={style} className={`${prefixCls}-item`}>
       {renderNode}
     </div>
   );
-};
+});
 
 export default MasonryItem;
