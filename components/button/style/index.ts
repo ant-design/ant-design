@@ -309,13 +309,11 @@ const genPresetColorStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
     const lightHoverColor = token[`${colorKey}2`];
     const lightBorderColor = token[`${colorKey}3`];
     const activeColor = token[`${colorKey}7`];
-    const boxShadow = `0 ${unit(token.controlOutlineWidth)} 0 ${token[`${colorKey}1`]}`;
-
     return {
       ...prev,
       [`&${componentCls}-color-${colorKey}`]: {
         color: darkColor,
-        boxShadow,
+        boxShadow: token[`${colorKey}ShadowColor`],
 
         ...genSolidButtonStyle(
           token,
@@ -420,6 +418,15 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
     },
   ),
 
+  ...genGhostButtonStyle(
+    token.componentCls,
+    token.ghostBg,
+    token.defaultGhostColor,
+    token.defaultGhostBorderColor,
+    token.colorTextDisabled,
+    token.colorBorder,
+  ),
+
   ...genTextLinkButtonStyle(
     token,
     token.textTextColor,
@@ -431,15 +438,6 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
     {
       color: token.colorLinkActive,
     },
-  ),
-
-  ...genGhostButtonStyle(
-    token.componentCls,
-    token.ghostBg,
-    token.defaultGhostColor,
-    token.defaultGhostBorderColor,
-    token.colorTextDisabled,
-    token.colorBorder,
   ),
 });
 
@@ -479,7 +477,7 @@ const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
 
   ...genTextLinkButtonStyle(
     token,
-    token.colorLink,
+    token.colorPrimaryText,
     'text',
     {
       color: token.colorPrimaryTextHover,
@@ -488,6 +486,19 @@ const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
     {
       color: token.colorPrimaryTextActive,
       background: token.colorPrimaryBorder,
+    },
+  ),
+
+  ...genTextLinkButtonStyle(
+    token,
+    token.colorPrimaryText,
+    'link',
+    {
+      color: token.colorPrimaryTextHover,
+      background: token.linkHoverBg,
+    },
+    {
+      color: token.colorPrimaryTextActive,
     },
   ),
 
@@ -596,6 +607,37 @@ const genDangerousStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   ),
 });
 
+const genLinkStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
+  ...genTextLinkButtonStyle(
+    token,
+    token.colorLink,
+    'link',
+    {
+      color: token.colorLinkHover,
+    },
+    {
+      color: token.colorLinkActive,
+    },
+  ),
+
+  ...genGhostButtonStyle(
+    token.componentCls,
+    token.ghostBg,
+    token.colorInfo,
+    token.colorInfo,
+    token.colorTextDisabled,
+    token.colorBorder,
+    {
+      color: token.colorInfoHover,
+      borderColor: token.colorInfoHover,
+    },
+    {
+      color: token.colorInfoActive,
+      borderColor: token.colorInfoActive,
+    },
+  ),
+});
+
 const genColorButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const { componentCls } = token;
 
@@ -603,6 +645,7 @@ const genColorButtonStyle: GenerateStyle<ButtonToken> = (token) => {
     [`${componentCls}-color-default`]: genDefaultButtonStyle(token),
     [`${componentCls}-color-primary`]: genPrimaryButtonStyle(token),
     [`${componentCls}-color-dangerous`]: genDangerousStyle(token),
+    [`${componentCls}-color-link`]: genLinkStyle(token),
 
     ...genPresetColorStyle(token),
   };

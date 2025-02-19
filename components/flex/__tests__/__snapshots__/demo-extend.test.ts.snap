@@ -244,7 +244,9 @@ exports[`renders components/flex/demo/basic.tsx extend context correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         horizontal
       </span>
     </label>
@@ -264,7 +266,9 @@ exports[`renders components/flex/demo/basic.tsx extend context correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         vertical
       </span>
     </label>
@@ -398,7 +402,9 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         small
       </span>
     </label>
@@ -418,7 +424,9 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         middle
       </span>
     </label>
@@ -438,7 +446,9 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         large
       </span>
     </label>
@@ -458,7 +468,9 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         customize
       </span>
     </label>
@@ -491,7 +503,7 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+      class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link"
       type="button"
     >
       <span>

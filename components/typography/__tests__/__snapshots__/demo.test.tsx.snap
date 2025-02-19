@@ -439,6 +439,7 @@ Array [
   >
     This is a copyable text.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -469,6 +470,7 @@ Array [
   >
     Replace copy text.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -499,6 +501,7 @@ Array [
   >
     Custom Copy icon and replace tooltips text.
     <button
+      aria-describedby="test-id"
       aria-label="click here"
       class="ant-typography-copy"
       type="button"
@@ -529,6 +532,7 @@ Array [
   >
     Hide Copy tooltips.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -559,6 +563,7 @@ Array [
   >
     Request copy text.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -588,6 +593,7 @@ Array [
     class="ant-typography"
   >
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy ant-typography-copy-icon-only"
       type="button"
@@ -623,6 +629,7 @@ Array [
   >
     This is an editable text.
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -655,6 +662,7 @@ Array [
     <!-- -->
     with suffix.
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -685,6 +693,7 @@ Array [
   >
     Custom Edit icon and replace tooltip text.
     <button
+      aria-describedby="test-id"
       aria-label="click to edit text"
       class="ant-typography-edit"
       type="button"
@@ -733,7 +742,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         icon
       </span>
     </label>
@@ -753,7 +764,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         text
       </span>
     </label>
@@ -773,7 +786,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         both
       </span>
     </label>
@@ -783,6 +798,7 @@ Array [
   >
     Text or icon as trigger - click to start editing.
     <button
+      aria-describedby="test-id"
       aria-label="click to edit text"
       class="ant-typography-edit"
       type="button"
@@ -813,6 +829,7 @@ Array [
   >
     Editable text with a custom enter icon in edit field.
     <button
+      aria-describedby="test-id"
       aria-label="click to edit text"
       class="ant-typography-edit"
       type="button"
@@ -843,6 +860,7 @@ Array [
   >
     Editable text with no enter icon in edit field.
     <button
+      aria-describedby="test-id"
       aria-label="click to edit text"
       class="ant-typography-edit"
       type="button"
@@ -873,6 +891,7 @@ Array [
   >
     Hide Edit tooltip.
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -903,6 +922,7 @@ Array [
   >
     This is an editable text with limited length.
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -934,6 +954,7 @@ Array [
   >
     h1. Ant Design
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -965,6 +986,7 @@ Array [
   >
     h2. Ant Design
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -996,6 +1018,7 @@ Array [
   >
     h3. Ant Design
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -1027,6 +1050,7 @@ Array [
   >
     h4. Ant Design
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -1058,6 +1082,7 @@ Array [
   >
     h5. Ant Design
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -1120,12 +1145,14 @@ Array [
     Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
   </div>,
   <span
+    aria-describedby="test-id"
     class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
     style="width:200px"
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team.
   </span>,
   <span
+    aria-describedby="test-id"
     class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
     style="width:200px"
   >
@@ -1181,6 +1208,7 @@ exports[`renders components/typography/demo/ellipsis-controlled.tsx correctly 1`
         class="ant-slider-step"
       />
       <div
+        aria-describedby="test-id"
         aria-disabled="false"
         aria-orientation="horizontal"
         aria-valuemax="20"
@@ -1199,6 +1227,7 @@ exports[`renders components/typography/demo/ellipsis-controlled.tsx correctly 1`
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -1325,6 +1354,7 @@ Array [
       class="ant-slider-step"
     />
     <div
+      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="10"
@@ -1361,6 +1391,7 @@ Array [
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -1393,6 +1424,7 @@ Array [
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -1425,6 +1457,7 @@ Array [
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -1457,6 +1490,7 @@ Array [
   >
     Ant Design is a design language for background applications, is refined by Ant UED Team.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -1495,6 +1529,7 @@ Array [
     style="display:none"
   >
     <span
+      aria-describedby="test-id"
       class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
       style="width:100px"
     >
@@ -1533,6 +1568,7 @@ Array [
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -1789,6 +1825,7 @@ Array [
       class="ant-slider-step"
     />
     <div
+      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="10"
