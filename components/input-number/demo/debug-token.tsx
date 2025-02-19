@@ -12,7 +12,7 @@ export default () => (
     }}
   >
     <Space wrap>
-      {/* <InputNumber />
+      <InputNumber />
 
       <ConfigProvider
         theme={{
@@ -40,7 +40,7 @@ export default () => (
           <InputNumber size="large" />
           <InputNumber size="large" prefix="$" />
         </Space>
-      </ConfigProvider> */}
+      </ConfigProvider>
 
       <ConfigProvider
         theme={{
@@ -54,8 +54,8 @@ export default () => (
         }}
       >
         <Space wrap>
-          {/* <InputNumber defaultValue={11111} size="small" />
-          <InputNumber defaultValue={11111} /> */}
+          <InputNumber defaultValue={11111} size="small" />
+          <InputNumber defaultValue={11111} />
           <InputNumber defaultValue={11111} size="large" />
         </Space>
       </ConfigProvider>
