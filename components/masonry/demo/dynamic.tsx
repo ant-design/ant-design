@@ -27,14 +27,25 @@ const DemoItem: React.FC<{ height: number; children: React.ReactNode; onClick: (
 const heights = [150, 30, 90, 70, 110, 150, 130, 80, 50, 90, 100, 150, 30, 50, 80];
 
 const Update: React.FC = () => {
-  const [items, setItems] = useState(heights);
+  const [items, setItems] = useState(() =>
+    heights.map((height, index) => ({
+      key: index,
+      data: height,
+    })),
+  );
 
-  const removeItem = (index: number) => {
-    setItems((prevItems) => prevItems.filter((_, idx) => idx !== index));
+  const removeItem = (removeKey: React.Key) => {
+    setItems((prevItems) => prevItems.filter(({ key }) => key !== removeKey));
   };
 
   const addItem = () => {
-    setItems((prevItems) => [...prevItems, Math.floor(Math.random() * 100) + 100]);
+    setItems((prevItems) => [
+      ...prevItems,
+      {
+        key: prevItems.length,
+        data: Math.floor(Math.random() * 100) + 100,
+      },
+    ]);
   };
 
   return (
@@ -43,9 +54,9 @@ const Update: React.FC = () => {
         columns={4}
         gutter={16}
         items={items}
-        itemRender={(height, { index }) => (
-          <DemoItem height={height} onClick={() => removeItem(index)}>
-            {index + 1}
+        itemRender={({ data, key }) => (
+          <DemoItem height={data} onClick={() => removeItem(key)}>
+            {Number(key) + 1}
           </DemoItem>
         )}
       />

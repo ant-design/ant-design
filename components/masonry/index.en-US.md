@@ -21,10 +21,9 @@ A masonry layout component for displaying content with different heights.
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/sequential.tsx">Sequential</code>
 <code src="./demo/responsive.tsx">Responsive</code>
 <code src="./demo/image.tsx">Image</code>
-<code src="./demo/update.tsx">Update</code>
+<code src="./demo/dynamic.tsx">Dynamic</code>
 
 ## API
 

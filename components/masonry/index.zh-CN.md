@@ -22,10 +22,9 @@ tag: 5.24.0
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基础用法</code>
-<code src="./demo/sequential.tsx">顺序布局</code>
 <code src="./demo/responsive.tsx">响应式</code>
 <code src="./demo/image.tsx">图片</code>
-<code src="./demo/update.tsx">动态更新</code>
+<code src="./demo/dynamic.tsx">动态更新</code>
 
 ## API
 

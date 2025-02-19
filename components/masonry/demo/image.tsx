@@ -24,9 +24,12 @@ const App = () => (
   <Masonry
     columns={4}
     gutter={16}
-    items={imageList}
-    itemRender={(img) => (
-      <img src={`${img}?w=523&auto=format`} alt="sample" style={{ width: '100%' }} />
+    items={imageList.map((img, index) => ({
+      key: `item-${index}`,
+      data: img,
+    }))}
+    itemRender={({ data }) => (
+      <img src={`${data}?w=523&auto=format`} alt="sample" style={{ width: '100%' }} />
     )}
   />
 );

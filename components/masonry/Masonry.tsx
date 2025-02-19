@@ -21,7 +21,7 @@ import useStyle from './style';
 export type Gap = number | undefined;
 export type Key = string | number;
 
-export interface MasonryProps<ItemType = MasonryItemType> {
+export interface MasonryProps<ItemDateType = any> {
   // Style
   prefixCls?: string;
   className?: string;
@@ -32,9 +32,9 @@ export interface MasonryProps<ItemType = MasonryItemType> {
   gutter?: RowProps['gutter'];
 
   // Data
-  items: ItemType[];
+  items: MasonryItemType<ItemDateType>[];
 
-  itemRender?: (item: ItemType, info: { index: number }) => React.ReactNode;
+  itemRender?: (itemInfo: MasonryItemType<ItemDateType> & { index: number }) => React.ReactNode;
 
   /** Number of columns in the masonry grid layout */
   columns: number | Partial<Record<Breakpoint, number>>;
@@ -176,7 +176,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   );
 });
 
-export default Masonry as (<ItemType = MasonryItemType>(
-  props: React.PropsWithChildren<MasonryProps<ItemType>> & React.RefAttributes<MasonryRef>,
+export default Masonry as (<ItemDataType = any>(
+  props: React.PropsWithChildren<MasonryProps<ItemDataType>> & React.RefAttributes<MasonryRef>,
 ) => React.ReactElement) &
   Pick<React.FC, 'displayName'>;
