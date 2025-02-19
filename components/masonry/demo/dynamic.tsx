@@ -51,6 +51,7 @@ const Update: React.FC = () => {
   return (
     <>
       <Masonry
+        sequential
         columns={4}
         gutter={16}
         items={items}

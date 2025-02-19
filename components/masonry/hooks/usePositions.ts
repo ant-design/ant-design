@@ -3,11 +3,13 @@
 /* eslint-disable unicorn/no-new-array */
 
 import * as React from 'react';
+import type { Key } from 'react';
+import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 
-export type ItemHeightData = [key: React.Key, height: number];
+export type ItemHeightData = [key: Key, height: number];
 
 export type ItemPositions = Map<
-  React.Key,
+  Key,
   {
     column: number;
     top: number;
@@ -26,18 +28,77 @@ export default function usePositions(
   sequential?: boolean,
   // ): [itemPositions: { column: number; top: number }[], totalHeight: number] {
 ): [itemPositions: ItemPositions, totalHeight: number] {
-  // ==================== Sequential ====================
-  const [buckets, setBuckets] = React.useState<React.Key[][]>(new Array(columnCount).fill([]));
+  // // ==================== Sequential ====================
+  // const [bucketsInfo, setBucketsInfo] = React.useState<[buckets: Key[][], existKeys: Set<Key>]>([
+  //   [],
+  //   new Set(),
+  // ]);
 
-  React.useEffect(() => {
-    setBuckets(new Array(columnCount).fill([]));
-  }, [columnCount]);
+  // useLayoutEffect(() => {
+  //   setBucketsInfo((prevBucketsInfo) => {
+  //     const [prevBuckets, prevExistKeys] = prevBucketsInfo;
+
+  //     // Not change if all keys are exist.
+  //     // We do not need consider item remove
+  //     // Since Masonry only render the item in `items`
+  //     if (itemHeights.every(([itemKey]) => prevExistKeys.has(itemKey))) {
+  //       return prevBucketsInfo;
+  //     }
+
+  //     let nextBuckets =
+  //       prevBucketsInfo.length === columnCount ? prevBucketsInfo : new Array(columnCount).fill([]);
+
+  //     // Clean up item if key are not in the itemHeights
+  //     const existKeys = itemHeights.map(([key]) => key);
+  //     nextBuckets = nextBuckets.map((bucket: Key[]) => {
+  //       const nextBucket: Key[] = [];
+
+  //       // Fill new bucket and remove from existKeys
+  //       // We will reuse the `existKeys` later
+  //       bucket.forEach((key) => {
+  //         const existIndex = existKeys.indexOf(key);
+  //         if (existIndex !== -1) {
+  //           nextBucket.push(key);
+  //           existKeys.splice(existIndex, 1);
+  //         }
+  //       });
+
+  //       return nextBucket;
+  //     });
+
+  //     //
+  //     return prevBucketsInfo;
+  //   });
+  // }, [columnCount, itemHeights]);
+
+  // const [sequentialItemPositions, sequentialTotalHeight] = React.useMemo(() => {
+  //   if (!sequential) {
+  //     return [null, null];
+  //   }
+
+  //   const [buckets] = bucketsInfo;
+  //   const itemPositions: ItemPositions = new Map();
+  //   const existKeys = new Set(itemHeights.map(([key]) => key));
+
+  //   buckets.forEach((bucket, bucketIndex) => {
+  //     bucket.forEach((key) => {
+  //       if (existKeys.has(key)) {
+  //         itemPositions.set(key, {
+  //           column: bucketIndex,
+  //           top: 0,
+  //         });
+  //       }
+  //     });
+  //   });
+
+  //   return [itemPositions, 0];
+  // }, [sequential, bucketsInfo, itemHeights, columnCount, verticalGutter]);
 
   // ==================== Auto Order ====================
   const [orderItemPositions, orderTotalHeight] = React.useMemo(() => {
-    if (sequential) {
-      return [null, null];
-    }
+    // if (sequential) {
+    //   return [null, null];
+    // }
 
     const columnHeights = new Array(columnCount).fill(0) as number[];
     const itemPositions: ItemPositions = new Map();
@@ -56,9 +117,9 @@ export default function usePositions(
       columnHeights[targetColumnIndex] += itemHeight + verticalGutter;
     }
 
-    
     return [itemPositions, Math.max(0, Math.max(...columnHeights) - verticalGutter)];
-  }, [columnCount, itemHeights]);
+  }, [sequential, columnCount, itemHeights, verticalGutter]);
 
+  // ====================== Return ======================
   return [orderItemPositions!, orderTotalHeight!];
 }
