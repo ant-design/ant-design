@@ -1,8 +1,7 @@
 import React from 'react';
+import { Masonry } from 'antd';
 
-import Masonry from '../Masonry';
-
-const itemData = [
+const imageList = [
   'https://images.unsplash.com/photo-1510001618818-4b4e3d86bf0f',
   'https://images.unsplash.com/photo-1507513319174-e556268bb244',
   'https://images.unsplash.com/photo-1474181487882-5abf3f0ba6c2',
@@ -21,19 +20,15 @@ const itemData = [
   'https://images.unsplash.com/photo-1709198165282-1dab551df890',
 ];
 
-const ImageDemo = () => {
-  const items = itemData.map((item, index) => ({
-    key: `item-${index}`,
-    render: () => (
-      <img
-        src={`${item}?w=180&auto=format`}
-        alt={item}
-        style={{ width: '100%', display: 'block' }}
-      />
-    ),
-  }));
+const App = () => (
+  <Masonry
+    columns={4}
+    gutter={16}
+    items={imageList}
+    itemRender={(img) => (
+      <img src={`${img}?w=523&auto=format`} alt="sample" style={{ width: '100%' }} />
+    )}
+  />
+);
 
-  return <Masonry columns={4} gutter={16} items={items} keepAspectRatio />;
-};
-
-export default ImageDemo;
+export default App;

@@ -1,7 +1,7 @@
 ## zh-CN
 
-图片展示。通过 `keepAspectRatio` 属性保持图片原有宽高比。
+随加载动态调整位置。
 
 ## en-US
 
-Image display. Use `keepAspectRatio` prop to maintain the original aspect ratio of images.
+Dynamically adjust the height of images as they load.

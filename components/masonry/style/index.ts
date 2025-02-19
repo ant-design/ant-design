@@ -9,7 +9,7 @@ export interface ComponentToken {}
 export interface MasonryToken extends FullToken<'Masonry'> {}
 
 export const genMasonryStyle: GenerateStyle<MasonryToken> = (token: MasonryToken): CSSObject => {
-  const { componentCls, prefixCls } = token;
+  const { componentCls } = token;
 
   return {
     [componentCls]: {
@@ -18,14 +18,13 @@ export const genMasonryStyle: GenerateStyle<MasonryToken> = (token: MasonryToken
 
       [`& > ${componentCls}-item`]: {
         boxSizing: 'border-box',
-        transform: `translate(var(--${prefixCls}-item-translate-x), var(--${prefixCls}-item-translate-y))`,
         insetInlineStart: 0,
         top: 0,
         position: 'absolute',
-        width: `var(--${prefixCls}-item-width)`,
-        height: `var(--${prefixCls}-item-height)`,
         overflow: 'hidden',
-        transition: `transform ${token.motionDurationFast} ${token.motionEaseOut}`,
+        transition: ['left', 'right', 'top']
+          .map((prop) => `${prop} ${token.motionDurationSlow} ${token.motionEaseOut}`)
+          .join(','),
       },
     },
   };

@@ -36,17 +36,16 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- |
 | columns | Number of columns, can be a fixed number or responsive config | `number \| { xs?: number; sm?: number; md?: number }` | - |
 | gutter | Gap between items, can be a fixed number, responsive config, or \[horizontal, vertical\] config | `Gap` \| `[Gap, Gap]` | `0` |
-| sequential | When true, items are placed sequentially (left-to-right, top-to-bottom) | `boolean` | `false` |
-| items | Masonry items | `MasonryItem[]` | - |
-| keepAspectRatio | When true, the height of the items will be adjusted to keep the aspect ratio | `boolean` | `false` |
+| sequential | When true, items are placed sequentially (logical start-to-end, top-to-bottom) | `boolean` | `false` |
+| items | Masonry items | `<T = MasonryItem>[]` | - |
 
 ### MasonryItem
 
-| Property | Description       | Type                    | Default |
-| -------- | ----------------- | ----------------------- | ------- |
-| key      | Unique identifier | `string` \| `number`    | -       |
-| height   | Height            | `number`                | -       |
-| render   | Render function   | `() => React.ReactNode` | -       |
+| Property | Description       | Type                 | Default |
+| -------- | ----------------- | -------------------- | ------- |
+| key      | Unique identifier | `string` \| `number` | -       |
+| height   | Height            | `number`             | -       |
+| children | Custom content    | `React.ReactNode`    | -       |
 
 ### Gap
 

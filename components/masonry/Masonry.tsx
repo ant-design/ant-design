@@ -7,7 +7,6 @@ import ResizeObserver from 'rc-resize-observer';
 
 import { responsiveArray } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
-import { GetProp } from '../_util/type';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { RowProps } from '../grid';
@@ -22,7 +21,7 @@ import useStyle from './style';
 export type Gap = number | undefined;
 export type Key = string | number;
 
-export interface MasonryProps {
+export interface MasonryProps<ItemType = MasonryItemType> {
   // Style
   prefixCls?: string;
   className?: string;
@@ -33,23 +32,16 @@ export interface MasonryProps {
   gutter?: RowProps['gutter'];
 
   // Data
-  items: MasonryItemType[];
+  items: ItemType[];
 
-  itemRender?: (item: MasonryItemType) => React.ReactNode;
+  itemRender?: (item: ItemType, info: { index: number }) => React.ReactNode;
 
   /** Number of columns in the masonry grid layout */
   columns: number | Partial<Record<Breakpoint, number>>;
 
-  // TODO: Remove this
   /** When true, items are placed sequentially */
   sequential?: boolean;
-
-  keepAspectRatio?: boolean;
 }
-
-const getNearestNumber = (value: number) => {
-  return Math.round((value + Number.EPSILON) * 100) / 100;
-};
 
 export interface MasonryRef {
   nativeElement: HTMLDivElement;
@@ -62,10 +54,9 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     style,
     columns,
     prefixCls: customizePrefixCls,
+    sequential,
     gutter = 0,
-    sequential = false,
     items = [],
-    keepAspectRatio = false,
     itemRender,
   } = props;
 
@@ -74,8 +65,6 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   const prefixCls = getPrefixCls('masonry', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
-
-  // const itemPrefixCls = `${prefixCls}-item`;
 
   // ======================= Refs =======================
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -93,8 +82,6 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   const halfHorizontalGutter = horizontalGutter / 2;
 
   // ====================== Layout ======================
-  // const [itemLayouts, setItemLayouts] = React.useState<CSSProperties[]>([]);
-  // const [containerHeight, setContainerHeight] = React.useState<number>(0);
 
   const columnCount = React.useMemo<number>(() => {
     if (typeof columns === 'number') {
@@ -112,111 +99,6 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
 
     return columns.xs ?? 1;
   }, [columns, screens]);
-
-  // const updatePosition = useCallback(() => {
-  //   if (containerRef.current) {
-  //     const columnHeights = Array.from({ length: columnCount }, () => 0);
-  //     const curContainerWidth = containerRef.current.clientWidth;
-  //     const eachItemWidth = getNearestNumber(
-  //       (curContainerWidth - horizontalGutter * (columnCount - 1)) / columnCount,
-  //     );
-  //     const newItemLayouts: CSSProperties[] = [];
-
-  //     const containerElements = containerRef.current.querySelectorAll(`[data-${itemPrefixCls}]`);
-
-  //     let skip = false;
-  //     containerElements.forEach((element, index) => {
-  //       if (skip) {
-  //         return;
-  //       }
-
-  //       const elementHeight = parseFloat(element.getAttribute('data-height')!);
-  //       const elementWidth = parseFloat(element.getAttribute('data-width')!);
-
-  //       if (elementHeight === 0) {
-  //         skip = true;
-  //         return;
-  //       }
-
-  //       const aspectRatio = elementWidth / elementHeight;
-
-  //       const adjustedHeight = keepAspectRatio
-  //         ? getNearestNumber(eachItemWidth / aspectRatio)
-  //         : getNearestNumber(elementHeight);
-
-  //       let columnIndex: number;
-  //       const existingColumn = element.getAttribute('data-column');
-
-  //       if (existingColumn !== null) {
-  //         // If item already has a column assigned, keep it there
-  //         columnIndex = parseInt(existingColumn, 10);
-  //       } else if (sequential) {
-  //         columnIndex = index % columnCount;
-  //       } else {
-  //         columnIndex = columnHeights.indexOf(Math.min(...columnHeights));
-  //       }
-
-  //       // Store column assignment on the element
-  //       element.setAttribute('data-column', columnIndex.toString());
-
-  //       columnHeights[columnIndex] += adjustedHeight + verticalGutter;
-
-  //       newItemLayouts.push({
-  //         [`--${itemPrefixCls}-width`]: `${eachItemWidth}px`,
-  //         [`--${itemPrefixCls}-height`]: `${adjustedHeight}px`,
-  //         [`--${itemPrefixCls}-translate-x`]: `${
-  //           direction === 'rtl' ? '-' : ''
-  //         }${getNearestNumber(columnIndex * (eachItemWidth + horizontalGutter))}px`,
-  //         [`--${itemPrefixCls}-translate-y`]: `${getNearestNumber(columnHeights[columnIndex] - adjustedHeight - verticalGutter)}px`,
-  //       });
-  //     });
-
-  //     if (!skip) {
-  //       setItemLayouts(newItemLayouts);
-  //       setContainerHeight(Math.max(...columnHeights));
-  //     }
-  //   }
-  // }, [
-  //   columnCount,
-  //   horizontalGutter,
-  //   verticalGutter,
-  //   sequential,
-  //   items.map((item, index) => item.key ?? index).join(','),
-  // ]);
-
-  // useLayoutEffect(() => {
-  //   if (containerRef.current) {
-  //     const images = containerRef.current.getElementsByTagName('img');
-  //     const imageLoadPromises = Array.from(images).map(
-  //       (img) =>
-  //         new Promise((resolve) => {
-  //           img.addEventListener('load', resolve, { once: true });
-  //           img.addEventListener('error', resolve, { once: true });
-  //         }),
-  //     );
-
-  //     // Update height after all images are loaded
-  //     Promise.all(imageLoadPromises).then(updatePosition);
-
-  //     // Cleanup
-  //     return () => {
-  //       Array.from(images).forEach((img) => {
-  //         img.removeEventListener('load', updatePosition);
-  //         img.removeEventListener('error', updatePosition);
-  //       });
-  //     };
-  //   }
-  // }, []);
-
-  // useLayoutEffect(() => {
-  //   updatePosition();
-  // }, [
-  //   columnCount,
-  //   horizontalGutter,
-  //   verticalGutter,
-  //   sequential,
-  //   items.map((item, index) => item.key ?? index).join(','),
-  // ]);
 
   // ================== Items Position ==================
   const rafRef = React.useRef<number>(0);
@@ -238,7 +120,12 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     });
   });
 
-  const [itemPositions, totalHeight] = usePositions(columnCount, verticalGutter, itemHeights);
+  const [itemPositions, totalHeight] = usePositions(
+    itemHeights,
+    columnCount,
+    verticalGutter,
+    sequential,
+  );
 
   React.useEffect(() => {
     collectItemSize();
@@ -255,6 +142,9 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
           marginInline: -halfHorizontalGutter,
           ...style,
         }}
+        // Listen for image events
+        onLoad={collectItemSize}
+        onError={collectItemSize}
       >
         {items.map((item, index) => {
           const key = item.key ?? index;
@@ -262,7 +152,8 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
           const { column: columnIndex = 0 } = itemPosition || {};
 
           const itemStyle: CSSProperties = {
-            left: `calc(${(columnIndex / columnCount) * 100}% + ${halfHorizontalGutter}px)`,
+            [direction === 'rtl' ? 'right' : 'left']:
+              `calc(${(columnIndex / columnCount) * 100}% + ${halfHorizontalGutter}px)`,
             width: `calc(${100 / columnCount}% - ${horizontalGutter}px)`,
             top: itemPosition?.top,
             position: 'absolute',
@@ -275,6 +166,8 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
               item={item}
               style={itemStyle}
               ref={(ele) => setItemRef(key, ele)}
+              index={index}
+              itemRender={itemRender}
             />
           );
         })}
@@ -283,4 +176,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   );
 });
 
-export default Masonry;
+export default Masonry as (<ItemType = MasonryItemType>(
+  props: React.PropsWithChildren<MasonryProps<ItemType>> & React.RefAttributes<MasonryRef>,
+) => React.ReactElement) &
+  Pick<React.FC, 'displayName'>;

@@ -11,52 +11,19 @@ interface MasonryItemProps extends Pick<MasonryProps, 'itemRender'> {
   prefixCls: string;
   item: MasonryItemType;
   style: React.CSSProperties;
+  index: number;
 }
 
 const MasonryItem = React.forwardRef<HTMLDivElement, MasonryItemProps>((props, ref) => {
-  const { item, style, prefixCls, itemRender } = props;
+  const { item, style, prefixCls, itemRender, index } = props;
 
   // ====================== Render ======================
-  const renderNode = useMemo(() => item.children ?? itemRender?.(item), [item, itemRender]);
-
-  // const itemRef = useRef<HTMLDivElement>(null);
-
-  // const setDimensions = () => {
-  //   if (itemRef.current) {
-  //     itemRef.current.setAttribute('data-width', String(itemRef.current.clientWidth));
-  //     itemRef.current.setAttribute(
-  //       'data-height',
-  //       String(item.height ?? itemRef.current.clientHeight),
-  //     );
-  //   }
-  // };
-
-  // useLayoutEffect(() => {
-  //   if (itemRef.current) {
-  //     setDimensions();
-
-  //     const images = itemRef.current.getElementsByTagName('img');
-
-  //     const imageLoadPromises = Array.from(images).map(
-  //       (img) =>
-  //         new Promise((resolve) => {
-  //           img.addEventListener('load', resolve, { once: true });
-  //           img.addEventListener('error', resolve, { once: true });
-  //         }),
-  //     );
-
-  //     // Update height after all images are loaded
-  //     Promise.all(imageLoadPromises).then(setDimensions);
-
-  //     // Cleanup
-  //     return () => {
-  //       Array.from(images).forEach((img) => {
-  //         img.removeEventListener('load', setDimensions);
-  //         img.removeEventListener('error', setDimensions);
-  //       });
-  //     };
-  //   }
-  // }, [item.key]);
+  const renderNode = useMemo(() => {
+    if (typeof item === 'object' && item.children !== null && item.children !== undefined) {
+      return item.children;
+    }
+    return itemRender?.(item, { index });
+  }, [item, itemRender]);
 
   return (
     <div ref={ref} style={style} className={`${prefixCls}-item`}>

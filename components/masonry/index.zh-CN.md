@@ -38,16 +38,15 @@ tag: 5.24.0
 | columns | 列数，可以是固定值或响应式配置 | `number \| { xs?: number; sm?: number; md?: number }` | - |
 | gutter | 间距，可以是固定值、响应式配置或水平垂直间距配置 | `Gap \| [Gap, Gap]` | `0` |
 | sequential | 是否按照顺序布局（从左到右，从上到下） | `boolean` | `false` |
-| items | 瀑布流项 | `MasonryItem[]` | - |
-| keepAspectRatio | 是否保持宽高比 | `boolean` | `false` |
+| items | 瀑布流项 | `<T = MasonryItem>[]` | - |
 
 ### MasonryItem
 
-| 参数   | 说明     | 类型                    | 默认值 |
-| ------ | -------- | ----------------------- | ------ |
-| key    | 唯一标识 | `string` \| `number`    | -      |
-| height | 高度     | `number`                | -      |
-| render | 渲染函数 | `() => React.ReactNode` | -      |
+| 参数     | 说明           | 类型                 | 默认值 |
+| -------- | -------------- | -------------------- | ------ |
+| key      | 唯一标识       | `string` \| `number` | -      |
+| height   | 高度           | `number`             | -      |
+| children | 自定义展示内容 | `React.ReactNode`    | -      |
 
 ### Gap
 

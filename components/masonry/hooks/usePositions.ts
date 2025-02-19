@@ -6,9 +6,10 @@ import * as React from 'react';
  * instead of dynamic adjust for next item height.
  */
 export default function usePositions(
+  itemHeights: number[],
   columnCount: number,
   verticalGutter: number,
-  itemHeights: number[],
+  sequential?: boolean,
 ): [itemPositions: { column: number; top: number }[], totalHeight: number] {
   return React.useMemo(() => {
     // Disabled the rule since `fill` is safe here
@@ -20,13 +21,21 @@ export default function usePositions(
     for (let i = 0; i < itemHeights.length; i += 1) {
       const itemHeight = itemHeights[i];
 
-      const shortestColumnIndex = columnHeights.indexOf(Math.min(...columnHeights));
-      const top = columnHeights[shortestColumnIndex];
+      let targetColumnIndex: number;
+
+      if (sequential) {
+        targetColumnIndex = i % columnCount;
+      } else {
+        targetColumnIndex = columnHeights.indexOf(Math.min(...columnHeights));
+      }
+
+      const top = columnHeights[targetColumnIndex];
       itemPositions.push({
-        column: shortestColumnIndex,
+        column: targetColumnIndex,
         top,
       });
-      columnHeights[shortestColumnIndex] += itemHeight + verticalGutter;
+
+      columnHeights[targetColumnIndex] += itemHeight + verticalGutter;
     }
 
     return [itemPositions, Math.max(0, Math.max(...columnHeights) - verticalGutter)];
