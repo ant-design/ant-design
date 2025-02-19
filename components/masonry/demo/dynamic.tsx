@@ -26,10 +26,17 @@ const DemoItem: React.FC<{ height: number; children: React.ReactNode; onClick: (
 
 const heights = [150, 30, 90, 70, 110, 150, 130, 80, 50, 90, 100, 150, 30, 50, 80];
 
+type ItemType = {
+  key: number;
+  column?: number;
+  data: number;
+};
+
 const Update: React.FC = () => {
-  const [items, setItems] = useState(() =>
+  const [items, setItems] = useState<ItemType[]>(() =>
     heights.map((height, index) => ({
       key: index,
+      column: index % 4,
       data: height,
     })),
   );
@@ -51,7 +58,6 @@ const Update: React.FC = () => {
   return (
     <>
       <Masonry
-        sequential
         columns={4}
         gutter={16}
         items={items}
@@ -60,6 +66,9 @@ const Update: React.FC = () => {
             {Number(key) + 1}
           </DemoItem>
         )}
+        onSortChange={(sortedItems) => {
+          setItems(sortedItems as ItemType[]);
+        }}
       />
       <Button onClick={addItem}>Add Item</Button>
     </>

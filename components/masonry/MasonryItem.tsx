@@ -7,6 +7,7 @@ import type { MasonryProps } from './Masonry';
 
 export interface MasonryItemType<T = any> {
   key: React.Key;
+  column?: number;
   height?: number;
   children?: React.ReactNode;
   data: T;

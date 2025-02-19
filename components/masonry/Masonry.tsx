@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { CSSProperties } from 'react';
 import { useEvent } from '@rc-component/util';
+import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import isEqual from '@rc-component/util/lib/isEqual';
 import raf from '@rc-component/util/lib/raf';
 import classNames from 'classnames';
@@ -41,8 +42,8 @@ export interface MasonryProps<ItemDateType = any> {
   /** Number of columns in the masonry grid layout */
   columns: number | Partial<Record<Breakpoint, number>>;
 
-  /** When true, items are placed sequentially */
-  sequential?: boolean;
+  /** Trigger when sort order changed */
+  onSortChange?: (sortInfo: (MasonryItemType<ItemDateType> & { column: number })[]) => void;
 }
 
 export interface MasonryRef {
@@ -56,10 +57,10 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     style,
     columns,
     prefixCls: customizePrefixCls,
-    sequential,
     gutter = 0,
     items = [],
     itemRender,
+    onSortChange,
   } = props;
 
   // ======================= MISC =======================
@@ -117,7 +118,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
         const itemKey = item.key ?? index;
         const itemEle = getItemRef(itemKey);
         const rect = itemEle?.getBoundingClientRect();
-        return [itemKey, rect ? rect.height : 0];
+        return [itemKey, rect ? rect.height : 0, item.column];
       });
 
       setItemHeights((prevItemsHeight) =>
@@ -126,16 +127,45 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     });
   });
 
-  const [itemPositions, totalHeight] = usePositions(
-    itemHeights,
-    columnCount,
-    verticalGutter,
-    sequential,
+  const [itemPositions, totalHeight] = usePositions(itemHeights, columnCount, verticalGutter);
+
+  const itemWithPositions = React.useMemo(
+    () =>
+      items.map((item, index) => {
+        const key = item.key ?? index;
+        return {
+          item,
+          key,
+          position: itemPositions.get(key),
+        };
+      }),
+    [items, itemPositions],
   );
 
   React.useEffect(() => {
     collectItemSize();
   }, [items, columnCount]);
+
+  // Trigger for `onSortChange`
+  type ItemColumnsType = [item: MasonryItemType, column: number][];
+  const [itemColumns, setItemColumns] = React.useState<ItemColumnsType>([]);
+  useLayoutEffect(() => {
+    if (onSortChange && itemWithPositions.every(({ position }) => position)) {
+      setItemColumns((prevItemColumns: ItemColumnsType) => {
+        const nextItemColumns: ItemColumnsType = itemWithPositions.map(({ item, position }) => [
+          item,
+          position!.column,
+        ]);
+        return isEqual(prevItemColumns, nextItemColumns) ? prevItemColumns : nextItemColumns;
+      });
+    }
+  }, [itemWithPositions]);
+
+  React.useEffect(() => {
+    if (onSortChange && items.length === itemColumns.length) {
+      onSortChange(itemColumns.map(([item, column]) => ({ ...item, column })));
+    }
+  }, [itemColumns]);
 
   // ====================== Render ======================
   return wrapCSSVar(
@@ -152,16 +182,14 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
         onLoad={collectItemSize}
         onError={collectItemSize}
       >
-        {items.map((item, index) => {
-          const key = item.key ?? index;
-          const itemPosition = itemPositions.get(key);
-          const { column: columnIndex = 0 } = itemPosition || {};
+        {itemWithPositions.map(({ item, key, position = {} }, index) => {
+          const { column: columnIndex = 0 } = position;
 
           const itemStyle: CSSProperties = {
             [direction === 'rtl' ? 'right' : 'left']:
               `calc(${(columnIndex / columnCount) * 100}% + ${halfHorizontalGutter}px)`,
             width: `calc(${100 / columnCount}% - ${horizontalGutter}px)`,
-            top: itemPosition?.top,
+            top: position.top,
             position: 'absolute',
           };
 
