@@ -164,7 +164,17 @@ export type ModalConfig = ComponentStyleConfig &
   Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon' | 'closable' | 'centered'>;
 
 export type TabsConfig = ComponentStyleConfig &
-  Pick<TabsProps, 'indicator' | 'indicatorSize' | 'more' | 'moreIcon' | 'addIcon' | 'removeIcon'>;
+  Pick<
+    TabsProps,
+    | 'indicator'
+    | 'indicatorSize'
+    | 'more'
+    | 'moreIcon'
+    | 'addIcon'
+    | 'removeIcon'
+    | 'classNames'
+    | 'styles'
+  >;
 
 export type AnchorStyleConfig = ComponentStyleConfig & Pick<AnchorProps, 'classNames' | 'styles'>;
 
@@ -210,7 +220,8 @@ export type FormConfig = ComponentStyleConfig &
 
 export type FloatButtonGroupConfig = Pick<FloatButtonGroupProps, 'closeIcon'>;
 
-export type PaginationConfig = ComponentStyleConfig & Pick<PaginationProps, 'showSizeChanger'>;
+export type PaginationConfig = ComponentStyleConfig &
+  Pick<PaginationProps, 'showSizeChanger' | 'classNames' | 'styles'>;
 
 export type SelectConfig = ComponentStyleConfig & Pick<SelectProps, 'showSearch' | 'variant'>;
 
