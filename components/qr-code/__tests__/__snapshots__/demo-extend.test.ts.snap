@@ -303,7 +303,7 @@ exports[`renders components/qr-code/demo/customStatusRender.tsx extend context c
          QR code expired
         <p>
           <button
-            class="ant-btn css-var-test-id ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+            class="ant-btn css-var-test-id ant-btn-link ant-btn-color-link ant-btn-variant-link"
             type="button"
           >
             <span
@@ -643,7 +643,7 @@ exports[`renders components/qr-code/demo/status.tsx extend context correctly 1`]
         QR code expired
       </p>
       <button
-        class="ant-btn css-var-test-id ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+        class="ant-btn css-var-test-id ant-btn-link ant-btn-color-link ant-btn-variant-link"
         type="button"
       >
         <span

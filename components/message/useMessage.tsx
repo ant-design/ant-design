@@ -1,5 +1,4 @@
 import * as React from 'react';
-import type { FC, PropsWithChildren } from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import { NotificationProvider, useNotification as useRcNotification } from 'rc-notification';
@@ -7,7 +6,8 @@ import type { NotificationAPI, NotificationConfig as RcNotificationConfig } from
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import type { ComponentStyleConfig } from '../config-provider/context';
+import { useComponentConfig } from '../config-provider/context';
+import type { MessageConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type {
   ArgsProps,
@@ -33,10 +33,13 @@ type HolderProps = ConfigOptions & {
 
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
-  message?: ComponentStyleConfig;
+  message?: MessageConfig;
 }
 
-const Wrapper: FC<PropsWithChildren<{ prefixCls: string }>> = ({ children, prefixCls }) => {
+const Wrapper: React.FC<React.PropsWithChildren<{ prefixCls: string }>> = ({
+  children,
+  prefixCls,
+}) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   return (
@@ -66,7 +69,8 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     transitionName,
     onAllRemoved,
   } = props;
-  const { getPrefixCls, getPopupContainer, message, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, getPopupContainer } = useComponentConfig('message');
+  const { message } = React.useContext(ConfigContext);
 
   const prefixCls = staticPrefixCls || getPrefixCls('message');
 
@@ -150,22 +154,49 @@ export function useInternalMessage(
       }
 
       const { open: originOpen, prefixCls, message } = holderRef.current;
+      const contextClassName = message?.className || {};
+      const contextClassNames = message?.classNames || {};
+      const contextStyle = message?.style || {};
+      const contextStyles = message?.styles || {};
+
       const noticePrefixCls = `${prefixCls}-notice`;
 
-      const { content, icon, type, key, className, style, onClose, ...restConfig } = config;
+      const {
+        content,
+        icon,
+        type,
+        key,
+        className,
+        style,
+        onClose,
+        classNames: configClassNames,
+        styles,
+        ...restConfig
+      } = config;
 
       let mergedKey: React.Key = key!;
       if (mergedKey === undefined || mergedKey === null) {
         keyIndex += 1;
         mergedKey = `antd-message-${keyIndex}`;
       }
-
       return wrapPromiseFn((resolve) => {
         originOpen({
           ...restConfig,
           key: mergedKey,
           content: (
-            <PureContent prefixCls={prefixCls} type={type} icon={icon}>
+            <PureContent
+              prefixCls={prefixCls}
+              type={type}
+              icon={icon}
+              classNames={{
+                icon: classNames(configClassNames?.icon, contextClassNames.icon),
+                content: classNames(configClassNames?.content, contextClassNames.content),
+              }}
+              styles={{
+                icon: { ...contextStyles.icon, ...styles?.icon },
+                content: { ...contextStyles.content, ...styles?.content },
+              }}
+            >
               {content}
             </PureContent>
           ),
@@ -173,9 +204,11 @@ export function useInternalMessage(
           className: classNames(
             type && `${noticePrefixCls}-${type}`,
             className,
-            message?.className,
+            contextClassName,
+            contextClassNames.root,
+            configClassNames?.root,
           ),
-          style: { ...message?.style, ...style },
+          style: { ...contextStyles.root, ...styles?.root, ...contextStyle, ...style },
           onClose: () => {
             onClose?.();
             resolve();

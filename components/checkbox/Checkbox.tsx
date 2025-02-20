@@ -7,7 +7,7 @@ import RcCheckbox from 'rc-checkbox';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { TARGET_CLS } from '../_util/wave/interface';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FormItemInputContext } from '../form/context';
@@ -54,8 +54,11 @@ export interface CheckboxChangeEvent {
   nativeEvent: MouseEvent;
 }
 
+type SemanticName = 'root' | 'icon' | 'label';
 export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent> {
   indeterminate?: boolean;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProps> = (
@@ -73,9 +76,18 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     onMouseLeave,
     skipGroup = false,
     disabled,
+    classNames: checkboxClassNames,
+    styles,
     ...restProps
   } = props;
-  const { getPrefixCls, direction, checkbox } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('checkbox');
   const checkboxGroup = React.useContext(GroupContext);
   const { isFormItemInput } = React.useContext(FormItemInputContext);
   const contextDisabled = React.useContext(DisabledContext);
@@ -142,14 +154,18 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
       [`${prefixCls}-wrapper-disabled`]: mergedDisabled,
       [`${prefixCls}-wrapper-in-form-item`]: isFormItemInput,
     },
-    checkbox?.className,
+    contextClassName,
     className,
+    contextClassNames.root,
+    checkboxClassNames?.root,
     rootClassName,
     cssVarCls,
     rootCls,
     hashId,
   );
   const checkboxClass = classNames(
+    checkboxClassNames?.icon,
+    contextClassNames.icon,
     { [`${prefixCls}-indeterminate`]: indeterminate },
     TARGET_CLS,
     hashId,
@@ -163,7 +179,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     <Wave component="Checkbox" disabled={mergedDisabled}>
       <label
         className={classString}
-        style={{ ...checkbox?.style, ...style }}
+        style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         onClick={onLabelClick}
@@ -174,10 +190,22 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
           onClick={onInputClick}
           prefixCls={prefixCls}
           className={checkboxClass}
+          style={{ ...contextStyles.icon, ...styles?.icon }}
           disabled={mergedDisabled}
           ref={mergedRef}
         />
-        {children !== undefined && <span className={`${prefixCls}-label`}>{children}</span>}
+        {children !== undefined && (
+          <span
+            className={classNames(
+              `${prefixCls}-label`,
+              contextClassNames.label,
+              checkboxClassNames?.label,
+            )}
+            style={{ ...contextStyles.label, ...styles?.label }}
+          >
+            {children}
+          </span>
+        )}
       </label>
     </Wave>
   );

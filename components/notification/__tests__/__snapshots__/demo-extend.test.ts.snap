@@ -482,7 +482,7 @@ exports[`renders components/notification/demo/render-panel.tsx extend context co
           </svg>
         </span>
         <div
-          class="ant-notification-notice-message"
+          class="ant-notification-notice-title"
         >
           Hello World!
         </div>

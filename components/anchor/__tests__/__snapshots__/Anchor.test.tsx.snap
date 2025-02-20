@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Anchor Render render items and ignore jsx children 1`] = `
-<div>
+<div
+  class=""
+>
   <div
     class=""
   >
@@ -33,7 +35,9 @@ exports[`Anchor Render render items and ignore jsx children 1`] = `
 `;
 
 exports[`Anchor Render renders items correctly 1`] = `
-<div>
+<div
+  class=""
+>
   <div
     class=""
   >
@@ -109,7 +113,9 @@ exports[`Anchor Render renders items correctly 1`] = `
 `;
 
 exports[`Anchor Render renders items correctly#horizontal 1`] = `
-<div>
+<div
+  class=""
+>
   <div
     class=""
   >

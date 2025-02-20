@@ -9,11 +9,11 @@ Array [
   >
     <div
       class="ant-row css-var-test-id"
-      style="margin-left: -12px; margin-right: -12px;"
+      style="margin-inline: -12px;"
     >
       <div
         class="ant-col ant-col-8 css-var-test-id"
-        style="padding-left: 12px; padding-right: 12px;"
+        style="padding-inline: 12px;"
       >
         <div
           class="ant-form-item css-var-test-id ant-form-css-var"
@@ -57,7 +57,7 @@ Array [
       </div>
       <div
         class="ant-col ant-col-8 css-var-test-id"
-        style="padding-left: 12px; padding-right: 12px;"
+        style="padding-inline: 12px;"
       >
         <div
           class="ant-form-item css-var-test-id ant-form-css-var"
@@ -239,7 +239,7 @@ Array [
       </div>
       <div
         class="ant-col ant-col-8 css-var-test-id"
-        style="padding-left: 12px; padding-right: 12px;"
+        style="padding-inline: 12px;"
       >
         <div
           class="ant-form-item css-var-test-id ant-form-css-var"
@@ -283,7 +283,7 @@ Array [
       </div>
       <div
         class="ant-col ant-col-8 css-var-test-id"
-        style="padding-left: 12px; padding-right: 12px;"
+        style="padding-inline: 12px;"
       >
         <div
           class="ant-form-item css-var-test-id ant-form-css-var"
@@ -327,7 +327,7 @@ Array [
       </div>
       <div
         class="ant-col ant-col-8 css-var-test-id"
-        style="padding-left: 12px; padding-right: 12px;"
+        style="padding-inline: 12px;"
       >
         <div
           class="ant-form-item css-var-test-id ant-form-css-var"
@@ -509,7 +509,7 @@ Array [
       </div>
       <div
         class="ant-col ant-col-8 css-var-test-id"
-        style="padding-left: 12px; padding-right: 12px;"
+        style="padding-inline: 12px;"
       >
         <div
           class="ant-form-item css-var-test-id ant-form-css-var"
@@ -1948,7 +1948,7 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn css-var-test-id ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+                  class="ant-btn css-var-test-id ant-btn-link ant-btn-color-link ant-btn-variant-link"
                   type="button"
                 >
                   <span>
@@ -2177,13 +2177,13 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
                     >
                       <input
                         aria-autocomplete="list"
-                        aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-controls="rc_select_45_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-owns="rc_select_TEST_OR_SSR_list"
+                        aria-owns="rc_select_45_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
-                        id="rc_select_TEST_OR_SSR"
+                        id="rc_select_45"
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
@@ -2206,14 +2206,14 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
                 >
                   <div>
                     <div
-                      id="rc_select_TEST_OR_SSR_list"
+                      id="rc_select_45_list"
                       role="listbox"
                       style="height: 0px; width: 0px; overflow: hidden;"
                     >
                       <div
                         aria-label="RMB"
                         aria-selected="true"
-                        id="rc_select_TEST_OR_SSR_list_0"
+                        id="rc_select_45_list_0"
                         role="option"
                       >
                         rmb
@@ -2221,7 +2221,7 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
                       <div
                         aria-label="Dollar"
                         aria-selected="false"
-                        id="rc_select_TEST_OR_SSR_list_1"
+                        id="rc_select_45_list_1"
                         role="option"
                       >
                         dollar
@@ -2581,14 +2581,14 @@ Array [
                     >
                       <input
                         aria-autocomplete="list"
-                        aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-controls="rc_select_40_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-owns="rc_select_TEST_OR_SSR_list"
+                        aria-owns="rc_select_40_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
                         disabled=""
-                        id="rc_select_TEST_OR_SSR"
+                        id="rc_select_40"
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
@@ -2608,14 +2608,14 @@ Array [
                 >
                   <div>
                     <div
-                      id="rc_select_TEST_OR_SSR_list"
+                      id="rc_select_40_list"
                       role="listbox"
                       style="height: 0px; width: 0px; overflow: hidden;"
                     >
                       <div
                         aria-label="Demo"
                         aria-selected="false"
-                        id="rc_select_TEST_OR_SSR_list_0"
+                        id="rc_select_40_list_0"
                         role="option"
                       >
                         demo
@@ -2728,14 +2728,14 @@ Array [
                     >
                       <input
                         aria-autocomplete="list"
-                        aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-controls="rc_select_41_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-owns="rc_select_TEST_OR_SSR_list"
+                        aria-owns="rc_select_41_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
                         disabled=""
-                        id="rc_select_TEST_OR_SSR"
+                        id="rc_select_41"
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
@@ -2916,14 +2916,14 @@ Array [
                     >
                       <input
                         aria-autocomplete="list"
-                        aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-controls="rc_select_42_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-owns="rc_select_TEST_OR_SSR_list"
+                        aria-owns="rc_select_42_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
                         disabled=""
-                        id="rc_select_TEST_OR_SSR"
+                        id="rc_select_42"
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
@@ -5440,14 +5440,14 @@ Array [
                                   >
                                     <input
                                       aria-autocomplete="list"
-                                      aria-controls="rc_select_TEST_OR_SSR_list"
+                                      aria-controls="rc_select_43_list"
                                       aria-expanded="false"
                                       aria-haspopup="listbox"
-                                      aria-owns="rc_select_TEST_OR_SSR_list"
+                                      aria-owns="rc_select_43_list"
                                       autocomplete="off"
                                       class="ant-select-selection-search-input"
                                       disabled=""
-                                      id="rc_select_TEST_OR_SSR"
+                                      id="rc_select_43"
                                       readonly=""
                                       role="combobox"
                                       style="opacity: 0;"
@@ -5470,14 +5470,14 @@ Array [
                               >
                                 <div>
                                   <div
-                                    id="rc_select_TEST_OR_SSR_list"
+                                    id="rc_select_43_list"
                                     role="listbox"
                                     style="height: 0px; width: 0px; overflow: hidden;"
                                   >
                                     <div
                                       aria-label="HEX"
                                       aria-selected="true"
-                                      id="rc_select_TEST_OR_SSR_list_0"
+                                      id="rc_select_43_list_0"
                                       role="option"
                                     >
                                       hex
@@ -5485,7 +5485,7 @@ Array [
                                     <div
                                       aria-label="HSB"
                                       aria-selected="false"
-                                      id="rc_select_TEST_OR_SSR_list_1"
+                                      id="rc_select_43_list_1"
                                       role="option"
                                     >
                                       hsb
@@ -11171,11 +11171,11 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
           >
             <div
               class="ant-row css-var-test-id"
-              style="margin-left: -4px; margin-right: -4px;"
+              style="margin-inline: -4px;"
             >
               <div
                 class="ant-col ant-col-12 css-var-test-id"
-                style="padding-left: 4px; padding-right: 4px;"
+                style="padding-inline: 4px;"
               >
                 <input
                   aria-required="true"
@@ -11187,7 +11187,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
               </div>
               <div
                 class="ant-col ant-col-12 css-var-test-id"
-                style="padding-left: 4px; padding-right: 4px;"
+                style="padding-inline: 4px;"
               >
                 <button
                   class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
@@ -11808,13 +11808,13 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                   >
                     <input
                       aria-autocomplete="list"
-                      aria-controls="rc_select_TEST_OR_SSR_list"
+                      aria-controls="rc_select_23_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="rc_select_TEST_OR_SSR_list"
+                      aria-owns="rc_select_23_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
-                      id="rc_select_TEST_OR_SSR"
+                      id="rc_select_23"
                       readonly=""
                       role="combobox"
                       style="opacity: 0;"
@@ -11834,14 +11834,14 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
               >
                 <div>
                   <div
-                    id="rc_select_TEST_OR_SSR_list"
+                    id="rc_select_23_list"
                     role="listbox"
                     style="height: 0px; width: 0px; overflow: hidden;"
                   >
                     <div
                       aria-label="Demo"
                       aria-selected="false"
-                      id="rc_select_TEST_OR_SSR_list_0"
+                      id="rc_select_23_list_0"
                       role="option"
                     >
                       demo
@@ -11954,13 +11954,13 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                   >
                     <input
                       aria-autocomplete="list"
-                      aria-controls="rc_select_TEST_OR_SSR_list"
+                      aria-controls="rc_select_24_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="rc_select_TEST_OR_SSR_list"
+                      aria-owns="rc_select_24_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
-                      id="rc_select_TEST_OR_SSR"
+                      id="rc_select_24"
                       readonly=""
                       role="combobox"
                       style="opacity: 0;"
@@ -12141,13 +12141,13 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                   >
                     <input
                       aria-autocomplete="list"
-                      aria-controls="rc_select_TEST_OR_SSR_list"
+                      aria-controls="rc_select_25_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="rc_select_TEST_OR_SSR_list"
+                      aria-owns="rc_select_25_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
-                      id="rc_select_TEST_OR_SSR"
+                      id="rc_select_25"
                       readonly=""
                       role="combobox"
                       style="opacity: 0;"
@@ -23265,13 +23265,13 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                                 >
                                   <input
                                     aria-autocomplete="list"
-                                    aria-controls="rc_select_TEST_OR_SSR_list"
+                                    aria-controls="rc_select_19_list"
                                     aria-expanded="false"
                                     aria-haspopup="listbox"
-                                    aria-owns="rc_select_TEST_OR_SSR_list"
+                                    aria-owns="rc_select_19_list"
                                     autocomplete="off"
                                     class="ant-select-selection-search-input"
-                                    id="rc_select_TEST_OR_SSR"
+                                    id="rc_select_19"
                                     readonly=""
                                     role="combobox"
                                     style="opacity: 0;"
@@ -23294,14 +23294,14 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                             >
                               <div>
                                 <div
-                                  id="rc_select_TEST_OR_SSR_list"
+                                  id="rc_select_19_list"
                                   role="listbox"
                                   style="height: 0px; width: 0px; overflow: hidden;"
                                 >
                                   <div
                                     aria-label="HEX"
                                     aria-selected="true"
-                                    id="rc_select_TEST_OR_SSR_list_0"
+                                    id="rc_select_19_list_0"
                                     role="option"
                                   >
                                     hex
@@ -23309,7 +23309,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                                   <div
                                     aria-label="HSB"
                                     aria-selected="false"
-                                    id="rc_select_TEST_OR_SSR_list_1"
+                                    id="rc_select_19_list_1"
                                     role="option"
                                   >
                                     hsb
@@ -27938,13 +27938,13 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   >
                     <input
                       aria-autocomplete="list"
-                      aria-controls="rc_select_TEST_OR_SSR_list"
+                      aria-controls="rc_select_9_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="rc_select_TEST_OR_SSR_list"
+                      aria-owns="rc_select_9_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
-                      id="rc_select_TEST_OR_SSR"
+                      id="rc_select_9"
                       readonly=""
                       role="combobox"
                       style="opacity: 0;"
@@ -27966,14 +27966,14 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               >
                 <div>
                   <div
-                    id="rc_select_TEST_OR_SSR_list"
+                    id="rc_select_9_list"
                     role="listbox"
                     style="height: 0px; width: 0px; overflow: hidden;"
                   >
                     <div
                       aria-label="Option 1"
                       aria-selected="false"
-                      id="rc_select_TEST_OR_SSR_list_0"
+                      id="rc_select_9_list_0"
                       role="option"
                     >
                       1
@@ -27981,7 +27981,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                     <div
                       aria-label="Option 2"
                       aria-selected="false"
-                      id="rc_select_TEST_OR_SSR_list_1"
+                      id="rc_select_9_list_1"
                       role="option"
                     >
                       2
@@ -28152,13 +28152,13 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   >
                     <input
                       aria-autocomplete="list"
-                      aria-controls="rc_select_TEST_OR_SSR_list"
+                      aria-controls="rc_select_10_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="rc_select_TEST_OR_SSR_list"
+                      aria-owns="rc_select_10_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
-                      id="rc_select_TEST_OR_SSR"
+                      id="rc_select_10"
                       readonly=""
                       role="combobox"
                       style="opacity: 0;"
@@ -28312,13 +28312,13 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   >
                     <input
                       aria-autocomplete="list"
-                      aria-controls="rc_select_TEST_OR_SSR_list"
+                      aria-controls="rc_select_11_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="rc_select_TEST_OR_SSR_list"
+                      aria-owns="rc_select_11_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
-                      id="rc_select_TEST_OR_SSR"
+                      id="rc_select_11"
                       readonly=""
                       role="combobox"
                       style="opacity: 0;"

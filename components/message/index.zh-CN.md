@@ -111,6 +111,10 @@ message.config({
 | rtl | 是否开启 RTL 模式 | boolean | false |  |
 | top | 消息距离顶部的位置 | string \| number | 8 |  |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## 主题变量（Design Token）
 
 <ComponentTokenTable component="Message"></ComponentTokenTable>

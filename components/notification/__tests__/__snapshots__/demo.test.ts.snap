@@ -470,7 +470,7 @@ exports[`renders components/notification/demo/render-panel.tsx correctly 1`] = `
           </svg>
         </span>
         <div
-          class="ant-notification-notice-message"
+          class="ant-notification-notice-title"
         >
           Hello World!
         </div>

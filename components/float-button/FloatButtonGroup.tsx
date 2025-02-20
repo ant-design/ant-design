@@ -1,10 +1,10 @@
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
+import CSSMotion from '@rc-component/motion';
 import useEvent from '@rc-component/util/lib/hooks/useEvent';
 import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
 import classNames from 'classnames';
-import CSSMotion from 'rc-motion';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { devUseWarning } from '../_util/warning';

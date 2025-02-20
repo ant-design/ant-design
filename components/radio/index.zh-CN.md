@@ -21,9 +21,9 @@ return (
   <Radio.Group
     value={value}
     options={[
-      { value: 1, label: "A" },
-      { value: 2, label: "B"},
-      { value: 3, label: "C" },
+      { value: 1, label: 'A' },
+      { value: 2, label: 'B' },
+      { value: 3, label: 'C' },
     ]}
   />
 );
@@ -111,6 +111,10 @@ return (
 | ------- | -------- |
 | blur()  | 移除焦点 |
 | focus() | 获取焦点 |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

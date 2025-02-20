@@ -298,4 +298,40 @@ describe('message.hooks', () => {
       '--ant-font-size': '20px',
     });
   });
+  it('classNames and styles should work', () => {
+    const Demo = () => {
+      const [api, holder] = message.useMessage();
+
+      useEffect(() => {
+        api.info({
+          content: <div />,
+          classNames: {
+            root: 'custom-root',
+            icon: 'custom-icon',
+            content: 'custom-content',
+          },
+          styles: {
+            root: { color: 'red' },
+            icon: { fontSize: 20 },
+            content: { backgroundColor: 'green' },
+          },
+        });
+      }, []);
+
+      return <div>{holder}</div>;
+    };
+
+    render(<Demo />);
+
+    const root = document.querySelector('.custom-root');
+    const icon = document.querySelector('.custom-icon');
+    const content = document.querySelector('.custom-content');
+
+    expect(root).toBeTruthy();
+    expect(icon).toBeTruthy();
+    expect(content).toBeTruthy();
+    expect(root).toHaveStyle({ color: 'red' });
+    expect(icon).toHaveStyle({ fontSize: '20px' });
+    expect(content).toHaveStyle({ backgroundColor: 'green' });
+  });
 });

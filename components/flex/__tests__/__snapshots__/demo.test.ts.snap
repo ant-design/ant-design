@@ -504,7 +504,7 @@ exports[`renders components/flex/demo/gap.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn css-var-test-id ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+      class="ant-btn css-var-test-id ant-btn-link ant-btn-color-link ant-btn-variant-link"
       type="button"
     >
       <span>

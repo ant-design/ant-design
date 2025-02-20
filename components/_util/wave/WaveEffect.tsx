@@ -1,8 +1,8 @@
 import * as React from 'react';
+import CSSMotion from '@rc-component/motion';
 import raf from '@rc-component/util/lib/raf';
 import { composeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
-import CSSMotion from 'rc-motion';
 
 import { getReactRender } from '../../config-provider/UnstableContext';
 import type { UnmountType } from '../../config-provider/UnstableContext';
@@ -41,14 +41,12 @@ const WaveEffect = (props: WaveEffectProps) => {
   const [height, setHeight] = React.useState(0);
   const [enabled, setEnabled] = React.useState(false);
 
-  const waveStyle = {
+  const waveStyle: React.CSSProperties = {
     left,
     top,
     width,
     height,
     borderRadius: borderRadius.map((radius) => `${radius}px`).join(' '),
-  } as React.CSSProperties & {
-    [name: string]: number | string;
   };
 
   if (color) {

@@ -8,8 +8,8 @@ import type { SegmentedValue } from '../index';
 import Segmented from '../index';
 
 // Make CSSMotion working without transition
-jest.mock('rc-motion/lib/util/motion', () => ({
-  ...jest.requireActual('rc-motion/lib/util/motion'),
+jest.mock('@rc-component/motion/lib/util/motion', () => ({
+  ...jest.requireActual('@rc-component/motion/lib/util/motion'),
   supportTransition: false,
 }));
 

@@ -37,7 +37,7 @@ exports[`renders components/button/demo/basic.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn css-var-test-id ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+    class="ant-btn css-var-test-id ant-btn-link ant-btn-color-link ant-btn-variant-link"
     type="button"
   >
     <span>
@@ -96,7 +96,7 @@ exports[`renders components/button/demo/block.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn css-var-test-id ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-block"
+    class="ant-btn css-var-test-id ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-block"
     type="button"
   >
     <span>
@@ -776,7 +776,7 @@ exports[`renders components/button/demo/debug-color-variant.tsx extend context c
     class="ant-flex css-var-test-id ant-flex-gap-small"
   >
     <button
-      class="ant-btn css-var-test-id ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+      class="ant-btn css-var-test-id ant-btn-link ant-btn-color-link ant-btn-variant-link"
       type="button"
     >
       <span>
@@ -784,7 +784,7 @@ exports[`renders components/button/demo/debug-color-variant.tsx extend context c
       </span>
     </button>
     <button
-      class="ant-btn css-var-test-id ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+      class="ant-btn css-var-test-id ant-btn-link ant-btn-color-link ant-btn-variant-link"
       type="button"
     >
       <span>
@@ -828,7 +828,7 @@ exports[`renders components/button/demo/debug-color-variant.tsx extend context c
       </span>
     </button>
     <button
-      class="ant-btn css-var-test-id ant-btn-link ant-btn-color-primary ant-btn-variant-link acss-1r0846s"
+      class="ant-btn css-var-test-id ant-btn-link ant-btn-color-link ant-btn-variant-link acss-1r0846s"
       type="button"
     >
       <span>
@@ -872,7 +872,7 @@ exports[`renders components/button/demo/debug-color-variant.tsx extend context c
       </span>
     </button>
     <button
-      class="ant-btn css-var-test-id ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+      class="ant-btn css-var-test-id ant-btn-link ant-btn-color-link ant-btn-variant-link"
       type="button"
     >
       <span>
@@ -1825,7 +1825,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     class="ant-flex css-var-test-id ant-flex-gap-small"
   >
     <button
-      class="ant-btn css-var-test-id ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+      class="ant-btn css-var-test-id ant-btn-link ant-btn-color-link ant-btn-variant-link"
       type="button"
     >
       <span>
@@ -1833,7 +1833,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn css-var-test-id ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+      class="ant-btn css-var-test-id ant-btn-link ant-btn-color-link ant-btn-variant-link"
       disabled=""
       type="button"
     >
@@ -3585,7 +3585,7 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
         <li
           aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-test-1"
+          data-menu-id="rc-menu-uuid-05412-2-1"
           role="menuitem"
           tabindex="-1"
         >
@@ -3616,7 +3616,7 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
         <li
           aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-test-2"
+          data-menu-id="rc-menu-uuid-05412-2-2"
           role="menuitem"
           tabindex="-1"
         >
@@ -3647,7 +3647,7 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
         <li
           aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-test-3"
+          data-menu-id="rc-menu-uuid-05412-2-3"
           role="menuitem"
           tabindex="-1"
         >
@@ -3802,7 +3802,7 @@ Array [
       </button>
     </div>
     <button
-      class="ant-btn css-var-test-id ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-lg"
+      class="ant-btn css-var-test-id ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-lg"
       type="button"
     >
       <span>

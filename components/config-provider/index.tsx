@@ -21,6 +21,7 @@ import type {
   CardConfig,
   CardMetaConfig,
   CascaderConfig,
+  CheckboxConfig,
   CollapseConfig,
   ComponentStyleConfig,
   ConfigConsumerProps,
@@ -38,12 +39,14 @@ import type {
   ListConfig,
   MentionsConfig,
   MenuConfig,
+  MessageConfig,
   ModalConfig,
   NotificationConfig,
   PaginationConfig,
   PopconfirmConfig,
   PopoverConfig,
   PopupOverflow,
+  RadioConfig,
   RangePickerConfig,
   RibbonConfig,
   SelectConfig,
@@ -187,6 +190,7 @@ export interface ConfigProviderProps {
   theme?: ThemeConfig;
   warning?: WarningContextProps;
   alert?: AlertConfig;
+  affix?: ComponentStyleConfig;
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
   calendar?: ComponentStyleConfig;
@@ -213,17 +217,17 @@ export interface ConfigProviderProps {
   breadcrumb?: ComponentStyleConfig;
   menu?: MenuConfig;
   floatButtonGroup?: FloatButtonGroupConfig;
-  checkbox?: ComponentStyleConfig;
+  checkbox?: CheckboxConfig;
   descriptions?: ComponentStyleConfig;
   empty?: EmptyConfig;
   badge?: BadgeConfig;
-  radio?: ComponentStyleConfig;
+  radio?: RadioConfig;
   rate?: ComponentStyleConfig;
   ribbon?: RibbonConfig;
   switch?: ComponentStyleConfig;
   transfer?: TransferConfig;
   avatar?: ComponentStyleConfig;
-  message?: ComponentStyleConfig;
+  message?: MessageConfig;
   tag?: TagConfig;
   table?: TableConfig;
   card?: CardConfig;
@@ -247,6 +251,7 @@ export interface ConfigProviderProps {
   tooltip?: TooltipConfig;
   popover?: PopoverConfig;
   popconfirm?: PopconfirmConfig;
+  watermark?: ComponentStyleConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -333,6 +338,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     csp: customCsp,
     autoInsertSpaceInButton,
     alert,
+    affix,
     anchor,
     form,
     locale,
@@ -410,6 +416,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     variant,
     inputNumber,
     treeSelect,
+    watermark,
   } = props;
 
   // =================================== Context ===================================
@@ -443,6 +450,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     csp,
     autoInsertSpaceInButton,
     alert,
+    affix,
     anchor,
     locale: locale || legacyLocale,
     direction,
@@ -515,6 +523,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     variant,
     inputNumber,
     treeSelect,
+    watermark,
   };
 
   if (process.env.NODE_ENV !== 'production') {

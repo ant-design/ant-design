@@ -178,7 +178,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     [
       ['overlayStyle', 'styles={{ root: {} }}'],
       ['overlayInnerStyle', 'styles={{ body: {} }}'],
-      ['overlayClassName', 'classNames={{ root: {} }}'],
+      ['overlayClassName', 'classNames={{ root: "" }}'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });

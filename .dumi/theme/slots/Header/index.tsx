@@ -379,7 +379,7 @@ const Header: React.FC = () => {
         >
           <Alert
             className={styles.banner}
-            message={
+            title={
               <>
                 <span>{isMobile ? locale.shortMessage : locale.message}</span>
                 <a

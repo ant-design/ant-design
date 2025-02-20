@@ -112,6 +112,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
         transition: `border ${motionDurationMid}, box-shadow ${motionDurationMid}, background ${motionDurationMid}`,
 
         [`${componentCls}-prefix`]: {
+          flex: '0 0 auto',
           marginInlineEnd: token.inputAffixPadding,
         },
 
@@ -327,6 +328,12 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
               bottom: 0,
               display: 'block',
               transform: 'translateY(100%) rotate(180deg)',
+            },
+          },
+
+          [`&${antCls}-slide-up-appear, &${antCls}-slide-up-enter`]: {
+            [`${componentCls}-range-arrow${componentCls}-range-arrow`]: {
+              transition: 'none',
             },
           },
 

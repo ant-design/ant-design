@@ -23,21 +23,19 @@ describe('Layout.Token', () => {
           },
         }}
       >
-        <Layout>
-          <Header>
-            <Menu
-              mode="horizontal"
-              defaultSelectedKeys={['2']}
-              items={new Array(15).fill(null).map((_, index) => {
-                const key = index + 1;
-                return {
-                  key,
-                  label: `nav ${key}`,
-                };
-              })}
-            />
-          </Header>
-        </Layout>
+        <Header>
+          <Menu
+            mode="horizontal"
+            defaultSelectedKeys={['2']}
+            items={Array.from({ length: 15 }).map((_, index) => {
+              const key = index + 1;
+              return {
+                key,
+                label: `nav ${key}`,
+              };
+            })}
+          />
+        </Header>
       </ConfigProvider>,
     );
 
@@ -45,7 +43,7 @@ describe('Layout.Token', () => {
       '--ant-layout-header-bg': '#FF0000',
     });
     expect(container.querySelector('.ant-menu')).toHaveStyle({
-      '--ant-menu-item-bg': '#00FF00'
+      '--ant-menu-item-bg': '#00FF00',
     });
   });
 
@@ -63,21 +61,19 @@ describe('Layout.Token', () => {
           },
         }}
       >
-        <Layout>
-          <Header>
-            <Menu
-              mode="horizontal"
-              defaultSelectedKeys={['2']}
-              items={new Array(15).fill(null).map((_, index) => {
-                const key = index + 1;
-                return {
-                  key,
-                  label: `nav ${key}`,
-                };
-              })}
-            />
-          </Header>
-        </Layout>
+        <Header>
+          <Menu
+            mode="horizontal"
+            defaultSelectedKeys={['2']}
+            items={Array.from({ length: 15 }).map((_, index) => {
+              const key = index + 1;
+              return {
+                key,
+                label: `nav ${key}`,
+              };
+            })}
+          />
+        </Header>
       </ConfigProvider>,
     );
 
@@ -85,7 +81,7 @@ describe('Layout.Token', () => {
       '--ant-layout-header-bg': '#FF0000',
     });
     expect(container.querySelector('.ant-menu')).toHaveStyle({
-      '--ant-menu-item-bg': '#00FF00'
+      '--ant-menu-item-bg': '#00FF00',
     });
   });
 });

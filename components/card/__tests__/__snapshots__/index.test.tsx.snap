@@ -30,10 +30,10 @@ exports[`Card correct pass tabList props 1`] = `
               data-node-key="basic"
             >
               <div
-                aria-controls="rc-tabs-test-panel-basic"
+                aria-controls="rc-tabs-11-panel-basic"
                 aria-selected="true"
                 class="ant-tabs-tab-btn"
-                id="rc-tabs-test-tab-basic"
+                id="rc-tabs-11-tab-basic"
                 role="tab"
                 tabindex="0"
               >
@@ -73,10 +73,10 @@ exports[`Card correct pass tabList props 1`] = `
               data-node-key="deprecated"
             >
               <div
-                aria-controls="rc-tabs-test-panel-deprecated"
+                aria-controls="rc-tabs-11-panel-deprecated"
                 aria-selected="false"
                 class="ant-tabs-tab-btn"
-                id="rc-tabs-test-tab-deprecated"
+                id="rc-tabs-11-tab-deprecated"
                 role="tab"
                 tabindex="-1"
               >
@@ -116,11 +116,11 @@ exports[`Card correct pass tabList props 1`] = `
               data-node-key="disabled"
             >
               <div
-                aria-controls="rc-tabs-test-panel-disabled"
+                aria-controls="rc-tabs-11-panel-disabled"
                 aria-disabled="true"
                 aria-selected="false"
                 class="ant-tabs-tab-btn"
-                id="rc-tabs-test-tab-disabled"
+                id="rc-tabs-11-tab-disabled"
                 role="tab"
               >
                 Disabled
@@ -131,10 +131,10 @@ exports[`Card correct pass tabList props 1`] = `
               data-node-key="notClosable"
             >
               <div
-                aria-controls="rc-tabs-test-panel-notClosable"
+                aria-controls="rc-tabs-11-panel-notClosable"
                 aria-selected="false"
                 class="ant-tabs-tab-btn"
-                id="rc-tabs-test-tab-notClosable"
+                id="rc-tabs-11-tab-notClosable"
                 role="tab"
                 tabindex="-1"
               >
@@ -178,11 +178,11 @@ exports[`Card correct pass tabList props 1`] = `
           class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
         >
           <button
-            aria-controls="rc-tabs-test-more-popup"
+            aria-controls="rc-tabs-11-more-popup"
             aria-expanded="false"
             aria-haspopup="listbox"
             class="ant-tabs-nav-more"
-            id="rc-tabs-test-more"
+            id="rc-tabs-11-more"
             style="visibility: hidden; order: 1;"
             type="button"
           >
@@ -244,11 +244,11 @@ exports[`Card correct pass tabList props 1`] = `
         >
           <div
             aria-hidden="false"
-            aria-labelledby="rc-tabs-test-tab-basic"
+            aria-labelledby="rc-tabs-11-tab-basic"
             class="ant-tabs-tabpane ant-tabs-tabpane-active"
-            id="rc-tabs-test-panel-basic"
+            id="rc-tabs-11-panel-basic"
             role="tabpanel"
-            tabindex="0"
+            tabindex="-1"
           />
         </div>
       </div>

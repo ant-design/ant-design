@@ -27,9 +27,10 @@ const Group: React.FC<GroupProps> = (props) => {
   const { prefixCls: customizePrefixCls, className } = props;
   const prefixCls = getPrefixCls('input-group', customizePrefixCls);
   const inputPrefixCls = getPrefixCls('input');
-  const [hashId] = useStyle(inputPrefixCls);
+  const [hashId, cssVarCls] = useStyle(inputPrefixCls);
   const cls = classNames(
     prefixCls,
+    cssVarCls,
     {
       [`${prefixCls}-lg`]: props.size === 'large',
       [`${prefixCls}-sm`]: props.size === 'small',

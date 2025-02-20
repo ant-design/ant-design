@@ -12,6 +12,7 @@ import { canUseDocElement } from '../_util/styleChecker';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import Skeleton from '../skeleton';
 import { usePanelRef } from '../watermark/context';
@@ -45,8 +46,13 @@ const Modal: React.FC<ModalProps> = (props) => {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     direction,
-    modal: modalContext,
-  } = React.useContext(ConfigContext);
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+    centered: contextCentered,
+  } = useComponentConfig('modal');
+  const { modal: modalContext } = React.useContext(ConfigContext);
 
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { onCancel } = props;
@@ -97,7 +103,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const wrapClassNameExtended = classNames(wrapClassName, {
-    [`${prefixCls}-centered`]: centered ?? modalContext?.centered,
+    [`${prefixCls}-centered`]: centered ?? contextCentered,
     [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
   });
 
@@ -162,11 +168,11 @@ const Modal: React.FC<ModalProps> = (props) => {
             rootClassName,
             cssVarCls,
             rootCls,
-            modalContext?.classNames?.root,
+            contextClassNames.root,
             modalClassNames?.root,
           )}
           rootStyle={{
-            ...modalContext?.styles?.root,
+            ...contextStyles.root,
             ...modalStyles?.root,
           }}
           footer={dialogFooter}
@@ -182,33 +188,33 @@ const Modal: React.FC<ModalProps> = (props) => {
           focusTriggerAfterClose={focusTriggerAfterClose}
           transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
           maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
-          className={classNames(hashId, className, modalContext?.className)}
+          className={classNames(hashId, className, contextClassName)}
           style={{
-            ...modalContext?.style,
+            ...contextStyle,
             ...style,
             ...responsiveWidthVars,
           }}
           classNames={{
-            mask: classNames(modalContext?.classNames?.mask, modalClassNames?.mask),
-            section: classNames(modalContext?.classNames?.section, modalClassNames?.section),
+            mask: classNames(contextClassNames.mask, modalClassNames?.mask),
+            section: classNames(contextClassNames.section, modalClassNames?.section),
             wrapper: classNames(
               wrapClassNameExtended,
-              modalContext?.classNames?.wrapper,
+              contextClassNames.wrapper,
               modalClassNames?.wrapper,
             ),
-            header: classNames(modalContext?.classNames?.header, modalClassNames?.header),
-            title: classNames(modalContext?.classNames?.title, modalClassNames?.title),
-            body: classNames(modalContext?.classNames?.body, modalClassNames?.body),
-            footer: classNames(modalContext?.classNames?.footer, modalClassNames?.footer),
+            header: classNames(contextClassNames.header, modalClassNames?.header),
+            title: classNames(contextClassNames.title, modalClassNames?.title),
+            body: classNames(contextClassNames.body, modalClassNames?.body),
+            footer: classNames(contextClassNames.footer, modalClassNames?.footer),
           }}
           styles={{
-            mask: { ...modalContext?.styles?.mask, ...modalStyles?.mask },
-            section: { ...modalContext?.styles?.section, ...modalStyles?.section },
-            wrapper: { ...modalContext?.styles?.wrapper, ...modalStyles?.wrapper },
-            header: { ...modalContext?.styles?.header, ...modalStyles?.header },
-            title: { ...modalContext?.styles?.title, ...modalStyles?.title },
-            body: { ...modalContext?.styles?.body, ...modalStyles?.body },
-            footer: { ...modalContext?.styles?.footer, ...modalStyles?.footer },
+            mask: { ...contextStyles.mask, ...modalStyles?.mask },
+            section: { ...contextStyles.section, ...modalStyles?.section },
+            wrapper: { ...contextStyles.wrapper, ...modalStyles?.wrapper },
+            header: { ...contextStyles.header, ...modalStyles?.header },
+            title: { ...contextStyles.title, ...modalStyles?.title },
+            body: { ...contextStyles.body, ...modalStyles?.body },
+            footer: { ...contextStyles.footer, ...modalStyles?.footer },
           }}
           panelRef={panelRef}
         >

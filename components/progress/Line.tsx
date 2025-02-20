@@ -68,10 +68,10 @@ export const handleGradient = (
   if (Object.keys(rest).length !== 0) {
     const sortedGradients = sortGradient(rest as StringGradients);
     const background = `linear-gradient(${direction}, ${sortedGradients})`;
-    return { background, [LineStrokeColorVar]: background } as React.CSSProperties;
+    return { background, [LineStrokeColorVar]: background };
   }
   const background = `linear-gradient(${direction}, ${from}, ${to})`;
-  return { background, [LineStrokeColorVar]: background } as React.CSSProperties;
+  return { background, [LineStrokeColorVar]: background };
 };
 
 const Line: React.FC<LineProps> = (props) => {
@@ -113,7 +113,7 @@ const Line: React.FC<LineProps> = (props) => {
     borderRadius,
   };
 
-  const percentStyle = {
+  const percentStyle: React.CSSProperties = {
     width: `${validProgress(percent)}%`,
     height,
     borderRadius,

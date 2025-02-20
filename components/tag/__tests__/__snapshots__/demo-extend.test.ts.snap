@@ -794,7 +794,9 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = 
         />
       </svg>
     </span>
-    <span>
+    <span
+      class=""
+    >
       New Tag
     </span>
   </span>
@@ -900,7 +902,9 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
           />
         </svg>
       </span>
-      <span>
+      <span
+        class=""
+      >
         Icon Tag
       </span>
     </span>
@@ -998,7 +1002,9 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
           />
         </svg>
       </span>
-      <span>
+      <span
+        class=""
+      >
         Closable with Icon
       </span>
       <span
@@ -1083,7 +1089,9 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
           />
         </svg>
       </span>
-      <span>
+      <span
+        class=""
+      >
         Borderless with Icon
       </span>
     </span>
@@ -1191,7 +1199,9 @@ exports[`renders components/tag/demo/icon.tsx extend context correctly 1`] = `
         />
       </svg>
     </span>
-    <span>
+    <span
+      class=""
+    >
       Twitter
     </span>
   </span>
@@ -1218,7 +1228,9 @@ exports[`renders components/tag/demo/icon.tsx extend context correctly 1`] = `
         />
       </svg>
     </span>
-    <span>
+    <span
+      class=""
+    >
       Youtube
     </span>
   </span>
@@ -1245,7 +1257,9 @@ exports[`renders components/tag/demo/icon.tsx extend context correctly 1`] = `
         />
       </svg>
     </span>
-    <span>
+    <span
+      class=""
+    >
       Facebook
     </span>
   </span>
@@ -1272,7 +1286,9 @@ exports[`renders components/tag/demo/icon.tsx extend context correctly 1`] = `
         />
       </svg>
     </span>
-    <span>
+    <span
+      class=""
+    >
       LinkedIn
     </span>
   </span>
@@ -1360,7 +1376,9 @@ Array [
           />
         </svg>
       </span>
-      <span>
+      <span
+        class=""
+      >
         success
       </span>
     </span>
@@ -1386,7 +1404,9 @@ Array [
           />
         </svg>
       </span>
-      <span>
+      <span
+        class=""
+      >
         processing
       </span>
     </span>
@@ -1413,7 +1433,9 @@ Array [
           />
         </svg>
       </span>
-      <span>
+      <span
+        class=""
+      >
         error
       </span>
     </span>
@@ -1442,7 +1464,9 @@ Array [
           />
         </svg>
       </span>
-      <span>
+      <span
+        class=""
+      >
         warning
       </span>
     </span>
@@ -1471,7 +1495,9 @@ Array [
           />
         </svg>
       </span>
-      <span>
+      <span
+        class=""
+      >
         waiting
       </span>
     </span>
@@ -1500,7 +1526,9 @@ Array [
           />
         </svg>
       </span>
-      <span>
+      <span
+        class=""
+      >
         stop
       </span>
     </span>

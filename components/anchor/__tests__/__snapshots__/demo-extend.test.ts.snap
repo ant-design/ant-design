@@ -23,7 +23,9 @@ exports[`renders components/anchor/demo/basic.tsx extend context correctly 1`] =
   <div
     class="ant-col ant-col-8 css-var-test-id"
   >
-    <div>
+    <div
+      class=""
+    >
       <div
         class=""
       >
@@ -104,7 +106,9 @@ exports[`renders components/anchor/demo/component-token.tsx extend context corre
   <div
     class="ant-col ant-col-8 css-var-test-id"
   >
-    <div>
+    <div
+      class=""
+    >
       <div
         class=""
       >
@@ -240,7 +244,9 @@ Array [
   <div
     style="padding: 20px;"
   >
-    <div>
+    <div
+      class=""
+    >
       <div
         class=""
       >
@@ -555,7 +561,9 @@ exports[`renders components/anchor/demo/replace.tsx extend context correctly 1`]
   <div
     class="ant-col ant-col-8 css-var-test-id"
   >
-    <div>
+    <div
+      class=""
+    >
       <div
         class=""
       >
@@ -715,7 +723,9 @@ exports[`renders components/anchor/demo/targetOffset.tsx extend context correctl
     <div
       class="ant-col ant-col-6 css-var-test-id"
     >
-      <div>
+      <div
+        class=""
+      >
         <div
           class=""
         >

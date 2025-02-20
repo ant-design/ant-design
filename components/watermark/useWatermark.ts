@@ -10,9 +10,9 @@ export const BaseSize = 2;
 export const FontGap = 3;
 
 // Prevent external hidden elements from adding accent styles
-const emphasizedStyle = {
+const emphasizedStyle: React.CSSProperties = {
   visibility: 'visible !important',
-};
+} as unknown as React.CSSProperties;
 
 export type AppendWatermark = (
   base64Url: string,
@@ -44,7 +44,7 @@ export default function useWatermark(
           ...markStyle,
           backgroundImage: `url('${base64Url}')`,
           backgroundSize: `${Math.floor(markWidth)}px`,
-          ...(emphasizedStyle as React.CSSProperties),
+          ...emphasizedStyle,
         }),
       );
       // Prevents using the browser `Hide Element` to hide watermarks

@@ -1,10 +1,9 @@
 import * as React from 'react';
 import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import type { Tab } from 'rc-tabs/lib/interface';
+import type { Tab } from '@rc-component/tabs/lib/interface';
 
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import Skeleton from '../skeleton';
 import type { TabsProps } from '../tabs';
@@ -12,6 +11,7 @@ import Tabs from '../tabs';
 import Grid from './Grid';
 import useStyle from './style';
 import useVariant from '../form/hooks/useVariants';
+import { useComponentConfig } from '../config-provider/context';
 
 export type CardType = 'inner';
 export type CardSize = 'default' | 'small';
@@ -111,8 +111,14 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     styles: customStyles,
     ...others
   } = props;
-
-  const { getPrefixCls, direction, card } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('card');
   const [variant] = useVariant('card', customVariant, bordered);
 
   // =================Warning===================
@@ -132,10 +138,10 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   };
 
   const moduleClass = (moduleName: CardClassNamesModule) =>
-    classNames(card?.classNames?.[moduleName], customClassNames?.[moduleName]);
+    classNames(contextClassNames?.[moduleName], customClassNames?.[moduleName]);
 
   const moduleStyle = (moduleName: CardStylesModule): React.CSSProperties => ({
-    ...card?.styles?.[moduleName],
+    ...contextStyles?.[moduleName],
     ...customStyles?.[moduleName],
   });
 
@@ -235,7 +241,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 
   const classString = classNames(
     prefixCls,
-    card?.className,
+    contextClassName,
     {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-bordered`]: variant !== 'borderless',
@@ -250,13 +256,13 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     rootClassName,
     hashId,
     cssVarCls,
-    card?.classNames?.root,
+    contextClassNames.root,
     customClassNames?.root,
   );
 
   const mergedStyle: React.CSSProperties = {
-    ...card?.styles?.root,
-    ...card?.style,
+    ...contextStyles.root,
+    ...contextStyle,
     ...customStyles?.root,
     ...style,
   };

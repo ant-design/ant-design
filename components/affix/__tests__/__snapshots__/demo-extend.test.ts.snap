@@ -2,7 +2,9 @@
 
 exports[`renders components/affix/demo/basic.tsx extend context correctly 1`] = `
 Array [
-  <div>
+  <div
+    class=""
+  >
     <div
       class=""
     >
@@ -17,7 +19,9 @@ Array [
     </div>
   </div>,
   <br />,
-  <div>
+  <div
+    class=""
+  >
     <div
       class=""
     >
@@ -43,7 +47,9 @@ exports[`renders components/affix/demo/debug.tsx extend context correctly 1`] = 
   <div>
     Top
   </div>
-  <div>
+  <div
+    class=""
+  >
     <div
       class=""
     >
@@ -70,7 +76,9 @@ exports[`renders components/affix/demo/debug.tsx extend context correctly 1`] = 
 exports[`renders components/affix/demo/debug.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/affix/demo/on-change.tsx extend context correctly 1`] = `
-<div>
+<div
+  class=""
+>
   <div
     class=""
   >
@@ -95,7 +103,9 @@ exports[`renders components/affix/demo/target.tsx extend context correctly 1`] =
   <div
     style="width: 100%; height: 1000px;"
   >
-    <div>
+    <div
+      class=""
+    >
       <div
         class=""
       >

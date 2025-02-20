@@ -74,6 +74,10 @@ We recommend using the items form instead.
 | target   | Specifies where to display the linked URL | string    |         |         |
 | title    | The content of hyperlink                  | ReactNode |         |         |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Anchor"></ComponentTokenTable>

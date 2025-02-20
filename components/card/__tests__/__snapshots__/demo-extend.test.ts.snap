@@ -176,10 +176,10 @@ Array [
                 data-node-key="tab1"
               >
                 <div
-                  aria-controls="rc-tabs-test-panel-tab1"
+                  aria-controls="rc-tabs-5-panel-tab1"
                   aria-selected="true"
                   class="ant-tabs-tab-btn"
-                  id="rc-tabs-test-tab-tab1"
+                  id="rc-tabs-5-tab-tab1"
                   role="tab"
                   tabindex="0"
                 >
@@ -191,10 +191,10 @@ Array [
                 data-node-key="tab2"
               >
                 <div
-                  aria-controls="rc-tabs-test-panel-tab2"
+                  aria-controls="rc-tabs-5-panel-tab2"
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
-                  id="rc-tabs-test-tab-tab2"
+                  id="rc-tabs-5-tab-tab2"
                   role="tab"
                   tabindex="-1"
                 >
@@ -210,11 +210,11 @@ Array [
             class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
           >
             <button
-              aria-controls="rc-tabs-test-more-popup"
+              aria-controls="rc-tabs-5-more-popup"
               aria-expanded="false"
               aria-haspopup="listbox"
               class="ant-tabs-nav-more"
-              id="rc-tabs-test-more"
+              id="rc-tabs-5-more"
               style="visibility: hidden; order: 1;"
               type="button"
             >
@@ -246,7 +246,7 @@ Array [
                 aria-label="expanded dropdown"
                 class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
                 data-menu-list="true"
-                id="rc-tabs-test-more-popup"
+                id="rc-tabs-5-more-popup"
                 role="listbox"
                 tabindex="-1"
               />
@@ -265,11 +265,11 @@ Array [
           >
             <div
               aria-hidden="false"
-              aria-labelledby="rc-tabs-test-tab-tab1"
+              aria-labelledby="rc-tabs-5-tab-tab1"
               class="ant-tabs-tabpane ant-tabs-tabpane-active"
-              id="rc-tabs-test-panel-tab1"
+              id="rc-tabs-5-panel-tab1"
               role="tabpanel"
-              tabindex="0"
+              tabindex="-1"
             />
           </div>
         </div>
@@ -524,11 +524,11 @@ exports[`renders components/card/demo/grid-card.tsx extend context correctly 2`]
 exports[`renders components/card/demo/in-column.tsx extend context correctly 1`] = `
 <div
   class="ant-row css-var-test-id"
-  style="margin-left: -8px; margin-right: -8px;"
+  style="margin-inline: -8px;"
 >
   <div
     class="ant-col ant-col-8 css-var-test-id"
-    style="padding-left: 8px; padding-right: 8px;"
+    style="padding-inline: 8px;"
   >
     <div
       class="ant-card css-var-test-id"
@@ -555,7 +555,7 @@ exports[`renders components/card/demo/in-column.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-col ant-col-8 css-var-test-id"
-    style="padding-left: 8px; padding-right: 8px;"
+    style="padding-inline: 8px;"
   >
     <div
       class="ant-card css-var-test-id"
@@ -582,7 +582,7 @@ exports[`renders components/card/demo/in-column.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-col ant-col-8 css-var-test-id"
-    style="padding-left: 8px; padding-right: 8px;"
+    style="padding-inline: 8px;"
   >
     <div
       class="ant-card css-var-test-id"
@@ -1142,10 +1142,10 @@ Array [
                 data-node-key="tab1"
               >
                 <div
-                  aria-controls="rc-tabs-test-panel-tab1"
+                  aria-controls="rc-tabs-2-panel-tab1"
                   aria-selected="true"
                   class="ant-tabs-tab-btn"
-                  id="rc-tabs-test-tab-tab1"
+                  id="rc-tabs-2-tab-tab1"
                   role="tab"
                   tabindex="0"
                 >
@@ -1157,10 +1157,10 @@ Array [
                 data-node-key="tab2"
               >
                 <div
-                  aria-controls="rc-tabs-test-panel-tab2"
+                  aria-controls="rc-tabs-2-panel-tab2"
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
-                  id="rc-tabs-test-tab-tab2"
+                  id="rc-tabs-2-tab-tab2"
                   role="tab"
                   tabindex="-1"
                 >
@@ -1176,11 +1176,11 @@ Array [
             class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
           >
             <button
-              aria-controls="rc-tabs-test-more-popup"
+              aria-controls="rc-tabs-2-more-popup"
               aria-expanded="false"
               aria-haspopup="listbox"
               class="ant-tabs-nav-more"
-              id="rc-tabs-test-more"
+              id="rc-tabs-2-more"
               style="visibility: hidden; order: 1;"
               type="button"
             >
@@ -1212,7 +1212,7 @@ Array [
                 aria-label="expanded dropdown"
                 class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
                 data-menu-list="true"
-                id="rc-tabs-test-more-popup"
+                id="rc-tabs-2-more-popup"
                 role="listbox"
                 tabindex="-1"
               />
@@ -1231,11 +1231,11 @@ Array [
           >
             <div
               aria-hidden="false"
-              aria-labelledby="rc-tabs-test-tab-tab1"
+              aria-labelledby="rc-tabs-2-tab-tab1"
               class="ant-tabs-tabpane ant-tabs-tabpane-active"
-              id="rc-tabs-test-panel-tab1"
+              id="rc-tabs-2-panel-tab1"
               role="tabpanel"
-              tabindex="0"
+              tabindex="-1"
             />
           </div>
         </div>
@@ -1281,10 +1281,10 @@ Array [
                 data-node-key="article"
               >
                 <div
-                  aria-controls="rc-tabs-test-panel-article"
+                  aria-controls="rc-tabs-3-panel-article"
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
-                  id="rc-tabs-test-tab-article"
+                  id="rc-tabs-3-tab-article"
                   role="tab"
                   tabindex="-1"
                 >
@@ -1296,10 +1296,10 @@ Array [
                 data-node-key="app"
               >
                 <div
-                  aria-controls="rc-tabs-test-panel-app"
+                  aria-controls="rc-tabs-3-panel-app"
                   aria-selected="true"
                   class="ant-tabs-tab-btn"
-                  id="rc-tabs-test-tab-app"
+                  id="rc-tabs-3-tab-app"
                   role="tab"
                   tabindex="0"
                 >
@@ -1311,10 +1311,10 @@ Array [
                 data-node-key="project"
               >
                 <div
-                  aria-controls="rc-tabs-test-panel-project"
+                  aria-controls="rc-tabs-3-panel-project"
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
-                  id="rc-tabs-test-tab-project"
+                  id="rc-tabs-3-tab-project"
                   role="tab"
                   tabindex="-1"
                 >
@@ -1330,11 +1330,11 @@ Array [
             class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
           >
             <button
-              aria-controls="rc-tabs-test-more-popup"
+              aria-controls="rc-tabs-3-more-popup"
               aria-expanded="false"
               aria-haspopup="listbox"
               class="ant-tabs-nav-more"
-              id="rc-tabs-test-more"
+              id="rc-tabs-3-more"
               style="visibility: hidden; order: 1;"
               type="button"
             >
@@ -1366,7 +1366,7 @@ Array [
                 aria-label="expanded dropdown"
                 class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
                 data-menu-list="true"
-                id="rc-tabs-test-more-popup"
+                id="rc-tabs-3-more-popup"
                 role="listbox"
                 tabindex="-1"
               />
@@ -1394,11 +1394,11 @@ Array [
           >
             <div
               aria-hidden="false"
-              aria-labelledby="rc-tabs-test-tab-app"
+              aria-labelledby="rc-tabs-3-tab-app"
               class="ant-tabs-tabpane ant-tabs-tabpane-active"
-              id="rc-tabs-test-panel-app"
+              id="rc-tabs-3-panel-app"
               role="tabpanel"
-              tabindex="0"
+              tabindex="-1"
             />
           </div>
         </div>

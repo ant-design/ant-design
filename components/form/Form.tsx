@@ -7,7 +7,6 @@ import type {
   ValidateErrorEntity,
 } from '@rc-component/form/lib/interface';
 import classNames from 'classnames';
-import type { Options } from 'scroll-into-view-if-needed';
 
 import type { Variant } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -23,7 +22,7 @@ import type { FeedbackIcons } from './FormItem';
 import useForm from './hooks/useForm';
 import type { FormInstance } from './hooks/useForm';
 import useFormWarning from './hooks/useFormWarning';
-import type { FormLabelAlign } from './interface';
+import type { FormLabelAlign, ScrollFocusOptions } from './interface';
 import useStyle from './style';
 import ValidateMessagesContext from './validateMessagesContext';
 
@@ -34,9 +33,7 @@ export type RequiredMark =
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
 export type FormItemLayout = 'horizontal' | 'vertical';
 
-export type ScrollFocusOptions = Options & {
-  focus?: boolean;
-};
+export type { ScrollFocusOptions };
 
 export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form'> {
   prefixCls?: string;
@@ -181,9 +178,6 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
         defaultScrollToFirstError = { ...defaultScrollToFirstError, ...options };
       }
       wrapForm.scrollToField(fieldName, defaultScrollToFirstError);
-      if (defaultScrollToFirstError.focus) {
-        wrapForm.focusField(fieldName);
-      }
     }
   };
 

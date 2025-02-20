@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Provider as MotionProvider } from 'rc-motion';
+import { Provider as MotionProvider } from '@rc-component/motion';
 
 import { useToken } from '../theme/internal';
 
