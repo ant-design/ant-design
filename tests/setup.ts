@@ -66,11 +66,15 @@ global.requestAnimationFrame = global.requestAnimationFrame || global.setTimeout
 global.cancelAnimationFrame = global.cancelAnimationFrame || global.clearTimeout;
 
 if (typeof MessageChannel === 'undefined') {
-  (global as any).MessageChannel = function MessageChannel() {
+  (global as any).MessageChannel = function MockMessageChannel() {
     const port1: any = {};
     const port2: any = {};
-    port1.postMessage = port2.onmessage = () => {};
-    port2.postMessage = port1.onmessage = () => {};
+    port2.postMessage = () => {
+      port1.onmessage?.();
+    };
+    port1.postMessage = () => {
+      port2.onmessage?.();
+    };
     return { port1, port2 };
   };
 }

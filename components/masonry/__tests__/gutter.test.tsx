@@ -2,8 +2,8 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 
-import { MasonryProps } from '../interface';
-import Masonry from '../Masonry';
+import type { MasonryProps } from '..';
+import Masonry from '..';
 
 // Mock for `responsiveObserve` to test `unsubscribe` call
 jest.mock('../../_util/responsiveObserver', () => {

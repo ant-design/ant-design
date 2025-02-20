@@ -35,16 +35,16 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- |
 | columns | Number of columns, can be a fixed number or responsive config | `number \| { xs?: number; sm?: number; md?: number }` | - |
 | gutter | Gap between items, can be a fixed number, responsive config, or \[horizontal, vertical\] config | `Gap` \| `[Gap, Gap]` | `0` |
-| sequential | Layout items sequentially. Will not change the column when removing items. | `boolean` | `false` |
 | items | Masonry items | `<T = MasonryItem>[]` | - |
 
 ### MasonryItem
 
 | Property | Description       | Type                 | Default |
 | -------- | ----------------- | -------------------- | ------- |
-| key      | Unique identifier | `string` \| `number` | -       |
-| height   | Height            | `number`             | -       |
 | children | Custom content    | `React.ReactNode`    | -       |
+| column   | Custom column     | `number`             | -       |
+| height   | Height            | `number`             | -       |
+| key      | Unique identifier | `string` \| `number` | -       |
 
 ### Gap
 

@@ -33,7 +33,8 @@ export default function usePositions(
     for (let i = 0; i < itemHeights.length; i += 1) {
       const [itemKey, itemHeight, itemColumn] = itemHeights[i];
 
-      const targetColumnIndex = itemColumn ?? columnHeights.indexOf(Math.min(...columnHeights));
+      let targetColumnIndex = itemColumn ?? columnHeights.indexOf(Math.min(...columnHeights));
+      targetColumnIndex = Math.min(targetColumnIndex, columnCount - 1);
 
       const top = columnHeights[targetColumnIndex];
       itemPositions.set(itemKey, {

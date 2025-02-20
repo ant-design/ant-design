@@ -1,9 +1,7 @@
 import React from 'react';
-import { Masonry } from 'antd';
+import { Card, Masonry } from 'antd';
 
-import DemoItem from './DemoItem';
-
-const heights = [120, 45, 85, 160, 95, 140, 75, 110, 65, 130, 90, 145, 55, 100, 80];
+const heights = [120, 55, 85, 160, 95, 140, 75, 110, 65, 130, 90, 145, 55, 100, 80];
 
 const App: React.FC = () => {
   const items = heights.map((height, index) => ({
@@ -14,10 +12,14 @@ const App: React.FC = () => {
 
   return (
     <Masonry
-      columns={{ xs: 1, sm: 2, md: 3, lg: 4, xl: 5 }}
+      columns={{ xs: 1, sm: 2, md: 3, lg: 4 }}
       gutter={{ xs: 8, sm: 12, md: 16 }}
       items={items}
-      itemRender={(item) => <DemoItem height={item.data}>{item.index + 1}</DemoItem>}
+      itemRender={(item) => (
+        <Card size="small" style={{ height: item.data }}>
+          {item.index + 1}
+        </Card>
+      )}
     />
   );
 };

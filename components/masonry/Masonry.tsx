@@ -87,7 +87,6 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   const halfHorizontalGutter = horizontalGutter / 2;
 
   // ====================== Layout ======================
-
   const columnCount = React.useMemo<number>(() => {
     if (typeof columns === 'number') {
       return columns;
@@ -230,6 +229,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
                 ref={composeRef(motionRef, (ele) => setItemRef(itemKey, ele))}
                 index={itemIndex}
                 itemRender={itemRender}
+                column={columnIndex}
               />
             );
           }}

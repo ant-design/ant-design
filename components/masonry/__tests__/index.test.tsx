@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import React from 'react';
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 
-import Masonry, { MasonryProps } from '..';
-import { triggerResize, waitFakeTimer } from '../../../tests/utils';
-import { MasonryItem } from '../interface';
+import Masonry from '..';
+import type { MasonryProps } from '..';
+import { render, triggerResize, waitFakeTimer } from '../../../tests/utils';
 
 const resizeMasonry = async () => {
   triggerResize(document.body.querySelector('.ant-masonry')!);
@@ -41,27 +40,6 @@ jest.mock('../../_util/responsiveObserver', () => {
 
 describe('Masonry', () => {
   beforeAll(() => {
-    spyElementPrototypes(HTMLElement, {
-      clientHeight: {
-        get() {
-          if ((this as HTMLElement).getAttribute('data-height')) {
-            return parseFloat((this as HTMLElement).getAttribute('data-height')!);
-          }
-          return 100;
-        },
-      },
-      clientWidth: {
-        get() {
-          if ((this as HTMLElement).classList.contains('ant-masonry')) {
-            return 820; // container width
-          }
-          return 273.33; // default width for other elements
-        },
-      },
-    });
-  });
-
-  beforeEach(() => {
     jest.spyOn(window, 'matchMedia').mockImplementation(
       (query) =>
         ({
@@ -72,6 +50,20 @@ describe('Masonry', () => {
           matches: query === '(min-width: 1200px)',
         }) as any,
     );
+
+    spyElementPrototypes(HTMLElement, {
+      getBoundingClientRect() {
+        const recordElement = (this as unknown as HTMLElement).querySelector(
+          '.bamboo',
+        ) as HTMLElement;
+        return { height: Number(recordElement.getAttribute('data-height')) || 100, width: 100 };
+      },
+    });
+  });
+
+  beforeEach(() => {
+    jest.useFakeTimers();
+
     (global as any).unsubscribeCnt = 0;
   });
 
@@ -81,20 +73,12 @@ describe('Masonry', () => {
     jest.restoreAllMocks();
   });
 
-  const DemoMasonry = ({
-    columns,
-    gutter,
-    sequential,
-    keepAspectRatio,
-  }: Omit<MasonryProps, 'items'>) => {
+  const DemoMasonry = (props: Partial<MasonryProps>) => {
     const heights = [150, 30, 90, 70, 110, 150, 130, 80, 50, 90, 100, 150, 30, 50, 80];
 
     const items = heights.map((height, index) => ({
       key: `item-${index}`,
-      height,
-      render: () => (
-        <div style={{ height, width: keepAspectRatio ? height * 1.5 : undefined }}>{index + 1}</div>
-      ),
+      data: height,
     }));
 
     return (
@@ -104,23 +88,35 @@ describe('Masonry', () => {
         }}
       >
         <Masonry
-          columns={columns}
-          gutter={gutter}
-          sequential={sequential}
-          keepAspectRatio={keepAspectRatio}
+          columns={3}
+          itemRender={({ data, index, column }) => (
+            <div
+              style={{ height: data }}
+              data-height={data}
+              className="bamboo"
+              data-column={column}
+            >
+              {index + 1}
+            </div>
+          )}
           items={items}
+          {...props}
         />
       </div>
     );
   };
 
-  it('should render correctly', () => {
+  it('should render correctly', async () => {
     const { container } = render(<DemoMasonry columns={3} />);
-    expect(container.firstChild).toMatchSnapshot();
+    await resizeMasonry();
+
+    expect(container.querySelector('.ant-masonry')).toHaveStyle({
+      height: '480px',
+    });
   });
 
   it('should handle responsive columns', async () => {
-    jest.spyOn(window, 'matchMedia').mockImplementation(
+    const mockMatchMedia = jest.spyOn(window, 'matchMedia').mockImplementation(
       (query) =>
         ({
           addListener: (cb: (e: { matches: boolean }) => void) => {
@@ -135,116 +131,53 @@ describe('Masonry', () => {
 
     await resizeMasonry();
 
-    const elements = container.querySelectorAll('.ant-masonry > *');
+    const elements = container.querySelectorAll('.bamboo');
     const columnOrders = Array.from(elements).map((element) => element.getAttribute('data-column'));
 
     expect(columnOrders[0]).toBe('0');
     expect(columnOrders[1]).toBe('1');
-    expect(columnOrders[2]).toBe('2');
+    expect(columnOrders[2]).toBe('1');
+
+    mockMatchMedia.mockRestore();
   });
 
-  it('should handle sequential layout', () => {
-    const { container } = render(<DemoMasonry columns={2} sequential />);
+  it('should rearrange after item update', async () => {
+    const items = [20, 10, 30, 40, 10].map((height, index) => ({
+      key: index,
+      data: { height, id: index },
+    }));
 
-    const columns = container.querySelectorAll('.ant-masonry > *');
-    expect(columns[0].textContent).toBe('1');
-    expect(columns[1].textContent).toBe('2');
-    expect(columns[2].textContent).toBe('3');
-    expect(columns[3].textContent).toBe('4');
-  });
-
-  it('should handle large columns', () => {
-    jest.spyOn(window, 'matchMedia').mockImplementation(
-      (query) =>
-        ({
-          addListener: (cb: (e: { matches: boolean }) => void) => {
-            cb({ matches: query === '(min-width: 1200px)' });
-          },
-          removeListener: jest.fn(),
-          matches: query === '(min-width: 1200px)',
-        }) as any,
+    const renderDemo = (nextItems: typeof items) => (
+      <DemoMasonry
+        items={nextItems}
+        itemRender={({
+          data: { height, id },
+          column,
+        }: (typeof items)[number] & {
+          column: number;
+        }) => (
+          <div className="bamboo" style={{ height }} data-height={height} data-column={column}>
+            {id}
+          </div>
+        )}
+      />
     );
 
-    const { container } = render(<DemoMasonry columns={{ xs: 1, sm: 2, md: 3 }} />);
-
-    const elements = container.querySelectorAll('.ant-masonry > *');
-    const columnOrders = Array.from(elements).map((element) => element.getAttribute('data-column'));
-
-    expect(columnOrders[0]).toBe('0');
-    expect(columnOrders[1]).toBe('1');
-    expect(columnOrders[2]).toBe('2');
-    expect(columnOrders[3]).not.toBe('3');
-  });
-
-  it('should handle keep aspect ratio', async () => {
-    spyElementPrototypes(HTMLElement, {
-      clientHeight: {
-        get() {
-          if ((this as HTMLElement).getAttribute('data-height')) {
-            return parseFloat((this as HTMLElement).getAttribute('data-height')!);
-          }
-          return 100;
-        },
-      },
-      clientWidth: {
-        get() {
-          if ((this as HTMLElement).getAttribute('data-height')) {
-            return parseFloat((this as HTMLElement).getAttribute('data-height')!) * 1.5;
-          }
-          return 273.33; // default width for other elements
-        },
-      },
-    });
-    const { container } = render(<DemoMasonry columns={3} keepAspectRatio />);
-
+    const { container, rerender } = render(renderDemo(items));
     await resizeMasonry();
 
-    const elements = container.querySelectorAll('.ant-masonry > *');
-    const firstElement = elements[0];
-    const firstElementStyle = window.getComputedStyle(firstElement);
-    const width = parseFloat(firstElementStyle.getPropertyValue('--ant-masonry-item-width'));
-    const height = parseFloat(firstElementStyle.getPropertyValue('--ant-masonry-item-height'));
+    const getColumns = () =>
+      Array.from(container.querySelectorAll('.bamboo')).map((ele) =>
+        [ele.textContent, ele.getAttribute('data-column')].join('-'),
+      );
 
-    expect(height).toBe(width / 1.5);
-  });
+    // Origin
+    expect(getColumns()).toEqual(['0-0', '1-1', '2-2', '3-1', '4-0']);
 
-  it('should not rearrage after removing item', async () => {
-    const Component = () => {
-      const [items, setItems] = useState<MasonryItem[]>([]);
-
-      const removeItem = jest.fn((key: string) => {
-        setItems((prev) => prev.filter((item) => item.key !== key));
-      });
-
-      useEffect(() => {
-        setItems(
-          [150, 30, 90, 70, 110, 150, 130, 80, 50, 90, 100, 150, 30, 50, 80].map(
-            (height, index) => ({
-              key: `item-${index}`,
-              height,
-              render: () => (
-                <div style={{ height }} onClick={() => removeItem(`item-${index}`)}>
-                  {index + 1}
-                </div>
-              ),
-            }),
-          ),
-        );
-      }, []);
-
-      return <Masonry columns={2} items={items} />;
-    };
-    const { container, getByText } = render(<Component />);
-
-    const elements = container.querySelectorAll('.ant-masonry > *');
-    expect(elements).toHaveLength(15);
-    expect(elements[1].getAttribute('data-column')).toBe('1');
-
-    // Simulate removing an item
-    fireEvent.click(getByText('1'));
-    await waitFor(() => {
-      expect(container.querySelectorAll('.ant-masonry > *')).toHaveLength(14);
-      expect(elements[1].getAttribute('data-column')).toBe('1');
-    });
+    // remove one
+    items[1].data.height = 50;
+    rerender(renderDemo([...items]));
+    await resizeMasonry();
+    expect(getColumns()).toEqual(['0-0', '1-1', '2-2', '3-0', '4-2']);
   });
 });

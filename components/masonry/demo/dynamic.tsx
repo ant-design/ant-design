@@ -1,31 +1,10 @@
 import React, { useState } from 'react';
-import { Button } from 'antd';
+import { CloseOutlined } from '@ant-design/icons';
+import { Button, Card, Flex, theme } from 'antd';
 
 import Masonry from '../Masonry';
 
-const DemoItem: React.FC<{ height: number; children: React.ReactNode; onClick: () => void }> = ({
-  height,
-  children,
-  onClick,
-}) => {
-  return (
-    <div
-      style={{
-        height,
-        background: '#f0f0f0',
-        borderRadius: 4,
-        padding: 4,
-        width: '100%',
-        boxSizing: 'border-box',
-      }}
-      onClick={onClick}
-    >
-      {children}
-    </div>
-  );
-};
-
-const heights = [150, 30, 90, 70, 110, 150, 130, 80, 50, 90, 100, 150, 30, 50, 80];
+const heights = [150, 50, 90, 70, 110, 150, 130, 80, 50, 90, 100, 150, 70, 50, 80];
 
 type ItemType = {
   key: number;
@@ -34,6 +13,8 @@ type ItemType = {
 };
 
 const Update: React.FC = () => {
+  const { token } = theme.useToken();
+
   const [items, setItems] = useState<ItemType[]>(() =>
     heights.map((height, index) => ({
       key: index,
@@ -51,21 +32,31 @@ const Update: React.FC = () => {
       ...prevItems,
       {
         key: (prevItems[prevItems.length - 1]?.key || 0) + 1,
-        data: Math.floor(Math.random() * 100) + 100,
+        data: Math.floor(Math.random() * 100) + 50,
       },
     ]);
   };
 
   return (
-    <>
+    <Flex vertical gap={16}>
       <Masonry
         columns={4}
         gutter={16}
         items={items}
         itemRender={({ data, key }) => (
-          <DemoItem height={data} onClick={() => removeItem(key)}>
+          <Card size="small" style={{ height: data }}>
             {Number(key) + 1}
-          </DemoItem>
+            <Button
+              style={{
+                position: 'absolute',
+                insetBlockStart: token.paddingSM,
+                insetInlineEnd: token.paddingSM,
+              }}
+              size="small"
+              icon={<CloseOutlined />}
+              onClick={() => removeItem(key)}
+            />
+          </Card>
         )}
         onSortChange={(sortedItems) => {
           setItems((prevItems) =>
@@ -81,8 +72,10 @@ const Update: React.FC = () => {
           );
         }}
       />
-      <Button onClick={addItem}>Add Item</Button>
-    </>
+      <Button block onClick={addItem}>
+        Add Item
+      </Button>
+    </Flex>
   );
 };
 
