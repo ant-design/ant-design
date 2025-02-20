@@ -210,7 +210,8 @@ export type FormConfig = ComponentStyleConfig &
 
 export type FloatButtonGroupConfig = Pick<FloatButtonGroupProps, 'closeIcon'>;
 
-export type PaginationConfig = ComponentStyleConfig & Pick<PaginationProps, 'showSizeChanger'>;
+export type PaginationConfig = ComponentStyleConfig &
+  Pick<PaginationProps, 'showSizeChanger' | 'classNames' | 'styles'>;
 
 export type SelectConfig = ComponentStyleConfig & Pick<SelectProps, 'showSearch' | 'variant'>;
 

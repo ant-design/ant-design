@@ -122,7 +122,7 @@
     "@rc-component/mentions": "~1.0.0",
     "@rc-component/motion": "^1.0.0",
     "@rc-component/mutate-observer": "^2.0.0",
-    "@rc-component/pagination": "~1.0.0",
+    "@rc-component/pagination": "~1.1.1",
     "@rc-component/qrcode": "~1.0.0",
     "@rc-component/resize-observer": "^1.0.0",
     "@rc-component/segmented": "~1.1.0",
