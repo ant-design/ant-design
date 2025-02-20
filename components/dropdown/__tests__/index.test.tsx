@@ -1,5 +1,6 @@
 import React from 'react';
 import type { TriggerProps } from '@rc-component/trigger';
+import ConfigProvider from '../../config-provider';
 
 import type { DropDownProps } from '..';
 import Dropdown from '..';
@@ -316,5 +317,37 @@ describe('Dropdown', () => {
       container.querySelector('.ant-dropdown-menu-title-content-with-extra'),
     ).toBeInTheDocument();
     expect(container.querySelector('.ant-dropdown-menu-item-extra')?.textContent).toBe(text);
+  });
+
+  it('should show correct arrow direction in rtl mode', () => {
+    const items = [
+      {
+        key: '1',
+        label: 'sub menu',
+        children: [
+          {
+            key: '1-1',
+            label: '1rd menu item',
+          },
+          {
+            key: '1-2',
+            label: '2th menu item',
+          },
+        ],
+      },
+    ];
+
+    const { container } = render(
+      <ConfigProvider direction="rtl">
+        <Dropdown menu={{ items, openKeys: ['2'] }} open autoAdjustOverflow={false}>
+          <a onClick={(e) => e.preventDefault()}>Cascading menu</a>
+        </Dropdown>
+      </ConfigProvider>,
+    );
+    expect(
+      container.querySelector(
+        '.ant-dropdown-menu-submenu-arrow .ant-dropdown-menu-submenu-arrow-icon',
+      ),
+    ).toHaveClass('anticon-left');
   });
 });
