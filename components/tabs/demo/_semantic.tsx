@@ -23,7 +23,8 @@ const Block = (props: any) => {
     <Tabs
       {...props}
       defaultActiveKey="1"
-      style={{ height: 220, width: '80%' }}
+      style={{ height: 220, width: '100%' }}
+      styles={{ popup: { background: '#fff' } }}
       items={Array.from({ length: 30 }, (_, i) => {
         const id = String(i);
         return {
