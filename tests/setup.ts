@@ -70,10 +70,14 @@ if (typeof MessageChannel === 'undefined') {
     const port1: any = {};
     const port2: any = {};
     port2.postMessage = () => {
-      port1.onmessage?.();
+      if ((global as any).enableMessage) {
+        port1.onmessage?.();
+      }
     };
     port1.postMessage = () => {
-      port2.onmessage?.();
+      if ((global as any).enableMessage) {
+        port2.onmessage?.();
+      }
     };
     return { port1, port2 };
   };

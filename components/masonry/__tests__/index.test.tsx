@@ -42,6 +42,8 @@ describe('Masonry', () => {
   let minWidth = '';
 
   beforeAll(() => {
+    (global as any).enableMessage = true;
+
     jest.spyOn(window, 'matchMedia').mockImplementation(
       (query) =>
         ({
