@@ -112,6 +112,8 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     return pageSizeOptions ? pageSizeOptions.map((option) => Number(option)) : undefined;
   }, [pageSizeOptions]);
 
+  const itemClassNames = classNames(contextClassNames.item, paginationClassNames?.item);
+  const itemStyles = { ...contextStyles.item, ...styles?.item };
   // Render size changer
   const sizeChangerRender: RcPaginationProps['sizeChangerRender'] = (info) => {
     const {
@@ -166,13 +168,14 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   // ============================= Render =============================
   const iconsProps = React.useMemo<Record<PropertyKey, React.ReactNode>>(() => {
     const ellipsis = <span className={`${prefixCls}-item-ellipsis`}>•••</span>;
+    const btnClassNames = classNames(`${prefixCls}-item-link`, itemClassNames);
     const prevIcon = (
-      <button className={`${prefixCls}-item-link`} type="button" tabIndex={-1}>
+      <button className={btnClassNames} style={itemStyles} type="button" tabIndex={-1}>
         {direction === 'rtl' ? <RightOutlined /> : <LeftOutlined />}
       </button>
     );
     const nextIcon = (
-      <button className={`${prefixCls}-item-link`} type="button" tabIndex={-1}>
+      <button className={btnClassNames} style={itemStyles} type="button" tabIndex={-1}>
         {direction === 'rtl' ? <LeftOutlined /> : <RightOutlined />}
       </button>
     );
@@ -236,8 +239,8 @@ const Pagination: React.FC<PaginationProps> = (props) => {
       <RcPagination
         {...iconsProps}
         {...restProps}
-        styles={{ item: { ...contextStyles.item, ...styles?.item } }}
-        classNames={{ item: classNames(contextClassNames.item, paginationClassNames?.item) }}
+        styles={{ item: itemStyles }}
+        classNames={{ item: itemClassNames }}
         style={mergedStyle}
         prefixCls={prefixCls}
         selectPrefixCls={selectPrefixCls}
