@@ -3,17 +3,18 @@ import type { CSSProperties } from 'react';
 import { useEvent } from '@rc-component/util';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import isEqual from '@rc-component/util/lib/isEqual';
-import raf from '@rc-component/util/lib/raf';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 
 import { responsiveArray } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
+import { GetProp } from '../_util/type';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { RowProps } from '../grid';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import useGutter from '../grid/hooks/useGutter';
+import useDelay from './hooks/useDelay';
 import usePositions from './hooks/usePositions';
 import type { ItemHeightData } from './hooks/usePositions';
 import useRefs from './hooks/useRefs';
@@ -43,7 +44,7 @@ export interface MasonryProps<ItemDateType = any> {
   columns: number | Partial<Record<Breakpoint, number>>;
 
   /** Trigger when sort order changed */
-  onSortChange?: (sortInfo: (MasonryItemType<ItemDateType> & { column: number })[]) => void;
+  onSortChange?: (sortInfo: { key: React.Key; column: number }[]) => void;
 }
 
 export interface MasonryRef {
@@ -104,27 +105,19 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   }, [columns, screens]);
 
   // ================== Items Position ==================
-  const rafRef = React.useRef<number>(0);
-  const clearRaf = () => {
-    raf.cancel(rafRef.current);
-  };
-
   const [itemHeights, setItemHeights] = React.useState<ItemHeightData[]>([]);
 
-  const collectItemSize = useEvent(() => {
-    clearRaf();
-    rafRef.current = raf(() => {
-      const nextItemsHeight = items.map((item, index): ItemHeightData => {
-        const itemKey = item.key ?? index;
-        const itemEle = getItemRef(itemKey);
-        const rect = itemEle?.getBoundingClientRect();
-        return [itemKey, rect ? rect.height : 0, item.column];
-      });
-
-      setItemHeights((prevItemsHeight) =>
-        isEqual(prevItemsHeight, nextItemsHeight) ? prevItemsHeight : nextItemsHeight,
-      );
+  const collectItemSize = useDelay(() => {
+    const nextItemsHeight = items.map((item, index): ItemHeightData => {
+      const itemKey = item.key ?? index;
+      const itemEle = getItemRef(itemKey);
+      const rect = itemEle?.getBoundingClientRect();
+      return [itemKey, rect ? rect.height : 0, item.column];
     });
+
+    setItemHeights((prevItemsHeight) =>
+      isEqual(prevItemsHeight, nextItemsHeight) ? prevItemsHeight : nextItemsHeight,
+    );
   });
 
   const [itemPositions, totalHeight] = usePositions(itemHeights, columnCount, verticalGutter);
@@ -161,15 +154,26 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     }
   }, [itemWithPositions]);
 
-  React.useEffect(() => {
+  useLayoutEffect(() => {
     if (onSortChange && items.length === itemColumns.length) {
       onSortChange(itemColumns.map(([item, column]) => ({ ...item, column })));
     }
   }, [itemColumns]);
 
+  // ====================== Resize ======================
+  const widthRef = React.useRef<number>(0);
+
+  // Trigger only when width changed
+  const onContainerResize: GetProp<typeof ResizeObserver, 'onResize'> = useEvent((info) => {
+    if (widthRef.current !== info.width) {
+      collectItemSize();
+    }
+    widthRef.current = info.width;
+  });
+
   // ====================== Render ======================
   return wrapCSSVar(
-    <ResizeObserver onResize={collectItemSize}>
+    <ResizeObserver onResize={onContainerResize}>
       <div
         ref={containerRef}
         className={classNames(prefixCls, rootClassName, className, hashId, cssVarCls)}

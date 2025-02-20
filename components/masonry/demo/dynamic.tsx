@@ -67,7 +67,17 @@ const Update: React.FC = () => {
           </DemoItem>
         )}
         onSortChange={(sortedItems) => {
-          setItems(sortedItems as ItemType[]);
+          setItems((prevItems) =>
+            prevItems.map((item) => {
+              const matchItem = sortedItems.find((sortedItem) => sortedItem.key === item.key);
+              return matchItem
+                ? {
+                    ...item,
+                    column: matchItem.column,
+                  }
+                : item;
+            }),
+          );
         }}
       />
       <Button onClick={addItem}>Add Item</Button>
