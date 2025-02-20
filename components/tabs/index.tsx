@@ -26,7 +26,8 @@ export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
 export type { TabPaneProps };
 
 type SemanticName = 'root' | 'popup' | 'item' | 'indicator';
-export interface TabsProps extends Omit<RcTabsProps, 'editable' | 'classNames' | 'styles'> {
+export interface TabsProps
+  extends Omit<RcTabsProps, 'editable' | 'classNames' | 'styles' | 'popupClassName'> {
   rootClassName?: string;
   type?: TabsType;
   size?: SizeType;
@@ -42,6 +43,8 @@ export interface TabsProps extends Omit<RcTabsProps, 'editable' | 'classNames' |
   indicatorSize?: GetIndicatorSize;
   classNames?: Partial<Record<SemanticName, string>>;
   styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  /** @deprecated Please use `classNames={{ popup: '' }}` instead */
+  popupClassName?: string;
 }
 
 const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
@@ -98,7 +101,9 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Tabs');
-
+    [['popupClassName', 'classNames={{ popup: "" }}']].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
     warning(
       !('onPrevClick' in props) && !('onNextClick' in props),
       'breaking',
