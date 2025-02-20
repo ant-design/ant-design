@@ -164,12 +164,7 @@ describe('Masonry', () => {
     const renderDemo = (nextItems: typeof items) => (
       <DemoMasonry
         items={nextItems}
-        itemRender={({
-          data: { height, id },
-          column,
-        }: (typeof items)[number] & {
-          column: number;
-        }) => (
+        itemRender={({ data: { height, id }, column }: any) => (
           <div className="bamboo" style={{ height }} data-height={height} data-column={column}>
             {id}
           </div>

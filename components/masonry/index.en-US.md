@@ -6,7 +6,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e8nNSayZcBMAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e8nNSayZcBMAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 1
-tag: 5.24.0
+tag: 6.0.0
 ---
 
 A masonry layout component for displaying content with different heights.

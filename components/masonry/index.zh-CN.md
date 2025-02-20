@@ -7,7 +7,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e8nNSayZcBMAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e8nNSayZcBMAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 1
-tag: 5.24.0
+tag: 6.0.0
 ---
 
 瀑布流布局组件，用于展示不同高度的内容。
