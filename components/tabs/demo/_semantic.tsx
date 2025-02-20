@@ -8,13 +8,17 @@ const locales = {
   cn: {
     root: '根元素',
     item: 'Item 元素',
+    header: '头部元素',
     indicator: '指示器元素',
+    content: '内容元素',
     popup: '弹出菜单元素',
   },
   en: {
     root: 'Root element',
     item: 'Item element',
+    header: 'Header element',
     indicator: 'Indicator element',
+    content: 'Content element',
     popup: 'Popup element',
   },
 };
@@ -44,8 +48,10 @@ const App: React.FC = () => {
     <SemanticPreview
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
+        { name: 'header', desc: locale.root, version: '6.0.0' },
         { name: 'item', desc: locale.item, version: '6.0.0' },
         { name: 'indicator', desc: locale.indicator, version: '6.0.0' },
+        { name: 'content', desc: locale.content, version: '6.0.0' },
         { name: 'popup', desc: locale.popup, version: '6.0.0' },
       ]}
     >

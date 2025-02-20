@@ -25,7 +25,7 @@ export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
 
 export type { TabPaneProps };
 
-type SemanticName = 'root' | 'popup' | 'item' | 'indicator';
+type SemanticName = 'root' | 'popup' | 'item' | 'indicator' | 'content' | 'header';
 export interface TabsProps
   extends Omit<RcTabsProps, 'editable' | 'classNames' | 'styles' | 'popupClassName'> {
   rootClassName?: string;
@@ -161,11 +161,15 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
         ),
         item: classNames(contextClassNames.item, tabsClassNames?.item),
         indicator: classNames(contextClassNames.indicator, tabsClassNames?.indicator),
+        header: classNames(contextClassNames.header, tabsClassNames?.header),
+        content: classNames(contextClassNames.content, tabsClassNames?.content),
       }}
       styles={{
         popup: { ...contextStyles.popup, ...styles?.popup },
         item: { ...contextStyles.item, ...styles?.item },
         indicator: { ...contextStyles.indicator, ...styles?.indicator },
+        header: { ...contextStyles.header, ...styles?.header },
+        content: { ...contextStyles.content, ...styles?.content },
       }}
       style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
       editable={editable}

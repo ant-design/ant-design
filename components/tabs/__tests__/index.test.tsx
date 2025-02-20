@@ -155,11 +155,15 @@ describe('Tabs', () => {
       root: 'test-class',
       item: 'test-item',
       indicator: 'test-indicator',
+      header: 'test-header',
+      content: 'test-content',
     };
     const customStyles = {
       root: { color: 'red' },
       item: { color: 'blue' },
       indicator: { color: 'yellow' },
+      header: { color: 'green' },
+      content: { color: 'purple' },
     };
     const { container } = render(
       <Tabs
@@ -180,11 +184,17 @@ describe('Tabs', () => {
     const root = container.querySelector('.ant-tabs');
     const item = container.querySelector('.ant-tabs-tab');
     const indicator = container.querySelector('.ant-tabs-ink-bar');
+    const header = container.querySelector('.ant-tabs-nav');
+    const content = container.querySelector('.ant-tabs-tabpane');
     expect(root).toHaveClass('test-class');
     expect(item).toHaveClass('test-item');
     expect(indicator).toHaveClass('test-indicator');
+    expect(header).toHaveClass('test-header');
+    expect(content).toHaveClass('test-content');
     expect(root).toHaveStyle({ color: 'red' });
     expect(item).toHaveStyle({ color: 'blue' });
     expect(indicator).toHaveStyle({ color: 'yellow' });
+    expect(header).toHaveStyle({ color: 'green' });
+    expect(content).toHaveStyle({ color: 'purple' });
   });
 });
