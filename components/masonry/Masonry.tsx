@@ -1,7 +1,6 @@
 import * as React from 'react';
 import type { CSSProperties } from 'react';
 import { CSSMotionList } from '@rc-component/motion';
-import { useEvent } from '@rc-component/util';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import isEqual from '@rc-component/util/lib/isEqual';
 import { composeRef } from '@rc-component/util/lib/ref';
@@ -10,7 +9,6 @@ import ResizeObserver from 'rc-resize-observer';
 
 import { responsiveArray } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
-import { GetProp } from '../_util/type';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { RowProps } from '../grid';
@@ -164,23 +162,14 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     }
   }, [itemColumns]);
 
-  // ====================== Resize ======================
-  const widthRef = React.useRef<number>(0);
-
-  // Trigger only when width changed
-  const onContainerResize: GetProp<typeof ResizeObserver, 'onResize'> = useEvent((info) => {
-    if (widthRef.current !== info.width) {
-      collectItemSize();
-    }
-    widthRef.current = info.width;
-  });
-
   // ====================== Render ======================
   return wrapCSSVar(
-    <ResizeObserver onResize={onContainerResize}>
+    <ResizeObserver onResize={collectItemSize}>
       <div
         ref={containerRef}
-        className={classNames(prefixCls, rootClassName, className, hashId, cssVarCls)}
+        className={classNames(prefixCls, rootClassName, className, hashId, cssVarCls, {
+          [`${prefixCls}-rtl`]: direction === 'rtl',
+        })}
         style={{
           height: totalHeight,
           marginInline: -halfHorizontalGutter,
@@ -212,8 +201,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
             const { column: columnIndex = 0 } = position;
 
             const itemStyle: CSSProperties = {
-              [direction === 'rtl' ? 'right' : 'left']:
-                `calc(${(columnIndex / columnCount) * 100}% + ${halfHorizontalGutter}px)`,
+              insetInlineStart: `calc(${(columnIndex / columnCount) * 100}% + ${halfHorizontalGutter}px)`,
               width: `calc(${100 / columnCount}% - ${horizontalGutter}px)`,
               top: position.top,
               position: 'absolute',

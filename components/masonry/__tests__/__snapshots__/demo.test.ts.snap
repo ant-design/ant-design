@@ -71,12 +71,36 @@ exports[`renders components/masonry/demo/basic.tsx correctly 1`] = `
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
-      style="height:110px"
     >
+      <div
+        class="ant-card-cover"
+      >
+        <img
+          alt="food"
+          src="https://images.unsplash.com/photo-1491961865842-98f7befd1a60?w=523&auto=format"
+        />
+      </div>
       <div
         class="ant-card-body"
       >
-        5
+        <div
+          class="ant-card-meta"
+        >
+          <div
+            class="ant-card-meta-section"
+          >
+            <div
+              class="ant-card-meta-title"
+            >
+              I'm Special
+            </div>
+            <div
+              class="ant-card-meta-description"
+            >
+              Let's have a meal
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

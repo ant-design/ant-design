@@ -36,6 +36,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | columns | Number of columns, can be a fixed number or responsive config | `number \| { xs?: number; sm?: number; md?: number }` | - |
 | gutter | Gap between items, can be a fixed number, responsive config, or \[horizontal, vertical\] config | `Gap` \| `[Gap, Gap]` | `0` |
 | items | Masonry items | `<T = MasonryItem>[]` | - |
+| onSortChange | Callback when column order changes | `({ key: React.Key; column: number }[]) => void` | - |
 
 ### MasonryItem
 

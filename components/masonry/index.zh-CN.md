@@ -37,6 +37,7 @@ tag: 5.24.0
 | columns | 列数，可以是固定值或响应式配置 | `number \| { xs?: number; sm?: number; md?: number }` | - |
 | gutter | 间距，可以是固定值、响应式配置或水平垂直间距配置 | `Gap \| [Gap, Gap]` | `0` |
 | items | 瀑布流项 | `<T = MasonryItem>[]` | - |
+| onSortChange | 列排序回调 | `({ key: React.Key; column: number }[]) => void` | - |
 
 ### MasonryItem
 

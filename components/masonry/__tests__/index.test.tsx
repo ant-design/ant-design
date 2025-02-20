@@ -39,15 +39,17 @@ jest.mock('../../_util/responsiveObserver', () => {
 });
 
 describe('Masonry', () => {
+  let minWidth = '';
+
   beforeAll(() => {
     jest.spyOn(window, 'matchMedia').mockImplementation(
       (query) =>
         ({
           addListener: (cb: (e: { matches: boolean }) => void) => {
-            cb({ matches: query === '(min-width: 1200px)' });
+            cb({ matches: query === `(min-width: ${minWidth})` });
           },
           removeListener: jest.fn(),
-          matches: query === '(min-width: 1200px)',
+          matches: query === `(min-width: ${minWidth})`,
         }) as any,
     );
 
@@ -56,26 +58,34 @@ describe('Masonry', () => {
         const recordElement = (this as unknown as HTMLElement).querySelector(
           '.bamboo',
         ) as HTMLElement;
-        return { height: Number(recordElement.getAttribute('data-height')) || 100, width: 100 };
+        return {
+          height: recordElement.hasAttribute('data-height')
+            ? Number(recordElement.getAttribute('data-height'))
+            : 100,
+          width: 100,
+        };
       },
     });
   });
 
   beforeEach(() => {
     jest.useFakeTimers();
-
+    minWidth = '1200px';
     (global as any).unsubscribeCnt = 0;
   });
 
-  afterEach(() => {
+  afterEach(async () => {
+    await waitFakeTimer();
+
     jest.clearAllTimers();
     jest.useRealTimers();
     jest.restoreAllMocks();
+    document.body.innerHTML = '';
   });
 
-  const DemoMasonry = (props: Partial<MasonryProps>) => {
-    const heights = [150, 30, 90, 70, 110, 150, 130, 80, 50, 90, 100, 150, 30, 50, 80];
+  const heights = [150, 30, 90, 70, 110, 150, 130, 80, 50, 90, 100, 150, 30, 50, 80];
 
+  const DemoMasonry = (props: Partial<MasonryProps>) => {
     const items = heights.map((height, index) => ({
       key: `item-${index}`,
       data: height,
@@ -107,25 +117,31 @@ describe('Masonry', () => {
   };
 
   it('should render correctly', async () => {
-    const { container } = render(<DemoMasonry columns={3} />);
+    const onSortChange = jest.fn();
+    const { container } = render(<DemoMasonry columns={3} onSortChange={onSortChange} />);
     await resizeMasonry();
 
     expect(container.querySelector('.ant-masonry')).toHaveStyle({
       height: '480px',
     });
+
+    const columns = Array.from(container.querySelectorAll('.bamboo')).map((ele) =>
+      Number(ele.getAttribute('data-column')),
+    );
+
+    expect(onSortChange).toHaveBeenCalledWith(
+      heights.map((height, index) =>
+        expect.objectContaining({
+          column: columns[index],
+          data: height,
+          key: `item-${index}`,
+        }),
+      ),
+    );
   });
 
   it('should handle responsive columns', async () => {
-    const mockMatchMedia = jest.spyOn(window, 'matchMedia').mockImplementation(
-      (query) =>
-        ({
-          addListener: (cb: (e: { matches: boolean }) => void) => {
-            cb({ matches: query === '(min-width: 576px)' });
-          },
-          removeListener: jest.fn(),
-          matches: query === '(min-width: 576px)',
-        }) as any,
-    );
+    minWidth = '576px';
 
     const { container } = render(<DemoMasonry columns={{ xs: 1, sm: 2, md: 3 }} />);
 
@@ -137,8 +153,6 @@ describe('Masonry', () => {
     expect(columnOrders[0]).toBe('0');
     expect(columnOrders[1]).toBe('1');
     expect(columnOrders[2]).toBe('1');
-
-    mockMatchMedia.mockRestore();
   });
 
   it('should rearrange after item update', async () => {
@@ -179,5 +193,69 @@ describe('Masonry', () => {
     rerender(renderDemo([...items]));
     await resizeMasonry();
     expect(getColumns()).toEqual(['0-0', '1-1', '2-2', '3-0', '4-2']);
+  });
+
+  describe('gutter', () => {
+    const getGutter = () => {
+      const itemElements = document.body.querySelectorAll<HTMLElement>('.ant-masonry-item');
+
+      const horizontalGutter = itemElements[0].style.width.match(/\d+px/)![0];
+      const verticalGutter = itemElements[1].style.top.match(/\d+px/)![0];
+
+      return [parseInt(horizontalGutter, 10), parseInt(verticalGutter, 10)];
+    };
+
+    const renderGutter = (gutter: MasonryProps['gutter']) => (
+      <DemoMasonry
+        columns={1}
+        items={[
+          {
+            key: 0,
+            data: 0,
+          },
+          {
+            key: 1,
+            data: 23,
+          },
+        ]}
+        gutter={gutter}
+      />
+    );
+
+    it('should handle array gutter', async () => {
+      render(renderGutter([8, 16]));
+      await resizeMasonry();
+
+      expect(getGutter()).toEqual([8, 16]);
+    });
+
+    it('should handle responsive gutter', async () => {
+      minWidth = '576px';
+
+      render(renderGutter({ sm: 8, md: 16 }));
+      await resizeMasonry();
+
+      expect(getGutter()).toEqual([8, 8]);
+    });
+
+    it('should handle responsive gutter with array', async () => {
+      const mockMatchMedia = jest.spyOn(window, 'matchMedia').mockImplementation(
+        (query) =>
+          ({
+            addListener: (cb: (e: { matches: boolean }) => void) => {
+              cb({ matches: query === '(min-width: 576px)' });
+            },
+            removeListener: jest.fn(),
+            matches: query === '(min-width: 576px)',
+          }) as any,
+      );
+
+      render(renderGutter([{ sm: 8, md: 32 }, 23]));
+      await resizeMasonry();
+
+      expect(getGutter()).toEqual([8, 23]);
+
+      mockMatchMedia.mockRestore();
+    });
   });
 });

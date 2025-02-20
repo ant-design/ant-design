@@ -18,6 +18,10 @@ export const genMasonryStyle: GenerateStyle<MasonryToken> = (token: MasonryToken
       position: 'relative',
       boxSizing: 'border-box',
 
+      '&-rtl': {
+        direction: 'rtl',
+      },
+
       [`& > ${itemCls}`]: {
         boxSizing: 'border-box',
         insetInlineStart: 0,
