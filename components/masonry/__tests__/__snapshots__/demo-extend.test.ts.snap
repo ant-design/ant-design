@@ -7,7 +7,7 @@ exports[`renders components/masonry/demo/basic.tsx extend context correctly 1`] 
 >
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -22,7 +22,7 @@ exports[`renders components/masonry/demo/basic.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -37,7 +37,7 @@ exports[`renders components/masonry/demo/basic.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -52,7 +52,7 @@ exports[`renders components/masonry/demo/basic.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -67,7 +67,7 @@ exports[`renders components/masonry/demo/basic.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -106,7 +106,7 @@ exports[`renders components/masonry/demo/basic.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -121,7 +121,7 @@ exports[`renders components/masonry/demo/basic.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -136,7 +136,7 @@ exports[`renders components/masonry/demo/basic.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -151,7 +151,7 @@ exports[`renders components/masonry/demo/basic.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -166,7 +166,7 @@ exports[`renders components/masonry/demo/basic.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -181,7 +181,7 @@ exports[`renders components/masonry/demo/basic.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -196,7 +196,7 @@ exports[`renders components/masonry/demo/basic.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -211,7 +211,7 @@ exports[`renders components/masonry/demo/basic.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -226,7 +226,7 @@ exports[`renders components/masonry/demo/basic.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -241,7 +241,7 @@ exports[`renders components/masonry/demo/basic.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -270,7 +270,7 @@ exports[`renders components/masonry/demo/dynamic.tsx extend context correctly 1`
   >
     <div
       class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-      style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+      style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
     >
       <div
         class="ant-card ant-card-bordered ant-card-small"
@@ -315,7 +315,7 @@ exports[`renders components/masonry/demo/dynamic.tsx extend context correctly 1`
     </div>
     <div
       class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-      style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+      style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
     >
       <div
         class="ant-card ant-card-bordered ant-card-small"
@@ -360,7 +360,7 @@ exports[`renders components/masonry/demo/dynamic.tsx extend context correctly 1`
     </div>
     <div
       class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-      style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+      style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
     >
       <div
         class="ant-card ant-card-bordered ant-card-small"
@@ -405,7 +405,7 @@ exports[`renders components/masonry/demo/dynamic.tsx extend context correctly 1`
     </div>
     <div
       class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-      style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+      style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
     >
       <div
         class="ant-card ant-card-bordered ant-card-small"
@@ -450,7 +450,7 @@ exports[`renders components/masonry/demo/dynamic.tsx extend context correctly 1`
     </div>
     <div
       class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-      style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+      style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
     >
       <div
         class="ant-card ant-card-bordered ant-card-small"
@@ -495,7 +495,7 @@ exports[`renders components/masonry/demo/dynamic.tsx extend context correctly 1`
     </div>
     <div
       class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-      style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+      style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
     >
       <div
         class="ant-card ant-card-bordered ant-card-small"
@@ -540,7 +540,7 @@ exports[`renders components/masonry/demo/dynamic.tsx extend context correctly 1`
     </div>
     <div
       class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-      style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+      style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
     >
       <div
         class="ant-card ant-card-bordered ant-card-small"
@@ -585,7 +585,7 @@ exports[`renders components/masonry/demo/dynamic.tsx extend context correctly 1`
     </div>
     <div
       class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-      style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+      style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
     >
       <div
         class="ant-card ant-card-bordered ant-card-small"
@@ -630,7 +630,7 @@ exports[`renders components/masonry/demo/dynamic.tsx extend context correctly 1`
     </div>
     <div
       class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-      style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+      style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
     >
       <div
         class="ant-card ant-card-bordered ant-card-small"
@@ -675,7 +675,7 @@ exports[`renders components/masonry/demo/dynamic.tsx extend context correctly 1`
     </div>
     <div
       class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-      style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+      style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
     >
       <div
         class="ant-card ant-card-bordered ant-card-small"
@@ -720,7 +720,7 @@ exports[`renders components/masonry/demo/dynamic.tsx extend context correctly 1`
     </div>
     <div
       class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-      style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+      style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
     >
       <div
         class="ant-card ant-card-bordered ant-card-small"
@@ -765,7 +765,7 @@ exports[`renders components/masonry/demo/dynamic.tsx extend context correctly 1`
     </div>
     <div
       class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-      style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+      style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
     >
       <div
         class="ant-card ant-card-bordered ant-card-small"
@@ -810,7 +810,7 @@ exports[`renders components/masonry/demo/dynamic.tsx extend context correctly 1`
     </div>
     <div
       class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-      style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+      style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
     >
       <div
         class="ant-card ant-card-bordered ant-card-small"
@@ -855,7 +855,7 @@ exports[`renders components/masonry/demo/dynamic.tsx extend context correctly 1`
     </div>
     <div
       class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-      style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+      style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
     >
       <div
         class="ant-card ant-card-bordered ant-card-small"
@@ -900,7 +900,7 @@ exports[`renders components/masonry/demo/dynamic.tsx extend context correctly 1`
     </div>
     <div
       class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-      style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+      style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
     >
       <div
         class="ant-card ant-card-bordered ant-card-small"
@@ -964,7 +964,7 @@ exports[`renders components/masonry/demo/image.tsx extend context correctly 1`] 
 >
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <img
       alt="sample"
@@ -974,7 +974,7 @@ exports[`renders components/masonry/demo/image.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <img
       alt="sample"
@@ -984,7 +984,7 @@ exports[`renders components/masonry/demo/image.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <img
       alt="sample"
@@ -994,7 +994,7 @@ exports[`renders components/masonry/demo/image.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <img
       alt="sample"
@@ -1004,7 +1004,7 @@ exports[`renders components/masonry/demo/image.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <img
       alt="sample"
@@ -1014,7 +1014,7 @@ exports[`renders components/masonry/demo/image.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <img
       alt="sample"
@@ -1024,7 +1024,7 @@ exports[`renders components/masonry/demo/image.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <img
       alt="sample"
@@ -1034,7 +1034,7 @@ exports[`renders components/masonry/demo/image.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <img
       alt="sample"
@@ -1044,7 +1044,7 @@ exports[`renders components/masonry/demo/image.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <img
       alt="sample"
@@ -1054,7 +1054,7 @@ exports[`renders components/masonry/demo/image.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <img
       alt="sample"
@@ -1064,7 +1064,7 @@ exports[`renders components/masonry/demo/image.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <img
       alt="sample"
@@ -1074,7 +1074,7 @@ exports[`renders components/masonry/demo/image.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <img
       alt="sample"
@@ -1084,7 +1084,7 @@ exports[`renders components/masonry/demo/image.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <img
       alt="sample"
@@ -1094,7 +1094,7 @@ exports[`renders components/masonry/demo/image.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <img
       alt="sample"
@@ -1104,7 +1104,7 @@ exports[`renders components/masonry/demo/image.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <img
       alt="sample"
@@ -1114,7 +1114,7 @@ exports[`renders components/masonry/demo/image.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
+    style="inset-inline-start: calc(0% + 8px); width: calc(25% - 16px); position: absolute;"
   >
     <img
       alt="sample"
@@ -1134,7 +1134,7 @@ exports[`renders components/masonry/demo/responsive.tsx extend context correctly
 >
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
+    style="inset-inline-start: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -1149,7 +1149,7 @@ exports[`renders components/masonry/demo/responsive.tsx extend context correctly
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
+    style="inset-inline-start: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -1164,7 +1164,7 @@ exports[`renders components/masonry/demo/responsive.tsx extend context correctly
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
+    style="inset-inline-start: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -1179,7 +1179,7 @@ exports[`renders components/masonry/demo/responsive.tsx extend context correctly
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
+    style="inset-inline-start: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -1194,7 +1194,7 @@ exports[`renders components/masonry/demo/responsive.tsx extend context correctly
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
+    style="inset-inline-start: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -1209,7 +1209,7 @@ exports[`renders components/masonry/demo/responsive.tsx extend context correctly
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
+    style="inset-inline-start: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -1224,7 +1224,7 @@ exports[`renders components/masonry/demo/responsive.tsx extend context correctly
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
+    style="inset-inline-start: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -1239,7 +1239,7 @@ exports[`renders components/masonry/demo/responsive.tsx extend context correctly
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
+    style="inset-inline-start: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -1254,7 +1254,7 @@ exports[`renders components/masonry/demo/responsive.tsx extend context correctly
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
+    style="inset-inline-start: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -1269,7 +1269,7 @@ exports[`renders components/masonry/demo/responsive.tsx extend context correctly
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
+    style="inset-inline-start: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -1284,7 +1284,7 @@ exports[`renders components/masonry/demo/responsive.tsx extend context correctly
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
+    style="inset-inline-start: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -1299,7 +1299,7 @@ exports[`renders components/masonry/demo/responsive.tsx extend context correctly
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
+    style="inset-inline-start: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -1314,7 +1314,7 @@ exports[`renders components/masonry/demo/responsive.tsx extend context correctly
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
+    style="inset-inline-start: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -1329,7 +1329,7 @@ exports[`renders components/masonry/demo/responsive.tsx extend context correctly
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
+    style="inset-inline-start: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -1344,7 +1344,7 @@ exports[`renders components/masonry/demo/responsive.tsx extend context correctly
   </div>
   <div
     class="ant-masonry-item ant-masonry-item-fade-appear ant-masonry-item-fade-appear-start ant-masonry-item-fade"
-    style="left: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
+    style="inset-inline-start: calc(0% + 4px); width: calc(100% - 8px); position: absolute;"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
