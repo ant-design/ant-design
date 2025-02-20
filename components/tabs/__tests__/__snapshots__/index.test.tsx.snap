@@ -15,9 +15,9 @@ exports[`Tabs renderTabBar custom-tab-bar 1`] = `
     >
       <div
         aria-hidden="false"
-        aria-labelledby="rc-tabs-13-tab-1"
+        aria-labelledby="rc-tabs-test-tab-1"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-13-panel-1"
+        id="rc-tabs-test-panel-1"
         role="tabpanel"
         tabindex="0"
       >
@@ -49,10 +49,10 @@ exports[`Tabs rtl render component should be rendered correctly in RTL direction
           data-node-key="xx"
         >
           <div
-            aria-controls="rc-tabs-3-panel-xx"
+            aria-controls="rc-tabs-test-panel-xx"
             aria-selected="true"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-3-tab-xx"
+            id="rc-tabs-test-tab-xx"
             role="tab"
             tabindex="0"
           >
@@ -68,11 +68,11 @@ exports[`Tabs rtl render component should be rendered correctly in RTL direction
       class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
     >
       <button
-        aria-controls="rc-tabs-3-more-popup"
+        aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
         class="ant-tabs-nav-more"
-        id="rc-tabs-3-more"
+        id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
         type="button"
       >
@@ -106,9 +106,9 @@ exports[`Tabs rtl render component should be rendered correctly in RTL direction
     >
       <div
         aria-hidden="false"
-        aria-labelledby="rc-tabs-3-tab-xx"
+        aria-labelledby="rc-tabs-test-tab-xx"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-3-panel-xx"
+        id="rc-tabs-test-panel-xx"
         role="tabpanel"
         tabindex="-1"
       />
@@ -138,10 +138,10 @@ exports[`Tabs tabBarGutter should work 1`] = `
           data-node-key="null"
         >
           <div
-            aria-controls="rc-tabs-17-panel-null"
+            aria-controls="rc-tabs-test-panel-null"
             aria-selected="true"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-17-tab-null"
+            id="rc-tabs-test-tab-null"
             role="tab"
             tabindex="0"
           />
@@ -152,10 +152,10 @@ exports[`Tabs tabBarGutter should work 1`] = `
           style="margin-left: 0px;"
         >
           <div
-            aria-controls="rc-tabs-17-panel-null"
+            aria-controls="rc-tabs-test-panel-null"
             aria-selected="true"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-17-tab-null"
+            id="rc-tabs-test-tab-null"
             role="tab"
             tabindex="0"
           />
@@ -166,10 +166,10 @@ exports[`Tabs tabBarGutter should work 1`] = `
           style="margin-left: 0px;"
         >
           <div
-            aria-controls="rc-tabs-17-panel-null"
+            aria-controls="rc-tabs-test-panel-null"
             aria-selected="true"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-17-tab-null"
+            id="rc-tabs-test-tab-null"
             role="tab"
             tabindex="0"
           />
@@ -183,11 +183,11 @@ exports[`Tabs tabBarGutter should work 1`] = `
       class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
     >
       <button
-        aria-controls="rc-tabs-17-more-popup"
+        aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
         class="ant-tabs-nav-more"
-        id="rc-tabs-17-more"
+        id="rc-tabs-test-more"
         style="margin-left: 0px; visibility: hidden; order: 1;"
         type="button"
       >
@@ -221,25 +221,25 @@ exports[`Tabs tabBarGutter should work 1`] = `
     >
       <div
         aria-hidden="false"
-        aria-labelledby="rc-tabs-17-tab-null"
+        aria-labelledby="rc-tabs-test-tab-null"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-17-panel-null"
+        id="rc-tabs-test-panel-null"
         role="tabpanel"
         tabindex="-1"
       />
       <div
         aria-hidden="false"
-        aria-labelledby="rc-tabs-17-tab-null"
+        aria-labelledby="rc-tabs-test-tab-null"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-17-panel-null"
+        id="rc-tabs-test-panel-null"
         role="tabpanel"
         tabindex="-1"
       />
       <div
         aria-hidden="false"
-        aria-labelledby="rc-tabs-17-tab-null"
+        aria-labelledby="rc-tabs-test-tab-null"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-17-panel-null"
+        id="rc-tabs-test-panel-null"
         role="tabpanel"
         tabindex="-1"
       />
@@ -269,10 +269,10 @@ exports[`Tabs tabBarGutter should work 2`] = `
           data-node-key="null"
         >
           <div
-            aria-controls="rc-tabs-19-panel-null"
+            aria-controls="rc-tabs-test-panel-null"
             aria-selected="true"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-19-tab-null"
+            id="rc-tabs-test-tab-null"
             role="tab"
             tabindex="0"
           />
@@ -283,10 +283,10 @@ exports[`Tabs tabBarGutter should work 2`] = `
           style="margin-top: 0px;"
         >
           <div
-            aria-controls="rc-tabs-19-panel-null"
+            aria-controls="rc-tabs-test-panel-null"
             aria-selected="true"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-19-tab-null"
+            id="rc-tabs-test-tab-null"
             role="tab"
             tabindex="0"
           />
@@ -297,10 +297,10 @@ exports[`Tabs tabBarGutter should work 2`] = `
           style="margin-top: 0px;"
         >
           <div
-            aria-controls="rc-tabs-19-panel-null"
+            aria-controls="rc-tabs-test-panel-null"
             aria-selected="true"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-19-tab-null"
+            id="rc-tabs-test-tab-null"
             role="tab"
             tabindex="0"
           />
@@ -314,11 +314,11 @@ exports[`Tabs tabBarGutter should work 2`] = `
       class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
     >
       <button
-        aria-controls="rc-tabs-19-more-popup"
+        aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
         class="ant-tabs-nav-more"
-        id="rc-tabs-19-more"
+        id="rc-tabs-test-more"
         style="margin-left: 0px; visibility: hidden; order: 1;"
         type="button"
       >
@@ -352,25 +352,25 @@ exports[`Tabs tabBarGutter should work 2`] = `
     >
       <div
         aria-hidden="false"
-        aria-labelledby="rc-tabs-19-tab-null"
+        aria-labelledby="rc-tabs-test-tab-null"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-19-panel-null"
+        id="rc-tabs-test-panel-null"
         role="tabpanel"
         tabindex="-1"
       />
       <div
         aria-hidden="false"
-        aria-labelledby="rc-tabs-19-tab-null"
+        aria-labelledby="rc-tabs-test-tab-null"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-19-panel-null"
+        id="rc-tabs-test-panel-null"
         role="tabpanel"
         tabindex="-1"
       />
       <div
         aria-hidden="false"
-        aria-labelledby="rc-tabs-19-tab-null"
+        aria-labelledby="rc-tabs-test-tab-null"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-19-panel-null"
+        id="rc-tabs-test-panel-null"
         role="tabpanel"
         tabindex="-1"
       />
@@ -400,10 +400,10 @@ exports[`Tabs tabPosition remove card 1`] = `
           data-node-key="1"
         >
           <div
-            aria-controls="rc-tabs-11-panel-1"
+            aria-controls="rc-tabs-test-panel-1"
             aria-selected="true"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-11-tab-1"
+            id="rc-tabs-test-tab-1"
             role="tab"
             tabindex="0"
           >
@@ -419,11 +419,11 @@ exports[`Tabs tabPosition remove card 1`] = `
       class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
     >
       <button
-        aria-controls="rc-tabs-11-more-popup"
+        aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
         class="ant-tabs-nav-more"
-        id="rc-tabs-11-more"
+        id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
         type="button"
       >
@@ -462,9 +462,9 @@ exports[`Tabs tabPosition remove card 1`] = `
     >
       <div
         aria-hidden="false"
-        aria-labelledby="rc-tabs-11-tab-1"
+        aria-labelledby="rc-tabs-test-tab-1"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-11-panel-1"
+        id="rc-tabs-test-panel-1"
         role="tabpanel"
         tabindex="0"
       >

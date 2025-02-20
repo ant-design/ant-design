@@ -987,10 +987,10 @@ exports[`renders components/splitter/demo/nested-in-tabs.tsx extend context corr
           data-node-key="1"
         >
           <div
-            aria-controls="rc-tabs-1-panel-1"
+            aria-controls="rc-tabs-test-panel-1"
             aria-selected="true"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-1-tab-1"
+            id="rc-tabs-test-tab-1"
             role="tab"
             tabindex="0"
           >
@@ -1002,10 +1002,10 @@ exports[`renders components/splitter/demo/nested-in-tabs.tsx extend context corr
           data-node-key="2"
         >
           <div
-            aria-controls="rc-tabs-1-panel-2"
+            aria-controls="rc-tabs-test-panel-2"
             aria-selected="false"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-1-tab-2"
+            id="rc-tabs-test-tab-2"
             role="tab"
             tabindex="-1"
           >
@@ -1021,11 +1021,11 @@ exports[`renders components/splitter/demo/nested-in-tabs.tsx extend context corr
       class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
     >
       <button
-        aria-controls="rc-tabs-1-more-popup"
+        aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
         class="ant-tabs-nav-more"
-        id="rc-tabs-1-more"
+        id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
         type="button"
       >
@@ -1057,7 +1057,7 @@ exports[`renders components/splitter/demo/nested-in-tabs.tsx extend context corr
           aria-label="expanded dropdown"
           class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
           data-menu-list="true"
-          id="rc-tabs-1-more-popup"
+          id="rc-tabs-test-more-popup"
           role="listbox"
           tabindex="-1"
         />
@@ -1076,9 +1076,9 @@ exports[`renders components/splitter/demo/nested-in-tabs.tsx extend context corr
     >
       <div
         aria-hidden="false"
-        aria-labelledby="rc-tabs-1-tab-1"
+        aria-labelledby="rc-tabs-test-tab-1"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-1-panel-1"
+        id="rc-tabs-test-panel-1"
         role="tabpanel"
         tabindex="0"
       >

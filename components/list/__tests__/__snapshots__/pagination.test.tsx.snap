@@ -313,14 +313,14 @@ exports[`List.pagination should change page size work 1`] = `
           >
             <input
               aria-autocomplete="list"
-              aria-controls="rc_select_1_list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Page Size"
-              aria-owns="rc_select_1_list"
+              aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_1"
+              id="rc_select_TEST_OR_SSR"
               role="combobox"
               type="search"
               value=""
@@ -461,16 +461,16 @@ exports[`List.pagination should change page size work 2`] = `
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_1_list_0"
+              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
-              aria-controls="rc_select_1_list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="true"
               aria-haspopup="listbox"
               aria-label="Page Size"
-              aria-owns="rc_select_1_list"
+              aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_1"
+              id="rc_select_TEST_OR_SSR"
               role="combobox"
               type="search"
               value=""
@@ -500,14 +500,14 @@ exports[`List.pagination should change page size work 2`] = `
               <div>
                 <div
                   class="rc-virtual-list-holder-inner"
-                  id="rc_select_1_list"
+                  id="rc_select_TEST_OR_SSR_list"
                   role="listbox"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
                     aria-selected="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                    id="rc_select_1_list_0"
+                    id="rc_select_TEST_OR_SSR_list_0"
                     role="option"
                     title="10 / page"
                   >
@@ -526,7 +526,7 @@ exports[`List.pagination should change page size work 2`] = `
                   <div
                     aria-selected="false"
                     class="ant-select-item ant-select-item-option"
-                    id="rc_select_1_list_1"
+                    id="rc_select_TEST_OR_SSR_list_1"
                     role="option"
                     title="20 / page"
                   >
@@ -545,7 +545,7 @@ exports[`List.pagination should change page size work 2`] = `
                   <div
                     aria-selected="true"
                     class="ant-select-item ant-select-item-option ant-select-item-option-selected"
-                    id="rc_select_1_list_2"
+                    id="rc_select_TEST_OR_SSR_list_2"
                     role="option"
                     title="50 / page"
                   >
@@ -564,7 +564,7 @@ exports[`List.pagination should change page size work 2`] = `
                   <div
                     aria-selected="false"
                     class="ant-select-item ant-select-item-option"
-                    id="rc_select_1_list_3"
+                    id="rc_select_TEST_OR_SSR_list_3"
                     role="option"
                     title="100 / page"
                   >
@@ -725,14 +725,14 @@ exports[`List.pagination should default work 1`] = `
           >
             <input
               aria-autocomplete="list"
-              aria-controls="rc_select_5_list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Page Size"
-              aria-owns="rc_select_5_list"
+              aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_5"
+              id="rc_select_TEST_OR_SSR"
               role="combobox"
               type="search"
               value=""

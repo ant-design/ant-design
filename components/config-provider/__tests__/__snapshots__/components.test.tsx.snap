@@ -379,13 +379,13 @@ exports[`ConfigProvider components AutoComplete configProvider 1`] = `
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_5_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_5_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_5"
+          id="rc_select_TEST_OR_SSR"
           role="combobox"
           type="search"
           value=""
@@ -414,14 +414,14 @@ exports[`ConfigProvider components AutoComplete configProvider componentDisabled
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_13_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_13_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="config-select-selection-search-input"
           disabled=""
-          id="rc_select_13"
+          id="rc_select_TEST_OR_SSR"
           role="combobox"
           type="search"
           value=""
@@ -450,13 +450,13 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize lar
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_7_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_7_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_7"
+          id="rc_select_TEST_OR_SSR"
           role="combobox"
           type="search"
           value=""
@@ -485,13 +485,13 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize mid
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_9_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_9_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_9"
+          id="rc_select_TEST_OR_SSR"
           role="combobox"
           type="search"
           value=""
@@ -520,13 +520,13 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize sma
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_11_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_11_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_11"
+          id="rc_select_TEST_OR_SSR"
           role="combobox"
           type="search"
           value=""
@@ -555,13 +555,13 @@ exports[`ConfigProvider components AutoComplete normal 1`] = `
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_1_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_1_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
-          id="rc_select_1"
+          id="rc_select_TEST_OR_SSR"
           role="combobox"
           type="search"
           value=""
@@ -590,13 +590,13 @@ exports[`ConfigProvider components AutoComplete prefixCls 1`] = `
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_3_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_3_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="prefix-AutoComplete-selection-search-input"
-          id="rc_select_3"
+          id="rc_select_TEST_OR_SSR"
           role="combobox"
           type="search"
           value=""
@@ -1433,13 +1433,13 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_29_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_29_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_29"
+                id="rc_select_TEST_OR_SSR"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -1497,13 +1497,13 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_30_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_30_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_30"
+                id="rc_select_TEST_OR_SSR"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -2388,13 +2388,13 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_31_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_31_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_31"
+                id="rc_select_TEST_OR_SSR"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -2745,14 +2745,14 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_53_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_53_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
                 disabled=""
-                id="rc_select_53"
+                id="rc_select_TEST_OR_SSR"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -2810,14 +2810,14 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_54_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_54_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
                 disabled=""
-                id="rc_select_54"
+                id="rc_select_TEST_OR_SSR"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -3704,14 +3704,14 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_55_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_55_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
                 disabled=""
-                id="rc_select_55"
+                id="rc_select_TEST_OR_SSR"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -4064,13 +4064,13 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_35_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_35_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_35"
+                id="rc_select_TEST_OR_SSR"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -4128,13 +4128,13 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_36_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_36_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_36"
+                id="rc_select_TEST_OR_SSR"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -5019,13 +5019,13 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_37_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_37_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_37"
+                id="rc_select_TEST_OR_SSR"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -5376,13 +5376,13 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_41_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_41_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_41"
+                id="rc_select_TEST_OR_SSR"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -5440,13 +5440,13 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_42_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_42_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_42"
+                id="rc_select_TEST_OR_SSR"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -6331,13 +6331,13 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_43_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_43_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_43"
+                id="rc_select_TEST_OR_SSR"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -6688,13 +6688,13 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_47_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_47_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_47"
+                id="rc_select_TEST_OR_SSR"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -6752,13 +6752,13 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_48_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_48_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_48"
+                id="rc_select_TEST_OR_SSR"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -7643,13 +7643,13 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_49_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_49_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_49"
+                id="rc_select_TEST_OR_SSR"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -8000,13 +8000,13 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_17_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_17_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_17"
+                id="rc_select_TEST_OR_SSR"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -8064,13 +8064,13 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_18_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_18_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_18"
+                id="rc_select_TEST_OR_SSR"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -8955,13 +8955,13 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_19_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_19_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_19"
+                id="rc_select_TEST_OR_SSR"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -9312,13 +9312,13 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_23_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_23_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_23"
+                id="rc_select_TEST_OR_SSR"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -9376,13 +9376,13 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_24_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_24_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_24"
+                id="rc_select_TEST_OR_SSR"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -10267,13 +10267,13 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_25_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_25_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_25"
+                id="rc_select_TEST_OR_SSR"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -11653,13 +11653,13 @@ exports[`ConfigProvider components Cascader configProvider 1`] = `
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_61_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_61_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_61"
+          id="rc_select_TEST_OR_SSR"
           role="combobox"
           type="search"
           value=""
@@ -11714,14 +11714,14 @@ exports[`ConfigProvider components Cascader configProvider componentDisabled 1`]
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_69_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_69_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="config-select-selection-search-input"
           disabled=""
-          id="rc_select_69"
+          id="rc_select_TEST_OR_SSR"
           role="combobox"
           type="search"
           value=""
@@ -11776,13 +11776,13 @@ exports[`ConfigProvider components Cascader configProvider componentSize large 1
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_63_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_63_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_63"
+          id="rc_select_TEST_OR_SSR"
           role="combobox"
           type="search"
           value=""
@@ -11837,13 +11837,13 @@ exports[`ConfigProvider components Cascader configProvider componentSize middle 
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_65_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_65_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_65"
+          id="rc_select_TEST_OR_SSR"
           role="combobox"
           type="search"
           value=""
@@ -11898,13 +11898,13 @@ exports[`ConfigProvider components Cascader configProvider componentSize small 1
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_67_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_67_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_67"
+          id="rc_select_TEST_OR_SSR"
           role="combobox"
           type="search"
           value=""
@@ -11959,13 +11959,13 @@ exports[`ConfigProvider components Cascader normal 1`] = `
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_57_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_57_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
-          id="rc_select_57"
+          id="rc_select_TEST_OR_SSR"
           role="combobox"
           type="search"
           value=""
@@ -12020,13 +12020,13 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_59_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_59_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="prefix-Cascader-selection-search-input"
-          id="rc_select_59"
+          id="rc_select_TEST_OR_SSR"
           role="combobox"
           type="search"
           value=""
@@ -17771,11 +17771,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-63668-6-bamboo-popup"
+        aria-controls="rc-menu-uuid-test-bamboo-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="config-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-63668-6-bamboo"
+        data-menu-id="rc-menu-uuid-test-bamboo"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -17792,7 +17792,7 @@ Array [
       <ul
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-63668-6-bamboo-popup"
+        id="rc-menu-uuid-test-bamboo-popup"
         role="menu"
       >
         <li
@@ -17813,7 +17813,7 @@ Array [
             <li
               aria-describedby="test-id"
               class="config-menu-item config-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-63668-6-1"
+              data-menu-id="rc-menu-uuid-test-1"
               role="menuitem"
               style="padding-left: 48px;"
               tabindex="-1"
@@ -17849,11 +17849,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-63668-14-bamboo-popup"
+        aria-controls="rc-menu-uuid-test-bamboo-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="config-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-63668-14-bamboo"
+        data-menu-id="rc-menu-uuid-test-bamboo"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -17870,7 +17870,7 @@ Array [
       <ul
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-63668-14-bamboo-popup"
+        id="rc-menu-uuid-test-bamboo-popup"
         role="menu"
       >
         <li
@@ -17891,7 +17891,7 @@ Array [
             <li
               aria-describedby="test-id"
               class="config-menu-item config-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-63668-14-1"
+              data-menu-id="rc-menu-uuid-test-1"
               role="menuitem"
               style="padding-left: 48px;"
               tabindex="-1"
@@ -17927,11 +17927,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-63668-8-bamboo-popup"
+        aria-controls="rc-menu-uuid-test-bamboo-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="config-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-63668-8-bamboo"
+        data-menu-id="rc-menu-uuid-test-bamboo"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -17948,7 +17948,7 @@ Array [
       <ul
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-63668-8-bamboo-popup"
+        id="rc-menu-uuid-test-bamboo-popup"
         role="menu"
       >
         <li
@@ -17969,7 +17969,7 @@ Array [
             <li
               aria-describedby="test-id"
               class="config-menu-item config-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-63668-8-1"
+              data-menu-id="rc-menu-uuid-test-1"
               role="menuitem"
               style="padding-left: 48px;"
               tabindex="-1"
@@ -18005,11 +18005,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-63668-10-bamboo-popup"
+        aria-controls="rc-menu-uuid-test-bamboo-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="config-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-63668-10-bamboo"
+        data-menu-id="rc-menu-uuid-test-bamboo"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -18026,7 +18026,7 @@ Array [
       <ul
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-63668-10-bamboo-popup"
+        id="rc-menu-uuid-test-bamboo-popup"
         role="menu"
       >
         <li
@@ -18047,7 +18047,7 @@ Array [
             <li
               aria-describedby="test-id"
               class="config-menu-item config-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-63668-10-1"
+              data-menu-id="rc-menu-uuid-test-1"
               role="menuitem"
               style="padding-left: 48px;"
               tabindex="-1"
@@ -18083,11 +18083,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-63668-12-bamboo-popup"
+        aria-controls="rc-menu-uuid-test-bamboo-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="config-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-63668-12-bamboo"
+        data-menu-id="rc-menu-uuid-test-bamboo"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -18104,7 +18104,7 @@ Array [
       <ul
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-63668-12-bamboo-popup"
+        id="rc-menu-uuid-test-bamboo-popup"
         role="menu"
       >
         <li
@@ -18125,7 +18125,7 @@ Array [
             <li
               aria-describedby="test-id"
               class="config-menu-item config-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-63668-12-1"
+              data-menu-id="rc-menu-uuid-test-1"
               role="menuitem"
               style="padding-left: 48px;"
               tabindex="-1"
@@ -18161,11 +18161,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-63668-2-bamboo-popup"
+        aria-controls="rc-menu-uuid-test-bamboo-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-63668-2-bamboo"
+        data-menu-id="rc-menu-uuid-test-bamboo"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -18182,7 +18182,7 @@ Array [
       <ul
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-63668-2-bamboo-popup"
+        id="rc-menu-uuid-test-bamboo-popup"
         role="menu"
       >
         <li
@@ -18203,7 +18203,7 @@ Array [
             <li
               aria-describedby="test-id"
               class="ant-menu-item ant-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-63668-2-1"
+              data-menu-id="rc-menu-uuid-test-1"
               role="menuitem"
               style="padding-left: 48px;"
               tabindex="-1"
@@ -18239,11 +18239,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-63668-4-bamboo-popup"
+        aria-controls="rc-menu-uuid-test-bamboo-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="prefix-Menu-submenu-title"
-        data-menu-id="rc-menu-uuid-63668-4-bamboo"
+        data-menu-id="rc-menu-uuid-test-bamboo"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -18260,7 +18260,7 @@ Array [
       <ul
         class="prefix-Menu prefix-Menu-sub prefix-Menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-63668-4-bamboo-popup"
+        id="rc-menu-uuid-test-bamboo-popup"
         role="menu"
       >
         <li
@@ -18282,7 +18282,7 @@ Array [
             <li
               aria-describedby="test-id"
               class="prefix-Menu-item prefix-Menu-item-only-child"
-              data-menu-id="rc-menu-uuid-63668-4-1"
+              data-menu-id="rc-menu-uuid-test-1"
               prefixcls="prefix-Menu"
               role="menuitem"
               style="padding-left: 48px;"
@@ -19048,14 +19048,14 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_80_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_80_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_80"
+                id="rc_select_TEST_OR_SSR"
                 role="combobox"
                 type="search"
                 value=""
@@ -19194,14 +19194,14 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_81_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_81_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_81"
+                id="rc_select_TEST_OR_SSR"
                 role="combobox"
                 type="search"
                 value=""
@@ -19345,15 +19345,15 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_96_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_96_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
                 disabled=""
-                id="rc_select_96"
+                id="rc_select_TEST_OR_SSR"
                 role="combobox"
                 type="search"
                 value=""
@@ -19492,15 +19492,15 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_97_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_97_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
                 disabled=""
-                id="rc_select_97"
+                id="rc_select_TEST_OR_SSR"
                 role="combobox"
                 type="search"
                 value=""
@@ -19644,14 +19644,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_84_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_84_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_84"
+                id="rc_select_TEST_OR_SSR"
                 role="combobox"
                 type="search"
                 value=""
@@ -19790,14 +19790,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_85_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_85_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_85"
+                id="rc_select_TEST_OR_SSR"
                 role="combobox"
                 type="search"
                 value=""
@@ -19941,14 +19941,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_88_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_88_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_88"
+                id="rc_select_TEST_OR_SSR"
                 role="combobox"
                 type="search"
                 value=""
@@ -20087,14 +20087,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_89_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_89_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_89"
+                id="rc_select_TEST_OR_SSR"
                 role="combobox"
                 type="search"
                 value=""
@@ -20238,14 +20238,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_92_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_92_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_92"
+                id="rc_select_TEST_OR_SSR"
                 role="combobox"
                 type="search"
                 value=""
@@ -20384,14 +20384,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_93_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_93_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_93"
+                id="rc_select_TEST_OR_SSR"
                 role="combobox"
                 type="search"
                 value=""
@@ -20535,14 +20535,14 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_72_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_72_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_72"
+                id="rc_select_TEST_OR_SSR"
                 role="combobox"
                 type="search"
                 value=""
@@ -20681,14 +20681,14 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_73_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_73_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_73"
+                id="rc_select_TEST_OR_SSR"
                 role="combobox"
                 type="search"
                 value=""
@@ -20832,14 +20832,14 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_76_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_76_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_76"
+                id="rc_select_TEST_OR_SSR"
                 role="combobox"
                 type="search"
                 value=""
@@ -20978,14 +20978,14 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_77_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_77_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_77"
+                id="rc_select_TEST_OR_SSR"
                 role="combobox"
                 type="search"
                 value=""
@@ -24563,15 +24563,15 @@ exports[`ConfigProvider components Select configProvider 1`] = `
         class="config-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_103_list_1"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_1"
           aria-autocomplete="list"
-          aria-controls="rc_select_103_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-owns="rc_select_103_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_103"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -24591,19 +24591,19 @@ exports[`ConfigProvider components Select configProvider 1`] = `
   >
     <div>
       <div
-        id="rc_select_103_list"
+        id="rc_select_TEST_OR_SSR_list"
         role="listbox"
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
           aria-selected="false"
-          id="rc_select_103_list_0"
+          id="rc_select_TEST_OR_SSR_list_0"
           role="presentation"
         />
         <div
           aria-label="Light"
           aria-selected="false"
-          id="rc_select_103_list_1"
+          id="rc_select_TEST_OR_SSR_list_1"
           role="option"
         >
           Bamboo
@@ -24695,14 +24695,14 @@ exports[`ConfigProvider components Select configProvider componentDisabled 1`] =
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_111_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_111_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="config-select-selection-search-input"
           disabled=""
-          id="rc_select_111"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -24759,15 +24759,15 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
         class="config-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_105_list_1"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_1"
           aria-autocomplete="list"
-          aria-controls="rc_select_105_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-owns="rc_select_105_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_105"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -24787,19 +24787,19 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
   >
     <div>
       <div
-        id="rc_select_105_list"
+        id="rc_select_TEST_OR_SSR_list"
         role="listbox"
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
           aria-selected="false"
-          id="rc_select_105_list_0"
+          id="rc_select_TEST_OR_SSR_list_0"
           role="presentation"
         />
         <div
           aria-label="Light"
           aria-selected="false"
-          id="rc_select_105_list_1"
+          id="rc_select_TEST_OR_SSR_list_1"
           role="option"
         >
           Bamboo
@@ -24890,15 +24890,15 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
         class="config-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_107_list_1"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_1"
           aria-autocomplete="list"
-          aria-controls="rc_select_107_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-owns="rc_select_107_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_107"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -24918,19 +24918,19 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
   >
     <div>
       <div
-        id="rc_select_107_list"
+        id="rc_select_TEST_OR_SSR_list"
         role="listbox"
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
           aria-selected="false"
-          id="rc_select_107_list_0"
+          id="rc_select_TEST_OR_SSR_list_0"
           role="presentation"
         />
         <div
           aria-label="Light"
           aria-selected="false"
-          id="rc_select_107_list_1"
+          id="rc_select_TEST_OR_SSR_list_1"
           role="option"
         >
           Bamboo
@@ -25021,15 +25021,15 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
         class="config-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_109_list_1"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_1"
           aria-autocomplete="list"
-          aria-controls="rc_select_109_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-owns="rc_select_109_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_109"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -25049,19 +25049,19 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
   >
     <div>
       <div
-        id="rc_select_109_list"
+        id="rc_select_TEST_OR_SSR_list"
         role="listbox"
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
           aria-selected="false"
-          id="rc_select_109_list_0"
+          id="rc_select_TEST_OR_SSR_list_0"
           role="presentation"
         />
         <div
           aria-label="Light"
           aria-selected="false"
-          id="rc_select_109_list_1"
+          id="rc_select_TEST_OR_SSR_list_1"
           role="option"
         >
           Bamboo
@@ -25152,15 +25152,15 @@ exports[`ConfigProvider components Select normal 1`] = `
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_99_list_1"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_1"
           aria-autocomplete="list"
-          aria-controls="rc_select_99_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-owns="rc_select_99_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
-          id="rc_select_99"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -25180,19 +25180,19 @@ exports[`ConfigProvider components Select normal 1`] = `
   >
     <div>
       <div
-        id="rc_select_99_list"
+        id="rc_select_TEST_OR_SSR_list"
         role="listbox"
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
           aria-selected="false"
-          id="rc_select_99_list_0"
+          id="rc_select_TEST_OR_SSR_list_0"
           role="presentation"
         />
         <div
           aria-label="Light"
           aria-selected="false"
-          id="rc_select_99_list_1"
+          id="rc_select_TEST_OR_SSR_list_1"
           role="option"
         >
           Bamboo
@@ -25283,15 +25283,15 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
         class="prefix-Select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_101_list_1"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_1"
           aria-autocomplete="list"
-          aria-controls="rc_select_101_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-owns="rc_select_101_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="prefix-Select-selection-search-input"
-          id="rc_select_101"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -25311,19 +25311,19 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
   >
     <div>
       <div
-        id="rc_select_101_list"
+        id="rc_select_TEST_OR_SSR_list"
         role="listbox"
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
           aria-selected="false"
-          id="rc_select_101_list_0"
+          id="rc_select_TEST_OR_SSR_list_0"
           role="presentation"
         />
         <div
           aria-label="Light"
           aria-selected="false"
-          id="rc_select_101_list_1"
+          id="rc_select_TEST_OR_SSR_list_1"
           role="option"
         >
           Bamboo
@@ -26868,7 +26868,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                             <li
                               aria-describedby="test-id"
                               class="config-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-63668-20-Joe"
+                              data-menu-id="rc-menu-uuid-test-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -26900,11 +26900,11 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                               role="none"
                             >
                               <div
-                                aria-controls="rc-menu-uuid-63668-20-Submenu-popup"
+                                aria-controls="rc-menu-uuid-test-Submenu-popup"
                                 aria-expanded="false"
                                 aria-haspopup="true"
                                 class="config-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-63668-20-Submenu"
+                                data-menu-id="rc-menu-uuid-test-Submenu"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -27177,7 +27177,7 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                             <li
                               aria-describedby="test-id"
                               class="config-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-63668-28-Joe"
+                              data-menu-id="rc-menu-uuid-test-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -27210,11 +27210,11 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                               role="none"
                             >
                               <div
-                                aria-controls="rc-menu-uuid-63668-28-Submenu-popup"
+                                aria-controls="rc-menu-uuid-test-Submenu-popup"
                                 aria-expanded="false"
                                 aria-haspopup="true"
                                 class="config-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-63668-28-Submenu"
+                                data-menu-id="rc-menu-uuid-test-Submenu"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -27488,7 +27488,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                             <li
                               aria-describedby="test-id"
                               class="config-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-63668-22-Joe"
+                              data-menu-id="rc-menu-uuid-test-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -27520,11 +27520,11 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                               role="none"
                             >
                               <div
-                                aria-controls="rc-menu-uuid-63668-22-Submenu-popup"
+                                aria-controls="rc-menu-uuid-test-Submenu-popup"
                                 aria-expanded="false"
                                 aria-haspopup="true"
                                 class="config-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-63668-22-Submenu"
+                                data-menu-id="rc-menu-uuid-test-Submenu"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -27797,7 +27797,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                             <li
                               aria-describedby="test-id"
                               class="config-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-63668-24-Joe"
+                              data-menu-id="rc-menu-uuid-test-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -27829,11 +27829,11 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                               role="none"
                             >
                               <div
-                                aria-controls="rc-menu-uuid-63668-24-Submenu-popup"
+                                aria-controls="rc-menu-uuid-test-Submenu-popup"
                                 aria-expanded="false"
                                 aria-haspopup="true"
                                 class="config-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-63668-24-Submenu"
+                                data-menu-id="rc-menu-uuid-test-Submenu"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -28106,7 +28106,7 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                             <li
                               aria-describedby="test-id"
                               class="config-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-63668-26-Joe"
+                              data-menu-id="rc-menu-uuid-test-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -28138,11 +28138,11 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                               role="none"
                             >
                               <div
-                                aria-controls="rc-menu-uuid-63668-26-Submenu-popup"
+                                aria-controls="rc-menu-uuid-test-Submenu-popup"
                                 aria-expanded="false"
                                 aria-haspopup="true"
                                 class="config-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-63668-26-Submenu"
+                                data-menu-id="rc-menu-uuid-test-Submenu"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -28415,7 +28415,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-63668-16-Joe"
+                              data-menu-id="rc-menu-uuid-test-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -28447,11 +28447,11 @@ exports[`ConfigProvider components Table normal 1`] = `
                               role="none"
                             >
                               <div
-                                aria-controls="rc-menu-uuid-63668-16-Submenu-popup"
+                                aria-controls="rc-menu-uuid-test-Submenu-popup"
                                 aria-expanded="false"
                                 aria-haspopup="true"
                                 class="ant-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-63668-16-Submenu"
+                                data-menu-id="rc-menu-uuid-test-Submenu"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -28724,7 +28724,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-63668-18-Joe"
+                              data-menu-id="rc-menu-uuid-test-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -28756,11 +28756,11 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                               role="none"
                             >
                               <div
-                                aria-controls="rc-menu-uuid-63668-18-Submenu-popup"
+                                aria-controls="rc-menu-uuid-test-Submenu-popup"
                                 aria-expanded="false"
                                 aria-haspopup="true"
                                 class="ant-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-63668-18-Submenu"
+                                data-menu-id="rc-menu-uuid-test-Submenu"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -28916,10 +28916,10 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
           data-node-key="Light"
         >
           <div
-            aria-controls="rc-tabs-5-panel-Light"
+            aria-controls="rc-tabs-test-panel-Light"
             aria-selected="true"
             class="config-tabs-tab-btn"
-            id="rc-tabs-5-tab-Light"
+            id="rc-tabs-test-tab-Light"
             role="tab"
             tabindex="0"
           >
@@ -28935,11 +28935,11 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
       class="config-tabs-nav-operations config-tabs-nav-operations-hidden"
     >
       <button
-        aria-controls="rc-tabs-5-more-popup"
+        aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
         class="config-tabs-nav-more"
-        id="rc-tabs-5-more"
+        id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
         type="button"
       >
@@ -28973,9 +28973,9 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
     >
       <div
         aria-hidden="false"
-        aria-labelledby="rc-tabs-5-tab-Light"
+        aria-labelledby="rc-tabs-test-tab-Light"
         class="config-tabs-tabpane config-tabs-tabpane-active"
-        id="rc-tabs-5-panel-Light"
+        id="rc-tabs-test-panel-Light"
         role="tabpanel"
         tabindex="-1"
       />
@@ -29005,10 +29005,10 @@ exports[`ConfigProvider components Tabs configProvider componentDisabled 1`] = `
           data-node-key="Light"
         >
           <div
-            aria-controls="rc-tabs-13-panel-Light"
+            aria-controls="rc-tabs-test-panel-Light"
             aria-selected="true"
             class="config-tabs-tab-btn"
-            id="rc-tabs-13-tab-Light"
+            id="rc-tabs-test-tab-Light"
             role="tab"
             tabindex="0"
           >
@@ -29024,11 +29024,11 @@ exports[`ConfigProvider components Tabs configProvider componentDisabled 1`] = `
       class="config-tabs-nav-operations config-tabs-nav-operations-hidden"
     >
       <button
-        aria-controls="rc-tabs-13-more-popup"
+        aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
         class="config-tabs-nav-more"
-        id="rc-tabs-13-more"
+        id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
         type="button"
       >
@@ -29062,9 +29062,9 @@ exports[`ConfigProvider components Tabs configProvider componentDisabled 1`] = `
     >
       <div
         aria-hidden="false"
-        aria-labelledby="rc-tabs-13-tab-Light"
+        aria-labelledby="rc-tabs-test-tab-Light"
         class="config-tabs-tabpane config-tabs-tabpane-active"
-        id="rc-tabs-13-panel-Light"
+        id="rc-tabs-test-panel-Light"
         role="tabpanel"
         tabindex="-1"
       />
@@ -29094,10 +29094,10 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
           data-node-key="Light"
         >
           <div
-            aria-controls="rc-tabs-7-panel-Light"
+            aria-controls="rc-tabs-test-panel-Light"
             aria-selected="true"
             class="config-tabs-tab-btn"
-            id="rc-tabs-7-tab-Light"
+            id="rc-tabs-test-tab-Light"
             role="tab"
             tabindex="0"
           >
@@ -29113,11 +29113,11 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
       class="config-tabs-nav-operations config-tabs-nav-operations-hidden"
     >
       <button
-        aria-controls="rc-tabs-7-more-popup"
+        aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
         class="config-tabs-nav-more"
-        id="rc-tabs-7-more"
+        id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
         type="button"
       >
@@ -29151,9 +29151,9 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
     >
       <div
         aria-hidden="false"
-        aria-labelledby="rc-tabs-7-tab-Light"
+        aria-labelledby="rc-tabs-test-tab-Light"
         class="config-tabs-tabpane config-tabs-tabpane-active"
-        id="rc-tabs-7-panel-Light"
+        id="rc-tabs-test-panel-Light"
         role="tabpanel"
         tabindex="-1"
       />
@@ -29183,10 +29183,10 @@ exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] 
           data-node-key="Light"
         >
           <div
-            aria-controls="rc-tabs-9-panel-Light"
+            aria-controls="rc-tabs-test-panel-Light"
             aria-selected="true"
             class="config-tabs-tab-btn"
-            id="rc-tabs-9-tab-Light"
+            id="rc-tabs-test-tab-Light"
             role="tab"
             tabindex="0"
           >
@@ -29202,11 +29202,11 @@ exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] 
       class="config-tabs-nav-operations config-tabs-nav-operations-hidden"
     >
       <button
-        aria-controls="rc-tabs-9-more-popup"
+        aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
         class="config-tabs-nav-more"
-        id="rc-tabs-9-more"
+        id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
         type="button"
       >
@@ -29240,9 +29240,9 @@ exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] 
     >
       <div
         aria-hidden="false"
-        aria-labelledby="rc-tabs-9-tab-Light"
+        aria-labelledby="rc-tabs-test-tab-Light"
         class="config-tabs-tabpane config-tabs-tabpane-active"
-        id="rc-tabs-9-panel-Light"
+        id="rc-tabs-test-panel-Light"
         role="tabpanel"
         tabindex="-1"
       />
@@ -29272,10 +29272,10 @@ exports[`ConfigProvider components Tabs configProvider componentSize small 1`] =
           data-node-key="Light"
         >
           <div
-            aria-controls="rc-tabs-11-panel-Light"
+            aria-controls="rc-tabs-test-panel-Light"
             aria-selected="true"
             class="config-tabs-tab-btn"
-            id="rc-tabs-11-tab-Light"
+            id="rc-tabs-test-tab-Light"
             role="tab"
             tabindex="0"
           >
@@ -29291,11 +29291,11 @@ exports[`ConfigProvider components Tabs configProvider componentSize small 1`] =
       class="config-tabs-nav-operations config-tabs-nav-operations-hidden"
     >
       <button
-        aria-controls="rc-tabs-11-more-popup"
+        aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
         class="config-tabs-nav-more"
-        id="rc-tabs-11-more"
+        id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
         type="button"
       >
@@ -29329,9 +29329,9 @@ exports[`ConfigProvider components Tabs configProvider componentSize small 1`] =
     >
       <div
         aria-hidden="false"
-        aria-labelledby="rc-tabs-11-tab-Light"
+        aria-labelledby="rc-tabs-test-tab-Light"
         class="config-tabs-tabpane config-tabs-tabpane-active"
-        id="rc-tabs-11-panel-Light"
+        id="rc-tabs-test-panel-Light"
         role="tabpanel"
         tabindex="-1"
       />
@@ -29361,10 +29361,10 @@ exports[`ConfigProvider components Tabs normal 1`] = `
           data-node-key="Light"
         >
           <div
-            aria-controls="rc-tabs-1-panel-Light"
+            aria-controls="rc-tabs-test-panel-Light"
             aria-selected="true"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-1-tab-Light"
+            id="rc-tabs-test-tab-Light"
             role="tab"
             tabindex="0"
           >
@@ -29380,11 +29380,11 @@ exports[`ConfigProvider components Tabs normal 1`] = `
       class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
     >
       <button
-        aria-controls="rc-tabs-1-more-popup"
+        aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
         class="ant-tabs-nav-more"
-        id="rc-tabs-1-more"
+        id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
         type="button"
       >
@@ -29418,9 +29418,9 @@ exports[`ConfigProvider components Tabs normal 1`] = `
     >
       <div
         aria-hidden="false"
-        aria-labelledby="rc-tabs-1-tab-Light"
+        aria-labelledby="rc-tabs-test-tab-Light"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-1-panel-Light"
+        id="rc-tabs-test-panel-Light"
         role="tabpanel"
         tabindex="-1"
       />
@@ -29450,10 +29450,10 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
           data-node-key="Light"
         >
           <div
-            aria-controls="rc-tabs-3-panel-Light"
+            aria-controls="rc-tabs-test-panel-Light"
             aria-selected="true"
             class="prefix-Tabs-tab-btn"
-            id="rc-tabs-3-tab-Light"
+            id="rc-tabs-test-tab-Light"
             role="tab"
             tabindex="0"
           >
@@ -29469,11 +29469,11 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
       class="prefix-Tabs-nav-operations prefix-Tabs-nav-operations-hidden"
     >
       <button
-        aria-controls="rc-tabs-3-more-popup"
+        aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
         class="prefix-Tabs-nav-more"
-        id="rc-tabs-3-more"
+        id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
         type="button"
       >
@@ -29507,9 +29507,9 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
     >
       <div
         aria-hidden="false"
-        aria-labelledby="rc-tabs-3-tab-Light"
+        aria-labelledby="rc-tabs-test-tab-Light"
         class="prefix-Tabs-tabpane prefix-Tabs-tabpane-active"
-        id="rc-tabs-3-panel-Light"
+        id="rc-tabs-test-panel-Light"
         role="tabpanel"
         tabindex="-1"
       />
@@ -42537,13 +42537,13 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_117_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-owns="rc_select_117_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_117"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -42683,14 +42683,14 @@ exports[`ConfigProvider components TreeSelect configProvider componentDisabled 1
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_125_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_125_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="config-select-selection-search-input"
           disabled=""
-          id="rc_select_125"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -42748,13 +42748,13 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_119_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-owns="rc_select_119_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_119"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -42894,13 +42894,13 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_121_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-owns="rc_select_121_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_121"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -43040,13 +43040,13 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize small
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_123_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-owns="rc_select_123_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_123"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -43186,13 +43186,13 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_113_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-owns="rc_select_113_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
-          id="rc_select_113"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -43332,13 +43332,13 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_115_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-owns="rc_select_115_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="prefix-TreeSelect-selection-search-input"
-          id="rc_select_115"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
           style="opacity: 0;"

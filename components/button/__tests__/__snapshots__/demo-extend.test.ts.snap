@@ -3585,7 +3585,7 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
         <li
           aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-57473-2-1"
+          data-menu-id="rc-menu-uuid-test-1"
           role="menuitem"
           tabindex="-1"
         >
@@ -3616,7 +3616,7 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
         <li
           aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-57473-2-2"
+          data-menu-id="rc-menu-uuid-test-2"
           role="menuitem"
           tabindex="-1"
         >
@@ -3647,7 +3647,7 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
         <li
           aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-57473-2-3"
+          data-menu-id="rc-menu-uuid-test-3"
           role="menuitem"
           tabindex="-1"
         >

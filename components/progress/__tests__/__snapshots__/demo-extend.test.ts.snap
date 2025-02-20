@@ -1924,7 +1924,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
             style="stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
           />
           <mask
-            id="rc_progress_26-gradient-conic"
+            id="rc_progress_TEST_OR_SSR-gradient-conic"
           >
             <circle
               class="ant-progress-circle-path"
@@ -1940,7 +1940,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
           </mask>
           <foreignobject
             height="100"
-            mask="url(#rc_progress_26-gradient-conic)"
+            mask="url(#rc_progress_TEST_OR_SSR-gradient-conic)"
             width="100"
             x="0"
             y="0"
@@ -1998,7 +1998,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
             style="stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
           />
           <mask
-            id="rc_progress_27-gradient-conic"
+            id="rc_progress_TEST_OR_SSR-gradient-conic"
           >
             <circle
               class="ant-progress-circle-path"
@@ -2014,7 +2014,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
           </mask>
           <foreignobject
             height="100"
-            mask="url(#rc_progress_27-gradient-conic)"
+            mask="url(#rc_progress_TEST_OR_SSR-gradient-conic)"
             width="100"
             x="0"
             y="0"
@@ -2089,7 +2089,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
             style="stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
           />
           <mask
-            id="rc_progress_28-gradient-conic"
+            id="rc_progress_TEST_OR_SSR-gradient-conic"
           >
             <circle
               class="ant-progress-circle-path"
@@ -2105,7 +2105,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
           </mask>
           <foreignobject
             height="100"
-            mask="url(#rc_progress_28-gradient-conic)"
+            mask="url(#rc_progress_TEST_OR_SSR-gradient-conic)"
             width="100"
             x="0"
             y="0"
@@ -2167,7 +2167,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
             style="stroke-dasharray: 233.78685330464043px 295.3097094374406; stroke-dashoffset: 0; transform: rotate(127.5deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
           />
           <mask
-            id="rc_progress_29-gradient-conic"
+            id="rc_progress_TEST_OR_SSR-gradient-conic"
           >
             <circle
               class="ant-progress-circle-path"
@@ -2183,7 +2183,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
           </mask>
           <foreignobject
             height="100"
-            mask="url(#rc_progress_29-gradient-conic)"
+            mask="url(#rc_progress_TEST_OR_SSR-gradient-conic)"
             width="100"
             x="0"
             y="0"
@@ -2241,7 +2241,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
             style="stroke-dasharray: 233.78685330464043px 295.3097094374406; stroke-dashoffset: 0; transform: rotate(127.5deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
           />
           <mask
-            id="rc_progress_30-gradient-conic"
+            id="rc_progress_TEST_OR_SSR-gradient-conic"
           >
             <circle
               class="ant-progress-circle-path"
@@ -2257,7 +2257,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
           </mask>
           <foreignobject
             height="100"
-            mask="url(#rc_progress_30-gradient-conic)"
+            mask="url(#rc_progress_TEST_OR_SSR-gradient-conic)"
             width="100"
             x="0"
             y="0"
@@ -2332,7 +2332,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
             style="stroke-dasharray: 233.78685330464043px 295.3097094374406; stroke-dashoffset: 0; transform: rotate(127.5deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
           />
           <mask
-            id="rc_progress_31-gradient-conic"
+            id="rc_progress_TEST_OR_SSR-gradient-conic"
           >
             <circle
               class="ant-progress-circle-path"
@@ -2348,7 +2348,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
           </mask>
           <foreignobject
             height="100"
-            mask="url(#rc_progress_31-gradient-conic)"
+            mask="url(#rc_progress_TEST_OR_SSR-gradient-conic)"
             width="100"
             x="0"
             y="0"

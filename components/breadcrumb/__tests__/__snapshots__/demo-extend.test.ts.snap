@@ -160,7 +160,7 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
           <li
             aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-            data-menu-id="rc-menu-uuid-52367-6-1"
+            data-menu-id="rc-menu-uuid-test-1"
             role="menuitem"
             tabindex="-1"
           >
@@ -197,7 +197,7 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
           <li
             aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-            data-menu-id="rc-menu-uuid-52367-6-2"
+            data-menu-id="rc-menu-uuid-test-2"
             role="menuitem"
             tabindex="-1"
           >
@@ -234,7 +234,7 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
           <li
             aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-            data-menu-id="rc-menu-uuid-52367-6-3"
+            data-menu-id="rc-menu-uuid-test-3"
             role="menuitem"
             tabindex="-1"
           >
@@ -434,7 +434,7 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
           <li
             aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-            data-menu-id="rc-menu-uuid-52367-4-0"
+            data-menu-id="rc-menu-uuid-test-0"
             role="menuitem"
             tabindex="-1"
           >
@@ -469,7 +469,7 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
           <li
             aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-            data-menu-id="rc-menu-uuid-52367-4-1"
+            data-menu-id="rc-menu-uuid-test-1"
             role="menuitem"
             tabindex="-1"
           >
@@ -605,7 +605,7 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
           <li
             aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-            data-menu-id="rc-menu-uuid-52367-2-1"
+            data-menu-id="rc-menu-uuid-test-1"
             role="menuitem"
             tabindex="-1"
           >
@@ -642,7 +642,7 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
           <li
             aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-            data-menu-id="rc-menu-uuid-52367-2-2"
+            data-menu-id="rc-menu-uuid-test-2"
             role="menuitem"
             tabindex="-1"
           >
@@ -679,7 +679,7 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
           <li
             aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-            data-menu-id="rc-menu-uuid-52367-2-3"
+            data-menu-id="rc-menu-uuid-test-3"
             role="menuitem"
             tabindex="-1"
           >

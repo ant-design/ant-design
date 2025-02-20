@@ -147,13 +147,13 @@ Array [
                       >
                         <input
                           aria-autocomplete="list"
-                          aria-controls="rc_select_51_list"
+                          aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="rc_select_51_list"
+                          aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
-                          id="rc_select_51"
+                          id="rc_select_TEST_OR_SSR"
                           readonly=""
                           role="combobox"
                           style="opacity: 0;"
@@ -176,14 +176,14 @@ Array [
                   >
                     <div>
                       <div
-                        id="rc_select_51_list"
+                        id="rc_select_TEST_OR_SSR_list"
                         role="listbox"
                         style="height: 0px; width: 0px; overflow: hidden;"
                       >
                         <div
                           aria-label="HEX"
                           aria-selected="true"
-                          id="rc_select_51_list_0"
+                          id="rc_select_TEST_OR_SSR_list_0"
                           role="option"
                         >
                           hex
@@ -191,7 +191,7 @@ Array [
                         <div
                           aria-label="HSB"
                           aria-selected="false"
-                          id="rc_select_51_list_1"
+                          id="rc_select_TEST_OR_SSR_list_1"
                           role="option"
                         >
                           hsb
@@ -540,13 +540,13 @@ Array [
                       >
                         <input
                           aria-autocomplete="list"
-                          aria-controls="rc_select_49_list"
+                          aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="rc_select_49_list"
+                          aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
-                          id="rc_select_49"
+                          id="rc_select_TEST_OR_SSR"
                           readonly=""
                           role="combobox"
                           style="opacity: 0;"
@@ -569,14 +569,14 @@ Array [
                   >
                     <div>
                       <div
-                        id="rc_select_49_list"
+                        id="rc_select_TEST_OR_SSR_list"
                         role="listbox"
                         style="height: 0px; width: 0px; overflow: hidden;"
                       >
                         <div
                           aria-label="HEX"
                           aria-selected="true"
-                          id="rc_select_49_list_0"
+                          id="rc_select_TEST_OR_SSR_list_0"
                           role="option"
                         >
                           hex
@@ -584,7 +584,7 @@ Array [
                         <div
                           aria-label="HSB"
                           aria-selected="false"
-                          id="rc_select_49_list_1"
+                          id="rc_select_TEST_OR_SSR_list_1"
                           role="option"
                         >
                           hsb
@@ -938,13 +938,13 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                         >
                           <input
                             aria-autocomplete="list"
-                            aria-controls="rc_select_46_list"
+                            aria-controls="rc_select_TEST_OR_SSR_list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-owns="rc_select_46_list"
+                            aria-owns="rc_select_TEST_OR_SSR_list"
                             autocomplete="off"
                             class="ant-select-selection-search-input"
-                            id="rc_select_46"
+                            id="rc_select_TEST_OR_SSR"
                             readonly=""
                             role="combobox"
                             style="opacity: 0;"
@@ -967,14 +967,14 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     >
                       <div>
                         <div
-                          id="rc_select_46_list"
+                          id="rc_select_TEST_OR_SSR_list"
                           role="listbox"
                           style="height: 0px; width: 0px; overflow: hidden;"
                         >
                           <div
                             aria-label="HEX"
                             aria-selected="true"
-                            id="rc_select_46_list_0"
+                            id="rc_select_TEST_OR_SSR_list_0"
                             role="option"
                           >
                             hex
@@ -982,7 +982,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                           <div
                             aria-label="HSB"
                             aria-selected="false"
-                            id="rc_select_46_list_1"
+                            id="rc_select_TEST_OR_SSR_list_1"
                             role="option"
                           >
                             hsb
@@ -1328,13 +1328,13 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                         >
                           <input
                             aria-autocomplete="list"
-                            aria-controls="rc_select_47_list"
+                            aria-controls="rc_select_TEST_OR_SSR_list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-owns="rc_select_47_list"
+                            aria-owns="rc_select_TEST_OR_SSR_list"
                             autocomplete="off"
                             class="ant-select-selection-search-input"
-                            id="rc_select_47"
+                            id="rc_select_TEST_OR_SSR"
                             readonly=""
                             role="combobox"
                             style="opacity: 0;"
@@ -1357,14 +1357,14 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     >
                       <div>
                         <div
-                          id="rc_select_47_list"
+                          id="rc_select_TEST_OR_SSR_list"
                           role="listbox"
                           style="height: 0px; width: 0px; overflow: hidden;"
                         >
                           <div
                             aria-label="HEX"
                             aria-selected="true"
-                            id="rc_select_47_list_0"
+                            id="rc_select_TEST_OR_SSR_list_0"
                             role="option"
                           >
                             hex
@@ -1372,7 +1372,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                           <div
                             aria-label="HSB"
                             aria-selected="false"
-                            id="rc_select_47_list_1"
+                            id="rc_select_TEST_OR_SSR_list_1"
                             role="option"
                           >
                             hsb
@@ -1727,13 +1727,13 @@ Array [
                       >
                         <input
                           aria-autocomplete="list"
-                          aria-controls="rc_select_41_list"
+                          aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="rc_select_41_list"
+                          aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
-                          id="rc_select_41"
+                          id="rc_select_TEST_OR_SSR"
                           readonly=""
                           role="combobox"
                           style="opacity: 0;"
@@ -1756,14 +1756,14 @@ Array [
                   >
                     <div>
                       <div
-                        id="rc_select_41_list"
+                        id="rc_select_TEST_OR_SSR_list"
                         role="listbox"
                         style="height: 0px; width: 0px; overflow: hidden;"
                       >
                         <div
                           aria-label="HEX"
                           aria-selected="true"
-                          id="rc_select_41_list_0"
+                          id="rc_select_TEST_OR_SSR_list_0"
                           role="option"
                         >
                           hex
@@ -1771,7 +1771,7 @@ Array [
                         <div
                           aria-label="HSB"
                           aria-selected="false"
-                          id="rc_select_41_list_1"
+                          id="rc_select_TEST_OR_SSR_list_1"
                           role="option"
                         >
                           hsb
@@ -2099,13 +2099,13 @@ Array [
                       >
                         <input
                           aria-autocomplete="list"
-                          aria-controls="rc_select_43_list"
+                          aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="rc_select_43_list"
+                          aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
-                          id="rc_select_43"
+                          id="rc_select_TEST_OR_SSR"
                           readonly=""
                           role="combobox"
                           style="opacity: 0;"
@@ -2128,14 +2128,14 @@ Array [
                   >
                     <div>
                       <div
-                        id="rc_select_43_list"
+                        id="rc_select_TEST_OR_SSR_list"
                         role="listbox"
                         style="height: 0px; width: 0px; overflow: hidden;"
                       >
                         <div
                           aria-label="HEX"
                           aria-selected="true"
-                          id="rc_select_43_list_0"
+                          id="rc_select_TEST_OR_SSR_list_0"
                           role="option"
                         >
                           hex
@@ -2143,7 +2143,7 @@ Array [
                         <div
                           aria-label="HSB"
                           aria-selected="false"
-                          id="rc_select_43_list_1"
+                          id="rc_select_TEST_OR_SSR_list_1"
                           role="option"
                         >
                           hsb
@@ -2428,13 +2428,13 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             >
                               <input
                                 aria-autocomplete="list"
-                                aria-controls="rc_select_37_list"
+                                aria-controls="rc_select_TEST_OR_SSR_list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
-                                aria-owns="rc_select_37_list"
+                                aria-owns="rc_select_TEST_OR_SSR_list"
                                 autocomplete="off"
                                 class="ant-select-selection-search-input"
-                                id="rc_select_37"
+                                id="rc_select_TEST_OR_SSR"
                                 readonly=""
                                 role="combobox"
                                 style="opacity: 0;"
@@ -2457,14 +2457,14 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         >
                           <div>
                             <div
-                              id="rc_select_37_list"
+                              id="rc_select_TEST_OR_SSR_list"
                               role="listbox"
                               style="height: 0px; width: 0px; overflow: hidden;"
                             >
                               <div
                                 aria-label="HEX"
                                 aria-selected="true"
-                                id="rc_select_37_list_0"
+                                id="rc_select_TEST_OR_SSR_list_0"
                                 role="option"
                               >
                                 hex
@@ -2472,7 +2472,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                               <div
                                 aria-label="HSB"
                                 aria-selected="false"
-                                id="rc_select_37_list_1"
+                                id="rc_select_TEST_OR_SSR_list_1"
                                 role="option"
                               >
                                 hsb
@@ -2833,13 +2833,13 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             >
                               <input
                                 aria-autocomplete="list"
-                                aria-controls="rc_select_38_list"
+                                aria-controls="rc_select_TEST_OR_SSR_list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
-                                aria-owns="rc_select_38_list"
+                                aria-owns="rc_select_TEST_OR_SSR_list"
                                 autocomplete="off"
                                 class="ant-select-selection-search-input"
-                                id="rc_select_38"
+                                id="rc_select_TEST_OR_SSR"
                                 readonly=""
                                 role="combobox"
                                 style="opacity: 0;"
@@ -2862,14 +2862,14 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         >
                           <div>
                             <div
-                              id="rc_select_38_list"
+                              id="rc_select_TEST_OR_SSR_list"
                               role="listbox"
                               style="height: 0px; width: 0px; overflow: hidden;"
                             >
                               <div
                                 aria-label="HEX"
                                 aria-selected="false"
-                                id="rc_select_38_list_0"
+                                id="rc_select_TEST_OR_SSR_list_0"
                                 role="option"
                               >
                                 hex
@@ -2877,7 +2877,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                               <div
                                 aria-label="HSB"
                                 aria-selected="true"
-                                id="rc_select_38_list_1"
+                                id="rc_select_TEST_OR_SSR_list_1"
                                 role="option"
                               >
                                 hsb
@@ -3456,13 +3456,13 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             >
                               <input
                                 aria-autocomplete="list"
-                                aria-controls="rc_select_39_list"
+                                aria-controls="rc_select_TEST_OR_SSR_list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
-                                aria-owns="rc_select_39_list"
+                                aria-owns="rc_select_TEST_OR_SSR_list"
                                 autocomplete="off"
                                 class="ant-select-selection-search-input"
-                                id="rc_select_39"
+                                id="rc_select_TEST_OR_SSR"
                                 readonly=""
                                 role="combobox"
                                 style="opacity: 0;"
@@ -3485,14 +3485,14 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         >
                           <div>
                             <div
-                              id="rc_select_39_list"
+                              id="rc_select_TEST_OR_SSR_list"
                               role="listbox"
                               style="height: 0px; width: 0px; overflow: hidden;"
                             >
                               <div
                                 aria-label="HEX"
                                 aria-selected="false"
-                                id="rc_select_39_list_0"
+                                id="rc_select_TEST_OR_SSR_list_0"
                                 role="option"
                               >
                                 hex
@@ -3500,7 +3500,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                               <div
                                 aria-label="HSB"
                                 aria-selected="false"
-                                id="rc_select_39_list_1"
+                                id="rc_select_TEST_OR_SSR_list_1"
                                 role="option"
                               >
                                 hsb
@@ -4180,13 +4180,13 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                         >
                           <input
                             aria-autocomplete="list"
-                            aria-controls="rc_select_32_list"
+                            aria-controls="rc_select_TEST_OR_SSR_list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-owns="rc_select_32_list"
+                            aria-owns="rc_select_TEST_OR_SSR_list"
                             autocomplete="off"
                             class="ant-select-selection-search-input"
-                            id="rc_select_32"
+                            id="rc_select_TEST_OR_SSR"
                             readonly=""
                             role="combobox"
                             style="opacity: 0;"
@@ -4209,14 +4209,14 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     >
                       <div>
                         <div
-                          id="rc_select_32_list"
+                          id="rc_select_TEST_OR_SSR_list"
                           role="listbox"
                           style="height: 0px; width: 0px; overflow: hidden;"
                         >
                           <div
                             aria-label="HEX"
                             aria-selected="true"
-                            id="rc_select_32_list_0"
+                            id="rc_select_TEST_OR_SSR_list_0"
                             role="option"
                           >
                             hex
@@ -4224,7 +4224,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                           <div
                             aria-label="HSB"
                             aria-selected="false"
-                            id="rc_select_32_list_1"
+                            id="rc_select_TEST_OR_SSR_list_1"
                             role="option"
                           >
                             hsb
@@ -4622,13 +4622,13 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                         >
                           <input
                             aria-autocomplete="list"
-                            aria-controls="rc_select_33_list"
+                            aria-controls="rc_select_TEST_OR_SSR_list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-owns="rc_select_33_list"
+                            aria-owns="rc_select_TEST_OR_SSR_list"
                             autocomplete="off"
                             class="ant-select-selection-search-input"
-                            id="rc_select_33"
+                            id="rc_select_TEST_OR_SSR"
                             readonly=""
                             role="combobox"
                             style="opacity: 0;"
@@ -4651,14 +4651,14 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     >
                       <div>
                         <div
-                          id="rc_select_33_list"
+                          id="rc_select_TEST_OR_SSR_list"
                           role="listbox"
                           style="height: 0px; width: 0px; overflow: hidden;"
                         >
                           <div
                             aria-label="HEX"
                             aria-selected="true"
-                            id="rc_select_33_list_0"
+                            id="rc_select_TEST_OR_SSR_list_0"
                             role="option"
                           >
                             hex
@@ -4666,7 +4666,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                           <div
                             aria-label="HSB"
                             aria-selected="false"
-                            id="rc_select_33_list_1"
+                            id="rc_select_TEST_OR_SSR_list_1"
                             role="option"
                           >
                             hsb
@@ -5042,13 +5042,13 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               >
                                 <input
                                   aria-autocomplete="list"
-                                  aria-controls="rc_select_28_list"
+                                  aria-controls="rc_select_TEST_OR_SSR_list"
                                   aria-expanded="false"
                                   aria-haspopup="listbox"
-                                  aria-owns="rc_select_28_list"
+                                  aria-owns="rc_select_TEST_OR_SSR_list"
                                   autocomplete="off"
                                   class="ant-select-selection-search-input"
-                                  id="rc_select_28"
+                                  id="rc_select_TEST_OR_SSR"
                                   readonly=""
                                   role="combobox"
                                   style="opacity: 0;"
@@ -5071,14 +5071,14 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           >
                             <div>
                               <div
-                                id="rc_select_28_list"
+                                id="rc_select_TEST_OR_SSR_list"
                                 role="listbox"
                                 style="height: 0px; width: 0px; overflow: hidden;"
                               >
                                 <div
                                   aria-label="HEX"
                                   aria-selected="true"
-                                  id="rc_select_28_list_0"
+                                  id="rc_select_TEST_OR_SSR_list_0"
                                   role="option"
                                 >
                                   hex
@@ -5086,7 +5086,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                 <div
                                   aria-label="HSB"
                                   aria-selected="false"
-                                  id="rc_select_28_list_1"
+                                  id="rc_select_TEST_OR_SSR_list_1"
                                   role="option"
                                 >
                                   hsb
@@ -6018,13 +6018,13 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               >
                                 <input
                                   aria-autocomplete="list"
-                                  aria-controls="rc_select_29_list"
+                                  aria-controls="rc_select_TEST_OR_SSR_list"
                                   aria-expanded="false"
                                   aria-haspopup="listbox"
-                                  aria-owns="rc_select_29_list"
+                                  aria-owns="rc_select_TEST_OR_SSR_list"
                                   autocomplete="off"
                                   class="ant-select-selection-search-input"
-                                  id="rc_select_29"
+                                  id="rc_select_TEST_OR_SSR"
                                   readonly=""
                                   role="combobox"
                                   style="opacity: 0;"
@@ -6047,14 +6047,14 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           >
                             <div>
                               <div
-                                id="rc_select_29_list"
+                                id="rc_select_TEST_OR_SSR_list"
                                 role="listbox"
                                 style="height: 0px; width: 0px; overflow: hidden;"
                               >
                                 <div
                                   aria-label="HEX"
                                   aria-selected="true"
-                                  id="rc_select_29_list_0"
+                                  id="rc_select_TEST_OR_SSR_list_0"
                                   role="option"
                                 >
                                   hex
@@ -6062,7 +6062,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                 <div
                                   aria-label="HSB"
                                   aria-selected="false"
-                                  id="rc_select_29_list_1"
+                                  id="rc_select_TEST_OR_SSR_list_1"
                                   role="option"
                                 >
                                   hsb
@@ -6415,13 +6415,13 @@ Array [
                       >
                         <input
                           aria-autocomplete="list"
-                          aria-controls="rc_select_25_list"
+                          aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="rc_select_25_list"
+                          aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
-                          id="rc_select_25"
+                          id="rc_select_TEST_OR_SSR"
                           readonly=""
                           role="combobox"
                           style="opacity: 0;"
@@ -6444,14 +6444,14 @@ Array [
                   >
                     <div>
                       <div
-                        id="rc_select_25_list"
+                        id="rc_select_TEST_OR_SSR_list"
                         role="listbox"
                         style="height: 0px; width: 0px; overflow: hidden;"
                       >
                         <div
                           aria-label="HEX"
                           aria-selected="true"
-                          id="rc_select_25_list_0"
+                          id="rc_select_TEST_OR_SSR_list_0"
                           role="option"
                         >
                           hex
@@ -6459,7 +6459,7 @@ Array [
                         <div
                           aria-label="HSB"
                           aria-selected="false"
-                          id="rc_select_25_list_1"
+                          id="rc_select_TEST_OR_SSR_list_1"
                           role="option"
                         >
                           hsb
@@ -7237,13 +7237,13 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                         >
                           <input
                             aria-autocomplete="list"
-                            aria-controls="rc_select_23_list"
+                            aria-controls="rc_select_TEST_OR_SSR_list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-owns="rc_select_23_list"
+                            aria-owns="rc_select_TEST_OR_SSR_list"
                             autocomplete="off"
                             class="ant-select-selection-search-input"
-                            id="rc_select_23"
+                            id="rc_select_TEST_OR_SSR"
                             readonly=""
                             role="combobox"
                             style="opacity: 0;"
@@ -7266,14 +7266,14 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                     >
                       <div>
                         <div
-                          id="rc_select_23_list"
+                          id="rc_select_TEST_OR_SSR_list"
                           role="listbox"
                           style="height: 0px; width: 0px; overflow: hidden;"
                         >
                           <div
                             aria-label="HEX"
                             aria-selected="true"
-                            id="rc_select_23_list_0"
+                            id="rc_select_TEST_OR_SSR_list_0"
                             role="option"
                           >
                             hex
@@ -7281,7 +7281,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                           <div
                             aria-label="HSB"
                             aria-selected="false"
-                            id="rc_select_23_list_1"
+                            id="rc_select_TEST_OR_SSR_list_1"
                             role="option"
                           >
                             hsb
@@ -7642,13 +7642,13 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             >
                               <input
                                 aria-autocomplete="list"
-                                aria-controls="rc_select_16_list"
+                                aria-controls="rc_select_TEST_OR_SSR_list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
-                                aria-owns="rc_select_16_list"
+                                aria-owns="rc_select_TEST_OR_SSR_list"
                                 autocomplete="off"
                                 class="ant-select-selection-search-input"
-                                id="rc_select_16"
+                                id="rc_select_TEST_OR_SSR"
                                 readonly=""
                                 role="combobox"
                                 style="opacity: 0;"
@@ -7671,14 +7671,14 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div>
                             <div
-                              id="rc_select_16_list"
+                              id="rc_select_TEST_OR_SSR_list"
                               role="listbox"
                               style="height: 0px; width: 0px; overflow: hidden;"
                             >
                               <div
                                 aria-label="HEX"
                                 aria-selected="true"
-                                id="rc_select_16_list_0"
+                                id="rc_select_TEST_OR_SSR_list_0"
                                 role="option"
                               >
                                 hex
@@ -7686,7 +7686,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                               <div
                                 aria-label="HSB"
                                 aria-selected="false"
-                                id="rc_select_16_list_1"
+                                id="rc_select_TEST_OR_SSR_list_1"
                                 role="option"
                               >
                                 hsb
@@ -8032,13 +8032,13 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             >
                               <input
                                 aria-autocomplete="list"
-                                aria-controls="rc_select_17_list"
+                                aria-controls="rc_select_TEST_OR_SSR_list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
-                                aria-owns="rc_select_17_list"
+                                aria-owns="rc_select_TEST_OR_SSR_list"
                                 autocomplete="off"
                                 class="ant-select-selection-search-input"
-                                id="rc_select_17"
+                                id="rc_select_TEST_OR_SSR"
                                 readonly=""
                                 role="combobox"
                                 style="opacity: 0;"
@@ -8061,14 +8061,14 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div>
                             <div
-                              id="rc_select_17_list"
+                              id="rc_select_TEST_OR_SSR_list"
                               role="listbox"
                               style="height: 0px; width: 0px; overflow: hidden;"
                             >
                               <div
                                 aria-label="HEX"
                                 aria-selected="true"
-                                id="rc_select_17_list_0"
+                                id="rc_select_TEST_OR_SSR_list_0"
                                 role="option"
                               >
                                 hex
@@ -8076,7 +8076,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                               <div
                                 aria-label="HSB"
                                 aria-selected="false"
-                                id="rc_select_17_list_1"
+                                id="rc_select_TEST_OR_SSR_list_1"
                                 role="option"
                               >
                                 hsb
@@ -8422,13 +8422,13 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             >
                               <input
                                 aria-autocomplete="list"
-                                aria-controls="rc_select_18_list"
+                                aria-controls="rc_select_TEST_OR_SSR_list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
-                                aria-owns="rc_select_18_list"
+                                aria-owns="rc_select_TEST_OR_SSR_list"
                                 autocomplete="off"
                                 class="ant-select-selection-search-input"
-                                id="rc_select_18"
+                                id="rc_select_TEST_OR_SSR"
                                 readonly=""
                                 role="combobox"
                                 style="opacity: 0;"
@@ -8451,14 +8451,14 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div>
                             <div
-                              id="rc_select_18_list"
+                              id="rc_select_TEST_OR_SSR_list"
                               role="listbox"
                               style="height: 0px; width: 0px; overflow: hidden;"
                             >
                               <div
                                 aria-label="HEX"
                                 aria-selected="true"
-                                id="rc_select_18_list_0"
+                                id="rc_select_TEST_OR_SSR_list_0"
                                 role="option"
                               >
                                 hex
@@ -8466,7 +8466,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                               <div
                                 aria-label="HSB"
                                 aria-selected="false"
-                                id="rc_select_18_list_1"
+                                id="rc_select_TEST_OR_SSR_list_1"
                                 role="option"
                               >
                                 hsb
@@ -8825,13 +8825,13 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             >
                               <input
                                 aria-autocomplete="list"
-                                aria-controls="rc_select_19_list"
+                                aria-controls="rc_select_TEST_OR_SSR_list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
-                                aria-owns="rc_select_19_list"
+                                aria-owns="rc_select_TEST_OR_SSR_list"
                                 autocomplete="off"
                                 class="ant-select-selection-search-input"
-                                id="rc_select_19"
+                                id="rc_select_TEST_OR_SSR"
                                 readonly=""
                                 role="combobox"
                                 style="opacity: 0;"
@@ -8854,14 +8854,14 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div>
                             <div
-                              id="rc_select_19_list"
+                              id="rc_select_TEST_OR_SSR_list"
                               role="listbox"
                               style="height: 0px; width: 0px; overflow: hidden;"
                             >
                               <div
                                 aria-label="HEX"
                                 aria-selected="true"
-                                id="rc_select_19_list_0"
+                                id="rc_select_TEST_OR_SSR_list_0"
                                 role="option"
                               >
                                 hex
@@ -8869,7 +8869,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                               <div
                                 aria-label="HSB"
                                 aria-selected="false"
-                                id="rc_select_19_list_1"
+                                id="rc_select_TEST_OR_SSR_list_1"
                                 role="option"
                               >
                                 hsb
@@ -9220,13 +9220,13 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             >
                               <input
                                 aria-autocomplete="list"
-                                aria-controls="rc_select_20_list"
+                                aria-controls="rc_select_TEST_OR_SSR_list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
-                                aria-owns="rc_select_20_list"
+                                aria-owns="rc_select_TEST_OR_SSR_list"
                                 autocomplete="off"
                                 class="ant-select-selection-search-input"
-                                id="rc_select_20"
+                                id="rc_select_TEST_OR_SSR"
                                 readonly=""
                                 role="combobox"
                                 style="opacity: 0;"
@@ -9249,14 +9249,14 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div>
                             <div
-                              id="rc_select_20_list"
+                              id="rc_select_TEST_OR_SSR_list"
                               role="listbox"
                               style="height: 0px; width: 0px; overflow: hidden;"
                             >
                               <div
                                 aria-label="HEX"
                                 aria-selected="true"
-                                id="rc_select_20_list_0"
+                                id="rc_select_TEST_OR_SSR_list_0"
                                 role="option"
                               >
                                 hex
@@ -9264,7 +9264,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                               <div
                                 aria-label="HSB"
                                 aria-selected="false"
-                                id="rc_select_20_list_1"
+                                id="rc_select_TEST_OR_SSR_list_1"
                                 role="option"
                               >
                                 hsb
@@ -9615,13 +9615,13 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             >
                               <input
                                 aria-autocomplete="list"
-                                aria-controls="rc_select_21_list"
+                                aria-controls="rc_select_TEST_OR_SSR_list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
-                                aria-owns="rc_select_21_list"
+                                aria-owns="rc_select_TEST_OR_SSR_list"
                                 autocomplete="off"
                                 class="ant-select-selection-search-input"
-                                id="rc_select_21"
+                                id="rc_select_TEST_OR_SSR"
                                 readonly=""
                                 role="combobox"
                                 style="opacity: 0;"
@@ -9644,14 +9644,14 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div>
                             <div
-                              id="rc_select_21_list"
+                              id="rc_select_TEST_OR_SSR_list"
                               role="listbox"
                               style="height: 0px; width: 0px; overflow: hidden;"
                             >
                               <div
                                 aria-label="HEX"
                                 aria-selected="true"
-                                id="rc_select_21_list_0"
+                                id="rc_select_TEST_OR_SSR_list_0"
                                 role="option"
                               >
                                 hex
@@ -9659,7 +9659,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                               <div
                                 aria-label="HSB"
                                 aria-selected="false"
-                                id="rc_select_21_list_1"
+                                id="rc_select_TEST_OR_SSR_list_1"
                                 role="option"
                               >
                                 hsb
@@ -10028,13 +10028,13 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                         >
                           <input
                             aria-autocomplete="list"
-                            aria-controls="rc_select_7_list"
+                            aria-controls="rc_select_TEST_OR_SSR_list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-owns="rc_select_7_list"
+                            aria-owns="rc_select_TEST_OR_SSR_list"
                             autocomplete="off"
                             class="ant-select-selection-search-input"
-                            id="rc_select_7"
+                            id="rc_select_TEST_OR_SSR"
                             readonly=""
                             role="combobox"
                             style="opacity: 0;"
@@ -10057,14 +10057,14 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     >
                       <div>
                         <div
-                          id="rc_select_7_list"
+                          id="rc_select_TEST_OR_SSR_list"
                           role="listbox"
                           style="height: 0px; width: 0px; overflow: hidden;"
                         >
                           <div
                             aria-label="HEX"
                             aria-selected="true"
-                            id="rc_select_7_list_0"
+                            id="rc_select_TEST_OR_SSR_list_0"
                             role="option"
                           >
                             hex
@@ -10072,7 +10072,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                           <div
                             aria-label="HSB"
                             aria-selected="false"
-                            id="rc_select_7_list_1"
+                            id="rc_select_TEST_OR_SSR_list_1"
                             role="option"
                           >
                             hsb
@@ -10425,13 +10425,13 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                         >
                           <input
                             aria-autocomplete="list"
-                            aria-controls="rc_select_8_list"
+                            aria-controls="rc_select_TEST_OR_SSR_list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-owns="rc_select_8_list"
+                            aria-owns="rc_select_TEST_OR_SSR_list"
                             autocomplete="off"
                             class="ant-select-selection-search-input"
-                            id="rc_select_8"
+                            id="rc_select_TEST_OR_SSR"
                             readonly=""
                             role="combobox"
                             style="opacity: 0;"
@@ -10454,14 +10454,14 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     >
                       <div>
                         <div
-                          id="rc_select_8_list"
+                          id="rc_select_TEST_OR_SSR_list"
                           role="listbox"
                           style="height: 0px; width: 0px; overflow: hidden;"
                         >
                           <div
                             aria-label="HEX"
                             aria-selected="true"
-                            id="rc_select_8_list_0"
+                            id="rc_select_TEST_OR_SSR_list_0"
                             role="option"
                           >
                             hex
@@ -10469,7 +10469,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                           <div
                             aria-label="HSB"
                             aria-selected="false"
-                            id="rc_select_8_list_1"
+                            id="rc_select_TEST_OR_SSR_list_1"
                             role="option"
                           >
                             hsb
@@ -10839,13 +10839,13 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                         >
                           <input
                             aria-autocomplete="list"
-                            aria-controls="rc_select_9_list"
+                            aria-controls="rc_select_TEST_OR_SSR_list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-owns="rc_select_9_list"
+                            aria-owns="rc_select_TEST_OR_SSR_list"
                             autocomplete="off"
                             class="ant-select-selection-search-input"
-                            id="rc_select_9"
+                            id="rc_select_TEST_OR_SSR"
                             readonly=""
                             role="combobox"
                             style="opacity: 0;"
@@ -10868,14 +10868,14 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     >
                       <div>
                         <div
-                          id="rc_select_9_list"
+                          id="rc_select_TEST_OR_SSR_list"
                           role="listbox"
                           style="height: 0px; width: 0px; overflow: hidden;"
                         >
                           <div
                             aria-label="HEX"
                             aria-selected="true"
-                            id="rc_select_9_list_0"
+                            id="rc_select_TEST_OR_SSR_list_0"
                             role="option"
                           >
                             hex
@@ -10883,7 +10883,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                           <div
                             aria-label="HSB"
                             aria-selected="false"
-                            id="rc_select_9_list_1"
+                            id="rc_select_TEST_OR_SSR_list_1"
                             role="option"
                           >
                             hsb
@@ -11230,13 +11230,13 @@ Array [
                       >
                         <input
                           aria-autocomplete="list"
-                          aria-controls="rc_select_1_list"
+                          aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="rc_select_1_list"
+                          aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
-                          id="rc_select_1"
+                          id="rc_select_TEST_OR_SSR"
                           readonly=""
                           role="combobox"
                           style="opacity: 0;"
@@ -11259,14 +11259,14 @@ Array [
                   >
                     <div>
                       <div
-                        id="rc_select_1_list"
+                        id="rc_select_TEST_OR_SSR_list"
                         role="listbox"
                         style="height: 0px; width: 0px; overflow: hidden;"
                       >
                         <div
                           aria-label="HEX"
                           aria-selected="true"
-                          id="rc_select_1_list_0"
+                          id="rc_select_TEST_OR_SSR_list_0"
                           role="option"
                         >
                           hex
@@ -11274,7 +11274,7 @@ Array [
                         <div
                           aria-label="HSB"
                           aria-selected="false"
-                          id="rc_select_1_list_1"
+                          id="rc_select_TEST_OR_SSR_list_1"
                           role="option"
                         >
                           hsb
@@ -11623,13 +11623,13 @@ Array [
                       >
                         <input
                           aria-autocomplete="list"
-                          aria-controls="rc_select_3_list"
+                          aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="rc_select_3_list"
+                          aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
-                          id="rc_select_3"
+                          id="rc_select_TEST_OR_SSR"
                           readonly=""
                           role="combobox"
                           style="opacity: 0;"
@@ -11652,14 +11652,14 @@ Array [
                   >
                     <div>
                       <div
-                        id="rc_select_3_list"
+                        id="rc_select_TEST_OR_SSR_list"
                         role="listbox"
                         style="height: 0px; width: 0px; overflow: hidden;"
                       >
                         <div
                           aria-label="HEX"
                           aria-selected="true"
-                          id="rc_select_3_list_0"
+                          id="rc_select_TEST_OR_SSR_list_0"
                           role="option"
                         >
                           hex
@@ -11667,7 +11667,7 @@ Array [
                         <div
                           aria-label="HSB"
                           aria-selected="false"
-                          id="rc_select_3_list_1"
+                          id="rc_select_TEST_OR_SSR_list_1"
                           role="option"
                         >
                           hsb

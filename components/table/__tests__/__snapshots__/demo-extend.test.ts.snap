@@ -2114,7 +2114,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-48838-42-London"
+                                data-menu-id="rc-menu-uuid-test-London"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -2162,7 +2162,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-48838-42-New York"
+                                data-menu-id="rc-menu-uuid-test-New York"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -3541,7 +3541,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-48838-40-gte35"
+                                data-menu-id="rc-menu-uuid-test-gte35"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -3589,7 +3589,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-48838-40-lt18"
+                                data-menu-id="rc-menu-uuid-test-lt18"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -6725,7 +6725,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-48838-38-London"
+                                data-menu-id="rc-menu-uuid-test-London"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -6773,7 +6773,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-48838-38-New York"
+                                data-menu-id="rc-menu-uuid-test-New York"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -9000,14 +9000,14 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                 >
                   <input
                     aria-autocomplete="list"
-                    aria-controls="rc_select_7_list"
+                    aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-label="Page Size"
-                    aria-owns="rc_select_7_list"
+                    aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
-                    id="rc_select_7"
+                    id="rc_select_TEST_OR_SSR"
                     role="combobox"
                     type="search"
                     value=""
@@ -9037,14 +9037,14 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                     <div>
                       <div
                         class="rc-virtual-list-holder-inner"
-                        id="rc_select_7_list"
+                        id="rc_select_TEST_OR_SSR_list"
                         role="listbox"
                         style="display: flex; flex-direction: column;"
                       >
                         <div
                           aria-selected="true"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                          id="rc_select_7_list_0"
+                          id="rc_select_TEST_OR_SSR_list_0"
                           role="option"
                           title="10 / page"
                         >
@@ -9063,7 +9063,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                         <div
                           aria-selected="false"
                           class="ant-select-item ant-select-item-option"
-                          id="rc_select_7_list_1"
+                          id="rc_select_TEST_OR_SSR_list_1"
                           role="option"
                           title="20 / page"
                         >
@@ -9082,7 +9082,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                         <div
                           aria-selected="false"
                           class="ant-select-item ant-select-item-option"
-                          id="rc_select_7_list_2"
+                          id="rc_select_TEST_OR_SSR_list_2"
                           role="option"
                           title="50 / page"
                         >
@@ -9101,7 +9101,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                         <div
                           aria-selected="false"
                           class="ant-select-item ant-select-item-option"
-                          id="rc_select_7_list_3"
+                          id="rc_select_TEST_OR_SSR_list_3"
                           role="option"
                           title="100 / page"
                         >
@@ -11000,7 +11000,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-48838-36-London"
+                              data-menu-id="rc-menu-uuid-test-London"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -11048,7 +11048,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-48838-36-New York"
+                              data-menu-id="rc-menu-uuid-test-New York"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -11784,7 +11784,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-48838-34-London"
+                              data-menu-id="rc-menu-uuid-test-London"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -11832,7 +11832,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-48838-34-New York"
+                              data-menu-id="rc-menu-uuid-test-New York"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -13293,14 +13293,14 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
                 >
                   <input
                     aria-autocomplete="list"
-                    aria-controls="rc_select_5_list"
+                    aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-label="Page Size"
-                    aria-owns="rc_select_5_list"
+                    aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
-                    id="rc_select_5"
+                    id="rc_select_TEST_OR_SSR"
                     role="combobox"
                     type="search"
                     value=""
@@ -13330,14 +13330,14 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
                     <div>
                       <div
                         class="rc-virtual-list-holder-inner"
-                        id="rc_select_5_list"
+                        id="rc_select_TEST_OR_SSR_list"
                         role="listbox"
                         style="display: flex; flex-direction: column;"
                       >
                         <div
                           aria-selected="false"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                          id="rc_select_5_list_0"
+                          id="rc_select_TEST_OR_SSR_list_0"
                           role="option"
                           title="10 / page"
                         >
@@ -13356,7 +13356,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
                         <div
                           aria-selected="false"
                           class="ant-select-item ant-select-item-option"
-                          id="rc_select_5_list_1"
+                          id="rc_select_TEST_OR_SSR_list_1"
                           role="option"
                           title="20 / page"
                         >
@@ -13375,7 +13375,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
                         <div
                           aria-selected="true"
                           class="ant-select-item ant-select-item-option ant-select-item-option-selected"
-                          id="rc_select_5_list_2"
+                          id="rc_select_TEST_OR_SSR_list_2"
                           role="option"
                           title="50 / page"
                         >
@@ -13394,7 +13394,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
                         <div
                           aria-selected="false"
                           class="ant-select-item ant-select-item-option"
-                          id="rc_select_5_list_3"
+                          id="rc_select_TEST_OR_SSR_list_3"
                           role="option"
                           title="100 / page"
                         >
@@ -13535,7 +13535,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-48838-32-Joe"
+                              data-menu-id="rc-menu-uuid-test-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -13583,7 +13583,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-48838-32-John"
+                              data-menu-id="rc-menu-uuid-test-John"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -14590,14 +14590,14 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                 >
                   <input
                     aria-autocomplete="list"
-                    aria-controls="rc_select_3_list"
+                    aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-label="Page Size"
-                    aria-owns="rc_select_3_list"
+                    aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
-                    id="rc_select_3"
+                    id="rc_select_TEST_OR_SSR"
                     role="combobox"
                     type="search"
                     value=""
@@ -14627,14 +14627,14 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                     <div>
                       <div
                         class="rc-virtual-list-holder-inner"
-                        id="rc_select_3_list"
+                        id="rc_select_TEST_OR_SSR_list"
                         role="listbox"
                         style="display: flex; flex-direction: column;"
                       >
                         <div
                           aria-selected="true"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                          id="rc_select_3_list_0"
+                          id="rc_select_TEST_OR_SSR_list_0"
                           role="option"
                           title="10 / page"
                         >
@@ -14653,7 +14653,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                         <div
                           aria-selected="false"
                           class="ant-select-item ant-select-item-option"
-                          id="rc_select_3_list_1"
+                          id="rc_select_TEST_OR_SSR_list_1"
                           role="option"
                           title="20 / page"
                         >
@@ -14672,7 +14672,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                         <div
                           aria-selected="false"
                           class="ant-select-item ant-select-item-option"
-                          id="rc_select_3_list_2"
+                          id="rc_select_TEST_OR_SSR_list_2"
                           role="option"
                           title="50 / page"
                         >
@@ -14691,7 +14691,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                         <div
                           aria-selected="false"
                           class="ant-select-item ant-select-item-option"
-                          id="rc_select_3_list_3"
+                          id="rc_select_TEST_OR_SSR_list_3"
                           role="option"
                           title="100 / page"
                         >
@@ -14888,7 +14888,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-48838-29-Joe"
+                              data-menu-id="rc-menu-uuid-test-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -14936,7 +14936,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-48838-29-Jim"
+                              data-menu-id="rc-menu-uuid-test-Jim"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -14986,11 +14986,11 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                               role="none"
                             >
                               <div
-                                aria-controls="rc-menu-uuid-48838-29-Submenu-popup"
+                                aria-controls="rc-menu-uuid-test-Submenu-popup"
                                 aria-expanded="false"
                                 aria-haspopup="true"
                                 class="ant-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-48838-29-Submenu"
+                                data-menu-id="rc-menu-uuid-test-Submenu"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -15030,13 +15030,13 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                                 <ul
                                   class="ant-dropdown-menu ant-dropdown-menu-sub ant-dropdown-menu-vertical"
                                   data-menu-list="true"
-                                  id="rc-menu-uuid-48838-29-Submenu-popup"
+                                  id="rc-menu-uuid-test-Submenu-popup"
                                   role="menu"
                                 >
                                   <li
                                     aria-describedby="test-id"
                                     class="ant-dropdown-menu-item"
-                                    data-menu-id="rc-menu-uuid-48838-29-Green"
+                                    data-menu-id="rc-menu-uuid-test-Green"
                                     role="menuitem"
                                     tabindex="-1"
                                   >
@@ -15084,7 +15084,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                                   <li
                                     aria-describedby="test-id"
                                     class="ant-dropdown-menu-item"
-                                    data-menu-id="rc-menu-uuid-48838-29-Black"
+                                    data-menu-id="rc-menu-uuid-test-Black"
                                     role="menuitem"
                                     tabindex="-1"
                                   >
@@ -15300,7 +15300,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-48838-30-London"
+                              data-menu-id="rc-menu-uuid-test-London"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -15348,7 +15348,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-48838-30-New York"
+                              data-menu-id="rc-menu-uuid-test-New York"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -17392,14 +17392,14 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
                   >
                     <input
                       aria-autocomplete="list"
-                      aria-controls="rc_select_1_list"
+                      aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
                       aria-label="Page Size"
-                      aria-owns="rc_select_1_list"
+                      aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
-                      id="rc_select_1"
+                      id="rc_select_TEST_OR_SSR"
                       role="combobox"
                       type="search"
                       value=""
@@ -17429,14 +17429,14 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
                       <div>
                         <div
                           class="rc-virtual-list-holder-inner"
-                          id="rc_select_1_list"
+                          id="rc_select_TEST_OR_SSR_list"
                           role="listbox"
                           style="display: flex; flex-direction: column;"
                         >
                           <div
                             aria-selected="true"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                            id="rc_select_1_list_0"
+                            id="rc_select_TEST_OR_SSR_list_0"
                             role="option"
                             title="10 / page"
                           >
@@ -17455,7 +17455,7 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
                           <div
                             aria-selected="false"
                             class="ant-select-item ant-select-item-option"
-                            id="rc_select_1_list_1"
+                            id="rc_select_TEST_OR_SSR_list_1"
                             role="option"
                             title="20 / page"
                           >
@@ -17474,7 +17474,7 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
                           <div
                             aria-selected="false"
                             class="ant-select-item ant-select-item-option"
-                            id="rc_select_1_list_2"
+                            id="rc_select_TEST_OR_SSR_list_2"
                             role="option"
                             title="50 / page"
                           >
@@ -17493,7 +17493,7 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
                           <div
                             aria-selected="false"
                             class="ant-select-item ant-select-item-option"
-                            id="rc_select_1_list_3"
+                            id="rc_select_TEST_OR_SSR_list_3"
                             role="option"
                             title="100 / page"
                           >
@@ -18294,7 +18294,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-48838-18-1"
+                                                    data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -18325,7 +18325,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-48838-18-2"
+                                                    data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -18458,7 +18458,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-48838-19-1"
+                                                    data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -18489,7 +18489,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-48838-19-2"
+                                                    data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -18622,7 +18622,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-48838-20-1"
+                                                    data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -18653,7 +18653,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-48838-20-2"
+                                                    data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -19187,7 +19187,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-48838-21-1"
+                                                    data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -19218,7 +19218,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-48838-21-2"
+                                                    data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -19351,7 +19351,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-48838-22-1"
+                                                    data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -19382,7 +19382,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-48838-22-2"
+                                                    data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -19515,7 +19515,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-48838-23-1"
+                                                    data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -19546,7 +19546,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-48838-23-2"
+                                                    data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -20080,7 +20080,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-48838-24-1"
+                                                    data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -20111,7 +20111,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-48838-24-2"
+                                                    data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -20244,7 +20244,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-48838-25-1"
+                                                    data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -20275,7 +20275,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-48838-25-2"
+                                                    data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -20408,7 +20408,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-48838-26-1"
+                                                    data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -20439,7 +20439,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-48838-26-2"
+                                                    data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -21863,7 +21863,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-48838-7-Joe"
+                                data-menu-id="rc-menu-uuid-test-Joe"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -21911,7 +21911,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-48838-7-Jim"
+                                data-menu-id="rc-menu-uuid-test-Jim"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -22203,7 +22203,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-48838-8-London"
+                                data-menu-id="rc-menu-uuid-test-London"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -22251,7 +22251,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-48838-8-New York"
+                                data-menu-id="rc-menu-uuid-test-New York"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -24116,7 +24116,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-48838-4-all"
+                              data-menu-id="rc-menu-uuid-test-all"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -24147,7 +24147,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-48838-4-invert"
+                              data-menu-id="rc-menu-uuid-test-invert"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -24178,7 +24178,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-48838-4-none"
+                              data-menu-id="rc-menu-uuid-test-none"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -24209,7 +24209,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-48838-4-odd"
+                              data-menu-id="rc-menu-uuid-test-odd"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -24240,7 +24240,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-48838-4-even"
+                              data-menu-id="rc-menu-uuid-test-even"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -27596,7 +27596,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-48838-2-all"
+                              data-menu-id="rc-menu-uuid-test-all"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -27627,7 +27627,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-48838-2-invert"
+                              data-menu-id="rc-menu-uuid-test-invert"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -27658,7 +27658,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-48838-2-none"
+                              data-menu-id="rc-menu-uuid-test-none"
                               role="menuitem"
                               tabindex="-1"
                             >

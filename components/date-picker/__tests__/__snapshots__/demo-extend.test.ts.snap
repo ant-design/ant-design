@@ -81689,14 +81689,14 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
           >
             <input
               aria-autocomplete="list"
-              aria-controls="rc_select_1_list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Picker Type"
-              aria-owns="rc_select_1_list"
+              aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_1"
+              id="rc_select_TEST_OR_SSR"
               readonly=""
               role="combobox"
               style="opacity: 0;"
@@ -81719,14 +81719,14 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
       >
         <div>
           <div
-            id="rc_select_1_list"
+            id="rc_select_TEST_OR_SSR_list"
             role="listbox"
             style="height: 0px; width: 0px; overflow: hidden;"
           >
             <div
               aria-label="Time"
               aria-selected="true"
-              id="rc_select_1_list_0"
+              id="rc_select_TEST_OR_SSR_list_0"
               role="option"
             >
               time
@@ -81734,7 +81734,7 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
             <div
               aria-label="Date"
               aria-selected="false"
-              id="rc_select_1_list_1"
+              id="rc_select_TEST_OR_SSR_list_1"
               role="option"
             >
               date

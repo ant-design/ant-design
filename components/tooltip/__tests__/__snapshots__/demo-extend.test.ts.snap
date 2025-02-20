@@ -1650,15 +1650,15 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
           >
             <input
               aria-autocomplete="list"
-              aria-controls="rc_select_1_list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
               aria-describedby="test-id"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="rc_select_1_list"
+              aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
               disabled=""
-              id="rc_select_1"
+              id="rc_select_TEST_OR_SSR"
               readonly=""
               role="combobox"
               style="opacity: 0;"
@@ -1679,7 +1679,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
         <div>
           <div
             class="ant-select-item-empty"
-            id="rc_select_1_list"
+            id="rc_select_TEST_OR_SSR_list"
             role="listbox"
           >
             <div

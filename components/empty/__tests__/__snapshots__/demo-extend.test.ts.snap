@@ -139,13 +139,13 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_3_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_3_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_3"
+                id="rc_select_TEST_OR_SSR"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -166,7 +166,7 @@ Array [
           <div>
             <div
               class="ant-select-item-empty"
-              id="rc_select_3_list"
+              id="rc_select_TEST_OR_SSR_list"
               role="listbox"
             >
               <div
@@ -252,13 +252,13 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_4_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_4_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_4"
+                id="rc_select_TEST_OR_SSR"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -364,13 +364,13 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_5_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_5_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_5"
+                id="rc_select_TEST_OR_SSR"
                 role="combobox"
                 type="search"
                 value=""
@@ -530,7 +530,7 @@ Array [
                 <li
                   aria-describedby="test-id"
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-71541-3-selectAll"
+                  data-menu-id="rc-menu-uuid-test-selectAll"
                   role="menuitem"
                   tabindex="-1"
                 >
@@ -561,7 +561,7 @@ Array [
                 <li
                   aria-describedby="test-id"
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-71541-3-selectInvert"
+                  data-menu-id="rc-menu-uuid-test-selectInvert"
                   role="menuitem"
                   tabindex="-1"
                 >
@@ -756,7 +756,7 @@ Array [
                 <li
                   aria-describedby="test-id"
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-71541-4-selectAll"
+                  data-menu-id="rc-menu-uuid-test-selectAll"
                   role="menuitem"
                   tabindex="-1"
                 >
@@ -787,7 +787,7 @@ Array [
                 <li
                   aria-describedby="test-id"
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-71541-4-selectInvert"
+                  data-menu-id="rc-menu-uuid-test-selectInvert"
                   role="menuitem"
                   tabindex="-1"
                 >
