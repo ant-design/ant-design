@@ -35,6 +35,15 @@ export const genMasonryStyle: GenerateStyle<MasonryToken> = (token: MasonryToken
               opacity: 1,
             },
           },
+
+          '&-leave': {
+            transition: `opacity ${token.motionDurationFast} ${token.motionEaseOut}`,
+            opacity: 1,
+
+            '&-active': {
+              opacity: 0,
+            },
+          },
         },
 
         [`&:not(${itemCls}-fade)`]: {

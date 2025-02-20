@@ -1,6 +1,4 @@
 import React, { useMemo } from 'react';
-import CSSMotion from '@rc-component/motion';
-import { composeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
 
 import type { MasonryProps } from './Masonry';
@@ -16,11 +14,12 @@ interface MasonryItemProps<T = any> extends Pick<MasonryProps, 'itemRender'> {
   prefixCls: string;
   item: MasonryItemType<T>;
   style: React.CSSProperties;
+  className?: string;
   index: number;
 }
 
 const MasonryItem = React.forwardRef<HTMLDivElement, MasonryItemProps>((props, ref) => {
-  const { item, style, prefixCls, itemRender, index } = props;
+  const { item, style, prefixCls, itemRender, className, index } = props;
 
   const itemPrefix = `${prefixCls}-item`;
 
@@ -30,24 +29,9 @@ const MasonryItem = React.forwardRef<HTMLDivElement, MasonryItemProps>((props, r
   }, [item, itemRender]);
 
   return (
-    <CSSMotion motionAppear visible motionName={`${itemPrefix}-fade`}>
-      {({ className: motionClassName, style: motionStyle, ref: motionRef }) => {
-        const mergedStyle: React.CSSProperties = { ...motionStyle, ...style };
-        if (item.height) {
-          mergedStyle.height = item.height;
-        }
-
-        return (
-          <div
-            ref={composeRef(ref, motionRef)}
-            style={mergedStyle}
-            className={classNames(itemPrefix, motionClassName)}
-          >
-            {renderNode}
-          </div>
-        );
-      }}
-    </CSSMotion>
+    <div ref={ref} style={style} className={classNames(itemPrefix, className)}>
+      {renderNode}
+    </div>
   );
 });
 

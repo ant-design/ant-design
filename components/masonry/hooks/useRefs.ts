@@ -6,11 +6,11 @@ export default function useRefs(): [
 ] {
   const refs = React.useRef(new Map<React.Key, HTMLDivElement | null>());
 
-  const setRef = (index: React.Key, element: HTMLDivElement | null) => {
-    refs.current.set(index, element);
+  const setRef = (key: React.Key, element: HTMLDivElement | null) => {
+    refs.current.set(key, element);
   };
 
-  const getRef = (index: React.Key) => refs.current.get(index);
+  const getRef = (key: React.Key) => refs.current.get(key);
 
   return [setRef, getRef];
 }

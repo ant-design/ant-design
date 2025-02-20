@@ -16,6 +16,7 @@ const DemoItem: React.FC<{ height: number; children: React.ReactNode; onClick: (
         borderRadius: 4,
         padding: 4,
         width: '100%',
+        boxSizing: 'border-box',
       }}
       onClick={onClick}
     >

@@ -1,8 +1,10 @@
 import * as React from 'react';
 import type { CSSProperties } from 'react';
+import { CSSMotionList } from '@rc-component/motion';
 import { useEvent } from '@rc-component/util';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import isEqual from '@rc-component/util/lib/isEqual';
+import { composeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 
@@ -24,7 +26,6 @@ import useStyle from './style';
 
 export type Gap = number | undefined;
 export type Key = string | number;
-
 export interface MasonryProps<ItemDateType = any> {
   // Style
   prefixCls?: string;
@@ -128,6 +129,10 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
         const key = item.key ?? index;
         return {
           item,
+          itemIndex: index,
+          // CSSMotion will transform key to string.
+          // Let's keep the original key here.
+          itemKey: key,
           key,
           position: itemPositions.get(key),
         };
@@ -186,29 +191,49 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
         onLoad={collectItemSize}
         onError={collectItemSize}
       >
-        {itemWithPositions.map(({ item, key, position = {} }, index) => {
-          const { column: columnIndex = 0 } = position;
+        <CSSMotionList
+          keys={itemWithPositions}
+          component={false}
+          // Motion config
+          motionAppear
+          motionLeave
+          motionName={`${prefixCls}-item-fade`}
+        >
+          {(motionInfo, motionRef) => {
+            const {
+              item,
+              itemKey,
+              position = {},
+              itemIndex,
 
-          const itemStyle: CSSProperties = {
-            [direction === 'rtl' ? 'right' : 'left']:
-              `calc(${(columnIndex / columnCount) * 100}% + ${halfHorizontalGutter}px)`,
-            width: `calc(${100 / columnCount}% - ${horizontalGutter}px)`,
-            top: position.top,
-            position: 'absolute',
-          };
+              key,
+              className: motionClassName,
+              style: motionStyle,
+            } = motionInfo;
+            const { column: columnIndex = 0 } = position;
 
-          return (
-            <MasonryItem
-              prefixCls={prefixCls}
-              key={key}
-              item={item}
-              style={itemStyle}
-              ref={(ele) => setItemRef(key, ele)}
-              index={index}
-              itemRender={itemRender}
-            />
-          );
-        })}
+            const itemStyle: CSSProperties = {
+              [direction === 'rtl' ? 'right' : 'left']:
+                `calc(${(columnIndex / columnCount) * 100}% + ${halfHorizontalGutter}px)`,
+              width: `calc(${100 / columnCount}% - ${horizontalGutter}px)`,
+              top: position.top,
+              position: 'absolute',
+            };
+
+            return (
+              <MasonryItem
+                prefixCls={prefixCls}
+                key={key}
+                item={item}
+                style={{ ...motionStyle, ...itemStyle }}
+                className={motionClassName}
+                ref={composeRef(motionRef, (ele) => setItemRef(itemKey, ele))}
+                index={itemIndex}
+                itemRender={itemRender}
+              />
+            );
+          }}
+        </CSSMotionList>
       </div>
     </ResizeObserver>,
   );
