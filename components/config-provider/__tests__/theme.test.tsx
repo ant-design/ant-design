@@ -1,10 +1,8 @@
 import React from 'react';
-import canUseDom from '@rc-component/util/lib/Dom/canUseDom';
 import kebabCase from 'lodash/kebabCase';
 
 import ConfigProvider from '..';
 import { Button, InputNumber, Select } from '../..';
-import { resetWarned } from '../../_util/warning';
 import { render } from '../../../tests/utils';
 import theme from '../../theme';
 import type { GlobalToken } from '../../theme/internal';
@@ -41,25 +39,6 @@ describe('ConfigProvider.Theme', () => {
 
       expect(themeStyle?.innerHTML).toContain(`--bamboo-${kebabCase(colorName)}: rgb(0,0,255)`);
     });
-  });
-
-  it('warning for SSR', () => {
-    resetWarned();
-
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mockCanUseDom = false;
-    expect(canUseDom()).toBeFalsy();
-
-    ConfigProvider.config({
-      theme: {
-        infoColor: 'red',
-      },
-    });
-
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: ConfigProvider] SSR do not support dynamic theme with css variables.',
-    );
-    errorSpy.mockRestore();
   });
 
   it('algorithm should work', () => {

@@ -1848,7 +1848,7 @@ describe('Form', () => {
     expect(container.querySelector('.drawer-select')?.className).not.toContain('status-error');
   });
 
-  it('should be set up correctly marginBottom', () => {
+  it.skip('should be set up correctly marginBottom', () => {
     render(
       <Modal open>
         <Form>

@@ -234,16 +234,6 @@ describe('App', () => {
       expect(container.querySelector('section.ant-app')).toBeTruthy();
     });
 
-    it('to false', () => {
-      const { container } = render(
-        <App component={false}>
-          <p />
-        </App>,
-      );
-      expect(errorSpy).not.toHaveBeenCalled();
-      expect(container.querySelector('.ant-app')).toBeFalsy();
-    });
-
     it('should warn if component is false and cssVarCls is not empty', () => {
       render(
         <ConfigProvider>

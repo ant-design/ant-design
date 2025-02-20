@@ -83,10 +83,14 @@ describe('Switch', () => {
 
   it('inner element have min-height', () => {
     const { container, rerender } = render(<Switch unCheckedChildren="0" size="small" />);
-    expect(container.querySelector('.ant-switch-inner-unchecked')).toHaveStyle('min-height: 16px');
+    expect(container.querySelector('.ant-switch-inner-unchecked')).toHaveStyle(
+      'min-height: var(--ant-switch-track-height-sm)',
+    );
 
     rerender(<Switch unCheckedChildren="0" />);
-    expect(container.querySelector('.ant-switch-inner-unchecked')).toHaveStyle('min-height: 22px');
+    expect(container.querySelector('.ant-switch-inner-unchecked')).toHaveStyle(
+      'min-height: var(--ant-switch-track-height)',
+    );
   });
   it('support styles and classNames', () => {
     const customClassNames = {
