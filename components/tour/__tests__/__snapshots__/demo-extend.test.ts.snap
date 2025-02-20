@@ -456,13 +456,9 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-tour css-var-test-id ant-tour-placement-bottom"
+    class="ant-tour css-var-test-id"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
   >
-    <div
-      class="ant-tour-arrow"
-      style="position: absolute; top: 0px; left: 0px;"
-    />
     <div
       class="ant-tour-content"
     >

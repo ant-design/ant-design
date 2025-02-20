@@ -14,7 +14,7 @@ exports[`Table.rowSelection render with default selection correctly 1`] = `
     <li
       aria-describedby="test-id"
       class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-      data-menu-id="rc-menu-uuid-42519-6-all"
+      data-menu-id="rc-menu-uuid-15094-6-all"
       role="menuitem"
       tabindex="-1"
     >
@@ -27,7 +27,7 @@ exports[`Table.rowSelection render with default selection correctly 1`] = `
     <li
       aria-describedby="test-id"
       class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-      data-menu-id="rc-menu-uuid-42519-6-invert"
+      data-menu-id="rc-menu-uuid-15094-6-invert"
       role="menuitem"
       tabindex="-1"
     >
@@ -40,7 +40,7 @@ exports[`Table.rowSelection render with default selection correctly 1`] = `
     <li
       aria-describedby="test-id"
       class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-      data-menu-id="rc-menu-uuid-42519-6-none"
+      data-menu-id="rc-menu-uuid-15094-6-none"
       role="menuitem"
       tabindex="-1"
     >
@@ -151,7 +151,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-42519-24-all"
+                              data-menu-id="rc-menu-uuid-15094-24-all"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -164,7 +164,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-42519-24-invert"
+                              data-menu-id="rc-menu-uuid-15094-24-invert"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -177,7 +177,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-42519-24-none"
+                              data-menu-id="rc-menu-uuid-15094-24-none"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -505,7 +505,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-42519-26-all"
+                              data-menu-id="rc-menu-uuid-15094-26-all"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -518,7 +518,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-42519-26-invert"
+                              data-menu-id="rc-menu-uuid-15094-26-invert"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -531,7 +531,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-42519-26-none"
+                              data-menu-id="rc-menu-uuid-15094-26-none"
                               role="menuitem"
                               tabindex="-1"
                             >

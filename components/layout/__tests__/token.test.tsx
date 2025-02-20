@@ -23,19 +23,21 @@ describe('Layout.Token', () => {
           },
         }}
       >
-        <Header>
-          <Menu
-            mode="horizontal"
-            defaultSelectedKeys={['2']}
-            items={Array.from({ length: 15 }).map((_, index) => {
-              const key = index + 1;
-              return {
-                key,
-                label: `nav ${key}`,
-              };
-            })}
-          />
-        </Header>
+        <Layout>
+          <Header>
+            <Menu
+              mode="horizontal"
+              defaultSelectedKeys={['2']}
+              items={Array.from({ length: 15 }).map((_, index) => {
+                const key = index + 1;
+                return {
+                  key,
+                  label: `nav ${key}`,
+                };
+              })}
+            />
+          </Header>
+        </Layout>
       </ConfigProvider>,
     );
 
@@ -61,19 +63,21 @@ describe('Layout.Token', () => {
           },
         }}
       >
-        <Header>
-          <Menu
-            mode="horizontal"
-            defaultSelectedKeys={['2']}
-            items={Array.from({ length: 15 }).map((_, index) => {
-              const key = index + 1;
-              return {
-                key,
-                label: `nav ${key}`,
-              };
-            })}
-          />
-        </Header>
+        <Layout>
+          <Header>
+            <Menu
+              mode="horizontal"
+              defaultSelectedKeys={['2']}
+              items={Array.from({ length: 15 }).map((_, index) => {
+                const key = index + 1;
+                return {
+                  key,
+                  label: `nav ${key}`,
+                };
+              })}
+            />
+          </Header>
+        </Layout>
       </ConfigProvider>,
     );
 

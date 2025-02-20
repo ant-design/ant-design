@@ -82,10 +82,10 @@ Array [
             data-node-key="1"
           >
             <div
-              aria-controls="rc-tabs-test-panel-1"
+              aria-controls="rc-tabs-53-panel-1"
               aria-selected="true"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-1"
+              id="rc-tabs-53-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -97,10 +97,10 @@ Array [
             data-node-key="2"
           >
             <div
-              aria-controls="rc-tabs-test-panel-2"
+              aria-controls="rc-tabs-53-panel-2"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-2"
+              id="rc-tabs-53-tab-2"
               role="tab"
               tabindex="-1"
             >
@@ -112,10 +112,10 @@ Array [
             data-node-key="3"
           >
             <div
-              aria-controls="rc-tabs-test-panel-3"
+              aria-controls="rc-tabs-53-panel-3"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-3"
+              id="rc-tabs-53-tab-3"
               role="tab"
               tabindex="-1"
             >
@@ -131,11 +131,11 @@ Array [
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="rc-tabs-test-more-popup"
+          aria-controls="rc-tabs-53-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           class="ant-tabs-nav-more"
-          id="rc-tabs-test-more"
+          id="rc-tabs-53-more"
           style="visibility: hidden; order: 1;"
           type="button"
         >
@@ -167,7 +167,7 @@ Array [
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
             data-menu-list="true"
-            id="rc-tabs-test-more-popup"
+            id="rc-tabs-53-more-popup"
             role="listbox"
             tabindex="-1"
           />
@@ -186,9 +186,9 @@ Array [
       >
         <div
           aria-hidden="false"
-          aria-labelledby="rc-tabs-test-tab-1"
+          aria-labelledby="rc-tabs-53-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
-          id="rc-tabs-test-panel-1"
+          id="rc-tabs-53-panel-1"
           role="tabpanel"
           style="height: 200px; box-shadow: 0 0 3px rgba(255, 0, 0, 0.5);"
           tabindex="0"
@@ -224,10 +224,10 @@ exports[`renders components/tabs/demo/basic.tsx extend context correctly 1`] = `
           data-node-key="1"
         >
           <div
-            aria-controls="rc-tabs-test-panel-1"
+            aria-controls="rc-tabs-51-panel-1"
             aria-selected="true"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-1"
+            id="rc-tabs-51-tab-1"
             role="tab"
             tabindex="0"
           >
@@ -239,10 +239,10 @@ exports[`renders components/tabs/demo/basic.tsx extend context correctly 1`] = `
           data-node-key="2"
         >
           <div
-            aria-controls="rc-tabs-test-panel-2"
+            aria-controls="rc-tabs-51-panel-2"
             aria-selected="false"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-2"
+            id="rc-tabs-51-tab-2"
             role="tab"
             tabindex="-1"
           >
@@ -254,10 +254,10 @@ exports[`renders components/tabs/demo/basic.tsx extend context correctly 1`] = `
           data-node-key="3"
         >
           <div
-            aria-controls="rc-tabs-test-panel-3"
+            aria-controls="rc-tabs-51-panel-3"
             aria-selected="false"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-3"
+            id="rc-tabs-51-tab-3"
             role="tab"
             tabindex="-1"
           >
@@ -273,11 +273,11 @@ exports[`renders components/tabs/demo/basic.tsx extend context correctly 1`] = `
       class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
     >
       <button
-        aria-controls="rc-tabs-test-more-popup"
+        aria-controls="rc-tabs-51-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
         class="ant-tabs-nav-more"
-        id="rc-tabs-test-more"
+        id="rc-tabs-51-more"
         style="visibility: hidden; order: 1;"
         type="button"
       >
@@ -309,7 +309,7 @@ exports[`renders components/tabs/demo/basic.tsx extend context correctly 1`] = `
           aria-label="expanded dropdown"
           class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
           data-menu-list="true"
-          id="rc-tabs-test-more-popup"
+          id="rc-tabs-51-more-popup"
           role="listbox"
           tabindex="-1"
         />
@@ -328,9 +328,9 @@ exports[`renders components/tabs/demo/basic.tsx extend context correctly 1`] = `
     >
       <div
         aria-hidden="false"
-        aria-labelledby="rc-tabs-test-tab-1"
+        aria-labelledby="rc-tabs-51-tab-1"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-test-panel-1"
+        id="rc-tabs-51-panel-1"
         role="tabpanel"
         tabindex="0"
       >
@@ -364,10 +364,10 @@ exports[`renders components/tabs/demo/card.tsx extend context correctly 1`] = `
           data-node-key="1"
         >
           <div
-            aria-controls="rc-tabs-test-panel-1"
+            aria-controls="rc-tabs-47-panel-1"
             aria-selected="true"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-1"
+            id="rc-tabs-47-tab-1"
             role="tab"
             tabindex="0"
           >
@@ -379,10 +379,10 @@ exports[`renders components/tabs/demo/card.tsx extend context correctly 1`] = `
           data-node-key="2"
         >
           <div
-            aria-controls="rc-tabs-test-panel-2"
+            aria-controls="rc-tabs-47-panel-2"
             aria-selected="false"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-2"
+            id="rc-tabs-47-tab-2"
             role="tab"
             tabindex="-1"
           >
@@ -394,10 +394,10 @@ exports[`renders components/tabs/demo/card.tsx extend context correctly 1`] = `
           data-node-key="3"
         >
           <div
-            aria-controls="rc-tabs-test-panel-3"
+            aria-controls="rc-tabs-47-panel-3"
             aria-selected="false"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-3"
+            id="rc-tabs-47-tab-3"
             role="tab"
             tabindex="-1"
           >
@@ -413,11 +413,11 @@ exports[`renders components/tabs/demo/card.tsx extend context correctly 1`] = `
       class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
     >
       <button
-        aria-controls="rc-tabs-test-more-popup"
+        aria-controls="rc-tabs-47-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
         class="ant-tabs-nav-more"
-        id="rc-tabs-test-more"
+        id="rc-tabs-47-more"
         style="visibility: hidden; order: 1;"
         type="button"
       >
@@ -449,7 +449,7 @@ exports[`renders components/tabs/demo/card.tsx extend context correctly 1`] = `
           aria-label="expanded dropdown"
           class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
           data-menu-list="true"
-          id="rc-tabs-test-more-popup"
+          id="rc-tabs-47-more-popup"
           role="listbox"
           tabindex="-1"
         />
@@ -468,9 +468,9 @@ exports[`renders components/tabs/demo/card.tsx extend context correctly 1`] = `
     >
       <div
         aria-hidden="false"
-        aria-labelledby="rc-tabs-test-tab-1"
+        aria-labelledby="rc-tabs-47-tab-1"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-test-panel-1"
+        id="rc-tabs-47-panel-1"
         role="tabpanel"
         tabindex="0"
       >
@@ -507,10 +507,10 @@ exports[`renders components/tabs/demo/card-top.tsx extend context correctly 1`] 
             data-node-key="1"
           >
             <div
-              aria-controls="rc-tabs-test-panel-1"
+              aria-controls="rc-tabs-49-panel-1"
               aria-selected="true"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-1"
+              id="rc-tabs-49-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -522,10 +522,10 @@ exports[`renders components/tabs/demo/card-top.tsx extend context correctly 1`] 
             data-node-key="2"
           >
             <div
-              aria-controls="rc-tabs-test-panel-2"
+              aria-controls="rc-tabs-49-panel-2"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-2"
+              id="rc-tabs-49-tab-2"
               role="tab"
               tabindex="-1"
             >
@@ -537,10 +537,10 @@ exports[`renders components/tabs/demo/card-top.tsx extend context correctly 1`] 
             data-node-key="3"
           >
             <div
-              aria-controls="rc-tabs-test-panel-3"
+              aria-controls="rc-tabs-49-panel-3"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-3"
+              id="rc-tabs-49-tab-3"
               role="tab"
               tabindex="-1"
             >
@@ -556,11 +556,11 @@ exports[`renders components/tabs/demo/card-top.tsx extend context correctly 1`] 
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="rc-tabs-test-more-popup"
+          aria-controls="rc-tabs-49-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           class="ant-tabs-nav-more"
-          id="rc-tabs-test-more"
+          id="rc-tabs-49-more"
           style="visibility: hidden; order: 1;"
           type="button"
         >
@@ -592,7 +592,7 @@ exports[`renders components/tabs/demo/card-top.tsx extend context correctly 1`] 
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
             data-menu-list="true"
-            id="rc-tabs-test-more-popup"
+            id="rc-tabs-49-more-popup"
             role="listbox"
             tabindex="-1"
           />
@@ -611,9 +611,9 @@ exports[`renders components/tabs/demo/card-top.tsx extend context correctly 1`] 
       >
         <div
           aria-hidden="false"
-          aria-labelledby="rc-tabs-test-tab-1"
+          aria-labelledby="rc-tabs-49-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
-          id="rc-tabs-test-panel-1"
+          id="rc-tabs-49-panel-1"
           role="tabpanel"
           tabindex="0"
         >
@@ -656,10 +656,10 @@ exports[`renders components/tabs/demo/centered.tsx extend context correctly 1`] 
           data-node-key="1"
         >
           <div
-            aria-controls="rc-tabs-test-panel-1"
+            aria-controls="rc-tabs-45-panel-1"
             aria-selected="true"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-1"
+            id="rc-tabs-45-tab-1"
             role="tab"
             tabindex="0"
           >
@@ -671,10 +671,10 @@ exports[`renders components/tabs/demo/centered.tsx extend context correctly 1`] 
           data-node-key="2"
         >
           <div
-            aria-controls="rc-tabs-test-panel-2"
+            aria-controls="rc-tabs-45-panel-2"
             aria-selected="false"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-2"
+            id="rc-tabs-45-tab-2"
             role="tab"
             tabindex="-1"
           >
@@ -686,10 +686,10 @@ exports[`renders components/tabs/demo/centered.tsx extend context correctly 1`] 
           data-node-key="3"
         >
           <div
-            aria-controls="rc-tabs-test-panel-3"
+            aria-controls="rc-tabs-45-panel-3"
             aria-selected="false"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-3"
+            id="rc-tabs-45-tab-3"
             role="tab"
             tabindex="-1"
           >
@@ -705,11 +705,11 @@ exports[`renders components/tabs/demo/centered.tsx extend context correctly 1`] 
       class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
     >
       <button
-        aria-controls="rc-tabs-test-more-popup"
+        aria-controls="rc-tabs-45-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
         class="ant-tabs-nav-more"
-        id="rc-tabs-test-more"
+        id="rc-tabs-45-more"
         style="visibility: hidden; order: 1;"
         type="button"
       >
@@ -741,7 +741,7 @@ exports[`renders components/tabs/demo/centered.tsx extend context correctly 1`] 
           aria-label="expanded dropdown"
           class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
           data-menu-list="true"
-          id="rc-tabs-test-more-popup"
+          id="rc-tabs-45-more-popup"
           role="listbox"
           tabindex="-1"
         />
@@ -760,9 +760,9 @@ exports[`renders components/tabs/demo/centered.tsx extend context correctly 1`] 
     >
       <div
         aria-hidden="false"
-        aria-labelledby="rc-tabs-test-tab-1"
+        aria-labelledby="rc-tabs-45-tab-1"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-test-panel-1"
+        id="rc-tabs-45-panel-1"
         role="tabpanel"
         tabindex="0"
       >
@@ -798,10 +798,10 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             data-node-key="1"
           >
             <div
-              aria-controls="rc-tabs-test-panel-1"
+              aria-controls="rc-tabs-37-panel-1"
               aria-selected="true"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-1"
+              id="rc-tabs-37-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -813,10 +813,10 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             data-node-key="2"
           >
             <div
-              aria-controls="rc-tabs-test-panel-2"
+              aria-controls="rc-tabs-37-panel-2"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-2"
+              id="rc-tabs-37-tab-2"
               role="tab"
               tabindex="-1"
             >
@@ -828,10 +828,10 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             data-node-key="3"
           >
             <div
-              aria-controls="rc-tabs-test-panel-3"
+              aria-controls="rc-tabs-37-panel-3"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-3"
+              id="rc-tabs-37-tab-3"
               role="tab"
               tabindex="-1"
             >
@@ -847,11 +847,11 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="rc-tabs-test-more-popup"
+          aria-controls="rc-tabs-37-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           class="ant-tabs-nav-more"
-          id="rc-tabs-test-more"
+          id="rc-tabs-37-more"
           style="visibility: hidden; order: 1;"
           type="button"
         >
@@ -883,7 +883,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
             data-menu-list="true"
-            id="rc-tabs-test-more-popup"
+            id="rc-tabs-37-more-popup"
             role="listbox"
             tabindex="-1"
           />
@@ -914,9 +914,9 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
       >
         <div
           aria-hidden="false"
-          aria-labelledby="rc-tabs-test-tab-1"
+          aria-labelledby="rc-tabs-37-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
-          id="rc-tabs-test-panel-1"
+          id="rc-tabs-37-panel-1"
           role="tabpanel"
           tabindex="0"
         >
@@ -946,10 +946,10 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             data-node-key="1"
           >
             <div
-              aria-controls="rc-tabs-test-panel-1"
+              aria-controls="rc-tabs-38-panel-1"
               aria-selected="true"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-1"
+              id="rc-tabs-38-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -961,10 +961,10 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             data-node-key="2"
           >
             <div
-              aria-controls="rc-tabs-test-panel-2"
+              aria-controls="rc-tabs-38-panel-2"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-2"
+              id="rc-tabs-38-tab-2"
               role="tab"
               tabindex="-1"
             >
@@ -976,10 +976,10 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             data-node-key="3"
           >
             <div
-              aria-controls="rc-tabs-test-panel-3"
+              aria-controls="rc-tabs-38-panel-3"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-3"
+              id="rc-tabs-38-tab-3"
               role="tab"
               tabindex="-1"
             >
@@ -995,11 +995,11 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="rc-tabs-test-more-popup"
+          aria-controls="rc-tabs-38-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           class="ant-tabs-nav-more"
-          id="rc-tabs-test-more"
+          id="rc-tabs-38-more"
           style="visibility: hidden; order: 1;"
           type="button"
         >
@@ -1031,7 +1031,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
             data-menu-list="true"
-            id="rc-tabs-test-more-popup"
+            id="rc-tabs-38-more-popup"
             role="listbox"
             tabindex="-1"
           />
@@ -1062,9 +1062,9 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
       >
         <div
           aria-hidden="false"
-          aria-labelledby="rc-tabs-test-tab-1"
+          aria-labelledby="rc-tabs-38-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
-          id="rc-tabs-test-panel-1"
+          id="rc-tabs-38-panel-1"
           role="tabpanel"
           tabindex="0"
         >
@@ -1094,10 +1094,10 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             data-node-key="1"
           >
             <div
-              aria-controls="rc-tabs-test-panel-1"
+              aria-controls="rc-tabs-39-panel-1"
               aria-selected="true"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-1"
+              id="rc-tabs-39-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -1109,10 +1109,10 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             data-node-key="2"
           >
             <div
-              aria-controls="rc-tabs-test-panel-2"
+              aria-controls="rc-tabs-39-panel-2"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-2"
+              id="rc-tabs-39-tab-2"
               role="tab"
               tabindex="-1"
             >
@@ -1124,10 +1124,10 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             data-node-key="3"
           >
             <div
-              aria-controls="rc-tabs-test-panel-3"
+              aria-controls="rc-tabs-39-panel-3"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-3"
+              id="rc-tabs-39-tab-3"
               role="tab"
               tabindex="-1"
             >
@@ -1143,11 +1143,11 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="rc-tabs-test-more-popup"
+          aria-controls="rc-tabs-39-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           class="ant-tabs-nav-more"
-          id="rc-tabs-test-more"
+          id="rc-tabs-39-more"
           style="visibility: hidden; order: 1;"
           type="button"
         >
@@ -1179,7 +1179,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
             data-menu-list="true"
-            id="rc-tabs-test-more-popup"
+            id="rc-tabs-39-more-popup"
             role="listbox"
             tabindex="-1"
           />
@@ -1210,9 +1210,9 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
       >
         <div
           aria-hidden="false"
-          aria-labelledby="rc-tabs-test-tab-1"
+          aria-labelledby="rc-tabs-39-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
-          id="rc-tabs-test-panel-1"
+          id="rc-tabs-39-panel-1"
           role="tabpanel"
           tabindex="0"
         >
@@ -1242,10 +1242,10 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             data-node-key="1"
           >
             <div
-              aria-controls="rc-tabs-test-panel-1"
+              aria-controls="rc-tabs-40-panel-1"
               aria-selected="true"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-1"
+              id="rc-tabs-40-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -1257,10 +1257,10 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             data-node-key="2"
           >
             <div
-              aria-controls="rc-tabs-test-panel-2"
+              aria-controls="rc-tabs-40-panel-2"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-2"
+              id="rc-tabs-40-tab-2"
               role="tab"
               tabindex="-1"
             >
@@ -1272,10 +1272,10 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             data-node-key="3"
           >
             <div
-              aria-controls="rc-tabs-test-panel-3"
+              aria-controls="rc-tabs-40-panel-3"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-3"
+              id="rc-tabs-40-tab-3"
               role="tab"
               tabindex="-1"
             >
@@ -1291,11 +1291,11 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="rc-tabs-test-more-popup"
+          aria-controls="rc-tabs-40-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           class="ant-tabs-nav-more"
-          id="rc-tabs-test-more"
+          id="rc-tabs-40-more"
           style="visibility: hidden; order: 1;"
           type="button"
         >
@@ -1327,7 +1327,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
             data-menu-list="true"
-            id="rc-tabs-test-more-popup"
+            id="rc-tabs-40-more-popup"
             role="listbox"
             tabindex="-1"
           />
@@ -1358,9 +1358,9 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
       >
         <div
           aria-hidden="false"
-          aria-labelledby="rc-tabs-test-tab-1"
+          aria-labelledby="rc-tabs-40-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
-          id="rc-tabs-test-panel-1"
+          id="rc-tabs-40-panel-1"
           role="tabpanel"
           tabindex="0"
         >
@@ -1389,11 +1389,11 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             data-node-key="1"
           >
             <div
-              aria-controls="rc-tabs-test-panel-1"
+              aria-controls="rc-tabs-41-panel-1"
               aria-disabled="false"
               aria-selected="true"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-1"
+              id="rc-tabs-41-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -1405,11 +1405,11 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             data-node-key="2"
           >
             <div
-              aria-controls="rc-tabs-test-panel-2"
+              aria-controls="rc-tabs-41-panel-2"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-2"
+              id="rc-tabs-41-tab-2"
               role="tab"
               tabindex="-1"
             >
@@ -1421,11 +1421,11 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             data-node-key="3"
           >
             <div
-              aria-controls="rc-tabs-test-panel-3"
+              aria-controls="rc-tabs-41-panel-3"
               aria-disabled="true"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-3"
+              id="rc-tabs-41-tab-3"
               role="tab"
             >
               Tab 3
@@ -1440,11 +1440,11 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="rc-tabs-test-more-popup"
+          aria-controls="rc-tabs-41-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           class="ant-tabs-nav-more"
-          id="rc-tabs-test-more"
+          id="rc-tabs-41-more"
           style="visibility: hidden; order: 1;"
           type="button"
         >
@@ -1476,7 +1476,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
             data-menu-list="true"
-            id="rc-tabs-test-more-popup"
+            id="rc-tabs-41-more-popup"
             role="listbox"
             tabindex="-1"
           />
@@ -1495,9 +1495,9 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
       >
         <div
           aria-hidden="false"
-          aria-labelledby="rc-tabs-test-tab-1"
+          aria-labelledby="rc-tabs-41-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
-          id="rc-tabs-test-panel-1"
+          id="rc-tabs-41-panel-1"
           role="tabpanel"
           tabindex="0"
         >
@@ -1526,11 +1526,11 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             data-node-key="1"
           >
             <div
-              aria-controls="rc-tabs-test-panel-1"
+              aria-controls="rc-tabs-42-panel-1"
               aria-disabled="false"
               aria-selected="true"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-1"
+              id="rc-tabs-42-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -1542,11 +1542,11 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             data-node-key="2"
           >
             <div
-              aria-controls="rc-tabs-test-panel-2"
+              aria-controls="rc-tabs-42-panel-2"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-2"
+              id="rc-tabs-42-tab-2"
               role="tab"
               tabindex="-1"
             >
@@ -1558,11 +1558,11 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             data-node-key="3"
           >
             <div
-              aria-controls="rc-tabs-test-panel-3"
+              aria-controls="rc-tabs-42-panel-3"
               aria-disabled="true"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-3"
+              id="rc-tabs-42-tab-3"
               role="tab"
             >
               Tab 3
@@ -1577,11 +1577,11 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="rc-tabs-test-more-popup"
+          aria-controls="rc-tabs-42-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           class="ant-tabs-nav-more"
-          id="rc-tabs-test-more"
+          id="rc-tabs-42-more"
           style="visibility: hidden; order: 1;"
           type="button"
         >
@@ -1613,7 +1613,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
             data-menu-list="true"
-            id="rc-tabs-test-more-popup"
+            id="rc-tabs-42-more-popup"
             role="listbox"
             tabindex="-1"
           />
@@ -1632,9 +1632,9 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
       >
         <div
           aria-hidden="false"
-          aria-labelledby="rc-tabs-test-tab-1"
+          aria-labelledby="rc-tabs-42-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
-          id="rc-tabs-test-panel-1"
+          id="rc-tabs-42-panel-1"
           role="tabpanel"
           tabindex="0"
         >
@@ -1663,11 +1663,11 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             data-node-key="1"
           >
             <div
-              aria-controls="rc-tabs-test-panel-1"
+              aria-controls="rc-tabs-43-panel-1"
               aria-disabled="false"
               aria-selected="true"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-1"
+              id="rc-tabs-43-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -1679,11 +1679,11 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             data-node-key="2"
           >
             <div
-              aria-controls="rc-tabs-test-panel-2"
+              aria-controls="rc-tabs-43-panel-2"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-2"
+              id="rc-tabs-43-tab-2"
               role="tab"
               tabindex="-1"
             >
@@ -1695,11 +1695,11 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             data-node-key="3"
           >
             <div
-              aria-controls="rc-tabs-test-panel-3"
+              aria-controls="rc-tabs-43-panel-3"
               aria-disabled="true"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-3"
+              id="rc-tabs-43-tab-3"
               role="tab"
             >
               Tab 3
@@ -1714,11 +1714,11 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="rc-tabs-test-more-popup"
+          aria-controls="rc-tabs-43-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           class="ant-tabs-nav-more"
-          id="rc-tabs-test-more"
+          id="rc-tabs-43-more"
           style="visibility: hidden; order: 1;"
           type="button"
         >
@@ -1750,7 +1750,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
             data-menu-list="true"
-            id="rc-tabs-test-more-popup"
+            id="rc-tabs-43-more-popup"
             role="listbox"
             tabindex="-1"
           />
@@ -1769,9 +1769,9 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
       >
         <div
           aria-hidden="false"
-          aria-labelledby="rc-tabs-test-tab-1"
+          aria-labelledby="rc-tabs-43-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
-          id="rc-tabs-test-panel-1"
+          id="rc-tabs-43-panel-1"
           role="tabpanel"
           tabindex="0"
         >
@@ -1819,10 +1819,10 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context corr
             data-node-key="1"
           >
             <div
-              aria-controls="rc-tabs-test-panel-1"
+              aria-controls="rc-tabs-29-panel-1"
               aria-selected="true"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-1"
+              id="rc-tabs-29-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -1862,10 +1862,10 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context corr
             data-node-key="2"
           >
             <div
-              aria-controls="rc-tabs-test-panel-2"
+              aria-controls="rc-tabs-29-panel-2"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-2"
+              id="rc-tabs-29-tab-2"
               role="tab"
               tabindex="-1"
             >
@@ -1909,11 +1909,11 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context corr
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="rc-tabs-test-more-popup"
+          aria-controls="rc-tabs-29-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           class="ant-tabs-nav-more"
-          id="rc-tabs-test-more"
+          id="rc-tabs-29-more"
           style="visibility: hidden; order: 1;"
           type="button"
         >
@@ -1945,7 +1945,7 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context corr
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
             data-menu-list="true"
-            id="rc-tabs-test-more-popup"
+            id="rc-tabs-29-more-popup"
             role="listbox"
             tabindex="-1"
           />
@@ -1964,9 +1964,9 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context corr
       >
         <div
           aria-hidden="false"
-          aria-labelledby="rc-tabs-test-tab-1"
+          aria-labelledby="rc-tabs-29-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
-          id="rc-tabs-test-panel-1"
+          id="rc-tabs-29-panel-1"
           role="tabpanel"
           tabindex="0"
         >
@@ -2066,10 +2066,10 @@ Array [
             data-node-key="1"
           >
             <div
-              aria-controls="rc-tabs-test-panel-1"
+              aria-controls="rc-tabs-27-panel-1"
               aria-selected="true"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-1"
+              id="rc-tabs-27-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -2081,10 +2081,10 @@ Array [
             data-node-key="2"
           >
             <div
-              aria-controls="rc-tabs-test-panel-2"
+              aria-controls="rc-tabs-27-panel-2"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-2"
+              id="rc-tabs-27-tab-2"
               role="tab"
               tabindex="-1"
             >
@@ -2096,10 +2096,10 @@ Array [
             data-node-key="3"
           >
             <div
-              aria-controls="rc-tabs-test-panel-3"
+              aria-controls="rc-tabs-27-panel-3"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-3"
+              id="rc-tabs-27-tab-3"
               role="tab"
               tabindex="-1"
             >
@@ -2115,11 +2115,11 @@ Array [
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="rc-tabs-test-more-popup"
+          aria-controls="rc-tabs-27-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           class="ant-tabs-nav-more"
-          id="rc-tabs-test-more"
+          id="rc-tabs-27-more"
           style="visibility: hidden; order: 1;"
           type="button"
         >
@@ -2151,7 +2151,7 @@ Array [
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
             data-menu-list="true"
-            id="rc-tabs-test-more-popup"
+            id="rc-tabs-27-more-popup"
             role="listbox"
             tabindex="-1"
           />
@@ -2170,9 +2170,9 @@ Array [
       >
         <div
           aria-hidden="false"
-          aria-labelledby="rc-tabs-test-tab-1"
+          aria-labelledby="rc-tabs-27-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
-          id="rc-tabs-test-panel-1"
+          id="rc-tabs-27-panel-1"
           role="tabpanel"
           tabindex="0"
         >
@@ -2211,10 +2211,10 @@ exports[`renders components/tabs/demo/custom-tab-bar.tsx extend context correctl
             data-node-key="1"
           >
             <div
-              aria-controls="rc-tabs-test-panel-1"
+              aria-controls="rc-tabs-25-panel-1"
               aria-selected="true"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-1"
+              id="rc-tabs-25-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -2226,10 +2226,10 @@ exports[`renders components/tabs/demo/custom-tab-bar.tsx extend context correctl
             data-node-key="2"
           >
             <div
-              aria-controls="rc-tabs-test-panel-2"
+              aria-controls="rc-tabs-25-panel-2"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-2"
+              id="rc-tabs-25-tab-2"
               role="tab"
               tabindex="-1"
             >
@@ -2241,10 +2241,10 @@ exports[`renders components/tabs/demo/custom-tab-bar.tsx extend context correctl
             data-node-key="3"
           >
             <div
-              aria-controls="rc-tabs-test-panel-3"
+              aria-controls="rc-tabs-25-panel-3"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-3"
+              id="rc-tabs-25-tab-3"
               role="tab"
               tabindex="-1"
             >
@@ -2261,11 +2261,11 @@ exports[`renders components/tabs/demo/custom-tab-bar.tsx extend context correctl
         style="background: rgb(255, 255, 255);"
       >
         <button
-          aria-controls="rc-tabs-test-more-popup"
+          aria-controls="rc-tabs-25-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           class="ant-tabs-nav-more"
-          id="rc-tabs-test-more"
+          id="rc-tabs-25-more"
           style="visibility: hidden; order: 1;"
           type="button"
         >
@@ -2297,7 +2297,7 @@ exports[`renders components/tabs/demo/custom-tab-bar.tsx extend context correctl
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
             data-menu-list="true"
-            id="rc-tabs-test-more-popup"
+            id="rc-tabs-25-more-popup"
             role="listbox"
             tabindex="-1"
           />
@@ -2317,9 +2317,9 @@ exports[`renders components/tabs/demo/custom-tab-bar.tsx extend context correctl
     >
       <div
         aria-hidden="false"
-        aria-labelledby="rc-tabs-test-tab-1"
+        aria-labelledby="rc-tabs-25-tab-1"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-test-panel-1"
+        id="rc-tabs-25-panel-1"
         role="tabpanel"
         style="height: 200px;"
         tabindex="0"
@@ -2529,10 +2529,10 @@ exports[`renders components/tabs/demo/disabled.tsx extend context correctly 1`] 
           data-node-key="1"
         >
           <div
-            aria-controls="rc-tabs-test-panel-1"
+            aria-controls="rc-tabs-23-panel-1"
             aria-selected="true"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-1"
+            id="rc-tabs-23-tab-1"
             role="tab"
             tabindex="0"
           >
@@ -2544,11 +2544,11 @@ exports[`renders components/tabs/demo/disabled.tsx extend context correctly 1`] 
           data-node-key="2"
         >
           <div
-            aria-controls="rc-tabs-test-panel-2"
+            aria-controls="rc-tabs-23-panel-2"
             aria-disabled="true"
             aria-selected="false"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-2"
+            id="rc-tabs-23-tab-2"
             role="tab"
           >
             Tab 2
@@ -2559,10 +2559,10 @@ exports[`renders components/tabs/demo/disabled.tsx extend context correctly 1`] 
           data-node-key="3"
         >
           <div
-            aria-controls="rc-tabs-test-panel-3"
+            aria-controls="rc-tabs-23-panel-3"
             aria-selected="false"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-3"
+            id="rc-tabs-23-tab-3"
             role="tab"
             tabindex="-1"
           >
@@ -2578,11 +2578,11 @@ exports[`renders components/tabs/demo/disabled.tsx extend context correctly 1`] 
       class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
     >
       <button
-        aria-controls="rc-tabs-test-more-popup"
+        aria-controls="rc-tabs-23-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
         class="ant-tabs-nav-more"
-        id="rc-tabs-test-more"
+        id="rc-tabs-23-more"
         style="visibility: hidden; order: 1;"
         type="button"
       >
@@ -2614,7 +2614,7 @@ exports[`renders components/tabs/demo/disabled.tsx extend context correctly 1`] 
           aria-label="expanded dropdown"
           class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
           data-menu-list="true"
-          id="rc-tabs-test-more-popup"
+          id="rc-tabs-23-more-popup"
           role="listbox"
           tabindex="-1"
         />
@@ -2633,9 +2633,9 @@ exports[`renders components/tabs/demo/disabled.tsx extend context correctly 1`] 
     >
       <div
         aria-hidden="false"
-        aria-labelledby="rc-tabs-test-tab-1"
+        aria-labelledby="rc-tabs-23-tab-1"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-test-panel-1"
+        id="rc-tabs-23-panel-1"
         role="tabpanel"
         tabindex="0"
       >
@@ -2669,10 +2669,10 @@ exports[`renders components/tabs/demo/editable-card.tsx extend context correctly
           data-node-key="1"
         >
           <div
-            aria-controls="rc-tabs-test-panel-1"
+            aria-controls="rc-tabs-21-panel-1"
             aria-selected="true"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-1"
+            id="rc-tabs-21-tab-1"
             role="tab"
             tabindex="0"
           >
@@ -2712,10 +2712,10 @@ exports[`renders components/tabs/demo/editable-card.tsx extend context correctly
           data-node-key="2"
         >
           <div
-            aria-controls="rc-tabs-test-panel-2"
+            aria-controls="rc-tabs-21-panel-2"
             aria-selected="false"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-2"
+            id="rc-tabs-21-tab-2"
             role="tab"
             tabindex="-1"
           >
@@ -2755,10 +2755,10 @@ exports[`renders components/tabs/demo/editable-card.tsx extend context correctly
           data-node-key="3"
         >
           <div
-            aria-controls="rc-tabs-test-panel-3"
+            aria-controls="rc-tabs-21-panel-3"
             aria-selected="false"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-3"
+            id="rc-tabs-21-tab-3"
             role="tab"
             tabindex="-1"
           >
@@ -2802,11 +2802,11 @@ exports[`renders components/tabs/demo/editable-card.tsx extend context correctly
       class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
     >
       <button
-        aria-controls="rc-tabs-test-more-popup"
+        aria-controls="rc-tabs-21-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
         class="ant-tabs-nav-more"
-        id="rc-tabs-test-more"
+        id="rc-tabs-21-more"
         style="visibility: hidden; order: 1;"
         type="button"
       >
@@ -2838,7 +2838,7 @@ exports[`renders components/tabs/demo/editable-card.tsx extend context correctly
           aria-label="expanded dropdown"
           class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
           data-menu-list="true"
-          id="rc-tabs-test-more-popup"
+          id="rc-tabs-21-more-popup"
           role="listbox"
           tabindex="-1"
         />
@@ -2885,9 +2885,9 @@ exports[`renders components/tabs/demo/editable-card.tsx extend context correctly
     >
       <div
         aria-hidden="false"
-        aria-labelledby="rc-tabs-test-tab-1"
+        aria-labelledby="rc-tabs-21-tab-1"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-test-panel-1"
+        id="rc-tabs-21-panel-1"
         role="tabpanel"
         tabindex="0"
       >
@@ -2922,10 +2922,10 @@ Array [
             data-node-key="1"
           >
             <div
-              aria-controls="rc-tabs-test-panel-1"
+              aria-controls="rc-tabs-18-panel-1"
               aria-selected="true"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-1"
+              id="rc-tabs-18-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -2937,10 +2937,10 @@ Array [
             data-node-key="2"
           >
             <div
-              aria-controls="rc-tabs-test-panel-2"
+              aria-controls="rc-tabs-18-panel-2"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-2"
+              id="rc-tabs-18-tab-2"
               role="tab"
               tabindex="-1"
             >
@@ -2952,10 +2952,10 @@ Array [
             data-node-key="3"
           >
             <div
-              aria-controls="rc-tabs-test-panel-3"
+              aria-controls="rc-tabs-18-panel-3"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-3"
+              id="rc-tabs-18-tab-3"
               role="tab"
               tabindex="-1"
             >
@@ -2971,11 +2971,11 @@ Array [
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="rc-tabs-test-more-popup"
+          aria-controls="rc-tabs-18-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           class="ant-tabs-nav-more"
-          id="rc-tabs-test-more"
+          id="rc-tabs-18-more"
           style="visibility: hidden; order: 1;"
           type="button"
         >
@@ -3007,7 +3007,7 @@ Array [
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
             data-menu-list="true"
-            id="rc-tabs-test-more-popup"
+            id="rc-tabs-18-more-popup"
             role="listbox"
             tabindex="-1"
           />
@@ -3038,9 +3038,9 @@ Array [
       >
         <div
           aria-hidden="false"
-          aria-labelledby="rc-tabs-test-tab-1"
+          aria-labelledby="rc-tabs-18-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
-          id="rc-tabs-test-panel-1"
+          id="rc-tabs-18-panel-1"
           role="tabpanel"
           tabindex="0"
         >
@@ -3141,10 +3141,10 @@ Array [
             data-node-key="1"
           >
             <div
-              aria-controls="rc-tabs-test-panel-1"
+              aria-controls="rc-tabs-19-panel-1"
               aria-selected="true"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-1"
+              id="rc-tabs-19-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -3156,10 +3156,10 @@ Array [
             data-node-key="2"
           >
             <div
-              aria-controls="rc-tabs-test-panel-2"
+              aria-controls="rc-tabs-19-panel-2"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-2"
+              id="rc-tabs-19-tab-2"
               role="tab"
               tabindex="-1"
             >
@@ -3171,10 +3171,10 @@ Array [
             data-node-key="3"
           >
             <div
-              aria-controls="rc-tabs-test-panel-3"
+              aria-controls="rc-tabs-19-panel-3"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-3"
+              id="rc-tabs-19-tab-3"
               role="tab"
               tabindex="-1"
             >
@@ -3190,11 +3190,11 @@ Array [
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="rc-tabs-test-more-popup"
+          aria-controls="rc-tabs-19-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           class="ant-tabs-nav-more"
-          id="rc-tabs-test-more"
+          id="rc-tabs-19-more"
           style="visibility: hidden; order: 1;"
           type="button"
         >
@@ -3226,7 +3226,7 @@ Array [
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
             data-menu-list="true"
-            id="rc-tabs-test-more-popup"
+            id="rc-tabs-19-more-popup"
             role="listbox"
             tabindex="-1"
           />
@@ -3257,9 +3257,9 @@ Array [
       >
         <div
           aria-hidden="false"
-          aria-labelledby="rc-tabs-test-tab-1"
+          aria-labelledby="rc-tabs-19-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
-          id="rc-tabs-test-panel-1"
+          id="rc-tabs-19-panel-1"
           role="tabpanel"
           tabindex="0"
         >
@@ -3294,10 +3294,10 @@ exports[`renders components/tabs/demo/icon.tsx extend context correctly 1`] = `
           data-node-key="1"
         >
           <div
-            aria-controls="rc-tabs-test-panel-1"
+            aria-controls="rc-tabs-15-panel-1"
             aria-selected="false"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-1"
+            id="rc-tabs-15-tab-1"
             role="tab"
             tabindex="-1"
           >
@@ -3334,10 +3334,10 @@ exports[`renders components/tabs/demo/icon.tsx extend context correctly 1`] = `
           data-node-key="2"
         >
           <div
-            aria-controls="rc-tabs-test-panel-2"
+            aria-controls="rc-tabs-15-panel-2"
             aria-selected="true"
             class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-2"
+            id="rc-tabs-15-tab-2"
             role="tab"
             tabindex="0"
           >
@@ -3378,11 +3378,11 @@ exports[`renders components/tabs/demo/icon.tsx extend context correctly 1`] = `
       class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
     >
       <button
-        aria-controls="rc-tabs-test-more-popup"
+        aria-controls="rc-tabs-15-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
         class="ant-tabs-nav-more"
-        id="rc-tabs-test-more"
+        id="rc-tabs-15-more"
         style="visibility: hidden; order: 1;"
         type="button"
       >
@@ -3414,7 +3414,7 @@ exports[`renders components/tabs/demo/icon.tsx extend context correctly 1`] = `
           aria-label="expanded dropdown"
           class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
           data-menu-list="true"
-          id="rc-tabs-test-more-popup"
+          id="rc-tabs-15-more-popup"
           role="listbox"
           tabindex="-1"
         />
@@ -3433,9 +3433,9 @@ exports[`renders components/tabs/demo/icon.tsx extend context correctly 1`] = `
     >
       <div
         aria-hidden="false"
-        aria-labelledby="rc-tabs-test-tab-2"
+        aria-labelledby="rc-tabs-15-tab-2"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-test-panel-2"
+        id="rc-tabs-15-panel-2"
         role="tabpanel"
         tabindex="0"
       >
@@ -3465,13 +3465,13 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         >
           <input
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="rc_select_4_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="rc_select_4_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="rc_select_4"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -3491,20 +3491,20 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     >
       <div>
         <div
-          id="rc_select_TEST_OR_SSR_list"
+          id="rc_select_4_list"
           role="listbox"
           style="height: 0px; width: 0px; overflow: hidden;"
         >
           <div
             aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_0"
+            id="rc_select_4_list_0"
             role="option"
           >
             left
           </div>
           <div
             aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_1"
+            id="rc_select_4_list_1"
             role="option"
           >
             right
@@ -3635,13 +3635,13 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         >
           <input
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="rc_select_5_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="rc_select_5_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="rc_select_5"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -3661,20 +3661,20 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     >
       <div>
         <div
-          id="rc_select_TEST_OR_SSR_list"
+          id="rc_select_5_list"
           role="listbox"
           style="height: 0px; width: 0px; overflow: hidden;"
         >
           <div
             aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_0"
+            id="rc_select_5_list_0"
             role="option"
           >
             left
           </div>
           <div
             aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_1"
+            id="rc_select_5_list_1"
             role="option"
           >
             right
@@ -3805,13 +3805,13 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         >
           <input
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="rc_select_6_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="rc_select_6_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="rc_select_6"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -3831,14 +3831,14 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     >
       <div>
         <div
-          id="rc_select_TEST_OR_SSR_list"
+          id="rc_select_6_list"
           role="listbox"
           style="height: 0px; width: 0px; overflow: hidden;"
         >
           <div
             aria-label="Parent - line"
             aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_0"
+            id="rc_select_6_list_0"
             role="option"
           >
             line
@@ -3846,7 +3846,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
           <div
             aria-label="Parent - card"
             aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_1"
+            id="rc_select_6_list_1"
             role="option"
           >
             card
@@ -3964,13 +3964,13 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         >
           <input
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="rc_select_7_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="rc_select_7_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="rc_select_7"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -3990,14 +3990,14 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     >
       <div>
         <div
-          id="rc_select_TEST_OR_SSR_list"
+          id="rc_select_7_list"
           role="listbox"
           style="height: 0px; width: 0px; overflow: hidden;"
         >
           <div
             aria-label="Child - line"
             aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_0"
+            id="rc_select_7_list_0"
             role="option"
           >
             line
@@ -4005,7 +4005,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
           <div
             aria-label="Child - card"
             aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_1"
+            id="rc_select_7_list_1"
             role="option"
           >
             card
@@ -4128,10 +4128,10 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
             data-node-key="1"
           >
             <div
-              aria-controls="rc-tabs-test-panel-1"
+              aria-controls="rc-tabs-13-panel-1"
               aria-selected="true"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-1"
+              id="rc-tabs-13-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -4143,10 +4143,10 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
             data-node-key="2"
           >
             <div
-              aria-controls="rc-tabs-test-panel-2"
+              aria-controls="rc-tabs-13-panel-2"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-2"
+              id="rc-tabs-13-tab-2"
               role="tab"
               tabindex="-1"
             >
@@ -4162,11 +4162,11 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="rc-tabs-test-more-popup"
+          aria-controls="rc-tabs-13-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           class="ant-tabs-nav-more"
-          id="rc-tabs-test-more"
+          id="rc-tabs-13-more"
           style="visibility: hidden; order: 1;"
           type="button"
         >
@@ -4198,7 +4198,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
             data-menu-list="true"
-            id="rc-tabs-test-more-popup"
+            id="rc-tabs-13-more-popup"
             role="listbox"
             tabindex="-1"
           />
@@ -4217,9 +4217,9 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
       >
         <div
           aria-hidden="false"
-          aria-labelledby="rc-tabs-test-tab-1"
+          aria-labelledby="rc-tabs-13-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
-          id="rc-tabs-test-panel-1"
+          id="rc-tabs-13-panel-1"
           role="tabpanel"
           tabindex="0"
         >
@@ -4244,10 +4244,10 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                     data-node-key="0"
                   >
                     <div
-                      aria-controls="rc-tabs-test-panel-0"
+                      aria-controls="rc-tabs-12-panel-0"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
-                      id="rc-tabs-test-tab-0"
+                      id="rc-tabs-12-tab-0"
                       role="tab"
                       tabindex="-1"
                     >
@@ -4259,10 +4259,10 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                     data-node-key="1"
                   >
                     <div
-                      aria-controls="rc-tabs-test-panel-1"
+                      aria-controls="rc-tabs-12-panel-1"
                       aria-selected="true"
                       class="ant-tabs-tab-btn"
-                      id="rc-tabs-test-tab-1"
+                      id="rc-tabs-12-tab-1"
                       role="tab"
                       tabindex="0"
                     >
@@ -4274,10 +4274,10 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                     data-node-key="2"
                   >
                     <div
-                      aria-controls="rc-tabs-test-panel-2"
+                      aria-controls="rc-tabs-12-panel-2"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
-                      id="rc-tabs-test-tab-2"
+                      id="rc-tabs-12-tab-2"
                       role="tab"
                       tabindex="-1"
                     >
@@ -4289,10 +4289,10 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                     data-node-key="3"
                   >
                     <div
-                      aria-controls="rc-tabs-test-panel-3"
+                      aria-controls="rc-tabs-12-panel-3"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
-                      id="rc-tabs-test-tab-3"
+                      id="rc-tabs-12-tab-3"
                       role="tab"
                       tabindex="-1"
                     >
@@ -4304,10 +4304,10 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                     data-node-key="4"
                   >
                     <div
-                      aria-controls="rc-tabs-test-panel-4"
+                      aria-controls="rc-tabs-12-panel-4"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
-                      id="rc-tabs-test-tab-4"
+                      id="rc-tabs-12-tab-4"
                       role="tab"
                       tabindex="-1"
                     >
@@ -4319,10 +4319,10 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                     data-node-key="5"
                   >
                     <div
-                      aria-controls="rc-tabs-test-panel-5"
+                      aria-controls="rc-tabs-12-panel-5"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
-                      id="rc-tabs-test-tab-5"
+                      id="rc-tabs-12-tab-5"
                       role="tab"
                       tabindex="-1"
                     >
@@ -4334,10 +4334,10 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                     data-node-key="6"
                   >
                     <div
-                      aria-controls="rc-tabs-test-panel-6"
+                      aria-controls="rc-tabs-12-panel-6"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
-                      id="rc-tabs-test-tab-6"
+                      id="rc-tabs-12-tab-6"
                       role="tab"
                       tabindex="-1"
                     >
@@ -4349,10 +4349,10 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                     data-node-key="7"
                   >
                     <div
-                      aria-controls="rc-tabs-test-panel-7"
+                      aria-controls="rc-tabs-12-panel-7"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
-                      id="rc-tabs-test-tab-7"
+                      id="rc-tabs-12-tab-7"
                       role="tab"
                       tabindex="-1"
                     >
@@ -4364,10 +4364,10 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                     data-node-key="8"
                   >
                     <div
-                      aria-controls="rc-tabs-test-panel-8"
+                      aria-controls="rc-tabs-12-panel-8"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
-                      id="rc-tabs-test-tab-8"
+                      id="rc-tabs-12-tab-8"
                       role="tab"
                       tabindex="-1"
                     >
@@ -4379,10 +4379,10 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                     data-node-key="9"
                   >
                     <div
-                      aria-controls="rc-tabs-test-panel-9"
+                      aria-controls="rc-tabs-12-panel-9"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
-                      id="rc-tabs-test-tab-9"
+                      id="rc-tabs-12-tab-9"
                       role="tab"
                       tabindex="-1"
                     >
@@ -4394,10 +4394,10 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                     data-node-key="10"
                   >
                     <div
-                      aria-controls="rc-tabs-test-panel-10"
+                      aria-controls="rc-tabs-12-panel-10"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
-                      id="rc-tabs-test-tab-10"
+                      id="rc-tabs-12-tab-10"
                       role="tab"
                       tabindex="-1"
                     >
@@ -4409,10 +4409,10 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                     data-node-key="11"
                   >
                     <div
-                      aria-controls="rc-tabs-test-panel-11"
+                      aria-controls="rc-tabs-12-panel-11"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
-                      id="rc-tabs-test-tab-11"
+                      id="rc-tabs-12-tab-11"
                       role="tab"
                       tabindex="-1"
                     >
@@ -4424,10 +4424,10 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                     data-node-key="12"
                   >
                     <div
-                      aria-controls="rc-tabs-test-panel-12"
+                      aria-controls="rc-tabs-12-panel-12"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
-                      id="rc-tabs-test-tab-12"
+                      id="rc-tabs-12-tab-12"
                       role="tab"
                       tabindex="-1"
                     >
@@ -4439,10 +4439,10 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                     data-node-key="13"
                   >
                     <div
-                      aria-controls="rc-tabs-test-panel-13"
+                      aria-controls="rc-tabs-12-panel-13"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
-                      id="rc-tabs-test-tab-13"
+                      id="rc-tabs-12-tab-13"
                       role="tab"
                       tabindex="-1"
                     >
@@ -4454,10 +4454,10 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                     data-node-key="14"
                   >
                     <div
-                      aria-controls="rc-tabs-test-panel-14"
+                      aria-controls="rc-tabs-12-panel-14"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
-                      id="rc-tabs-test-tab-14"
+                      id="rc-tabs-12-tab-14"
                       role="tab"
                       tabindex="-1"
                     >
@@ -4469,10 +4469,10 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                     data-node-key="15"
                   >
                     <div
-                      aria-controls="rc-tabs-test-panel-15"
+                      aria-controls="rc-tabs-12-panel-15"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
-                      id="rc-tabs-test-tab-15"
+                      id="rc-tabs-12-tab-15"
                       role="tab"
                       tabindex="-1"
                     >
@@ -4484,10 +4484,10 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                     data-node-key="16"
                   >
                     <div
-                      aria-controls="rc-tabs-test-panel-16"
+                      aria-controls="rc-tabs-12-panel-16"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
-                      id="rc-tabs-test-tab-16"
+                      id="rc-tabs-12-tab-16"
                       role="tab"
                       tabindex="-1"
                     >
@@ -4499,10 +4499,10 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                     data-node-key="17"
                   >
                     <div
-                      aria-controls="rc-tabs-test-panel-17"
+                      aria-controls="rc-tabs-12-panel-17"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
-                      id="rc-tabs-test-tab-17"
+                      id="rc-tabs-12-tab-17"
                       role="tab"
                       tabindex="-1"
                     >
@@ -4514,10 +4514,10 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                     data-node-key="18"
                   >
                     <div
-                      aria-controls="rc-tabs-test-panel-18"
+                      aria-controls="rc-tabs-12-panel-18"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
-                      id="rc-tabs-test-tab-18"
+                      id="rc-tabs-12-tab-18"
                       role="tab"
                       tabindex="-1"
                     >
@@ -4529,10 +4529,10 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                     data-node-key="19"
                   >
                     <div
-                      aria-controls="rc-tabs-test-panel-19"
+                      aria-controls="rc-tabs-12-panel-19"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
-                      id="rc-tabs-test-tab-19"
+                      id="rc-tabs-12-tab-19"
                       role="tab"
                       tabindex="-1"
                     >
@@ -4548,11 +4548,11 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                 class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
               >
                 <button
-                  aria-controls="rc-tabs-test-more-popup"
+                  aria-controls="rc-tabs-12-more-popup"
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   class="ant-tabs-nav-more"
-                  id="rc-tabs-test-more"
+                  id="rc-tabs-12-more"
                   style="visibility: hidden; order: 1;"
                   type="button"
                 >
@@ -4584,7 +4584,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                     aria-label="expanded dropdown"
                     class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
                     data-menu-list="true"
-                    id="rc-tabs-test-more-popup"
+                    id="rc-tabs-12-more-popup"
                     role="listbox"
                     tabindex="-1"
                   />
@@ -4603,9 +4603,9 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
               >
                 <div
                   aria-hidden="false"
-                  aria-labelledby="rc-tabs-test-tab-1"
+                  aria-labelledby="rc-tabs-12-tab-1"
                   class="ant-tabs-tabpane ant-tabs-tabpane-active"
-                  id="rc-tabs-test-panel-1"
+                  id="rc-tabs-12-panel-1"
                   role="tabpanel"
                   tabindex="0"
                 >
@@ -4752,10 +4752,10 @@ Array [
             data-node-key="1"
           >
             <div
-              aria-controls="rc-tabs-test-panel-1"
+              aria-controls="rc-tabs-9-panel-1"
               aria-selected="true"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-1"
+              id="rc-tabs-9-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -4767,10 +4767,10 @@ Array [
             data-node-key="2"
           >
             <div
-              aria-controls="rc-tabs-test-panel-2"
+              aria-controls="rc-tabs-9-panel-2"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-2"
+              id="rc-tabs-9-tab-2"
               role="tab"
               tabindex="-1"
             >
@@ -4782,10 +4782,10 @@ Array [
             data-node-key="3"
           >
             <div
-              aria-controls="rc-tabs-test-panel-3"
+              aria-controls="rc-tabs-9-panel-3"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-3"
+              id="rc-tabs-9-tab-3"
               role="tab"
               tabindex="-1"
             >
@@ -4801,11 +4801,11 @@ Array [
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="rc-tabs-test-more-popup"
+          aria-controls="rc-tabs-9-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           class="ant-tabs-nav-more"
-          id="rc-tabs-test-more"
+          id="rc-tabs-9-more"
           style="visibility: hidden; order: 1;"
           type="button"
         >
@@ -4837,7 +4837,7 @@ Array [
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
             data-menu-list="true"
-            id="rc-tabs-test-more-popup"
+            id="rc-tabs-9-more-popup"
             role="listbox"
             tabindex="-1"
           />
@@ -4856,9 +4856,9 @@ Array [
       >
         <div
           aria-hidden="false"
-          aria-labelledby="rc-tabs-test-tab-1"
+          aria-labelledby="rc-tabs-9-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
-          id="rc-tabs-test-panel-1"
+          id="rc-tabs-9-panel-1"
           role="tabpanel"
           tabindex="0"
         >
@@ -4967,10 +4967,10 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
             data-node-key="1"
           >
             <div
-              aria-controls="rc-tabs-test-panel-1"
+              aria-controls="rc-tabs-5-panel-1"
               aria-selected="true"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-1"
+              id="rc-tabs-5-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -4982,10 +4982,10 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
             data-node-key="2"
           >
             <div
-              aria-controls="rc-tabs-test-panel-2"
+              aria-controls="rc-tabs-5-panel-2"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-2"
+              id="rc-tabs-5-tab-2"
               role="tab"
               tabindex="-1"
             >
@@ -4997,10 +4997,10 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
             data-node-key="3"
           >
             <div
-              aria-controls="rc-tabs-test-panel-3"
+              aria-controls="rc-tabs-5-panel-3"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-3"
+              id="rc-tabs-5-tab-3"
               role="tab"
               tabindex="-1"
             >
@@ -5016,11 +5016,11 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="rc-tabs-test-more-popup"
+          aria-controls="rc-tabs-5-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           class="ant-tabs-nav-more"
-          id="rc-tabs-test-more"
+          id="rc-tabs-5-more"
           style="visibility: hidden; order: 1;"
           type="button"
         >
@@ -5052,7 +5052,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
             data-menu-list="true"
-            id="rc-tabs-test-more-popup"
+            id="rc-tabs-5-more-popup"
             role="listbox"
             tabindex="-1"
           />
@@ -5071,9 +5071,9 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
       >
         <div
           aria-hidden="false"
-          aria-labelledby="rc-tabs-test-tab-1"
+          aria-labelledby="rc-tabs-5-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
-          id="rc-tabs-test-panel-1"
+          id="rc-tabs-5-panel-1"
           role="tabpanel"
           tabindex="0"
         >
@@ -5103,10 +5103,10 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
             data-node-key="1"
           >
             <div
-              aria-controls="rc-tabs-test-panel-1"
+              aria-controls="rc-tabs-6-panel-1"
               aria-selected="true"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-1"
+              id="rc-tabs-6-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -5118,10 +5118,10 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
             data-node-key="2"
           >
             <div
-              aria-controls="rc-tabs-test-panel-2"
+              aria-controls="rc-tabs-6-panel-2"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-2"
+              id="rc-tabs-6-tab-2"
               role="tab"
               tabindex="-1"
             >
@@ -5133,10 +5133,10 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
             data-node-key="3"
           >
             <div
-              aria-controls="rc-tabs-test-panel-3"
+              aria-controls="rc-tabs-6-panel-3"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-3"
+              id="rc-tabs-6-tab-3"
               role="tab"
               tabindex="-1"
             >
@@ -5152,11 +5152,11 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="rc-tabs-test-more-popup"
+          aria-controls="rc-tabs-6-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           class="ant-tabs-nav-more"
-          id="rc-tabs-test-more"
+          id="rc-tabs-6-more"
           style="visibility: hidden; order: 1;"
           type="button"
         >
@@ -5188,7 +5188,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
             data-menu-list="true"
-            id="rc-tabs-test-more-popup"
+            id="rc-tabs-6-more-popup"
             role="listbox"
             tabindex="-1"
           />
@@ -5207,9 +5207,9 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
       >
         <div
           aria-hidden="false"
-          aria-labelledby="rc-tabs-test-tab-1"
+          aria-labelledby="rc-tabs-6-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
-          id="rc-tabs-test-panel-1"
+          id="rc-tabs-6-panel-1"
           role="tabpanel"
           tabindex="0"
         >
@@ -5238,10 +5238,10 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
             data-node-key="1"
           >
             <div
-              aria-controls="rc-tabs-test-panel-1"
+              aria-controls="rc-tabs-7-panel-1"
               aria-selected="true"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-1"
+              id="rc-tabs-7-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -5281,10 +5281,10 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
             data-node-key="2"
           >
             <div
-              aria-controls="rc-tabs-test-panel-2"
+              aria-controls="rc-tabs-7-panel-2"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-2"
+              id="rc-tabs-7-tab-2"
               role="tab"
               tabindex="-1"
             >
@@ -5324,10 +5324,10 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
             data-node-key="3"
           >
             <div
-              aria-controls="rc-tabs-test-panel-3"
+              aria-controls="rc-tabs-7-panel-3"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-3"
+              id="rc-tabs-7-tab-3"
               role="tab"
               tabindex="-1"
             >
@@ -5399,11 +5399,11 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="rc-tabs-test-more-popup"
+          aria-controls="rc-tabs-7-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           class="ant-tabs-nav-more"
-          id="rc-tabs-test-more"
+          id="rc-tabs-7-more"
           style="visibility: hidden; order: 1;"
           type="button"
         >
@@ -5435,7 +5435,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
             data-menu-list="true"
-            id="rc-tabs-test-more-popup"
+            id="rc-tabs-7-more-popup"
             role="listbox"
             tabindex="-1"
           />
@@ -5482,9 +5482,9 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
       >
         <div
           aria-hidden="false"
-          aria-labelledby="rc-tabs-test-tab-1"
+          aria-labelledby="rc-tabs-7-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
-          id="rc-tabs-test-panel-1"
+          id="rc-tabs-7-panel-1"
           role="tabpanel"
           tabindex="0"
         >
@@ -5571,11 +5571,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="0"
           >
             <div
-              aria-controls="rc-tabs-test-panel-0"
+              aria-controls="rc-tabs-1-panel-0"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-0"
+              id="rc-tabs-1-tab-0"
               role="tab"
               tabindex="-1"
             >
@@ -5587,11 +5587,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="1"
           >
             <div
-              aria-controls="rc-tabs-test-panel-1"
+              aria-controls="rc-tabs-1-panel-1"
               aria-disabled="false"
               aria-selected="true"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-1"
+              id="rc-tabs-1-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -5603,11 +5603,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="2"
           >
             <div
-              aria-controls="rc-tabs-test-panel-2"
+              aria-controls="rc-tabs-1-panel-2"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-2"
+              id="rc-tabs-1-tab-2"
               role="tab"
               tabindex="-1"
             >
@@ -5619,11 +5619,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="3"
           >
             <div
-              aria-controls="rc-tabs-test-panel-3"
+              aria-controls="rc-tabs-1-panel-3"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-3"
+              id="rc-tabs-1-tab-3"
               role="tab"
               tabindex="-1"
             >
@@ -5635,11 +5635,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="4"
           >
             <div
-              aria-controls="rc-tabs-test-panel-4"
+              aria-controls="rc-tabs-1-panel-4"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-4"
+              id="rc-tabs-1-tab-4"
               role="tab"
               tabindex="-1"
             >
@@ -5651,11 +5651,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="5"
           >
             <div
-              aria-controls="rc-tabs-test-panel-5"
+              aria-controls="rc-tabs-1-panel-5"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-5"
+              id="rc-tabs-1-tab-5"
               role="tab"
               tabindex="-1"
             >
@@ -5667,11 +5667,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="6"
           >
             <div
-              aria-controls="rc-tabs-test-panel-6"
+              aria-controls="rc-tabs-1-panel-6"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-6"
+              id="rc-tabs-1-tab-6"
               role="tab"
               tabindex="-1"
             >
@@ -5683,11 +5683,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="7"
           >
             <div
-              aria-controls="rc-tabs-test-panel-7"
+              aria-controls="rc-tabs-1-panel-7"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-7"
+              id="rc-tabs-1-tab-7"
               role="tab"
               tabindex="-1"
             >
@@ -5699,11 +5699,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="8"
           >
             <div
-              aria-controls="rc-tabs-test-panel-8"
+              aria-controls="rc-tabs-1-panel-8"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-8"
+              id="rc-tabs-1-tab-8"
               role="tab"
               tabindex="-1"
             >
@@ -5715,11 +5715,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="9"
           >
             <div
-              aria-controls="rc-tabs-test-panel-9"
+              aria-controls="rc-tabs-1-panel-9"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-9"
+              id="rc-tabs-1-tab-9"
               role="tab"
               tabindex="-1"
             >
@@ -5731,11 +5731,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="10"
           >
             <div
-              aria-controls="rc-tabs-test-panel-10"
+              aria-controls="rc-tabs-1-panel-10"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-10"
+              id="rc-tabs-1-tab-10"
               role="tab"
               tabindex="-1"
             >
@@ -5747,11 +5747,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="11"
           >
             <div
-              aria-controls="rc-tabs-test-panel-11"
+              aria-controls="rc-tabs-1-panel-11"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-11"
+              id="rc-tabs-1-tab-11"
               role="tab"
               tabindex="-1"
             >
@@ -5763,11 +5763,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="12"
           >
             <div
-              aria-controls="rc-tabs-test-panel-12"
+              aria-controls="rc-tabs-1-panel-12"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-12"
+              id="rc-tabs-1-tab-12"
               role="tab"
               tabindex="-1"
             >
@@ -5779,11 +5779,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="13"
           >
             <div
-              aria-controls="rc-tabs-test-panel-13"
+              aria-controls="rc-tabs-1-panel-13"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-13"
+              id="rc-tabs-1-tab-13"
               role="tab"
               tabindex="-1"
             >
@@ -5795,11 +5795,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="14"
           >
             <div
-              aria-controls="rc-tabs-test-panel-14"
+              aria-controls="rc-tabs-1-panel-14"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-14"
+              id="rc-tabs-1-tab-14"
               role="tab"
               tabindex="-1"
             >
@@ -5811,11 +5811,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="15"
           >
             <div
-              aria-controls="rc-tabs-test-panel-15"
+              aria-controls="rc-tabs-1-panel-15"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-15"
+              id="rc-tabs-1-tab-15"
               role="tab"
               tabindex="-1"
             >
@@ -5827,11 +5827,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="16"
           >
             <div
-              aria-controls="rc-tabs-test-panel-16"
+              aria-controls="rc-tabs-1-panel-16"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-16"
+              id="rc-tabs-1-tab-16"
               role="tab"
               tabindex="-1"
             >
@@ -5843,11 +5843,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="17"
           >
             <div
-              aria-controls="rc-tabs-test-panel-17"
+              aria-controls="rc-tabs-1-panel-17"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-17"
+              id="rc-tabs-1-tab-17"
               role="tab"
               tabindex="-1"
             >
@@ -5859,11 +5859,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="18"
           >
             <div
-              aria-controls="rc-tabs-test-panel-18"
+              aria-controls="rc-tabs-1-panel-18"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-18"
+              id="rc-tabs-1-tab-18"
               role="tab"
               tabindex="-1"
             >
@@ -5875,11 +5875,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="19"
           >
             <div
-              aria-controls="rc-tabs-test-panel-19"
+              aria-controls="rc-tabs-1-panel-19"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-19"
+              id="rc-tabs-1-tab-19"
               role="tab"
               tabindex="-1"
             >
@@ -5891,11 +5891,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="20"
           >
             <div
-              aria-controls="rc-tabs-test-panel-20"
+              aria-controls="rc-tabs-1-panel-20"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-20"
+              id="rc-tabs-1-tab-20"
               role="tab"
               tabindex="-1"
             >
@@ -5907,11 +5907,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="21"
           >
             <div
-              aria-controls="rc-tabs-test-panel-21"
+              aria-controls="rc-tabs-1-panel-21"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-21"
+              id="rc-tabs-1-tab-21"
               role="tab"
               tabindex="-1"
             >
@@ -5923,11 +5923,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="22"
           >
             <div
-              aria-controls="rc-tabs-test-panel-22"
+              aria-controls="rc-tabs-1-panel-22"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-22"
+              id="rc-tabs-1-tab-22"
               role="tab"
               tabindex="-1"
             >
@@ -5939,11 +5939,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="23"
           >
             <div
-              aria-controls="rc-tabs-test-panel-23"
+              aria-controls="rc-tabs-1-panel-23"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-23"
+              id="rc-tabs-1-tab-23"
               role="tab"
               tabindex="-1"
             >
@@ -5955,11 +5955,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="24"
           >
             <div
-              aria-controls="rc-tabs-test-panel-24"
+              aria-controls="rc-tabs-1-panel-24"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-24"
+              id="rc-tabs-1-tab-24"
               role="tab"
               tabindex="-1"
             >
@@ -5971,11 +5971,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="25"
           >
             <div
-              aria-controls="rc-tabs-test-panel-25"
+              aria-controls="rc-tabs-1-panel-25"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-25"
+              id="rc-tabs-1-tab-25"
               role="tab"
               tabindex="-1"
             >
@@ -5987,11 +5987,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="26"
           >
             <div
-              aria-controls="rc-tabs-test-panel-26"
+              aria-controls="rc-tabs-1-panel-26"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-26"
+              id="rc-tabs-1-tab-26"
               role="tab"
               tabindex="-1"
             >
@@ -6003,11 +6003,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="27"
           >
             <div
-              aria-controls="rc-tabs-test-panel-27"
+              aria-controls="rc-tabs-1-panel-27"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-27"
+              id="rc-tabs-1-tab-27"
               role="tab"
               tabindex="-1"
             >
@@ -6019,11 +6019,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="28"
           >
             <div
-              aria-controls="rc-tabs-test-panel-28"
+              aria-controls="rc-tabs-1-panel-28"
               aria-disabled="true"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-28"
+              id="rc-tabs-1-tab-28"
               role="tab"
             >
               Tab-28
@@ -6034,11 +6034,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             data-node-key="29"
           >
             <div
-              aria-controls="rc-tabs-test-panel-29"
+              aria-controls="rc-tabs-1-panel-29"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-29"
+              id="rc-tabs-1-tab-29"
               role="tab"
               tabindex="-1"
             >
@@ -6054,11 +6054,11 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="rc-tabs-test-more-popup"
+          aria-controls="rc-tabs-1-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           class="ant-tabs-nav-more"
-          id="rc-tabs-test-more"
+          id="rc-tabs-1-more"
           style="visibility: hidden; order: 1;"
           type="button"
         >
@@ -6090,7 +6090,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
             data-menu-list="true"
-            id="rc-tabs-test-more-popup"
+            id="rc-tabs-1-more-popup"
             role="listbox"
             tabindex="-1"
           />
@@ -6109,9 +6109,9 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
       >
         <div
           aria-hidden="false"
-          aria-labelledby="rc-tabs-test-tab-1"
+          aria-labelledby="rc-tabs-1-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
-          id="rc-tabs-test-panel-1"
+          id="rc-tabs-1-panel-1"
           role="tabpanel"
           tabindex="0"
         >

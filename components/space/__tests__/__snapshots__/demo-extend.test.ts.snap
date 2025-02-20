@@ -9877,7 +9877,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
         <li
           aria-describedby="test-id"
           class="ant-dropdown-menu-item"
-          data-menu-id="rc-menu-uuid-60294-5-1"
+          data-menu-id="rc-menu-uuid-28031-5-1"
           role="menuitem"
           tabindex="-1"
         >
@@ -9927,7 +9927,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
         <li
           aria-describedby="test-id"
           class="ant-dropdown-menu-item"
-          data-menu-id="rc-menu-uuid-60294-5-2"
+          data-menu-id="rc-menu-uuid-28031-5-2"
           role="menuitem"
           tabindex="-1"
         >
@@ -9977,7 +9977,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
         <li
           aria-describedby="test-id"
           class="ant-dropdown-menu-item"
-          data-menu-id="rc-menu-uuid-60294-5-3"
+          data-menu-id="rc-menu-uuid-28031-5-3"
           role="menuitem"
           tabindex="-1"
         >
@@ -10343,7 +10343,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
         <li
           aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-60294-6-1"
+          data-menu-id="rc-menu-uuid-28031-6-1"
           role="menuitem"
           tabindex="-1"
         >
@@ -10374,7 +10374,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
         <li
           aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-60294-6-2"
+          data-menu-id="rc-menu-uuid-28031-6-2"
           role="menuitem"
           tabindex="-1"
         >
@@ -10405,7 +10405,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
         <li
           aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-60294-6-3"
+          data-menu-id="rc-menu-uuid-28031-6-3"
           role="menuitem"
           tabindex="-1"
         >
@@ -11633,7 +11633,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             <li
               aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-60294-2-1"
+              data-menu-id="rc-menu-uuid-28031-2-1"
               role="menuitem"
               tabindex="-1"
             >
@@ -11671,7 +11671,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             <li
               aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-60294-2-2"
+              data-menu-id="rc-menu-uuid-28031-2-2"
               role="menuitem"
               tabindex="-1"
             >

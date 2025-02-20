@@ -1000,7 +1000,7 @@ exports[`renders components/carousel/demo/component-token.tsx correctly 1`] = `
 
 exports[`renders components/carousel/demo/dot-duration.tsx correctly 1`] = `
 <div
-  class="ant-carousel"
+  class="ant-carousel css-var-test-id"
   style="--dot-duration:5000ms"
 >
   <div
