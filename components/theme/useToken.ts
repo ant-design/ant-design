@@ -8,7 +8,6 @@ import { defaultTheme, DesignTokenContext } from './context';
 import type { AliasToken, GlobalToken, SeedToken } from './interface';
 import defaultSeedToken from './themes/seed';
 import formatToken from './util/alias';
-import { defaultPrefixCls } from '../config-provider';
 
 export const unitless: {
   [key in keyof AliasToken]?: boolean;
@@ -128,7 +127,7 @@ export default function useToken(): [
   } = React.useContext(DesignTokenContext);
 
   const cssVar = {
-    prefix: ctxCssVar?.prefix || defaultPrefixCls,
+    prefix: ctxCssVar?.prefix || 'ant',
     key: ctxCssVar?.key || 'css-var-root',
   };
 
