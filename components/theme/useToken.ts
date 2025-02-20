@@ -8,6 +8,7 @@ import { defaultTheme, DesignTokenContext } from './context';
 import type { AliasToken, GlobalToken, SeedToken } from './interface';
 import defaultSeedToken from './themes/seed';
 import formatToken from './util/alias';
+import { defaultPrefixCls } from '../config-provider';
 
 export const unitless: {
   [key in keyof AliasToken]?: boolean;
@@ -123,13 +124,13 @@ export default function useToken(): [
     hashed,
     theme,
     override,
-    cssVar,
+    cssVar: ctxCssVar,
   } = React.useContext(DesignTokenContext);
 
-  const mergedCssVar = {
-    prefix: cssVar?.prefix,
-    key: cssVar?.key,
-  }
+  const cssVar = {
+    prefix: ctxCssVar?.prefix || defaultPrefixCls,
+    key: ctxCssVar?.key || 'css-var-root',
+  };
 
   const salt = `${version}-${hashed || ''}`;
 
@@ -143,7 +144,7 @@ export default function useToken(): [
       override,
       getComputedToken,
       cssVar: {
-        ...mergedCssVar,
+        ...cssVar,
         unitless,
         ignore,
         preserve,
@@ -151,5 +152,5 @@ export default function useToken(): [
     },
   );
 
-  return [mergedTheme, realToken, hashed ? hashId : '', token, mergedCssVar];
+  return [mergedTheme, realToken, hashed ? hashId : '', token, cssVar];
 }

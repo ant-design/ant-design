@@ -221,7 +221,7 @@ exports[`renders components/mentions/demo/component-token.tsx extend context cor
         >
           <li
             class="ant-mentions-dropdown-menu-item ant-mentions-dropdown-menu-item-active"
-            data-menu-id="rc-menu-uuid-14346-4-afc163"
+            data-menu-id="rc-menu-uuid-68942-4-afc163"
             role="menuitem"
             tabindex="-1"
           >
@@ -229,7 +229,7 @@ exports[`renders components/mentions/demo/component-token.tsx extend context cor
           </li>
           <li
             class="ant-mentions-dropdown-menu-item"
-            data-menu-id="rc-menu-uuid-14346-4-zombieJ"
+            data-menu-id="rc-menu-uuid-68942-4-zombieJ"
             role="menuitem"
             tabindex="-1"
           >
@@ -486,7 +486,7 @@ exports[`renders components/mentions/demo/render-panel.tsx extend context correc
         >
           <li
             class="ant-mentions-dropdown-menu-item ant-mentions-dropdown-menu-item-active"
-            data-menu-id="rc-menu-uuid-14346-2-afc163"
+            data-menu-id="rc-menu-uuid-68942-2-afc163"
             role="menuitem"
             tabindex="-1"
           >
@@ -494,7 +494,7 @@ exports[`renders components/mentions/demo/render-panel.tsx extend context correc
           </li>
           <li
             class="ant-mentions-dropdown-menu-item"
-            data-menu-id="rc-menu-uuid-14346-2-zombieJ"
+            data-menu-id="rc-menu-uuid-68942-2-zombieJ"
             role="menuitem"
             tabindex="-1"
           >

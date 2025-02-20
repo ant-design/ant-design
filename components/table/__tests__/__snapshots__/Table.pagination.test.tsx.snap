@@ -2,16 +2,16 @@
 
 exports[`Table.pagination Accepts pagination as true 1`] = `
 <div
-  class="ant-table-css-var ant-table-wrapper"
+  class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-css-var"
+        class="ant-table css-var-root ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -84,7 +84,7 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-root"
       >
         <li
           aria-disabled="true"
@@ -169,16 +169,16 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
 
 exports[`Table.pagination renders pagination correctly 1`] = `
 <div
-  class="ant-table-css-var ant-table-wrapper"
+  class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-css-var"
+        class="ant-table css-var-root ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -231,7 +231,7 @@ exports[`Table.pagination renders pagination correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right my-page"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right my-page css-var-root"
       >
         <li
           aria-disabled="true"
@@ -327,16 +327,16 @@ exports[`Table.pagination renders pagination correctly 1`] = `
 
 exports[`Table.pagination renders pagination topLeft and bottomRight 1`] = `
 <div
-  class="ant-table-css-var ant-table-wrapper"
+  class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-css-var"
+        class="ant-table css-var-root ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -409,7 +409,7 @@ exports[`Table.pagination renders pagination topLeft and bottomRight 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-root"
       >
         <li
           aria-disabled="true"
@@ -494,16 +494,16 @@ exports[`Table.pagination renders pagination topLeft and bottomRight 1`] = `
 
 exports[`Table.pagination should not crash when trigger onChange in render 1`] = `
 <div
-  class="ant-table-css-var ant-table-wrapper"
+  class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-empty ant-table-css-var"
+        class="ant-table ant-table-empty css-var-root ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -534,7 +534,7 @@ exports[`Table.pagination should not crash when trigger onChange in render 1`] =
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-empty ant-empty-normal"
+                      class="css-var-root ant-empty ant-empty-normal"
                     >
                       <div
                         class="ant-empty-image"

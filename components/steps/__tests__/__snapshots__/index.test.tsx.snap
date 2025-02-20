@@ -2,13 +2,13 @@
 
 exports[`Steps rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-steps ant-steps-vertical ant-steps-rtl"
+  class="ant-steps ant-steps-vertical ant-steps-rtl css-var-root"
 />
 `;
 
 exports[`Steps should render correct 1`] = `
 <div
-  class="ant-steps ant-steps-vertical"
+  class="ant-steps ant-steps-vertical css-var-root"
 >
   <div
     class="ant-steps-item ant-steps-item-process ant-steps-item-active"
@@ -123,7 +123,7 @@ exports[`Steps should render correct 1`] = `
 
 exports[`Steps should render correct when use Step 1`] = `
 <div
-  class="ant-steps ant-steps-vertical"
+  class="ant-steps ant-steps-vertical css-var-root"
 >
   <div
     class="ant-steps-item ant-steps-item-process ant-steps-item-active"
@@ -238,6 +238,6 @@ exports[`Steps should render correct when use Step 1`] = `
 
 exports[`Steps should render correct when use null 1`] = `
 <div
-  class="ant-steps ant-steps-vertical"
+  class="ant-steps ant-steps-vertical css-var-root"
 />
 `;

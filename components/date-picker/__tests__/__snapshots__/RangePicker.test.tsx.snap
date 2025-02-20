@@ -2,7 +2,7 @@
 
 exports[`RangePicker customize separator 1`] = `
 <div
-  class="ant-picker ant-picker-range ant-picker-outlined ant-picker-css-var"
+  class="ant-picker ant-picker-range ant-picker-outlined css-var-root ant-picker-css-var"
 >
   <div
     class="ant-picker-input"
@@ -66,7 +66,7 @@ exports[`RangePicker customize separator 1`] = `
 exports[`RangePicker ranges RangePicker support preset ranges with Tags 1`] = `
 Array [
   <div
-    class="ant-picker ant-picker-range ant-picker-outlined ant-picker-css-var"
+    class="ant-picker ant-picker-range ant-picker-outlined css-var-root ant-picker-css-var"
   >
     <div
       class="ant-picker-input ant-picker-input-active"
@@ -149,7 +149,7 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
+    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-root ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
