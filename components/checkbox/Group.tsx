@@ -67,7 +67,7 @@ const CheckboxGroup = React.forwardRef(
       }
     }, [restProps.value]);
 
-    const memoOptions = React.useMemo<CheckboxOptionType<T>[]>(
+    const memoizedOptions = React.useMemo<CheckboxOptionType<T>[]>(
       () =>
         options.map<CheckboxOptionType<T>>((option: any) => {
           if (typeof option === 'string' || typeof option === 'number') {
@@ -101,8 +101,8 @@ const CheckboxGroup = React.forwardRef(
         newValue
           .filter((val) => registeredValues.includes(val))
           .sort((a, b) => {
-            const indexA = memoOptions.findIndex((opt) => opt.value === a);
-            const indexB = memoOptions.findIndex((opt) => opt.value === b);
+            const indexA = memoizedOptions.findIndex((opt) => opt.value === a);
+            const indexB = memoizedOptions.findIndex((opt) => opt.value === b);
             return indexA - indexB;
           }),
       );
@@ -117,7 +117,7 @@ const CheckboxGroup = React.forwardRef(
     const domProps = omit(restProps, ['value', 'disabled']);
 
     const childrenNode = options.length
-      ? memoOptions.map<React.ReactNode>((option) => (
+      ? memoizedOptions.map<React.ReactNode>((option) => (
           <Checkbox
             prefixCls={prefixCls}
             key={option.value.toString()}
