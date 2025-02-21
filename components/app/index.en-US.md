@@ -143,4 +143,4 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### CSS Var doesn't work inside `<App component={false}>`
 
-Make sure the App `component` is a legit React component string, so when you're turning on CSS variables, there's a container to hold the CSS class name.
+Make sure the App `component` is a valid html tag, so when you're turning on CSS variables, there's a container to hold the CSS class name. If not set, it defaults to the `div` tag. If set to `false`, no additional DOM nodes will be created, and no default styles will be provided.
