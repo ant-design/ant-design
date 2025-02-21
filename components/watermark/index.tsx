@@ -180,20 +180,20 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
       const drawCanvas = (
         drawContent?: NonNullable<WatermarkProps['content']> | HTMLImageElement,
       ) => {
-        const params = {
-          content: drawContent || '',
+        const params = [
+          drawContent || '',
           rotate,
           ratio,
-          width: markWidth,
-          height: markHeight,
-          font: { color, fontSize, fontStyle, fontWeight, fontFamily, textAlign },
+          markWidth,
+          markHeight,
+          { color, fontSize, fontStyle, fontWeight, fontFamily, textAlign },
           gapX,
           gapY,
-        };
-        const cache = getCache(params);
-        const result = cache || getClips(params);
+        ] as const;
+        const cache = getCache(...params);
+        const result = cache || getClips(...params);
         const [nextClips, clipWidth] = result;
-        if (!cache) setCache(result, params);
+        if (!cache) setCache(result, ...params);
         setWatermarkInfo([nextClips, clipWidth]);
       };
 

@@ -5,10 +5,10 @@ import useClips from './useClips';
 
 type ClipsFunction = ReturnType<typeof useClips>;
 type ClipsResult = ReturnType<ClipsFunction>;
-type ClipsParams = Parameters<ClipsFunction>[0];
+type ClipsParams = Parameters<ClipsFunction>;
 
 function generateCacheVerify(params: ClipsParams): string {
-  const { content, rotate, ratio, width, height, font, gapX, gapY } = params;
+  const [content, rotate, ratio, width, height, font, gapX, gapY] = params;
   let verify = `${rotate}-${ratio}-${width}-${height}-${gapX}-${gapY}`;
   if (!(content instanceof HTMLImageElement)) {
     const { color, fontSize, fontStyle, fontWeight, fontFamily, textAlign } = font;
@@ -20,16 +20,16 @@ function generateCacheVerify(params: ClipsParams): string {
 }
 
 export default function useCache(): {
-  getCache: (params: ClipsParams) => ClipsResult | undefined;
-  setCache: (result: ClipsResult, params: ClipsParams) => void;
+  getCache: (...params: ClipsParams) => ClipsResult | undefined;
+  setCache: (result: ClipsResult, ...params: ClipsParams) => void;
 } {
   const imageCache = useRef(
     new WeakMap<HTMLImageElement, { verify: string; cache: ClipsResult }>(),
   );
   const textCache = useRef(new Map<string, ClipsResult>());
 
-  const setCache = useCallback((result: ClipsResult, params: ClipsParams) => {
-    const { content } = params;
+  const setCache = useCallback((result: ClipsResult, ...params: ClipsParams) => {
+    const [content] = params;
     const verify = generateCacheVerify(params);
     if (content instanceof HTMLImageElement) {
       imageCache.current.set(content, { verify, cache: result });
@@ -38,8 +38,8 @@ export default function useCache(): {
     }
   }, []);
 
-  const getCache = useCallback((params: ClipsParams): ClipsResult | undefined => {
-    const { content } = params;
+  const getCache = useCallback((...params: ClipsParams): ClipsResult | undefined => {
+    const [content] = params;
     const verify = generateCacheVerify(params);
     if (content instanceof HTMLImageElement) {
       const cached = imageCache.current.get(content);

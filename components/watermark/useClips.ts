@@ -31,17 +31,16 @@ function prepareCanvas(
  */
 export default function useClips() {
   // Get single clips
-  function getClips(params: {
-    content: NonNullable<WatermarkProps['content']> | HTMLImageElement;
-    rotate: number;
-    ratio: number;
-    width: number;
-    height: number;
-    font: Required<NonNullable<WatermarkProps['font']>>;
-    gapX: number;
-    gapY: number;
-  }): [dataURL: string, finalWidth: number, finalHeight: number] {
-    const { content, rotate, ratio, width, height, font, gapX, gapY } = params;
+  function getClips(
+    content: NonNullable<WatermarkProps['content']> | HTMLImageElement,
+    rotate: number,
+    ratio: number,
+    width: number,
+    height: number,
+    font: Required<NonNullable<WatermarkProps['font']>>,
+    gapX: number,
+    gapY: number,
+  ): [dataURL: string, finalWidth: number, finalHeight: number] {
     // ================= Text / Image =================
     const [ctx, canvas, contentWidth, contentHeight] = prepareCanvas(width, height, ratio);
 
