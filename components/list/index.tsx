@@ -40,6 +40,8 @@ export type ListSize = 'small' | 'default' | 'large';
 
 export type ListItemLayout = 'horizontal' | 'vertical';
 
+export type ListSemanticName = 'root' | 'header' | 'footer';
+
 export interface ListProps<T> {
   bordered?: boolean;
   className?: string;
@@ -62,6 +64,8 @@ export interface ListProps<T> {
   header?: React.ReactNode;
   footer?: React.ReactNode;
   locale?: ListLocale;
+  classNames?: Partial<Record<ListSemanticName, string>>;
+  styles?: Partial<Record<ListSemanticName, React.CSSProperties>>;
 }
 
 export interface ListLocale {
@@ -89,11 +93,12 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
     rowKey,
     renderItem,
     locale,
-    ...rest
+    styles,
+    classNames: listClassNames,
+    ...restProps
   } = props;
 
   const paginationObj = pagination && typeof pagination === 'object' ? pagination : {};
-
   const [paginationCurrent, setPaginationCurrent] = React.useState(
     paginationObj.defaultCurrent || 1,
   );
@@ -104,6 +109,8 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
     direction,
     className: contextClassName,
     style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
   } = useComponentConfig('list');
   const { renderEmpty } = React.useContext(ConfigContext);
 
@@ -179,7 +186,7 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
       break;
   }
 
-  const classString = classNames(
+  const rootClassNames = classNames(
     prefixCls,
     {
       [`${prefixCls}-vertical`]: itemLayout === 'vertical',
@@ -196,6 +203,8 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
     rootClassName,
     hashId,
     cssVarCls,
+    contextClassNames.root,
+    listClassNames?.root,
   );
 
   const paginationProps = extendsObject(
@@ -291,14 +300,44 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
 
   return (
     <ListContext.Provider value={contextValue}>
-      <div ref={ref} style={{ ...contextStyle, ...style }} className={classString} {...rest}>
+      <div
+        ref={ref}
+        style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
+        className={rootClassNames}
+        {...restProps}
+      >
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
-        {header && <div className={`${prefixCls}-header`}>{header}</div>}
+        {header && (
+          <div
+            className={classNames(
+              `${prefixCls}-header`,
+              contextClassNames.header,
+              listClassNames?.header,
+            )}
+            style={{ ...contextStyles.header, ...styles?.header }}
+          >
+            {header}
+          </div>
+        )}
         <Spin {...loadingProp}>
           {childrenContent}
           {children}
         </Spin>
-        {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
+        {footer && (
+          <div
+            className={classNames(
+              `${prefixCls}-footer`,
+              contextClassNames.footer,
+              listClassNames?.footer,
+            )}
+            style={{
+              ...contextStyles.footer,
+              ...styles?.footer,
+            }}
+          >
+            {footer}
+          </div>
+        )}
         {loadMore ||
           ((paginationPosition === 'bottom' || paginationPosition === 'both') && paginationContent)}
       </div>
