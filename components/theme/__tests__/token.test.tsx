@@ -334,7 +334,6 @@ describe('Theme', () => {
     });
 
     rerender(<Demo algorithm />);
-    console.log(getComputedStyle(container.querySelector('input')!));
     expect(container.querySelector('input')).toHaveStyle({
       '--ant-input-hover-border-color': '#20c77c',
     });
