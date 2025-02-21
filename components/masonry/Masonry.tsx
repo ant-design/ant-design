@@ -60,7 +60,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     columns,
     prefixCls: customizePrefixCls,
     gutter = 0,
-    items = [],
+    items,
     itemRender,
     onSortChange,
     fresh,
@@ -80,6 +80,13 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   }));
 
   const [setItemRef, getItemRef] = useRefs();
+
+  // ======================= Item =======================
+  const [mergedItems, setMergedItems] = React.useState<MasonryItemType[]>([]);
+
+  React.useEffect(() => {
+    setMergedItems(items || []);
+  }, [items]);
 
   // ==================== Breakpoint ====================
   const screens = useBreakpoint();
@@ -113,7 +120,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   const [itemHeights, setItemHeights] = React.useState<ItemHeightData[]>([]);
 
   const collectItemSize = useDelay(() => {
-    const nextItemsHeight = items.map((item, index): ItemHeightData => {
+    const nextItemsHeight = mergedItems.map((item, index): ItemHeightData => {
       const itemKey = item.key ?? index;
       const itemEle = getItemRef(itemKey);
       const rect = itemEle?.getBoundingClientRect();
@@ -129,7 +136,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
 
   const itemWithPositions = React.useMemo(
     () =>
-      items.map((item, index) => {
+      mergedItems.map((item, index) => {
         const key = item.key ?? index;
         return {
           item,
@@ -141,12 +148,12 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
           position: itemPositions.get(key),
         };
       }),
-    [items, itemPositions],
+    [mergedItems, itemPositions],
   );
 
   React.useEffect(() => {
     collectItemSize();
-  }, [items, columnCount]);
+  }, [mergedItems, columnCount]);
 
   // Trigger for `onSortChange`
   type ItemColumnsType = [item: MasonryItemType, column: number][];
@@ -164,7 +171,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   }, [itemWithPositions]);
 
   useLayoutEffect(() => {
-    if (onSortChange && items.length === itemColumns.length) {
+    if (onSortChange && items && items.length === itemColumns.length) {
       onSortChange(itemColumns.map(([item, column]) => ({ ...item, column })));
     }
   }, [itemColumns]);
