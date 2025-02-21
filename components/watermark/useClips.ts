@@ -1,11 +1,6 @@
 import type { WatermarkProps } from '.';
 import toList from '../_util/toList';
 
-type ClipsResult = [dataURL: string, finalWidth: number, finalHeight: number];
-
-const cacheWeakMap = new WeakMap<HTMLImageElement, { verify: string; cache: ClipsResult }>();
-const cacheMap = new Map<string, ClipsResult>();
-
 export const FontGap = 3;
 
 function prepareCanvas(
@@ -36,40 +31,33 @@ function prepareCanvas(
  */
 export default function useClips() {
   // Get single clips
-  function getClips(
-    content: NonNullable<WatermarkProps['content']> | HTMLImageElement,
-    rotate: number,
-    ratio: number,
-    width: number,
-    height: number,
-    font: Required<NonNullable<WatermarkProps['font']>>,
-    gapX: number,
-    gapY: number,
-  ): ClipsResult {
+  function getClips(params: {
+    content: NonNullable<WatermarkProps['content']> | HTMLImageElement;
+    rotate: number;
+    ratio: number;
+    width: number;
+    height: number;
+    font: Required<NonNullable<WatermarkProps['font']>>;
+    gapX: number;
+    gapY: number;
+  }): [dataURL: string, finalWidth: number, finalHeight: number] {
+    const { content, rotate, ratio, width, height, font, gapX, gapY } = params;
     // ================= Text / Image =================
     const [ctx, canvas, contentWidth, contentHeight] = prepareCanvas(width, height, ratio);
-    let verify = `${rotate}-${ratio}-${width}-${height}-${gapX}-${gapY}`;
+
     if (content instanceof HTMLImageElement) {
       // Image
-      if (cacheWeakMap.has(content) && cacheWeakMap.get(content)?.verify === verify) {
-        return cacheWeakMap.get(content)?.cache ?? ['', 0, 0];
-      }
       ctx.drawImage(content, 0, 0, contentWidth, contentHeight);
     } else {
       // Text
       const { color, fontSize, fontStyle, fontWeight, fontFamily, textAlign } = font;
-      const fontVerify = `${color}-${fontSize}-${fontStyle}-${fontWeight}-${fontFamily}-${textAlign}`;
-      const contents = toList(content);
-      verify = `${verify}-${fontVerify}-${contents.join('')}`;
-      if (cacheMap.has(verify)) return cacheMap.get(verify) ?? ['', 0, 0];
-
       const mergedFontSize = Number(fontSize) * ratio;
 
       ctx.font = `${fontStyle} normal ${fontWeight} ${mergedFontSize}px/${height}px ${fontFamily}`;
       ctx.fillStyle = color;
       ctx.textAlign = textAlign;
       ctx.textBaseline = 'top';
-
+      const contents = toList(content);
       contents?.forEach((item, index) => {
         ctx.fillText(item ?? '', contentWidth / 2, index * (mergedFontSize + FontGap * ratio));
       });
@@ -145,16 +133,7 @@ export default function useClips() {
     drawImg(cutWidth + realGapX, -cutHeight / 2 - realGapY / 2);
     drawImg(cutWidth + realGapX, +cutHeight / 2 + realGapY / 2);
 
-    const result: ClipsResult = [fCanvas.toDataURL(), filledWidth / ratio, filledHeight / ratio];
-
-    // add cache
-    if (content instanceof HTMLImageElement) {
-      cacheWeakMap.set(content, { verify, cache: result });
-    } else {
-      cacheMap.set(verify, result);
-    }
-
-    return result;
+    return [fCanvas.toDataURL(), filledWidth / ratio, filledHeight / ratio];
   }
 
   return getClips;

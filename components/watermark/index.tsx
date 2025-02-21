@@ -3,14 +3,15 @@ import { useMutateObserver } from '@rc-component/mutate-observer';
 import classNames from 'classnames';
 import useEvent from 'rc-util/lib/hooks/useEvent';
 
+import toList from '../_util/toList';
 import { useToken } from '../theme/internal';
 import WatermarkContext from './context';
 import type { WatermarkContextProps } from './context';
+import useCache from './useCache';
 import useClips, { FontGap } from './useClips';
 import useRafDebounce from './useRafDebounce';
 import useWatermark from './useWatermark';
 import { getPixelRatio, reRendering } from './utils';
-import toList from '../_util/toList';
 
 export interface WatermarkProps {
   zIndex?: number;
@@ -161,6 +162,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
   };
 
   const getClips = useClips();
+  const { getCache, setCache } = useCache();
 
   const [watermarkInfo, setWatermarkInfo] = React.useState<[base64: string, contentWidth: number]>(
     null!,
@@ -178,24 +180,20 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
       const drawCanvas = (
         drawContent?: NonNullable<WatermarkProps['content']> | HTMLImageElement,
       ) => {
-        const [nextClips, clipWidth] = getClips(
-          drawContent || '',
+        const params = {
+          content: drawContent || '',
           rotate,
           ratio,
-          markWidth,
-          markHeight,
-          {
-            color,
-            fontSize,
-            fontStyle,
-            fontWeight,
-            fontFamily,
-            textAlign,
-          },
+          width: markWidth,
+          height: markHeight,
+          font: { color, fontSize, fontStyle, fontWeight, fontFamily, textAlign },
           gapX,
           gapY,
-        );
-
+        };
+        const cache = getCache(params);
+        const result = cache || getClips(params);
+        const [nextClips, clipWidth] = result;
+        if (!cache) setCache(result, params);
         setWatermarkInfo([nextClips, clipWidth]);
       };
 
