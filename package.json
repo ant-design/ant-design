@@ -280,7 +280,7 @@
     "ora": "^8.1.0",
     "p-all": "^5.0.0",
     "package-manager-detector": "^0.2.8",
-    "pixelmatch": "^6.0.0",
+    "pixelmatch": "^7.1.0",
     "pngjs": "^7.0.0",
     "prettier": "^3.4.1",
     "pretty-format": "^29.7.0",
