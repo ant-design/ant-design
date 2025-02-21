@@ -3,7 +3,7 @@ import { Col, Row } from 'antd';
 
 const App: React.FC = () => (
   <Row>
-    {new Array(10).fill(0).map((_, index) => {
+    {Array.from({ length: 10 }).map((_, index) => {
       const key = `col-${index}`;
       return (
         <Col

@@ -121,6 +121,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               class="ant-form-item-control-input-content"
             >
               <div
+                aria-describedby="test-id"
                 class="ant-color-picker-trigger"
                 id="color"
               >
@@ -146,6 +147,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                 >
                   <div
                     class="ant-popover-inner"
+                    id="test-id"
                     role="tooltip"
                   >
                     <div
@@ -551,6 +553,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   class="ant-slider-step"
                 />
                 <div
+                  aria-describedby="test-id"
                   aria-disabled="false"
                   aria-orientation="horizontal"
                   aria-valuemax="100"
@@ -574,6 +577,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   >
                     <div
                       class="ant-tooltip-inner"
+                      id="test-id"
                       role="tooltip"
                     >
                       16
@@ -627,6 +631,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   class="ant-slider-step"
                 />
                 <div
+                  aria-describedby="test-id"
                   aria-disabled="false"
                   aria-orientation="horizontal"
                   aria-valuemax="100"
@@ -650,6 +655,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   >
                     <div
                       class="ant-tooltip-inner"
+                      id="test-id"
                       role="tooltip"
                     >
                       11
@@ -703,6 +709,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   class="ant-slider-step"
                 />
                 <div
+                  aria-describedby="test-id"
                   aria-disabled="false"
                   aria-orientation="horizontal"
                   aria-valuemax="180"
@@ -726,6 +733,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   >
                     <div
                       class="ant-tooltip-inner"
+                      id="test-id"
                       role="tooltip"
                     >
                       -22

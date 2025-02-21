@@ -119,7 +119,7 @@ const ComponentsBlock: React.FC = () => {
         <div style={{ flex: 'none' }}>
           <Dropdown.Button
             menu={{
-              items: new Array(5).fill(null).map((_, index) => ({
+              items: Array.from({ length: 5 }).map((_, index) => ({
                 key: `opt${index}`,
                 label: `${locale.option} ${index}`,
               })),

@@ -8,8 +8,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { devUseWarning } from '../_util/warning';
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FloatButtonGroupProvider } from './context';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
@@ -35,10 +34,13 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
     ...floatButtonProps
   } = props;
 
-  const { direction, getPrefixCls, floatButtonGroup } =
-    React.useContext<ConfigConsumerProps>(ConfigContext);
+  const {
+    direction,
+    getPrefixCls,
+    closeIcon: contextCloseIcon,
+  } = useComponentConfig('floatButtonGroup');
 
-  const mergedCloseIcon = closeIcon ?? floatButtonGroup?.closeIcon ?? <CloseOutlined />;
+  const mergedCloseIcon = closeIcon ?? contextCloseIcon ?? <CloseOutlined />;
 
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);

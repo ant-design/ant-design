@@ -71,6 +71,7 @@ Array [
       style="white-space: nowrap;"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -92,6 +93,7 @@ Array [
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -117,6 +119,7 @@ Array [
         </div>
       </div>
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -138,6 +141,7 @@ Array [
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -163,6 +167,7 @@ Array [
         </div>
       </div>
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -184,6 +189,7 @@ Array [
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -217,6 +223,7 @@ Array [
         class="ant-flex ant-flex-align-center ant-flex-vertical"
       >
         <button
+          aria-describedby="test-id"
           class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
@@ -238,6 +245,7 @@ Array [
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
@@ -263,6 +271,7 @@ Array [
           </div>
         </div>
         <button
+          aria-describedby="test-id"
           class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
@@ -284,6 +293,7 @@ Array [
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
@@ -309,6 +319,7 @@ Array [
           </div>
         </div>
         <button
+          aria-describedby="test-id"
           class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
@@ -330,6 +341,7 @@ Array [
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
@@ -359,6 +371,7 @@ Array [
         class="ant-flex ant-flex-align-center ant-flex-vertical"
       >
         <button
+          aria-describedby="test-id"
           class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
@@ -380,6 +393,7 @@ Array [
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
@@ -405,6 +419,7 @@ Array [
           </div>
         </div>
         <button
+          aria-describedby="test-id"
           class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
@@ -426,6 +441,7 @@ Array [
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
@@ -451,6 +467,7 @@ Array [
           </div>
         </div>
         <button
+          aria-describedby="test-id"
           class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
@@ -472,6 +489,7 @@ Array [
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
@@ -503,6 +521,7 @@ Array [
       style="white-space: nowrap;"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -524,6 +543,7 @@ Array [
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -549,6 +569,7 @@ Array [
         </div>
       </div>
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -570,6 +591,7 @@ Array [
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -595,6 +617,7 @@ Array [
         </div>
       </div>
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -616,6 +639,7 @@ Array [
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -1068,6 +1092,7 @@ exports[`renders components/popover/demo/arrow-point-at-center.tsx extend contex
 exports[`renders components/popover/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <button
+    aria-describedby="test-id"
     class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
@@ -1088,6 +1113,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -1193,6 +1219,7 @@ exports[`renders components/popover/demo/component-token.tsx extend context corr
 exports[`renders components/popover/demo/control.tsx extend context correctly 1`] = `
 Array [
   <button
+    aria-describedby="test-id"
     class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
@@ -1213,6 +1240,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -1238,6 +1266,7 @@ exports[`renders components/popover/demo/control.tsx extend context correctly 2`
 exports[`renders components/popover/demo/hover-with-click.tsx extend context correctly 1`] = `
 Array [
   <button
+    aria-describedby="test-id"
     class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
     type="button"
   >
@@ -1258,6 +1287,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -1293,6 +1323,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -1324,6 +1355,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
     style="white-space: nowrap;"
   >
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
@@ -1345,6 +1377,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -1370,6 +1403,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </div>
     </div>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
@@ -1391,6 +1425,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -1416,6 +1451,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </div>
     </div>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
@@ -1437,6 +1473,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -1470,6 +1507,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       class="ant-flex ant-flex-align-center ant-flex-vertical"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -1491,6 +1529,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -1516,6 +1555,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         </div>
       </div>
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -1537,6 +1577,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -1562,6 +1603,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         </div>
       </div>
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -1583,6 +1625,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -1612,6 +1655,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       class="ant-flex ant-flex-align-center ant-flex-vertical"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -1633,6 +1677,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -1658,6 +1703,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         </div>
       </div>
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -1679,6 +1725,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -1704,6 +1751,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         </div>
       </div>
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -1725,6 +1773,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -1756,6 +1805,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
     style="white-space: nowrap;"
   >
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
@@ -1777,6 +1827,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -1802,6 +1853,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </div>
     </div>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
@@ -1823,6 +1875,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -1848,6 +1901,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </div>
     </div>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
@@ -1869,6 +1923,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -2023,6 +2078,7 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
     class="ant-space-item"
   >
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
@@ -2043,6 +2099,7 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -2070,6 +2127,7 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
     class="ant-space-item"
   >
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
@@ -2090,6 +2148,7 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -2117,6 +2176,7 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
     class="ant-space-item"
   >
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
@@ -2137,6 +2197,7 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div

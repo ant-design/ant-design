@@ -8,7 +8,6 @@ import type { InputStatus } from '../../_util/statusUtils';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import type { Variant } from '../../config-provider';
-import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import useSize from '../../config-provider/hooks/useSize';
 import type { SizeType } from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
@@ -41,6 +40,7 @@ export interface OTPProps
   value?: string;
   onChange?: (value: string) => void;
   formatter?: (value: string) => string;
+  separator?: ((index: number) => React.ReactNode) | React.ReactNode;
 
   // Status
   disabled?: boolean;
@@ -57,6 +57,21 @@ function strToArr(str: string) {
   return (str || '').split('');
 }
 
+interface SeparatorProps {
+  index: number;
+  prefixCls: string;
+  separator: OTPProps['separator'];
+}
+
+const Separator: React.FC<Readonly<SeparatorProps>> = (props) => {
+  const { index, prefixCls, separator } = props;
+  const separatorNode = typeof separator === 'function' ? separator(index) : separator;
+  if (!separatorNode) {
+    return null;
+  }
+  return <span className={`${prefixCls}-separator`}>{separatorNode}</span>;
+};
+
 const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
@@ -66,6 +81,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     value,
     onChange,
     formatter,
+    separator,
     variant,
     disabled,
     status: customStatus,
@@ -97,8 +113,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
 
   // ========================= Root =========================
   // Style
-  const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   // ========================= Size =========================
   const mergedSize = useSize((ctx) => customSize ?? ctx);
@@ -138,7 +153,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   const internalFormatter = (txt: string) => (formatter ? formatter(txt) : txt);
 
   // ======================== Values ========================
-  const [valueCells, setValueCells] = React.useState<string[]>(
+  const [valueCells, setValueCells] = React.useState<string[]>(() =>
     strToArr(internalFormatter(defaultValue || '')),
   );
 
@@ -249,21 +264,25 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
           const key = `otp-${index}`;
           const singleValue = valueCells[index] || '';
           return (
-            <OTPInput
-              ref={(inputEle) => {
-                refs.current[index] = inputEle;
-              }}
-              key={key}
-              index={index}
-              size={mergedSize}
-              htmlSize={1}
-              className={`${prefixCls}-input`}
-              onChange={onInputChange}
-              value={singleValue}
-              onActiveChange={onInputActiveChange}
-              autoFocus={index === 0 && autoFocus}
-              {...inputSharedProps}
-            />
+            <React.Fragment key={key}>
+              <OTPInput
+                ref={(inputEle) => {
+                  refs.current[index] = inputEle;
+                }}
+                index={index}
+                size={mergedSize}
+                htmlSize={1}
+                className={`${prefixCls}-input`}
+                onChange={onInputChange}
+                value={singleValue}
+                onActiveChange={onInputActiveChange}
+                autoFocus={index === 0 && autoFocus}
+                {...inputSharedProps}
+              />
+              {index < length - 1 && (
+                <Separator separator={separator} index={index} prefixCls={prefixCls} />
+              )}
+            </React.Fragment>
           );
         })}
       </FormItemInputContext.Provider>

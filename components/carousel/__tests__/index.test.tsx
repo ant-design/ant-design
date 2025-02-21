@@ -191,4 +191,51 @@ describe('Carousel', () => {
     expect(errSpy).not.toHaveBeenCalled();
     errSpy.mockRestore();
   });
+
+  describe('should works for dotDuration', () => {
+    it('should not show dot duration', () => {
+      const { container } = render(
+        <Carousel autoplay>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </Carousel>,
+      );
+      expect(
+        getComputedStyle(container.querySelector('.ant-carousel')!).getPropertyValue(
+          '--dot-duration',
+        ),
+      ).toBeFalsy();
+    });
+
+    it('should show dot duration with default autoplaySpeed', () => {
+      const { container } = render(
+        <Carousel autoplay={{ dotDuration: true }}>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </Carousel>,
+      );
+      expect(
+        getComputedStyle(container.querySelector('.ant-carousel')!).getPropertyValue(
+          '--dot-duration',
+        ),
+      ).toBe('3000ms');
+    });
+
+    it('should show dot duration with custom autoplaySpeed', () => {
+      const { container } = render(
+        <Carousel autoplay={{ dotDuration: true }} autoplaySpeed={5000}>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </Carousel>,
+      );
+      expect(
+        getComputedStyle(container.querySelector('.ant-carousel')!).getPropertyValue(
+          '--dot-duration',
+        ),
+      ).toBe('5000ms');
+    });
+  });
 });

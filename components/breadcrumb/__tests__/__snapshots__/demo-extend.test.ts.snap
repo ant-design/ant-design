@@ -144,6 +144,7 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-1"
             role="menuitem"
@@ -174,11 +175,13 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-2"
             role="menuitem"
@@ -209,11 +212,13 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-3"
             role="menuitem"
@@ -244,6 +249,7 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -402,6 +408,7 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-0"
             role="menuitem"
@@ -430,11 +437,13 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-1"
             role="menuitem"
@@ -463,6 +472,7 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -563,6 +573,7 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-1"
             role="menuitem"
@@ -593,11 +604,13 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-2"
             role="menuitem"
@@ -628,11 +641,13 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-3"
             role="menuitem"
@@ -663,6 +678,7 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>

@@ -50,7 +50,8 @@ config 参数如下：
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| btn | 自定义关闭按钮 | ReactNode | - | - |
+| actions | 自定义按钮组 | ReactNode | - | 5.24.0 |
+| ~~btn~~ | 自定义按钮组，请使用 `actions` 替换 | ReactNode | - | - |
 | className | 自定义 CSS class | string | - | - |
 | closeIcon | 自定义关闭图标 | ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 |
 | description | 通知提醒内容，必选 | ReactNode | - | - |

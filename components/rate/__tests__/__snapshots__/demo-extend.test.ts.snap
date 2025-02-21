@@ -3,7 +3,6 @@
 exports[`renders components/rate/demo/basic.tsx extend context correctly 1`] = `
 <ul
   class="ant-rate"
-  role="radiogroup"
   tabindex="0"
 >
   <li
@@ -307,7 +306,6 @@ exports[`renders components/rate/demo/character.tsx extend context correctly 1`]
 >
   <ul
     class="ant-rate"
-    role="radiogroup"
     tabindex="0"
   >
     <li
@@ -603,7 +601,6 @@ exports[`renders components/rate/demo/character.tsx extend context correctly 1`]
   </ul>
   <ul
     class="ant-rate"
-    role="radiogroup"
     style="font-size: 36px;"
     tabindex="0"
   >
@@ -720,7 +717,6 @@ exports[`renders components/rate/demo/character.tsx extend context correctly 1`]
   </ul>
   <ul
     class="ant-rate"
-    role="radiogroup"
     tabindex="0"
   >
     <li
@@ -845,7 +841,6 @@ exports[`renders components/rate/demo/character-function.tsx extend context corr
 >
   <ul
     class="ant-rate"
-    role="radiogroup"
     tabindex="0"
   >
     <li
@@ -961,7 +956,6 @@ exports[`renders components/rate/demo/character-function.tsx extend context corr
   </ul>
   <ul
     class="ant-rate"
-    role="radiogroup"
     tabindex="0"
   >
     <li
@@ -1269,7 +1263,6 @@ exports[`renders components/rate/demo/clear.tsx extend context correctly 1`] = `
   >
     <ul
       class="ant-rate"
-      role="radiogroup"
       tabindex="0"
     >
       <li
@@ -1572,7 +1565,6 @@ exports[`renders components/rate/demo/clear.tsx extend context correctly 1`] = `
   >
     <ul
       class="ant-rate"
-      role="radiogroup"
       tabindex="0"
     >
       <li
@@ -1878,7 +1870,6 @@ exports[`renders components/rate/demo/clear.tsx extend context correctly 2`] = `
 exports[`renders components/rate/demo/component-token.tsx extend context correctly 1`] = `
 <ul
   class="ant-rate"
-  role="radiogroup"
   tabindex="0"
 >
   <li
@@ -2179,7 +2170,6 @@ exports[`renders components/rate/demo/component-token.tsx extend context correct
 exports[`renders components/rate/demo/disabled.tsx extend context correctly 1`] = `
 <ul
   class="ant-rate ant-rate-disabled"
-  role="radiogroup"
   tabindex="-1"
 >
   <li
@@ -2480,7 +2470,6 @@ exports[`renders components/rate/demo/disabled.tsx extend context correctly 2`] 
 exports[`renders components/rate/demo/half.tsx extend context correctly 1`] = `
 <ul
   class="ant-rate"
-  role="radiogroup"
   tabindex="0"
 >
   <li
@@ -2784,10 +2773,10 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
 >
   <ul
     class="ant-rate"
-    role="radiogroup"
     tabindex="0"
   >
     <li
+      aria-describedby="test-id"
       class="ant-rate-star ant-rate-star-full"
     >
       <div
@@ -2858,6 +2847,7 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           terrible
@@ -2865,6 +2855,7 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       </div>
     </div>
     <li
+      aria-describedby="test-id"
       class="ant-rate-star ant-rate-star-full"
     >
       <div
@@ -2935,6 +2926,7 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           bad
@@ -2942,6 +2934,7 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       </div>
     </div>
     <li
+      aria-describedby="test-id"
       class="ant-rate-star ant-rate-star-full"
     >
       <div
@@ -3012,6 +3005,7 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           normal
@@ -3019,6 +3013,7 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       </div>
     </div>
     <li
+      aria-describedby="test-id"
       class="ant-rate-star ant-rate-star-zero"
     >
       <div
@@ -3089,6 +3084,7 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           good
@@ -3096,6 +3092,7 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       </div>
     </div>
     <li
+      aria-describedby="test-id"
       class="ant-rate-star ant-rate-star-zero"
     >
       <div
@@ -3166,6 +3163,7 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           wonderful

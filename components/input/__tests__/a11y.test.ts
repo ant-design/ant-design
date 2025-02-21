@@ -1,3 +1,3 @@
 import accessibilityDemoTest from '../../../tests/shared/accessibilityTest';
 
-accessibilityDemoTest('input', { disabledRules: ['label'] });
+accessibilityDemoTest('input', { disabledRules: ['label', 'label-title-only'] });

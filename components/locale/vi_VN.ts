@@ -21,7 +21,7 @@ const localeValues: Locale = {
     filterConfirm: 'Đồng ý',
     filterReset: 'Bỏ lọc',
     filterEmptyText: 'Không có bộ lọc',
-    filterCheckall: 'Chọn tất cả',
+    filterCheckAll: 'Chọn tất cả',
     filterSearchPlaceholder: 'Tìm kiếm bộ lọc',
     emptyText: 'Trống',
     selectAll: 'Chọn tất cả',

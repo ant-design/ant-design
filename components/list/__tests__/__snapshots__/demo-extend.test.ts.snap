@@ -172,7 +172,7 @@ exports[`renders components/list/demo/basic.tsx extend context correctly 2`] = `
 exports[`renders components/list/demo/component-token.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -272,7 +272,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -337,7 +337,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -402,7 +402,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -576,7 +576,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -750,7 +750,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -1880,7 +1880,9 @@ Array [
                   class="ant-radio-button-inner"
                 />
               </span>
-              <span>
+              <span
+                class="ant-radio-button-label"
+              >
                 top
               </span>
             </label>
@@ -1901,7 +1903,9 @@ Array [
                   class="ant-radio-button-inner"
                 />
               </span>
-              <span>
+              <span
+                class="ant-radio-button-label"
+              >
                 bottom
               </span>
             </label>
@@ -1921,7 +1925,9 @@ Array [
                   class="ant-radio-button-inner"
                 />
               </span>
-              <span>
+              <span
+                class="ant-radio-button-label"
+              >
                 both
               </span>
             </label>
@@ -1964,7 +1970,9 @@ Array [
                   class="ant-radio-button-inner"
                 />
               </span>
-              <span>
+              <span
+                class="ant-radio-button-label"
+              >
                 start
               </span>
             </label>
@@ -1985,7 +1993,9 @@ Array [
                   class="ant-radio-button-inner"
                 />
               </span>
-              <span>
+              <span
+                class="ant-radio-button-label"
+              >
                 center
               </span>
             </label>
@@ -2005,7 +2015,9 @@ Array [
                   class="ant-radio-button-inner"
                 />
               </span>
-              <span>
+              <span
+                class="ant-radio-button-label"
+              >
                 end
               </span>
             </label>
@@ -2501,7 +2513,7 @@ exports[`renders components/list/demo/responsive.tsx extend context correctly 2`
 exports[`renders components/list/demo/simple.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -2601,7 +2613,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -2666,7 +2678,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span

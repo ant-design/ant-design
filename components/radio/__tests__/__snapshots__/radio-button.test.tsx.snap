@@ -33,7 +33,9 @@ exports[`Radio Button should render correctly 1`] = `
       class="ant-radio-button-inner"
     />
   </span>
-  <span>
+  <span
+    class="ant-radio-button-label"
+  >
     Test
   </span>
 </label>
@@ -59,7 +61,9 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
         class="my-radio-inner"
       />
     </span>
-    <span>
+    <span
+      class="my-radio-label"
+    >
       Apple
     </span>
   </label>
@@ -80,7 +84,9 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
         class="my-radio-inner"
       />
     </span>
-    <span>
+    <span
+      class="my-radio-label"
+    >
       Orange
     </span>
   </label>

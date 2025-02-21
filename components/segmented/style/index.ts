@@ -170,7 +170,8 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
           top: 0,
           insetInlineStart: 0,
           borderRadius: 'inherit',
-          transition: `background-color ${token.motionDurationMid}`,
+          opacity: 0,
+          transition: `opacity ${token.motionDurationMid}`,
           // This is mandatory to make it not clickable or hoverable
           // Ref: https://github.com/ant-design/ant-design/issues/40888
           pointerEvents: 'none',
@@ -179,12 +180,14 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         [`&:hover:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
           color: token.itemHoverColor,
           '&::after': {
+            opacity: 1,
             backgroundColor: token.itemHoverBg,
           },
         },
         [`&:active:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
           color: token.itemHoverColor,
           '&::after': {
+            opacity: 1,
             backgroundColor: token.itemActiveBg,
           },
         },
@@ -265,6 +268,13 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       [`${componentCls}-thumb-motion-appear-active`]: {
         transition: `transform ${token.motionDurationSlow} ${token.motionEaseInOut}, width ${token.motionDurationSlow} ${token.motionEaseInOut}`,
         willChange: 'transform, width',
+      },
+
+      [`&${componentCls}-shape-round`]: {
+        borderRadius: 9999,
+        [`${componentCls}-item, ${componentCls}-thumb`]: {
+          borderRadius: 9999,
+        },
       },
     },
   };

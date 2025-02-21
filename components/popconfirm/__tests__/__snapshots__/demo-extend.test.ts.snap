@@ -3,6 +3,7 @@
 exports[`renders components/popconfirm/demo/async.tsx extend context correctly 1`] = `
 Array [
   <button
+    aria-describedby="test-id"
     class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
@@ -23,6 +24,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -105,6 +107,7 @@ exports[`renders components/popconfirm/demo/async.tsx extend context correctly 2
 exports[`renders components/popconfirm/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <button
+    aria-describedby="test-id"
     class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
     type="button"
   >
@@ -125,6 +128,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -207,6 +211,7 @@ exports[`renders components/popconfirm/demo/basic.tsx extend context correctly 2
 exports[`renders components/popconfirm/demo/dynamic-trigger.tsx extend context correctly 1`] = `
 <div>
   <button
+    aria-describedby="test-id"
     class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
     type="button"
   >
@@ -227,6 +232,7 @@ exports[`renders components/popconfirm/demo/dynamic-trigger.tsx extend context c
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -332,6 +338,7 @@ exports[`renders components/popconfirm/demo/dynamic-trigger.tsx extend context c
 exports[`renders components/popconfirm/demo/icon.tsx extend context correctly 1`] = `
 Array [
   <button
+    aria-describedby="test-id"
     class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
     type="button"
   >
@@ -352,6 +359,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -438,6 +446,7 @@ exports[`renders components/popconfirm/demo/icon.tsx extend context correctly 2`
 exports[`renders components/popconfirm/demo/locale.tsx extend context correctly 1`] = `
 Array [
   <button
+    aria-describedby="test-id"
     class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
     type="button"
   >
@@ -458,6 +467,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -546,6 +556,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
     style="white-space: nowrap;"
   >
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
@@ -567,6 +578,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -644,6 +656,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
       </div>
     </div>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
@@ -665,6 +678,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -742,6 +756,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
       </div>
     </div>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
@@ -763,6 +778,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -848,6 +864,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
       class="ant-flex ant-flex-align-center ant-flex-vertical"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -869,6 +886,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -946,6 +964,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
         </div>
       </div>
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -967,6 +986,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -1044,6 +1064,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
         </div>
       </div>
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -1065,6 +1086,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -1146,6 +1168,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
       class="ant-flex ant-flex-align-center ant-flex-vertical"
     >
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -1167,6 +1190,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -1244,6 +1268,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
         </div>
       </div>
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -1265,6 +1290,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -1342,6 +1368,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
         </div>
       </div>
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
@@ -1363,6 +1390,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -1446,6 +1474,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
     style="white-space: nowrap;"
   >
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
@@ -1467,6 +1496,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -1544,6 +1574,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
       </div>
     </div>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
@@ -1565,6 +1596,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -1642,6 +1674,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
       </div>
     </div>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
@@ -1663,6 +1696,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -1748,6 +1782,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
 exports[`renders components/popconfirm/demo/promise.tsx extend context correctly 1`] = `
 Array [
   <button
+    aria-describedby="test-id"
     class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
@@ -1768,6 +1803,7 @@ Array [
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div

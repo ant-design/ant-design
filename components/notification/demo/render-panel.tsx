@@ -9,7 +9,7 @@ export default () => (
     message="Hello World!"
     description="Hello World?"
     type="success"
-    btn={
+    actions={
       <Button type="primary" size="small">
         My Button
       </Button>

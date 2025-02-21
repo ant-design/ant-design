@@ -33,7 +33,7 @@ $ npm run dev
 
 初始化完成后，所有 Ant Design 配置都会自动完成，允许您在 Refine 应用中开始使用 Ant Design 组件。
 
-在浏览器中打开 http://localhost:5173/，您将看到带有 Ant Design 组件的示例 CRUD 应用。
+在浏览器中打开 http://localhost:5173/ ，您将看到带有 Ant Design 组件的示例 CRUD 应用。
 
 ![Refine Ant Design 示例](https://refine.ams3.cdn.digitaloceanspaces.com/example-readmes/antd-list-example.png)
 

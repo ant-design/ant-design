@@ -1,9 +1,9 @@
 import * as React from 'react';
+import { FastColor } from '@ant-design/fast-color';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import { FastColor } from '@ant-design/fast-color';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 
@@ -62,6 +62,7 @@ export interface ProgressProps extends ProgressAriaProps {
   successPercent?: number;
   percentPosition?: PercentPositionType;
   children?: React.ReactNode;
+  rounding?: (step: number) => number;
 }
 
 const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) => {

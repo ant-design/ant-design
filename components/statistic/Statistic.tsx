@@ -3,8 +3,7 @@ import classNames from 'classnames';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import Skeleton from '../skeleton';
 import StatisticNumber from './Number';
 import useStyle from './style';
@@ -52,8 +51,12 @@ const Statistic: React.FC<StatisticProps> = (props) => {
     ...rest
   } = props;
 
-  const { getPrefixCls, direction, statistic } =
-    React.useContext<ConfigConsumerProps>(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('statistic');
 
   const prefixCls = getPrefixCls('statistic', customizePrefixCls);
 
@@ -75,7 +78,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
-    statistic?.className,
+    contextClassName,
     className,
     rootClassName,
     hashId,
@@ -88,7 +91,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
     <div
       {...restProps}
       className={cls}
-      style={{ ...statistic?.style, ...style }}
+      style={{ ...contextStyle, ...style }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >

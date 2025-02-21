@@ -242,7 +242,7 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       },
     },
 
-    [`${noticeCls}-btn`]: {
+    [`${noticeCls}-actions`]: {
       float: 'right',
       marginTop: token.marginSM,
     },
@@ -327,7 +327,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
         '&-rtl': {
           direction: 'rtl',
 
-          [`${noticeCls}-btn`]: {
+          [`${noticeCls}-actions`]: {
             float: 'left',
           },
         },

@@ -3,7 +3,6 @@
 exports[`Rate rtl render component should be rendered correctly in RTL direction 1`] = `
 <ul
   class="ant-rate ant-rate-rtl"
-  role="radiogroup"
   tabindex="0"
 >
   <li

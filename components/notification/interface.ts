@@ -21,7 +21,9 @@ export type IconType = 'success' | 'info' | 'error' | 'warning';
 export interface ArgsProps {
   message: React.ReactNode;
   description?: React.ReactNode;
+  /** @deprecated Please use `actions` instead */
   btn?: React.ReactNode;
+  actions?: React.ReactNode;
   key?: React.Key;
   onClose?: () => void;
   duration?: number | null;

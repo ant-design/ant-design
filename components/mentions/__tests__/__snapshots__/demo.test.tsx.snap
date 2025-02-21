@@ -473,5 +473,14 @@ exports[`renders components/mentions/demo/variant.tsx correctly 1`] = `
       rows="1"
     />
   </div>
+  <div
+    class="ant-mentions ant-mentions-underlined"
+  >
+    <textarea
+      class="rc-textarea"
+      placeholder="Underlined"
+      rows="1"
+    />
+  </div>
 </div>
 `;

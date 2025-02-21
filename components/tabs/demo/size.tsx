@@ -75,7 +75,7 @@ const App: React.FC = () => {
         defaultActiveKey="1"
         size={size}
         style={{ marginBottom: 32 }}
-        items={new Array(3).fill(null).map((_, i) => {
+        items={Array.from({ length: 3 }).map((_, i) => {
           const id = String(i + 1);
           return {
             label: `Tab ${id}`,
@@ -89,7 +89,7 @@ const App: React.FC = () => {
         type="card"
         size={size}
         style={{ marginBottom: 32 }}
-        items={new Array(3).fill(null).map((_, i) => {
+        items={Array.from({ length: 3 }).map((_, i) => {
           const id = String(i + 1);
           return {
             label: `Card Tab ${id}`,

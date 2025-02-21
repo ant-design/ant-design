@@ -3,7 +3,6 @@
 exports[`renders components/rate/demo/basic.tsx correctly 1`] = `
 <ul
   class="ant-rate"
-  role="radiogroup"
   tabindex="0"
 >
   <li
@@ -305,7 +304,6 @@ exports[`renders components/rate/demo/character.tsx correctly 1`] = `
 >
   <ul
     class="ant-rate"
-    role="radiogroup"
     tabindex="0"
   >
     <li
@@ -601,7 +599,6 @@ exports[`renders components/rate/demo/character.tsx correctly 1`] = `
   </ul>
   <ul
     class="ant-rate"
-    role="radiogroup"
     style="font-size:36px"
     tabindex="0"
   >
@@ -718,7 +715,6 @@ exports[`renders components/rate/demo/character.tsx correctly 1`] = `
   </ul>
   <ul
     class="ant-rate"
-    role="radiogroup"
     tabindex="0"
   >
     <li
@@ -841,7 +837,6 @@ exports[`renders components/rate/demo/character-function.tsx correctly 1`] = `
 >
   <ul
     class="ant-rate"
-    role="radiogroup"
     tabindex="0"
   >
     <li
@@ -957,7 +952,6 @@ exports[`renders components/rate/demo/character-function.tsx correctly 1`] = `
   </ul>
   <ul
     class="ant-rate"
-    role="radiogroup"
     tabindex="0"
   >
     <li
@@ -1263,7 +1257,6 @@ exports[`renders components/rate/demo/clear.tsx correctly 1`] = `
   >
     <ul
       class="ant-rate"
-      role="radiogroup"
       tabindex="0"
     >
       <li
@@ -1566,7 +1559,6 @@ exports[`renders components/rate/demo/clear.tsx correctly 1`] = `
   >
     <ul
       class="ant-rate"
-      role="radiogroup"
       tabindex="0"
     >
       <li
@@ -1870,7 +1862,6 @@ exports[`renders components/rate/demo/clear.tsx correctly 1`] = `
 exports[`renders components/rate/demo/component-token.tsx correctly 1`] = `
 <ul
   class="ant-rate"
-  role="radiogroup"
   tabindex="0"
 >
   <li
@@ -2169,7 +2160,6 @@ exports[`renders components/rate/demo/component-token.tsx correctly 1`] = `
 exports[`renders components/rate/demo/disabled.tsx correctly 1`] = `
 <ul
   class="ant-rate ant-rate-disabled"
-  role="radiogroup"
   tabindex="-1"
 >
   <li
@@ -2468,7 +2458,6 @@ exports[`renders components/rate/demo/disabled.tsx correctly 1`] = `
 exports[`renders components/rate/demo/half.tsx correctly 1`] = `
 <ul
   class="ant-rate"
-  role="radiogroup"
   tabindex="0"
 >
   <li
@@ -2770,10 +2759,10 @@ exports[`renders components/rate/demo/text.tsx correctly 1`] = `
 >
   <ul
     class="ant-rate"
-    role="radiogroup"
     tabindex="0"
   >
     <li
+      aria-describedby="test-id"
       class="ant-rate-star ant-rate-star-full"
     >
       <div
@@ -2832,6 +2821,7 @@ exports[`renders components/rate/demo/text.tsx correctly 1`] = `
       </div>
     </li>
     <li
+      aria-describedby="test-id"
       class="ant-rate-star ant-rate-star-full"
     >
       <div
@@ -2890,6 +2880,7 @@ exports[`renders components/rate/demo/text.tsx correctly 1`] = `
       </div>
     </li>
     <li
+      aria-describedby="test-id"
       class="ant-rate-star ant-rate-star-full"
     >
       <div
@@ -2948,6 +2939,7 @@ exports[`renders components/rate/demo/text.tsx correctly 1`] = `
       </div>
     </li>
     <li
+      aria-describedby="test-id"
       class="ant-rate-star ant-rate-star-zero"
     >
       <div
@@ -3006,6 +2998,7 @@ exports[`renders components/rate/demo/text.tsx correctly 1`] = `
       </div>
     </li>
     <li
+      aria-describedby="test-id"
       class="ant-rate-star ant-rate-star-zero"
     >
       <div

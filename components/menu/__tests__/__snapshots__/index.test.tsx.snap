@@ -9,6 +9,7 @@ exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
     tabindex="0"
   >
     <li
+      aria-describedby="test-id"
       class="ant-menu-item"
       data-menu-id="rc-menu-uuid-test-1"
       role="menuitem"
@@ -40,6 +41,7 @@ exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
       </span>
     </li>
     <li
+      aria-describedby="test-id"
       class="ant-menu-item"
       data-menu-id="rc-menu-uuid-test-2"
       role="menuitem"
@@ -200,6 +202,7 @@ exports[`Menu all types must be available in the "items" syntax 1`] = `
         role="menu"
       >
         <li
+          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-only-child"
           data-menu-id="rc-menu-uuid-test-submenu-item1"
           role="menuitem"
@@ -213,6 +216,7 @@ exports[`Menu all types must be available in the "items" syntax 1`] = `
           </span>
         </li>
         <li
+          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-only-child"
           data-menu-id="rc-menu-uuid-test-submenu-item2"
           role="menuitem"
@@ -247,6 +251,7 @@ exports[`Menu all types must be available in the "items" syntax 1`] = `
         role="group"
       >
         <li
+          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-only-child"
           data-menu-id="rc-menu-uuid-test-group-item"
           role="menuitem"
@@ -293,6 +298,7 @@ exports[`Menu all types must be available in the "items" syntax 1`] = `
             role="menu"
           >
             <li
+              aria-describedby="test-id"
               class="ant-menu-item ant-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-group-submenu-item1"
               role="menuitem"
@@ -306,6 +312,7 @@ exports[`Menu all types must be available in the "items" syntax 1`] = `
               </span>
             </li>
             <li
+              aria-describedby="test-id"
               class="ant-menu-item ant-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-group-submenu-item2"
               role="menuitem"
@@ -339,6 +346,7 @@ exports[`Menu rtl render component should be rendered correctly in RTL direction
   tabindex="0"
 >
   <li
+    aria-describedby="test-id"
     class="ant-menu-item"
     data-menu-id="rc-menu-uuid-test-tmp_key-0"
     role="menuitem"
@@ -394,6 +402,7 @@ exports[`Menu should controlled collapse work 1`] = `
     tabindex="0"
   >
     <li
+      aria-describedby="test-id"
       class="ant-menu-item"
       data-menu-id="rc-menu-uuid-test-1"
       role="menuitem"
@@ -442,6 +451,7 @@ exports[`Menu should controlled collapse work 2`] = `
     tabindex="0"
   >
     <li
+      aria-describedby="test-id"
       class="ant-menu-item"
       data-menu-id="rc-menu-uuid-test-1"
       role="menuitem"

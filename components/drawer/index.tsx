@@ -11,6 +11,7 @@ import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import { usePanelRef } from '../watermark/context';
 import type { DrawerClassNames, DrawerPanelProps, DrawerStyles } from './DrawerPanel';
 import DrawerPanel from './DrawerPanel';
@@ -72,7 +73,15 @@ const Drawer: React.FC<DrawerProps> & {
     ...rest
   } = props;
 
-  const { getPopupContainer, getPrefixCls, direction, drawer } = React.useContext(ConfigContext);
+  const {
+    getPopupContainer,
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('drawer');
 
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
 
@@ -157,7 +166,6 @@ const Drawer: React.FC<DrawerProps> & {
 
   // =========================== Render ===========================
   const { classNames: propClassNames = {}, styles: propStyles = {} } = rest;
-  const { classNames: contextClassNames = {}, styles: contextStyles = {} } = drawer || {};
 
   return wrapCSSVar(
     <ContextIsolator form space>
@@ -195,8 +203,8 @@ const Drawer: React.FC<DrawerProps> & {
           push={push}
           width={mergedWidth}
           height={mergedHeight}
-          style={{ ...drawer?.style, ...style }}
-          className={classNames(drawer?.className, className)}
+          style={{ ...contextStyle, ...style }}
+          className={classNames(contextClassName, className)}
           rootClassName={drawerClassName}
           getContainer={getContainer}
           afterOpenChange={afterOpenChange ?? afterVisibleChange}

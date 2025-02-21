@@ -143,7 +143,9 @@ exports[`Form form should support disabled 1`] = `
                   class="ant-checkbox-inner"
                 />
               </span>
-              <span>
+              <span
+                class="ant-checkbox-label"
+              >
                 disabled
               </span>
             </label>
@@ -197,7 +199,9 @@ exports[`Form form should support disabled 1`] = `
                     class="ant-radio-inner"
                   />
                 </span>
-                <span>
+                <span
+                  class="ant-radio-label"
+                >
                   Apple
                 </span>
               </label>
@@ -218,7 +222,9 @@ exports[`Form form should support disabled 1`] = `
                     class="ant-radio-inner"
                   />
                 </span>
-                <span>
+                <span
+                  class="ant-radio-label"
+                >
                   Pear
                 </span>
               </label>
@@ -1044,6 +1050,7 @@ exports[`Form form should support disabled 1`] = `
                 class="ant-slider-step"
               />
               <div
+                aria-describedby="test-id"
                 aria-disabled="true"
                 aria-orientation="horizontal"
                 aria-valuemax="100"
@@ -1085,6 +1092,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-describedby="test-id"
               class="ant-color-picker-trigger ant-color-picker-trigger-disabled"
             >
               <div

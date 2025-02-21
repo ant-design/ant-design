@@ -166,7 +166,7 @@ jobs:
             });
             const prHeadSha = prResponse.data.head.sha;
 
-            const fullContent = `${{ toJSON(steps.report.outputs.content) }}`;
+            const fullContent = ${{ toJSON(steps.report.outputs.content) }};
             const hasVisualDiffSuccess = fullContent.includes('VISUAL_DIFF_SUCCESS');
             const hasVisualDiffFailed = fullContent.includes('VISUAL_DIFF_FAILED');
 

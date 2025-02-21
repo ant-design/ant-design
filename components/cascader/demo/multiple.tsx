@@ -13,9 +13,10 @@ const options: Option[] = [
   {
     label: 'Light',
     value: 'light',
-    children: new Array(20)
-      .fill(null)
-      .map((_, index) => ({ label: `Number ${index}`, value: index })),
+    children: Array.from({ length: 20 }).map((_, index) => ({
+      label: `Number ${index}`,
+      value: index,
+    })),
   },
   {
     label: 'Bamboo',
