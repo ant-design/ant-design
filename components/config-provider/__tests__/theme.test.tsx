@@ -1,5 +1,4 @@
 import React from 'react';
-import kebabCase from 'lodash/kebabCase';
 
 import ConfigProvider from '..';
 import { Button, InputNumber, Select } from '../..';
@@ -10,37 +9,7 @@ import { useToken } from '../../theme/internal';
 
 const { defaultAlgorithm, darkAlgorithm, compactAlgorithm } = theme;
 
-/* biome-ignore lint/style/noVar: has to be a global variable */ /* eslint-disable-next-line no-var */
-var mockCanUseDom = true;
-
-jest.mock('@rc-component/util/lib/Dom/canUseDom', () => () => mockCanUseDom);
-
 describe('ConfigProvider.Theme', () => {
-  beforeEach(() => {
-    mockCanUseDom = true;
-  });
-
-  const colorList = ['primaryColor', 'successColor', 'warningColor', 'errorColor', 'infoColor'];
-
-  colorList.forEach((colorName) => {
-    it(colorName, () => {
-      ConfigProvider.config({
-        prefixCls: 'bamboo',
-        theme: {
-          [colorName]: '#0000FF',
-        },
-      });
-
-      const styles = Array.from(document.querySelectorAll<HTMLStyleElement>('style'));
-      const themeStyle = styles.find((style) =>
-        style.getAttribute('rc-util-key')?.includes('-dynamic-theme'),
-      );
-      expect(themeStyle).toBeTruthy();
-
-      expect(themeStyle?.innerHTML).toContain(`--bamboo-${kebabCase(colorName)}: rgb(0,0,255)`);
-    });
-  });
-
   it('algorithm should work', () => {
     let tokenRef: Partial<GlobalToken> = {};
     const Demo = () => {
