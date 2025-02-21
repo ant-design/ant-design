@@ -74,6 +74,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
   const isInternalColor = isPreset || isStatus;
   const isVariant = FunVariant(variant as TagVariant);
   const tagStyle: React.CSSProperties = {
+    color: isVariant ? (!isInternalColor ? '#fff' : undefined) : undefined,
     backgroundColor: isVariant || (color && !isInternalColor ? color : undefined),
     ...tagContext?.style,
     ...style,
