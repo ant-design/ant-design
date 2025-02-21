@@ -17,6 +17,9 @@ export const genMasonryStyle: GenerateStyle<MasonryToken> = (token: MasonryToken
     [componentCls]: {
       position: 'relative',
       boxSizing: 'border-box',
+      display: 'flex',
+      flexDirection: 'column',
+      flexWrap: 'wrap',
 
       '&-rtl': {
         direction: 'rtl',
@@ -24,10 +27,6 @@ export const genMasonryStyle: GenerateStyle<MasonryToken> = (token: MasonryToken
 
       [`& > ${itemCls}`]: {
         boxSizing: 'border-box',
-        insetInlineStart: 0,
-        top: 0,
-        position: 'absolute',
-        overflow: 'hidden',
 
         // Motion
         '&-fade': {

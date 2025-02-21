@@ -953,6 +953,269 @@ exports[`renders components/masonry/demo/dynamic.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/masonry/demo/fresh.tsx correctly 1`] = `
+<div
+  class="ant-masonry"
+  style="height:0;margin-inline:-8px"
+>
+  <div
+    class="ant-masonry-item"
+    style="inset-inline-start:calc(0% + 8px);width:calc(25% - 16px);position:absolute"
+  >
+    <div
+      class="ant-card ant-card-bordered ant-card-small"
+      style="height:150px;transition:height 0.3s"
+    >
+      <div
+        class="ant-card-body"
+      >
+        1
+        <!-- -->
+         - Click
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-masonry-item"
+    style="inset-inline-start:calc(0% + 8px);width:calc(25% - 16px);position:absolute"
+  >
+    <div
+      class="ant-card ant-card-bordered ant-card-small"
+      style="height:50px;transition:height 0.3s"
+    >
+      <div
+        class="ant-card-body"
+      >
+        2
+        <!-- -->
+         - Click
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-masonry-item"
+    style="inset-inline-start:calc(0% + 8px);width:calc(25% - 16px);position:absolute"
+  >
+    <div
+      class="ant-card ant-card-bordered ant-card-small"
+      style="height:90px;transition:height 0.3s"
+    >
+      <div
+        class="ant-card-body"
+      >
+        3
+        <!-- -->
+         - Click
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-masonry-item"
+    style="inset-inline-start:calc(0% + 8px);width:calc(25% - 16px);position:absolute"
+  >
+    <div
+      class="ant-card ant-card-bordered ant-card-small"
+      style="height:70px;transition:height 0.3s"
+    >
+      <div
+        class="ant-card-body"
+      >
+        4
+        <!-- -->
+         - Click
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-masonry-item"
+    style="inset-inline-start:calc(0% + 8px);width:calc(25% - 16px);position:absolute"
+  >
+    <div
+      class="ant-card ant-card-bordered ant-card-small"
+      style="height:110px;transition:height 0.3s"
+    >
+      <div
+        class="ant-card-body"
+      >
+        5
+        <!-- -->
+         - Click
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-masonry-item"
+    style="inset-inline-start:calc(0% + 8px);width:calc(25% - 16px);position:absolute"
+  >
+    <div
+      class="ant-card ant-card-bordered ant-card-small"
+      style="height:150px;transition:height 0.3s"
+    >
+      <div
+        class="ant-card-body"
+      >
+        6
+        <!-- -->
+         - Click
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-masonry-item"
+    style="inset-inline-start:calc(0% + 8px);width:calc(25% - 16px);position:absolute"
+  >
+    <div
+      class="ant-card ant-card-bordered ant-card-small"
+      style="height:130px;transition:height 0.3s"
+    >
+      <div
+        class="ant-card-body"
+      >
+        7
+        <!-- -->
+         - Click
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-masonry-item"
+    style="inset-inline-start:calc(0% + 8px);width:calc(25% - 16px);position:absolute"
+  >
+    <div
+      class="ant-card ant-card-bordered ant-card-small"
+      style="height:80px;transition:height 0.3s"
+    >
+      <div
+        class="ant-card-body"
+      >
+        8
+        <!-- -->
+         - Click
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-masonry-item"
+    style="inset-inline-start:calc(0% + 8px);width:calc(25% - 16px);position:absolute"
+  >
+    <div
+      class="ant-card ant-card-bordered ant-card-small"
+      style="height:50px;transition:height 0.3s"
+    >
+      <div
+        class="ant-card-body"
+      >
+        9
+        <!-- -->
+         - Click
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-masonry-item"
+    style="inset-inline-start:calc(0% + 8px);width:calc(25% - 16px);position:absolute"
+  >
+    <div
+      class="ant-card ant-card-bordered ant-card-small"
+      style="height:90px;transition:height 0.3s"
+    >
+      <div
+        class="ant-card-body"
+      >
+        10
+        <!-- -->
+         - Click
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-masonry-item"
+    style="inset-inline-start:calc(0% + 8px);width:calc(25% - 16px);position:absolute"
+  >
+    <div
+      class="ant-card ant-card-bordered ant-card-small"
+      style="height:100px;transition:height 0.3s"
+    >
+      <div
+        class="ant-card-body"
+      >
+        11
+        <!-- -->
+         - Click
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-masonry-item"
+    style="inset-inline-start:calc(0% + 8px);width:calc(25% - 16px);position:absolute"
+  >
+    <div
+      class="ant-card ant-card-bordered ant-card-small"
+      style="height:150px;transition:height 0.3s"
+    >
+      <div
+        class="ant-card-body"
+      >
+        12
+        <!-- -->
+         - Click
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-masonry-item"
+    style="inset-inline-start:calc(0% + 8px);width:calc(25% - 16px);position:absolute"
+  >
+    <div
+      class="ant-card ant-card-bordered ant-card-small"
+      style="height:60px;transition:height 0.3s"
+    >
+      <div
+        class="ant-card-body"
+      >
+        13
+        <!-- -->
+         - Click
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-masonry-item"
+    style="inset-inline-start:calc(0% + 8px);width:calc(25% - 16px);position:absolute"
+  >
+    <div
+      class="ant-card ant-card-bordered ant-card-small"
+      style="height:50px;transition:height 0.3s"
+    >
+      <div
+        class="ant-card-body"
+      >
+        14
+        <!-- -->
+         - Click
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-masonry-item"
+    style="inset-inline-start:calc(0% + 8px);width:calc(25% - 16px);position:absolute"
+  >
+    <div
+      class="ant-card ant-card-bordered ant-card-small"
+      style="height:80px;transition:height 0.3s"
+    >
+      <div
+        class="ant-card-body"
+      >
+        15
+        <!-- -->
+         - Click
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/masonry/demo/image.tsx correctly 1`] = `
 <div
   class="ant-masonry"

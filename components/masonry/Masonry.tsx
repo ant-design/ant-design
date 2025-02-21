@@ -44,6 +44,8 @@ export interface MasonryProps<ItemDateType = any> {
 
   /** Trigger when sort order changed */
   onSortChange?: (sortInfo: { key: React.Key; column: number }[]) => void;
+
+  fresh?: boolean;
 }
 
 export interface MasonryRef {
@@ -61,6 +63,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     items = [],
     itemRender,
     onSortChange,
+    fresh,
   } = props;
 
   // ======================= MISC =======================
@@ -218,6 +221,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
                 index={itemIndex}
                 itemRender={itemRender}
                 column={columnIndex}
+                onResize={fresh ? collectItemSize : null}
               />
             );
           }}
@@ -226,6 +230,10 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     </ResizeObserver>,
   );
 });
+
+if (process.env.NODE_ENV !== 'production') {
+  Masonry.displayName = 'Masonry';
+}
 
 export default Masonry as (<ItemDataType = any>(
   props: React.PropsWithChildren<MasonryProps<ItemDataType>> & React.RefAttributes<MasonryRef>,

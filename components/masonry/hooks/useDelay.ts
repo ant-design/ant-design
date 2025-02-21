@@ -1,23 +1,19 @@
 import * as React from 'react';
 import { useEvent } from '@rc-component/util';
+import raf from '@rc-component/util/lib/raf';
 
 export default function useDelay(callback: VoidFunction) {
   const idRef = React.useRef<number>(0);
 
+  const clearRaf = () => {
+    raf.cancel(idRef.current);
+  };
+
+  React.useEffect(() => clearRaf, []);
+
   const triggerFn = useEvent(() => {
-    idRef.current += 1;
-    const id = idRef.current;
-
-    const channel = new MessageChannel();
-    channel.port1.onmessage = () => {
-      if (id === idRef.current) {
-        callback();
-      }
-    };
-
-    Promise.resolve().then(() => {
-      channel.port2.postMessage(null);
-    });
+    clearRaf();
+    idRef.current = raf(callback);
   });
 
   return triggerFn;

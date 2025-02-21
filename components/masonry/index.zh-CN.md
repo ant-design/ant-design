@@ -25,6 +25,7 @@ tag: 6.0.0
 <code src="./demo/responsive.tsx">响应式</code>
 <code src="./demo/image.tsx">图片</code>
 <code src="./demo/dynamic.tsx">动态更新</code>
+<code src="./demo/fresh.tsx" debug>持续更新</code>
 
 ## API
 
@@ -35,6 +36,7 @@ tag: 6.0.0
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | columns | 列数，可以是固定值或响应式配置 | `number \| { xs?: number; sm?: number; md?: number }` | - |
+| fresh | 是否持续监听子项尺寸变化 | `boolean` | `false` |
 | gutter | 间距，可以是固定值、响应式配置或水平垂直间距配置 | `Gap \| [Gap, Gap]` | `0` |
 | items | 瀑布流项 | `<T = MasonryItem>[]` | - |
 | onSortChange | 列排序回调 | `({ key: React.Key; column: number }[]) => void` | - |

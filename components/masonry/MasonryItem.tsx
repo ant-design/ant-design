@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import ResizeObserver from '@rc-component/resize-observer';
 import classNames from 'classnames';
 
 import type { MasonryProps } from './Masonry';
@@ -17,10 +18,11 @@ interface MasonryItemProps<T = any> extends Pick<MasonryProps, 'itemRender'> {
   className?: string;
   index: number;
   column: number;
+  onResize: VoidFunction | null;
 }
 
 const MasonryItem = React.forwardRef<HTMLDivElement, MasonryItemProps>((props, ref) => {
-  const { item, style, prefixCls, itemRender, className, index, column } = props;
+  const { item, style, prefixCls, itemRender, className, index, column, onResize } = props;
 
   const itemPrefix = `${prefixCls}-item`;
 
@@ -36,11 +38,22 @@ const MasonryItem = React.forwardRef<HTMLDivElement, MasonryItemProps>((props, r
     );
   }, [item, itemRender, column, index]);
 
-  return (
+  let returnNode = (
     <div ref={ref} style={style} className={classNames(itemPrefix, className)}>
       {renderNode}
     </div>
   );
+
+  // Listen for resize
+  if (onResize) {
+    returnNode = <ResizeObserver onResize={onResize}>{returnNode}</ResizeObserver>;
+  }
+
+  return returnNode;
 });
+
+if (process.env.NODE_ENV !== 'production') {
+  MasonryItem.displayName = 'MasonryItem';
+}
 
 export default MasonryItem;

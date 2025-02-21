@@ -69,16 +69,8 @@ if (typeof MessageChannel === 'undefined') {
   (global as any).MessageChannel = function MockMessageChannel() {
     const port1: any = {};
     const port2: any = {};
-    port2.postMessage = () => {
-      if ((global as any).enableMessage) {
-        port1.onmessage?.();
-      }
-    };
-    port1.postMessage = () => {
-      if ((global as any).enableMessage) {
-        port2.onmessage?.();
-      }
-    };
+    port1.postMessage = port2.onmessage = () => {};
+    port2.postMessage = port1.onmessage = () => {};
     return { port1, port2 };
   };
 }

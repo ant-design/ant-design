@@ -24,6 +24,7 @@ A masonry layout component for displaying content with different heights.
 <code src="./demo/responsive.tsx">Responsive</code>
 <code src="./demo/image.tsx">Image</code>
 <code src="./demo/dynamic.tsx">Dynamic</code>
+<code src="./demo/fresh.tsx" debug>Fresh</code>
 
 ## API
 
@@ -40,12 +41,13 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### MasonryItem
 
-| Property | Description       | Type                 | Default |
-| -------- | ----------------- | -------------------- | ------- |
-| children | Custom content    | `React.ReactNode`    | -       |
-| column   | Custom column     | `number`             | -       |
-| height   | Height            | `number`             | -       |
-| key      | Unique identifier | `string` \| `number` | -       |
+| Property | Description                              | Type                 | Default |
+| -------- | ---------------------------------------- | -------------------- | ------- |
+| children | Custom content                           | `React.ReactNode`    | -       |
+| fresh    | Continue listening for item size changes | `boolean`            | `false` |
+| column   | Custom column                            | `number`             | -       |
+| height   | Height                                   | `number`             | -       |
+| key      | Unique identifier                        | `string` \| `number` | -       |
 
 ### Gap
 
