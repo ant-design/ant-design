@@ -148,7 +148,6 @@ const genCardStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
     cardGutter,
     colorBorderSecondary,
     itemSelectedColor,
-    cardHeight,
   } = token;
   return {
     [`${componentCls}-card`]: {
@@ -159,7 +158,6 @@ const genCardStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
           background: cardBg,
           border: `${unit(token.lineWidth)} ${token.lineType} ${colorBorderSecondary}`,
           transition: `all ${token.motionDurationSlow} ${token.motionEaseInOut}`,
-          minHeight: cardHeight,
         },
 
         [`${componentCls}-tab-active`]: {
@@ -597,8 +595,6 @@ const genSizeStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
     cardPaddingLG,
     horizontalItemPaddingSM,
     horizontalItemPaddingLG,
-    cardHeight,
-    calc,
   } = token;
   return {
     [componentCls]: {
@@ -625,7 +621,6 @@ const genSizeStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
       [`&${componentCls}-small`]: {
         [`> ${componentCls}-nav`]: {
           [`${componentCls}-tab`]: {
-            minHeight: calc(cardHeight).mul(0.9).equal(),
             padding: cardPaddingSM,
           },
         },
@@ -874,11 +869,11 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
   const {
     componentCls,
     tabsCardPadding,
+    cardHeight,
     cardGutter,
     itemHoverColor,
     itemActiveColor,
     colorBorderSecondary,
-    controlHeightLG,
   } = token;
 
   return {
@@ -956,7 +951,8 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
         },
 
         [`${componentCls}-nav-add`]: {
-          minWidth: controlHeightLG,
+          minWidth: cardHeight,
+          minHeight: cardHeight,
           marginLeft: {
             _skip_check_: true,
             value: cardGutter,
@@ -1029,15 +1025,18 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
 };
 
 export const prepareComponentToken: GetDefaultToken<'Tabs'> = (token) => {
-  const cardHeight = token.controlHeightLG;
+  const { cardHeight, controlHeightLG } = token;
+  const mergedCardHeight = typeof cardHeight === 'number' ? cardHeight : controlHeightLG;
 
   return {
     zIndexPopup: token.zIndexPopupBase + 50,
     cardBg: token.colorFillAlter,
-    cardHeight,
+    // We can not pass this as valid value,
+    // Since `cardHeight` will lock nav add button height.
+    cardHeight: undefined!,
     // Initialize with empty string, because cardPadding will be calculated with cardHeight by default.
     cardPadding: `${
-      (cardHeight - Math.round(token.fontSize * token.lineHeight)) / 2 - token.lineWidth
+      (mergedCardHeight - Math.round(token.fontSize * token.lineHeight)) / 2 - token.lineWidth
     }px ${token.padding}px`,
     cardPaddingSM: `${token.paddingXXS * 1.5}px ${token.padding}px`,
     cardPaddingLG: `${token.paddingXS}px ${token.padding}px ${token.paddingXXS * 1.5}px`,

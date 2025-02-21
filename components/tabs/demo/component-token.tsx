@@ -1,5 +1,26 @@
 import React from 'react';
-import { Button, ConfigProvider, Tabs } from 'antd';
+import { Button, ConfigProvider, Flex, Tabs } from 'antd';
+
+const tabItems = Array.from({ length: 3 }).map((_, i) => {
+  const id = String(i + 1);
+  return {
+    disabled: i === 2,
+    label: `Tab ${id}`,
+    key: id,
+    children: `Content of Tab Pane ${id}`,
+  };
+});
+
+const sharedTabsProps = {
+  items: Array.from({ length: 2 }).map((_, i) => {
+    const id = String(i + 1);
+    return {
+      label: `Tab ${id}`,
+      key: id,
+    };
+  }),
+  tabBarStyle: { background: 'red' },
+};
 
 const App: React.FC = () => (
   <>
@@ -37,101 +58,32 @@ const App: React.FC = () => (
           defaultActiveKey="1"
           tabBarExtraContent={<Button>Extra Action</Button>}
           style={{ marginBottom: 32 }}
-          items={Array.from({ length: 3 }).map((_, i) => {
-            const id = String(i + 1);
-            return {
-              label: `Tab ${id}`,
-              key: id,
-              children: `Content of tab ${id}`,
-            };
-          })}
+          items={tabItems}
         />
         <Tabs
           tabPosition="left"
           defaultActiveKey="1"
           tabBarExtraContent={<Button>Extra Action</Button>}
           style={{ marginBottom: 32 }}
-          items={Array.from({ length: 3 }).map((_, i) => {
-            const id = String(i + 1);
-            return {
-              label: `Tab ${id}`,
-              key: id,
-              children: `Content of tab ${id}`,
-            };
-          })}
+          items={tabItems}
         />
         <Tabs
           size="small"
           defaultActiveKey="1"
           tabBarExtraContent={<Button>Extra Action</Button>}
           style={{ marginBottom: 32 }}
-          items={Array.from({ length: 3 }).map((_, i) => {
-            const id = String(i + 1);
-            return {
-              label: `Tab ${id}`,
-              key: id,
-              children: `Content of tab ${id}`,
-            };
-          })}
+          items={tabItems}
         />
         <Tabs
           size="large"
           defaultActiveKey="1"
           tabBarExtraContent={<Button>Extra Action</Button>}
           style={{ marginBottom: 32 }}
-          items={Array.from({ length: 3 }).map((_, i) => {
-            const id = String(i + 1);
-            return {
-              label: `Tab ${id}`,
-              key: id,
-              children: `Content of tab ${id}`,
-            };
-          })}
+          items={tabItems}
         />
-        <Tabs
-          defaultActiveKey="1"
-          centered
-          type="card"
-          items={Array.from({ length: 3 }).map((_, i) => {
-            const id = String(i + 1);
-            return {
-              disabled: i === 2,
-              label: `Tab ${id}`,
-              key: id,
-              children: `Content of Tab Pane ${id}`,
-            };
-          })}
-        />
-        <Tabs
-          size="small"
-          defaultActiveKey="1"
-          centered
-          type="card"
-          items={Array.from({ length: 3 }).map((_, i) => {
-            const id = String(i + 1);
-            return {
-              disabled: i === 2,
-              label: `Tab ${id}`,
-              key: id,
-              children: `Content of Tab Pane ${id}`,
-            };
-          })}
-        />
-        <Tabs
-          size="large"
-          defaultActiveKey="1"
-          centered
-          type="card"
-          items={Array.from({ length: 3 }).map((_, i) => {
-            const id = String(i + 1);
-            return {
-              disabled: i === 2,
-              label: `Tab ${id}`,
-              key: id,
-              children: `Content of Tab Pane ${id}`,
-            };
-          })}
-        />
+        <Tabs defaultActiveKey="1" centered type="card" items={tabItems} />
+        <Tabs size="small" defaultActiveKey="1" centered type="card" items={tabItems} />
+        <Tabs size="large" defaultActiveKey="1" centered type="card" items={tabItems} />
       </div>
     </ConfigProvider>
     <ConfigProvider
@@ -151,20 +103,14 @@ const App: React.FC = () => (
         },
       }}
     >
-      <Tabs
-        size="small"
-        type="editable-card"
-        items={Array.from({ length: 3 }).map((_, i) => {
-          const id = String(i + 1);
-          return {
-            disabled: i === 2,
-            label: `Tab ${id}`,
-            key: id,
-            children: `Content of Tab Pane ${id}`,
-          };
-        })}
-      />
+      <Tabs size="small" type="editable-card" items={tabItems} />
     </ConfigProvider>
+    <Flex align="flex-end">
+      <Tabs size="large" type="card" {...sharedTabsProps} />
+      <Tabs size="middle" type="card" {...sharedTabsProps} />
+      <Tabs size="small" type="editable-card" {...sharedTabsProps} />
+      <Tabs size="small" type="card" {...sharedTabsProps} />
+    </Flex>
   </>
 );
 
