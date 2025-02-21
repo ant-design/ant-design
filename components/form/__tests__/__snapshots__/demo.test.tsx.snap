@@ -2648,7 +2648,7 @@ Array [
                         type="file"
                       />
                       <button
-                        style="border:0;background:none"
+                        style="color:inherit;cursor:inherit;border:0;background:none"
                         type="button"
                       >
                         <span
