@@ -47,9 +47,7 @@ const App: React.FC = () => {
     <Space direction="vertical">
       <Upload disabled>Click Text to Upload</Upload>
       <Upload disabled>
-        <Button disabled icon={<UploadOutlined />}>
-          Click to Upload
-        </Button>
+        <Button icon={<UploadOutlined />}>Click to Upload</Button>
       </Upload>
       <Upload name="avatar" listType="picture-card" fileList={fileList} disabled>
         {uploadButton}
