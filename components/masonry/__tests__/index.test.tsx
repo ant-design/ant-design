@@ -190,6 +190,11 @@ describe('Masonry', () => {
     expect(getColumns()).toEqual(['0-0', '1-1', '2-2', '3-0', '4-2']);
   });
 
+  it('not crash for empty items', async () => {
+    render(<Masonry />);
+    await resizeMasonry();
+  });
+
   describe('gutter', () => {
     const getGutter = () => {
       const itemElements = document.body.querySelectorAll<HTMLElement>('.ant-masonry-item');

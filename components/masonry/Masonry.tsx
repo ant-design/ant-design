@@ -35,12 +35,12 @@ export interface MasonryProps<ItemDateType = any> {
   gutter?: RowProps['gutter'];
 
   // Data
-  items: MasonryItemType<ItemDateType>[];
+  items?: MasonryItemType<ItemDateType>[];
 
   itemRender?: (itemInfo: MasonryItemType<ItemDateType> & { index: number }) => React.ReactNode;
 
   /** Number of columns in the masonry grid layout */
-  columns: number | Partial<Record<Breakpoint, number>>;
+  columns?: number | Partial<Record<Breakpoint, number>>;
 
   /** Trigger when sort order changed */
   onSortChange?: (sortInfo: { key: React.Key; column: number }[]) => void;
@@ -89,6 +89,10 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
 
   // ====================== Layout ======================
   const columnCount = React.useMemo<number>(() => {
+    if (!columns) {
+      return 3;
+    }
+
     if (typeof columns === 'number') {
       return columns;
     }
