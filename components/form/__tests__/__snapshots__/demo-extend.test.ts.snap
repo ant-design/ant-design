@@ -5138,7 +5138,7 @@ Array [
                         type="file"
                       />
                       <button
-                        style="border: 0px; background: none;"
+                        style="cursor: inherit; border: 0px; background: none;"
                         type="button"
                       >
                         <span

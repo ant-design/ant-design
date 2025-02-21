@@ -548,6 +548,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx correctly 1`] = `
           />
           <button
             class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+            disabled=""
             type="button"
           >
             <span
@@ -805,7 +806,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx correctly 1`] = `
               type="file"
             />
             <button
-              style="border:0;background:none"
+              style="color:inherit;cursor:inherit;border:0;background:none"
               type="button"
             >
               <span
@@ -1062,7 +1063,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx correctly 1`] = `
               type="file"
             />
             <button
-              style="border:0;background:none"
+              style="color:inherit;cursor:inherit;border:0;background:none"
               type="button"
             >
               <span
