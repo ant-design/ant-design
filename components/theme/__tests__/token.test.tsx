@@ -312,7 +312,7 @@ describe('Theme', () => {
     });
   });
 
-  it.skip('component token should support algorithm', () => {
+  it('component token should support algorithm', () => {
     const Demo = ({ algorithm }: { algorithm?: boolean | typeof theme.darkAlgorithm }) => (
       <ConfigProvider
         theme={{
