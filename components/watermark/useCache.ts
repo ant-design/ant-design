@@ -43,10 +43,10 @@ export default function useCache(): {
     const verify = generateCacheVerify(params);
     if (content instanceof HTMLImageElement) {
       const cached = imageCache.current.get(content);
-      if (cached && cached.verify === verify) return cached.cache;
-    } else {
-      return textCache.current.get(verify);
+      return cached?.verify === verify ? cached.cache : undefined;
     }
+
+    return textCache.current.get(verify);
   }, []);
 
   return { getCache, setCache };
