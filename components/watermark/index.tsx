@@ -193,13 +193,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
           gapY,
         ] as const;
 
-        const cacheParams: ClipParams = [...params];
-        // No need check as image
-        if (drawContent instanceof HTMLElement) {
-          cacheParams[0] = '';
-        }
-
-        const result = getClipsCache(cacheParams, () => getClips(...params));
+        const result = getClipsCache(params, () => getClips(...params));
         const [nextClips, clipWidth] = result;
         setWatermarkInfo([nextClips, clipWidth]);
       };
