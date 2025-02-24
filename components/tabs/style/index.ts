@@ -21,7 +21,17 @@ export interface ComponentToken {
    * @desc 卡片标签页高度
    * @descEN Height of card tab
    */
-  cardHeight: number | string;
+  cardHeight: number;
+  /**
+   * @desc 小尺寸卡片标签页高度
+   * @descEN Height of small card tab
+   */
+  cardHeightSM: number;
+  /**
+   * @desc 大尺寸卡片标签页高度
+   * @descEN Height of large card tab
+   */
+  cardHeightLG: number;
   /**
    * @desc 卡片标签页内间距
    * @descEN Padding of card tab
@@ -593,10 +603,13 @@ const genSizeStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
     componentCls,
     cardPaddingSM,
     cardPaddingLG,
+    cardHeightSM,
+    cardHeightLG,
     horizontalItemPaddingSM,
     horizontalItemPaddingLG,
   } = token;
   return {
+    // >>>>> shared
     [componentCls]: {
       '&-small': {
         [`> ${componentCls}-nav`]: {
@@ -612,16 +625,23 @@ const genSizeStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
           [`${componentCls}-tab`]: {
             padding: horizontalItemPaddingLG,
             fontSize: token.titleFontSizeLG,
+            lineHeight: token.lineHeightLG,
           },
         },
       },
     },
 
+    // >>>>> card
     [`${componentCls}-card`]: {
+      // Small
       [`&${componentCls}-small`]: {
         [`> ${componentCls}-nav`]: {
           [`${componentCls}-tab`]: {
             padding: cardPaddingSM,
+          },
+          [`${componentCls}-nav-add`]: {
+            minWidth: cardHeightSM,
+            minHeight: cardHeightSM,
           },
         },
         [`&${componentCls}-bottom`]: {
@@ -652,10 +672,15 @@ const genSizeStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
         },
       },
 
+      // Large
       [`&${componentCls}-large`]: {
         [`> ${componentCls}-nav`]: {
           [`${componentCls}-tab`]: {
             padding: cardPaddingLG,
+          },
+          [`${componentCls}-nav-add`]: {
+            minWidth: cardHeightLG,
+            minHeight: cardHeightLG,
           },
         },
       },
@@ -952,11 +977,11 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
 
         [`${componentCls}-nav-add`]: {
           minWidth: cardHeight,
+          minHeight: cardHeight,
           marginLeft: {
             _skip_check_: true,
             value: cardGutter,
           },
-          padding: unit(token.paddingXS),
           background: 'transparent',
           border: `${unit(token.lineWidth)} ${token.lineType} ${colorBorderSecondary}`,
           borderRadius: `${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)} 0 0`,
@@ -1024,18 +1049,31 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
 };
 
 export const prepareComponentToken: GetDefaultToken<'Tabs'> = (token) => {
-  const cardHeight = token.controlHeightLG;
+  const { cardHeight, cardHeightSM, cardHeightLG, controlHeight, controlHeightLG } = token;
+
+  const mergedCardHeight = cardHeight || controlHeightLG;
+  const mergedCardHeightSM = cardHeightSM || controlHeight;
+  // `controlHeight` missing XL variable, so we directly write it here:
+  const mergedCardHeightLG = cardHeightLG || controlHeightLG + 8;
 
   return {
     zIndexPopup: token.zIndexPopupBase + 50,
     cardBg: token.colorFillAlter,
-    cardHeight,
+    // We can not pass this as valid value,
+    // Since `cardHeight` will lock nav add button height.
+    cardHeight: mergedCardHeight,
+    cardHeightSM: mergedCardHeightSM,
+    cardHeightLG: mergedCardHeightLG,
     // Initialize with empty string, because cardPadding will be calculated with cardHeight by default.
     cardPadding: `${
-      (cardHeight - Math.round(token.fontSize * token.lineHeight)) / 2 - token.lineWidth
+      (mergedCardHeight - token.fontHeight) / 2 - token.lineWidth
     }px ${token.padding}px`,
-    cardPaddingSM: `${token.paddingXXS * 1.5}px ${token.padding}px`,
-    cardPaddingLG: `${token.paddingXS}px ${token.padding}px ${token.paddingXXS * 1.5}px`,
+    cardPaddingSM: `${
+      (mergedCardHeightSM - token.fontHeight) / 2 - token.lineWidth
+    }px ${token.paddingXS}px`,
+    cardPaddingLG: `${
+      (mergedCardHeightLG - token.fontHeightLG) / 2 - token.lineWidth
+    }px ${token.padding}px`,
     titleFontSize: token.fontSize,
     titleFontSizeLG: token.fontSizeLG,
     titleFontSizeSM: token.fontSize,
