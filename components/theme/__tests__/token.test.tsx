@@ -329,12 +329,18 @@ describe('Theme', () => {
     );
 
     const { container, rerender } = render(<Demo />);
-    expect(container.querySelector('input')).toHaveStyle({ 'border-color': '#4096ff' });
+    expect(container.querySelector('input')).toHaveStyle({
+      '--ant-input-hover-border-color': '#4096ff',
+    });
 
     rerender(<Demo algorithm />);
-    expect(container.querySelector('input')).toHaveStyle({ 'border-color': '#20c77c' });
+    expect(container.querySelector('input')).toHaveStyle({
+      '--ant-input-hover-border-color': '#20c77c',
+    });
 
     rerender(<Demo algorithm={theme.darkAlgorithm} />);
-    expect(container.querySelector('input')).toHaveStyle({ 'border-color': '#1fb572' });
+    expect(container.querySelector('input')).toHaveStyle({
+      '--ant-input-hover-border-color': '#1fb572',
+    });
   });
 });

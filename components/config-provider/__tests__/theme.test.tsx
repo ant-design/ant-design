@@ -1,65 +1,41 @@
-import React from 'react';
-import canUseDom from '@rc-component/util/lib/Dom/canUseDom';
-import kebabCase from 'lodash/kebabCase';
+import React, { useEffect } from 'react';
 
 import ConfigProvider from '..';
 import { Button, InputNumber, Select } from '../..';
-import { resetWarned } from '../../_util/warning';
-import { render } from '../../../tests/utils';
+import { render, waitFakeTimer } from '../../../tests/utils';
 import theme from '../../theme';
 import type { GlobalToken } from '../../theme/internal';
 import { useToken } from '../../theme/internal';
+import { Modal } from 'antd';
 
 const { defaultAlgorithm, darkAlgorithm, compactAlgorithm } = theme;
 
-/* biome-ignore lint/style/noVar: has to be a global variable */ /* eslint-disable-next-line no-var */
-var mockCanUseDom = true;
-
-jest.mock('@rc-component/util/lib/Dom/canUseDom', () => () => mockCanUseDom);
-
 describe('ConfigProvider.Theme', () => {
-  beforeEach(() => {
-    mockCanUseDom = true;
-  });
-
-  const colorList = ['primaryColor', 'successColor', 'warningColor', 'errorColor', 'infoColor'];
-
-  colorList.forEach((colorName) => {
-    it(colorName, () => {
-      ConfigProvider.config({
-        prefixCls: 'bamboo',
-        theme: {
-          [colorName]: '#0000FF',
-        },
-      });
-
-      const styles = Array.from(document.querySelectorAll<HTMLStyleElement>('style'));
-      const themeStyle = styles.find((style) =>
-        style.getAttribute('rc-util-key')?.includes('-dynamic-theme'),
-      );
-      expect(themeStyle).toBeTruthy();
-
-      expect(themeStyle?.innerHTML).toContain(`--bamboo-${kebabCase(colorName)}: rgb(0,0,255)`);
-    });
-  });
-
-  it('warning for SSR', () => {
-    resetWarned();
-
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mockCanUseDom = false;
-    expect(canUseDom()).toBeFalsy();
+  it('ConfigProvider.config should work', async () => {
+    jest.useFakeTimers();
 
     ConfigProvider.config({
       theme: {
-        infoColor: 'red',
+        token: {
+          colorPrimary: '#00B96B',
+        },
       },
     });
 
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: ConfigProvider] SSR do not support dynamic theme with css variables.',
-    );
-    errorSpy.mockRestore();
+    const Demo: React.FC = () => {
+      useEffect(() => {
+        Modal.confirm({ title: 'Hello World!' });
+      }, []);
+      return null;
+    };
+
+    render(<Demo />);
+
+    await waitFakeTimer();
+
+    expect(document.querySelector('.ant-modal-css-var')).toHaveStyle({
+      '--ant-color-primary': '#00b96b',
+    });
   });
 
   it('algorithm should work', () => {
@@ -211,7 +187,7 @@ describe('ConfigProvider.Theme', () => {
     };
 
     render(
-      <ConfigProvider theme={{ hashed: true, cssVar: true }}>
+      <ConfigProvider theme={{ hashed: true }}>
         <ConfigProvider theme={{ inherit: false }}>
           <Demo />
         </ConfigProvider>

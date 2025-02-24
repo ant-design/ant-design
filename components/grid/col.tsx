@@ -65,7 +65,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('col', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useColStyle(prefixCls);
+  const [hashId, cssVarCls] = useColStyle(prefixCls);
 
   // ===================== Size ======================
   const sizeStyle: Record<string, string> = {};
@@ -134,7 +134,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   }
 
   // ==================== Render =====================
-  return wrapCSSVar(
+  return (
     <div
       {...others}
       style={{ ...mergedStyle, ...style, ...sizeStyle }}
@@ -142,7 +142,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
       ref={ref}
     >
       {children}
-    </div>,
+    </div>
   );
 });
 

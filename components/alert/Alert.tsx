@@ -184,7 +184,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
   } = useComponentConfig('alert');
   const prefixCls = getPrefixCls('alert', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const handleClose = (e: React.MouseEvent<HTMLButtonElement>) => {
     setClosed(true);
@@ -264,7 +264,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     return {};
   }, [closable, contextClosable]);
 
-  return wrapCSSVar(
+  return (
     <CSSMotion
       visible={!closed}
       motionName={`${prefixCls}-motion`}
@@ -360,7 +360,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
           />
         </div>
       )}
-    </CSSMotion>,
+    </CSSMotion>
   );
 });
 

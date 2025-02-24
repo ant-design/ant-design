@@ -142,7 +142,7 @@ const Dropdown: CompoundedComponent = (props) => {
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const [, token] = useToken();
 
@@ -280,7 +280,7 @@ const Dropdown: CompoundedComponent = (props) => {
     );
   }
 
-  return wrapCSSVar(renderNode);
+  return renderNode;
 };
 
 // We don't care debug panel

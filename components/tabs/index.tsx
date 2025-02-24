@@ -84,7 +84,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
   const { tabs } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tabs', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   let editable: EditableConfig | undefined;
   if (type === 'editable-card') {
@@ -128,7 +128,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     size: indicator?.size ?? indicatorSize ?? tabs?.indicator?.size ?? tabs?.indicatorSize,
   };
 
-  return wrapCSSVar(
+  return (
     <RcTabs
       direction={direction}
       getPopupContainer={getPopupContainer}
@@ -181,7 +181,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       prefixCls={prefixCls}
       animated={mergedAnimated}
       indicator={mergedIndicator}
-    />,
+    />
   );
 };
 

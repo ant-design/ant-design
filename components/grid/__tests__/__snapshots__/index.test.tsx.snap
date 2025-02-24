@@ -2,17 +2,17 @@
 
 exports[`Grid renders wrapped Col correctly 1`] = `
 <div
-  class="ant-row"
+  class="ant-row css-var-root"
   style="margin-inline: -10px;"
 >
   <div>
     <div
-      class="ant-col ant-col-12"
+      class="ant-col ant-col-12 css-var-root"
       style="padding-inline: 10px;"
     />
   </div>
   <div
-    class="ant-col ant-col-12"
+    class="ant-col ant-col-12 css-var-root"
     style="padding-inline: 10px;"
   />
 </div>
@@ -20,31 +20,31 @@ exports[`Grid renders wrapped Col correctly 1`] = `
 
 exports[`Grid rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-row ant-row-rtl"
+  class="ant-row ant-row-rtl css-var-root"
 />
 `;
 
 exports[`Grid rtl render component should be rendered correctly in RTL direction 2`] = `
 <div
-  class="ant-col ant-col-rtl"
+  class="ant-col ant-col-rtl css-var-root"
 />
 `;
 
 exports[`Grid should render Col 1`] = `
 <div
-  class="ant-col ant-col-2"
+  class="ant-col ant-col-2 css-var-root"
 />
 `;
 
 exports[`Grid should render Row 1`] = `
 <div
-  class="ant-row"
+  class="ant-row css-var-root"
 />
 `;
 
 exports[`Grid when typeof gutter is object array in large screen 1`] = `
 <div
-  class="ant-row"
+  class="ant-row css-var-root"
   style="margin-inline: -20px; row-gap: 400px;"
 />
 `;

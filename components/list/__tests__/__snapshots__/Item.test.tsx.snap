@@ -2,10 +2,10 @@
 
 exports[`List Item Layout horizontal itemLayout List should accept extra node 1`] = `
 <div
-  class="ant-list ant-list-split"
+  class="ant-list ant-list-split css-var-root"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div
       class="ant-spin-container"
@@ -59,10 +59,10 @@ exports[`List Item Layout horizontal itemLayout List should accept extra node 1`
 
 exports[`List Item Layout rowKey could be function 1`] = `
 <div
-  class="ant-list ant-list-split"
+  class="ant-list ant-list-split css-var-root"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div
       class="ant-spin-container"
@@ -93,10 +93,10 @@ exports[`List Item Layout rowKey could be function 1`] = `
 
 exports[`List Item Layout rowKey could be string 1`] = `
 <div
-  class="ant-list ant-list-split"
+  class="ant-list ant-list-split css-var-root"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div
       class="ant-spin-container"
@@ -127,10 +127,10 @@ exports[`List Item Layout rowKey could be string 1`] = `
 
 exports[`List Item Layout should render in RTL direction 1`] = `
 <div
-  class="ant-list ant-list-split ant-list-rtl"
+  class="ant-list ant-list-split ant-list-rtl css-var-root"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div
       class="ant-spin-container"

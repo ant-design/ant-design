@@ -103,7 +103,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
   const { getPrefixCls, direction } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('layout-sider', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   // ========================= Responsive =========================
   const responsiveHandlerRef = useRef<(mql: MediaQueryListEvent | MediaQueryList) => void>(null);
@@ -217,13 +217,13 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     [collapsed],
   );
 
-  return wrapCSSVar(
+  return (
     <SiderContext.Provider value={contextValue}>
       <aside className={siderCls} {...divProps} style={divStyle} ref={ref}>
         <div className={`${prefixCls}-children`}>{children}</div>
         {collapsible || (below && zeroWidthTrigger) ? triggerDom : null}
       </aside>
-    </SiderContext.Provider>,
+    </SiderContext.Provider>
   );
 });
 

@@ -88,7 +88,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     };
 
     const prefixCls = getPrefixCls('tag', customizePrefixCls);
-    const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+    const [hashId, cssVarCls] = useStyle(prefixCls);
     // Style
     const tagClassName = classNames(
       prefixCls,
@@ -192,7 +192,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       </TagWrapper>
     );
 
-    return wrapCSSVar(isNeedWave ? <Wave component="Tag">{tagNode}</Wave> : tagNode);
+    return isNeedWave ? <Wave component="Tag">{tagNode}</Wave> : tagNode;
   },
 );
 

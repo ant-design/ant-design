@@ -24,7 +24,7 @@ const SkeletonNode: React.FC<SkeletonNodeProps> = (props) => {
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const cls = classNames(
     prefixCls,
@@ -39,7 +39,7 @@ const SkeletonNode: React.FC<SkeletonNodeProps> = (props) => {
     cssVarCls,
   );
 
-  return wrapCSSVar(
+  return (
     <div className={cls} style={styles?.root}>
       <div
         className={classNames(
@@ -50,7 +50,7 @@ const SkeletonNode: React.FC<SkeletonNodeProps> = (props) => {
       >
         {children}
       </div>
-    </div>,
+    </div>
   );
 };
 

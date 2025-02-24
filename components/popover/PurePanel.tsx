@@ -71,15 +71,15 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  return wrapCSSVar(
+  return (
     <RawPurePanel
       {...restProps}
       prefixCls={prefixCls}
       hashId={hashId}
       className={classNames(className, cssVarCls)}
-    />,
+    />
   );
 };
 

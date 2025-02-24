@@ -6,7 +6,7 @@ Array [
     style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;"
   >
     <span
-      class="ant-tag"
+      class="ant-tag css-var-test-id"
     >
       Tag 1
       <span
@@ -32,7 +32,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-tag"
+      class="ant-tag css-var-test-id"
     >
       Tag 2
       <span
@@ -58,7 +58,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-tag"
+      class="ant-tag css-var-test-id"
     >
       Tag 3
       <span
@@ -85,7 +85,7 @@ Array [
     </span>
   </div>,
   <span
-    class="ant-tag"
+    class="ant-tag css-var-test-id"
     style="background: rgb(255, 255, 255); border-style: dashed;"
   >
     <span
@@ -119,15 +119,15 @@ exports[`renders components/tag/demo/animation.tsx extend context correctly 2`] 
 
 exports[`renders components/tag/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
 >
   <span
-    class="ant-tag"
+    class="ant-tag css-var-test-id"
   >
     Tag 1
   </span>
   <span
-    class="ant-tag"
+    class="ant-tag css-var-test-id"
   >
     <a
       href="https://github.com/ant-design/ant-design/issues/1862"
@@ -138,7 +138,7 @@ exports[`renders components/tag/demo/basic.tsx extend context correctly 1`] = `
     </a>
   </span>
   <span
-    class="ant-tag"
+    class="ant-tag css-var-test-id"
   >
     Prevent Default
     <span
@@ -164,7 +164,7 @@ exports[`renders components/tag/demo/basic.tsx extend context correctly 1`] = `
     </span>
   </span>
   <span
-    class="ant-tag"
+    class="ant-tag css-var-test-id"
   >
     Tag 2
     <span
@@ -197,20 +197,20 @@ exports[`renders components/tag/demo/basic.tsx extend context correctly 2`] = `[
 exports[`renders components/tag/demo/borderless.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
   >
     <span
-      class="ant-tag ant-tag-borderless"
+      class="ant-tag ant-tag-borderless css-var-test-id"
     >
       Tag 1
     </span>
     <span
-      class="ant-tag ant-tag-borderless"
+      class="ant-tag ant-tag-borderless css-var-test-id"
     >
       Tag 2
     </span>
     <span
-      class="ant-tag ant-tag-borderless"
+      class="ant-tag ant-tag-borderless css-var-test-id"
     >
       Tag 3
       <span
@@ -236,7 +236,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-tag ant-tag-borderless"
+      class="ant-tag ant-tag-borderless css-var-test-id"
     >
       Tag 4
       <span
@@ -263,84 +263,84 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal"
     role="separator"
   />,
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
   >
     <span
-      class="ant-tag ant-tag-processing ant-tag-borderless"
+      class="ant-tag ant-tag-processing ant-tag-borderless css-var-test-id"
     >
       processing
     </span>
     <span
-      class="ant-tag ant-tag-success ant-tag-borderless"
+      class="ant-tag ant-tag-success ant-tag-borderless css-var-test-id"
     >
       success
     </span>
     <span
-      class="ant-tag ant-tag-error ant-tag-borderless"
+      class="ant-tag ant-tag-error ant-tag-borderless css-var-test-id"
     >
       error
     </span>
     <span
-      class="ant-tag ant-tag-warning ant-tag-borderless"
+      class="ant-tag ant-tag-warning ant-tag-borderless css-var-test-id"
     >
       warning
     </span>
     <span
-      class="ant-tag ant-tag-magenta ant-tag-borderless"
+      class="ant-tag ant-tag-magenta ant-tag-borderless css-var-test-id"
     >
       magenta
     </span>
     <span
-      class="ant-tag ant-tag-red ant-tag-borderless"
+      class="ant-tag ant-tag-red ant-tag-borderless css-var-test-id"
     >
       red
     </span>
     <span
-      class="ant-tag ant-tag-volcano ant-tag-borderless"
+      class="ant-tag ant-tag-volcano ant-tag-borderless css-var-test-id"
     >
       volcano
     </span>
     <span
-      class="ant-tag ant-tag-orange ant-tag-borderless"
+      class="ant-tag ant-tag-orange ant-tag-borderless css-var-test-id"
     >
       orange
     </span>
     <span
-      class="ant-tag ant-tag-gold ant-tag-borderless"
+      class="ant-tag ant-tag-gold ant-tag-borderless css-var-test-id"
     >
       gold
     </span>
     <span
-      class="ant-tag ant-tag-lime ant-tag-borderless"
+      class="ant-tag ant-tag-lime ant-tag-borderless css-var-test-id"
     >
       lime
     </span>
     <span
-      class="ant-tag ant-tag-green ant-tag-borderless"
+      class="ant-tag ant-tag-green ant-tag-borderless css-var-test-id"
     >
       green
     </span>
     <span
-      class="ant-tag ant-tag-cyan ant-tag-borderless"
+      class="ant-tag ant-tag-cyan ant-tag-borderless css-var-test-id"
     >
       cyan
     </span>
     <span
-      class="ant-tag ant-tag-blue ant-tag-borderless"
+      class="ant-tag ant-tag-blue ant-tag-borderless css-var-test-id"
     >
       blue
     </span>
     <span
-      class="ant-tag ant-tag-geekblue ant-tag-borderless"
+      class="ant-tag ant-tag-geekblue ant-tag-borderless css-var-test-id"
     >
       geekblue
     </span>
     <span
-      class="ant-tag ant-tag-purple ant-tag-borderless"
+      class="ant-tag ant-tag-purple ant-tag-borderless css-var-test-id"
     >
       purple
     </span>
@@ -355,20 +355,20 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
   style="background-color: rgb(245, 245, 245); padding: 16px;"
 >
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
   >
     <span
-      class="ant-tag ant-tag-borderless"
+      class="ant-tag ant-tag-borderless css-var-test-id"
     >
       Tag 1
     </span>
     <span
-      class="ant-tag ant-tag-borderless"
+      class="ant-tag ant-tag-borderless css-var-test-id"
     >
       Tag 2
     </span>
     <span
-      class="ant-tag ant-tag-borderless"
+      class="ant-tag ant-tag-borderless css-var-test-id"
     >
       Tag 3
       <span
@@ -394,7 +394,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
       </span>
     </span>
     <span
-      class="ant-tag ant-tag-borderless"
+      class="ant-tag ant-tag-borderless css-var-test-id"
     >
       Tag 4
       <span
@@ -421,64 +421,64 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
     </span>
   </div>
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal"
     role="separator"
   />
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
   >
     <span
-      class="ant-tag ant-tag-magenta ant-tag-borderless"
+      class="ant-tag ant-tag-magenta ant-tag-borderless css-var-test-id"
     >
       magenta
     </span>
     <span
-      class="ant-tag ant-tag-red ant-tag-borderless"
+      class="ant-tag ant-tag-red ant-tag-borderless css-var-test-id"
     >
       red
     </span>
     <span
-      class="ant-tag ant-tag-volcano ant-tag-borderless"
+      class="ant-tag ant-tag-volcano ant-tag-borderless css-var-test-id"
     >
       volcano
     </span>
     <span
-      class="ant-tag ant-tag-orange ant-tag-borderless"
+      class="ant-tag ant-tag-orange ant-tag-borderless css-var-test-id"
     >
       orange
     </span>
     <span
-      class="ant-tag ant-tag-gold ant-tag-borderless"
+      class="ant-tag ant-tag-gold ant-tag-borderless css-var-test-id"
     >
       gold
     </span>
     <span
-      class="ant-tag ant-tag-lime ant-tag-borderless"
+      class="ant-tag ant-tag-lime ant-tag-borderless css-var-test-id"
     >
       lime
     </span>
     <span
-      class="ant-tag ant-tag-green ant-tag-borderless"
+      class="ant-tag ant-tag-green ant-tag-borderless css-var-test-id"
     >
       green
     </span>
     <span
-      class="ant-tag ant-tag-cyan ant-tag-borderless"
+      class="ant-tag ant-tag-cyan ant-tag-borderless css-var-test-id"
     >
       cyan
     </span>
     <span
-      class="ant-tag ant-tag-blue ant-tag-borderless"
+      class="ant-tag ant-tag-blue ant-tag-borderless css-var-test-id"
     >
       blue
     </span>
     <span
-      class="ant-tag ant-tag-geekblue ant-tag-borderless"
+      class="ant-tag ant-tag-geekblue ant-tag-borderless css-var-test-id"
     >
       geekblue
     </span>
     <span
-      class="ant-tag ant-tag-purple ant-tag-borderless"
+      class="ant-tag ant-tag-purple ant-tag-borderless css-var-test-id"
     >
       purple
     </span>
@@ -490,28 +490,28 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
 
 exports[`renders components/tag/demo/checkable.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
 >
   <span>
     Categories:
   </span>
   <span
-    class="ant-tag ant-tag-checkable ant-tag-checkable-checked"
+    class="ant-tag ant-tag-checkable ant-tag-checkable-checked css-var-test-id"
   >
     Movies
   </span>
   <span
-    class="ant-tag ant-tag-checkable"
+    class="ant-tag ant-tag-checkable css-var-test-id"
   >
     Books
   </span>
   <span
-    class="ant-tag ant-tag-checkable"
+    class="ant-tag ant-tag-checkable css-var-test-id"
   >
     Music
   </span>
   <span
-    class="ant-tag ant-tag-checkable"
+    class="ant-tag ant-tag-checkable css-var-test-id"
   >
     Sports
   </span>
@@ -523,7 +523,7 @@ exports[`renders components/tag/demo/checkable.tsx extend context correctly 2`] 
 exports[`renders components/tag/demo/colorful.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -533,66 +533,66 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
   >
     <span
-      class="ant-tag ant-tag-magenta"
+      class="ant-tag ant-tag-magenta css-var-test-id"
     >
       magenta
     </span>
     <span
-      class="ant-tag ant-tag-red"
+      class="ant-tag ant-tag-red css-var-test-id"
     >
       red
     </span>
     <span
-      class="ant-tag ant-tag-volcano"
+      class="ant-tag ant-tag-volcano css-var-test-id"
     >
       volcano
     </span>
     <span
-      class="ant-tag ant-tag-orange"
+      class="ant-tag ant-tag-orange css-var-test-id"
     >
       orange
     </span>
     <span
-      class="ant-tag ant-tag-gold"
+      class="ant-tag ant-tag-gold css-var-test-id"
     >
       gold
     </span>
     <span
-      class="ant-tag ant-tag-lime"
+      class="ant-tag ant-tag-lime css-var-test-id"
     >
       lime
     </span>
     <span
-      class="ant-tag ant-tag-green"
+      class="ant-tag ant-tag-green css-var-test-id"
     >
       green
     </span>
     <span
-      class="ant-tag ant-tag-cyan"
+      class="ant-tag ant-tag-cyan css-var-test-id"
     >
       cyan
     </span>
     <span
-      class="ant-tag ant-tag-blue"
+      class="ant-tag ant-tag-blue css-var-test-id"
     >
       blue
     </span>
     <span
-      class="ant-tag ant-tag-geekblue"
+      class="ant-tag ant-tag-geekblue css-var-test-id"
     >
       geekblue
     </span>
     <span
-      class="ant-tag ant-tag-purple"
+      class="ant-tag ant-tag-purple css-var-test-id"
     >
       purple
     </span>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -602,28 +602,28 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
   >
     <span
-      class="ant-tag ant-tag-has-color"
+      class="ant-tag ant-tag-has-color css-var-test-id"
       style="background-color: rgb(255, 85, 0);"
     >
       #f50
     </span>
     <span
-      class="ant-tag ant-tag-has-color"
+      class="ant-tag ant-tag-has-color css-var-test-id"
       style="background-color: rgb(45, 183, 245);"
     >
       #2db7f5
     </span>
     <span
-      class="ant-tag ant-tag-has-color"
+      class="ant-tag ant-tag-has-color css-var-test-id"
       style="background-color: rgb(135, 208, 104);"
     >
       #87d068
     </span>
     <span
-      class="ant-tag ant-tag-has-color"
+      class="ant-tag ant-tag-has-color css-var-test-id"
       style="background-color: rgb(16, 142, 233);"
     >
       #108ee9
@@ -636,60 +636,60 @@ exports[`renders components/tag/demo/colorful.tsx extend context correctly 2`] =
 
 exports[`renders components/tag/demo/colorful-inverse.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
 >
   <span
-    class="ant-tag ant-tag-magenta-inverse"
+    class="ant-tag ant-tag-magenta-inverse css-var-test-id"
   >
     magenta
   </span>
   <span
-    class="ant-tag ant-tag-red-inverse"
+    class="ant-tag ant-tag-red-inverse css-var-test-id"
   >
     red
   </span>
   <span
-    class="ant-tag ant-tag-volcano-inverse"
+    class="ant-tag ant-tag-volcano-inverse css-var-test-id"
   >
     volcano
   </span>
   <span
-    class="ant-tag ant-tag-orange-inverse"
+    class="ant-tag ant-tag-orange-inverse css-var-test-id"
   >
     orange
   </span>
   <span
-    class="ant-tag ant-tag-gold-inverse"
+    class="ant-tag ant-tag-gold-inverse css-var-test-id"
   >
     gold
   </span>
   <span
-    class="ant-tag ant-tag-lime-inverse"
+    class="ant-tag ant-tag-lime-inverse css-var-test-id"
   >
     lime
   </span>
   <span
-    class="ant-tag ant-tag-green-inverse"
+    class="ant-tag ant-tag-green-inverse css-var-test-id"
   >
     green
   </span>
   <span
-    class="ant-tag ant-tag-cyan-inverse"
+    class="ant-tag ant-tag-cyan-inverse css-var-test-id"
   >
     cyan
   </span>
   <span
-    class="ant-tag ant-tag-blue-inverse"
+    class="ant-tag ant-tag-blue-inverse css-var-test-id"
   >
     blue
   </span>
   <span
-    class="ant-tag ant-tag-geekblue-inverse"
+    class="ant-tag ant-tag-geekblue-inverse css-var-test-id"
   >
     geekblue
   </span>
   <span
-    class="ant-tag ant-tag-purple-inverse"
+    class="ant-tag ant-tag-purple-inverse css-var-test-id"
   >
     purple
   </span>
@@ -700,10 +700,10 @@ exports[`renders components/tag/demo/colorful-inverse.tsx extend context correct
 
 exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
 >
   <span
-    class="ant-tag"
+    class="ant-tag css-var-test-id"
     style="user-select: none;"
   >
     <span>
@@ -711,7 +711,7 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = 
     </span>
   </span>
   <span
-    class="ant-tag"
+    class="ant-tag css-var-test-id"
     style="user-select: none;"
   >
     <span>
@@ -740,7 +740,7 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = 
     </span>
   </span>
   <span
-    class="ant-tag"
+    class="ant-tag css-var-test-id"
     style="user-select: none;"
   >
     <span>
@@ -769,7 +769,7 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = 
     </span>
   </span>
   <span
-    class="ant-tag"
+    class="ant-tag css-var-test-id"
     style="height: 22px; background: rgb(255, 255, 255); border-style: dashed;"
   >
     <span
@@ -807,10 +807,10 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 2`] = 
 
 exports[`renders components/tag/demo/customize.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
 >
   <span
-    class="ant-tag"
+    class="ant-tag css-var-test-id"
   >
     Tag1
     <span
@@ -820,7 +820,7 @@ exports[`renders components/tag/demo/customize.tsx extend context correctly 1`] 
     </span>
   </span>
   <span
-    class="ant-tag"
+    class="ant-tag css-var-test-id"
   >
     Tag2
     <span
@@ -852,18 +852,18 @@ exports[`renders components/tag/demo/customize.tsx extend context correctly 2`] 
 
 exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <span
-      class="ant-tag ant-tag-disabled"
+      class="ant-tag ant-tag-disabled css-var-test-id"
     >
       Basic Tag
     </span>
     <span
-      class="ant-tag ant-tag-disabled"
+      class="ant-tag ant-tag-disabled css-var-test-id"
     >
       <a
         href="https://ant.design"
@@ -873,12 +873,12 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
     </span>
     <a
       aria-disabled="true"
-      class="ant-tag ant-tag-disabled"
+      class="ant-tag ant-tag-disabled css-var-test-id"
     >
       Href Tag
     </a>
     <span
-      class="ant-tag ant-tag-success ant-tag-disabled"
+      class="ant-tag ant-tag-success ant-tag-disabled css-var-test-id"
     >
       <span
         aria-label="check-circle"
@@ -910,49 +910,49 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
     </span>
   </div>
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <span
-      class="ant-tag ant-tag-red ant-tag-disabled"
+      class="ant-tag ant-tag-red ant-tag-disabled css-var-test-id"
     >
       Preset Color Red
     </span>
     <span
-      class="ant-tag ant-tag-has-color ant-tag-disabled"
+      class="ant-tag ant-tag-has-color ant-tag-disabled css-var-test-id"
       style="background-color: rgb(255, 85, 0);"
     >
       Custom Color #f50
     </span>
     <span
-      class="ant-tag ant-tag-success ant-tag-disabled"
+      class="ant-tag ant-tag-success ant-tag-disabled css-var-test-id"
     >
       Preset Status Success
     </span>
   </div>
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <span
-      class="ant-tag ant-tag-checkable ant-tag-checkable-checked ant-tag-checkable-disabled"
+      class="ant-tag ant-tag-checkable ant-tag-checkable-checked ant-tag-checkable-disabled css-var-test-id"
     >
       Books
     </span>
     <span
-      class="ant-tag ant-tag-checkable ant-tag-checkable-disabled"
+      class="ant-tag ant-tag-checkable ant-tag-checkable-disabled css-var-test-id"
     >
       Movies
     </span>
     <span
-      class="ant-tag ant-tag-checkable ant-tag-checkable-disabled"
+      class="ant-tag ant-tag-checkable ant-tag-checkable-disabled css-var-test-id"
     >
       Music
     </span>
   </div>
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <span
-      class="ant-tag ant-tag-disabled"
+      class="ant-tag ant-tag-disabled css-var-test-id"
     >
       Closable Tag
       <span
@@ -978,7 +978,7 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
       </span>
     </span>
     <span
-      class="ant-tag ant-tag-success ant-tag-disabled"
+      class="ant-tag ant-tag-success ant-tag-disabled css-var-test-id"
     >
       <span
         aria-label="check-circle"
@@ -1030,7 +1030,7 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
       </span>
     </span>
     <span
-      class="ant-tag ant-tag-disabled"
+      class="ant-tag ant-tag-disabled css-var-test-id"
     >
       Closable with Custom Icon
       <span
@@ -1057,15 +1057,15 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
     </span>
   </div>
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <span
-      class="ant-tag ant-tag-borderless ant-tag-disabled"
+      class="ant-tag ant-tag-borderless ant-tag-disabled css-var-test-id"
     >
       Borderless Basic
     </span>
     <span
-      class="ant-tag ant-tag-success ant-tag-borderless ant-tag-disabled"
+      class="ant-tag ant-tag-success ant-tag-borderless ant-tag-disabled css-var-test-id"
     >
       <span
         aria-label="check-circle"
@@ -1096,7 +1096,7 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
       </span>
     </span>
     <span
-      class="ant-tag ant-tag-borderless ant-tag-disabled"
+      class="ant-tag ant-tag-borderless ant-tag-disabled css-var-test-id"
     >
       Borderless Closable
       <span
@@ -1174,10 +1174,10 @@ exports[`renders components/tag/demo/draggable.tsx extend context correctly 2`] 
 
 exports[`renders components/tag/demo/icon.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
 >
   <span
-    class="ant-tag ant-tag-has-color"
+    class="ant-tag ant-tag-has-color css-var-test-id"
     style="background-color: rgb(85, 172, 238);"
   >
     <span
@@ -1206,7 +1206,7 @@ exports[`renders components/tag/demo/icon.tsx extend context correctly 1`] = `
     </span>
   </span>
   <span
-    class="ant-tag ant-tag-has-color"
+    class="ant-tag ant-tag-has-color css-var-test-id"
     style="background-color: rgb(205, 32, 31);"
   >
     <span
@@ -1235,7 +1235,7 @@ exports[`renders components/tag/demo/icon.tsx extend context correctly 1`] = `
     </span>
   </span>
   <span
-    class="ant-tag ant-tag-has-color"
+    class="ant-tag ant-tag-has-color css-var-test-id"
     style="background-color: rgb(59, 89, 153);"
   >
     <span
@@ -1264,7 +1264,7 @@ exports[`renders components/tag/demo/icon.tsx extend context correctly 1`] = `
     </span>
   </span>
   <span
-    class="ant-tag ant-tag-has-color"
+    class="ant-tag ant-tag-has-color css-var-test-id"
     style="background-color: rgb(85, 172, 238);"
   >
     <span
@@ -1300,7 +1300,7 @@ exports[`renders components/tag/demo/icon.tsx extend context correctly 2`] = `[]
 exports[`renders components/tag/demo/status.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -1310,36 +1310,36 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
   >
     <span
-      class="ant-tag ant-tag-success"
+      class="ant-tag ant-tag-success css-var-test-id"
     >
       success
     </span>
     <span
-      class="ant-tag ant-tag-processing"
+      class="ant-tag ant-tag-processing css-var-test-id"
     >
       processing
     </span>
     <span
-      class="ant-tag ant-tag-error"
+      class="ant-tag ant-tag-error css-var-test-id"
     >
       error
     </span>
     <span
-      class="ant-tag ant-tag-warning"
+      class="ant-tag ant-tag-warning css-var-test-id"
     >
       warning
     </span>
     <span
-      class="ant-tag ant-tag-default"
+      class="ant-tag ant-tag-default css-var-test-id"
     >
       default
     </span>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -1349,10 +1349,10 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
   >
     <span
-      class="ant-tag ant-tag-success"
+      class="ant-tag ant-tag-success css-var-test-id"
     >
       <span
         aria-label="check-circle"
@@ -1383,7 +1383,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-tag ant-tag-processing"
+      class="ant-tag ant-tag-processing css-var-test-id"
     >
       <span
         aria-label="sync"
@@ -1411,7 +1411,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-tag ant-tag-error"
+      class="ant-tag ant-tag-error css-var-test-id"
     >
       <span
         aria-label="close-circle"
@@ -1440,7 +1440,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-tag ant-tag-warning"
+      class="ant-tag ant-tag-warning css-var-test-id"
     >
       <span
         aria-label="exclamation-circle"
@@ -1471,7 +1471,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-tag ant-tag-default"
+      class="ant-tag ant-tag-default css-var-test-id"
     >
       <span
         aria-label="clock-circle"
@@ -1502,7 +1502,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-tag ant-tag-default"
+      class="ant-tag ant-tag-default css-var-test-id"
     >
       <span
         aria-label="minus-circle"

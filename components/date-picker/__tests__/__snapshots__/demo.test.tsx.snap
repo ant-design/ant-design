@@ -2,7 +2,7 @@
 
 exports[`renders components/date-picker/demo/allow-empty.tsx correctly 1`] = `
 <div
-  class="ant-picker ant-picker-range ant-picker-outlined"
+  class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
 >
   <div
     class="ant-picker-input"
@@ -88,13 +88,13 @@ exports[`renders components/date-picker/demo/allow-empty.tsx correctly 1`] = `
 
 exports[`renders components/date-picker/demo/basic.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -136,7 +136,7 @@ exports[`renders components/date-picker/demo/basic.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -178,7 +178,7 @@ exports[`renders components/date-picker/demo/basic.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -220,7 +220,7 @@ exports[`renders components/date-picker/demo/basic.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -262,7 +262,7 @@ exports[`renders components/date-picker/demo/basic.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -305,13 +305,13 @@ exports[`renders components/date-picker/demo/basic.tsx correctly 1`] = `
 
 exports[`renders components/date-picker/demo/buddhist-era.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <h4
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       By locale props
     </h4>
@@ -320,7 +320,7 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -387,7 +387,7 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -454,7 +454,7 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <h4
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       By ConfigProvider
     </h4>
@@ -463,13 +463,13 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+      class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
     >
       <div
         class="ant-space-item"
       >
         <div
-          class="ant-picker ant-picker-outlined"
+          class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
         >
           <div
             class="ant-picker-input"
@@ -536,7 +536,7 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <div
-          class="ant-picker ant-picker-outlined"
+          class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
         >
           <div
             class="ant-picker-input"
@@ -606,14 +606,14 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx correctly 1`] = `
 
 exports[`renders components/date-picker/demo/cell-render.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical css-var-test-id"
   style="column-gap:12px;row-gap:12px"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -655,7 +655,7 @@ exports[`renders components/date-picker/demo/cell-render.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -743,13 +743,13 @@ exports[`renders components/date-picker/demo/cell-render.tsx correctly 1`] = `
 
 exports[`renders components/date-picker/demo/components.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -792,7 +792,7 @@ exports[`renders components/date-picker/demo/components.tsx correctly 1`] = `
 
 exports[`renders components/date-picker/demo/date-range.tsx correctly 1`] = `
 <div
-  class="ant-picker ant-picker-outlined"
+  class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
 >
   <div
     class="ant-picker-input"
@@ -858,14 +858,14 @@ exports[`renders components/date-picker/demo/date-range.tsx correctly 1`] = `
 
 exports[`renders components/date-picker/demo/disabled.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical css-var-test-id"
   style="column-gap:12px;row-gap:12px"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-disabled ant-picker-outlined"
+      class="ant-picker ant-picker-disabled ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -908,7 +908,7 @@ exports[`renders components/date-picker/demo/disabled.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-disabled ant-picker-outlined"
+      class="ant-picker ant-picker-disabled ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -951,7 +951,7 @@ exports[`renders components/date-picker/demo/disabled.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-disabled ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-disabled ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -1040,7 +1040,7 @@ exports[`renders components/date-picker/demo/disabled.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -1153,7 +1153,7 @@ exports[`renders components/date-picker/demo/disabled.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -1221,14 +1221,14 @@ exports[`renders components/date-picker/demo/disabled.tsx correctly 1`] = `
 
 exports[`renders components/date-picker/demo/disabled-date.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical css-var-test-id"
   style="column-gap:12px;row-gap:12px"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -1270,7 +1270,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -1312,7 +1312,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -1399,7 +1399,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -1487,14 +1487,14 @@ exports[`renders components/date-picker/demo/disabled-date.tsx correctly 1`] = `
 
 exports[`renders components/date-picker/demo/extra-footer.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical css-var-test-id"
   style="column-gap:12px;row-gap:12px"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -1536,7 +1536,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -1578,7 +1578,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -1665,7 +1665,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -1752,7 +1752,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -1795,14 +1795,14 @@ exports[`renders components/date-picker/demo/extra-footer.tsx correctly 1`] = `
 
 exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical css-var-test-id"
   style="column-gap:12px;row-gap:12px"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-disabled ant-picker-filled"
+      class="ant-picker ant-picker-disabled ant-picker-filled css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -1845,7 +1845,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-disabled ant-picker-filled"
+      class="ant-picker ant-picker-disabled ant-picker-filled css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -1888,7 +1888,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-disabled ant-picker-filled"
+      class="ant-picker ant-picker-range ant-picker-disabled ant-picker-filled css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -1977,7 +1977,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-filled"
+      class="ant-picker ant-picker-range ant-picker-filled css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -2090,7 +2090,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-filled ant-picker-status-error"
+      class="ant-picker ant-picker-filled ant-picker-status-error css-var-test-id ant-picker-css-var"
       style="width:100%"
     >
       <div
@@ -2158,7 +2158,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-filled ant-picker-status-warning"
+      class="ant-picker ant-picker-filled ant-picker-status-warning css-var-test-id ant-picker-css-var"
       style="width:100%"
     >
       <div
@@ -2201,7 +2201,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-filled ant-picker-status-error"
+      class="ant-picker ant-picker-range ant-picker-filled ant-picker-status-error css-var-test-id ant-picker-css-var"
       style="width:100%"
     >
       <div
@@ -2289,7 +2289,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-filled ant-picker-status-warning"
+      class="ant-picker ant-picker-range ant-picker-filled ant-picker-status-warning css-var-test-id ant-picker-css-var"
       style="width:100%"
     >
       <div
@@ -2378,14 +2378,14 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
 
 exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical css-var-test-id"
   style="column-gap:12px;row-gap:12px"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -2452,7 +2452,7 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -2519,7 +2519,7 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -2586,7 +2586,7 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -2654,7 +2654,7 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -2766,7 +2766,7 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -2835,13 +2835,13 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
 
 exports[`renders components/date-picker/demo/mask.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -2883,7 +2883,7 @@ exports[`renders components/date-picker/demo/mask.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -2926,14 +2926,14 @@ exports[`renders components/date-picker/demo/mask.tsx correctly 1`] = `
 
 exports[`renders components/date-picker/demo/mode.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical css-var-test-id"
   style="column-gap:12px;row-gap:12px"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -2975,7 +2975,7 @@ exports[`renders components/date-picker/demo/mode.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -3063,10 +3063,10 @@ exports[`renders components/date-picker/demo/mode.tsx correctly 1`] = `
 
 exports[`renders components/date-picker/demo/multiple.tsx correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
 >
   <div
-    class="ant-picker ant-picker-multiple ant-picker-small ant-picker-outlined"
+    class="ant-picker ant-picker-multiple ant-picker-small ant-picker-outlined css-var-test-id ant-picker-css-var"
   >
     <div
       class="ant-picker-selector"
@@ -3147,7 +3147,7 @@ exports[`renders components/date-picker/demo/multiple.tsx correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-picker ant-picker-multiple ant-picker-outlined"
+    class="ant-picker ant-picker-multiple ant-picker-outlined css-var-test-id ant-picker-css-var"
   >
     <div
       class="ant-picker-selector"
@@ -3228,7 +3228,7 @@ exports[`renders components/date-picker/demo/multiple.tsx correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-picker ant-picker-multiple ant-picker-large ant-picker-outlined"
+    class="ant-picker ant-picker-multiple ant-picker-large ant-picker-outlined css-var-test-id ant-picker-css-var"
   >
     <div
       class="ant-picker-selector"
@@ -3313,10 +3313,10 @@ exports[`renders components/date-picker/demo/multiple.tsx correctly 1`] = `
 
 exports[`renders components/date-picker/demo/multiple-debug.tsx correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
 >
   <div
-    class="ant-picker ant-picker-multiple ant-picker-outlined"
+    class="ant-picker ant-picker-multiple ant-picker-outlined css-var-test-id ant-picker-css-var"
   >
     <div
       class="ant-picker-selector"
@@ -3360,7 +3360,7 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx correctly 1`] = 
     </span>
   </div>
   <div
-    class="ant-picker ant-picker-multiple ant-picker-small ant-picker-outlined"
+    class="ant-picker ant-picker-multiple ant-picker-small ant-picker-outlined css-var-test-id ant-picker-css-var"
   >
     <div
       class="ant-picker-selector"
@@ -3815,7 +3815,7 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx correctly 1`] = 
     </span>
   </div>
   <div
-    class="ant-picker ant-picker-multiple ant-picker-outlined"
+    class="ant-picker ant-picker-multiple ant-picker-outlined css-var-test-id ant-picker-css-var"
   >
     <div
       class="ant-picker-selector"
@@ -4270,7 +4270,7 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx correctly 1`] = 
     </span>
   </div>
   <div
-    class="ant-picker ant-picker-multiple ant-picker-large ant-picker-outlined"
+    class="ant-picker ant-picker-multiple ant-picker-large ant-picker-outlined css-var-test-id ant-picker-css-var"
   >
     <div
       class="ant-picker-selector"
@@ -4729,7 +4729,7 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx correctly 1`] = 
 
 exports[`renders components/date-picker/demo/needConfirm.tsx correctly 1`] = `
 <div
-  class="ant-picker ant-picker-outlined"
+  class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
 >
   <div
     class="ant-picker-input"
@@ -4771,10 +4771,10 @@ exports[`renders components/date-picker/demo/needConfirm.tsx correctly 1`] = `
 exports[`renders components/date-picker/demo/placement.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
@@ -4797,7 +4797,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -4819,7 +4819,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -4841,7 +4841,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -4866,7 +4866,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-picker ant-picker-outlined"
+    class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
   >
     <div
       class="ant-picker-input"
@@ -4906,7 +4906,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-picker ant-picker-range ant-picker-outlined"
+    class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
   >
     <div
       class="ant-picker-input"
@@ -4993,14 +4993,14 @@ Array [
 
 exports[`renders components/date-picker/demo/preset-ranges.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical css-var-test-id"
   style="column-gap:12px;row-gap:12px"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -5042,7 +5042,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -5129,7 +5129,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -5217,14 +5217,14 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx correctly 1`] = `
 
 exports[`renders components/date-picker/demo/range-picker.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical css-var-test-id"
   style="column-gap:12px;row-gap:12px"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -5311,7 +5311,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -5398,7 +5398,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -5485,7 +5485,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -5572,7 +5572,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -5659,7 +5659,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -5752,7 +5752,7 @@ exports[`renders components/date-picker/demo/render-panel.tsx correctly 1`] = `
   style="padding-bottom:0;position:relative;min-width:0"
 >
   <div
-    class="ant-picker ant-picker-outlined"
+    class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     style="margin:0"
   >
     <div
@@ -5795,13 +5795,13 @@ exports[`renders components/date-picker/demo/render-panel.tsx correctly 1`] = `
 
 exports[`renders components/date-picker/demo/select-in-range.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <h5
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       7 days range
     </h5>
@@ -5810,7 +5810,7 @@ exports[`renders components/date-picker/demo/select-in-range.tsx correctly 1`] =
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -5897,7 +5897,7 @@ exports[`renders components/date-picker/demo/select-in-range.tsx correctly 1`] =
     class="ant-space-item"
   >
     <h5
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       6 months range
     </h5>
@@ -5906,7 +5906,7 @@ exports[`renders components/date-picker/demo/select-in-range.tsx correctly 1`] =
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -5994,17 +5994,17 @@ exports[`renders components/date-picker/demo/select-in-range.tsx correctly 1`] =
 
 exports[`renders components/date-picker/demo/size.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical css-var-test-id"
   style="column-gap:12px;row-gap:12px"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-radio-group ant-radio-group-outline"
+      class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
     >
       <label
-        class="ant-radio-button-wrapper"
+        class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio-button"
@@ -6026,7 +6026,7 @@ exports[`renders components/date-picker/demo/size.tsx correctly 1`] = `
         </span>
       </label>
       <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio-button ant-radio-button-checked"
@@ -6049,7 +6049,7 @@ exports[`renders components/date-picker/demo/size.tsx correctly 1`] = `
         </span>
       </label>
       <label
-        class="ant-radio-button-wrapper"
+        class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio-button"
@@ -6076,7 +6076,7 @@ exports[`renders components/date-picker/demo/size.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-middle ant-picker-outlined"
+      class="ant-picker ant-picker-middle ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -6118,7 +6118,7 @@ exports[`renders components/date-picker/demo/size.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-middle ant-picker-outlined"
+      class="ant-picker ant-picker-middle ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -6160,7 +6160,7 @@ exports[`renders components/date-picker/demo/size.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-middle ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-middle ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -6247,7 +6247,7 @@ exports[`renders components/date-picker/demo/size.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-middle ant-picker-outlined"
+      class="ant-picker ant-picker-middle ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -6290,13 +6290,13 @@ exports[`renders components/date-picker/demo/size.tsx correctly 1`] = `
 
 exports[`renders components/date-picker/demo/start-end.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -6338,7 +6338,7 @@ exports[`renders components/date-picker/demo/start-end.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -6381,14 +6381,14 @@ exports[`renders components/date-picker/demo/start-end.tsx correctly 1`] = `
 
 exports[`renders components/date-picker/demo/status.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   style="width:100%"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined ant-picker-status-error"
+      class="ant-picker ant-picker-outlined ant-picker-status-error css-var-test-id ant-picker-css-var"
       style="width:100%"
     >
       <div
@@ -6431,7 +6431,7 @@ exports[`renders components/date-picker/demo/status.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined ant-picker-status-warning"
+      class="ant-picker ant-picker-outlined ant-picker-status-warning css-var-test-id ant-picker-css-var"
       style="width:100%"
     >
       <div
@@ -6474,7 +6474,7 @@ exports[`renders components/date-picker/demo/status.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined ant-picker-status-error"
+      class="ant-picker ant-picker-range ant-picker-outlined ant-picker-status-error css-var-test-id ant-picker-css-var"
       style="width:100%"
     >
       <div
@@ -6562,7 +6562,7 @@ exports[`renders components/date-picker/demo/status.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined ant-picker-status-warning"
+      class="ant-picker ant-picker-range ant-picker-outlined ant-picker-status-warning css-var-test-id ant-picker-css-var"
       style="width:100%"
     >
       <div
@@ -6651,14 +6651,14 @@ exports[`renders components/date-picker/demo/status.tsx correctly 1`] = `
 
 exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical css-var-test-id"
   style="column-gap:12px;row-gap:12px"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -6700,7 +6700,7 @@ exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -6742,7 +6742,7 @@ exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -6829,7 +6829,7 @@ exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -6871,7 +6871,7 @@ exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -6895,7 +6895,7 @@ exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -6919,7 +6919,7 @@ exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -6988,7 +6988,7 @@ exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -7012,7 +7012,7 @@ exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-prefix"
@@ -7077,7 +7077,7 @@ exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-prefix"
@@ -7124,7 +7124,7 @@ exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-prefix"
@@ -7234,7 +7234,7 @@ exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-prefix"
@@ -7327,14 +7327,14 @@ exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
 
 exports[`renders components/date-picker/demo/switchable.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <div
       aria-label="Picker Type"
-      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -7402,7 +7402,7 @@ exports[`renders components/date-picker/demo/switchable.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -7448,14 +7448,14 @@ exports[`renders components/date-picker/demo/switchable.tsx correctly 1`] = `
 
 exports[`renders components/date-picker/demo/time.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical css-var-test-id"
   style="column-gap:12px;row-gap:12px"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -7497,7 +7497,7 @@ exports[`renders components/date-picker/demo/time.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -7585,15 +7585,15 @@ exports[`renders components/date-picker/demo/time.tsx correctly 1`] = `
 
 exports[`renders components/date-picker/demo/variant.tsx correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
   style="gap:12px"
 >
   <div
-    class="ant-flex"
+    class="ant-flex css-var-test-id"
     style="gap:8px"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -7631,7 +7631,7 @@ exports[`renders components/date-picker/demo/variant.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -7715,11 +7715,11 @@ exports[`renders components/date-picker/demo/variant.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-flex"
+    class="ant-flex css-var-test-id"
     style="gap:8px"
   >
     <div
-      class="ant-picker ant-picker-filled"
+      class="ant-picker ant-picker-filled css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -7757,7 +7757,7 @@ exports[`renders components/date-picker/demo/variant.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-picker ant-picker-range ant-picker-filled"
+      class="ant-picker ant-picker-range ant-picker-filled css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -7841,11 +7841,11 @@ exports[`renders components/date-picker/demo/variant.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-flex"
+    class="ant-flex css-var-test-id"
     style="gap:8px"
   >
     <div
-      class="ant-picker ant-picker-borderless"
+      class="ant-picker ant-picker-borderless css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -7883,7 +7883,7 @@ exports[`renders components/date-picker/demo/variant.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-picker ant-picker-range ant-picker-borderless"
+      class="ant-picker ant-picker-range ant-picker-borderless css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -7967,11 +7967,11 @@ exports[`renders components/date-picker/demo/variant.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-flex"
+    class="ant-flex css-var-test-id"
     style="gap:8px"
   >
     <div
-      class="ant-picker ant-picker-underlined"
+      class="ant-picker ant-picker-underlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -8009,7 +8009,7 @@ exports[`renders components/date-picker/demo/variant.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-picker ant-picker-range ant-picker-underlined"
+      class="ant-picker ant-picker-range ant-picker-underlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"

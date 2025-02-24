@@ -167,7 +167,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   const prefixCls = getPrefixCls('anchor', customPrefixCls);
 
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const getCurrentContainer = getContainer ?? getTargetContainer ?? getDefaultContainer;
 
@@ -395,7 +395,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
 
   const affixProps = affix && typeof affix === 'object' ? affix : undefined;
 
-  return wrapCSSVar(
+  return (
     <AnchorContext.Provider value={memoizedContextValue}>
       {affix ? (
         <Affix offsetTop={offsetTop} target={getCurrentContainer} {...affixProps}>
@@ -404,7 +404,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
       ) : (
         anchorContent
       )}
-    </AnchorContext.Provider>,
+    </AnchorContext.Provider>
   );
 };
 

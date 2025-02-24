@@ -240,13 +240,6 @@ export default function imageTest(
         <ConfigProvider theme={configTheme}>{component}</ConfigProvider>
       </div>,
     );
-    test(
-      `[CSS Var] component image screenshot should correct ${key}`,
-      `.${key}.css-var`,
-      <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
-        <ConfigProvider theme={{ ...configTheme, cssVar: true }}>{component}</ConfigProvider>
-      </div>,
-    );
   });
 }
 

@@ -93,7 +93,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('row', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useRowStyle(prefixCls);
+  const [hashId, cssVarCls] = useRowStyle(prefixCls);
 
   const gutters = useGutter(gutter, screens);
   const classes = classNames(
@@ -129,12 +129,12 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     [gutterH, gutterV, wrap],
   );
 
-  return wrapCSSVar(
+  return (
     <RowContext.Provider value={rowContext}>
       <div {...others} className={classes} style={{ ...rowStyle, ...style }} ref={ref}>
         {children}
       </div>
-    </RowContext.Provider>,
+    </RowContext.Provider>
   );
 });
 

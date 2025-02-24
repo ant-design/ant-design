@@ -86,9 +86,9 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const prefixCls = staticPrefixCls || getPrefixCls('message');
 
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  return wrapCSSVar(
+  return (
     <Notice
       {...restProps}
       prefixCls={prefixCls}
@@ -122,7 +122,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
           {content}
         </PureContent>
       }
-    />,
+    />
   );
 };
 

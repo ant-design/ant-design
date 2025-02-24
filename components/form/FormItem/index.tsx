@@ -152,7 +152,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
 
   // Style
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // ========================= Warn =========================
   const warning = devUseWarning('Form.Item');
@@ -282,7 +282,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   }
 
   if (!hasName && !isRenderProps && !dependencies) {
-    return wrapCSSVar(renderLayout(mergedChildren) as JSX.Element);
+    return renderLayout(mergedChildren) as JSX.Element;
   }
 
   let variables: Record<string, string> = {};
@@ -296,7 +296,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   }
 
   // >>>>> With Field
-  return wrapCSSVar(
+  return (
     <Field
       {...props}
       messageVariables={variables}
@@ -442,7 +442,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
 
         return renderLayout(childNode, fieldId, isRequired);
       }}
-    </Field>,
+    </Field>
   );
 }
 
