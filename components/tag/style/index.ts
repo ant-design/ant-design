@@ -38,7 +38,8 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
     // Result
     [componentCls]: {
       ...resetComponent(token),
-      display: 'inline-block',
+      display: 'inline-flex',
+      alignItems: 'center',
       height: 'auto',
       // https://github.com/ant-design/ant-design/pull/47504
       marginInlineEnd: token.marginXS,
@@ -74,6 +75,8 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         backgroundColor: 'transparent',
         border: 'none',
         outline: 'none',
+        display: 'inline-flex',
+        alignItems: 'center',
         ...genFocusStyle(token),
 
         '&:hover': {
