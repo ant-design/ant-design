@@ -139,7 +139,9 @@ Array [
         />
       </svg>
     </span>
-     New Tag
+    <span>
+      New Tag
+    </span>
   </span>,
 ]
 `;
