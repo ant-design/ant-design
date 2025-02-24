@@ -19,9 +19,6 @@ tag: vVERSION
 
 `2025-02-24`
 
-- DatePicker
-  - 🐞 修复 DatePicker 在 RTL 模式下图标方向错误的问题。[#52896](https://github.com/ant-design/ant-design/pull/52896) [@li-jia-nan](https://github.com/li-jia-nan)
-  - 🐞 修复 DatePicker.RangePicker 在弹层重新打开的时候，有可能出现箭头位置不正确的问题。[#52854](https://github.com/ant-design/ant-design/pull/52854) [@zombieJ](https://github.com/zombieJ)
 - Input
   - 🐞 修复 Input 配置 `inputFontSize` component token 时，`controlHeight` 会不生效的问题。[#52865](https://github.com/ant-design/ant-design/pull/52865) [@zombieJ](https://github.com/zombieJ)
   - 🐞 修复 Input.Search 在设置 `variant` 为 `underlined` 时下边框与搜索按钮底部没对齐的问题。[#52861](https://github.com/ant-design/ant-design/pull/52861) [@ustcfury](https://github.com/ustcfury)
@@ -30,13 +27,15 @@ tag: vVERSION
 - Watermark
   - 🐞 修复 Watermark 重新渲染时可能导致页面卡死的问题。[#52897](https://github.com/ant-design/ant-design/pull/52897) [@765477020](https://github.com/765477020)
   - 🆕 调整 Watermark 渲染逻辑，防止通过开发者工具添加 `hidden` 属性来去掉水印。[#52891](https://github.com/ant-design/ant-design/pull/52891) [@arronlai](https://github.com/arronlai)
+- 🐞 修复 DatePicker.RangePicker 在弹层重新打开的时候，有可能出现箭头位置不正确的问题。[#52854](https://github.com/ant-design/ant-design/pull/52854) [@zombieJ](https://github.com/zombieJ)
 - 🐞 修复 Layout.Sider 当 `collapsedWidth={0}` 时的内容溢出的问题。[#52862](https://github.com/ant-design/ant-design/pull/52862) [@afc163](https://github.com/afc163)
 - 🛠 重构 Grid 内部响应式逻辑以复用其他组件类似的逻辑，该更新不会于使用上有所变化。[#52870](https://github.com/ant-design/ant-design/pull/52870) [@zombieJ](https://github.com/zombieJ)
+- 💄 修复 Button 超链接模式的样式。[#52888](https://github.com/ant-design/ant-design/pull/52888) [@DDDDD12138](https://github.com/DDDDD12138)
 - 💄 修复 Table 可排序列头不自动换行的问题。[#52899](https://github.com/ant-design/ant-design/pull/52899) [@765477020](https://github.com/765477020)
 - ⚡️ 优化 Menu 在 `expandIcon` 属性传入函数时重新渲染的性能。[#52863](https://github.com/ant-design/ant-design/pull/52863) [@wanpan11](https://github.com/wanpan11)
 - ⚡️ 优化 Carousel 指示器的动画性能。[#52881](https://github.com/ant-design/ant-design/pull/52881) [@li-jia-nan](https://github.com/li-jia-nan)
 - RTL
-  - 💄 修复 Button 超链接模式的样式。[#52888](https://github.com/ant-design/ant-design/pull/52888) [@DDDDD12138](https://github.com/DDDDD12138)
+  - 💄 修复 DatePicker 在 RTL 模式下图标方向错误的问题。[#52896](https://github.com/ant-design/ant-design/pull/52896) [@li-jia-nan](https://github.com/li-jia-nan)
   - 💄 修复 Dropdown 在 RTL 模式下多级菜单箭头方向错误的问题。[#52885](https://github.com/ant-design/ant-design/pull/52885) [@yellowryan](https://github.com/yellowryan)
 
 ## 5.24.1
