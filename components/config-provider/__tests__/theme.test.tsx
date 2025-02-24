@@ -1,15 +1,43 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import ConfigProvider from '..';
 import { Button, InputNumber, Select } from '../..';
-import { render } from '../../../tests/utils';
+import { render, waitFakeTimer } from '../../../tests/utils';
 import theme from '../../theme';
 import type { GlobalToken } from '../../theme/internal';
 import { useToken } from '../../theme/internal';
+import { Modal } from 'antd';
 
 const { defaultAlgorithm, darkAlgorithm, compactAlgorithm } = theme;
 
 describe('ConfigProvider.Theme', () => {
+  it('ConfigProvider.config should work', async () => {
+    jest.useFakeTimers();
+
+    ConfigProvider.config({
+      theme: {
+        token: {
+          colorPrimary: '#00B96B',
+        },
+      },
+    });
+
+    const Demo: React.FC = () => {
+      useEffect(() => {
+        Modal.confirm({ title: 'Hello World!' });
+      }, []);
+      return null;
+    };
+
+    render(<Demo />);
+
+    await waitFakeTimer();
+
+    expect(document.querySelector('.ant-modal-css-var')).toHaveStyle({
+      '--ant-color-primary': '#00b96b',
+    });
+  });
+
   it('algorithm should work', () => {
     let tokenRef: Partial<GlobalToken> = {};
     const Demo = () => {
