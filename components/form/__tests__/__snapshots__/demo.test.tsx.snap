@@ -1475,7 +1475,7 @@ exports[`renders components/form/demo/control-hooks.tsx correctly 1`] = `
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+                  class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link"
                   type="button"
                 >
                   <span>
@@ -2648,7 +2648,7 @@ Array [
                         type="file"
                       />
                       <button
-                        style="border:0;background:none"
+                        style="color:inherit;cursor:inherit;border:0;background:none"
                         type="button"
                       >
                         <span
