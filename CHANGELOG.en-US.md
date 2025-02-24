@@ -31,11 +31,10 @@ tag: vVERSION
   - 🐞 Fix Watermark may cause page unresponsive when re-rendering. [#52897](https://github.com/ant-design/ant-design/pull/52897) [@765477020](https://github.com/765477020)
   - 🆕 Improve Watermark rendering logic to avoid disable it via developer tools and `hidden` attribute. [#52891](https://github.com/ant-design/ant-design/pull/52891) [@arronlai](https://github.com/arronlai)
 - 🐞 Fix Layout.Sider content overflow issue when `collapsedWidth={0}`. [#52862](https://github.com/ant-design/ant-design/pull/52862) [@afc163](https://github.com/afc163)
-- 🛠 Refactor Gird internal useBreakpoint logic to be same as other component, this will not affect usage. [#52870](https://github.com/ant-design/ant-design/pull/52870) [@zombieJ](https://github.com/zombieJ)
+- 🛠 Refactor Grid internal useBreakpoint logic to be same as other component, this will not affect usage. [#52870](https://github.com/ant-design/ant-design/pull/52870) [@zombieJ](https://github.com/zombieJ)
 - 💄 Fix Table sortable column headers could not wrap automatically. [#52899](https://github.com/ant-design/ant-design/pull/52899) [@765477020](https://github.com/765477020)
 - ⚡️ Improve Menu re-rendering performance when pass function to `expandIcon` property. [#52863](https://github.com/ant-design/ant-design/pull/52863) [@wanpan11](https://github.com/wanpan11)
-- ⚡️ Improve Carousel animation performance. [#52881](https://github.com/ant-design/ant-design/pull/52881) [@li-jia-nan](https://github.com/li-jia-nan)
-- ⚡️ Improve Checkbox animation performance. [#52881](https://github.com/ant-design/ant-design/pull/52881) [@li-jia-nan](https://github.com/li-jia-nan)
+- ⚡️ Improve Carousel indicator animation performance. [#52881](https://github.com/ant-design/ant-design/pull/52881) [@li-jia-nan](https://github.com/li-jia-nan)
 - RTL
   - 💄 Fix Button styles for hyperlink mode. [#52888](https://github.com/ant-design/ant-design/pull/52888) [@DDDDD12138](https://github.com/DDDDD12138)
   - 💄 Fix Dropdown wrong arrow direction of multi-level menu for RTL mode. [#52885](https://github.com/ant-design/ant-design/pull/52885) [@yellowryan](https://github.com/yellowryan)
