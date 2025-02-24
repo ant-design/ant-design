@@ -98,6 +98,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
           checked={value === option.value}
           title={option.title}
           style={option.style}
+          className={option.className} // 👈 5.25.0+
           id={option.id}
           required={option.required}
         >
