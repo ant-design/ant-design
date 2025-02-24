@@ -15,6 +15,29 @@ tag: vVERSION
 
 ---
 
+## 5.24.2
+
+`2025-02-24`
+
+- Input
+  - 🐞 Fix Input with component token `inputFontSize` breaks the height of `controlHeight`. [#52865](https://github.com/ant-design/ant-design/pull/52865) [@zombieJ](https://github.com/zombieJ)
+  - 🐞 Fix Input.Search has a border that is not aligned with the bottom of the search button when configure `variable` as `underlined`. [#52861](https://github.com/ant-design/ant-design/pull/52861) [@ustcfury](https://github.com/ustcfury)
+  - 🛠 Improve Input.OTP logic for create default state. [#52878](https://github.com/ant-design/ant-design/pull/52878) [@Dandelion-F](https://github.com/Dandelion-F)
+  - 🛠 Improve Input.OTP implementation for render separator. [#52841](https://github.com/ant-design/ant-design/pull/52841) [@li-jia-nan](https://github.com/li-jia-nan)
+- Watermark
+  - 🐞 Fix Watermark may cause page unresponsive when re-rendering. [#52897](https://github.com/ant-design/ant-design/pull/52897) [@765477020](https://github.com/765477020)
+  - 🆕 Improve Watermark rendering logic to avoid disable it via developer tools and `hidden` attribute. [#52891](https://github.com/ant-design/ant-design/pull/52891) [@arronlai](https://github.com/arronlai)
+- 🐞 Fix DatePicker.RangePicker arrow position not correctly when sometime reopened. [#52854](https://github.com/ant-design/ant-design/pull/52854) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Layout.Sider content overflow issue when `collapsedWidth={0}`. [#52862](https://github.com/ant-design/ant-design/pull/52862) [@afc163](https://github.com/afc163)
+- 🛠 Refactor Grid internal useBreakpoint logic to be same as other component, this will not affect usage. [#52870](https://github.com/ant-design/ant-design/pull/52870) [@zombieJ](https://github.com/zombieJ)
+- 💄 Fix Button styles for hyperlink mode. [#52888](https://github.com/ant-design/ant-design/pull/52888) [@DDDDD12138](https://github.com/DDDDD12138)
+- 💄 Fix Table sortable column headers could not wrap automatically. [#52899](https://github.com/ant-design/ant-design/pull/52899) [@765477020](https://github.com/765477020)
+- ⚡️ Improve Menu re-rendering performance when pass function to `expandIcon` property. [#52863](https://github.com/ant-design/ant-design/pull/52863) [@wanpan11](https://github.com/wanpan11)
+- ⚡️ Improve Carousel indicator animation performance. [#52881](https://github.com/ant-design/ant-design/pull/52881) [@li-jia-nan](https://github.com/li-jia-nan)
+- RTL
+  - 💄 Fix DatePicker wrong icon direction for RTL mode. [#52896](https://github.com/ant-design/ant-design/pull/52896) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 💄 Fix Dropdown wrong arrow direction of multi-level menu for RTL mode. [#52885](https://github.com/ant-design/ant-design/pull/52885) [@yellowryan](https://github.com/yellowryan)
+
 ## 5.24.1
 
 `2025-02-17`
