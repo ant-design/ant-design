@@ -1066,13 +1066,13 @@ export const prepareComponentToken: GetDefaultToken<'Tabs'> = (token) => {
     cardHeightLG: mergedCardHeightLG,
     // Initialize with empty string, because cardPadding will be calculated with cardHeight by default.
     cardPadding: `${
-      (mergedCardHeight - Math.round(token.fontSize * token.lineHeight)) / 2 - token.lineWidth
+      (mergedCardHeight - token.fontHeight) / 2 - token.lineWidth
     }px ${token.padding}px`,
     cardPaddingSM: `${
-      (mergedCardHeightSM - Math.round(token.fontSize * token.lineHeight)) / 2 - token.lineWidth
+      (mergedCardHeightSM - token.fontHeight) / 2 - token.lineWidth
     }px ${token.paddingXS}px`,
     cardPaddingLG: `${
-      (mergedCardHeightLG - Math.round(token.fontSizeLG * token.lineHeightLG)) / 2 - token.lineWidth
+      (mergedCardHeightLG - token.fontHeightLG) / 2 - token.lineWidth
     }px ${token.padding}px`,
     titleFontSize: token.fontSize,
     titleFontSizeLG: token.fontSizeLG,
