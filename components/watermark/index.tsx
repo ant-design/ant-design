@@ -7,9 +7,9 @@ import toList from '../_util/toList';
 import { useToken } from '../theme/internal';
 import WatermarkContext from './context';
 import type { WatermarkContextProps } from './context';
-import useCache from './useCache';
 import useClips, { FontGap } from './useClips';
 import useRafDebounce from './useRafDebounce';
+import useSingletonCache from './useSingletonCache';
 import useWatermark from './useWatermark';
 import { getPixelRatio, reRendering } from './utils';
 
@@ -162,7 +162,9 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
   };
 
   const getClips = useClips();
-  const { getCache, setCache } = useCache();
+
+  type ClipParams = Parameters<typeof getClips>;
+  const getClipsCache = useSingletonCache<ClipParams, ReturnType<typeof getClips>>();
 
   const [watermarkInfo, setWatermarkInfo] = React.useState<[base64: string, contentWidth: number]>(
     null!,
@@ -180,7 +182,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
       const drawCanvas = (
         drawContent?: NonNullable<WatermarkProps['content']> | HTMLImageElement,
       ) => {
-        const params = [
+        const params: ClipParams = [
           drawContent || '',
           rotate,
           ratio,
@@ -190,10 +192,15 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
           gapX,
           gapY,
         ] as const;
-        const cache = getCache(...params);
-        const result = cache || getClips(...params);
+
+        const cacheParams: ClipParams = [...params];
+        // No need check as image
+        if (drawContent instanceof HTMLElement) {
+          cacheParams[0] = '';
+        }
+
+        const result = getClipsCache(cacheParams, () => getClips(...params));
         const [nextClips, clipWidth] = result;
-        if (!cache) setCache(result, ...params);
         setWatermarkInfo([nextClips, clipWidth]);
       };
 
