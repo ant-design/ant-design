@@ -493,7 +493,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           direction: 'rtl',
 
           [`${componentCls}-separator`]: {
-            transform: 'rotate(180deg)',
+            transform: 'scale(-1, 1)',
           },
 
           [`${componentCls}-footer`]: {
