@@ -137,7 +137,7 @@
     "@rc-component/tooltip": "~1.1.0",
     "@rc-component/tour": "~2.1.2",
     "@rc-component/tree-select": "~1.0.0",
-    "@rc-component/trigger": "^2.2.6",
+    "@rc-component/trigger": "~3.1.0",
     "@rc-component/util": "^1.0.1",
     "classnames": "^2.5.1",
     "copy-to-clipboard": "^3.3.3",
