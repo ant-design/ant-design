@@ -99,6 +99,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 
           [`${componentCls}-selection-search-input`]: {
             height: selectHeightWithoutBorder,
+            fontSize: token.fontSize,
           },
 
           '&:after': {
