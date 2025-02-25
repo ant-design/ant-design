@@ -11,7 +11,7 @@ const locales = {
     popup: '弹出框元素',
   },
   en: {
-    root: 'Icon element',
+    root: 'Root element',
     textarea: 'Input element',
     popup: 'Popup element',
   },
