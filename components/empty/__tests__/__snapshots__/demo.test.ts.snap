@@ -124,6 +124,8 @@ Array [
     >
       <div
         class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+        dropdownclassname="css-var-test-id ant-select-css-var"
+        dropdownstyle="[object Object]"
         style="width:200px"
       >
         <div
@@ -196,6 +198,8 @@ Array [
     >
       <div
         class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
+        dropdownclassname="ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var"
+        dropdownstyle="[object Object]"
         style="width:200px"
       >
         <div
@@ -268,6 +272,8 @@ Array [
     >
       <div
         class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+        dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+        dropdownstyle="[object Object]"
         style="width:200px"
       >
         <div

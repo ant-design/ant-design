@@ -754,6 +754,8 @@ exports[`renders components/tooltip/demo/disabled-children.tsx correctly 1`] = `
     <div
       aria-describedby="test-id"
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"

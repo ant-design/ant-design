@@ -9,6 +9,8 @@ exports[`renders components/calendar/demo/basic.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -72,6 +74,8 @@ exports[`renders components/calendar/demo/basic.tsx correctly 1`] = `
     </div>
     <div
       class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -968,6 +972,8 @@ exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
     >
       <div
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+        dropdownclassname="css-var-test-id ant-select-css-var"
+        dropdownstyle="[object Object]"
       >
         <div
           class="ant-select-selector"
@@ -1031,6 +1037,8 @@ exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
       </div>
       <div
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+        dropdownclassname="css-var-test-id ant-select-css-var"
+        dropdownstyle="[object Object]"
       >
         <div
           class="ant-select-selector"
@@ -1926,6 +1934,8 @@ Array [
     >
       <div
         class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+        dropdownclassname="css-var-test-id ant-select-css-var"
+        dropdownstyle="[object Object]"
       >
         <div
           class="ant-select-selector"
@@ -1989,6 +1999,8 @@ Array [
       </div>
       <div
         class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+        dropdownclassname="css-var-test-id ant-select-css-var"
+        dropdownstyle="[object Object]"
       >
         <div
           class="ant-select-selector"
@@ -2880,6 +2892,8 @@ Array [
     >
       <div
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+        dropdownclassname="css-var-test-id ant-select-css-var"
+        dropdownstyle="[object Object]"
       >
         <div
           class="ant-select-selector"
@@ -2943,6 +2957,8 @@ Array [
       </div>
       <div
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+        dropdownclassname="css-var-test-id ant-select-css-var"
+        dropdownstyle="[object Object]"
       >
         <div
           class="ant-select-selector"
@@ -3907,6 +3923,8 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
         >
           <div
             class="ant-select ant-select-sm ant-select-outlined my-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+            dropdownclassname="css-var-test-id ant-select-css-var"
+            dropdownstyle="[object Object]"
           >
             <div
               class="ant-select-selector"
@@ -3975,6 +3993,8 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
         >
           <div
             class="ant-select ant-select-sm ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+            dropdownclassname="css-var-test-id ant-select-css-var"
+            dropdownstyle="[object Object]"
           >
             <div
               class="ant-select-selector"
@@ -4822,6 +4842,8 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -4885,6 +4907,8 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
     </div>
     <div
       class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -6191,6 +6215,8 @@ Array [
     >
       <div
         class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+        dropdownclassname="css-var-test-id ant-select-css-var"
+        dropdownstyle="[object Object]"
       >
         <div
           class="ant-select-selector"
@@ -6254,6 +6280,8 @@ Array [
       </div>
       <div
         class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+        dropdownclassname="css-var-test-id ant-select-css-var"
+        dropdownstyle="[object Object]"
       >
         <div
           class="ant-select-selector"
@@ -7149,6 +7177,8 @@ Array [
     >
       <div
         class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+        dropdownclassname="css-var-test-id ant-select-css-var"
+        dropdownstyle="[object Object]"
       >
         <div
           class="ant-select-selector"
@@ -7212,6 +7242,8 @@ Array [
       </div>
       <div
         class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+        dropdownclassname="css-var-test-id ant-select-css-var"
+        dropdownstyle="[object Object]"
       >
         <div
           class="ant-select-selector"
@@ -8164,6 +8196,8 @@ Array [
     >
       <div
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+        dropdownclassname="css-var-test-id ant-select-css-var"
+        dropdownstyle="[object Object]"
       >
         <div
           class="ant-select-selector"
@@ -8227,6 +8261,8 @@ Array [
       </div>
       <div
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+        dropdownclassname="css-var-test-id ant-select-css-var"
+        dropdownstyle="[object Object]"
       >
         <div
           class="ant-select-selector"

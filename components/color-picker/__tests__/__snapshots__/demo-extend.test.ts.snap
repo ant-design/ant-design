@@ -135,6 +135,9 @@ Array [
               >
                 <div
                   class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                  dropdownclassname="css-var-test-id ant-select-css-var"
+                  dropdownmatchselectwidth="68"
+                  dropdownstyle="[object Object]"
                 >
                   <div
                     class="ant-select-selector"
@@ -171,8 +174,8 @@ Array [
                     </span>
                   </div>
                   <div
-                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                   >
                     <div>
                       <div
@@ -528,6 +531,9 @@ Array [
               >
                 <div
                   class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                  dropdownclassname="css-var-test-id ant-select-css-var"
+                  dropdownmatchselectwidth="68"
+                  dropdownstyle="[object Object]"
                 >
                   <div
                     class="ant-select-selector"
@@ -564,8 +570,8 @@ Array [
                     </span>
                   </div>
                   <div
-                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                   >
                     <div>
                       <div
@@ -926,6 +932,9 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                 >
                   <div
                     class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                    dropdownclassname="css-var-test-id ant-select-css-var"
+                    dropdownmatchselectwidth="68"
+                    dropdownstyle="[object Object]"
                   >
                     <div
                       class="ant-select-selector"
@@ -962,8 +971,8 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                       </span>
                     </div>
                     <div
-                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div>
                         <div
@@ -1316,6 +1325,9 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                 >
                   <div
                     class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                    dropdownclassname="css-var-test-id ant-select-css-var"
+                    dropdownmatchselectwidth="68"
+                    dropdownstyle="[object Object]"
                   >
                     <div
                       class="ant-select-selector"
@@ -1352,8 +1364,8 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                       </span>
                     </div>
                     <div
-                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div>
                         <div
@@ -1715,6 +1727,9 @@ Array [
               >
                 <div
                   class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                  dropdownclassname="css-var-test-id ant-select-css-var"
+                  dropdownmatchselectwidth="68"
+                  dropdownstyle="[object Object]"
                 >
                   <div
                     class="ant-select-selector"
@@ -1751,8 +1766,8 @@ Array [
                     </span>
                   </div>
                   <div
-                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                   >
                     <div>
                       <div
@@ -2087,6 +2102,9 @@ Array [
               >
                 <div
                   class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                  dropdownclassname="css-var-test-id ant-select-css-var"
+                  dropdownmatchselectwidth="68"
+                  dropdownstyle="[object Object]"
                 >
                   <div
                     class="ant-select-selector"
@@ -2123,8 +2141,8 @@ Array [
                     </span>
                   </div>
                   <div
-                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                   >
                     <div>
                       <div
@@ -2416,6 +2434,9 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                     >
                       <div
                         class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                        dropdownclassname="css-var-test-id ant-select-css-var"
+                        dropdownmatchselectwidth="68"
+                        dropdownstyle="[object Object]"
                       >
                         <div
                           class="ant-select-selector"
@@ -2452,8 +2473,8 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           </span>
                         </div>
                         <div
-                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                         >
                           <div>
                             <div
@@ -2821,6 +2842,9 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                     >
                       <div
                         class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                        dropdownclassname="css-var-test-id ant-select-css-var"
+                        dropdownmatchselectwidth="68"
+                        dropdownstyle="[object Object]"
                       >
                         <div
                           class="ant-select-selector"
@@ -2857,8 +2881,8 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           </span>
                         </div>
                         <div
-                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                         >
                           <div>
                             <div
@@ -3444,6 +3468,9 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                     >
                       <div
                         class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                        dropdownclassname="css-var-test-id ant-select-css-var"
+                        dropdownmatchselectwidth="68"
+                        dropdownstyle="[object Object]"
                       >
                         <div
                           class="ant-select-selector"
@@ -3480,8 +3507,8 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           </span>
                         </div>
                         <div
-                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                         >
                           <div>
                             <div
@@ -4168,6 +4195,9 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                 >
                   <div
                     class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                    dropdownclassname="css-var-test-id ant-select-css-var"
+                    dropdownmatchselectwidth="68"
+                    dropdownstyle="[object Object]"
                   >
                     <div
                       class="ant-select-selector"
@@ -4204,8 +4234,8 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       </span>
                     </div>
                     <div
-                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div>
                         <div
@@ -4610,6 +4640,9 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                 >
                   <div
                     class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                    dropdownclassname="css-var-test-id ant-select-css-var"
+                    dropdownmatchselectwidth="68"
+                    dropdownstyle="[object Object]"
                   >
                     <div
                       class="ant-select-selector"
@@ -4646,8 +4679,8 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       </span>
                     </div>
                     <div
-                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div>
                         <div
@@ -5030,6 +5063,9 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                       >
                         <div
                           class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                          dropdownclassname="css-var-test-id ant-select-css-var"
+                          dropdownmatchselectwidth="68"
+                          dropdownstyle="[object Object]"
                         >
                           <div
                             class="ant-select-selector"
@@ -5066,8 +5102,8 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                             </span>
                           </div>
                           <div
-                            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                           >
                             <div>
                               <div
@@ -6006,6 +6042,9 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                       >
                         <div
                           class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                          dropdownclassname="css-var-test-id ant-select-css-var"
+                          dropdownmatchselectwidth="68"
+                          dropdownstyle="[object Object]"
                         >
                           <div
                             class="ant-select-selector"
@@ -6042,8 +6081,8 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                             </span>
                           </div>
                           <div
-                            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                           >
                             <div>
                               <div
@@ -6403,6 +6442,9 @@ Array [
               >
                 <div
                   class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                  dropdownclassname="css-var-test-id ant-select-css-var"
+                  dropdownmatchselectwidth="68"
+                  dropdownstyle="[object Object]"
                 >
                   <div
                     class="ant-select-selector"
@@ -6439,8 +6481,8 @@ Array [
                     </span>
                   </div>
                   <div
-                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                   >
                     <div>
                       <div
@@ -7225,6 +7267,9 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                 >
                   <div
                     class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                    dropdownclassname="css-var-test-id ant-select-css-var"
+                    dropdownmatchselectwidth="68"
+                    dropdownstyle="[object Object]"
                   >
                     <div
                       class="ant-select-selector"
@@ -7261,8 +7306,8 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                       </span>
                     </div>
                     <div
-                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 150; width: 68px;"
+                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div>
                         <div
@@ -7630,6 +7675,9 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                     >
                       <div
                         class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                        dropdownclassname="css-var-test-id ant-select-css-var"
+                        dropdownmatchselectwidth="68"
+                        dropdownstyle="[object Object]"
                       >
                         <div
                           class="ant-select-selector"
@@ -7666,8 +7714,8 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           </span>
                         </div>
                         <div
-                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                         >
                           <div>
                             <div
@@ -8020,6 +8068,9 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                     >
                       <div
                         class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                        dropdownclassname="css-var-test-id ant-select-css-var"
+                        dropdownmatchselectwidth="68"
+                        dropdownstyle="[object Object]"
                       >
                         <div
                           class="ant-select-selector"
@@ -8056,8 +8107,8 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           </span>
                         </div>
                         <div
-                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                         >
                           <div>
                             <div
@@ -8410,6 +8461,9 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                     >
                       <div
                         class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                        dropdownclassname="css-var-test-id ant-select-css-var"
+                        dropdownmatchselectwidth="68"
+                        dropdownstyle="[object Object]"
                       >
                         <div
                           class="ant-select-selector"
@@ -8446,8 +8500,8 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           </span>
                         </div>
                         <div
-                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                         >
                           <div>
                             <div
@@ -8813,6 +8867,9 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                     >
                       <div
                         class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                        dropdownclassname="css-var-test-id ant-select-css-var"
+                        dropdownmatchselectwidth="68"
+                        dropdownstyle="[object Object]"
                       >
                         <div
                           class="ant-select-selector"
@@ -8849,8 +8906,8 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           </span>
                         </div>
                         <div
-                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                         >
                           <div>
                             <div
@@ -9208,6 +9265,9 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                     >
                       <div
                         class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                        dropdownclassname="css-var-test-id ant-select-css-var"
+                        dropdownmatchselectwidth="68"
+                        dropdownstyle="[object Object]"
                       >
                         <div
                           class="ant-select-selector"
@@ -9244,8 +9304,8 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           </span>
                         </div>
                         <div
-                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                         >
                           <div>
                             <div
@@ -9603,6 +9663,9 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                     >
                       <div
                         class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                        dropdownclassname="css-var-test-id ant-select-css-var"
+                        dropdownmatchselectwidth="68"
+                        dropdownstyle="[object Object]"
                       >
                         <div
                           class="ant-select-selector"
@@ -9639,8 +9702,8 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           </span>
                         </div>
                         <div
-                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                         >
                           <div>
                             <div
@@ -10016,6 +10079,9 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                 >
                   <div
                     class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                    dropdownclassname="css-var-test-id ant-select-css-var"
+                    dropdownmatchselectwidth="68"
+                    dropdownstyle="[object Object]"
                   >
                     <div
                       class="ant-select-selector"
@@ -10052,8 +10118,8 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       </span>
                     </div>
                     <div
-                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div>
                         <div
@@ -10413,6 +10479,9 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                 >
                   <div
                     class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                    dropdownclassname="css-var-test-id ant-select-css-var"
+                    dropdownmatchselectwidth="68"
+                    dropdownstyle="[object Object]"
                   >
                     <div
                       class="ant-select-selector"
@@ -10449,8 +10518,8 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       </span>
                     </div>
                     <div
-                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div>
                         <div
@@ -10827,6 +10896,9 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                 >
                   <div
                     class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                    dropdownclassname="css-var-test-id ant-select-css-var"
+                    dropdownmatchselectwidth="68"
+                    dropdownstyle="[object Object]"
                   >
                     <div
                       class="ant-select-selector"
@@ -10863,8 +10935,8 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       </span>
                     </div>
                     <div
-                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div>
                         <div
@@ -11218,6 +11290,9 @@ Array [
               >
                 <div
                   class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                  dropdownclassname="css-var-test-id ant-select-css-var"
+                  dropdownmatchselectwidth="68"
+                  dropdownstyle="[object Object]"
                 >
                   <div
                     class="ant-select-selector"
@@ -11254,8 +11329,8 @@ Array [
                     </span>
                   </div>
                   <div
-                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                   >
                     <div>
                       <div
@@ -11481,7 +11556,11 @@ Array [
 ]
 `;
 
-exports[`renders components/color-picker/demo/trigger.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/color-picker/demo/trigger.tsx extend context correctly 2`] = `
+[
+  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
+]
+`;
 
 exports[`renders components/color-picker/demo/trigger-event.tsx extend context correctly 1`] = `
 Array [
@@ -11611,6 +11690,9 @@ Array [
               >
                 <div
                   class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                  dropdownclassname="css-var-test-id ant-select-css-var"
+                  dropdownmatchselectwidth="68"
+                  dropdownstyle="[object Object]"
                 >
                   <div
                     class="ant-select-selector"
@@ -11647,8 +11729,8 @@ Array [
                     </span>
                   </div>
                   <div
-                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                   >
                     <div>
                       <div

@@ -3,6 +3,8 @@
 exports[`renders components/select/demo/automatic-tokenization.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
+  dropdownclassname="css-var-test-id ant-select-css-var"
+  dropdownstyle="[object Object]"
   style="width:100%"
 >
   <div
@@ -86,6 +88,8 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="width:120px"
     >
       <div
@@ -154,6 +158,8 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="width:120px"
     >
       <div
@@ -223,6 +229,8 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-loading"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="width:120px"
     >
       <div
@@ -291,6 +299,8 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="width:120px"
     >
       <div
@@ -395,6 +405,8 @@ Array [
   </h4>,
   <div
     class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
+    dropdownclassname="css-var-test-id ant-select-css-var"
+    dropdownstyle="[object Object]"
     style="width:100%"
   >
     <div
@@ -536,6 +548,8 @@ exports[`renders components/select/demo/coordinate.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="width:120px"
     >
       <div
@@ -604,6 +618,8 @@ exports[`renders components/select/demo/coordinate.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="width:120px"
     >
       <div
@@ -673,6 +689,8 @@ exports[`renders components/select/demo/coordinate.tsx correctly 1`] = `
 exports[`renders components/select/demo/custom-dropdown-menu.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+  dropdownclassname="css-var-test-id ant-select-css-var"
+  dropdownstyle="[object Object]"
   style="width:300px"
 >
   <div
@@ -739,6 +757,8 @@ exports[`renders components/select/demo/custom-dropdown-menu.tsx correctly 1`] =
 exports[`renders components/select/demo/custom-label-render.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+  dropdownclassname="css-var-test-id ant-select-css-var"
+  dropdownstyle="[object Object]"
   style="width:100%"
 >
   <div
@@ -807,6 +827,8 @@ exports[`renders components/select/demo/custom-label-render.tsx correctly 1`] = 
 exports[`renders components/select/demo/custom-tag-render.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
+  dropdownclassname="css-var-test-id ant-select-css-var"
+  dropdownstyle="[object Object]"
   style="width:100%"
 >
   <div
@@ -968,6 +990,8 @@ exports[`renders components/select/demo/debug.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="width:120px"
     >
       <div
@@ -1032,6 +1056,8 @@ exports[`renders components/select/demo/debug.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="width:120px"
     >
       <div
@@ -1173,6 +1199,8 @@ exports[`renders components/select/demo/debug.tsx correctly 1`] = `
 exports[`renders components/select/demo/debug-flip-shift.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+  dropdownclassname="css-var-test-id ant-select-css-var"
+  dropdownstyle="[object Object]"
   style="width:120px;margin-top:50vh"
 >
   <div
@@ -1245,6 +1273,8 @@ exports[`renders components/select/demo/filled-debug.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-filled css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="flex:1"
     >
       <div
@@ -1310,6 +1340,8 @@ exports[`renders components/select/demo/filled-debug.tsx correctly 1`] = `
     </div>
     <div
       class="ant-select ant-select-filled css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-disabled ant-select-show-search"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="flex:1"
     >
       <div
@@ -1404,6 +1436,8 @@ exports[`renders components/select/demo/filled-debug.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-filled ant-select-status-error css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="flex:1"
     >
       <div
@@ -1468,6 +1502,8 @@ exports[`renders components/select/demo/filled-debug.tsx correctly 1`] = `
     </div>
     <div
       class="ant-select ant-select-filled ant-select-status-error css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="flex:1"
     >
       <div
@@ -1588,6 +1624,8 @@ exports[`renders components/select/demo/filled-debug.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-filled ant-select-status-error css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="flex:1"
     >
       <div
@@ -1653,6 +1691,8 @@ exports[`renders components/select/demo/filled-debug.tsx correctly 1`] = `
     </div>
     <div
       class="ant-select ant-select-filled ant-select-status-error css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-disabled ant-select-show-search"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="flex:1"
     >
       <div
@@ -1747,6 +1787,8 @@ exports[`renders components/select/demo/filled-debug.tsx correctly 1`] = `
 exports[`renders components/select/demo/hide-selected.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
+  dropdownclassname="css-var-test-id ant-select-css-var"
+  dropdownstyle="[object Object]"
   style="width:100%"
 >
   <div
@@ -1828,6 +1870,8 @@ exports[`renders components/select/demo/hide-selected.tsx correctly 1`] = `
 exports[`renders components/select/demo/label-in-value.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+  dropdownclassname="css-var-test-id ant-select-css-var"
+  dropdownstyle="[object Object]"
   style="width:120px"
 >
   <div
@@ -1895,6 +1939,8 @@ exports[`renders components/select/demo/label-in-value.tsx correctly 1`] = `
 exports[`renders components/select/demo/maxCount.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
+  dropdownclassname="css-var-test-id ant-select-css-var"
+  dropdownstyle="[object Object]"
   style="width:100%"
 >
   <div
@@ -2027,6 +2073,8 @@ exports[`renders components/select/demo/multiple.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="width:100%"
     >
       <div
@@ -2215,6 +2263,8 @@ exports[`renders components/select/demo/multiple.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-disabled ant-select-show-search"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="width:100%"
     >
       <div
@@ -2324,6 +2374,8 @@ exports[`renders components/select/demo/multiple.tsx correctly 1`] = `
 exports[`renders components/select/demo/optgroup.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+  dropdownclassname="css-var-test-id ant-select-css-var"
+  dropdownstyle="[object Object]"
   style="width:200px"
 >
   <div
@@ -2399,6 +2451,8 @@ Array [
     >
       <div
         class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
+        dropdownclassname="css-var-test-id ant-select-css-var"
+        dropdownstyle="[object Object]"
         style="width:120px"
       >
         <div
@@ -2494,6 +2548,8 @@ Array [
     >
       <div
         class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
+        dropdownclassname="css-var-test-id ant-select-css-var"
+        dropdownstyle="[object Object]"
         style="width:120px;height:60px"
       >
         <div
@@ -2561,6 +2617,8 @@ Array [
     >
       <div
         class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
+        dropdownclassname="css-var-test-id ant-select-css-var"
+        dropdownstyle="[object Object]"
         style="width:120px"
       >
         <div
@@ -2657,6 +2715,8 @@ Array [
     >
       <div
         class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+        dropdownclassname="css-var-test-id ant-select-css-var"
+        dropdownstyle="[object Object]"
         style="width:120px"
       >
         <div
@@ -2804,6 +2864,8 @@ Array [
     >
       <div
         class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+        dropdownclassname="css-var-test-id ant-select-css-var"
+        dropdownstyle="[object Object]"
         style="width:120px;height:60px"
       >
         <div
@@ -2886,6 +2948,8 @@ Array [
     >
       <div
         class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+        dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+        dropdownstyle="[object Object]"
         style="width:120px;height:60px"
       >
         <div
@@ -2953,6 +3017,8 @@ Array [
     >
       <div
         class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+        dropdownclassname="ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var"
+        dropdownstyle="[object Object]"
         style="width:120px;height:60px"
       >
         <div
@@ -3017,6 +3083,8 @@ Array [
     >
       <div
         class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+        dropdownclassname="css-var-test-id ant-select-css-var"
+        dropdownstyle="[object Object]"
         style="min-width:200px;height:200px"
       >
         <div
@@ -3171,6 +3239,8 @@ Array [
     >
       <div
         class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
+        dropdownclassname="css-var-test-id ant-select-css-var"
+        dropdownstyle="[object Object]"
         style="width:200px"
       >
         <div
@@ -3258,6 +3328,8 @@ Array [
     >
       <div
         class="ant-select ant-select-outlined ant-select-status-error css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+        dropdownclassname="css-var-test-id ant-select-css-var"
+        dropdownstyle="[object Object]"
         style="width:200px"
       >
         <div
@@ -3327,6 +3399,8 @@ Array [
     >
       <div
         class="ant-select ant-select-filled ant-select-status-warning css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+        dropdownclassname="css-var-test-id ant-select-css-var"
+        dropdownstyle="[object Object]"
         style="width:100px"
       >
         <div
@@ -3424,6 +3498,8 @@ Array [
     >
       <div
         class="ant-select ant-select-borderless ant-select-status-error css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+        dropdownclassname="css-var-test-id ant-select-css-var"
+        dropdownstyle="[object Object]"
         style="width:100px"
       >
         <div
@@ -3552,6 +3628,8 @@ Array [
                 >
                   <div
                     class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                    dropdownclassname="css-var-test-id ant-select-css-var"
+                    dropdownstyle="[object Object]"
                   >
                     <div
                       class="ant-select-selector"
@@ -3675,6 +3753,8 @@ Array [
                 >
                   <div
                     class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-search"
+                    dropdownclassname="css-var-test-id ant-select-css-var"
+                    dropdownstyle="[object Object]"
                   >
                     <div
                       class="ant-select-selector"
@@ -3787,6 +3867,8 @@ Array [
     </span>
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -3851,6 +3933,8 @@ Array [
     </div>
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -3943,6 +4027,8 @@ Array [
     </div>
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -4020,6 +4106,8 @@ Array [
     </div>
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -4102,6 +4190,8 @@ Array [
     </div>
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -4248,6 +4338,8 @@ Array [
     </div>
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -4394,6 +4486,8 @@ Array [
 exports[`renders components/select/demo/option-render.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
+  dropdownclassname="css-var-test-id ant-select-css-var"
+  dropdownstyle="[object Object]"
   style="width:100%"
 >
   <div
@@ -4608,6 +4702,8 @@ Array [
   <br />,
   <div
     class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+    dropdownclassname="css-var-test-id ant-select-css-var"
+    dropdownstyle="[object Object]"
     style="width:120px"
   >
     <div
@@ -4817,6 +4913,9 @@ exports[`renders components/select/demo/placement-debug.tsx correctly 1`] = `
   </div>
   <div
     class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+    dropdownclassname="css-var-test-id ant-select-css-var"
+    dropdownmatchselectwidth="200"
+    dropdownstyle="[object Object]"
     style="width:120px"
   >
     <div
@@ -4889,6 +4988,8 @@ exports[`renders components/select/demo/responsive.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="width:100%"
     >
       <div
@@ -4982,6 +5083,8 @@ exports[`renders components/select/demo/responsive.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-disabled ant-select-show-search"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="width:100%"
     >
       <div
@@ -5065,6 +5168,8 @@ exports[`renders components/select/demo/responsive.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="width:100%"
     >
       <div
@@ -5162,6 +5267,8 @@ exports[`renders components/select/demo/responsive.tsx correctly 1`] = `
 exports[`renders components/select/demo/search.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+  dropdownclassname="css-var-test-id ant-select-css-var"
+  dropdownstyle="[object Object]"
 >
   <div
     class="ant-select-selector"
@@ -5224,6 +5331,8 @@ exports[`renders components/select/demo/search.tsx correctly 1`] = `
 exports[`renders components/select/demo/search-box.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
+  dropdownclassname="css-var-test-id ant-select-css-var"
+  dropdownstyle="[object Object]"
   style="width:200px"
 >
   <div
@@ -5261,6 +5370,8 @@ exports[`renders components/select/demo/search-box.tsx correctly 1`] = `
 exports[`renders components/select/demo/search-filter-option.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+  dropdownclassname="css-var-test-id ant-select-css-var"
+  dropdownstyle="[object Object]"
 >
   <div
     class="ant-select-selector"
@@ -5323,6 +5434,8 @@ exports[`renders components/select/demo/search-filter-option.tsx correctly 1`] =
 exports[`renders components/select/demo/search-sort.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+  dropdownclassname="css-var-test-id ant-select-css-var"
+  dropdownstyle="[object Object]"
   style="width:200px"
 >
   <div
@@ -5386,6 +5499,8 @@ exports[`renders components/select/demo/search-sort.tsx correctly 1`] = `
 exports[`renders components/select/demo/select-users.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
+  dropdownclassname="css-var-test-id ant-select-css-var"
+  dropdownstyle="[object Object]"
   style="width:100%"
 >
   <div
@@ -5548,6 +5663,8 @@ Array [
     >
       <div
         class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+        dropdownclassname="css-var-test-id ant-select-css-var"
+        dropdownstyle="[object Object]"
         style="width:200px"
       >
         <div
@@ -5616,6 +5733,8 @@ Array [
     >
       <div
         class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
+        dropdownclassname="css-var-test-id ant-select-css-var"
+        dropdownstyle="[object Object]"
         style="width:100%"
       >
         <div
@@ -5777,6 +5896,8 @@ Array [
     >
       <div
         class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
+        dropdownclassname="css-var-test-id ant-select-css-var"
+        dropdownstyle="[object Object]"
         style="width:100%"
       >
         <div
@@ -5944,6 +6065,8 @@ exports[`renders components/select/demo/status.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined ant-select-status-error css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="width:100%"
     >
       <div
@@ -6009,6 +6132,8 @@ exports[`renders components/select/demo/status.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined ant-select-status-warning css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="width:100%"
     >
       <div
@@ -6082,6 +6207,8 @@ exports[`renders components/select/demo/suffix.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="width:200px"
     >
       <div
@@ -6155,6 +6282,8 @@ exports[`renders components/select/demo/suffix.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="width:120px"
     >
       <div
@@ -6223,6 +6352,8 @@ exports[`renders components/select/demo/suffix.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="width:120px"
     >
       <div
@@ -6297,6 +6428,8 @@ exports[`renders components/select/demo/suffix.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="width:200px"
     >
       <div
@@ -6421,6 +6554,8 @@ exports[`renders components/select/demo/suffix.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="width:120px"
     >
       <div
@@ -6540,6 +6675,8 @@ exports[`renders components/select/demo/suffix.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-disabled ant-select-show-search"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="width:120px"
     >
       <div
@@ -6634,6 +6771,8 @@ exports[`renders components/select/demo/suffix.tsx correctly 1`] = `
 exports[`renders components/select/demo/tags.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
+  dropdownclassname="css-var-test-id ant-select-css-var"
+  dropdownstyle="[object Object]"
   style="width:100%"
 >
   <div
@@ -6720,6 +6859,8 @@ exports[`renders components/select/demo/variant.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="flex:1"
     >
       <div
@@ -6783,6 +6924,8 @@ exports[`renders components/select/demo/variant.tsx correctly 1`] = `
     </div>
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="flex:1"
     >
       <div
@@ -6903,6 +7046,8 @@ exports[`renders components/select/demo/variant.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-filled css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="flex:1"
     >
       <div
@@ -6966,6 +7111,8 @@ exports[`renders components/select/demo/variant.tsx correctly 1`] = `
     </div>
     <div
       class="ant-select ant-select-filled css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="flex:1"
     >
       <div
@@ -7086,6 +7233,8 @@ exports[`renders components/select/demo/variant.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-borderless css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="flex:1"
     >
       <div
@@ -7149,6 +7298,8 @@ exports[`renders components/select/demo/variant.tsx correctly 1`] = `
     </div>
     <div
       class="ant-select ant-select-borderless css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="flex:1"
     >
       <div
@@ -7269,6 +7420,8 @@ exports[`renders components/select/demo/variant.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-underlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="flex:1"
     >
       <div
@@ -7332,6 +7485,8 @@ exports[`renders components/select/demo/variant.tsx correctly 1`] = `
     </div>
     <div
       class="ant-select ant-select-underlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
+      dropdownclassname="css-var-test-id ant-select-css-var"
+      dropdownstyle="[object Object]"
       style="flex:1"
     >
       <div

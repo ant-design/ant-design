@@ -3630,6 +3630,8 @@ exports[`renders components/tabs/demo/nest.tsx correctly 1`] = `
 <div>
   <div
     class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+    dropdownclassname="css-var-test-id ant-select-css-var"
+    dropdownstyle="[object Object]"
     style="width:200px"
   >
     <div
@@ -3691,6 +3693,8 @@ exports[`renders components/tabs/demo/nest.tsx correctly 1`] = `
   </div>
   <div
     class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+    dropdownclassname="css-var-test-id ant-select-css-var"
+    dropdownstyle="[object Object]"
     style="width:200px"
   >
     <div
@@ -3752,6 +3756,8 @@ exports[`renders components/tabs/demo/nest.tsx correctly 1`] = `
   </div>
   <div
     class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+    dropdownclassname="css-var-test-id ant-select-css-var"
+    dropdownstyle="[object Object]"
     style="width:200px"
   >
     <div
@@ -3813,6 +3819,8 @@ exports[`renders components/tabs/demo/nest.tsx correctly 1`] = `
   </div>
   <div
     class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+    dropdownclassname="css-var-test-id ant-select-css-var"
+    dropdownstyle="[object Object]"
     style="width:200px"
   >
     <div

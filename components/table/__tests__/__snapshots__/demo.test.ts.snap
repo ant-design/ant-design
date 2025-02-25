@@ -7953,6 +7953,8 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
           <div
             aria-label="Page Size"
             class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+            dropdownclassname="css-var-test-id ant-select-css-var"
+            dropdownstyle="[object Object]"
           >
             <div
               class="ant-select-selector"
@@ -12201,6 +12203,8 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
           <div
             aria-label="Page Size"
             class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+            dropdownclassname="css-var-test-id ant-select-css-var"
+            dropdownstyle="[object Object]"
           >
             <div
               class="ant-select-selector"
@@ -14184,6 +14188,8 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
           <div
             aria-label="Page Size"
             class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+            dropdownclassname="css-var-test-id ant-select-css-var"
+            dropdownstyle="[object Object]"
           >
             <div
               class="ant-select-selector"
@@ -15219,6 +15225,8 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
           <div
             aria-label="Page Size"
             class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+            dropdownclassname="css-var-test-id ant-select-css-var"
+            dropdownstyle="[object Object]"
           >
             <div
               class="ant-select-selector"
@@ -17389,6 +17397,8 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
             <div
               aria-label="Page Size"
               class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+              dropdownclassname="css-var-test-id ant-select-css-var"
+              dropdownstyle="[object Object]"
             >
               <div
                 class="ant-select-selector"
@@ -28025,6 +28035,8 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
           <div
             aria-label="Page Size"
             class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+            dropdownclassname="css-var-test-id ant-select-css-var"
+            dropdownstyle="[object Object]"
           >
             <div
               class="ant-select-selector"

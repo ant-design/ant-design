@@ -9,6 +9,8 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
   >
     <div
       class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
+      dropdownclassname="css-var-root ant-select-css-var"
+      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -73,6 +75,8 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
     </div>
     <div
       class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
+      dropdownclassname="css-var-root ant-select-css-var"
+      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -967,6 +971,8 @@ exports[`Calendar Calendar should support locale 1`] = `
   >
     <div
       class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
+      dropdownclassname="css-var-root ant-select-css-var"
+      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -1031,6 +1037,8 @@ exports[`Calendar Calendar should support locale 1`] = `
     </div>
     <div
       class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
+      dropdownclassname="css-var-root ant-select-css-var"
+      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -1925,6 +1933,8 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
   >
     <div
       class="ant-select ant-select-rtl ant-select-outlined ant-picker-calendar-year-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
+      dropdownclassname="ant-select-dropdown-rtl css-var-root ant-select-css-var"
+      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -1989,6 +1999,8 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
     </div>
     <div
       class="ant-select ant-select-rtl ant-select-outlined ant-picker-calendar-month-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
+      dropdownclassname="ant-select-dropdown-rtl css-var-root ant-select-css-var"
+      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -2883,6 +2895,8 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
   >
     <div
       class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
+      dropdownclassname="css-var-root ant-select-css-var"
+      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -2947,6 +2961,8 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
     </div>
     <div
       class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
+      dropdownclassname="css-var-root ant-select-css-var"
+      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"

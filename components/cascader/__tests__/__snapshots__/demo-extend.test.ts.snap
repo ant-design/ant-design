@@ -3,6 +3,8 @@
 exports[`renders components/cascader/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+  dropdownstyle="[object Object]"
 >
   <div
     class="ant-select-selector"
@@ -38,7 +40,7 @@ exports[`renders components/cascader/demo/basic.tsx extend context correctly 1`]
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
   >
     <div>
@@ -159,6 +161,8 @@ exports[`renders components/cascader/demo/basic.tsx extend context correctly 2`]
 exports[`renders components/cascader/demo/change-on-select.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+  dropdownstyle="[object Object]"
 >
   <div
     class="ant-select-selector"
@@ -192,7 +196,7 @@ exports[`renders components/cascader/demo/change-on-select.tsx extend context co
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
   >
     <div>
@@ -313,6 +317,8 @@ exports[`renders components/cascader/demo/change-on-select.tsx extend context co
 exports[`renders components/cascader/demo/component-token.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+  dropdownstyle="[object Object]"
 >
   <div
     class="ant-select-selector"
@@ -348,7 +354,7 @@ exports[`renders components/cascader/demo/component-token.tsx extend context cor
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
   >
     <div>
@@ -469,6 +475,8 @@ exports[`renders components/cascader/demo/component-token.tsx extend context cor
 exports[`renders components/cascader/demo/custom-dropdown.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+  dropdownstyle="[object Object]"
 >
   <div
     class="ant-select-selector"
@@ -504,102 +512,90 @@ exports[`renders components/cascader/demo/custom-dropdown.tsx extend context cor
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
   >
     <div>
-      <div>
-        <div
-          class="ant-cascader-menus"
+      <div
+        class="ant-cascader-menus"
+      >
+        <ul
+          class="ant-cascader-menu"
+          role="menu"
         >
-          <ul
-            class="ant-cascader-menu"
-            role="menu"
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            data-path-key="zhejiang"
+            role="menuitemcheckbox"
+            title="Zhejiang"
           >
-            <li
-              aria-checked="false"
-              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-path-key="zhejiang"
-              role="menuitemcheckbox"
-              title="Zhejiang"
+            <div
+              class="ant-cascader-menu-item-content"
             >
-              <div
-                class="ant-cascader-menu-item-content"
-              >
-                Zhejiang
-              </div>
-              <div
-                class="ant-cascader-menu-item-expand-icon"
-              >
-                <span
-                  aria-label="right"
-                  class="anticon anticon-right"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="right"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </li>
-            <li
-              aria-checked="false"
-              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-path-key="jiangsu"
-              role="menuitemcheckbox"
-              title="Jiangsu"
+              Zhejiang
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
             >
-              <div
-                class="ant-cascader-menu-item-content"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                Jiangsu
-              </div>
-              <div
-                class="ant-cascader-menu-item-expand-icon"
-              >
-                <span
-                  aria-label="right"
-                  class="anticon anticon-right"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="right"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div
-          class="ant-divider css-var-test-id ant-divider-horizontal"
-          role="separator"
-          style="margin: 0px;"
-        />
-        <div
-          style="padding: 8px;"
-        >
-          The footer is not very short.
-        </div>
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            data-path-key="jiangsu"
+            role="menuitemcheckbox"
+            title="Jiangsu"
+          >
+            <div
+              class="ant-cascader-menu-item-content"
+            >
+              Jiangsu
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -632,11 +628,17 @@ exports[`renders components/cascader/demo/custom-dropdown.tsx extend context cor
 </div>
 `;
 
-exports[`renders components/cascader/demo/custom-dropdown.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/cascader/demo/custom-dropdown.tsx extend context correctly 2`] = `
+[
+  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
+]
+`;
 
 exports[`renders components/cascader/demo/custom-render.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+  dropdownstyle="[object Object]"
   style="width: 100%;"
 >
   <div
@@ -685,7 +687,7 @@ exports[`renders components/cascader/demo/custom-render.tsx extend context corre
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
   >
     <div>
@@ -837,7 +839,7 @@ exports[`renders components/cascader/demo/custom-trigger.tsx extend context corr
     Change city
   </a>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
   >
     <div>
@@ -932,6 +934,8 @@ exports[`renders components/cascader/demo/custom-trigger.tsx extend context corr
 exports[`renders components/cascader/demo/default-value.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+  dropdownstyle="[object Object]"
 >
   <div
     class="ant-select-selector"
@@ -968,7 +972,7 @@ exports[`renders components/cascader/demo/default-value.tsx extend context corre
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
   >
     <div>
@@ -1116,6 +1120,8 @@ exports[`renders components/cascader/demo/default-value.tsx extend context corre
 exports[`renders components/cascader/demo/disabled-option.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+  dropdownstyle="[object Object]"
 >
   <div
     class="ant-select-selector"
@@ -1149,7 +1155,7 @@ exports[`renders components/cascader/demo/disabled-option.tsx extend context cor
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
   >
     <div>
@@ -1270,6 +1276,8 @@ exports[`renders components/cascader/demo/disabled-option.tsx extend context cor
 exports[`renders components/cascader/demo/fields-name.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+  dropdownstyle="[object Object]"
 >
   <div
     class="ant-select-selector"
@@ -1305,7 +1313,7 @@ exports[`renders components/cascader/demo/fields-name.tsx extend context correct
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
   >
     <div>
@@ -1426,6 +1434,8 @@ exports[`renders components/cascader/demo/fields-name.tsx extend context correct
 exports[`renders components/cascader/demo/hover.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+  dropdownstyle="[object Object]"
 >
   <div
     class="ant-select-selector"
@@ -1459,7 +1469,7 @@ exports[`renders components/cascader/demo/hover.tsx extend context correctly 1`]
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
   >
     <div>
@@ -1580,6 +1590,8 @@ exports[`renders components/cascader/demo/hover.tsx extend context correctly 2`]
 exports[`renders components/cascader/demo/lazy.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+  dropdownstyle="[object Object]"
 >
   <div
     class="ant-select-selector"
@@ -1613,7 +1625,7 @@ exports[`renders components/cascader/demo/lazy.tsx extend context correctly 1`] 
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
   >
     <div>
@@ -1734,6 +1746,8 @@ exports[`renders components/cascader/demo/lazy.tsx extend context correctly 2`] 
 exports[`renders components/cascader/demo/multiple.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
+  dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+  dropdownstyle="[object Object]"
   style="width: 100%;"
 >
   <div
@@ -1783,7 +1797,7 @@ exports[`renders components/cascader/demo/multiple.tsx extend context correctly 
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
   >
     <div>
@@ -2284,6 +2298,8 @@ Array [
   <br />,
   <div
     class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+    dropdownstyle="[object Object]"
   >
     <div
       class="ant-select-selector"
@@ -2319,7 +2335,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-topLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-topLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
     >
       <div>
@@ -2444,6 +2460,9 @@ exports[`renders components/cascader/demo/render-panel.tsx extend context correc
 >
   <div
     class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
+    dropdownalign="[object Object]"
+    dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+    dropdownstyle="[object Object]"
     style="margin: 0px;"
   >
     <div
@@ -2480,7 +2499,7 @@ exports[`renders components/cascader/demo/render-panel.tsx extend context correc
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
     >
       <div>
@@ -2597,11 +2616,17 @@ exports[`renders components/cascader/demo/render-panel.tsx extend context correc
 </div>
 `;
 
-exports[`renders components/cascader/demo/render-panel.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/cascader/demo/render-panel.tsx extend context correctly 2`] = `
+[
+  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
+]
+`;
 
 exports[`renders components/cascader/demo/search.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+  dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+  dropdownstyle="[object Object]"
 >
   <div
     class="ant-select-selector"
@@ -2634,7 +2659,7 @@ exports[`renders components/cascader/demo/search.tsx extend context correctly 1`
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
   >
     <div>
@@ -2756,6 +2781,8 @@ exports[`renders components/cascader/demo/showCheckedStrategy.tsx extend context
 Array [
   <div
     class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
+    dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+    dropdownstyle="[object Object]"
     style="width: 100%;"
   >
     <div
@@ -2818,7 +2845,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
     >
       <div>
@@ -2977,6 +3004,8 @@ Array [
   <br />,
   <div
     class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
+    dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+    dropdownstyle="[object Object]"
     style="width: 100%;"
   >
     <div
@@ -3039,7 +3068,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
     >
       <div>
@@ -3203,6 +3232,8 @@ exports[`renders components/cascader/demo/size.tsx extend context correctly 1`] 
 Array [
   <div
     class="ant-select ant-cascader ant-select-lg ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+    dropdownstyle="[object Object]"
   >
     <div
       class="ant-select-selector"
@@ -3236,7 +3267,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
     >
       <div>
@@ -3354,6 +3385,8 @@ Array [
   <br />,
   <div
     class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+    dropdownstyle="[object Object]"
   >
     <div
       class="ant-select-selector"
@@ -3387,7 +3420,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
     >
       <div>
@@ -3505,6 +3538,8 @@ Array [
   <br />,
   <div
     class="ant-select ant-cascader ant-select-sm ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+    dropdownstyle="[object Object]"
   >
     <div
       class="ant-select-selector"
@@ -3538,7 +3573,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
     >
       <div>
@@ -3668,6 +3703,8 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 1`
   >
     <div
       class="ant-select ant-cascader ant-select-outlined ant-select-status-error ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+      dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -3703,7 +3740,7 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 1`
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
@@ -3810,6 +3847,8 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 1`
   >
     <div
       class="ant-select ant-cascader ant-select-outlined ant-select-status-warning ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
+      dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -3860,7 +3899,7 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 1`
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
@@ -3971,6 +4010,8 @@ exports[`renders components/cascader/demo/suffix.tsx extend context correctly 1`
 Array [
   <div
     class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+    dropdownstyle="[object Object]"
   >
     <div
       class="ant-select-selector"
@@ -4006,7 +4047,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
     >
       <div>
@@ -4124,6 +4165,8 @@ Array [
   <br />,
   <div
     class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+    dropdownstyle="[object Object]"
   >
     <div
       class="ant-select-selector"
@@ -4159,7 +4202,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
     >
       <div>
@@ -4259,6 +4302,8 @@ Array [
   <br />,
   <div
     class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+    dropdownstyle="[object Object]"
   >
     <div
       class="ant-select-selector"
@@ -4294,7 +4339,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
     >
       <div>
@@ -4412,6 +4457,8 @@ Array [
   <br />,
   <div
     class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+    dropdownstyle="[object Object]"
   >
     <div
       class="ant-select-selector"
@@ -4447,7 +4494,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
     >
       <div>
@@ -4529,6 +4576,8 @@ Array [
   <br />,
   <div
     class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+    dropdownstyle="[object Object]"
   >
     <div
       class="ant-select-selector"
@@ -4587,7 +4636,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
     >
       <div>
@@ -4712,6 +4761,8 @@ exports[`renders components/cascader/demo/variant.tsx extend context correctly 1
 >
   <div
     class="ant-select ant-cascader ant-select-borderless ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+    dropdownstyle="[object Object]"
   >
     <div
       class="ant-select-selector"
@@ -4747,7 +4798,7 @@ exports[`renders components/cascader/demo/variant.tsx extend context correctly 1
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
@@ -4850,6 +4901,8 @@ exports[`renders components/cascader/demo/variant.tsx extend context correctly 1
   </div>
   <div
     class="ant-select ant-cascader ant-select-filled ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+    dropdownstyle="[object Object]"
   >
     <div
       class="ant-select-selector"
@@ -4885,7 +4938,7 @@ exports[`renders components/cascader/demo/variant.tsx extend context correctly 1
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
@@ -4988,6 +5041,8 @@ exports[`renders components/cascader/demo/variant.tsx extend context correctly 1
   </div>
   <div
     class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+    dropdownstyle="[object Object]"
   >
     <div
       class="ant-select-selector"
@@ -5023,7 +5078,7 @@ exports[`renders components/cascader/demo/variant.tsx extend context correctly 1
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
@@ -5126,6 +5181,8 @@ exports[`renders components/cascader/demo/variant.tsx extend context correctly 1
   </div>
   <div
     class="ant-select ant-cascader ant-select-underlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
+    dropdownstyle="[object Object]"
   >
     <div
       class="ant-select-selector"
@@ -5161,7 +5218,7 @@ exports[`renders components/cascader/demo/variant.tsx extend context correctly 1
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
@@ -5265,4 +5322,8 @@ exports[`renders components/cascader/demo/variant.tsx extend context correctly 1
 </div>
 `;
 
-exports[`renders components/cascader/demo/variant.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/cascader/demo/variant.tsx extend context correctly 2`] = `
+[
+  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
+]
+`;

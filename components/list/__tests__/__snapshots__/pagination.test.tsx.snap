@@ -301,6 +301,8 @@ exports[`List.pagination should change page size work 1`] = `
     <div
       aria-label="Page Size"
       class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+      dropdownclassname="css-var-root ant-select-css-var"
+      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -450,6 +452,8 @@ exports[`List.pagination should change page size work 2`] = `
     <div
       aria-label="Page Size"
       class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-open ant-select-show-search"
+      dropdownclassname="css-var-root ant-select-css-var"
+      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -485,10 +489,32 @@ exports[`List.pagination should change page size work 2`] = `
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-enter ant-slide-up-enter-prepare ant-slide-up css-var-root ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-enter ant-slide-up-enter-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
+          <div
+            id="rc_select_TEST_OR_SSR_list"
+            role="listbox"
+            style="height: 0px; width: 0px; overflow: hidden;"
+          >
+            <div
+              aria-label="10 / page"
+              aria-selected="false"
+              id="rc_select_TEST_OR_SSR_list_0"
+              role="option"
+            >
+              10
+            </div>
+            <div
+              aria-label="20 / page"
+              aria-selected="false"
+              id="rc_select_TEST_OR_SSR_list_1"
+              role="option"
+            >
+              20
+            </div>
+          </div>
           <div
             class="rc-virtual-list"
             style="position: relative;"
@@ -500,15 +526,11 @@ exports[`List.pagination should change page size work 2`] = `
               <div>
                 <div
                   class="rc-virtual-list-holder-inner"
-                  id="rc_select_TEST_OR_SSR_list"
-                  role="listbox"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
                     aria-selected="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                    id="rc_select_TEST_OR_SSR_list_0"
-                    role="option"
                     title="10 / page"
                   >
                     <div
@@ -526,8 +548,6 @@ exports[`List.pagination should change page size work 2`] = `
                   <div
                     aria-selected="false"
                     class="ant-select-item ant-select-item-option"
-                    id="rc_select_TEST_OR_SSR_list_1"
-                    role="option"
                     title="20 / page"
                   >
                     <div
@@ -545,8 +565,6 @@ exports[`List.pagination should change page size work 2`] = `
                   <div
                     aria-selected="true"
                     class="ant-select-item ant-select-item-option ant-select-item-option-selected"
-                    id="rc_select_TEST_OR_SSR_list_2"
-                    role="option"
                     title="50 / page"
                   >
                     <div
@@ -564,8 +582,6 @@ exports[`List.pagination should change page size work 2`] = `
                   <div
                     aria-selected="false"
                     class="ant-select-item ant-select-item-option"
-                    id="rc_select_TEST_OR_SSR_list_3"
-                    role="option"
                     title="100 / page"
                   >
                     <div
@@ -713,6 +729,8 @@ exports[`List.pagination should default work 1`] = `
     <div
       aria-label="Page Size"
       class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+      dropdownclassname="css-var-root ant-select-css-var"
+      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
