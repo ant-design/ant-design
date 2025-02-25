@@ -20,6 +20,11 @@ export interface ComponentToken {
    * @descEN Width of Notification
    */
   width: number | string;
+  /**
+   * @desc 提醒框进度条背景色
+   * @descEN Background color of Notification progress bar
+   */
+  notificationProgressBg: string;
 }
 
 /**
@@ -77,11 +82,6 @@ export interface NotificationToken extends FullToken<'Notification'> {
    * @descEN Stack layer of Notification
    */
   notificationStackLayer: number;
-  /**
-   * @desc 提醒框进度条背景色
-   * @descEN Background color of Notification progress bar
-   */
-  notificationProgressBg: string;
   /**
    * @desc 提醒框进度条高度
    * @descEN Height of Notification progress bar
@@ -349,6 +349,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 export const prepareComponentToken = (token: AliasToken) => ({
   zIndexPopup: token.zIndexPopupBase + CONTAINER_MAX_OFFSET + 50,
   width: 384,
+  notificationProgressBg: `linear-gradient(90deg, ${token.colorPrimaryBorderHover}, ${token.colorPrimary})`,
 });
 
 export const prepareNotificationToken: (
@@ -368,7 +369,6 @@ export const prepareNotificationToken: (
     animationMaxHeight: 150,
     notificationStackLayer: 3,
     notificationProgressHeight: 2,
-    notificationProgressBg: `linear-gradient(90deg, ${token.colorPrimaryBorderHover}, ${token.colorPrimary})`,
   });
 
   return notificationToken;
