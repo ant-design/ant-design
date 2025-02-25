@@ -26,14 +26,14 @@ Based on the above reasons, we adopt the following methods:
 ```json
 {
   "dependencies": {
-    "rc-cascader": "~3.9.0"
+    "@rc-component/cascader": "~3.9.0"
   }
 }
 ```
 
 For the difference between `^` and `~` in the version description of package.json, see [What's the difference between tilde(~) and caret(^) in package.json](https://stackoverflow.com/questions/22343224/whats-the-difference-between-tilde-and-caret-in-package-json).
 
-Thus, when our dependency such as rc-cascader fixes a bug and releases a patch version such as: `3.9.1`, then the user's latest installed version is `3.9.1`. For the maintainer of Ant Design, we only need to execute the following command:
+Thus, when our dependency such as @rc-component/cascader fixes a bug and releases a patch version such as: `3.9.1`, then the user's latest installed version is `3.9.1`. For the maintainer of Ant Design, we only need to execute the following command:
 
 ```bash
 git clean -fdx

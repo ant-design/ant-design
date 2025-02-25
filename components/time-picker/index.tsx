@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { Dayjs } from 'dayjs';
-import type { PickerRef } from 'rc-picker';
+import type { PickerRef } from '@rc-component/picker';
 
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';

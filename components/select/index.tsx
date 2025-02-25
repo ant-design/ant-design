@@ -2,10 +2,10 @@
 import * as React from 'react';
 import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import type { BaseSelectRef, SelectProps as RcSelectProps } from 'rc-select';
-import RcSelect, { OptGroup, Option } from 'rc-select';
-import type { OptionProps } from 'rc-select/lib/Option';
-import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
+import type { BaseSelectRef, SelectProps as RcSelectProps } from '@rc-component/select';
+import RcSelect, { OptGroup, Option } from '@rc-component/select';
+import type { OptionProps } from '@rc-component/select/lib/Option';
+import type { BaseOptionType, DefaultOptionType } from '@rc-component/select/lib/Select';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';

@@ -3,10 +3,10 @@ import { forwardRef, useContext, useImperativeHandle } from 'react';
 import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import classNames from 'classnames';
-import RCPicker from 'rc-picker';
-import type { PickerRef } from 'rc-picker';
-import type { GenerateConfig } from 'rc-picker/lib/generate/index';
-import type { PickerMode } from 'rc-picker/lib/interface';
+import RCPicker from '@rc-component/picker';
+import type { PickerRef } from '@rc-component/picker';
+import type { GenerateConfig } from '@rc-component/picker/lib/generate/index';
+import type { PickerMode } from '@rc-component/picker/lib/interface';
 
 import ContextIsolator from '../../_util/ContextIsolator';
 import { useZIndex } from '../../_util/hooks/useZIndex';

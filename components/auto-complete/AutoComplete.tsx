@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import type { BaseSelectRef } from 'rc-select';
+import type { BaseSelectRef } from '@rc-component/select';
 import toArray from '@rc-component/util/lib/Children/toArray';
 import omit from '@rc-component/util/lib/omit';
 

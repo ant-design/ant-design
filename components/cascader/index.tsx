@@ -7,9 +7,9 @@ import type {
   FieldNames,
   CascaderProps as RcCascaderProps,
   ShowSearchType,
-} from 'rc-cascader';
-import RcCascader from 'rc-cascader';
-import type { Placement } from 'rc-select/lib/BaseSelect';
+} from '@rc-component/cascader';
+import RcCascader from '@rc-component/cascader';
+import type { Placement } from '@rc-component/select/lib/BaseSelect';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';
@@ -39,7 +39,7 @@ import useColumnIcons from './hooks/useColumnIcons';
 import CascaderPanel from './Panel';
 import useStyle from './style';
 
-// Align the design since we use `rc-select` in root. This help:
+// Align the design since we use `@rc-component/select` in root. This help:
 // - List search content will show all content
 // - Hover opacity style
 // - Search filter match case

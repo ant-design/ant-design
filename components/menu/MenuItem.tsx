@@ -2,8 +2,8 @@ import * as React from 'react';
 import toArray from '@rc-component/util/lib/Children/toArray';
 import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import type { MenuItemProps as RcMenuItemProps } from 'rc-menu';
-import { Item } from 'rc-menu';
+import type { MenuItemProps as RcMenuItemProps } from '@rc-component/menu';
+import { Item } from '@rc-component/menu';
 
 import { cloneElement } from '../_util/reactNode';
 import type { SiderContextProps } from '../layout/Sider';

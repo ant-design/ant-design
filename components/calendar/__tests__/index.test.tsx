@@ -5,9 +5,9 @@ import 'dayjs/locale/zh-cn';
 import React from 'react';
 import { resetWarned } from '@rc-component/util/lib/warning';
 import MockDate from 'mockdate';
-import type { PickerPanelProps } from 'rc-picker';
-import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
-import type { Locale } from 'rc-picker/lib/interface';
+import type { PickerPanelProps } from '@rc-component/picker';
+import dayjsGenerateConfig from '@rc-component/picker/lib/generate/dayjs';
+import type { Locale } from '@rc-component/picker/lib/interface';
 
 import Calendar from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -34,8 +34,8 @@ jest.mock('../Header', () => {
   };
 });
 
-jest.mock('rc-picker', () => {
-  const RcPicker = jest.requireActual('rc-picker');
+jest.mock('@rc-component/picker', () => {
+  const RcPicker = jest.requireActual('@rc-component/picker');
   const PickerPanelComponent = RcPicker.PickerPanel;
   return {
     ...RcPicker,
