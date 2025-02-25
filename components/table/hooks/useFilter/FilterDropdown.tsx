@@ -364,6 +364,9 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
 
   const { direction, renderEmpty } = React.useContext(ConfigContext);
 
+  const filterReset = filterDropdownProps.resetText ?? locale.filterReset;
+  const filterConfirm = filterDropdownProps.okText ?? locale.filterConfirm;
+
   if (typeof column.filterDropdown === 'function') {
     dropdownContent = column.filterDropdown({
       prefixCls: `${dropdownPrefixCls}-custom`,
@@ -376,6 +379,8 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
       close: () => {
         triggerVisible(false);
       },
+      okText: filterConfirm,
+      resetText: filterReset,
     });
   } else if (column.filterDropdown) {
     dropdownContent = column.filterDropdown;
@@ -510,10 +515,10 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
         {getFilterComponent()}
         <div className={`${prefixCls}-dropdown-btns`}>
           <Button type="link" size="small" disabled={getResetDisabled()} onClick={() => onReset()}>
-            {locale.filterReset}
+            {filterReset}
           </Button>
           <Button type="primary" size="small" onClick={onConfirm}>
-            {locale.filterConfirm}
+            {filterConfirm}
           </Button>
         </div>
       </>

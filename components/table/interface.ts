@@ -122,6 +122,8 @@ export interface FilterDropdownProps {
   /** Only close filterDropdown */
   close: () => void;
   visible: boolean;
+  okText: React.ReactNode;
+  resetText: React.ReactNode;
 }
 
 // 非必要请勿导出
@@ -135,6 +137,8 @@ interface CoverableDropdownProps
     | 'onVisibleChange'
   > {
   onOpenChange?: (open: boolean) => void;
+  okText?: React.ReactNode;
+  resetText?: React.ReactNode;
 }
 
 export interface ColumnType<RecordType = AnyObject>
