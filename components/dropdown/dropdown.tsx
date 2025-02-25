@@ -1,4 +1,5 @@
 import * as React from 'react';
+import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import type { AlignType } from '@rc-component/trigger';
 import useEvent from '@rc-component/util/lib/hooks/useEvent';
@@ -141,7 +142,7 @@ const Dropdown: CompoundedComponent = (props) => {
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const [, token] = useToken();
 
@@ -216,14 +217,17 @@ const Dropdown: CompoundedComponent = (props) => {
     overlayNode = React.Children.only(
       typeof overlayNode === 'string' ? <span>{overlayNode}</span> : overlayNode,
     );
-
     return (
       <OverrideProvider
         prefixCls={`${prefixCls}-menu`}
         rootClassName={classNames(cssVarCls, rootCls)}
         expandIcon={
           <span className={`${prefixCls}-menu-submenu-arrow`}>
-            <RightOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />
+            {direction === 'rtl' ? (
+              <LeftOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />
+            ) : (
+              <RightOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />
+            )}
           </span>
         }
         mode="vertical"
@@ -276,7 +280,7 @@ const Dropdown: CompoundedComponent = (props) => {
     );
   }
 
-  return wrapCSSVar(renderNode);
+  return renderNode;
 };
 
 // We don't care debug panel

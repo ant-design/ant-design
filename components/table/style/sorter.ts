@@ -51,6 +51,7 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         position: 'relative',
         zIndex: 1,
         flex: 1,
+        minWidth: 0,
       },
 
       [`${componentCls}-column-sorters`]: {

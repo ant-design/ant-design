@@ -90,8 +90,8 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
   // Style
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapSharedCSSVar, hashId, cssVarCls] = useSharedStyle(prefixCls, rootClassName);
-  const [wrapCSSVar] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useSharedStyle(prefixCls, rootClassName);
+  useStyle(prefixCls, rootCls);
 
   // ===================== Compact Item =====================
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
@@ -157,89 +157,87 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
   const [variant, enableVariantCls] = useVariant('input', customVariant, bordered);
 
-  return wrapSharedCSSVar(
-    wrapCSSVar(
-      <RcInput
-        ref={composeRef(ref, inputRef)}
-        prefixCls={prefixCls}
-        autoComplete={contextAutoComplete}
-        {...rest}
-        disabled={mergedDisabled}
-        onBlur={handleBlur}
-        onFocus={handleFocus}
-        style={{ ...contextStyle, ...style }}
-        styles={{ ...contextStyles, ...styles }}
-        suffix={suffixNode}
-        allowClear={mergedAllowClear}
-        className={classNames(
-          className,
-          rootClassName,
-          cssVarCls,
-          rootCls,
-          compactItemClassnames,
-          contextClassName,
-        )}
-        onChange={handleChange}
-        addonBefore={
-          addonBefore && (
-            <ContextIsolator form space>
-              {addonBefore}
-            </ContextIsolator>
-          )
-        }
-        addonAfter={
-          addonAfter && (
-            <ContextIsolator form space>
-              {addonAfter}
-            </ContextIsolator>
-          )
-        }
-        classNames={{
-          ...classes,
-          ...contextClassNames,
-          input: classNames(
-            {
-              [`${prefixCls}-sm`]: mergedSize === 'small',
-              [`${prefixCls}-lg`]: mergedSize === 'large',
-              [`${prefixCls}-rtl`]: direction === 'rtl',
-            },
-            classes?.input,
-            contextClassNames.input,
-            hashId,
-          ),
-          variant: classNames(
-            {
-              [`${prefixCls}-${variant}`]: enableVariantCls,
-            },
-            getStatusClassNames(prefixCls, mergedStatus),
-          ),
-          affixWrapper: classNames(
-            {
-              [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
-              [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
-              [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-            },
-            hashId,
-          ),
-          wrapper: classNames(
-            {
-              [`${prefixCls}-group-rtl`]: direction === 'rtl',
-            },
-            hashId,
-          ),
-          groupWrapper: classNames(
-            {
-              [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
-              [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',
-              [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
-              [`${prefixCls}-group-wrapper-${variant}`]: enableVariantCls,
-            },
-            getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
-            hashId,
-          ),
-        }}
-      />,
-    ),
+  return (
+    <RcInput
+      ref={composeRef(ref, inputRef)}
+      prefixCls={prefixCls}
+      autoComplete={contextAutoComplete}
+      {...rest}
+      disabled={mergedDisabled}
+      onBlur={handleBlur}
+      onFocus={handleFocus}
+      style={{ ...contextStyle, ...style }}
+      styles={{ ...contextStyles, ...styles }}
+      suffix={suffixNode}
+      allowClear={mergedAllowClear}
+      className={classNames(
+        className,
+        rootClassName,
+        cssVarCls,
+        rootCls,
+        compactItemClassnames,
+        contextClassName,
+      )}
+      onChange={handleChange}
+      addonBefore={
+        addonBefore && (
+          <ContextIsolator form space>
+            {addonBefore}
+          </ContextIsolator>
+        )
+      }
+      addonAfter={
+        addonAfter && (
+          <ContextIsolator form space>
+            {addonAfter}
+          </ContextIsolator>
+        )
+      }
+      classNames={{
+        ...classes,
+        ...contextClassNames,
+        input: classNames(
+          {
+            [`${prefixCls}-sm`]: mergedSize === 'small',
+            [`${prefixCls}-lg`]: mergedSize === 'large',
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+          },
+          classes?.input,
+          contextClassNames.input,
+          hashId,
+        ),
+        variant: classNames(
+          {
+            [`${prefixCls}-${variant}`]: enableVariantCls,
+          },
+          getStatusClassNames(prefixCls, mergedStatus),
+        ),
+        affixWrapper: classNames(
+          {
+            [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
+            [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
+            [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
+          },
+          hashId,
+        ),
+        wrapper: classNames(
+          {
+            [`${prefixCls}-group-rtl`]: direction === 'rtl',
+          },
+          hashId,
+        ),
+        groupWrapper: classNames(
+          {
+            [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
+            [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',
+            [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
+            [`${prefixCls}-group-wrapper-${variant}`]: enableVariantCls,
+          },
+          getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
+          hashId,
+        ),
+      }}
+    />
   );
 });
 

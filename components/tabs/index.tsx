@@ -2,14 +2,15 @@ import * as React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import PlusOutlined from '@ant-design/icons/PlusOutlined';
-import classNames from 'classnames';
 import type { TabsProps as RcTabsProps } from '@rc-component/tabs';
 import RcTabs from '@rc-component/tabs';
 import type { GetIndicatorSize } from '@rc-component/tabs/lib/hooks/useIndicator';
 import type { EditableConfig, MoreProps } from '@rc-component/tabs/lib/interface';
+import classNames from 'classnames';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -24,7 +25,9 @@ export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
 
 export type { TabPaneProps };
 
-export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
+type SemanticName = 'root' | 'popup' | 'item' | 'indicator' | 'content' | 'header';
+export interface TabsProps
+  extends Omit<RcTabsProps, 'editable' | 'classNames' | 'styles' | 'popupClassName'> {
   rootClassName?: string;
   type?: TabsType;
   size?: SizeType;
@@ -38,6 +41,10 @@ export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
   children?: React.ReactNode;
   /** @deprecated Please use `indicator={{ size: ... }}` instead */
   indicatorSize?: GetIndicatorSize;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  /** @deprecated Please use `classNames={{ popup: '' }}` instead */
+  popupClassName?: string;
 }
 
 const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
@@ -60,13 +67,24 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     style,
     indicatorSize,
     indicator,
-    ...otherProps
+    classNames: tabsClassNames,
+    styles,
+    ...restProps
   } = props;
-  const { prefixCls: customizePrefixCls } = otherProps;
-  const { direction, tabs, getPrefixCls, getPopupContainer } = React.useContext(ConfigContext);
+  const { prefixCls: customizePrefixCls } = restProps;
+  const {
+    getPrefixCls,
+    direction,
+    getPopupContainer,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('tabs');
+  const { tabs } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tabs', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   let editable: EditableConfig | undefined;
   if (type === 'editable-card') {
@@ -83,7 +101,9 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Tabs');
-
+    [['popupClassName', 'classNames={{ popup: "" }}']].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
     warning(
       !('onPrevClick' in props) && !('onNextClick' in props),
       'breaking',
@@ -103,18 +123,16 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
 
   const mergedAnimated = useAnimateConfig(prefixCls, animated);
 
-  const mergedStyle: React.CSSProperties = { ...tabs?.style, ...style };
-
   const mergedIndicator: TabsProps['indicator'] = {
     align: indicator?.align ?? tabs?.indicator?.align,
     size: indicator?.size ?? indicatorSize ?? tabs?.indicator?.size ?? tabs?.indicatorSize,
   };
 
-  return wrapCSSVar(
+  return (
     <RcTabs
       direction={direction}
       getPopupContainer={getPopupContainer}
-      {...otherProps}
+      {...restProps}
       items={mergedItems}
       className={classNames(
         {
@@ -123,15 +141,37 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
           [`${prefixCls}-editable-card`]: type === 'editable-card',
           [`${prefixCls}-centered`]: centered,
         },
-        tabs?.className,
+        contextClassName,
         className,
         rootClassName,
+        contextClassNames.root,
+        tabsClassNames?.root,
         hashId,
         cssVarCls,
         rootCls,
       )}
-      popupClassName={classNames(popupClassName, hashId, cssVarCls, rootCls)}
-      style={mergedStyle}
+      classNames={{
+        popup: classNames(
+          popupClassName,
+          hashId,
+          cssVarCls,
+          rootCls,
+          contextClassNames.popup,
+          tabsClassNames?.popup,
+        ),
+        item: classNames(contextClassNames.item, tabsClassNames?.item),
+        indicator: classNames(contextClassNames.indicator, tabsClassNames?.indicator),
+        header: classNames(contextClassNames.header, tabsClassNames?.header),
+        content: classNames(contextClassNames.content, tabsClassNames?.content),
+      }}
+      styles={{
+        popup: { ...contextStyles.popup, ...styles?.popup },
+        item: { ...contextStyles.item, ...styles?.item },
+        indicator: { ...contextStyles.indicator, ...styles?.indicator },
+        header: { ...contextStyles.header, ...styles?.header },
+        content: { ...contextStyles.content, ...styles?.content },
+      }}
+      style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
       editable={editable}
       more={{
         icon: tabs?.more?.icon ?? tabs?.moreIcon ?? moreIcon ?? <EllipsisOutlined />,
@@ -141,7 +181,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       prefixCls={prefixCls}
       animated={mergedAnimated}
       indicator={mergedIndicator}
-    />,
+    />
   );
 };
 

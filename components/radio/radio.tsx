@@ -60,7 +60,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
 
   // Style
   const rootCls = useCSSVarCls(radioPrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(radioPrefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(radioPrefixCls, rootCls);
 
   const radioProps: RadioProps = { ...restProps };
 
@@ -98,7 +98,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
   const [onLabelClick, onInputClick] = useBubbleLock(radioProps.onClick);
 
   // ============================== Render ==============================
-  return wrapCSSVar(
+  return (
     <Wave component="Radio" disabled={radioProps.disabled}>
       <label
         className={wrapperClassString}
@@ -133,7 +133,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
           </span>
         ) : null}
       </label>
-    </Wave>,
+    </Wave>
   );
 };
 

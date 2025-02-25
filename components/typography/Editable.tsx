@@ -115,7 +115,7 @@ const Editable: React.FC<EditableProps> = (props) => {
     confirmChange();
   };
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const textAreaClassName = classNames(
     prefixCls,
@@ -129,7 +129,7 @@ const Editable: React.FC<EditableProps> = (props) => {
     cssVarCls,
   );
 
-  return wrapCSSVar(
+  return (
     <div className={textAreaClassName} style={style}>
       <TextArea
         ref={ref}
@@ -148,7 +148,7 @@ const Editable: React.FC<EditableProps> = (props) => {
       {enterIcon !== null
         ? cloneElement(enterIcon, { className: `${prefixCls}-edit-content-confirm` })
         : null}
-    </div>,
+    </div>
   );
 };
 

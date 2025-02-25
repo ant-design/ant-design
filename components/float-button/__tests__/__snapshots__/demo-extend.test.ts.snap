@@ -33,12 +33,12 @@ exports[`renders components/float-button/demo/back-top.tsx extend context correc
 exports[`renders components/float-button/demo/badge.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+    class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle"
     style="inset-inline-end: 164px;"
     type="button"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <div
         class="ant-float-btn-body"
@@ -78,16 +78,16 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-float-btn-group ant-float-btn-group-circle ant-float-btn-group-circle-shadow"
+    class="ant-float-btn-group css-var-test-id ant-float-btn-css-var ant-float-btn-group-circle ant-float-btn-group-circle-shadow"
     style="inset-inline-end: 94px;"
   >
     <a
-      class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+      class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle"
       href="https://ant.design/index-cn"
     >
       <span
         aria-describedby="test-id"
-        class="ant-badge"
+        class="ant-badge css-var-test-id"
       >
         <div
           class="ant-float-btn-body"
@@ -140,7 +140,7 @@ Array [
         </sup>
       </span>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-left"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-left"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -163,11 +163,11 @@ Array [
       </div>
     </a>
     <button
-      class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+      class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle"
       type="button"
     >
       <span
-        class="ant-badge"
+        class="ant-badge css-var-test-id"
       >
         <div
           class="ant-float-btn-body"
@@ -222,14 +222,14 @@ Array [
     </button>
   </div>,
   <div
-    class="ant-float-btn-group ant-float-btn-group-circle ant-float-btn-group-circle-shadow"
+    class="ant-float-btn-group css-var-test-id ant-float-btn-css-var ant-float-btn-group-circle ant-float-btn-group-circle-shadow"
   >
     <button
-      class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+      class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle"
       type="button"
     >
       <span
-        class="ant-badge"
+        class="ant-badge css-var-test-id"
       >
         <div
           class="ant-float-btn-body"
@@ -296,11 +296,11 @@ Array [
       </span>
     </button>
     <button
-      class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+      class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle"
       type="button"
     >
       <span
-        class="ant-badge"
+        class="ant-badge css-var-test-id"
       >
         <div
           class="ant-float-btn-body"
@@ -374,7 +374,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-float-btn ant-fade-appear ant-fade-appear-start ant-fade ant-float-btn-default ant-float-btn-circle"
+      class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-fade-appear ant-fade-appear-start ant-fade ant-float-btn-default ant-float-btn-circle"
       type="button"
     >
       <div
@@ -418,7 +418,7 @@ exports[`renders components/float-button/demo/badge.tsx extend context correctly
 exports[`renders components/float-button/demo/badge-debug.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-slider ant-slider-horizontal"
+    class="ant-slider css-var-test-id ant-slider-horizontal"
     style="margin: 16px;"
   >
     <div
@@ -444,7 +444,7 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -465,11 +465,11 @@ Array [
     </div>
   </div>,
   <button
-    class="ant-float-btn ant-float-btn-default ant-float-btn-square"
+    class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-square"
     type="button"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <div
         class="ant-float-btn-body"
@@ -515,7 +515,7 @@ exports[`renders components/float-button/demo/badge-debug.tsx extend context cor
 
 exports[`renders components/float-button/demo/basic.tsx extend context correctly 1`] = `
 <button
-  class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+  class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle"
   type="button"
 >
   <div
@@ -558,7 +558,7 @@ exports[`renders components/float-button/demo/controlled.tsx extend context corr
 Array [
   <button
     aria-checked="true"
-    class="ant-switch ant-switch-checked"
+    class="ant-switch css-var-test-id ant-switch-checked"
     role="switch"
     style="margin: 16px;"
     type="button"
@@ -578,14 +578,14 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-float-btn-group ant-float-btn-group-circle ant-float-btn-group-top"
+    class="ant-float-btn-group css-var-test-id ant-float-btn-css-var ant-float-btn-group-circle ant-float-btn-group-top"
     style="inset-inline-end: 24px;"
   >
     <div
       class="ant-float-btn-group-wrap-appear ant-float-btn-group-wrap-appear-start ant-float-btn-group-wrap ant-float-btn-group-wrap"
     >
       <button
-        class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+        class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle"
         type="button"
       >
         <div
@@ -621,7 +621,7 @@ Array [
         </div>
       </button>
       <button
-        class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+        class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle"
         type="button"
       >
         <div
@@ -657,7 +657,7 @@ Array [
         </div>
       </button>
       <button
-        class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+        class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle"
         type="button"
       >
         <div
@@ -703,7 +703,7 @@ Array [
       </button>
     </div>
     <button
-      class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-circle"
+      class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-circle"
       type="button"
     >
       <div
@@ -741,14 +741,14 @@ Array [
     </button>
   </div>,
   <div
-    class="ant-float-btn-group ant-float-btn-group-square ant-float-btn-group-top"
+    class="ant-float-btn-group css-var-test-id ant-float-btn-css-var ant-float-btn-group-square ant-float-btn-group-top"
     style="inset-inline-end: 88px;"
   >
     <div
       class="ant-float-btn-group-wrap-appear ant-float-btn-group-wrap-appear-start ant-float-btn-group-wrap ant-float-btn-group-wrap"
     >
       <button
-        class="ant-float-btn ant-float-btn-default ant-float-btn-square"
+        class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-square"
         type="button"
       >
         <div
@@ -784,7 +784,7 @@ Array [
         </div>
       </button>
       <button
-        class="ant-float-btn ant-float-btn-default ant-float-btn-square"
+        class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-square"
         type="button"
       >
         <div
@@ -820,7 +820,7 @@ Array [
         </div>
       </button>
       <button
-        class="ant-float-btn ant-float-btn-default ant-float-btn-square"
+        class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-square"
         type="button"
       >
         <div
@@ -866,7 +866,7 @@ Array [
       </button>
     </div>
     <button
-      class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-square"
+      class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-square"
       type="button"
     >
       <div
@@ -911,7 +911,7 @@ exports[`renders components/float-button/demo/controlled.tsx extend context corr
 exports[`renders components/float-button/demo/description.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-float-btn ant-float-btn-default ant-float-btn-square"
+    class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-square"
     style="inset-inline-end: 24px;"
     type="button"
   >
@@ -953,7 +953,7 @@ Array [
     </div>
   </button>,
   <button
-    class="ant-float-btn ant-float-btn-default ant-float-btn-square"
+    class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-square"
     style="inset-inline-end: 94px;"
     type="button"
   >
@@ -972,7 +972,7 @@ Array [
     </div>
   </button>,
   <button
-    class="ant-float-btn ant-float-btn-default ant-float-btn-square"
+    class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-square"
     style="inset-inline-end: 164px;"
     type="button"
   >
@@ -1021,11 +1021,11 @@ exports[`renders components/float-button/demo/description.tsx extend context cor
 exports[`renders components/float-button/demo/group.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-float-btn-group ant-float-btn-group-circle ant-float-btn-group-circle-shadow"
+    class="ant-float-btn-group css-var-test-id ant-float-btn-css-var ant-float-btn-group-circle ant-float-btn-group-circle-shadow"
     style="inset-inline-end: 24px;"
   >
     <button
-      class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+      class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle"
       type="button"
     >
       <div
@@ -1064,7 +1064,7 @@ Array [
       </div>
     </button>
     <button
-      class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+      class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle"
       type="button"
     >
       <div
@@ -1100,7 +1100,7 @@ Array [
       </div>
     </button>
     <button
-      class="ant-float-btn ant-fade-appear ant-fade-appear-start ant-fade ant-float-btn-default ant-float-btn-circle"
+      class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-fade-appear ant-fade-appear-start ant-fade ant-float-btn-default ant-float-btn-circle"
       type="button"
     >
       <div
@@ -1137,11 +1137,11 @@ Array [
     </button>
   </div>,
   <div
-    class="ant-float-btn-group ant-float-btn-group-square ant-float-btn-group-square-shadow"
+    class="ant-float-btn-group css-var-test-id ant-float-btn-css-var ant-float-btn-group-square ant-float-btn-group-square-shadow"
     style="inset-inline-end: 94px;"
   >
     <button
-      class="ant-float-btn ant-float-btn-default ant-float-btn-square"
+      class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-square"
       type="button"
     >
       <div
@@ -1180,7 +1180,7 @@ Array [
       </div>
     </button>
     <button
-      class="ant-float-btn ant-float-btn-default ant-float-btn-square"
+      class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-square"
       type="button"
     >
       <div
@@ -1216,7 +1216,7 @@ Array [
       </div>
     </button>
     <button
-      class="ant-float-btn ant-float-btn-default ant-float-btn-square"
+      class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-square"
       type="button"
     >
       <div
@@ -1252,7 +1252,7 @@ Array [
       </div>
     </button>
     <button
-      class="ant-float-btn ant-fade-appear ant-fade-appear-start ant-fade ant-float-btn-default ant-float-btn-square"
+      class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-fade-appear ant-fade-appear-start ant-fade ant-float-btn-default ant-float-btn-square"
       type="button"
     >
       <div
@@ -1296,11 +1296,11 @@ exports[`renders components/float-button/demo/group.tsx extend context correctly
 exports[`renders components/float-button/demo/group-menu.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-float-btn-group ant-float-btn-group-circle ant-float-btn-group-top"
+    class="ant-float-btn-group css-var-test-id ant-float-btn-css-var ant-float-btn-group-circle ant-float-btn-group-top"
     style="inset-inline-end: 24px;"
   >
     <button
-      class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-primary ant-float-btn-circle"
+      class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-group-trigger ant-float-btn-primary ant-float-btn-circle"
       type="button"
     >
       <div
@@ -1337,11 +1337,11 @@ Array [
     </button>
   </div>,
   <div
-    class="ant-float-btn-group ant-float-btn-group-circle ant-float-btn-group-top"
+    class="ant-float-btn-group css-var-test-id ant-float-btn-css-var ant-float-btn-group-circle ant-float-btn-group-top"
     style="inset-inline-end: 94px;"
   >
     <button
-      class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-primary ant-float-btn-circle"
+      class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-group-trigger ant-float-btn-primary ant-float-btn-circle"
       type="button"
     >
       <div
@@ -1384,18 +1384,18 @@ exports[`renders components/float-button/demo/group-menu.tsx extend context corr
 
 exports[`renders components/float-button/demo/placement.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-center ant-flex-justify-space-evenly"
+  class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-evenly"
   style="width: 100%; height: 100vh; overflow: hidden; position: relative;"
 >
   <div
     style="width: 100px; height: 100px; position: relative;"
   >
     <div
-      class="ant-float-btn-group ant-float-btn-group-circle ant-float-btn-group-top"
+      class="ant-float-btn-group css-var-test-id ant-float-btn-css-var ant-float-btn-group-circle ant-float-btn-group-top"
       style="position: absolute; inset-inline-end: 30px; bottom: 80px;"
     >
       <button
-        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-circle"
+        class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-circle"
         type="button"
       >
         <div
@@ -1432,11 +1432,11 @@ exports[`renders components/float-button/demo/placement.tsx extend context corre
       </button>
     </div>
     <div
-      class="ant-float-btn-group ant-float-btn-group-circle ant-float-btn-group-right"
+      class="ant-float-btn-group css-var-test-id ant-float-btn-css-var ant-float-btn-group-circle ant-float-btn-group-right"
       style="position: absolute; inset-inline-end: -20px; bottom: 30px;"
     >
       <button
-        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-circle"
+        class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-circle"
         type="button"
       >
         <div
@@ -1473,11 +1473,11 @@ exports[`renders components/float-button/demo/placement.tsx extend context corre
       </button>
     </div>
     <div
-      class="ant-float-btn-group ant-float-btn-group-circle ant-float-btn-group-bottom"
+      class="ant-float-btn-group css-var-test-id ant-float-btn-css-var ant-float-btn-group-circle ant-float-btn-group-bottom"
       style="position: absolute; inset-inline-end: 30px; bottom: -20px;"
     >
       <button
-        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-circle"
+        class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-circle"
         type="button"
       >
         <div
@@ -1514,11 +1514,11 @@ exports[`renders components/float-button/demo/placement.tsx extend context corre
       </button>
     </div>
     <div
-      class="ant-float-btn-group ant-float-btn-group-circle ant-float-btn-group-left"
+      class="ant-float-btn-group css-var-test-id ant-float-btn-css-var ant-float-btn-group-circle ant-float-btn-group-left"
       style="position: absolute; inset-inline-end: 80px; bottom: 30px;"
     >
       <button
-        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-circle"
+        class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-circle"
         type="button"
       >
         <div
@@ -1565,7 +1565,7 @@ exports[`renders components/float-button/demo/render-panel.tsx extend context co
   style="display: flex; column-gap: 16px; align-items: center;"
 >
   <button
-    class="ant-float-btn ant-float-btn-pure ant-fade-appear ant-fade-appear-start ant-fade ant-float-btn-default ant-float-btn-circle"
+    class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-pure ant-fade-appear ant-fade-appear-start ant-fade ant-float-btn-default ant-float-btn-circle"
     type="button"
   >
     <div
@@ -1601,7 +1601,7 @@ exports[`renders components/float-button/demo/render-panel.tsx extend context co
     </div>
   </button>
   <button
-    class="ant-float-btn ant-float-btn-pure ant-float-btn-default ant-float-btn-circle"
+    class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-pure ant-float-btn-default ant-float-btn-circle"
     type="button"
   >
     <div
@@ -1637,7 +1637,7 @@ exports[`renders components/float-button/demo/render-panel.tsx extend context co
     </div>
   </button>
   <button
-    class="ant-float-btn ant-float-btn-pure ant-float-btn-primary ant-float-btn-square"
+    class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-pure ant-float-btn-primary ant-float-btn-square"
     type="button"
   >
     <div
@@ -1681,10 +1681,10 @@ exports[`renders components/float-button/demo/render-panel.tsx extend context co
     </div>
   </button>
   <div
-    class="ant-float-btn-group ant-float-btn-pure ant-float-btn-group-square ant-float-btn-group-square-shadow"
+    class="ant-float-btn-group css-var-test-id ant-float-btn-css-var ant-float-btn-pure ant-float-btn-group-square ant-float-btn-group-square-shadow"
   >
     <button
-      class="ant-float-btn ant-float-btn-default ant-float-btn-square"
+      class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-square"
       type="button"
     >
       <div
@@ -1723,7 +1723,7 @@ exports[`renders components/float-button/demo/render-panel.tsx extend context co
       </div>
     </button>
     <button
-      class="ant-float-btn ant-float-btn-default ant-float-btn-square"
+      class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-square"
       type="button"
     >
       <div
@@ -1759,7 +1759,7 @@ exports[`renders components/float-button/demo/render-panel.tsx extend context co
       </div>
     </button>
     <button
-      class="ant-float-btn ant-float-btn-default ant-float-btn-square"
+      class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-square"
       type="button"
     >
       <div
@@ -1796,13 +1796,13 @@ exports[`renders components/float-button/demo/render-panel.tsx extend context co
     </button>
   </div>
   <div
-    class="ant-float-btn-group ant-float-btn-pure ant-float-btn-group-circle ant-float-btn-group-top"
+    class="ant-float-btn-group css-var-test-id ant-float-btn-css-var ant-float-btn-pure ant-float-btn-group-circle ant-float-btn-group-top"
   >
     <div
       class="ant-float-btn-group-wrap-appear ant-float-btn-group-wrap-appear-start ant-float-btn-group-wrap ant-float-btn-group-wrap"
     >
       <button
-        class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+        class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle"
         type="button"
       >
         <div
@@ -1841,7 +1841,7 @@ exports[`renders components/float-button/demo/render-panel.tsx extend context co
         </div>
       </button>
       <button
-        class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+        class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle"
         type="button"
       >
         <div
@@ -1877,7 +1877,7 @@ exports[`renders components/float-button/demo/render-panel.tsx extend context co
         </div>
       </button>
       <button
-        class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+        class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle"
         type="button"
       >
         <div
@@ -1914,7 +1914,7 @@ exports[`renders components/float-button/demo/render-panel.tsx extend context co
       </button>
     </div>
     <button
-      class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-circle"
+      class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-circle"
       type="button"
     >
       <div
@@ -1959,7 +1959,7 @@ exports[`renders components/float-button/demo/render-panel.tsx extend context co
 exports[`renders components/float-button/demo/shape.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-float-btn ant-float-btn-primary ant-float-btn-circle"
+    class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-primary ant-float-btn-circle"
     style="inset-inline-end: 94px;"
     type="button"
   >
@@ -1996,7 +1996,7 @@ Array [
     </div>
   </button>,
   <button
-    class="ant-float-btn ant-float-btn-primary ant-float-btn-square"
+    class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-primary ant-float-btn-square"
     style="inset-inline-end: 24px;"
     type="button"
   >
@@ -2039,7 +2039,7 @@ exports[`renders components/float-button/demo/shape.tsx extend context correctly
 
 exports[`renders components/float-button/demo/tooltip.tsx extend context correctly 1`] = `
 <button
-  class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+  class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle"
   type="button"
 >
   <div
@@ -2075,7 +2075,7 @@ exports[`renders components/float-button/demo/tooltip.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-left"
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-left"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
@@ -2104,7 +2104,7 @@ exports[`renders components/float-button/demo/tooltip.tsx extend context correct
 exports[`renders components/float-button/demo/type.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-float-btn ant-float-btn-primary ant-float-btn-circle"
+    class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-primary ant-float-btn-circle"
     style="inset-inline-end: 24px;"
     type="button"
   >
@@ -2144,7 +2144,7 @@ Array [
     </div>
   </button>,
   <button
-    class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+    class="css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle"
     style="inset-inline-end: 94px;"
     type="button"
   >

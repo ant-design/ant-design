@@ -9,7 +9,7 @@ Array [
       class=""
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -26,7 +26,7 @@ Array [
       class=""
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -55,7 +55,7 @@ exports[`renders components/affix/demo/debug.tsx correctly 1`] = `
         style="background:red"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+          class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -79,7 +79,7 @@ exports[`renders components/affix/demo/on-change.tsx correctly 1`] = `
     class=""
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -104,7 +104,7 @@ exports[`renders components/affix/demo/target.tsx correctly 1`] = `
         class=""
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+          class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>

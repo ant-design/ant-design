@@ -41,11 +41,11 @@ const Wrapper: React.FC<React.PropsWithChildren<{ prefixCls: string }>> = ({
   prefixCls,
 }) => {
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
-  return wrapCSSVar(
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  return (
     <NotificationProvider classNames={{ list: classNames(hashId, cssVarCls, rootCls) }}>
       {children}
-    </NotificationProvider>,
+    </NotificationProvider>
   );
 };
 

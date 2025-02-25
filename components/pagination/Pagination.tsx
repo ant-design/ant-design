@@ -23,8 +23,9 @@ import useStyle from './style';
 import BorderedStyle from './style/bordered';
 import useShowSizeChanger from './useShowSizeChanger';
 
+type SemanticName = 'root' | 'item';
 export interface PaginationProps
-  extends Omit<RcPaginationProps, 'showSizeChanger' | 'pageSizeOptions'> {
+  extends Omit<RcPaginationProps, 'showSizeChanger' | 'pageSizeOptions' | 'classNames' | 'styles'> {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
   size?: 'default' | 'small';
   responsive?: boolean;
@@ -36,6 +37,8 @@ export interface PaginationProps
   selectComponentClass?: any;
   /** `string` type will be removed in next major version. */
   pageSizeOptions?: (string | number)[];
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 export type PaginationPosition = 'top' | 'bottom' | 'both';
@@ -60,6 +63,8 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     showSizeChanger,
     selectComponentClass,
     pageSizeOptions,
+    styles,
+    classNames: paginationClassNames,
     ...restProps
   } = props;
   const { xs } = useBreakpoint(responsive);
@@ -71,11 +76,13 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     showSizeChanger: contextShowSizeChangerConfig,
     className: contextClassName,
     style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
   } = useComponentConfig('pagination');
   const prefixCls = getPrefixCls('pagination', customizePrefixCls);
 
   // Style
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   // ============================== Size ==============================
   const mergedSize = useSize(customizeSize);
@@ -210,18 +217,27 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     contextClassName,
     className,
     rootClassName,
+    contextClassNames.root,
+    paginationClassNames?.root,
     hashId,
     cssVarCls,
   );
 
-  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
+  const mergedStyle: React.CSSProperties = {
+    ...contextStyles.root,
+    ...styles?.root,
+    ...contextStyle,
+    ...style,
+  };
 
-  return wrapCSSVar(
+  return (
     <>
       {token.wireframe && <BorderedStyle prefixCls={prefixCls} />}
       <RcPagination
         {...iconsProps}
         {...restProps}
+        styles={{ item: { ...contextStyles.item, ...styles?.item } }}
+        classNames={{ item: classNames(contextClassNames.item, paginationClassNames?.item) }}
         style={mergedStyle}
         prefixCls={prefixCls}
         selectPrefixCls={selectPrefixCls}
@@ -231,7 +247,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
         showSizeChanger={mergedShowSizeChanger}
         sizeChangerRender={sizeChangerRender}
       />
-    </>,
+    </>
   );
 };
 

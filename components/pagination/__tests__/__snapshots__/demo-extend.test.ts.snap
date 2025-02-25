@@ -3,7 +3,7 @@
 exports[`renders components/pagination/demo/align.tsx extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-pagination ant-pagination-start"
+    class="ant-pagination ant-pagination-start css-var-test-id"
   >
     <li
       aria-disabled="true"
@@ -127,7 +127,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-center"
+    class="ant-pagination ant-pagination-center css-var-test-id"
   >
     <li
       aria-disabled="true"
@@ -251,7 +251,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-end"
+    class="ant-pagination ant-pagination-end css-var-test-id"
   >
     <li
       aria-disabled="true"
@@ -380,7 +380,7 @@ exports[`renders components/pagination/demo/align.tsx extend context correctly 2
 
 exports[`renders components/pagination/demo/all.tsx extend context correctly 1`] = `
 <ul
-  class="ant-pagination"
+  class="ant-pagination css-var-test-id"
 >
   <li
     class="ant-pagination-total-text"
@@ -560,7 +560,7 @@ exports[`renders components/pagination/demo/all.tsx extend context correctly 1`]
   >
     <div
       aria-label="Page Size"
-      class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
         class="ant-select-selector"
@@ -595,7 +595,7 @@ exports[`renders components/pagination/demo/all.tsx extend context correctly 1`]
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
@@ -742,7 +742,7 @@ exports[`renders components/pagination/demo/all.tsx extend context correctly 2`]
 
 exports[`renders components/pagination/demo/basic.tsx extend context correctly 1`] = `
 <ul
-  class="ant-pagination"
+  class="ant-pagination css-var-test-id"
 >
   <li
     aria-disabled="true"
@@ -871,7 +871,7 @@ exports[`renders components/pagination/demo/basic.tsx extend context correctly 2
 exports[`renders components/pagination/demo/changer.tsx extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-pagination"
+    class="ant-pagination css-var-test-id"
   >
     <li
       aria-disabled="false"
@@ -1046,7 +1046,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -1081,7 +1081,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -1213,7 +1213,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-disabled"
+    class="ant-pagination css-var-test-id ant-pagination-disabled"
   >
     <li
       aria-disabled="false"
@@ -1388,7 +1388,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -1424,7 +1424,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -1562,7 +1562,7 @@ exports[`renders components/pagination/demo/changer.tsx extend context correctly
 exports[`renders components/pagination/demo/component-token.tsx extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-pagination"
+    class="ant-pagination css-var-test-id"
   >
     <li
       class="ant-pagination-total-text"
@@ -1698,7 +1698,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -1733,7 +1733,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -1876,7 +1876,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-disabled"
+    class="ant-pagination css-var-test-id ant-pagination-disabled"
   >
     <li
       aria-disabled="false"
@@ -2051,7 +2051,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -2087,7 +2087,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -2224,7 +2224,7 @@ exports[`renders components/pagination/demo/component-token.tsx extend context c
 
 exports[`renders components/pagination/demo/controlled.tsx extend context correctly 1`] = `
 <ul
-  class="ant-pagination"
+  class="ant-pagination css-var-test-id"
 >
   <li
     aria-disabled="false"
@@ -2352,7 +2352,7 @@ exports[`renders components/pagination/demo/controlled.tsx extend context correc
 
 exports[`renders components/pagination/demo/itemRender.tsx extend context correctly 1`] = `
 <ul
-  class="ant-pagination"
+  class="ant-pagination css-var-test-id"
 >
   <li
     aria-disabled="true"
@@ -2484,7 +2484,7 @@ exports[`renders components/pagination/demo/itemRender.tsx extend context correc
   >
     <div
       aria-label="Page Size"
-      class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
         class="ant-select-selector"
@@ -2519,7 +2519,7 @@ exports[`renders components/pagination/demo/itemRender.tsx extend context correc
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
@@ -2656,7 +2656,7 @@ exports[`renders components/pagination/demo/itemRender.tsx extend context correc
 exports[`renders components/pagination/demo/jump.tsx extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-pagination"
+    class="ant-pagination css-var-test-id"
   >
     <li
       aria-disabled="false"
@@ -2831,7 +2831,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -2866,7 +2866,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -3009,7 +3009,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-disabled"
+    class="ant-pagination css-var-test-id ant-pagination-disabled"
   >
     <li
       aria-disabled="false"
@@ -3184,7 +3184,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -3220,7 +3220,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -3370,7 +3370,7 @@ exports[`renders components/pagination/demo/jump.tsx extend context correctly 2`
 exports[`renders components/pagination/demo/mini.tsx extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-pagination ant-pagination-mini"
+    class="ant-pagination ant-pagination-mini css-var-test-id"
   >
     <li
       aria-disabled="true"
@@ -3493,7 +3493,7 @@ Array [
     </li>
   </ul>,
   <ul
-    class="ant-pagination ant-pagination-mini"
+    class="ant-pagination ant-pagination-mini css-var-test-id"
   >
     <li
       aria-disabled="true"
@@ -3619,7 +3619,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -3654,7 +3654,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -3796,7 +3796,7 @@ Array [
     </li>
   </ul>,
   <ul
-    class="ant-pagination ant-pagination-mini"
+    class="ant-pagination ant-pagination-mini css-var-test-id"
   >
     <li
       class="ant-pagination-total-text"
@@ -3924,7 +3924,7 @@ Array [
     </li>
   </ul>,
   <ul
-    class="ant-pagination ant-pagination-mini ant-pagination-disabled"
+    class="ant-pagination ant-pagination-mini css-var-test-id ant-pagination-disabled"
   >
     <li
       class="ant-pagination-total-text"
@@ -4055,7 +4055,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -4091,7 +4091,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -4240,7 +4240,7 @@ exports[`renders components/pagination/demo/mini.tsx extend context correctly 2`
 
 exports[`renders components/pagination/demo/more.tsx extend context correctly 1`] = `
 <ul
-  class="ant-pagination"
+  class="ant-pagination css-var-test-id"
 >
   <li
     aria-disabled="false"
@@ -4464,7 +4464,7 @@ exports[`renders components/pagination/demo/more.tsx extend context correctly 1`
   >
     <div
       aria-label="Page Size"
-      class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
         class="ant-select-selector"
@@ -4499,7 +4499,7 @@ exports[`renders components/pagination/demo/more.tsx extend context correctly 1`
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
@@ -4636,7 +4636,7 @@ exports[`renders components/pagination/demo/more.tsx extend context correctly 2`
 exports[`renders components/pagination/demo/simple.tsx extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-pagination ant-pagination-simple"
+    class="ant-pagination css-var-test-id ant-pagination-simple"
   >
     <li
       aria-disabled="false"
@@ -4722,7 +4722,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-simple"
+    class="ant-pagination css-var-test-id ant-pagination-simple"
   >
     <li
       aria-disabled="false"
@@ -4803,7 +4803,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-simple ant-pagination-disabled"
+    class="ant-pagination css-var-test-id ant-pagination-simple ant-pagination-disabled"
   >
     <li
       aria-disabled="false"
@@ -4896,7 +4896,7 @@ exports[`renders components/pagination/demo/simple.tsx extend context correctly 
 exports[`renders components/pagination/demo/total.tsx extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-pagination"
+    class="ant-pagination css-var-test-id"
   >
     <li
       class="ant-pagination-total-text"
@@ -5027,7 +5027,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -5062,7 +5062,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -5194,7 +5194,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination"
+    class="ant-pagination css-var-test-id"
   >
     <li
       class="ant-pagination-total-text"
@@ -5325,7 +5325,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -5360,7 +5360,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -5498,7 +5498,7 @@ exports[`renders components/pagination/demo/total.tsx extend context correctly 2
 exports[`renders components/pagination/demo/wireframe.tsx extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-pagination ant-pagination-bordered"
+    class="ant-pagination ant-pagination-bordered css-var-test-id"
   >
     <li
       aria-disabled="false"
@@ -5673,7 +5673,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -5708,7 +5708,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -5840,7 +5840,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-bordered ant-pagination-disabled"
+    class="ant-pagination ant-pagination-bordered css-var-test-id ant-pagination-disabled"
   >
     <li
       aria-disabled="false"
@@ -6015,7 +6015,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -6051,7 +6051,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -6183,7 +6183,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-mini ant-pagination-bordered"
+    class="ant-pagination ant-pagination-mini ant-pagination-bordered css-var-test-id"
   >
     <li
       aria-disabled="false"
@@ -6358,7 +6358,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -6393,7 +6393,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -6525,7 +6525,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-mini ant-pagination-bordered ant-pagination-disabled"
+    class="ant-pagination ant-pagination-mini ant-pagination-bordered css-var-test-id ant-pagination-disabled"
   >
     <li
       aria-disabled="false"
@@ -6700,7 +6700,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -6736,7 +6736,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>

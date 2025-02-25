@@ -175,7 +175,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   const rtlCls = { [`${prefixCls}-rtl`]: direction };
   const mergedRootCls = classNames(rootClassName, cssVarCls, rootCls, rtlCls);
   const mergedCls = classNames(
@@ -218,7 +218,7 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   // ============================ zIndex ============================
 
-  return wrapCSSVar(
+  return (
     <Popover
       style={styles?.popup}
       styles={{ body: styles?.popupOverlayInner }}
@@ -270,7 +270,7 @@ const ColorPicker: CompoundedComponent = (props) => {
           color={mergedColor}
         />
       )}
-    </Popover>,
+    </Popover>
   );
 };
 

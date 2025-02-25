@@ -57,7 +57,6 @@ import type {
   TabsConfig,
   TagConfig,
   TextAreaConfig,
-  Theme,
   ThemeConfig,
   TimePickerConfig,
   TooltipConfig,
@@ -74,7 +73,6 @@ import {
   defaultPrefixCls,
   Variants,
 } from './context';
-import { registerTheme } from './cssVariables';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import { DisabledContextProvider } from './DisabledContext';
 import useConfig from './hooks/useConfig';
@@ -274,14 +272,10 @@ function getGlobalIconPrefixCls() {
   return globalIconPrefixCls || defaultIconPrefixCls;
 }
 
-function isLegacyTheme(theme: Theme | ThemeConfig): theme is Theme {
-  return Object.keys(theme).some((key) => key.endsWith('Color'));
-}
-
 interface GlobalConfigProps {
   prefixCls?: string;
   iconPrefixCls?: string;
-  theme?: Theme | ThemeConfig;
+  theme?: ThemeConfig;
   holderRender?: holderRenderType;
 }
 
@@ -298,16 +292,7 @@ const setGlobalConfig = (props: GlobalConfigProps) => {
   }
 
   if (theme) {
-    if (isLegacyTheme(theme)) {
-      warning(
-        false,
-        'ConfigProvider',
-        '`config` of css variable theme is not work in v5. Please use new `theme` config instead.',
-      );
-      registerTheme(getGlobalPrefixCls(), theme);
-    } else {
-      globalTheme = theme;
-    }
+    globalTheme = theme;
   }
 };
 
@@ -672,7 +657,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
         override: mergedToken,
         ...parsedComponents,
       },
-      cssVar: cssVar as Exclude<ThemeConfig['cssVar'], boolean>,
+      cssVar,
     };
   }, [mergedTheme]);
 

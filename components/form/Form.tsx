@@ -116,7 +116,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
 
   // Style
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const formClassName = classNames(
     prefixCls,
@@ -196,7 +196,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     }
   };
 
-  return wrapCSSVar(
+  return (
     <VariantContext.Provider value={variant}>
       <DisabledContextProvider disabled={disabled}>
         <SizeContext.Provider value={mergedSize}>
@@ -221,7 +221,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
           </FormProvider>
         </SizeContext.Provider>
       </DisabledContextProvider>
-    </VariantContext.Provider>,
+    </VariantContext.Provider>
   );
 };
 

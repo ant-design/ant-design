@@ -93,7 +93,7 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
   );
 
   // Style
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const mergedSize = useSize(customizeSize);
 
@@ -124,7 +124,7 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
     onChange?.(...args);
   };
 
-  return wrapCSSVar(
+  return (
     <Wave component="Switch">
       <RcSwitch
         {...restProps}
@@ -139,7 +139,7 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
         ref={ref}
         loadingIcon={loadingIcon}
       />
-    </Wave>,
+    </Wave>
   );
 });
 

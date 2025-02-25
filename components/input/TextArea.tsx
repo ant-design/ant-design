@@ -104,8 +104,8 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
 
   // ===================== Style =====================
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapSharedCSSVar, hashId, cssVarCls] = useSharedStyle(prefixCls, rootClassName);
-  const [wrapCSSVar] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useSharedStyle(prefixCls, rootClassName);
+  useStyle(prefixCls, rootCls);
 
   // ===================== Compact Item =====================
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
@@ -117,59 +117,55 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
 
   const mergedAllowClear = getAllowClear(allowClear ?? contextAllowClear);
 
-  return wrapSharedCSSVar(
-    wrapCSSVar(
-      <RcTextArea
-        autoComplete={contextAutoComplete}
-        {...rest}
-        style={{ ...contextStyle, ...style }}
-        styles={{ ...contextStyles, ...styles }}
-        disabled={mergedDisabled}
-        allowClear={mergedAllowClear}
-        className={classNames(
-          cssVarCls,
-          rootCls,
-          className,
-          rootClassName,
-          compactItemClassnames,
-          contextClassName,
-        )}
-        classNames={{
-          ...classes,
-          ...contextClassNames,
-          textarea: classNames(
-            {
-              [`${prefixCls}-sm`]: mergedSize === 'small',
-              [`${prefixCls}-lg`]: mergedSize === 'large',
-            },
-            hashId,
-            classes?.textarea,
-            contextClassNames.textarea,
-          ),
-          variant: classNames(
-            {
-              [`${prefixCls}-${variant}`]: enableVariantCls,
-            },
-            getStatusClassNames(prefixCls, mergedStatus),
-          ),
-          affixWrapper: classNames(
-            `${prefixCls}-textarea-affix-wrapper`,
-            {
-              [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-              [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
-              [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
-              [`${prefixCls}-textarea-show-count`]: props.showCount || props.count?.show,
-            },
-            hashId,
-          ),
-        }}
-        prefixCls={prefixCls}
-        suffix={
-          hasFeedback && <span className={`${prefixCls}-textarea-suffix`}>{feedbackIcon}</span>
-        }
-        ref={innerRef}
-      />,
-    ),
+  return (
+    <RcTextArea
+      autoComplete={contextAutoComplete}
+      {...rest}
+      style={{ ...contextStyle, ...style }}
+      styles={{ ...contextStyles, ...styles }}
+      disabled={mergedDisabled}
+      allowClear={mergedAllowClear}
+      className={classNames(
+        cssVarCls,
+        rootCls,
+        className,
+        rootClassName,
+        compactItemClassnames,
+        contextClassName,
+      )}
+      classNames={{
+        ...classes,
+        ...contextClassNames,
+        textarea: classNames(
+          {
+            [`${prefixCls}-sm`]: mergedSize === 'small',
+            [`${prefixCls}-lg`]: mergedSize === 'large',
+          },
+          hashId,
+          classes?.textarea,
+          contextClassNames.textarea,
+        ),
+        variant: classNames(
+          {
+            [`${prefixCls}-${variant}`]: enableVariantCls,
+          },
+          getStatusClassNames(prefixCls, mergedStatus),
+        ),
+        affixWrapper: classNames(
+          `${prefixCls}-textarea-affix-wrapper`,
+          {
+            [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
+            [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
+            [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
+            [`${prefixCls}-textarea-show-count`]: props.showCount || props.count?.show,
+          },
+          hashId,
+        ),
+      }}
+      prefixCls={prefixCls}
+      suffix={hasFeedback && <span className={`${prefixCls}-textarea-suffix`}>{feedbackIcon}</span>}
+      ref={innerRef}
+    />
   );
 });
 
