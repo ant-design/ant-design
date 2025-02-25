@@ -8,6 +8,11 @@ import type { SelectToken } from './token';
 function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
   const { componentCls, inputPaddingHorizontalBase, borderRadius } = token;
 
+  const selectHeightWithoutBorder = token
+    .calc(token.controlHeight)
+    .sub(token.calc(token.lineWidth).mul(2))
+    .equal();
+
   const suffixCls = suffix ? `${componentCls}-${suffix}` : '';
 
   return {
@@ -22,6 +27,10 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         display: 'flex',
         borderRadius,
         flex: '1 1 auto',
+
+        [`${componentCls}-selection-wrap:after`]: {
+          lineHeight: unit(selectHeightWithoutBorder),
+        },
 
         [`${componentCls}-selection-search`]: {
           position: 'absolute',
@@ -40,6 +49,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         `]: {
           display: 'block',
           padding: 0,
+          lineHeight: unit(selectHeightWithoutBorder),
           transition: `all ${token.motionDurationSlow}, visibility 0s`,
           alignSelf: 'center',
         },
@@ -88,7 +98,11 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
           padding: `0 ${unit(inputPaddingHorizontalBase)}`,
 
           [`${componentCls}-selection-search-input`]: {
-            fontSize: token.fontSize,
+            height: selectHeightWithoutBorder,
+          },
+
+          '&:after': {
+            lineHeight: unit(selectHeightWithoutBorder),
           },
         },
       },
