@@ -2,14 +2,14 @@
 
 exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
   style="gap: 16px;"
 >
   <div
-    class="ant-flex"
+    class="ant-flex css-var-test-id"
   >
     <div
-      class="ant-select ant-select-sm ant-select-outlined ant-select-single ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-sm ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       style="width: 200px;"
     >
       <div
@@ -45,7 +45,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
@@ -55,7 +55,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
             role="listbox"
           >
             <div
-              class="ant-empty ant-empty-normal ant-empty-small"
+              class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
             >
               <div
                 class="ant-empty-image"
@@ -133,7 +133,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
       </span>
     </div>
     <div
-      class="ant-select ant-select-sm ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
+      class="ant-select ant-select-sm ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
       style="width: 200px;"
     >
       <div
@@ -162,7 +162,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
@@ -176,10 +176,10 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
     </div>
   </div>
   <div
-    class="ant-flex"
+    class="ant-flex css-var-test-id"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       style="width: 200px;"
     >
       <div
@@ -215,7 +215,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
@@ -225,7 +225,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
             role="listbox"
           >
             <div
-              class="ant-empty ant-empty-normal ant-empty-small"
+              class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
             >
               <div
                 class="ant-empty-image"
@@ -303,7 +303,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
       </span>
     </div>
     <div
-      class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
+      class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
       style="width: 200px;"
     >
       <div
@@ -332,7 +332,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
@@ -346,10 +346,10 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
     </div>
   </div>
   <div
-    class="ant-flex"
+    class="ant-flex css-var-test-id"
   >
     <div
-      class="ant-select ant-select-lg ant-select-outlined ant-select-single ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-lg ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       style="width: 200px;"
     >
       <div
@@ -385,7 +385,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
@@ -395,7 +395,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
             role="listbox"
           >
             <div
-              class="ant-empty ant-empty-normal ant-empty-small"
+              class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
             >
               <div
                 class="ant-empty-image"
@@ -473,7 +473,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
       </span>
     </div>
     <div
-      class="ant-select ant-select-lg ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
+      class="ant-select ant-select-lg ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
       style="width: 200px;"
     >
       <div
@@ -502,7 +502,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
