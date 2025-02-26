@@ -1,5 +1,525 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  style="gap: 16px;"
+>
+  <div
+    class="ant-flex"
+  >
+    <div
+      class="ant-select ant-select-sm ant-select-outlined ant-select-single ant-select-show-arrow ant-select-show-search"
+      style="width: 200px;"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <span
+          class="ant-select-selection-wrap"
+        >
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              role="combobox"
+              type="search"
+              value="centered"
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            style="visibility: hidden;"
+            title="centered"
+          >
+            centered
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            class="ant-select-item-empty"
+            id="rc_select_TEST_OR_SSR_list"
+            role="listbox"
+          >
+            <div
+              class="ant-empty ant-empty-normal ant-empty-small"
+            >
+              <div
+                class="ant-empty-image"
+              >
+                <svg
+                  height="41"
+                  viewBox="0 0 64 41"
+                  width="64"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>
+                    No data
+                  </title>
+                  <g
+                    fill="none"
+                    fill-rule="evenodd"
+                    transform="translate(0 1)"
+                  >
+                    <ellipse
+                      cx="32"
+                      cy="33"
+                      fill="#f5f5f5"
+                      rx="32"
+                      ry="7"
+                    />
+                    <g
+                      fill-rule="nonzero"
+                      stroke="#d9d9d9"
+                    >
+                      <path
+                        d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                      />
+                      <path
+                        d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                        fill="#fafafa"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <div
+                class="ant-empty-description"
+              >
+                No data
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select: none;"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-select ant-select-sm ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
+      style="width: 200px;"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <span
+          class="ant-select-selection-wrap"
+        >
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              role="combobox"
+              type="search"
+              value="centered"
+            />
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            class="ant-select-item-empty"
+            id="rc_select_TEST_OR_SSR_list"
+            role="listbox"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-flex"
+  >
+    <div
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-show-search"
+      style="width: 200px;"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <span
+          class="ant-select-selection-wrap"
+        >
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              role="combobox"
+              type="search"
+              value="centered"
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            style="visibility: hidden;"
+            title="centered"
+          >
+            centered
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            class="ant-select-item-empty"
+            id="rc_select_TEST_OR_SSR_list"
+            role="listbox"
+          >
+            <div
+              class="ant-empty ant-empty-normal ant-empty-small"
+            >
+              <div
+                class="ant-empty-image"
+              >
+                <svg
+                  height="41"
+                  viewBox="0 0 64 41"
+                  width="64"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>
+                    No data
+                  </title>
+                  <g
+                    fill="none"
+                    fill-rule="evenodd"
+                    transform="translate(0 1)"
+                  >
+                    <ellipse
+                      cx="32"
+                      cy="33"
+                      fill="#f5f5f5"
+                      rx="32"
+                      ry="7"
+                    />
+                    <g
+                      fill-rule="nonzero"
+                      stroke="#d9d9d9"
+                    >
+                      <path
+                        d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                      />
+                      <path
+                        d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                        fill="#fafafa"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <div
+                class="ant-empty-description"
+              >
+                No data
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select: none;"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
+      style="width: 200px;"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <span
+          class="ant-select-selection-wrap"
+        >
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              role="combobox"
+              type="search"
+              value="centered"
+            />
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            class="ant-select-item-empty"
+            id="rc_select_TEST_OR_SSR_list"
+            role="listbox"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-flex"
+  >
+    <div
+      class="ant-select ant-select-lg ant-select-outlined ant-select-single ant-select-show-arrow ant-select-show-search"
+      style="width: 200px;"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <span
+          class="ant-select-selection-wrap"
+        >
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              role="combobox"
+              type="search"
+              value="centered"
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            style="visibility: hidden;"
+            title="centered"
+          >
+            centered
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            class="ant-select-item-empty"
+            id="rc_select_TEST_OR_SSR_list"
+            role="listbox"
+          >
+            <div
+              class="ant-empty ant-empty-normal ant-empty-small"
+            >
+              <div
+                class="ant-empty-image"
+              >
+                <svg
+                  height="41"
+                  viewBox="0 0 64 41"
+                  width="64"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>
+                    No data
+                  </title>
+                  <g
+                    fill="none"
+                    fill-rule="evenodd"
+                    transform="translate(0 1)"
+                  >
+                    <ellipse
+                      cx="32"
+                      cy="33"
+                      fill="#f5f5f5"
+                      rx="32"
+                      ry="7"
+                    />
+                    <g
+                      fill-rule="nonzero"
+                      stroke="#d9d9d9"
+                    >
+                      <path
+                        d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                      />
+                      <path
+                        d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                        fill="#fafafa"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <div
+                class="ant-empty-description"
+              >
+                No data
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select: none;"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-select ant-select-lg ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
+      style="width: 200px;"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <span
+          class="ant-select-selection-wrap"
+        >
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              role="combobox"
+              type="search"
+              value="centered"
+            />
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            class="ant-select-item-empty"
+            id="rc_select_TEST_OR_SSR_list"
+            role="listbox"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/auto-complete/demo/allowClear.tsx extend context correctly 1`] = `
 Array [
   <div
