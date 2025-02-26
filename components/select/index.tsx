@@ -118,7 +118,7 @@ const InternalSelect = <
     style,
     allowClear,
     variant: customizeVariant,
-    dropdownStyle,
+    popupStyle,
     transitionName,
     tagRender,
     maxCount,
@@ -277,7 +277,7 @@ const InternalSelect = <
   }
 
   // ====================== zIndex =========================
-  const [zIndex] = useZIndex('SelectLike', dropdownStyle?.zIndex as number);
+  const [zIndex] = useZIndex('SelectLike', popupStyle?.zIndex as number);
 
   // ====================== Render =======================
   return (
@@ -287,7 +287,7 @@ const InternalSelect = <
       showSearch={contextSelect.showSearch}
       {...selectProps}
       style={{ ...contextSelect.style, ...style }}
-      dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
+      popupMatchSelectWidth={mergedPopupMatchSelectWidth}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
       listHeight={listHeight}
@@ -304,9 +304,9 @@ const InternalSelect = <
       notFoundContent={mergedNotFound}
       className={mergedClassName}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
-      dropdownClassName={mergedPopupClassName}
+      popupClassName={mergedPopupClassName}
       disabled={mergedDisabled}
-      dropdownStyle={{ ...dropdownStyle, zIndex }}
+      popupStyle={{ ...popupStyle, zIndex }}
       maxCount={isMultiple ? maxCount : undefined}
       tagRender={isMultiple ? tagRender : undefined}
     />

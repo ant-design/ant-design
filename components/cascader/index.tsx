@@ -299,7 +299,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
 
   // ============================ zIndex ============================
-  const [zIndex] = useZIndex('SelectLike', restProps.dropdownStyle?.zIndex as number);
+  const [zIndex] = useZIndex('SelectLike', restProps.popupStyle?.zIndex as number);
 
   // ==================== Render =====================
   return (
@@ -340,7 +340,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       checkable={checkable}
       dropdownClassName={mergedPopupClassName}
       dropdownPrefixCls={customizePrefixCls || cascaderPrefixCls}
-      dropdownStyle={{ ...restProps.dropdownStyle, zIndex }}
+      dropdownStyle={{ ...restProps.popupStyle, zIndex }}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       getPopupContainer={getPopupContainer || getContextPopupContainer}

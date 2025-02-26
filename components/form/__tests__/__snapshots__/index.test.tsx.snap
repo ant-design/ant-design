@@ -297,8 +297,6 @@ exports[`Form form should support disabled 1`] = `
           >
             <div
               class="ant-select ant-select-outlined ant-select-in-form-item css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled"
-              dropdownclassname="css-var-root ant-select-css-var"
-              dropdownstyle="[object Object]"
             >
               <div
                 class="ant-select-selector"
@@ -391,8 +389,6 @@ exports[`Form form should support disabled 1`] = `
           >
             <div
               class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item css-var-root ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled"
-              dropdownclassname="ant-tree-select-dropdown css-var-root ant-select-css-var ant-tree-select-css-var"
-              dropdownstyle="[object Object]"
             >
               <div
                 class="ant-select-selector"

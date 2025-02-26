@@ -7335,8 +7335,6 @@ exports[`renders components/date-picker/demo/switchable.tsx correctly 1`] = `
     <div
       aria-label="Picker Type"
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
-      dropdownclassname="css-var-test-id ant-select-css-var"
-      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"

@@ -4,8 +4,6 @@ exports[`renders components/auto-complete/demo/allowClear.tsx correctly 1`] = `
 Array [
   <div
     class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-    dropdownclassname="css-var-test-id ant-select-css-var"
-    dropdownstyle="[object Object]"
     style="width:200px"
   >
     <div
@@ -42,8 +40,6 @@ Array [
   <br />,
   <div
     class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-search"
-    dropdownclassname="css-var-test-id ant-select-css-var"
-    dropdownstyle="[object Object]"
     style="width:200px"
   >
     <div
@@ -83,8 +79,6 @@ exports[`renders components/auto-complete/demo/basic.tsx correctly 1`] = `
 Array [
   <div
     class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-    dropdownclassname="css-var-test-id ant-select-css-var"
-    dropdownstyle="[object Object]"
     style="width:200px"
   >
     <div
@@ -121,8 +115,6 @@ Array [
   <br />,
   <div
     class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-    dropdownclassname="css-var-test-id ant-select-css-var"
-    dropdownstyle="[object Object]"
     style="width:200px"
   >
     <div
@@ -161,9 +153,6 @@ Array [
 exports[`renders components/auto-complete/demo/certain-category.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-lg ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
-  dropdownclassname="certain-category-search-dropdown css-var-test-id ant-select-css-var"
-  dropdownmatchselectwidth="500"
-  dropdownstyle="[object Object]"
   style="width:250px"
 >
   <div
@@ -240,8 +229,6 @@ exports[`renders components/auto-complete/demo/certain-category.tsx correctly 1`
 exports[`renders components/auto-complete/demo/custom.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
-  dropdownclassname="css-var-test-id ant-select-css-var"
-  dropdownstyle="[object Object]"
   style="width:200px"
 >
   <div
@@ -307,8 +294,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
           >
             <div
               class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-              dropdownclassname="css-var-test-id ant-select-css-var"
-              dropdownstyle="[object Object]"
             >
               <div
                 class="ant-select-selector"
@@ -370,8 +355,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
           >
             <div
               class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
-              dropdownclassname="ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var"
-              dropdownstyle="[object Object]"
             >
               <div
                 class="ant-select-selector"
@@ -465,8 +448,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
             >
               <div
                 class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
-                dropdownclassname="ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var"
-                dropdownstyle="[object Object]"
                 style="width:30%"
               >
                 <div
@@ -528,8 +509,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
               </div>
               <div
                 class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-                dropdownclassname="css-var-test-id ant-select-css-var"
-                dropdownstyle="[object Object]"
               >
                 <div
                   class="ant-select-selector"
@@ -592,8 +571,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
           >
             <div
               class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
-              dropdownclassname="css-var-test-id ant-select-css-var"
-              dropdownstyle="[object Object]"
             >
               <div
                 class="ant-select-selector"
@@ -685,8 +662,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
             >
               <div
                 class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
-                dropdownclassname="ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var"
-                dropdownstyle="[object Object]"
                 style="width:30%"
               >
                 <div
@@ -748,8 +723,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
               </div>
               <div
                 class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
-                dropdownclassname="css-var-test-id ant-select-css-var"
-                dropdownstyle="[object Object]"
               >
                 <div
                   class="ant-select-selector"
@@ -842,8 +815,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
             >
               <div
                 class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
-                dropdownclassname="ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var"
-                dropdownstyle="[object Object]"
                 style="width:30%"
               >
                 <div
@@ -905,8 +876,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
               </div>
               <div
                 class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
-                dropdownclassname="css-var-test-id ant-select-css-var"
-                dropdownstyle="[object Object]"
               >
                 <div
                   class="ant-select-selector"
@@ -1012,8 +981,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
             >
               <div
                 class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
-                dropdownclassname="ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var"
-                dropdownstyle="[object Object]"
                 style="width:20%"
               >
                 <div
@@ -1075,8 +1042,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
               </div>
               <div
                 class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
-                dropdownclassname="css-var-test-id ant-select-css-var"
-                dropdownstyle="[object Object]"
               >
                 <div
                   class="ant-select-selector"
@@ -1189,8 +1154,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
 exports[`renders components/auto-complete/demo/non-case-sensitive.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-  dropdownclassname="css-var-test-id ant-select-css-var"
-  dropdownstyle="[object Object]"
   style="width:200px"
 >
   <div
@@ -1228,8 +1191,6 @@ exports[`renders components/auto-complete/demo/non-case-sensitive.tsx correctly 
 exports[`renders components/auto-complete/demo/options.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-  dropdownclassname="css-var-test-id ant-select-css-var"
-  dropdownstyle="[object Object]"
   style="width:200px"
 >
   <div
@@ -1302,8 +1263,6 @@ exports[`renders components/auto-complete/demo/render-panel.tsx correctly 1`] = 
       <div
         class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
         dropdownalign="[object Object]"
-        dropdownclassname="css-var-test-id ant-select-css-var"
-        dropdownstyle="[object Object]"
         style="width:120px;margin:0"
       >
         <div
@@ -1346,8 +1305,6 @@ exports[`renders components/auto-complete/demo/status.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined ant-select-status-error ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-      dropdownclassname="css-var-test-id ant-select-css-var"
-      dropdownstyle="[object Object]"
       style="width:200px"
     >
       <div
@@ -1384,8 +1341,6 @@ exports[`renders components/auto-complete/demo/status.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined ant-select-status-warning ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-      dropdownclassname="css-var-test-id ant-select-css-var"
-      dropdownstyle="[object Object]"
       style="width:200px"
     >
       <div
@@ -1423,9 +1378,6 @@ exports[`renders components/auto-complete/demo/status.tsx correctly 1`] = `
 exports[`renders components/auto-complete/demo/uncertain-category.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-lg ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
-  dropdownclassname="css-var-test-id ant-select-css-var"
-  dropdownmatchselectwidth="252"
-  dropdownstyle="[object Object]"
   style="width:300px"
 >
   <div
@@ -1506,8 +1458,6 @@ exports[`renders components/auto-complete/demo/variant.tsx correctly 1`] = `
 >
   <div
     class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-    dropdownclassname="css-var-test-id ant-select-css-var"
-    dropdownstyle="[object Object]"
     style="width:200px"
   >
     <div
@@ -1542,8 +1492,6 @@ exports[`renders components/auto-complete/demo/variant.tsx correctly 1`] = `
   </div>
   <div
     class="ant-select ant-select-filled ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-    dropdownclassname="css-var-test-id ant-select-css-var"
-    dropdownstyle="[object Object]"
     style="width:200px"
   >
     <div
@@ -1578,8 +1526,6 @@ exports[`renders components/auto-complete/demo/variant.tsx correctly 1`] = `
   </div>
   <div
     class="ant-select ant-select-borderless ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-    dropdownclassname="css-var-test-id ant-select-css-var"
-    dropdownstyle="[object Object]"
     style="width:200px"
   >
     <div

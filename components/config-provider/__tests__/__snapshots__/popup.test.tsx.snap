@@ -4,8 +4,6 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
 <div>
   <div
     class="ant-select ant-select-outlined css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-open"
-    dropdownclassname="css-var-root ant-select-css-var"
-    dropdownstyle="[object Object]"
   >
     <div
       class="ant-select-selector"
@@ -68,8 +66,6 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
   </div>
   <div
     class="ant-select ant-tree-select ant-select-outlined css-var-root ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow ant-select-open"
-    dropdownclassname="ant-tree-select-dropdown css-var-root ant-select-css-var ant-tree-select-css-var"
-    dropdownstyle="[object Object]"
   >
     <div
       class="ant-select-selector"
@@ -199,8 +195,6 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
 <div>
   <div
     class="ant-select ant-select-outlined css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-open"
-    dropdownclassname="css-var-root ant-select-css-var"
-    dropdownstyle="[object Object]"
   >
     <div
       class="ant-select-selector"
@@ -263,8 +257,6 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
   </div>
   <div
     class="ant-select ant-tree-select ant-select-outlined css-var-root ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow ant-select-open"
-    dropdownclassname="ant-tree-select-dropdown css-var-root ant-select-css-var ant-tree-select-css-var"
-    dropdownstyle="[object Object]"
   >
     <div
       class="ant-select-selector"
@@ -394,8 +386,6 @@ exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 
 <div>
   <div
     class="ant-select ant-select-outlined css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-open"
-    dropdownclassname="css-var-root ant-select-css-var"
-    dropdownstyle="[object Object]"
   >
     <div
       class="ant-select-selector"
@@ -458,8 +448,6 @@ exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 
   </div>
   <div
     class="ant-select ant-tree-select ant-select-outlined css-var-root ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow ant-select-open"
-    dropdownclassname="ant-tree-select-dropdown css-var-root ant-select-css-var ant-tree-select-css-var"
-    dropdownstyle="[object Object]"
   >
     <div
       class="ant-select-selector"

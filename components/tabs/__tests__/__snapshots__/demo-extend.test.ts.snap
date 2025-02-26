@@ -4307,8 +4307,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
-    dropdownclassname="css-var-test-id ant-select-css-var"
-    dropdownstyle="[object Object]"
     style="width: 200px;"
   >
     <div
@@ -4343,7 +4341,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
@@ -4479,8 +4477,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
-    dropdownclassname="css-var-test-id ant-select-css-var"
-    dropdownstyle="[object Object]"
     style="width: 200px;"
   >
     <div
@@ -4515,7 +4511,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
@@ -4651,8 +4647,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
-    dropdownclassname="css-var-test-id ant-select-css-var"
-    dropdownstyle="[object Object]"
     style="width: 200px;"
   >
     <div
@@ -4687,7 +4681,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
@@ -4812,8 +4806,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
-    dropdownclassname="css-var-test-id ant-select-css-var"
-    dropdownstyle="[object Object]"
     style="width: 200px;"
   >
     <div
@@ -4848,7 +4840,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
@@ -5484,11 +5476,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/tabs/demo/nest.tsx extend context correctly 2`] = `
-[
-  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
-]
-`;
+exports[`renders components/tabs/demo/nest.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tabs/demo/position.tsx extend context correctly 1`] = `
 Array [

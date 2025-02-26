@@ -45,8 +45,6 @@ exports[`renders components/input/demo/addon.tsx correctly 1`] = `
         >
           <div
             class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
-            dropdownclassname="css-var-test-id ant-select-css-var"
-            dropdownstyle="[object Object]"
           >
             <div
               class="ant-select-selector"
@@ -119,8 +117,6 @@ exports[`renders components/input/demo/addon.tsx correctly 1`] = `
         >
           <div
             class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
-            dropdownclassname="css-var-test-id ant-select-css-var"
-            dropdownstyle="[object Object]"
           >
             <div
               class="ant-select-selector"
@@ -691,8 +687,6 @@ Array [
   </div>,
   <div
     class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
-    dropdownclassname="css-var-test-id ant-select-css-var"
-    dropdownstyle="[object Object]"
     style="width:100px"
   >
     <div
@@ -757,8 +751,6 @@ Array [
   </div>,
   <div
     class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
-    dropdownclassname="css-var-test-id ant-select-css-var"
-    dropdownstyle="[object Object]"
     style="width:100px"
   >
     <div
@@ -821,8 +813,6 @@ Array [
   </div>,
   <div
     class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
-    dropdownclassname="css-var-test-id ant-select-css-var"
-    dropdownstyle="[object Object]"
     style="width:100px"
   >
     <div
@@ -884,8 +874,6 @@ Array [
   </div>,
   <div
     class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
-    dropdownclassname="ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var"
-    dropdownstyle="[object Object]"
     style="width:100px"
   >
     <div
@@ -1209,8 +1197,6 @@ Array [
   </div>,
   <div
     class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-    dropdownclassname="css-var-test-id ant-select-css-var"
-    dropdownstyle="[object Object]"
     style="width:100px"
   >
     <div
@@ -1802,8 +1788,6 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
     >
       <div
         class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
-        dropdownclassname="css-var-test-id ant-select-css-var"
-        dropdownstyle="[object Object]"
       >
         <div
           class="ant-select-selector"
@@ -2651,8 +2635,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
-      dropdownclassname="css-var-test-id ant-select-css-var"
-      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -2890,8 +2872,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
-      dropdownclassname="css-var-test-id ant-select-css-var"
-      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -3193,8 +3173,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
-      dropdownclassname="css-var-test-id ant-select-css-var"
-      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -3258,8 +3236,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
     </div>
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
-      dropdownclassname="css-var-test-id ant-select-css-var"
-      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -3328,8 +3304,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
-      dropdownclassname="css-var-test-id ant-select-css-var"
-      dropdownstyle="[object Object]"
     >
       <div
         class="ant-select-selector"
@@ -3420,8 +3394,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
-      dropdownclassname="css-var-test-id ant-select-css-var"
-      dropdownstyle="[object Object]"
       style="width:30%"
     >
       <div
@@ -3486,8 +3458,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
     </div>
     <div
       class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-      dropdownclassname="css-var-test-id ant-select-css-var"
-      dropdownstyle="[object Object]"
       style="width:70%"
     >
       <div
@@ -3527,8 +3497,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
-      dropdownclassname="css-var-test-id ant-select-css-var"
-      dropdownstyle="[object Object]"
       style="width:30%"
     >
       <div

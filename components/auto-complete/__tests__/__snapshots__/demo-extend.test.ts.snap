@@ -4,8 +4,6 @@ exports[`renders components/auto-complete/demo/allowClear.tsx extend context cor
 Array [
   <div
     class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-    dropdownclassname="css-var-test-id ant-select-css-var"
-    dropdownstyle="[object Object]"
     style="width: 200px;"
   >
     <div
@@ -39,7 +37,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
@@ -55,8 +53,6 @@ Array [
   <br />,
   <div
     class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-search"
-    dropdownclassname="css-var-test-id ant-select-css-var"
-    dropdownstyle="[object Object]"
     style="width: 200px;"
   >
     <div
@@ -90,7 +86,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
@@ -111,8 +107,6 @@ exports[`renders components/auto-complete/demo/basic.tsx extend context correctl
 Array [
   <div
     class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-    dropdownclassname="css-var-test-id ant-select-css-var"
-    dropdownstyle="[object Object]"
     style="width: 200px;"
   >
     <div
@@ -146,7 +140,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
@@ -162,8 +156,6 @@ Array [
   <br />,
   <div
     class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-    dropdownclassname="css-var-test-id ant-select-css-var"
-    dropdownstyle="[object Object]"
     style="width: 200px;"
   >
     <div
@@ -197,7 +189,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
@@ -217,9 +209,6 @@ exports[`renders components/auto-complete/demo/basic.tsx extend context correctl
 exports[`renders components/auto-complete/demo/certain-category.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-lg ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
-  dropdownclassname="certain-category-search-dropdown css-var-test-id ant-select-css-var"
-  dropdownmatchselectwidth="500"
-  dropdownstyle="[object Object]"
   style="width: 250px;"
 >
   <div
@@ -292,8 +281,8 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up certain-category-search-dropdown css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; width: 500px;"
   >
     <div>
       <div
@@ -596,8 +585,6 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
 exports[`renders components/auto-complete/demo/custom.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
-  dropdownclassname="css-var-test-id ant-select-css-var"
-  dropdownstyle="[object Object]"
   style="width: 200px;"
 >
   <div
@@ -630,7 +617,7 @@ exports[`renders components/auto-complete/demo/custom.tsx extend context correct
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div>
@@ -678,8 +665,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
           >
             <div
               class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-              dropdownclassname="css-var-test-id ant-select-css-var"
-              dropdownstyle="[object Object]"
             >
               <div
                 class="ant-select-selector"
@@ -710,7 +695,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 </span>
               </div>
               <div
-                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div>
@@ -754,8 +739,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
           >
             <div
               class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
-              dropdownclassname="ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var"
-              dropdownstyle="[object Object]"
             >
               <div
                 class="ant-select-selector"
@@ -789,7 +772,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 </span>
               </div>
               <div
-                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div>
@@ -910,8 +893,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
             >
               <div
                 class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
-                dropdownclassname="ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var"
-                dropdownstyle="[object Object]"
                 style="width: 30%;"
               >
                 <div
@@ -946,7 +927,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                   </span>
                 </div>
                 <div
-                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div>
@@ -1034,8 +1015,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
               </div>
               <div
                 class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-                dropdownclassname="css-var-test-id ant-select-css-var"
-                dropdownstyle="[object Object]"
               >
                 <div
                   class="ant-select-selector"
@@ -1066,7 +1045,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                   </span>
                 </div>
                 <div
-                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div>
@@ -1111,8 +1090,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
           >
             <div
               class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
-              dropdownclassname="css-var-test-id ant-select-css-var"
-              dropdownstyle="[object Object]"
             >
               <div
                 class="ant-select-selector"
@@ -1170,7 +1147,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 </span>
               </div>
               <div
-                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div>
@@ -1217,8 +1194,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
             >
               <div
                 class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
-                dropdownclassname="ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var"
-                dropdownstyle="[object Object]"
                 style="width: 30%;"
               >
                 <div
@@ -1253,7 +1228,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                   </span>
                 </div>
                 <div
-                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div>
@@ -1341,8 +1316,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
               </div>
               <div
                 class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
-                dropdownclassname="css-var-test-id ant-select-css-var"
-                dropdownstyle="[object Object]"
               >
                 <div
                   class="ant-select-selector"
@@ -1400,7 +1373,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                   </span>
                 </div>
                 <div
-                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div>
@@ -1448,8 +1421,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
             >
               <div
                 class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
-                dropdownclassname="ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var"
-                dropdownstyle="[object Object]"
                 style="width: 30%;"
               >
                 <div
@@ -1484,7 +1455,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                   </span>
                 </div>
                 <div
-                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div>
@@ -1572,8 +1543,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
               </div>
               <div
                 class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
-                dropdownclassname="css-var-test-id ant-select-css-var"
-                dropdownstyle="[object Object]"
               >
                 <div
                   class="ant-select-selector"
@@ -1644,7 +1613,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                   </span>
                 </div>
                 <div
-                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div>
@@ -1692,8 +1661,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
             >
               <div
                 class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
-                dropdownclassname="ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var"
-                dropdownstyle="[object Object]"
                 style="width: 20%;"
               >
                 <div
@@ -1728,7 +1695,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                   </span>
                 </div>
                 <div
-                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div>
@@ -1816,8 +1783,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
               </div>
               <div
                 class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
-                dropdownclassname="css-var-test-id ant-select-css-var"
-                dropdownstyle="[object Object]"
               >
                 <div
                   class="ant-select-selector"
@@ -1888,7 +1853,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                   </span>
                 </div>
                 <div
-                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div>
@@ -1949,8 +1914,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
 exports[`renders components/auto-complete/demo/non-case-sensitive.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-  dropdownclassname="css-var-test-id ant-select-css-var"
-  dropdownstyle="[object Object]"
   style="width: 200px;"
 >
   <div
@@ -1984,7 +1947,7 @@ exports[`renders components/auto-complete/demo/non-case-sensitive.tsx extend con
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div>
@@ -2079,8 +2042,6 @@ exports[`renders components/auto-complete/demo/non-case-sensitive.tsx extend con
 exports[`renders components/auto-complete/demo/options.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-  dropdownclassname="css-var-test-id ant-select-css-var"
-  dropdownstyle="[object Object]"
   style="width: 200px;"
 >
   <div
@@ -2114,7 +2075,7 @@ exports[`renders components/auto-complete/demo/options.tsx extend context correc
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div>
@@ -2168,8 +2129,6 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
       <div
         class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
         dropdownalign="[object Object]"
-        dropdownclassname="css-var-test-id ant-select-css-var"
-        dropdownstyle="[object Object]"
         style="width: 120px; margin: 0px;"
       >
         <div
@@ -2198,7 +2157,7 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -2325,8 +2284,6 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
   >
     <div
       class="ant-select ant-select-outlined ant-select-status-error ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-      dropdownclassname="css-var-test-id ant-select-css-var"
-      dropdownstyle="[object Object]"
       style="width: 200px;"
     >
       <div
@@ -2358,7 +2315,7 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
@@ -2376,8 +2333,6 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
   >
     <div
       class="ant-select ant-select-outlined ant-select-status-warning ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-      dropdownclassname="css-var-test-id ant-select-css-var"
-      dropdownstyle="[object Object]"
       style="width: 200px;"
     >
       <div
@@ -2409,7 +2364,7 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
@@ -2430,9 +2385,6 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
 exports[`renders components/auto-complete/demo/uncertain-category.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-lg ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
-  dropdownclassname="css-var-test-id ant-select-css-var"
-  dropdownmatchselectwidth="252"
-  dropdownstyle="[object Object]"
   style="width: 300px;"
 >
   <div
@@ -2505,8 +2457,8 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx extend con
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; width: 252px;"
   >
     <div>
       <div
@@ -2532,8 +2484,6 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
 >
   <div
     class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-    dropdownclassname="css-var-test-id ant-select-css-var"
-    dropdownstyle="[object Object]"
     style="width: 200px;"
   >
     <div
@@ -2567,7 +2517,7 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
@@ -2581,8 +2531,6 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
   </div>
   <div
     class="ant-select ant-select-filled ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-    dropdownclassname="css-var-test-id ant-select-css-var"
-    dropdownstyle="[object Object]"
     style="width: 200px;"
   >
     <div
@@ -2616,7 +2564,7 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
@@ -2630,8 +2578,6 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
   </div>
   <div
     class="ant-select ant-select-borderless ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-    dropdownclassname="css-var-test-id ant-select-css-var"
-    dropdownstyle="[object Object]"
     style="width: 200px;"
   >
     <div
@@ -2665,7 +2611,7 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
@@ -2680,8 +2626,4 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
 </div>
 `;
 
-exports[`renders components/auto-complete/demo/variant.tsx extend context correctly 2`] = `
-[
-  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
-]
-`;
+exports[`renders components/auto-complete/demo/variant.tsx extend context correctly 2`] = `[]`;

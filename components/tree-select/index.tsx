@@ -118,7 +118,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     popupMatchSelectWidth,
     allowClear,
     variant: customVariant,
-    dropdownStyle,
+    popupStyle,
     tagRender,
     maxCount,
     showCheckedStrategy,
@@ -288,14 +288,14 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
   );
 
   // ============================ zIndex ============================
-  const [zIndex] = useZIndex('SelectLike', dropdownStyle?.zIndex as number);
+  const [zIndex] = useZIndex('SelectLike', popupStyle?.zIndex as number);
 
   return (
     <RcTreeSelect
       virtual={virtual}
       disabled={mergedDisabled}
       {...selectProps}
-      dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
+      popupMatchSelectWidth={mergedPopupMatchSelectWidth}
       builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
       ref={ref}
       prefixCls={prefixCls}
@@ -316,8 +316,8 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
       notFoundContent={mergedNotFound}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       treeMotion={null}
-      dropdownClassName={mergedDropdownClassName}
-      dropdownStyle={{ ...dropdownStyle, zIndex }}
+      popupClassName={mergedDropdownClassName}
+      popupStyle={{ ...popupStyle, zIndex }}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       treeExpandAction={treeExpandAction}

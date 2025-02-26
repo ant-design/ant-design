@@ -139,9 +139,6 @@ exports[`ColorPicker Should panelRender work 1`] = `
                 >
                   <div
                     class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
-                    dropdownclassname="css-var-root ant-select-css-var"
-                    dropdownmatchselectwidth="68"
-                    dropdownstyle="[object Object]"
                   >
                     <div
                       class="ant-select-selector"
@@ -432,9 +429,6 @@ exports[`ColorPicker Should panelRender work 2`] = `
               >
                 <div
                   class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
-                  dropdownclassname="css-var-root ant-select-css-var"
-                  dropdownmatchselectwidth="68"
-                  dropdownstyle="[object Object]"
                 >
                   <div
                     class="ant-select-selector"
