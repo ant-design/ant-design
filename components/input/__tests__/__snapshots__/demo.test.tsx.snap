@@ -1313,6 +1313,7 @@ Array [
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
+        tabindex="-1"
         type="button"
       >
         <span
@@ -1352,6 +1353,7 @@ Array [
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
+        tabindex="-1"
         type="button"
       >
         <span
@@ -1444,6 +1446,7 @@ exports[`renders components/input/demo/borderless-debug.tsx correctly 1`] = `
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
+        tabindex="-1"
         type="button"
       >
         <span
@@ -1483,6 +1486,7 @@ exports[`renders components/input/demo/borderless-debug.tsx correctly 1`] = `
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
+        tabindex="-1"
         type="button"
       >
         <span
@@ -1559,6 +1563,7 @@ exports[`renders components/input/demo/borderless-debug.tsx correctly 1`] = `
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
+        tabindex="-1"
         type="button"
       >
         <span
@@ -1693,6 +1698,7 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
             >
               <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2342,6 +2348,7 @@ exports[`renders components/input/demo/filled-debug.tsx correctly 1`] = `
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
+        tabindex="-1"
         type="button"
       >
         <span
@@ -2723,6 +2730,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
           >
             <button
               class="ant-input-clear-icon"
+              tabindex="-1"
               type="button"
             >
               <span
@@ -2802,6 +2810,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
           >
             <button
               class="ant-input-clear-icon"
+              tabindex="-1"
               type="button"
             >
               <span
@@ -4424,6 +4433,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
           >
             <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+              tabindex="-1"
               type="button"
             >
               <span
@@ -4513,6 +4523,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
           >
             <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+              tabindex="-1"
               type="button"
             >
               <span
@@ -4646,6 +4657,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
           >
             <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+              tabindex="-1"
               type="button"
             >
               <span
@@ -5226,6 +5238,7 @@ Array [
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
+        tabindex="-1"
         type="button"
       >
         <span
