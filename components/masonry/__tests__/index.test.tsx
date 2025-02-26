@@ -199,15 +199,17 @@ describe('Masonry', () => {
     const getGutter = () => {
       const itemElements = document.body.querySelectorAll<HTMLElement>('.ant-masonry-item');
 
-      const horizontalGutter = itemElements[0].style.width.match(/\d+px/)![0];
-      const verticalGutter = itemElements[1].style.top.match(/\d+px/)![0];
+      const horizontalGutter = itemElements[0].style
+        .getPropertyValue('--item-width')
+        .match(/\d+px/)![0];
+      const verticalGutter = itemElements[2].style.top.match(/\d+px/)![0];
 
       return [parseInt(horizontalGutter, 10), parseInt(verticalGutter, 10)];
     };
 
     const renderGutter = (gutter: MasonryProps['gutter']) => (
       <DemoMasonry
-        columns={1}
+        columns={2}
         items={[
           {
             key: 0,
@@ -216,6 +218,10 @@ describe('Masonry', () => {
           {
             key: 1,
             data: 23,
+          },
+          {
+            key: 2,
+            data: 33,
           },
         ]}
         gutter={gutter}
