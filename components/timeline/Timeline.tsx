@@ -69,7 +69,14 @@ const Timeline: CompoundedComponent = (props) => {
   return (
     <TimelineItemList
       classNames={{
-        root: classNames(contextClassNames.root, timelineClassNames?.root),
+        root: classNames(
+          contextClassName,
+          className,
+          cssVarCls,
+          rootCls,
+          contextClassNames.root,
+          timelineClassNames?.root,
+        ),
         tail: classNames(contextClassNames.tail, timelineClassNames?.tail),
         indicator: classNames(contextClassNames.indicator, timelineClassNames?.indicator),
         label: classNames(contextClassNames.label, timelineClassNames?.label),
@@ -77,7 +84,7 @@ const Timeline: CompoundedComponent = (props) => {
         item: classNames(contextClassNames.item, timelineClassNames?.item),
       }}
       styles={{
-        root: { ...contextStyles.root, ...styles?.root },
+        root: { ...contextStyles.root, ...styles?.root, ...contextStyle, ...style },
         tail: { ...contextStyles.tail, ...styles?.tail },
         indicator: { ...contextStyles.indicator, ...styles?.indicator },
         label: { ...contextStyles.label, ...styles?.label },
@@ -85,8 +92,6 @@ const Timeline: CompoundedComponent = (props) => {
         item: { ...contextStyles.item, ...styles?.item },
       }}
       {...restProps}
-      className={classNames(contextClassName, className, cssVarCls, rootCls)}
-      style={{ ...contextStyle, ...style }}
       prefixCls={prefixCls}
       direction={direction}
       items={mergedItems}
