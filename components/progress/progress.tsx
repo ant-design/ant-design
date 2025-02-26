@@ -115,7 +115,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     progress: progressStyle,
   } = React.useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('progress', customizePrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const isLineType = type === 'line';
   const isPureLineType = isLineType && !steps;
@@ -235,7 +235,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     cssVarCls,
   );
 
-  return wrapCSSVar(
+  return (
     <div
       ref={ref}
       style={{ ...progressStyle?.style, ...style }}
@@ -255,7 +255,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
       ])}
     >
       {progress}
-    </div>,
+    </div>
   );
 });
 

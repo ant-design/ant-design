@@ -202,7 +202,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
   // ============================== Style ===============================
   const prefixCls = getPrefixCls('slider', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const rootClassNames = classNames(
     className,
@@ -372,7 +372,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
 
   const mergedTracksClassNames = classNames(contextClassNames.tracks, sliderClassNames?.tracks);
 
-  return wrapCSSVar(
+  return (
     // @ts-ignore
     <RcSlider
       {...restProps}
@@ -407,7 +407,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
       handleRender={handleRender}
       activeHandleRender={activeHandleRender}
       onChangeComplete={onInternalChangeComplete}
-    />,
+    />
   );
 });
 

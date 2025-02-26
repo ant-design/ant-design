@@ -152,7 +152,7 @@ function InternalList<T>(
   const prefixCls = getPrefixCls('list', customizePrefixCls);
 
   // Style
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   let loadingProp = loading;
   if (typeof loadingProp === 'boolean') {
@@ -288,7 +288,7 @@ function InternalList<T>(
     [JSON.stringify(grid), itemLayout],
   );
 
-  return wrapCSSVar(
+  return (
     <ListContext.Provider value={contextValue}>
       <div ref={ref} style={{ ...contextStyle, ...style }} className={classString} {...rest}>
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
@@ -301,7 +301,7 @@ function InternalList<T>(
         {loadMore ||
           ((paginationPosition === 'bottom' || paginationPosition === 'both') && paginationContent)}
       </div>
-    </ListContext.Provider>,
+    </ListContext.Provider>
   );
 }
 

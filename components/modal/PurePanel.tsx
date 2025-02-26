@@ -35,7 +35,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const rootPrefixCls = getPrefixCls();
   const prefixCls = customizePrefixCls || getPrefixCls('modal');
   const rootCls = useCSSVarCls(rootPrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const confirmPrefixCls = `${prefixCls}-confirm`;
 
@@ -65,7 +65,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     };
   }
 
-  return wrapCSSVar(
+  return (
     <Panel
       prefixCls={prefixCls}
       className={classNames(
@@ -81,7 +81,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
       closeIcon={renderCloseIcon(prefixCls, closeIcon)}
       closable={closable}
       {...additionalProps}
-    />,
+    />
   );
 };
 

@@ -8,7 +8,7 @@ exports[`Transfer.List should render correctly 1`] = `
     class="ant-transfer-list-header"
   >
     <label
-      class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+      class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
     >
       <span
         class="ant-checkbox ant-checkbox-indeterminate ant-wave-target"
@@ -60,7 +60,7 @@ exports[`Transfer.List should render correctly 1`] = `
         class="ant-transfer-list-content-item ant-transfer-list-content-item-checked"
       >
         <label
-          class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-transfer-list-checkbox"
+          class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
         >
           <span
             class="ant-checkbox ant-wave-target ant-checkbox-checked"
@@ -83,7 +83,7 @@ exports[`Transfer.List should render correctly 1`] = `
         class="ant-transfer-list-content-item"
       >
         <label
-          class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
         >
           <span
             class="ant-checkbox ant-wave-target"
@@ -105,7 +105,7 @@ exports[`Transfer.List should render correctly 1`] = `
         class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
       >
         <label
-          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
         >
           <span
             class="ant-checkbox ant-wave-target ant-checkbox-disabled"

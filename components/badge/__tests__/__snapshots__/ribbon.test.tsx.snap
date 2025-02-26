@@ -2,7 +2,7 @@
 
 exports[`Ribbon rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-ribbon-wrapper"
+  class="ant-ribbon-wrapper css-var-root"
 >
   <div
     class="ant-ribbon ant-ribbon-placement-end ant-ribbon-rtl"

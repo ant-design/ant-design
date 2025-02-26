@@ -2,7 +2,7 @@
 
 exports[`Card correct pass tabList props 1`] = `
 <div
-  class="ant-card ant-card-bordered ant-card-contain-tabs"
+  class="ant-card ant-card-bordered ant-card-contain-tabs css-var-root"
 >
   <div
     class="ant-card-head"
@@ -11,7 +11,7 @@ exports[`Card correct pass tabList props 1`] = `
       class="ant-card-head-wrapper"
     />
     <div
-      class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-large ant-tabs-card ant-tabs-editable-card ant-card-head-tabs"
+      class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-large ant-tabs-card ant-tabs-editable-card ant-card-head-tabs css-var-root ant-tabs-css-var"
     >
       <div
         aria-orientation="horizontal"
@@ -262,7 +262,7 @@ exports[`Card correct pass tabList props 1`] = `
 
 exports[`Card rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-card ant-card-bordered ant-card-rtl"
+  class="ant-card ant-card-bordered ant-card-rtl css-var-root"
 >
   <div
     class="ant-card-body"
@@ -272,14 +272,14 @@ exports[`Card rtl render component should be rendered correctly in RTL direction
 
 exports[`Card should still have padding when card which set padding to 0 is loading 1`] = `
 <div
-  class="ant-card ant-card-loading ant-card-bordered"
+  class="ant-card ant-card-loading ant-card-bordered css-var-root"
 >
   <div
     class="ant-card-body"
     style="padding: 0px;"
   >
     <div
-      class="ant-skeleton ant-skeleton-active"
+      class="ant-skeleton ant-skeleton-active css-var-root"
     >
       <div
         class="ant-skeleton-section"
@@ -302,7 +302,7 @@ exports[`Card should still have padding when card which set padding to 0 is load
 
 exports[`Card title should be vertically aligned 1`] = `
 <div
-  class="ant-card ant-card-bordered"
+  class="ant-card ant-card-bordered css-var-root"
   style="width: 300px;"
 >
   <div
@@ -320,7 +320,7 @@ exports[`Card title should be vertically aligned 1`] = `
         class="ant-card-extra"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>

@@ -3,7 +3,7 @@
 exports[`renders components/tour/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -11,17 +11,17 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal"
     role="separator"
   />,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -33,7 +33,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -45,7 +45,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
         type="button"
       >
         <span
@@ -75,7 +75,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-tour ant-tour-placement-bottom"
+    class="ant-tour css-var-test-id ant-tour-placement-bottom"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
   >
     <div
@@ -155,7 +155,7 @@ Array [
             class="ant-tour-buttons"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
+              class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
               type="button"
             >
               <span>
@@ -175,7 +175,7 @@ exports[`renders components/tour/demo/basic.tsx extend context correctly 2`] = `
 exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
 <div>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -183,29 +183,29 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
     </span>
   </button>
   <div
-    class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
     style="display: flex; margin-top: 12px;"
   >
     <div
       class="ant-space-item"
     >
       <div
-        class="ant-row"
+        class="ant-row css-var-test-id"
       >
         <div
-          class="ant-col ant-col-6"
+          class="ant-col ant-col-6 css-var-test-id"
         >
           <span
-            class="ant-typography"
+            class="ant-typography css-var-test-id"
           >
             Radius:
           </span>
         </div>
         <div
-          class="ant-col ant-col-12"
+          class="ant-col ant-col-12 css-var-test-id"
         >
           <div
-            class="ant-slider ant-slider-horizontal"
+            class="ant-slider css-var-test-id ant-slider-horizontal"
           >
             <div
               class="ant-slider-rail"
@@ -230,7 +230,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
               tabindex="0"
             />
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
@@ -257,22 +257,22 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
       class="ant-space-item"
     >
       <div
-        class="ant-row"
+        class="ant-row css-var-test-id"
       >
         <div
-          class="ant-col ant-col-6"
+          class="ant-col ant-col-6 css-var-test-id"
         >
           <span
-            class="ant-typography"
+            class="ant-typography css-var-test-id"
           >
              offset:
           </span>
         </div>
         <div
-          class="ant-col ant-col-12"
+          class="ant-col ant-col-12 css-var-test-id"
         >
           <div
-            class="ant-slider ant-slider-horizontal"
+            class="ant-slider css-var-test-id ant-slider-horizontal"
           >
             <div
               class="ant-slider-rail"
@@ -297,7 +297,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
               tabindex="0"
             />
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
@@ -324,22 +324,22 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
       class="ant-space-item"
     >
       <div
-        class="ant-row"
+        class="ant-row css-var-test-id"
       >
         <div
-          class="ant-col ant-col-6"
+          class="ant-col ant-col-6 css-var-test-id"
         >
           <span
-            class="ant-typography"
+            class="ant-typography css-var-test-id"
           >
             Horizontal offset:
           </span>
         </div>
         <div
-          class="ant-col ant-col-12"
+          class="ant-col ant-col-12 css-var-test-id"
         >
           <div
-            class="ant-slider ant-slider-horizontal"
+            class="ant-slider css-var-test-id ant-slider-horizontal"
           >
             <div
               class="ant-slider-rail"
@@ -364,7 +364,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
               tabindex="0"
             />
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
@@ -391,22 +391,22 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
       class="ant-space-item"
     >
       <div
-        class="ant-row"
+        class="ant-row css-var-test-id"
       >
         <div
-          class="ant-col ant-col-6"
+          class="ant-col ant-col-6 css-var-test-id"
         >
           <span
-            class="ant-typography"
+            class="ant-typography css-var-test-id"
           >
             Vertical offset:
           </span>
         </div>
         <div
-          class="ant-col ant-col-12"
+          class="ant-col ant-col-12 css-var-test-id"
         >
           <div
-            class="ant-slider ant-slider-horizontal"
+            class="ant-slider css-var-test-id ant-slider-horizontal"
           >
             <div
               class="ant-slider-rail"
@@ -431,7 +431,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
               tabindex="0"
             />
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
@@ -456,7 +456,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-tour ant-tour-placement-bottom"
+    class="ant-tour css-var-test-id ant-tour-placement-bottom"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
   >
     <div
@@ -523,7 +523,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
             class="ant-tour-buttons"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
+              class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
               type="button"
             >
               <span>
@@ -543,7 +543,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 2`] = `[]
 exports[`renders components/tour/demo/indicator.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -551,17 +551,17 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal"
     role="separator"
   />,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -573,7 +573,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -585,7 +585,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
         type="button"
       >
         <span
@@ -615,7 +615,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-tour ant-tour-placement-bottom"
+    class="ant-tour css-var-test-id ant-tour-placement-bottom"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
   >
     <div
@@ -681,7 +681,7 @@ Array [
             class="ant-tour-buttons"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
+              class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
               type="button"
             >
               <span>
@@ -701,7 +701,7 @@ exports[`renders components/tour/demo/indicator.tsx extend context correctly 2`]
 exports[`renders components/tour/demo/mask.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -709,17 +709,17 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal"
     role="separator"
   />,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -731,7 +731,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -743,7 +743,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
         type="button"
       >
         <span
@@ -773,7 +773,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-tour ant-tour-placement-bottom"
+    class="ant-tour css-var-test-id ant-tour-placement-bottom"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
   >
     <div
@@ -853,7 +853,7 @@ Array [
             class="ant-tour-buttons"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
+              class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
               type="button"
             >
               <span>
@@ -873,7 +873,7 @@ exports[`renders components/tour/demo/mask.tsx extend context correctly 2`] = `[
 exports[`renders components/tour/demo/non-modal.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -881,17 +881,17 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal"
     role="separator"
   />,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -903,7 +903,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -915,7 +915,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
         type="button"
       >
         <span
@@ -945,7 +945,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-tour ant-tour-primary ant-tour-placement-bottom"
+    class="ant-tour css-var-test-id ant-tour-primary ant-tour-placement-bottom"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
   >
     <div
@@ -1025,7 +1025,7 @@ Array [
             class="ant-tour-buttons"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-tour-next-btn"
+              class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-tour-next-btn"
               type="button"
             >
               <span>
@@ -1045,7 +1045,7 @@ exports[`renders components/tour/demo/non-modal.tsx extend context correctly 2`]
 exports[`renders components/tour/demo/placement.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -1053,7 +1053,7 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-tour"
+    class="ant-tour css-var-test-id"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
   >
     <div
@@ -1121,7 +1121,7 @@ Array [
             class="ant-tour-buttons"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
+              class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
               type="button"
             >
               <span>

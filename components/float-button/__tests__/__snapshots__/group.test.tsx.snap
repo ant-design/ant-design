@@ -2,10 +2,10 @@
 
 exports[`FloatButtonGroup should correct render 1`] = `
 <div
-  class="ant-float-btn-group ant-float-btn-group-circle ant-float-btn-group-circle-shadow"
+  class="ant-float-btn-group css-var-root ant-float-btn-css-var ant-float-btn-group-circle ant-float-btn-group-circle-shadow"
 >
   <button
-    class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+    class="css-var-root ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle"
     type="button"
   >
     <div
@@ -41,7 +41,7 @@ exports[`FloatButtonGroup should correct render 1`] = `
     </div>
   </button>
   <button
-    class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+    class="css-var-root ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle"
     type="button"
   >
     <div
@@ -77,7 +77,7 @@ exports[`FloatButtonGroup should correct render 1`] = `
     </div>
   </button>
   <button
-    class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+    class="css-var-root ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle"
     type="button"
   >
     <div

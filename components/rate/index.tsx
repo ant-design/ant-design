@@ -55,7 +55,7 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
   const ratePrefixCls = getPrefixCls('rate', prefixCls);
 
   // Style
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(ratePrefixCls);
+  const [hashId, cssVarCls] = useStyle(ratePrefixCls);
 
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
@@ -63,7 +63,7 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
 
-  return wrapCSSVar(
+  return (
     <RcRate
       ref={ref}
       character={character}
@@ -74,7 +74,7 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
       style={mergedStyle}
       prefixCls={ratePrefixCls}
       direction={direction}
-    />,
+    />
   );
 });
 

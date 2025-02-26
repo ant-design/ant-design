@@ -10,6 +10,7 @@ import WatermarkContext from './context';
 import type { WatermarkContextProps } from './context';
 import useClips, { FontGap } from './useClips';
 import useRafDebounce from './useRafDebounce';
+import useSingletonCache from './useSingletonCache';
 import useWatermark from './useWatermark';
 import { getPixelRatio, reRendering } from './utils';
 
@@ -165,6 +166,9 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
 
   const getClips = useClips();
 
+  type ClipParams = Parameters<typeof getClips>;
+  const getClipsCache = useSingletonCache<ClipParams, ReturnType<typeof getClips>>();
+
   const [watermarkInfo, setWatermarkInfo] = React.useState<[base64: string, contentWidth: number]>(
     null!,
   );
@@ -181,24 +185,19 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
       const drawCanvas = (
         drawContent?: NonNullable<WatermarkProps['content']> | HTMLImageElement,
       ) => {
-        const [nextClips, clipWidth] = getClips(
+        const params: ClipParams = [
           drawContent || '',
           rotate,
           ratio,
           markWidth,
           markHeight,
-          {
-            color,
-            fontSize,
-            fontStyle,
-            fontWeight,
-            fontFamily,
-            textAlign,
-          },
+          { color, fontSize, fontStyle, fontWeight, fontFamily, textAlign },
           gapX,
           gapY,
-        );
+        ] as const;
 
+        const result = getClipsCache(params, () => getClips(...params));
+        const [nextClips, clipWidth] = result;
         setWatermarkInfo([nextClips, clipWidth]);
       };
 

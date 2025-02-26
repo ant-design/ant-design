@@ -6,7 +6,7 @@ Array [
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
     role="separator"
   >
     <span
@@ -19,7 +19,7 @@ Array [
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -32,7 +32,7 @@ Array [
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-end"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-end"
     role="separator"
   >
     <span
@@ -45,7 +45,7 @@ Array [
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start ant-divider-no-default-orientation-margin-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start ant-divider-no-default-orientation-margin-start"
     role="separator"
   >
     <span
@@ -59,7 +59,7 @@ Array [
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-end ant-divider-no-default-orientation-margin-end"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-end ant-divider-no-default-orientation-margin-end"
     role="separator"
   >
     <span
@@ -78,17 +78,17 @@ Array [
 exports[`renders components/divider/demo/customize-style.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal"
     role="separator"
     style="border-width:2px;border-color:#7cb305"
   />,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-dashed"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-dashed"
     role="separator"
     style="border-color:#7cb305"
   />,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-dashed"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-dashed"
     role="separator"
     style="border-color:#7cb305"
   >
@@ -99,12 +99,12 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-divider ant-divider-vertical"
+    class="ant-divider css-var-test-id ant-divider-vertical"
     role="separator"
     style="height:60px;border-color:#7cb305"
   />,
   <div
-    class="ant-divider ant-divider-vertical ant-divider-dashed"
+    class="ant-divider css-var-test-id ant-divider-vertical ant-divider-dashed"
     role="separator"
     style="height:60px;border-color:#7cb305"
   />,
@@ -112,7 +112,7 @@ Array [
     style="display:flex;flex-direction:column;height:50px;box-shadow:0 0 1px red"
   >
     <div
-      class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+      class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
       role="separator"
       style="background:rgba(0,255,0,0.05)"
     >
@@ -132,14 +132,14 @@ Array [
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal"
     role="separator"
   />,
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-dashed"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-dashed"
     role="separator"
   />,
   <p>
@@ -154,7 +154,7 @@ Array [
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain"
     role="separator"
   >
     <span
@@ -167,7 +167,7 @@ Array [
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start ant-divider-plain"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start ant-divider-plain"
     role="separator"
   >
     <span
@@ -180,7 +180,7 @@ Array [
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-end ant-divider-plain"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-end ant-divider-plain"
     role="separator"
   >
     <span
@@ -201,7 +201,7 @@ Array [
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
     role="separator"
     style="border-color:#7cb305"
   >
@@ -215,7 +215,7 @@ Array [
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-dotted"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-dotted"
     role="separator"
     style="border-color:#7cb305"
   >
@@ -229,7 +229,7 @@ Array [
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-dashed"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-dashed"
     role="separator"
     style="border-color:#7cb305"
   >
@@ -249,7 +249,7 @@ exports[`renders components/divider/demo/vertical.tsx correctly 1`] = `
 Array [
   Text,
   <div
-    class="ant-divider ant-divider-vertical"
+    class="ant-divider css-var-test-id ant-divider-vertical"
     role="separator"
   />,
   <a
@@ -258,7 +258,7 @@ Array [
     Link
   </a>,
   <div
-    class="ant-divider ant-divider-vertical"
+    class="ant-divider css-var-test-id ant-divider-vertical"
     role="separator"
   />,
   <a
@@ -275,7 +275,7 @@ Array [
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
     role="separator"
   >
     <span
@@ -288,7 +288,7 @@ Array [
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -301,7 +301,7 @@ Array [
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-end"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-end"
     role="separator"
   >
     <span
@@ -314,7 +314,7 @@ Array [
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start ant-divider-no-default-orientation-margin-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start ant-divider-no-default-orientation-margin-start"
     role="separator"
   >
     <span
@@ -328,7 +328,7 @@ Array [
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-end ant-divider-no-default-orientation-margin-end"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-end ant-divider-no-default-orientation-margin-end"
     role="separator"
   >
     <span

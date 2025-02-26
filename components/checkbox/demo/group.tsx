@@ -1,6 +1,6 @@
 import React from 'react';
 import { Checkbox } from 'antd';
-import type { GetProp } from 'antd';
+import type { CheckboxOptionType, GetProp } from 'antd';
 
 const onChange: GetProp<typeof Checkbox.Group, 'onChange'> = (checkedValues) => {
   console.log('checked = ', checkedValues);
@@ -8,16 +8,16 @@ const onChange: GetProp<typeof Checkbox.Group, 'onChange'> = (checkedValues) => 
 
 const plainOptions = ['Apple', 'Pear', 'Orange'];
 
-const options = [
-  { label: 'Apple', value: 'Apple' },
-  { label: 'Pear', value: 'Pear' },
-  { label: 'Orange', value: 'Orange' },
+const options: CheckboxOptionType<string>[] = [
+  { label: 'Apple', value: 'Apple', className: 'label-1' },
+  { label: 'Pear', value: 'Pear', className: 'label-2' },
+  { label: 'Orange', value: 'Orange', className: 'label-3' },
 ];
 
-const optionsWithDisabled = [
-  { label: 'Apple', value: 'Apple' },
-  { label: 'Pear', value: 'Pear' },
-  { label: 'Orange', value: 'Orange', disabled: false },
+const optionsWithDisabled: CheckboxOptionType<string>[] = [
+  { label: 'Apple', value: 'Apple', className: 'label-1' },
+  { label: 'Pear', value: 'Pear', className: 'label-2' },
+  { label: 'Orange', value: 'Orange', className: 'label-3', disabled: false },
 ];
 
 const App: React.FC = () => (

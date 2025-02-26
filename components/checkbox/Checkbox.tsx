@@ -131,7 +131,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
 
   const prefixCls = getPrefixCls('checkbox', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const checkboxProps: CheckboxProps = { ...restProps };
   if (checkboxGroup && !skipGroup) {
@@ -175,7 +175,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   const [onLabelClick, onInputClick] = useBubbleLock(checkboxProps.onClick);
 
   // ============================== Render ==============================
-  return wrapCSSVar(
+  return (
     <Wave component="Checkbox" disabled={mergedDisabled}>
       <label
         className={classString}
@@ -207,7 +207,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
           </span>
         )}
       </label>
-    </Wave>,
+    </Wave>
   );
 };
 
