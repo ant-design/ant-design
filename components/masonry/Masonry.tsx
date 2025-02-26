@@ -1,15 +1,15 @@
 import * as React from 'react';
 import type { CSSProperties } from 'react';
 import { CSSMotionList } from '@rc-component/motion';
+import ResizeObserver from '@rc-component/resize-observer';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import isEqual from '@rc-component/util/lib/isEqual';
 import { composeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
-import ResizeObserver from 'rc-resize-observer';
 
 import { responsiveArray } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { RowProps } from '../grid';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
@@ -75,7 +75,15 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   } = props;
 
   // ======================= MISC =======================
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('masonry');
+
   const prefixCls = getPrefixCls('masonry', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
@@ -190,6 +198,8 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
         ref={containerRef}
         className={classNames(
           prefixCls,
+          contextClassName,
+          contextClassNames.root,
           rootClassName,
           className,
           classes.root,
@@ -201,6 +211,8 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
         )}
         style={{
           height: totalHeight,
+          ...contextStyle,
+          ...contextStyles.root,
           ...styles.root,
           ...style,
         }}
@@ -242,8 +254,8 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
                 prefixCls={prefixCls}
                 key={key}
                 item={item}
-                style={{ ...motionStyle, ...itemStyle, ...styles.item }}
-                className={classNames(classes.item, motionClassName)}
+                style={{ ...motionStyle, ...contextStyles.item, ...itemStyle, ...styles.item }}
+                className={classNames(contextClassNames.item, classes.item, motionClassName)}
                 ref={composeRef(motionRef, (ele) => setItemRef(itemKey, ele))}
                 index={itemIndex}
                 itemRender={itemRender}
