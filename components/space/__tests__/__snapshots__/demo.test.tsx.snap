@@ -679,6 +679,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
             >
               <button
                 class="ant-input-clear-icon"
+                tabindex="-1"
                 type="button"
               >
                 <span
