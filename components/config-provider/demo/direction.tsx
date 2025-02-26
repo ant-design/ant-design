@@ -325,7 +325,7 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
               <TreeSelect
                 showSearch
                 style={{ width: '100%' }}
-                dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
+                popupStyle={{ maxHeight: 400, overflow: 'auto' }}
                 placeholder="Please select"
                 allowClear
                 treeDefaultExpandAll
