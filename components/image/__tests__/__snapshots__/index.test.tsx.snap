@@ -253,7 +253,7 @@ exports[`Image Default Group preview props 1`] = `
             tabindex="0"
           >
             <div
-              class="ant-image-preview-content"
+              class="ant-image-preview-section"
             >
               <div
                 class="ant-image-preview-body"

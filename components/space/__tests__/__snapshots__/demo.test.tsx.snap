@@ -1737,7 +1737,6 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
       </div>
       <div
         class="ant-select ant-tree-select ant-select-outlined ant-select-compact-item css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
-        dropdownstyle="[object Object]"
         style="width:60%"
       >
         <div

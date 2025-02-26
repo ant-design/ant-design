@@ -3,7 +3,6 @@
 exports[`renders components/tree-select/demo/async.tsx correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
-  dropdownstyle="[object Object]"
   style="width:100%"
 >
   <div
@@ -70,7 +69,6 @@ exports[`renders components/tree-select/demo/async.tsx correctly 1`] = `
 exports[`renders components/tree-select/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
-  dropdownstyle="[object Object]"
   style="width:100%"
 >
   <div
@@ -465,7 +463,6 @@ exports[`renders components/tree-select/demo/maxCountNoEffect.tsx correctly 1`] 
 exports[`renders components/tree-select/demo/multiple.tsx correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
-  dropdownstyle="[object Object]"
   style="width:100%"
 >
   <div
@@ -643,7 +640,6 @@ Array [
   <br />,
   <div
     class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
-    dropdownstyle="[object Object]"
   >
     <div
       class="ant-select-selector"
@@ -937,7 +933,6 @@ exports[`renders components/tree-select/demo/suffix.tsx correctly 1`] = `
 Array [
   <div
     class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
-    dropdownstyle="[object Object]"
     style="width:100%"
   >
     <div
@@ -1000,7 +995,6 @@ Array [
   <br />,
   <div
     class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
-    dropdownstyle="[object Object]"
     style="width:100%"
   >
     <div
@@ -1070,7 +1064,6 @@ Array [
 exports[`renders components/tree-select/demo/treeData.tsx correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
-  dropdownstyle="[object Object]"
   style="width:100%"
 >
   <div

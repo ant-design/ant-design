@@ -364,7 +364,7 @@ Array [
             </label>
             <span
               aria-label="down"
-              class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+              class="anticon anticon-down ant-dropdown-trigger"
               role="img"
             >
               <svg
@@ -515,7 +515,7 @@ Array [
             </label>
             <span
               aria-label="down"
-              class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+              class="anticon anticon-down ant-dropdown-trigger"
               role="img"
             >
               <svg

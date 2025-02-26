@@ -1445,6 +1445,64 @@ exports[`renders components/select/demo/custom-dropdown-menu.tsx extend context 
           </div>
         </div>
       </div>
+      <div
+        class="ant-divider css-var-test-id ant-divider-horizontal"
+        role="separator"
+        style="margin: 8px 0px;"
+      />
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+        style="padding: 0px 8px 4px;"
+      >
+        <div
+          class="ant-space-item"
+        >
+          <input
+            class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+            placeholder="Please enter item"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <button
+            class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text"
+            type="button"
+          >
+            <span
+              class="ant-btn-icon"
+            >
+              <span
+                aria-label="plus"
+                class="anticon anticon-plus"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="plus"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                  />
+                  <path
+                    d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span>
+              Add item
+            </span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
   <span
@@ -1476,11 +1534,7 @@ exports[`renders components/select/demo/custom-dropdown-menu.tsx extend context 
 </div>
 `;
 
-exports[`renders components/select/demo/custom-dropdown-menu.tsx extend context correctly 2`] = `
-[
-  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
-]
-`;
+exports[`renders components/select/demo/custom-dropdown-menu.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/custom-label-render.tsx extend context correctly 1`] = `
 <div

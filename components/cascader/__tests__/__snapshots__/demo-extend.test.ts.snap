@@ -516,86 +516,98 @@ exports[`renders components/cascader/demo/custom-dropdown.tsx extend context cor
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
   >
     <div>
-      <div
-        class="ant-cascader-menus"
-      >
-        <ul
-          class="ant-cascader-menu"
-          role="menu"
+      <div>
+        <div
+          class="ant-cascader-menus"
         >
-          <li
-            aria-checked="false"
-            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-            data-path-key="zhejiang"
-            role="menuitemcheckbox"
-            title="Zhejiang"
+          <ul
+            class="ant-cascader-menu"
+            role="menu"
           >
-            <div
-              class="ant-cascader-menu-item-content"
+            <li
+              aria-checked="false"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="zhejiang"
+              role="menuitemcheckbox"
+              title="Zhejiang"
             >
-              Zhejiang
-            </div>
-            <div
-              class="ant-cascader-menu-item-expand-icon"
-            >
-              <span
-                aria-label="right"
-                class="anticon anticon-right"
-                role="img"
+              <div
+                class="ant-cascader-menu-item-content"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="right"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                  />
-                </svg>
-              </span>
-            </div>
-          </li>
-          <li
-            aria-checked="false"
-            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-            data-path-key="jiangsu"
-            role="menuitemcheckbox"
-            title="Jiangsu"
-          >
-            <div
-              class="ant-cascader-menu-item-content"
-            >
-              Jiangsu
-            </div>
-            <div
-              class="ant-cascader-menu-item-expand-icon"
-            >
-              <span
-                aria-label="right"
-                class="anticon anticon-right"
-                role="img"
+                Zhejiang
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="right"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
                 >
-                  <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                  />
-                </svg>
-              </span>
-            </div>
-          </li>
-        </ul>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>
+            <li
+              aria-checked="false"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="jiangsu"
+              role="menuitemcheckbox"
+              title="Jiangsu"
+            >
+              <div
+                class="ant-cascader-menu-item-content"
+              >
+                Jiangsu
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
+              >
+                <span
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="ant-divider css-var-test-id ant-divider-horizontal"
+          role="separator"
+          style="margin: 0px;"
+        />
+        <div
+          style="padding: 8px;"
+        >
+          The footer is not very short.
+        </div>
       </div>
     </div>
   </div>
@@ -628,11 +640,7 @@ exports[`renders components/cascader/demo/custom-dropdown.tsx extend context cor
 </div>
 `;
 
-exports[`renders components/cascader/demo/custom-dropdown.tsx extend context correctly 2`] = `
-[
-  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
-]
-`;
+exports[`renders components/cascader/demo/custom-dropdown.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/cascader/demo/custom-render.tsx extend context correctly 1`] = `
 <div
