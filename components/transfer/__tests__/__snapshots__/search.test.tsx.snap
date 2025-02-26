@@ -38,6 +38,7 @@ exports[`Transfer.Search should show cross icon when input value exists 1`] = `
   >
     <button
       class="ant-input-clear-icon ant-input-clear-icon-hidden"
+      tabindex="-1"
       type="button"
     >
       <span
@@ -103,6 +104,7 @@ exports[`Transfer.Search should show cross icon when input value exists 2`] = `
   >
     <button
       class="ant-input-clear-icon"
+      tabindex="-1"
       type="button"
     >
       <span
