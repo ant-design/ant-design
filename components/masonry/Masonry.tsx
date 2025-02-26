@@ -70,7 +70,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('masonry', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // ======================= Refs =======================
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -177,7 +177,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   }, [itemColumns]);
 
   // ====================== Render ======================
-  return wrapCSSVar(
+  return (
     <ResizeObserver onResize={collectItemSize}>
       <div
         ref={containerRef}
@@ -238,7 +238,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
           }}
         </CSSMotionList>
       </div>
-    </ResizeObserver>,
+    </ResizeObserver>
   );
 });
 

@@ -30,29 +30,31 @@ A masonry layout component for displaying content with different heights.
 
 Common props ref：[Common props](/docs/react/common-props)
 
-### Masonry
+## Masonry
 
-| Property | Description | Type | Default |
+| Parameter | Description | Type | Default Value |
 | --- | --- | --- | --- |
-| columns | Number of columns, can be a fixed number or responsive config | `number \| { xs?: number; sm?: number; md?: number }` | 3 |
-| gutter | Gap between items, can be a fixed number, responsive config, or \[horizontal, vertical\] config | `Gap` \| `[Gap, Gap]` | `0` |
-| items | Masonry items | `<T = MasonryItem>[]` | - |
-| onSortChange | Callback when column order changes | `({ key: React.Key; column: number }[]) => void` | - |
+| columns | Number of columns, can be a fixed value or a responsive configuration | `number \| { xs?: number; sm?: number; md?: number }` | `3` |
+| fresh | Whether to continuously monitor the size changes of child items | `boolean` | `false` |
+| gutter | Spacing, can be a fixed value, responsive configuration, or a configuration for horizontal and vertical spacing | [Gap](#gap) \| [[Gap](#gap), [Gap](#gap)] | `0` |
+| items | Masonry items | [MasonryItem](#masonryitem)[] | - |
+| itemRender | Custom item rendering function | `(item: MasonryItem) => React.ReactNode` | - |
+| onSortChange | Callback for column sorting changes | `({ key: React.Key; column: number }[]) => void` | - |
 
 ### MasonryItem
 
-| Property | Description                              | Type                 | Default |
-| -------- | ---------------------------------------- | -------------------- | ------- |
-| children | Custom content                           | `React.ReactNode`    | -       |
-| fresh    | Continue listening for item size changes | `boolean`            | `false` |
-| column   | Custom column                            | `number`             | -       |
-| height   | Height                                   | `number`             | -       |
-| key      | Unique identifier                        | `string` \| `number` | -       |
+| Parameter | Description | Type | Default Value |
+| --- | --- | --- | --- |
+| children | Custom display content, takes precedence over `itemRender` | `React.ReactNode` | - |
+| column | Specifies the column to which the item belongs | `number` | - |
+| data | Custom data storage | `T` | - |
+| height | Height of the item | `number` | - |
+| key | Unique identifier for the item | `string` \| `number` | - |
 
 ### Gap
 
-Gap is the spacing between items, can be a fixed number, or responsive config.
+`Gap` represents the spacing between items. It can either be a fixed value or a responsive configuration.
 
 ```ts
-type Gap = number | undefined | Partial<Record<'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl', number>>;
+type Gap = undefined | number | Partial<Record<'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl', number>>;
 ```

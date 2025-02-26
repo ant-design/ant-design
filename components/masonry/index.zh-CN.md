@@ -35,25 +35,27 @@ tag: 6.0.0
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| columns | 列数，可以是固定值或响应式配置 | `number \| { xs?: number; sm?: number; md?: number }` | 3 |
+| columns | 列数，可以是固定值或响应式配置 | `number \| { xs?: number; sm?: number; md?: number }` | `3` |
 | fresh | 是否持续监听子项尺寸变化 | `boolean` | `false` |
-| gutter | 间距，可以是固定值、响应式配置或水平垂直间距配置 | `Gap \| [Gap, Gap]` | `0` |
-| items | 瀑布流项 | `<T = MasonryItem>[]` | - |
+| gutter | 间距，可以是固定值、响应式配置或水平垂直间距配置 | [Gap](#gap) \| [[Gap](#gap), [Gap](#gap)] | `0` |
+| items | 瀑布流项 | [MasonryItem](#masonryitem)[] | - |
+| itemRender | 自定义项渲染 | `(item: MasonryItem) => React.ReactNode` | - |
 | onSortChange | 列排序回调 | `({ key: React.Key; column: number }[]) => void` | - |
 
 ### MasonryItem
 
-| 参数     | 说明           | 类型                 | 默认值 |
-| -------- | -------------- | -------------------- | ------ |
-| children | 自定义展示内容 | `React.ReactNode`    | -      |
-| column   | 自定义所在列   | `number`             | -      |
-| height   | 高度           | `number`             | -      |
-| key      | 唯一标识       | `string` \| `number` | -      |
+| 参数     | 说明                                             | 类型                 | 默认值 |
+| -------- | ------------------------------------------------ | -------------------- | ------ |
+| children | 自定义展示内容，相对 `itemRender` 具有更高优先级 | `React.ReactNode`    | -      |
+| column   | 自定义所在列                                     | `number`             | -      |
+| data     | 自定义存储数据                                   | `T`                  | -      |
+| height   | 高度                                             | `number`             | -      |
+| key      | 唯一标识                                         | `string` \| `number` | -      |
 
 ### Gap
 
 Gap 是项之间的间距，可以是固定值，也可以是响应式配置。
 
 ```ts
-type Gap = number | undefined | Partial<Record<'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl', number>>;
+type Gap = undefined | number | Partial<Record<'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl', number>>;
 ```
