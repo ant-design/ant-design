@@ -58,3 +58,11 @@ Common props ref：[Common props](/docs/react/common-props)
 ```ts
 type Gap = undefined | number | Partial<Record<'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl', number>>;
 ```
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
+## Design Token
+
+<ComponentTokenTable component="Alert"></ComponentTokenTable>

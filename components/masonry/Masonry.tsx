@@ -24,12 +24,18 @@ import useStyle from './style';
 
 export type Gap = number | undefined;
 export type Key = string | number;
+
+export type SemanticName = 'root' | 'item';
+
 export interface MasonryProps<ItemDateType = any> {
   // Style
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
   style?: CSSProperties;
+
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, CSSProperties>>;
 
   /** Spacing between items */
   gutter?: RowProps['gutter'];
@@ -54,9 +60,11 @@ export interface MasonryRef {
 
 const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   const {
-    className,
     rootClassName,
+    className,
     style,
+    classNames: classes = {},
+    styles = {},
     columns,
     prefixCls: customizePrefixCls,
     gutter = 0,
@@ -181,12 +189,21 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     <ResizeObserver onResize={collectItemSize}>
       <div
         ref={containerRef}
-        className={classNames(prefixCls, rootClassName, className, hashId, cssVarCls, {
-          [`${prefixCls}-rtl`]: direction === 'rtl',
-        })}
+        className={classNames(
+          prefixCls,
+          rootClassName,
+          className,
+          classes.root,
+          hashId,
+          cssVarCls,
+          {
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+          },
+        )}
         style={{
           height: totalHeight,
           marginInline: -halfHorizontalGutter,
+          ...styles.root,
           ...style,
         }}
         // Listen for image events
@@ -226,8 +243,8 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
                 prefixCls={prefixCls}
                 key={key}
                 item={item}
-                style={{ ...motionStyle, ...itemStyle }}
-                className={motionClassName}
+                style={{ ...motionStyle, ...itemStyle, ...styles.item }}
+                className={classNames(classes.item, motionClassName)}
                 ref={composeRef(motionRef, (ele) => setItemRef(itemKey, ele))}
                 index={itemIndex}
                 itemRender={itemRender}
