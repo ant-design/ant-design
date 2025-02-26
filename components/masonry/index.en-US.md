@@ -37,7 +37,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | classNames | Semantic structure className | [Record<SemanticDOM, string>](#semantic-dom) | - |
 | columns | Number of columns, can be a fixed value or a responsive configuration | `number \| { xs?: number; sm?: number; md?: number }` | `3` |
 | fresh | Whether to continuously monitor the size changes of child items | `boolean` | `false` |
-| gutter | Spacing, can be a fixed value, responsive configuration, or a configuration for horizontal and vertical spacing | [Gap](#gap) \| [[Gap](#gap), [Gap](#gap)] | `0` |
+| gutter | Spacing, can be a fixed value, responsive configuration, or a configuration for horizontal and vertical spacing | [Gap](#gap) \| \[[Gap](#gap), [Gap](#gap)\] | `0` |
 | items | Masonry items | [MasonryItem](#masonryitem)[] | - |
 | itemRender | Custom item rendering function | `(item: MasonryItem) => React.ReactNode` | - |
 | styles | Semantic structure style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |
