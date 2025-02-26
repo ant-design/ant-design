@@ -18,7 +18,7 @@ const App: React.FC = () => {
       theme={{
         components: {
           Notification: {
-            notificationProgressBg: 'linear-gradient(135deg, #ff9a9e, #fad0c4)',
+            progressBg: 'linear-gradient(135deg, #ff9a9e, #fad0c4)',
           },
         },
       }}

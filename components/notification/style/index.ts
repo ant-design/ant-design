@@ -24,7 +24,7 @@ export interface ComponentToken {
    * @desc 提醒框进度条背景色
    * @descEN Background color of Notification progress bar
    */
-  notificationProgressBg: string;
+  progressBg: string;
 }
 
 /**
@@ -105,7 +105,7 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
     notificationBg,
     notificationPadding,
     notificationMarginEdge,
-    notificationProgressBg,
+    progressBg,
     notificationProgressHeight,
     fontSize,
     lineHeight,
@@ -233,12 +233,12 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       },
 
       '&::-moz-progress-bar': {
-        background: notificationProgressBg,
+        background: progressBg,
       },
 
       '&::-webkit-progress-value': {
         borderRadius: borderRadiusLG,
-        background: notificationProgressBg,
+        background: progressBg,
       },
     },
 
@@ -349,7 +349,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 export const prepareComponentToken = (token: AliasToken) => ({
   zIndexPopup: token.zIndexPopupBase + CONTAINER_MAX_OFFSET + 50,
   width: 384,
-  notificationProgressBg: `linear-gradient(90deg, ${token.colorPrimaryBorderHover}, ${token.colorPrimary})`,
+  progressBg: `linear-gradient(90deg, ${token.colorPrimaryBorderHover}, ${token.colorPrimary})`,
 });
 
 export const prepareNotificationToken: (
