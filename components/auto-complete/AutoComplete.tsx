@@ -1,8 +1,8 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import type { BaseSelectRef } from 'rc-select';
 import toArray from '@rc-component/util/lib/Children/toArray';
 import omit from '@rc-component/util/lib/omit';
+import classNames from 'classnames';
+import type { BaseSelectRef } from 'rc-select';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import type { InputStatus } from '../_util/statusUtils';
@@ -136,11 +136,8 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       suffixIcon={null}
       {...omit(props, ['dataSource', 'dropdownClassName'])}
       prefixCls={prefixCls}
-      popupClassName={popupClassName || dropdownClassName}
-      dropdownStyle={{
-        ...props.dropdownStyle,
-        zIndex,
-      }}
+      classNames={{ popup: popupClassName || dropdownClassName }}
+      styles={{ popup: { ...props.dropdownStyle, zIndex } }}
       className={classNames(`${prefixCls}-auto-complete`, className)}
       mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']}
       {...{
