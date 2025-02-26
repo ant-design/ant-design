@@ -107,7 +107,7 @@
   },
   "dependencies": {
     "@ant-design/colors": "^7.2.0",
-    "@ant-design/cssinjs": "^2.0.0-alpha.4",
+    "@ant-design/cssinjs": "^2.0.0-alpha.5",
     "@ant-design/cssinjs-utils": "^2.0.0-alpha.1",
     "@ant-design/fast-color": "^2.0.6",
     "@ant-design/icons": "^5.6.1",
@@ -332,7 +332,7 @@
     "xhr-mock": "^2.5.1"
   },
   "overrides": {
-    "@ant-design/cssinjs": "^2.0.0-alpha.4",
+    "@ant-design/cssinjs": "^2.0.0-alpha.5",
     "@ant-design/cssinjs-utils": "^2.0.0-alpha.1"
   },
   "publishConfig": {
