@@ -28,6 +28,10 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         borderRadius,
         flex: '1 1 auto',
 
+        [`${componentCls}-selection-wrap:after`]: {
+          lineHeight: unit(selectHeightWithoutBorder),
+        },
+
         [`${componentCls}-selection-search`]: {
           position: 'absolute',
           inset: 0,
@@ -95,6 +99,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 
           [`${componentCls}-selection-search-input`]: {
             height: selectHeightWithoutBorder,
+            fontSize: token.fontSize,
           },
 
           '&:after': {

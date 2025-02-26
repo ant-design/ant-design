@@ -12334,6 +12334,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
               >
                 <button
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
+                  tabindex="-1"
                   type="button"
                 >
                   <span
@@ -12516,6 +12517,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
               >
                 <button
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
+                  tabindex="-1"
                   type="button"
                 >
                   <span
@@ -12910,6 +12912,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
               >
                 <button
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
+                  tabindex="-1"
                   type="button"
                 >
                   <span
