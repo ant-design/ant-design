@@ -55,6 +55,8 @@ Common props ref：[Common props](/docs/react/common-props)
 
 Please ensure that the child node of `Tooltip` accepts `onMouseEnter`, `onMouseLeave`, `onPointerEnter`, `onPointerLeave`, `onFocus`, `onClick` events.
 
+See https://github.com/ant-design/ant-design/issues/15909
+
 ### What's the placement logic?
 
 It will follow `placement` config when screen has enough space. And flip when space is not enough (Such as `top` to `bottom` or `topLeft` to `bottomLeft`). Single direction such as `top` `bottom` `left` `right` will auto shift on the view:
