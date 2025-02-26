@@ -100,7 +100,6 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   const screens = useBreakpoint();
   const gutters = useGutter(gutter, screens);
   const [horizontalGutter = 0, verticalGutter = horizontalGutter] = gutters;
-  const halfHorizontalGutter = horizontalGutter / 2;
 
   // ====================== Layout ======================
   const columnCount = React.useMemo<number>(() => {
@@ -202,7 +201,6 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
         )}
         style={{
           height: totalHeight,
-          marginInline: -halfHorizontalGutter,
           ...styles.root,
           ...style,
         }}
@@ -232,8 +230,9 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
             const { column: columnIndex = 0 } = position;
 
             const itemStyle: CSSProperties = {
-              insetInlineStart: `calc(${(columnIndex / columnCount) * 100}% + ${halfHorizontalGutter}px)`,
-              width: `calc(${100 / columnCount}% - ${horizontalGutter}px)`,
+              '--item-width': `calc((100% + ${horizontalGutter}px) / ${columnCount})`,
+              insetInlineStart: `calc(var(--item-width) * ${columnIndex})`,
+              width: `calc(var(--item-width) - ${horizontalGutter}px)`,
               top: position.top,
               position: 'absolute',
             };
