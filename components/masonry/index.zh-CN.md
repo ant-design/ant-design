@@ -35,11 +35,13 @@ tag: 6.0.0
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| classNames | 语义化结构 className | [Record<SemanticDOM, string>](#semantic-dom) | - |
 | columns | 列数，可以是固定值或响应式配置 | `number \| { xs?: number; sm?: number; md?: number }` | `3` |
 | fresh | 是否持续监听子项尺寸变化 | `boolean` | `false` |
 | gutter | 间距，可以是固定值、响应式配置或水平垂直间距配置 | [Gap](#gap) \| [[Gap](#gap), [Gap](#gap)] | `0` |
 | items | 瀑布流项 | [MasonryItem](#masonryitem)[] | - |
 | itemRender | 自定义项渲染 | `(item: MasonryItem) => React.ReactNode` | - |
+| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |
 | onSortChange | 列排序回调 | `({ key: React.Key; column: number }[]) => void` | - |
 
 ### MasonryItem
