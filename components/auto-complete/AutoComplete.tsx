@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import type { BaseSelectRef } from 'rc-select';
+import type { BaseSelectRef } from '@rc-component/select';
 import toArray from '@rc-component/util/lib/Children/toArray';
 import omit from '@rc-component/util/lib/omit';
 
@@ -128,7 +128,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   const prefixCls = getPrefixCls('select', customizePrefixCls);
 
   // ============================ zIndex ============================
-  const [zIndex] = useZIndex('SelectLike', props.dropdownStyle?.zIndex as number);
+  const [zIndex] = useZIndex('SelectLike', props.popupStyle?.zIndex as number);
 
   return (
     <Select
@@ -137,8 +137,8 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       {...omit(props, ['dataSource', 'dropdownClassName'])}
       prefixCls={prefixCls}
       popupClassName={popupClassName || dropdownClassName}
-      dropdownStyle={{
-        ...props.dropdownStyle,
+      popupStyle={{
+        ...props.popupStyle,
         zIndex,
       }}
       className={classNames(`${prefixCls}-auto-complete`, className)}

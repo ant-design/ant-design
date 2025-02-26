@@ -1,4 +1,4 @@
-import CalendarLocale from 'rc-picker/lib/locale/tk_TK';
+import CalendarLocale from '@rc-component/picker/lib/locale/tk_TK';
 
 import TimePickerLocale from '../../time-picker/locale/tk_TK';
 import type { PickerLocale } from '../generatePicker';

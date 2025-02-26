@@ -46,7 +46,7 @@ const App: React.FC = () => {
       showSearch
       style={{ width: '100%' }}
       value={value}
-      dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
+      popupStyle={{ maxHeight: 400, overflow: 'auto' }}
       placeholder="Please select"
       allowClear
       multiple

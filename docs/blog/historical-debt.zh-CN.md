@@ -28,7 +28,7 @@ Warning: [antd: XXX] `old prop` is deprecated. Please use `new prop` instead.
 
 在多选模式下，类 Select 组件在选择内容后会清除搜索框内容。但是有些场景下，开发者希望能够保留。因而 TreeSelect 和 Select 又添加了 `autoClearSearchValue` 属性。
 
-等等，Select 明明叫 `inputValue`，为什么要叫 `autoClearSearchValue`？明显应该叫做 `autoClearInputValue` 呐。如果我们在现有的 API 上继续生长其他的同类 API 风格。你会发现组件的 prop 变得越来越分裂。这也会导致代码维护出现坏味道。例如上面这个例子，在之后我们对类 Select 组件抽成了统一的 UI 层并将其合并到 `rc-select` 组件中。`rc-tree-select` 只需要实现弹出层的内容，而输入框的结构和样式可以和 Select 完全复用。但是由于两者的 API 不一致，导致我们需要额外的处理，所以我们在迭代过程中需要对这些 API 债务进行重构并将其统一起来。（在 v4 中，我们将其合并为了 `searchValue` 并且对设计也进行了统一）
+等等，Select 明明叫 `inputValue`，为什么要叫 `autoClearSearchValue`？明显应该叫做 `autoClearInputValue` 呐。如果我们在现有的 API 上继续生长其他的同类 API 风格。你会发现组件的 prop 变得越来越分裂。这也会导致代码维护出现坏味道。例如上面这个例子，在之后我们对类 Select 组件抽成了统一的 UI 层并将其合并到 `@rc-component/select` 组件中。`@rc-component/tree-select` 只需要实现弹出层的内容，而输入框的结构和样式可以和 Select 完全复用。但是由于两者的 API 不一致，导致我们需要额外的处理，所以我们在迭代过程中需要对这些 API 债务进行重构并将其统一起来。（在 v4 中，我们将其合并为了 `searchValue` 并且对设计也进行了统一）
 
 然而世上没有银弹，我们无法在一开始就设计出完美的 API。有一些 API 在设计之初显得非常合理，而随着迭代又会发现或多或少不合时宜。比如说弹出层早期起名为 dropdown，这对应了 Dropdown 以及类 Select 组件的弹出内容。但是对于 Tooltip 而言，dropdown 显然是不适合的。从统一的角度看，popup 会更适合。
 

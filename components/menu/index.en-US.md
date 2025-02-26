@@ -66,7 +66,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onOpenChange | Called when sub-menus are opened or closed | function(openKeys: string\[]) | - |  |
 | onSelect | Called when a menu item is selected | function({ key, keyPath, selectedKeys, domEvent }) | - |  |
 
-> More options in [rc-menu](https://github.com/react-component/menu#api)
+> More options in [@rc-component/menu](https://github.com/react-component/menu#api)
 
 ### ItemType
 

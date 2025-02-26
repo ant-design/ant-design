@@ -1,7 +1,7 @@
 import * as React from 'react';
 import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import { SubMenu as RcSubMenu, useFullPath } from 'rc-menu';
+import { SubMenu as RcSubMenu, useFullPath } from '@rc-component/menu';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { cloneElement } from '../_util/reactNode';

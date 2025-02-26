@@ -175,7 +175,7 @@ const App: React.FC = () => (
         showSearch
         style={{ width: '60%' }}
         value="leaf1"
-        dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
+        popupStyle={{ maxHeight: 400, overflow: 'auto' }}
         placeholder="Please select"
         allowClear
         treeDefaultExpandAll

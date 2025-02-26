@@ -3,7 +3,7 @@ import type {
   MenuItemGroupType as RcMenuItemGroupType,
   MenuItemType as RcMenuItemType,
   SubMenuType as RcSubMenuType,
-} from 'rc-menu/lib/interface';
+} from '@rc-component/menu/lib/interface';
 
 export interface MenuItemType extends RcMenuItemType {
   danger?: boolean;

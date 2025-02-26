@@ -1,8 +1,8 @@
 import * as React from 'react';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import classNames from 'classnames';
-import RcImage from 'rc-image';
-import type { ImageProps } from 'rc-image';
+import RcImage from '@rc-component/image';
+import type { ImageProps } from '@rc-component/image';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';

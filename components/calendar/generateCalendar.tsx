@@ -1,10 +1,10 @@
 import * as React from 'react';
 import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
 import classNames from 'classnames';
-import type { BasePickerPanelProps as RcBasePickerPanelProps } from 'rc-picker';
-import { PickerPanel as RCPickerPanel } from 'rc-picker';
-import type { GenerateConfig } from 'rc-picker/lib/generate';
-import type { CellRenderInfo } from 'rc-picker/lib/interface';
+import type { BasePickerPanelProps as RcBasePickerPanelProps } from '@rc-component/picker';
+import { PickerPanel as RCPickerPanel } from '@rc-component/picker';
+import type { GenerateConfig } from '@rc-component/picker/lib/generate';
+import type { CellRenderInfo } from '@rc-component/picker/lib/interface';
 
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';

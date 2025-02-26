@@ -24,14 +24,14 @@ juejin_url: https://juejin.cn/post/7322305961196273673
    ```json
    {
      "dependencies": {
-       "rc-cascader": "~3.9.0"
+       "@rc-component/cascader": "~3.9.0"
      }
    }
    ```
 
    关于`package.json`当中版本描述中的`^`和`~`的区别，可参考：[What's the difference between tilde(~) and caret(^) in package.json](https://stackoverflow.com/questions/22343224/whats-the-difference-between-tilde-and-caret-in-package-json)
 
-这样，当我们的依赖，如`rc-cascader`修复了一个 bug 并发布了一个 patch 版本，如：`3.9.1`，那么，用户最新安装的版本就是`3.9.1`，而针对 Ant Design 的维护者，我们只需要执行如下命令：
+这样，当我们的依赖，如`@rc-component/cascader`修复了一个 bug 并发布了一个 patch 版本，如：`3.9.1`，那么，用户最新安装的版本就是`3.9.1`，而针对 Ant Design 的维护者，我们只需要执行如下命令：
 
 ```bash
 git clean -fdx

@@ -69,12 +69,12 @@ describe('Select', () => {
     const onDropdownVisibleChange = jest.fn();
     const TestComponent: React.FC = () => {
       const [open, setOpen] = React.useState(false);
-      const handleChange: SelectProps['onDropdownVisibleChange'] = (value) => {
+      const handleChange: SelectProps['onPopupVisibleChange'] = (value) => {
         onDropdownVisibleChange(value);
         setOpen(value);
       };
       return (
-        <Select open={open} onDropdownVisibleChange={handleChange}>
+        <Select open={open} onPopupVisibleChange={handleChange}>
           <Option value="1">1</Option>
         </Select>
       );

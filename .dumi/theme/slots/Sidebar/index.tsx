@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Col, ConfigProvider, Menu } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { useSidebarData } from 'dumi';
-import MobileMenu from 'rc-drawer';
+import MobileMenu from '@rc-component/drawer';
 
 import useMenu from '../../../hooks/useMenu';
 import SiteContext from '../SiteContext';

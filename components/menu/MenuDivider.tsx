@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Divider } from 'rc-menu';
+import { Divider } from '@rc-component/menu';
 
 import { ConfigContext } from '../config-provider';
 

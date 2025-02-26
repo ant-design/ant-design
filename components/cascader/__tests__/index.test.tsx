@@ -1,5 +1,5 @@
 import React from 'react';
-import type { SingleValueType } from 'rc-cascader/lib/Cascader';
+import type { SingleValueType } from '@rc-component/cascader/lib/Cascader';
 
 import type { DefaultOptionType } from '..';
 import Cascader from '..';
@@ -355,7 +355,7 @@ describe('Cascader', () => {
     });
   });
 
-  // FIXME: Move to `rc-tree-select` instead
+  // FIXME: Move to `@rc-component/tree-select` instead
   // eslint-disable-next-line jest/no-disabled-tests
   it.skip('should warning if not find `value` in `options`', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
