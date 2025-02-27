@@ -706,7 +706,6 @@ exports[`renders components/tree-select/demo/render-panel.tsx correctly 1`] = `
 >
   <div
     class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
-    dropdownalign="[object Object]"
     style="width:100%;margin:0"
   >
     <div

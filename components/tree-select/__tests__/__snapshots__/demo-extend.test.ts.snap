@@ -2353,7 +2353,6 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
 >
   <div
     class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow ant-select-open"
-    dropdownalign="[object Object]"
     style="width: 100%; margin: 0px;"
   >
     <div
@@ -2540,11 +2539,7 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
 </div>
 `;
 
-exports[`renders components/tree-select/demo/render-panel.tsx extend context correctly 2`] = `
-[
-  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
-]
-`;
+exports[`renders components/tree-select/demo/render-panel.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tree-select/demo/status.tsx extend context correctly 1`] = `
 <div

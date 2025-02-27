@@ -2886,8 +2886,6 @@ Array [
     >
       <div
         class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
-        dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
-        dropdownstyle="[object Object]"
         style="width:120px;height:60px"
       >
         <div

@@ -2165,8 +2165,6 @@ Array [
             >
               <div
                 class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-disabled"
-                dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
-                dropdownstyle="[object Object]"
               >
                 <div
                   class="ant-select-selector"
@@ -6552,8 +6550,6 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
             <div
               aria-required="true"
               class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
-              dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
-              dropdownstyle="[object Object]"
             >
               <div
                 class="ant-select-selector"
@@ -7948,8 +7944,6 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
           >
             <div
               class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
-              dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
-              dropdownstyle="[object Object]"
             >
               <div
                 class="ant-select-selector"
@@ -11800,8 +11794,6 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
           >
             <div
               class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-status-error ant-select-has-feedback ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
-              dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
-              dropdownstyle="[object Object]"
             >
               <div
                 class="ant-select-selector"
@@ -13601,8 +13593,6 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
             <div
               aria-required="true"
               class="ant-select ant-cascader ant-select-filled ant-select-in-form-item ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
-              dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
-              dropdownstyle="[object Object]"
             >
               <div
                 class="ant-select-selector"

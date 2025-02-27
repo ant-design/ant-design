@@ -11641,8 +11641,6 @@ exports[`ConfigProvider components Carousel prefixCls 1`] = `
 exports[`ConfigProvider components Cascader configProvider 1`] = `
 <div
   class="config-select config-cascader config-select-outlined config-select-css-var config-cascader-css-var css-var-root config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
-  dropdownclassname="config-cascader-dropdown config-select-css-var config-cascader-css-var css-var-root"
-  dropdownstyle="[object Object]"
 >
   <div
     class="config-select-selector"
@@ -11704,8 +11702,6 @@ exports[`ConfigProvider components Cascader configProvider 1`] = `
 exports[`ConfigProvider components Cascader configProvider componentDisabled 1`] = `
 <div
   class="config-select config-cascader config-select-outlined config-select-css-var config-cascader-css-var css-var-root config-select-single config-select-allow-clear config-select-show-arrow config-select-disabled config-select-show-search"
-  dropdownclassname="config-cascader-dropdown config-select-css-var config-cascader-css-var css-var-root"
-  dropdownstyle="[object Object]"
 >
   <div
     class="config-select-selector"
@@ -11768,8 +11764,6 @@ exports[`ConfigProvider components Cascader configProvider componentDisabled 1`]
 exports[`ConfigProvider components Cascader configProvider componentSize large 1`] = `
 <div
   class="config-select config-cascader config-select-lg config-select-outlined config-select-css-var config-cascader-css-var css-var-root config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
-  dropdownclassname="config-cascader-dropdown config-select-css-var config-cascader-css-var css-var-root"
-  dropdownstyle="[object Object]"
 >
   <div
     class="config-select-selector"
@@ -11831,8 +11825,6 @@ exports[`ConfigProvider components Cascader configProvider componentSize large 1
 exports[`ConfigProvider components Cascader configProvider componentSize middle 1`] = `
 <div
   class="config-select config-cascader config-select-outlined config-select-css-var config-cascader-css-var css-var-root config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
-  dropdownclassname="config-cascader-dropdown config-select-css-var config-cascader-css-var css-var-root"
-  dropdownstyle="[object Object]"
 >
   <div
     class="config-select-selector"
@@ -11894,8 +11886,6 @@ exports[`ConfigProvider components Cascader configProvider componentSize middle 
 exports[`ConfigProvider components Cascader configProvider componentSize small 1`] = `
 <div
   class="config-select config-cascader config-select-sm config-select-outlined config-select-css-var config-cascader-css-var css-var-root config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
-  dropdownclassname="config-cascader-dropdown config-select-css-var config-cascader-css-var css-var-root"
-  dropdownstyle="[object Object]"
 >
   <div
     class="config-select-selector"
@@ -11957,8 +11947,6 @@ exports[`ConfigProvider components Cascader configProvider componentSize small 1
 exports[`ConfigProvider components Cascader normal 1`] = `
 <div
   class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-root ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
-  dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-root"
-  dropdownstyle="[object Object]"
 >
   <div
     class="ant-select-selector"
@@ -12020,8 +12008,6 @@ exports[`ConfigProvider components Cascader normal 1`] = `
 exports[`ConfigProvider components Cascader prefixCls 1`] = `
 <div
   class="prefix-Cascader prefix-Cascader-outlined prefix-Cascader-css-var prefix-Cascader-css-var css-var-root prefix-Cascader-single prefix-Cascader-allow-clear prefix-Cascader-show-arrow prefix-Cascader-show-search"
-  dropdownclassname="prefix-Cascader-dropdown prefix-Cascader-css-var prefix-Cascader-css-var css-var-root"
-  dropdownstyle="[object Object]"
 >
   <div
     class="prefix-Cascader-selector"

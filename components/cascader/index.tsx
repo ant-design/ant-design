@@ -338,9 +338,9 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       removeIcon={removeIcon}
       loadingIcon={loadingIcon}
       checkable={checkable}
-      dropdownClassName={mergedPopupClassName}
+      popupClassName={mergedPopupClassName}
       dropdownPrefixCls={customizePrefixCls || cascaderPrefixCls}
-      dropdownStyle={{ ...restProps.popupStyle, zIndex }}
+      popupStyle={{ ...restProps.popupStyle, zIndex }}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
@@ -366,7 +366,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(Cascader, 'dropdownAlign', (props: any) => omit(props, ['visible']));
+const PurePanel = genPurePanel(Cascader, 'popupAlign', (props: any) => omit(props, ['visible']));
 
 Cascader.SHOW_PARENT = SHOW_PARENT;
 Cascader.SHOW_CHILD = SHOW_CHILD;

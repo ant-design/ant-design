@@ -481,8 +481,6 @@ exports[`Form form should support disabled 1`] = `
           >
             <div
               class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-css-var ant-cascader-css-var css-var-root ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-disabled"
-              dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-root"
-              dropdownstyle="[object Object]"
             >
               <div
                 class="ant-select-selector"

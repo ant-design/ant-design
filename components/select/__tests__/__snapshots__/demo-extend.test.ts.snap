@@ -8337,8 +8337,6 @@ Array [
     >
       <div
         class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
-        dropdownclassname="ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id"
-        dropdownstyle="[object Object]"
         style="width: 120px; height: 60px;"
       >
         <div
@@ -8375,7 +8373,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
         >
           <div>
@@ -11349,7 +11347,6 @@ Array [
 
 exports[`renders components/select/demo/option-label-center.tsx extend context correctly 2`] = `
 [
-  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
   "Warning: Multiple Field with path 'bamboo' set 'initialValue'. Can not decide which one to pick.",
 ]
 `;

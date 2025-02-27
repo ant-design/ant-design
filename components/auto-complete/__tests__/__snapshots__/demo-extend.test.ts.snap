@@ -2648,7 +2648,6 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
     >
       <div
         class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-        dropdownalign="[object Object]"
         style="width: 120px; margin: 0px;"
       >
         <div
@@ -2788,11 +2787,7 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
 </div>
 `;
 
-exports[`renders components/auto-complete/demo/render-panel.tsx extend context correctly 2`] = `
-[
-  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
-]
-`;
+exports[`renders components/auto-complete/demo/render-panel.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/auto-complete/demo/status.tsx extend context correctly 1`] = `
 <div

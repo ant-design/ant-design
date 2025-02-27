@@ -352,9 +352,7 @@ const TreeSelect = TreeSelectRef as CompoundedComponent;
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(TreeSelect, 'dropdownAlign', (props: any) =>
-  omit(props, ['visible']),
-);
+const PurePanel = genPurePanel(TreeSelect, 'popupAlign', (props: any) => omit(props, ['visible']));
 
 TreeSelect.TreeNode = TreeNode;
 TreeSelect.SHOW_ALL = SHOW_ALL;
