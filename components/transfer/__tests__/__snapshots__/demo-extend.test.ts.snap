@@ -28,7 +28,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        class="anticon anticon-down ant-dropdown-trigger"
         role="img"
       >
         <svg
@@ -563,7 +563,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        class="anticon anticon-down ant-dropdown-trigger"
         role="img"
       >
         <svg
@@ -1037,13 +1037,13 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
         </span>
       </label>
       <span
-        aria-label="qq"
-        class="anticon anticon-qq ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger"
         role="img"
       >
         <svg
           aria-hidden="true"
-          data-icon="qq"
+          data-icon="down"
           fill="currentColor"
           focusable="false"
           height="1em"
@@ -1051,7 +1051,7 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
           width="1em"
         >
           <path
-            d="M824.8 613.2c-16-51.4-34.4-94.6-62.7-165.3C766.5 262.2 689.3 112 511.5 112 331.7 112 256.2 265.2 261 447.9c-28.4 70.8-46.7 113.7-62.7 165.3-34 109.5-23 154.8-14.6 155.8 18 2.2 70.1-82.4 70.1-82.4 0 49 25.2 112.9 79.8 159-26.4 8.1-85.7 29.9-71.6 53.8 11.4 19.3 196.2 12.3 249.5 6.3 53.3 6 238.1 13 249.5-6.3 14.1-23.8-45.3-45.7-71.6-53.8 54.6-46.2 79.8-110.1 79.8-159 0 0 52.1 84.6 70.1 82.4 8.5-1.1 19.5-46.4-14.5-155.8z"
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
           />
         </svg>
       </span>
@@ -1512,13 +1512,13 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
         </span>
       </label>
       <span
-        aria-label="qq"
-        class="anticon anticon-qq ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger"
         role="img"
       >
         <svg
           aria-hidden="true"
-          data-icon="qq"
+          data-icon="down"
           fill="currentColor"
           focusable="false"
           height="1em"
@@ -1526,7 +1526,7 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
           width="1em"
         >
           <path
-            d="M824.8 613.2c-16-51.4-34.4-94.6-62.7-165.3C766.5 262.2 689.3 112 511.5 112 331.7 112 256.2 265.2 261 447.9c-28.4 70.8-46.7 113.7-62.7 165.3-34 109.5-23 154.8-14.6 155.8 18 2.2 70.1-82.4 70.1-82.4 0 49 25.2 112.9 79.8 159-26.4 8.1-85.7 29.9-71.6 53.8 11.4 19.3 196.2 12.3 249.5 6.3 53.3 6 238.1 13 249.5-6.3 14.1-23.8-45.3-45.7-71.6-53.8 54.6-46.2 79.8-110.1 79.8-159 0 0 52.1 84.6 70.1 82.4 8.5-1.1 19.5-46.4-14.5-155.8z"
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
           />
         </svg>
       </span>
@@ -1886,7 +1886,7 @@ Array [
         </label>
         <span
           aria-label="down"
-          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          class="anticon anticon-down ant-dropdown-trigger"
           role="img"
         >
           <svg
@@ -2364,7 +2364,7 @@ Array [
         </label>
         <span
           aria-label="down"
-          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          class="anticon anticon-down ant-dropdown-trigger"
           role="img"
         >
           <svg
@@ -2734,7 +2734,7 @@ Array [
         </label>
         <span
           aria-label="down"
-          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          class="anticon anticon-down ant-dropdown-trigger"
           role="img"
         >
           <svg
@@ -2981,7 +2981,7 @@ Array [
         </label>
         <span
           aria-label="down"
-          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          class="anticon anticon-down ant-dropdown-trigger"
           role="img"
         >
           <svg
@@ -3170,7 +3170,7 @@ Array [
         </label>
         <span
           aria-label="down"
-          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          class="anticon anticon-down ant-dropdown-trigger"
           role="img"
         >
           <svg
@@ -3484,7 +3484,7 @@ Array [
         </label>
         <span
           aria-label="down"
-          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          class="anticon anticon-down ant-dropdown-trigger"
           role="img"
         >
           <svg
@@ -3739,7 +3739,7 @@ Array [
         </label>
         <span
           aria-label="down"
-          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          class="anticon anticon-down ant-dropdown-trigger"
           role="img"
         >
           <svg
@@ -4546,7 +4546,7 @@ Array [
         </label>
         <span
           aria-label="down"
-          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          class="anticon anticon-down ant-dropdown-trigger"
           role="img"
         >
           <svg
@@ -5170,7 +5170,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        class="anticon anticon-down ant-dropdown-trigger"
         role="img"
       >
         <svg
@@ -5659,7 +5659,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        class="anticon anticon-down ant-dropdown-trigger"
         role="img"
       >
         <svg
@@ -6094,7 +6094,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        class="anticon anticon-down ant-dropdown-trigger"
         role="img"
       >
         <svg
@@ -6467,7 +6467,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        class="anticon anticon-down ant-dropdown-trigger"
         role="img"
       >
         <svg
@@ -6673,7 +6673,7 @@ Array [
       >
         <span
           aria-label="down"
-          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          class="anticon anticon-down ant-dropdown-trigger"
           role="img"
         >
           <svg
@@ -7221,7 +7221,7 @@ Array [
       >
         <span
           aria-label="down"
-          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          class="anticon anticon-down ant-dropdown-trigger"
           role="img"
         >
           <svg
@@ -7759,7 +7759,7 @@ Array [
         </label>
         <span
           aria-label="down"
-          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          class="anticon anticon-down ant-dropdown-trigger"
           role="img"
         >
           <svg
@@ -8272,7 +8272,7 @@ Array [
       >
         <span
           aria-label="down"
-          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          class="anticon anticon-down ant-dropdown-trigger"
           role="img"
         >
           <svg
@@ -8623,7 +8623,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        class="anticon anticon-down ant-dropdown-trigger"
         role="img"
       >
         <svg
@@ -9138,7 +9138,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        class="anticon anticon-down ant-dropdown-trigger"
         role="img"
       >
         <svg
@@ -9604,7 +9604,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
         </label>
         <span
           aria-label="down"
-          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          class="anticon anticon-down ant-dropdown-trigger"
           role="img"
         >
           <svg
@@ -9851,7 +9851,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
         </label>
         <span
           aria-label="down"
-          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          class="anticon anticon-down ant-dropdown-trigger"
           role="img"
         >
           <svg
@@ -10040,7 +10040,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
         </label>
         <span
           aria-label="down"
-          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          class="anticon anticon-down ant-dropdown-trigger"
           role="img"
         >
           <svg
@@ -10354,7 +10354,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
         </label>
         <span
           aria-label="down"
-          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          class="anticon anticon-down ant-dropdown-trigger"
           role="img"
         >
           <svg
