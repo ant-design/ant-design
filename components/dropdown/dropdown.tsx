@@ -83,6 +83,7 @@ const Dropdown: CompoundedComponent = (props) => {
     disabled,
     dropdownRender,
     getPopupContainer,
+    className,
     overlayClassName,
     rootClassName,
     overlayStyle,
@@ -160,6 +161,7 @@ const Dropdown: CompoundedComponent = (props) => {
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       child.props.className,
+      className,
     ),
     disabled: child.props.disabled ?? disabled,
   });
