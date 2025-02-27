@@ -24,7 +24,7 @@ exports[`Transfer.List should render correctly 1`] = `
     </label>
     <span
       aria-label="down"
-      class="anticon anticon-down ant-dropdown-trigger"
+      class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
       role="img"
     >
       <svg

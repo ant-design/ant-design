@@ -382,8 +382,17 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     ];
   }
   const dropdown: React.ReactNode = (
-    <Dropdown className={`${prefixCls}-header-dropdown`} menu={{ items }} disabled={disabled}>
-      {isValidIcon(selectionsIcon) ? selectionsIcon : <DownOutlined />}
+    <Dropdown menu={{ items }} disabled={disabled}>
+      {isValidIcon(selectionsIcon) ? (
+        React.cloneElement(selectionsIcon as React.ReactElement<HTMLElement>, {
+          className: classNames(
+            `${prefixCls}-header-dropdown`,
+            (selectionsIcon as React.ReactElement<HTMLElement>).props?.className,
+          ),
+        })
+      ) : (
+        <DownOutlined className={`${prefixCls}-header-dropdown`} />
+      )}
     </Dropdown>
   );
 
