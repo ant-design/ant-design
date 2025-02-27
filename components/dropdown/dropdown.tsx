@@ -6,7 +6,7 @@ import useEvent from '@rc-component/util/lib/hooks/useEvent';
 import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
 import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import RcDropdown from 'rc-dropdown';
+import RcDropdown from '@rc-component/dropdown';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import isPrimitive from '../_util/isPrimitive';
@@ -83,6 +83,7 @@ const Dropdown: CompoundedComponent = (props) => {
     disabled,
     dropdownRender,
     getPopupContainer,
+    className,
     overlayClassName,
     rootClassName,
     overlayStyle,
@@ -160,6 +161,7 @@ const Dropdown: CompoundedComponent = (props) => {
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       child.props.className,
+      className,
     ),
     disabled: child.props.disabled ?? disabled,
   });
@@ -204,8 +206,8 @@ const Dropdown: CompoundedComponent = (props) => {
   }, [menu?.selectable, menu?.multiple]);
 
   const renderOverlay = () => {
-    // rc-dropdown already can process the function of overlay, but we have check logic here.
-    // So we need render the element to check and pass back to rc-dropdown.
+    // @rc-component/dropdown already can process the function of overlay, but we have check logic here.
+    // So we need render the element to check and pass back to @rc-component/dropdown.
 
     let overlayNode: React.ReactNode;
     if (menu?.items) {

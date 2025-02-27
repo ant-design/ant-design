@@ -2,10 +2,10 @@
 import * as React from 'react';
 import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import type { BaseSelectRef, SelectProps as RcSelectProps } from 'rc-select';
-import RcSelect, { OptGroup, Option } from 'rc-select';
-import type { OptionProps } from 'rc-select/lib/Option';
-import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
+import type { BaseSelectRef, SelectProps as RcSelectProps } from '@rc-component/select';
+import RcSelect, { OptGroup, Option } from '@rc-component/select';
+import type { OptionProps } from '@rc-component/select/lib/Option';
+import type { BaseOptionType, DefaultOptionType } from '@rc-component/select/lib/Select';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';
@@ -118,7 +118,7 @@ const InternalSelect = <
     style,
     allowClear,
     variant: customizeVariant,
-    dropdownStyle,
+    popupStyle,
     transitionName,
     tagRender,
     maxCount,
@@ -277,7 +277,7 @@ const InternalSelect = <
   }
 
   // ====================== zIndex =========================
-  const [zIndex] = useZIndex('SelectLike', dropdownStyle?.zIndex as number);
+  const [zIndex] = useZIndex('SelectLike', popupStyle?.zIndex as number);
 
   // ====================== Render =======================
   return (
@@ -287,7 +287,7 @@ const InternalSelect = <
       showSearch={contextSelect.showSearch}
       {...selectProps}
       style={{ ...contextSelect.style, ...style }}
-      dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
+      popupMatchSelectWidth={mergedPopupMatchSelectWidth}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
       listHeight={listHeight}
@@ -304,9 +304,9 @@ const InternalSelect = <
       notFoundContent={mergedNotFound}
       className={mergedClassName}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
-      dropdownClassName={mergedPopupClassName}
+      popupClassName={mergedPopupClassName}
       disabled={mergedDisabled}
-      dropdownStyle={{ ...dropdownStyle, zIndex }}
+      popupStyle={{ ...popupStyle, zIndex }}
       maxCount={isMultiple ? maxCount : undefined}
       tagRender={isMultiple ? tagRender : undefined}
     />
@@ -333,7 +333,7 @@ const Select = React.forwardRef(InternalSelect) as unknown as (<
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(Select, 'dropdownAlign');
+const PurePanel = genPurePanel(Select, 'popupAlign');
 
 Select.SECRET_COMBOBOX_MODE_DO_NOT_USE = SECRET_COMBOBOX_MODE_DO_NOT_USE;
 Select.Option = Option;

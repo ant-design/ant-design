@@ -10,7 +10,7 @@ const { Option } = Select;
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(RefAutoComplete, 'dropdownAlign', (props: any) =>
+const PurePanel = genPurePanel(RefAutoComplete, 'popupAlign', (props: any) =>
   omit(props, ['visible']),
 );
 

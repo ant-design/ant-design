@@ -1151,12 +1151,10 @@ describe('Table.filter', () => {
     ] as unknown as ColumnType<any>['filteredValue'];
     const selectedValue = [
       {
-        key: 2,
         value: 2,
         label: 'Closed',
       },
       {
-        key: 1,
         value: 1,
         label: 'Not Identified',
       },

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import type { CascaderProps as RcCascaderProps } from 'rc-cascader';
-import { Panel } from 'rc-cascader';
-import type { PickType } from 'rc-cascader/lib/Panel';
+import type { CascaderProps as RcCascaderProps } from '@rc-component/cascader';
+import { Panel } from '@rc-component/cascader';
+import type { PickType } from '@rc-component/cascader/lib/Panel';
 
 import type { CascaderProps, DefaultOptionType } from '.';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
