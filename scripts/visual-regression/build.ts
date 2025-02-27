@@ -408,13 +408,11 @@ async function boot() {
 
   // compare cssinjs and css-var png from pr
   // to the same cssinjs png in `master` branch
-  const cssInJsImgNames = baseImgFileList
-    .filter((i) => !i.endsWith('.css-var.png'))
-    .map((n) => path.basename(n, path.extname(n)));
+  const cssInJsImgNames = baseImgFileList.map((n) => path.basename(n, path.extname(n)));
 
   // compare to target branch
   const compareTasks = cssInJsImgNames.map((basename) =>
-    ['.png', '.css-var.png'].map((extname) => async () => {
+    ['.png'].map((extname) => async () => {
       // baseImg always use cssinjs png
       const baseImgName = `${basename}.png`;
       const baseImgPath = path.join(baseImgSourceDir, baseImgName);
