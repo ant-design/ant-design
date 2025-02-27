@@ -78,7 +78,6 @@ if (typeof MessageChannel === 'undefined') {
 // Mock useId to return a stable id for snapshot testing
 jest.mock('react', () => {
   const originReact = jest.requireActual('react');
-
   let cloneReact = {
     ...originReact,
   };
