@@ -1,7 +1,35 @@
 import React from 'react';
 import { Button, notification, ConfigProvider } from 'antd';
+import { createStyles } from 'antd-style';
+
+const COLOR_BG = 'linear-gradient(135deg,#6253e1, #04befe)';
+
+const useStyle = createStyles(({ prefixCls, css }) => ({
+  linearGradientButton: css`
+    &.${prefixCls}-btn-primary:not([disabled]):not(.${prefixCls}-btn-dangerous) {
+      > span {
+        position: relative;
+      }
+
+      &::before {
+        content: '';
+        background: ${COLOR_BG};
+        position: absolute;
+        inset: -1px;
+        opacity: 1;
+        transition: all 0.3s;
+        border-radius: inherit;
+      }
+
+      &:hover::before {
+        opacity: 0;
+      }
+    }
+  `,
+}));
 
 const App: React.FC = () => {
+  const { styles } = useStyle();
   const [api, contextHolder] = notification.useNotification();
 
   const openNotification = () => {
@@ -15,10 +43,13 @@ const App: React.FC = () => {
 
   return (
     <ConfigProvider
+      button={{
+        className: styles.linearGradientButton,
+      }}
       theme={{
         components: {
           Notification: {
-            progressBg: 'linear-gradient(135deg, #ff9a9e, #fad0c4)',
+            progressBg: COLOR_BG,
           },
         },
       }}
