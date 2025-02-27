@@ -1,5 +1,5 @@
 import React from 'react';
-import type { OptionFC } from 'rc-select/lib/Option';
+import type { OptionFC } from '@rc-component/select/lib/Option';
 
 import type { PaginationProps } from '..';
 import Pagination from '..';

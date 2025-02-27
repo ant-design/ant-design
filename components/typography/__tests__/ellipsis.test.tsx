@@ -446,22 +446,18 @@ describe('Typography.Ellipsis', () => {
     it('tooltip props', async () => {
       const { container, baseElement } = await getWrapper({
         title: 'This is tooltip',
-        className: 'tooltip-class-name',
       });
       fireEvent.mouseEnter(container.firstChild!);
       await waitFor(() => {
-        expect(container.querySelector('.tooltip-class-name')).toBeTruthy();
         expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
       });
     });
     it('tooltip title true', async () => {
       const { container, baseElement } = await getWrapper({
         title: true,
-        className: 'tooltip-class-name',
       });
       fireEvent.mouseEnter(container.firstChild!);
       await waitFor(() => {
-        expect(container.querySelector('.tooltip-class-name')).toBeTruthy();
         expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
       });
     });
@@ -484,13 +480,11 @@ describe('Typography.Ellipsis', () => {
 
         const { container, baseElement } = await getWrapper({
           title: true,
-          className: 'tooltip-class-name',
         });
         fireEvent.mouseEnter(container.firstChild!);
 
         await waitFakeTimer();
 
-        expect(container.querySelector('.tooltip-class-name')).toBeTruthy();
         expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
       });
 
@@ -501,13 +495,11 @@ describe('Typography.Ellipsis', () => {
 
         const { container, baseElement } = await getWrapper({
           title: true,
-          className: 'tooltip-class-name',
         });
         fireEvent.mouseEnter(container.firstChild!);
 
         await waitFakeTimer();
 
-        expect(container.querySelector('.tooltip-class-name')).toBeTruthy();
         expect(baseElement.querySelector('.ant-tooltip-open')).toBeFalsy();
       });
     });

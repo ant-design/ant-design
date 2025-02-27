@@ -67,7 +67,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAA
 | onOpenChange | SubMenu 展开/关闭的回调 | function(openKeys: string\[]) | - |  |
 | onSelect | 被选中时调用 | function({ key, keyPath, selectedKeys, domEvent }) | -   |  |
 
-> 更多属性查看 [rc-menu](https://github.com/react-component/menu#api)
+> 更多属性查看 [@rc-component/menu](https://github.com/react-component/menu#api)
 
 ### ItemType
 

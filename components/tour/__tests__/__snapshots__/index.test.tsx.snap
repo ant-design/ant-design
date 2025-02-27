@@ -122,7 +122,7 @@ exports[`Tour Primary 1`] = `
         />
         <rect
           fill="transparent"
-          height="-6"
+          height="0"
           pointer-events="auto"
           width="100%"
           x="0"
@@ -132,13 +132,13 @@ exports[`Tour Primary 1`] = `
           fill="transparent"
           height="100%"
           pointer-events="auto"
-          width="-6"
+          width="0"
           x="0"
           y="0"
         />
         <rect
           fill="transparent"
-          height="calc(100vh - 6px)"
+          height="calc(100% - 6px)"
           pointer-events="auto"
           width="100%"
           x="0"
@@ -148,7 +148,7 @@ exports[`Tour Primary 1`] = `
           fill="transparent"
           height="100%"
           pointer-events="auto"
-          width="calc(100vw - 6px)"
+          width="calc(100% - 6px)"
           x="6"
           y="0"
         />
@@ -567,7 +567,7 @@ exports[`Tour should support gap.offset 1`] = `
         />
         <rect
           fill="transparent"
-          height="calc(100vh - 390px)"
+          height="calc(100% - 390px)"
           pointer-events="auto"
           width="100%"
           x="0"
@@ -577,7 +577,7 @@ exports[`Tour should support gap.offset 1`] = `
           fill="transparent"
           height="100%"
           pointer-events="auto"
-          width="calc(100vw - 340px)"
+          width="calc(100% - 340px)"
           x="340"
           y="0"
         />
@@ -715,7 +715,7 @@ exports[`Tour single 1`] = `
         />
         <rect
           fill="transparent"
-          height="-6"
+          height="0"
           pointer-events="auto"
           width="100%"
           x="0"
@@ -725,13 +725,13 @@ exports[`Tour single 1`] = `
           fill="transparent"
           height="100%"
           pointer-events="auto"
-          width="-6"
+          width="0"
           x="0"
           y="0"
         />
         <rect
           fill="transparent"
-          height="calc(100vh - 6px)"
+          height="calc(100% - 6px)"
           pointer-events="auto"
           width="100%"
           x="0"
@@ -741,7 +741,7 @@ exports[`Tour single 1`] = `
           fill="transparent"
           height="100%"
           pointer-events="auto"
-          width="calc(100vw - 6px)"
+          width="calc(100% - 6px)"
           x="6"
           y="0"
         />
@@ -897,7 +897,7 @@ exports[`Tour step support Primary 1`] = `
         />
         <rect
           fill="transparent"
-          height="-6"
+          height="0"
           pointer-events="auto"
           width="100%"
           x="0"
@@ -907,13 +907,13 @@ exports[`Tour step support Primary 1`] = `
           fill="transparent"
           height="100%"
           pointer-events="auto"
-          width="-6"
+          width="0"
           x="0"
           y="0"
         />
         <rect
           fill="transparent"
-          height="calc(100vh - 6px)"
+          height="calc(100% - 6px)"
           pointer-events="auto"
           width="100%"
           x="0"
@@ -923,7 +923,7 @@ exports[`Tour step support Primary 1`] = `
           fill="transparent"
           height="100%"
           pointer-events="auto"
-          width="calc(100vw - 6px)"
+          width="calc(100% - 6px)"
           x="6"
           y="0"
         />
