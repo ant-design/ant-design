@@ -34,6 +34,7 @@ The differences with Select are:
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/allowClear.tsx">Customize clear button</code>
 <code src="./demo/form-debug.tsx" debug>Debug in Form</code>
+<code src="./demo/AutoComplete-and-Select.tsx" debug>AutoComplete and Select</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
