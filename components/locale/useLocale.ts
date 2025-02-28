@@ -21,16 +21,16 @@ const useLocale = <C extends LocaleComponentName = LocaleComponentName>(
     return merge(typeof locale === 'function' ? locale() : locale, localeFromContext);
   }, [componentName, defaultLocale, legacyLocale]);
 
-  const getLocaleCode = React.useMemo<string>(() => {
+  const getLocaleCode = () => {
     const localeCode = legacyLocale?.locale;
     // Had use LocaleProvide but didn't set locale
     if (legacyLocale?.exist && !localeCode) {
       return defaultLocaleData.locale;
     }
     return localeCode!;
-  }, [legacyLocale]);
+  };
 
-  return [getLocale, getLocaleCode] as const;
+  return [getLocale, getLocaleCode()] as const;
 };
 
 export default useLocale;
