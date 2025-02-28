@@ -1,4 +1,5 @@
 import React from 'react';
+import { UnstableContext } from '@rc-component/mentions';
 import { Mentions } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
@@ -20,27 +21,30 @@ const locales = {
 const Block = (props: any) => {
   const divRef = React.useRef<HTMLDivElement>(null);
   return (
-    <div ref={divRef} style={{ position: 'absolute' }}>
-      <Mentions
-        {...props}
-        style={{ width: '100%' }}
-        defaultValue="@thinkasany"
-        getPopupContainer={() => divRef.current}
-        options={[
-          {
-            value: 'afc163',
-            label: 'afc163',
-          },
-          {
-            value: 'zombieJ',
-            label: 'zombieJ',
-          },
-          {
-            value: 'thinkasany',
-            label: 'thinkasany',
-          },
-        ]}
-      />
+    <div ref={divRef} style={{ position: 'absolute', height: 170, overflow: 'hidden' }}>
+      <UnstableContext.Provider value={{ open: true }}>
+        <Mentions
+          {...props}
+          placement="bottom"
+          style={{ width: '100%' }}
+          value="@"
+          getPopupContainer={() => divRef.current}
+          options={[
+            {
+              value: 'afc163',
+              label: 'afc163',
+            },
+            {
+              value: 'zombieJ',
+              label: 'zombieJ',
+            },
+            {
+              value: 'thinkasany',
+              label: 'thinkasany',
+            },
+          ]}
+        />
+      </UnstableContext.Provider>
     </div>
   );
 };
