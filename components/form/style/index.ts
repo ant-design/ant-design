@@ -260,25 +260,32 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
             verticalAlign: 'top',
           },
 
-          // Required mark
-          [`&${formItemCls}-required:not(
-              ${formItemCls}-required-mark-optional,
-              ${formItemCls}-required-mark-hidden
-            )::before`]: {
-            display: 'inline-block',
-            marginInlineEnd: token.marginXXS,
-            color: labelRequiredMarkColor,
-            fontSize: token.fontSize,
-            fontFamily: 'SimSun, sans-serif',
-            lineHeight: 1,
-            content: '"*"',
+          [`&${formItemCls}-required`]: {
+            '&::before': {
+              display: 'inline-block',
+              marginInlineEnd: token.marginXXS,
+              color: labelRequiredMarkColor,
+              fontSize: token.fontSize,
+              fontFamily: 'SimSun, sans-serif',
+              lineHeight: 1,
+              content: '"*"',
+            },
+            [`&${formItemCls}-required-mark-hidden, &${formItemCls}-required-mark-optional`]: {
+              '&::before': {
+                display: 'none',
+              },
+            },
           },
 
           // Optional mark
-          [`${formItemCls}-optional:not(${formItemCls}-required-mark-hidden)`]: {
+          [`${formItemCls}-optional`]: {
             display: 'inline-block',
             marginInlineStart: token.marginXXS,
             color: token.colorTextDescription,
+
+            [`&.${formItemCls}-required-mark-hidden`]: {
+              display: 'none',
+            },
           },
 
           // Optional mark
