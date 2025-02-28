@@ -29,6 +29,11 @@ const Block = (props: any) => {
           style={{ width: '100%' }}
           value="@"
           getPopupContainer={() => divRef.current}
+          styles={{
+            popup: {
+              zIndex: 1,
+            },
+          }}
           options={[
             {
               value: 'afc163',
