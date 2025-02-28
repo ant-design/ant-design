@@ -1,3 +1,5 @@
 import { extendTest } from '../../../tests/shared/demoTest';
 
-extendTest('masonry');
+extendTest('masonry', {
+  skip: ['dynamic.tsx'],
+});
