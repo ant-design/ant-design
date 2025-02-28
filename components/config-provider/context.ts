@@ -5,8 +5,8 @@ import type { ShowWaveEffect } from '../_util/wave/interface';
 import type { AlertProps } from '../alert';
 import type { AnchorProps } from '../anchor';
 import type { BadgeProps } from '../badge';
-import type { BreadcrumbProps } from '../breadcrumb';
 import type { RibbonProps } from '../badge/Ribbon';
+import type { BreadcrumbProps } from '../breadcrumb';
 import type { ButtonProps } from '../button';
 import type { CardProps } from '../card';
 import type { CardMetaProps } from '../card/Meta';
@@ -35,18 +35,19 @@ import type { PopoverProps } from '../popover';
 import type { RadioProps } from '../radio';
 import type { ResultProps } from '../result';
 import type { SegmentedProps } from '../segmented';
-import type { SwitchProps } from '../switch';
 import type { SelectProps } from '../select';
 import type { SkeletonProps } from '../skeleton';
 import type { SliderProps } from '../slider';
 import type { SpaceProps } from '../space';
 import type { SpinProps } from '../spin';
 import type { StatisticProps } from '../statistic';
+import type { SwitchProps } from '../switch';
 import type { TableProps } from '../table';
 import type { TabsProps } from '../tabs';
 import type { TagProps } from '../tag';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { TimePickerProps } from '../time-picker';
+import type { TimelineProps } from '../timeline';
 import type { TooltipProps } from '../tooltip';
 import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
@@ -269,6 +270,8 @@ export type RangePickerConfig = ComponentStyleConfig & Pick<RangePickerProps, 'v
 
 export type TimePickerConfig = ComponentStyleConfig & Pick<TimePickerProps, 'variant'>;
 
+export type TimelineConfig = ComponentStyleConfig & Pick<TimelineProps, 'classNames' | 'styles'>;
+
 export type MentionsConfig = ComponentStyleConfig &
   Pick<MentionsProps, 'variant' | 'classNames' | 'styles'>;
 
@@ -350,7 +353,7 @@ export interface ConfigComponentProps {
   card?: CardConfig;
   cardMeta?: CardMetaConfig;
   tabs?: TabsConfig;
-  timeline?: ComponentStyleConfig;
+  timeline?: TimelineConfig;
   timePicker?: TimePickerConfig;
   tour?: TourConfig;
   tooltip?: TooltipConfig;
