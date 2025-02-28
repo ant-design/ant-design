@@ -12,23 +12,23 @@ const useLocale = <C extends LocaleComponentName = LocaleComponentName>(
   componentName: C,
   defaultLocale?: Locale[C] | (() => Locale[C]),
 ): readonly [NonNullable<Locale[C]>, string] => {
-  const fullLocale = React.useContext<LocaleContextProps | undefined>(LocaleContext);
+  const legacyLocale = React.useContext<LocaleContextProps | undefined>(LocaleContext);
 
   const getLocale = React.useMemo<NonNullable<Locale[C]>>(() => {
     const locale = defaultLocale || defaultLocaleData[componentName];
-    const localeFromContext = fullLocale?.[componentName] ?? {};
+    const localeFromContext = legacyLocale?.[componentName] ?? {};
     // Form 和 DatePicker 的 locale 通常不止一层，需要做一次 merge
     return merge(typeof locale === 'function' ? locale() : locale, localeFromContext);
-  }, [componentName, defaultLocale, fullLocale]);
+  }, [componentName, defaultLocale, legacyLocale]);
 
   const getLocaleCode = React.useMemo<string>(() => {
-    const localeCode = fullLocale?.locale;
+    const localeCode = legacyLocale?.locale;
     // Had use LocaleProvide but didn't set locale
-    if (fullLocale?.exist && !localeCode) {
+    if (legacyLocale?.exist && !localeCode) {
       return defaultLocaleData.locale;
     }
     return localeCode!;
-  }, [fullLocale]);
+  }, [legacyLocale]);
 
   return [getLocale, getLocaleCode] as const;
 };
