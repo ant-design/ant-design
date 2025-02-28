@@ -273,7 +273,8 @@ export type TimePickerConfig = ComponentStyleConfig & Pick<TimePickerProps, 'var
 
 export type TimelineConfig = ComponentStyleConfig & Pick<TimelineProps, 'classNames' | 'styles'>;
 
-export type MentionsConfig = ComponentStyleConfig & Pick<MentionsProps, 'variant'>;
+export type MentionsConfig = ComponentStyleConfig &
+  Pick<MentionsProps, 'variant' | 'classNames' | 'styles'>;
 
 export type UploadConfig = ComponentStyleConfig & Pick<UploadProps, 'classNames' | 'styles'>;
 
