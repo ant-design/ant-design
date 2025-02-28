@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { UnstableContext } from '@rc-component/mentions';
 
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 import { fireEvent } from '../../../tests/utils';
@@ -10,16 +11,18 @@ demoTest('mentions', {
 rootPropsTest(
   'mentions',
   (Mentions, props) => (
-    <Mentions
-      {...props}
-      value="@"
-      options={[
-        {
-          value: 'afc163',
-          label: 'afc163',
-        },
-      ]}
-    />
+    <UnstableContext.Provider value={{ open: true }}>
+      <Mentions
+        {...props}
+        value="@"
+        options={[
+          {
+            value: 'afc163',
+            label: 'afc163',
+          },
+        ]}
+      />
+    </UnstableContext.Provider>
   ),
   {
     afterRender: (container) => {
