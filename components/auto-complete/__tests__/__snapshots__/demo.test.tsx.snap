@@ -2,14 +2,14 @@
 
 exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
   style="gap:16px"
 >
   <div
-    class="ant-flex"
+    class="ant-flex css-var-test-id"
   >
     <div
-      class="ant-select ant-select-sm ant-select-outlined ant-select-single ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-sm ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       style="width:200px"
     >
       <div
@@ -71,7 +71,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
       </span>
     </div>
     <div
-      class="ant-select ant-select-sm ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
+      class="ant-select ant-select-sm ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
       style="width:200px"
     >
       <div
@@ -101,10 +101,10 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
     </div>
   </div>
   <div
-    class="ant-flex"
+    class="ant-flex css-var-test-id"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       style="width:200px"
     >
       <div
@@ -166,7 +166,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
       </span>
     </div>
     <div
-      class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
+      class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
       style="width:200px"
     >
       <div
@@ -196,10 +196,10 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
     </div>
   </div>
   <div
-    class="ant-flex"
+    class="ant-flex css-var-test-id"
   >
     <div
-      class="ant-select ant-select-lg ant-select-outlined ant-select-single ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-lg ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       style="width:200px"
     >
       <div
@@ -261,7 +261,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
       </span>
     </div>
     <div
-      class="ant-select ant-select-lg ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
+      class="ant-select ant-select-lg ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
       style="width:200px"
     >
       <div
@@ -296,7 +296,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
 exports[`renders components/auto-complete/demo/allowClear.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
+    class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
     style="width:200px"
   >
     <div
@@ -332,7 +332,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-allow-clear ant-select-show-search"
+    class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-search"
     style="width:200px"
   >
     <div
@@ -371,7 +371,7 @@ Array [
 exports[`renders components/auto-complete/demo/basic.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
+    class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
     style="width:200px"
   >
     <div
@@ -407,7 +407,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
+    class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
     style="width:200px"
   >
     <div
@@ -445,7 +445,7 @@ Array [
 
 exports[`renders components/auto-complete/demo/certain-category.tsx correctly 1`] = `
 <div
-  class="ant-select ant-select-lg ant-select-outlined ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
+  class="ant-select ant-select-lg ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
   style="width:250px"
 >
   <div
@@ -458,7 +458,7 @@ exports[`renders components/auto-complete/demo/certain-category.tsx correctly 1`
         class="ant-select-selection-search"
       >
         <span
-          class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large ant-select-selection-search-input"
+          class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large ant-select-selection-search-input css-var-test-id ant-input-css-var"
         >
           <span
             class="ant-input-wrapper ant-input-group"
@@ -480,7 +480,7 @@ exports[`renders components/auto-complete/demo/certain-category.tsx correctly 1`
               class="ant-input-group-addon"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only ant-input-search-button"
+                class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only ant-input-search-button"
                 type="button"
               >
                 <span
@@ -521,7 +521,7 @@ exports[`renders components/auto-complete/demo/certain-category.tsx correctly 1`
 
 exports[`renders components/auto-complete/demo/custom.tsx correctly 1`] = `
 <div
-  class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
+  class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
   style="width:200px"
 >
   <div
@@ -540,7 +540,7 @@ exports[`renders components/auto-complete/demo/custom.tsx correctly 1`] = `
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
-          class="ant-input ant-input-outlined ant-select-selection-search-input custom"
+          class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-select-selection-search-input custom"
           placeholder="input here"
           role="combobox"
           style="height:50px"
@@ -557,17 +557,17 @@ exports[`renders components/auto-complete/demo/custom.tsx correctly 1`] = `
 
 exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal css-var-test-id ant-form-css-var"
   style="margin:0 auto"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item css-var-test-id ant-form-css-var"
   >
     <div
-      class="ant-row ant-form-item-row"
+      class="ant-row ant-form-item-row css-var-test-id"
     >
       <div
-        class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+        class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8 css-var-test-id"
       >
         <label
           class=""
@@ -577,7 +577,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
         </label>
       </div>
       <div
-        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16"
+        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16 css-var-test-id"
       >
         <div
           class="ant-form-item-control-input"
@@ -586,7 +586,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete ant-select-single ant-select-show-search"
+              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
             >
               <div
                 class="ant-select-selector"
@@ -622,13 +622,13 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item css-var-test-id ant-form-css-var"
   >
     <div
-      class="ant-row ant-form-item-row"
+      class="ant-row ant-form-item-row css-var-test-id"
     >
       <div
-        class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+        class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8 css-var-test-id"
       >
         <label
           class=""
@@ -638,7 +638,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
         </label>
       </div>
       <div
-        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16"
+        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16 css-var-test-id"
       >
         <div
           class="ant-form-item-control-input"
@@ -647,7 +647,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
+              class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -712,13 +712,13 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item css-var-test-id ant-form-css-var"
   >
     <div
-      class="ant-row ant-form-item-row"
+      class="ant-row ant-form-item-row css-var-test-id"
     >
       <div
-        class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+        class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8 css-var-test-id"
       >
         <label
           class=""
@@ -728,7 +728,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
         </label>
       </div>
       <div
-        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16"
+        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16 css-var-test-id"
       >
         <div
           class="ant-form-item-control-input"
@@ -737,10 +737,10 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-group ant-input-group-compact"
+              class="ant-input-group css-var-test-id ant-input-group-compact"
             >
               <div
-                class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
+                class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
                 style="width:30%"
               >
                 <div
@@ -801,7 +801,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                 </span>
               </div>
               <div
-                class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
+                class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
               >
                 <div
                   class="ant-select-selector"
@@ -838,13 +838,13 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item css-var-test-id ant-form-css-var"
   >
     <div
-      class="ant-row ant-form-item-row"
+      class="ant-row ant-form-item-row css-var-test-id"
     >
       <div
-        class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+        class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8 css-var-test-id"
       >
         <label
           class=""
@@ -854,7 +854,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
         </label>
       </div>
       <div
-        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16"
+        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16 css-var-test-id"
       >
         <div
           class="ant-form-item-control-input"
@@ -863,7 +863,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
+              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
             >
               <div
                 class="ant-select-selector"
@@ -875,7 +875,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                     class="ant-select-selection-search"
                   >
                     <span
-                      class="ant-input-affix-wrapper ant-input-outlined ant-select-selection-search-input"
+                      class="ant-input-affix-wrapper ant-input-outlined ant-select-selection-search-input css-var-test-id ant-input-css-var"
                     >
                       <input
                         aria-autocomplete="list"
@@ -926,13 +926,13 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item css-var-test-id ant-form-css-var"
   >
     <div
-      class="ant-row ant-form-item-row"
+      class="ant-row ant-form-item-row css-var-test-id"
     >
       <div
-        class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+        class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8 css-var-test-id"
       >
         <label
           class=""
@@ -942,7 +942,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
         </label>
       </div>
       <div
-        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16"
+        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16 css-var-test-id"
       >
         <div
           class="ant-form-item-control-input"
@@ -951,10 +951,10 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-group ant-input-group-compact"
+              class="ant-input-group css-var-test-id ant-input-group-compact"
             >
               <div
-                class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
+                class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
                 style="width:30%"
               >
                 <div
@@ -1015,7 +1015,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                 </span>
               </div>
               <div
-                class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
+                class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
               >
                 <div
                   class="ant-select-selector"
@@ -1027,7 +1027,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                       class="ant-select-selection-search"
                     >
                       <span
-                        class="ant-input-affix-wrapper ant-input-outlined ant-select-selection-search-input"
+                        class="ant-input-affix-wrapper ant-input-outlined ant-select-selection-search-input css-var-test-id ant-input-css-var"
                       >
                         <input
                           aria-autocomplete="list"
@@ -1079,13 +1079,13 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item css-var-test-id ant-form-css-var"
   >
     <div
-      class="ant-row ant-form-item-row"
+      class="ant-row ant-form-item-row css-var-test-id"
     >
       <div
-        class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+        class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8 css-var-test-id"
       >
         <label
           class=""
@@ -1095,7 +1095,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
         </label>
       </div>
       <div
-        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16"
+        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16 css-var-test-id"
       >
         <div
           class="ant-form-item-control-input"
@@ -1104,10 +1104,10 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-group ant-input-group-compact"
+              class="ant-input-group css-var-test-id ant-input-group-compact"
             >
               <div
-                class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
+                class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
                 style="width:30%"
               >
                 <div
@@ -1168,7 +1168,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                 </span>
               </div>
               <div
-                class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
+                class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
               >
                 <div
                   class="ant-select-selector"
@@ -1180,7 +1180,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                       class="ant-select-selection-search"
                     >
                       <span
-                        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-select-selection-search-input"
+                        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-select-selection-search-input css-var-test-id ant-input-css-var"
                       >
                         <span
                           class="ant-input-wrapper ant-input-group"
@@ -1201,7 +1201,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                             class="ant-input-group-addon"
                           >
                             <button
-                              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
+                              class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
                               type="button"
                             >
                               <span
@@ -1245,13 +1245,13 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item css-var-test-id ant-form-css-var"
   >
     <div
-      class="ant-row ant-form-item-row"
+      class="ant-row ant-form-item-row css-var-test-id"
     >
       <div
-        class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+        class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8 css-var-test-id"
       >
         <label
           class=""
@@ -1261,7 +1261,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
         </label>
       </div>
       <div
-        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16"
+        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16 css-var-test-id"
       >
         <div
           class="ant-form-item-control-input"
@@ -1270,10 +1270,10 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-group ant-input-group-compact"
+              class="ant-input-group css-var-test-id ant-input-group-compact"
             >
               <div
-                class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
+                class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
                 style="width:20%"
               >
                 <div
@@ -1334,7 +1334,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                 </span>
               </div>
               <div
-                class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
+                class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
               >
                 <div
                   class="ant-select-selector"
@@ -1346,7 +1346,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                       class="ant-select-selection-search"
                     >
                       <span
-                        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-select-selection-search-input"
+                        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-select-selection-search-input css-var-test-id ant-input-css-var"
                       >
                         <span
                           class="ant-input-wrapper ant-input-group"
@@ -1367,7 +1367,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                             class="ant-input-group-addon"
                           >
                             <button
-                              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
+                              class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
                               type="button"
                             >
                               <span
@@ -1405,7 +1405,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                 </div>
               </div>
               <button
-                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                 type="button"
               >
                 <span
@@ -1446,7 +1446,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
 
 exports[`renders components/auto-complete/demo/non-case-sensitive.tsx correctly 1`] = `
 <div
-  class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
+  class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
   style="width:200px"
 >
   <div
@@ -1483,7 +1483,7 @@ exports[`renders components/auto-complete/demo/non-case-sensitive.tsx correctly 
 
 exports[`renders components/auto-complete/demo/options.tsx correctly 1`] = `
 <div
-  class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
+  class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
   style="width:200px"
 >
   <div
@@ -1520,7 +1520,7 @@ exports[`renders components/auto-complete/demo/options.tsx correctly 1`] = `
 
 exports[`renders components/auto-complete/demo/render-panel.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   style="display:flex"
 >
   <div
@@ -1528,7 +1528,7 @@ exports[`renders components/auto-complete/demo/render-panel.tsx correctly 1`] = 
   >
     <button
       aria-checked="false"
-      class="ant-switch"
+      class="ant-switch css-var-test-id"
       role="switch"
       type="button"
     >
@@ -1554,7 +1554,7 @@ exports[`renders components/auto-complete/demo/render-panel.tsx correctly 1`] = 
       style="padding-bottom:0;position:relative;min-width:0"
     >
       <div
-        class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
+        class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
         style="width:120px;margin:0"
       >
         <div
@@ -1589,14 +1589,14 @@ exports[`renders components/auto-complete/demo/render-panel.tsx correctly 1`] = 
 
 exports[`renders components/auto-complete/demo/status.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   style="width:100%"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-status-error ant-select-auto-complete ant-select-single ant-select-show-search"
+      class="ant-select ant-select-outlined ant-select-status-error ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
       style="width:200px"
     >
       <div
@@ -1632,7 +1632,7 @@ exports[`renders components/auto-complete/demo/status.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-status-warning ant-select-auto-complete ant-select-single ant-select-show-search"
+      class="ant-select ant-select-outlined ant-select-status-warning ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
       style="width:200px"
     >
       <div
@@ -1669,7 +1669,7 @@ exports[`renders components/auto-complete/demo/status.tsx correctly 1`] = `
 
 exports[`renders components/auto-complete/demo/uncertain-category.tsx correctly 1`] = `
 <div
-  class="ant-select ant-select-lg ant-select-outlined ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
+  class="ant-select ant-select-lg ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
   style="width:300px"
 >
   <div
@@ -1682,7 +1682,7 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx correctly 
         class="ant-select-selection-search"
       >
         <span
-          class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large ant-input-search-with-button ant-select-selection-search-input"
+          class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large ant-input-search-with-button ant-select-selection-search-input css-var-test-id ant-input-css-var"
         >
           <span
             class="ant-input-wrapper ant-input-group"
@@ -1704,7 +1704,7 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx correctly 
               class="ant-input-group-addon"
             >
               <button
-                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-input-search-button"
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-input-search-button"
                 type="button"
               >
                 <span
@@ -1745,11 +1745,11 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx correctly 
 
 exports[`renders components/auto-complete/demo/variant.tsx correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
   style="gap:12px"
 >
   <div
-    class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
+    class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
     style="width:200px"
   >
     <div
@@ -1783,7 +1783,7 @@ exports[`renders components/auto-complete/demo/variant.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-select ant-select-filled ant-select-auto-complete ant-select-single ant-select-show-search"
+    class="ant-select ant-select-filled ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
     style="width:200px"
   >
     <div
@@ -1817,7 +1817,7 @@ exports[`renders components/auto-complete/demo/variant.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-select ant-select-borderless ant-select-auto-complete ant-select-single ant-select-show-search"
+    class="ant-select ant-select-borderless ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
     style="width:200px"
   >
     <div

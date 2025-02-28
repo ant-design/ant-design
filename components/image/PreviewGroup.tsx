@@ -8,8 +8,8 @@ import SwapOutlined from '@ant-design/icons/SwapOutlined';
 import ZoomInOutlined from '@ant-design/icons/ZoomInOutlined';
 import ZoomOutOutlined from '@ant-design/icons/ZoomOutOutlined';
 import classNames from 'classnames';
-import RcImage from 'rc-image';
-import type { GroupConsumerProps } from 'rc-image/lib/PreviewGroup';
+import RcImage from '@rc-component/image';
+import type { GroupConsumerProps } from '@rc-component/image/lib/PreviewGroup';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
@@ -40,7 +40,7 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
   const rootPrefixCls = getPrefixCls();
 
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const [zIndex] = useZIndex(
     'ImagePreview',
@@ -68,13 +68,13 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
     };
   }, [preview]);
 
-  return wrapCSSVar(
+  return (
     <RcImage.PreviewGroup
       preview={mergedPreview}
       previewPrefixCls={previewPrefixCls}
       icons={icons}
       {...otherProps}
-    />,
+    />
   );
 };
 

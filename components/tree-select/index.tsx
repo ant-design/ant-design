@@ -1,11 +1,16 @@
 import * as React from 'react';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import type { BaseSelectRef } from 'rc-select';
-import type { Placement } from 'rc-select/lib/BaseSelect';
-import type { TreeSelectProps as RcTreeSelectProps } from 'rc-tree-select';
-import RcTreeSelect, { SHOW_ALL, SHOW_CHILD, SHOW_PARENT, TreeNode } from 'rc-tree-select';
-import type { DataNode } from 'rc-tree-select/lib/interface';
-import omit from 'rc-util/lib/omit';
+import type { BaseSelectRef } from '@rc-component/select';
+import type { Placement } from '@rc-component/select/lib/BaseSelect';
+import type { TreeSelectProps as RcTreeSelectProps } from '@rc-component/tree-select';
+import RcTreeSelect, {
+  SHOW_ALL,
+  SHOW_CHILD,
+  SHOW_PARENT,
+  TreeNode,
+} from '@rc-component/tree-select';
+import type { DataNode } from '@rc-component/tree-select/lib/interface';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';
@@ -60,8 +65,6 @@ export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = 
   disabled?: boolean;
   placement?: SelectCommonPlacement;
   popupClassName?: string;
-  /** @deprecated Please use `popupClassName` instead */
-  dropdownClassName?: string;
   /** @deprecated Use `variant` instead. */
   bordered?: boolean;
   treeLine?: TreeProps['showLine'];
@@ -105,7 +108,6 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     treeLine,
     getPopupContainer,
     popupClassName,
-    dropdownClassName,
     treeIcon = false,
     transitionName,
     choiceTransitionName = '',
@@ -116,7 +118,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     popupMatchSelectWidth,
     allowClear,
     variant: customVariant,
-    dropdownStyle,
+    popupStyle,
     tagRender,
     maxCount,
     showCheckedStrategy,
@@ -145,8 +147,6 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
       '`multiple` will always be `true` when `treeCheckable` is true',
     );
 
-    warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
-
     warning.deprecated(
       dropdownMatchSelectWidth === undefined,
       'dropdownMatchSelectWidth',
@@ -170,13 +170,13 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
 
   const rootCls = useCSSVarCls(prefixCls);
   const treeSelectRootCls = useCSSVarCls(treeSelectPrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useSelectStyle(prefixCls, rootCls);
-  const [treeSelectWrapCSSVar] = useStyle(treeSelectPrefixCls, treePrefixCls, treeSelectRootCls);
+  const [hashId, cssVarCls] = useSelectStyle(prefixCls, rootCls);
+  useStyle(treeSelectPrefixCls, treePrefixCls, treeSelectRootCls);
 
   const [variant, enableVariantCls] = useVariant('treeSelect', customVariant, bordered);
 
   const mergedDropdownClassName = classNames(
-    popupClassName || dropdownClassName,
+    popupClassName,
     `${treeSelectPrefixCls}-dropdown`,
     {
       [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',
@@ -288,14 +288,14 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
   );
 
   // ============================ zIndex ============================
-  const [zIndex] = useZIndex('SelectLike', dropdownStyle?.zIndex as number);
+  const [zIndex] = useZIndex('SelectLike', popupStyle?.zIndex as number);
 
-  const returnNode = (
+  return (
     <RcTreeSelect
       virtual={virtual}
       disabled={mergedDisabled}
       {...selectProps}
-      dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
+      popupMatchSelectWidth={mergedPopupMatchSelectWidth}
       builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
       ref={ref}
       prefixCls={prefixCls}
@@ -316,8 +316,8 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
       notFoundContent={mergedNotFound}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       treeMotion={null}
-      dropdownClassName={mergedDropdownClassName}
-      dropdownStyle={{ ...dropdownStyle, zIndex }}
+      popupClassName={mergedDropdownClassName}
+      popupStyle={{ ...popupStyle, zIndex }}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       treeExpandAction={treeExpandAction}
@@ -327,8 +327,6 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
       treeCheckStrictly={treeCheckStrictly}
     />
   );
-
-  return wrapCSSVar(treeSelectWrapCSSVar(returnNode));
 };
 
 const TreeSelectRef = React.forwardRef(InternalTreeSelect) as <
@@ -354,9 +352,7 @@ const TreeSelect = TreeSelectRef as CompoundedComponent;
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(TreeSelect, 'dropdownAlign', (props: any) =>
-  omit(props, ['visible']),
-);
+const PurePanel = genPurePanel(TreeSelect, 'popupAlign', (props: any) => omit(props, ['visible']));
 
 TreeSelect.TreeNode = TreeNode;
 TreeSelect.SHOW_ALL = SHOW_ALL;

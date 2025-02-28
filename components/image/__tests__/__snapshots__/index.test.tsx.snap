@@ -4,7 +4,7 @@ exports[`Image Default Group preview props 1`] = `
 <body>
   <div>
     <div
-      class="ant-image"
+      class="ant-image css-var-root ant-image-css-var"
     >
       <img
         class="ant-image-img"
@@ -41,7 +41,7 @@ exports[`Image Default Group preview props 1`] = `
     </div>
   </div>
   <div
-    class="ant-image-preview-operations-wrapper ant-fade-appear ant-fade-appear-start ant-fade"
+    class="ant-image-preview-operations-wrapper ant-fade-appear ant-fade-appear-start ant-fade css-var-root ant-image-css-var"
   >
     <button
       class="ant-image-preview-close"
@@ -234,7 +234,7 @@ exports[`Image Default Group preview props 1`] = `
   </div>
   <div>
     <div
-      class="ant-image-preview-root"
+      class="ant-image-preview-root css-var-root ant-image-css-var"
     >
       <div
         class="ant-image-preview-mask ant-fade-appear ant-fade-appear-start ant-fade"
@@ -253,7 +253,7 @@ exports[`Image Default Group preview props 1`] = `
             tabindex="0"
           >
             <div
-              class="ant-image-preview-content"
+              class="ant-image-preview-section"
             >
               <div
                 class="ant-image-preview-body"
@@ -283,7 +283,7 @@ exports[`Image Default Group preview props 1`] = `
 
 exports[`Image rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-image"
+  class="ant-image css-var-root ant-image-css-var"
 >
   <img
     class="ant-image-img"

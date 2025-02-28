@@ -58,7 +58,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | items | 配置选项卡内容 | [TabItemType](#tabitemtype) | [] | 4.23.0 |
 | more | 自定义折叠菜单属性 | [MoreProps](#moreprops) | { icon: `<EllipsisOutlined />` , trigger: 'hover' } |  |
 | removeIcon | 自定义删除按钮，设置 `type="editable-card"` 时有效 | ReactNode | `<CloseOutlined />` | 5.15.0 |
-| popupClassName | 更多菜单的 `className` | string | - | 4.21.0 |
+| ~~popupClassName~~ | 更多菜单的 `className`, 请使用 `classNames={{ popup: '' }}` 替换 | string | - | 4.21.0 |
 | renderTabBar | 替换 TabBar，用于二次封装标签头 | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |
 | size | 大小，提供 `large` `middle` 和 `small` 三种大小 | string | `middle` |  |
 | tabBarExtraContent | tab bar 上额外的元素 | ReactNode \| {left?: ReactNode, right?: ReactNode} | - | object: 4.6.0 |
@@ -72,7 +72,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | onTabClick | tab 被点击的回调 | (key: string, event: MouseEvent) => void | - |  |
 | onTabScroll | tab 滚动时触发 | ({ direction: `left` \| `right` \| `top` \| `bottom` }) => void | - | 4.3.0 |
 
-> 更多属性查看 [rc-tabs tabs](https://github.com/react-component/tabs#tabs)
+> 更多属性查看 [@rc-component/tabs](https://github.com/react-component/tabs#tabs)
 
 ### TabItemType
 
@@ -94,6 +94,10 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | -------------------------------------------- | -------------- | --------- | ------ | ---- |
 | icon                                         | 自定义折叠图标 | ReactNode | -      |      |
 | [DropdownProps](/components/dropdown-cn#api) |                |           |        |      |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

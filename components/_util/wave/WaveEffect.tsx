@@ -1,8 +1,8 @@
 import * as React from 'react';
+import CSSMotion from '@rc-component/motion';
+import raf from '@rc-component/util/lib/raf';
+import { composeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
-import CSSMotion from 'rc-motion';
-import raf from 'rc-util/lib/raf';
-import { composeRef } from 'rc-util/lib/ref';
 
 import { getReactRender } from '../../config-provider/UnstableContext';
 import type { UnmountType } from '../../config-provider/UnstableContext';

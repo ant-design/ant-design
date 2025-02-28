@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { forwardRef } from 'react';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
+import useEvent from '@rc-component/util/lib/hooks/useEvent';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import type { MenuProps as RcMenuProps, MenuRef as RcMenuRef } from 'rc-menu';
-import RcMenu from 'rc-menu';
-import useEvent from 'rc-util/lib/hooks/useEvent';
-import omit from 'rc-util/lib/omit';
+import type { MenuProps as RcMenuProps, MenuRef as RcMenuRef } from '@rc-component/menu';
+import RcMenu from '@rc-component/menu';
 
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
@@ -118,7 +118,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('menu', customizePrefixCls || overrideObj.prefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls, !override);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls, !override);
   const menuClassName = classNames(`${prefixCls}-${theme}`, menu?.className, className);
 
   // ====================== ExpandIcon ========================
@@ -162,7 +162,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   );
 
   // ========================= Render ==========================
-  return wrapCSSVar(
+  return (
     <OverrideContext.Provider value={null}>
       <MenuContext.Provider value={contextValue}>
         <RcMenu
@@ -195,7 +195,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
           _internalComponents={MENU_COMPONENTS}
         />
       </MenuContext.Provider>
-    </OverrideContext.Provider>,
+    </OverrideContext.Provider>
   );
 });
 

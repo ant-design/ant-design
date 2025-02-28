@@ -4,9 +4,9 @@ import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
 import classNames from 'classnames';
-import { RangePicker as RCRangePicker } from 'rc-picker';
-import type { PickerRef } from 'rc-picker';
-import type { GenerateConfig } from 'rc-picker/lib/generate/index';
+import { RangePicker as RCRangePicker } from '@rc-component/picker';
+import type { PickerRef } from '@rc-component/picker';
+import type { GenerateConfig } from '@rc-component/picker/lib/generate/index';
 
 import ContextIsolator from '../../_util/ContextIsolator';
 import { useZIndex } from '../../_util/hooks/useZIndex';
@@ -46,7 +46,6 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
       bordered = true,
       placeholder,
       popupClassName,
-      dropdownClassName,
       status: customStatus,
       rootClassName,
       variant: customVariant,
@@ -63,13 +62,11 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     const [variant, enableVariantCls] = useVariant('rangePicker', customVariant, bordered);
 
     const rootCls = useCSSVarCls(prefixCls);
-    const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+    const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
     // =================== Warning =====================
     if (process.env.NODE_ENV !== 'production') {
       const warning = devUseWarning('DatePicker.RangePicker');
-
-      warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
 
       warning.deprecated(!('bordered' in props), 'bordered', 'variant');
     }
@@ -107,7 +104,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     // ============================ zIndex ============================
     const [zIndex] = useZIndex('DatePicker', props.popupStyle?.zIndex as number);
 
-    return wrapCSSVar(
+    return (
       <ContextIsolator space>
         <RCRangePicker<DateType>
           separator={
@@ -153,13 +150,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
           components={mergedComponents}
           direction={direction}
           classNames={{
-            popup: classNames(
-              hashId,
-              popupClassName || dropdownClassName,
-              cssVarCls,
-              rootCls,
-              rootClassName,
-            ),
+            popup: classNames(hashId, popupClassName, cssVarCls, rootCls, rootClassName),
           }}
           styles={{
             popup: {
@@ -169,7 +160,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
           }}
           allowClear={mergedAllowClear}
         />
-      </ContextIsolator>,
+      </ContextIsolator>
     );
   });
 

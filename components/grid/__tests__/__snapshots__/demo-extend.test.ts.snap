@@ -3,67 +3,67 @@
 exports[`renders components/grid/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-row"
+    class="ant-row css-var-test-id"
   >
     <div
-      class="ant-col ant-col-24"
+      class="ant-col ant-col-24 css-var-test-id"
     >
       col
     </div>
   </div>,
   <div
-    class="ant-row"
+    class="ant-row css-var-test-id"
   >
     <div
-      class="ant-col ant-col-12"
+      class="ant-col ant-col-12 css-var-test-id"
     >
       col-12
     </div>
     <div
-      class="ant-col ant-col-12"
+      class="ant-col ant-col-12 css-var-test-id"
     >
       col-12
     </div>
   </div>,
   <div
-    class="ant-row"
+    class="ant-row css-var-test-id"
   >
     <div
-      class="ant-col ant-col-8"
+      class="ant-col ant-col-8 css-var-test-id"
     >
       col-8
     </div>
     <div
-      class="ant-col ant-col-8"
+      class="ant-col ant-col-8 css-var-test-id"
     >
       col-8
     </div>
     <div
-      class="ant-col ant-col-8"
+      class="ant-col ant-col-8 css-var-test-id"
     >
       col-8
     </div>
   </div>,
   <div
-    class="ant-row"
+    class="ant-row css-var-test-id"
   >
     <div
-      class="ant-col ant-col-6"
+      class="ant-col ant-col-6 css-var-test-id"
     >
       col-6
     </div>
     <div
-      class="ant-col ant-col-6"
+      class="ant-col ant-col-6 css-var-test-id"
     >
       col-6
     </div>
     <div
-      class="ant-col ant-col-6"
+      class="ant-col ant-col-6 css-var-test-id"
     >
       col-6
     </div>
     <div
-      class="ant-col ant-col-6"
+      class="ant-col ant-col-6 css-var-test-id"
     >
       col-6
     </div>
@@ -76,7 +76,7 @@ exports[`renders components/grid/demo/basic.tsx extend context correctly 2`] = `
 exports[`renders components/grid/demo/flex.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -86,31 +86,31 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-row ant-row-start"
+    class="ant-row ant-row-start css-var-test-id"
   >
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       col-4
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       col-4
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       col-4
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       col-4
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -120,31 +120,31 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-row ant-row-center"
+    class="ant-row ant-row-center css-var-test-id"
   >
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       col-4
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       col-4
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       col-4
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       col-4
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -154,31 +154,31 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-row ant-row-end"
+    class="ant-row ant-row-end css-var-test-id"
   >
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       col-4
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       col-4
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       col-4
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       col-4
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -188,31 +188,31 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-row ant-row-space-between"
+    class="ant-row ant-row-space-between css-var-test-id"
   >
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       col-4
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       col-4
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       col-4
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       col-4
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -222,31 +222,31 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-row ant-row-space-around"
+    class="ant-row ant-row-space-around css-var-test-id"
   >
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       col-4
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       col-4
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       col-4
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       col-4
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -256,25 +256,25 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-row ant-row-space-evenly"
+    class="ant-row ant-row-space-evenly css-var-test-id"
   >
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       col-4
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       col-4
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       col-4
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       col-4
     </div>
@@ -287,7 +287,7 @@ exports[`renders components/grid/demo/flex.tsx extend context correctly 2`] = `[
 exports[`renders components/grid/demo/flex-align.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -297,10 +297,10 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-row ant-row-center ant-row-top"
+    class="ant-row ant-row-center ant-row-top css-var-test-id"
   >
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       <p
         class="height-100"
@@ -309,7 +309,7 @@ Array [
       </p>
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       <p
         class="height-50"
@@ -318,7 +318,7 @@ Array [
       </p>
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       <p
         class="height-120"
@@ -327,7 +327,7 @@ Array [
       </p>
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       <p
         class="height-80"
@@ -337,7 +337,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -347,10 +347,10 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-row ant-row-space-around ant-row-middle"
+    class="ant-row ant-row-space-around ant-row-middle css-var-test-id"
   >
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       <p
         class="height-100"
@@ -359,7 +359,7 @@ Array [
       </p>
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       <p
         class="height-50"
@@ -368,7 +368,7 @@ Array [
       </p>
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       <p
         class="height-120"
@@ -377,7 +377,7 @@ Array [
       </p>
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       <p
         class="height-80"
@@ -387,7 +387,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -397,10 +397,10 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-row ant-row-space-between ant-row-bottom"
+    class="ant-row ant-row-space-between ant-row-bottom css-var-test-id"
   >
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       <p
         class="height-100"
@@ -409,7 +409,7 @@ Array [
       </p>
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       <p
         class="height-50"
@@ -418,7 +418,7 @@ Array [
       </p>
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       <p
         class="height-120"
@@ -427,7 +427,7 @@ Array [
       </p>
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-4 css-var-test-id"
     >
       <p
         class="height-80"
@@ -444,7 +444,7 @@ exports[`renders components/grid/demo/flex-align.tsx extend context correctly 2`
 exports[`renders components/grid/demo/flex-order.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -454,31 +454,31 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-row"
+    class="ant-row css-var-test-id"
   >
     <div
-      class="ant-col ant-col-6 ant-col-order-4"
+      class="ant-col ant-col-6 ant-col-order-4 css-var-test-id"
     >
       1 col-order-4
     </div>
     <div
-      class="ant-col ant-col-6 ant-col-order-3"
+      class="ant-col ant-col-6 ant-col-order-3 css-var-test-id"
     >
       2 col-order-3
     </div>
     <div
-      class="ant-col ant-col-6 ant-col-order-2"
+      class="ant-col ant-col-6 ant-col-order-2 css-var-test-id"
     >
       3 col-order-2
     </div>
     <div
-      class="ant-col ant-col-6 ant-col-order-1"
+      class="ant-col ant-col-6 ant-col-order-1 css-var-test-id"
     >
       4 col-order-1
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -488,25 +488,25 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-row"
+    class="ant-row css-var-test-id"
   >
     <div
-      class="ant-col ant-col-6 ant-col-xs-order-1 ant-col-sm-order-2 ant-col-md-order-3 ant-col-lg-order-4"
+      class="ant-col ant-col-6 ant-col-xs-order-1 ant-col-sm-order-2 ant-col-md-order-3 ant-col-lg-order-4 css-var-test-id"
     >
       1 col-order-responsive
     </div>
     <div
-      class="ant-col ant-col-6 ant-col-xs-order-2 ant-col-sm-order-1 ant-col-md-order-4 ant-col-lg-order-3"
+      class="ant-col ant-col-6 ant-col-xs-order-2 ant-col-sm-order-1 ant-col-md-order-4 ant-col-lg-order-3 css-var-test-id"
     >
       2 col-order-responsive
     </div>
     <div
-      class="ant-col ant-col-6 ant-col-xs-order-3 ant-col-sm-order-4 ant-col-md-order-2 ant-col-lg-order-1"
+      class="ant-col ant-col-6 ant-col-xs-order-3 ant-col-sm-order-4 ant-col-md-order-2 ant-col-lg-order-1 css-var-test-id"
     >
       3 col-order-responsive
     </div>
     <div
-      class="ant-col ant-col-6 ant-col-xs-order-4 ant-col-sm-order-3 ant-col-md-order-1 ant-col-lg-order-2"
+      class="ant-col ant-col-6 ant-col-xs-order-4 ant-col-sm-order-3 ant-col-md-order-1 ant-col-lg-order-2 css-var-test-id"
     >
       4 col-order-responsive
     </div>
@@ -519,7 +519,7 @@ exports[`renders components/grid/demo/flex-order.tsx extend context correctly 2`
 exports[`renders components/grid/demo/flex-stretch.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -529,23 +529,23 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-row"
+    class="ant-row css-var-test-id"
   >
     <div
-      class="ant-col"
+      class="ant-col css-var-test-id"
       style="flex: 2 2 auto;"
     >
       2 / 5
     </div>
     <div
-      class="ant-col"
+      class="ant-col css-var-test-id"
       style="flex: 3 3 auto;"
     >
       3 / 5
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -555,23 +555,23 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-row"
+    class="ant-row css-var-test-id"
   >
     <div
-      class="ant-col"
+      class="ant-col css-var-test-id"
       style="flex: 0 0 100px;"
     >
       100px
     </div>
     <div
-      class="ant-col"
+      class="ant-col css-var-test-id"
       style="flex-basis: auto;"
     >
       Fill Rest
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -581,26 +581,26 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-row"
+    class="ant-row css-var-test-id"
   >
     <div
-      class="ant-col"
+      class="ant-col css-var-test-id"
       style="flex: 1 1 200px;"
     >
       1 1 200px
     </div>
     <div
-      class="ant-col"
+      class="ant-col css-var-test-id"
       style="flex: 0 1 300px;"
     >
       0 1 300px
     </div>
   </div>,
   <div
-    class="ant-row ant-row-no-wrap"
+    class="ant-row ant-row-no-wrap css-var-test-id"
   >
     <div
-      class="ant-col"
+      class="ant-col css-var-test-id"
       style="flex: 0 0 auto; min-width: 0;"
     >
       <div
@@ -610,7 +610,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-col"
+      class="ant-col css-var-test-id"
       style="flex-basis: auto; min-width: 0;"
     >
       auto with no-wrap
@@ -624,7 +624,7 @@ exports[`renders components/grid/demo/flex-stretch.tsx extend context correctly 
 exports[`renders components/grid/demo/gutter.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -634,12 +634,12 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-row"
-    style="margin-left: -8px; margin-right: -8px;"
+    class="ant-row css-var-test-id"
+    style="margin-inline: -8px;"
   >
     <div
-      class="ant-col ant-col-6 gutter-row"
-      style="padding-left: 8px; padding-right: 8px;"
+      class="ant-col ant-col-6 gutter-row css-var-test-id"
+      style="padding-inline: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -648,8 +648,8 @@ Array [
       </div>
     </div>
     <div
-      class="ant-col ant-col-6 gutter-row"
-      style="padding-left: 8px; padding-right: 8px;"
+      class="ant-col ant-col-6 gutter-row css-var-test-id"
+      style="padding-inline: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -658,8 +658,8 @@ Array [
       </div>
     </div>
     <div
-      class="ant-col ant-col-6 gutter-row"
-      style="padding-left: 8px; padding-right: 8px;"
+      class="ant-col ant-col-6 gutter-row css-var-test-id"
+      style="padding-inline: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -668,8 +668,8 @@ Array [
       </div>
     </div>
     <div
-      class="ant-col ant-col-6 gutter-row"
-      style="padding-left: 8px; padding-right: 8px;"
+      class="ant-col ant-col-6 gutter-row css-var-test-id"
+      style="padding-inline: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -679,7 +679,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -689,12 +689,12 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-row"
-    style="margin-left: -4px; margin-right: -4px;"
+    class="ant-row css-var-test-id"
+    style="margin-inline: -4px;"
   >
     <div
-      class="ant-col ant-col-6 gutter-row"
-      style="padding-left: 4px; padding-right: 4px;"
+      class="ant-col ant-col-6 gutter-row css-var-test-id"
+      style="padding-inline: 4px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -703,8 +703,8 @@ Array [
       </div>
     </div>
     <div
-      class="ant-col ant-col-6 gutter-row"
-      style="padding-left: 4px; padding-right: 4px;"
+      class="ant-col ant-col-6 gutter-row css-var-test-id"
+      style="padding-inline: 4px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -713,8 +713,8 @@ Array [
       </div>
     </div>
     <div
-      class="ant-col ant-col-6 gutter-row"
-      style="padding-left: 4px; padding-right: 4px;"
+      class="ant-col ant-col-6 gutter-row css-var-test-id"
+      style="padding-inline: 4px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -723,8 +723,8 @@ Array [
       </div>
     </div>
     <div
-      class="ant-col ant-col-6 gutter-row"
-      style="padding-left: 4px; padding-right: 4px;"
+      class="ant-col ant-col-6 gutter-row css-var-test-id"
+      style="padding-inline: 4px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -734,7 +734,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -744,12 +744,12 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-row"
-    style="margin-left: -8px; margin-right: -8px; row-gap: 24px;"
+    class="ant-row css-var-test-id"
+    style="margin-inline: -8px; row-gap: 24px;"
   >
     <div
-      class="ant-col ant-col-6 gutter-row"
-      style="padding-left: 8px; padding-right: 8px;"
+      class="ant-col ant-col-6 gutter-row css-var-test-id"
+      style="padding-inline: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -758,8 +758,8 @@ Array [
       </div>
     </div>
     <div
-      class="ant-col ant-col-6 gutter-row"
-      style="padding-left: 8px; padding-right: 8px;"
+      class="ant-col ant-col-6 gutter-row css-var-test-id"
+      style="padding-inline: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -768,8 +768,8 @@ Array [
       </div>
     </div>
     <div
-      class="ant-col ant-col-6 gutter-row"
-      style="padding-left: 8px; padding-right: 8px;"
+      class="ant-col ant-col-6 gutter-row css-var-test-id"
+      style="padding-inline: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -778,8 +778,8 @@ Array [
       </div>
     </div>
     <div
-      class="ant-col ant-col-6 gutter-row"
-      style="padding-left: 8px; padding-right: 8px;"
+      class="ant-col ant-col-6 gutter-row css-var-test-id"
+      style="padding-inline: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -788,8 +788,8 @@ Array [
       </div>
     </div>
     <div
-      class="ant-col ant-col-6 gutter-row"
-      style="padding-left: 8px; padding-right: 8px;"
+      class="ant-col ant-col-6 gutter-row css-var-test-id"
+      style="padding-inline: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -798,8 +798,8 @@ Array [
       </div>
     </div>
     <div
-      class="ant-col ant-col-6 gutter-row"
-      style="padding-left: 8px; padding-right: 8px;"
+      class="ant-col ant-col-6 gutter-row css-var-test-id"
+      style="padding-inline: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -808,8 +808,8 @@ Array [
       </div>
     </div>
     <div
-      class="ant-col ant-col-6 gutter-row"
-      style="padding-left: 8px; padding-right: 8px;"
+      class="ant-col ant-col-6 gutter-row css-var-test-id"
+      style="padding-inline: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -818,8 +818,8 @@ Array [
       </div>
     </div>
     <div
-      class="ant-col ant-col-6 gutter-row"
-      style="padding-left: 8px; padding-right: 8px;"
+      class="ant-col ant-col-6 gutter-row css-var-test-id"
+      style="padding-inline: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -836,38 +836,38 @@ exports[`renders components/grid/demo/gutter.tsx extend context correctly 2`] = 
 exports[`renders components/grid/demo/offset.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-row"
+    class="ant-row css-var-test-id"
   >
     <div
-      class="ant-col ant-col-8"
+      class="ant-col ant-col-8 css-var-test-id"
     >
       col-8
     </div>
     <div
-      class="ant-col ant-col-8 ant-col-offset-8"
+      class="ant-col ant-col-8 ant-col-offset-8 css-var-test-id"
     >
       col-8
     </div>
   </div>,
   <div
-    class="ant-row"
+    class="ant-row css-var-test-id"
   >
     <div
-      class="ant-col ant-col-6 ant-col-offset-6"
+      class="ant-col ant-col-6 ant-col-offset-6 css-var-test-id"
     >
       col-6 col-offset-6
     </div>
     <div
-      class="ant-col ant-col-6 ant-col-offset-6"
+      class="ant-col ant-col-6 ant-col-offset-6 css-var-test-id"
     >
       col-6 col-offset-6
     </div>
   </div>,
   <div
-    class="ant-row"
+    class="ant-row css-var-test-id"
   >
     <div
-      class="ant-col ant-col-12 ant-col-offset-6"
+      class="ant-col ant-col-12 ant-col-offset-6 css-var-test-id"
     >
       col-12 col-offset-6
     </div>
@@ -886,7 +886,7 @@ Array [
     style="width: 50%;"
   >
     <div
-      class="ant-slider ant-slider-horizontal ant-slider-with-marks"
+      class="ant-slider css-var-test-id ant-slider-horizontal ant-slider-with-marks"
     >
       <div
         class="ant-slider-rail"
@@ -936,7 +936,7 @@ Array [
         tabindex="0"
       />
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -1004,7 +1004,7 @@ Array [
     style="width: 50%;"
   >
     <div
-      class="ant-slider ant-slider-horizontal ant-slider-with-marks"
+      class="ant-slider css-var-test-id ant-slider-horizontal ant-slider-with-marks"
     >
       <div
         class="ant-slider-rail"
@@ -1054,7 +1054,7 @@ Array [
         tabindex="0"
       />
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -1122,7 +1122,7 @@ Array [
     style="width: 50%; margin-bottom: 48px;"
   >
     <div
-      class="ant-slider ant-slider-horizontal ant-slider-with-marks"
+      class="ant-slider css-var-test-id ant-slider-horizontal ant-slider-with-marks"
     >
       <div
         class="ant-slider-rail"
@@ -1172,7 +1172,7 @@ Array [
         tabindex="0"
       />
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -1234,68 +1234,68 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-row"
-    style="margin-left: -8px; margin-right: -8px; row-gap: 16px;"
+    class="ant-row css-var-test-id"
+    style="margin-inline: -8px; row-gap: 16px;"
   >
     <div
-      class="ant-col ant-col-6"
-      style="padding-left: 8px; padding-right: 8px;"
+      class="ant-col ant-col-6 css-var-test-id"
+      style="padding-inline: 8px;"
     >
       <div>
         Column
       </div>
     </div>
     <div
-      class="ant-col ant-col-6"
-      style="padding-left: 8px; padding-right: 8px;"
+      class="ant-col ant-col-6 css-var-test-id"
+      style="padding-inline: 8px;"
     >
       <div>
         Column
       </div>
     </div>
     <div
-      class="ant-col ant-col-6"
-      style="padding-left: 8px; padding-right: 8px;"
+      class="ant-col ant-col-6 css-var-test-id"
+      style="padding-inline: 8px;"
     >
       <div>
         Column
       </div>
     </div>
     <div
-      class="ant-col ant-col-6"
-      style="padding-left: 8px; padding-right: 8px;"
+      class="ant-col ant-col-6 css-var-test-id"
+      style="padding-inline: 8px;"
     >
       <div>
         Column
       </div>
     </div>
     <div
-      class="ant-col ant-col-6"
-      style="padding-left: 8px; padding-right: 8px;"
+      class="ant-col ant-col-6 css-var-test-id"
+      style="padding-inline: 8px;"
     >
       <div>
         Column
       </div>
     </div>
     <div
-      class="ant-col ant-col-6"
-      style="padding-left: 8px; padding-right: 8px;"
+      class="ant-col ant-col-6 css-var-test-id"
+      style="padding-inline: 8px;"
     >
       <div>
         Column
       </div>
     </div>
     <div
-      class="ant-col ant-col-6"
-      style="padding-left: 8px; padding-right: 8px;"
+      class="ant-col ant-col-6 css-var-test-id"
+      style="padding-inline: 8px;"
     >
       <div>
         Column
       </div>
     </div>
     <div
-      class="ant-col ant-col-6"
-      style="padding-left: 8px; padding-right: 8px;"
+      class="ant-col ant-col-6 css-var-test-id"
+      style="padding-inline: 8px;"
     >
       <div>
         Column
@@ -1304,36 +1304,36 @@ Array [
   </div>,
   Another Row:,
   <div
-    class="ant-row"
-    style="margin-left: -8px; margin-right: -8px; row-gap: 16px;"
+    class="ant-row css-var-test-id"
+    style="margin-inline: -8px; row-gap: 16px;"
   >
     <div
-      class="ant-col ant-col-6"
-      style="padding-left: 8px; padding-right: 8px;"
+      class="ant-col ant-col-6 css-var-test-id"
+      style="padding-inline: 8px;"
     >
       <div>
         Column
       </div>
     </div>
     <div
-      class="ant-col ant-col-6"
-      style="padding-left: 8px; padding-right: 8px;"
+      class="ant-col ant-col-6 css-var-test-id"
+      style="padding-inline: 8px;"
     >
       <div>
         Column
       </div>
     </div>
     <div
-      class="ant-col ant-col-6"
-      style="padding-left: 8px; padding-right: 8px;"
+      class="ant-col ant-col-6 css-var-test-id"
+      style="padding-inline: 8px;"
     >
       <div>
         Column
       </div>
     </div>
     <div
-      class="ant-col ant-col-6"
-      style="padding-left: 8px; padding-right: 8px;"
+      class="ant-col ant-col-6 css-var-test-id"
+      style="padding-inline: 8px;"
     >
       <div>
         Column
@@ -1371,20 +1371,20 @@ exports[`renders components/grid/demo/playground.tsx extend context correctly 2`
 
 exports[`renders components/grid/demo/responsive.tsx extend context correctly 1`] = `
 <div
-  class="ant-row"
+  class="ant-row css-var-test-id"
 >
   <div
-    class="ant-col ant-col-xs-2 ant-col-sm-4 ant-col-md-6 ant-col-lg-8 ant-col-xl-10"
+    class="ant-col ant-col-xs-2 ant-col-sm-4 ant-col-md-6 ant-col-lg-8 ant-col-xl-10 css-var-test-id"
   >
     Col
   </div>
   <div
-    class="ant-col ant-col-xs-20 ant-col-sm-16 ant-col-md-12 ant-col-lg-8 ant-col-xl-4"
+    class="ant-col ant-col-xs-20 ant-col-sm-16 ant-col-md-12 ant-col-lg-8 ant-col-xl-4 css-var-test-id"
   >
     Col
   </div>
   <div
-    class="ant-col ant-col-xs-2 ant-col-sm-4 ant-col-md-6 ant-col-lg-8 ant-col-xl-10"
+    class="ant-col ant-col-xs-2 ant-col-sm-4 ant-col-md-6 ant-col-lg-8 ant-col-xl-10 css-var-test-id"
   >
     Col
   </div>
@@ -1395,64 +1395,64 @@ exports[`renders components/grid/demo/responsive.tsx extend context correctly 2`
 
 exports[`renders components/grid/demo/responsive-flex.tsx extend context correctly 1`] = `
 <div
-  class="ant-row"
+  class="ant-row css-var-test-id"
 >
   <div
-    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex css-var-test-id"
     style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
   >
     Col
   </div>
   <div
-    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex css-var-test-id"
     style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
   >
     Col
   </div>
   <div
-    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex css-var-test-id"
     style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
   >
     Col
   </div>
   <div
-    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex css-var-test-id"
     style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
   >
     Col
   </div>
   <div
-    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex css-var-test-id"
     style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
   >
     Col
   </div>
   <div
-    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex css-var-test-id"
     style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
   >
     Col
   </div>
   <div
-    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex css-var-test-id"
     style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
   >
     Col
   </div>
   <div
-    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex css-var-test-id"
     style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
   >
     Col
   </div>
   <div
-    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex css-var-test-id"
     style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
   >
     Col
   </div>
   <div
-    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex css-var-test-id"
     style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
   >
     Col
@@ -1464,20 +1464,20 @@ exports[`renders components/grid/demo/responsive-flex.tsx extend context correct
 
 exports[`renders components/grid/demo/responsive-more.tsx extend context correctly 1`] = `
 <div
-  class="ant-row"
+  class="ant-row css-var-test-id"
 >
   <div
-    class="ant-col ant-col-xs-5 ant-col-xs-offset-1 ant-col-lg-6 ant-col-lg-offset-2"
+    class="ant-col ant-col-xs-5 ant-col-xs-offset-1 ant-col-lg-6 ant-col-lg-offset-2 css-var-test-id"
   >
     Col
   </div>
   <div
-    class="ant-col ant-col-xs-11 ant-col-xs-offset-1 ant-col-lg-6 ant-col-lg-offset-2"
+    class="ant-col ant-col-xs-11 ant-col-xs-offset-1 ant-col-lg-6 ant-col-lg-offset-2 css-var-test-id"
   >
     Col
   </div>
   <div
-    class="ant-col ant-col-xs-5 ant-col-xs-offset-1 ant-col-lg-6 ant-col-lg-offset-2"
+    class="ant-col ant-col-xs-5 ant-col-xs-offset-1 ant-col-lg-6 ant-col-lg-offset-2 css-var-test-id"
   >
     Col
   </div>
@@ -1488,15 +1488,15 @@ exports[`renders components/grid/demo/responsive-more.tsx extend context correct
 
 exports[`renders components/grid/demo/sort.tsx extend context correctly 1`] = `
 <div
-  class="ant-row"
+  class="ant-row css-var-test-id"
 >
   <div
-    class="ant-col ant-col-18 ant-col-push-6"
+    class="ant-col ant-col-18 ant-col-push-6 css-var-test-id"
   >
     col-18 col-push-6
   </div>
   <div
-    class="ant-col ant-col-6 ant-col-pull-18"
+    class="ant-col ant-col-6 ant-col-pull-18 css-var-test-id"
   >
     col-6 col-pull-18
   </div>
@@ -1509,7 +1509,7 @@ exports[`renders components/grid/demo/useBreakpoint.tsx extend context correctly
 Array [
   Current break point: ,
   <span
-    class="ant-tag ant-tag-blue"
+    class="ant-tag ant-tag-blue css-var-test-id"
   >
     xs
   </span>,

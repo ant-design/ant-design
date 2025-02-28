@@ -3,7 +3,7 @@
 exports[`renders components/popconfirm/demo/async.tsx correctly 1`] = `
 <button
   aria-describedby="test-id"
-  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -15,7 +15,7 @@ exports[`renders components/popconfirm/demo/async.tsx correctly 1`] = `
 exports[`renders components/popconfirm/demo/basic.tsx correctly 1`] = `
 <button
   aria-describedby="test-id"
-  class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
+  class="ant-btn css-var-test-id ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
   type="button"
 >
   <span>
@@ -28,7 +28,7 @@ exports[`renders components/popconfirm/demo/dynamic-trigger.tsx correctly 1`] = 
 <div>
   <button
     aria-describedby="test-id"
-    class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
     type="button"
   >
     <span>
@@ -40,7 +40,7 @@ exports[`renders components/popconfirm/demo/dynamic-trigger.tsx correctly 1`] = 
   Whether directly execute：
   <button
     aria-checked="true"
-    class="ant-switch ant-switch-checked"
+    class="ant-switch css-var-test-id ant-switch-checked"
     role="switch"
     type="button"
   >
@@ -64,7 +64,7 @@ exports[`renders components/popconfirm/demo/dynamic-trigger.tsx correctly 1`] = 
 exports[`renders components/popconfirm/demo/icon.tsx correctly 1`] = `
 <button
   aria-describedby="test-id"
-  class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
+  class="ant-btn css-var-test-id ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
   type="button"
 >
   <span>
@@ -76,7 +76,7 @@ exports[`renders components/popconfirm/demo/icon.tsx correctly 1`] = `
 exports[`renders components/popconfirm/demo/locale.tsx correctly 1`] = `
 <button
   aria-describedby="test-id"
-  class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
+  class="ant-btn css-var-test-id ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
   type="button"
 >
   <span>
@@ -87,15 +87,15 @@ exports[`renders components/popconfirm/demo/locale.tsx correctly 1`] = `
 
 exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
 <div
-  class="demo ant-flex ant-flex-align-center ant-flex-justify-center ant-flex-vertical"
+  class="demo ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center ant-flex-vertical"
 >
   <div
-    class="ant-flex ant-flex-align-center ant-flex-justify-center"
+    class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
     style="white-space:nowrap"
   >
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width:80px;margin:4px"
       type="button"
     >
@@ -105,7 +105,7 @@ exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
     </button>
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width:80px;margin:4px"
       type="button"
     >
@@ -115,7 +115,7 @@ exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
     </button>
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width:80px;margin:4px"
       type="button"
     >
@@ -125,15 +125,15 @@ exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
     </button>
   </div>
   <div
-    class="ant-flex ant-flex-align-center ant-flex-justify-space-between"
+    class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
     style="width:432px"
   >
     <div
-      class="ant-flex ant-flex-align-center ant-flex-vertical"
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-vertical"
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width:80px;margin:4px"
         type="button"
       >
@@ -143,7 +143,7 @@ exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
       </button>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width:80px;margin:4px"
         type="button"
       >
@@ -153,7 +153,7 @@ exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
       </button>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width:80px;margin:4px"
         type="button"
       >
@@ -163,11 +163,11 @@ exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
       </button>
     </div>
     <div
-      class="ant-flex ant-flex-align-center ant-flex-vertical"
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-vertical"
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width:80px;margin:4px"
         type="button"
       >
@@ -177,7 +177,7 @@ exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
       </button>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width:80px;margin:4px"
         type="button"
       >
@@ -187,7 +187,7 @@ exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
       </button>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width:80px;margin:4px"
         type="button"
       >
@@ -198,12 +198,12 @@ exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-flex ant-flex-align-center ant-flex-justify-center"
+    class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
     style="white-space:nowrap"
   >
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width:80px;margin:4px"
       type="button"
     >
@@ -213,7 +213,7 @@ exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
     </button>
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width:80px;margin:4px"
       type="button"
     >
@@ -223,7 +223,7 @@ exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
     </button>
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width:80px;margin:4px"
       type="button"
     >
@@ -238,7 +238,7 @@ exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
 exports[`renders components/popconfirm/demo/promise.tsx correctly 1`] = `
 <button
   aria-describedby="test-id"
-  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -250,7 +250,7 @@ exports[`renders components/popconfirm/demo/promise.tsx correctly 1`] = `
 exports[`renders components/popconfirm/demo/render-panel.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-popover ant-popover-pure ant-popover-placement-top ant-popconfirm"
+    class="ant-popover ant-popover-pure ant-popover-placement-top ant-popconfirm css-var-test-id"
   >
     <div
       class="ant-popover-arrow"
@@ -313,7 +313,7 @@ Array [
               class="ant-popconfirm-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+                class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -321,7 +321,7 @@ Array [
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -335,7 +335,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-popover ant-popover-pure ant-popover-placement-bottomRight ant-popconfirm"
+    class="ant-popover ant-popover-pure ant-popover-placement-bottomRight ant-popconfirm css-var-test-id"
     style="width:250px"
   >
     <div
@@ -400,7 +400,7 @@ Array [
               class="ant-popconfirm-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+                class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -408,7 +408,7 @@ Array [
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -422,7 +422,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-popover ant-popover-pure ant-popover-placement-top ant-popconfirm"
+    class="ant-popover ant-popover-pure ant-popover-placement-top ant-popconfirm css-var-test-id"
   >
     <div
       class="ant-popover-arrow"
@@ -457,7 +457,7 @@ Array [
               class="ant-popconfirm-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+                class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -465,7 +465,7 @@ Array [
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -479,7 +479,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-popover ant-popover-pure ant-popover-placement-top ant-popconfirm"
+    class="ant-popover ant-popover-pure ant-popover-placement-top ant-popconfirm css-var-test-id"
   >
     <div
       class="ant-popover-arrow"
@@ -519,7 +519,7 @@ Array [
               class="ant-popconfirm-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+                class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -527,7 +527,7 @@ Array [
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -643,7 +643,7 @@ exports[`renders components/popconfirm/demo/shift.tsx correctly 1`] = `
 exports[`renders components/popconfirm/demo/wireframe.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-popover ant-popover-pure ant-popover-placement-top ant-popconfirm"
+    class="ant-popover ant-popover-pure ant-popover-placement-top ant-popconfirm css-var-test-id"
   >
     <div
       class="ant-popover-arrow"
@@ -701,7 +701,7 @@ Array [
               class="ant-popconfirm-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+                class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -709,7 +709,7 @@ Array [
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -723,7 +723,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-popover ant-popover-pure ant-popover-placement-bottomRight ant-popconfirm"
+    class="ant-popover ant-popover-pure ant-popover-placement-bottomRight ant-popconfirm css-var-test-id"
     style="width:250px"
   >
     <div
@@ -783,7 +783,7 @@ Array [
               class="ant-popconfirm-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+                class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -791,7 +791,7 @@ Array [
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                 type="button"
               >
                 <span>

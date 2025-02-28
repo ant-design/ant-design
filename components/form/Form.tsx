@@ -1,8 +1,12 @@
 import * as React from 'react';
+import FieldForm, { List, useWatch } from '@rc-component/form';
+import type { FormProps as RcFormProps } from '@rc-component/form/lib/Form';
+import type {
+  FormRef,
+  InternalNamePath,
+  ValidateErrorEntity,
+} from '@rc-component/form/lib/interface';
 import classNames from 'classnames';
-import FieldForm, { List, useWatch } from 'rc-field-form';
-import type { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
-import type { FormRef, InternalNamePath, ValidateErrorEntity } from 'rc-field-form/lib/interface';
 
 import type { Variant } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -46,8 +50,6 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   disabled?: boolean;
   scrollToFirstError?: ScrollFocusOptions | boolean;
   requiredMark?: RequiredMark;
-  /** @deprecated Will warning in future branch. Pls use `requiredMark` instead. */
-  hideRequiredMark?: boolean;
   rootClassName?: string;
   variant?: Variant;
 }
@@ -76,7 +78,6 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     labelWrap,
     labelCol,
     wrapperCol,
-    hideRequiredMark,
     layout = 'horizontal',
     scrollToFirstError,
     requiredMark,
@@ -102,16 +103,12 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
       return requiredMark;
     }
 
-    if (hideRequiredMark) {
-      return false;
-    }
-
     if (contextRequiredMark !== undefined) {
       return contextRequiredMark;
     }
 
     return true;
-  }, [hideRequiredMark, requiredMark, contextRequiredMark]);
+  }, [requiredMark, contextRequiredMark]);
 
   const mergedColon = colon ?? contextColon;
 
@@ -119,7 +116,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
 
   // Style
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const formClassName = classNames(
     prefixCls,
@@ -199,7 +196,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     }
   };
 
-  return wrapCSSVar(
+  return (
     <VariantContext.Provider value={variant}>
       <DisabledContextProvider disabled={disabled}>
         <SizeContext.Provider value={mergedSize}>
@@ -224,7 +221,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
           </FormProvider>
         </SizeContext.Provider>
       </DisabledContextProvider>
-    </VariantContext.Provider>,
+    </VariantContext.Provider>
   );
 };
 

@@ -2,40 +2,40 @@
 
 exports[`Input.OTP rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-otp ant-otp-rtl"
+  class="ant-otp ant-otp-rtl css-var-root"
 >
   <input
-    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input"
+    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input css-var-root ant-input-css-var"
     size="1"
     type="text"
     value=""
   />
   <input
-    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input"
+    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input css-var-root ant-input-css-var"
     size="1"
     type="text"
     value=""
   />
   <input
-    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input"
+    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input css-var-root ant-input-css-var"
     size="1"
     type="text"
     value=""
   />
   <input
-    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input"
+    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input css-var-root ant-input-css-var"
     size="1"
     type="text"
     value=""
   />
   <input
-    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input"
+    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input css-var-root ant-input-css-var"
     size="1"
     type="text"
     value=""
   />
   <input
-    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input"
+    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input css-var-root ant-input-css-var"
     size="1"
     type="text"
     value=""

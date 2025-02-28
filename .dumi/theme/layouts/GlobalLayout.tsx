@@ -77,9 +77,6 @@ const GlobalLayout: React.FC = () => {
       bannerVisible: false,
     });
 
-  // TODO: This can be remove in v6
-  const useCssVar = searchParams.get('cssVar') !== 'false';
-
   const updateSiteConfig = useCallback(
     (props: SiteState) => {
       setSiteState((prev) => ({ ...prev, ...props }));
@@ -160,8 +157,7 @@ const GlobalLayout: React.FC = () => {
     () => ({
       algorithm: getAlgorithm(theme),
       token: { motion: !theme.includes('motion-off') },
-      cssVar: useCssVar,
-      hashed: !useCssVar,
+      hashed: false,
     }),
     [theme],
   );

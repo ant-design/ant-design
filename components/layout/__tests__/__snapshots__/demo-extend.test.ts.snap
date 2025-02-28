@@ -2,10 +2,10 @@
 
 exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-middle"
 >
   <div
-    class="ant-layout"
+    class="ant-layout css-var-test-id"
     style="border-radius: 8px; overflow: hidden; width: calc(50% - 8px); max-width: calc(50% - 8px);"
   >
     <header
@@ -28,7 +28,7 @@ exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] =
     </footer>
   </div>
   <div
-    class="ant-layout"
+    class="ant-layout css-var-test-id"
     style="border-radius: 8px; overflow: hidden; width: calc(50% - 8px); max-width: calc(50% - 8px);"
   >
     <header
@@ -38,10 +38,10 @@ exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] =
       Header
     </header>
     <div
-      class="ant-layout ant-layout-has-sider"
+      class="ant-layout ant-layout-has-sider css-var-test-id"
     >
       <aside
-        class="ant-layout-sider ant-layout-sider-dark"
+        class="ant-layout-sider ant-layout-sider-dark css-var-test-id"
         style="text-align: center; line-height: 120px; color: rgb(255, 255, 255); background-color: rgb(22, 119, 255); flex: 0 0 25%; max-width: 25%; min-width: 25%; width: 25%;"
       >
         <div
@@ -65,7 +65,7 @@ exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] =
     </footer>
   </div>
   <div
-    class="ant-layout"
+    class="ant-layout css-var-test-id"
     style="border-radius: 8px; overflow: hidden; width: calc(50% - 8px); max-width: calc(50% - 8px);"
   >
     <header
@@ -75,7 +75,7 @@ exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] =
       Header
     </header>
     <div
-      class="ant-layout ant-layout-has-sider"
+      class="ant-layout ant-layout-has-sider css-var-test-id"
     >
       <main
         class="ant-layout-content"
@@ -84,7 +84,7 @@ exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] =
         Content
       </main>
       <aside
-        class="ant-layout-sider ant-layout-sider-dark"
+        class="ant-layout-sider ant-layout-sider-dark css-var-test-id"
         style="text-align: center; line-height: 120px; color: rgb(255, 255, 255); background-color: rgb(22, 119, 255); flex: 0 0 25%; max-width: 25%; min-width: 25%; width: 25%;"
       >
         <div
@@ -102,11 +102,11 @@ exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] =
     </footer>
   </div>
   <div
-    class="ant-layout ant-layout-has-sider"
+    class="ant-layout ant-layout-has-sider css-var-test-id"
     style="border-radius: 8px; overflow: hidden; width: calc(50% - 8px); max-width: calc(50% - 8px);"
   >
     <aside
-      class="ant-layout-sider ant-layout-sider-dark"
+      class="ant-layout-sider ant-layout-sider-dark css-var-test-id"
       style="text-align: center; line-height: 120px; color: rgb(255, 255, 255); background-color: rgb(22, 119, 255); flex: 0 0 25%; max-width: 25%; min-width: 25%; width: 25%;"
     >
       <div
@@ -116,7 +116,7 @@ exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] =
       </div>
     </aside>
     <div
-      class="ant-layout"
+      class="ant-layout css-var-test-id"
     >
       <header
         class="ant-layout-header"
@@ -145,7 +145,7 @@ exports[`renders components/layout/demo/basic.tsx extend context correctly 2`] =
 
 exports[`renders components/layout/demo/component-token.tsx extend context correctly 1`] = `
 <div
-  class="ant-layout"
+  class="ant-layout css-var-test-id"
 >
   <header
     class="ant-layout-header"
@@ -161,10 +161,10 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
     </div>
   </header>
   <div
-    class="ant-layout ant-layout-has-sider"
+    class="ant-layout ant-layout-has-sider css-var-test-id"
   >
     <aside
-      class="ant-layout-sider ant-layout-sider-dark"
+      class="ant-layout-sider ant-layout-sider-dark css-var-test-id"
       style="flex: 0 0 32px; max-width: 32px; min-width: 32px; width: 32px;"
     >
       <div
@@ -172,14 +172,14 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
       />
     </aside>
     <aside
-      class="ant-layout-sider ant-layout-sider-dark"
+      class="ant-layout-sider ant-layout-sider-dark css-var-test-id"
       style="flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
     >
       <div
         class="ant-layout-sider-children"
       >
         <ul
-          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var"
           data-menu-list="true"
           role="menu"
           style="border-right: 0;"
@@ -228,7 +228,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
               />
             </div>
             <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
@@ -252,7 +252,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -284,7 +284,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -316,7 +316,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -348,7 +348,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -388,7 +388,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
                 </span>
               </li>
               <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
@@ -420,7 +420,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
                 </span>
               </li>
               <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
@@ -452,7 +452,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
                 </span>
               </li>
               <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
@@ -484,7 +484,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
                 </span>
               </li>
               <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
@@ -546,7 +546,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
               />
             </div>
             <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
@@ -570,7 +570,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -602,7 +602,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -634,7 +634,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -666,7 +666,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -729,7 +729,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
               />
             </div>
             <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
@@ -753,7 +753,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -785,7 +785,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -817,7 +817,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -849,7 +849,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -877,15 +877,17 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
       </div>
     </aside>
     <div
-      class="ant-layout"
+      class="ant-layout css-var-test-id"
       style="padding: 0px 24px 24px;"
     >
       <nav
-        class="ant-breadcrumb"
+        class="ant-breadcrumb css-var-test-id"
         style="margin: 16px 0px;"
       >
         <ol>
-          <li>
+          <li
+            class=""
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -898,7 +900,9 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
           >
             /
           </li>
-          <li>
+          <li
+            class=""
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -911,7 +915,9 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
           >
             /
           </li>
-          <li>
+          <li
+            class=""
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -939,10 +945,10 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
 
 exports[`renders components/layout/demo/custom-trigger.tsx extend context correctly 1`] = `
 <div
-  class="ant-layout ant-layout-has-sider"
+  class="ant-layout ant-layout-has-sider css-var-test-id"
 >
   <aside
-    class="ant-layout-sider ant-layout-sider-dark"
+    class="ant-layout-sider ant-layout-sider-dark css-var-test-id"
     style="flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
   >
     <div
@@ -952,7 +958,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx extend context correc
         class="demo-logo-vertical"
       />
       <ul
-        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark css-var-test-id ant-menu-css-var"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -991,7 +997,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx extend context correc
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -1042,7 +1048,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx extend context correc
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -1093,7 +1099,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx extend context correc
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -1118,14 +1124,14 @@ exports[`renders components/layout/demo/custom-trigger.tsx extend context correc
     </div>
   </aside>
   <div
-    class="ant-layout"
+    class="ant-layout css-var-test-id"
   >
     <header
       class="ant-layout-header"
       style="padding: 0px; background: rgb(255, 255, 255);"
     >
       <button
-        class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-icon-only"
+        class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-icon-only"
         style="font-size: 16px; width: 64px; height: 64px;"
         type="button"
       >
@@ -1168,7 +1174,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx extend context correc
 
 exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] = `
 <div
-  class="ant-layout"
+  class="ant-layout css-var-test-id"
 >
   <header
     class="ant-layout-header"
@@ -1178,7 +1184,7 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
       class="demo-logo"
     />
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark css-var-test-id ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="flex: 1; min-width: 0;"
@@ -1199,7 +1205,7 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
         </span>
       </li>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -1230,7 +1236,7 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
         </span>
       </li>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -1261,7 +1267,7 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
         </span>
       </li>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -1317,7 +1323,7 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
           />
         </div>
         <div
-          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-submenu-placement-bottomLeft"
+          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark css-var-test-id ant-menu-css-var ant-menu-submenu-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -1339,11 +1345,13 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
     style="padding: 0px 48px;"
   >
     <nav
-      class="ant-breadcrumb"
+      class="ant-breadcrumb css-var-test-id"
       style="margin: 16px 0px;"
     >
       <ol>
-        <li>
+        <li
+          class=""
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -1356,7 +1364,9 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
         >
           /
         </li>
-        <li>
+        <li
+          class=""
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -1369,7 +1379,9 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
         >
           /
         </li>
-        <li>
+        <li
+          class=""
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -1401,10 +1413,10 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 2`] =
 
 exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly 1`] = `
 <div
-  class="ant-layout ant-layout-has-sider"
+  class="ant-layout ant-layout-has-sider css-var-test-id"
 >
   <aside
-    class="ant-layout-sider ant-layout-sider-dark"
+    class="ant-layout-sider ant-layout-sider-dark css-var-test-id"
     style="overflow: auto; height: 100vh; position: sticky; inset-inline-start: 0; top: 0px; bottom: 0px; flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
   >
     <div
@@ -1414,7 +1426,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
         class="demo-logo-vertical"
       />
       <ul
-        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark css-var-test-id ant-menu-css-var"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -1453,7 +1465,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -1504,7 +1516,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -1555,7 +1567,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -1606,7 +1618,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -1657,7 +1669,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -1708,7 +1720,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -1759,7 +1771,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -1810,7 +1822,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -1835,7 +1847,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
     </div>
   </aside>
   <div
-    class="ant-layout"
+    class="ant-layout css-var-test-id"
   >
     <header
       class="ant-layout-header"
@@ -2067,10 +2079,10 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
 
 exports[`renders components/layout/demo/responsive.tsx extend context correctly 1`] = `
 <div
-  class="ant-layout ant-layout-has-sider"
+  class="ant-layout ant-layout-has-sider css-var-test-id"
 >
   <aside
-    class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed ant-layout-sider-below ant-layout-sider-zero-width"
+    class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed ant-layout-sider-below ant-layout-sider-zero-width css-var-test-id"
     style="max-width: 0px; min-width: 0px; width: 0px; flex: 0 0 0px;"
   >
     <div
@@ -2080,7 +2092,7 @@ exports[`renders components/layout/demo/responsive.tsx extend context correctly 
         class="demo-logo-vertical"
       />
       <ul
-        class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-inline-collapsed"
+        class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-inline-collapsed css-var-test-id ant-menu-css-var"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -2119,7 +2131,7 @@ exports[`renders components/layout/demo/responsive.tsx extend context correctly 
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -2172,7 +2184,7 @@ exports[`renders components/layout/demo/responsive.tsx extend context correctly 
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -2225,7 +2237,7 @@ exports[`renders components/layout/demo/responsive.tsx extend context correctly 
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -2278,7 +2290,7 @@ exports[`renders components/layout/demo/responsive.tsx extend context correctly 
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -2328,7 +2340,7 @@ exports[`renders components/layout/demo/responsive.tsx extend context correctly 
     </span>
   </aside>
   <div
-    class="ant-layout"
+    class="ant-layout css-var-test-id"
   >
     <header
       class="ant-layout-header"
@@ -2358,11 +2370,11 @@ exports[`renders components/layout/demo/responsive.tsx extend context correctly 
 
 exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = `
 <div
-  class="ant-layout ant-layout-has-sider"
+  class="ant-layout ant-layout-has-sider css-var-test-id"
   style="min-height: 100vh;"
 >
   <aside
-    class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-has-trigger"
+    class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-has-trigger css-var-test-id"
     style="flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
   >
     <div
@@ -2372,7 +2384,7 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
         class="demo-logo-vertical"
       />
       <ul
-        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark css-var-test-id ant-menu-css-var"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -2411,7 +2423,7 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -2462,7 +2474,7 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -2522,7 +2534,7 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
             />
           </div>
           <div
-            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark css-var-test-id ant-menu-css-var"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <ul
@@ -2546,7 +2558,7 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
                 </span>
               </li>
               <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
@@ -2578,7 +2590,7 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
                 </span>
               </li>
               <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
@@ -2610,7 +2622,7 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
                 </span>
               </li>
               <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
@@ -2673,7 +2685,7 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
             />
           </div>
           <div
-            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark css-var-test-id ant-menu-css-var"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <ul
@@ -2697,7 +2709,7 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
                 </span>
               </li>
               <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
@@ -2729,7 +2741,7 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
                 </span>
               </li>
               <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
@@ -2783,7 +2795,7 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -2832,7 +2844,7 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
     </div>
   </aside>
   <div
-    class="ant-layout"
+    class="ant-layout css-var-test-id"
   >
     <header
       class="ant-layout-header"
@@ -2843,11 +2855,13 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
       style="margin: 0px 16px;"
     >
       <nav
-        class="ant-breadcrumb"
+        class="ant-breadcrumb css-var-test-id"
         style="margin: 16px 0px;"
       >
         <ol>
-          <li>
+          <li
+            class=""
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -2860,7 +2874,9 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
           >
             /
           </li>
-          <li>
+          <li
+            class=""
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -2893,7 +2909,7 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 2`] = 
 
 exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
 <div
-  class="ant-layout"
+  class="ant-layout css-var-test-id"
 >
   <header
     class="ant-layout-header"
@@ -2903,7 +2919,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
       class="demo-logo"
     />
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark css-var-test-id ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="flex: 1; min-width: 0;"
@@ -2924,7 +2940,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
         </span>
       </li>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -2955,7 +2971,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
         </span>
       </li>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -2986,7 +3002,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
         </span>
       </li>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -3017,7 +3033,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
         </span>
       </li>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -3048,7 +3064,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
         </span>
       </li>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -3079,7 +3095,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
         </span>
       </li>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -3110,7 +3126,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
         </span>
       </li>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -3141,7 +3157,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
         </span>
       </li>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -3172,7 +3188,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
         </span>
       </li>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -3203,7 +3219,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
         </span>
       </li>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -3234,7 +3250,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
         </span>
       </li>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -3265,7 +3281,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
         </span>
       </li>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -3296,7 +3312,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
         </span>
       </li>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -3327,7 +3343,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
         </span>
       </li>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -3358,7 +3374,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
         </span>
       </li>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -3414,7 +3430,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
           />
         </div>
         <div
-          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-submenu-placement-bottomLeft"
+          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark css-var-test-id ant-menu-css-var ant-menu-submenu-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -3436,11 +3452,13 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
     style="padding: 0px 48px;"
   >
     <nav
-      class="ant-breadcrumb"
+      class="ant-breadcrumb css-var-test-id"
       style="margin: 16px 0px;"
     >
       <ol>
-        <li>
+        <li
+          class=""
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -3453,7 +3471,9 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
         >
           /
         </li>
-        <li>
+        <li
+          class=""
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -3466,7 +3486,9 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
         >
           /
         </li>
-        <li>
+        <li
+          class=""
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -3498,7 +3520,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 2`] = `
 
 exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`] = `
 <div
-  class="ant-layout"
+  class="ant-layout css-var-test-id"
 >
   <header
     class="ant-layout-header"
@@ -3508,7 +3530,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
       class="demo-logo"
     />
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark css-var-test-id ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="flex: 1; min-width: 0;"
@@ -3529,7 +3551,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
         </span>
       </li>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -3560,7 +3582,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
         </span>
       </li>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -3591,7 +3613,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
         </span>
       </li>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -3647,7 +3669,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
           />
         </div>
         <div
-          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-submenu-placement-bottomLeft"
+          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark css-var-test-id ant-menu-css-var ant-menu-submenu-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -3668,11 +3690,13 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
     style="padding: 0px 48px;"
   >
     <nav
-      class="ant-breadcrumb"
+      class="ant-breadcrumb css-var-test-id"
       style="margin: 16px 0px;"
     >
       <ol>
-        <li>
+        <li
+          class=""
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -3685,7 +3709,9 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
         >
           /
         </li>
-        <li>
+        <li
+          class=""
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -3698,7 +3724,9 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
         >
           /
         </li>
-        <li>
+        <li
+          class=""
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -3708,18 +3736,18 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
       </ol>
     </nav>
     <div
-      class="ant-layout ant-layout-has-sider"
+      class="ant-layout ant-layout-has-sider css-var-test-id"
       style="padding: 24px 0px; background: rgb(255, 255, 255); border-radius: 8px;"
     >
       <aside
-        class="ant-layout-sider ant-layout-sider-dark"
+        class="ant-layout-sider ant-layout-sider-dark css-var-test-id"
         style="background: rgb(255, 255, 255); flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
       >
         <div
           class="ant-layout-sider-children"
         >
           <ul
-            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var"
             data-menu-list="true"
             role="menu"
             style="height: 100%;"
@@ -3768,7 +3796,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                 />
               </div>
               <div
-                class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+                class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <ul
@@ -3792,7 +3820,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                     </span>
                   </li>
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                   >
                     <div
@@ -3824,7 +3852,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                     </span>
                   </li>
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                   >
                     <div
@@ -3856,7 +3884,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                     </span>
                   </li>
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                   >
                     <div
@@ -3888,7 +3916,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                     </span>
                   </li>
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                   >
                     <div
@@ -3928,7 +3956,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -3960,7 +3988,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -3992,7 +4020,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -4024,7 +4052,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -4086,7 +4114,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                 />
               </div>
               <div
-                class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+                class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <ul
@@ -4110,7 +4138,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                     </span>
                   </li>
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                   >
                     <div
@@ -4142,7 +4170,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                     </span>
                   </li>
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                   >
                     <div
@@ -4174,7 +4202,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                     </span>
                   </li>
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                   >
                     <div
@@ -4206,7 +4234,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                     </span>
                   </li>
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                   >
                     <div
@@ -4269,7 +4297,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                 />
               </div>
               <div
-                class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+                class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <ul
@@ -4293,7 +4321,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                     </span>
                   </li>
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                   >
                     <div
@@ -4325,7 +4353,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                     </span>
                   </li>
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                   >
                     <div
@@ -4357,7 +4385,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                     </span>
                   </li>
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                   >
                     <div
@@ -4389,7 +4417,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                     </span>
                   </li>
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                   >
                     <div
@@ -4441,7 +4469,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 2`
 
 exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 1`] = `
 <div
-  class="ant-layout"
+  class="ant-layout css-var-test-id"
 >
   <header
     class="ant-layout-header"
@@ -4451,7 +4479,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
       class="demo-logo"
     />
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark css-var-test-id ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="flex: 1; min-width: 0;"
@@ -4472,7 +4500,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
         </span>
       </li>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -4503,7 +4531,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
         </span>
       </li>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -4534,7 +4562,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
         </span>
       </li>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -4590,7 +4618,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
           />
         </div>
         <div
-          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark ant-menu-submenu-placement-bottomLeft"
+          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark css-var-test-id ant-menu-css-var ant-menu-submenu-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -4608,17 +4636,17 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
     />
   </header>
   <div
-    class="ant-layout ant-layout-has-sider"
+    class="ant-layout ant-layout-has-sider css-var-test-id"
   >
     <aside
-      class="ant-layout-sider ant-layout-sider-dark"
+      class="ant-layout-sider ant-layout-sider-dark css-var-test-id"
       style="background: rgb(255, 255, 255); flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
     >
       <div
         class="ant-layout-sider-children"
       >
         <ul
-          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var"
           data-menu-list="true"
           role="menu"
           style="height: 100%; border-right: 0;"
@@ -4667,7 +4695,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
               />
             </div>
             <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
@@ -4691,7 +4719,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -4723,7 +4751,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -4755,7 +4783,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -4787,7 +4815,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -4827,7 +4855,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
                 </span>
               </li>
               <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
@@ -4859,7 +4887,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
                 </span>
               </li>
               <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
@@ -4891,7 +4919,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
                 </span>
               </li>
               <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
@@ -4923,7 +4951,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
                 </span>
               </li>
               <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
@@ -4985,7 +5013,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
               />
             </div>
             <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
@@ -5009,7 +5037,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -5041,7 +5069,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -5073,7 +5101,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -5105,7 +5133,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -5168,7 +5196,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
               />
             </div>
             <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
@@ -5192,7 +5220,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -5224,7 +5252,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -5256,7 +5284,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -5288,7 +5316,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
                   </span>
                 </li>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
@@ -5316,15 +5344,17 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
       </div>
     </aside>
     <div
-      class="ant-layout"
+      class="ant-layout css-var-test-id"
       style="padding: 0px 24px 24px;"
     >
       <nav
-        class="ant-breadcrumb"
+        class="ant-breadcrumb css-var-test-id"
         style="margin: 16px 0px;"
       >
         <ol>
-          <li>
+          <li
+            class=""
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -5337,7 +5367,9 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
           >
             /
           </li>
-          <li>
+          <li
+            class=""
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -5350,7 +5382,9 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
           >
             /
           </li>
-          <li>
+          <li
+            class=""
+          >
             <span
               class="ant-breadcrumb-link"
             >

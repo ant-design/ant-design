@@ -1,10 +1,10 @@
 import * as React from 'react';
+import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
 import classNames from 'classnames';
-import type { BasePickerPanelProps as RcBasePickerPanelProps } from 'rc-picker';
-import { PickerPanel as RCPickerPanel } from 'rc-picker';
-import type { GenerateConfig } from 'rc-picker/lib/generate';
-import type { CellRenderInfo } from 'rc-picker/lib/interface';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import type { BasePickerPanelProps as RcBasePickerPanelProps } from '@rc-component/picker';
+import { PickerPanel as RCPickerPanel } from '@rc-component/picker';
+import type { GenerateConfig } from '@rc-component/picker/lib/generate';
+import type { CellRenderInfo } from '@rc-component/picker/lib/interface';
 
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -104,7 +104,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const calendarPrefixCls = `${prefixCls}-calendar`;
 
-    const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, calendarPrefixCls);
+    const [hashId, cssVarCls] = useStyle(prefixCls, calendarPrefixCls);
 
     const today = generateConfig.getNow();
 
@@ -257,7 +257,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       }
     };
 
-    return wrapCSSVar(
+    return (
       <div
         className={classNames(
           calendarPrefixCls,
@@ -311,7 +311,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
           hideHeader
           showWeek={showWeek}
         />
-      </div>,
+      </div>
     );
   };
 

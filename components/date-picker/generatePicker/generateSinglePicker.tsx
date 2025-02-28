@@ -3,10 +3,10 @@ import { forwardRef, useContext, useImperativeHandle } from 'react';
 import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import classNames from 'classnames';
-import RCPicker from 'rc-picker';
-import type { PickerRef } from 'rc-picker';
-import type { GenerateConfig } from 'rc-picker/lib/generate/index';
-import type { PickerMode } from 'rc-picker/lib/interface';
+import RCPicker from '@rc-component/picker';
+import type { PickerRef } from '@rc-component/picker';
+import type { GenerateConfig } from '@rc-component/picker/lib/generate/index';
+import type { PickerMode } from '@rc-component/picker/lib/interface';
 
 import ContextIsolator from '../../_util/ContextIsolator';
 import { useZIndex } from '../../_util/hooks/useZIndex';
@@ -60,7 +60,6 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         placement,
         placeholder,
         popupClassName,
-        dropdownClassName,
         disabled: customDisabled,
         status: customStatus,
         variant: customVariant,
@@ -83,7 +82,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       const [variant, enableVariantCls] = useVariant('datePicker', customVariant, bordered);
 
       const rootCls = useCSSVarCls(prefixCls);
-      const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+      const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
       useImperativeHandle(ref, () => innerRef.current!);
 
@@ -116,8 +115,6 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
           'deprecated',
           `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,
         );
-
-        warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
 
         warning.deprecated(!('bordered' in props), 'bordered', 'variant');
 
@@ -154,7 +151,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       // ============================ zIndex ============================
       const [zIndex] = useZIndex('DatePicker', props.popupStyle?.zIndex as number);
 
-      return wrapCSSVar(
+      return (
         <ContextIsolator space>
           <RCPicker<DateType>
             ref={innerRef}
@@ -197,13 +194,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
             direction={direction}
             disabled={mergedDisabled}
             classNames={{
-              popup: classNames(
-                hashId,
-                cssVarCls,
-                rootCls,
-                rootClassName,
-                popupClassName || dropdownClassName,
-              ),
+              popup: classNames(hashId, cssVarCls, rootCls, rootClassName, popupClassName),
             }}
             styles={{
               popup: {
@@ -214,7 +205,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
             allowClear={mergedAllowClear}
             removeIcon={removeIcon}
           />
-        </ContextIsolator>,
+        </ContextIsolator>
       );
     });
 

@@ -1,11 +1,11 @@
 // TODO: 4.0 - codemod should help to change `filterOption` to support node props.
 import * as React from 'react';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import type { BaseSelectRef, SelectProps as RcSelectProps } from 'rc-select';
-import RcSelect, { OptGroup, Option } from 'rc-select';
-import type { OptionProps } from 'rc-select/lib/Option';
-import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
-import omit from 'rc-util/lib/omit';
+import type { BaseSelectRef, SelectProps as RcSelectProps } from '@rc-component/select';
+import RcSelect, { OptGroup, Option } from '@rc-component/select';
+import type { OptionProps } from '@rc-component/select/lib/Option';
+import type { BaseOptionType, DefaultOptionType } from '@rc-component/select/lib/Select';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';
@@ -72,14 +72,17 @@ export interface SelectProps<
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
     InternalSelectProps<ValueType, OptionType>,
-    'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill' | 'placement'
+    | 'mode'
+    | 'getInputElement'
+    | 'getRawInputElement'
+    | 'backfill'
+    | 'placement'
+    | 'dropdownClassName'
   > {
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   status?: InputStatus;
   popupClassName?: string;
-  /** @deprecated Please use `popupClassName` instead */
-  dropdownClassName?: string;
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
@@ -101,7 +104,6 @@ const InternalSelect = <
     rootClassName,
     getPopupContainer,
     popupClassName,
-    dropdownClassName,
     listHeight = 256,
     placement,
     listItemHeight: customListItemHeight,
@@ -116,7 +118,7 @@ const InternalSelect = <
     style,
     allowClear,
     variant: customizeVariant,
-    dropdownStyle,
+    popupStyle,
     transitionName,
     tagRender,
     maxCount,
@@ -149,7 +151,7 @@ const InternalSelect = <
   const [variant, enableVariantCls] = useVariants('select', customizeVariant, bordered);
 
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const mode = React.useMemo(() => {
     const { mode: m } = props as InternalSelectProps<OptionType>;
@@ -207,7 +209,7 @@ const InternalSelect = <
   const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
 
   const mergedPopupClassName = classNames(
-    popupClassName || dropdownClassName,
+    popupClassName,
     {
       [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
     },
@@ -253,8 +255,6 @@ const InternalSelect = <
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Select');
 
-    warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
-
     warning.deprecated(
       dropdownMatchSelectWidth === undefined,
       'dropdownMatchSelectWidth',
@@ -277,17 +277,17 @@ const InternalSelect = <
   }
 
   // ====================== zIndex =========================
-  const [zIndex] = useZIndex('SelectLike', dropdownStyle?.zIndex as number);
+  const [zIndex] = useZIndex('SelectLike', popupStyle?.zIndex as number);
 
   // ====================== Render =======================
-  return wrapCSSVar(
+  return (
     <RcSelect<ValueType, OptionType>
       ref={ref}
       virtual={virtual}
       showSearch={contextSelect.showSearch}
       {...selectProps}
       style={{ ...contextSelect.style, ...style }}
-      dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
+      popupMatchSelectWidth={mergedPopupMatchSelectWidth}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
       listHeight={listHeight}
@@ -304,12 +304,12 @@ const InternalSelect = <
       notFoundContent={mergedNotFound}
       className={mergedClassName}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
-      dropdownClassName={mergedPopupClassName}
+      popupClassName={mergedPopupClassName}
       disabled={mergedDisabled}
-      dropdownStyle={{ ...dropdownStyle, zIndex }}
+      popupStyle={{ ...popupStyle, zIndex }}
       maxCount={isMultiple ? maxCount : undefined}
       tagRender={isMultiple ? tagRender : undefined}
-    />,
+    />
   );
 };
 
@@ -333,7 +333,7 @@ const Select = React.forwardRef(InternalSelect) as unknown as (<
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(Select, 'dropdownAlign');
+const PurePanel = genPurePanel(Select, 'popupAlign');
 
 Select.SECRET_COMBOBOX_MODE_DO_NOT_USE = SECRET_COMBOBOX_MODE_DO_NOT_USE;
 Select.Option = Option;

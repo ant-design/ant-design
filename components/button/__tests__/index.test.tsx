@@ -1,6 +1,6 @@
 import React, { Suspense, useRef, useState } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
-import { resetWarned } from 'rc-util/lib/warning';
+import { resetWarned } from '@rc-component/util/lib/warning';
 
 import Button, { _ButtonVariantTypes } from '..';
 import type { GetRef } from '../../_util/type';
@@ -452,7 +452,7 @@ describe('Button', () => {
 
   it('should support solidTextColor when theme changes', () => {
     const { container: defaultContainer } = render(
-      <ConfigProvider theme={{ algorithm: [theme.defaultAlgorithm], cssVar: true }}>
+      <ConfigProvider theme={{ algorithm: [theme.defaultAlgorithm] }}>
         <Button color="default" variant="solid">
           btn1
         </Button>
@@ -464,7 +464,7 @@ describe('Button', () => {
     });
 
     const { container: darkContainer } = render(
-      <ConfigProvider theme={{ algorithm: [theme.darkAlgorithm], cssVar: true }}>
+      <ConfigProvider theme={{ algorithm: [theme.darkAlgorithm] }}>
         <Button color="default" variant="solid">
           btn2
         </Button>
@@ -508,7 +508,7 @@ describe('Button', () => {
     const { getByRole } = render(
       <Button href="https://example.com" onClick={handleClick}>
         Link
-      </Button>
+      </Button>,
     );
     fireEvent.click(getByRole('link'));
     expect(handleClick).toHaveBeenCalled();

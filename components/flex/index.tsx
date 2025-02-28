@@ -1,6 +1,6 @@
 import React from 'react';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
 
 import { isPresetSize } from '../_util/gapSize';
 import { ConfigContext } from '../config-provider';
@@ -31,7 +31,7 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('flex', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const mergedVertical = vertical ?? ctxFlex?.vertical;
 
@@ -60,7 +60,7 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
     mergedStyle.gap = gap;
   }
 
-  return wrapCSSVar(
+  return (
     <Component
       ref={ref}
       className={mergedCls}
@@ -68,7 +68,7 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
       {...omit(othersProps, ['justify', 'wrap', 'align'])}
     >
       {children}
-    </Component>,
+    </Component>
   );
 });
 

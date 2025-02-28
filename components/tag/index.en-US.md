@@ -31,6 +31,7 @@ demo:
 <code src="./demo/customize.tsx" debug>Customize close</code>
 <code src="./demo/draggable.tsx">Draggable Tag</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/disabled.tsx" debug>Disabled</code>
 
 ## API
 
@@ -45,6 +46,9 @@ Common props ref：[Common props](/docs/react/common-props)
 | icon | Set the icon of tag | ReactNode | - |  |
 | bordered | Whether has border style | boolean | true | 5.4.0 |
 | onClose | Callback executed when tag is closed | (e: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
+| disabled | Whether the tag is disabled | boolean | false | 6.0.0 |
+| href | The address to jump when clicking, when this property is specified, the `tag` component will be rendered as an `<a>` tag | string | - | 6.0.0 |
+| target | The target attribute of the a tag, which takes effect when href is specified | string | - | 6.0.0 |
 
 ### Tag.CheckableTag
 
@@ -52,6 +56,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | -------- | ----------------------------------------------- | ----------------- | ------- |
 | checked  | Checked status of Tag                           | boolean           | false   |
 | onChange | Callback executed when Tag is checked/unchecked | (checked) => void | -       |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

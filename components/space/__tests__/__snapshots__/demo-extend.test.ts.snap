@@ -8,7 +8,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
     class="space-align-block"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
     >
       <div
         class="ant-space-item"
@@ -19,7 +19,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+          class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -42,7 +42,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
     class="space-align-block"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-start ant-space-gap-row-small ant-space-gap-col-small"
+      class="ant-space ant-space-horizontal ant-space-align-start ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
     >
       <div
         class="ant-space-item"
@@ -53,7 +53,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+          class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -76,7 +76,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
     class="space-align-block"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-end ant-space-gap-row-small ant-space-gap-col-small"
+      class="ant-space ant-space-horizontal ant-space-align-end ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
     >
       <div
         class="ant-space-item"
@@ -87,7 +87,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+          class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -110,7 +110,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
     class="space-align-block"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-baseline ant-space-gap-row-small ant-space-gap-col-small"
+      class="ant-space ant-space-horizontal ant-space-align-baseline ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
     >
       <div
         class="ant-space-item"
@@ -121,7 +121,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+          class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -147,7 +147,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 2`] = 
 
 exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
@@ -158,7 +158,7 @@ exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -170,7 +170,7 @@ exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <span
-      class="ant-upload-wrapper"
+      class="ant-upload-wrapper css-var-test-id"
     >
       <div
         class="ant-upload ant-upload-select"
@@ -185,7 +185,7 @@ exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
             type="file"
           />
           <button
-            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+            class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span
@@ -227,7 +227,7 @@ exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
   >
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -235,7 +235,7 @@ exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
       </span>
     </button>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popconfirm ant-popover-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -296,7 +296,7 @@ exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
                 class="ant-popconfirm-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -304,7 +304,7 @@ exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
                   </span>
                 </button>
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -325,7 +325,7 @@ exports[`renders components/space/demo/base.tsx extend context correctly 2`] = `
 
 exports[`renders components/space/demo/compact.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
@@ -334,13 +334,13 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         style="width: 20%;"
         type="text"
         value="0571"
       />
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-last-item"
+        class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
         style="width: 30%;"
         type="text"
         value="26888888"
@@ -354,13 +354,13 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <input
-        class="ant-input ant-input-sm ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-sm ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         style="width: calc(100% - 200px);"
         type="text"
         value="https://ant.design"
       />
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -376,13 +376,13 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         style="width: calc(100% - 200px);"
         type="text"
         value="https://ant.design"
       />
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -398,14 +398,14 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         style="width: calc(100% - 200px);"
         type="text"
         value="git@github.com:ant-design/ant-design.git"
       />
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span
@@ -433,7 +433,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </button>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -461,7 +461,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <div
-        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -498,7 +498,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -632,7 +632,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </div>
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-last-item"
+        class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
         style="width: 50%;"
         type="text"
         value="Xihu District, Hangzhou"
@@ -646,7 +646,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <div
-        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
         style="width: 50%;"
       >
         <div
@@ -735,7 +735,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -883,7 +883,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </div>
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-last-item"
+        class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
         style="width: 50%;"
         type="text"
         value="Xihu District, Hangzhou"
@@ -897,7 +897,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         style="width: 30%;"
       >
         <span
@@ -912,7 +912,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             class="ant-input-group-addon"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
+              class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
               type="button"
             >
               <span
@@ -943,7 +943,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </span>
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search css-var-test-id ant-input-css-var ant-input-compact-item"
         style="width: 50%;"
       >
         <span
@@ -962,6 +962,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             >
               <button
                 class="ant-input-clear-icon"
+                tabindex="-1"
                 type="button"
               >
                 <span
@@ -991,7 +992,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             class="ant-input-group-addon"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
+              class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
               type="button"
             >
               <span
@@ -1022,7 +1023,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </span>
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item ant-input-compact-last-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
         style="width: 20%;"
       >
         <span
@@ -1037,7 +1038,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             class="ant-input-group-addon"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
+              class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
               type="button"
             >
               <span
@@ -1076,7 +1077,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <div
-        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -1113,7 +1114,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -1220,13 +1221,13 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </div>
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item"
+        class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item"
         style="width: 50%;"
         type="text"
         value="input content"
       />
       <div
-        class="ant-input-number ant-input-number-outlined ant-input-number-compact-item ant-input-number-compact-last-item"
+        class="ant-input-number ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-last-item"
       >
         <div
           class="ant-input-number-handler-wrap"
@@ -1308,13 +1309,13 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         style="width: 50%;"
         type="text"
         value="input content"
       />
       <div
-        class="ant-picker ant-picker-outlined ant-picker-compact-item ant-picker-compact-last-item"
+        class="ant-picker ant-picker-outlined ant-picker-compact-item ant-picker-compact-last-item css-var-test-id ant-picker-css-var"
         style="width: 50%;"
       >
         <div
@@ -1353,7 +1354,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </div>
       </div>
       <div
-        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -1936,7 +1937,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <div
-        class="ant-picker ant-picker-range ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item"
+        class="ant-picker ant-picker-range ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item css-var-test-id ant-picker-css-var"
         style="width: 70%;"
       >
         <div
@@ -2020,7 +2021,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </div>
       <div
-        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
+        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -3133,13 +3134,13 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </div>
       </div>
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item"
+        class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item"
         style="width: 30%;"
         type="text"
         value="input content"
       />
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -3155,13 +3156,13 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         style="width: 30%;"
         type="text"
         value="input content"
       />
       <div
-        class="ant-picker ant-picker-range ant-picker-outlined ant-picker-compact-item ant-picker-compact-last-item"
+        class="ant-picker ant-picker-range ant-picker-outlined ant-picker-compact-item ant-picker-compact-last-item css-var-test-id ant-picker-css-var"
         style="width: 70%;"
       >
         <div
@@ -3245,7 +3246,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </div>
       <div
-        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
+        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -4366,7 +4367,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <div
-        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -4403,7 +4404,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -4510,7 +4511,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </div>
       <div
-        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-last-item ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-last-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -4547,7 +4548,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -4662,7 +4663,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <div
-        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -4699,7 +4700,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -4806,14 +4807,14 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </div>
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item"
+        class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item"
         placeholder="Minimum"
         style="width: 100px; text-align: center;"
         type="text"
         value=""
       />
       <input
-        class="ant-input ant-input-disabled ant-input-outlined site-input-split ant-input-compact-item"
+        class="ant-input ant-input-disabled ant-input-outlined site-input-split css-var-test-id ant-input-css-var ant-input-compact-item"
         disabled=""
         placeholder="~"
         style="width: 30px; border-left: 0; border-right: 0; pointer-events: none;"
@@ -4821,7 +4822,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         value=""
       />
       <input
-        class="ant-input ant-input-outlined site-input-right ant-input-compact-item ant-input-compact-last-item"
+        class="ant-input ant-input-outlined site-input-right css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
         placeholder="Maximum"
         style="width: 100px; text-align: center;"
         type="text"
@@ -4836,7 +4837,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <div
-        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
         style="width: 30%;"
       >
         <div
@@ -4874,7 +4875,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -4981,7 +4982,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </div>
       <div
-        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-last-item ant-select-auto-complete ant-select-single ant-select-show-search"
+        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-last-item ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
         style="width: 70%;"
       >
         <div
@@ -5015,7 +5016,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -5095,7 +5096,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <div
-        class="ant-picker ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item"
+        class="ant-picker ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item css-var-test-id ant-picker-css-var"
         style="width: 70%;"
       >
         <div
@@ -5137,7 +5138,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </div>
       </div>
       <div
-        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -6637,7 +6638,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                     class="ant-picker-ok"
                   >
                     <button
-                      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                       disabled=""
                       type="button"
                     >
@@ -6653,7 +6654,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </div>
       </div>
       <div
-        class="ant-select ant-cascader ant-select-outlined ant-select-compact-item ant-select-compact-last-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
+        class="ant-select ant-cascader ant-select-outlined ant-select-compact-item ant-select-compact-last-item ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
         style="width: 70%;"
       >
         <div
@@ -6690,7 +6691,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
         >
           <div>
@@ -6813,7 +6814,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <div
-        class="ant-picker ant-picker-range ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item"
+        class="ant-picker ant-picker-range ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item css-var-test-id ant-picker-css-var"
       >
         <div
           class="ant-picker-input"
@@ -6899,7 +6900,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </div>
       <div
-        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
+        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -8396,7 +8397,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       class="ant-picker-ok"
                     >
                       <button
-                        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                         disabled=""
                         type="button"
                       >
@@ -8413,7 +8414,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </div>
       </div>
       <div
-        class="ant-select ant-tree-select ant-select-outlined ant-select-compact-item ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-tree-select ant-select-outlined ant-select-compact-item css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
         style="width: 60%;"
       >
         <div
@@ -8448,7 +8449,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; max-height: 400px; overflow: auto;"
         >
           <div>
@@ -8791,7 +8792,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </div>
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -8807,13 +8808,13 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact"
     >
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         placeholder="input here"
         type="text"
         value=""
       />
       <div
-        class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-compact-item"
+        class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined css-var-test-id ant-input-number-css-var ant-input-number-compact-item"
       >
         <div
           class="ant-input-number-wrapper ant-input-number-group"
@@ -8900,7 +8901,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </div>
       </div>
       <div
-        class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-compact-item ant-input-number-compact-last-item"
+        class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined css-var-test-id ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-last-item"
       >
         <div
           class="ant-input-number-wrapper ant-input-number-group"
@@ -8995,21 +8996,21 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact"
     >
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         placeholder="input here"
         type="text"
         value=""
       />
       <div
         aria-describedby="test-id"
-        class="ant-color-picker-trigger ant-color-picker-compact-item ant-color-picker-compact-last-item"
+        class="ant-color-picker-trigger ant-color-picker-compact-item ant-color-picker-compact-last-item css-var-test-id ant-color-picker-css-var"
       >
         <div
           class="ant-color-picker-clear"
         />
       </div>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -9064,7 +9065,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         class="ant-color-picker-slider-group"
                       >
                         <div
-                          class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                          class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                         >
                           <div
                             class="ant-slider-rail ant-color-picker-slider-rail"
@@ -9085,7 +9086,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </div>
                         <div
-                          class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                          class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                         >
                           <div
                             class="ant-slider-rail ant-color-picker-slider-rail"
@@ -9120,7 +9121,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                     class="ant-color-picker-input-container"
                   >
                     <div
-                      class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                      class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                     >
                       <div
                         class="ant-select-selector"
@@ -9157,7 +9158,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         </span>
                       </div>
                       <div
-                        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                       >
                         <div>
@@ -9284,7 +9285,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       class="ant-color-picker-input"
                     >
                       <span
-                        class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                        class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
                       >
                         <span
                           class="ant-input-prefix"
@@ -9299,7 +9300,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       </span>
                     </div>
                     <div
-                      class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                      class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                     >
                       <div
                         class="ant-input-number-handler-wrap"
@@ -9390,7 +9391,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-first-item"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span>
@@ -9398,7 +9399,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </button>
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item ant-input-compact-last-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -9425,7 +9426,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 2`] 
 
 exports[`renders components/space/demo/compact-button-vertical.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
@@ -9434,7 +9435,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx extend contex
       class="ant-space-compact ant-space-compact-vertical"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item"
         type="button"
       >
         <span>
@@ -9442,7 +9443,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx extend contex
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-vertical-item"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-vertical-item"
         type="button"
       >
         <span>
@@ -9450,7 +9451,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx extend contex
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-vertical-item ant-btn-compact-vertical-last-item"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-vertical-item ant-btn-compact-vertical-last-item"
         type="button"
       >
         <span>
@@ -9466,7 +9467,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx extend contex
       class="ant-space-compact ant-space-compact-vertical"
     >
       <button
-        class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item"
+        class="ant-btn css-var-test-id ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item"
         type="button"
       >
         <span>
@@ -9474,7 +9475,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx extend contex
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-compact-vertical-item"
+        class="ant-btn css-var-test-id ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-compact-vertical-item"
         type="button"
       >
         <span>
@@ -9482,7 +9483,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx extend contex
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-compact-vertical-item ant-btn-compact-vertical-last-item"
+        class="ant-btn css-var-test-id ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-compact-vertical-item ant-btn-compact-vertical-last-item"
         type="button"
       >
         <span>
@@ -9498,7 +9499,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx extend contex
       class="ant-space-compact ant-space-compact-vertical"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item"
         type="button"
       >
         <span>
@@ -9506,7 +9507,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx extend contex
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-vertical-item"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-vertical-item"
         type="button"
       >
         <span>
@@ -9514,7 +9515,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx extend contex
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-vertical-item ant-btn-compact-vertical-last-item"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-vertical-item ant-btn-compact-vertical-last-item"
         type="button"
       >
         <span>
@@ -9535,7 +9536,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
   >
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-first-item"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-first-item"
       type="button"
     >
       <span
@@ -9563,7 +9564,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -9584,7 +9585,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
     </div>
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
       <span
@@ -9621,7 +9622,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -9642,7 +9643,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
     </div>
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
       <span
@@ -9670,7 +9671,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -9691,7 +9692,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
     </div>
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
       <span
@@ -9719,7 +9720,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -9740,7 +9741,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
     </div>
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
       <span
@@ -9768,7 +9769,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -9789,7 +9790,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
     </div>
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
       <span
@@ -9817,7 +9818,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -9837,7 +9838,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
       type="button"
     >
       <span
@@ -9865,11 +9866,11 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <div
-      class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomRight"
+      class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <ul
-        class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+        class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -9907,7 +9908,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -9957,7 +9958,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -10007,7 +10008,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -10036,7 +10037,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
     class="ant-space-compact ant-space-compact-block"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-first-item"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-first-item"
       type="button"
     >
       <span>
@@ -10044,7 +10045,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -10052,7 +10053,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -10060,7 +10061,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -10069,7 +10070,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
     </button>
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item"
       disabled=""
       type="button"
     >
@@ -10098,7 +10099,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -10119,7 +10120,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
     </div>
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
       type="button"
     >
       <span
@@ -10147,7 +10148,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -10172,7 +10173,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
     class="ant-space-compact ant-space-compact-block"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
       type="button"
     >
       <span>
@@ -10180,7 +10181,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -10188,7 +10189,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -10197,7 +10198,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
     </button>
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       disabled=""
       type="button"
     >
@@ -10226,7 +10227,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -10247,7 +10248,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
     </div>
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
       <span
@@ -10275,7 +10276,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -10295,7 +10296,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -10303,7 +10304,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
       type="button"
     >
       <span
@@ -10331,11 +10332,11 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <div
-      class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomRight"
+      class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <ul
-        class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+        class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -10354,7 +10355,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -10385,7 +10386,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -10416,7 +10417,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           </span>
         </li>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -10447,7 +10448,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
 
 exports[`renders components/space/demo/compact-debug.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
@@ -10456,7 +10457,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact ant-space-compact-block"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span>
@@ -10464,7 +10465,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined ant-btn-compact-item"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined ant-btn-compact-item"
         type="button"
       >
         <span>
@@ -10472,7 +10473,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-compact-item"
+        class="ant-btn css-var-test-id ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-compact-item"
         type="button"
       >
         <span>
@@ -10480,7 +10481,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-compact-item"
+        class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-compact-item"
         type="button"
       >
         <span>
@@ -10488,7 +10489,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-compact-item"
+        class="ant-btn css-var-test-id ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-compact-item"
         type="button"
       >
         <span>
@@ -10497,7 +10498,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       </button>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
         disabled=""
         type="button"
       >
@@ -10526,7 +10527,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -10559,7 +10560,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span>
@@ -10567,7 +10568,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var ant-input-compact-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -10590,7 +10591,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </span>
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -10606,13 +10607,13 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         placeholder="prefix"
         type="text"
         value=""
       />
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var ant-input-compact-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -10621,7 +10622,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             class="ant-input-group-addon"
           >
             <div
-              class="ant-select ant-select-outlined select-before ant-select-single ant-select-show-arrow"
+              class="ant-select ant-select-outlined select-before css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -10658,7 +10659,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 </span>
               </div>
               <div
-                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div>
@@ -10774,7 +10775,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             class="ant-input-group-addon"
           >
             <div
-              class="ant-select ant-select-outlined select-after ant-select-single ant-select-show-arrow"
+              class="ant-select ant-select-outlined select-after css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -10811,7 +10812,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 </span>
               </div>
               <div
-                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div>
@@ -10955,7 +10956,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </span>
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span
@@ -10991,7 +10992,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -11005,7 +11006,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             class="ant-input-group-addon"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
+              class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
               type="button"
             >
               <span
@@ -11036,7 +11037,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </span>
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search css-var-test-id ant-input-css-var ant-input-compact-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -11050,7 +11051,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             class="ant-input-group-addon"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
+              class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
               type="button"
             >
               <span
@@ -11081,7 +11082,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </span>
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span
@@ -11117,7 +11118,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -11153,7 +11154,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </span>
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
         type="button"
       >
         <span>
@@ -11161,7 +11162,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item ant-input-compact-last-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -11206,7 +11207,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -11233,7 +11234,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </span>
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -11249,7 +11250,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span>
@@ -11257,7 +11258,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var ant-input-compact-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -11266,7 +11267,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             class="ant-input-group-addon"
           >
             <div
-              class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
               style="width: 150px;"
             >
               <div
@@ -11303,7 +11304,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 </span>
               </div>
               <div
-                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div>
@@ -11324,7 +11325,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           class="ant-cascader-menu-item-content"
                         >
                           <div
-                            class="ant-empty ant-empty-normal ant-empty-small"
+                            class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
                           >
                             <div
                               class="ant-empty-image"
@@ -11413,7 +11414,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </span>
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -11429,7 +11430,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -11460,7 +11461,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </span>
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
         type="button"
       >
         <span>
@@ -11468,7 +11469,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var ant-input-compact-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -11522,7 +11523,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </span>
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item ant-input-compact-last-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -11566,7 +11567,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item ant-btn-compact-last-item"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -11585,7 +11586,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         class="ant-space-compact ant-space-compact-block ant-dropdown-button ant-dropdown-compact-item ant-dropdown-compact-first-item ant-dropdown-compact-last-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
           type="button"
         >
           <span>
@@ -11593,7 +11594,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
           type="button"
         >
           <span
@@ -11621,11 +11622,11 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           </span>
         </button>
         <div
-          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomRight"
+          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
-            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -11641,7 +11642,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 class="ant-dropdown-menu-title-content"
               >
                 <button
-                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                   type="button"
                 >
                   <span>
@@ -11651,7 +11652,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
@@ -11682,7 +11683,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
               </span>
             </li>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
@@ -11715,7 +11716,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item ant-btn-compact-last-item"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -11731,14 +11732,14 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         placeholder="Debug Popover context"
         type="text"
         value=""
       />
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -11746,7 +11747,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-bottom"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-bottom"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -11765,17 +11766,17 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
               class="ant-popover-inner-content"
             >
               <input
-                class="ant-input ant-input-outlined"
+                class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
                 placeholder="Left Border"
                 type="text"
                 value=""
               />
               <div
-                class="ant-divider ant-divider-horizontal"
+                class="ant-divider css-var-test-id ant-divider-horizontal"
                 role="separator"
               />
               <div
-                class="ant-picker ant-picker-outlined"
+                class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
               >
                 <div
                   class="ant-picker-input"
@@ -11813,7 +11814,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 </div>
               </div>
               <div
-                class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+                class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150;"
               >
                 <div
@@ -12388,11 +12389,11 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 </div>
               </div>
               <div
-                class="ant-divider ant-divider-horizontal"
+                class="ant-divider css-var-test-id ant-divider-horizontal"
                 role="separator"
               />
               <div
-                class="ant-input-number ant-input-number-outlined"
+                class="ant-input-number ant-input-number-outlined css-var-test-id ant-input-number-css-var"
               >
                 <div
                   class="ant-input-number-handler-wrap"
@@ -12465,11 +12466,11 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 </div>
               </div>
               <div
-                class="ant-divider ant-divider-horizontal"
+                class="ant-divider css-var-test-id ant-divider-horizontal"
                 role="separator"
               />
               <div
-                class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+                class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
               >
                 <div
                   class="ant-select-selector"
@@ -12503,7 +12504,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                   </span>
                 </div>
                 <div
-                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150;"
                 >
                   <div>
@@ -12513,7 +12514,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                       role="listbox"
                     >
                       <div
-                        class="ant-empty ant-empty-normal ant-empty-small"
+                        class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
                       >
                         <div
                           class="ant-empty-image"
@@ -12603,7 +12604,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <div
-        class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-compact-item ant-input-number-compact-first-item ant-input-number-compact-last-item"
+        class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined css-var-test-id ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-first-item ant-input-number-compact-last-item"
       >
         <div
           class="ant-input-number-wrapper ant-input-number-group"
@@ -12703,7 +12704,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <div
-        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-compact-last-item ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-compact-last-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -12740,7 +12741,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -12855,7 +12856,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <div
-        class="ant-picker ant-picker-range ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item ant-picker-compact-last-item"
+        class="ant-picker ant-picker-range ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item ant-picker-compact-last-item css-var-test-id ant-picker-css-var"
         style="width: 70%;"
       >
         <div
@@ -12939,7 +12940,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </div>
       <div
-        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
+        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -14060,7 +14061,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <div
-        class="ant-input-number ant-input-number-outlined ant-input-number-compact-item ant-input-number-compact-first-item ant-input-number-compact-last-item"
+        class="ant-input-number ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-first-item ant-input-number-compact-last-item"
       >
         <div
           class="ant-input-number-handler-wrap"
@@ -14142,7 +14143,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <div
-        class="ant-select ant-cascader ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-compact-last-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
+        class="ant-select ant-cascader ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-compact-last-item ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
         style="width: 70%;"
       >
         <div
@@ -14179,7 +14180,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
         >
           <div>
@@ -14302,7 +14303,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact ant-space-compact-vertical"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item ant-btn-compact-vertical-last-item"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item ant-btn-compact-vertical-last-item"
         type="button"
       >
         <span>
@@ -14328,14 +14329,14 @@ Array [
         class="ant-space-compact"
       >
         <input
-          class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+          class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
           placeholder="Typing..."
           style="width: 90px;"
           type="text"
           value=""
         />
         <button
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
           type="button"
         >
           <span
@@ -14367,7 +14368,7 @@ Array [
         class="ant-space-compact"
       >
         <div
-          class="ant-input-number ant-input-number-outlined ant-input-number-compact-item"
+          class="ant-input-number ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-input-number-compact-item"
         >
           <div
             class="ant-input-number-handler-wrap"
@@ -14441,7 +14442,7 @@ Array [
           </div>
         </div>
         <div
-          class="ant-select ant-select-outlined ant-select-compact-item ant-select-single ant-select-show-arrow"
+          class="ant-select ant-select-outlined ant-select-compact-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
         >
           <div
             class="ant-select-selector"
@@ -14478,7 +14479,7 @@ Array [
             </span>
           </div>
           <div
-            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <div>
@@ -14587,7 +14588,7 @@ Array [
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -14601,7 +14602,7 @@ Array [
         class="ant-space-compact"
       >
         <span
-          class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item"
+          class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search css-var-test-id ant-input-css-var ant-input-compact-item"
           style="width: 110px;"
         >
           <span
@@ -14617,7 +14618,7 @@ Array [
               class="ant-input-group-addon"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
+                class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
                 type="button"
               >
                 <span
@@ -14648,7 +14649,7 @@ Array [
           </span>
         </span>
         <button
-          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
+          class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
           type="button"
         >
           <span>
@@ -14660,12 +14661,12 @@ Array [
         class="ant-space-compact"
       >
         <input
-          class="ant-input ant-input-outlined ant-input-compact-item"
+          class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item"
           type="text"
           value="mysite"
         />
         <button
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
           type="button"
         >
           <span
@@ -14703,7 +14704,7 @@ Array [
       class="ant-space-compact"
     >
       <div
-        class="ant-picker ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item"
+        class="ant-picker ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item css-var-test-id ant-picker-css-var"
       >
         <div
           class="ant-picker-input"
@@ -14744,7 +14745,7 @@ Array [
         </div>
       </div>
       <div
-        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -16244,7 +16245,7 @@ Array [
                     class="ant-picker-ok"
                   >
                     <button
-                      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                       disabled=""
                       type="button"
                     >
@@ -16260,7 +16261,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
         type="button"
       >
         <span>
@@ -16272,7 +16273,7 @@ Array [
       class="ant-space-compact"
     >
       <div
-        class="ant-select ant-cascader ant-select-outlined ant-select-compact-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
+        class="ant-select ant-cascader ant-select-outlined ant-select-compact-item ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -16308,7 +16309,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
         >
           <div>
@@ -16423,7 +16424,7 @@ Array [
         </span>
       </div>
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -16439,7 +16440,7 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
 
 exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
@@ -16450,7 +16451,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -16468,7 +16469,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
   >
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -16476,7 +16477,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
       </span>
     </button>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popconfirm ant-popover-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -16537,7 +16538,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
                 class="ant-popconfirm-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -16545,7 +16546,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
                   </span>
                 </button>
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -16564,7 +16565,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
   >
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       disabled=""
       type="button"
     >
@@ -16573,7 +16574,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
       </span>
     </button>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popconfirm ant-popover-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -16634,7 +16635,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
                 class="ant-popconfirm-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -16642,7 +16643,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
                   </span>
                 </button>
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -16675,7 +16676,7 @@ exports[`renders components/space/demo/gap-in-line.tsx extend context correctly 
 Array [
   <button
     aria-checked="false"
-    class="ant-switch"
+    class="ant-switch css-var-test-id"
     role="switch"
     type="button"
   >
@@ -16697,7 +16698,7 @@ Array [
     style="box-shadow: 0 0 5px green;"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
+      class="ant-space ant-space-horizontal ant-space-align-center css-var-test-id"
       style="flex-wrap: wrap; column-gap: 8px; row-gap: 8px; width: 310px; background: blue;"
     >
       <div
@@ -16738,10 +16739,10 @@ exports[`renders components/space/demo/gap-in-line.tsx extend context correctly 
 exports[`renders components/space/demo/size.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
+      class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-checked"
@@ -16764,7 +16765,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -16786,7 +16787,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -16808,7 +16809,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -16833,13 +16834,13 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -16851,7 +16852,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -16863,7 +16864,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
+        class="ant-btn css-var-test-id ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
         type="button"
       >
         <span>
@@ -16875,7 +16876,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link"
+        class="ant-btn css-var-test-id ant-btn-link ant-btn-color-link ant-btn-variant-link"
         type="button"
       >
         <span>
@@ -16891,13 +16892,13 @@ exports[`renders components/space/demo/size.tsx extend context correctly 2`] = `
 
 exports[`renders components/space/demo/split.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <a
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       Link
     </a>
@@ -16906,7 +16907,7 @@ exports[`renders components/space/demo/split.tsx extend context correctly 1`] = 
     class="ant-space-item-split"
   >
     <div
-      class="ant-divider ant-divider-vertical"
+      class="ant-divider css-var-test-id ant-divider-vertical"
       role="separator"
     />
   </span>
@@ -16914,7 +16915,7 @@ exports[`renders components/space/demo/split.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <a
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       Link
     </a>
@@ -16923,7 +16924,7 @@ exports[`renders components/space/demo/split.tsx extend context correctly 1`] = 
     class="ant-space-item-split"
   >
     <div
-      class="ant-divider ant-divider-vertical"
+      class="ant-divider css-var-test-id ant-divider-vertical"
       role="separator"
     />
   </span>
@@ -16931,7 +16932,7 @@ exports[`renders components/space/demo/split.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <a
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       Link
     </a>
@@ -16943,14 +16944,14 @@ exports[`renders components/space/demo/split.tsx extend context correctly 2`] = 
 
 exports[`renders components/space/demo/vertical.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle"
+  class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
   style="display: flex;"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-card ant-card-bordered ant-card-small"
+      class="ant-card ant-card-bordered ant-card-small css-var-test-id"
     >
       <div
         class="ant-card-head"
@@ -16981,7 +16982,7 @@ exports[`renders components/space/demo/vertical.tsx extend context correctly 1`]
     class="ant-space-item"
   >
     <div
-      class="ant-card ant-card-bordered ant-card-small"
+      class="ant-card ant-card-bordered ant-card-small css-var-test-id"
     >
       <div
         class="ant-card-head"
@@ -17012,7 +17013,7 @@ exports[`renders components/space/demo/vertical.tsx extend context correctly 1`]
     class="ant-space-item"
   >
     <div
-      class="ant-card ant-card-bordered ant-card-small"
+      class="ant-card ant-card-bordered ant-card-small css-var-test-id"
     >
       <div
         class="ant-card-head"
@@ -17046,14 +17047,14 @@ exports[`renders components/space/demo/vertical.tsx extend context correctly 2`]
 
 exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center css-var-test-id"
   style="flex-wrap: wrap; column-gap: 8px; row-gap: 16px;"
 >
   <div
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17065,7 +17066,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17077,7 +17078,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17089,7 +17090,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17101,7 +17102,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17113,7 +17114,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17125,7 +17126,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17137,7 +17138,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17149,7 +17150,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17161,7 +17162,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17173,7 +17174,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17185,7 +17186,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17197,7 +17198,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17209,7 +17210,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17221,7 +17222,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17233,7 +17234,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17245,7 +17246,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17257,7 +17258,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17269,7 +17270,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -17281,7 +17282,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>

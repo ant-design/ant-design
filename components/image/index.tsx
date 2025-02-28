@@ -1,8 +1,8 @@
 import * as React from 'react';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import classNames from 'classnames';
-import RcImage from 'rc-image';
-import type { ImageProps } from 'rc-image';
+import RcImage from '@rc-component/image';
+import type { ImageProps } from '@rc-component/image';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
@@ -40,7 +40,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
 
   // Style
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const mergedRootClassName = classNames(rootClassName, hashId, cssVarCls, rootCls);
 
@@ -77,7 +77,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
 
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
-  return wrapCSSVar(
+  return (
     <RcImage
       prefixCls={prefixCls}
       preview={mergedPreview}
@@ -85,7 +85,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
       className={mergedClassName}
       style={mergedStyle}
       {...otherProps}
-    />,
+    />
   );
 };
 

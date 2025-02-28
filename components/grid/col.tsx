@@ -65,7 +65,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('col', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useColStyle(prefixCls);
+  const [hashId, cssVarCls] = useColStyle(prefixCls);
 
   // ===================== Size ======================
   const sizeStyle: Record<string, string> = {};
@@ -120,8 +120,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   // Horizontal gutter use padding
   if (gutter && gutter[0] > 0) {
     const horizontalGutter = gutter[0] / 2;
-    mergedStyle.paddingLeft = horizontalGutter;
-    mergedStyle.paddingRight = horizontalGutter;
+    mergedStyle.paddingInline = horizontalGutter;
   }
 
   if (flex) {
@@ -135,7 +134,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   }
 
   // ==================== Render =====================
-  return wrapCSSVar(
+  return (
     <div
       {...others}
       style={{ ...mergedStyle, ...style, ...sizeStyle }}
@@ -143,7 +142,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
       ref={ref}
     >
       {children}
-    </div>,
+    </div>
   );
 });
 

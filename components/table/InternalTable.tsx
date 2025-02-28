@@ -1,9 +1,9 @@
 import * as React from 'react';
+import { INTERNAL_HOOKS } from '@rc-component/table';
+import type { Reference as RcReference, TableProps as RcTableProps } from '@rc-component/table';
+import { convertChildrenToColumns } from '@rc-component/table/lib/hooks/useColumns';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import { INTERNAL_HOOKS } from 'rc-table';
-import type { Reference as RcReference, TableProps as RcTableProps } from 'rc-table';
-import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
-import omit from 'rc-util/lib/omit';
 
 import useProxyImperativeHandle from '../_util/hooks/useProxyImperativeHandle';
 import type { Breakpoint } from '../_util/responsiveObserver';
@@ -132,7 +132,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     dataSource,
     pagination,
     rowSelection,
-    rowKey = 'key',
+    rowKey: customizeRowKey,
     rowClassName,
     columns,
     children,
@@ -153,14 +153,6 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   } = props;
 
   const warning = devUseWarning('Table');
-
-  if (process.env.NODE_ENV !== 'production') {
-    warning(
-      !(typeof rowKey === 'function' && rowKey.length > 1),
-      'usage',
-      '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
-    );
-  }
 
   const baseColumns = React.useMemo(
     () => columns || (convertChildrenToColumns(children) as ColumnsType<RecordType>),
@@ -199,7 +191,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   const [, token] = useToken();
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const mergedExpandable: ExpandableConfig<RecordType> = {
     childrenColumnName: legacyChildrenColumnName,
@@ -238,6 +230,16 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   }));
 
   // ============================ RowKey ============================
+  const rowKey = customizeRowKey || table?.rowKey || 'key';
+
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !(typeof rowKey === 'function' && rowKey.length > 1),
+      'usage',
+      '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
+    );
+  }
+
   const getRowKey = React.useMemo<GetRowKey<RecordType>>(() => {
     if (typeof rowKey === 'function') {
       return rowKey;
@@ -449,7 +451,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   // ========================== Expandable ==========================
 
-  // Pass origin render status into `rc-table`, this can be removed when refactor with `rc-table`
+  // Pass origin render status into `@rc-component/table`, this can be removed when refactor with `@rc-component/table`
   (mergedExpandable as any).__PARENT_RENDER_ICON__ = mergedExpandable.expandIcon;
 
   // Customize expandable icon
@@ -576,7 +578,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     virtualProps.listItemHeight = listItemHeight;
   }
 
-  return wrapCSSVar(
+  return (
     <div ref={rootRef} className={wrapperClassNames} style={mergedStyle}>
       <Spin spinning={false} {...spinProps}>
         {topPaginationNode}
@@ -611,7 +613,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
         />
         {bottomPaginationNode}
       </Spin>
-    </div>,
+    </div>
   );
 };
 

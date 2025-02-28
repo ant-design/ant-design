@@ -3,8 +3,8 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import BarsOutlined from '@ant-design/icons/BarsOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
 
 import { ConfigContext } from '../config-provider';
 import { LayoutContext } from './context';
@@ -103,7 +103,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
   const { getPrefixCls, direction } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('layout-sider', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   // ========================= Responsive =========================
   const responsiveHandlerRef = useRef<(mql: MediaQueryListEvent | MediaQueryList) => void>(null);
@@ -217,13 +217,13 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     [collapsed],
   );
 
-  return wrapCSSVar(
+  return (
     <SiderContext.Provider value={contextValue}>
       <aside className={siderCls} {...divProps} style={divStyle} ref={ref}>
         <div className={`${prefixCls}-children`}>{children}</div>
         {collapsible || (below && zeroWidthTrigger) ? triggerDom : null}
       </aside>
-    </SiderContext.Provider>,
+    </SiderContext.Provider>
   );
 });
 

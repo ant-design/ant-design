@@ -1,5 +1,5 @@
 import * as React from 'react';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
 
 import ConfigProvider, { ConfigContext } from '../config-provider';
 import type { AnyObject } from './type';

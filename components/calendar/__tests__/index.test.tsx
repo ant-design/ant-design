@@ -3,22 +3,22 @@ import Dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 
 import React from 'react';
+import { resetWarned } from '@rc-component/util/lib/warning';
 import MockDate from 'mockdate';
-import type { PickerPanelProps } from 'rc-picker';
-import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
-import type { Locale } from 'rc-picker/lib/interface';
-import { resetWarned } from 'rc-util/lib/warning';
+import type { PickerPanelProps } from '@rc-component/picker';
+import dayjsGenerateConfig from '@rc-component/picker/lib/generate/dayjs';
+import type { Locale } from '@rc-component/picker/lib/interface';
 
 import Calendar from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import Group from '../../radio/group';
 import Button from '../../radio/radioButton';
 import Select from '../../select';
 import Header from '../Header';
 import type { CalendarHeaderProps } from '../Header';
-import ConfigProvider from '../../config-provider';
 
 const ref: {
   calendarProps?: PickerPanelProps;
@@ -34,8 +34,8 @@ jest.mock('../Header', () => {
   };
 });
 
-jest.mock('rc-picker', () => {
-  const RcPicker = jest.requireActual('rc-picker');
+jest.mock('@rc-component/picker', () => {
+  const RcPicker = jest.requireActual('@rc-component/picker');
   const PickerPanelComponent = RcPicker.PickerPanel;
   return {
     ...RcPicker,

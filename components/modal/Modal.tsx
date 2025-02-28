@@ -1,7 +1,7 @@
 import * as React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import Dialog from '@rc-component/dialog';
 import classNames from 'classnames';
-import Dialog from 'rc-dialog';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
@@ -12,6 +12,7 @@ import { canUseDocElement } from '../_util/styleChecker';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import Skeleton from '../skeleton';
 import { usePanelRef } from '../watermark/context';
@@ -45,8 +46,13 @@ const Modal: React.FC<ModalProps> = (props) => {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     direction,
-    modal: modalContext,
-  } = React.useContext(ConfigContext);
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+    centered: contextCentered,
+  } = useComponentConfig('modal');
+  const { modal: modalContext } = React.useContext(ConfigContext);
 
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { onCancel } = props;
@@ -62,7 +68,6 @@ const Modal: React.FC<ModalProps> = (props) => {
     const warning = devUseWarning('Modal');
 
     [
-      ['visible', 'open'],
       ['bodyStyle', 'styles.body'],
       ['maskStyle', 'styles.mask'],
     ].forEach(([deprecatedName, newName]) => {
@@ -74,14 +79,13 @@ const Modal: React.FC<ModalProps> = (props) => {
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
+    rootStyle,
     open,
     wrapClassName,
     centered,
     getContainer,
     focusTriggerAfterClose = true,
     style,
-    // Deprecated
-    visible,
 
     width = 520,
     footer,
@@ -96,10 +100,10 @@ const Modal: React.FC<ModalProps> = (props) => {
   const rootPrefixCls = getPrefixCls();
   // Style
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const wrapClassNameExtended = classNames(wrapClassName, {
-    [`${prefixCls}-centered`]: centered ?? modalContext?.centered,
+    [`${prefixCls}-centered`]: centered ?? contextCentered,
     [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
   });
 
@@ -119,8 +123,8 @@ const Modal: React.FC<ModalProps> = (props) => {
   );
 
   // ============================ Refs ============================
-  // Select `ant-modal-content` by `panelRef`
-  const panelRef = usePanelRef(`.${prefixCls}-content`);
+  // Select `ant-modal-section` by `panelRef`
+  const panelRef = usePanelRef(`.${prefixCls}-section`);
 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Modal', restProps.zIndex);
@@ -150,7 +154,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   }, [responsiveWidth]);
 
   // =========================== Render ===========================
-  return wrapCSSVar(
+  return (
     <ContextIsolator form space>
       <zIndexContext.Provider value={contextZIndex}>
         <Dialog
@@ -159,9 +163,20 @@ const Modal: React.FC<ModalProps> = (props) => {
           zIndex={zIndex}
           getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
           prefixCls={prefixCls}
-          rootClassName={classNames(hashId, rootClassName, cssVarCls, rootCls)}
+          rootClassName={classNames(
+            hashId,
+            rootClassName,
+            cssVarCls,
+            rootCls,
+            contextClassNames.root,
+            modalClassNames?.root,
+          )}
+          rootStyle={{
+            ...contextStyles.root,
+            ...modalStyles?.root,
+          }}
           footer={dialogFooter}
-          visible={open ?? visible}
+          visible={open}
           mousePosition={restProps.mousePosition ?? mousePosition}
           onClose={handleCancel as any}
           closable={
@@ -173,14 +188,34 @@ const Modal: React.FC<ModalProps> = (props) => {
           focusTriggerAfterClose={focusTriggerAfterClose}
           transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
           maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
-          className={classNames(hashId, className, modalContext?.className)}
-          style={{ ...modalContext?.style, ...style, ...responsiveWidthVars }}
-          classNames={{
-            ...modalContext?.classNames,
-            ...modalClassNames,
-            wrapper: classNames(wrapClassNameExtended, modalClassNames?.wrapper),
+          className={classNames(hashId, className, contextClassName)}
+          style={{
+            ...contextStyle,
+            ...style,
+            ...responsiveWidthVars,
           }}
-          styles={{ ...modalContext?.styles, ...modalStyles }}
+          classNames={{
+            mask: classNames(contextClassNames.mask, modalClassNames?.mask),
+            section: classNames(contextClassNames.section, modalClassNames?.section),
+            wrapper: classNames(
+              wrapClassNameExtended,
+              contextClassNames.wrapper,
+              modalClassNames?.wrapper,
+            ),
+            header: classNames(contextClassNames.header, modalClassNames?.header),
+            title: classNames(contextClassNames.title, modalClassNames?.title),
+            body: classNames(contextClassNames.body, modalClassNames?.body),
+            footer: classNames(contextClassNames.footer, modalClassNames?.footer),
+          }}
+          styles={{
+            mask: { ...contextStyles.mask, ...modalStyles?.mask },
+            section: { ...contextStyles.section, ...modalStyles?.section },
+            wrapper: { ...contextStyles.wrapper, ...modalStyles?.wrapper },
+            header: { ...contextStyles.header, ...modalStyles?.header },
+            title: { ...contextStyles.title, ...modalStyles?.title },
+            body: { ...contextStyles.body, ...modalStyles?.body },
+            footer: { ...contextStyles.footer, ...modalStyles?.footer },
+          }}
           panelRef={panelRef}
         >
           {loading ? (
@@ -195,7 +230,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           )}
         </Dialog>
       </zIndexContext.Provider>
-    </ContextIsolator>,
+    </ContextIsolator>
   );
 };
 

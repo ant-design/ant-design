@@ -1,13 +1,15 @@
 import * as React from 'react';
+import toArray from '@rc-component/util/lib/Children/toArray';
+import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import classNames from 'classnames';
-import toArray from 'rc-util/lib/Children/toArray';
-import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import { cloneElement } from '../_util/reactNode';
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import type { DropdownProps } from '../dropdown';
+import type { SemanticName } from './BreadcrumbContext';
+import BreadcrumbContext from './BreadcrumbContext';
 import type { BreadcrumbItemProps } from './BreadcrumbItem';
 import BreadcrumbItem, { InternalBreadcrumbItem } from './BreadcrumbItem';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
@@ -29,9 +31,8 @@ export interface BreadcrumbItemType {
   /** @deprecated Please use `title` instead */
   breadcrumbName?: string;
   menu?: BreadcrumbItemProps['menu'];
-  /** @deprecated Please use `menu` instead */
-  overlay?: React.ReactNode;
   className?: string;
+  style?: React.CSSProperties;
   dropdownProps?: DropdownProps;
   onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
 
@@ -60,6 +61,8 @@ export interface BreadcrumbProps<T extends AnyObject = AnyObject> {
   routes?: ItemType[];
 
   items?: ItemType[];
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 
   itemRender?: (route: ItemType, params: T, routes: ItemType[], paths: string[]) => React.ReactNode;
 }
@@ -87,17 +90,42 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
     children,
     itemRender,
     params = {},
+    classNames: breadcrumbClassNames,
+    styles,
     ...restProps
   } = props;
 
-  const { getPrefixCls, direction, breadcrumb } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('breadcrumb');
 
   let crumbs: React.ReactNode;
 
   const prefixCls = getPrefixCls('breadcrumb', customizePrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const mergedItems = useItems(items, legacyRoutes);
+
+  const mergedStyles = React.useMemo(
+    () => ({
+      separator: { ...contextStyles.separator, ...styles?.separator },
+      item: { ...contextStyles.item, ...styles?.item },
+    }),
+    [styles, contextStyles],
+  );
+
+  const mergedClassNames = React.useMemo(
+    () => ({
+      separator: classNames(contextClassNames.separator, breadcrumbClassNames?.separator),
+      item: classNames(contextClassNames.item, breadcrumbClassNames?.item),
+    }),
+    [breadcrumbClassNames, contextClassNames],
+  );
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Breadcrumb');
@@ -141,9 +169,9 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
         key,
         type,
         menu,
-        overlay,
         onClick,
         className: itemClassName,
+        style,
         separator: itemSeparator,
         dropdownProps,
       } = item;
@@ -164,8 +192,6 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
 
       if (menu) {
         itemProps.menu = menu;
-      } else if (overlay) {
-        itemProps.overlay = overlay as any;
       }
 
       let { href } = item;
@@ -179,6 +205,7 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
           {...itemProps}
           {...pickAttrs(item, { data: true, aria: true })}
           className={itemClassName}
+          style={style}
           dropdownProps={dropdownProps}
           href={href}
           separator={isLastItem ? '' : separator}
@@ -207,22 +234,31 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
 
   const breadcrumbClassName = classNames(
     prefixCls,
-    breadcrumb?.className,
+    contextClassName,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
     rootClassName,
+    contextClassNames.root,
+    breadcrumbClassNames?.root,
     hashId,
     cssVarCls,
   );
 
-  const mergedStyle: React.CSSProperties = { ...breadcrumb?.style, ...style };
+  const mergedStyle: React.CSSProperties = {
+    ...contextStyles.root,
+    ...styles?.root,
+    ...contextStyle,
+    ...style,
+  };
 
-  return wrapCSSVar(
-    <nav className={breadcrumbClassName} style={mergedStyle} {...restProps}>
-      <ol>{crumbs}</ol>
-    </nav>,
+  return (
+    <BreadcrumbContext.Provider value={{ classNames: mergedClassNames, styles: mergedStyles }}>
+      <nav className={breadcrumbClassName} style={mergedStyle} {...restProps}>
+        <ol>{crumbs}</ol>
+      </nav>
+    </BreadcrumbContext.Provider>
   );
 };
 

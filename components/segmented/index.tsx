@@ -1,21 +1,21 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import type {
   SegmentedLabeledOption as RcSegmentedLabeledOption,
   SegmentedProps as RCSegmentedProps,
   SegmentedValue as RcSegmentedValue,
   SegmentedRawOption,
-} from 'rc-segmented';
-import RcSegmented from 'rc-segmented';
-import useId from 'rc-util/lib/hooks/useId';
+} from '@rc-component/segmented';
+import RcSegmented from '@rc-component/segmented';
+import useId from '@rc-component/util/lib/hooks/useId';
+import classNames from 'classnames';
 
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
 
-export type { SegmentedValue } from 'rc-segmented';
-
+export type { SegmentedValue } from '@rc-component/segmented';
+export type SemanticName = 'root' | 'icon' | 'label' | 'item';
 interface SegmentedLabeledOptionWithoutIcon<ValueType = RcSegmentedValue>
   extends RcSegmentedLabeledOption<ValueType> {
   label: RcSegmentedLabeledOption['label'];
@@ -49,6 +49,8 @@ export interface SegmentedProps<ValueType = RcSegmentedValue>
   /** Option to control the display size */
   size?: SizeType;
   vertical?: boolean;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   shape?: 'default' | 'round';
 }
 
@@ -66,6 +68,8 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     vertical,
     shape = 'default',
     name = defaultName,
+    styles,
+    classNames: segmentedClassNames,
     ...restProps
   } = props;
 
@@ -74,10 +78,12 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     direction,
     className: contextClassName,
     style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
   } = useComponentConfig('segmented');
   const prefixCls = getPrefixCls('segmented', customizePrefixCls);
   // Style
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   // ===================== Size =====================
   const mergedSize = useSize(customSize);
@@ -92,7 +98,19 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
             ...restOption,
             label: (
               <>
-                <span className={`${prefixCls}-item-icon`}>{icon}</span>
+                <span
+                  className={classNames(
+                    `${prefixCls}-item-icon`,
+                    contextClassNames.icon,
+                    segmentedClassNames?.icon,
+                  )}
+                  style={{
+                    ...contextStyles.icon,
+                    ...styles?.icon,
+                  }}
+                >
+                  {icon}
+                </span>
                 {label && <span>{label}</span>}
               </>
             ),
@@ -107,6 +125,8 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     className,
     rootClassName,
     contextClassName,
+    segmentedClassNames?.root,
+    contextClassNames.root,
     {
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-sm`]: mergedSize === 'small',
@@ -118,20 +138,33 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     cssVarCls,
   );
 
-  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
+  const mergedStyle: React.CSSProperties = {
+    ...contextStyles.root,
+    ...contextStyle,
+    ...styles?.root,
+    ...style,
+  };
 
-  return wrapCSSVar(
+  return (
     <RcSegmented
       {...restProps}
       name={name}
       className={cls}
       style={mergedStyle}
+      classNames={{
+        label: classNames(segmentedClassNames?.label, contextClassNames.label),
+        item: classNames(segmentedClassNames?.item, contextClassNames.item),
+      }}
+      styles={{
+        item: { ...contextStyles.item, ...styles?.item },
+        label: { ...contextStyles.label, ...styles?.label },
+      }}
       options={extendedOptions}
       ref={ref}
       prefixCls={prefixCls}
       direction={direction}
       vertical={vertical}
-    />,
+    />
   );
 });
 

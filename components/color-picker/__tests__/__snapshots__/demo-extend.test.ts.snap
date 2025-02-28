@@ -4,7 +4,7 @@ exports[`renders components/color-picker/demo/allowClear.tsx extend context corr
 Array [
   <div
     aria-describedby="test-id"
-    class="ant-color-picker-trigger"
+    class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
   >
     <div
       class="ant-color-picker-color-block"
@@ -16,7 +16,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
@@ -78,7 +78,7 @@ Array [
                     class="ant-color-picker-slider-group"
                   >
                     <div
-                      class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                      class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
@@ -99,7 +99,7 @@ Array [
                       />
                     </div>
                     <div
-                      class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                      class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
@@ -134,7 +134,7 @@ Array [
                 class="ant-color-picker-input-container"
               >
                 <div
-                  class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -171,7 +171,7 @@ Array [
                     </span>
                   </div>
                   <div
-                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                   >
                     <div>
@@ -298,7 +298,7 @@ Array [
                   class="ant-color-picker-input"
                 >
                   <span
-                    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
                   >
                     <span
                       class="ant-input-prefix"
@@ -313,7 +313,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                  class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -404,7 +404,7 @@ exports[`renders components/color-picker/demo/base.tsx extend context correctly 
 Array [
   <div
     aria-describedby="test-id"
-    class="ant-color-picker-trigger"
+    class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
   >
     <div
       class="ant-color-picker-color-block"
@@ -416,7 +416,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
@@ -471,7 +471,7 @@ Array [
                     class="ant-color-picker-slider-group"
                   >
                     <div
-                      class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                      class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
@@ -492,7 +492,7 @@ Array [
                       />
                     </div>
                     <div
-                      class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                      class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
@@ -527,7 +527,7 @@ Array [
                 class="ant-color-picker-input-container"
               >
                 <div
-                  class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -564,7 +564,7 @@ Array [
                     </span>
                   </div>
                   <div
-                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                   >
                     <div>
@@ -691,7 +691,7 @@ Array [
                   class="ant-color-picker-input"
                 >
                   <span
-                    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
                   >
                     <span
                       class="ant-input-prefix"
@@ -706,7 +706,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                  class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -795,14 +795,14 @@ exports[`renders components/color-picker/demo/base.tsx extend context correctly 
 
 exports[`renders components/color-picker/demo/controlled.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <div
       aria-describedby="test-id"
-      class="ant-color-picker-trigger"
+      class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
     >
       <div
         class="ant-color-picker-color-block"
@@ -814,7 +814,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
       </div>
     </div>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -869,7 +869,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                       class="ant-color-picker-slider-group"
                     >
                       <div
-                        class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                        class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                       >
                         <div
                           class="ant-slider-rail ant-color-picker-slider-rail"
@@ -890,7 +890,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                         />
                       </div>
                       <div
-                        class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                        class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                       >
                         <div
                           class="ant-slider-rail ant-color-picker-slider-rail"
@@ -925,7 +925,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                   class="ant-color-picker-input-container"
                 >
                   <div
-                    class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <div
                       class="ant-select-selector"
@@ -962,7 +962,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                       </span>
                     </div>
                     <div
-                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                     >
                       <div>
@@ -1089,7 +1089,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     class="ant-color-picker-input"
                   >
                     <span
-                      class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                      class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
                     >
                       <span
                         class="ant-input-prefix"
@@ -1104,7 +1104,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     </span>
                   </div>
                   <div
-                    class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                    class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                   >
                     <div
                       class="ant-input-number-handler-wrap"
@@ -1192,7 +1192,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
   >
     <div
       aria-describedby="test-id"
-      class="ant-color-picker-trigger"
+      class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
     >
       <div
         class="ant-color-picker-color-block"
@@ -1204,7 +1204,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
       </div>
     </div>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -1259,7 +1259,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                       class="ant-color-picker-slider-group"
                     >
                       <div
-                        class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                        class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                       >
                         <div
                           class="ant-slider-rail ant-color-picker-slider-rail"
@@ -1280,7 +1280,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                         />
                       </div>
                       <div
-                        class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                        class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                       >
                         <div
                           class="ant-slider-rail ant-color-picker-slider-rail"
@@ -1315,7 +1315,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                   class="ant-color-picker-input-container"
                 >
                   <div
-                    class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <div
                       class="ant-select-selector"
@@ -1352,7 +1352,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                       </span>
                     </div>
                     <div
-                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                     >
                       <div>
@@ -1479,7 +1479,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     class="ant-color-picker-input"
                   >
                     <span
-                      class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                      class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
                     >
                       <span
                         class="ant-input-prefix"
@@ -1494,7 +1494,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     </span>
                   </div>
                   <div
-                    class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                    class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                   >
                     <div
                       class="ant-input-number-handler-wrap"
@@ -1586,7 +1586,7 @@ exports[`renders components/color-picker/demo/disabled.tsx extend context correc
 Array [
   <div
     aria-describedby="test-id"
-    class="ant-color-picker-trigger ant-color-picker-trigger-disabled"
+    class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var ant-color-picker-trigger-disabled"
   >
     <div
       class="ant-color-picker-color-block"
@@ -1603,7 +1603,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
@@ -1658,7 +1658,7 @@ Array [
                     class="ant-color-picker-slider-group"
                   >
                     <div
-                      class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                      class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
@@ -1679,7 +1679,7 @@ Array [
                       />
                     </div>
                     <div
-                      class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                      class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
@@ -1714,7 +1714,7 @@ Array [
                 class="ant-color-picker-input-container"
               >
                 <div
-                  class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -1751,7 +1751,7 @@ Array [
                     </span>
                   </div>
                   <div
-                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                   >
                     <div>
@@ -1878,7 +1878,7 @@ Array [
                   class="ant-color-picker-input"
                 >
                   <span
-                    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
                   >
                     <span
                       class="ant-input-prefix"
@@ -1893,7 +1893,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                  class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -1984,7 +1984,7 @@ exports[`renders components/color-picker/demo/disabled-alpha.tsx extend context 
 Array [
   <div
     aria-describedby="test-id"
-    class="ant-color-picker-trigger"
+    class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
   >
     <div
       class="ant-color-picker-color-block"
@@ -1996,7 +1996,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
@@ -2051,7 +2051,7 @@ Array [
                     class="ant-color-picker-slider-group ant-color-picker-slider-group-disabled-alpha"
                   >
                     <div
-                      class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                      class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
@@ -2086,7 +2086,7 @@ Array [
                 class="ant-color-picker-input-container"
               >
                 <div
-                  class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -2123,7 +2123,7 @@ Array [
                     </span>
                   </div>
                   <div
-                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                   >
                     <div>
@@ -2250,7 +2250,7 @@ Array [
                   class="ant-color-picker-input"
                 >
                   <span
-                    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
                   >
                     <span
                       class="ant-input-prefix"
@@ -2278,21 +2278,21 @@ exports[`renders components/color-picker/demo/disabled-alpha.tsx extend context 
 
 exports[`renders components/color-picker/demo/format.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle"
+  class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
   style="display: flex;"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
     >
       <div
         class="ant-space-item"
       >
         <div
           aria-describedby="test-id"
-          class="ant-color-picker-trigger"
+          class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
         >
           <div
             class="ant-color-picker-color-block"
@@ -2304,7 +2304,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
           </div>
         </div>
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -2359,7 +2359,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           class="ant-color-picker-slider-group"
                         >
                           <div
-                            class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                            class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                           >
                             <div
                               class="ant-slider-rail ant-color-picker-slider-rail"
@@ -2380,7 +2380,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             />
                           </div>
                           <div
-                            class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                            class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                           >
                             <div
                               class="ant-slider-rail ant-color-picker-slider-rail"
@@ -2415,7 +2415,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                       class="ant-color-picker-input-container"
                     >
                       <div
-                        class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                        class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                       >
                         <div
                           class="ant-select-selector"
@@ -2452,7 +2452,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           </span>
                         </div>
                         <div
-                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                         >
                           <div>
@@ -2579,7 +2579,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         class="ant-color-picker-input"
                       >
                         <span
-                          class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                          class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
                         >
                           <span
                             class="ant-input-prefix"
@@ -2594,7 +2594,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         </span>
                       </div>
                       <div
-                        class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                        class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                       >
                         <div
                           class="ant-input-number-handler-wrap"
@@ -2690,14 +2690,14 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
     >
       <div
         class="ant-space-item"
       >
         <div
           aria-describedby="test-id"
-          class="ant-color-picker-trigger"
+          class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
         >
           <div
             class="ant-color-picker-color-block"
@@ -2709,7 +2709,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
           </div>
         </div>
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -2764,7 +2764,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           class="ant-color-picker-slider-group"
                         >
                           <div
-                            class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                            class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                           >
                             <div
                               class="ant-slider-rail ant-color-picker-slider-rail"
@@ -2785,7 +2785,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             />
                           </div>
                           <div
-                            class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                            class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                           >
                             <div
                               class="ant-slider-rail ant-color-picker-slider-rail"
@@ -2820,7 +2820,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                       class="ant-color-picker-input-container"
                     >
                       <div
-                        class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                        class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                       >
                         <div
                           class="ant-select-selector"
@@ -2857,7 +2857,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           </span>
                         </div>
                         <div
-                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                         >
                           <div>
@@ -2987,7 +2987,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           class="ant-color-picker-hsb-input"
                         >
                           <div
-                            class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-hsb-input"
+                            class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-hsb-input"
                           >
                             <div
                               class="ant-input-number-handler-wrap"
@@ -3063,7 +3063,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             </div>
                           </div>
                           <div
-                            class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-hsb-input"
+                            class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-hsb-input"
                           >
                             <div
                               class="ant-input-number-handler-wrap"
@@ -3139,7 +3139,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             </div>
                           </div>
                           <div
-                            class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-hsb-input"
+                            class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-hsb-input"
                           >
                             <div
                               class="ant-input-number-handler-wrap"
@@ -3217,7 +3217,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         </div>
                       </div>
                       <div
-                        class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                        class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                       >
                         <div
                           class="ant-input-number-handler-wrap"
@@ -3313,14 +3313,14 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
     >
       <div
         class="ant-space-item"
       >
         <div
           aria-describedby="test-id"
-          class="ant-color-picker-trigger"
+          class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
         >
           <div
             class="ant-color-picker-color-block"
@@ -3332,7 +3332,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
           </div>
         </div>
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -3387,7 +3387,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           class="ant-color-picker-slider-group"
                         >
                           <div
-                            class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                            class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                           >
                             <div
                               class="ant-slider-rail ant-color-picker-slider-rail"
@@ -3408,7 +3408,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             />
                           </div>
                           <div
-                            class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                            class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                           >
                             <div
                               class="ant-slider-rail ant-color-picker-slider-rail"
@@ -3443,7 +3443,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                       class="ant-color-picker-input-container"
                     >
                       <div
-                        class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                        class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                       >
                         <div
                           class="ant-select-selector"
@@ -3480,7 +3480,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           </span>
                         </div>
                         <div
-                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                         >
                           <div>
@@ -3610,7 +3610,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           class="ant-color-picker-rgb-input"
                         >
                           <div
-                            class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-rgb-input"
+                            class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-rgb-input"
                           >
                             <div
                               class="ant-input-number-handler-wrap"
@@ -3686,7 +3686,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             </div>
                           </div>
                           <div
-                            class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-rgb-input"
+                            class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-rgb-input"
                           >
                             <div
                               class="ant-input-number-handler-wrap"
@@ -3762,7 +3762,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             </div>
                           </div>
                           <div
-                            class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-rgb-input"
+                            class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-rgb-input"
                           >
                             <div
                               class="ant-input-number-handler-wrap"
@@ -3840,7 +3840,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         </div>
                       </div>
                       <div
-                        class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                        class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                       >
                         <div
                           class="ant-input-number-handler-wrap"
@@ -3939,14 +3939,14 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
 
 exports[`renders components/color-picker/demo/line-gradient.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <div
       aria-describedby="test-id"
-      class="ant-color-picker-trigger"
+      class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
     >
       <div
         class="ant-color-picker-color-block"
@@ -3971,7 +3971,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
       </div>
     </div>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -4000,7 +4000,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                 >
                   <div
                     aria-label="segmented control"
-                    class="ant-segmented ant-segmented-sm"
+                    class="ant-segmented ant-segmented-sm css-var-test-id"
                     role="radiogroup"
                     tabindex="0"
                   >
@@ -4017,8 +4017,9 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                           type="radio"
                         />
                         <div
-                          aria-selected="false"
+                          aria-checked="false"
                           class="ant-segmented-item-label"
+                          role="radio"
                           title="Single"
                         >
                           Single
@@ -4033,8 +4034,9 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                           type="radio"
                         />
                         <div
-                          aria-selected="true"
+                          aria-checked="true"
                           class="ant-segmented-item-label"
+                          role="radio"
                           title="Gradient"
                         >
                           Gradient
@@ -4047,7 +4049,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                   />
                 </div>
                 <div
-                  class="ant-slider ant-color-picker-gradient-slider ant-color-picker-slider ant-slider-horizontal"
+                  class="ant-slider ant-color-picker-gradient-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                 >
                   <div
                     class="ant-slider-rail ant-color-picker-slider-rail"
@@ -4109,7 +4111,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       class="ant-color-picker-slider-group"
                     >
                       <div
-                        class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                        class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                       >
                         <div
                           class="ant-slider-rail ant-color-picker-slider-rail"
@@ -4130,7 +4132,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                         />
                       </div>
                       <div
-                        class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                        class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                       >
                         <div
                           class="ant-slider-rail ant-color-picker-slider-rail"
@@ -4165,7 +4167,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                   class="ant-color-picker-input-container"
                 >
                   <div
-                    class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <div
                       class="ant-select-selector"
@@ -4202,7 +4204,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       </span>
                     </div>
                     <div
-                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                     >
                       <div>
@@ -4329,7 +4331,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     class="ant-color-picker-input"
                   >
                     <span
-                      class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                      class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
                     >
                       <span
                         class="ant-input-prefix"
@@ -4344,7 +4346,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     </span>
                   </div>
                   <div
-                    class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                    class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                   >
                     <div
                       class="ant-input-number-handler-wrap"
@@ -4432,7 +4434,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
   >
     <div
       aria-describedby="test-id"
-      class="ant-color-picker-trigger"
+      class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
     >
       <div
         class="ant-color-picker-color-block"
@@ -4457,7 +4459,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
       </div>
     </div>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -4489,7 +4491,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                   />
                 </div>
                 <div
-                  class="ant-slider ant-color-picker-gradient-slider ant-color-picker-slider ant-slider-horizontal"
+                  class="ant-slider ant-color-picker-gradient-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                 >
                   <div
                     class="ant-slider-rail ant-color-picker-slider-rail"
@@ -4551,7 +4553,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       class="ant-color-picker-slider-group"
                     >
                       <div
-                        class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                        class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                       >
                         <div
                           class="ant-slider-rail ant-color-picker-slider-rail"
@@ -4572,7 +4574,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                         />
                       </div>
                       <div
-                        class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                        class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                       >
                         <div
                           class="ant-slider-rail ant-color-picker-slider-rail"
@@ -4607,7 +4609,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                   class="ant-color-picker-input-container"
                 >
                   <div
-                    class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <div
                       class="ant-select-selector"
@@ -4644,7 +4646,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       </span>
                     </div>
                     <div
-                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                     >
                       <div>
@@ -4771,7 +4773,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     class="ant-color-picker-input"
                   >
                     <span
-                      class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                      class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
                     >
                       <span
                         class="ant-input-prefix"
@@ -4786,7 +4788,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     </span>
                   </div>
                   <div
-                    class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                    class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                   >
                     <div
                       class="ant-input-number-handler-wrap"
@@ -4876,13 +4878,13 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
 
 exports[`renders components/color-picker/demo/panel-render.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
     >
       <div
         class="ant-space-item"
@@ -4896,7 +4898,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
       >
         <div
           aria-describedby="test-id"
-          class="ant-color-picker-trigger"
+          class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
         >
           <div
             class="ant-color-picker-color-block"
@@ -4908,7 +4910,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
           </div>
         </div>
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -4971,7 +4973,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                             class="ant-color-picker-slider-group"
                           >
                             <div
-                              class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                              class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                             >
                               <div
                                 class="ant-slider-rail ant-color-picker-slider-rail"
@@ -4992,7 +4994,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               />
                             </div>
                             <div
-                              class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                              class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                             >
                               <div
                                 class="ant-slider-rail ant-color-picker-slider-rail"
@@ -5027,7 +5029,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                         class="ant-color-picker-input-container"
                       >
                         <div
-                          class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                          class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                         >
                           <div
                             class="ant-select-selector"
@@ -5064,7 +5066,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                             </span>
                           </div>
                           <div
-                            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                           >
                             <div>
@@ -5191,7 +5193,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           class="ant-color-picker-input"
                         >
                           <span
-                            class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                            class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
                           >
                             <span
                               class="ant-input-prefix"
@@ -5206,7 +5208,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           </span>
                         </div>
                         <div
-                          class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                          class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                         >
                           <div
                             class="ant-input-number-handler-wrap"
@@ -5296,7 +5298,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
     >
       <div
         class="ant-space-item"
@@ -5310,7 +5312,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
       >
         <div
           aria-describedby="test-id"
-          class="ant-color-picker-trigger"
+          class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
         >
           <div
             class="ant-color-picker-color-block"
@@ -5322,7 +5324,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
           </div>
         </div>
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -5345,16 +5347,16 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                   class="ant-color-picker-inner"
                 >
                   <div
-                    class="ant-row ant-row-no-wrap ant-row-space-between"
+                    class="ant-row ant-row-no-wrap ant-row-space-between css-var-test-id"
                   >
                     <div
-                      class="ant-col ant-col-12"
+                      class="ant-col ant-col-12 css-var-test-id"
                     >
                       <div
                         class="ant-color-picker-presets"
                       >
                         <div
-                          class="ant-collapse ant-collapse-icon-position-start ant-collapse-ghost"
+                          class="ant-collapse ant-collapse-icon-position-start ant-collapse-ghost css-var-test-id"
                         >
                           <div
                             class="ant-collapse-item ant-collapse-item-active"
@@ -5391,7 +5393,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                 </span>
                               </div>
                               <span
-                                class="ant-collapse-header-text"
+                                class="ant-collapse-title"
                               >
                                 <div
                                   class="ant-color-picker-presets-label"
@@ -5401,10 +5403,10 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               </span>
                             </div>
                             <div
-                              class="ant-collapse-content ant-collapse-content-active"
+                              class="ant-collapse-panel ant-collapse-panel-active"
                             >
                               <div
-                                class="ant-collapse-content-box"
+                                class="ant-collapse-body"
                               >
                                 <div
                                   class="ant-color-picker-presets-items"
@@ -5528,7 +5530,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                 </span>
                               </div>
                               <span
-                                class="ant-collapse-header-text"
+                                class="ant-collapse-title"
                               >
                                 <div
                                   class="ant-color-picker-presets-label"
@@ -5538,10 +5540,10 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               </span>
                             </div>
                             <div
-                              class="ant-collapse-content ant-collapse-content-active"
+                              class="ant-collapse-panel ant-collapse-panel-active"
                             >
                               <div
-                                class="ant-collapse-content-box"
+                                class="ant-collapse-body"
                               >
                                 <div
                                   class="ant-color-picker-presets-items"
@@ -5665,7 +5667,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                 </span>
                               </div>
                               <span
-                                class="ant-collapse-header-text"
+                                class="ant-collapse-title"
                               >
                                 <div
                                   class="ant-color-picker-presets-label"
@@ -5675,10 +5677,10 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               </span>
                             </div>
                             <div
-                              class="ant-collapse-content ant-collapse-content-active"
+                              class="ant-collapse-panel ant-collapse-panel-active"
                             >
                               <div
-                                class="ant-collapse-content-box"
+                                class="ant-collapse-body"
                               >
                                 <div
                                   class="ant-color-picker-presets-items"
@@ -5802,7 +5804,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                 </span>
                               </div>
                               <span
-                                class="ant-collapse-header-text"
+                                class="ant-collapse-title"
                               >
                                 <div
                                   class="ant-color-picker-presets-label"
@@ -5812,10 +5814,10 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               </span>
                             </div>
                             <div
-                              class="ant-collapse-content ant-collapse-content-active"
+                              class="ant-collapse-panel ant-collapse-panel-active"
                             >
                               <div
-                                class="ant-collapse-content-box"
+                                class="ant-collapse-body"
                               >
                                 <div
                                   class="ant-color-picker-presets-items"
@@ -5908,12 +5910,12 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                       </div>
                     </div>
                     <div
-                      class="ant-divider ant-divider-vertical"
+                      class="ant-divider css-var-test-id ant-divider-vertical"
                       role="separator"
                       style="height: auto;"
                     />
                     <div
-                      class="ant-col"
+                      class="ant-col css-var-test-id"
                       style="flex-basis: auto; min-width: 0;"
                     >
                       <div
@@ -5947,7 +5949,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                             class="ant-color-picker-slider-group"
                           >
                             <div
-                              class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                              class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                             >
                               <div
                                 class="ant-slider-rail ant-color-picker-slider-rail"
@@ -5968,7 +5970,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               />
                             </div>
                             <div
-                              class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                              class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                             >
                               <div
                                 class="ant-slider-rail ant-color-picker-slider-rail"
@@ -6003,7 +6005,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                         class="ant-color-picker-input-container"
                       >
                         <div
-                          class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                          class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                         >
                           <div
                             class="ant-select-selector"
@@ -6040,7 +6042,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                             </span>
                           </div>
                           <div
-                            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                           >
                             <div>
@@ -6167,7 +6169,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           class="ant-color-picker-input"
                         >
                           <span
-                            class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                            class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
                           >
                             <span
                               class="ant-input-prefix"
@@ -6182,7 +6184,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           </span>
                         </div>
                         <div
-                          class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                          class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                         >
                           <div
                             class="ant-input-number-handler-wrap"
@@ -6277,7 +6279,7 @@ exports[`renders components/color-picker/demo/presets.tsx extend context correct
 Array [
   <div
     aria-describedby="test-id"
-    class="ant-color-picker-trigger"
+    class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
   >
     <div
       class="ant-color-picker-color-block"
@@ -6289,7 +6291,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
@@ -6344,7 +6346,7 @@ Array [
                     class="ant-color-picker-slider-group"
                   >
                     <div
-                      class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                      class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
@@ -6365,7 +6367,7 @@ Array [
                       />
                     </div>
                     <div
-                      class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                      class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
@@ -6400,7 +6402,7 @@ Array [
                 class="ant-color-picker-input-container"
               >
                 <div
-                  class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -6437,7 +6439,7 @@ Array [
                     </span>
                   </div>
                   <div
-                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                   >
                     <div>
@@ -6564,7 +6566,7 @@ Array [
                   class="ant-color-picker-input"
                 >
                   <span
-                    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
                   >
                     <span
                       class="ant-input-prefix"
@@ -6579,7 +6581,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                  class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -6656,14 +6658,14 @@ Array [
                 </div>
               </div>
               <div
-                class="ant-divider ant-divider-horizontal"
+                class="ant-divider css-var-test-id ant-divider-horizontal"
                 role="separator"
               />
               <div
                 class="ant-color-picker-presets"
               >
                 <div
-                  class="ant-collapse ant-collapse-icon-position-start ant-collapse-ghost"
+                  class="ant-collapse ant-collapse-icon-position-start ant-collapse-ghost css-var-test-id"
                 >
                   <div
                     class="ant-collapse-item ant-collapse-item-active"
@@ -6700,7 +6702,7 @@ Array [
                         </span>
                       </div>
                       <span
-                        class="ant-collapse-header-text"
+                        class="ant-collapse-title"
                       >
                         <div
                           class="ant-color-picker-presets-label"
@@ -6710,10 +6712,10 @@ Array [
                       </span>
                     </div>
                     <div
-                      class="ant-collapse-content ant-collapse-content-active"
+                      class="ant-collapse-panel ant-collapse-panel-active"
                     >
                       <div
-                        class="ant-collapse-content-box"
+                        class="ant-collapse-body"
                       >
                         <div
                           class="ant-color-picker-presets-items"
@@ -6837,7 +6839,7 @@ Array [
                         </span>
                       </div>
                       <span
-                        class="ant-collapse-header-text"
+                        class="ant-collapse-title"
                       >
                         <div
                           class="ant-color-picker-presets-label"
@@ -6847,10 +6849,10 @@ Array [
                       </span>
                     </div>
                     <div
-                      class="ant-collapse-content ant-collapse-content-active"
+                      class="ant-collapse-panel ant-collapse-panel-active"
                     >
                       <div
-                        class="ant-collapse-content-box"
+                        class="ant-collapse-body"
                       >
                         <div
                           class="ant-color-picker-presets-items"
@@ -6974,7 +6976,7 @@ Array [
                         </span>
                       </div>
                       <span
-                        class="ant-collapse-header-text"
+                        class="ant-collapse-title"
                       >
                         <div
                           class="ant-color-picker-presets-label"
@@ -6984,10 +6986,10 @@ Array [
                       </span>
                     </div>
                     <div
-                      class="ant-collapse-content ant-collapse-content-active"
+                      class="ant-collapse-panel ant-collapse-panel-active"
                     >
                       <div
-                        class="ant-collapse-content-box"
+                        class="ant-collapse-body"
                       >
                         <div
                           class="ant-color-picker-presets-items"
@@ -7098,7 +7100,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
   >
     <div
       aria-describedby="test-id"
-      class="ant-color-picker-trigger ant-popover-open ant-color-picker-trigger-active"
+      class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var ant-popover-open ant-color-picker-trigger-active"
       style="margin: 0px;"
     >
       <div
@@ -7111,7 +7113,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
       </div>
     </div>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottom"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottom"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -7166,7 +7168,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                       class="ant-color-picker-slider-group"
                     >
                       <div
-                        class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                        class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                       >
                         <div
                           class="ant-slider-rail ant-color-picker-slider-rail"
@@ -7187,7 +7189,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                         />
                       </div>
                       <div
-                        class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                        class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                       >
                         <div
                           class="ant-slider-rail ant-color-picker-slider-rail"
@@ -7222,7 +7224,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                   class="ant-color-picker-input-container"
                 >
                   <div
-                    class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <div
                       class="ant-select-selector"
@@ -7259,7 +7261,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                       </span>
                     </div>
                     <div
-                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 150; width: 68px;"
                     >
                       <div>
@@ -7386,7 +7388,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                     class="ant-color-picker-input"
                   >
                     <span
-                      class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                      class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
                     >
                       <span
                         class="ant-input-prefix"
@@ -7401,7 +7403,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                     </span>
                   </div>
                   <div
-                    class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                    class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                   >
                     <div
                       class="ant-input-number-handler-wrap"
@@ -7491,20 +7493,20 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
 
 exports[`renders components/color-picker/demo/size.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+      class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
     >
       <div
         class="ant-space-item"
       >
         <div
           aria-describedby="test-id"
-          class="ant-color-picker-trigger ant-color-picker-sm"
+          class="ant-color-picker-trigger ant-color-picker-sm css-var-test-id ant-color-picker-css-var"
         >
           <div
             class="ant-color-picker-color-block"
@@ -7516,7 +7518,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
           </div>
         </div>
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -7571,7 +7573,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           class="ant-color-picker-slider-group"
                         >
                           <div
-                            class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                            class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                           >
                             <div
                               class="ant-slider-rail ant-color-picker-slider-rail"
@@ -7592,7 +7594,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             />
                           </div>
                           <div
-                            class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                            class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                           >
                             <div
                               class="ant-slider-rail ant-color-picker-slider-rail"
@@ -7627,7 +7629,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-color-picker-input-container"
                     >
                       <div
-                        class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                        class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                       >
                         <div
                           class="ant-select-selector"
@@ -7664,7 +7666,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           </span>
                         </div>
                         <div
-                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                         >
                           <div>
@@ -7791,7 +7793,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         class="ant-color-picker-input"
                       >
                         <span
-                          class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                          class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
                         >
                           <span
                             class="ant-input-prefix"
@@ -7806,7 +7808,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         </span>
                       </div>
                       <div
-                        class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                        class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                       >
                         <div
                           class="ant-input-number-handler-wrap"
@@ -7894,7 +7896,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
       >
         <div
           aria-describedby="test-id"
-          class="ant-color-picker-trigger"
+          class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
         >
           <div
             class="ant-color-picker-color-block"
@@ -7906,7 +7908,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
           </div>
         </div>
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -7961,7 +7963,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           class="ant-color-picker-slider-group"
                         >
                           <div
-                            class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                            class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                           >
                             <div
                               class="ant-slider-rail ant-color-picker-slider-rail"
@@ -7982,7 +7984,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             />
                           </div>
                           <div
-                            class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                            class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                           >
                             <div
                               class="ant-slider-rail ant-color-picker-slider-rail"
@@ -8017,7 +8019,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-color-picker-input-container"
                     >
                       <div
-                        class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                        class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                       >
                         <div
                           class="ant-select-selector"
@@ -8054,7 +8056,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           </span>
                         </div>
                         <div
-                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                         >
                           <div>
@@ -8181,7 +8183,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         class="ant-color-picker-input"
                       >
                         <span
-                          class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                          class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
                         >
                           <span
                             class="ant-input-prefix"
@@ -8196,7 +8198,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         </span>
                       </div>
                       <div
-                        class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                        class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                       >
                         <div
                           class="ant-input-number-handler-wrap"
@@ -8284,7 +8286,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
       >
         <div
           aria-describedby="test-id"
-          class="ant-color-picker-trigger ant-color-picker-lg"
+          class="ant-color-picker-trigger ant-color-picker-lg css-var-test-id ant-color-picker-css-var"
         >
           <div
             class="ant-color-picker-color-block"
@@ -8296,7 +8298,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
           </div>
         </div>
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -8351,7 +8353,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           class="ant-color-picker-slider-group"
                         >
                           <div
-                            class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                            class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                           >
                             <div
                               class="ant-slider-rail ant-color-picker-slider-rail"
@@ -8372,7 +8374,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             />
                           </div>
                           <div
-                            class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                            class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                           >
                             <div
                               class="ant-slider-rail ant-color-picker-slider-rail"
@@ -8407,7 +8409,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-color-picker-input-container"
                     >
                       <div
-                        class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                        class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                       >
                         <div
                           class="ant-select-selector"
@@ -8444,7 +8446,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           </span>
                         </div>
                         <div
-                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                         >
                           <div>
@@ -8571,7 +8573,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         class="ant-color-picker-input"
                       >
                         <span
-                          class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                          class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
                         >
                           <span
                             class="ant-input-prefix"
@@ -8586,7 +8588,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         </span>
                       </div>
                       <div
-                        class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                        class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                       >
                         <div
                           class="ant-input-number-handler-wrap"
@@ -8675,14 +8677,14 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+      class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
     >
       <div
         class="ant-space-item"
       >
         <div
           aria-describedby="test-id"
-          class="ant-color-picker-trigger ant-color-picker-sm"
+          class="ant-color-picker-trigger ant-color-picker-sm css-var-test-id ant-color-picker-css-var"
         >
           <div
             class="ant-color-picker-color-block"
@@ -8699,7 +8701,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
           </div>
         </div>
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -8754,7 +8756,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           class="ant-color-picker-slider-group"
                         >
                           <div
-                            class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                            class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                           >
                             <div
                               class="ant-slider-rail ant-color-picker-slider-rail"
@@ -8775,7 +8777,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             />
                           </div>
                           <div
-                            class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                            class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                           >
                             <div
                               class="ant-slider-rail ant-color-picker-slider-rail"
@@ -8810,7 +8812,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-color-picker-input-container"
                     >
                       <div
-                        class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                        class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                       >
                         <div
                           class="ant-select-selector"
@@ -8847,7 +8849,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           </span>
                         </div>
                         <div
-                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                         >
                           <div>
@@ -8974,7 +8976,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         class="ant-color-picker-input"
                       >
                         <span
-                          class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                          class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
                         >
                           <span
                             class="ant-input-prefix"
@@ -8989,7 +8991,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         </span>
                       </div>
                       <div
-                        class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                        class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                       >
                         <div
                           class="ant-input-number-handler-wrap"
@@ -9077,7 +9079,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
       >
         <div
           aria-describedby="test-id"
-          class="ant-color-picker-trigger"
+          class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
         >
           <div
             class="ant-color-picker-color-block"
@@ -9094,7 +9096,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
           </div>
         </div>
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -9149,7 +9151,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           class="ant-color-picker-slider-group"
                         >
                           <div
-                            class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                            class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                           >
                             <div
                               class="ant-slider-rail ant-color-picker-slider-rail"
@@ -9170,7 +9172,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             />
                           </div>
                           <div
-                            class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                            class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                           >
                             <div
                               class="ant-slider-rail ant-color-picker-slider-rail"
@@ -9205,7 +9207,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-color-picker-input-container"
                     >
                       <div
-                        class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                        class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                       >
                         <div
                           class="ant-select-selector"
@@ -9242,7 +9244,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           </span>
                         </div>
                         <div
-                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                         >
                           <div>
@@ -9369,7 +9371,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         class="ant-color-picker-input"
                       >
                         <span
-                          class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                          class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
                         >
                           <span
                             class="ant-input-prefix"
@@ -9384,7 +9386,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         </span>
                       </div>
                       <div
-                        class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                        class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                       >
                         <div
                           class="ant-input-number-handler-wrap"
@@ -9472,7 +9474,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
       >
         <div
           aria-describedby="test-id"
-          class="ant-color-picker-trigger ant-color-picker-lg"
+          class="ant-color-picker-trigger ant-color-picker-lg css-var-test-id ant-color-picker-css-var"
         >
           <div
             class="ant-color-picker-color-block"
@@ -9489,7 +9491,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
           </div>
         </div>
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
@@ -9544,7 +9546,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           class="ant-color-picker-slider-group"
                         >
                           <div
-                            class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                            class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                           >
                             <div
                               class="ant-slider-rail ant-color-picker-slider-rail"
@@ -9565,7 +9567,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             />
                           </div>
                           <div
-                            class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                            class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                           >
                             <div
                               class="ant-slider-rail ant-color-picker-slider-rail"
@@ -9600,7 +9602,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-color-picker-input-container"
                     >
                       <div
-                        class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                        class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                       >
                         <div
                           class="ant-select-selector"
@@ -9637,7 +9639,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           </span>
                         </div>
                         <div
-                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                         >
                           <div>
@@ -9764,7 +9766,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         class="ant-color-picker-input"
                       >
                         <span
-                          class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                          class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
                         >
                           <span
                             class="ant-input-prefix"
@@ -9779,7 +9781,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         </span>
                       </div>
                       <div
-                        class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                        class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                       >
                         <div
                           class="ant-input-number-handler-wrap"
@@ -9871,14 +9873,14 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
 
 exports[`renders components/color-picker/demo/text-render.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <div
       aria-describedby="test-id"
-      class="ant-color-picker-trigger"
+      class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
     >
       <div
         class="ant-color-picker-color-block"
@@ -9895,7 +9897,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
       </div>
     </div>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -9957,7 +9959,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       class="ant-color-picker-slider-group"
                     >
                       <div
-                        class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                        class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                       >
                         <div
                           class="ant-slider-rail ant-color-picker-slider-rail"
@@ -9978,7 +9980,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                         />
                       </div>
                       <div
-                        class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                        class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                       >
                         <div
                           class="ant-slider-rail ant-color-picker-slider-rail"
@@ -10013,7 +10015,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                   class="ant-color-picker-input-container"
                 >
                   <div
-                    class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <div
                       class="ant-select-selector"
@@ -10050,7 +10052,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       </span>
                     </div>
                     <div
-                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                     >
                       <div>
@@ -10177,7 +10179,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     class="ant-color-picker-input"
                   >
                     <span
-                      class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                      class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
                     >
                       <span
                         class="ant-input-prefix"
@@ -10192,7 +10194,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     </span>
                   </div>
                   <div
-                    class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                    class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                   >
                     <div
                       class="ant-input-number-handler-wrap"
@@ -10280,7 +10282,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
   >
     <div
       aria-describedby="test-id"
-      class="ant-color-picker-trigger"
+      class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
     >
       <div
         class="ant-color-picker-color-block"
@@ -10299,7 +10301,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
       </div>
     </div>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -10354,7 +10356,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       class="ant-color-picker-slider-group"
                     >
                       <div
-                        class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                        class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                       >
                         <div
                           class="ant-slider-rail ant-color-picker-slider-rail"
@@ -10375,7 +10377,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                         />
                       </div>
                       <div
-                        class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                        class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                       >
                         <div
                           class="ant-slider-rail ant-color-picker-slider-rail"
@@ -10410,7 +10412,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                   class="ant-color-picker-input-container"
                 >
                   <div
-                    class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <div
                       class="ant-select-selector"
@@ -10447,7 +10449,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       </span>
                     </div>
                     <div
-                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                     >
                       <div>
@@ -10574,7 +10576,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     class="ant-color-picker-input"
                   >
                     <span
-                      class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                      class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
                     >
                       <span
                         class="ant-input-prefix"
@@ -10589,7 +10591,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     </span>
                   </div>
                   <div
-                    class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                    class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                   >
                     <div
                       class="ant-input-number-handler-wrap"
@@ -10677,7 +10679,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
   >
     <div
       aria-describedby="test-id"
-      class="ant-color-picker-trigger"
+      class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
     >
       <div
         class="ant-color-picker-color-block"
@@ -10713,7 +10715,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
       </div>
     </div>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -10768,7 +10770,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       class="ant-color-picker-slider-group"
                     >
                       <div
-                        class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                        class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                       >
                         <div
                           class="ant-slider-rail ant-color-picker-slider-rail"
@@ -10789,7 +10791,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                         />
                       </div>
                       <div
-                        class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                        class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                       >
                         <div
                           class="ant-slider-rail ant-color-picker-slider-rail"
@@ -10824,7 +10826,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                   class="ant-color-picker-input-container"
                 >
                   <div
-                    class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <div
                       class="ant-select-selector"
@@ -10861,7 +10863,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       </span>
                     </div>
                     <div
-                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                     >
                       <div>
@@ -10988,7 +10990,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     class="ant-color-picker-input"
                   >
                     <span
-                      class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                      class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
                     >
                       <span
                         class="ant-input-prefix"
@@ -11003,7 +11005,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     </span>
                   </div>
                   <div
-                    class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                    class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                   >
                     <div
                       class="ant-input-number-handler-wrap"
@@ -11095,7 +11097,7 @@ exports[`renders components/color-picker/demo/trigger.tsx extend context correct
 Array [
   <button
     aria-describedby="test-id"
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     style="background-color: rgb(22, 119, 255);"
     type="button"
   >
@@ -11104,7 +11106,7 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
@@ -11159,7 +11161,7 @@ Array [
                     class="ant-color-picker-slider-group"
                   >
                     <div
-                      class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                      class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
@@ -11180,7 +11182,7 @@ Array [
                       />
                     </div>
                     <div
-                      class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                      class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
@@ -11215,7 +11217,7 @@ Array [
                 class="ant-color-picker-input-container"
               >
                 <div
-                  class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -11252,7 +11254,7 @@ Array [
                     </span>
                   </div>
                   <div
-                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                   >
                     <div>
@@ -11379,7 +11381,7 @@ Array [
                   class="ant-color-picker-input"
                 >
                   <span
-                    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
                   >
                     <span
                       class="ant-input-prefix"
@@ -11394,7 +11396,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                  class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -11485,7 +11487,7 @@ exports[`renders components/color-picker/demo/trigger-event.tsx extend context c
 Array [
   <div
     aria-describedby="test-id"
-    class="ant-color-picker-trigger"
+    class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
   >
     <div
       class="ant-color-picker-color-block"
@@ -11497,7 +11499,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
@@ -11552,7 +11554,7 @@ Array [
                     class="ant-color-picker-slider-group"
                   >
                     <div
-                      class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                      class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
@@ -11573,7 +11575,7 @@ Array [
                       />
                     </div>
                     <div
-                      class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                      class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
@@ -11608,7 +11610,7 @@ Array [
                 class="ant-color-picker-input-container"
               >
                 <div
-                  class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -11645,7 +11647,7 @@ Array [
                     </span>
                   </div>
                   <div
-                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
                   >
                     <div>
@@ -11772,7 +11774,7 @@ Array [
                   class="ant-color-picker-input"
                 >
                   <span
-                    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
                   >
                     <span
                       class="ant-input-prefix"
@@ -11787,7 +11789,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                  class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                 >
                   <div
                     class="ant-input-number-handler-wrap"

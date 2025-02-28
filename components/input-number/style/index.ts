@@ -1,6 +1,11 @@
 import { unit } from '@ant-design/cssinjs';
 
-import { genBasicInputStyle, genInputGroupStyle, genPlaceholderStyle, initInputToken } from '../../input/style';
+import {
+  genBasicInputStyle,
+  genInputGroupStyle,
+  genPlaceholderStyle,
+  initInputToken,
+} from '../../input/style';
 import {
   genBorderlessStyle,
   genFilledGroupStyle,

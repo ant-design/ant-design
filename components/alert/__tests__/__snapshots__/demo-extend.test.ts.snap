@@ -3,7 +3,7 @@
 exports[`renders components/alert/demo/action.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-alert ant-alert-success"
+    class="ant-alert ant-alert-success css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -27,19 +27,19 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Success Tips
       </div>
     </div>
     <div
-      class="ant-alert-action"
+      class="ant-alert-actions"
     >
       <button
-        class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm"
+        class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm"
         type="button"
       >
         <span>
@@ -76,7 +76,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-error ant-alert-with-description"
+    class="ant-alert ant-alert-error ant-alert-with-description css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -101,10 +101,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Error Text
       </div>
@@ -115,10 +115,10 @@ Array [
       </div>
     </div>
     <div
-      class="ant-alert-action"
+      class="ant-alert-actions"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined ant-btn-sm"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined ant-btn-sm"
         type="button"
       >
         <span>
@@ -129,30 +129,30 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-warning ant-alert-no-icon"
+    class="ant-alert ant-alert-warning ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Warning Text
       </div>
     </div>
     <div
-      class="ant-alert-action"
+      class="ant-alert-actions"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
       >
         <div
           class="ant-space-item"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm"
+            class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm"
             type="button"
           >
             <span>
@@ -191,15 +191,15 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
+    class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Info Text
       </div>
@@ -210,16 +210,16 @@ Array [
       </div>
     </div>
     <div
-      class="ant-alert-action"
+      class="ant-alert-actions"
     >
       <div
-        class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+        class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
       >
         <div
           class="ant-space-item"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+            class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
             type="button"
           >
             <span>
@@ -231,7 +231,7 @@ Array [
           class="ant-space-item"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined ant-btn-sm ant-btn-background-ghost"
+            class="ant-btn css-var-test-id ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined ant-btn-sm ant-btn-background-ghost"
             type="button"
           >
             <span>
@@ -276,7 +276,7 @@ exports[`renders components/alert/demo/action.tsx extend context correctly 2`] =
 exports[`renders components/alert/demo/banner.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-alert ant-alert-warning ant-alert-banner"
+    class="ant-alert ant-alert-warning ant-alert-banner css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -300,10 +300,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Warning text
       </div>
@@ -311,7 +311,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-warning ant-alert-banner"
+    class="ant-alert ant-alert-warning ant-alert-banner css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -335,10 +335,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Very long warning text warning text text text text text text text
       </div>
@@ -372,15 +372,15 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-warning ant-alert-no-icon ant-alert-banner"
+    class="ant-alert ant-alert-warning ant-alert-no-icon ant-alert-banner css-var-test-id"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Warning text without icon
       </div>
@@ -388,7 +388,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-error ant-alert-banner"
+    class="ant-alert ant-alert-error ant-alert-banner css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -413,10 +413,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Error text
       </div>
@@ -429,15 +429,15 @@ exports[`renders components/alert/demo/banner.tsx extend context correctly 2`] =
 
 exports[`renders components/alert/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-alert ant-alert-success ant-alert-no-icon"
+  class="ant-alert ant-alert-success ant-alert-no-icon css-var-test-id"
   data-show="true"
   role="alert"
 >
   <div
-    class="ant-alert-content"
+    class="ant-alert-section"
   >
     <div
-      class="ant-alert-message"
+      class="ant-alert-title"
     >
       Success Text
     </div>
@@ -450,15 +450,15 @@ exports[`renders components/alert/demo/basic.tsx extend context correctly 2`] = 
 exports[`renders components/alert/demo/closable.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-alert ant-alert-warning ant-alert-no-icon"
+    class="ant-alert ant-alert-warning ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text
       </div>
@@ -492,15 +492,15 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon"
+    class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Error Text
       </div>
@@ -539,15 +539,15 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon"
+    class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Error Text
       </div>
@@ -593,15 +593,15 @@ exports[`renders components/alert/demo/closable.tsx extend context correctly 2`]
 exports[`renders components/alert/demo/custom-icon.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-alert ant-alert-success ant-alert-no-icon"
+    class="ant-alert ant-alert-success ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         showIcon = false
       </div>
@@ -609,7 +609,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-success"
+    class="ant-alert ant-alert-success css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -633,10 +633,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Success Tips
       </div>
@@ -644,7 +644,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-info"
+    class="ant-alert ant-alert-info css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -668,10 +668,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Informational Notes
       </div>
@@ -679,7 +679,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-warning"
+    class="ant-alert ant-alert-warning css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -703,10 +703,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Warning
       </div>
@@ -714,7 +714,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-error"
+    class="ant-alert ant-alert-error css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -738,10 +738,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Error
       </div>
@@ -749,7 +749,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-success ant-alert-with-description"
+    class="ant-alert ant-alert-success ant-alert-with-description css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -773,10 +773,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Success Tips
       </div>
@@ -789,7 +789,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-info ant-alert-with-description"
+    class="ant-alert ant-alert-info ant-alert-with-description css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -813,10 +813,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Informational Notes
       </div>
@@ -829,7 +829,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-warning ant-alert-with-description"
+    class="ant-alert ant-alert-warning ant-alert-with-description css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -853,10 +853,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Warning
       </div>
@@ -869,7 +869,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-error ant-alert-with-description"
+    class="ant-alert ant-alert-error ant-alert-with-description css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -893,10 +893,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Error
       </div>
@@ -915,15 +915,15 @@ exports[`renders components/alert/demo/custom-icon.tsx extend context correctly 
 exports[`renders components/alert/demo/description.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-alert ant-alert-success ant-alert-with-description ant-alert-no-icon"
+    class="ant-alert ant-alert-success ant-alert-with-description ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Success Text
       </div>
@@ -936,15 +936,15 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
+    class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Info Text
       </div>
@@ -957,15 +957,15 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-warning ant-alert-with-description ant-alert-no-icon"
+    class="ant-alert ant-alert-warning ant-alert-with-description ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Warning Text
       </div>
@@ -978,15 +978,15 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon"
+    class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Error Text
       </div>
@@ -1004,7 +1004,7 @@ exports[`renders components/alert/demo/description.tsx extend context correctly 
 
 exports[`renders components/alert/demo/error-boundary.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
+  class="ant-btn css-var-test-id ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
   type="button"
 >
   <span>
@@ -1018,7 +1018,7 @@ exports[`renders components/alert/demo/error-boundary.tsx extend context correct
 exports[`renders components/alert/demo/icon.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-alert ant-alert-success"
+    class="ant-alert ant-alert-success css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1042,10 +1042,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Success Tips
       </div>
@@ -1053,7 +1053,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-info"
+    class="ant-alert ant-alert-info css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1077,10 +1077,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Informational Notes
       </div>
@@ -1088,7 +1088,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-warning"
+    class="ant-alert ant-alert-warning css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1112,10 +1112,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Warning
       </div>
@@ -1149,7 +1149,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-error"
+    class="ant-alert ant-alert-error css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1174,10 +1174,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Error
       </div>
@@ -1185,7 +1185,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-success ant-alert-with-description"
+    class="ant-alert ant-alert-success ant-alert-with-description css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1209,10 +1209,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Success Tips
       </div>
@@ -1225,7 +1225,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-info ant-alert-with-description"
+    class="ant-alert ant-alert-info ant-alert-with-description css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1249,10 +1249,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Informational Notes
       </div>
@@ -1265,7 +1265,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-warning ant-alert-with-description"
+    class="ant-alert ant-alert-warning ant-alert-with-description css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1289,10 +1289,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Warning
       </div>
@@ -1331,7 +1331,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-error ant-alert-with-description"
+    class="ant-alert ant-alert-error ant-alert-with-description css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1356,10 +1356,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Error
       </div>
@@ -1378,15 +1378,15 @@ exports[`renders components/alert/demo/icon.tsx extend context correctly 2`] = `
 exports[`renders components/alert/demo/smooth-closed.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-alert ant-alert-success ant-alert-no-icon"
+    class="ant-alert ant-alert-success ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Alert Message Text
       </div>
@@ -1423,7 +1423,7 @@ Array [
   </p>,
   <button
     aria-checked="true"
-    class="ant-switch ant-switch-checked ant-switch-disabled"
+    class="ant-switch css-var-test-id ant-switch-checked ant-switch-disabled"
     disabled=""
     role="switch"
     type="button"
@@ -1450,15 +1450,15 @@ exports[`renders components/alert/demo/smooth-closed.tsx extend context correctl
 exports[`renders components/alert/demo/style.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-alert ant-alert-success ant-alert-no-icon"
+    class="ant-alert ant-alert-success ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Success Text
       </div>
@@ -1466,15 +1466,15 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-info ant-alert-no-icon"
+    class="ant-alert ant-alert-info ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Info Text
       </div>
@@ -1482,15 +1482,15 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-warning ant-alert-no-icon"
+    class="ant-alert ant-alert-warning ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Warning Text
       </div>
@@ -1498,15 +1498,15 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-error ant-alert-no-icon"
+    class="ant-alert ant-alert-error ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         Error Text
       </div>

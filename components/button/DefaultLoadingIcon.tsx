@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import CSSMotion from '@rc-component/motion';
 import classNames from 'classnames';
-import CSSMotion from 'rc-motion';
 
 import IconWrapper from './IconWrapper';
 

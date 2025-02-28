@@ -1,8 +1,8 @@
 import * as React from 'react';
 import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
 import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
+import KeyCode from '@rc-component/util/lib/KeyCode';
 import classNames from 'classnames';
-import KeyCode from 'rc-util/lib/KeyCode';
 
 import type { AnyObject } from '../../_util/type';
 import type { TooltipProps } from '../../tooltip';

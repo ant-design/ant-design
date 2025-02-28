@@ -61,12 +61,12 @@ Common props ref：[Common props](/docs/react/common-props)
 | subMenuOpenDelay | Delay time to show submenu when mouse enters, (in seconds) | number | 0 |  |
 | theme | Color theme of the menu | `light` \| `dark` | `light` |  |
 | triggerSubMenuAction | Which action can trigger submenu open/close | `hover` \| `click` | `hover` |  |
-| onClick | Called when a menu item is clicked | function({ item, key, keyPath, domEvent }) | - |  |
-| onDeselect | Called when a menu item is deselected (multiple mode only) | function({ item, key, keyPath, selectedKeys, domEvent }) | - |  |
+| onClick | Called when a menu item is clicked | function({ key, keyPath, domEvent }) | - |  |
+| onDeselect | Called when a menu item is deselected (multiple mode only) | function({ key, keyPath, selectedKeys, domEvent }) | - |  |
 | onOpenChange | Called when sub-menus are opened or closed | function(openKeys: string\[]) | - |  |
-| onSelect | Called when a menu item is selected | function({ item, key, keyPath, selectedKeys, domEvent }) | - |  |
+| onSelect | Called when a menu item is selected | function({ key, keyPath, selectedKeys, domEvent }) | - |  |
 
-> More options in [rc-menu](https://github.com/react-component/menu#api)
+> More options in [@rc-component/menu](https://github.com/react-component/menu#api)
 
 ### ItemType
 

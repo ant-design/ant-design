@@ -1,15 +1,15 @@
 import React from 'react';
-import { CheckCircleOutlined } from '@ant-design/icons';
+import { CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
 
 import Tag from '..';
-import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 (global as any).isVisible = true;
 
-jest.mock('rc-util/lib/Dom/isVisible', () => {
+jest.mock('@rc-component/util/lib/Dom/isVisible', () => {
   const mockFn = () => (global as any).isVisible;
   return mockFn;
 });
@@ -119,52 +119,55 @@ describe('Tag', () => {
     expect(container.querySelector('.ant-tag ')?.childElementCount).toBe(1);
   });
 
-  it('deprecated warning', () => {
-    resetWarned();
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
-    const { container } = render(<Tag visible={false} />);
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tag] `visible` is deprecated. Please use `visible && <Tag />` instead.',
-    );
-    expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
-
-    errSpy.mockRestore();
-  });
-
-  describe('visibility', () => {
-    it('can be controlled by visible with visible as initial value', () => {
-      const { container, rerender } = render(<Tag visible />);
-      expect(container.querySelector('.ant-tag-hidden')).toBeFalsy();
-
-      rerender(<Tag visible={false} />);
-      act(() => {
-        jest.runAllTimers();
-      });
-      expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
-
-      rerender(<Tag visible />);
-      act(() => {
-        jest.runAllTimers();
-      });
-      expect(container.querySelector('.ant-tag-hidden')).toBeFalsy();
+  describe('disabled', () => {
+    it('should not trigger onClick when disabled', () => {
+      const onClick = jest.fn();
+      const { container } = render(<Tag disabled onClick={onClick} />);
+      fireEvent.click(container.querySelector('.ant-tag')!);
+      expect(onClick).not.toHaveBeenCalled();
     });
 
-    it('can be controlled by visible with hidden as initial value', () => {
-      const { container, rerender } = render(<Tag visible={false} />);
-      expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
+    it('should not trigger onClose when disabled', () => {
+      const onClose = jest.fn();
+      const { container } = render(<Tag disabled closable onClose={onClose} />);
+      fireEvent.click(container.querySelector('.ant-tag-close-icon')!);
+      expect(onClose).not.toHaveBeenCalled();
+    });
 
-      rerender(<Tag visible />);
-      act(() => {
-        jest.runAllTimers();
-      });
-      expect(container.querySelector('.ant-tag-hidden')).toBeFalsy();
+    it("should prevent children's event when disabled", () => {
+      const onClick = jest.fn();
+      const { container } = render(
+        <Tag disabled>
+          <a href="https://ant.design" onClick={onClick}>
+            Link
+          </a>
+        </Tag>,
+      );
+      const link = container.querySelector('a')!;
+      expect(window.getComputedStyle(link).pointerEvents).toBe('none');
+    });
 
-      rerender(<Tag visible={false} />);
-      act(() => {
-        jest.runAllTimers();
-      });
-      expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
+    it('should render correctly when disabled', () => {
+      const { container } = render(<Tag disabled>Disabled Tag</Tag>);
+      expect(container.querySelector('.ant-tag-disabled')).toBeTruthy();
+    });
+
+    it('should not trigger onClose and onClick when click closeIcon and disabled', () => {
+      const onClose = jest.fn();
+      const onClick = jest.fn();
+      const { container } = render(
+        <Tag
+          disabled
+          closable
+          closeIcon={<CloseCircleOutlined />}
+          onClose={onClose}
+          onClick={onClick}
+        />,
+      );
+
+      fireEvent.click(container.querySelector('.ant-tag-close-icon')!);
+      expect(onClose).not.toHaveBeenCalled();
+      expect(onClick).not.toHaveBeenCalled();
     });
   });
 
@@ -190,6 +193,50 @@ describe('Tag', () => {
       expect(queryTarget?.textContent).toBe('Tag Text');
       expect(refElement).toBe(queryTarget);
     });
+
+    it('should not trigger onChange when disabled', () => {
+      const onChange = jest.fn();
+      const { container } = render(
+        <Tag.CheckableTag disabled checked={false} onChange={onChange}>
+          Checkable
+        </Tag.CheckableTag>,
+      );
+      fireEvent.click(container.querySelector('.ant-tag')!);
+      expect(onChange).not.toHaveBeenCalled();
+    });
+
+    it('should render correctly for disabled CheckableTag', () => {
+      const { container, rerender } = render(
+        <Tag.CheckableTag disabled checked={false}>
+          Checkable
+        </Tag.CheckableTag>,
+      );
+      expect(container.querySelector('.ant-tag-checkable-disabled')).toBeTruthy();
+
+      // Test checked state
+      rerender(
+        <Tag.CheckableTag disabled checked>
+          Checkable
+        </Tag.CheckableTag>,
+      );
+      expect(container.querySelector('.ant-tag-checkable-checked')).toBeTruthy();
+      expect(container.querySelector('.ant-tag-checkable-disabled')).toBeTruthy();
+    });
+
+    it('should handle context disabled state', () => {
+      const onChange = jest.fn();
+      const Demo = () => (
+        <ConfigProvider componentDisabled>
+          <Tag.CheckableTag checked={false} onChange={onChange}>
+            Checkable
+          </Tag.CheckableTag>
+        </ConfigProvider>
+      );
+      const { container } = render(<Demo />);
+      expect(container.querySelector('.ant-tag-checkable-disabled')).toBeTruthy();
+      fireEvent.click(container.querySelector('.ant-tag')!);
+      expect(onChange).not.toHaveBeenCalled();
+    });
   });
   it('should onClick is undefined', async () => {
     const { container } = render(<Tag onClick={undefined} />);
@@ -203,5 +250,36 @@ describe('Tag', () => {
       'CloseBtn',
     );
     expect(container.querySelector('.ant-tag-close-icon')?.textContent).toEqual('X');
+  });
+  it('should apply classNames and styles correctly', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      icon: 'custom-icon',
+      content: 'custom-content',
+    };
+
+    const customStyles = {
+      root: { backgroundColor: 'green' },
+      icon: { color: 'red' },
+      content: { backgroundColor: 'blue' },
+    };
+    const { container } = render(
+      <Tag icon={<CheckCircleOutlined />} classNames={customClassNames} styles={customStyles}>
+        ant
+      </Tag>,
+    );
+
+    const rootElement = container.querySelector('.ant-tag') as HTMLElement;
+
+    expect(rootElement.classList).toContain('custom-root');
+    expect(rootElement.style.backgroundColor).toBe('green');
+    expect(container.querySelector('.custom-icon')).toHaveStyle({ color: 'red' });
+    expect(container.querySelector('.custom-content')).toHaveStyle({ backgroundColor: 'blue' });
+  });
+  it('should handle invalid icon gracefully', () => {
+    const { container } = render(<Tag icon="">tag</Tag>);
+    const iconElement = container.querySelector('svg');
+    expect(container).not.toBeNull();
+    expect(iconElement).toBeNull();
   });
 });

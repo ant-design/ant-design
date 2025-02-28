@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Popup } from 'rc-tooltip';
+import { Popup } from '@rc-component/tooltip';
 
 import type { TooltipProps } from '.';
 import { ConfigContext } from '../config-provider';
@@ -22,7 +22,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   // Color
   const colorInfo = parseColor(prefixCls, color);
@@ -44,7 +44,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     colorInfo.className,
   );
 
-  return wrapCSSVar(
+  return (
     <div className={cls} style={arrowContentStyle}>
       <div className={`${prefixCls}-arrow`} />
       <Popup
@@ -55,7 +55,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
       >
         {title}
       </Popup>
-    </div>,
+    </div>
   );
 };
 

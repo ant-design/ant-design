@@ -1,10 +1,19 @@
 import type React from 'react';
-import type { DialogProps } from 'rc-dialog';
+import type { DialogProps } from '@rc-component/dialog';
 
 import { Breakpoint } from '../_util/responsiveObserver';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import type { DirectionType } from '../config-provider';
 
+export type SemanticName =
+  | 'root'
+  | 'header'
+  | 'body'
+  | 'footer'
+  | 'section'
+  | 'title'
+  | 'wrapper'
+  | 'mask';
 interface ModalCommonProps extends Omit<DialogProps, 'footer' | 'width'> {
   footer?:
     | React.ReactNode
@@ -51,7 +60,7 @@ export interface ModalProps extends ModalCommonProps {
   transitionName?: string;
   className?: string;
   rootClassName?: string;
-  classNames?: NonNullable<DialogProps['classNames']>;
+  rootStyle?: React.CSSProperties;
   getContainer?: string | HTMLElement | getContainerFunc | false;
   zIndex?: number;
   /** @deprecated Please use `styles.body` instead */
@@ -67,14 +76,12 @@ export interface ModalProps extends ModalCommonProps {
   focusTriggerAfterClose?: boolean;
   children?: React.ReactNode;
   mousePosition?: MousePosition;
-
-  // Legacy
-  /** @deprecated Please use `open` instead. */
-  visible?: boolean;
   /**
    * @since 5.18.0
    */
   loading?: boolean;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 type getContainerFunc = () => HTMLElement;
@@ -84,8 +91,6 @@ export interface ModalFuncProps extends ModalCommonProps {
   className?: string;
   rootClassName?: string;
   open?: boolean;
-  /** @deprecated Please use `open` instead. */
-  visible?: boolean;
   title?: React.ReactNode;
   content?: React.ReactNode;
   // TODO: find out exact types

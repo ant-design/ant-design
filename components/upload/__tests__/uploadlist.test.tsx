@@ -29,7 +29,7 @@ const fileList: UploadProps['fileList'] = [
 ];
 
 describe('Upload List', () => {
-  // Mock for rc-util raf
+  // Mock for rc-component/util raf
   window.requestAnimationFrame = (callback) => window.setTimeout(callback, 16);
   window.cancelAnimationFrame = (id) => window.clearTimeout(id);
 
@@ -1282,38 +1282,6 @@ describe('Upload List', () => {
       expect(wrapper.container.querySelectorAll('.ant-upload-list-item-thumbnail img').length).toBe(
         0,
       );
-    });
-  });
-
-  it('[deprecated] should support transformFile', (done) => {
-    jest.useRealTimers();
-    // biome-ignore lint/style/useConst: test only
-    let wrapper: ReturnType<typeof render>;
-    let lastFile: UploadFile;
-
-    const handleTransformFile = jest.fn();
-    const onChange: UploadProps['onChange'] = ({ file }) => {
-      if (file.status === 'done') {
-        expect(file).not.toBe(lastFile);
-        expect(handleTransformFile).toHaveBeenCalled();
-        wrapper.unmount();
-        done();
-      }
-
-      lastFile = file;
-    };
-    wrapper = render(
-      <Upload
-        action="http://jsonplaceholder.typicode.com/posts/"
-        transformFile={handleTransformFile}
-        onChange={onChange}
-        customRequest={successRequest}
-      >
-        <button type="button">upload</button>
-      </Upload>,
-    );
-    fireEvent.change(wrapper.container.querySelector('input')!, {
-      target: { files: [{ name: 'foo.png' }] },
     });
   });
 

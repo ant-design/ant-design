@@ -2,13 +2,12 @@ import React, { useEffect } from 'react';
 
 import type { ModalProps } from '..';
 import Modal from '..';
-import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { createEvent, fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
-jest.mock('rc-util/lib/Portal');
+jest.mock('@rc-component/util/lib/Portal');
 
 const ModalTester: React.FC<ModalProps> = (props) => {
   const [open, setOpen] = React.useState(false);
@@ -122,20 +121,6 @@ describe('Modal', () => {
     ).toBe('100px 100px');
   });
 
-  it('deprecated warning', () => {
-    resetWarned();
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
-    render(<Modal visible />);
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Modal] `visible` is deprecated. Please use `open` instead.',
-    );
-
-    expect(document.querySelector('.ant-modal')).toBeTruthy();
-
-    errSpy.mockRestore();
-  });
-
   it('should not render footer if null', () => {
     render(<Modal open footer={null} />);
     expect(document.querySelector('.ant-modal-footer')).toBeFalsy();
@@ -231,5 +216,54 @@ describe('Modal', () => {
       </ConfigProvider>,
     );
     expect(document.querySelector('.ant-modal-centered')).toBeFalsy();
+  });
+
+  it('should apply custom styles to Modal', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      mask: 'custom-mask',
+      wrapper: 'custom-wrapper',
+      header: 'custom-header',
+      title: 'custom-title',
+      body: 'custom-body',
+      footer: 'custom-footer',
+    };
+    const customStyles = {
+      root: { color: 'red' },
+      mask: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
+      wrapper: { padding: '20px' },
+      header: { backgroundColor: 'blue' },
+      title: { fontSize: '20px' },
+      body: { color: 'green' },
+      footer: { color: 'yellow' },
+    };
+
+    render(<Modal classNames={customClassNames} styles={customStyles} open title="title" />);
+
+    const rootElement = document.querySelector('.ant-modal-root') as HTMLElement;
+    const maskElement = document.querySelector('.ant-modal-mask') as HTMLElement;
+    const wrapperElement = document.querySelector('.ant-modal-wrap') as HTMLElement;
+    const headerElement = document.querySelector('.ant-modal-header') as HTMLElement;
+    const titleElement = document.querySelector('.ant-modal-title') as HTMLElement;
+    const bodyElement = document.querySelector('.ant-modal-body') as HTMLElement;
+    const footerElement = document.querySelector('.ant-modal-footer') as HTMLElement;
+
+    // check classNames
+    expect(rootElement.classList).toContain('custom-root');
+    expect(maskElement.classList).toContain('custom-mask');
+    expect(wrapperElement.classList).toContain('custom-wrapper');
+    expect(headerElement.classList).toContain('custom-header');
+    expect(titleElement.classList).toContain('custom-title');
+    expect(bodyElement.classList).toContain('custom-body');
+    expect(footerElement.classList).toContain('custom-footer');
+
+    // check styles
+    expect(rootElement.style.color).toBe('red');
+    expect(maskElement.style.backgroundColor).toBe('rgba(0, 0, 0, 0.5)');
+    expect(wrapperElement.style.padding).toBe('20px');
+    expect(headerElement.style.backgroundColor).toBe('blue');
+    expect(titleElement.style.fontSize).toBe('20px');
+    expect(bodyElement.style.color).toBe('green');
+    expect(footerElement.style.color).toBe('yellow');
   });
 });

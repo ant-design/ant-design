@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
-import CSSMotion from 'rc-motion';
-import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
-import KeyCode from 'rc-util/lib/KeyCode';
-import { resetWarned } from 'rc-util/lib/warning';
+import RcCSSMotion from '@rc-component/motion';
+import { genCSSMotion as genRcCSSMotion } from '@rc-component/motion/lib/CSSMotion';
+import KeyCode from '@rc-component/util/lib/KeyCode';
+import { resetWarned } from '@rc-component/util/lib/warning';
 
 import type { ModalFuncProps } from '..';
 import Modal from '..';
@@ -16,7 +16,7 @@ import destroyFns from '../destroyFns';
 
 const { confirm } = Modal;
 
-jest.mock('rc-motion');
+jest.mock('@rc-component/motion');
 
 // TODO: Remove this. Mock for React 19
 jest.mock('react-dom', () => {
@@ -70,13 +70,14 @@ jest.mock('../../_util/ActionButton', () => {
 });
 
 describe('Modal.confirm triggers callbacks correctly', () => {
-  // Inject CSSMotion to replace with No transition support
-  const MockCSSMotion = genCSSMotion(false);
-  Object.keys(MockCSSMotion).forEach((key) => {
-    (CSSMotion as any)[key] = (MockCSSMotion as any)[key];
+  // Inject `@rc-component/motion` to replace with No transition support
+  const MockRcCSSMotion = genRcCSSMotion(false);
+  Object.keys(MockRcCSSMotion).forEach((key) => {
+    // @ts-ignore
+    RcCSSMotion[key] = MockRcCSSMotion[key];
   });
 
-  // // Mock for rc-util raf
+  // // Mock for @rc-component/util raf
   // window.requestAnimationFrame = callback => {
   //   const ret = window.setTimeout(callback, 16);
   //   return ret;
@@ -314,8 +315,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   it('should close confirm modal when click cancel button', async () => {
     const onCancel = jest.fn();
     Modal.confirm({
-      // test legacy visible
-      visible: true,
+      open: true,
       title: 'title',
       content: 'content',
       onCancel,
@@ -785,7 +785,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     const modal = Modal.confirm({});
 
     modal.update({
-      visible: true,
+      open: true,
     });
 
     await waitFakeTimer();
@@ -847,7 +847,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
       await waitFakeTimer();
 
-      expect(document.querySelector(`.ant-modal-content`)).toMatchSnapshot();
+      expect(document.querySelector(`.ant-modal-section`)).toMatchSnapshot();
     });
   });
 

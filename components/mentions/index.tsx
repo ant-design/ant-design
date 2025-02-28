@@ -1,12 +1,12 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import RcMentions from 'rc-mentions';
+import RcMentions from '@rc-component/mentions';
 import type {
   DataDrivenOptionProps as MentionsOptionProps,
   MentionsProps as RcMentionsProps,
   MentionsRef as RcMentionsRef,
-} from 'rc-mentions/lib/Mentions';
-import { composeRef } from 'rc-util/lib/ref';
+} from '@rc-component/mentions/lib/Mentions';
+import { composeRef } from '@rc-component/util/lib/ref';
+import classNames from 'classnames';
 
 import getAllowClear from '../_util/getAllowClear';
 import genPurePanel from '../_util/PurePanel';
@@ -31,7 +31,7 @@ function loadingFilterOption() {
 
 export type MentionPlacement = 'top' | 'bottom';
 
-export type { DataDrivenOptionProps as MentionsOptionProps } from 'rc-mentions/lib/Mentions';
+export type { DataDrivenOptionProps as MentionsOptionProps } from '@rc-component/mentions/lib/Mentions';
 
 export interface OptionProps {
   value: string;
@@ -159,7 +159,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
 
   // Style
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const [variant, enableVariantCls] = useVariant('mentions', customVariant);
 
@@ -173,7 +173,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     rootCls,
   );
 
-  const mentions = (
+  return (
     <RcMentions
       silent={loading}
       prefixCls={prefixCls}
@@ -187,7 +187,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
       filterOption={mentionsfilterOption}
       onFocus={onFocus}
       onBlur={onBlur}
-      dropdownClassName={classNames(popupClassName, rootClassName, hashId, cssVarCls, rootCls)}
+      popupClassName={classNames(popupClassName, rootClassName, hashId, cssVarCls, rootCls)}
       ref={mergedRef}
       options={mergedOptions}
       suffix={suffixNode}
@@ -212,8 +212,6 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
       {mentionOptions}
     </RcMentions>
   );
-
-  return wrapCSSVar(mentions);
 });
 
 type CompoundedComponent = typeof InternalMentions & {

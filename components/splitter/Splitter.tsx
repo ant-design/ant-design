@@ -1,8 +1,8 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
+import ResizeObserver from '@rc-component/resize-observer';
+import useEvent from '@rc-component/util/lib/hooks/useEvent';
 import classNames from 'classnames';
-import ResizeObserver from 'rc-resize-observer';
-import useEvent from 'rc-util/lib/hooks/useEvent';
 
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -24,6 +24,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     style,
     layout = 'horizontal',
     children,
+    draggerIcon,
+    collapsibleIcon,
     rootClassName,
     onResizeStart,
     onResize,
@@ -39,7 +41,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   } = useComponentConfig('splitter');
   const prefixCls = getPrefixCls('splitter', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // ======================== Direct ========================
   const isVertical = layout === 'vertical';
@@ -157,7 +159,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
-  return wrapCSSVar(
+  return (
     <ResizeObserver onResize={onContainerResize}>
       <div style={mergedStyle} className={containerClassName}>
         {items.map((item, idx) => {
@@ -183,6 +185,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 prefixCls={prefixCls}
                 vertical={isVertical}
                 resizable={resizableInfo.resizable}
+                draggerIcon={draggerIcon}
+                collapsibleIcon={collapsibleIcon}
                 ariaNow={stackSizes[idx] * 100}
                 ariaMin={Math.max(ariaMinStart, ariaMinEnd) * 100}
                 ariaMax={Math.min(ariaMaxStart, ariaMaxEnd) * 100}
@@ -215,7 +219,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
           <div aria-hidden className={classNames(maskCls, `${maskCls}-${layout}`)} />
         )}
       </div>
-    </ResizeObserver>,
+    </ResizeObserver>
   );
 };
 

@@ -108,7 +108,7 @@ const App: React.FC = () => {
         <RangePicker />
       </Form.Item>
 
-      <Form.Item wrapperCol={{ offset: 6, span: 16 }}>
+      <Form.Item label={null}>
         <Button type="primary" htmlType="submit">
           Submit
         </Button>

@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { QRCodeCanvas, QRCodeSVG } from '@rc-component/qrcode';
+import omit from '@rc-component/util/lib/omit';
+import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
-import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -37,7 +37,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('qrcode', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const imageSettings: QRProps['imageSettings'] = {
     src: icon,
@@ -96,7 +96,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     height: style?.height ?? size,
   };
 
-  return wrapCSSVar(
+  return (
     <div {...restProps} className={mergedCls} style={mergedStyle}>
       {status !== 'active' && (
         <div className={`${prefixCls}-mask`}>
@@ -110,7 +110,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
         </div>
       )}
       {type === 'canvas' ? <QRCodeCanvas {...qrCodeProps} /> : <QRCodeSVG {...qrCodeProps} />}
-    </div>,
+    </div>
   );
 };
 

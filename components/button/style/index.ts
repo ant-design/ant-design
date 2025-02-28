@@ -171,7 +171,7 @@ const genGhostButtonStyle = (
   textColor: string | false,
   borderColor: string | false,
   textColorDisabled: string | false,
-  borderColorDisabled: string | false,
+  colorBorderDisabled: string | false,
   hoverStyle?: CSSObject,
   activeStyle?: CSSObject,
 ): CSSObject => ({
@@ -196,7 +196,7 @@ const genGhostButtonStyle = (
     '&:disabled': {
       cursor: 'not-allowed',
       color: textColorDisabled || undefined,
-      borderColor: borderColorDisabled || undefined,
+      borderColor: colorBorderDisabled || undefined,
     },
   },
 });

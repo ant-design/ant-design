@@ -2,13 +2,13 @@
 
 exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-outlined"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -35,7 +35,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-outlined"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -44,7 +44,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
           class="ant-input-group-addon"
         >
           <div
-            class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -81,7 +81,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
               </span>
             </div>
             <div
-              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div>
@@ -197,7 +197,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
           class="ant-input-group-addon"
         >
           <div
-            class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -234,7 +234,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
               </span>
             </div>
             <div
-              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div>
@@ -382,7 +382,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-outlined"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -422,7 +422,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-outlined"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -453,7 +453,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-outlined"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -462,7 +462,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
           class="ant-input-group-addon"
         >
           <div
-            class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+            class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
             style="width: 150px;"
           >
             <div
@@ -499,7 +499,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
               </span>
             </div>
             <div
-              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div>
@@ -520,7 +520,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                         class="ant-cascader-menu-item-content"
                       >
                         <div
-                          class="ant-empty ant-empty-normal ant-empty-small"
+                          class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
                         >
                           <div
                             class="ant-empty-image"
@@ -616,17 +616,17 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 2`] = 
 
 exports[`renders components/input/demo/advance-count.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
   style="gap: 16px;"
 >
   <div>
     <h5
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       Exceed Max
     </h5>
     <span
-      class="ant-input-affix-wrapper ant-input-outlined ant-input-out-of-range"
+      class="ant-input-affix-wrapper ant-input-outlined css-var-test-id ant-input-css-var ant-input-out-of-range"
     >
       <input
         class="ant-input"
@@ -646,12 +646,12 @@ exports[`renders components/input/demo/advance-count.tsx extend context correctl
   </div>
   <div>
     <h5
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       Emoji count as length 1
     </h5>
     <span
-      class="ant-input-affix-wrapper ant-input-outlined"
+      class="ant-input-affix-wrapper ant-input-outlined css-var-test-id ant-input-css-var"
     >
       <input
         class="ant-input"
@@ -671,12 +671,12 @@ exports[`renders components/input/demo/advance-count.tsx extend context correctl
   </div>
   <div>
     <h5
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       Not exceed max
     </h5>
     <span
-      class="ant-input-affix-wrapper ant-input-outlined"
+      class="ant-input-affix-wrapper ant-input-outlined css-var-test-id ant-input-css-var"
     >
       <input
         class="ant-input"
@@ -702,7 +702,7 @@ exports[`renders components/input/demo/advance-count.tsx extend context correctl
 exports[`renders components/input/demo/align.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-mentions ant-mentions-outlined"
+    class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
     style="width: 100px;"
   >
     <textarea
@@ -711,12 +711,12 @@ Array [
     />
   </div>,
   <textarea
-    class="ant-input ant-input-outlined"
+    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
     rows="1"
     style="width: 100px;"
   />,
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -724,13 +724,13 @@ Array [
     </span>
   </button>,
   <input
-    class="ant-input ant-input-outlined"
+    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
     style="width: 100px;"
     type="text"
     value=""
   />,
   <span
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     Ant Design
     <button
@@ -760,7 +760,7 @@ Array [
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -781,7 +781,7 @@ Array [
     </div>
   </span>,
   <span
-    class="ant-input-affix-wrapper ant-input-outlined"
+    class="ant-input-affix-wrapper ant-input-outlined css-var-test-id ant-input-css-var"
     style="width: 100px;"
   >
     <span
@@ -801,7 +801,7 @@ Array [
     </span>
   </span>,
   <span
-    class="ant-input-group-wrapper ant-input-group-wrapper-outlined"
+    class="ant-input-group-wrapper ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var"
     style="width: 100px;"
   >
     <span
@@ -825,7 +825,7 @@ Array [
     </span>
   </span>,
   <div
-    class="ant-input-number ant-input-number-outlined"
+    class="ant-input-number ant-input-number-outlined css-var-test-id ant-input-number-css-var"
     style="width: 100px;"
   >
     <div
@@ -899,7 +899,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-picker ant-picker-outlined"
+    class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     style="width: 100px;"
   >
     <div
@@ -938,7 +938,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
@@ -1513,7 +1513,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-picker ant-picker-outlined"
+    class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     style="width: 100px;"
   >
     <div
@@ -1555,7 +1555,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
@@ -3055,7 +3055,7 @@ Array [
                 class="ant-picker-ok"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                   disabled=""
                   type="button"
                 >
@@ -3071,7 +3071,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+    class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     style="width: 100px;"
   >
     <div
@@ -3109,7 +3109,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
@@ -3216,7 +3216,7 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+    class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     style="width: 100px;"
   >
     <div
@@ -3252,7 +3252,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
@@ -3359,7 +3359,7 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+    class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     style="width: 100px;"
   >
     <div
@@ -3394,7 +3394,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
@@ -3501,7 +3501,7 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
+    class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
     style="width: 100px;"
   >
     <div
@@ -3536,7 +3536,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
@@ -3545,7 +3545,7 @@ Array [
           role="listbox"
         >
           <div
-            class="ant-empty ant-empty-normal ant-empty-small"
+            class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
           >
             <div
               class="ant-empty-image"
@@ -3623,7 +3623,7 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -3660,7 +3660,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
     >
       <div>
@@ -3802,7 +3802,7 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-picker ant-picker-range ant-picker-outlined"
+    class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
   >
     <div
       class="ant-picker-input"
@@ -3885,7 +3885,7 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
+    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
@@ -4998,7 +4998,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-picker ant-picker-outlined"
+    class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
   >
     <div
       class="ant-picker-input"
@@ -5036,7 +5036,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
@@ -5236,10 +5236,10 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
@@ -5262,7 +5262,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -5285,7 +5285,7 @@ Array [
     </label>
   </div>,
   <div
-    class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
+    class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
     style="width: 100px;"
   >
     <div
@@ -5319,7 +5319,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
@@ -5333,7 +5333,7 @@ Array [
   </div>,
   <br />,
   <span
-    class="ant-input-group-wrapper ant-input-group-wrapper-outlined"
+    class="ant-input-group-wrapper ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var"
   >
     <span
       class="ant-input-wrapper ant-input-group"
@@ -5365,7 +5365,7 @@ Array [
     </span>
   </span>,
   <span
-    class="ant-input-affix-wrapper ant-input-outlined"
+    class="ant-input-affix-wrapper ant-input-outlined css-var-test-id ant-input-css-var"
     style="width: 50px;"
   >
     <input
@@ -5380,13 +5380,13 @@ Array [
     </span>
   </span>,
   <input
-    class="ant-input ant-input-outlined"
+    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
     style="width: 50px;"
     type="text"
     value=""
   />,
   <span
-    class="ant-input-affix-wrapper ant-input-outlined"
+    class="ant-input-affix-wrapper ant-input-outlined css-var-test-id ant-input-css-var"
     style="width: 50px;"
   >
     <input
@@ -5408,7 +5408,7 @@ exports[`renders components/input/demo/align.tsx extend context correctly 2`] = 
 exports[`renders components/input/demo/allowClear.tsx extend context correctly 1`] = `
 Array [
   <span
-    class="ant-input-affix-wrapper ant-input-outlined"
+    class="ant-input-affix-wrapper ant-input-outlined css-var-test-id ant-input-css-var"
   >
     <input
       class="ant-input"
@@ -5421,6 +5421,7 @@ Array [
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
+        tabindex="-1"
         type="button"
       >
         <span
@@ -5449,7 +5450,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear ant-input-outlined"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear ant-input-outlined css-var-test-id ant-input-css-var"
   >
     <textarea
       class="ant-input"
@@ -5460,6 +5461,7 @@ Array [
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
+        tabindex="-1"
         type="button"
       >
         <span
@@ -5493,7 +5495,7 @@ exports[`renders components/input/demo/allowClear.tsx extend context correctly 2
 exports[`renders components/input/demo/autosize-textarea.tsx extend context correctly 1`] = `
 Array [
   <textarea
-    class="ant-input ant-input-outlined"
+    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
     placeholder="Autosize height based on content lines"
     style="resize: none; height: 2px;"
   />,
@@ -5501,17 +5503,17 @@ Array [
     style="margin: 24px 0px;"
   />,
   <textarea
-    class="ant-input ant-input-outlined"
+    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
     placeholder="Autosize height with minimum and maximum number of lines"
-    style="resize: none; height: -38px; min-height: -6px; max-height: -38px;"
+    style="resize: none; height: -18px; min-height: -2px; max-height: -18px;"
   />,
   <div
     style="margin: 24px 0px;"
   />,
   <textarea
-    class="ant-input ant-input-outlined"
+    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
     placeholder="Controlled autosize"
-    style="resize: none; height: -30px; min-height: -14px; max-height: -30px;"
+    style="resize: none; height: -14px; min-height: -6px; max-height: -14px;"
   />,
 ]
 `;
@@ -5520,7 +5522,7 @@ exports[`renders components/input/demo/autosize-textarea.tsx extend context corr
 
 exports[`renders components/input/demo/basic.tsx extend context correctly 1`] = `
 <input
-  class="ant-input ant-input-outlined"
+  class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
   placeholder="Basic usage"
   type="text"
   value=""
@@ -5534,23 +5536,23 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
   style="background-color: rgba(0, 0, 128, 0.2);"
 >
   <input
-    class="ant-input ant-input-borderless"
+    class="ant-input ant-input-borderless css-var-test-id ant-input-css-var"
     placeholder="Unbordered"
     type="text"
     value=""
   />
   <input
-    class="ant-input ant-input-lg ant-input-borderless"
+    class="ant-input ant-input-lg ant-input-borderless css-var-test-id ant-input-css-var"
     placeholder="Unbordered"
     type="text"
     value=""
   />
   <textarea
-    class="ant-input ant-input-borderless"
+    class="ant-input ant-input-borderless css-var-test-id ant-input-css-var"
     placeholder="Unbordered"
   />
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear ant-input-borderless"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear ant-input-borderless css-var-test-id ant-input-css-var"
   >
     <textarea
       class="ant-input"
@@ -5561,6 +5563,7 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
+        tabindex="-1"
         type="button"
       >
         <span
@@ -5587,7 +5590,7 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-borderless"
+    class="ant-input-affix-wrapper ant-input-borderless css-var-test-id ant-input-css-var"
   >
     <input
       class="ant-input"
@@ -5600,6 +5603,7 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
+        tabindex="-1"
         type="button"
       >
         <span
@@ -5626,7 +5630,7 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-borderless"
+    class="ant-input-affix-wrapper ant-input-borderless css-var-test-id ant-input-css-var"
   >
     <span
       class="ant-input-prefix"
@@ -5645,7 +5649,7 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-disabled ant-input-affix-wrapper-disabled ant-input-borderless"
+    class="ant-input-affix-wrapper ant-input-disabled ant-input-affix-wrapper-disabled ant-input-borderless css-var-test-id ant-input-css-var"
   >
     <span
       class="ant-input-prefix"
@@ -5665,7 +5669,7 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear ant-input-outlined"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear ant-input-outlined css-var-test-id ant-input-css-var"
     style="border: 2px solid #000;"
   >
     <textarea
@@ -5676,6 +5680,7 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
+        tabindex="-1"
         type="button"
       >
         <span
@@ -5702,17 +5707,17 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     </span>
   </span>
   <input
-    class="ant-input ant-input-borderless ant-input-status-error"
+    class="ant-input ant-input-borderless ant-input-status-error css-var-test-id ant-input-css-var"
     type="text"
     value="error"
   />
   <input
-    class="ant-input ant-input-borderless ant-input-status-warning"
+    class="ant-input ant-input-borderless ant-input-status-warning css-var-test-id ant-input-css-var"
     type="text"
     value="warning"
   />
   <span
-    class="ant-input-affix-wrapper ant-input-borderless ant-input-status-error"
+    class="ant-input-affix-wrapper ant-input-borderless ant-input-status-error css-var-test-id ant-input-css-var"
   >
     <span
       class="ant-input-prefix"
@@ -5726,7 +5731,7 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     />
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-borderless ant-input-status-warning"
+    class="ant-input-affix-wrapper ant-input-borderless ant-input-status-warning css-var-test-id ant-input-css-var"
   >
     <span
       class="ant-input-prefix"
@@ -5746,7 +5751,7 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
 
 exports[`renders components/input/demo/compact-style.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle"
+  class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
 >
   <div
     class="ant-space-item"
@@ -5755,7 +5760,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
       class="ant-space-compact"
     >
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item ant-input-compact-last-item"
+        class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item ant-input-compact-last-item"
         type="text"
         value="26888888"
       />
@@ -5768,13 +5773,13 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
       class="ant-space-compact"
     >
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         style="width: 20%;"
         type="text"
         value="0571"
       />
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-last-item"
+        class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
         style="width: 80%;"
         type="text"
         value="26888888"
@@ -5788,7 +5793,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
       class="ant-space-compact"
     >
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item ant-input-compact-first-item ant-input-compact-last-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item ant-input-compact-last-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -5812,6 +5817,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
             >
               <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                tabindex="-1"
                 type="button"
               >
                 <span
@@ -5841,7 +5847,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
             class="ant-input-group-addon"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
+              class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
               type="button"
             >
               <span
@@ -5881,12 +5887,12 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
       style="width: 100%;"
     >
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         type="text"
         value="Combine input and button"
       />
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -5902,7 +5908,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
       class="ant-space-compact"
     >
       <div
-        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -5939,7 +5945,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
@@ -6046,7 +6052,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
         </span>
       </div>
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-last-item"
+        class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
         type="text"
         value="Xihu District, Hangzhou"
       />
@@ -6059,7 +6065,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
       class="ant-space-compact"
     >
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -6096,7 +6102,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
         </span>
       </span>
       <input
-        class="ant-input ant-input-lg ant-input-outlined ant-input-compact-item ant-input-compact-last-item"
+        class="ant-input ant-input-lg ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
         placeholder="another input"
         type="text"
         value=""
@@ -6110,7 +6116,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
 
 exports[`renders components/input/demo/debug-addon.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
@@ -6121,7 +6127,7 @@ exports[`renders components/input/demo/debug-addon.tsx extend context correctly 
     class="ant-space-item"
   >
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-outlined"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -6135,7 +6141,7 @@ exports[`renders components/input/demo/debug-addon.tsx extend context correctly 
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+            class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
             type="button"
           >
             <span>
@@ -6150,7 +6156,7 @@ exports[`renders components/input/demo/debug-addon.tsx extend context correctly 
     class="ant-space-item"
   >
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-outlined"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -6164,7 +6170,7 @@ exports[`renders components/input/demo/debug-addon.tsx extend context correctly 
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+            class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span>
@@ -6194,7 +6200,7 @@ exports[`renders components/input/demo/debug-addon.tsx extend context correctly 
     class="ant-space-item"
   >
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-outlined"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -6208,7 +6214,7 @@ exports[`renders components/input/demo/debug-addon.tsx extend context correctly 
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+            class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span
@@ -6242,39 +6248,39 @@ exports[`renders components/input/demo/debug-addon.tsx extend context correctly 
 
 exports[`renders components/input/demo/filled-debug.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
   style="gap: 20px;"
 >
   <div
-    class="ant-flex"
+    class="ant-flex css-var-test-id"
     style="gap: 12px;"
   >
     <input
-      class="ant-input ant-input-filled"
+      class="ant-input ant-input-filled css-var-test-id ant-input-css-var"
       placeholder="Filled"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-disabled ant-input-filled"
+      class="ant-input ant-input-disabled ant-input-filled css-var-test-id ant-input-css-var"
       disabled=""
       placeholder="Filled"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-filled ant-input-status-error"
+      class="ant-input ant-input-filled ant-input-status-error css-var-test-id ant-input-css-var"
       placeholder="Filled"
       type="text"
       value="Filled Error"
     />
   </div>
   <div
-    class="ant-flex"
+    class="ant-flex css-var-test-id"
     style="gap: 12px;"
   >
     <span
-      class="ant-input-affix-wrapper ant-input-filled"
+      class="ant-input-affix-wrapper ant-input-filled css-var-test-id ant-input-css-var"
     >
       <span
         class="ant-input-prefix"
@@ -6289,7 +6295,7 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
       />
     </span>
     <span
-      class="ant-input-affix-wrapper ant-input-disabled ant-input-affix-wrapper-disabled ant-input-filled"
+      class="ant-input-affix-wrapper ant-input-disabled ant-input-affix-wrapper-disabled ant-input-filled css-var-test-id ant-input-css-var"
     >
       <span
         class="ant-input-prefix"
@@ -6305,7 +6311,7 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
       />
     </span>
     <span
-      class="ant-input-affix-wrapper ant-input-filled ant-input-status-error"
+      class="ant-input-affix-wrapper ant-input-filled ant-input-status-error css-var-test-id ant-input-css-var"
     >
       <span
         class="ant-input-prefix"
@@ -6321,11 +6327,11 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
     </span>
   </div>
   <div
-    class="ant-flex"
+    class="ant-flex css-var-test-id"
     style="gap: 12px;"
   >
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-filled"
+      class="ant-input-group-wrapper ant-input-group-wrapper-filled css-var-test-id ant-input-css-var"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -6349,7 +6355,7 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
       </span>
     </span>
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-disabled ant-input-group-wrapper-filled"
+      class="ant-input-group-wrapper ant-input-group-wrapper-disabled ant-input-group-wrapper-filled css-var-test-id ant-input-css-var"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -6374,7 +6380,7 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
       </span>
     </span>
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-filled ant-input-group-wrapper-status-error"
+      class="ant-input-group-wrapper ant-input-group-wrapper-filled ant-input-group-wrapper-status-error css-var-test-id ant-input-css-var"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -6399,11 +6405,11 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
     </span>
   </div>
   <div
-    class="ant-flex"
+    class="ant-flex css-var-test-id"
     style="gap: 12px;"
   >
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-filled"
+      class="ant-input-group-wrapper ant-input-group-wrapper-filled css-var-test-id ant-input-css-var"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -6422,7 +6428,7 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
       </span>
     </span>
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-disabled ant-input-group-wrapper-filled"
+      class="ant-input-group-wrapper ant-input-group-wrapper-disabled ant-input-group-wrapper-filled css-var-test-id ant-input-css-var"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -6442,7 +6448,7 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
       </span>
     </span>
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-filled ant-input-group-wrapper-status-error"
+      class="ant-input-group-wrapper ant-input-group-wrapper-filled ant-input-group-wrapper-status-error css-var-test-id ant-input-css-var"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -6462,11 +6468,11 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
     </span>
   </div>
   <div
-    class="ant-flex"
+    class="ant-flex css-var-test-id"
     style="gap: 12px;"
   >
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-filled"
+      class="ant-input-group-wrapper ant-input-group-wrapper-filled css-var-test-id ant-input-css-var"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -6485,7 +6491,7 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
       </span>
     </span>
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-disabled ant-input-group-wrapper-filled"
+      class="ant-input-group-wrapper ant-input-group-wrapper-disabled ant-input-group-wrapper-filled css-var-test-id ant-input-css-var"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -6505,7 +6511,7 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
       </span>
     </span>
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-filled ant-input-group-wrapper-status-error"
+      class="ant-input-group-wrapper ant-input-group-wrapper-filled ant-input-group-wrapper-status-error css-var-test-id ant-input-css-var"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -6525,17 +6531,17 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
     </span>
   </div>
   <textarea
-    class="ant-input ant-input-filled"
+    class="ant-input ant-input-filled css-var-test-id ant-input-css-var"
     placeholder="Basic"
   />
   <textarea
-    class="ant-input ant-input-filled ant-input-status-error"
+    class="ant-input ant-input-filled ant-input-status-error css-var-test-id ant-input-css-var"
     placeholder="Basic"
   >
     Filled Error
   </textarea>
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear ant-input-filled"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear ant-input-filled css-var-test-id ant-input-css-var"
   >
     <textarea
       class="ant-input"
@@ -6546,6 +6552,7 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
+        tabindex="-1"
         type="button"
       >
         <span
@@ -6572,7 +6579,7 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-filled"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-filled css-var-test-id ant-input-css-var"
     data-count="0"
   >
     <textarea
@@ -6590,7 +6597,7 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-filled ant-input-status-error"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-filled ant-input-status-error css-var-test-id ant-input-css-var"
     data-count="12"
   >
     <textarea
@@ -6616,21 +6623,21 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
 
 exports[`renders components/input/demo/focus.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   style="width: 100%;"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
       style="flex-wrap: wrap;"
     >
       <div
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -6642,7 +6649,7 @@ exports[`renders components/input/demo/focus.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -6654,7 +6661,7 @@ exports[`renders components/input/demo/focus.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -6666,7 +6673,7 @@ exports[`renders components/input/demo/focus.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -6679,7 +6686,7 @@ exports[`renders components/input/demo/focus.tsx extend context correctly 1`] = 
       >
         <button
           aria-checked="true"
-          class="ant-switch ant-switch-checked"
+          class="ant-switch css-var-test-id ant-switch-checked"
           role="switch"
           type="button"
         >
@@ -6713,7 +6720,7 @@ exports[`renders components/input/demo/focus.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <input
-      class="ant-input ant-input-outlined"
+      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
       style="width: 100%;"
       type="text"
       value="Ant Design love you!"
@@ -6729,28 +6736,28 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   class="site-input-group-wrapper"
 >
   <span
-    class="ant-input-group ant-input-group-lg"
+    class="ant-input-group css-var-test-id ant-input-group-lg"
   >
     <div
-      class="ant-row"
-      style="margin-left: -4px; margin-right: -4px;"
+      class="ant-row css-var-test-id"
+      style="margin-inline: -4px;"
     >
       <div
-        class="ant-col ant-col-5"
-        style="padding-left: 4px; padding-right: 4px;"
+        class="ant-col ant-col-5 css-var-test-id"
+        style="padding-inline: 4px;"
       >
         <input
-          class="ant-input ant-input-outlined"
+          class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
           type="text"
           value="0571"
         />
       </div>
       <div
-        class="ant-col ant-col-8"
-        style="padding-left: 4px; padding-right: 4px;"
+        class="ant-col ant-col-8 css-var-test-id"
+        style="padding-inline: 4px;"
       >
         <input
-          class="ant-input ant-input-outlined"
+          class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
           type="text"
           value="26888888"
         />
@@ -6759,16 +6766,16 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   </span>
   <br />
   <span
-    class="ant-input-group ant-input-group-compact"
+    class="ant-input-group css-var-test-id ant-input-group-compact"
   >
     <input
-      class="ant-input ant-input-outlined"
+      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
       style="width: 20%;"
       type="text"
       value="0571"
     />
     <input
-      class="ant-input ant-input-outlined"
+      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
       style="width: 30%;"
       type="text"
       value="26888888"
@@ -6776,16 +6783,16 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   </span>
   <br />
   <span
-    class="ant-input-group ant-input-group-compact"
+    class="ant-input-group css-var-test-id ant-input-group-compact"
   >
     <input
-      class="ant-input ant-input-outlined"
+      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
       style="width: calc(100% - 200px);"
       type="text"
       value="https://ant.design"
     />
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -6795,17 +6802,17 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   </span>
   <br />
   <span
-    class="ant-input-group ant-input-group-compact"
+    class="ant-input-group css-var-test-id ant-input-group-compact"
   >
     <input
-      class="ant-input ant-input-outlined"
+      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
       style="width: calc(100% - 200px);"
       type="text"
       value="git@github.com:ant-design/ant-design.git"
     />
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
       type="button"
     >
       <span
@@ -6833,7 +6840,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       </span>
     </button>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -6855,10 +6862,10 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   </span>
   <br />
   <span
-    class="ant-input-group ant-input-group-compact"
+    class="ant-input-group css-var-test-id ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -6895,7 +6902,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
@@ -7002,7 +7009,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       </span>
     </div>
     <input
-      class="ant-input ant-input-outlined"
+      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
       style="width: 50%;"
       type="text"
       value="Xihu District, Hangzhou"
@@ -7010,10 +7017,10 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   </span>
   <br />
   <span
-    class="ant-input-group ant-input-group-compact"
+    class="ant-input-group css-var-test-id ant-input-group-compact"
   >
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search css-var-test-id ant-input-css-var"
       style="width: 40%;"
     >
       <span
@@ -7032,6 +7039,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           >
             <button
               class="ant-input-clear-icon"
+              tabindex="-1"
               type="button"
             >
               <span
@@ -7061,7 +7069,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
+            class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -7092,7 +7100,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       </span>
     </span>
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search css-var-test-id ant-input-css-var"
       style="width: 40%;"
     >
       <span
@@ -7111,6 +7119,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           >
             <button
               class="ant-input-clear-icon"
+              tabindex="-1"
               type="button"
             >
               <span
@@ -7140,7 +7149,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
+            class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -7173,10 +7182,10 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   </span>
   <br />
   <span
-    class="ant-input-group ant-input-group-compact"
+    class="ant-input-group css-var-test-id ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -7213,7 +7222,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
@@ -7320,13 +7329,13 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       </span>
     </div>
     <input
-      class="ant-input ant-input-outlined"
+      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
       style="width: 50%;"
       type="text"
       value="input content"
     />
     <div
-      class="ant-input-number-affix-wrapper ant-input-number-outlined"
+      class="ant-input-number-affix-wrapper ant-input-number-outlined css-var-test-id ant-input-number-css-var"
     >
       <span
         class="ant-input-number-prefix"
@@ -7410,16 +7419,16 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   </span>
   <br />
   <span
-    class="ant-input-group ant-input-group-compact"
+    class="ant-input-group css-var-test-id ant-input-group-compact"
   >
     <input
-      class="ant-input ant-input-outlined"
+      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
       style="width: 50%;"
       type="text"
       value="input content"
     />
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
       style="width: 50%;"
     >
       <div
@@ -7458,7 +7467,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       </div>
     </div>
     <div
-      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -8035,16 +8044,16 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   </span>
   <br />
   <span
-    class="ant-input-group ant-input-group-compact"
+    class="ant-input-group css-var-test-id ant-input-group-compact"
   >
     <input
-      class="ant-input ant-input-outlined"
+      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
       style="width: 30%;"
       type="text"
       value="input content"
     />
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
       style="width: 70%;"
     >
       <div
@@ -8128,7 +8137,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       </span>
     </div>
     <div
-      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -9243,10 +9252,10 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   </span>
   <br />
   <span
-    class="ant-input-group ant-input-group-compact"
+    class="ant-input-group css-var-test-id ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -9283,7 +9292,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
@@ -9390,7 +9399,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       </span>
     </div>
     <div
-      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -9427,7 +9436,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
@@ -9536,10 +9545,10 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   </span>
   <br />
   <span
-    class="ant-input-group ant-input-group-compact"
+    class="ant-input-group css-var-test-id ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -9576,7 +9585,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
@@ -9683,14 +9692,14 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       </span>
     </div>
     <input
-      class="ant-input ant-input-outlined"
+      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
       placeholder="Minimum"
       style="width: 100px; text-align: center;"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-disabled ant-input-outlined site-input-split"
+      class="ant-input ant-input-disabled ant-input-outlined site-input-split css-var-test-id ant-input-css-var"
       disabled=""
       placeholder="~"
       style="width: 30px; border-left: 0; border-right: 0; pointer-events: none;"
@@ -9698,7 +9707,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       value=""
     />
     <input
-      class="ant-input ant-input-outlined site-input-right"
+      class="ant-input ant-input-outlined site-input-right css-var-test-id ant-input-css-var"
       placeholder="Maximum"
       style="width: 100px; text-align: center;"
       type="text"
@@ -9707,10 +9716,10 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   </span>
   <br />
   <span
-    class="ant-input-group ant-input-group-compact"
+    class="ant-input-group css-var-test-id ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       style="width: 30%;"
     >
       <div
@@ -9748,7 +9757,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
@@ -9855,7 +9864,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       </span>
     </div>
     <div
-      class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
+      class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
       style="width: 70%;"
     >
       <div
@@ -9889,7 +9898,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
@@ -9963,10 +9972,10 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   </span>
   <br />
   <span
-    class="ant-input-group ant-input-group-compact"
+    class="ant-input-group css-var-test-id ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       style="width: 30%;"
     >
       <div
@@ -10004,7 +10013,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
@@ -10111,7 +10120,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       </span>
     </div>
     <div
-      class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+      class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
       style="width: 70%;"
     >
       <div
@@ -10148,7 +10157,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
       >
         <div>
@@ -10274,98 +10283,98 @@ exports[`renders components/input/demo/group.tsx extend context correctly 2`] = 
 
 exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-flex-start ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-middle ant-flex-vertical"
 >
   <h5
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     With formatter (Upcase)
   </h5>
   <div
-    class="ant-otp"
+    class="ant-otp css-var-test-id"
   >
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
   </div>
   <h5
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     With Disabled
   </h5>
   <div
-    class="ant-otp"
+    class="ant-otp css-var-test-id"
   >
     <input
-      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       disabled=""
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       disabled=""
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       disabled=""
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       disabled=""
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       disabled=""
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       disabled=""
       size="1"
       type="text"
@@ -10373,162 +10382,162 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
     />
   </div>
   <h5
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     With Length (8)
   </h5>
   <div
-    class="ant-otp"
+    class="ant-otp css-var-test-id"
   >
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
   </div>
   <h5
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     With variant
   </h5>
   <div
-    class="ant-otp"
+    class="ant-otp css-var-test-id"
   >
     <input
-      class="ant-input ant-input-filled ant-otp-input"
+      class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-filled ant-otp-input"
+      class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-filled ant-otp-input"
+      class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-filled ant-otp-input"
+      class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-filled ant-otp-input"
+      class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-filled ant-otp-input"
+      class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
   </div>
   <h5
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     With custom display character
   </h5>
   <div
-    class="ant-otp"
+    class="ant-otp css-var-test-id"
   >
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
   </div>
   <h5
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     With custom ReactNode separator
   </h5>
   <div
-    class="ant-otp"
+    class="ant-otp css-var-test-id"
   >
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
@@ -10541,7 +10550,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
       </span>
     </span>
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
@@ -10554,7 +10563,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
       </span>
     </span>
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
@@ -10567,7 +10576,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
       </span>
     </span>
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
@@ -10580,7 +10589,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
       </span>
     </span>
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
@@ -10593,22 +10602,22 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
       </span>
     </span>
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
     />
   </div>
   <h5
-    class="ant-typography"
+    class="ant-typography css-var-test-id"
   >
     With custom function separator
   </h5>
   <div
-    class="ant-otp"
+    class="ant-otp css-var-test-id"
   >
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
@@ -10623,7 +10632,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
       </span>
     </span>
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
@@ -10638,7 +10647,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
       </span>
     </span>
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
@@ -10653,7 +10662,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
       </span>
     </span>
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
@@ -10668,7 +10677,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
       </span>
     </span>
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
@@ -10683,7 +10692,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
       </span>
     </span>
     <input
-      class="ant-input ant-input-outlined ant-otp-input"
+      class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
       size="1"
       type="text"
       value=""
@@ -10700,13 +10709,13 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 2`] = `
 
 exports[`renders components/input/demo/password-input.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <span
-      class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
+      class="ant-input-affix-wrapper ant-input-outlined ant-input-password css-var-test-id ant-input-css-var"
     >
       <input
         class="ant-input"
@@ -10747,7 +10756,7 @@ exports[`renders components/input/demo/password-input.tsx extend context correct
     class="ant-space-item"
   >
     <span
-      class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
+      class="ant-input-affix-wrapper ant-input-outlined ant-input-password css-var-test-id ant-input-css-var"
     >
       <input
         class="ant-input"
@@ -10788,13 +10797,13 @@ exports[`renders components/input/demo/password-input.tsx extend context correct
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
     >
       <div
         class="ant-space-item"
       >
         <span
-          class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
+          class="ant-input-affix-wrapper ant-input-outlined ant-input-password css-var-test-id ant-input-css-var"
         >
           <input
             class="ant-input"
@@ -10835,7 +10844,7 @@ exports[`renders components/input/demo/password-input.tsx extend context correct
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width: 80px;"
           type="button"
         >
@@ -10850,7 +10859,7 @@ exports[`renders components/input/demo/password-input.tsx extend context correct
     class="ant-space-item"
   >
     <span
-      class="ant-input-affix-wrapper ant-input-disabled ant-input-affix-wrapper-disabled ant-input-outlined ant-input-password"
+      class="ant-input-affix-wrapper ant-input-disabled ant-input-affix-wrapper-disabled ant-input-outlined ant-input-password css-var-test-id ant-input-css-var"
     >
       <input
         class="ant-input ant-input-disabled"
@@ -10896,7 +10905,7 @@ exports[`renders components/input/demo/password-input.tsx extend context correct
 exports[`renders components/input/demo/presuffix.tsx extend context correctly 1`] = `
 Array [
   <span
-    class="ant-input-affix-wrapper ant-input-outlined"
+    class="ant-input-affix-wrapper ant-input-outlined css-var-test-id ant-input-css-var"
   >
     <span
       class="ant-input-prefix"
@@ -10956,7 +10965,7 @@ Array [
         </svg>
       </span>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -10980,7 +10989,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-affix-wrapper ant-input-outlined"
+    class="ant-input-affix-wrapper ant-input-outlined css-var-test-id ant-input-css-var"
   >
     <span
       class="ant-input-prefix"
@@ -11001,7 +11010,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-affix-wrapper ant-input-disabled ant-input-affix-wrapper-disabled ant-input-outlined"
+    class="ant-input-affix-wrapper ant-input-disabled ant-input-affix-wrapper-disabled ant-input-outlined css-var-test-id ant-input-css-var"
   >
     <span
       class="ant-input-prefix"
@@ -11027,13 +11036,13 @@ exports[`renders components/input/demo/presuffix.tsx extend context correctly 2`
 
 exports[`renders components/input/demo/search-input.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search css-var-test-id ant-input-css-var"
       style="width: 200px;"
     >
       <span
@@ -11049,7 +11058,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
+            class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -11084,7 +11093,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
     class="ant-space-item"
   >
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search css-var-test-id ant-input-css-var"
       style="width: 200px;"
     >
       <span
@@ -11104,6 +11113,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           >
             <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+              tabindex="-1"
               type="button"
             >
               <span
@@ -11133,7 +11143,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
+            class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -11168,7 +11178,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
     class="ant-space-item"
   >
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search css-var-test-id ant-input-css-var"
       style="width: 304px;"
     >
       <span
@@ -11193,6 +11203,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           >
             <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+              tabindex="-1"
               type="button"
             >
               <span
@@ -11222,7 +11233,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
+            class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -11257,7 +11268,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
     class="ant-space-item"
   >
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-search-with-button"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-search-with-button css-var-test-id ant-input-css-var"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -11272,7 +11283,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-input-search-button"
+            class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-input-search-button"
             type="button"
           >
             <span
@@ -11307,7 +11318,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
     class="ant-space-item"
   >
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large ant-input-search-with-button"
+      class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large ant-input-search-with-button css-var-test-id ant-input-css-var"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -11326,6 +11337,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           >
             <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+              tabindex="-1"
               type="button"
             >
               <span
@@ -11355,7 +11367,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-input-search-button"
+            class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-input-search-button"
             type="button"
           >
             <span>
@@ -11370,7 +11382,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
     class="ant-space-item"
   >
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large ant-input-search-with-button"
+      class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large ant-input-search-with-button css-var-test-id ant-input-css-var"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -11413,7 +11425,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-input-search-button"
+            class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-input-search-button"
             type="button"
           >
             <span>
@@ -11432,7 +11444,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
 exports[`renders components/input/demo/search-input-loading.tsx extend context correctly 1`] = `
 Array [
   <span
-    class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
+    class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search css-var-test-id ant-input-css-var"
   >
     <span
       class="ant-input-wrapper ant-input-group"
@@ -11447,7 +11459,7 @@ Array [
         class="ant-input-group-addon"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-loading ant-input-search-button"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-loading ant-input-search-button"
           type="button"
         >
           <span
@@ -11480,7 +11492,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-search-with-button"
+    class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-search-with-button css-var-test-id ant-input-css-var"
   >
     <span
       class="ant-input-wrapper ant-input-group"
@@ -11495,7 +11507,7 @@ Array [
         class="ant-input-group-addon"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-loading ant-input-search-button"
+          class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-loading ant-input-search-button"
           type="button"
         >
           <span
@@ -11528,7 +11540,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large ant-input-search-with-button"
+    class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large ant-input-search-with-button css-var-test-id ant-input-css-var"
   >
     <span
       class="ant-input-wrapper ant-input-group"
@@ -11543,7 +11555,7 @@ Array [
         class="ant-input-group-addon"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-btn-loading ant-input-search-button"
+          class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-btn-loading ant-input-search-button"
           type="button"
         >
           <span
@@ -11583,11 +11595,11 @@ exports[`renders components/input/demo/search-input-loading.tsx extend context c
 
 exports[`renders components/input/demo/show-count.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
   style="gap: 32px;"
 >
   <span
-    class="ant-input-affix-wrapper ant-input-outlined"
+    class="ant-input-affix-wrapper ant-input-outlined css-var-test-id ant-input-css-var"
   >
     <input
       class="ant-input"
@@ -11606,7 +11618,7 @@ exports[`renders components/input/demo/show-count.tsx extend context correctly 1
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-outlined"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-outlined css-var-test-id ant-input-css-var"
     data-count="0 / 100"
   >
     <textarea
@@ -11625,7 +11637,7 @@ exports[`renders components/input/demo/show-count.tsx extend context correctly 1
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-outlined"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-outlined css-var-test-id ant-input-css-var"
     data-count="0 / 100"
     style="height: 120px; resize: none;"
   >
@@ -11653,7 +11665,7 @@ exports[`renders components/input/demo/show-count.tsx extend context correctly 2
 exports[`renders components/input/demo/size.tsx extend context correctly 1`] = `
 Array [
   <span
-    class="ant-input-affix-wrapper ant-input-affix-wrapper-lg ant-input-outlined"
+    class="ant-input-affix-wrapper ant-input-affix-wrapper-lg ant-input-outlined css-var-test-id ant-input-css-var"
   >
     <span
       class="ant-input-prefix"
@@ -11688,7 +11700,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-affix-wrapper ant-input-outlined"
+    class="ant-input-affix-wrapper ant-input-outlined css-var-test-id ant-input-css-var"
   >
     <span
       class="ant-input-prefix"
@@ -11723,7 +11735,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined"
+    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined css-var-test-id ant-input-css-var"
   >
     <span
       class="ant-input-prefix"
@@ -11762,14 +11774,14 @@ exports[`renders components/input/demo/size.tsx extend context correctly 2`] = `
 
 exports[`renders components/input/demo/status.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   style="width: 100%;"
 >
   <div
     class="ant-space-item"
   >
     <input
-      class="ant-input ant-input-outlined ant-input-status-error"
+      class="ant-input ant-input-outlined ant-input-status-error css-var-test-id ant-input-css-var"
       placeholder="Error"
       type="text"
       value=""
@@ -11779,7 +11791,7 @@ exports[`renders components/input/demo/status.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <input
-      class="ant-input ant-input-outlined ant-input-status-warning"
+      class="ant-input ant-input-outlined ant-input-status-warning css-var-test-id ant-input-css-var"
       placeholder="Warning"
       type="text"
       value=""
@@ -11789,7 +11801,7 @@ exports[`renders components/input/demo/status.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <span
-      class="ant-input-affix-wrapper ant-input-outlined ant-input-status-error"
+      class="ant-input-affix-wrapper ant-input-outlined ant-input-status-error css-var-test-id ant-input-css-var"
     >
       <span
         class="ant-input-prefix"
@@ -11829,7 +11841,7 @@ exports[`renders components/input/demo/status.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <span
-      class="ant-input-affix-wrapper ant-input-outlined ant-input-status-warning"
+      class="ant-input-affix-wrapper ant-input-outlined ant-input-status-warning css-var-test-id ant-input-css-var"
     >
       <span
         class="ant-input-prefix"
@@ -11873,13 +11885,13 @@ exports[`renders components/input/demo/status.tsx extend context correctly 2`] =
 exports[`renders components/input/demo/textarea.tsx extend context correctly 1`] = `
 Array [
   <textarea
-    class="ant-input ant-input-outlined"
+    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
     rows="4"
   />,
   <br />,
   <br />,
   <textarea
-    class="ant-input ant-input-outlined"
+    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
     maxlength="6"
     placeholder="maxLength is 6"
     rows="4"
@@ -11892,7 +11904,7 @@ exports[`renders components/input/demo/textarea.tsx extend context correctly 2`]
 exports[`renders components/input/demo/textarea-resize.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
     style="margin-bottom: 16px;"
     type="button"
   >
@@ -11901,13 +11913,13 @@ Array [
     </span>
   </button>,
   <textarea
-    class="ant-input ant-input-outlined"
+    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
     rows="4"
   >
     The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows. The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows.
   </textarea>,
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear ant-input-outlined"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear ant-input-outlined css-var-test-id ant-input-css-var"
     style="width: 93px;"
   >
     <textarea
@@ -11918,6 +11930,7 @@ Array [
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
+        tabindex="-1"
         type="button"
       >
         <span
@@ -11952,7 +11965,7 @@ exports[`renders components/input/demo/tooltip.tsx extend context correctly 1`] 
 Array [
   <input
     aria-describedby="test-id"
-    class="ant-input ant-input-outlined"
+    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
     maxlength="16"
     placeholder="Input a number"
     style="width: 120px;"
@@ -11960,7 +11973,7 @@ Array [
     value=""
   />,
   <div
-    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast numeric-input ant-tooltip-placement-topLeft"
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id numeric-input ant-tooltip-placement-topLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
@@ -11986,29 +11999,29 @@ exports[`renders components/input/demo/tooltip.tsx extend context correctly 2`] 
 
 exports[`renders components/input/demo/variant.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
   style="gap: 12px;"
 >
   <input
-    class="ant-input ant-input-outlined"
+    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
     placeholder="Outlined"
     type="text"
     value=""
   />
   <input
-    class="ant-input ant-input-filled"
+    class="ant-input ant-input-filled css-var-test-id ant-input-css-var"
     placeholder="Filled"
     type="text"
     value=""
   />
   <input
-    class="ant-input ant-input-borderless"
+    class="ant-input ant-input-borderless css-var-test-id ant-input-css-var"
     placeholder="Borderless"
     type="text"
     value=""
   />
   <input
-    class="ant-input ant-input-underlined"
+    class="ant-input ant-input-underlined css-var-test-id ant-input-css-var"
     placeholder="Underlined"
     type="text"
     value=""

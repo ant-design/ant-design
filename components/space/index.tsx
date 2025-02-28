@@ -1,6 +1,6 @@
 import * as React from 'react';
+import toArray from '@rc-component/util/lib/Children/toArray';
 import classNames from 'classnames';
-import toArray from 'rc-util/lib/Children/toArray';
 
 import { isPresetSize, isValidGapNumber } from '../_util/gapSize';
 import { useComponentConfig } from '../config-provider/context';
@@ -14,6 +14,7 @@ import useStyle from './style';
 export { SpaceContext } from './context';
 
 export type SpaceSize = SizeType | number;
+type SemanticName = 'root' | 'item';
 
 export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
@@ -26,8 +27,8 @@ export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   align?: 'start' | 'end' | 'center' | 'baseline';
   split?: React.ReactNode;
   wrap?: boolean;
-  classNames?: { item: string };
-  styles?: { item: React.CSSProperties };
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
@@ -52,9 +53,9 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     split,
     style,
     wrap = false,
-    classNames: customClassNames,
+    classNames: spaceClassNames,
     styles,
-    ...otherProps
+    ...restProps
   } = props;
 
   const [horizontalSize, verticalSize] = Array.isArray(size) ? size : ([size, size] as const);
@@ -71,9 +72,9 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
 
   const mergedAlign = align === undefined && direction === 'horizontal' ? 'center' : align;
   const prefixCls = getPrefixCls('space', customizePrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const cls = classNames(
+  const rootClassNames = classNames(
     prefixCls,
     contextClassName,
     hashId,
@@ -87,11 +88,14 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     className,
     rootClassName,
     cssVarCls,
+    spaceClassNames?.root,
+    contextClassNames.root,
   );
 
   const itemClassName = classNames(
     `${prefixCls}-item`,
-    customClassNames?.item ?? contextClassNames.item,
+    spaceClassNames?.item,
+    contextClassNames.item,
   );
 
   // Calculate latest one
@@ -137,15 +141,15 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     gapStyle.rowGap = verticalSize;
   }
 
-  return wrapCSSVar(
+  return (
     <div
       ref={ref}
-      className={cls}
-      style={{ ...gapStyle, ...contextStyle, ...style }}
-      {...otherProps}
+      className={rootClassNames}
+      style={{ ...gapStyle, ...contextStyles.root, ...contextStyle, ...styles?.root, ...style }}
+      {...restProps}
     >
       <SpaceContextProvider value={spaceContext}>{nodes}</SpaceContextProvider>
-    </div>,
+    </div>
   );
 });
 

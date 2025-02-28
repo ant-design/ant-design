@@ -1,4 +1,5 @@
 import * as React from 'react';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
 import type {
   BaseOptionType,
@@ -6,10 +7,9 @@ import type {
   FieldNames,
   CascaderProps as RcCascaderProps,
   ShowSearchType,
-} from 'rc-cascader';
-import RcCascader from 'rc-cascader';
-import type { Placement } from 'rc-select/lib/BaseSelect';
-import omit from 'rc-util/lib/omit';
+} from '@rc-component/cascader';
+import RcCascader from '@rc-component/cascader';
+import type { Placement } from '@rc-component/select/lib/BaseSelect';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';
@@ -39,7 +39,7 @@ import useColumnIcons from './hooks/useColumnIcons';
 import CascaderPanel from './Panel';
 import useStyle from './style';
 
-// Align the design since we use `rc-select` in root. This help:
+// Align the design since we use `@rc-component/select` in root. This help:
 // - List search content will show all content
 // - Hover opacity style
 // - Search filter match case
@@ -128,8 +128,6 @@ export interface CascaderProps<
 
   rootClassName?: string;
   popupClassName?: string;
-  /** @deprecated Please use `popupClassName` instead */
-  dropdownClassName?: string;
   /**
    * @since 5.13.0
    * @default "outlined"
@@ -160,7 +158,6 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     transitionName,
     choiceTransitionName = '',
     popupClassName,
-    dropdownClassName,
     expandIcon,
     placement,
     showSearch,
@@ -200,8 +197,6 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Cascader');
 
-    warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
-
     warning(
       !('showArrow' in props),
       'deprecated',
@@ -221,9 +216,9 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const rootPrefixCls = getPrefixCls();
 
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapSelectCSSVar, hashId, cssVarCls] = useSelectStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useSelectStyle(prefixCls, rootCls);
   const cascaderRootCls = useCSSVarCls(cascaderPrefixCls);
-  const [wrapCascaderCSSVar] = useStyle(cascaderPrefixCls, cascaderRootCls);
+  useStyle(cascaderPrefixCls, cascaderRootCls);
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
@@ -235,8 +230,8 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   );
 
   // =================== Dropdown ====================
-  const mergedDropdownClassName = classNames(
-    popupClassName || dropdownClassName,
+  const mergedPopupClassName = classNames(
+    popupClassName,
     `${cascaderPrefixCls}-dropdown`,
     {
       [`${cascaderPrefixCls}-dropdown-rtl`]: mergedDirection === 'rtl',
@@ -304,10 +299,10 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
 
   // ============================ zIndex ============================
-  const [zIndex] = useZIndex('SelectLike', restProps.dropdownStyle?.zIndex as number);
+  const [zIndex] = useZIndex('SelectLike', restProps.popupStyle?.zIndex as number);
 
   // ==================== Render =====================
-  const renderNode = (
+  return (
     <RcCascader
       prefixCls={prefixCls}
       className={classNames(
@@ -343,17 +338,15 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       removeIcon={removeIcon}
       loadingIcon={loadingIcon}
       checkable={checkable}
-      dropdownClassName={mergedDropdownClassName}
+      popupClassName={mergedPopupClassName}
       dropdownPrefixCls={customizePrefixCls || cascaderPrefixCls}
-      dropdownStyle={{ ...restProps.dropdownStyle, zIndex }}
+      popupStyle={{ ...restProps.popupStyle, zIndex }}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       ref={ref}
     />
   );
-
-  return wrapCascaderCSSVar(wrapSelectCSSVar(renderNode));
 }) as unknown as (<
   OptionType extends DefaultOptionType = DefaultOptionType,
   ValueField extends keyof OptionType = keyof OptionType,
@@ -373,7 +366,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(Cascader, 'dropdownAlign', (props: any) => omit(props, ['visible']));
+const PurePanel = genPurePanel(Cascader, 'popupAlign', (props: any) => omit(props, ['visible']));
 
 Cascader.SHOW_PARENT = SHOW_PARENT;
 Cascader.SHOW_CHILD = SHOW_CHILD;

@@ -2,11 +2,11 @@ import * as React from 'react';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import type { AlignType } from '@rc-component/trigger';
+import useEvent from '@rc-component/util/lib/hooks/useEvent';
+import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import RcDropdown from 'rc-dropdown';
-import useEvent from 'rc-util/lib/hooks/useEvent';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import omit from 'rc-util/lib/omit';
+import RcDropdown from '@rc-component/dropdown';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import isPrimitive from '../_util/isPrimitive';
@@ -38,8 +38,6 @@ const _Placements = [
 type Placement = (typeof _Placements)[number];
 type DropdownPlacement = Exclude<Placement, 'topCenter' | 'bottomCenter'>;
 
-type OverlayFunc = () => React.ReactElement;
-
 export type DropdownArrowOptions = {
   pointAtCenter?: boolean;
 };
@@ -69,14 +67,6 @@ export interface DropdownProps {
   openClassName?: string;
   children?: React.ReactNode;
   autoAdjustOverflow?: boolean | AdjustOverflow;
-
-  // Deprecated
-  /** @deprecated Please use `menu` instead */
-  overlay?: React.ReactElement | OverlayFunc;
-  /** @deprecated Please use `open` instead */
-  visible?: boolean;
-  /** @deprecated Please use `onOpenChange` instead */
-  onVisibleChange?: (open: boolean) => void;
 }
 
 type CompoundedComponent = React.FC<DropdownProps> & {
@@ -93,19 +83,17 @@ const Dropdown: CompoundedComponent = (props) => {
     disabled,
     dropdownRender,
     getPopupContainer,
+    className,
     overlayClassName,
     rootClassName,
     overlayStyle,
     open,
     onOpenChange,
     // Deprecated
-    visible,
-    onVisibleChange,
     mouseEnterDelay = 0.15,
     mouseLeaveDelay = 0.1,
     autoAdjustOverflow = true,
     placement = '',
-    overlay,
     transitionName,
   } = props;
   const {
@@ -117,17 +105,6 @@ const Dropdown: CompoundedComponent = (props) => {
 
   // Warning for deprecated usage
   const warning = devUseWarning('Dropdown');
-
-  if (process.env.NODE_ENV !== 'production') {
-    [
-      ['visible', 'open'],
-      ['onVisibleChange', 'onOpenChange'],
-    ].forEach(([deprecatedName, newName]) => {
-      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
-    });
-
-    warning.deprecated(!('overlay' in props), 'overlay', 'menu');
-  }
 
   const memoTransitionName = React.useMemo<string>(() => {
     const rootPrefixCls = getPrefixCls();
@@ -162,18 +139,11 @@ const Dropdown: CompoundedComponent = (props) => {
         `You are using '${placement}' placement in Dropdown, which is deprecated. Try to use '${newPlacement}' instead.`,
       );
     }
-
-    [
-      ['visible', 'open'],
-      ['onVisibleChange', 'onOpenChange'],
-    ].forEach(([deprecatedName, newName]) => {
-      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
-    });
   }
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const [, token] = useToken();
 
@@ -191,6 +161,7 @@ const Dropdown: CompoundedComponent = (props) => {
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       child.props.className,
+      className,
     ),
     disabled: child.props.disabled ?? disabled,
   });
@@ -199,12 +170,11 @@ const Dropdown: CompoundedComponent = (props) => {
 
   // =========================== Open ============================
   const [mergedOpen, setOpen] = useMergedState(false, {
-    value: open ?? visible,
+    value: open,
   });
 
   const onInnerOpenChange = useEvent((nextOpen: boolean) => {
     onOpenChange?.(nextOpen, { source: 'trigger' });
-    onVisibleChange?.(nextOpen);
     setOpen(nextOpen);
   });
 
@@ -236,16 +206,12 @@ const Dropdown: CompoundedComponent = (props) => {
   }, [menu?.selectable, menu?.multiple]);
 
   const renderOverlay = () => {
-    // rc-dropdown already can process the function of overlay, but we have check logic here.
-    // So we need render the element to check and pass back to rc-dropdown.
+    // @rc-component/dropdown already can process the function of overlay, but we have check logic here.
+    // So we need render the element to check and pass back to @rc-component/dropdown.
 
     let overlayNode: React.ReactNode;
     if (menu?.items) {
       overlayNode = <Menu {...menu} />;
-    } else if (typeof overlay === 'function') {
-      overlayNode = overlay();
-    } else {
-      overlayNode = overlay;
     }
     if (dropdownRender) {
       overlayNode = dropdownRender(overlayNode);
@@ -316,7 +282,7 @@ const Dropdown: CompoundedComponent = (props) => {
     );
   }
 
-  return wrapCSSVar(renderNode);
+  return renderNode;
 };
 
 // We don't care debug panel

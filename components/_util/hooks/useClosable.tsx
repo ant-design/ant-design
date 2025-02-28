@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import type { DialogProps } from 'rc-dialog';
-import pickAttrs from 'rc-util/lib/pickAttrs';
+import pickAttrs from '@rc-component/util/lib/pickAttrs';
+import type { DialogProps } from '@rc-component/dialog';
 
 export type ClosableType = DialogProps['closable'];
 

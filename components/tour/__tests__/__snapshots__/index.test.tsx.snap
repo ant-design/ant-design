@@ -10,7 +10,7 @@ exports[`Tour Primary 1`] = `
       Cover
     </button>
     <div
-      class="ant-tour ant-tour-primary ant-tour-placement-bottom"
+      class="ant-tour css-var-root ant-tour-primary ant-tour-placement-bottom"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
     >
       <div
@@ -69,7 +69,7 @@ exports[`Tour Primary 1`] = `
               class="ant-tour-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-tour-next-btn"
+                class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-tour-next-btn"
                 type="button"
               >
                 <span>
@@ -84,7 +84,7 @@ exports[`Tour Primary 1`] = `
   </div>
   <div>
     <div
-      class="ant-tour-mask"
+      class="ant-tour-mask css-var-root"
       style="position: fixed; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 1001; pointer-events: none;"
     >
       <svg
@@ -122,7 +122,7 @@ exports[`Tour Primary 1`] = `
         />
         <rect
           fill="transparent"
-          height="-6"
+          height="0"
           pointer-events="auto"
           width="100%"
           x="0"
@@ -132,13 +132,13 @@ exports[`Tour Primary 1`] = `
           fill="transparent"
           height="100%"
           pointer-events="auto"
-          width="-6"
+          width="0"
           x="0"
           y="0"
         />
         <rect
           fill="transparent"
-          height="calc(100vh - 6px)"
+          height="calc(100% - 6px)"
           pointer-events="auto"
           width="100%"
           x="0"
@@ -148,7 +148,7 @@ exports[`Tour Primary 1`] = `
           fill="transparent"
           height="100%"
           pointer-events="auto"
-          width="calc(100vw - 6px)"
+          width="calc(100% - 6px)"
           x="6"
           y="0"
         />
@@ -157,7 +157,7 @@ exports[`Tour Primary 1`] = `
   </div>
   <div>
     <div
-      class="ant-tour-target-placeholder"
+      class="css-var-root ant-tour-target-placeholder"
       style="left: -6px; top: -6px; width: 12px; height: 12px; position: fixed; pointer-events: none;"
     />
   </div>
@@ -219,7 +219,7 @@ exports[`Tour controlled current 1`] = `
       </button>
     </div>
     <div
-      class="ant-tour ant-tour-primary"
+      class="ant-tour css-var-root ant-tour-primary"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
     >
       <div
@@ -284,7 +284,7 @@ exports[`Tour controlled current 1`] = `
               class="ant-tour-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-background-ghost ant-tour-prev-btn"
+                class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-background-ghost ant-tour-prev-btn"
                 type="button"
               >
                 <span>
@@ -292,7 +292,7 @@ exports[`Tour controlled current 1`] = `
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-tour-next-btn"
+                class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-tour-next-btn"
                 type="button"
               >
                 <span>
@@ -307,7 +307,7 @@ exports[`Tour controlled current 1`] = `
   </div>
   <div>
     <div
-      class="ant-tour-mask"
+      class="ant-tour-mask css-var-root"
       style="position: fixed; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 1001; pointer-events: auto;"
     >
       <svg
@@ -339,7 +339,7 @@ exports[`Tour controlled current 1`] = `
   </div>
   <div>
     <div
-      class="ant-tour-target-placeholder"
+      class="css-var-root ant-tour-target-placeholder"
       style="left: 50%; top: 50%; width: 1px; height: 1px; position: fixed; pointer-events: none;"
     />
   </div>
@@ -348,7 +348,7 @@ exports[`Tour controlled current 1`] = `
 
 exports[`Tour custom step pre btn & next btn className & style 1`] = `
 <div
-  class="ant-tour"
+  class="ant-tour css-var-root"
   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
 >
   <div
@@ -413,7 +413,7 @@ exports[`Tour custom step pre btn & next btn className & style 1`] = `
           class="ant-tour-buttons"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn customClassName"
+            class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn customClassName"
             style="background-color: rgb(69, 69, 255);"
             type="button"
           >
@@ -439,7 +439,7 @@ exports[`Tour should support gap.offset 1`] = `
       Show
     </button>
     <div
-      class="ant-tour ant-tour-placement-bottom"
+      class="ant-tour css-var-root ant-tour-placement-bottom"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
     >
       <div
@@ -498,7 +498,7 @@ exports[`Tour should support gap.offset 1`] = `
               class="ant-tour-buttons"
             >
               <button
-                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
                 type="button"
               >
                 <span>
@@ -513,7 +513,7 @@ exports[`Tour should support gap.offset 1`] = `
   </div>
   <div>
     <div
-      class="ant-tour-mask"
+      class="ant-tour-mask css-var-root"
       style="position: fixed; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 1001; pointer-events: none;"
     >
       <svg
@@ -567,7 +567,7 @@ exports[`Tour should support gap.offset 1`] = `
         />
         <rect
           fill="transparent"
-          height="calc(100vh - 390px)"
+          height="calc(100% - 390px)"
           pointer-events="auto"
           width="100%"
           x="0"
@@ -577,7 +577,7 @@ exports[`Tour should support gap.offset 1`] = `
           fill="transparent"
           height="100%"
           pointer-events="auto"
-          width="calc(100vw - 340px)"
+          width="calc(100% - 340px)"
           x="340"
           y="0"
         />
@@ -586,7 +586,7 @@ exports[`Tour should support gap.offset 1`] = `
   </div>
   <div>
     <div
-      class="ant-tour-target-placeholder"
+      class="css-var-root ant-tour-target-placeholder"
       style="left: 90px; top: 190px; width: 250px; height: 200px; position: fixed; pointer-events: none;"
     />
   </div>
@@ -603,7 +603,7 @@ exports[`Tour single 1`] = `
       Cover
     </button>
     <div
-      class="ant-tour ant-tour-placement-bottom"
+      class="ant-tour css-var-root ant-tour-placement-bottom"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
     >
       <div
@@ -662,7 +662,7 @@ exports[`Tour single 1`] = `
               class="ant-tour-buttons"
             >
               <button
-                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
                 type="button"
               >
                 <span>
@@ -677,7 +677,7 @@ exports[`Tour single 1`] = `
   </div>
   <div>
     <div
-      class="ant-tour-mask"
+      class="ant-tour-mask css-var-root"
       style="position: fixed; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 1001; pointer-events: none;"
     >
       <svg
@@ -715,7 +715,7 @@ exports[`Tour single 1`] = `
         />
         <rect
           fill="transparent"
-          height="-6"
+          height="0"
           pointer-events="auto"
           width="100%"
           x="0"
@@ -725,13 +725,13 @@ exports[`Tour single 1`] = `
           fill="transparent"
           height="100%"
           pointer-events="auto"
-          width="-6"
+          width="0"
           x="0"
           y="0"
         />
         <rect
           fill="transparent"
-          height="calc(100vh - 6px)"
+          height="calc(100% - 6px)"
           pointer-events="auto"
           width="100%"
           x="0"
@@ -741,7 +741,7 @@ exports[`Tour single 1`] = `
           fill="transparent"
           height="100%"
           pointer-events="auto"
-          width="calc(100vw - 6px)"
+          width="calc(100% - 6px)"
           x="6"
           y="0"
         />
@@ -750,7 +750,7 @@ exports[`Tour single 1`] = `
   </div>
   <div>
     <div
-      class="ant-tour-target-placeholder"
+      class="css-var-root ant-tour-target-placeholder"
       style="left: -6px; top: -6px; width: 12px; height: 12px; position: fixed; pointer-events: none;"
     />
   </div>
@@ -767,7 +767,7 @@ exports[`Tour step support Primary 1`] = `
       Cover
     </button>
     <div
-      class="ant-tour ant-tour-primary ant-tour-placement-bottom"
+      class="ant-tour css-var-root ant-tour-primary ant-tour-placement-bottom"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
     >
       <div
@@ -836,7 +836,7 @@ exports[`Tour step support Primary 1`] = `
               class="ant-tour-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-background-ghost ant-tour-prev-btn"
+                class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-background-ghost ant-tour-prev-btn"
                 type="button"
               >
                 <span>
@@ -844,7 +844,7 @@ exports[`Tour step support Primary 1`] = `
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-tour-next-btn"
+                class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-tour-next-btn"
                 type="button"
               >
                 <span>
@@ -859,7 +859,7 @@ exports[`Tour step support Primary 1`] = `
   </div>
   <div>
     <div
-      class="ant-tour-mask"
+      class="ant-tour-mask css-var-root"
       style="position: fixed; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 1001; pointer-events: none;"
     >
       <svg
@@ -897,7 +897,7 @@ exports[`Tour step support Primary 1`] = `
         />
         <rect
           fill="transparent"
-          height="-6"
+          height="0"
           pointer-events="auto"
           width="100%"
           x="0"
@@ -907,13 +907,13 @@ exports[`Tour step support Primary 1`] = `
           fill="transparent"
           height="100%"
           pointer-events="auto"
-          width="-6"
+          width="0"
           x="0"
           y="0"
         />
         <rect
           fill="transparent"
-          height="calc(100vh - 6px)"
+          height="calc(100% - 6px)"
           pointer-events="auto"
           width="100%"
           x="0"
@@ -923,7 +923,7 @@ exports[`Tour step support Primary 1`] = `
           fill="transparent"
           height="100%"
           pointer-events="auto"
-          width="calc(100vw - 6px)"
+          width="calc(100% - 6px)"
           x="6"
           y="0"
         />
@@ -932,7 +932,7 @@ exports[`Tour step support Primary 1`] = `
   </div>
   <div>
     <div
-      class="ant-tour-target-placeholder"
+      class="css-var-root ant-tour-target-placeholder"
       style="left: -6px; top: -6px; width: 12px; height: 12px; position: fixed; pointer-events: none;"
     />
   </div>

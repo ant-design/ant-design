@@ -1,6 +1,11 @@
 import { unit } from '@ant-design/cssinjs';
 
-import { genBasicInputStyle, genPlaceholderStyle, initComponentToken, initInputToken } from '../../input/style';
+import {
+  genBasicInputStyle,
+  genPlaceholderStyle,
+  initComponentToken,
+  initInputToken,
+} from '../../input/style';
 import type { SharedComponentToken, SharedInputToken } from '../../input/style/token';
 import {
   genBorderlessStyle,

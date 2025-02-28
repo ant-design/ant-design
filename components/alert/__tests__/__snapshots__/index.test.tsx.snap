@@ -2,7 +2,7 @@
 
 exports[`Alert custom action 1`] = `
 <div
-  class="ant-alert ant-alert-success"
+  class="ant-alert ant-alert-success css-var-root"
   data-show="true"
   role="alert"
 >
@@ -26,19 +26,19 @@ exports[`Alert custom action 1`] = `
     </svg>
   </span>
   <div
-    class="ant-alert-content"
+    class="ant-alert-section"
   >
     <div
-      class="ant-alert-message"
+      class="ant-alert-title"
     >
       Success Tips
     </div>
   </div>
   <div
-    class="ant-alert-action"
+    class="ant-alert-actions"
   >
     <button
-      class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm"
+      class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm"
       type="button"
     >
       <span>
@@ -77,12 +77,12 @@ exports[`Alert custom action 1`] = `
 
 exports[`Alert rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-alert ant-alert-info ant-alert-no-icon ant-alert-rtl"
+  class="ant-alert ant-alert-info ant-alert-no-icon ant-alert-rtl css-var-root"
   data-show="true"
   role="alert"
 >
   <div
-    class="ant-alert-content"
+    class="ant-alert-section"
   />
 </div>
 `;

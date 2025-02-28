@@ -1,9 +1,9 @@
 import React from 'react';
+import raf from '@rc-component/util/lib/raf';
 import classNames from 'classnames';
 import type { SliderProps as RcSliderProps } from 'rc-slider';
 import RcSlider from 'rc-slider';
 import type { SliderRef } from 'rc-slider/lib/Slider';
-import raf from 'rc-util/lib/raf';
 
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -72,21 +72,6 @@ export interface SliderBaseProps {
   onFocus?: React.FocusEventHandler<HTMLDivElement>;
   onBlur?: React.FocusEventHandler<HTMLDivElement>;
 
-  // Deprecated
-  /** @deprecated `tooltipPrefixCls` is deprecated. Please use `tooltip.prefixCls` instead. */
-  tooltipPrefixCls?: string;
-  /** @deprecated `tipFormatter` is deprecated. Please use `tooltip.formatter` instead. */
-  tipFormatter?: Formatter;
-  /** @deprecated `tooltipVisible` is deprecated. Please use `tooltip.open` instead. */
-  tooltipVisible?: boolean;
-  /**
-   * @deprecated `getTooltipPopupContainer` is deprecated. Please use `tooltip.getPopupContainer`
-   *   instead.
-   */
-  getTooltipPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
-  /** @deprecated `tooltipPlacement` is deprecated. Please use `tooltip.placement` instead. */
-  tooltipPlacement?: TooltipPlacement;
-
   // Accessibility
   tabIndex?: SliderProps['tabIndex'];
   ariaLabelForHandle?: SliderProps['ariaLabelForHandle'];
@@ -131,12 +116,9 @@ type SliderRange = Exclude<GetProp<RcSliderProps, 'range'>, boolean>;
 
 export type Opens = { [index: number]: boolean };
 
-function getTipFormatter(tipFormatter?: Formatter, legacyTipFormatter?: Formatter) {
+function getTipFormatter(tipFormatter?: Formatter) {
   if (tipFormatter || tipFormatter === null) {
     return tipFormatter;
-  }
-  if (legacyTipFormatter || legacyTipFormatter === null) {
-    return legacyTipFormatter;
   }
   return (val?: number) => (typeof val === 'number' ? val.toString() : '');
 }
@@ -150,11 +132,6 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     style,
     disabled,
     // Deprecated Props
-    tooltipPrefixCls: legacyTooltipPrefixCls,
-    tipFormatter: legacyTipFormatter,
-    tooltipVisible: legacyTooltipVisible,
-    getTooltipPopupContainer: legacyGetTooltipPopupContainer,
-    tooltipPlacement: legacyTooltipPlacement,
     tooltip = {},
     onChangeComplete,
     classNames: sliderClassNames,
@@ -198,10 +175,10 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     formatter: tipFormatter,
   } = tooltipProps;
 
-  const lockOpen = tooltipOpen ?? legacyTooltipVisible;
+  const lockOpen = tooltipOpen;
   const activeOpen = (hoverOpen || focusOpen) && lockOpen !== false;
 
-  const mergedTipFormatter = getTipFormatter(tipFormatter, legacyTipFormatter);
+  const mergedTipFormatter = getTipFormatter(tipFormatter);
 
   // ============================= Change ==============================
   const [dragging, setDragging] = useRafLock();
@@ -225,7 +202,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
   // ============================== Style ===============================
   const prefixCls = getPrefixCls('slider', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const rootClassNames = classNames(
     className,
@@ -336,15 +313,13 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
         return (
           <SliderTooltip
             {...tooltipProps}
-            prefixCls={getPrefixCls('tooltip', customizeTooltipPrefixCls ?? legacyTooltipPrefixCls)}
+            prefixCls={getPrefixCls('tooltip', customizeTooltipPrefixCls)}
             title={mergedTipFormatter ? mergedTipFormatter(info.value) : ''}
             open={open}
-            placement={getTooltipPlacement(tooltipPlacement ?? legacyTooltipPlacement, vertical)}
+            placement={getTooltipPlacement(tooltipPlacement, vertical)}
             key={index}
             classNames={{ root: `${prefixCls}-tooltip` }}
-            getPopupContainer={
-              getTooltipPopupContainer || legacyGetTooltipPopupContainer || getPopupContainer
-            }
+            getPopupContainer={getTooltipPopupContainer || getPopupContainer}
           >
             {cloneNode}
           </SliderTooltip>
@@ -367,15 +342,13 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
         return (
           <SliderTooltip
             {...tooltipProps}
-            prefixCls={getPrefixCls('tooltip', customizeTooltipPrefixCls ?? legacyTooltipPrefixCls)}
+            prefixCls={getPrefixCls('tooltip', customizeTooltipPrefixCls)}
             title={mergedTipFormatter ? mergedTipFormatter(info.value) : ''}
             open={mergedTipFormatter !== null && activeOpen}
-            placement={getTooltipPlacement(tooltipPlacement ?? legacyTooltipPlacement, vertical)}
+            placement={getTooltipPlacement(tooltipPlacement, vertical)}
             key="tooltip"
             classNames={{ root: `${prefixCls}-tooltip` }}
-            getPopupContainer={
-              getTooltipPopupContainer || legacyGetTooltipPopupContainer || getPopupContainer
-            }
+            getPopupContainer={getTooltipPopupContainer || getPopupContainer}
             draggingDelete={info.draggingDelete}
           >
             {cloneNode}
@@ -399,7 +372,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
 
   const mergedTracksClassNames = classNames(contextClassNames.tracks, sliderClassNames?.tracks);
 
-  return wrapCSSVar(
+  return (
     // @ts-ignore
     <RcSlider
       {...restProps}
@@ -434,7 +407,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
       handleRender={handleRender}
       activeHandleRender={activeHandleRender}
       onChangeComplete={onInternalChangeComplete}
-    />,
+    />
   );
 });
 

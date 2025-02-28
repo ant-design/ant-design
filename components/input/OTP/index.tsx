@@ -1,7 +1,7 @@
 import * as React from 'react';
+import useEvent from '@rc-component/util/lib/hooks/useEvent';
+import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import classNames from 'classnames';
-import useEvent from 'rc-util/lib/hooks/useEvent';
-import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import { getMergedStatus } from '../../_util/statusUtils';
 import type { InputStatus } from '../../_util/statusUtils';
@@ -113,7 +113,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
 
   // ========================= Root =========================
   // Style
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   // ========================= Size =========================
   const mergedSize = useSize((ctx) => customSize ?? ctx);
@@ -244,7 +244,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     inputMode,
   };
 
-  return wrapCSSVar(
+  return (
     <div
       {...domAttrs}
       ref={containerRef}
@@ -286,7 +286,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
           );
         })}
       </FormItemInputContext.Provider>
-    </div>,
+    </div>
   );
 });
 

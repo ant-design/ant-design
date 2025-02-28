@@ -11,6 +11,7 @@ export interface ConfigOptions {
   maxCount?: number;
   rtl?: boolean;
 }
+export type SemanticName = 'root' | 'icon' | 'content';
 
 export interface ArgsProps {
   /**
@@ -37,6 +38,8 @@ export interface ArgsProps {
   key?: string | number;
   style?: React.CSSProperties;
   className?: string;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   /**
    * @descCN 消息通知点击时的回调函数
    * @descEN Callback function when message notification is clicked

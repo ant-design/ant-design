@@ -1,8 +1,8 @@
 import type { Component } from 'react';
 import React from 'react';
 import HolderOutlined from '@ant-design/icons/HolderOutlined';
+import type { CSSMotionProps } from '@rc-component/motion';
 import classNames from 'classnames';
-import type { CSSMotionProps } from 'rc-motion';
 import type { BasicDataNode, TreeProps as RcTreeProps } from 'rc-tree';
 import RcTree from 'rc-tree';
 import type { DataNode, Key } from 'rc-tree/lib/interface';
@@ -194,7 +194,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     dropIndicatorRender,
   };
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
   const [, token] = useToken();
 
   const itemHeight = token.paddingXS / 2 + (token.Tree?.titleHeight || token.controlHeightSM);
@@ -234,7 +234,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     />
   );
 
-  return wrapCSSVar(
+  return (
     // @ts-ignore
     <RcTree
       itemHeight={itemHeight}
@@ -263,7 +263,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
       draggable={draggableConfig}
     >
       {children}
-    </RcTree>,
+    </RcTree>
   );
 });
 

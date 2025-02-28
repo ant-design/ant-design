@@ -87,6 +87,7 @@ export interface ComponentToken {
    */
   defaultActiveBorderColor: string;
   /**
+   * @deprecated use `colorBorderDisabled` instead
    * @desc 禁用状态边框颜色
    * @descEN Border color of disabled button
    */
@@ -251,12 +252,13 @@ export interface ButtonToken extends FullToken<'Button'>, ShadowColorMap {
 export const prepareToken: (token: Parameters<GenStyleFn<'Button'>>[0]) => ButtonToken = (
   token,
 ) => {
-  const { paddingInline, onlyIconSize } = token;
+  const { paddingInline, onlyIconSize, borderColorDisabled } = token;
 
   const buttonToken = mergeToken<ButtonToken>(token, {
     buttonPaddingHorizontal: paddingInline,
     buttonPaddingVertical: 0,
     buttonIconOnlyFontSize: onlyIconSize,
+    colorBorderDisabled: borderColorDisabled,
   });
 
   return buttonToken;
@@ -289,7 +291,7 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
     dangerShadow: `0 ${token.controlOutlineWidth}px 0 ${token.colorErrorOutline}`,
     primaryColor: token.colorTextLightSolid,
     dangerColor: token.colorTextLightSolid,
-    borderColorDisabled: token.colorBorder,
+    borderColorDisabled: token.colorBorderDisabled,
     defaultGhostColor: token.colorBgContainer,
     ghostBg: 'transparent',
     defaultGhostBorderColor: token.colorBgContainer,

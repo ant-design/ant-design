@@ -1,9 +1,9 @@
 import * as React from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
+import type { InputNumberProps as RcInputNumberProps, ValueType } from '@rc-component/input-number';
+import RcInputNumber from '@rc-component/input-number';
 import classNames from 'classnames';
-import type { InputNumberProps as RcInputNumberProps, ValueType } from 'rc-input-number';
-import RcInputNumber from 'rc-input-number';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import type { InputStatus } from '../_util/statusUtils';
@@ -80,7 +80,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
 
   // Style
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
   let upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
@@ -131,7 +131,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   );
   const wrapperClassName = `${prefixCls}-group`;
 
-  const element = (
+  return (
     <RcInputNumber
       ref={inputRef}
       disabled={mergedDisabled}
@@ -194,8 +194,6 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       {...others}
     />
   );
-
-  return wrapCSSVar(element);
 });
 
 const TypedInputNumber = InputNumber as unknown as (<T extends ValueType = ValueType>(
