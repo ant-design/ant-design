@@ -1,4 +1,4 @@
-import { URLSearchParams } from 'node:url';
+/* eslint-disable compat/compat */
 import React, { useEffect, useState } from 'react';
 import type { GetProp, TableProps } from 'antd';
 import { Table } from 'antd';
