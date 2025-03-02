@@ -75,7 +75,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     className,
   );
 
-  const RCTourClassNames = {
+  const mergedClassNames = {
     mask: classNames(contextClassNames.mask, tourClassNames?.mask),
     actions: classNames(contextClassNames.actions, tourClassNames?.actions),
     description: classNames(contextClassNames.description, tourClassNames?.description),
@@ -83,9 +83,12 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     title: classNames(contextClassNames.title, tourClassNames?.title),
     section: classNames(contextClassNames.section, tourClassNames?.section),
     footer: classNames(contextClassNames.footer, tourClassNames?.footer),
+    indicator: classNames(contextClassNames.indicator, tourClassNames?.indicator),
+    indicators: classNames(contextClassNames.indicators, tourClassNames?.indicators),
+    cover: classNames(contextClassNames.cover, tourClassNames?.cover),
   };
 
-  const RCTourStyles = {
+  const mergedStyles = {
     mask: {
       ...contextStyles.root,
       ...contextStyle,
@@ -100,17 +103,6 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     title: { ...contextStyles.title, ...styles?.title },
     section: { ...contextStyles.section, ...styles?.section },
     footer: { ...contextStyles.footer, ...styles?.footer },
-  };
-
-  const mergedClassNames = {
-    ...RCTourClassNames,
-    indicator: classNames(contextClassNames.indicator, tourClassNames?.indicator),
-    indicators: classNames(contextClassNames.indicators, tourClassNames?.indicators),
-    cover: classNames(contextClassNames.cover, tourClassNames?.cover),
-  };
-
-  const mergedStyles = {
-    ...RCTourStyles,
     indicator: { ...contextStyles.indicator, ...styles?.indicator },
     indicators: { ...contextStyles.indicators, ...styles?.indicators },
     cover: { ...contextStyles.cover, ...styles?.cover },
@@ -134,8 +126,8 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     <zIndexContext.Provider value={contextZIndex}>
       <RCTour
         {...restProps}
-        styles={RCTourStyles}
-        classNames={RCTourClassNames}
+        styles={mergedStyles}
+        classNames={mergedClassNames}
         closeIcon={closeIcon ?? contextCloseIcon}
         zIndex={zIndex}
         rootClassName={customClassName}
