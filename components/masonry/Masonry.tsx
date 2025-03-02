@@ -211,8 +211,8 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
         )}
         style={{
           height: totalHeight,
-          ...contextStyle,
           ...contextStyles.root,
+          ...contextStyle,
           ...styles.root,
           ...style,
         }}
