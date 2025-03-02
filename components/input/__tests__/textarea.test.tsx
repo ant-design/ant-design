@@ -9,11 +9,13 @@ import {
   fireEvent,
   pureRender,
   render,
+  renderHook,
   triggerResize,
   waitFakeTimer,
   waitFakeTimer19,
 } from '../../../tests/utils';
 import type { TextAreaRef } from '../TextArea';
+import useHandleResizeWrapper from '../hooks/useHandleResizeWrapper';
 
 const { TextArea } = Input;
 
@@ -529,5 +531,69 @@ describe('TextArea allowClear', () => {
     expect(container.querySelector('textarea')).toHaveClass('ant-input-borderless');
     expect(errSpy).toHaveBeenCalledWith(expect.stringContaining('`bordered` is deprecated'));
     errSpy.mockRestore();
+  });
+});
+
+describe('TextArea useHandleResizeWrapper', () => {
+  it('should do nothing if the textArea style width does not include "px"', () => {
+    const { result } = renderHook(() => useHandleResizeWrapper());
+    const fakeResizableTextArea = {
+      textArea: {
+        style: {
+          width: '100', // Missing "px"
+        },
+      },
+    } as any;
+
+    const fakeWrapper = {
+      offsetWidth: 100,
+      style: {} as any,
+    } as HTMLElement;
+
+    result.current?.handleResizeWrapper(fakeResizableTextArea, fakeWrapper);
+    // Expect no changes to wrapper.style.width
+    expect(fakeWrapper.style.width).toBeUndefined();
+  });
+
+  it('should adjust the width when the difference is less than ELEMENT_GAP', () => {
+    const { result } = renderHook(() => useHandleResizeWrapper());
+    const fakeResizableTextArea = {
+      textArea: {
+        style: {
+          width: '100px',
+        },
+      },
+    } as any;
+
+    // In this scenario, the wrapper.offsetWidth is 101, so the difference is 1 (< ELEMENT_GAP of 2)
+    const fakeWrapper = {
+      offsetWidth: 101,
+      style: {} as any,
+    } as HTMLElement;
+
+    result.current?.handleResizeWrapper(fakeResizableTextArea, fakeWrapper);
+    // Expected new width: 100 + 2 = 102px
+    expect(fakeWrapper.style.width).toBe('102px');
+  });
+
+  it('should adjust the width when the difference is greater than ELEMENT_GAP', () => {
+    const { result } = renderHook(() => useHandleResizeWrapper());
+    const fakeResizableTextArea = {
+      textArea: {
+        style: {
+          width: '100px',
+        },
+      },
+    } as any;
+
+    // In this scenario, the wrapper.offsetWidth is 105, so the difference is 5 (> ELEMENT_GAP of 2)
+    const fakeWrapper = {
+      offsetWidth: 105,
+      style: {} as any,
+    } as HTMLElement;
+
+    result.current?.handleResizeWrapper(fakeResizableTextArea, fakeWrapper);
+    // The logic still sets the width to 100 + 2 = 102px regardless of increase or decrease
+    expect(fakeWrapper.style.width).toBe('102px');
   });
 });

@@ -170,7 +170,9 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
         showCount={showCount}
         onResize={(size) => {
           rest.onResize?.(size);
-          showCount && handleResizeWrapper(innerRef.current);
+          showCount &&
+            innerRef.current &&
+            handleResizeWrapper(innerRef.current.resizableTextArea, innerRef.current.nativeElement);
         }}
         ref={innerRef}
       />,
