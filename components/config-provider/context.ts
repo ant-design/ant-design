@@ -52,6 +52,7 @@ import type { TooltipProps } from '../tooltip';
 import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
 import type { TreeSelectProps } from '../tree-select';
+import type { UploadProps } from '../upload';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 
 export const defaultPrefixCls = 'ant';
@@ -275,6 +276,8 @@ export type TimelineConfig = ComponentStyleConfig & Pick<TimelineProps, 'classNa
 export type MentionsConfig = ComponentStyleConfig &
   Pick<MentionsProps, 'variant' | 'classNames' | 'styles'>;
 
+export type UploadConfig = ComponentStyleConfig & Pick<UploadProps, 'classNames' | 'styles'>;
+
 export type RibbonConfig = ComponentStyleConfig & Pick<RibbonProps, 'classNames' | 'styles'>;
 
 export type PopupOverflow = 'viewport' | 'scroll';
@@ -359,7 +362,7 @@ export interface ConfigComponentProps {
   tooltip?: TooltipConfig;
   popover?: PopoverConfig;
   popconfirm?: PopconfirmConfig;
-  upload?: ComponentStyleConfig;
+  upload?: UploadConfig;
   notification?: NotificationConfig;
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
