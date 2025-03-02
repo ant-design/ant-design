@@ -25,6 +25,7 @@ Thank you!
 - [ ] ✅ Test Case
 - [ ] 🔀 Branch merge
 - [ ] ⏩ Workflow
+- [ ] ⌨️ Accessibility improvement
 - [ ] ❓ Other (about what?)
 
 ### 🔗 Related Issues

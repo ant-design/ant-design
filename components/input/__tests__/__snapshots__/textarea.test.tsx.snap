@@ -43,6 +43,7 @@ exports[`TextArea allowClear should change type when click 1`] = `
   >
     <button
       class="ant-input-clear-icon"
+      tabindex="-1"
       type="button"
     >
       <span
@@ -82,6 +83,7 @@ exports[`TextArea allowClear should change type when click 2`] = `
   >
     <button
       class="ant-input-clear-icon ant-input-clear-icon-hidden"
+      tabindex="-1"
       type="button"
     >
       <span
@@ -121,6 +123,7 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
   >
     <button
       class="ant-input-clear-icon ant-input-clear-icon-hidden"
+      tabindex="-1"
       type="button"
     >
       <span
@@ -160,6 +163,7 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
   >
     <button
       class="ant-input-clear-icon ant-input-clear-icon-hidden"
+      tabindex="-1"
       type="button"
     >
       <span
@@ -199,6 +203,7 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
   >
     <button
       class="ant-input-clear-icon ant-input-clear-icon-hidden"
+      tabindex="-1"
       type="button"
     >
       <span
@@ -238,6 +243,7 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
   >
     <button
       class="ant-input-clear-icon ant-input-clear-icon-hidden"
+      tabindex="-1"
       type="button"
     >
       <span
@@ -277,6 +283,7 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
   >
     <button
       class="ant-input-clear-icon ant-input-clear-icon-hidden"
+      tabindex="-1"
       type="button"
     >
       <span
@@ -316,6 +323,7 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
   >
     <button
       class="ant-input-clear-icon ant-input-clear-icon-hidden"
+      tabindex="-1"
       type="button"
     >
       <span
