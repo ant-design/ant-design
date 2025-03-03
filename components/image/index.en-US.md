@@ -177,6 +177,10 @@ type TransformAction =
 }
 ```
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Image"></ComponentTokenTable>

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
-import classNames from 'classnames';
 import RcImage from '@rc-component/image';
-import type { ImageProps } from '@rc-component/image';
+import type { ImagePreviewType, ImageProps } from '@rc-component/image';
+import classNames from 'classnames';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
@@ -56,6 +56,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
       return preview;
     }
     const _preview = typeof preview === 'object' ? preview : {};
+    const _contextPreview = typeof contextPreview === 'object' ? contextPreview : {};
     const { getContainer, closeIcon, rootClassName, ...restPreviewProps } = _preview;
     return {
       mask: (
@@ -66,14 +67,30 @@ const Image: CompositionImage<ImageProps> = (props) => {
       ),
       icons,
       ...restPreviewProps,
-      rootClassName: classNames(mergedRootClassName, rootClassName),
       getContainer: getContainer ?? getContextPopupContainer,
       transitionName: getTransitionName(rootPrefixCls, 'zoom', _preview.transitionName),
       maskTransitionName: getTransitionName(rootPrefixCls, 'fade', _preview.maskTransitionName),
       zIndex,
       closeIcon: closeIcon ?? contextPreview?.closeIcon,
+      rootClassName: classNames(
+        mergedRootClassName,
+        rootClassName,
+        _preview?.classNames?.root,
+        _contextPreview?.classNames?.root,
+      ),
+      classNames: {
+        mask: classNames(_preview?.classNames?.mask, _contextPreview?.classNames?.mask),
+        actions: classNames(_preview?.classNames?.actions, _contextPreview?.classNames?.actions),
+        wrapper: classNames(_preview?.classNames?.wrapper, _contextPreview?.classNames?.wrapper),
+      },
+      styles: {
+        root: { ..._contextPreview?.styles?.root, ..._preview?.styles?.root },
+        mask: { ..._contextPreview?.styles?.mask, ..._preview?.styles?.mask },
+        actions: { ..._contextPreview?.styles?.actions, ..._preview?.styles?.actions },
+        wrapper: { ..._contextPreview?.styles?.wrapper, ..._preview?.styles?.wrapper },
+      },
     };
-  }, [preview, imageLocale, contextPreview?.closeIcon]);
+  }, [preview, imageLocale, contextPreview]);
 
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
@@ -89,7 +106,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
   );
 };
 
-export type { ImageProps };
+export type { ImageProps, ImagePreviewType };
 
 Image.PreviewGroup = PreviewGroup;
 
