@@ -114,6 +114,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
           className={`${prefixCls}-close-icon`}
           onClick={handleCloseClick}
           aria-label="Close"
+          tabIndex={-1}
         >
           {iconNode}
         </button>
