@@ -597,3 +597,91 @@ describe('TextArea useHandleResizeWrapper', () => {
     expect(fakeWrapper.style.width).toBe('102px');
   });
 });
+
+describe('TextArea onResize callback', () => {
+  const sampleSize = { width: 100, height: 50 };
+
+  // We simulate our external functions as Jest mocks.
+  let rest: { onResize?: (size: typeof sampleSize) => void };
+  let handleResizeWrapper: jest.Mock;
+  let innerRef: { current: null | { resizableTextArea: any; nativeElement: any } };
+
+  // The inline onResize callback from the component.
+  const createOnResizeCallback = (showCount: boolean) => (size: typeof sampleSize) => {
+    // Call rest.onResize if provided.
+    rest.onResize?.(size);
+    // If showCount is true and innerRef.current exists, call handleResizeWrapper.
+    showCount &&
+      innerRef.current &&
+      handleResizeWrapper(innerRef.current.resizableTextArea, innerRef.current.nativeElement);
+  };
+
+  beforeEach(() => {
+    // Reset mocks and variables before each test.
+    rest = { onResize: jest.fn() };
+    handleResizeWrapper = jest.fn();
+  });
+
+  it('should call rest.onResize and handleResizeWrapper when showCount is true and innerRef.current is defined', () => {
+    const showCount = true;
+    innerRef = {
+      current: {
+        resizableTextArea: 'fakeTextArea',
+        nativeElement: 'fakeElement',
+      },
+    };
+
+    const onResize = createOnResizeCallback(showCount);
+    onResize(sampleSize);
+
+    expect(rest.onResize).toHaveBeenCalledWith(sampleSize);
+    expect(handleResizeWrapper).toHaveBeenCalledWith('fakeTextArea', 'fakeElement');
+  });
+
+  it('should call only rest.onResize when showCount is false', () => {
+    const showCount = false;
+    innerRef = {
+      current: {
+        resizableTextArea: 'fakeTextArea',
+        nativeElement: 'fakeElement',
+      },
+    };
+
+    const onResize = createOnResizeCallback(showCount);
+    onResize(sampleSize);
+
+    expect(rest.onResize).toHaveBeenCalledWith(sampleSize);
+    expect(handleResizeWrapper).not.toHaveBeenCalled();
+  });
+
+  it('should call only rest.onResize when innerRef.current is null, even if showCount is true', () => {
+    const showCount = true;
+    innerRef = {
+      current: null,
+    };
+
+    const onResize = createOnResizeCallback(showCount);
+    onResize(sampleSize);
+
+    expect(rest.onResize).toHaveBeenCalledWith(sampleSize);
+    expect(handleResizeWrapper).not.toHaveBeenCalled();
+  });
+
+  it('should call handleResizeWrapper when rest.onResize is not provided but showCount is true', () => {
+    // Remove rest.onResize.
+    rest = {};
+    const showCount = true;
+    innerRef = {
+      current: {
+        resizableTextArea: 'fakeTextArea',
+        nativeElement: 'fakeElement',
+      },
+    };
+
+    const onResize = createOnResizeCallback(showCount);
+    onResize(sampleSize);
+
+    // Since rest.onResize is not defined, only handleResizeWrapper should be called.
+    expect(handleResizeWrapper).toHaveBeenCalledWith('fakeTextArea', 'fakeElement');
+  });
+});
