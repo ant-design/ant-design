@@ -48,8 +48,8 @@ export interface MasonryProps<ItemDateType = any> {
   /** Number of columns in the masonry grid layout */
   columns?: number | Partial<Record<Breakpoint, number>>;
 
-  /** Trigger when sort order changed */
-  onSortChange?: (sortInfo: { key: React.Key; column: number }[]) => void;
+  /** Trigger when item layout order changed */
+  onLayoutChange?: (sortInfo: { key: React.Key; column: number }[]) => void;
 
   fresh?: boolean;
 }
@@ -70,7 +70,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     gutter = 0,
     items,
     itemRender,
-    onSortChange,
+    onLayoutChange,
     fresh,
   } = props;
 
@@ -170,11 +170,11 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     collectItemSize();
   }, [mergedItems, columnCount]);
 
-  // Trigger for `onSortChange`
+  // Trigger for `onLayoutChange`
   type ItemColumnsType = [item: MasonryItemType, column: number][];
   const [itemColumns, setItemColumns] = React.useState<ItemColumnsType>([]);
   useLayoutEffect(() => {
-    if (onSortChange && itemWithPositions.every(({ position }) => position)) {
+    if (onLayoutChange && itemWithPositions.every(({ position }) => position)) {
       setItemColumns((prevItemColumns: ItemColumnsType) => {
         const nextItemColumns: ItemColumnsType = itemWithPositions.map(({ item, position }) => [
           item,
@@ -186,8 +186,8 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   }, [itemWithPositions]);
 
   useLayoutEffect(() => {
-    if (onSortChange && items && items.length === itemColumns.length) {
-      onSortChange(itemColumns.map(([item, column]) => ({ ...item, column })));
+    if (onLayoutChange && items && items.length === itemColumns.length) {
+      onLayoutChange(itemColumns.map(([item, column]) => ({ ...item, column })));
     }
   }, [itemColumns]);
 

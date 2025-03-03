@@ -117,8 +117,8 @@ describe('Masonry', () => {
   };
 
   it('should render correctly', async () => {
-    const onSortChange = jest.fn();
-    const { container } = render(<DemoMasonry columns={3} onSortChange={onSortChange} />);
+    const onLayoutChange = jest.fn();
+    const { container } = render(<DemoMasonry columns={3} onLayoutChange={onLayoutChange} />);
     await resizeMasonry();
 
     expect(container.querySelector('.ant-masonry')).toHaveStyle({
@@ -129,7 +129,7 @@ describe('Masonry', () => {
       Number(ele.getAttribute('data-column')),
     );
 
-    expect(onSortChange).toHaveBeenCalledWith(
+    expect(onLayoutChange).toHaveBeenCalledWith(
       heights.map((height, index) =>
         expect.objectContaining({
           column: columns[index],

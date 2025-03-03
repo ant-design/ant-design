@@ -42,7 +42,7 @@ tag: 6.0.0
 | items | 瀑布流项 | [MasonryItem](#masonryitem)[] | - |
 | itemRender | 自定义项渲染 | `(item: MasonryItem) => React.ReactNode` | - |
 | styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |
-| onSortChange | 列排序回调 | `({ key: React.Key; column: number }[]) => void` | - |
+| onLayoutChange | 列排序回调 | `({ key: React.Key; column: number }[]) => void` | - |
 
 ### MasonryItem
 

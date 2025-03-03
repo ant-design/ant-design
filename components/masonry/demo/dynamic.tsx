@@ -58,7 +58,7 @@ const Update: React.FC = () => {
             />
           </Card>
         )}
-        onSortChange={(sortedItems) => {
+        onLayoutChange={(sortedItems) => {
           setItems((prevItems) =>
             prevItems.map((item) => {
               const matchItem = sortedItems.find((sortedItem) => sortedItem.key === item.key);

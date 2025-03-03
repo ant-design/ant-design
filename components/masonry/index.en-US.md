@@ -41,7 +41,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | items | Masonry items | [MasonryItem](#masonryitem)[] | - |
 | itemRender | Custom item rendering function | `(item: MasonryItem) => React.ReactNode` | - |
 | styles | Semantic structure style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |
-| onSortChange | Callback for column sorting changes | `({ key: React.Key; column: number }[]) => void` | - |
+| onLayoutChange | Callback for column sorting changes | `({ key: React.Key; column: number }[]) => void` | - |
 
 ### MasonryItem
 
