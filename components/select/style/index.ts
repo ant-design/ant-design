@@ -202,10 +202,8 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         [`${componentCls}-clear`]: {
           opacity: 1,
         },
-        [`&:has(${componentCls}-clear)`]: {
-          [`${componentCls}-arrow`]: {
-            opacity: 0,
-          },
+        [`&:has(${componentCls}-clear) ${componentCls}-arrow`]: {
+          opacity: 0,
         },
       },
 
