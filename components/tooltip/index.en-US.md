@@ -28,6 +28,7 @@ demo:
 <code src="./demo/debug.tsx" debug>Debug</code>
 <code src="./demo/disabled.tsx">Disabled</code>
 <code src="./demo/disabled-children.tsx" debug>Disabled children</code>
+<code src="./demo/wrap-custom-component.tsx" debug>Wrap custom component</code>
 
 ## API
 
@@ -60,7 +61,7 @@ This is due to the implementation of `rc-trigger`. `rc-trigger` forces children 
 
 #### Why is the tooltip for my custom component not opening?
 
-The `Tooltip` component requires the child node to accept `onMouseEnter`, `onMouseLeave`, `onPointerEnter`, `onPointerLeave`, `onFocus`, and `onClick` events, so if you create your own component and do not explicitly add these mouse and pointer events as props, the tooltip will never appear. (See "Custom Component" example.)
+The `Tooltip` component requires the child node to accept `onMouseEnter`, `onMouseLeave`, `onPointerEnter`, `onPointerLeave`, `onFocus`, and `onClick` events, so if you create your own component and do not explicitly add these mouse and pointer events as props, the tooltip will never appear. (See "Wrap custom component" example.)
 
 ### Why sometime not work on HOC?
 
