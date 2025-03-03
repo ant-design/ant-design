@@ -111,7 +111,7 @@ export default function imageTest(
 
   function test(name: string, suffix: string, themedComponent: React.ReactElement) {
     it(name, async () => {
-      await page.setViewport({ width: 1280, height: 800, isMobile: false, hasTouch: false });
+      await page.setViewport({ width: 800, height: 600, isMobile: false, hasTouch: false });
 
       const onRequestHandle = (request: HTTPRequest) => {
         if (['image'].includes(request.resourceType())) {
@@ -181,8 +181,6 @@ export default function imageTest(
 
       await page.evaluate(
         (innerHTML: string, ssrStyle: string, triggerClassName?: string) => {
-
-          document.head.appendChild(meta);
           const root = document.querySelector<HTMLDivElement>('#root')!;
           root.innerHTML = innerHTML;
           const head = document.querySelector<HTMLElement>('head')!;
