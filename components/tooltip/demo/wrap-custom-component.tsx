@@ -1,5 +1,5 @@
 import { Tooltip } from 'antd';
-import React, { MouseEventHandler, PointerEventHandler, FocusEventHandler } from "react";
+import React, type { MouseEventHandler, PointerEventHandler, FocusEventHandler } from "react";
 
 const ComponentWithEvents: React.FC<React.HTMLAttributes<HTMLSpanElement>> = (props) => {
     return (
