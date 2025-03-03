@@ -70,9 +70,9 @@ export default function imageTest(
     // Fake Resize Observer
     global.ResizeObserver = function FakeResizeObserver() {
       return {
-        observe() { },
-        unobserve() { },
-        disconnect() { },
+        observe() {},
+        unobserve() {},
+        disconnect() {},
       };
     } as unknown as typeof ResizeObserver;
 
