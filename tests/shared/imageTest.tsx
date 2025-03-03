@@ -70,9 +70,9 @@ export default function imageTest(
     // Fake Resize Observer
     global.ResizeObserver = function FakeResizeObserver() {
       return {
-        observe() {},
-        unobserve() {},
-        disconnect() {},
+        observe() { },
+        unobserve() { },
+        disconnect() { },
       };
     } as unknown as typeof ResizeObserver;
 
@@ -111,7 +111,7 @@ export default function imageTest(
 
   function test(name: string, suffix: string, themedComponent: React.ReactElement) {
     it(name, async () => {
-      await page.setViewport({ width: 800, height: 600 });
+      await page.setViewport({ width: 800, height: 600, isMobile: false, });
 
       const onRequestHandle = (request: HTTPRequest) => {
         if (['image'].includes(request.resourceType())) {
