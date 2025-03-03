@@ -111,7 +111,7 @@ export default function imageTest(
 
   function test(name: string, suffix: string, themedComponent: React.ReactElement) {
     it(name, async () => {
-      await page.setViewport({ width: 800, height: 600, isMobile: false, });
+      await page.setViewport({ width: 1280, height: 800, isMobile: false, hasTouch: false });
 
       const onRequestHandle = (request: HTTPRequest) => {
         if (['image'].includes(request.resourceType())) {
@@ -181,6 +181,13 @@ export default function imageTest(
 
       await page.evaluate(
         (innerHTML: string, ssrStyle: string, triggerClassName?: string) => {
+          document.querySelector('meta[name="viewport"]')?.remove();
+          // 强制设置桌面端 viewport
+          const meta = document.createElement('meta');
+          meta.name = 'viewport';
+          meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+
+          document.head.appendChild(meta);
           const root = document.querySelector<HTMLDivElement>('#root')!;
           root.innerHTML = innerHTML;
           const head = document.querySelector<HTMLElement>('head')!;
