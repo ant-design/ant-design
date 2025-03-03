@@ -58,6 +58,10 @@ This is due to the implementation of `rc-trigger`. `rc-trigger` forces children 
 - `findDOMNode is deprecated` reproduce: <https://codesandbox.io/p/sandbox/finddomnode-c5hy96>
 - Using `forwardRef` to fix: <https://codesandbox.io/p/sandbox/no-finddomnode-warning-forked-gdxczs>
 
+#### Why is the tooltip for my custom component not opening?
+
+The `Tooltip` component requires the child node to accept `onMouseEnter`, `onMouseLeave`, `onPointerEnter`, `onPointerLeave`, `onFocus`, and `onClick` events, so if you create your own component and do not explicitly add these mouse and pointer events as props, the tooltip will never appear. (See "Custom Component" example.)
+
 ### Why sometime not work on HOC?
 
 Please ensure that the child node of `Tooltip` accepts `onMouseEnter`, `onMouseLeave`, `onPointerEnter`, `onPointerLeave`, `onFocus`, `onClick` events.
