@@ -52,6 +52,7 @@ import type { TooltipProps } from '../tooltip';
 import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
 import type { TreeSelectProps } from '../tree-select';
+import type { UploadProps } from '../upload';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import type { MasonryProps } from '../masonry';
 
@@ -155,7 +156,8 @@ export type MasonryConfig = ComponentStyleConfig & Pick<MasonryProps, 'className
 
 export type MenuConfig = ComponentStyleConfig & Pick<MenuProps, 'expandIcon'>;
 
-export type TourConfig = Pick<TourProps, 'closeIcon'>;
+export type TourConfig = ComponentStyleConfig &
+  Pick<TourProps, 'closeIcon' | 'classNames' | 'styles'>;
 
 export type DescriptionsConfig = ComponentStyleConfig &
   Pick<DescriptionsProps, 'classNames' | 'styles'>;
@@ -278,6 +280,8 @@ export type TimelineConfig = ComponentStyleConfig & Pick<TimelineProps, 'classNa
 export type MentionsConfig = ComponentStyleConfig &
   Pick<MentionsProps, 'variant' | 'classNames' | 'styles'>;
 
+export type UploadConfig = ComponentStyleConfig & Pick<UploadProps, 'classNames' | 'styles'>;
+
 export type RibbonConfig = ComponentStyleConfig & Pick<RibbonProps, 'classNames' | 'styles'>;
 
 export type PopupOverflow = 'viewport' | 'scroll';
@@ -363,7 +367,7 @@ export interface ConfigComponentProps {
   tooltip?: TooltipConfig;
   popover?: PopoverConfig;
   popconfirm?: PopconfirmConfig;
-  upload?: ComponentStyleConfig;
+  upload?: UploadConfig;
   notification?: NotificationConfig;
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
