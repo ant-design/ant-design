@@ -16,6 +16,7 @@ Array [
           <button
             aria-label="Close"
             class="ant-tag-close-icon"
+            tabindex="-1"
             type="button"
           >
             <span
@@ -51,6 +52,7 @@ Array [
           <button
             aria-label="Close"
             class="ant-tag-close-icon"
+            tabindex="-1"
             type="button"
           >
             <span
@@ -86,6 +88,7 @@ Array [
           <button
             aria-label="Close"
             class="ant-tag-close-icon"
+            tabindex="-1"
             type="button"
           >
             <span
@@ -171,6 +174,7 @@ Array [
     <button
       aria-label="Close"
       class="ant-tag-close-icon"
+      tabindex="-1"
       type="button"
     >
       <span
@@ -202,6 +206,7 @@ Array [
     <button
       aria-label="Close"
       class="ant-tag-close-icon"
+      tabindex="-1"
       type="button"
     >
       <span
@@ -252,6 +257,7 @@ Array [
       <button
         aria-label="Close"
         class="ant-tag-close-icon"
+        tabindex="-1"
         type="button"
       >
         <span
@@ -283,6 +289,7 @@ Array [
       <button
         aria-label="Close"
         class="ant-tag-close-icon"
+        tabindex="-1"
         type="button"
       >
         <span
@@ -420,6 +427,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx correctly 1`] = `
       <button
         aria-label="Close"
         class="ant-tag-close-icon"
+        tabindex="-1"
         type="button"
       >
         <span
@@ -451,6 +459,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx correctly 1`] = `
       <button
         aria-label="Close"
         class="ant-tag-close-icon"
+        tabindex="-1"
         type="button"
       >
         <span
@@ -778,6 +787,7 @@ exports[`renders components/tag/demo/control.tsx correctly 1`] = `
     <button
       aria-label="Close"
       class="ant-tag-close-icon"
+      tabindex="-1"
       type="button"
     >
       <span
@@ -812,6 +822,7 @@ exports[`renders components/tag/demo/control.tsx correctly 1`] = `
     <button
       aria-label="Close"
       class="ant-tag-close-icon"
+      tabindex="-1"
       type="button"
     >
       <span
@@ -881,6 +892,7 @@ exports[`renders components/tag/demo/customize.tsx correctly 1`] = `
     <button
       aria-label="Close"
       class="ant-tag-close-icon"
+      tabindex="-1"
       type="button"
     >
       关 闭
@@ -893,6 +905,7 @@ exports[`renders components/tag/demo/customize.tsx correctly 1`] = `
     <button
       aria-label="Close"
       class="ant-tag-close-icon"
+      tabindex="-1"
       type="button"
     >
       <span

@@ -831,6 +831,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx correctly 1`] = `
               <button
                 aria-label="Close"
                 class="ant-tag-close-icon"
+                tabindex="-1"
                 type="button"
               >
                 <span
@@ -870,6 +871,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx correctly 1`] = `
               <button
                 aria-label="Close"
                 class="ant-tag-close-icon"
+                tabindex="-1"
                 type="button"
               >
                 <span

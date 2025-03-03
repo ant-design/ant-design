@@ -1748,6 +1748,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx extend context cor
               <button
                 aria-label="Close"
                 class="ant-tag-close-icon"
+                tabindex="-1"
                 type="button"
               >
                 <span
@@ -1787,6 +1788,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx extend context cor
               <button
                 aria-label="Close"
                 class="ant-tag-close-icon"
+                tabindex="-1"
                 type="button"
               >
                 <span
