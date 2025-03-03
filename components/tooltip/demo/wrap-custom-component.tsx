@@ -3,9 +3,9 @@ import React, type { MouseEventHandler, PointerEventHandler, FocusEventHandler }
 
 const ComponentWithEvents: React.FC<React.HTMLAttributes<HTMLSpanElement>> = (props) => {
     return (
-        <span {...props}>
-            This text is inside a component with the necessary events exposed.
-        </span>
+      <span {...props}>
+        This text is inside a component with the necessary events exposed.
+      </span>
     );
 }
 
