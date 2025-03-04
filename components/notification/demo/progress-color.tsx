@@ -34,7 +34,7 @@ const App: React.FC = () => {
 
   const openNotification = () => {
     api.open({
-      message: 'Customize progress bar color',
+      title: 'Customize progress bar color',
       description: 'You can use component token to customize the progress bar color',
       showProgress: true,
       duration: 20,
