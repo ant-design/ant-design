@@ -330,6 +330,9 @@
     "webpack-bundle-analyzer": "^4.10.2",
     "xhr-mock": "^2.5.1"
   },
+  "overrides": {
+    "nwsapi": "2.2.16"
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
