@@ -22852,7 +22852,11 @@ exports[`renders components/table/demo/resizable-column.tsx extend context corre
 </div>
 `;
 
-exports[`renders components/table/demo/resizable-column.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/table/demo/resizable-column.tsx extend context correctly 2`] = `
+[
+  "Warning: Invalid aria prop %s on <%s> tag. For details, see https://reactjs.org/link/invalid-aria-props%s",
+]
+`;
 
 exports[`renders components/table/demo/responsive.tsx extend context correctly 1`] = `
 <div
