@@ -61,7 +61,7 @@ This is due to the implementation of `rc-trigger`. `rc-trigger` forces children 
 
 ### Why is the tooltip for my custom component not opening?
 
-The `Tooltip` component requires the child node to accept `onMouseEnter`, `onMouseLeave`, `onPointerEnter`, `onPointerLeave`, `onFocus`, and `onClick` events, so if you create your own component and do not explicitly add these mouse and pointer events as props, the tooltip will never appear. (See "Wrap custom component" example.)
+The `Tooltip` component requires the child node to accept `onMouseEnter`, `onMouseLeave`, `onPointerEnter`, `onPointerLeave`, `onFocus`, and `onClick` events, so if you create your own component and do not explicitly add these mouse and pointer events as props, the tooltip will never appear. (See [Wrap custom component](#wrap-custom-component)).)
 
 See https://github.com/ant-design/ant-design/issues/15909#issuecomment-480659039
 
