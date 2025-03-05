@@ -3,7 +3,9 @@ import React from 'react';
 import type { SizeType } from '../SizeContext';
 import SizeContext from '../SizeContext';
 
-const useSize = <T>(customSize?: T | ((ctxSize: SizeType) => T)): T => {
+const useSize = <T extends string | undefined | number | object>(
+  customSize?: T | ((ctxSize: SizeType) => T),
+): T => {
   const size = React.useContext<SizeType>(SizeContext);
   const mergedSize = React.useMemo<T>(() => {
     if (!customSize) {
