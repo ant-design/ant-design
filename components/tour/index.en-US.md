@@ -57,6 +57,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | arrow | Whether to show the arrow, including the configuration whether to point to the center of the element | `boolean` `{ pointAtCenter: boolean}` | `true` |  |
 | closeIcon | Customize close icon | `React.ReactNode` | `true` | 5.9.0 |
 | cover | Displayed pictures or videos | `ReactNode` | - |  |
+| coverStyle | The cover style of pictures or videos | `React.CSSProperties` | - |  |
 | title | title | `ReactNode` | - |  |
 | description | description | `ReactNode` | - |  |
 | placement | Position of the guide card relative to the target element | `center` `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | `bottom` |  |

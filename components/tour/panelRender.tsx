@@ -35,6 +35,7 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     onNext,
     onFinish,
     cover,
+    coverStyle,
     description,
     nextButtonProps,
     prevButtonProps,
@@ -76,7 +77,11 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     <div className={`${prefixCls}-description`}>{description}</div>
   ) : null;
 
-  const coverNode = isValidNode(cover) ? <div className={`${prefixCls}-cover`}>{cover}</div> : null;
+  const coverNode = isValidNode(cover) ? (
+    <div className={`${prefixCls}-cover`} style={coverStyle}>
+      {cover}
+    </div>
+  ) : null;
 
   let mergedIndicatorNode: ReactNode;
 

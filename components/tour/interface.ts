@@ -14,6 +14,7 @@ export interface TourProps extends Omit<RCTourProps, 'renderPanel'> {
 
 export interface TourStepProps extends RCTourStepProps {
   cover?: ReactNode; // Display pictures or videos
+  coverStyle?: React.CSSProperties;
   nextButtonProps?: {
     children?: ReactNode;
     onClick?: () => void;
