@@ -7,6 +7,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
 
 const { getMentions } = Mentions;
+
 function simulateInput(wrapper: ReturnType<typeof render>, text: string, keyEvent?: Event): void {
   const lastChar = text[text.length - 1];
   const myKeyEvent = keyEvent || {
