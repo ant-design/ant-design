@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 5.24.3
 
-`2025-03-04`
+`2025-03-05`
 
 - Input
   - 🐞 修复 Input 开启 `allowClear` 后按下 Tab 键后没有正确选中下个元素的问题。[#52977](https://github.com/ant-design/ant-design/pull/52977) [@wanpan11](https://github.com/wanpan11)
