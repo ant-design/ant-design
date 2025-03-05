@@ -143,10 +143,17 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
     );
   }
 
+  // https://github.com/ant-design/ant-design/pull/52950#discussion_r1980880316
+  let markType: string | undefined;
+  if (hideRequiredMark) {
+    markType = 'hidden';
+  } else if (isOptionalMark || isRenderMark) {
+    markType = 'optional';
+  }
+
   const labelClassName = classNames({
     [`${prefixCls}-item-required`]: required,
-    [`${prefixCls}-item-required-mark-hidden`]: hideRequiredMark,
-    [`${prefixCls}-item-required-mark-optional`]: isOptionalMark || isRenderMark,
+    [`${prefixCls}-item-required-mark-${markType}`]: markType,
     [`${prefixCls}-item-no-colon`]: !computedColon,
   });
 
