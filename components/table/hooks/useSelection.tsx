@@ -5,10 +5,10 @@ import { INTERNAL_COL_DEFINE } from '@rc-component/table';
 import type { FixedType } from '@rc-component/table/lib/interface';
 import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
 import classNames from 'classnames';
-import type { DataNode, GetCheckDisabled } from 'rc-tree/lib/interface';
-import { arrAdd, arrDel } from 'rc-tree/lib/util';
-import { conductCheck } from 'rc-tree/lib/utils/conductUtil';
-import { convertDataToEntities } from 'rc-tree/lib/utils/treeUtil';
+import type { DataNode, GetCheckDisabled } from '@rc-component/tree/lib/interface';
+import { arrAdd, arrDel } from '@rc-component/tree/lib/util';
+import { conductCheck } from '@rc-component/tree/lib/utils/conductUtil';
+import { convertDataToEntities } from '@rc-component/tree/lib/utils/treeUtil';
 
 import useMultipleSelect from '../../_util/hooks/useMultipleSelect';
 import type { AnyObject } from '../../_util/type';
