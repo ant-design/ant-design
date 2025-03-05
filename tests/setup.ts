@@ -99,4 +99,6 @@ global.ResizeObserver = class ResizeObserver {
   disconnect() {}
 };
 
-global.HTMLElement.prototype.scrollIntoView = () => {};
+if (global.HTMLElement) {
+  global.HTMLElement.prototype.scrollIntoView = () => {};
+}
