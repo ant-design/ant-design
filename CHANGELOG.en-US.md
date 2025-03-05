@@ -24,6 +24,7 @@ tag: vVERSION
   - 💄 Fix the border display issue when hovering in the `disabled` state when Input has `variant="underlined"` turned on. [#52959](https://github.com/ant-design/ant-design/pull/52959) [@ustcfury](https://github.com/ustcfury)
 - 💄 Fix DatePicker header buttons misalignment caused by unexpected spacing. [#53007](https://github.com/ant-design/ant-design/pull/53007) [@DDDDD12138](https://github.com/DDDDD12138)
 - 💄 Fix the text in AutoComplete was not centered when `size="large"`. [#52819](https://github.com/ant-design/ant-design/pull/52819) [@aojunhao123](https://github.com/aojunhao123)
+- 🇩🇪 Add missing `de_DE` translations for Transfer. [#53047](https://github.com/ant-design/ant-design/pull/53047) [@chrisinick](https://github.com/chrisinick)
 
 ## 5.24.2
 

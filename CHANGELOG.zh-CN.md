@@ -24,6 +24,7 @@ tag: vVERSION
   - 💄 修复 Input 开启 `variant="underlined"` 时 `disabled` 状态下 hover 时边框显示问题。[#52959](https://github.com/ant-design/ant-design/pull/52959) [@ustcfury](https://github.com/ustcfury)
 - 💄 修复 DatePicker 头部按钮意外间距导致的未对齐问题。[#53007](https://github.com/ant-design/ant-design/pull/53007) [@DDDDD12138](https://github.com/DDDDD12138)
 - 💄 修复 AutoComplete 在 `size="large"` 时文字未居中对齐的问题。[#52819](https://github.com/ant-design/ant-design/pull/52819) [@aojunhao123](https://github.com/aojunhao123)
+- 🇩🇪 完善 `de_DE` Transfer 本地化. [#53047](https://github.com/ant-design/ant-design/pull/53047) [@chrisinick](https://github.com/chrisinick)
 
 ## 5.24.2
 
