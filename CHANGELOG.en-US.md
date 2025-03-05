@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 5.24.3
 
-`2025-03-04`
+`2025-03-05`
 
 - Input
   - 🐞 Fix the next element was not correctly selected after pressing the Tab key when `allowClear` was turned on for Input. [#52977](https://github.com/ant-design/ant-design/pull/52977) [@wanpan11](https://github.com/wanpan11)
