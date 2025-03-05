@@ -1023,3 +1023,11 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/tooltip/demo/wrap-custom-component.tsx correctly 1`] = `
+<span
+  aria-describedby="test-id"
+>
+  This text is inside a component with the necessary events exposed.
+</span>
+`;
