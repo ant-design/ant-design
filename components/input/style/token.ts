@@ -103,7 +103,9 @@ export function initInputToken(token: AliasToken): SharedInputToken {
   });
 }
 
-export const initComponentToken = (token: AliasToken): SharedComponentToken => {
+export const initComponentToken = (
+  token: AliasToken & Partial<SharedComponentToken>,
+): SharedComponentToken => {
   const {
     controlHeight,
     fontSize,
@@ -124,19 +126,26 @@ export const initComponentToken = (token: AliasToken): SharedComponentToken => {
     colorErrorOutline,
     colorWarningOutline,
     colorBgContainer,
+    inputFontSize,
+    inputFontSizeLG,
+    inputFontSizeSM,
   } = token;
 
+  const mergedFontSize = inputFontSize || fontSize;
+  const mergedFontSizeSM = inputFontSizeSM || mergedFontSize;
+  const mergedFontSizeLG = inputFontSizeLG || fontSizeLG;
+
+  const paddingBlock =
+    Math.round(((controlHeight - mergedFontSize * lineHeight) / 2) * 10) / 10 - lineWidth;
+  const paddingBlockSM =
+    Math.round(((controlHeightSM - mergedFontSizeSM * lineHeight) / 2) * 10) / 10 - lineWidth;
+  const paddingBlockLG =
+    Math.ceil(((controlHeightLG - mergedFontSizeLG * lineHeightLG) / 2) * 10) / 10 - lineWidth;
+
   return {
-    paddingBlock: Math.max(
-      Math.round(((controlHeight - fontSize * lineHeight) / 2) * 10) / 10 - lineWidth,
-      0,
-    ),
-    paddingBlockSM: Math.max(
-      Math.round(((controlHeightSM - fontSize * lineHeight) / 2) * 10) / 10 - lineWidth,
-      0,
-    ),
-    paddingBlockLG:
-      Math.ceil(((controlHeightLG - fontSizeLG * lineHeightLG) / 2) * 10) / 10 - lineWidth,
+    paddingBlock: Math.max(paddingBlock, 0),
+    paddingBlockSM: Math.max(paddingBlockSM, 0),
+    paddingBlockLG: Math.max(paddingBlockLG, 0),
     paddingInline: paddingSM - lineWidth,
     paddingInlineSM: controlPaddingHorizontalSM - lineWidth,
     paddingInlineLG: controlPaddingHorizontal - lineWidth,
@@ -148,8 +157,8 @@ export const initComponentToken = (token: AliasToken): SharedComponentToken => {
     warningActiveShadow: `0 0 0 ${controlOutlineWidth}px ${colorWarningOutline}`,
     hoverBg: colorBgContainer,
     activeBg: colorBgContainer,
-    inputFontSize: fontSize,
-    inputFontSizeLG: fontSizeLG,
-    inputFontSizeSM: fontSize,
+    inputFontSize: mergedFontSize,
+    inputFontSizeLG: mergedFontSizeLG,
+    inputFontSizeSM: mergedFontSizeSM,
   };
 };
