@@ -5,7 +5,7 @@ const App: React.FC = () => {
   const [disabled, setDisabled] = useState(true);
 
   return (
-    <Tooltip title={disabled ? '' : 'prompt text'}>
+    <Tooltip title={disabled ? null : 'prompt text'}>
       <Button onClick={() => setDisabled(!disabled)}>{disabled ? 'Enable' : 'Disable'}</Button>
     </Tooltip>
   );
