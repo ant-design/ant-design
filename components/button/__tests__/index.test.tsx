@@ -513,4 +513,30 @@ describe('Button', () => {
     fireEvent.click(getByRole('link'));
     expect(handleClick).toHaveBeenCalled();
   });
+  it('should support classnames and styles', () => {
+    const cusomStyles = {
+      root: { color: 'red' },
+      icon: { background: 'blue' },
+      content: { fontSize: '20px' },
+    };
+    const customClassNames = {
+      root: 'custom-root',
+      icon: 'custom-icon',
+      content: 'custom-content',
+    };
+    const { container } = render(
+      <Button classNames={customClassNames} styles={cusomStyles} icon={<SearchOutlined />}>
+        antd
+      </Button>,
+    );
+    const root = container.querySelector('.ant-btn') as HTMLElement;
+    const icon = container.querySelector('.ant-btn-icon') as HTMLElement;
+    expect(root).toHaveClass(customClassNames.root);
+    expect(icon).toHaveClass(customClassNames.icon);
+    expect(root).toHaveStyle(cusomStyles.root);
+    expect(icon).toHaveStyle(cusomStyles.icon);
+    expect(container.querySelector(`.${customClassNames.content}`)).toHaveStyle(
+      cusomStyles.content,
+    );
+  });
 });
