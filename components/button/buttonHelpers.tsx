@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import { cloneElement, isFragment } from '../_util/reactNode';
 import { PresetColors } from '../theme/interface';
@@ -48,17 +49,12 @@ function splitCNCharsBySpace(
       ).props.children,
     )
   ) {
-    return cloneElement(child, {
-      children: (
-        child as React.ReactElement<{
-          children: string;
-        }>
-      ).props.children
-        .split('')
-        .join(SPACE),
+    return cloneElement(child, (oriProps) => ({
+      ...oriProps,
+      children: oriProps.children.split('').join(SPACE),
       className,
       style,
-    });
+    }));
   }
 
   if (isString(child)) {
@@ -77,10 +73,11 @@ function splitCNCharsBySpace(
     );
   }
 
-  return cloneElement(child, {
-    className,
-    style,
-  });
+  return cloneElement(child, (oriProps) => ({
+    ...oriProps,
+    className: classNames(oriProps.className, className) || undefined,
+    style: { ...oriProps.style, ...style },
+  }));
 }
 
 export function spaceChildren(

@@ -3,6 +3,7 @@ import omit from '@rc-component/util/lib/omit';
 import { useComposeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
 
+import isValidNode from '../_util/isValidNode';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { useComponentConfig } from '../config-provider/context';
@@ -349,10 +350,9 @@ const InternalCompoundedButton = React.forwardRef<
   const contentClassNames =
     classNames(buttonClassNames?.content, contextClassNames.content) || undefined;
 
-  const contentNode =
-    children || children === 0
-      ? spaceChildren(children, needInserted && mergedInsertSpace, contentStyle, contentClassNames)
-      : null;
+  const contentNode = isValidNode(children)
+    ? spaceChildren(children, needInserted && mergedInsertSpace, contentStyle, contentClassNames)
+    : null;
 
   if (linkButtonRestProps.href !== undefined) {
     return (
