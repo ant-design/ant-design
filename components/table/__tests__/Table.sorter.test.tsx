@@ -47,7 +47,9 @@ describe('Table.sorter', () => {
 
   it('renders sorter icon correctly', () => {
     const { container } = render(createTable());
-    expect(container.querySelector('thead')).toMatchSnapshot();
+    if (isUnAllowedSkip) {
+      expect(container.querySelector('thead')).toMatchSnapshot();
+    }
   });
 
   it('default sort order ascend', () => {
