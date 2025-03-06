@@ -61,8 +61,8 @@ Common props ref：[Common props](/docs/react/common-props)
 
 <ComponentTokenTable component="Popconfirm"></ComponentTokenTable>
 
-<!-- ## FAQ -->
+## FAQ
 
-## Note
+<embed src="../tooltip/shared/sharedFAQ.en-US.md"></embed>
 
-Please ensure that the child node of `Popconfirm` accepts `onMouseEnter`, `onMouseLeave`, `onFocus`, `onClick` events.
+For more questions, please refer to [Tooltip FAQ](/components/tooltip#faq).
