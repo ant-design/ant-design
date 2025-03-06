@@ -22,7 +22,7 @@ describe('Table.sorter', () => {
     { key: 2, name: 'Tom' },
     { key: 3, name: 'Jerry' },
   ];
-  const isUnAllowedSkip = !ReactVersion.startsWith('17');
+  const isReact17 = ReactVersion.startsWith('17');
   function createTable(tableProps: TableProps<any> = {}, columnProps = {}) {
     return (
       <Table
@@ -46,10 +46,11 @@ describe('Table.sorter', () => {
   }
 
   it('renders sorter icon correctly', () => {
-    const { container } = render(createTable());
-    if (isUnAllowedSkip) {
-      expect(container.querySelector('thead')).toMatchSnapshot();
+    if (isReact17) {
+      return;
     }
+    const { container } = render(createTable());
+    expect(container.querySelector('thead')).toMatchSnapshot();
   });
 
   it('default sort order ascend', () => {
@@ -1031,14 +1032,15 @@ describe('Table.sorter', () => {
   });
 
   it('should support defaultOrder in Column', () => {
+    if (isReact17) {
+      return;
+    }
     const { asFragment } = render(
       <Table dataSource={[{ key: '1', age: 1 }]}>
         <Table.Column title="Age" dataIndex="age" sorter defaultSortOrder="ascend" key="age" />
       </Table>,
     );
-    if (isUnAllowedSkip) {
-      expect(asFragment().firstChild).toMatchSnapshot();
-    }
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   // https://github.com/ant-design/ant-design/issues/20096
@@ -1334,9 +1336,10 @@ describe('Table.sorter', () => {
 
     const getNameColumn = () => container.querySelectorAll<HTMLElement>('th')[0];
     const getAgeColumn = () => container.querySelectorAll<HTMLElement>('th')[1];
-    if (isUnAllowedSkip) {
-      expect(getNameColumn()).toHaveAttribute('aria-description', 'Sortable column');
-    }
     expect(getAgeColumn()).not.toHaveAttribute('aria-description');
+    if (isReact17) {
+      return;
+    }
+    expect(getNameColumn()).toHaveAttribute('aria-description', 'Sortable column');
   });
 });
