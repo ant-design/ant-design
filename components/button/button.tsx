@@ -26,6 +26,7 @@ import Compact from './style/compact';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
+type SemanticName = 'root' | 'icon' | 'content';
 export interface BaseButtonProps {
   type?: ButtonType;
   color?: ButtonColorType;
@@ -44,8 +45,8 @@ export interface BaseButtonProps {
   block?: boolean;
   children?: React.ReactNode;
   [key: `data-${string}`]: string;
-  classNames?: { icon: string };
-  styles?: { icon: React.CSSProperties };
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 type MergedHTMLAttributes = Omit<
@@ -106,7 +107,6 @@ const InternalCompoundedButton = React.forwardRef<
     danger = false,
     shape = 'default',
     size: customizeSize,
-    styles,
     disabled: customDisabled,
     className,
     rootClassName,
@@ -117,7 +117,8 @@ const InternalCompoundedButton = React.forwardRef<
     block = false,
     // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
     htmlType = 'button',
-    classNames: customClassNames,
+    classNames: buttonClassNames,
+    styles,
     style: customStyle = {},
     autoInsertSpace,
     autoFocus,
@@ -309,11 +310,18 @@ const InternalCompoundedButton = React.forwardRef<
     className,
     rootClassName,
     contextClassName,
+    buttonClassNames?.root,
+    contextClassNames.root,
   );
 
-  const fullStyle: React.CSSProperties = { ...contextStyle, ...customStyle };
+  const fullStyle: React.CSSProperties = {
+    ...contextStyles.root,
+    ...styles?.root,
+    ...contextStyle,
+    ...customStyle,
+  };
 
-  const iconClasses = classNames(customClassNames?.icon, contextClassNames.icon);
+  const iconClasses = classNames(buttonClassNames?.icon, contextClassNames.icon);
   const iconStyle: React.CSSProperties = {
     ...(styles?.icon || {}),
     ...(contextStyles.icon || {}),
@@ -337,8 +345,14 @@ const InternalCompoundedButton = React.forwardRef<
       />
     );
 
-  const kids =
-    children || children === 0 ? spaceChildren(children, needInserted && mergedInsertSpace) : null;
+  const contentStyle: React.CSSProperties = { ...contextStyles.content, ...styles?.content };
+  const contentClassNames =
+    classNames(buttonClassNames?.content, contextClassNames.content) || undefined;
+
+  const contentNode =
+    children || children === 0
+      ? spaceChildren(children, needInserted && mergedInsertSpace, contentStyle, contentClassNames)
+      : null;
 
   if (linkButtonRestProps.href !== undefined) {
     return (
@@ -354,7 +368,7 @@ const InternalCompoundedButton = React.forwardRef<
         tabIndex={mergedDisabled ? -1 : 0}
       >
         {iconNode}
-        {kids}
+        {contentNode}
       </a>
     );
   }
@@ -370,7 +384,7 @@ const InternalCompoundedButton = React.forwardRef<
       ref={mergedRef as React.Ref<HTMLButtonElement>}
     >
       {iconNode}
-      {kids}
+      {contentNode}
       {compactItemClassnames && <Compact prefixCls={prefixCls} />}
     </button>
   );
