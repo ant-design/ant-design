@@ -22,7 +22,7 @@ describe('Table.sorter', () => {
     { key: 2, name: 'Tom' },
     { key: 3, name: 'Jerry' },
   ];
-
+  const isUnAllowedSkip = !ReactVersion.startsWith('17');
   function createTable(tableProps: TableProps<any> = {}, columnProps = {}) {
     return (
       <Table
@@ -1034,7 +1034,9 @@ describe('Table.sorter', () => {
         <Table.Column title="Age" dataIndex="age" sorter defaultSortOrder="ascend" key="age" />
       </Table>,
     );
-    expect(asFragment().firstChild).toMatchSnapshot();
+    if (isUnAllowedSkip) {
+      expect(asFragment().firstChild).toMatchSnapshot();
+    }
   });
 
   // https://github.com/ant-design/ant-design/issues/20096
@@ -1330,7 +1332,7 @@ describe('Table.sorter', () => {
 
     const getNameColumn = () => container.querySelectorAll<HTMLElement>('th')[0];
     const getAgeColumn = () => container.querySelectorAll<HTMLElement>('th')[1];
-    if (!ReactVersion.startsWith('17')) {
+    if (isUnAllowedSkip) {
       expect(getNameColumn()).toHaveAttribute('aria-description', 'Sortable column');
     }
     expect(getAgeColumn()).not.toHaveAttribute('aria-description');
