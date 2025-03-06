@@ -31,7 +31,7 @@ function splitCNCharsBySpace(
   style: React.CSSProperties,
   className?: string,
 ) {
-  if (child === null || child === undefined) {
+  if (child === null || child === undefined || child === '') {
     return;
   }
 
