@@ -58,8 +58,6 @@ demo:
 
 ## FAQ
 
-### 为何有时候 HOC 组件无法生效？
-
-请确保 `Popover` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onPointerEnter`、`onPointerLeave`、`onFocus`、`onClick` 事件。
+<embed src="../tooltip/shared/sharedFAQ.zh-CN.md"></embed>
 
 更多问题，请参考 [Tooltip FAQ](/components/tooltip-cn#faq)。

@@ -328,9 +328,17 @@
     "webpack-bundle-analyzer": "^4.10.2",
     "xhr-mock": "^2.5.1"
   },
+  "pnpm": {
+    "overrides": {
+      "nwsapi": "2.2.16"
+    }
+  },
   "overrides": {
     "@ant-design/cssinjs": "^2.0.0-alpha.5",
     "@ant-design/cssinjs-utils": "^2.0.0-alpha.1",
+    "nwsapi": "2.2.16"
+  },
+  "resolutions": {
     "nwsapi": "2.2.16"
   },
   "publishConfig": {

@@ -57,8 +57,6 @@ Please ensure that the child node of `Popover` accepts `onMouseEnter`, `onMouseL
 
 ## FAQ
 
-### Why sometime not work on HOC?
-
-Please ensure that the child node of `Tooltip` accepts `onMouseEnter`, `onMouseLeave`, `onPointerEnter`, `onPointerLeave`, `onFocus`, `onClick` events.
+<embed src="../tooltip/shared/sharedFAQ.en-US.md"></embed>
 
 For more questions, please refer to [Tooltip FAQ](/components/tooltip#faq).
