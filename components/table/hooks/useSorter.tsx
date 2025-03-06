@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { version as ReactVersion } from 'react';
 import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
 import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
 import classNames from 'classnames';
@@ -248,7 +248,9 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
             cell['aria-sort'] = sortOrder === 'ascend' ? 'ascending' : 'descending';
           }
           // Inform the screen-reader so it can tell the visually impaired user that this column can be sorted
-          cell['aria-description'] = sortableColumn;
+          if (!ReactVersion.startsWith('17')) {
+            cell['aria-description'] = sortableColumn;
+          }
           cell['aria-label'] = displayTitle || '';
           cell.className = classNames(cell.className, `${prefixCls}-column-has-sorters`);
           cell.tabIndex = 0;

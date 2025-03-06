@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { version as ReactVersion } from 'react';
 
 import type { ColumnType, TableProps } from '..';
 import Table from '..';
@@ -1330,8 +1330,9 @@ describe('Table.sorter', () => {
 
     const getNameColumn = () => container.querySelectorAll<HTMLElement>('th')[0];
     const getAgeColumn = () => container.querySelectorAll<HTMLElement>('th')[1];
-
-    expect(getNameColumn()).toHaveAttribute('aria-description', 'Sortable column');
+    if (!ReactVersion.startsWith('17')) {
+      expect(getNameColumn()).toHaveAttribute('aria-description', 'Sortable column');
+    }
     expect(getAgeColumn()).not.toHaveAttribute('aria-description');
   });
 });
