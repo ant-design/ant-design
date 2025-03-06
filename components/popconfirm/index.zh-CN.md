@@ -62,8 +62,8 @@ demo:
 
 <ComponentTokenTable component="Popconfirm"></ComponentTokenTable>
 
-<!-- ## FAQ -->
+## FAQ
 
-## 注意
+<embed src="../tooltip/shared/sharedFAQ.zh-CN.md"></embed>
 
-请确保 `Popconfirm` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onFocus`、`onClick` 事件。
+更多问题，请参考 [Tooltip FAQ](/components/tooltip-cn#faq)。

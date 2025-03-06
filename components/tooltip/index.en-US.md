@@ -28,6 +28,7 @@ demo:
 <code src="./demo/debug.tsx" debug>Debug</code>
 <code src="./demo/disabled.tsx">Disabled</code>
 <code src="./demo/disabled-children.tsx" debug>Disabled children</code>
+<code src="./demo/wrap-custom-component.tsx">Wrap custom component</code>
 
 ## API
 
@@ -51,20 +52,6 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ## FAQ
 
-### Why sometime not work on HOC?
-
-Please ensure that the child node of `Tooltip` accepts `onMouseEnter`, `onMouseLeave`, `onPointerEnter`, `onPointerLeave`, `onFocus`, `onClick` events.
-
-See https://github.com/ant-design/ant-design/issues/15909
-
-### What's the placement logic?
-
-It will follow `placement` config when screen has enough space. And flip when space is not enough (Such as `top` to `bottom` or `topLeft` to `bottomLeft`). Single direction such as `top` `bottom` `left` `right` will auto shift on the view:
-
-<img alt="shift" height="200" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sxaTTJjLtIMAAAAAAAAAAAAADrJ8AQ/original" />
-
-When `placement` is set to edge align such as `topLeft` `bottomRight`, it will only do flip but not do shift.
-
 ### Why Tooltip not update content when close?
 
 Tooltip will cache content when it is closed to avoid flicker when content is updated:
@@ -87,3 +74,9 @@ If need update content when close, you can set `fresh` property ([#44830](https:
 <div>
 <img alt="no blink" height="50" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*rUbsR4xWpMsAAAAAAAAAAAAADrJ8AQ/original" />
 </div>
+
+---
+
+<!-- 请确保在 FAQ 最后 -->
+
+<embed src="./shared/sharedFAQ.en-US.md"></embed>

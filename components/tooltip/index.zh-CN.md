@@ -30,6 +30,7 @@ demo:
 <code src="./demo/debug.tsx" debug>Debug</code>
 <code src="./demo/disabled.tsx">禁用</code>
 <code src="./demo/disabled-children.tsx" debug>禁用子元素</code>
+<code src="./demo/wrap-custom-component.tsx">自定义子组件</code>
 
 ## API
 
@@ -89,3 +90,9 @@ Tooltip 默认在关闭时会缓存内容，以防止内容更新时出现闪烁
 <div>
 <img alt="no blink" height="50" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*rUbsR4xWpMsAAAAAAAAAAAAADrJ8AQ/original" />
 </div>
+
+---
+
+<!-- 请确保在 FAQ 最后 -->
+
+<embed src="./shared/sharedFAQ.zh-CN.md"></embed>
