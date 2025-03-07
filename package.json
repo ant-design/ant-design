@@ -147,7 +147,7 @@
     "rc-slider": "~11.1.8",
     "rc-steps": "~6.0.1",
     "rc-switch": "~4.1.0",
-    "rc-table": "~7.50.3",
+    "rc-table": "~7.50.4",
     "rc-tabs": "~15.5.1",
     "rc-textarea": "~1.9.0",
     "rc-tooltip": "~6.4.0",
@@ -330,7 +330,15 @@
     "webpack-bundle-analyzer": "^4.10.2",
     "xhr-mock": "^2.5.1"
   },
+  "pnpm": {
+    "overrides": {
+      "nwsapi": "2.2.16"
+    }
+  },
   "overrides": {
+    "nwsapi": "2.2.16"
+  },
+  "resolutions": {
     "nwsapi": "2.2.16"
   },
   "publishConfig": {
