@@ -1,6 +1,6 @@
 ---
 category: Components
-subtitle: 瀑布流布局
+subtitle: 瀑布流
 group: 布局
 title: Masonry
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e8nNSayZcBMAAAAAAAAAAAAADrJ8AQ/original
@@ -68,4 +68,4 @@ type Gap = undefined | number | Partial<Record<'xs' | 'sm' | 'md' | 'lg' | 'xl' 
 
 ## Design Token
 
-<ComponentTokenTable component="Alert"></ComponentTokenTable>
+<ComponentTokenTable component="Masonry"></ComponentTokenTable>
