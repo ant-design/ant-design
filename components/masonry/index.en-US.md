@@ -67,4 +67,4 @@ type Gap = undefined | number | Partial<Record<'xs' | 'sm' | 'md' | 'lg' | 'xl' 
 
 ## Design Token
 
-<ComponentTokenTable component="Alert"></ComponentTokenTable>
+<ComponentTokenTable component="Masonry"></ComponentTokenTable>
