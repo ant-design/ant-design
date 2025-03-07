@@ -459,7 +459,7 @@ describe('Cascader', () => {
           options={options2}
           defaultValue={['zhejiang', 'hangzhou']}
           onChange={onChange}
-          popupPlacement="bottomRight"
+          placement="bottomRight"
           open
         />
       </ConfigProvider>,
@@ -527,12 +527,6 @@ describe('Cascader', () => {
   });
 
   describe('legacy props', () => {
-    it('popupPlacement', () => {
-      render(<Cascader open popupPlacement="bottomLeft" />);
-      // Inject in tests/__mocks__/@rc-component/trigger.tsx
-      expect((global as any).triggerProps.popupPlacement).toEqual('bottomLeft');
-    });
-
     it('should support showCheckedStrategy child', () => {
       const multipleOptions = [
         {
