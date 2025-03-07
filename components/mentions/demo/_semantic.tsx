@@ -18,11 +18,12 @@ const locales = {
   },
 };
 
-const Block = (props: any) => {
+const Block: React.FC<any> = (props) => {
   const divRef = React.useRef<HTMLDivElement>(null);
+  const memoizedValue = React.useMemo(() => ({ open: true }), []);
   return (
     <div ref={divRef} style={{ position: 'absolute', height: 170, overflow: 'hidden' }}>
-      <UnstableContext.Provider value={{ open: true }}>
+      <UnstableContext.Provider value={memoizedValue}>
         <Mentions
           {...props}
           placement="bottom"
