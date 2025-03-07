@@ -3,7 +3,7 @@ import FilterFilled from '@ant-design/icons/FilterFilled';
 import isEqual from '@rc-component/util/lib/isEqual';
 import type { AnyObject } from 'antd/es/_util/type';
 import classNames from 'classnames';
-import type { FieldDataNode } from 'rc-tree';
+import type { FieldDataNode } from '@rc-component/tree';
 
 import type { FilterState } from '.';
 import extendsObject from '../../../_util/extendsObject';
