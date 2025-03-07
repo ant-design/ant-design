@@ -10,20 +10,22 @@ demoTest('mentions', {
 
 rootPropsTest(
   'mentions',
-  (Mentions, props) => (
-    <UnstableContext.Provider value={{ open: true }}>
-      <Mentions
-        {...props}
-        value="@"
-        options={[
-          {
-            value: 'afc163',
-            label: 'afc163',
-          },
-        ]}
-      />
-    </UnstableContext.Provider>
-  ),
+  (Mentions, props) => {
+    return (
+      <UnstableContext.Provider value={React.useMemo(() => ({ open: true }), [])}>
+        <Mentions
+          {...props}
+          value="@"
+          options={[
+            {
+              value: 'afc163',
+              label: 'afc163',
+            },
+          ]}
+        />
+      </UnstableContext.Provider>
+    );
+  },
   {
     afterRender: (container) => {
       const char = '@';

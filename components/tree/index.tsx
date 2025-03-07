@@ -1,13 +1,13 @@
-import type RcTree from 'rc-tree';
-import type { BasicDataNode } from 'rc-tree';
-import { TreeNode } from 'rc-tree';
-import type { DataNode } from 'rc-tree/lib/interface';
+import type RcTree from '@rc-component/tree';
+import type { BasicDataNode } from '@rc-component/tree';
+import { TreeNode } from '@rc-component/tree';
+import type { DataNode } from '@rc-component/tree/lib/interface';
 
 import DirectoryTree from './DirectoryTree';
 import type { TreeProps } from './Tree';
 import TreePure from './Tree';
 
-export type { EventDataNode } from 'rc-tree/lib/interface';
+export type { EventDataNode } from '@rc-component/tree/lib/interface';
 export type {
   ExpandAction as DirectoryTreeExpandAction,
   DirectoryTreeProps,

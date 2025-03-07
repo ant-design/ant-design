@@ -8,7 +8,7 @@ import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import type { DropdownProps } from '../dropdown';
-import type { SemanticName } from './BreadcrumbContext';
+import type { BreadcrumbContextProps, SemanticName } from './BreadcrumbContext';
 import BreadcrumbContext from './BreadcrumbContext';
 import type { BreadcrumbItemProps } from './BreadcrumbItem';
 import BreadcrumbItem, { InternalBreadcrumbItem } from './BreadcrumbItem';
@@ -253,8 +253,13 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
     ...style,
   };
 
+  const memoizedValue = React.useMemo<BreadcrumbContextProps>(
+    () => ({ classNames: mergedClassNames, styles: mergedStyles }),
+    [mergedClassNames, mergedStyles],
+  );
+
   return (
-    <BreadcrumbContext.Provider value={{ classNames: mergedClassNames, styles: mergedStyles }}>
+    <BreadcrumbContext.Provider value={memoizedValue}>
       <nav className={breadcrumbClassName} style={mergedStyle} {...restProps}>
         <ol>{crumbs}</ol>
       </nav>
