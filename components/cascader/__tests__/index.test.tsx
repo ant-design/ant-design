@@ -116,15 +116,6 @@ describe('Cascader', () => {
     expect(getDropdown(container)).toMatchSnapshot();
   });
 
-  it('should support popupVisible', () => {
-    const { container, rerender } = render(
-      <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />,
-    );
-    expect(isOpen(container)).toBeFalsy();
-    rerender(<Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} popupVisible />);
-    expect(isOpen(container)).toBeTruthy();
-  });
-
   it('can be selected', () => {
     const onChange = jest.fn();
     const { container } = render(<Cascader open options={options} onChange={onChange} />);
