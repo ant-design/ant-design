@@ -133,7 +133,7 @@
     "@rc-component/segmented": "~1.1.0",
     "@rc-component/select": "~1.0.0",
     "@rc-component/switch": "~1.0.0",
-    "@rc-component/table": "~1.1.0",
+    "@rc-component/table": "~1.2.0",
     "@rc-component/tabs": "~1.3.0",
     "@rc-component/textarea": "~1.0.0",
     "@rc-component/tooltip": "~1.1.0",
