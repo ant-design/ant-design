@@ -11,27 +11,27 @@ const useLocale = <C extends LocaleComponentName = LocaleComponentName>(
   componentName: C,
   defaultLocale?: Locale[C] | (() => Locale[C]),
 ): readonly [NonNullable<Locale[C]>, string] => {
-  const legacyLocale = React.useContext<LocaleContextProps | undefined>(LocaleContext);
+  const fullLocale = React.useContext<LocaleContextProps | undefined>(LocaleContext);
 
   const getLocale = React.useMemo<NonNullable<Locale[C]>>(() => {
     const locale = defaultLocale || defaultLocaleData[componentName];
-    const localeFromContext = legacyLocale?.[componentName] ?? {};
+    const localeFromContext = fullLocale?.[componentName] ?? {};
     return {
       ...(typeof locale === 'function' ? locale() : locale),
       ...(localeFromContext || {}),
     };
-  }, [componentName, defaultLocale, legacyLocale]);
+  }, [componentName, defaultLocale, fullLocale]);
 
-  const getLocaleCode = () => {
-    const localeCode = legacyLocale?.locale;
+  const getLocaleCode = React.useMemo<string>(() => {
+    const localeCode = fullLocale?.locale;
     // Had use LocaleProvide but didn't set locale
-    if (legacyLocale?.exist && !localeCode) {
+    if (fullLocale?.exist && !localeCode) {
       return defaultLocaleData.locale;
     }
     return localeCode!;
-  };
+  }, [fullLocale]);
 
-  return [getLocale, getLocaleCode()] as const;
+  return [getLocale, getLocaleCode] as const;
 };
 
 export default useLocale;
