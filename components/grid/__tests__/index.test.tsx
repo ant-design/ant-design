@@ -78,10 +78,10 @@ describe('Grid', () => {
     jest.spyOn(window, 'matchMedia').mockImplementation(
       (query) =>
         ({
-          addListener: (cb: (e: { matches: boolean }) => void) => {
+          addEventListener: (cb: (e: { matches: boolean }) => void) => {
             cb({ matches: query === '(min-width: 1200px)' });
           },
-          removeListener: jest.fn(),
+          removeEventListener: jest.fn(),
           matches: query === '(min-width: 1200px)',
         }) as any,
     );
@@ -145,10 +145,10 @@ describe('Grid', () => {
     matchMediaSpy.mockImplementation(
       (query) =>
         ({
-          addListener: (cb: (e: { matches: boolean }) => void) => {
+          addEventListener: (cb: (e: { matches: boolean }) => void) => {
             cb({ matches: query === '(max-width: 575px)' });
           },
-          removeListener: jest.fn(),
+          removeEventListener: jest.fn(),
           matches: query === '(max-width: 575px)',
         }) as any,
     );
@@ -176,10 +176,10 @@ describe('Grid', () => {
     matchMediaSpy.mockImplementation(
       (query) =>
         ({
-          addListener: (cb: (e: { matches: boolean }) => void) => {
+          addEventListener: (cb: (e: { matches: boolean }) => void) => {
             cb({ matches: query === '(max-width: 575px)' });
           },
-          removeListener: jest.fn(),
+          removeEventListener: jest.fn(),
           matches: query === '(max-width: 575px)',
         }) as any,
     );
@@ -196,10 +196,10 @@ describe('Grid', () => {
     matchMediaSpy.mockImplementation(
       (query) =>
         ({
-          addListener: (cb: (e: { matches: boolean }) => void) => {
+          addEventListener: (cb: (e: { matches: boolean }) => void) => {
             cb({ matches: query === '(max-width: 575px)' });
           },
-          removeListener: jest.fn(),
+          removeEventListener: jest.fn(),
           matches: query === '(max-width: 575px)',
         }) as any,
     );
