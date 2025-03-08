@@ -58,6 +58,8 @@ export interface MasonryRef {
   nativeElement: HTMLDivElement;
 }
 
+type ItemColumnsType = [item: MasonryItemType, column: number];
+
 const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   const {
     rootClassName,
@@ -135,7 +137,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   const [itemHeights, setItemHeights] = React.useState<ItemHeightData[]>([]);
 
   const collectItemSize = useDelay(() => {
-    const nextItemsHeight = mergedItems.map((item, index): ItemHeightData => {
+    const nextItemsHeight = mergedItems.map<ItemHeightData>((item, index) => {
       const itemKey = item.key ?? index;
       const itemEle = getItemRef(itemKey);
       const rect = itemEle?.getBoundingClientRect();
@@ -171,12 +173,12 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   }, [mergedItems, columnCount]);
 
   // Trigger for `onLayoutChange`
-  type ItemColumnsType = [item: MasonryItemType, column: number][];
-  const [itemColumns, setItemColumns] = React.useState<ItemColumnsType>([]);
+  const [itemColumns, setItemColumns] = React.useState<ItemColumnsType[]>([]);
+
   useLayoutEffect(() => {
     if (onLayoutChange && itemWithPositions.every(({ position }) => position)) {
-      setItemColumns((prevItemColumns: ItemColumnsType) => {
-        const nextItemColumns: ItemColumnsType = itemWithPositions.map(({ item, position }) => [
+      setItemColumns((prevItemColumns) => {
+        const nextItemColumns = itemWithPositions.map<ItemColumnsType>(({ item, position }) => [
           item,
           position!.column,
         ]);
