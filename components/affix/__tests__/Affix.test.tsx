@@ -116,6 +116,12 @@ describe('Affix Render', () => {
     expect(onChange).toHaveBeenLastCalledWith(true);
     expect(container.querySelector('.ant-affix')).toHaveStyle({ top: 0 });
 
+    await movePlaceholder(100);
+    expect(onChange).toHaveBeenLastCalledWith(false);
+
+    await movePlaceholder(-100);
+    expect(onChange).toHaveBeenLastCalledWith(true);
+
     rerender(<AffixMounter offsetTop={10} onChange={onChange} />);
     await waitFakeTimer();
     expect(container.querySelector('.ant-affix')).toHaveStyle({ top: `10px` });
