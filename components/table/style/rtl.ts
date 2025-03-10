@@ -1,10 +1,14 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { GenerateStyle } from '../../theme/internal';
+import { getShadowStyle } from './fixed';
 import type { TableToken } from './index';
 
 const genStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
   const { componentCls } = token;
+
+  const [leftShadowStyle, rightShadowStyle] = getShadowStyle(token);
+
   return {
     [`${componentCls}-wrapper-rtl`]: {
       direction: 'rtl',
@@ -36,21 +40,15 @@ const genStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         },
       },
 
+      // =================== Container ====================
       [`${componentCls}-container`]: {
-        '&::before': {
-          insetInlineStart: 'unset',
-          insetInlineEnd: 0,
-        },
-
-        '&::after': {
-          insetInlineStart: 0,
-          insetInlineEnd: 'unset',
-        },
-
         [`${componentCls}-row-indent`]: {
           float: 'right',
         },
       },
+
+      [`${componentCls}-fix-start-shadow-show ${componentCls}-container:before`]: rightShadowStyle,
+      [`${componentCls}-fix-end-shadow-show ${componentCls}-container:after`]: leftShadowStyle,
     },
   };
 };
