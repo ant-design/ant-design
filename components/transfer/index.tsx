@@ -98,7 +98,7 @@ export interface TransferProps<RecordType = any> {
   listStyle?: ((style: ListStyle) => CSSProperties) | CSSProperties;
   operationStyle?: CSSProperties;
   titles?: React.ReactNode[];
-  operations?: string[];
+  operations?: React.ReactNode[];
   showSearch?: boolean | TransferSearchOption;
   filterOption?: (inputValue: string, item: RecordType, direction: TransferDirection) => boolean;
   locale?: Partial<TransferLocale>;
@@ -468,10 +468,10 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       <Operation
         className={`${prefixCls}-operation`}
         rightActive={rightActive}
-        rightArrowText={operations[0]}
+        rightButton={operations[0]}
         moveToRight={moveToRight}
         leftActive={leftActive}
-        leftArrowText={operations[1]}
+        leftButton={operations[1]}
         moveToLeft={moveToLeft}
         style={operationStyle}
         disabled={disabled}

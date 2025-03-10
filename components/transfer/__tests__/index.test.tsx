@@ -88,6 +88,12 @@ const generateData = (n = 20) => {
   return data;
 };
 
+const ButtonRender = ({ onClick }: { onClick: () => void }) => (
+  <Button type="link" onClick={onClick}>
+    Custom Button
+  </Button>
+);
+
 describe('Transfer', () => {
   mountTest(Transfer);
   rtlTest(Transfer);
@@ -862,11 +868,31 @@ describe('Transfer', () => {
       expect(input).toHaveValue('values');
     });
   });
-});
 
-const ButtonRender = ({ onClick }: { onClick: () => void }) => (
-  <Button onClick={onClick}>Right button reload</Button>
-);
+  it('should handle custom button click correctly', () => {
+    const handleChange = jest.fn();
+    const customButtonClick = jest.fn();
+
+    const CustomButton = ({ onClick }: { onClick: () => void }) => (
+      <Button type="link" onClick={onClick}>
+        Custom Button
+      </Button>
+    );
+
+    const { getByText } = render(
+      <Transfer
+        {...listCommonProps}
+        onChange={handleChange}
+        oneWay
+        operations={[<CustomButton key="test" onClick={customButtonClick} />]}
+      />,
+    );
+
+    fireEvent.click(getByText('Custom Button'));
+    expect(customButtonClick).toHaveBeenCalled();
+    expect(handleChange).toHaveBeenCalled();
+  });
+});
 
 describe('immutable data', () => {
   // https://github.com/ant-design/ant-design/issues/28662
