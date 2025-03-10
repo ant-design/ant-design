@@ -32,6 +32,11 @@ const localeValues: Locale = {
     triggerAsc: 'Artan düzende sırala',
     cancelSort: 'Sıralamayı kaldır',
   },
+  Tour: {
+    Next: 'Sonraki',
+    Previous: 'Önceki',
+    Finish: 'Bitir',
+  },
   Modal: {
     okText: 'Tamam',
     cancelText: 'İptal',
