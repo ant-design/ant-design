@@ -21,7 +21,7 @@ const locale: PickerLocale = {
     yearSelect: 'Izberite leto',
     decadeSelect: 'Izberite desetletje',
     yearFormat: 'YYYY',
-    monthFormat: 'MMMM',
+    fieldMonthFormat: 'MMMM',
     monthBeforeYear: true,
     previousMonth: 'Prejšnji mesec (PageUp)',
     nextMonth: 'Naslednji mesec (PageDown)',
