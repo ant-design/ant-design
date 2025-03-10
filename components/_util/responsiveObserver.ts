@@ -98,29 +98,32 @@ export default function useResponsiveObserver() {
           this.unregister();
         }
       },
-      register() {
-        Object.keys(responsiveMap).forEach((screen) => {
-          const matchMediaQuery = responsiveMap[screen as Breakpoint];
-          const listener = ({ matches }: { matches: boolean }) => {
-            this.dispatch({ ...screens, [screen]: matches });
-          };
-          if (typeof window?.matchMedia !== 'undefined') {
-            const mql = window.matchMedia(matchMediaQuery);
-            mql.addEventListener<'change'>('change', listener);
-            this.matchHandlers[matchMediaQuery] = { mql, listener };
-            listener(mql);
-          }
-        });
-      },
       unregister() {
         Object.keys(responsiveMap).forEach((screen) => {
           const matchMediaQuery = responsiveMap[screen as Breakpoint];
           const handler = this.matchHandlers[matchMediaQuery];
-          handler?.mql?.removeEventListener<'change'>('change', handler?.listener);
+          handler?.mql.removeListener(handler?.listener);
         });
         subscribers.clear();
       },
-
+      register() {
+        Object.keys(responsiveMap).forEach((screen) => {
+          const matchMediaQuery = responsiveMap[screen as Breakpoint];
+          const listener = ({ matches }: { matches: boolean }) => {
+            this.dispatch({
+              ...screens,
+              [screen]: matches,
+            });
+          };
+          const mql = window.matchMedia(matchMediaQuery);
+          mql.addListener(listener);
+          this.matchHandlers[matchMediaQuery] = {
+            mql,
+            listener,
+          };
+          listener(mql);
+        });
+      },
       responsiveMap,
     };
   }, [token]);

@@ -78,12 +78,10 @@ describe('Grid', () => {
     jest.spyOn(window, 'matchMedia').mockImplementation(
       (query) =>
         ({
-          addEventListener: (type: string, callback: (e: { matches: boolean }) => void) => {
-            if (type === 'change') {
-              callback({ matches: query === '(min-width: 1200px)' });
-            }
+          addListener: (cb: (e: { matches: boolean }) => void) => {
+            cb({ matches: query === '(min-width: 1200px)' });
           },
-          removeEventListener: jest.fn(),
+          removeListener: jest.fn(),
           matches: query === '(min-width: 1200px)',
         }) as any,
     );
@@ -147,12 +145,10 @@ describe('Grid', () => {
     matchMediaSpy.mockImplementation(
       (query) =>
         ({
-          addEventListener: (type: string, callback: (e: { matches: boolean }) => void) => {
-            if (type === 'change') {
-              callback({ matches: query === '(max-width: 575px)' });
-            }
+          addListener: (cb: (e: { matches: boolean }) => void) => {
+            cb({ matches: query === '(max-width: 575px)' });
           },
-          removeEventListener: jest.fn(),
+          removeListener: jest.fn(),
           matches: query === '(max-width: 575px)',
         }) as any,
     );
@@ -180,12 +176,10 @@ describe('Grid', () => {
     matchMediaSpy.mockImplementation(
       (query) =>
         ({
-          addEventListener: (type: string, callback: (e: { matches: boolean }) => void) => {
-            if (type === 'change') {
-              callback({ matches: query === '(max-width: 575px)' });
-            }
+          addListener: (cb: (e: { matches: boolean }) => void) => {
+            cb({ matches: query === '(max-width: 575px)' });
           },
-          removeEventListener: jest.fn(),
+          removeListener: jest.fn(),
           matches: query === '(max-width: 575px)',
         }) as any,
     );
@@ -202,12 +196,10 @@ describe('Grid', () => {
     matchMediaSpy.mockImplementation(
       (query) =>
         ({
-          addEventListener: (type: string, callback: (e: { matches: boolean }) => void) => {
-            if (type === 'change') {
-              callback({ matches: query === '(max-width: 575px)' });
-            }
+          addListener: (cb: (e: { matches: boolean }) => void) => {
+            cb({ matches: query === '(max-width: 575px)' });
           },
-          removeEventListener: jest.fn(),
+          removeListener: jest.fn(),
           matches: query === '(max-width: 575px)',
         }) as any,
     );

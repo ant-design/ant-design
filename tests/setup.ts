@@ -40,8 +40,8 @@ export function fillWindowEnv(window: Window | DOMWindow) {
       configurable: true,
       value: jest.fn((query) => ({
         matches: query.includes('max-width'),
-        addEventListener: jest.fn(),
-        removeEventListener: jest.fn(),
+        addListener: jest.fn(),
+        removeListener: jest.fn(),
       })),
     });
   }
