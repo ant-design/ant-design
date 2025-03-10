@@ -16,14 +16,10 @@
     "yearSelect": "Choose a year",
     "decadeSelect": "Choose a decade",
     "yearFormat": "YYYY",
-    "dateFormat": "[INVALID: Use `fieldDateFormat` instead]M/D/YYYY",
     "fieldDateFormat": "M/D/YYYY",
-    "dayFormat": "[DEPRECATED: Use `cellDateFormat` instead]D",
     "cellDateFormat": "D",
-    "dateTimeFormat": "[INVALID: Use `fieldDateTimeFormat` instead]M/D/YYYY HH:mm:ss",
     "fieldDateTimeFormat": "M/D/YYYY HH:mm:ss",
     "monthFormat": "MMMM",
-    "weekFormat": "[DEPRECATED: Use `fieldWeekFormat` instead]YYYY-wo",
     "fieldWeekFormat": "YYYY-wo",
     "monthBeforeYear": true,
     "previousMonth": "Previous month (PageUp)",
@@ -52,9 +48,5 @@
   },
   "timePickerLocale": {
     "placeholder": "Select time"
-  },
-  "dateFormat": "[INVALID, Use `lang.fieldDateFormat` instead]YYYY-MM-DD",
-  "dateTimeFormat": "[INVALID: Use `lang.fieldDateTimeFormat` instead]YYYY-MM-DD HH:mm:ss",
-  "weekFormat": "[INVALID: Use `lang.fieldWeekFormat` instead]YYYY-wo",
-  "monthFormat": "[INVALID: Use `lang.fieldMonthFormat` instead]YYYY-MM"
+  }
 }
