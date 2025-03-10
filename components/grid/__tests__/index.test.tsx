@@ -75,7 +75,8 @@ describe('Grid', () => {
   });
 
   it('when typeof gutter is object array in large screen', () => {
-    jest.spyOn(window, 'matchMedia').mockImplementation(
+    const matchMediaSpy = jest.spyOn(window, 'matchMedia');
+    matchMediaSpy.mockImplementation(
       (query) =>
         ({
           addEventListener: (type: string, callback: (e: { matches: boolean }) => void) => {
@@ -105,7 +106,8 @@ describe('Grid', () => {
   });
 
   it('when typeof gutter is object array in large screen with addListener', () => {
-    jest.spyOn(window, 'matchMedia').mockImplementation(
+    const matchMediaSpy = jest.spyOn(window, 'matchMedia');
+    matchMediaSpy.mockImplementation(
       (query) =>
         ({
           addListener: (callback: (e: { matches: boolean }) => void) => {

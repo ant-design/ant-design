@@ -106,6 +106,7 @@ export default function useResponsiveObserver() {
           };
           if (typeof window?.matchMedia !== 'undefined') {
             const mql = window.matchMedia(matchMediaQuery);
+            // Don't modify here, please keep the code compatible
             if (typeof mql?.addEventListener !== 'undefined') {
               mql?.addEventListener('change', listener);
             } else {
@@ -120,6 +121,7 @@ export default function useResponsiveObserver() {
         Object.keys(responsiveMap).forEach((screen) => {
           const matchMediaQuery = responsiveMap[screen as Breakpoint];
           const handler = this.matchHandlers[matchMediaQuery];
+          // Don't modify here, please keep the code compatible
           if (typeof handler?.mql?.removeEventListener !== 'undefined') {
             handler?.mql.removeEventListener('change', handler?.listener);
           } else {
