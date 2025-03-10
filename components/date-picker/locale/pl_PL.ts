@@ -9,7 +9,6 @@ const locale: PickerLocale = {
     placeholder: 'Wybierz datę',
     rangePlaceholder: ['Data początkowa', 'Data końcowa'],
     yearFormat: 'YYYY',
-    dayFormat: 'D',
     monthFormat: 'MMMM',
     monthBeforeYear: true,
     shortWeekDays: ['Niedz', 'Pon', 'Wt', 'Śr', 'Czw', 'Pt', 'Sob'],

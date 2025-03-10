@@ -22,7 +22,6 @@ const locale: PickerLocale = {
     yearSelect: 'Selecionar ano',
     decadeSelect: 'Selecionar década',
     yearFormat: 'YYYY',
-    dayFormat: 'D',
     monthFormat: 'MMMM',
     monthBeforeYear: false,
     previousMonth: 'Mês anterior (PageUp)',
