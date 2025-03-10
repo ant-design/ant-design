@@ -406,7 +406,7 @@ const genUnderlinedStatusStyle = (
     },
   },
   [`&${token.componentCls}-status-${options.status}${token.componentCls}-disabled`]: {
-    borderColor: options.borderColor,
+    borderColor: `transparent transparent ${options.borderColor} transparent`,
   },
 });
 
@@ -425,7 +425,7 @@ export const genUnderlinedStyle = (token: InputToken, extraStyles?: CSSObject): 
       boxShadow: 'none',
       cursor: 'not-allowed',
       '&:hover': {
-        borderColor: token.colorBorder,
+        borderColor: `transparent transparent ${token.colorBorder} transparent`,
       },
     },
 

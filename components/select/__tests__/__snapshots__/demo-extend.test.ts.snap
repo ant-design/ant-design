@@ -10167,6 +10167,7 @@ Array [
       >
         <button
           class="ant-input-clear-icon ant-input-clear-icon-hidden"
+          tabindex="-1"
           type="button"
         >
           <span
