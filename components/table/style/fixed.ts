@@ -86,6 +86,14 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         },
       },
 
+      [`${componentCls}-has-fix-start ${componentCls}-container:before`]: {
+        display: 'none',
+      },
+
+      [`${componentCls}-has-fix-end ${componentCls}-container:after`]: {
+        display: 'none',
+      },
+
       [`${componentCls}-fix-start-shadow-show ${componentCls}-container:before`]: leftShadowStyle,
       [`${componentCls}-fix-end-shadow-show ${componentCls}-container:after`]: rightShadowStyle,
     },
