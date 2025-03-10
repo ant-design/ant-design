@@ -57,13 +57,11 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
         // Position
         '&-start:after': {
-          transform: 'translateX(100%)',
-          insetInlineEnd: 0,
+          insetInlineStart: '100%',
         },
 
         '&-end:after': {
-          transform: 'translateX(-100%)',
-          insetInlineStart: 0,
+          insetInlineEnd: '100%',
         },
 
         // visible

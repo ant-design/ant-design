@@ -40,6 +40,12 @@ const genStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         },
       },
 
+      // ====================== Cell ======================
+      [`${componentCls}-cell-fix`]: {
+        '&-start-shadow-show:after': rightShadowStyle,
+        '&-end-shadow-show:after': leftShadowStyle,
+      },
+
       // =================== Container ====================
       [`${componentCls}-container`]: {
         [`${componentCls}-row-indent`]: {
