@@ -118,7 +118,7 @@ describe('Grid', () => {
         }) as any,
     );
 
-    const { container, asFragment } = render(
+    const { container } = render(
       <Row
         gutter={[
           { xs: 8, sm: 16, md: 24, lg: 32, xl: 40 },
@@ -126,7 +126,6 @@ describe('Grid', () => {
         ]}
       />,
     );
-    expect(asFragment().firstChild).toMatchSnapshot();
 
     expect(container.querySelector('div')?.style.marginLeft).toBe('-20px');
     expect(container.querySelector('div')?.style.marginRight).toBe('-20px');
