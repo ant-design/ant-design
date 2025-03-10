@@ -107,9 +107,11 @@ export default function useResponsiveObserver() {
           if (typeof window?.matchMedia !== 'undefined') {
             const mql = window.matchMedia(matchMediaQuery);
             // Don't modify here, please keep the code compatible
-            typeof mql?.addEventListener !== 'undefined'
-              ? mql?.addEventListener('change', listener)
-              : mql?.addListener(listener);
+            if (typeof mql?.addEventListener !== 'undefined') {
+              mql.addEventListener('change', listener);
+            } else {
+              mql.addListener(listener);
+            }
             this.matchHandlers[matchMediaQuery] = { mql, listener };
             listener(mql);
           }
@@ -120,9 +122,11 @@ export default function useResponsiveObserver() {
           const matchMediaQuery = responsiveMap[screen as Breakpoint];
           const handler = this.matchHandlers[matchMediaQuery];
           // Don't modify here, please keep the code compatible
-          typeof handler?.mql?.removeEventListener !== 'undefined'
-            ? handler?.mql?.removeEventListener('change', handler?.listener)
-            : handler?.mql?.removeListener(handler?.listener);
+          if (typeof handler?.mql?.removeEventListener !== 'undefined') {
+            handler?.mql.removeEventListener('change', handler?.listener);
+          } else {
+            handler?.mql.removeListener(handler?.listener);
+          }
         });
         subscribers.clear();
       },

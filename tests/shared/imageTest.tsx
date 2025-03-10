@@ -94,9 +94,7 @@ export default function imageTest(
     // Fake matchMedia
     win.matchMedia = (() => ({
       matches: false,
-      addListener: jest.fn(),
       addEventListener: jest.fn(),
-      removeListener: jest.fn(),
       removeEventListener: jest.fn(),
     })) as unknown as typeof matchMedia;
 
