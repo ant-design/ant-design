@@ -104,6 +104,34 @@ describe('Grid', () => {
     expect(container.querySelector('div')?.style.marginBottom).toBe('');
   });
 
+  it('when typeof gutter is object array in large screen with addListener', () => {
+    jest.spyOn(window, 'matchMedia').mockImplementation(
+      (query) =>
+        ({
+          addListener: (callback: (e: { matches: boolean }) => void) => {
+            callback({ matches: query === '(min-width: 1200px)' });
+          },
+          removeEventListener: jest.fn(),
+          matches: query === '(min-width: 1200px)',
+        }) as any,
+    );
+
+    const { container, asFragment } = render(
+      <Row
+        gutter={[
+          { xs: 8, sm: 16, md: 24, lg: 32, xl: 40 },
+          { xs: 8, sm: 16, md: 24, lg: 100, xl: 400 },
+        ]}
+      />,
+    );
+    expect(asFragment().firstChild).toMatchSnapshot();
+
+    expect(container.querySelector('div')?.style.marginLeft).toBe('-20px');
+    expect(container.querySelector('div')?.style.marginRight).toBe('-20px');
+    expect(container.querySelector('div')?.style.marginTop).toBe('');
+    expect(container.querySelector('div')?.style.marginBottom).toBe('');
+  });
+
   it('renders wrapped Col correctly', () => {
     const MyCol = () => <Col span={12} />;
     const { asFragment } = render(
@@ -158,11 +186,42 @@ describe('Grid', () => {
     );
 
     let screensVar: any = null;
-    function Demo() {
+    const Demo: React.FC = () => {
       const screens = useBreakpoint();
       screensVar = screens;
       return <div />;
-    }
+    };
+    render(<Demo />);
+
+    expect(screensVar).toEqual({
+      xs: true,
+      sm: false,
+      md: false,
+      lg: false,
+      xl: false,
+      xxl: false,
+    });
+  });
+
+  it('should work with useBreakpoint with addListener', () => {
+    const matchMediaSpy = jest.spyOn(window, 'matchMedia');
+    matchMediaSpy.mockImplementation(
+      (query) =>
+        ({
+          addListener: (callback: (e: { matches: boolean }) => void) => {
+            callback({ matches: query === '(max-width: 575px)' });
+          },
+          removeEventListener: jest.fn(),
+          matches: query === '(max-width: 575px)',
+        }) as any,
+    );
+
+    let screensVar: any = null;
+    const Demo: React.FC = () => {
+      const screens = useBreakpoint();
+      screensVar = screens;
+      return <div />;
+    };
     render(<Demo />);
 
     expect(screensVar).toEqual({
@@ -197,6 +256,26 @@ describe('Grid', () => {
     expect(container3.innerHTML).not.toContain('ant-row-middle');
   });
 
+  it('should align by responsive align prop with addListener', () => {
+    const matchMediaSpy = jest.spyOn(window, 'matchMedia');
+    matchMediaSpy.mockImplementation(
+      (query) =>
+        ({
+          addListener: (callback: (e: { matches: boolean }) => void) => {
+            callback({ matches: query === '(max-width: 575px)' });
+          },
+          removeEventListener: jest.fn(),
+          matches: query === '(max-width: 575px)',
+        }) as any,
+    );
+    const { container } = render(<Row align="middle" />);
+    expect(container.innerHTML).toContain('ant-row-middle');
+    const { container: container2 } = render(<Row align={{ xs: 'middle' }} />);
+    expect(container2.innerHTML).toContain('ant-row-middle');
+    const { container: container3 } = render(<Row align={{ lg: 'middle' }} />);
+    expect(container3.innerHTML).not.toContain('ant-row-middle');
+  });
+
   it('should justify by responsive justify prop', () => {
     const matchMediaSpy = jest.spyOn(window, 'matchMedia');
     matchMediaSpy.mockImplementation(
@@ -206,6 +285,26 @@ describe('Grid', () => {
             if (type === 'change') {
               callback({ matches: query === '(max-width: 575px)' });
             }
+          },
+          removeEventListener: jest.fn(),
+          matches: query === '(max-width: 575px)',
+        }) as any,
+    );
+    const { container } = render(<Row justify="center" />);
+    expect(container.innerHTML).toContain('ant-row-center');
+    const { container: container2 } = render(<Row justify={{ xs: 'center' }} />);
+    expect(container2.innerHTML).toContain('ant-row-center');
+    const { container: container3 } = render(<Row justify={{ lg: 'center' }} />);
+    expect(container3.innerHTML).not.toContain('ant-row-center');
+  });
+
+  it('should justify by responsive justify prop with addListener', () => {
+    const matchMediaSpy = jest.spyOn(window, 'matchMedia');
+    matchMediaSpy.mockImplementation(
+      (query) =>
+        ({
+          addListener: (callback: (e: { matches: boolean }) => void) => {
+            callback({ matches: query === '(max-width: 575px)' });
           },
           removeEventListener: jest.fn(),
           matches: query === '(max-width: 575px)',
