@@ -15,12 +15,24 @@ const adjustElementWidth = (width: number, wrapper: HTMLElement): void => {
   }
 };
 
+let isScheduled = false;
+const requestAnimationFrameDecorator = (callback: () => void) => {
+  if (!isScheduled) {
+    isScheduled = true;
+
+    requestAnimationFrame(() => {
+      callback();
+      isScheduled = false;
+    });
+  }
+};
+
 export default function useHandleResizeWrapper(): { handleResizeWrapper: ResizeWrapperHandler } {
   const handleResizeWrapper: ResizeWrapperHandler = React.useCallback((rcTextArea) => {
     if (!rcTextArea) return;
     if (rcTextArea.resizableTextArea.textArea.style.width.includes('px')) {
       const width = parseInt(rcTextArea.resizableTextArea.textArea.style.width.replace('px', ''));
-      adjustElementWidth(width, rcTextArea.nativeElement);
+      requestAnimationFrameDecorator(() => adjustElementWidth(width, rcTextArea.nativeElement));
     }
   }, []);
 
