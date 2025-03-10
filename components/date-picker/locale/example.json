@@ -16,22 +16,15 @@
     "yearSelect": "Choose a year",
     "decadeSelect": "Choose a decade",
     "yearFormat": "YYYY",
-
     "dateFormat": "[INVALID: Use `fieldDateFormat` instead]M/D/YYYY",
     "fieldDateFormat": "M/D/YYYY",
-
     "dayFormat": "[DEPRECATED: Use `cellDateFormat` instead]D",
     "cellDateFormat": "D",
-
     "dateTimeFormat": "[INVALID: Use `fieldDateTimeFormat` instead]M/D/YYYY HH:mm:ss",
     "fieldDateTimeFormat": "M/D/YYYY HH:mm:ss",
-
-    "monthFormat": "[DEPRECATED: Use `fieldMonthFormat` instead]MMMM",
-    "fieldMonthFormat": "MMMM",
-
+    "monthFormat": "MMMM",
     "weekFormat": "[DEPRECATED: Use `fieldWeekFormat` instead]YYYY-wo",
     "fieldWeekFormat": "YYYY-wo",
-
     "monthBeforeYear": true,
     "previousMonth": "Previous month (PageUp)",
     "nextMonth": "Next month (PageDown)",
