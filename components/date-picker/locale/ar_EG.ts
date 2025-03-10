@@ -9,7 +9,7 @@ const locale: PickerLocale = {
     placeholder: 'اختيار التاريخ',
     rangePlaceholder: ['البداية', 'النهاية'],
     yearFormat: 'YYYY',
-    fieldMonthFormat: 'MMMM',
+    monthFormat: 'MMMM',
     monthBeforeYear: true,
     shortWeekDays: ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
     shortMonths: [
