@@ -31,8 +31,6 @@ const locale: PickerLocale = {
   timePickerLocale: {
     ...TimePickerLocale,
   },
-  monthFormat: 'MM-YYYY',
-  weekFormat: 'wo-YYYY',
 };
 
 // All settings at:
