@@ -1,11 +1,9 @@
 import TimePickerLocale from '../../time-picker/locale/sl_SI';
-import CalendarLocale from 'rc-picker/lib/locale/sl_SI';
 import type { PickerLocale } from '../generatePicker';
 
 // Merge into a locale object
 const locale: PickerLocale = {
   lang: {
-    ...CalendarLocale,
     locale: 'sl',
     placeholder: 'Izberite datum',
     rangePlaceholder: ['Začetni datum', 'Končni datum'],
@@ -23,10 +21,10 @@ const locale: PickerLocale = {
     yearSelect: 'Izberite leto',
     decadeSelect: 'Izberite desetletje',
     yearFormat: 'YYYY',
-    fieldDateFormat: 'D.M.YYYY',
-    cellDateFormat: 'D',
-    fieldDateTimeFormat: 'D.M.YYYY HH:mm:ss',
-    fieldMonthFormat: 'MMMM',
+    dateFormat: 'D.M.YYYY',
+    dayFormat: 'D',
+    dateTimeFormat: 'D.M.YYYY HH:mm:ss',
+    monthFormat: 'MMMM',
     monthBeforeYear: true,
     previousMonth: 'Prejšnji mesec (PageUp)',
     nextMonth: 'Naslednji mesec (PageDown)',
