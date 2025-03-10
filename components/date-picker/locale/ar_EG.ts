@@ -9,9 +9,6 @@ const locale: PickerLocale = {
     placeholder: 'اختيار التاريخ',
     rangePlaceholder: ['البداية', 'النهاية'],
     yearFormat: 'YYYY',
-    dateFormat: 'D/M/YYYY',
-    dayFormat: 'D',
-    dateTimeFormat: 'DD/MM/YYYY HH:mm:ss',
     monthFormat: 'MMMM',
     monthBeforeYear: true,
     shortWeekDays: ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
@@ -34,10 +31,6 @@ const locale: PickerLocale = {
   timePickerLocale: {
     ...TimePickerLocale,
   },
-  dateFormat: 'DD-MM-YYYY',
-  monthFormat: 'MM-YYYY',
-  dateTimeFormat: 'DD-MM-YYYY HH:mm:ss',
-  weekFormat: 'wo-YYYY',
 };
 
 // All settings at:
