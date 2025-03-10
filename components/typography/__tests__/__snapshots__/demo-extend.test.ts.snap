@@ -17,7 +17,7 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
   <div
     class="ant-typography css-var-test-id"
   >
-    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to 
+    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to
     <span
       class="ant-typography css-var-test-id"
     >
@@ -43,7 +43,7 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
         Sketch
       </code>
     </span>
-     and 
+     and
     <span
       class="ant-typography css-var-test-id"
     >
@@ -86,7 +86,7 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
   <div
     class="ant-typography css-var-test-id"
   >
-    Press 
+    Press
     <span
       class="ant-typography css-var-test-id"
     >
@@ -234,7 +234,7 @@ exports[`renders components/typography/demo/componentToken-debug.tsx extend cont
   <div
     class="ant-typography css-var-test-id"
   >
-    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to 
+    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to
     <span
       class="ant-typography css-var-test-id"
     >
@@ -260,7 +260,7 @@ exports[`renders components/typography/demo/componentToken-debug.tsx extend cont
         Sketch
       </code>
     </span>
-     and 
+     and
     <span
       class="ant-typography css-var-test-id"
     >
@@ -303,7 +303,7 @@ exports[`renders components/typography/demo/componentToken-debug.tsx extend cont
   <div
     class="ant-typography css-var-test-id"
   >
-    Press 
+    Press
     <span
       class="ant-typography css-var-test-id"
     >
@@ -410,9 +410,9 @@ exports[`renders components/typography/demo/componentToken-debug.tsx extend cont
     <blockquote>
       AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
 我们正在基础图表，图分析，图编辑，地理空间可视化，智能可视化等各个可视化的领域耕耘，欢迎同路人一起前行。
-    </blockquote>
-    <pre>
-      AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
+      </blockquote>
+      <pre>
+        AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
 我们正在基础图表，图分析，图编辑，地理空间可视化，智能可视化等各个可视化的领域耕耘，欢迎同路人一起前行。
     </pre>
   </div>
@@ -423,13 +423,33 @@ exports[`renders components/typography/demo/componentToken-debug.tsx extend cont
     <span
       class="ant-typography css-var-test-id"
     >
-      <kbd>
-        Esc
-      </kbd>
-    </span>
-    键退出阅读……
-  </div>
-</article>
+      按
+      <span
+        class="ant-typography"
+      >
+        <kbd>
+          Esc
+        </kbd>
+      </span>
+      键退出阅读……
+    </div>
+  </article>,
+  <span
+    class="ant-typography ant-typography-success"
+  >
+    Success but red
+  </span>,
+  <span
+    class="ant-typography ant-typography-warning"
+  >
+    Warning but green
+  </span>,
+  <span
+    class="ant-typography ant-typography-danger"
+  >
+    Danger but blue
+  </span>,
+]
 `;
 
 exports[`renders components/typography/demo/componentToken-debug.tsx extend context correctly 2`] = `[]`;
@@ -1852,7 +1872,7 @@ Array [
   <div
     class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-test-id"
   >
-    Ant Design, a design language for background applications, is refined by Ant UED Team. This is a nest sample 
+    Ant Design, a design language for background applications, is refined by Ant UED Team. This is a nest sample
     <span
       class="ant-typography css-var-test-id"
     >
@@ -2137,7 +2157,7 @@ Array [
     <div
       aria-label="this is a multiline
   text that has many
-  lines and 
+  lines and
     - render like this
     - and this
   and that"
@@ -2145,7 +2165,7 @@ Array [
     >
       this is a multiline
   text that has many
-  lines and 
+  lines and
     - render like this
     - and this
   and that
@@ -2263,7 +2283,7 @@ Array [
         Sketch
       </code>
     </span>
-     and 
+     and
     <span
       class="ant-typography css-var-test-id"
     >
