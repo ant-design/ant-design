@@ -13,7 +13,6 @@ const useStyle = createStyles(({ css, token }) => {
           ${antCls}-table-content {
             scrollbar-width: thin;
             scrollbar-color: #eaeaea transparent;
-            scrollbar-gutter: stable;
           }
         }
       }
