@@ -60,7 +60,7 @@ Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/El
 | movable | whether can be moved | boolean | true | 5.8.0 |
 | mask | Thumbnail mask | ReactNode | - | 4.9.0 |
 | maskClassName | The className of the mask | string | - | 4.11.0 |
-| rootClassName | The classname of the preview root DOM | string | - | 5.4.0 |
+| ~~rootClassName~~ | The classname of the preview root DOM，The v6 will be moved to the root component. | string | - | 5.4.0 |
 | scaleStep | `1 + scaleStep` is the step to increase or decrease the scale | number | 0.5 | - |
 | minScale | Min scale | number | 1 | 5.7.0 |
 | maxScale | Max scale | number | 50 | 5.7.0 |

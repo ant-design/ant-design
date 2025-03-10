@@ -39,20 +39,20 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
       },
 
       [`&${componentCls}-success`]: {
-        color: token.colorSuccess,
+        color: token.colorSuccessText,
       },
 
       [`&${componentCls}-warning`]: {
-        color: token.colorWarning,
+        color: token.colorWarningText,
       },
 
       [`&${componentCls}-danger`]: {
-        color: token.colorError,
+        color: token.colorErrorText,
         'a&:active, a&:focus': {
-          color: token.colorErrorActive,
+          color: token.colorErrorTextActive,
         },
         'a&:hover': {
-          color: token.colorErrorHover,
+          color: token.colorErrorTextHover,
         },
       },
 

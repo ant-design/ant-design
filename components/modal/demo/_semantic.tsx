@@ -35,9 +35,11 @@ const BlockModal = (props: ModalProps) => {
         styles={{
           mask: {
             position: 'absolute',
+            zIndex: 1,
           },
           wrapper: {
             position: 'absolute',
+            zIndex: 1,
           },
         }}
         style={{
