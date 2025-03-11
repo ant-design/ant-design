@@ -181,7 +181,7 @@ async function run() {
     theme: { helpMode: 'always' },
     choices: components.map((component) => ({
       value: component,
-      checked: component.endsWith('components/button'), // 默认选中 button
+      checked: component.endsWith('components/affix'), // 默认选中 affix
     })),
   });
 
