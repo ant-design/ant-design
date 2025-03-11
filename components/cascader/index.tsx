@@ -130,6 +130,15 @@ export interface CascaderProps<
   popupClassName?: string;
   /** @deprecated Please use `popupClassName` instead */
   dropdownClassName?: string;
+  /** @deprecated Please use `popupRender` instead */
+  dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
+  popupRender?: (menu: React.ReactElement) => React.ReactElement;
+  /** @deprecated Please use `popupMenuColumnStyle` instead */
+  dropdownMenuColumnStyle?: React.CSSProperties;
+  popupMenuColumnStyle?: React.CSSProperties;
+  /** @deprecated Please use `onPopupVisibleChange` instead */
+  onDropdownVisibleChange?: (visible: boolean) => void;
+  onPopupVisibleChange?: (visible: boolean) => void;
   /**
    * @since 5.13.0
    * @default "outlined"
@@ -173,6 +182,12 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     builtinPlacements,
     style,
     variant: customVariant,
+    dropdownRender,
+    onDropdownVisibleChange,
+    dropdownMenuColumnStyle,
+    popupRender,
+    popupMenuColumnStyle,
+    onPopupVisibleChange,
     ...rest
   } = props;
 
@@ -219,6 +234,17 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     );
 
     warning.deprecated(!('bordered' in props), 'bordered', 'variant');
+    warning.deprecated(!('dropdownRender' in props), 'dropdownRender', 'popupRender');
+    warning.deprecated(
+      !('dropdownMenuColumnStyle' in props),
+      'dropdownMenuColumnStyle',
+      'popupMenuColumnStyle',
+    );
+    warning.deprecated(
+      !('onDropdownVisibleChange' in props),
+      'onDropdownVisibleChange',
+      'onPopupVisibleChange',
+    );
   }
 
   // ==================== Prefix =====================
@@ -257,6 +283,10 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     hashId,
     cssVarCls,
   );
+
+  const mergedPopupRender = popupRender || dropdownRender;
+  const mergedPopupMenuColumnStyle = popupMenuColumnStyle || dropdownMenuColumnStyle;
+  const mergedOnPopupVisibleChange = onPopupVisibleChange || onDropdownVisibleChange;
 
   // ==================== Search =====================
   const mergedShowSearch = React.useMemo(() => {
@@ -356,6 +386,9 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       dropdownClassName={mergedDropdownClassName}
       dropdownPrefixCls={customizePrefixCls || cascaderPrefixCls}
       dropdownStyle={{ ...restProps.dropdownStyle, zIndex }}
+      dropdownRender={mergedPopupRender}
+      dropdownMenuColumnStyle={mergedPopupMenuColumnStyle}
+      onDropdownVisibleChange={mergedOnPopupVisibleChange}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
