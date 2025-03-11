@@ -16,15 +16,7 @@ export function getShadowStyle({
 }
 
 const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
-  const {
-    componentCls,
-    lineWidth,
-    motionDurationSlow,
-    zIndexTableFixed,
-    tableBg,
-    zIndexTableSticky,
-    calc,
-  } = token;
+  const { componentCls, lineWidth, motionDurationSlow, zIndexTableFixed, tableBg, calc } = token;
 
   const cellCls = `${componentCls}-cell`;
   const fixCellCls = `${cellCls}-fix`;
@@ -75,7 +67,7 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
         '&:before, &:after': {
           ...sharedShadowStyle,
-          zIndex: calc(zIndexTableSticky).add(1).equal({ unit: false }),
+          zIndex: `calc(var(--columns-count) * 2 + ${zIndexTableFixed} + 1)`,
         },
 
         '&:before': {
