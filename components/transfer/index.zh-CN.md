@@ -27,6 +27,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g9vUQq2nkpEAAA
 <code src="./demo/search.tsx">带搜索框</code>
 <code src="./demo/advanced.tsx">高级用法</code>
 <code src="./demo/custom-item.tsx">自定义渲染行数据</code>
+<code src="./demo/custom-operations.tsx">自定义操作按钮</code>
 <code src="./demo/large-data.tsx">分页</code>
 <code src="./demo/table-transfer.tsx">表格穿梭框</code>
 <code src="./demo/tree-transfer.tsx">树穿梭框</code>
@@ -50,7 +51,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g9vUQq2nkpEAAA
 | listStyle | 两个穿梭框的自定义样式 | object\|({direction: `left` \| `right`}) => object | - |  |
 | locale | 各种语言 | { itemUnit: string; itemsUnit: string; searchPlaceholder: string; notFoundContent: ReactNode \| ReactNode[]; } | { itemUnit: `项`, itemsUnit: `项`, searchPlaceholder: `请输入搜索内容` } |  |
 | oneWay | 展示为单向样式 | boolean | false | 4.3.0 |
-| operations | 操作文案集合，顺序从上至下 | string\[] | \[`>`, `<`] |  |
+| operations | 操作文案集合，顺序从上至下。当为字符串数组时使用默认的按钮，当为 ReactNode 数组时直接使用自定义元素 | ReactNode\[] | \[`>`, `<`] |  |
 | operationStyle | 操作栏的自定义样式 | CSSProperties | - |  |
 | pagination | 使用分页样式，自定义渲染列表下无效 | boolean \| { pageSize: number, simple: boolean, showSizeChanger?: boolean, showLessItems?: boolean } | false | 4.3.0 |
 | render | 每行数据渲染函数，该函数的入参为 `dataSource` 中的项，返回值为 ReactElement。或者返回一个普通对象，其中 `label` 字段为 ReactElement，`value` 字段为 title | (record) => ReactNode | - |  |
