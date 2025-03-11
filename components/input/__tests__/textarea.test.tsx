@@ -6,14 +6,18 @@ import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import type { RenderOptions } from '../../../tests/utils';
 import {
+  act,
   fireEvent,
   pureRender,
   render,
+  renderHook,
   triggerResize,
   waitFakeTimer,
   waitFakeTimer19,
 } from '../../../tests/utils';
 import type { TextAreaRef } from '../TextArea';
+import useSetAutoWidth from '../hooks/useSetAutoWidth';
+import type { TextAreaRef as RcTextAreaRef } from 'rc-textarea';
 
 const { TextArea } = Input;
 
@@ -529,5 +533,101 @@ describe('TextArea allowClear', () => {
     expect(container.querySelector('textarea')).toHaveClass('ant-input-borderless');
     expect(errSpy).toHaveBeenCalledWith(expect.stringContaining('`bordered` is deprecated'));
     errSpy.mockRestore();
+  });
+});
+
+describe('TextArea useSetAutoWidth', () => {
+  it('sets textArea style width on mount when active is true', () => {
+    // Create a real DOM element for the textArea.
+    const textAreaEl = document.createElement('textarea');
+    // Define offsetWidth (simulate actual width)
+    Object.defineProperty(textAreaEl, 'offsetWidth', { value: 150, configurable: true });
+    // Create a real DOM element for the nativeElement.
+    const nativeEl = document.createElement('div');
+
+    // Create a fake innerRef with the required structure.
+    const fakeInnerRef = {
+      current: {
+        resizableTextArea: { textArea: textAreaEl },
+        nativeElement: nativeEl,
+      },
+    } as unknown as React.RefObject<RcTextAreaRef | null>;
+
+    // Render the hook with active set to true.
+    renderHook(() => useSetAutoWidth(fakeInnerRef, true));
+
+    // The useLayoutEffect should set the textArea's style.width to "150px".
+    expect(textAreaEl.style.width).toBe('150px');
+  });
+
+  it('does not set textArea style width on mount when active is false', () => {
+    const textAreaEl = document.createElement('textarea');
+    Object.defineProperty(textAreaEl, 'offsetWidth', { value: 200, configurable: true });
+    const nativeEl = document.createElement('div');
+
+    const fakeInnerRef = {
+      current: {
+        resizableTextArea: { textArea: textAreaEl },
+        nativeElement: nativeEl,
+      },
+    } as unknown as React.RefObject<RcTextAreaRef | null>;
+
+    // Render the hook with active set to false.
+    renderHook(() => useSetAutoWidth(fakeInnerRef, false));
+
+    // With active false, the layout effect shouldn't update the width.
+    expect(textAreaEl.style.width).toBe('');
+  });
+
+  it('setAutoWidth callback sets nativeElement style.width to "auto" when active is true', () => {
+    const textAreaEl = document.createElement('textarea');
+    Object.defineProperty(textAreaEl, 'offsetWidth', { value: 200, configurable: true });
+    const nativeEl = document.createElement('div');
+
+    const fakeInnerRef = {
+      current: {
+        resizableTextArea: { textArea: textAreaEl },
+        nativeElement: nativeEl,
+      },
+    } as unknown as React.RefObject<RcTextAreaRef | null>;
+
+    // Render the hook with active true.
+    const { result } = renderHook(() => useSetAutoWidth(fakeInnerRef, true));
+
+    // Before calling setAutoWidth, nativeElement's width is empty.
+    expect(nativeEl.style.width).toBe('');
+    // Call the setAutoWidth callback.
+    act(() => {
+      if (result.current) {
+        result.current.setAutoWidth();
+      }
+    });
+    expect(nativeEl.style.width).toBe('auto');
+  });
+
+  it('setAutoWidth callback does not change nativeElement style.width when active is false', () => {
+    const textAreaEl = document.createElement('textarea');
+    Object.defineProperty(textAreaEl, 'offsetWidth', { value: 200, configurable: true });
+    const nativeEl = document.createElement('div');
+
+    const fakeInnerRef = {
+      current: {
+        resizableTextArea: { textArea: textAreaEl },
+        nativeElement: nativeEl,
+      },
+    } as unknown as React.RefObject<RcTextAreaRef | null>;
+
+    // Render the hook with active false.
+    const { result } = renderHook(() => useSetAutoWidth(fakeInnerRef, false));
+
+    // Before calling, width is empty.
+    expect(nativeEl.style.width).toBe('');
+    act(() => {
+      if (result.current) {
+        result.current.setAutoWidth();
+      }
+    });
+    // Since active is false, no update should occur.
+    expect(nativeEl.style.width).toBe('');
   });
 });

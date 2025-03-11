@@ -21,6 +21,7 @@ import type { InputFocusOptions } from './Input';
 import { triggerFocus } from './Input';
 import { useSharedStyle } from './style';
 import useStyle from './style/textarea';
+import useSetAutoWidth from './hooks/useSetAutoWidth';
 
 export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix'> {
   /** @deprecated Use `variant` instead */
@@ -55,6 +56,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     style,
     styles,
     variant: customVariant,
+    showCount,
     ...rest
   } = props;
 
@@ -114,6 +116,8 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
 
   const mergedAllowClear = getAllowClear(allowClear ?? contextAllowClear);
 
+  const { setAutoWidth } = useSetAutoWidth(innerRef, !!showCount);
+
   return wrapSharedCSSVar(
     wrapCSSVar(
       <RcTextArea
@@ -164,6 +168,11 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
         suffix={
           hasFeedback && <span className={`${prefixCls}-textarea-suffix`}>{feedbackIcon}</span>
         }
+        showCount={showCount}
+        onMouseDown={(e) => {
+          rest.onMouseDown?.(e);
+          setAutoWidth();
+        }}
         ref={innerRef}
       />,
     ),
