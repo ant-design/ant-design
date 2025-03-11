@@ -536,18 +536,22 @@ describe('TextArea allowClear', () => {
 });
 
 describe('TextArea useHandleResizeWrapper', () => {
+  let requestAnimationFrameSpy: jest.SpyInstance;
+
   beforeAll(() => {
     // Use fake timers to control requestAnimationFrame.
     jest.useFakeTimers();
     // Override requestAnimationFrame to simulate a 16ms delay.
-    jest.spyOn(window, 'requestAnimationFrame').mockImplementation((cb: FrameRequestCallback) => {
-      return window.setTimeout(() => cb(performance.now()), 16);
-    });
+    requestAnimationFrameSpy = jest
+      .spyOn(window, 'requestAnimationFrame')
+      .mockImplementation((cb: FrameRequestCallback) => {
+        return window.setTimeout(() => cb(performance.now()), 16);
+      });
   });
 
   afterAll(() => {
     jest.useRealTimers();
-    (window.requestAnimationFrame as jest.Mock).mockRestore();
+    requestAnimationFrameSpy.mockRestore();
   });
 
   it('does nothing when rcTextArea is null', () => {
@@ -602,10 +606,10 @@ describe('TextArea useHandleResizeWrapper', () => {
     // Immediately after calling handleResizeWrapper, the update is scheduled.
     expect(fakeRcTextArea.nativeElement.style.width).toBeUndefined();
 
+    result.current?.handleResizeWrapper(fakeRcTextArea);
+
     // Fast-forward time to trigger the requestAnimationFrame callback.
     jest.advanceTimersByTime(16);
-
-    result.current?.handleResizeWrapper(fakeRcTextArea);
     // Expected new width: 100 + 2 = 102px.
     expect(fakeRcTextArea.nativeElement.style.width).toBe('102px');
   });
@@ -631,10 +635,10 @@ describe('TextArea useHandleResizeWrapper', () => {
     // Immediately after calling handleResizeWrapper, the update is scheduled.
     expect(fakeRcTextArea.nativeElement.style.width).toBeUndefined();
 
+    result.current?.handleResizeWrapper(fakeRcTextArea);
+
     // Fast-forward time to trigger the requestAnimationFrame callback.
     jest.advanceTimersByTime(16);
-
-    result.current?.handleResizeWrapper(fakeRcTextArea);
     // Expected new width remains: 100 + 2 = 102px.
     expect(fakeRcTextArea.nativeElement.style.width).toBe('102px');
   });
