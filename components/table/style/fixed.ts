@@ -50,7 +50,7 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       },
 
       [fixCellCls]: {
-        zIndex: `calc(var(--z-offset) + ${zIndexTableFixed})`,
+        zIndex: `calc(var(--z-offset-reverse) + ${zIndexTableFixed})`,
         background: tableBg,
 
         '&:after': sharedShadowStyle,
