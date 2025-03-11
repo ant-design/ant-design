@@ -201,7 +201,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | filterSearch | Whether to be searchable for filter menu | boolean \| function(input, record):boolean | false | boolean:4.17.0 function:4.19.0 |
 | filters | Filter menu config | object\[] | - |  |
 | filterDropdownProps | Customized dropdown props, `filterDropdownOpen` and `onFilterDropdownOpenChange` were available before `<5.22.0` | [DropdownProps](/components/dropdown#api) | - | 5.22.0 |
-| fixed | (IE not support) Set column to be fixed: `true`(same as left) `'left'` `'right'` | boolean \| string | false |  |
+| fixed | (IE not support) Set column to be fixed: `true`(same as `'start'`) `'start'` `'end'` | boolean \| string | false |  |
 | key | Unique key of this column, you can ignore this prop if you've set a unique `dataIndex` | string | - |  |
 | render | Renderer of the table cell. `value` is the value of current cell; `record` is the value object of current row; `index` is the row number. The return value should be a ReactNode | function(value, record, index) {} | - |  |
 | responsive | The list of breakpoints at which to display this column. Always visible if not set | [Breakpoint](https://github.com/ant-design/ant-design/blob/015109b42b85c63146371b4e32b883cf97b088e8/components/_util/responsiveObserve.ts#L1)\[] | - | 4.2.0 |

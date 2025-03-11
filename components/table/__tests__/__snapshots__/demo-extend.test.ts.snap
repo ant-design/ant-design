@@ -12085,7 +12085,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
 
 exports[`renders components/table/demo/fixed-header.tsx extend context correctly 1`] = `
 <div
-  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-10ugdpo"
+  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
 >
   <div
     class="ant-spin-nested-loading css-var-test-id"
@@ -13454,7 +13454,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
 
 exports[`renders components/table/demo/grouping-columns.tsx extend context correctly 1`] = `
 <div
-  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-10ugdpo"
+  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
 >
   <div
     class="ant-spin-nested-loading css-var-test-id"
@@ -13463,7 +13463,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-middle ant-table-bordered css-var-test-id ant-table-css-var ant-table-fixed-header ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
+        class="ant-table ant-table-middle ant-table-bordered css-var-test-id ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-fixed-header ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-start ant-table-has-fix-end"
       >
         <div
           class="ant-table-container"
@@ -13481,10 +13481,10 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
               >
                 <tr>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                     rowspan="4"
                     scope="col"
-                    style="position: sticky; left: 0px;"
+                    style="inset-inline-start: 0; --z-offset: 16; --z-offset-reverse: 8;"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -13673,10 +13673,10 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                     Company
                   </th>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
                     rowspan="4"
                     scope="col"
-                    style="position: sticky; right: 0px;"
+                    style="inset-inline-end: 0; --z-offset: 7; --z-offset-reverse: 1;"
                   >
                     Gender
                   </th>
@@ -13931,8 +13931,8 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                   data-row-key="0"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start: 0; --z-offset: 16; --z-offset-reverse: 8;"
                   >
                     John Brown
                   </td>
@@ -13967,8 +13967,8 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                     SoftLake Co
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end: 0; --z-offset: 7; --z-offset-reverse: 1;"
                   >
                     M
                   </td>
@@ -13978,8 +13978,8 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                   data-row-key="1"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start: 0; --z-offset: 16; --z-offset-reverse: 8;"
                   >
                     John Brown
                   </td>
@@ -14014,8 +14014,8 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                     SoftLake Co
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end: 0; --z-offset: 7; --z-offset-reverse: 1;"
                   >
                     M
                   </td>
@@ -14025,8 +14025,8 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                   data-row-key="2"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start: 0; --z-offset: 16; --z-offset-reverse: 8;"
                   >
                     John Brown
                   </td>
@@ -14061,8 +14061,8 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                     SoftLake Co
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end: 0; --z-offset: 7; --z-offset-reverse: 1;"
                   >
                     M
                   </td>
@@ -14072,8 +14072,8 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                   data-row-key="3"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start: 0; --z-offset: 16; --z-offset-reverse: 8;"
                   >
                     John Brown
                   </td>
@@ -14108,8 +14108,8 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                     SoftLake Co
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end: 0; --z-offset: 7; --z-offset-reverse: 1;"
                   >
                     M
                   </td>
@@ -14119,8 +14119,8 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                   data-row-key="4"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start: 0; --z-offset: 16; --z-offset-reverse: 8;"
                   >
                     John Brown
                   </td>
@@ -14155,8 +14155,8 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                     SoftLake Co
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end: 0; --z-offset: 7; --z-offset-reverse: 1;"
                   >
                     M
                   </td>
@@ -14166,8 +14166,8 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                   data-row-key="5"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start: 0; --z-offset: 16; --z-offset-reverse: 8;"
                   >
                     John Brown
                   </td>
@@ -14202,8 +14202,8 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                     SoftLake Co
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end: 0; --z-offset: 7; --z-offset-reverse: 1;"
                   >
                     M
                   </td>
@@ -14213,8 +14213,8 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                   data-row-key="6"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start: 0; --z-offset: 16; --z-offset-reverse: 8;"
                   >
                     John Brown
                   </td>
@@ -14249,8 +14249,8 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                     SoftLake Co
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end: 0; --z-offset: 7; --z-offset-reverse: 1;"
                   >
                     M
                   </td>
@@ -14260,8 +14260,8 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                   data-row-key="7"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start: 0; --z-offset: 16; --z-offset-reverse: 8;"
                   >
                     John Brown
                   </td>
@@ -14296,8 +14296,8 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                     SoftLake Co
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end: 0; --z-offset: 7; --z-offset-reverse: 1;"
                   >
                     M
                   </td>
@@ -14307,8 +14307,8 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                   data-row-key="8"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start: 0; --z-offset: 16; --z-offset-reverse: 8;"
                   >
                     John Brown
                   </td>
@@ -14343,8 +14343,8 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                     SoftLake Co
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end: 0; --z-offset: 7; --z-offset-reverse: 1;"
                   >
                     M
                   </td>
@@ -14354,8 +14354,8 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                   data-row-key="9"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start: 0; --z-offset: 16; --z-offset-reverse: 8;"
                   >
                     John Brown
                   </td>
@@ -14390,8 +14390,8 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                     SoftLake Co
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end: 0; --z-offset: 7; --z-offset-reverse: 1;"
                   >
                     M
                   </td>
@@ -28702,7 +28702,7 @@ Array [
         class="ant-spin-container"
       >
         <div
-          class="ant-table css-var-test-id ant-table-css-var ant-table-has-fix-left"
+          class="ant-table css-var-test-id ant-table-css-var ant-table-has-fix-start"
         >
           <div
             class="ant-table-container"
@@ -28730,9 +28730,9 @@ Array [
                 >
                   <tr>
                     <th
-                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
+                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix ant-table-cell-fix-start"
                       scope="col"
-                      style="position: sticky; left: 0px;"
+                      style="inset-inline-start: 0; --z-offset: 8; --z-offset-reverse: 4;"
                     >
                       <div
                         class="ant-table-selection"
@@ -28756,9 +28756,9 @@ Array [
                       </div>
                     </th>
                     <th
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow ant-table-cell-ellipsis"
                       scope="col"
-                      style="position: sticky; left: 0px;"
+                      style="inset-inline-start: 0; --z-offset: 7; --z-offset-reverse: 5;"
                       title="Name"
                     >
                       <span
@@ -28789,8 +28789,8 @@ Array [
                     data-row-key="1"
                   >
                     <td
-                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position: sticky; left: 0px;"
+                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix ant-table-cell-fix-start"
+                      style="inset-inline-start: 0; --z-offset: 8; --z-offset-reverse: 4;"
                     >
                       <label
                         class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
@@ -28809,8 +28809,8 @@ Array [
                       </label>
                     </td>
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position: sticky; left: 0px;"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow ant-table-cell-ellipsis ant-table-cell-with-append"
+                      style="inset-inline-start: 0; --z-offset: 7; --z-offset-reverse: 5;"
                       title="John Brown sr. John Brown sr. John Brown sr. John Brown sr. John Brown sr. John Brown sr."
                     >
                       <span
@@ -28845,8 +28845,8 @@ Array [
                     data-row-key="11"
                   >
                     <td
-                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position: sticky; left: 0px;"
+                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix ant-table-cell-fix-start"
+                      style="inset-inline-start: 0; --z-offset: 8; --z-offset-reverse: 4;"
                     >
                       <label
                         class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
@@ -28865,8 +28865,8 @@ Array [
                       </label>
                     </td>
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position: sticky; left: 0px;"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow ant-table-cell-ellipsis ant-table-cell-with-append"
+                      style="inset-inline-start: 0; --z-offset: 7; --z-offset-reverse: 5;"
                       title="John Brown sr. John Brown sr. John Brown sr. John Brown sr. John Brown sr. John Brown sr."
                     >
                       <span
@@ -28901,8 +28901,8 @@ Array [
                     data-row-key="12"
                   >
                     <td
-                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position: sticky; left: 0px;"
+                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix ant-table-cell-fix-start"
+                      style="inset-inline-start: 0; --z-offset: 8; --z-offset-reverse: 4;"
                     >
                       <label
                         class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
@@ -28921,8 +28921,8 @@ Array [
                       </label>
                     </td>
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position: sticky; left: 0px;"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow ant-table-cell-ellipsis ant-table-cell-with-append"
+                      style="inset-inline-start: 0; --z-offset: 7; --z-offset-reverse: 5;"
                       title="John Brown sr. John Brown sr. John Brown sr. John Brown sr. John Brown sr. John Brown sr."
                     >
                       <span
@@ -28957,8 +28957,8 @@ Array [
                     data-row-key="121"
                   >
                     <td
-                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position: sticky; left: 0px;"
+                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix ant-table-cell-fix-start"
+                      style="inset-inline-start: 0; --z-offset: 8; --z-offset-reverse: 4;"
                     >
                       <label
                         class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
@@ -28977,8 +28977,8 @@ Array [
                       </label>
                     </td>
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position: sticky; left: 0px;"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow ant-table-cell-ellipsis ant-table-cell-with-append"
+                      style="inset-inline-start: 0; --z-offset: 7; --z-offset-reverse: 5;"
                       title="John Brown sr. John Brown sr. John Brown sr. John Brown sr. John Brown sr. John Brown sr."
                     >
                       <span
@@ -29013,8 +29013,8 @@ Array [
                     data-row-key="13"
                   >
                     <td
-                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position: sticky; left: 0px;"
+                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix ant-table-cell-fix-start"
+                      style="inset-inline-start: 0; --z-offset: 8; --z-offset-reverse: 4;"
                     >
                       <label
                         class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
@@ -29033,8 +29033,8 @@ Array [
                       </label>
                     </td>
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position: sticky; left: 0px;"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow ant-table-cell-ellipsis ant-table-cell-with-append"
+                      style="inset-inline-start: 0; --z-offset: 7; --z-offset-reverse: 5;"
                       title="Jim Green sr. Jim Green sr. Jim Green sr. Jim Green sr."
                     >
                       <span
@@ -29069,8 +29069,8 @@ Array [
                     data-row-key="131"
                   >
                     <td
-                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position: sticky; left: 0px;"
+                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix ant-table-cell-fix-start"
+                      style="inset-inline-start: 0; --z-offset: 8; --z-offset-reverse: 4;"
                     >
                       <label
                         class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
@@ -29089,8 +29089,8 @@ Array [
                       </label>
                     </td>
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position: sticky; left: 0px;"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow ant-table-cell-ellipsis ant-table-cell-with-append"
+                      style="inset-inline-start: 0; --z-offset: 7; --z-offset-reverse: 5;"
                       title="Jim Green. Jim Green. Jim Green. Jim Green. Jim Green. Jim Green."
                     >
                       <span
@@ -29125,8 +29125,8 @@ Array [
                     data-row-key="1311"
                   >
                     <td
-                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position: sticky; left: 0px;"
+                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix ant-table-cell-fix-start"
+                      style="inset-inline-start: 0; --z-offset: 8; --z-offset-reverse: 4;"
                     >
                       <label
                         class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
@@ -29145,8 +29145,8 @@ Array [
                       </label>
                     </td>
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position: sticky; left: 0px;"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow ant-table-cell-ellipsis ant-table-cell-with-append"
+                      style="inset-inline-start: 0; --z-offset: 7; --z-offset-reverse: 5;"
                       title="Jim Green jr. Jim Green jr. Jim Green jr. Jim Green jr."
                     >
                       <span
@@ -29181,8 +29181,8 @@ Array [
                     data-row-key="1312"
                   >
                     <td
-                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position: sticky; left: 0px;"
+                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix ant-table-cell-fix-start"
+                      style="inset-inline-start: 0; --z-offset: 8; --z-offset-reverse: 4;"
                     >
                       <label
                         class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
@@ -29201,8 +29201,8 @@ Array [
                       </label>
                     </td>
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position: sticky; left: 0px;"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow ant-table-cell-ellipsis ant-table-cell-with-append"
+                      style="inset-inline-start: 0; --z-offset: 7; --z-offset-reverse: 5;"
                       title="Jimmy Green sr. Jimmy Green sr. Jimmy Green sr."
                     >
                       <span
@@ -29237,8 +29237,8 @@ Array [
                     data-row-key="2"
                   >
                     <td
-                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position: sticky; left: 0px;"
+                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix ant-table-cell-fix-start"
+                      style="inset-inline-start: 0; --z-offset: 8; --z-offset-reverse: 4;"
                     >
                       <label
                         class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
@@ -29257,8 +29257,8 @@ Array [
                       </label>
                     </td>
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position: sticky; left: 0px;"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow ant-table-cell-ellipsis ant-table-cell-with-append"
+                      style="inset-inline-start: 0; --z-offset: 7; --z-offset-reverse: 5;"
                       title="Joe Black"
                     >
                       <span

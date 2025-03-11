@@ -180,8 +180,8 @@ const nestDataSource = Array.from({ length: 3 }).map<NestDataType>((_, i) => ({
 }));
 
 const columnsFixed: TableProps<FixedDataType>['columns'] = [
-  { title: 'Full Name', width: 100, dataIndex: 'name', key: 'name', fixed: 'left' },
-  { title: 'Age', width: 100, dataIndex: 'age', key: 'age', fixed: 'left' },
+  { title: 'Full Name', width: 100, dataIndex: 'name', key: 'name', fixed: 'start' },
+  { title: 'Age', width: 100, dataIndex: 'age', key: 'age', fixed: 'start' },
   { title: 'Column 1', dataIndex: 'address', key: '1' },
   { title: 'Column 2', dataIndex: 'address', key: '2' },
   { title: 'Column 3', dataIndex: 'address', key: '3' },
@@ -190,7 +190,7 @@ const columnsFixed: TableProps<FixedDataType>['columns'] = [
   { title: 'Column 6', dataIndex: 'address', key: '6' },
   { title: 'Column 7', dataIndex: 'address', key: '7' },
   { title: 'Column 8', dataIndex: 'address', key: '8' },
-  { title: 'Action', key: 'operation', fixed: 'right', width: 100, render: () => <a>action</a> },
+  { title: 'Action', key: 'operation', fixed: 'end', width: 100, render: () => <a>action</a> },
 ];
 
 const fixedDataSource: FixedDataType[] = [
