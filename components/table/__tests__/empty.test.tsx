@@ -22,14 +22,14 @@ const columnsFixed: ColumnsType<any> = [
     width: 100,
     dataIndex: 'name',
     key: 'name',
-    fixed: 'left',
+    fixed: 'start',
   },
   {
     title: 'Age',
     width: 100,
     dataIndex: 'age',
     key: 'age',
-    fixed: 'left',
+    fixed: 'start',
   },
   { title: 'Column 1', dataIndex: 'address', key: '1' },
   { title: 'Column 2', dataIndex: 'address', key: '2' },
@@ -42,7 +42,7 @@ const columnsFixed: ColumnsType<any> = [
   {
     title: 'Action',
     key: 'address',
-    fixed: 'right',
+    fixed: 'end',
     width: 100,
   },
 ];

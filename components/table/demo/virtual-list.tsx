@@ -17,19 +17,19 @@ const fixedColumns: TableProps<RecordType>['columns'] = [
     title: 'ID',
     dataIndex: 'id',
     width: 100,
-    fixed: 'left',
+    fixed: 'start',
   },
   {
     title: 'FistName',
     dataIndex: 'firstName',
     width: 120,
-    fixed: 'left',
+    fixed: 'start',
   },
   {
     title: 'LastName',
     dataIndex: 'lastName',
     width: 120,
-    fixed: 'left',
+    fixed: 'start',
   },
   {
     title: 'Group',
@@ -65,7 +65,7 @@ const fixedColumns: TableProps<RecordType>['columns'] = [
   {
     title: 'Action',
     width: 150,
-    fixed: 'right',
+    fixed: 'end',
     render: () => (
       <Space>
         <Typography.Link>Action1</Typography.Link>
