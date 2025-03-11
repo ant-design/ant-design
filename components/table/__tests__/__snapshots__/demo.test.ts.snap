@@ -9641,7 +9641,7 @@ exports[`renders components/table/demo/filter-search.tsx correctly 1`] = `
 
 exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
 <div
-  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-10ugdpo"
+  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
 >
   <div
     class="ant-spin-nested-loading css-var-test-id"
@@ -9650,7 +9650,7 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table css-var-test-id ant-table-css-var ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
+        class="ant-table css-var-test-id ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-start ant-table-has-fix-end"
       >
         <div
           class="ant-table-container"
@@ -9698,17 +9698,17 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
               >
                 <tr>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-left"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
                     scope="col"
-                    style="position:sticky;left:0"
+                    style="inset-inline-start:0;--z-offset:46;--z-offset-reverse:23"
                   >
                     Full Name
                   </th>
                   <th
                     aria-label="Age"
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-column-has-sorters"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow ant-table-column-has-sorters"
                     scope="col"
-                    style="position:sticky;left:0"
+                    style="inset-inline-start:0;--z-offset:45;--z-offset-reverse:24"
                     tabindex="0"
                   >
                     <div
@@ -9890,9 +9890,9 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
                     Column 20
                   </th>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
                     scope="col"
-                    style="position:sticky;right:0"
+                    style="inset-inline-end:0;--z-offset:22;--z-offset-reverse:1"
                   >
                     Action
                   </th>
@@ -10096,14 +10096,14 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
                   data-row-key="1"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start:0;--z-offset:46;--z-offset-reverse:23"
                   >
                     Olivia
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:45;--z-offset-reverse:24"
                   >
                     32
                   </td>
@@ -10208,8 +10208,8 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
                     New York Park
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:22;--z-offset-reverse:1"
                   >
                     <a>
                       action
@@ -10221,14 +10221,14 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
                   data-row-key="2"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start:0;--z-offset:46;--z-offset-reverse:23"
                   >
                     Ethan
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:45;--z-offset-reverse:24"
                   >
                     40
                   </td>
@@ -10333,8 +10333,8 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
                     London Park
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:22;--z-offset-reverse:1"
                   >
                     <a>
                       action
@@ -10353,7 +10353,7 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
 
 exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = `
 <div
-  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-10ugdpo"
+  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
 >
   <div
     class="ant-spin-nested-loading css-var-test-id"
@@ -10362,7 +10362,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
       class="ant-spin-container"
     >
       <div
-        class="ant-table css-var-test-id ant-table-css-var ant-table-fixed-header ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
+        class="ant-table css-var-test-id ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-fixed-header ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-start ant-table-has-fix-end"
       >
         <div
           class="ant-table-container"
@@ -10380,16 +10380,16 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
               >
                 <tr>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-left"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
                     scope="col"
-                    style="position:sticky;left:0"
+                    style="inset-inline-start:0;--z-offset:46;--z-offset-reverse:23"
                   >
                     Full Name
                   </th>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                     scope="col"
-                    style="position:sticky;left:0"
+                    style="inset-inline-start:0;--z-offset:45;--z-offset-reverse:24"
                   >
                     Age
                   </th>
@@ -10514,9 +10514,9 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                     Column 20
                   </th>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
                     scope="col"
-                    style="position:sticky;right:0"
+                    style="inset-inline-end:0;--z-offset:22;--z-offset-reverse:1"
                   >
                     Action
                   </th>
@@ -10774,14 +10774,14 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                   data-row-key="0"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start:0;--z-offset:46;--z-offset-reverse:23"
                   >
                     Edward King 0
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:45;--z-offset-reverse:24"
                   >
                     32
                   </td>
@@ -10886,8 +10886,8 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                     London, Park Lane no. 0
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:22;--z-offset-reverse:1"
                   >
                     <a>
                       action
@@ -10899,14 +10899,14 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                   data-row-key="1"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start:0;--z-offset:46;--z-offset-reverse:23"
                   >
                     Edward King 1
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:45;--z-offset-reverse:24"
                   >
                     32
                   </td>
@@ -11011,8 +11011,8 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                     London, Park Lane no. 1
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:22;--z-offset-reverse:1"
                   >
                     <a>
                       action
@@ -11024,14 +11024,14 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                   data-row-key="2"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start:0;--z-offset:46;--z-offset-reverse:23"
                   >
                     Edward King 2
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:45;--z-offset-reverse:24"
                   >
                     32
                   </td>
@@ -11136,8 +11136,8 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                     London, Park Lane no. 2
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:22;--z-offset-reverse:1"
                   >
                     <a>
                       action
@@ -11149,14 +11149,14 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                   data-row-key="3"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start:0;--z-offset:46;--z-offset-reverse:23"
                   >
                     Edward King 3
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:45;--z-offset-reverse:24"
                   >
                     32
                   </td>
@@ -11261,8 +11261,8 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                     London, Park Lane no. 3
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:22;--z-offset-reverse:1"
                   >
                     <a>
                       action
@@ -11274,14 +11274,14 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                   data-row-key="4"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start:0;--z-offset:46;--z-offset-reverse:23"
                   >
                     Edward King 4
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:45;--z-offset-reverse:24"
                   >
                     32
                   </td>
@@ -11386,8 +11386,8 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                     London, Park Lane no. 4
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:22;--z-offset-reverse:1"
                   >
                     <a>
                       action
@@ -11399,14 +11399,14 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                   data-row-key="5"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start:0;--z-offset:46;--z-offset-reverse:23"
                   >
                     Edward King 5
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:45;--z-offset-reverse:24"
                   >
                     32
                   </td>
@@ -11511,8 +11511,8 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                     London, Park Lane no. 5
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:22;--z-offset-reverse:1"
                   >
                     <a>
                       action
@@ -11524,14 +11524,14 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                   data-row-key="6"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start:0;--z-offset:46;--z-offset-reverse:23"
                   >
                     Edward King 6
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:45;--z-offset-reverse:24"
                   >
                     32
                   </td>
@@ -11636,8 +11636,8 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                     London, Park Lane no. 6
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:22;--z-offset-reverse:1"
                   >
                     <a>
                       action
@@ -11649,14 +11649,14 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                   data-row-key="7"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start:0;--z-offset:46;--z-offset-reverse:23"
                   >
                     Edward King 7
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:45;--z-offset-reverse:24"
                   >
                     32
                   </td>
@@ -11761,8 +11761,8 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                     London, Park Lane no. 7
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:22;--z-offset-reverse:1"
                   >
                     <a>
                       action
@@ -11774,14 +11774,14 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                   data-row-key="8"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start:0;--z-offset:46;--z-offset-reverse:23"
                   >
                     Edward King 8
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:45;--z-offset-reverse:24"
                   >
                     32
                   </td>
@@ -11886,8 +11886,8 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                     London, Park Lane no. 8
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:22;--z-offset-reverse:1"
                   >
                     <a>
                       action
@@ -11899,14 +11899,14 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                   data-row-key="9"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start:0;--z-offset:46;--z-offset-reverse:23"
                   >
                     Edward King 9
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:45;--z-offset-reverse:24"
                   >
                     32
                   </td>
@@ -12011,8 +12011,8 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                     London, Park Lane no. 9
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:22;--z-offset-reverse:1"
                   >
                     <a>
                       action
@@ -12269,7 +12269,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
 
 exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = `
 <div
-  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-10ugdpo"
+  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
 >
   <div
     class="ant-spin-nested-loading css-var-test-id"
@@ -12278,7 +12278,7 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-bordered css-var-test-id ant-table-css-var ant-table-fixed-column ant-table-fixed-column-gapped ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
+        class="ant-table ant-table-bordered css-var-test-id ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-start ant-table-has-fix-end"
       >
         <div
           class="ant-table-container"
@@ -12332,9 +12332,9 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
               >
                 <tr>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                     scope="col"
-                    style="position:sticky;left:0"
+                    style="inset-inline-start:0;--z-offset:50;--z-offset-reverse:25"
                   >
                     Full Name
                   </th>
@@ -12345,9 +12345,9 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
                     Age
                   </th>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                     scope="col"
-                    style="position:sticky;left:0"
+                    style="inset-inline-start:0;--z-offset:48;--z-offset-reverse:27"
                   >
                     Column 1
                   </th>
@@ -12466,9 +12466,9 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
                     Column 20
                   </th>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
                     scope="col"
-                    style="position:sticky;right:0"
+                    style="inset-inline-end:0;--z-offset:22;--z-offset-reverse:3"
                   >
                     Action 1
                   </th>
@@ -12479,9 +12479,9 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
                     Action 2
                   </th>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
                     scope="col"
-                    style="position:sticky;right:0"
+                    style="inset-inline-end:0;--z-offset:24;--z-offset-reverse:1"
                   >
                     Action 3
                   </th>
@@ -12701,8 +12701,8 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
                   data-row-key="1"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:50;--z-offset-reverse:25"
                   >
                     Olivia
                   </td>
@@ -12712,8 +12712,8 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
                     32
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:48;--z-offset-reverse:27"
                   >
                     New York Park
                   </td>
@@ -12813,8 +12813,8 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
                     New York Park
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:22;--z-offset-reverse:3"
                   >
                     <a>
                       action
@@ -12828,8 +12828,8 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
                     </a>
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:24;--z-offset-reverse:1"
                   >
                     <a>
                       action
@@ -12841,8 +12841,8 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
                   data-row-key="2"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:50;--z-offset-reverse:25"
                   >
                     Ethan
                   </td>
@@ -12852,8 +12852,8 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
                     40
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:48;--z-offset-reverse:27"
                   >
                     London Park
                   </td>
@@ -12953,8 +12953,8 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
                     London Park
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:22;--z-offset-reverse:3"
                   >
                     <a>
                       action
@@ -12968,8 +12968,8 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
                     </a>
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:24;--z-offset-reverse:1"
                   >
                     <a>
                       action
@@ -12988,7 +12988,7 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
 
 exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
 <div
-  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-10ugdpo"
+  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
 >
   <div
     class="ant-spin-nested-loading css-var-test-id"
@@ -14252,7 +14252,7 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
 
 exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
 <div
-  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-10ugdpo"
+  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
 >
   <div
     class="ant-spin-nested-loading css-var-test-id"
@@ -14261,7 +14261,7 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-middle ant-table-bordered css-var-test-id ant-table-css-var ant-table-fixed-header ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
+        class="ant-table ant-table-middle ant-table-bordered css-var-test-id ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-fixed-header ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-start ant-table-has-fix-end"
       >
         <div
           class="ant-table-container"
@@ -14279,10 +14279,10 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
               >
                 <tr>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                     rowspan="4"
                     scope="col"
-                    style="position:sticky;left:0"
+                    style="inset-inline-start:0;--z-offset:16;--z-offset-reverse:8"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -14334,10 +14334,10 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                     Company
                   </th>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
                     rowspan="4"
                     scope="col"
-                    style="position:sticky;right:0"
+                    style="inset-inline-end:0;--z-offset:7;--z-offset-reverse:1"
                   >
                     Gender
                   </th>
@@ -14572,8 +14572,8 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                   data-row-key="0"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:16;--z-offset-reverse:8"
                   >
                     John Brown
                   </td>
@@ -14608,8 +14608,8 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                     SoftLake Co
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:7;--z-offset-reverse:1"
                   >
                     M
                   </td>
@@ -14619,8 +14619,8 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                   data-row-key="1"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:16;--z-offset-reverse:8"
                   >
                     John Brown
                   </td>
@@ -14655,8 +14655,8 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                     SoftLake Co
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:7;--z-offset-reverse:1"
                   >
                     M
                   </td>
@@ -14666,8 +14666,8 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                   data-row-key="2"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:16;--z-offset-reverse:8"
                   >
                     John Brown
                   </td>
@@ -14702,8 +14702,8 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                     SoftLake Co
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:7;--z-offset-reverse:1"
                   >
                     M
                   </td>
@@ -14713,8 +14713,8 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                   data-row-key="3"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:16;--z-offset-reverse:8"
                   >
                     John Brown
                   </td>
@@ -14749,8 +14749,8 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                     SoftLake Co
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:7;--z-offset-reverse:1"
                   >
                     M
                   </td>
@@ -14760,8 +14760,8 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                   data-row-key="4"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:16;--z-offset-reverse:8"
                   >
                     John Brown
                   </td>
@@ -14796,8 +14796,8 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                     SoftLake Co
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:7;--z-offset-reverse:1"
                   >
                     M
                   </td>
@@ -14807,8 +14807,8 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                   data-row-key="5"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:16;--z-offset-reverse:8"
                   >
                     John Brown
                   </td>
@@ -14843,8 +14843,8 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                     SoftLake Co
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:7;--z-offset-reverse:1"
                   >
                     M
                   </td>
@@ -14854,8 +14854,8 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                   data-row-key="6"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:16;--z-offset-reverse:8"
                   >
                     John Brown
                   </td>
@@ -14890,8 +14890,8 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                     SoftLake Co
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:7;--z-offset-reverse:1"
                   >
                     M
                   </td>
@@ -14901,8 +14901,8 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                   data-row-key="7"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:16;--z-offset-reverse:8"
                   >
                     John Brown
                   </td>
@@ -14937,8 +14937,8 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                     SoftLake Co
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:7;--z-offset-reverse:1"
                   >
                     M
                   </td>
@@ -14948,8 +14948,8 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                   data-row-key="8"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:16;--z-offset-reverse:8"
                   >
                     John Brown
                   </td>
@@ -14984,8 +14984,8 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                     SoftLake Co
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:7;--z-offset-reverse:1"
                   >
                     M
                   </td>
@@ -14995,8 +14995,8 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                   data-row-key="9"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:16;--z-offset-reverse:8"
                   >
                     John Brown
                   </td>
@@ -15031,8 +15031,8 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                     SoftLake Co
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:7;--z-offset-reverse:1"
                   >
                     M
                   </td>
@@ -26908,7 +26908,7 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table css-var-test-id ant-table-css-var ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
+        class="ant-table css-var-test-id ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-start ant-table-has-fix-end"
       >
         <div
           class="ant-table-container"
@@ -26926,16 +26926,16 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
               >
                 <tr>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-sticky"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-sticky"
                     scope="col"
-                    style="position:sticky;left:0"
+                    style="inset-inline-start:0;--z-offset:22;--z-offset-reverse:11"
                   >
                     Full Name
                   </th>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-fix-sticky"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow ant-table-cell-fix-sticky"
                     scope="col"
-                    style="position:sticky;left:0"
+                    style="inset-inline-start:0;--z-offset:21;--z-offset-reverse:12"
                   >
                     Age
                   </th>
@@ -26988,9 +26988,9 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                     Column 8
                   </th>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first ant-table-cell-fix-sticky"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow ant-table-cell-fix-sticky"
                     scope="col"
-                    style="position:sticky;right:0"
+                    style="inset-inline-end:0;--z-offset:10;--z-offset-reverse:1"
                   >
                     Action
                   </th>
@@ -27140,14 +27140,14 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                   data-row-key="0"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start:0;--z-offset:22;--z-offset-reverse:11"
                   >
                     Edward 0
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:21;--z-offset-reverse:12"
                   >
                     32
                   </td>
@@ -27192,8 +27192,8 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                     London Park no. 0
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:10;--z-offset-reverse:1"
                   >
                     <a>
                       action
@@ -27205,14 +27205,14 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                   data-row-key="1"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start:0;--z-offset:22;--z-offset-reverse:11"
                   >
                     Edward 1
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:21;--z-offset-reverse:12"
                   >
                     32
                   </td>
@@ -27257,8 +27257,8 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                     London Park no. 1
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:10;--z-offset-reverse:1"
                   >
                     <a>
                       action
@@ -27270,14 +27270,14 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                   data-row-key="2"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start:0;--z-offset:22;--z-offset-reverse:11"
                   >
                     Edward 2
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:21;--z-offset-reverse:12"
                   >
                     32
                   </td>
@@ -27322,8 +27322,8 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                     London Park no. 2
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:10;--z-offset-reverse:1"
                   >
                     <a>
                       action
@@ -27335,14 +27335,14 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                   data-row-key="3"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start:0;--z-offset:22;--z-offset-reverse:11"
                   >
                     Edward 3
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:21;--z-offset-reverse:12"
                   >
                     32
                   </td>
@@ -27387,8 +27387,8 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                     London Park no. 3
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:10;--z-offset-reverse:1"
                   >
                     <a>
                       action
@@ -27400,14 +27400,14 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                   data-row-key="4"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start:0;--z-offset:22;--z-offset-reverse:11"
                   >
                     Edward 4
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:21;--z-offset-reverse:12"
                   >
                     32
                   </td>
@@ -27452,8 +27452,8 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                     London Park no. 4
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:10;--z-offset-reverse:1"
                   >
                     <a>
                       action
@@ -27465,14 +27465,14 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                   data-row-key="5"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start:0;--z-offset:22;--z-offset-reverse:11"
                   >
                     Edward 5
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:21;--z-offset-reverse:12"
                   >
                     32
                   </td>
@@ -27517,8 +27517,8 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                     London Park no. 5
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:10;--z-offset-reverse:1"
                   >
                     <a>
                       action
@@ -27530,14 +27530,14 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                   data-row-key="6"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start:0;--z-offset:22;--z-offset-reverse:11"
                   >
                     Edward 6
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:21;--z-offset-reverse:12"
                   >
                     32
                   </td>
@@ -27582,8 +27582,8 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                     London Park no. 6
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:10;--z-offset-reverse:1"
                   >
                     <a>
                       action
@@ -27595,14 +27595,14 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                   data-row-key="7"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start:0;--z-offset:22;--z-offset-reverse:11"
                   >
                     Edward 7
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:21;--z-offset-reverse:12"
                   >
                     32
                   </td>
@@ -27647,8 +27647,8 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                     London Park no. 7
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:10;--z-offset-reverse:1"
                   >
                     <a>
                       action
@@ -27660,14 +27660,14 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                   data-row-key="8"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start:0;--z-offset:22;--z-offset-reverse:11"
                   >
                     Edward 8
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:21;--z-offset-reverse:12"
                   >
                     32
                   </td>
@@ -27712,8 +27712,8 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                     London Park no. 8
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:10;--z-offset-reverse:1"
                   >
                     <a>
                       action
@@ -27725,14 +27725,14 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                   data-row-key="9"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start:0;--z-offset:22;--z-offset-reverse:11"
                   >
                     Edward 9
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start:0;--z-offset:21;--z-offset-reverse:12"
                   >
                     32
                   </td>
@@ -27777,8 +27777,8 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                     London Park no. 9
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                    style="inset-inline-end:0;--z-offset:10;--z-offset-reverse:1"
                   >
                     <a>
                       action
@@ -27801,9 +27801,9 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
               >
                 <tr>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-fix-sticky"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow ant-table-cell-fix-sticky"
                     colspan="2"
-                    style="position:sticky;left:0"
+                    style="inset-inline-start:0;--z-offset:22;--z-offset-reverse:11"
                   >
                     <button
                       aria-checked="false"
@@ -27837,8 +27837,8 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                     Scroll Context
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first ant-table-cell-fix-sticky"
-                    style="position:sticky;right:0"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow ant-table-cell-fix-sticky"
+                    style="inset-inline-end:0;--z-offset:10;--z-offset-reverse:1"
                   >
                     Fix Right
                   </td>
@@ -28096,7 +28096,7 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
 >
   <div
-    class="css-var-test-id ant-table-css-var ant-table-wrapper acss-10ugdpo"
+    class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
   >
     <div
       class="ant-spin-nested-loading css-var-test-id"
@@ -28279,7 +28279,7 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="css-var-test-id ant-table-css-var ant-table-wrapper acss-10ugdpo"
+    class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
   >
     <div
       class="ant-spin-nested-loading css-var-test-id"
@@ -28288,7 +28288,7 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
         class="ant-spin-container"
       >
         <div
-          class="ant-table ant-table-bordered css-var-test-id ant-table-css-var ant-table-fixed-header ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left"
+          class="ant-table ant-table-bordered css-var-test-id ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-fixed-header ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-start"
         >
           <div
             class="ant-table-container"
@@ -28306,9 +28306,9 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
                 >
                   <tr>
                     <th
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                       scope="col"
-                      style="position:sticky;left:0"
+                      style="inset-inline-start:0;--z-offset:4;--z-offset-reverse:2"
                     >
                       Name
                     </th>
@@ -28364,8 +28364,8 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
                     data-row-key="0"
                   >
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                      style="inset-inline-start:0;--z-offset:4;--z-offset-reverse:2"
                     >
                       Light
                     </td>
@@ -28380,8 +28380,8 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
                     data-row-key="1"
                   >
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                      style="inset-inline-start:0;--z-offset:4;--z-offset-reverse:2"
                     >
                       Bamboo
                     </td>
@@ -28396,8 +28396,8 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
                     data-row-key="2"
                   >
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                      style="inset-inline-start:0;--z-offset:4;--z-offset-reverse:2"
                     >
                       Little
                     </td>
@@ -28412,8 +28412,8 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
                     data-row-key="3"
                   >
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                      style="inset-inline-start:0;--z-offset:4;--z-offset-reverse:2"
                     >
                       Light
                     </td>
@@ -28428,8 +28428,8 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
                     data-row-key="4"
                   >
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                      style="inset-inline-start:0;--z-offset:4;--z-offset-reverse:2"
                     >
                       Bamboo
                     </td>
@@ -28444,8 +28444,8 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
                     data-row-key="5"
                   >
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                      style="inset-inline-start:0;--z-offset:4;--z-offset-reverse:2"
                     >
                       Little
                     </td>
@@ -28460,8 +28460,8 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
                     data-row-key="6"
                   >
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                      style="inset-inline-start:0;--z-offset:4;--z-offset-reverse:2"
                     >
                       Light
                     </td>
@@ -28476,8 +28476,8 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
                     data-row-key="7"
                   >
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                      style="inset-inline-start:0;--z-offset:4;--z-offset-reverse:2"
                     >
                       Bamboo
                     </td>
@@ -28492,8 +28492,8 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
                     data-row-key="8"
                   >
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                      style="inset-inline-start:0;--z-offset:4;--z-offset-reverse:2"
                     >
                       Little
                     </td>
@@ -28508,8 +28508,8 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
                     data-row-key="9"
                   >
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                      style="inset-inline-start:0;--z-offset:4;--z-offset-reverse:2"
                     >
                       Light
                     </td>
@@ -28524,8 +28524,8 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
                     data-row-key="10"
                   >
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                      style="inset-inline-start:0;--z-offset:4;--z-offset-reverse:2"
                     >
                       Bamboo
                     </td>
@@ -28540,8 +28540,8 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
                     data-row-key="11"
                   >
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                      style="inset-inline-start:0;--z-offset:4;--z-offset-reverse:2"
                     >
                       Little
                     </td>
@@ -28556,8 +28556,8 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
                     data-row-key="12"
                   >
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                      style="inset-inline-start:0;--z-offset:4;--z-offset-reverse:2"
                     >
                       Light
                     </td>
@@ -28572,8 +28572,8 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
                     data-row-key="13"
                   >
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                      style="inset-inline-start:0;--z-offset:4;--z-offset-reverse:2"
                     >
                       Bamboo
                     </td>
@@ -28588,8 +28588,8 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
                     data-row-key="14"
                   >
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                      style="inset-inline-start:0;--z-offset:4;--z-offset-reverse:2"
                     >
                       Little
                     </td>
@@ -28604,8 +28604,8 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
                     data-row-key="15"
                   >
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                      style="inset-inline-start:0;--z-offset:4;--z-offset-reverse:2"
                     >
                       Light
                     </td>
@@ -28620,8 +28620,8 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
                     data-row-key="16"
                   >
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                      style="inset-inline-start:0;--z-offset:4;--z-offset-reverse:2"
                     >
                       Bamboo
                     </td>
@@ -28636,8 +28636,8 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
                     data-row-key="17"
                   >
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                      style="inset-inline-start:0;--z-offset:4;--z-offset-reverse:2"
                     >
                       Little
                     </td>
@@ -28652,8 +28652,8 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
                     data-row-key="18"
                   >
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                      style="inset-inline-start:0;--z-offset:4;--z-offset-reverse:2"
                     >
                       Light
                     </td>
@@ -28668,8 +28668,8 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
                     data-row-key="19"
                   >
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                      style="inset-inline-start:0;--z-offset:4;--z-offset-reverse:2"
                     >
                       Bamboo
                     </td>
@@ -28695,8 +28695,8 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
                 >
                   <tr>
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                      style="inset-inline-start:0;--z-offset:4;--z-offset-reverse:2"
                     >
                       Summary
                     </td>
@@ -29072,7 +29072,7 @@ Array [
         class="ant-spin-container"
       >
         <div
-          class="ant-table css-var-test-id ant-table-css-var ant-table-has-fix-left"
+          class="ant-table css-var-test-id ant-table-css-var ant-table-has-fix-start"
         >
           <div
             class="ant-table-container"
@@ -29100,9 +29100,9 @@ Array [
                 >
                   <tr>
                     <th
-                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
+                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix ant-table-cell-fix-start"
                       scope="col"
-                      style="position:sticky;left:0"
+                      style="inset-inline-start:0;--z-offset:8;--z-offset-reverse:4"
                     >
                       <div
                         class="ant-table-selection"
@@ -29126,9 +29126,9 @@ Array [
                       </div>
                     </th>
                     <th
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow ant-table-cell-ellipsis"
                       scope="col"
-                      style="position:sticky;left:0"
+                      style="inset-inline-start:0;--z-offset:7;--z-offset-reverse:5"
                       title="Name"
                     >
                       <span
@@ -29159,8 +29159,8 @@ Array [
                     data-row-key="1"
                   >
                     <td
-                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix ant-table-cell-fix-start"
+                      style="inset-inline-start:0;--z-offset:8;--z-offset-reverse:4"
                     >
                       <label
                         class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
@@ -29179,8 +29179,8 @@ Array [
                       </label>
                     </td>
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow ant-table-cell-ellipsis ant-table-cell-with-append"
+                      style="inset-inline-start:0;--z-offset:7;--z-offset-reverse:5"
                       title="John Brown sr. John Brown sr. John Brown sr. John Brown sr. John Brown sr. John Brown sr."
                     >
                       <span
@@ -29215,8 +29215,8 @@ Array [
                     data-row-key="11"
                   >
                     <td
-                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix ant-table-cell-fix-start"
+                      style="inset-inline-start:0;--z-offset:8;--z-offset-reverse:4"
                     >
                       <label
                         class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
@@ -29235,8 +29235,8 @@ Array [
                       </label>
                     </td>
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow ant-table-cell-ellipsis ant-table-cell-with-append"
+                      style="inset-inline-start:0;--z-offset:7;--z-offset-reverse:5"
                       title="John Brown sr. John Brown sr. John Brown sr. John Brown sr. John Brown sr. John Brown sr."
                     >
                       <span
@@ -29271,8 +29271,8 @@ Array [
                     data-row-key="12"
                   >
                     <td
-                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix ant-table-cell-fix-start"
+                      style="inset-inline-start:0;--z-offset:8;--z-offset-reverse:4"
                     >
                       <label
                         class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
@@ -29291,8 +29291,8 @@ Array [
                       </label>
                     </td>
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow ant-table-cell-ellipsis ant-table-cell-with-append"
+                      style="inset-inline-start:0;--z-offset:7;--z-offset-reverse:5"
                       title="John Brown sr. John Brown sr. John Brown sr. John Brown sr. John Brown sr. John Brown sr."
                     >
                       <span
@@ -29327,8 +29327,8 @@ Array [
                     data-row-key="121"
                   >
                     <td
-                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix ant-table-cell-fix-start"
+                      style="inset-inline-start:0;--z-offset:8;--z-offset-reverse:4"
                     >
                       <label
                         class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
@@ -29347,8 +29347,8 @@ Array [
                       </label>
                     </td>
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow ant-table-cell-ellipsis ant-table-cell-with-append"
+                      style="inset-inline-start:0;--z-offset:7;--z-offset-reverse:5"
                       title="John Brown sr. John Brown sr. John Brown sr. John Brown sr. John Brown sr. John Brown sr."
                     >
                       <span
@@ -29383,8 +29383,8 @@ Array [
                     data-row-key="13"
                   >
                     <td
-                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix ant-table-cell-fix-start"
+                      style="inset-inline-start:0;--z-offset:8;--z-offset-reverse:4"
                     >
                       <label
                         class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
@@ -29403,8 +29403,8 @@ Array [
                       </label>
                     </td>
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow ant-table-cell-ellipsis ant-table-cell-with-append"
+                      style="inset-inline-start:0;--z-offset:7;--z-offset-reverse:5"
                       title="Jim Green sr. Jim Green sr. Jim Green sr. Jim Green sr."
                     >
                       <span
@@ -29439,8 +29439,8 @@ Array [
                     data-row-key="131"
                   >
                     <td
-                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix ant-table-cell-fix-start"
+                      style="inset-inline-start:0;--z-offset:8;--z-offset-reverse:4"
                     >
                       <label
                         class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
@@ -29459,8 +29459,8 @@ Array [
                       </label>
                     </td>
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow ant-table-cell-ellipsis ant-table-cell-with-append"
+                      style="inset-inline-start:0;--z-offset:7;--z-offset-reverse:5"
                       title="Jim Green. Jim Green. Jim Green. Jim Green. Jim Green. Jim Green."
                     >
                       <span
@@ -29495,8 +29495,8 @@ Array [
                     data-row-key="1311"
                   >
                     <td
-                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix ant-table-cell-fix-start"
+                      style="inset-inline-start:0;--z-offset:8;--z-offset-reverse:4"
                     >
                       <label
                         class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
@@ -29515,8 +29515,8 @@ Array [
                       </label>
                     </td>
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow ant-table-cell-ellipsis ant-table-cell-with-append"
+                      style="inset-inline-start:0;--z-offset:7;--z-offset-reverse:5"
                       title="Jim Green jr. Jim Green jr. Jim Green jr. Jim Green jr."
                     >
                       <span
@@ -29551,8 +29551,8 @@ Array [
                     data-row-key="1312"
                   >
                     <td
-                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix ant-table-cell-fix-start"
+                      style="inset-inline-start:0;--z-offset:8;--z-offset-reverse:4"
                     >
                       <label
                         class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
@@ -29571,8 +29571,8 @@ Array [
                       </label>
                     </td>
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow ant-table-cell-ellipsis ant-table-cell-with-append"
+                      style="inset-inline-start:0;--z-offset:7;--z-offset-reverse:5"
                       title="Jimmy Green sr. Jimmy Green sr. Jimmy Green sr."
                     >
                       <span
@@ -29607,8 +29607,8 @@ Array [
                     data-row-key="2"
                   >
                     <td
-                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-selection-column ant-table-cell-fix ant-table-cell-fix-start"
+                      style="inset-inline-start:0;--z-offset:8;--z-offset-reverse:4"
                     >
                       <label
                         class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
@@ -29627,8 +29627,8 @@ Array [
                       </label>
                     </td>
                     <td
-                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position:sticky;left:0"
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow ant-table-cell-ellipsis ant-table-cell-with-append"
+                      style="inset-inline-start:0;--z-offset:7;--z-offset-reverse:5"
                       title="Joe Black"
                     >
                       <span
