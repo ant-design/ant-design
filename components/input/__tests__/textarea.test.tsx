@@ -536,6 +536,20 @@ describe('TextArea allowClear', () => {
 });
 
 describe('TextArea useHandleResizeWrapper', () => {
+  beforeAll(() => {
+    // Use fake timers to control requestAnimationFrame.
+    jest.useFakeTimers();
+    // Override requestAnimationFrame to simulate a 16ms delay.
+    jest.spyOn(window, 'requestAnimationFrame').mockImplementation((cb: FrameRequestCallback) => {
+      return window.setTimeout(() => cb(performance.now()), 16);
+    });
+  });
+
+  afterAll(() => {
+    jest.useRealTimers();
+    (window.requestAnimationFrame as jest.Mock).mockRestore();
+  });
+
   it('does nothing when rcTextArea is null', () => {
     const { result } = renderHook(() => useHandleResizeWrapper());
     // Calling with null should not throw or change anything.
@@ -560,6 +574,9 @@ describe('TextArea useHandleResizeWrapper', () => {
     } as unknown as RcTextAreaRef;
 
     result.current?.handleResizeWrapper(fakeRcTextArea);
+
+    // Fast-forward time to see if any scheduled callback would execute.
+    jest.advanceTimersByTime(16);
     // nativeElement.style.width remains unchanged.
     expect(fakeRcTextArea.nativeElement.style.width).toBeUndefined();
   });
@@ -581,6 +598,12 @@ describe('TextArea useHandleResizeWrapper', () => {
         style: {} as any,
       },
     } as unknown as RcTextAreaRef;
+
+    // Immediately after calling handleResizeWrapper, the update is scheduled.
+    expect(fakeRcTextArea.nativeElement.style.width).toBeUndefined();
+
+    // Fast-forward time to trigger the requestAnimationFrame callback.
+    jest.advanceTimersByTime(16);
 
     result.current?.handleResizeWrapper(fakeRcTextArea);
     // Expected new width: 100 + 2 = 102px.
@@ -604,6 +627,12 @@ describe('TextArea useHandleResizeWrapper', () => {
         style: {} as any,
       },
     } as unknown as RcTextAreaRef;
+
+    // Immediately after calling handleResizeWrapper, the update is scheduled.
+    expect(fakeRcTextArea.nativeElement.style.width).toBeUndefined();
+
+    // Fast-forward time to trigger the requestAnimationFrame callback.
+    jest.advanceTimersByTime(16);
 
     result.current?.handleResizeWrapper(fakeRcTextArea);
     // Expected new width remains: 100 + 2 = 102px.
