@@ -177,9 +177,13 @@ type TransformAction =
 }
 ```
 
-## Semantic DOM
+### Basic
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
+
+### Preview
+
+<code src="./demo/_semanticPreview.tsx" simplify="true"></code>
 
 ## Design Token
 

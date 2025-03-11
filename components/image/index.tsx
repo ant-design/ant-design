@@ -24,6 +24,8 @@ const Image: CompositionImage<ImageProps> = (props) => {
     className,
     rootClassName,
     style,
+    styles,
+    classNames: imageClassNames,
     ...otherProps
   } = props;
   const {
@@ -32,14 +34,28 @@ const Image: CompositionImage<ImageProps> = (props) => {
     className: contextClassName,
     style: contextStyle,
     preview: contextPreview,
+    styles: contextStyles,
+    classNames: contextClassNames,
   } = useComponentConfig('image');
+
+  const mergedStyles = {
+    root: { ...contextStyles.root, ...styles?.root },
+    actions: { ...contextStyles.actions, ...styles?.actions },
+    mask: { ...contextStyles.mask, ...styles?.mask },
+  };
+
+  const mergedClassNames = {
+    root: classNames(contextClassNames.root, imageClassNames?.root),
+    actions: classNames(contextClassNames.actions, imageClassNames?.actions),
+    mask: classNames(contextClassNames.mask, imageClassNames?.mask),
+  };
 
   // ============================= Warning ==============================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('image');
 
     [
-      ['rootClassName', 'classNames: { root: "" }'],
+      ['rootClassName', 'Image.classNames'],
       ['maskClassName', 'classNames: { mask: "" }'],
     ].forEach(([deprecatedName, newName]) => {
       if (typeof preview === 'object') {
@@ -75,7 +91,10 @@ const Image: CompositionImage<ImageProps> = (props) => {
     const { getContainer, closeIcon, rootClassName, ...restPreviewProps } = _preview;
     return {
       mask: (
-        <div className={`${prefixCls}-mask-info`}>
+        <div
+          className={classNames(`${prefixCls}-mask-info`, mergedClassNames?.actions)}
+          style={mergedStyles?.actions}
+        >
           <EyeOutlined />
           {imageLocale?.preview}
         </div>
@@ -87,18 +106,12 @@ const Image: CompositionImage<ImageProps> = (props) => {
       maskTransitionName: getTransitionName(rootPrefixCls, 'fade', _preview.maskTransitionName),
       zIndex,
       closeIcon: closeIcon ?? contextPreview?.closeIcon,
-      rootClassName: classNames(
-        mergedRootClassName,
-        rootClassName,
-        _preview?.classNames?.root,
-        _contextPreview?.classNames?.root,
-      ),
+      rootClassName: classNames(mergedRootClassName, rootClassName),
       classNames: {
         mask: classNames(_preview?.classNames?.mask, _contextPreview?.classNames?.mask),
         actions: classNames(_preview?.classNames?.actions, _contextPreview?.classNames?.actions),
       },
       styles: {
-        root: { ..._contextPreview?.styles?.root, ..._preview?.styles?.root },
         mask: { ..._contextPreview?.styles?.mask, ..._preview?.styles?.mask },
         actions: { ..._contextPreview?.styles?.actions, ..._preview?.styles?.actions },
         // @ts-ignore emporarily used in PurePanel, not used externally by antd
@@ -113,9 +126,11 @@ const Image: CompositionImage<ImageProps> = (props) => {
     <RcImage
       prefixCls={prefixCls}
       preview={mergedPreview}
-      rootClassName={mergedRootClassName}
+      rootClassName={classNames(mergedRootClassName, mergedClassNames?.root)}
       className={mergedClassName}
       style={mergedStyle}
+      classNames={{ mask: mergedClassNames?.mask }}
+      styles={{ root: mergedStyles?.root, mask: mergedStyles?.mask }}
       {...otherProps}
     />
   );

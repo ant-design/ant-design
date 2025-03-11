@@ -61,7 +61,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | movable | 是否可移动 | boolean | true | 5.8.0 |
 | mask | 缩略图遮罩 | ReactNode | - | 4.9.0 |
 | ~~maskClassName~~ | 缩略图遮罩类名, 请使用 `classNames: { mask: '' }` 替换 | string | - | 4.11.0 |
-| ~~rootClassName~~ | 预览图的根 DOM 类名, 请使用 `classNames: { root: '' }` 替换 | string | - | 5.4.0 |
+| ~~rootClassName~~ | 预览图的根 DOM 类名，不做推荐了，v6 会移到根组件上 | string | - | 5.4.0 |
 | scaleStep | `1 + scaleStep` 为缩放放大的每步倍数 | number | 0.5 | - |
 | minScale | 最小缩放倍数 | number | 1 | 5.7.0 |
 | maxScale | 最大放大倍数 | number | 50 | 5.7.0 |
@@ -182,7 +182,13 @@ type TransformAction =
 
 ## Semantic DOM
 
+### Basic
+
 <code src="./demo/_semantic.tsx" simplify="true"></code>
+
+### Preview
+
+<code src="./demo/_semanticPreview.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

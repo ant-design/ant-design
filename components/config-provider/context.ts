@@ -20,7 +20,7 @@ import type { EmptyProps } from '../empty';
 import type { FlexProps } from '../flex/interface';
 import type { FloatButtonGroupProps } from '../float-button/interface';
 import type { FormProps } from '../form/Form';
-import type { ImagePreviewType } from '../image';
+import type { ImagePreviewType, ImageProps } from '../image';
 import type { InputProps, TextAreaProps } from '../input';
 import type { InputNumberProps } from '../input-number';
 import type { ListItemProps } from '../list';
@@ -144,10 +144,11 @@ export interface TableConfig extends ComponentStyleConfig {
   rowKey?: string;
 }
 
-export interface ImageConfig extends ComponentStyleConfig {
-  preview?: Partial<Record<'closeIcon', React.ReactNode>> &
+export type ImageConfig = ComponentStyleConfig &
+  Pick<ImageProps, 'classNames' | 'styles'> & {
+    preview?: Partial<Record<'closeIcon', React.ReactNode>> &
     Pick<ImagePreviewType, 'classNames' | 'styles'>;
-}
+  };
 
 export type CollapseConfig = ComponentStyleConfig &
   Pick<CollapseProps, 'expandIcon' | 'classNames' | 'styles'>;
