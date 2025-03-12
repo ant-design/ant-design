@@ -61,7 +61,7 @@ demo:
 | displayRender | 选择后展示的渲染函数 | (label, selectedOptions) => ReactNode | label => label.join(`/`) | `multiple`: 4.18.0 |
 | tagRender | 自定义 tag 内容 render，仅在多选时生效 | ({ label: string, onClose: function, value: string }) => ReactNode | - |  |
 | popupClassName | 自定义浮层类名 | string | - | 4.23.0 |
-| ~~dropdownRender~~ | 自定义下拉框内容，请使用popupRender替换 | (menus: ReactNode) => ReactNode | - | 4.4.0 |
+| ~~dropdownRender~~ | 自定义下拉框内容，请使用 `popupRender` 替换 | (menus: ReactNode) => ReactNode | - | 4.4.0 |
 | popupRender | 自定义下拉框内容 | (menus: ReactNode) => ReactNode | - |  |
 | expandIcon | 自定义次级菜单展开图标 | ReactNode | - | 4.4.0 |
 | expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | string | `click` |  |
