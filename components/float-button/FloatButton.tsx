@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from 'react';
+import React, { isValidElement, useContext, useMemo } from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 
@@ -9,6 +9,7 @@ import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import Tooltip from '../tooltip';
+import type { TooltipProps } from '../tooltip';
 import type BackTop from './BackTop';
 import FloatButtonGroupContext from './context';
 import Content from './FloatButtonContent';
@@ -85,11 +86,21 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
   }
 
   if ('tooltip' in props) {
-    buttonNode = (
-      <Tooltip title={tooltip} placement={direction === 'rtl' ? 'right' : 'left'}>
-        {buttonNode}
-      </Tooltip>
-    );
+    let tooltipProps: TooltipProps = {
+      placement: direction === 'rtl' ? 'right' : 'left',
+    };
+
+    if (typeof tooltip === 'object' && tooltip !== null) {
+      if (isValidElement(tooltip)) {
+        tooltipProps.title = tooltip;
+      } else {
+        tooltipProps = { ...tooltipProps, ...tooltip };
+      }
+    } else if (tooltip !== undefined) {
+      tooltipProps.title = tooltip;
+    }
+
+    buttonNode = <Tooltip {...tooltipProps}>{buttonNode}</Tooltip>;
   }
 
   if (process.env.NODE_ENV !== 'production') {
