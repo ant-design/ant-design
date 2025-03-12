@@ -6,7 +6,7 @@ const App: React.FC = () => (
     <FloatButton
       style={{ insetBlockEnd: 108 }}
       tooltip={{
-        // tooltipProps 自 5.25.0 开始支持
+        // tooltipProps is supported starting from version 5.25.0.
         title: 'Since 5.25.0+',
         color: 'blue',
         placement: 'top',
