@@ -61,7 +61,8 @@ demo:
 | displayRender | 选择后展示的渲染函数 | (label, selectedOptions) => ReactNode | label => label.join(`/`) | `multiple`: 4.18.0 |
 | tagRender | 自定义 tag 内容 render，仅在多选时生效 | ({ label: string, onClose: function, value: string }) => ReactNode | - |  |
 | popupClassName | 自定义浮层类名 | string | - | 4.23.0 |
-| dropdownRender | 自定义下拉框内容 | (menus: ReactNode) => ReactNode | - | 4.4.0 |
+| ~~dropdownRender~~ | 自定义下拉框内容，请使用popupRender替换 | (menus: ReactNode) => ReactNode | - | 4.4.0 |
+| popupRender | 自定义下拉框内容 | (menus: ReactNode) => ReactNode | - |  |
 | expandIcon | 自定义次级菜单展开图标 | ReactNode | - | 4.4.0 |
 | expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | string | `click` |  |
 | fieldNames | 自定义 options 中 label value children 的字段 | object | { label: `label`, value: `value`, children: `children` } |  |
@@ -84,13 +85,15 @@ demo:
 | value | 指定选中项 | string\[] \| number\[] | - |  |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | onChange | 选择完成后的回调 | (value, selectedOptions) => void | - |  |
-| onDropdownVisibleChange | 显示/隐藏浮层的回调 | (value) => void | - | 4.17.0 |
+| ~~onDropdownVisibleChange~~ | 显示/隐藏浮层的回调，请使用onPopupVisibleChange替换 | (value) => void | - | 4.17.0 |
+| onPopupVisibleChange | 显示/隐藏浮层的回调 | (value) => void | - |  |
 | multiple | 支持多选节点 | boolean | - | 4.17.0 |
 | showCheckedStrategy | 定义选中项回填的方式。`Cascader.SHOW_CHILD`: 只显示选中的子节点。`Cascader.SHOW_PARENT`: 只显示父节点（当父节点下所有子节点都选中时）。 | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | 4.20.0 |
 | removeIcon | 自定义的多选框清除图标 | ReactNode | - |  |
 | searchValue | 设置搜索的值，需要与 `showSearch` 配合使用 | string | - | 4.17.0 |
 | onSearch | 监听搜索，返回输入的值 | (search: string) => void | - | 4.17.0 |
-| dropdownMenuColumnStyle | 下拉菜单列的样式 | CSSProperties | - |  |
+| ~~dropdownMenuColumnStyle~~ | 下拉菜单列的样式，请使用popupMenuColumnStyle替换 | CSSProperties | - |  |
+| popupMenuColumnStyle | 下拉菜单列的样式 | CSSProperties | - |  |
 | optionRender | 自定义渲染下拉选项 | (option: Option) => React.ReactNode | - | 5.16.0 |
 
 ### showSearch
