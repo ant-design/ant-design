@@ -220,7 +220,7 @@ describe('Carousel', () => {
         getComputedStyle(container.querySelector('.ant-carousel')!).getPropertyValue(
           '--dot-duration',
         ),
-      ).toBe('3s');
+      ).toBe('3000ms');
     });
 
     it('should show dot duration with custom autoplaySpeed', () => {
@@ -235,7 +235,7 @@ describe('Carousel', () => {
         getComputedStyle(container.querySelector('.ant-carousel')!).getPropertyValue(
           '--dot-duration',
         ),
-      ).toBe('5s');
+      ).toBe('5000ms');
     });
   });
 });

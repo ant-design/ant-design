@@ -24,7 +24,7 @@ demo:
 <code src="./demo/autoplay.tsx">自动切换</code>
 <code src="./demo/fade.tsx">渐显</code>
 <code src="./demo/arrows.tsx" version="5.17.0">切换箭头</code>
-<code src="./demo/dot-duration.tsx">进度条</code>
+<code src="./demo/dot-duration.tsx" version="5.24.0">进度条</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API

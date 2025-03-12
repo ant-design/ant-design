@@ -474,6 +474,57 @@ describe('Form', () => {
     });
   });
 
+  describe('scrollToField with focus', () => {
+    it('focusField should work', () => {
+      let formInstance: any;
+      const Demo = () => {
+        const [form] = Form.useForm();
+        formInstance = form;
+        return (
+          <Form>
+            <Form.Item name="test">
+              <input type="text" />
+            </Form.Item>
+          </Form>
+        );
+      };
+
+      const { getByRole } = render(<Demo />);
+      const input = getByRole('textbox');
+
+      formInstance.focusField('test');
+      expect(input).toHaveFocus();
+    });
+
+    // https://github.com/ant-design/ant-design/pull/52712#issuecomment-2646831569
+    it('focusField should work with Select', () => {
+      let formInstance: any;
+
+      const Demo = () => {
+        const [form] = Form.useForm();
+        formInstance = form;
+        return (
+          <Form form={form}>
+            <Form.Item name="test">
+              <Select
+                options={[
+                  { label: 'afc163', value: 'A' },
+                  { label: 'Wxh16144', value: 'B' },
+                ]}
+              />
+            </Form.Item>
+          </Form>
+        );
+      };
+
+      const { getByRole } = render(<Demo />);
+      const select = getByRole('combobox');
+
+      formInstance.focusField('test');
+      expect(select).toHaveFocus();
+    });
+  });
+
   describe('scrollToFirstError', () => {
     it('should work with scrollToFirstError', async () => {
       const onFinishFailed = jest.fn();
@@ -562,7 +613,6 @@ describe('Form', () => {
 
     it('should scrollToFirstError work with focus', async () => {
       const onFinishFailed = jest.fn();
-      const focusSpy = jest.spyOn(HTMLElement.prototype, 'focus');
 
       const { container } = render(
         <Form scrollToFirstError={{ block: 'center', focus: true }} onFinishFailed={onFinishFailed}>
@@ -576,20 +626,17 @@ describe('Form', () => {
       );
 
       expect(scrollIntoView).not.toHaveBeenCalled();
-      expect(focusSpy).not.toHaveBeenCalled();
 
       fireEvent.submit(container.querySelector('form')!);
       await waitFakeTimer();
 
       const inputNode = document.getElementById('test');
-      expect(focusSpy).toHaveBeenCalledWith();
       expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
         block: 'center',
-        focus: true,
         scrollMode: 'if-needed',
       });
 
-      focusSpy.mockRestore();
+      expect(inputNode).toHaveFocus();
     });
 
     // https://github.com/ant-design/ant-design/issues/28869
