@@ -93,6 +93,14 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
    */
   if (tooltip === 0) {
     tooltipProps = { title: tooltip };
+    if (process.env.NODE_ENV !== 'production') {
+      const warning = devUseWarning('FloatButton');
+      warning(
+        false,
+        'usage',
+        'The `tooltip` value is `0`(number). If you want to show `0`, please use string `"0"` instead.',
+      );
+    }
   } else {
     tooltipProps = convertToTooltipProps(tooltip);
   }
