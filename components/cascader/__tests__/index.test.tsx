@@ -527,12 +527,6 @@ describe('Cascader', () => {
   });
 
   describe('legacy props', () => {
-    it('popupPlacement', () => {
-      render(<Cascader open popupPlacement="bottomLeft" />);
-      // Inject in tests/__mocks__/rc-trigger.js
-      expect((global as any).triggerProps.popupPlacement).toEqual('bottomLeft');
-    });
-
     it('legacy dropdownClassName', () => {
       resetWarned();
 
