@@ -3,7 +3,8 @@ import { isValidElement } from 'react';
 import type { TooltipProps } from '../tooltip';
 
 function convertToTooltipProps<P extends TooltipProps>(tooltip: P | ReactNode): P | null {
-  if (!tooltip) {
+  // isNil
+  if (tooltip === undefined || tooltip === null) {
     return null;
   }
 
