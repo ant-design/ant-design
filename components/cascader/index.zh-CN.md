@@ -92,7 +92,7 @@ demo:
 | removeIcon | 自定义的多选框清除图标 | ReactNode | - |  |
 | searchValue | 设置搜索的值，需要与 `showSearch` 配合使用 | string | - | 4.17.0 |
 | onSearch | 监听搜索，返回输入的值 | (search: string) => void | - | 4.17.0 |
-| ~~dropdownMenuColumnStyle~~ | 下拉菜单列的样式，请使用popupMenuColumnStyle替换 | CSSProperties | - |  |
+| ~~dropdownMenuColumnStyle~~ | 下拉菜单列的样式，请使用 `popupMenuColumnStyle` 替换 | CSSProperties | - |  |
 | popupMenuColumnStyle | 下拉菜单列的样式 | CSSProperties | - |  |
 | optionRender | 自定义渲染下拉选项 | (option: Option) => React.ReactNode | - | 5.16.0 |
 
