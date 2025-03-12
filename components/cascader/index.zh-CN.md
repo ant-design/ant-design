@@ -85,7 +85,7 @@ demo:
 | value | 指定选中项 | string\[] \| number\[] | - |  |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | onChange | 选择完成后的回调 | (value, selectedOptions) => void | - |  |
-| ~~onDropdownVisibleChange~~ | 显示/隐藏浮层的回调，请使用onPopupVisibleChange替换 | (value) => void | - | 4.17.0 |
+| ~~onDropdownVisibleChange~~ | 显示/隐藏浮层的回调，请使用 `onPopupVisibleChange` 替换 | (value) => void | - | 4.17.0 |
 | onPopupVisibleChange | 显示/隐藏浮层的回调 | (value) => void | - |  |
 | multiple | 支持多选节点 | boolean | - | 4.17.0 |
 | showCheckedStrategy | 定义选中项回填的方式。`Cascader.SHOW_CHILD`: 只显示选中的子节点。`Cascader.SHOW_PARENT`: 只显示父节点（当父节点下所有子节点都选中时）。 | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | 4.20.0 |
