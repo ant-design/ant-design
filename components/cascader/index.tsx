@@ -234,17 +234,6 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     );
 
     warning.deprecated(!('bordered' in props), 'bordered', 'variant');
-    warning.deprecated(!('dropdownRender' in props), 'dropdownRender', 'popupRender');
-    warning.deprecated(
-      !('dropdownMenuColumnStyle' in props),
-      'dropdownMenuColumnStyle',
-      'popupMenuColumnStyle',
-    );
-    warning.deprecated(
-      !('onDropdownVisibleChange' in props),
-      'onDropdownVisibleChange',
-      'onPopupVisibleChange',
-    );
   }
 
   // ==================== Prefix =====================

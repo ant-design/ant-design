@@ -89,8 +89,10 @@ return (
 | disabled | 是否禁用 | boolean | false |  |
 | popupClassName | 下拉菜单的 className 属性 | string | - | 4.23.0 |
 | popupMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true | 5.5.0 |
-| dropdownRender | 自定义下拉框内容 | (originNode: ReactNode) => ReactNode | - |  |
-| dropdownStyle | 下拉菜单的 style 属性 | CSSProperties | - |  |
+| ~~dropdownRender~~ | 自定义下拉框内容，使用 `popupRender` 替换 | (originNode: ReactNode) => ReactNode | - |  |
+| popupRender | 自定义下拉框内容 | (originNode: ReactNode) => ReactNode | - |  |
+| ~~dropdownStyle~~ | 下拉菜单的 style 属性，使用 `popupStyle` 替换 | CSSProperties | - |  |
+| popupStyle | 下拉菜单的 style 属性 | CSSProperties | - |  |
 | fieldNames | 自定义节点 label、value、options、groupLabel 的字段 | object | { label: `label`, value: `value`, options: `options`, groupLabel: `label` } | 4.17.0（`groupLabel` 在 5.6.0 新增） |
 | filterOption | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 true，反之则返回 false。[示例](#select-demo-search) | boolean \| function(inputValue, option) | true |  |
 | filterSort | 搜索时对筛选结果项的排序函数, 类似[Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)里的 compareFunction | (optionA: Option, optionB: Option, info: { searchValue: string }) => number | - | `searchValue`: 5.19.0 |
@@ -129,7 +131,8 @@ return (
 | onChange | 选中 option，或 input 的 value 变化时，调用此函数 | function(value, option:Option \| Array&lt;Option>) | - |  |
 | onClear | 清除内容时回调 | function | - | 4.6.0 |
 | onDeselect | 取消选中时调用，参数为选中项的 value (或 key) 值，仅在 `multiple` 或 `tags` 模式下生效 | function(value: string \| number \| LabeledValue) | - |  |
-| onDropdownVisibleChange | 展开下拉菜单的回调 | (open: boolean) => void | - |  |
+| ~~onDropdownVisibleChange~~ | 展开下拉菜单的回调，使用 `onPopupVisibleChange` 替换 | (open: boolean) => void | - |  |
+| onPopupVisibleChange | 展开下拉菜单的回调 | (open: boolean) => void | - |  |
 | onFocus | 获得焦点时回调 | (event: FocusEvent) => void | - |  |
 | onInputKeyDown | 按键按下时回调 | (event: KeyboardEvent) => void | - |  |
 | onPopupScroll | 下拉列表滚动时的回调 | (event: UIEvent) => void | - |  |

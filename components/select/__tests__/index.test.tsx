@@ -3,12 +3,12 @@ import { CloseOutlined } from '@ant-design/icons';
 
 import type { SelectProps } from '..';
 import Select from '..';
-import Form from '../../form';
 import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
+import Form from '../../form';
 
 const { Option } = Select;
 
@@ -174,7 +174,7 @@ describe('Select', () => {
       expect(asFragment().firstChild).toMatchSnapshot();
     });
 
-    it('dropdownClassName', () => {
+    it('legacy dropdownClassName', () => {
       resetWarned();
 
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -187,7 +187,7 @@ describe('Select', () => {
       errSpy.mockRestore();
     });
 
-    it('warning for legacy dropdownMatchSelectWidth', () => {
+    it('legacy dropdownMatchSelectWidth', () => {
       resetWarned();
 
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -196,6 +196,48 @@ describe('Select', () => {
         'Warning: [antd: Select] `dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
       );
 
+      errSpy.mockRestore();
+    });
+
+    it('legacy dropdownStyle', () => {
+      resetWarned();
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Select dropdownStyle={{ background: 'red' }} open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `dropdownStyle` is deprecated. Please use `popupStyle` instead.',
+      );
+      const dropdown = container.querySelector('.ant-select-dropdown');
+      expect(dropdown?.getAttribute('style')).toMatch(/background:\s*red/);
+      errSpy.mockRestore();
+    });
+
+    it('legacy dropdownRender', () => {
+      resetWarned();
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(
+        <Select
+          dropdownRender={(menu) => <div className="custom-dropdown">{menu} custom render</div>}
+          open
+        >
+          <Select.Option value="1">1</Select.Option>
+        </Select>,
+      );
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `dropdownRender` is deprecated. Please use `popupRender` instead.',
+      );
+      const customDropdown = container.querySelector('.custom-dropdown');
+      expect(customDropdown).toBeTruthy();
+      expect(customDropdown?.textContent).toContain('custom render');
+      errSpy.mockRestore();
+    });
+
+    it('legacy onDropdownVisibleChange', () => {
+      resetWarned();
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      render(<Select onDropdownVisibleChange={() => {}} open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `onDropdownVisibleChange` is deprecated. Please use `onPopupVisibleChange` instead.',
+      );
       errSpy.mockRestore();
     });
 
