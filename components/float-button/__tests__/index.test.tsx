@@ -65,7 +65,6 @@ describe('FloatButton', () => {
 
   describe('tooltip', () => {
     it('tooltip should support number `0`', async () => {
-      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       jest.useFakeTimers();
       const { container } = render(<FloatButton tooltip={0} />);
       fireEvent.mouseEnter(container.querySelector<HTMLDivElement>('.ant-float-btn-body')!);
@@ -74,11 +73,6 @@ describe('FloatButton', () => {
       expect(element?.textContent).toBe('0');
       jest.clearAllTimers();
       jest.useRealTimers();
-
-      expect(errorSpy).toHaveBeenCalledWith(
-        'Warning: [antd: FloatButton] The `tooltip` value is `0`(number). If you want to show `0`, please use string `"0"` instead.',
-      );
-      errorSpy.mockRestore();
     });
     it('tooltip should support tooltipProps', async () => {
       jest.useFakeTimers();

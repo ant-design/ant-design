@@ -9,7 +9,7 @@ import Badge from '../badge';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import Tooltip, { TooltipProps } from '../tooltip';
+import Tooltip from '../tooltip';
 import type BackTop from './BackTop';
 import FloatButtonGroupContext from './context';
 import Content from './FloatButtonContent';
@@ -86,25 +86,7 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
   }
 
   // ============================ Tooltip ============================
-  let tooltipProps: TooltipProps | null = null;
-  /**
-   * 理论上直接 `const tooltipProps = convertToTooltipProps(tooltip);` 即可。同 Form.Item 的 tooltip 逻辑。
-   * 但在 https://github.com/ant-design/ant-design/pull/39425 存在 tooltip 为 0 的 unit test，所以这里做了特殊处理。
-   */
-  if (tooltip === 0) {
-    tooltipProps = { title: tooltip };
-    if (process.env.NODE_ENV !== 'production') {
-      const warning = devUseWarning('FloatButton');
-      warning(
-        false,
-        'usage',
-        'The `tooltip` value is `0`(number). If you want to show `0`, please use string `"0"` instead.',
-      );
-    }
-  } else {
-    tooltipProps = convertToTooltipProps(tooltip);
-  }
-
+  const tooltipProps = convertToTooltipProps(tooltip);
   if (tooltipProps) {
     buttonNode = <Tooltip {...tooltipProps}>{buttonNode}</Tooltip>;
   }
