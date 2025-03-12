@@ -118,7 +118,9 @@ const Footer: React.FC = () => {
         },
         {
           title: 'Pro Components',
-          url: 'https://procomponents.ant.design',
+          url: isZhCN
+            ? 'https://pro-components.antdigital.dev'
+            : 'https://procomponents.ant.design',
           openExternal: true,
         },
         {

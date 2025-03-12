@@ -15,7 +15,7 @@ import { spawnSync } from 'child_process';
 import difference from 'lodash/difference';
 import open from 'open';
 import { select, input, checkbox, confirm } from '@inquirer/prompts';
-import { detectSync, resolveCommand } from 'package-manager-detector';
+import { getUserAgent, resolveCommand } from 'package-manager-detector';
 
 const ROOT = path.resolve(__dirname, '../../');
 // ==================== 环境变量 ====================
@@ -36,7 +36,7 @@ const STORE_PATH = path.join(_VISUAL_STORE_PATH, GITHUB_OWNER, GITHUB_REPO);
 fs.ensureDirSync(STORE_PATH);
 const git = simpleGit(ROOT);
 const octokit = new Octokit({ auth: GITHUB_TOKEN });
-const packageManager = detectSync({ cwd: ROOT });
+const packageManager = getUserAgent();
 const components = fg.sync('components/*/index.ts[x]', { cwd: ROOT }).reduce((acc, file) => {
   const basePath = path.dirname(file);
   if (
@@ -109,7 +109,7 @@ async function getOssBranchHash(branch: string) {
 }
 
 function runImageTests(args: string[]) {
-  const { command, args: realArgs } = resolveCommand(packageManager!.agent, 'run', args)!;
+  const { command, args: realArgs } = resolveCommand(packageManager!, 'run', args)!;
   spawnSync(command, realArgs, {
     stdio: 'inherit',
     env: {
