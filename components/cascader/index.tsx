@@ -200,7 +200,17 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Cascader');
 
-    warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
+    // v5 deprecated dropdown api
+    const deprecatedProps = {
+      dropdownClassName: 'popupClassName',
+      dropdownRender: 'popupRender',
+      dropdownMenuColumnStyle: 'popupMenuColumnStyle',
+      onDropdownVisibleChange: 'onPopupVisibleChange',
+    };
+
+    Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
+      warning.deprecated(!(oldProp in props), oldProp, newProp);
+    });
 
     warning(
       !('showArrow' in props),
