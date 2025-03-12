@@ -555,6 +555,64 @@ describe('Cascader', () => {
       errSpy.mockRestore();
     });
 
+    it('legacy dropdownRender', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const customContent = <div className="custom-dropdown-content">Custom Content</div>;
+      const dropdownRender = (menu: React.ReactElement) => (
+        <>
+          {menu}
+          {customContent}
+        </>
+      );
+
+      const { container } = render(<Cascader dropdownRender={dropdownRender} open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `dropdownRender` is deprecated. Please use `popupRender` instead.',
+      );
+      expect(container.querySelector('.custom-dropdown-content')).toBeTruthy();
+
+      errSpy.mockRestore();
+    });
+
+    it('legacy dropdownMenuColumnStyle', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const columnStyle = { background: 'red' };
+      const { getByRole } = render(
+        <Cascader
+          options={[{ label: 'test', value: 1 }]}
+          dropdownMenuColumnStyle={columnStyle}
+          open
+        />,
+      );
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `dropdownMenuColumnStyle` is deprecated. Please use `popupMenuColumnStyle` instead.',
+      );
+      const menuColumn = getByRole('menuitemcheckbox');
+      expect(menuColumn.style.background).toBe('red');
+
+      errSpy.mockRestore();
+    });
+
+    it('legacy onDropdownVisibleChange', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const onDropdownVisibleChange = jest.fn();
+      const { container } = render(<Cascader onDropdownVisibleChange={onDropdownVisibleChange} />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `onDropdownVisibleChange` is deprecated. Please use `onPopupVisibleChange` instead.',
+      );
+
+      toggleOpen(container);
+      expect(onDropdownVisibleChange).toHaveBeenCalledWith(true);
+
+      errSpy.mockRestore();
+    });
+
     it('should support showCheckedStrategy child', () => {
       const multipleOptions = [
         {
