@@ -64,7 +64,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     accept = '',
     supportServerRender = true,
     rootClassName,
-    showPreviewDom = true
+    showPreviewDom = false
   } = props;
 
   // ===================== Disabled =====================
