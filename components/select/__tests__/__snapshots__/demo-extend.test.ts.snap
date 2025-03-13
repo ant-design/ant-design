@@ -11348,9 +11348,6 @@ Array [
 exports[`renders components/select/demo/option-label-center.tsx extend context correctly 2`] = `
 [
   "Warning: Multiple Field with path 'bamboo' set 'initialValue'. Can not decide which one to pick.",
-  "Warning: [antd: Select] \`dropdownRender\` is deprecated. Please use \`popupRender\` instead.",
-  "Warning: [antd: Select] \`dropdownStyle\` is deprecated. Please use \`popupStyle\` instead.",
-  "Warning: [antd: Select] \`onDropdownVisibleChange\` is deprecated. Please use \`onPopupVisibleChange\` instead.",
 ]
 `;
 

@@ -41,7 +41,15 @@ export interface AutoCompleteProps<
   dropdownClassName?: string;
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
-  popupMatchSelectWidth?: boolean | number;
+  /** @deprecated Please use `popupStyle` instead */
+  dropdownStyle?: React.CSSProperties;
+  popupStyle?: React.CSSProperties;
+  /** @deprecated Please use `popupRender` instead */
+  dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
+  popupRender?: (menu: React.ReactElement) => React.ReactElement;
+  /** @deprecated Please use `onPopupVisibleChange` instead */
+  onDropdownVisibleChange?: (visible: boolean) => void;
+  onPopupVisibleChange?: (visible: boolean) => void;
 }
 
 function isSelectOptionOrSelectOptGroup(child: any): boolean {
@@ -59,8 +67,19 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     dropdownClassName,
     children,
     dataSource,
+    dropdownStyle,
+    popupStyle,
+    onDropdownVisibleChange,
+    onPopupVisibleChange,
+    dropdownRender,
+    popupRender,
   } = props;
   const childNodes: React.ReactElement[] = toArray(children);
+
+  const mergedPopupClassName = popupClassName || dropdownClassName;
+  const mergedPopupStyle = popupStyle || dropdownStyle;
+  const mergedPopupRender = popupRender || dropdownRender;
+  const mergedOnPopupVisibleChange = onPopupVisibleChange || onDropdownVisibleChange;
 
   // ============================= Input =============================
   let customizeInput: React.ReactElement | undefined;
@@ -136,11 +155,13 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       suffixIcon={null}
       {...omit(props, ['dataSource', 'dropdownClassName'])}
       prefixCls={prefixCls}
-      popupClassName={popupClassName || dropdownClassName}
-      dropdownStyle={{
-        ...props.dropdownStyle,
+      popupClassName={mergedPopupClassName}
+      popupStyle={{
+        ...mergedPopupStyle,
         zIndex,
       }}
+      popupRender={mergedPopupRender}
+      onPopupVisibleChange={mergedOnPopupVisibleChange}
       className={classNames(`${prefixCls}-auto-complete`, className)}
       mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']}
       {...{

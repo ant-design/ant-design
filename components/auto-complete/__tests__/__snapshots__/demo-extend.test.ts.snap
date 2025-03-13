@@ -518,11 +518,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
 </div>
 `;
 
-exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Select] \`dropdownStyle\` is deprecated. Please use \`popupStyle\` instead.",
-]
-`;
+exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/auto-complete/demo/allowClear.tsx extend context correctly 1`] = `
 Array [
@@ -625,11 +621,7 @@ Array [
 ]
 `;
 
-exports[`renders components/auto-complete/demo/allowClear.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Select] \`dropdownStyle\` is deprecated. Please use \`popupStyle\` instead.",
-]
-`;
+exports[`renders components/auto-complete/demo/allowClear.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/auto-complete/demo/basic.tsx extend context correctly 1`] = `
 Array [
@@ -732,11 +724,7 @@ Array [
 ]
 `;
 
-exports[`renders components/auto-complete/demo/basic.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Select] \`dropdownStyle\` is deprecated. Please use \`popupStyle\` instead.",
-]
-`;
+exports[`renders components/auto-complete/demo/basic.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/auto-complete/demo/certain-category.tsx extend context correctly 1`] = `
 <div
@@ -1111,7 +1099,6 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
 exports[`renders components/auto-complete/demo/certain-category.tsx extend context correctly 2`] = `
 [
   "Warning: [antd: AutoComplete] You need to control style self instead of setting \`size\` when using customize input.",
-  "Warning: [antd: Select] \`dropdownStyle\` is deprecated. Please use \`popupStyle\` instead.",
 ]
 `;
 
@@ -1164,11 +1151,7 @@ exports[`renders components/auto-complete/demo/custom.tsx extend context correct
 </div>
 `;
 
-exports[`renders components/auto-complete/demo/custom.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Select] \`dropdownStyle\` is deprecated. Please use \`popupStyle\` instead.",
-]
-`;
+exports[`renders components/auto-complete/demo/custom.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/auto-complete/demo/form-debug.tsx extend context correctly 1`] = `
 <form
@@ -2445,7 +2428,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
 exports[`renders components/auto-complete/demo/form-debug.tsx extend context correctly 2`] = `
 [
   "Warning: [antd: Input.Group] \`Input.Group\` is deprecated. Please use \`Space.Compact\` instead.",
-  "Warning: [antd: Select] \`dropdownStyle\` is deprecated. Please use \`popupStyle\` instead.",
 ]
 `;
 
@@ -2575,11 +2557,7 @@ exports[`renders components/auto-complete/demo/non-case-sensitive.tsx extend con
 </div>
 `;
 
-exports[`renders components/auto-complete/demo/non-case-sensitive.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Select] \`dropdownStyle\` is deprecated. Please use \`popupStyle\` instead.",
-]
-`;
+exports[`renders components/auto-complete/demo/non-case-sensitive.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/auto-complete/demo/options.tsx extend context correctly 1`] = `
 <div
@@ -2631,11 +2609,7 @@ exports[`renders components/auto-complete/demo/options.tsx extend context correc
 </div>
 `;
 
-exports[`renders components/auto-complete/demo/options.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Select] \`dropdownStyle\` is deprecated. Please use \`popupStyle\` instead.",
-]
-`;
+exports[`renders components/auto-complete/demo/options.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/auto-complete/demo/render-panel.tsx extend context correctly 1`] = `
 <div
@@ -2813,11 +2787,7 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
 </div>
 `;
 
-exports[`renders components/auto-complete/demo/render-panel.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Select] \`dropdownStyle\` is deprecated. Please use \`popupStyle\` instead.",
-]
-`;
+exports[`renders components/auto-complete/demo/render-panel.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/auto-complete/demo/status.tsx extend context correctly 1`] = `
 <div
@@ -2925,11 +2895,7 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
 </div>
 `;
 
-exports[`renders components/auto-complete/demo/status.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Select] \`dropdownStyle\` is deprecated. Please use \`popupStyle\` instead.",
-]
-`;
+exports[`renders components/auto-complete/demo/status.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/auto-complete/demo/uncertain-category.tsx extend context correctly 1`] = `
 <div
@@ -3023,7 +2989,6 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx extend con
 exports[`renders components/auto-complete/demo/uncertain-category.tsx extend context correctly 2`] = `
 [
   "Warning: [antd: AutoComplete] You need to control style self instead of setting \`size\` when using customize input.",
-  "Warning: [antd: Select] \`dropdownStyle\` is deprecated. Please use \`popupStyle\` instead.",
 ]
 `;
 
@@ -3176,8 +3141,4 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
 </div>
 `;
 
-exports[`renders components/auto-complete/demo/variant.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Select] \`dropdownStyle\` is deprecated. Please use \`popupStyle\` instead.",
-]
-`;
+exports[`renders components/auto-complete/demo/variant.tsx extend context correctly 2`] = `[]`;
