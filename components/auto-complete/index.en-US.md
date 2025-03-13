@@ -49,17 +49,17 @@ Common props ref：[Common props](/docs/react/common-props)
 | children (for customize input element) | Customize input element | HTMLInputElement \| HTMLTextAreaElement \| React.ReactElement&lt;InputProps> | &lt;Input /> |  |
 | children (for dataSource) | Data source to auto complete | React.ReactElement&lt;OptionProps> \| Array&lt;React.ReactElement&lt;OptionProps>> | - |  |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |  |
-| defaultOpen | Initial open state of dropdown | boolean | - |  |
+| defaultOpen | Initial open state of popup | boolean | - |  |
 | defaultValue | Initial selected option | string | - |  |
 | disabled | Whether disabled select | boolean | false |  |
 | ~~dropdownRender~~ | Customize dropdown content, use `popupRender` instead | (menus: ReactNode) => ReactNode | - | 4.24.0 |
-| popupRender | Customize dropdown content | (menus: ReactNode) => ReactNode | - |  |
-| popupClassName | The className of dropdown menu | string | - | 4.23.0 |
-| popupMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true |  |
+| popupRender | Customize popup content | (menus: ReactNode) => ReactNode | - | 5.25.0 |
+| popupClassName | The className of popup menu | string | - | 4.23.0 |
+| popupMatchSelectWidth | Determine whether the popup menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true |  |
 | filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns true, the option will be included in the filtered set; Otherwise, it will be excluded | boolean \| function(inputValue, option) | true |  |
-| getPopupContainer | Parent node of the dropdown. Default to body, if you encountered positioning problems during scroll, try changing to the scrollable area and position relative to it. [Example](https://codesandbox.io/s/4j168r7jw0) | function(triggerNode) | () => document.body |  |
+| getPopupContainer | Parent node of the popup. Default to body, if you encountered positioning problems during scroll, try changing to the scrollable area and position relative to it. [Example](https://codesandbox.io/s/4j168r7jw0) | function(triggerNode) | () => document.body |  |
 | notFoundContent | Specify content to show when no result matches | ReactNode | - |  |
-| open | Controlled open state of dropdown | boolean | - |  |
+| open | Controlled open state of popup | boolean | - |  |
 | options | Select options. Will get better perf than jsx definition | { label, value }\[] | - |  |
 | placeholder | The placeholder of input | string | - |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
@@ -69,14 +69,14 @@ Common props ref：[Common props](/docs/react/common-props)
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
 | onBlur | Called when leaving the component | function() | - |  |
 | onChange | Called when selecting an option or changing an input value | function(value) | - |  |
-| ~~onDropdownVisibleChange~~ | Callback when popup shown or hidden | (value) => void | - |  |
-| onPopupVisibleChange | Callback when popup shown or hidden | (value) => void | - |  |
+| ~~onDropdownVisibleChange~~ | Callback when dropdown shown or hidden | (value) => void | - |  |
+| onPopupVisibleChange | Callback when popup shown or hidden | (value) => void | - | 5.25.0 |
 | onFocus | Called when entering the component | function() | - |  |
 | onSearch | Called when searching items | function(value) | - |  |
 | onSelect | Called when a option is selected. param is option's value and option instance | function(value, option) | - |  |
 | onClear | Called when clear | function | - | 4.6.0 |
 | onInputKeyDown | Called when key pressed | (event: KeyboardEvent) => void | - |  |
-| onPopupScroll | Called when dropdown scrolls | (event: UIEvent) => void | - |  |
+| onPopupScroll | Called when popup scrolls | (event: UIEvent) => void | - |  |
 
 ## Methods
 
@@ -97,6 +97,6 @@ Please use `onChange` to manage control state. `onSearch` is used for searching 
 
 Related issue: [#18230](https://github.com/ant-design/ant-design/issues/18230) [#17916](https://github.com/ant-design/ant-design/issues/17916)
 
-### Why won't a controlled open AutoComplete display a drop-down menu when options are empty?
+### Why won't a controlled open AutoComplete display a popup menu when options are empty?
 
-The AutoComplete component is essentially an extension of the Input form element. When the `options` property is empty, displaying empty text could mislead the user into believing the component is not operational, when in fact they are still able to input text. To avoid confusion, the `open` property will not display the drop-down menu when set to `true` and in combination with an empty `options` property. The `open` property must be used in conjunction with the `options` property.
+The AutoComplete component is essentially an extension of the Input form element. When the `options` property is empty, displaying empty text could mislead the user into believing the component is not operational, when in fact they are still able to input text. To avoid confusion, the `open` property will not display the popup menu when set to `true` and in combination with an empty `options` property. The `open` property must be used in conjunction with the `options` property.
