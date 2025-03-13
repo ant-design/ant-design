@@ -41,6 +41,7 @@ export interface AutoCompleteProps<
   dropdownClassName?: string;
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
+  popupMatchSelectWidth?: boolean | number;
   /** @deprecated Please use `popupStyle` instead */
   dropdownStyle?: React.CSSProperties;
   popupStyle?: React.CSSProperties;
@@ -69,6 +70,8 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     dataSource,
     dropdownStyle,
     popupStyle,
+    dropdownMatchSelectWidth,
+    popupMatchSelectWidth,
     onDropdownVisibleChange,
     onPopupVisibleChange,
     dropdownRender,
@@ -78,6 +81,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
 
   const mergedPopupClassName = popupClassName || dropdownClassName;
   const mergedPopupStyle = popupStyle || dropdownStyle;
+  const mergedPopupMatchSelectWidth = popupMatchSelectWidth || dropdownMatchSelectWidth;
   const mergedPopupRender = popupRender || dropdownRender;
   const mergedOnPopupVisibleChange = onPopupVisibleChange || onDropdownVisibleChange;
 
@@ -162,6 +166,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       }}
       popupRender={mergedPopupRender}
       onPopupVisibleChange={mergedOnPopupVisibleChange}
+      popupMatchSelectWidth={mergedPopupMatchSelectWidth}
       className={classNames(`${prefixCls}-auto-complete`, className)}
       mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']}
       {...{
