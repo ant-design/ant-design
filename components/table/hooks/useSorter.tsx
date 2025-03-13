@@ -21,6 +21,7 @@ import type {
   TransformColumns,
 } from '../interface';
 import { getColumnKey, getColumnPos, renderColumnTitle, safeColumnTitle } from '../util';
+import type { A11yLocale } from '../../locale';
 
 const ASCEND = 'ascend';
 const DESCEND = 'descend';
@@ -119,6 +120,7 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
   tableLocale?: TableLocale,
   tableShowSorterTooltip?: boolean | SorterTooltipProps,
   pos?: string,
+  a11yLocale?: A11yLocale,
 ): ColumnsType<RecordType> => {
   const finalColumns = (columns || []).map((column, index) => {
     const columnPos = getColumnPos(index, pos);
@@ -167,8 +169,7 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
         );
       }
 
-      const { cancelSort, triggerAsc, triggerDesc, sortableColumnHeaderAriaDescription } =
-        tableLocale || {};
+      const { cancelSort, triggerAsc, triggerDesc } = tableLocale || {};
       let sortTip: string | undefined = cancelSort;
       if (nextSortOrder === DESCEND) {
         sortTip = triggerDesc;
@@ -249,7 +250,7 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
             cell['aria-sort'] = sortOrder === 'ascend' ? 'ascending' : 'descending';
           }
           // Inform the screen-reader so it can tell the visually impaired user that this column can be sorted
-          cell['aria-description'] = sortableColumnHeaderAriaDescription;
+          cell['aria-description'] = a11yLocale?.sortableColumnHeaderAriaDescription;
           cell['aria-label'] = displayTitle || '';
           cell.className = classNames(cell.className, `${prefixCls}-column-has-sorters`);
           cell.tabIndex = 0;
@@ -273,6 +274,7 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
           tableLocale,
           tableShowSorterTooltip,
           columnPos,
+          a11yLocale,
         ),
       };
     }
@@ -385,6 +387,7 @@ interface SorterConfig<RecordType = AnyObject> {
   sortDirections: SortOrder[];
   tableLocale?: TableLocale;
   showSorterTooltip?: boolean | SorterTooltipProps;
+  a11yLocale?: A11yLocale;
 }
 
 const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
@@ -402,6 +405,7 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
     tableLocale,
     showSorterTooltip,
     onSorterChange,
+    a11yLocale,
   } = props;
 
   const [sortStates, setSortStates] = React.useState<SortState<RecordType>[]>(
@@ -508,6 +512,8 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
       sortDirections,
       tableLocale,
       showSorterTooltip,
+      undefined,
+      a11yLocale,
     );
 
   const getSorters = () => generateSorterInfo(mergedSorterStates);
