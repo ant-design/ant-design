@@ -3,7 +3,7 @@ import { UploadOutlined } from '@ant-design/icons';
 import { Button, Upload } from 'antd';
 
 const App: React.FC = () => (
-  <Upload action="http://localhost:3000/user/upload" directory showPreviewDiv={false}>
+  <Upload action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload" directory>
     <Button icon={<UploadOutlined />}>Upload Directory</Button>
   </Upload>
 );
