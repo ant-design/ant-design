@@ -222,12 +222,12 @@ export interface ComponentToken {
    */
   contentLineHeightSM: number;
   /**
-   * @desc type='default'禁用下的背景颜色
+   * @desc type='default' 禁用状态下的背景颜色
    * @descE background color when type='default' is disabled
    */
   defaultBgDisabled: string;
   /**
-   * @desc type='dashed'禁用下的背景颜色
+   * @desc type='dashed' 禁用状态下的背景颜色
    * @descE background color when type='dashed' is disabled
    */
   dashedBgDisabled: string;
