@@ -184,6 +184,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   const mergedSize = useSize(customizeSize);
   const tableLocale: TableLocale = { ...contextLocale.Table, ...locale };
+  const a11yLocale = contextLocale.a11y;
   const rawData: readonly RecordType[] = dataSource || EMPTY_LIST;
 
   const prefixCls = getPrefixCls('table', customizePrefixCls);
@@ -321,6 +322,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     sortDirections: sortDirections || ['ascend', 'descend'],
     tableLocale,
     showSorterTooltip,
+    a11yLocale,
   });
   const sortedData = React.useMemo(
     () => getSortData(rawData, sortStates, childrenColumnName),

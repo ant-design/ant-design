@@ -18,9 +18,9 @@ import LocaleContext from './context';
 export { default as useLocale } from './useLocale';
 
 export const ANT_MARK = 'internalMark';
-
 export interface Locale {
   locale: string;
+  a11y?: A11yLocale;
   Pagination?: PaginationLocale;
   DatePicker?: DatePickerLocale;
   TimePicker?: Record<string, any>;
@@ -60,6 +60,10 @@ export interface Locale {
     singleColor: string;
     gradientColor: string;
   };
+}
+
+export interface A11yLocale {
+  sortableColumnHeaderAriaDescription?: string;
 }
 
 export interface LocaleProviderProps {
