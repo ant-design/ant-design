@@ -655,11 +655,10 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
 
 exports[`renders components/button/demo/custom-disabled-bg.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
 >
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-    disabled=""
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -667,8 +666,9 @@ exports[`renders components/button/demo/custom-disabled-bg.tsx extend context co
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
     disabled=""
+    id="dadd"
     type="button"
   >
     <span>
@@ -676,12 +676,20 @@ exports[`renders components/button/demo/custom-disabled-bg.tsx extend context co
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
+    class="ant-btn css-var-test-id ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
     disabled=""
     type="button"
   >
     <span>
       Dashed Button
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      btn2
     </span>
   </button>
 </div>
