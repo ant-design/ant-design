@@ -143,7 +143,18 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       'You need to control style self instead of setting `size` when using customize input.',
     );
 
-    warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
+    // v5 deprecated dropdown api
+    const deprecatedProps = {
+      dropdownMatchSelectWidth: 'popupMatchSelectWidth',
+      dropdownStyle: 'popupStyle',
+      dropdownClassName: 'popupClassName',
+      dropdownRender: 'popupRender',
+      onDropdownVisibleChange: 'onPopupVisibleChange',
+    };
+
+    Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
+      warning.deprecated(!(oldProp in props), oldProp, newProp);
+    });
   }
 
   const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
