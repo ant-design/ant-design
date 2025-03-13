@@ -11,12 +11,18 @@ const locales = {
     prefix: '前缀元素',
     suffix: '后缀元素',
     popup: '弹出菜单元素',
+    list: '列表元素',
+    listItem: '条目元素',
+    input: '输入框元素',
   },
   en: {
     root: 'Root element',
     prefix: 'Prefix element',
     suffix: 'Suffix element',
     popup: 'Popup element',
+    list: 'List element',
+    listItem: 'Item element',
+    input: 'Input element',
   },
 };
 const Block = (prop: any) => {
@@ -28,12 +34,11 @@ const Block = (prop: any) => {
         prefix="User"
         open
         suffixIcon={<SmileOutlined />}
-        defaultValue={['lucy']}
-        mode="multiple"
+        defaultValue="thinkasany"
         style={{ width: 200 }}
         getPopupContainer={() => divRef.current}
         options={[
-          { value: 'jack', label: 'Jack' },
+          { value: 'thinkasany', label: 'thinkasany' },
           { value: 'lucy', label: 'Lucy' },
         ]}
       />
@@ -48,8 +53,11 @@ const App: React.FC = () => {
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'prefix', desc: locale.prefix, version: '6.0.0' },
+        { name: 'input', desc: locale.input, version: '6.0.0' },
         { name: 'suffix', desc: locale.suffix, version: '6.0.0' },
         { name: 'popup', desc: locale.popup, version: '6.0.0' },
+        { name: 'list', desc: locale.list, version: '6.0.0' },
+        { name: 'listItem', desc: locale.listItem, version: '6.0.0' },
       ]}
     >
       <Block />

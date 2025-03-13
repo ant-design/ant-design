@@ -67,7 +67,7 @@ export interface InternalSelectProps<
   variant?: Variant;
 }
 
-type SemanticName = 'root' | 'prefix' | 'suffix' | 'popup';
+type SemanticName = 'root' | 'prefix' | 'suffix' | 'popup' | 'listItem' | 'input' | 'list';
 
 export interface SelectProps<
   ValueType = any,
@@ -128,6 +128,7 @@ const InternalSelect = <
     style,
     allowClear,
     variant: customizeVariant,
+    popupStyle,
     dropdownStyle,
     transitionName,
     tagRender,
@@ -231,6 +232,9 @@ const InternalSelect = <
       popup: { ...contextStyles.popup, ...styles?.popup },
       prefix: { ...contextStyles.prefix, ...styles?.prefix },
       suffix: { ...contextStyles.suffix, ...styles?.suffix },
+      input: { ...contextStyles.input, ...styles?.input },
+      list: { ...contextStyles.list, ...styles?.list },
+      listItem: { ...contextStyles.listItem, ...styles?.listItem },
     }),
     [styles, contextStyles],
   );
@@ -240,6 +244,9 @@ const InternalSelect = <
       popup: classNames(contextClassNames.popup, selectClassNames?.popup),
       prefix: classNames(contextClassNames.prefix, selectClassNames?.prefix),
       suffix: classNames(contextClassNames.suffix, selectClassNames?.suffix),
+      input: classNames(contextClassNames.input, selectClassNames?.input),
+      list: classNames(contextClassNames.list, selectClassNames?.list),
+      listItem: classNames(contextClassNames.listItem, selectClassNames?.listItem),
     }),
     [selectClassNames, contextClassNames],
   );
@@ -255,6 +262,8 @@ const InternalSelect = <
     hashId,
     mergedClassNames?.popup,
   );
+
+  const mergedPopupStyle = popupStyle ?? dropdownStyle;
 
   const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
@@ -297,7 +306,7 @@ const InternalSelect = <
     [
       ['dropdownMatchSelectWidth', 'popupMatchSelectWidth'],
       ['popupClassName', 'classNames: {{ popup: ""}}'],
-      ['dropdownStyle', '{{ popup: {}}}'],
+      ['dropdownStyle', 'styles: {{ popup: {}}}'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
@@ -320,7 +329,7 @@ const InternalSelect = <
   // ====================== zIndex =========================
   const [zIndex] = useZIndex(
     'SelectLike',
-    (mergedStyles?.popup?.zIndex as number) ?? (dropdownStyle?.zIndex as number),
+    (mergedStyles?.popup?.zIndex as number) ?? (mergedPopupStyle?.zIndex as number),
   );
 
   // ====================== Render =======================
@@ -328,14 +337,8 @@ const InternalSelect = <
     <RcSelect<ValueType, OptionType>
       ref={ref}
       virtual={virtual}
-      classNames={{
-        prefix: mergedClassNames?.prefix,
-        suffix: mergedClassNames?.suffix,
-      }}
-      styles={{
-        prefix: mergedStyles?.prefix,
-        suffix: mergedStyles?.suffix,
-      }}
+      classNames={mergedClassNames}
+      styles={mergedStyles}
       showSearch={contextShowSearch}
       {...selectProps}
       style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
@@ -358,7 +361,7 @@ const InternalSelect = <
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       popupClassName={mergedPopupClassName}
       disabled={mergedDisabled}
-      popupStyle={{ ...mergedStyles?.popup, ...dropdownStyle, zIndex }}
+      popupStyle={{ ...mergedStyles?.popup, ...mergedPopupStyle, zIndex }}
       maxCount={isMultiple ? maxCount : undefined}
       tagRender={isMultiple ? tagRender : undefined}
     />
