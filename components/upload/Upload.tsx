@@ -64,6 +64,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     accept = '',
     supportServerRender = true,
     rootClassName,
+    showPreviewDom = true
   } = props;
 
   // ===================== Disabled =====================
@@ -147,7 +148,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   const mergedBeforeUpload = async (file: RcFile, fileListArgs: RcFile[]) => {
     const { beforeUpload, transformFile } = props;
-
+    
     let parsedFile: File | Blob | string = file;
     if (beforeUpload) {
       const result = await beforeUpload(file, fileListArgs);
@@ -349,6 +350,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     prefixCls,
     disabled: mergedDisabled,
     beforeUpload: mergedBeforeUpload,
+    showPreviewDom,
     onChange: undefined,
   } as RcUploadProps;
 
@@ -403,6 +405,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
         appendActionVisible={buttonVisible}
         itemRender={itemRender}
         disabled={mergedDisabled}
+        showPreviewDom={showPreviewDom}
       />
     );
   };

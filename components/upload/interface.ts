@@ -133,6 +133,7 @@ export interface UploadProps<T = any> extends Pick<RcUploadProps, 'capture'> {
   /** Config max count of `fileList`. Will replace current one when `maxCount` is 1 */
   maxCount?: number;
   children?: React.ReactNode;
+  showPreviewDom?: boolean;
 }
 
 export interface UploadState<T = any> {
@@ -162,6 +163,7 @@ export interface UploadListProps<T = any> {
   appendAction?: React.ReactNode;
   appendActionVisible?: boolean;
   itemRender?: ItemRender<T>;
+  showPreviewDom?: boolean;
   /**
    * @internal Only the internal remove button is provided for use
    */

@@ -42,6 +42,7 @@ export interface ListItemProps {
   onClose: (file: UploadFile) => void;
   onDownload: (file: UploadFile) => void;
   progress?: UploadListProgressProps;
+  showPreviewDom?: boolean;
 }
 
 const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
@@ -68,6 +69,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
       onPreview,
       onDownload,
       onClose,
+      showPreviewDom
     },
     ref,
   ) => {
@@ -228,7 +230,9 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     const rootPrefixCls = getPrefixCls();
 
     const dom = (
-      <div className={listItemClassName}>
+      <div 
+        className={listItemClassName}
+      >
         {icon}
         {fileName}
         {pictureCardActions}
@@ -272,7 +276,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
           {dom}
         </Tooltip>
       ) : (
-        dom
+        (mergedStatus === 'done' && !showPreviewDom) ? null : dom
       );
 
     return (
@@ -282,7 +286,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
         ref={ref}
       >
         {itemRender
-          ? itemRender(item, file, items, {
+          ? itemRender(item!, file, items, {
               download: onDownload.bind(null, file),
               preview: onPreview.bind(null, file),
               remove: onClose.bind(null, file),

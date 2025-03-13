@@ -48,6 +48,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
     appendActionVisible = true,
     itemRender,
     disabled,
+    showPreviewDom
   } = props;
   const forceUpdate = useForceUpdate();
   const [motionAppear, setMotionAppear] = React.useState(false);
@@ -228,6 +229,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
             onPreview={onInternalPreview}
             onDownload={onInternalDownload}
             onClose={onInternalClose}
+            showPreviewDom={showPreviewDom}
           />
         )}
       </CSSMotionList>
