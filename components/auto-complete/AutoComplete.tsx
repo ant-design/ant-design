@@ -7,7 +7,8 @@ import classNames from 'classnames';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import type { InputStatus } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
-import { useComponentConfig } from '../config-provider/context';
+import type { ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import type {
   BaseOptionType,
   DefaultOptionType,
@@ -143,13 +144,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     );
   }
 
-  const {
-    getPrefixCls,
-    style: contextStyle,
-    styles: contextStyles,
-    className: contextClassName,
-    classNames: contextClassNames,
-  } = useComponentConfig('autoComplete');
+  const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
 
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const mergedPopupStyle = popupStyle ?? dropdownStyle;
@@ -157,39 +152,26 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   // ============================ zIndex ============================
   const [zIndex] = useZIndex('SelectLike', mergedPopupStyle?.zIndex as number);
 
-  const mergedClassNames = React.useMemo(
-    () => ({
-      root: classNames(
-        `${prefixCls}-auto-complete`,
-        className,
-        contextClassName,
-        rootClassName,
-        contextClassNames.root,
-        autoCompleteClassNames?.root,
-      ),
-      popup: classNames(
-        popupClassName,
-        dropdownClassName,
-        contextClassNames.popup,
-        autoCompleteClassNames?.popup,
-      ),
-      list: classNames(contextClassNames.list, autoCompleteClassNames?.list),
-      listItem: classNames(contextClassNames.listItem, autoCompleteClassNames?.listItem),
-      input: classNames(contextClassNames.input, autoCompleteClassNames?.input),
-    }),
-    [autoCompleteClassNames, contextClassNames],
-  );
+  const mergedClassNames = {
+    root: classNames(
+      `${prefixCls}-auto-complete`,
+      className,
+      rootClassName,
+      autoCompleteClassNames?.root,
+    ),
+    popup: classNames(popupClassName, dropdownClassName, autoCompleteClassNames?.popup),
+    list: autoCompleteClassNames?.list,
+    listItem: autoCompleteClassNames?.listItem,
+    input: autoCompleteClassNames?.input,
+  };
 
-  const mergedStyles = React.useMemo(
-    () => ({
-      root: { ...contextStyles.root, ...styles?.root, ...contextStyle, ...style },
-      popup: { ...contextStyles.popup, ...styles?.popup, ...mergedPopupStyle, zIndex },
-      list: { ...contextStyles.list, ...styles?.list },
-      listItem: { ...contextStyles.listItem, ...styles?.listItem },
-      input: { ...contextStyles.input, ...styles?.input },
-    }),
-    [styles, contextStyles],
-  );
+  const mergedStyles = {
+    root: { ...styles?.root, ...style },
+    popup: { ...styles?.popup, ...mergedPopupStyle, zIndex },
+    list: styles?.list,
+    listItem: styles?.listItem,
+    input: styles?.input,
+  };
 
   return (
     <Select

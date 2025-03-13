@@ -4,7 +4,6 @@ import type { WarningContextProps } from '../_util/warning';
 import type { ShowWaveEffect } from '../_util/wave/interface';
 import type { AlertProps } from '../alert';
 import type { AnchorProps } from '../anchor';
-import type { AutoCompleteProps } from '../auto-complete';
 import type { BadgeProps } from '../badge';
 import type { RibbonProps } from '../badge/Ribbon';
 import type { BreadcrumbProps } from '../breadcrumb';
@@ -186,9 +185,6 @@ export type TabsConfig = ComponentStyleConfig &
 
 export type AnchorStyleConfig = ComponentStyleConfig & Pick<AnchorProps, 'classNames' | 'styles'>;
 
-export type AutoCompleteConfig = ComponentStyleConfig &
-  Pick<AutoCompleteProps, 'classNames' | 'styles'>;
-
 export type AlertConfig = ComponentStyleConfig &
   Pick<AlertProps, 'closable' | 'closeIcon' | 'classNames' | 'styles'>;
 
@@ -327,7 +323,6 @@ export interface ConfigComponentProps {
   select?: SelectConfig;
   alert?: AlertConfig;
   affix?: ComponentStyleConfig;
-  autoComplete?: AutoCompleteConfig;
   anchor?: AnchorStyleConfig;
   button?: ButtonConfig;
   divider?: ComponentStyleConfig;
