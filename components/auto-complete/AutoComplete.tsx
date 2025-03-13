@@ -134,7 +134,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     <Select
       ref={ref}
       suffixIcon={null}
-      {...omit(props, ['dataSource', 'dropdownClassName'])}
+      {...omit(props, ['dataSource', 'dropdownClassName', 'popupClassName'])}
       prefixCls={prefixCls}
       classNames={{ popup: popupClassName || dropdownClassName }}
       styles={{ popup: { ...props.popupStyle, zIndex } }}

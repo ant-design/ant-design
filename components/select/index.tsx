@@ -252,6 +252,7 @@ const InternalSelect = <
   );
 
   const mergedPopupClassName = classNames(
+    mergedClassNames?.popup,
     popupClassName,
     {
       [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
@@ -260,7 +261,6 @@ const InternalSelect = <
     cssVarCls,
     rootCls,
     hashId,
-    mergedClassNames?.popup,
   );
 
   const mergedPopupStyle = popupStyle ?? dropdownStyle;
