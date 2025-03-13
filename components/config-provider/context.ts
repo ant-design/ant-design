@@ -4,6 +4,7 @@ import type { WarningContextProps } from '../_util/warning';
 import type { ShowWaveEffect } from '../_util/wave/interface';
 import type { AlertProps } from '../alert';
 import type { AnchorProps } from '../anchor';
+import type { AutoCompleteProps } from '../auto-complete';
 import type { BadgeProps } from '../badge';
 import type { RibbonProps } from '../badge/Ribbon';
 import type { BreadcrumbProps } from '../breadcrumb';
@@ -25,6 +26,7 @@ import type { InputProps, TextAreaProps } from '../input';
 import type { InputNumberProps } from '../input-number';
 import type { ListItemProps } from '../list';
 import type { Locale } from '../locale';
+import type { MasonryProps } from '../masonry';
 import type { MentionsProps } from '../mentions';
 import type { MenuProps } from '../menu';
 import type { ArgsProps as MessageProps } from '../message';
@@ -55,7 +57,6 @@ import type { TransferProps } from '../transfer';
 import type { TreeSelectProps } from '../tree-select';
 import type { UploadProps } from '../upload';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
-import type { MasonryProps } from '../masonry';
 
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
@@ -184,6 +185,9 @@ export type TabsConfig = ComponentStyleConfig &
   >;
 
 export type AnchorStyleConfig = ComponentStyleConfig & Pick<AnchorProps, 'classNames' | 'styles'>;
+
+export type AutoCompleteConfig = ComponentStyleConfig &
+  Pick<AutoCompleteProps, 'classNames' | 'styles'>;
 
 export type AlertConfig = ComponentStyleConfig &
   Pick<AlertProps, 'closable' | 'closeIcon' | 'classNames' | 'styles'>;
@@ -323,6 +327,7 @@ export interface ConfigComponentProps {
   select?: SelectConfig;
   alert?: AlertConfig;
   affix?: ComponentStyleConfig;
+  autoComplete?: AutoCompleteConfig;
   anchor?: AnchorStyleConfig;
   button?: ButtonConfig;
   divider?: ComponentStyleConfig;

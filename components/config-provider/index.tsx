@@ -16,6 +16,7 @@ import { defaultTheme, DesignTokenContext } from '../theme/context';
 import defaultSeedToken from '../theme/themes/seed';
 import type {
   AlertConfig,
+  AutoCompleteConfig,
   BadgeConfig,
   ButtonConfig,
   CardConfig,
@@ -190,6 +191,7 @@ export interface ConfigProviderProps {
   warning?: WarningContextProps;
   alert?: AlertConfig;
   affix?: ComponentStyleConfig;
+  autoComplete?: AutoCompleteConfig;
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
   calendar?: ComponentStyleConfig;
@@ -326,6 +328,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     autoInsertSpaceInButton,
     alert,
     affix,
+    autoComplete,
     anchor,
     form,
     locale,
@@ -439,6 +442,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     autoInsertSpaceInButton,
     alert,
     affix,
+    autoComplete,
     anchor,
     locale: locale || legacyLocale,
     direction,
