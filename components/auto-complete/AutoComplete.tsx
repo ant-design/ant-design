@@ -42,6 +42,15 @@ export interface AutoCompleteProps<
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
+  /** @deprecated Please use `popupStyle` instead */
+  dropdownStyle?: React.CSSProperties;
+  popupStyle?: React.CSSProperties;
+  /** @deprecated Please use `popupRender` instead */
+  dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
+  popupRender?: (menu: React.ReactElement) => React.ReactElement;
+  /** @deprecated Please use `onPopupVisibleChange` instead */
+  onDropdownVisibleChange?: (visible: boolean) => void;
+  onPopupVisibleChange?: (visible: boolean) => void;
 }
 
 function isSelectOptionOrSelectOptGroup(child: any): boolean {
@@ -59,8 +68,22 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     dropdownClassName,
     children,
     dataSource,
+    dropdownStyle,
+    popupStyle,
+    dropdownMatchSelectWidth,
+    popupMatchSelectWidth,
+    onDropdownVisibleChange,
+    onPopupVisibleChange,
+    dropdownRender,
+    popupRender,
   } = props;
   const childNodes: React.ReactElement[] = toArray(children);
+
+  const mergedPopupClassName = popupClassName || dropdownClassName;
+  const mergedPopupStyle = popupStyle || dropdownStyle;
+  const mergedPopupMatchSelectWidth = popupMatchSelectWidth || dropdownMatchSelectWidth;
+  const mergedPopupRender = popupRender || dropdownRender;
+  const mergedOnPopupVisibleChange = onPopupVisibleChange || onDropdownVisibleChange;
 
   // ============================= Input =============================
   let customizeInput: React.ReactElement | undefined;
@@ -120,7 +143,18 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       'You need to control style self instead of setting `size` when using customize input.',
     );
 
-    warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
+    // v5 deprecated dropdown api
+    const deprecatedProps = {
+      dropdownMatchSelectWidth: 'popupMatchSelectWidth',
+      dropdownStyle: 'popupStyle',
+      dropdownClassName: 'popupClassName',
+      dropdownRender: 'popupRender',
+      onDropdownVisibleChange: 'onPopupVisibleChange',
+    };
+
+    Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
+      warning.deprecated(!(oldProp in props), oldProp, newProp);
+    });
   }
 
   const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
@@ -136,11 +170,14 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       suffixIcon={null}
       {...omit(props, ['dataSource', 'dropdownClassName'])}
       prefixCls={prefixCls}
-      popupClassName={popupClassName || dropdownClassName}
-      dropdownStyle={{
-        ...props.dropdownStyle,
+      popupClassName={mergedPopupClassName}
+      popupStyle={{
+        ...mergedPopupStyle,
         zIndex,
       }}
+      popupRender={mergedPopupRender}
+      onPopupVisibleChange={mergedOnPopupVisibleChange}
+      popupMatchSelectWidth={mergedPopupMatchSelectWidth}
       className={classNames(`${prefixCls}-auto-complete`, className)}
       mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']}
       {...{

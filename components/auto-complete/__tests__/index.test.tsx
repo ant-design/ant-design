@@ -117,4 +117,75 @@ describe('AutoComplete', () => {
 
     errSpy.mockRestore();
   });
+
+  it('deprecated dropdownMatchSelectWidth', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(
+      <AutoComplete
+        dropdownMatchSelectWidth
+        open
+        options={[{ label: 'little', value: 'little' }]}
+      />,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: AutoComplete] `dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
+    );
+
+    errSpy.mockRestore();
+  });
+
+  it('deprecated dropdownStyle', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(
+      <AutoComplete
+        dropdownStyle={{ color: 'red' }}
+        open
+        options={[{ label: 'little', value: 'little' }]}
+      />,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: AutoComplete] `dropdownStyle` is deprecated. Please use `popupStyle` instead.',
+    );
+
+    errSpy.mockRestore();
+  });
+
+  it('deprecated dropdownRender', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(
+      <AutoComplete
+        dropdownRender={(menu) => <div>{menu}</div>}
+        open
+        options={[{ label: 'little', value: 'little' }]}
+      />,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: AutoComplete] `dropdownRender` is deprecated. Please use `popupRender` instead.',
+    );
+
+    errSpy.mockRestore();
+  });
+
+  it('deprecated onDropdownVisibleChange', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(
+      <AutoComplete
+        onDropdownVisibleChange={() => {}}
+        options={[{ label: 'little', value: 'little' }]}
+      />,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: AutoComplete] `onDropdownVisibleChange` is deprecated. Please use `onPopupVisibleChange` instead.',
+    );
+
+    errSpy.mockRestore();
+  });
 });
