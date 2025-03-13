@@ -5403,7 +5403,11 @@ Array [
 ]
 `;
 
-exports[`renders components/input/demo/align.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/input/demo/align.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Select] \`dropdownStyle\` is deprecated. Please use \`popupStyle\` instead.",
+]
+`;
 
 exports[`renders components/input/demo/allowClear.tsx extend context correctly 1`] = `
 Array [
@@ -10278,6 +10282,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
 exports[`renders components/input/demo/group.tsx extend context correctly 2`] = `
 [
   "Warning: [antd: Input.Group] \`Input.Group\` is deprecated. Please use \`Space.Compact\` instead.",
+  "Warning: [antd: Select] \`dropdownStyle\` is deprecated. Please use \`popupStyle\` instead.",
 ]
 `;
 
