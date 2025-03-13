@@ -2,6 +2,7 @@ import React, { useContext, useMemo } from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 
+import convertToTooltipProps from '../_util/convertToTooltipProps';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { devUseWarning } from '../_util/warning';
 import Badge from '../badge';
@@ -84,12 +85,10 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
     buttonNode = <Badge {...badgeProps}>{buttonNode}</Badge>;
   }
 
-  if ('tooltip' in props) {
-    buttonNode = (
-      <Tooltip title={tooltip} placement={direction === 'rtl' ? 'right' : 'left'}>
-        {buttonNode}
-      </Tooltip>
-    );
+  // ============================ Tooltip ============================
+  const tooltipProps = convertToTooltipProps(tooltip);
+  if (tooltipProps) {
+    buttonNode = <Tooltip {...tooltipProps}>{buttonNode}</Tooltip>;
   }
 
   if (process.env.NODE_ENV !== 'production') {
