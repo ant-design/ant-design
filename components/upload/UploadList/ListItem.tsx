@@ -276,7 +276,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
           {dom}
         </Tooltip>
       ) : (
-        (mergedStatus === 'done' && !showPreviewDom) ? null : dom
+        (mergedStatus === 'done' && showPreviewDom) ? null : dom
       );
 
     return (
