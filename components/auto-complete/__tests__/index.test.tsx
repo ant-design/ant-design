@@ -96,4 +96,47 @@ describe('AutoComplete', () => {
     );
     expect(screen.getByRole('combobox')).toHaveClass('custom');
   });
+
+  it('should support classNames and styles', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      input: 'custom-input',
+      list: 'custom-list',
+      listItem: 'custom-list-item',
+      popup: 'custom-popup',
+    };
+    const customStyles = {
+      root: { color: 'red' },
+      input: { color: 'green' },
+      list: { color: 'blue' },
+      listItem: { color: 'yellow' },
+      popup: { color: 'purple' },
+    };
+    const { container } = render(
+      <AutoComplete
+        options={[{ label: '123', value: '123' }]}
+        classNames={customClassNames}
+        styles={customStyles}
+        open
+      />,
+    );
+
+    const root = container.querySelector('.ant-select-auto-complete');
+    const input = container.querySelector('.ant-select-selection-search-input');
+    const list = container.querySelector('.rc-virtual-list');
+    const listItem = container.querySelector('.ant-select-item-option');
+    const popup = container.querySelector('.ant-select-dropdown');
+
+    expect(root).toHaveClass(customClassNames.root);
+    expect(input).toHaveClass(customClassNames.input);
+    expect(list).toHaveClass(customClassNames.list);
+    expect(listItem).toHaveClass(customClassNames.listItem);
+    expect(popup).toHaveClass(customClassNames.popup);
+
+    expect(root).toHaveStyle(customStyles.root);
+    expect(input).toHaveStyle(customStyles.input);
+    expect(list).toHaveStyle(customStyles.list);
+    expect(listItem).toHaveStyle(customStyles.listItem);
+    expect(popup).toHaveStyle(customStyles.popup);
+  });
 });

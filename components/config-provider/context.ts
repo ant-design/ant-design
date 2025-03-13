@@ -24,6 +24,7 @@ import type { InputProps, TextAreaProps } from '../input';
 import type { InputNumberProps } from '../input-number';
 import type { ListItemProps } from '../list';
 import type { Locale } from '../locale';
+import type { MasonryProps } from '../masonry';
 import type { MentionsProps } from '../mentions';
 import type { MenuProps } from '../menu';
 import type { ArgsProps as MessageProps } from '../message';
@@ -54,7 +55,6 @@ import type { TransferProps } from '../transfer';
 import type { TreeSelectProps } from '../tree-select';
 import type { UploadProps } from '../upload';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
-import type { MasonryProps } from '../masonry';
 
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
