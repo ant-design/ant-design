@@ -538,7 +538,7 @@ describe('Button', () => {
     expect(container.querySelector(`.${customClassNames.content}`)).toHaveStyle(
       cusomStyles.content,
     );
-  })
+  });
 
   it('should support customizing the background color of default type button in disabled state', () => {
     const { container } = render(
@@ -557,7 +557,9 @@ describe('Button', () => {
 
     const button = container.querySelector('.ant-btn-default')!;
     expect(button).toBeDisabled();
-    expect(window.getComputedStyle(button).background).toBe('rgba(0, 0, 0, 0.1)');
+    expect(button).toHaveStyle({
+      '--ant-button-default-bg-disabled': 'rgba(0, 0, 0, 0.1)',
+    });
   });
 
   it('should support customizing the background color of dashed type button in disabled state', () => {
@@ -579,6 +581,8 @@ describe('Button', () => {
 
     const button = container.querySelector('.ant-btn-dashed')!;
     expect(button).toBeDisabled();
-    expect(window.getComputedStyle(button).background).toBe('rgba(0, 0, 0, 0.2)');
+    expect(button).toHaveStyle({
+      '--ant-button-dashed-bg-disabled': 'rgba(0, 0, 0, 0.2)',
+    });
   });
 });
