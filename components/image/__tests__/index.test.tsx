@@ -191,4 +191,58 @@ describe('Image', () => {
       ).style.zIndex,
     ).toBe('1302');
   });
+  it('support classnames and styles', () => {
+    const customClassnames = {
+      mask: 'custom-mask',
+      actions: 'custom-actions',
+    };
+    const customStyles = {
+      mask: { color: 'red' },
+      actions: { backgroundColor: 'blue' },
+    };
+    const { baseElement } = render(
+      <Image
+        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+        preview={{
+          styles: customStyles,
+          classNames: customClassnames,
+          mask: 'Bamboo Is Light',
+          zIndex: 9999,
+          visible: true,
+        }}
+      />,
+    );
+    const imageClassnames = {
+      root: 'custom-image-root',
+      mask: 'custom-image-mask',
+      actions: 'custom-image-actions',
+    };
+    const imageStyles = {
+      root: { fontSize: '20px' },
+      mask: { color: 'red' },
+      actions: { backgroundColor: 'blue' },
+    };
+    const { baseElement: imageElement } = render(
+      <Image
+        styles={imageStyles}
+        classNames={imageClassnames}
+        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+      />,
+    );
+
+    // preview
+    const mask = document.querySelector('.ant-image-preview-mask');
+    const actions = baseElement.querySelector('.ant-image-preview-operations');
+    expect(mask).toHaveClass(customClassnames.mask);
+    expect(mask).toHaveStyle(customStyles.mask);
+    expect(actions).toHaveClass(customClassnames.actions);
+    expect(actions).toHaveStyle(customStyles.actions);
+
+    // image
+    expect(imageElement.querySelector(`.${imageClassnames.root}`)).toHaveStyle(imageStyles.root);
+    expect(imageElement.querySelector(`.${imageClassnames.mask}`)).toHaveStyle(imageStyles.mask);
+    const imageActions = imageElement.querySelector('.ant-image-mask-info');
+    expect(imageActions).toHaveClass(imageClassnames.actions);
+    expect(imageActions).toHaveStyle(imageStyles.actions);
+  });
 });

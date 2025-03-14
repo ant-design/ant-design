@@ -1,16 +1,25 @@
 import * as React from 'react';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
-import classNames from 'classnames';
 import RcImage from '@rc-component/image';
-import type { ImageProps } from '@rc-component/image';
+import type { PreviewConfig as ImagePreviewType, ImageProps } from '@rc-component/image';
+import classNames from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
+import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useLocale } from '../locale';
 import PreviewGroup, { icons } from './PreviewGroup';
 import useStyle from './style';
+import usePreviewConfig from './usePreviewConfig';
+
+// TODO: 兼容 API，合并前完成：
+// - onVisibleChange
+// - visible
+// - preview.rootClassName
+// - mask -> cover
 
 export interface CompositionImage<P> extends React.FC<P> {
   PreviewGroup: typeof PreviewGroup;
@@ -23,73 +32,116 @@ const Image: CompositionImage<ImageProps> = (props) => {
     className,
     rootClassName,
     style,
+    styles,
+    classNames: imageClassNames,
     ...otherProps
   } = props;
+
+  // =============================== MISC ===============================
+  // Context
   const {
     getPrefixCls,
     getPopupContainer: getContextPopupContainer,
     className: contextClassName,
     style: contextStyle,
     preview: contextPreview,
+    styles: contextStyles,
+    classNames: contextClassNames,
   } = useComponentConfig('image');
 
+  // ============================= Warning ==============================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('image');
+
+    [
+      ['rootClassName', 'Image.classNames'],
+      ['maskClassName', 'classNames: { mask: "" }'],
+    ].forEach(([deprecatedName, newName]) => {
+      if (typeof preview === 'object') {
+        warning.deprecated(!(deprecatedName in preview), deprecatedName, newName);
+      }
+    });
+  }
+
+  // ============================== Locale ==============================
   const [imageLocale] = useLocale('Image');
 
   const prefixCls = getPrefixCls('image', customizePrefixCls);
-  const rootPrefixCls = getPrefixCls();
+  // const rootPrefixCls = getPrefixCls();
 
-  // Style
+  // ============================== Styles ==============================
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, imageClassNames || {}],
+    [contextStyles, styles || {}],
+  );
 
   const mergedRootClassName = classNames(rootClassName, hashId, cssVarCls, rootCls);
 
   const mergedClassName = classNames(className, hashId, contextClassName);
 
-  const [zIndex] = useZIndex(
-    'ImagePreview',
-    typeof preview === 'object' ? preview.zIndex : undefined,
+  // ============================= Preview ==============================
+  const previewConfig = usePreviewConfig(preview);
+  const contextPreviewConfig = usePreviewConfig(contextPreview);
+
+  // Context semantic
+  const [mergedPreviewClassNames, mergedPreviewStyles] = useMergeSemantic(
+    [contextClassNames, imageClassNames || {}],
+    [contextStyles, styles || {}],
   );
 
-  const mergedPreview = React.useMemo<ImageProps['preview']>(() => {
-    if (preview === false) {
-      return preview;
+  const [zIndex] = useZIndex(
+    'ImagePreview',
+    // Get default zIndex if provided
+    previewConfig ? previewConfig.zIndex : undefined,
+  );
+
+  const mergedPreviewConfig = React.useMemo<ImageProps['preview']>(() => {
+    if (!previewConfig) {
+      return previewConfig;
     }
-    const _preview = typeof preview === 'object' ? preview : {};
-    const { getContainer, closeIcon, rootClassName, ...restPreviewProps } = _preview;
+
+    const { cover, getContainer, closeIcon } = previewConfig;
+    const { closeIcon: contextCloseIcon } = contextPreviewConfig ?? {};
+
     return {
-      mask: (
-        <div className={`${prefixCls}-mask-info`}>
+      ...previewConfig,
+      cover: cover ?? (
+        <div className={`${prefixCls}-cover-info`}>
           <EyeOutlined />
           {imageLocale?.preview}
         </div>
       ),
       icons,
-      ...restPreviewProps,
-      rootClassName: classNames(mergedRootClassName, rootClassName),
       getContainer: getContainer ?? getContextPopupContainer,
-      transitionName: getTransitionName(rootPrefixCls, 'zoom', _preview.transitionName),
-      maskTransitionName: getTransitionName(rootPrefixCls, 'fade', _preview.maskTransitionName),
+      transitionName: getTransitionName(prefixCls, 'zoom'),
       zIndex,
-      closeIcon: closeIcon ?? contextPreview?.closeIcon,
+      closeIcon: closeIcon ?? contextCloseIcon,
+      rootClassName: mergedRootClassName,
+      classNames: mergedPreviewClassNames,
+      styles: mergedPreviewStyles,
     };
-  }, [preview, imageLocale, contextPreview?.closeIcon]);
+  }, [preview, imageLocale, contextPreview]);
 
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
   return (
     <RcImage
       prefixCls={prefixCls}
-      preview={mergedPreview}
+      preview={mergedPreviewConfig || false}
       rootClassName={mergedRootClassName}
       className={mergedClassName}
       style={mergedStyle}
+      classNames={mergedClassNames}
+      styles={mergedStyles}
       {...otherProps}
     />
   );
 };
 
-export type { ImageProps };
+export type { ImageProps, ImagePreviewType };
 
 Image.PreviewGroup = PreviewGroup;
 

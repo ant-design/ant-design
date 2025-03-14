@@ -80,7 +80,7 @@ export const genImageMaskStyle = (token: ImageToken): CSSObject => {
     opacity: 0,
     transition: `opacity ${motionDurationSlow}`,
 
-    [`.${prefixCls}-mask-info`]: {
+    [`.${prefixCls}-cover-info`]: {
       ...textEllipsis,
       padding: `0 ${unit(paddingXXS)}`,
       [iconCls]: {
@@ -351,10 +351,10 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
         backgroundPosition: 'center center',
         backgroundSize: '30%',
       },
-      [`${componentCls}-mask`]: {
+      [`${componentCls}-cover`]: {
         ...genImageMaskStyle(token),
       },
-      [`${componentCls}-mask:hover`]: {
+      [`${componentCls}-cover:hover`]: {
         opacity: 1,
       },
       [`${componentCls}-placeholder`]: {
