@@ -1,9 +1,10 @@
 import * as React from 'react';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import RcImage from '@rc-component/image';
-import type { ImagePreviewType, ImageProps } from '@rc-component/image';
+import type { PreviewConfig as ImagePreviewType, ImageProps } from '@rc-component/image';
 import classNames from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
@@ -12,6 +13,13 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useLocale } from '../locale';
 import PreviewGroup, { icons } from './PreviewGroup';
 import useStyle from './style';
+import usePreviewConfig from './usePreviewConfig';
+
+// TODO: 兼容 API，合并前完成：
+// - onVisibleChange
+// - visible
+// - preview.rootClassName
+// - mask -> cover
 
 export interface CompositionImage<P> extends React.FC<P> {
   PreviewGroup: typeof PreviewGroup;
@@ -28,6 +36,9 @@ const Image: CompositionImage<ImageProps> = (props) => {
     classNames: imageClassNames,
     ...otherProps
   } = props;
+
+  // =============================== MISC ===============================
+  // Context
   const {
     getPrefixCls,
     getPopupContainer: getContextPopupContainer,
@@ -37,18 +48,6 @@ const Image: CompositionImage<ImageProps> = (props) => {
     styles: contextStyles,
     classNames: contextClassNames,
   } = useComponentConfig('image');
-
-  const mergedStyles = {
-    root: { ...contextStyles.root, ...styles?.root },
-    actions: { ...contextStyles.actions, ...styles?.actions },
-    mask: { ...contextStyles.mask, ...styles?.mask },
-  };
-
-  const mergedClassNames = {
-    root: classNames(contextClassNames.root, imageClassNames?.root),
-    actions: classNames(contextClassNames.actions, imageClassNames?.actions),
-    mask: classNames(contextClassNames.mask, imageClassNames?.mask),
-  };
 
   // ============================= Warning ==============================
   if (process.env.NODE_ENV !== 'production') {
@@ -64,59 +63,65 @@ const Image: CompositionImage<ImageProps> = (props) => {
     });
   }
 
+  // ============================== Locale ==============================
   const [imageLocale] = useLocale('Image');
 
   const prefixCls = getPrefixCls('image', customizePrefixCls);
-  const rootPrefixCls = getPrefixCls();
+  // const rootPrefixCls = getPrefixCls();
 
-  // Style
+  // ============================== Styles ==============================
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, imageClassNames || {}],
+    [contextStyles, styles || {}],
+  );
 
   const mergedRootClassName = classNames(rootClassName, hashId, cssVarCls, rootCls);
 
   const mergedClassName = classNames(className, hashId, contextClassName);
 
-  const [zIndex] = useZIndex(
-    'ImagePreview',
-    typeof preview === 'object' ? preview.zIndex : undefined,
+  // ============================= Preview ==============================
+  const previewConfig = usePreviewConfig(preview);
+  const contextPreviewConfig = usePreviewConfig(contextPreview);
+
+  // Context semantic
+  const [mergedPreviewClassNames, mergedPreviewStyles] = useMergeSemantic(
+    [contextClassNames, imageClassNames || {}],
+    [contextStyles, styles || {}],
   );
 
-  const mergedPreview = React.useMemo<ImageProps['preview']>(() => {
-    if (preview === false) {
-      return preview;
+  const [zIndex] = useZIndex(
+    'ImagePreview',
+    // Get default zIndex if provided
+    previewConfig ? previewConfig.zIndex : undefined,
+  );
+
+  const mergedPreviewConfig = React.useMemo<ImageProps['preview']>(() => {
+    if (!previewConfig) {
+      return previewConfig;
     }
-    const _preview = typeof preview === 'object' ? preview : {};
-    const _contextPreview = typeof contextPreview === 'object' ? contextPreview : {};
-    const { getContainer, closeIcon, rootClassName, ...restPreviewProps } = _preview;
+
+    const { cover, getContainer, closeIcon } = previewConfig;
+    const { closeIcon: contextCloseIcon } = contextPreviewConfig ?? {};
+
     return {
-      mask: (
-        <div
-          className={classNames(`${prefixCls}-mask-info`, mergedClassNames?.actions)}
-          style={mergedStyles?.actions}
-        >
+      ...previewConfig,
+      cover: cover ?? (
+        <div className={`${prefixCls}-cover-info`}>
           <EyeOutlined />
           {imageLocale?.preview}
         </div>
       ),
       icons,
-      ...restPreviewProps,
       getContainer: getContainer ?? getContextPopupContainer,
-      transitionName: getTransitionName(rootPrefixCls, 'zoom', _preview.transitionName),
-      maskTransitionName: getTransitionName(rootPrefixCls, 'fade', _preview.maskTransitionName),
+      transitionName: getTransitionName(prefixCls, 'zoom'),
       zIndex,
-      closeIcon: closeIcon ?? contextPreview?.closeIcon,
-      rootClassName: classNames(mergedRootClassName, rootClassName),
-      classNames: {
-        mask: classNames(_preview?.classNames?.mask, _contextPreview?.classNames?.mask),
-        actions: classNames(_preview?.classNames?.actions, _contextPreview?.classNames?.actions),
-      },
-      styles: {
-        mask: { ..._contextPreview?.styles?.mask, ..._preview?.styles?.mask },
-        actions: { ..._contextPreview?.styles?.actions, ..._preview?.styles?.actions },
-        // @ts-ignore emporarily used in PurePanel, not used externally by antd
-        wrapper: { ..._contextPreview?.styles?.wrapper, ..._preview?.styles?.wrapper },
-      },
+      closeIcon: closeIcon ?? contextCloseIcon,
+      rootClassName: mergedRootClassName,
+      classNames: mergedPreviewClassNames,
+      styles: mergedPreviewStyles,
     };
   }, [preview, imageLocale, contextPreview]);
 
@@ -125,12 +130,12 @@ const Image: CompositionImage<ImageProps> = (props) => {
   return (
     <RcImage
       prefixCls={prefixCls}
-      preview={mergedPreview}
-      rootClassName={classNames(mergedRootClassName, mergedClassNames?.root)}
+      preview={mergedPreviewConfig || false}
+      rootClassName={mergedRootClassName}
       className={mergedClassName}
       style={mergedStyle}
-      classNames={{ mask: mergedClassNames?.mask }}
-      styles={{ root: mergedStyles?.root, mask: mergedStyles?.mask }}
+      classNames={mergedClassNames}
+      styles={mergedStyles}
       {...otherProps}
     />
   );

@@ -4,10 +4,12 @@ import classnames from 'classnames';
 type SemanticClassNames<T extends string> = Partial<Record<T, string>>;
 type SemanticStyles<T extends string> = Partial<Record<T, React.CSSProperties>>;
 
-function useSemanticClassNames<T extends string>(...classNames: SemanticClassNames<T>[]) {
+function useSemanticClassNames<T extends string>(
+  ...classNames: (SemanticClassNames<T> | undefined)[]
+) {
   return React.useMemo(() => {
     return classNames.reduce(
-      (acc, cur) => {
+      (acc, cur = {}) => {
         Object.keys(cur).forEach((key) => {
           acc[key] = classnames(acc[key], (cur as Record<string, string>)[key]);
         });
@@ -18,10 +20,10 @@ function useSemanticClassNames<T extends string>(...classNames: SemanticClassNam
   }, [classNames]);
 }
 
-function useSemanticStyles<T extends string>(...styles: SemanticStyles<T>[]) {
+function useSemanticStyles<T extends string>(...styles: (SemanticStyles<T> | undefined)[]) {
   return React.useMemo(() => {
     return styles.reduce(
-      (acc, cur) => ({
+      (acc, cur = {}) => ({
         ...acc,
         ...cur,
       }),
@@ -30,9 +32,9 @@ function useSemanticStyles<T extends string>(...styles: SemanticStyles<T>[]) {
   }, [styles]);
 }
 
-export function useMergeSemantic<T extends string>(
-  classNamesList: SemanticClassNames<T>[],
-  stylesList: SemanticStyles<T>[],
+export default function useMergeSemantic<T extends string>(
+  classNamesList: (SemanticClassNames<T> | undefined)[],
+  stylesList: (SemanticStyles<T> | undefined)[],
 ) {
   const mergedClassNames = useSemanticClassNames(...classNamesList);
   const mergedStyles = useSemanticStyles(...stylesList);
