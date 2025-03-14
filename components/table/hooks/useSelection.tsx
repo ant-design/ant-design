@@ -709,6 +709,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         title: renderColumnTitle(),
         render: renderSelectionCell,
         onCell: rowSelection.onCell,
+        align: rowSelection.align,
         [INTERNAL_COL_DEFINE]: { className: columnCls },
       };
 
