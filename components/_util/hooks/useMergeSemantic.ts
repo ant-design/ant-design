@@ -18,7 +18,17 @@ function useSemanticClassNames<T extends string>(...classNames: SemanticClassNam
   }, [classNames]);
 }
 
-function useSemanticStyles<T extends string>(...styles: SemanticStyles<T>[]) {}
+function useSemanticStyles<T extends string>(...styles: SemanticStyles<T>[]) {
+  return React.useMemo(() => {
+    return styles.reduce(
+      (acc, cur) => ({
+        ...acc,
+        ...cur,
+      }),
+      {} as Record<string, React.CSSProperties>,
+    ) as SemanticStyles<T>;
+  }, [styles]);
+}
 
 export function useMergeSemantic<T extends string>(
   classNamesList: SemanticClassNames<T>[],
