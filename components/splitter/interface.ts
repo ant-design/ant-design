@@ -1,8 +1,12 @@
 // ================ outside ================
+type SemanticName = 'root' | 'panel' | 'dragger';
+
 export interface SplitterProps {
   prefixCls?: string;
   className?: string;
+  classNames?: Partial<Record<SemanticName, string>>;
   style?: React.CSSProperties;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   rootClassName?: string;
   layout?: 'horizontal' | 'vertical';
   draggerIcon?: React.ReactNode;

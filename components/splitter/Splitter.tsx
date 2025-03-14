@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import ResizeObserver from '@rc-component/resize-observer';
 import useEvent from '@rc-component/util/lib/hooks/useEvent';
-import classNames from 'classnames';
+import cls from 'classnames';
 
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -21,7 +21,9 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
+    classNames,
     style,
+    styles,
     layout = 'horizontal',
     children,
     draggerIcon,
@@ -128,7 +130,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   });
 
   // ======================== Styles ========================
-  const containerClassName = classNames(
+  const containerClassName = cls(
     prefixCls,
     className,
     `${prefixCls}-${layout}`,
@@ -137,6 +139,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     },
     rootClassName,
     contextClassName,
+    classNames?.root,
     cssVarCls,
     rootCls,
     hashId,
@@ -157,14 +160,22 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     return mergedSizes;
   }, [itemPtgSizes]);
 
-  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
+  const mergedStyle: React.CSSProperties = { ...contextStyle, ...styles?.root, ...style };
 
   return (
     <ResizeObserver onResize={onContainerResize}>
       <div style={mergedStyle} className={containerClassName}>
         {items.map((item, idx) => {
+          const pannelProps = {
+            ...item,
+            className: cls(item.className, classNames?.panel),
+            style: { ...styles?.panel, ...item.style },
+          };
+
           // Panel
-          const panel = <InternalPanel {...item} prefixCls={prefixCls} size={panelSizes[idx]} />;
+          const panel = (
+            <InternalPanel {...pannelProps} prefixCls={prefixCls} size={panelSizes[idx]} />
+          );
 
           // Split Bar
           let splitBar: React.ReactElement | null = null;
@@ -185,6 +196,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 prefixCls={prefixCls}
                 vertical={isVertical}
                 resizable={resizableInfo.resizable}
+                draggerStyle={styles?.dragger}
+                draggerclassName={classNames?.dragger}
                 draggerIcon={draggerIcon}
                 collapsibleIcon={collapsibleIcon}
                 ariaNow={stackSizes[idx] * 100}
@@ -214,9 +227,10 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
             </React.Fragment>
           );
         })}
+
         {/* Fake mask for cursor */}
         {typeof movingIndex === 'number' && (
-          <div aria-hidden className={classNames(maskCls, `${maskCls}-${layout}`)} />
+          <div aria-hidden className={cls(maskCls, `${maskCls}-${layout}`)} />
         )}
       </div>
     </ResizeObserver>

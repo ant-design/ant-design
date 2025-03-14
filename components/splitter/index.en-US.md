@@ -57,6 +57,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | collapsible | Quick folding | `boolean \| { start?: boolean; end?: boolean }` | `false` | - |
 | resizable | Whether to enable drag and drop | `boolean` | `true` | - |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component='Splitter'></ComponentTokenTable>

@@ -60,6 +60,10 @@ tag: 5.21.0
 | collapsible | 快速折叠 | `boolean \| { start?: boolean; end?: boolean }` | `false` | - |
 | resizable | 是否开启拖拽伸缩 | `boolean` | `true` | - |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## 主题变量（Design Token）
 
 <ComponentTokenTable component='Splitter'></ComponentTokenTable>
