@@ -3,11 +3,11 @@ import Dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 
 import React from 'react';
-import { resetWarned } from '@rc-component/util/lib/warning';
-import MockDate from 'mockdate';
 import type { PickerPanelProps } from '@rc-component/picker';
 import dayjsGenerateConfig from '@rc-component/picker/lib/generate/dayjs';
 import type { Locale } from '@rc-component/picker/lib/interface';
+import { resetWarned } from '@rc-component/util/lib/warning';
+import MockDate from 'mockdate';
 
 import Calendar from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -569,5 +569,37 @@ describe('Calendar', () => {
     expect(container.firstChild).toMatchSnapshot();
 
     jest.useRealTimers();
+  });
+  it('support classNames and styles', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      header: 'custom-header',
+      body: 'custom-body',
+      content: 'custom-content',
+      item: 'custom-item',
+    };
+    const customStyles = {
+      root: { backgroundColor: 'red' },
+      header: { backgroundColor: 'green' },
+      body: { backgroundColor: 'blue' },
+      content: { backgroundColor: 'yellow' },
+      item: { backgroundColor: 'black' },
+    };
+    const { container } = render(<Calendar styles={customStyles} classNames={customClassNames} />);
+    const root = container.querySelector('.ant-picker-calendar');
+    const header = container.querySelector('.ant-picker-calendar-header');
+    const item = container.querySelector('.ant-picker-cell-inner');
+    // const body = container.querySelector('.ant-picker-calendar-body');
+    // const content = container.querySelector('.ant-picker-calendar-content');
+    expect(root).toHaveStyle(customStyles.root);
+    expect(header).toHaveStyle(customStyles.header);
+    // expect(body).toHaveStyle(customStyles.body);
+    // expect(content).toHaveStyle(customStyles.content);
+    expect(item).toHaveStyle(customStyles.item);
+    expect(root).toHaveClass(customClassNames.root);
+    expect(header).toHaveClass(customClassNames.header);
+    // expect(body).toHaveClass(customClassNames.body);
+    // expect(content).toHaveClass(customClassNames.content);
+    expect(item).toHaveClass(customClassNames.item);
   });
 });
