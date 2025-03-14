@@ -56,6 +56,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | data | Uploading extra params or function which can return uploading extra params | object \| (file) => object \| Promise&lt;object> | - |  |
 | defaultFileList | Default list of files that have been uploaded | object\[] | - |  |
 | directory | Support upload whole directory ([caniuse](https://caniuse.com/#feat=input-file-directory)) | boolean | false |  |
+| showPreviewDom | Does the upload folder automatically clear the file list? Note: It only automatically clears after a successful upload, and by default, it does not automatically clear. | boolean | false |   |
 | disabled | Disable upload button | boolean | false |  |
 | fileList | List of files that have been uploaded (controlled). Here is a common issue [#2423](https://github.com/ant-design/ant-design/issues/2423) when using it | [UploadFile](#uploadfile)\[] | - |  |
 | headers | Set request headers, valid above IE10 | object | - |  |

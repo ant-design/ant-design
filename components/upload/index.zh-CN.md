@@ -57,6 +57,7 @@ demo:
 | data | 上传所需额外参数或返回上传额外参数的方法 | object\|(file) => object \| Promise&lt;object> | - |  |
 | defaultFileList | 默认已经上传的文件列表 | object\[] | - |  |
 | directory | 支持上传文件夹（[caniuse](https://caniuse.com/#feat=input-file-directory)） | boolean | false |  |
+| showPreviewDom | 上传文件夹是否自动清空文件列表，注意：仅限上传成功后会自动清空，默认情况下不会自动清空 | boolean | false |   |
 | disabled | 是否禁用 | boolean | false |  |
 | fileList | 已经上传的文件列表（受控），使用此参数时，如果遇到 `onChange` 只调用一次的问题，请参考 [#2423](https://github.com/ant-design/ant-design/issues/2423) | [UploadFile](#uploadfile)\[] | - |  |
 | headers | 设置上传的请求头部，IE10 以上有效 | object | - |  |
