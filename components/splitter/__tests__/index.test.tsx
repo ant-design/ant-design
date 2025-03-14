@@ -635,5 +635,26 @@ describe('Splitter', () => {
       expect(startEle).toHaveStyle({ background: 'transparent' });
       expect(endEle).toHaveStyle({ background: 'transparent' });
     });
+
+    it('styles', () => {
+      const customStyles = {
+        root: { background: 'red' },
+        panel: { background: 'blue' },
+        dragger: { background: 'green' },
+      };
+      const customClassNames = {
+        root: 'custom-root',
+        panel: 'custom-panel',
+        dragger: 'custom-dragger',
+      };
+
+      const { container } = render(
+        <SplitterDemo styles={customStyles} classNames={customClassNames} />,
+      );
+
+      expect(container.querySelector('.custom-root'))?.toHaveStyle('background: red');
+      expect(container.querySelector('.custom-panel'))?.toHaveStyle('background: blue');
+      expect(container.querySelector('.custom-dragger'))?.toHaveStyle('background: green');
+    });
   });
 });

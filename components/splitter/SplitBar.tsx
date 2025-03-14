@@ -11,6 +11,8 @@ import type { SplitterProps } from './interface';
 export interface SplitBarProps {
   index: number;
   active: boolean;
+  draggerStyle?: React.CSSProperties;
+  draggerclassName?: string;
   prefixCls: string;
   resizable: boolean;
   startCollapsible: boolean;
@@ -44,6 +46,8 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     ariaMax,
     resizable,
     draggerIcon,
+    draggerStyle,
+    draggerclassName,
     collapsibleIcon,
     startCollapsible,
     endCollapsible,
@@ -201,7 +205,8 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       )}
 
       <div
-        className={classNames(`${splitBarPrefixCls}-dragger`, {
+        style={draggerStyle}
+        className={classNames(`${splitBarPrefixCls}-dragger`, draggerclassName, {
           [`${splitBarPrefixCls}-dragger-disabled`]: !resizable,
           [`${splitBarPrefixCls}-dragger-active`]: active,
           [`${splitBarPrefixCls}-dragger-customize`]: !!draggerIcon,
