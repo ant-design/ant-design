@@ -508,9 +508,33 @@ describe('Button', () => {
     const { getByRole } = render(
       <Button href="https://example.com" onClick={handleClick}>
         Link
-      </Button>
+      </Button>,
     );
     fireEvent.click(getByRole('link'));
     expect(handleClick).toHaveBeenCalled();
+  });
+
+  it('ConfigProvider support button variant', () => {
+    const { container } = render(
+      <ConfigProvider button={{ variant: 'dashed', color: 'blue' }}>
+        <Button>Button</Button>
+      </ConfigProvider>,
+    );
+
+    expect(container.firstChild).toHaveClass('ant-btn-variant-dashed');
+    expect(container.firstChild).toHaveClass('ant-btn-color-blue');
+  });
+
+  it('should show the component internal properties', () => {
+    const { container } = render(
+      <ConfigProvider button={{ variant: 'dashed', color: 'blue' }}>
+        <Button variant="filled" color="green">
+          Button
+        </Button>
+      </ConfigProvider>,
+    );
+
+    expect(container.firstChild).toHaveClass('ant-btn-variant-filled');
+    expect(container.firstChild).toHaveClass('ant-btn-color-green');
   });
 });
