@@ -5,7 +5,7 @@ import { useComposeRef } from 'rc-util/lib/ref';
 
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
-import { useComponentConfig } from '../config-provider/context';
+import { ConfigContext, useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -127,10 +127,11 @@ const InternalCompoundedButton = React.forwardRef<
   // https://github.com/ant-design/ant-design/issues/47605
   // Compatible with original `type` behavior
   const mergedType = type || 'default';
+  const { button } = React.useContext(ConfigContext);
 
   const [mergedColor, mergedVariant] = useMemo<ColorVariantPairType>(() => {
-    if (color && variant) {
-      return [color, variant];
+    if (color && (variant || button?.variant)) {
+      return [color, variant || button?.variant];
     }
 
     const colorVariantPair = ButtonTypeMap[mergedType] || [];
