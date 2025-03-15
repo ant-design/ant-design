@@ -21,6 +21,45 @@ const resizeSplitter = async () => {
   await waitFakeTimer();
 };
 
+function mockDrag(draggerEle: HTMLElement, offset: number) {
+  // Down
+  const downEvent = createEvent.mouseDown(draggerEle);
+  (downEvent as any).pageX = 0;
+  (downEvent as any).pageY = 0;
+
+  fireEvent(draggerEle, downEvent);
+
+  // Move
+  const moveEvent = createEvent.mouseMove(draggerEle);
+  (moveEvent as any).pageX = offset;
+  (moveEvent as any).pageY = offset;
+  fireEvent(draggerEle, moveEvent);
+
+  // Up
+  fireEvent.mouseUp(draggerEle);
+}
+
+function mockTouchDrag(draggerEle: HTMLElement, offset: number) {
+  // Down
+  const touchStart = createEvent.touchStart(draggerEle, {
+    touches: [{}],
+  });
+  (touchStart as any).touches[0].pageX = 0;
+  (touchStart as any).touches[0].pageY = 0;
+  fireEvent(draggerEle, touchStart);
+
+  // Move
+  const touchMove = createEvent.touchMove(draggerEle, {
+    touches: [{}],
+  });
+  (touchMove as any).touches[0].pageX = offset;
+  (touchMove as any).touches[0].pageY = offset;
+  fireEvent(draggerEle, touchMove);
+
+  // Up
+  fireEvent.touchEnd(draggerEle);
+}
+
 const SplitterDemo = ({ items = [{}, {}], ...props }: { items?: PanelProps[] } & SplitterProps) => (
   <Splitter {...props}>
     {items?.map((item, idx) => {
@@ -104,45 +143,6 @@ describe('Splitter', () => {
 
   // ============================== Resizable ==============================
   describe('drag', () => {
-    function mockDrag(draggerEle: HTMLElement, offset: number) {
-      // Down
-      const downEvent = createEvent.mouseDown(draggerEle);
-      (downEvent as any).pageX = 0;
-      (downEvent as any).pageY = 0;
-
-      fireEvent(draggerEle, downEvent);
-
-      // Move
-      const moveEvent = createEvent.mouseMove(draggerEle);
-      (moveEvent as any).pageX = offset;
-      (moveEvent as any).pageY = offset;
-      fireEvent(draggerEle, moveEvent);
-
-      // Up
-      fireEvent.mouseUp(draggerEle);
-    }
-
-    function mockTouchDrag(draggerEle: HTMLElement, offset: number) {
-      // Down
-      const touchStart = createEvent.touchStart(draggerEle, {
-        touches: [{}],
-      });
-      (touchStart as any).touches[0].pageX = 0;
-      (touchStart as any).touches[0].pageY = 0;
-      fireEvent(draggerEle, touchStart);
-
-      // Move
-      const touchMove = createEvent.touchMove(draggerEle, {
-        touches: [{}],
-      });
-      (touchMove as any).touches[0].pageX = offset;
-      (touchMove as any).touches[0].pageY = offset;
-      fireEvent(draggerEle, touchMove);
-
-      // Up
-      fireEvent.touchEnd(draggerEle);
-    }
-
     it('The mousemove should work fine', async () => {
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
@@ -645,7 +645,7 @@ describe('Splitter', () => {
       const customClassNames = {
         root: 'custom-root',
         panel: 'custom-panel',
-        dragger: 'custom-dragger',
+        dragger: { default: 'custom-dragger' },
       };
 
       const { container } = render(

@@ -197,7 +197,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 vertical={isVertical}
                 resizable={resizableInfo.resizable}
                 draggerStyle={styles?.dragger}
-                draggerclassName={classNames?.dragger}
+                draggerClassName={classNames?.dragger}
                 draggerIcon={draggerIcon}
                 collapsibleIcon={collapsibleIcon}
                 ariaNow={stackSizes[idx] * 100}
