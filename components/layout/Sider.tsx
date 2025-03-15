@@ -118,26 +118,24 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
 
   useEffect(() => {
     function responsiveHandler(mql: MediaQueryListEvent | MediaQueryList) {
-      return responsiveHandlerRef.current!(mql);
+      return responsiveHandlerRef.current?.(mql);
     }
-
     let mql: MediaQueryList;
-    if (typeof window !== 'undefined') {
-      const { matchMedia } = window;
-      if (matchMedia! && breakpoint && breakpoint in dimensionMaxMap) {
-        mql = matchMedia(`screen and (max-width: ${dimensionMaxMap[breakpoint]})`);
-        try {
-          mql.addEventListener('change', responsiveHandler);
-        } catch {
-          mql.addListener(responsiveHandler);
-        }
-        responsiveHandler(mql);
+    if (typeof window?.matchMedia !== 'undefined' && breakpoint && breakpoint in dimensionMaxMap) {
+      mql = matchMedia(`screen and (max-width: ${dimensionMaxMap[breakpoint]})`);
+      // Don't modify here, please keep the code compatible
+      if (typeof mql?.addEventListener !== 'undefined') {
+        mql?.addEventListener<'change'>('change', responsiveHandler);
+      } else {
+        mql?.addListener(responsiveHandler);
       }
+      responsiveHandler(mql);
     }
     return () => {
-      try {
-        mql?.removeEventListener('change', responsiveHandler);
-      } catch {
+      // Don't modify here, please keep the code compatible
+      if (typeof mql?.removeEventListener !== 'undefined') {
+        mql?.removeEventListener<'change'>('change', responsiveHandler);
+      } else {
         mql?.removeListener(responsiveHandler);
       }
     };

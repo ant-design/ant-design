@@ -98,32 +98,39 @@ export default function useResponsiveObserver() {
           this.unregister();
         }
       },
-      unregister() {
-        Object.keys(responsiveMap).forEach((screen) => {
-          const matchMediaQuery = responsiveMap[screen as Breakpoint];
-          const handler = this.matchHandlers[matchMediaQuery];
-          handler?.mql.removeListener(handler?.listener);
-        });
-        subscribers.clear();
-      },
       register() {
         Object.keys(responsiveMap).forEach((screen) => {
           const matchMediaQuery = responsiveMap[screen as Breakpoint];
           const listener = ({ matches }: { matches: boolean }) => {
-            this.dispatch({
-              ...screens,
-              [screen]: matches,
-            });
+            this.dispatch({ ...screens, [screen]: matches });
           };
-          const mql = window.matchMedia(matchMediaQuery);
-          mql.addListener(listener);
-          this.matchHandlers[matchMediaQuery] = {
-            mql,
-            listener,
-          };
-          listener(mql);
+          if (typeof window?.matchMedia !== 'undefined') {
+            const mql = window.matchMedia(matchMediaQuery);
+            // Don't modify here, please keep the code compatible
+            if (typeof mql?.addEventListener !== 'undefined') {
+              mql.addEventListener<'change'>('change', listener);
+            } else {
+              mql.addListener(listener);
+            }
+            this.matchHandlers[matchMediaQuery] = { mql, listener };
+            listener(mql);
+          }
         });
       },
+      unregister() {
+        Object.keys(responsiveMap).forEach((screen) => {
+          const matchMediaQuery = responsiveMap[screen as Breakpoint];
+          const handler = this.matchHandlers[matchMediaQuery];
+          // Don't modify here, please keep the code compatible
+          if (typeof handler?.mql?.removeEventListener !== 'undefined') {
+            handler?.mql.removeEventListener<'change'>('change', handler?.listener);
+          } else {
+            handler?.mql.removeListener(handler?.listener);
+          }
+        });
+        subscribers.clear();
+      },
+
       responsiveMap,
     };
   }, [token]);
