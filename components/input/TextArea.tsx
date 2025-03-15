@@ -169,6 +169,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
       prefixCls={prefixCls}
       suffix={hasFeedback && <span className={`${prefixCls}-textarea-suffix`}>{feedbackIcon}</span>}
       ref={innerRef}
+      showCount={showCount}
       onResize={(size) => {
         rest.onResize?.(size);
         showCount && handleResizeWrapper(innerRef.current);
