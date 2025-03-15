@@ -1,4 +1,3 @@
-import { scan } from 'react-scan'; // import this BEFORE react
 import React, { Suspense, useCallback, useEffect } from 'react';
 import {
   createCache,
@@ -14,6 +13,7 @@ import { theme as antdTheme, App } from 'antd';
 import type { MappingAlgorithm } from 'antd';
 import type { DirectionType, ThemeConfig } from 'antd/es/config-provider';
 import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
+import { scan } from 'react-scan'; // import this BEFORE react
 
 import { DarkContext } from '../../hooks/useDark';
 import useLayoutState from '../../hooks/useLayoutState';
@@ -46,10 +46,14 @@ if (typeof window !== 'undefined') {
       location.hash = `#${hashId.replace(/^components-/, '')}`;
     }
   }
-  scan({
-    enabled: process.env.NODE_ENV !== 'production',
-    log: true, // logs render info to console (default: false)
-  });
+
+  if (process.env.NODE_ENV !== 'production') {
+    scan({
+      enabled: false,
+      showToolbar: true,
+      log: true, // logs render info to console (default: false)
+    });
+  }
 }
 
 const getAlgorithm = (themes: ThemeName[] = []) =>
