@@ -1,7 +1,8 @@
 import React from 'react';
 import { Flex, Radio } from 'antd';
+import type { CheckboxGroupProps } from 'antd/es/checkbox';
 
-const options = [
+const options: CheckboxGroupProps<string>['options'] = [
   { label: 'Apple', value: 'Apple' },
   { label: 'Pear', value: 'Pear' },
   { label: 'Orange', value: 'Orange' },

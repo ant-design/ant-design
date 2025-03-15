@@ -99,7 +99,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const wrapClassNameExtended = classNames(wrapClassName, {
-    [`${prefixCls}-centered`]: !!centered,
+    [`${prefixCls}-centered`]: centered ?? modalContext?.centered,
     [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
   });
 

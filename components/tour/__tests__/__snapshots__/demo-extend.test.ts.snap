@@ -218,6 +218,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
               class="ant-slider-step"
             />
             <div
+              aria-describedby="test-id"
               aria-disabled="false"
               aria-orientation="horizontal"
               aria-valuemax="100"
@@ -241,6 +242,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 >
                   8
@@ -283,6 +285,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
               class="ant-slider-step"
             />
             <div
+              aria-describedby="test-id"
               aria-disabled="false"
               aria-orientation="horizontal"
               aria-valuemax="50"
@@ -306,6 +309,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 >
                   2
@@ -348,6 +352,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
               class="ant-slider-step"
             />
             <div
+              aria-describedby="test-id"
               aria-disabled="false"
               aria-orientation="horizontal"
               aria-valuemax="50"
@@ -371,6 +376,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 >
                   2
@@ -413,6 +419,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
               class="ant-slider-step"
             />
             <div
+              aria-describedby="test-id"
               aria-disabled="false"
               aria-orientation="horizontal"
               aria-valuemax="50"
@@ -436,6 +443,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 >
                   2

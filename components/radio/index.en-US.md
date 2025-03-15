@@ -14,6 +14,29 @@ demo:
 - Used to select a single state from multiple options.
 - The difference from Select is that Radio is visible to the user and can facilitate the comparison of choice, which means there shouldn't be too many of them.
 
+```tsx
+// When use Radio.Group, recommended ✅
+return (
+  <Radio.Group
+    value={value}
+    options={[
+      { value: 1, label: "A" },
+      { value: 2, label: "B"},
+      { value: 3, label: "C" },
+    ]}
+  />
+);
+
+// No recommended 🙅🏻‍♀️
+return (
+  <Radio.Group value={value}>
+    <Radio value={1}>A</Radio>
+    <Radio value={2}>B</Radio>
+    <Radio value={3}>C</Radio>
+  </Radio.Group>
+);
+```
+
 ## Examples
 
 <!-- prettier-ignore-start -->

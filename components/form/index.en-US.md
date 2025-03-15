@@ -80,11 +80,11 @@ Common props ref：[Common props](/docs/react/common-props)
 | name | Form name. Will be the prefix of Field `id` | string | - |  |
 | preserve | Keep field value even when field removed. You can get the preserve field value by `getFieldsValue(true)` | boolean | true | 4.4.0 |
 | requiredMark | Required mark style. Can use required mark or optional mark. You can not config to single Form.Item since this is a Form level config | boolean \| `optional` \| ((label: ReactNode, info: { required: boolean }) => ReactNode) | true | `renderProps`: 5.9.0 |
-| scrollToFirstError | Auto scroll to first failed field when submit | boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) \| { focus: boolean } | false |  |
+| scrollToFirstError | Auto scroll to first failed field when submit | boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) \| { focus: boolean } | false | focus: 5.24.0 |
 | size | Set field component size (antd components only) | `small` \| `middle` \| `large` | - |  |
 | validateMessages | Validation prompt template, description [see below](#validatemessages) | [ValidateMessages](https://github.com/ant-design/ant-design/blob/6234509d18bac1ac60fbb3f92a5b2c6a6361295a/components/locale/en_US.ts#L88-L134) | - |  |
 | validateTrigger | Config field validate trigger | string \| string\[] | `onChange` | 4.3.0 |
-| variant | Variant of components inside form | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| variant | Variant of components inside form | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | wrapperCol | The layout for input controls, same as `labelCol` | [object](/components/grid/#col) | - |  |
 | onFieldsChange | Trigger when field updated | function(changedFields, allFields) | - |  |
 | onFinish | Trigger after submitting the form and verifying data successfully | function(values) | - |  |
@@ -318,7 +318,7 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 | isFieldTouched | Check if a field has been operated | (name: [NamePath](#namepath)) => boolean |  |
 | isFieldValidating | Check field if is in validating | (name: [NamePath](#namepath)) => boolean |  |
 | resetFields | Reset fields to `initialValues` | (fields?: [NamePath](#namepath)\[]) => void |  |
-| scrollToField | Scroll to field position | (name: [NamePath](#namepath), options: \[[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)]) => void |  |
+| scrollToField | Scroll to field position | (name: [NamePath](#namepath), options: [ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) \| { focus: boolean }) => void | focus: 5.24.0 |
 | setFields | Set fields status | (fields: [FieldData](#fielddata)\[]) => void |  |
 | setFieldValue | Set fields value(Will directly pass to form store and **reset validation message**. If you do not want to modify passed object, please clone first) | (name: [NamePath](#namepath), value: any) => void | 4.22.0 |
 | setFieldsValue | Set fields value(Will directly pass to form store and **reset validation message**. If you do not want to modify passed object, please clone first). Use `setFieldValue` instead if you want to only config single value in Form.List | (values) => void |  |

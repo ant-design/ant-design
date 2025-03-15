@@ -1,4 +1,5 @@
 import React from 'react';
+import { render as testLibRender } from '@testing-library/react';
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 
 import notification from '..';
@@ -234,5 +235,40 @@ describe('notification.hooks', () => {
       jest.advanceTimersByTime(1000);
     });
     expect(getNoticeCount()).toBe(0);
+  });
+
+  it('should hide close btn when closeIcon setting to null or false', () => {
+    const Demo = () => {
+      const Holder = (className: string, closeIcon?: React.ReactNode) => {
+        const [api, holder] = notification.useNotification({ closeIcon });
+
+        React.useEffect(() => {
+          api.info({
+            className,
+            message: 'Notification Title',
+            duration: 0,
+          });
+        }, []);
+
+        return holder;
+      };
+
+      return (
+        <>
+          {Holder('normal')}
+          {Holder('custom', <span className="custom-close-icon">Close</span>)}
+          {Holder('with-null', null)}
+          {Holder('with-false', false)}
+        </>
+      );
+    };
+
+    // We use origin testing lib here since StrictMode will render multiple times
+    testLibRender(<Demo />);
+
+    expect(document.querySelectorAll('.normal .ant-notification-notice-close').length).toBe(1);
+    expect(document.querySelectorAll('.custom .custom-close-icon').length).toBe(1);
+    expect(document.querySelectorAll('.with-null .ant-notification-notice-close').length).toBe(0);
+    expect(document.querySelectorAll('.with-false .ant-notification-notice-close').length).toBe(0);
   });
 });

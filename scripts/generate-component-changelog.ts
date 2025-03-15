@@ -55,6 +55,7 @@ const miscKeys = [
   '🛠',
   '📦',
   '🌐',
+  '⌨️',
   ' locale ',
   ' RTL ',
   '<img',

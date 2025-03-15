@@ -144,4 +144,4 @@ export default () => {
 
 ### CSS Var 在 `<App component={false}>` 内不起作用
 
-请确保 App 的 `component` 是一个有效的 React 组件字符串，以便在启用 CSS 变量时，有一个容器来承载 CSS 类名。
+请确保 App 的 `component` 是一个有效的 html 标签名，以便在启用 CSS 变量时有一个容器来承载 CSS 类名。如果不设置，则默认为 `div` 标签，如果设置为 `false`，则不会创建额外的 DOM 节点，也不会提供默认样式。

@@ -172,6 +172,10 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
       marginInlineEnd: wrapperMarginInlineEnd,
       cursor: 'pointer',
 
+      '&:last-child': {
+        marginInlineEnd: 0,
+      },
+
       // RTL
       [`&${componentCls}-wrapper-rtl`]: {
         direction: 'rtl',

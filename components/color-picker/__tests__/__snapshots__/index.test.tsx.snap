@@ -3,6 +3,7 @@
 exports[`ColorPicker Should disabled work 1`] = `
 <div>
   <div
+    aria-describedby="test-id"
     class="ant-color-picker-trigger ant-color-picker-trigger-disabled"
   >
     <div
@@ -15,6 +16,7 @@ exports[`ColorPicker Should disabled work 1`] = `
 exports[`ColorPicker Should panelRender work 1`] = `
 <div>
   <div
+    aria-describedby="test-id"
     class="ant-color-picker-trigger ant-popover-open ant-color-picker-trigger-active"
   >
     <div
@@ -34,6 +36,7 @@ exports[`ColorPicker Should panelRender work 1`] = `
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -306,6 +309,7 @@ exports[`ColorPicker Should panelRender work 1`] = `
 exports[`ColorPicker Should panelRender work 2`] = `
 <div>
   <div
+    aria-describedby="test-id"
     class="ant-color-picker-trigger ant-popover-open ant-color-picker-trigger-active"
   >
     <div
@@ -325,6 +329,7 @@ exports[`ColorPicker Should panelRender work 2`] = `
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -593,6 +598,7 @@ exports[`ColorPicker Should panelRender work 2`] = `
 exports[`ColorPicker Should render trigger work 1`] = `
 <div>
   <div
+    aria-describedby="test-id"
     class="trigger"
   />
 </div>
@@ -600,6 +606,7 @@ exports[`ColorPicker Should render trigger work 1`] = `
 
 exports[`ColorPicker rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
+  aria-describedby="test-id"
   class="ant-color-picker-trigger ant-color-picker-rtl"
 >
   <div

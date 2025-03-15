@@ -1,17 +1,13 @@
 import { unit } from '@ant-design/cssinjs';
 
-import {
-  genBasicInputStyle,
-  genPlaceholderStyle,
-  initComponentToken,
-  initInputToken,
-} from '../../input/style';
+import { genBasicInputStyle, genPlaceholderStyle, initComponentToken, initInputToken } from '../../input/style';
 import type { SharedComponentToken, SharedInputToken } from '../../input/style/token';
 import {
   genBorderlessStyle,
   genDisabledStyle,
   genFilledStyle,
   genOutlinedStyle,
+  genUnderlinedStyle,
 } from '../../input/style/variants';
 import { resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
@@ -126,6 +122,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           insetBlockStart: calc(fontSize).mul(lineHeight).mul(0.5).add(paddingBlock).equal(),
           transform: `translateY(-50%)`,
           margin: 0,
+          padding: 0,
           color: colorTextQuaternary,
           fontSize: fontSizeIcon,
           verticalAlign: -1,
@@ -151,6 +148,9 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           },
         },
       },
+
+      // 覆盖 affix-wrapper borderRadius！
+      ...genUnderlinedStyle(token),
 
       '&-disabled': {
         '> textarea': {

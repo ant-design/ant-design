@@ -122,7 +122,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | labelRender | Customize selected label render (LabelInValueType definition see [LabelInValueType](https://github.com/react-component/select/blob/b39c28aa2a94e7754ebc570f200ab5fd33bd31e7/src/Select.tsx#L70)) | (props: LabelInValueType) => ReactNode | - | 5.15.0 |
 | tokenSeparators | Separator used to tokenize, only applies when `mode="tags"` | string\[] | - |  |
 | value | Current selected option (considered as a immutable array) | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
-| variant | Variants of selector | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| variant | Variants of selector | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
 | onBlur | Called when blur | function | - |  |
 | onChange | Called when select an option or input value change | function(value, option:Option \| Array&lt;Option>) | - |  |

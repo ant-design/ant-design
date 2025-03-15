@@ -24,6 +24,7 @@ demo:
 <code src="./demo/async.tsx">异步加载</code>
 <code src="./demo/treeLine.tsx">线性样式</code>
 <code src="./demo/placement.tsx">弹出位置</code>
+<code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/maxCount.tsx" version="5.23.0">最大选中数量</code>
 <code src="./demo/suffix.tsx" version="5.22.0">前后缀</code>
@@ -84,7 +85,7 @@ demo:
 | treeNodeFilterProp | 输入项过滤对应的 treeNode 属性 | string | `value` |  |
 | treeNodeLabelProp | 作为显示的 prop 设置 | string | `title` |  |
 | value | 指定当前选中的条目 | string \| string\[] | - |  |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
 | onChange | 选中树节点时调用此函数 | function(value, label, extra) | - |  |
 | onDropdownVisibleChange | 展开下拉菜单的回调 | function(open) | - |  |

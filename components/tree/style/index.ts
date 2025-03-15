@@ -204,6 +204,12 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
             backgroundColor: controlItemBgActiveDisabled,
           },
 
+        // we can not set pointer-events to none for checkbox in tree
+        // ref: https://github.com/ant-design/ant-design/issues/39822#issuecomment-2605234058
+        [`${treeCls}-checkbox-disabled`]: {
+          pointerEvents: 'unset',
+        },
+
         // not disable
         [`&:not(${treeNodeCls}-disabled)`]: {
           // >>> Title

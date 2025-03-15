@@ -557,18 +557,18 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const virtualProps: { listItemHeight?: number } = {};
 
   const listItemHeight = React.useMemo(() => {
-    const { fontSize, lineHeight, padding, paddingXS, paddingSM } = token;
+    const { fontSize, lineHeight, lineWidth, padding, paddingXS, paddingSM } = token;
     const fontHeight = Math.floor(fontSize * lineHeight);
 
     switch (mergedSize) {
-      case 'large':
-        return padding * 2 + fontHeight;
+      case 'middle':
+        return paddingSM * 2 + fontHeight + lineWidth;
 
       case 'small':
-        return paddingXS * 2 + fontHeight;
+        return paddingXS * 2 + fontHeight + lineWidth;
 
       default:
-        return paddingSM * 2 + fontHeight;
+        return padding * 2 + fontHeight + lineWidth;
     }
   }, [token, mergedSize]);
 

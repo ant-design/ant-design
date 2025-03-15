@@ -21,7 +21,7 @@ const localeValues: Locale = {
     filterConfirm: 'تایید',
     filterReset: 'پاک کردن',
     filterEmptyText: 'بدون فیلتر',
-    filterCheckall: 'انتخاب همه‌ی موارد',
+    filterCheckAll: 'انتخاب همه‌ی موارد',
     filterSearchPlaceholder: 'جستجو در فیلترها',
     emptyText: 'بدون داده',
     selectAll: 'انتخاب صفحه‌ی کنونی',

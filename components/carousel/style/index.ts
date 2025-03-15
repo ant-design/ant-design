@@ -46,6 +46,8 @@ export interface ComponentToken {
 
 interface CarouselToken extends FullToken<'Carousel'> {}
 
+export const DotDuration = '--dot-duration';
+
 const genCarouselStyle: GenerateStyle<CarouselToken> = (token) => {
   const { componentCls, antCls } = token;
 
@@ -154,70 +156,68 @@ const genArrowsStyle: GenerateStyle<CarouselToken> = (token) => {
   const { componentCls, motionDurationSlow, arrowSize, arrowOffset } = token;
   const arrowLength = token.calc(arrowSize).div(Math.SQRT2).equal();
 
-  return [
-    {
-      [componentCls]: {
-        // Arrows
-        '.slick-prev, .slick-next': {
+  return {
+    [componentCls]: {
+      // Arrows
+      '.slick-prev, .slick-next': {
+        position: 'absolute',
+        top: '50%',
+        width: arrowSize,
+        height: arrowSize,
+        transform: 'translateY(-50%)',
+        color: '#fff',
+        opacity: 0.4,
+        background: 'transparent',
+        padding: 0,
+        lineHeight: 0,
+        border: 0,
+        outline: 'none',
+        cursor: 'pointer',
+        zIndex: 1,
+        transition: `opacity ${motionDurationSlow}`,
+
+        '&:hover, &:focus': {
+          opacity: 1,
+        },
+
+        '&.slick-disabled': {
+          pointerEvents: 'none',
+          opacity: 0,
+        },
+
+        '&::after': {
+          boxSizing: 'border-box',
           position: 'absolute',
-          top: '50%',
-          width: arrowSize,
-          height: arrowSize,
-          transform: 'translateY(-50%)',
-          color: '#fff',
-          opacity: 0.4,
-          background: 'transparent',
-          padding: 0,
-          lineHeight: 0,
-          border: 0,
-          outline: 'none',
-          cursor: 'pointer',
-          zIndex: 1,
-          transition: `opacity ${motionDurationSlow}`,
-
-          '&:hover, &:focus': {
-            opacity: 1,
-          },
-
-          '&.slick-disabled': {
-            pointerEvents: 'none',
-            opacity: 0,
-          },
-
-          '&::after': {
-            boxSizing: 'border-box',
-            position: 'absolute',
-            top: token.calc(arrowSize).sub(arrowLength).div(2).equal(),
-            insetInlineStart: token.calc(arrowSize).sub(arrowLength).div(2).equal(),
-            display: 'inline-block',
-            width: arrowLength,
-            height: arrowLength,
-            border: `0 solid currentcolor`,
-            borderInlineWidth: '2px 0',
-            borderBlockWidth: '2px 0',
-            borderRadius: 1,
-            content: '""',
-          },
+          top: token.calc(arrowSize).sub(arrowLength).div(2).equal(),
+          insetInlineStart: token.calc(arrowSize).sub(arrowLength).div(2).equal(),
+          display: 'inline-block',
+          width: arrowLength,
+          height: arrowLength,
+          border: `0 solid currentcolor`,
+          borderInlineWidth: '2px 0',
+          borderBlockWidth: '2px 0',
+          borderRadius: 1,
+          content: '""',
         },
+      },
 
-        '.slick-prev': {
-          insetInlineStart: arrowOffset,
+      '.slick-prev': {
+        insetInlineStart: arrowOffset,
 
-          '&::after': {
-            transform: 'rotate(-45deg)',
-          },
+        '&::after': {
+          transform: 'rotate(-45deg)',
         },
+      },
 
-        '.slick-next': {
-          insetInlineEnd: arrowOffset,
+      '.slick-next': {
+        insetInlineEnd: arrowOffset,
 
-          '&::after': {
-            transform: 'rotate(135deg)',
-          },
+        '&::after': {
+          transform: 'rotate(135deg)',
         },
       },
     },
-  ];
+  };
 };
 
 const genDotsStyle: GenerateStyle<CarouselToken> = (token) => {
@@ -230,88 +230,105 @@ const genDotsStyle: GenerateStyle<CarouselToken> = (token) => {
     colorBgContainer,
     motionDurationSlow,
   } = token;
-  return [
-    {
-      [componentCls]: {
-        '.slick-dots': {
-          position: 'absolute',
-          insetInlineEnd: 0,
-          bottom: 0,
-          insetInlineStart: 0,
-          zIndex: 15,
-          display: 'flex !important',
-          justifyContent: 'center',
-          paddingInlineStart: 0,
-          margin: 0,
-          listStyle: 'none',
+  return {
+    [componentCls]: {
+      '.slick-dots': {
+        position: 'absolute',
+        insetInlineEnd: 0,
+        bottom: 0,
+        insetInlineStart: 0,
+        zIndex: 15,
+        display: 'flex !important',
+        justifyContent: 'center',
+        paddingInlineStart: 0,
+        margin: 0,
+        listStyle: 'none',
 
-          '&-bottom': {
-            bottom: dotOffset,
-          },
+        '&-bottom': {
+          bottom: dotOffset,
+        },
 
-          '&-top': {
-            top: dotOffset,
-            bottom: 'auto',
-          },
+        '&-top': {
+          top: dotOffset,
+          bottom: 'auto',
+        },
 
-          li: {
-            position: 'relative',
-            display: 'inline-block',
-            flex: '0 1 auto',
-            boxSizing: 'content-box',
-            width: dotWidth,
+        li: {
+          position: 'relative',
+          display: 'inline-block',
+          flex: '0 1 auto',
+          boxSizing: 'content-box',
+          width: dotWidth,
+          height: dotHeight,
+          marginInline: dotGap,
+          padding: 0,
+          textAlign: 'center',
+          textIndent: -999,
+          verticalAlign: 'top',
+          transition: `all ${motionDurationSlow}`,
+          borderRadius: dotHeight,
+          overflow: 'hidden',
+
+          '&::after': {
+            display: 'block',
+            position: 'absolute',
+            top: 0,
+            insetInlineStart: 0,
+            width: '100%',
             height: dotHeight,
-            marginInline: dotGap,
+            content: '""',
+            background: colorBgContainer,
+            borderRadius: dotHeight,
+            opacity: 1,
+            outline: 'none',
+            cursor: 'pointer',
+            overflow: 'hidden',
+            transform: 'translate3d(-100%, 0, 0)',
+          },
+
+          button: {
+            position: 'relative',
+            display: 'block',
+            width: '100%',
+            height: dotHeight,
             padding: 0,
-            textAlign: 'center',
-            textIndent: -999,
-            verticalAlign: 'top',
+            color: 'transparent',
+            fontSize: 0,
+            background: colorBgContainer,
+            border: 0,
+            borderRadius: dotHeight,
+            outline: 'none',
+            cursor: 'pointer',
+            opacity: 0.2,
             transition: `all ${motionDurationSlow}`,
+            overflow: 'hidden',
 
-            button: {
-              position: 'relative',
-              display: 'block',
-              width: '100%',
-              height: dotHeight,
-              padding: 0,
-              color: 'transparent',
-              fontSize: 0,
-              background: colorBgContainer,
-              border: 0,
-              borderRadius: dotHeight,
-              outline: 'none',
-              cursor: 'pointer',
-              opacity: 0.2,
-              transition: `all ${motionDurationSlow}`,
-
-              '&: hover, &:focus': {
-                opacity: 0.75,
-              },
-
-              '&::after': {
-                position: 'absolute',
-                inset: token.calc(dotGap).mul(-1).equal(),
-                content: '""',
-              },
+            '&:hover': {
+              opacity: 0.75,
             },
 
-            '&.slick-active': {
-              width: token.dotActiveWidth,
+            '&::after': {
+              position: 'absolute',
+              inset: token.calc(dotGap).mul(-1).equal(),
+              content: '""',
+            },
+          },
 
-              '& button': {
-                background: colorBgContainer,
-                opacity: 1,
-              },
-
-              '&: hover, &:focus': {
-                opacity: 1,
-              },
+          '&.slick-active': {
+            width: token.dotActiveWidth,
+            position: 'relative',
+            '&:hover': {
+              opacity: 1,
+            },
+            '&::after': {
+              transform: 'translate3d(0, 0, 0)',
+              transition: `transform var(${DotDuration}) ease-out`,
             },
           },
         },
       },
     },
-  ];
+  };
 };
 
 const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = (token) => {
@@ -371,10 +388,20 @@ const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = (token) => {
 
           button: reverseSizeOfDot,
 
+          '&::after': {
+            ...reverseSizeOfDot,
+            height: 0,
+          },
+
           '&.slick-active': {
             ...reverseSizeOfDot,
 
             button: reverseSizeOfDot,
+
+            '&::after': {
+              ...reverseSizeOfDot,
+              transition: `height var(${DotDuration}) ease-out`,
+            },
           },
         },
       },

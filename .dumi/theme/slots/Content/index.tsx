@@ -1,5 +1,5 @@
 import React, { useContext, useLayoutEffect, useMemo, useState } from 'react';
-import { Col, Flex, Space, Typography } from 'antd';
+import { Col, Flex, Space, Typography, Skeleton } from 'antd';
 import classNames from 'classnames';
 import { FormattedMessage, useRouteMeta } from 'dumi';
 
@@ -19,6 +19,11 @@ const DocMeta = React.lazy(() => import('./DocMeta'));
 const Footer = React.lazy(() => import('../Footer'));
 const PrevAndNext = React.lazy(() => import('../../common/PrevAndNext'));
 const EditButton = React.lazy(() => import('../../common/EditButton'));
+
+const AvatarPlaceholder: React.FC<{ num?: number }> = ({ num = 6 }) =>
+  Array.from({ length: num }).map<React.ReactNode>((_, i) => (
+    <Skeleton.Avatar size="small" active key={i} style={{ marginInlineStart: i === 0 ? 0 : -8 }} />
+  ));
 
 const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
   const meta = useRouteMeta();
@@ -87,7 +92,7 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
               />
             )}
           <div style={{ minHeight: 'calc(100vh - 64px)' }}>{children}</div>
-          <InViewSuspense>
+          <InViewSuspense fallback={null}>
             <ColumnCard
               zhihuLink={meta.frontmatter.zhihu_url}
               yuqueLink={meta.frontmatter.yuque_url}
@@ -95,7 +100,7 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
             />
           </InViewSuspense>
           <div style={{ marginTop: 120 }}>
-            <InViewSuspense fallback={<div style={{ height: 50 }} />}>
+            <InViewSuspense fallback={<AvatarPlaceholder />}>
               <Contributors filename={meta.frontmatter.filename} />
             </InViewSuspense>
           </div>

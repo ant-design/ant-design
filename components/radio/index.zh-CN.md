@@ -15,6 +15,29 @@ demo:
 - 用于在多个备选项中选中单个状态。
 - 和 Select 的区别是，Radio 所有选项默认可见，方便用户在比较中选择，因此选项不宜过多。
 
+```tsx
+// 使用 Radio.Group 组件时，推荐的写法 ✅
+return (
+  <Radio.Group
+    value={value}
+    options={[
+      { value: 1, label: 'A' },
+      { value: 2, label: 'B' },
+      { value: 3, label: 'C' },
+    ]}
+  />
+);
+
+// 不推荐的写法 🙅🏻‍♀️
+return (
+  <Radio.Group value={value}>
+    <Radio value={1}>A</Radio>
+    <Radio value={2}>B</Radio>
+    <Radio value={3}>C</Radio>
+  </Radio.Group>
+);
+```
+
 ## 代码演示
 
 <!-- prettier-ignore-start -->
@@ -69,7 +92,7 @@ demo:
 
 ### CheckboxOptionType
 
-| Property | Description | Type | Default | Version |
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | label | 用于作为 Radio 选项展示的文本 | `string` | - | 4.4.0 |
 | value | 关联 Radio 选项的值 | `string` \| `number` \| `boolean` | - | 4.4.0 |

@@ -103,14 +103,17 @@ When toggled, styles will downgrade CSS logical properties:
 - Minimum Chrome Version Supported: 99
 - Default Enabled: No
 
-Ant Design supports configuring `@layer` for unified css priority downgrade since `5.17.0`. After the downgrade, the style of antd will always be lower than the default CSS selector priority, so that users can override the style (please be sure to check the browser compatibility of `@layer`):
+Ant Design supports configuring `@layer` for unified css priority downgrade since `5.17.0`. After the downgrade, the style of antd will always be lower than the default CSS selector priority, so that users can override the style (please be sure to check the browser compatibility of `@layer`).When enable `layer`, the child element **must** wrap `ConfigProvider` to update the icon-related styles:
 
 ```tsx
 import { StyleProvider } from '@ant-design/cssinjs';
+import { ConfigProvider } from 'antd';
 
 export default () => (
   <StyleProvider layer>
-    <MyApp />
+    <ConfigProvider>
+      <MyApp />
+    </ConfigProvider>
   </StyleProvider>
 );
 ```
@@ -201,17 +204,23 @@ In some cases, you may need antd to coexist with other style libraries, such as 
 
 ### antd config `@layer`
 
+As mentioned earlier, when using StyleProvider, you must wrap ConfigProvider to update icon-related styles:
+
 ```tsx
 import { StyleProvider } from '@ant-design/cssinjs';
 
 export default () => (
   <StyleProvider layer>
-    <MyApp />
+    <ConfigProvider>
+      <MyApp />
+    </ConfigProvider>
   </StyleProvider>
 );
 ```
 
 ### TailwindCSS Arrange `@layer`
+
+#### TailwindCSS v3
 
 In global.css, adjust `@layer` to control the order of style override. Place `tailwind-base` before `antd`:
 
@@ -223,6 +232,16 @@ In global.css, adjust `@layer` to control the order of style override. Place `ta
 }
 @tailwind components;
 @tailwind utilities;
+```
+
+#### TailwindCSS v4
+
+In global.css, adjust `@layer` to control the order of style override. Place `antd` in the right position:
+
+```less
+@layer theme, base, antd, components, utilities;
+
+@import 'tailwindcss';
 ```
 
 ### reset.css
