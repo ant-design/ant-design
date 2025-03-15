@@ -4,13 +4,26 @@ import {
   CaretLeftOutlined,
   CaretRightOutlined,
   CaretUpOutlined,
-  ColumnHeightOutlined,
   ColumnWidthOutlined,
 } from '@ant-design/icons';
-import { ConfigProvider, Flex, Splitter, Typography } from 'antd';
+import { ConfigProvider, Divider, Flex, Splitter, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyles = createStyles(({ token }) => ({
+  dragger: {
+    '&::before': {
+      backgroundColor: 'transparent !important',
+      border: `1px dashed ${token.controlItemBgHover}`,
+    },
+    '&:hover::before': {
+      border: `1px dashed ${token.colorPrimary}`,
+    },
+  },
+  draggerActive: {
+    '&::before': {
+      border: `1px dashed ${token.colorPrimary}`,
+    },
+  },
   draggerIcon: {
     '&:hover': {
       color: token.colorPrimary,
@@ -66,10 +79,13 @@ const App: React.FC = () => {
         </Splitter.Panel>
       </Splitter>
 
+      <Divider />
+
       <Splitter
         layout="vertical"
+        classNames={{ dragger: { default: styles.dragger, active: styles.draggerActive } }}
         style={{ height: 200, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
-        draggerIcon={<ColumnHeightOutlined className={styles.draggerIcon} />}
+        draggerIcon={null}
         collapsibleIcon={{
           start: <CaretUpOutlined className={styles.collapsibleIcon} />,
           end: <CaretDownOutlined className={styles.collapsibleIcon} />,
