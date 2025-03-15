@@ -15,6 +15,7 @@ import Text from '../Text';
 import type { TitleProps } from '../Title';
 import Title from '../Title';
 import Typography from '../Typography';
+import ConfigProvider from '../../config-provider';
 
 jest.mock('copy-to-clipboard');
 
@@ -496,5 +497,26 @@ describe('Typography', () => {
     editButton.focus();
     userEvent.keyboard('{enter}');
     await waitFor(() => expect(onEditStart).toHaveBeenCalledTimes(1));
+  });
+
+  it('should support config-provider margin-top and margin-bottom', () => {
+    const { container } = render(
+      <ConfigProvider
+        theme={{
+          components: {
+            Typography: {
+              titleMarginBottom: 120,
+              titleMarginTop: 100,
+            },
+          },
+        }}
+      >
+        <Title level={4}>There should hava margin-top and margin-bottom</Title>
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-typography')).toHaveStyle({
+      marginTop: '100px',
+      marginBottom: '120px',
+    });
   });
 });
