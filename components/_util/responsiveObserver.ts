@@ -108,7 +108,7 @@ export default function useResponsiveObserver() {
             const mql = window.matchMedia(matchMediaQuery);
             // Don't modify here, please keep the code compatible
             if (typeof mql?.addEventListener !== 'undefined') {
-              mql.addEventListener('change', listener);
+              mql.addEventListener<'change'>('change', listener);
             } else {
               mql.addListener(listener);
             }
@@ -123,7 +123,7 @@ export default function useResponsiveObserver() {
           const handler = this.matchHandlers[matchMediaQuery];
           // Don't modify here, please keep the code compatible
           if (typeof handler?.mql?.removeEventListener !== 'undefined') {
-            handler?.mql.removeEventListener('change', handler?.listener);
+            handler?.mql.removeEventListener<'change'>('change', handler?.listener);
           } else {
             handler?.mql.removeListener(handler?.listener);
           }

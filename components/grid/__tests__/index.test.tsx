@@ -75,16 +75,13 @@ describe('Grid', () => {
   });
 
   it('when typeof gutter is object array in large screen', () => {
-    const matchMediaSpy = jest.spyOn(window, 'matchMedia');
-    matchMediaSpy.mockImplementation(
+    jest.spyOn(window, 'matchMedia').mockImplementation(
       (query) =>
         ({
-          addEventListener: (type: string, callback: (e: { matches: boolean }) => void) => {
-            if (type === 'change') {
-              callback({ matches: query === '(min-width: 1200px)' });
-            }
+          addListener: (cb: (e: { matches: boolean }) => void) => {
+            cb({ matches: query === '(min-width: 1200px)' });
           },
-          removeEventListener: jest.fn(),
+          removeListener: jest.fn(),
           matches: query === '(min-width: 1200px)',
         }) as any,
     );
@@ -148,22 +145,20 @@ describe('Grid', () => {
     matchMediaSpy.mockImplementation(
       (query) =>
         ({
-          addEventListener: (type: string, callback: (e: { matches: boolean }) => void) => {
-            if (type === 'change') {
-              callback({ matches: query === '(max-width: 575px)' });
-            }
+          addListener: (cb: (e: { matches: boolean }) => void) => {
+            cb({ matches: query === '(max-width: 575px)' });
           },
-          removeEventListener: jest.fn(),
+          removeListener: jest.fn(),
           matches: query === '(max-width: 575px)',
         }) as any,
     );
 
     let screensVar: any = null;
-    const Demo: React.FC = () => {
+    function Demo() {
       const screens = useBreakpoint();
       screensVar = screens;
       return <div />;
-    };
+    }
     render(<Demo />);
 
     expect(screensVar).toEqual({
@@ -181,12 +176,10 @@ describe('Grid', () => {
     matchMediaSpy.mockImplementation(
       (query) =>
         ({
-          addEventListener: (type: string, callback: (e: { matches: boolean }) => void) => {
-            if (type === 'change') {
-              callback({ matches: query === '(max-width: 575px)' });
-            }
+          addListener: (cb: (e: { matches: boolean }) => void) => {
+            cb({ matches: query === '(max-width: 575px)' });
           },
-          removeEventListener: jest.fn(),
+          removeListener: jest.fn(),
           matches: query === '(max-width: 575px)',
         }) as any,
     );
@@ -203,12 +196,10 @@ describe('Grid', () => {
     matchMediaSpy.mockImplementation(
       (query) =>
         ({
-          addEventListener: (type: string, callback: (e: { matches: boolean }) => void) => {
-            if (type === 'change') {
-              callback({ matches: query === '(max-width: 575px)' });
-            }
+          addListener: (cb: (e: { matches: boolean }) => void) => {
+            cb({ matches: query === '(max-width: 575px)' });
           },
-          removeEventListener: jest.fn(),
+          removeListener: jest.fn(),
           matches: query === '(max-width: 575px)',
         }) as any,
     );
