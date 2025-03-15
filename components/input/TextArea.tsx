@@ -17,11 +17,11 @@ import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
 import { useCompactItemContext } from '../space/Compact';
+import useHandleResizeWrapper from './hooks/useHandleResizeWrapper';
 import type { InputFocusOptions } from './Input';
 import { triggerFocus } from './Input';
 import { useSharedStyle } from './style';
 import useStyle from './style/textarea';
-import useHandleResizeWrapper from './hooks/useHandleResizeWrapper';
 
 export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix'> {
   /** @deprecated Use `variant` instead */
@@ -115,7 +115,8 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   const [variant, enableVariantCls] = useVariant('textArea', customVariant, bordered);
 
   const mergedAllowClear = getAllowClear(allowClear ?? contextAllowClear);
-  const { handleResizeWrapper } = useHandleResizeWrapper();
+
+  const handleResizeWrapper = useHandleResizeWrapper();
 
   return wrapSharedCSSVar(
     wrapCSSVar(
@@ -168,11 +169,11 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
           hasFeedback && <span className={`${prefixCls}-textarea-suffix`}>{feedbackIcon}</span>
         }
         showCount={showCount}
+        ref={innerRef}
         onResize={(size) => {
           rest.onResize?.(size);
           showCount && handleResizeWrapper(innerRef.current);
         }}
-        ref={innerRef}
       />,
     ),
   );
