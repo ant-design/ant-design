@@ -131,7 +131,7 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
 };
 
 export const prepareComponentToken: GetDefaultToken<'Typography'> = () => ({
-  titleMarginTop: '0',
+  titleMarginTop: '1.2em',
   titleMarginBottom: '0.5em',
 });
 
