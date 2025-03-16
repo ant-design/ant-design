@@ -20,6 +20,7 @@ import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
 import { useCompactItemContext } from '../space/Compact';
+import useHandleResizeWrapper from './hooks/useHandleResizeWrapper';
 import type { InputFocusOptions } from './Input';
 import { triggerFocus } from './Input';
 import { useSharedStyle } from './style';
@@ -58,6 +59,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     style,
     styles,
     variant: customVariant,
+    showCount,
     ...rest
   } = props;
 
@@ -117,6 +119,8 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
 
   const mergedAllowClear = getAllowClear(allowClear ?? contextAllowClear);
 
+  const { handleResizeWrapper } = useHandleResizeWrapper();
+
   return (
     <RcTextArea
       autoComplete={contextAutoComplete}
@@ -165,6 +169,11 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
       prefixCls={prefixCls}
       suffix={hasFeedback && <span className={`${prefixCls}-textarea-suffix`}>{feedbackIcon}</span>}
       ref={innerRef}
+      showCount={showCount}
+      onResize={(size) => {
+        rest.onResize?.(size);
+        showCount && handleResizeWrapper(innerRef.current);
+      }}
     />
   );
 });
