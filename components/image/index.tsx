@@ -116,7 +116,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
       ),
       icons,
       getContainer: getContainer ?? getContextPopupContainer,
-      transitionName: getTransitionName(prefixCls, 'zoom'),
+      motionName: getTransitionName(`${prefixCls}-preview`, 'fade'),
       zIndex,
       closeIcon: closeIcon ?? contextCloseIcon,
       rootClassName: mergedRootClassName,
