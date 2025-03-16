@@ -81,22 +81,13 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
         marginTop: titleMarginTop,
       },
 
-      [`
-      div,
-      ul,
-      li,
-      p,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5`]: {
+      '&': {
         [`
-        + h1,
-        + h2,
-        + h3,
-        + h4,
-        + h5
+         h1&,
+         h2&,
+         h3&,
+         h4&,
+         h5&
         `]: {
           marginTop: titleMarginTop,
         },
