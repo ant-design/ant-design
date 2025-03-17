@@ -42,7 +42,7 @@ import type { SkeletonProps } from '../skeleton';
 import type { SliderProps } from '../slider';
 import type { SpaceProps } from '../space';
 import type { SpinProps } from '../spin';
-import { SplitterProps } from '../splitter';
+import type { SplitterProps } from '../splitter';
 import type { StatisticProps } from '../statistic';
 import type { SwitchProps } from '../switch';
 import type { TableProps } from '../table';
