@@ -191,6 +191,7 @@ describe('Image', () => {
       ).style.zIndex,
     ).toBe('1302');
   });
+
   it('support classnames and styles', () => {
     const customClassNames = {
       root: 'props-root',
