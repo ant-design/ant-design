@@ -6,5 +6,5 @@ export default function usePreviewConfig<T>(preview?: boolean | T): T {
       return preview ? {} : null;
     }
     return preview && typeof preview === 'object' ? preview : {};
-  }, [preview]);
+  }, [preview]) as T;
 }

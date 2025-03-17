@@ -7,15 +7,17 @@ import RotateRightOutlined from '@ant-design/icons/RotateRightOutlined';
 import SwapOutlined from '@ant-design/icons/SwapOutlined';
 import ZoomInOutlined from '@ant-design/icons/ZoomInOutlined';
 import ZoomOutOutlined from '@ant-design/icons/ZoomOutOutlined';
-import classNames from 'classnames';
 import RcImage from '@rc-component/image';
 import type { GroupConsumerProps } from '@rc-component/image/lib/PreviewGroup';
+import classNames from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useStyle from './style';
+import usePreviewConfig from './usePreviewConfig';
 
 export const icons = {
   rotateLeft: <RotateLeftOutlined />,
@@ -34,37 +36,53 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
   preview,
   ...otherProps
 }) => {
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  // =============================== MISC ===============================
+  // Context
+  const {
+    getPrefixCls,
+    getPopupContainer: getContextPopupContainer,
+    preview: contextPreview,
+  } = useComponentConfig('image');
+
   const prefixCls = getPrefixCls('image', customizePrefixCls);
   const previewPrefixCls = `${prefixCls}-preview`;
-  const rootPrefixCls = getPrefixCls();
 
+  // ============================== Style ===============================
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const [zIndex] = useZIndex(
-    'ImagePreview',
-    typeof preview === 'object' ? preview.zIndex : undefined,
+  const mergedRootClassName = classNames(hashId, cssVarCls, rootCls);
+
+  // ============================= Preview ==============================
+  const previewConfig = usePreviewConfig(preview);
+  const contextPreviewConfig = usePreviewConfig(contextPreview);
+
+  const [zIndex] = useZIndex('ImagePreview', previewConfig?.zIndex);
+
+  // Preview semantic
+  const [mergedPreviewClassNames, mergedPreviewStyles] = useMergeSemantic(
+    [contextPreviewConfig?.classNames, previewConfig?.classNames],
+    [contextPreviewConfig?.styles, previewConfig?.styles],
   );
 
   const mergedPreview = React.useMemo<GroupConsumerProps['preview']>(() => {
-    if (preview === false) {
-      return preview;
+    if (!previewConfig) {
+      return previewConfig;
     }
-    const _preview = typeof preview === 'object' ? preview : {};
-    const mergedRootClassName = classNames(
-      hashId,
-      cssVarCls,
-      rootCls,
-      _preview.rootClassName ?? '',
-    );
+
+    const { getContainer, closeIcon } = previewConfig;
+    const { closeIcon: contextCloseIcon } = contextPreviewConfig ?? {};
 
     return {
-      ..._preview,
-      transitionName: getTransitionName(rootPrefixCls, 'zoom', _preview.transitionName),
-      maskTransitionName: getTransitionName(rootPrefixCls, 'fade', _preview.maskTransitionName),
-      rootClassName: mergedRootClassName,
+      ...previewConfig,
+      icons,
+      getContainer: getContainer ?? getContextPopupContainer,
+      motionName: getTransitionName(`${prefixCls}-preview`, 'fade'),
       zIndex,
+      closeIcon: closeIcon ?? contextCloseIcon,
+      rootClassName: mergedRootClassName,
+      classNames: mergedPreviewClassNames,
+      styles: mergedPreviewStyles,
     };
   }, [preview]);
 

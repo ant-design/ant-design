@@ -86,16 +86,16 @@ const Image: CompositionImage<ImageProps> = (props) => {
   const previewConfig = usePreviewConfig(preview);
   const contextPreviewConfig = usePreviewConfig(contextPreview);
 
-  // Context semantic
+  // Preview semantic
   const [mergedPreviewClassNames, mergedPreviewStyles] = useMergeSemantic(
-    [contextClassNames, imageClassNames || {}],
-    [contextStyles, styles || {}],
+    [contextPreviewConfig?.classNames, previewConfig?.classNames],
+    [contextPreviewConfig?.styles, previewConfig?.styles],
   );
 
   const [zIndex] = useZIndex(
     'ImagePreview',
     // Get default zIndex if provided
-    previewConfig ? previewConfig.zIndex : undefined,
+    previewConfig?.zIndex,
   );
 
   const mergedPreviewConfig = React.useMemo<ImageProps['preview']>(() => {

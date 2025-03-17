@@ -2,9 +2,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 import { FastColor } from '@ant-design/fast-color';
 
-import { genModalMaskStyle } from '../../modal/style';
 import { textEllipsis } from '../../style';
-import { initFadeMotion, initZoomMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
@@ -82,9 +80,6 @@ export const genImageCoverStyle = (token: ImageToken): CSSObject => {
         opacity: 0,
         transition: `opacity ${motionDurationSlow}`,
 
-        // [`${componentCls}-cover`]: {
-        //   ...genImageCoverStyle(token),
-        // },
         [`&:hover`]: {
           opacity: 1,
         },
@@ -103,162 +98,6 @@ export const genImageCoverStyle = (token: ImageToken): CSSObject => {
   };
 };
 
-// export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
-//   const {
-//     previewCls,
-//     modalMaskBg,
-//     paddingSM,
-//     marginXL,
-//     margin,
-//     paddingLG,
-//     previewOperationColorDisabled,
-//     previewOperationHoverColor,
-//     motionDurationSlow,
-//     iconCls,
-//     colorTextLightSolid,
-//   } = token;
-
-//   const operationBg = new FastColor(modalMaskBg).setA(0.1);
-//   const operationBgHover = operationBg.clone().setA(0.2);
-
-//   return {
-//     [`${previewCls}-footer`]: {
-//       position: 'fixed',
-//       bottom: marginXL,
-//       left: {
-//         _skip_check_: true,
-//         value: '50%',
-//       },
-//       display: 'flex',
-//       flexDirection: 'column',
-//       alignItems: 'center',
-//       color: token.previewOperationColor,
-//       transform: 'translateX(-50%)',
-//     },
-//     [`${previewCls}-progress`]: {
-//       marginBottom: margin,
-//     },
-//     [`${previewCls}-close`]: {
-//       position: 'fixed',
-//       top: marginXL,
-//       right: {
-//         _skip_check_: true,
-//         value: marginXL,
-//       },
-//       display: 'flex',
-//       color: colorTextLightSolid,
-//       backgroundColor: operationBg.toRgbString(),
-//       borderRadius: '50%',
-//       padding: paddingSM,
-//       outline: 0,
-//       border: 0,
-//       cursor: 'pointer',
-//       transition: `all ${motionDurationSlow}`,
-
-//       '&:hover': {
-//         backgroundColor: operationBgHover.toRgbString(),
-//       },
-
-//       [`& > ${iconCls}`]: {
-//         fontSize: token.previewOperationSize,
-//       },
-//     },
-//     [`${previewCls}-operations`]: {
-//       display: 'flex',
-//       alignItems: 'center',
-//       padding: `0 ${unit(paddingLG)}`,
-//       backgroundColor: operationBg.toRgbString(),
-//       borderRadius: 100,
-
-//       '&-operation': {
-//         marginInlineStart: paddingSM,
-//         padding: paddingSM,
-//         cursor: 'pointer',
-//         transition: `all ${motionDurationSlow}`,
-//         userSelect: 'none',
-
-//         [`&:not(${previewCls}-operations-operation-disabled):hover > ${iconCls}`]: {
-//           color: previewOperationHoverColor,
-//         },
-
-//         '&-disabled': {
-//           color: previewOperationColorDisabled,
-//           cursor: 'not-allowed',
-//         },
-
-//         '&:first-of-type': {
-//           marginInlineStart: 0,
-//         },
-
-//         [`& > ${iconCls}`]: {
-//           fontSize: token.previewOperationSize,
-//         },
-//       },
-//     },
-//   };
-// };
-
-// export const genPreviewSwitchStyle = (token: ImageToken): CSSObject => {
-//   const {
-//     modalMaskBg,
-//     iconCls,
-//     previewOperationColorDisabled,
-//     previewCls,
-//     zIndexPopup,
-//     motionDurationSlow,
-//   } = token;
-
-//   const operationBg = new FastColor(modalMaskBg).setA(0.1);
-//   const operationBgHover = operationBg.clone().setA(0.2);
-
-//   return {
-//     [`${previewCls}-switch-left, ${previewCls}-switch-right`]: {
-//       position: 'fixed',
-//       insetBlockStart: '50%',
-//       zIndex: token.calc(zIndexPopup).add(1).equal(),
-//       display: 'flex',
-//       alignItems: 'center',
-//       justifyContent: 'center',
-//       width: token.imagePreviewSwitchSize,
-//       height: token.imagePreviewSwitchSize,
-//       marginTop: token.calc(token.imagePreviewSwitchSize).mul(-1).div(2).equal(),
-//       color: token.previewOperationColor,
-//       background: operationBg.toRgbString(),
-//       borderRadius: '50%',
-//       transform: `translateY(-50%)`,
-//       cursor: 'pointer',
-//       transition: `all ${motionDurationSlow}`,
-//       userSelect: 'none',
-
-//       '&:hover': {
-//         background: operationBgHover.toRgbString(),
-//       },
-
-//       '&-disabled': {
-//         '&, &:hover': {
-//           color: previewOperationColorDisabled,
-//           background: 'transparent',
-//           cursor: 'not-allowed',
-//           [`> ${iconCls}`]: {
-//             cursor: 'not-allowed',
-//           },
-//         },
-//       },
-//       [`> ${iconCls}`]: {
-//         fontSize: token.previewOperationSize,
-//       },
-//     },
-
-//     [`${previewCls}-switch-left`]: {
-//       insetInlineStart: token.marginSM,
-//     },
-
-//     [`${previewCls}-switch-right`]: {
-//       insetInlineEnd: token.marginSM,
-//     },
-//   };
-// };
-
 export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
   const {
     motionEaseOut,
@@ -267,177 +106,155 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
     componentCls,
     modalMaskBg,
     marginXL,
+    marginSM,
+    margin,
     colorTextLightSolid,
     paddingSM,
     paddingLG,
-    iconCls,
     previewOperationHoverColor,
     previewOperationColorDisabled,
     previewOperationSize,
+    zIndexPopup,
   } = token;
 
   const operationBg = new FastColor(modalMaskBg).setA(0.1);
   const operationBgHover = operationBg.clone().setA(0.2);
 
-  return [
-    {
-      [`${componentCls}-preview`]: {
-        textAlign: 'center',
+  const singleBtn: CSSObject = {
+    position: 'absolute',
+    color: colorTextLightSolid,
+    backgroundColor: operationBg.toRgbString(),
+    borderRadius: '50%',
+    padding: paddingSM,
+    outline: 0,
+    border: 0,
+    cursor: 'pointer',
+    transition: `all ${motionDurationSlow}`,
+    display: 'flex',
+    fontSize: previewOperationSize,
+
+    '&:hover': {
+      backgroundColor: operationBgHover.toRgbString(),
+    },
+    '&:active': {
+      backgroundColor: operationBg.toRgbString(),
+    },
+  };
+
+  return {
+    [`${componentCls}-preview`]: {
+      textAlign: 'center',
+      inset: 0,
+      position: 'fixed',
+      userSelect: 'none',
+      zIndex: zIndexPopup,
+
+      // ================= Mask =================
+      [`${previewCls}-mask`]: {
         inset: 0,
-        position: 'fixed',
-        userSelect: 'none',
+        position: 'absolute',
+        background: modalMaskBg,
+      },
 
-        // ================= Mask =================
-        [`${previewCls}-mask`]: {
-          inset: 0,
-          position: 'absolute',
-          background: modalMaskBg,
+      // ================= Body =================
+      [`${previewCls}-body`]: {
+        ...genBoxStyle(),
+        'pointer-events': 'none',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+
+        '> *': {
+          pointerEvents: 'auto',
         },
+      },
 
-        // ================= Body =================
-        [`${previewCls}-body`]: {
-          ...genBoxStyle(),
-          'pointer-events': 'none',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+      // Body > Image
+      [`${previewCls}-img`]: {
+        maxWidth: '100%',
+        maxHeight: '70%',
+        verticalAlign: 'middle',
+        transform: 'scale3d(1, 1, 1)',
+        cursor: 'grab',
+        transition: `transform ${motionDurationSlow} ${motionEaseOut} 0s`,
+      },
 
-          '> *': {
-            pointerEvents: 'auto',
+      [`&-moving ${previewCls}-img`]: {
+        cursor: 'grabbing',
+      },
+
+      // =============== CloseBtn ===============
+      [`${previewCls}-close`]: {
+        // Shared style
+        ...singleBtn,
+        top: marginXL,
+        insetInlineEnd: marginXL,
+      },
+
+      // ================ Switch ================
+      [`${previewCls}-switch`]: {
+        ...singleBtn,
+        top: '50%',
+        transform: `translateY(-50%)`,
+
+        '&-disabled': {
+          '&, &:hover, &:active': {
+            color: previewOperationColorDisabled,
+            background: 'transparent',
+            cursor: 'not-allowed',
           },
         },
 
-        // Body > Image
-        [`${previewCls}-img`]: {
-          maxWidth: '100%',
-          maxHeight: '70%',
-          verticalAlign: 'middle',
-          transform: 'scale3d(1, 1, 1)',
-          cursor: 'grab',
-          transition: `transform ${motionDurationSlow} ${motionEaseOut} 0s`,
-
-          // '&-wrapper': {
-          //   ...genBoxStyle(),
-          //   transition: `transform ${motionDurationSlow} ${motionEaseOut} 0s`,
-
-          //   // https://github.com/ant-design/ant-design/issues/39913
-          //   // TailwindCSS will reset img default style.
-          //   // Let's set back.
-          //   display: 'flex',
-          //   justifyContent: 'center',
-          //   alignItems: 'center',
-
-          //   '& > *': {
-          //     pointerEvents: 'auto',
-          //   },
-
-          //   '&::before': {
-          //     display: 'inline-block',
-          //     width: 1,
-          //     height: '50%',
-          //     marginInlineEnd: -1,
-          //     content: '""',
-          //   },
-          // },
+        '&-prev': {
+          insetInlineStart: marginSM,
         },
-
-        [`&-moving ${previewCls}-img`]: {
-          cursor: 'grabbing',
+        '&-next': {
+          insetInlineEnd: marginSM,
         },
+      },
 
-        // =============== CloseBtn ===============
-        [`${previewCls}-close`]: {
-          position: 'absolute',
-          top: marginXL,
-          insetInlineEnd: marginXL,
-          color: colorTextLightSolid,
-          backgroundColor: operationBg.toRgbString(),
-          borderRadius: '50%',
+      // ================ Footer ================
+      [`${previewCls}-footer`]: {
+        position: 'absolute',
+        bottom: marginXL,
+        left: {
+          _skip_check_: true,
+          value: '50%',
+        },
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        color: token.previewOperationColor,
+        transform: 'translateX(-50%)',
+        gap: margin,
+      },
+
+      // =============== Actions ================
+      [`${previewCls}-actions`]: {
+        display: 'flex',
+        gap: paddingSM,
+        padding: `0 ${unit(paddingLG)}`,
+        backgroundColor: operationBg.toRgbString(),
+        borderRadius: 100,
+        fontSize: previewOperationSize,
+
+        '&-action': {
           padding: paddingSM,
-          outline: 0,
-          border: 0,
           cursor: 'pointer',
           transition: `all ${motionDurationSlow}`,
           display: 'flex',
 
-          
-          '&:hover': {
-            backgroundColor: operationBgHover.toRgbString(),
+          [`&:not(${previewCls}-actions-action-disabled):hover`]: {
+            color: previewOperationHoverColor,
           },
-
-          [`& > ${iconCls}`]: {
-            fontSize: token.previewOperationSize,
-          },
-        },
-
-        // ================ Footer ================
-        [`${previewCls}-footer`]: {
-          position: 'absolute',
-          bottom: marginXL,
-          left: {
-            _skip_check_: true,
-            value: '50%',
-          },
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          color: token.previewOperationColor,
-          transform: 'translateX(-50%)',
-        },
-
-        // =============== Actions ================
-        [`${previewCls}-actions`]: {
-          display: 'flex',
-          gap: paddingSM,
-          padding: `0 ${unit(paddingLG)}`,
-          backgroundColor: operationBg.toRgbString(),
-          borderRadius: 100,
-          fontSize: previewOperationSize,
-
-          '&-action': {
-            padding: paddingSM,
-            cursor: 'pointer',
-            transition: `all ${motionDurationSlow}`,
-
-            [`&:not(${previewCls}-actions-action-disabled):hover`]: {
-              color: previewOperationHoverColor,
-            },
-            '&-disabled': {
-              color: previewOperationColorDisabled,
-              cursor: 'not-allowed',
-            },
+          '&-disabled': {
+            color: previewOperationColorDisabled,
+            cursor: 'not-allowed',
           },
         },
-
-        // [`${previewCls}-moving`]: {
-        //   [`${previewCls}-preview-img`]: {
-        //     cursor: 'grabbing',
-
-        //     '&-wrapper': {
-        //       transitionDuration: '0s',
-        //     },
-        //   },
-        // },
       },
     },
-    // Override
-    // {
-    //   [`${componentCls}-preview-root`]: {
-    //     [`${previewCls}-wrap`]: {
-    //       zIndex: token.zIndexPopup,
-    //     },
-    //   },
-    // },
-
-    // Preview operations & switch
-    // {
-    //   [`${componentCls}-preview-operations-wrapper`]: {
-    //     position: 'fixed',
-    //     zIndex: token.calc(token.zIndexPopup).add(1).equal(),
-    //   },
-    //   '&': [genPreviewOperationsStyle(token), genPreviewSwitchStyle(token)],
-    // },
-  ];
+  };
 };
 
 const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
@@ -471,8 +288,6 @@ const genPreviewMotion: GenerateStyle<ImageToken> = (token) => {
   const { previewCls, motionDurationSlow } = token;
 
   return {
-    // [`${previewCls}`]: initZoomMotion(token, 'zoom'),
-    // '&': initFadeMotion(token, true),
     [`${previewCls}`]: {
       '&-fade': {
         transition: `opacity ${motionDurationSlow}`,
@@ -535,7 +350,6 @@ export default genStyleHooks(
       genImageStyle(imageToken),
       genImageCoverStyle(imageToken),
       genImagePreviewStyle(imageToken),
-      // genModalMaskStyle(mergeToken<ImageToken>(imageToken, { componentCls: previewCls })),
       genPreviewMotion(imageToken),
     ];
   },
