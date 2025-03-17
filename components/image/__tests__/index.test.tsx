@@ -232,11 +232,34 @@ describe('Image', () => {
       />,
     );
 
-    // Match classnames and styles
+    // Match classnames and styles: Image
     expect(document.querySelector('.ant-image')).toHaveClass(customClassNames.root);
     expect(document.querySelector('.ant-image')).toHaveStyle(customStyles.root);
 
     expect(document.querySelector('.ant-image-img')).toHaveClass(customClassNames.image);
     expect(document.querySelector('.ant-image-img')).toHaveStyle(customStyles.image);
+
+    expect(document.querySelector('.ant-image-cover')).toHaveClass(previewClassNames.cover);
+    expect(document.querySelector('.ant-image-cover')).toHaveStyle(previewStyles.cover);
+
+    // Match classnames and styles: Preview
+    expect(document.querySelector('.ant-image-preview')).toHaveClass(previewClassNames.root);
+    expect(document.querySelector('.ant-image-preview')).toHaveStyle(previewStyles.root);
+
+    expect(document.querySelector('.ant-image-preview-mask')).toHaveClass(previewClassNames.mask);
+    expect(document.querySelector('.ant-image-preview-mask')).toHaveStyle(previewStyles.mask);
+
+    expect(document.querySelector('.ant-image-preview-body')).toHaveClass(previewClassNames.body);
+    expect(document.querySelector('.ant-image-preview-body')).toHaveStyle(previewStyles.body);
+
+    expect(document.querySelector('.ant-image-preview-footer')).toHaveClass(
+      previewClassNames.footer,
+    );
+    expect(document.querySelector('.ant-image-preview-footer')).toHaveStyle(previewStyles.footer);
+
+    expect(document.querySelector('.ant-image-preview-actions')).toHaveClass(
+      previewClassNames.actions,
+    );
+    expect(document.querySelector('.ant-image-preview-actions')).toHaveStyle(previewStyles.actions);
   });
 });
