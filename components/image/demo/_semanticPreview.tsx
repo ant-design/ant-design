@@ -7,11 +7,11 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 
 const locales = {
   cn: {
-    mask: '遮罩层元素',
+    cover: '遮罩层元素',
     actions: '操作组元素',
   },
   en: {
-    mask: 'Mask element',
+    cover: 'Mask element',
     actions: 'Actions element',
   },
 };
