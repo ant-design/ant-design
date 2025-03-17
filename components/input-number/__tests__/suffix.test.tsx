@@ -24,4 +24,13 @@ describe('suffix', () => {
       container.querySelector('.ant-input-number-affix-wrapper-without-controls'),
     ).toBeTruthy();
   });
+
+  it('should not show the control buttons when inputNumber is disabled', () => {
+    const { container } = render(<InputNumber suffix="RMB" style={{ width: '100%' }} disabled />);
+    const suffix = container.querySelector('.ant-input-number-suffix')!;
+    const prevMarginInlineEnd = window.getComputedStyle(suffix).marginInlineEnd;
+    fireEvent.mouseEnter(container.querySelector('.ant-input-number-affix-wrapper')!);
+    const currentMarginInlineEnd = window.getComputedStyle(suffix).marginInlineEnd;
+    expect(currentMarginInlineEnd).toEqual(prevMarginInlineEnd);
+  });
 });
