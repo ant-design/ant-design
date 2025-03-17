@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'antd';
+import { Flex, Image, theme } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classnames from 'classnames';
 
@@ -20,54 +20,84 @@ const locales = {
     image: '图片元素',
     'preview.cover': '悬浮提示元素',
     'preview.root': '预览根元素',
+    'preview.mask': '预览遮罩元素',
     'preview.body': '预览内容元素',
+    'preview.footer': 
+    'preview.actions': 
+    'preview.action': 
   },
   en: {
     root: 'Root element',
     image: 'Image element',
     'preview.cover': 'Cover element',
     'preview.root': 'Preview root element',
+    'preview.mask': 'Preview mask element',
     'preview.body': 'Preview body element',
   },
 };
 
 const Block = ({ classNames, ...restProps }: any) => {
-  const divRef = React.useRef<HTMLDivElement>(null);
+  const holderRef = React.useRef<HTMLDivElement>(null);
+
+  const { token } = theme.useToken();
 
   const { styles } = useStyle();
 
   const [propClassNames, previewClassNames] = React.useMemo(() => {
     const previewPrefix = 'preview.';
-    const propClassNames: Record<string, string> = {};
-    const previewClassNames: Record<string, string> = {};
+    const nextPropClassNames: Record<string, string> = {};
+    const nextPreviewClassNames: Record<string, string> = {};
     if (classNames) {
       Object.keys(classNames).forEach((key) => {
         if (key.startsWith(previewPrefix)) {
-          previewClassNames[key.replace(previewPrefix, '')] = classNames[key];
+          nextPreviewClassNames[key.replace(previewPrefix, '')] = classNames[key];
         } else {
-          propClassNames[key] = classNames[key];
+          nextPropClassNames[key] = classNames[key];
         }
       });
     }
-    return [propClassNames, previewClassNames];
+    return [nextPropClassNames, nextPreviewClassNames];
   }, [classNames]);
 
   return (
-    <div ref={divRef}>
-      <Image
-        width={200}
-        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-        classNames={propClassNames}
-        preview={{
-          getContainer: () => divRef.current,
-          classNames: {
-            ...previewClassNames,
-            cover: classnames(previewClassNames.cover, styles.cover),
-          },
-        }}
-        {...restProps}
-      />
-    </div>
+    <Flex
+      vertical
+      align="center"
+      style={{
+        minHeight: '100%',
+        width: '100%',
+      }}
+    >
+      <Flex style={{ padding: token.padding, flex: 'none' }} justify="center">
+        <Image
+          width={200}
+          src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+          classNames={propClassNames}
+          preview={{
+            getContainer: () => holderRef.current,
+            classNames: {
+              ...previewClassNames,
+              cover: classnames(previewClassNames.cover, styles.cover),
+            },
+          }}
+          {...restProps}
+        />
+      </Flex>
+      <div style={{ flex: 1, position: 'relative', minHeight: 500, width: '100%' }} ref={holderRef}>
+        <Image
+          width={0}
+          src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+          preview={{
+            getContainer: () => holderRef.current!,
+            open: true,
+            styles: {
+              root: { position: 'absolute' },
+            },
+            classNames: previewClassNames,
+          }}
+        />
+      </div>
+    </Flex>
   );
 };
 
@@ -81,6 +111,7 @@ const App: React.FC = () => {
         { name: 'image', desc: locale.image },
         { name: 'preview.cover', desc: locale['preview.cover'] },
         { name: 'preview.root', desc: locale['preview.root'] },
+        { name: 'preview.mask', desc: locale['preview.mask'] },
         { name: 'preview.body', desc: locale['preview.body'] },
       ]}
     >
