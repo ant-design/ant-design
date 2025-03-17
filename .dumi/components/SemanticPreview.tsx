@@ -80,7 +80,7 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
 
   // ======================= Semantic =======================
   const getMarkClassName = React.useCallback(
-    (semanticKey: string) => `semantic-mark-${semanticKey}`,
+    (semanticKey: string) => `semantic-mark-${semanticKey}`.replace(/\./g, '-'),
     [],
   );
 
@@ -93,10 +93,6 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
 
     return classNames;
   }, [semantics]);
-
-  const cloneNode = React.cloneElement(children, {
-    classNames: semanticClassNames,
-  });
 
   // ======================== Hover =========================
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -138,7 +134,22 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
     };
   }, [hoverSemantic]);
 
+  const hoveredSemanticClassNames = React.useMemo(() => {
+    if (!hoverSemantic) {
+      return semanticClassNames;
+    }
+
+    const clone = { ...semanticClassNames };
+    clone[hoverSemantic] = classnames(clone[hoverSemantic], getMarkClassName('active'));
+
+    return clone;
+  }, [semanticClassNames, hoverSemantic]);
+
   // ======================== Render ========================
+  const cloneNode = React.cloneElement(children, {
+    classNames: hoveredSemanticClassNames,
+  });
+
   return (
     <div className={classnames(styles.container)} ref={containerRef}>
       <Row style={{ minHeight: height }}>
