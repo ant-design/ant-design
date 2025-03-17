@@ -20,9 +20,9 @@ tag: vVERSION
 `2025-03-17`
 
 - 🐞 修复 Input.TextArea 调整大小时宽度同步问题。[#53024](https://github.com/ant-design/ant-design/pull/53024) [@triyys](https://github.com/triyys)
-- 🐞 修复 Typography 组件 `type` 属性使用错误颜色变量的问题。[#53086](https://github.com/ant-design/ant-design/pull/53086) [@zombieJ](https://github.com/zombieJ)
-- 🐞 修复 Affix 组件在 React 18 以下版本中 `onChange` 事件异常。[#53038](https://github.com/ant-design/ant-design/pull/53038) [@waiter](https://github.com/waiter)
-- 🐞 修复 Form 组件 `requiredMark` 在禁用状态下不生效的问题。[#52950](https://github.com/ant-design/ant-design/pull/52950) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 修复 Typography `type` 颜色没有跟随 token `color[Status]Text` 而是 `color[Status]` 的问题。[#53086](https://github.com/ant-design/ant-design/pull/53086) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Affix 组件在 React 18 以下版本中 `onChange` 参数值异常的问题。[#53038](https://github.com/ant-design/ant-design/pull/53038) [@waiter](https://github.com/waiter)
+- 🐞 修复 Form `requiredMark` 在 `component=false` 时不起作用的问题。[#52950](https://github.com/ant-design/ant-design/pull/52950) [@Wxh16144](https://github.com/Wxh16144)
 - 🇹🇷 新增 Tour 组件的土耳其语（tr_TR）本地化支持。[#53117](https://github.com/ant-design/ant-design/pull/53117) [@hakankosdag](https://github.com/hakankosdag)
 
 ## 5.24.3
