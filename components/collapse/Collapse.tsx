@@ -58,9 +58,7 @@ interface PanelProps {
 }
 
 const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
-  const { getPrefixCls, direction, collapse, theme } = React.useContext(ConfigContext);
-
-  const hasContentBg = theme?.components?.Collapse?.contentBg;
+  const { getPrefixCls, direction, collapse } = React.useContext(ConfigContext);
 
   const {
     prefixCls: customizePrefixCls,
@@ -130,7 +128,6 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     `${prefixCls}-icon-position-${mergedExpandIconPosition}`,
     {
       [`${prefixCls}-borderless`]: !bordered,
-      [`${prefixCls}-borderless-bg`]: !bordered && hasContentBg,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-ghost`]: !!ghost,
       [`${prefixCls}-${mergedSize}`]: mergedSize !== 'middle',

@@ -276,25 +276,27 @@ describe('Collapse', () => {
     );
   });
 
-  it('should has borderless-bg class when has contentBg and borderless', () => {
+  it('should support borderLessContentBg component token', () => {
     const { container } = render(
       <ConfigProvider
         theme={{
           components: {
             Collapse: {
-              contentBg: 'red',
+              borderLessContentBg: 'red',
             },
           },
         }}
       >
-        <Collapse bordered={false}>
+        <Collapse bordered={false} defaultActiveKey={['1']}>
           <Collapse.Panel header="This is panel header 1" key="1">
             content
           </Collapse.Panel>
         </Collapse>
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-collapse-borderless-bg')).toBeTruthy();
+    expect(container.querySelector('.ant-collapse-content')).toHaveStyle({
+      backgroundColor: 'red',
+    });
   });
 
   it('should support styles and classNames', () => {
