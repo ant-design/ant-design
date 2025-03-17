@@ -192,57 +192,51 @@ describe('Image', () => {
     ).toBe('1302');
   });
   it('support classnames and styles', () => {
-    const customClassnames = {
-      mask: 'custom-mask',
-      actions: 'custom-actions',
+    const customClassNames = {
+      root: 'props-root',
+      image: 'props-image',
+      cover: 'props-cover',
     };
     const customStyles = {
-      mask: { color: 'red' },
-      actions: { backgroundColor: 'blue' },
+      root: { color: 'red' },
+      image: { color: 'yellow' },
+      cover: { color: 'blue' },
     };
-    const { baseElement } = render(
+    const previewClassNames = {
+      cover: 'preview-cover',
+      root: 'preview-root',
+      mask: 'preview-mask',
+      body: 'preview-body',
+      footer: 'preview-footer',
+      actions: 'preview-actions',
+    };
+    const previewStyles = {
+      cover: { color: 'red' },
+      root: { color: 'yellow' },
+      mask: { color: 'blue' },
+      body: { color: 'green' },
+      footer: { color: 'black' },
+      actions: { color: 'white' },
+    };
+
+    render(
       <Image
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+        classNames={customClassNames}
+        styles={customStyles}
         preview={{
-          styles: customStyles,
-          classNames: customClassnames,
-          mask: 'Bamboo Is Light',
-          zIndex: 9999,
-          visible: true,
+          classNames: previewClassNames,
+          styles: previewStyles,
+          open: true,
         }}
       />,
     );
-    const imageClassnames = {
-      root: 'custom-image-root',
-      mask: 'custom-image-mask',
-      actions: 'custom-image-actions',
-    };
-    const imageStyles = {
-      root: { fontSize: '20px' },
-      mask: { color: 'red' },
-      actions: { backgroundColor: 'blue' },
-    };
-    const { baseElement: imageElement } = render(
-      <Image
-        styles={imageStyles}
-        classNames={imageClassnames}
-        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-      />,
-    );
 
-    // preview
-    const mask = document.querySelector('.ant-image-preview-mask');
-    const actions = baseElement.querySelector('.ant-image-preview-operations');
-    expect(mask).toHaveClass(customClassnames.mask);
-    expect(mask).toHaveStyle(customStyles.mask);
-    expect(actions).toHaveClass(customClassnames.actions);
-    expect(actions).toHaveStyle(customStyles.actions);
+    // Match classnames and styles
+    expect(document.querySelector('.ant-image')).toHaveClass(customClassNames.root);
+    expect(document.querySelector('.ant-image')).toHaveStyle(customStyles.root);
 
-    // image
-    expect(imageElement.querySelector(`.${imageClassnames.root}`)).toHaveStyle(imageStyles.root);
-    expect(imageElement.querySelector(`.${imageClassnames.mask}`)).toHaveStyle(imageStyles.mask);
-    const imageActions = imageElement.querySelector('.ant-image-mask-info');
-    expect(imageActions).toHaveClass(imageClassnames.actions);
-    expect(imageActions).toHaveStyle(imageStyles.actions);
+    expect(document.querySelector('.ant-image-img')).toHaveClass(customClassNames.image);
+    expect(document.querySelector('.ant-image-img')).toHaveStyle(customStyles.image);
   });
 });
