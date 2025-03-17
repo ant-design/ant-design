@@ -42,6 +42,7 @@ import type { SkeletonProps } from '../skeleton';
 import type { SliderProps } from '../slider';
 import type { SpaceProps } from '../space';
 import type { SpinProps } from '../spin';
+import { SplitterProps } from '../splitter';
 import type { StatisticProps } from '../statistic';
 import type { SwitchProps } from '../switch';
 import type { TableProps } from '../table';
@@ -148,7 +149,7 @@ export interface TableConfig extends ComponentStyleConfig {
 export type ImageConfig = ComponentStyleConfig &
   Pick<ImageProps, 'classNames' | 'styles'> & {
     preview?: Partial<Record<'closeIcon', React.ReactNode>> &
-    Pick<ImagePreviewType, 'classNames' | 'styles'>;
+      Pick<ImagePreviewType, 'classNames' | 'styles'>;
   };
 
 export type CollapseConfig = ComponentStyleConfig &
@@ -321,7 +322,7 @@ export interface ConfigComponentProps {
   inputNumber?: InputNumberConfig;
   pagination?: PaginationConfig;
   space?: SpaceConfig;
-  splitter?: ComponentStyleConfig;
+  splitter?: ComponentStyleConfig & Pick<SplitterProps, 'classNames' | 'styles'>;
   form?: FormConfig;
   select?: SelectConfig;
   alert?: AlertConfig;

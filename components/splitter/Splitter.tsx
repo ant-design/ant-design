@@ -40,6 +40,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     direction,
     className: contextClassName,
     style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
   } = useComponentConfig('splitter');
   const prefixCls = getPrefixCls('splitter', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
@@ -138,6 +140,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
       [`${prefixCls}-rtl`]: isRTL,
     },
     rootClassName,
+    contextClassNames.root,
     contextClassName,
     classNames?.root,
     cssVarCls,
@@ -160,7 +163,12 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     return mergedSizes;
   }, [itemPtgSizes]);
 
-  const mergedStyle: React.CSSProperties = { ...contextStyle, ...styles?.root, ...style };
+  const mergedStyle: React.CSSProperties = {
+    ...contextStyles.root,
+    ...styles?.root,
+    ...contextStyle,
+    ...style,
+  };
 
   return (
     <ResizeObserver onResize={onContainerResize}>
@@ -168,8 +176,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
         {items.map((item, idx) => {
           const pannelProps = {
             ...item,
-            className: cls(item.className, classNames?.panel),
-            style: { ...styles?.panel, ...item.style },
+            className: cls(contextClassNames.panel, classNames?.panel, item.className),
+            style: { ...contextStyles.panel, ...styles?.panel, ...item.style },
           };
 
           // Panel
@@ -188,6 +196,9 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
             const ariaMaxStart = (stackSizes[idx - 1] || 0) + itemPtgMaxSizes[idx];
             const ariaMaxEnd = (stackSizes[idx + 1] || 100) - itemPtgMinSizes[idx + 1];
 
+            const meargedStyles = { ...contextStyles.dragger, ...styles?.dragger };
+            const meargedClssNames = { ...contextClassNames?.dragger, ...classNames?.dragger };
+
             splitBar = (
               <SplitBar
                 lazy={lazy}
@@ -196,8 +207,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 prefixCls={prefixCls}
                 vertical={isVertical}
                 resizable={resizableInfo.resizable}
-                draggerStyle={styles?.dragger}
-                draggerClassName={classNames?.dragger}
+                draggerStyle={meargedStyles}
+                draggerClassName={meargedClssNames}
                 draggerIcon={draggerIcon}
                 collapsibleIcon={collapsibleIcon}
                 ariaNow={stackSizes[idx] * 100}

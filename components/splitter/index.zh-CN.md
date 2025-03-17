@@ -48,8 +48,8 @@ tag: 5.21.0
 | lazy | 延迟渲染模式 | `boolean` | `false` | 5.23.0 |
 | collapsibleIcon | 折叠图标 | `{start?: ReactNode; end?: ReactNode}` | - | 6.0.0 |
 | draggerIcon | 拖拽图标 | `ReactNode` | - | 6.0.0 |
-| classNames | 语义化结构 className | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
-| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
+| classNames | 语义化结构 className | [Record<SemanticDOM, string>](#semantic-dom) | - | 6.0.0 |
+| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 6.0.0 |
 
 ### Panel
 
