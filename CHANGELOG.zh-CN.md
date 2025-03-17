@@ -15,6 +15,10 @@ tag: vVERSION
 
 ---
 
+## Unreleased
+
+- 🆕 Transfer 组件 `operations` 属性支持传入 ReactNode 数组，可以自定义操作按钮。[#53121](https://github.com/ant-design/ant-design/pull/53121) [@afc163](https://github.com/afc163)
+
 ## 5.24.3
 
 `2025-03-05`
