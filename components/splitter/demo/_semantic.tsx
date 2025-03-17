@@ -18,6 +18,24 @@ const locales = {
   },
 };
 
+const Block: React.FC = (props: any) => {
+  return (
+    <Splitter
+      {...props}
+      style={{ height: 200, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
+      classNames={{ ...props.classNames, dragger: { default: 'semantic-mark-dragger' } }}
+    >
+      <Splitter.Panel>
+        <Desc text="First" />
+      </Splitter.Panel>
+
+      <Splitter.Panel>
+        <Desc text="Second" />
+      </Splitter.Panel>
+    </Splitter>
+  );
+};
+
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
 
@@ -29,15 +47,7 @@ const App: React.FC = () => {
         { name: 'dragger', desc: locale.dragger, version: '6.0.0' },
       ]}
     >
-      <Splitter style={{ height: 200, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
-        <Splitter.Panel>
-          <Desc text="First" />
-        </Splitter.Panel>
-
-        <Splitter.Panel>
-          <Desc text="Second" />
-        </Splitter.Panel>
-      </Splitter>
+      <Block />
     </SemanticPreview>
   );
 };
