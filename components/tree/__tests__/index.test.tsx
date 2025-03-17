@@ -3,6 +3,7 @@ import React from 'react';
 import { render, screen } from '../../../tests/utils';
 import Tree from '../index';
 import type { AntTreeNodeProps } from '../Tree';
+import { SmileOutlined } from '@ant-design/icons';
 
 const { TreeNode } = Tree;
 
@@ -237,5 +238,59 @@ describe('Tree', () => {
         expect(el.children.length).toBe(0);
       });
     });
+  });
+  it('customize classNames and styles', () => {
+    const data = [
+      {
+        title: 'parent 1',
+        key: '0-0',
+        icon: <SmileOutlined />,
+        children: [
+          {
+            title: 'leaf',
+            key: '0-0-0',
+            icon: <SmileOutlined />,
+          },
+          {
+            title: 'leaf',
+            key: '0-0-1',
+            icon: <SmileOutlined />,
+          },
+        ],
+      },
+    ];
+    const testClassNames = {
+      item: 'test-item',
+      icon: 'test-icon',
+      title: 'test-title',
+      root: 'test-root',
+    };
+    const testStyles = {
+      item: { background: 'red' },
+      icon: { color: 'blue' },
+      title: { color: 'yellow' },
+      root: { color: 'green' },
+    };
+    const { container } = render(
+      <Tree
+        treeData={data}
+        showIcon
+        defaultExpandAll
+        styles={testStyles}
+        classNames={testClassNames}
+      />,
+    );
+    const root = container.querySelector('.ant-tree');
+    const title = container.querySelector('.ant-tree-title');
+    const item = container.querySelector(`.${testClassNames.item}`);
+    const icon = container.querySelector('.ant-tree-iconEle');
+
+    expect(root).toHaveStyle(testStyles.root);
+    expect(root).toHaveClass(testClassNames.root);
+    expect(icon).toHaveStyle(testStyles.icon);
+    expect(icon).toHaveClass(testClassNames.icon);
+    expect(title).toHaveStyle(testStyles.title);
+    expect(title).toHaveClass(testClassNames.title);
+    expect(item).toHaveStyle(testStyles.item);
   });
 });

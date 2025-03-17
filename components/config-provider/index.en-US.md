@@ -170,7 +170,7 @@ const {
 | popover | Set Popover common props | { className?: string, style?: React.CSSProperties, classNames?:[Popover\["classNames"\]](/components/popover#api), styles?: [Popover\["styles"\]](/components/popover#api), arrow: boolean \| { pointAtCenter: boolean } } | - | 5.23.0, `arrow`: 6.0.0 |
 | popconfirm | Set Popconfirm common props | { className?: string, style?: React.CSSProperties, classNames?:[Popconfirm\["classNames"\]](/components/popconfirm#api), styles?: [Popconfirm\["styles"\]](/components/popconfirm#api), arrow: boolean \| { pointAtCenter: boolean } } | - | 5.23.0, `arrow`: 6.0.0 |
 | transfer | Set Transfer common props | { className?: string, style?: React.CSSProperties, selectionsIcon?: React.ReactNode } | - | 5.7.0, `selectionsIcon`: 5.14.0 |
-| tree | Set Tree common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| tree | Set Tree common props | { className?: string, style?: React.CSSProperties, classNames?: [TreeConfig\["classNames"\]](/components/tree#semantic-dom), styles?: [TreeConfig\["styles"\]](/components/tree#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
 | typography | Set Typography common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | upload | Set Upload common props | { className?: string, style?: React.CSSProperties, classNames?:[UploadConfig\["classNames"\]](/components/upload#semantic-dom), styles?: [UploadConfig\["styles"\]](/components/upload#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
 | wave | Config wave effect | { disabled?: boolean, showEffect?: (node: HTMLElement, info: { className, token, component }) => void } | - | 5.8.0 |
