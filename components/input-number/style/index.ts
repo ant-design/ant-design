@@ -1,6 +1,11 @@
 import { unit } from '@ant-design/cssinjs';
 
-import { genBasicInputStyle, genInputGroupStyle, genPlaceholderStyle, initInputToken } from '../../input/style';
+import {
+  genBasicInputStyle,
+  genInputGroupStyle,
+  genPlaceholderStyle,
+  initInputToken,
+} from '../../input/style';
 import {
   genBorderlessStyle,
   genFilledGroupStyle,
@@ -337,6 +342,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         '&-disabled, &-readonly': {
           [`${componentCls}-handler-wrap`]: {
             display: 'none',
+            width: 0,
+            overflow: 'hidden',
           },
 
           [`${componentCls}-input`]: {
@@ -476,6 +483,10 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
       [`&:not(${componentCls}-affix-wrapper-without-controls):hover ${componentCls}-suffix`]: {
         marginInlineEnd: token.calc(token.handleWidth).add(paddingInline).equal(),
       },
+      [`&:not(${componentCls}-affix-wrapper-without-controls)&-disabled:hover ${componentCls}-suffix`]:
+        {
+          marginInlineEnd: paddingInline,
+        },
     },
   };
 };
