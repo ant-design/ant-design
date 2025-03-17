@@ -15,6 +15,16 @@ tag: vVERSION
 
 ---
 
+## 5.24.4
+
+`2025-03-17`
+
+- 🐞 Fixed the Input.TextArea width synchronization issue during resizing. [#53024](https://github.com/ant-design/ant-design/pull/53024) [@triyys](https://github.com/triyys)  
+- 🐞 Fixed the Typography component's `type` property using incorrect color variables. [#53086](https://github.com/ant-design/ant-design/pull/53086) [@zombieJ](https://github.com/zombieJ)  
+- 🐞 Fixed abnormal `onChange` event behavior in the Affix component for React versions below 18. [#53038](https://github.com/ant-design/ant-design/pull/53038) [@waiter](https://github.com/waiter)  
+- 🐞 Fixed Form component `requiredMark` not taking effect in disabled state. [#52950](https://github.com/ant-design/ant-design/pull/52950) [@Wxh16144](https://github.com/Wxh16144)  
+- 🇹🇷 Added Turkish (tr_TR) localization support for the Tour component. [#53117](https://github.com/ant-design/ant-design/pull/53117) [@hakankosdag](https://github.com/hakankosdag)  
+
 ## 5.24.3
 
 `2025-03-05`
