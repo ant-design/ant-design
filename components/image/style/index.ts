@@ -260,7 +260,24 @@ export const genImageCoverStyle = (token: ImageToken): CSSObject => {
 // };
 
 export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
-  const { motionEaseOut, previewCls, motionDurationSlow, componentCls, modalMaskBg } = token;
+  const {
+    motionEaseOut,
+    previewCls,
+    motionDurationSlow,
+    componentCls,
+    modalMaskBg,
+    marginXL,
+    colorTextLightSolid,
+    paddingSM,
+    paddingLG,
+    iconCls,
+    previewOperationHoverColor,
+    previewOperationColorDisabled,
+    previewOperationSize,
+  } = token;
+
+  const operationBg = new FastColor(modalMaskBg).setA(0.1);
+  const operationBgHover = operationBg.clone().setA(0.2);
 
   return [
     {
@@ -268,6 +285,7 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
         textAlign: 'center',
         inset: 0,
         position: 'fixed',
+        userSelect: 'none',
 
         // ================= Mask =================
         [`${previewCls}-mask`]: {
@@ -283,6 +301,10 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+
+          '> *': {
+            pointerEvents: 'auto',
+          },
         },
 
         // Body > Image
@@ -293,35 +315,97 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
           transform: 'scale3d(1, 1, 1)',
           cursor: 'grab',
           transition: `transform ${motionDurationSlow} ${motionEaseOut} 0s`,
-          userSelect: 'none',
 
-          '&-wrapper': {
-            ...genBoxStyle(),
-            transition: `transform ${motionDurationSlow} ${motionEaseOut} 0s`,
+          // '&-wrapper': {
+          //   ...genBoxStyle(),
+          //   transition: `transform ${motionDurationSlow} ${motionEaseOut} 0s`,
 
-            // https://github.com/ant-design/ant-design/issues/39913
-            // TailwindCSS will reset img default style.
-            // Let's set back.
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
+          //   // https://github.com/ant-design/ant-design/issues/39913
+          //   // TailwindCSS will reset img default style.
+          //   // Let's set back.
+          //   display: 'flex',
+          //   justifyContent: 'center',
+          //   alignItems: 'center',
 
-            '& > *': {
-              pointerEvents: 'auto',
-            },
+          //   '& > *': {
+          //     pointerEvents: 'auto',
+          //   },
 
-            '&::before': {
-              display: 'inline-block',
-              width: 1,
-              height: '50%',
-              marginInlineEnd: -1,
-              content: '""',
-            },
-          },
+          //   '&::before': {
+          //     display: 'inline-block',
+          //     width: 1,
+          //     height: '50%',
+          //     marginInlineEnd: -1,
+          //     content: '""',
+          //   },
+          // },
+        },
+
+        [`&-moving ${previewCls}-img`]: {
+          cursor: 'grabbing',
         },
 
         // =============== CloseBtn ===============
+        [`${previewCls}-close`]: {
+          position: 'absolute',
+          top: marginXL,
+          insetInlineEnd: marginXL,
+          color: colorTextLightSolid,
+          backgroundColor: operationBg.toRgbString(),
+          borderRadius: '50%',
+          padding: paddingSM,
+          outline: 0,
+          border: 0,
+          cursor: 'pointer',
+          transition: `all ${motionDurationSlow}`,
+
+          '&:hover': {
+            backgroundColor: operationBgHover.toRgbString(),
+          },
+
+          [`& > ${iconCls}`]: {
+            fontSize: token.previewOperationSize,
+          },
+        },
+
         // ================ Footer ================
+        [`${previewCls}-footer`]: {
+          position: 'absolute',
+          bottom: marginXL,
+          left: {
+            _skip_check_: true,
+            value: '50%',
+          },
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          color: token.previewOperationColor,
+          transform: 'translateX(-50%)',
+        },
+
+        // =============== Actions ================
+        [`${previewCls}-actions`]: {
+          display: 'flex',
+          gap: paddingSM,
+          padding: `0 ${unit(paddingLG)}`,
+          backgroundColor: operationBg.toRgbString(),
+          borderRadius: 100,
+          fontSize: previewOperationSize,
+
+          '&-action': {
+            padding: paddingSM,
+            cursor: 'pointer',
+            transition: `all ${motionDurationSlow}`,
+
+            [`&:not(${previewCls}-actions-action-disabled):hover`]: {
+              color: previewOperationHoverColor,
+            },
+            '&-disabled': {
+              color: previewOperationColorDisabled,
+              cursor: 'not-allowed',
+            },
+          },
+        },
 
         // [`${previewCls}-moving`]: {
         //   [`${previewCls}-preview-img`]: {
@@ -394,8 +478,17 @@ const genPreviewMotion: GenerateStyle<ImageToken> = (token) => {
         '&-enter, &-appear': {
           opacity: 0,
 
+          [`${previewCls}-body`]: {
+            transform: 'scale(0)',
+          },
+
           '&-active': {
             opacity: 1,
+
+            [`${previewCls}-body`]: {
+              transform: 'scale(1)',
+              transition: `transform ${motionDurationSlow}`,
+            },
           },
         },
 
@@ -404,25 +497,13 @@ const genPreviewMotion: GenerateStyle<ImageToken> = (token) => {
 
           '&-active': {
             opacity: 0,
+
+            [`${previewCls}-body`]: {
+              transform: 'scale(0)',
+              transition: `transform ${motionDurationSlow}`,
+            },
           },
         },
-
-        // &-appear {
-        //   opacity: 0;
-
-        //   .@{prefixCls}-preview-body {
-        //     transform: scale(0);
-        //   }
-
-        //   &-active {
-        //     opacity: 1;
-
-        //     .@{prefixCls}-preview-body {
-        //       transform: scale(1);
-        //       transition: all 0.3s;
-        //     }
-        //   }
-        // }
       },
     },
   };
