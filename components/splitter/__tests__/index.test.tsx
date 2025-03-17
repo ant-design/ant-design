@@ -656,8 +656,13 @@ describe('Splitter', () => {
       expect(root).toHaveStyle(customStyles.root);
       expect(root).toHaveClass(customClassNames.root);
 
-      expect(root!.querySelector('.custom-panel'))?.toHaveStyle('background: blue');
-      expect(root!.querySelector('.custom-dragger'))?.toHaveStyle('background: green');
+      const panel = container.querySelector('.ant-splitter-panel');
+      expect(panel).toHaveStyle(customStyles.panel);
+      expect(panel).toHaveClass(customClassNames.panel);
+
+      const dragger = container.querySelector('.ant-splitter-bar-dragger');
+      expect(dragger).toHaveStyle(customStyles.dragger);
+      expect(dragger).toHaveClass(customClassNames.dragger.default);
     });
   });
 });
