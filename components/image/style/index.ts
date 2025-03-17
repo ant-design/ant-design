@@ -358,7 +358,9 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
           border: 0,
           cursor: 'pointer',
           transition: `all ${motionDurationSlow}`,
+          display: 'flex',
 
+          
           '&:hover': {
             backgroundColor: operationBgHover.toRgbString(),
           },
