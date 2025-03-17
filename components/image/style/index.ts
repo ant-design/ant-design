@@ -80,7 +80,7 @@ export const genImageCoverStyle = (token: ImageToken): CSSObject => {
         opacity: 0,
         transition: `opacity ${motionDurationSlow}`,
 
-        [`&:hover`]: {
+        '&:hover': {
           opacity: 1,
         },
         [`${componentCls}-cover-info`]: {
@@ -187,8 +187,8 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
       [`${previewCls}-close`]: {
         // Shared style
         ...singleBtn,
-        top: marginXL,
-        insetInlineEnd: marginXL,
+        top: marginSM,
+        insetInlineEnd: marginSM,
       },
 
       // ================ Switch ================

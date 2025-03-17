@@ -22,9 +22,8 @@ const locales = {
     'preview.root': '预览根元素',
     'preview.mask': '预览遮罩元素',
     'preview.body': '预览内容元素',
-    'preview.footer': 
-    'preview.actions': 
-    'preview.action': 
+    'preview.footer': '预览页脚元素',
+    'preview.actions': '预览操作组',
   },
   en: {
     root: 'Root element',
@@ -33,6 +32,8 @@ const locales = {
     'preview.root': 'Preview root element',
     'preview.mask': 'Preview mask element',
     'preview.body': 'Preview body element',
+    'preview.footer': 'Preview footer element',
+    'preview.actions': 'Preview actions group',
   },
 };
 
@@ -84,9 +85,11 @@ const Block = ({ classNames, ...restProps }: any) => {
         />
       </Flex>
       <div style={{ flex: 1, position: 'relative', minHeight: 500, width: '100%' }} ref={holderRef}>
-        <Image
-          width={0}
-          src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+        <Image.PreviewGroup
+          items={[
+            'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+            'https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg',
+          ]}
           preview={{
             getContainer: () => holderRef.current!,
             open: true,
@@ -113,6 +116,8 @@ const App: React.FC = () => {
         { name: 'preview.root', desc: locale['preview.root'] },
         { name: 'preview.mask', desc: locale['preview.mask'] },
         { name: 'preview.body', desc: locale['preview.body'] },
+        { name: 'preview.footer', desc: locale['preview.footer'] },
+        { name: 'preview.actions', desc: locale['preview.actions'] },
       ]}
     >
       <Block />
