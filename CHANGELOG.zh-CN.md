@@ -15,6 +15,27 @@ tag: vVERSION
 
 ---
 
+## 5.24.4
+
+`2025-03-17`
+
+- 🐞 修复 Input.TextArea 调整大小时宽度同步问题。[#53024](https://github.com/ant-design/ant-design/pull/53024) [@triyys](https://github.com/triyys)
+- 🐞 修复 Typography `type` 颜色没有跟随 token `color[Status]Text` 而是 `color[Status]` 的问题。[#53086](https://github.com/ant-design/ant-design/pull/53086) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Affix 组件在 React 18 以下版本中 `onChange` 参数值异常的问题。[#53038](https://github.com/ant-design/ant-design/pull/53038) [@waiter](https://github.com/waiter)
+- 🐞 修复 Form `requiredMark` 在 `component=false` 时不起作用的问题。[#52950](https://github.com/ant-design/ant-design/pull/52950) [@Wxh16144](https://github.com/Wxh16144)
+- 🇹🇷 新增 Tour 组件的土耳其语（tr_TR）本地化支持。[#53117](https://github.com/ant-design/ant-design/pull/53117) [@hakankosdag](https://github.com/hakankosdag)
+
+## 5.24.3
+
+`2025-03-05`
+
+- Input
+  - 🐞 修复 Input 开启 `allowClear` 后按下 Tab 键后没有正确选中下个元素的问题。[#52977](https://github.com/ant-design/ant-design/pull/52977) [@wanpan11](https://github.com/wanpan11)
+  - 💄 修复 Input 开启 `variant="underlined"` 时 `disabled` 状态下 hover 时边框显示问题。[#52959](https://github.com/ant-design/ant-design/pull/52959) [@ustcfury](https://github.com/ustcfury)
+- 💄 修复 DatePicker 头部按钮意外间距导致的未对齐问题。[#53007](https://github.com/ant-design/ant-design/pull/53007) [@DDDDD12138](https://github.com/DDDDD12138)
+- 💄 修复 AutoComplete 在 `size="large"` 时文字未居中对齐的问题。[#52819](https://github.com/ant-design/ant-design/pull/52819) [@aojunhao123](https://github.com/aojunhao123)
+- 🇩🇪 完善 `de_DE` Transfer 本地化. [#53047](https://github.com/ant-design/ant-design/pull/53047) [@chrisinick](https://github.com/chrisinick)
+
 ## 5.24.2
 
 `2025-02-24`
