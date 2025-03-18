@@ -56,10 +56,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('image');
 
-    [
-      ['rootClassName', 'Image.classNames'],
-      ['maskClassName', 'classNames: { mask: "" }'],
-    ].forEach(([deprecatedName, newName]) => {
+    [['maskClassName', 'classNames: { mask: "" }']].forEach(([deprecatedName, newName]) => {
       if (typeof preview === 'object') {
         warning.deprecated(!(deprecatedName in preview), deprecatedName, newName);
       }
@@ -70,7 +67,6 @@ const Image: CompositionImage<ImageProps> = (props) => {
   const [imageLocale] = useLocale('Image');
 
   const prefixCls = getPrefixCls('image', customizePrefixCls);
-  // const rootPrefixCls = getPrefixCls();
 
   // ============================== Styles ==============================
   const rootCls = useCSSVarCls(prefixCls);
