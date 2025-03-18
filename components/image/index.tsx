@@ -5,15 +5,14 @@ import type { PreviewConfig as ImagePreviewType, ImageProps } from '@rc-componen
 import classnames from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import { useZIndex } from '../_util/hooks/useZIndex';
-import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useLocale } from '../locale';
+import useMergedPreviewConfig from './hooks/useMergedPreviewConfig';
+import usePreviewConfig from './hooks/usePreviewConfig';
 import PreviewGroup, { icons } from './PreviewGroup';
 import useStyle from './style';
-import usePreviewConfig from './usePreviewConfig';
 
 // TODO: 兼容 API，合并前完成：
 // - onVisibleChange
@@ -91,40 +90,25 @@ const Image: CompositionImage<ImageProps> = (props) => {
     [contextPreviewConfig?.styles, previewConfig?.styles],
   );
 
-  const [zIndex] = useZIndex(
-    'ImagePreview',
-    // Get default zIndex if provided
-    previewConfig?.zIndex,
+  const mergedPreviewConfig = useMergedPreviewConfig(
+    // Preview config
+    previewConfig,
+    contextPreviewConfig,
+
+    // MISC
+    prefixCls,
+    mergedRootClassName,
+    mergedPreviewClassNames,
+    mergedPreviewStyles,
+    getContextPopupContainer,
+    icons,
+
+    // Image only: fallback cover
+    <div className={`${prefixCls}-cover-info`}>
+      <EyeOutlined />
+      {imageLocale?.preview}
+    </div>,
   );
-
-  const mergedPreviewConfig = React.useMemo<ImageProps['preview']>(() => {
-    if (!previewConfig) {
-      return previewConfig;
-    }
-
-    const { cover, getContainer, closeIcon, rootClassName: previewRootClassName } = previewConfig;
-    const { closeIcon: contextCloseIcon } = contextPreviewConfig ?? {};
-
-    return {
-      // Can be replaced
-      motionName: getTransitionName(`${prefixCls}-preview`, 'fade'),
-
-      ...previewConfig,
-      cover: cover ?? (
-        <div className={`${prefixCls}-cover-info`}>
-          <EyeOutlined />
-          {imageLocale?.preview}
-        </div>
-      ),
-      icons,
-      getContainer: getContainer ?? getContextPopupContainer,
-      zIndex,
-      closeIcon: closeIcon ?? contextCloseIcon,
-      rootClassName: classnames(mergedRootClassName, previewRootClassName),
-      classNames: mergedPreviewClassNames,
-      styles: mergedPreviewStyles,
-    };
-  }, [preview, imageLocale, contextPreview]);
 
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 

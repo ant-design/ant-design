@@ -12,12 +12,11 @@ import type { GroupConsumerProps } from '@rc-component/image/lib/PreviewGroup';
 import classnames from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import { useZIndex } from '../_util/hooks/useZIndex';
-import { getTransitionName } from '../_util/motion';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import useMergedPreviewConfig from './hooks/useMergedPreviewConfig';
+import usePreviewConfig from './hooks/usePreviewConfig';
 import useStyle from './style';
-import usePreviewConfig from './usePreviewConfig';
 
 export const icons = {
   rotateLeft: <RotateLeftOutlined />,
@@ -57,37 +56,25 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
   const previewConfig = usePreviewConfig(preview);
   const contextPreviewConfig = usePreviewConfig(contextPreview);
 
-  const [zIndex] = useZIndex('ImagePreview', previewConfig?.zIndex);
-
   // Preview semantic
   const [mergedPreviewClassNames, mergedPreviewStyles] = useMergeSemantic(
     [contextPreviewConfig?.classNames, previewConfig?.classNames],
     [contextPreviewConfig?.styles, previewConfig?.styles],
   );
 
-  const mergedPreview = React.useMemo<GroupConsumerProps['preview']>(() => {
-    if (!previewConfig) {
-      return previewConfig;
-    }
+  const mergedPreview = useMergedPreviewConfig(
+    // Preview config
+    previewConfig,
+    contextPreviewConfig,
 
-    const { getContainer, closeIcon, rootClassName: previewRootClassName } = previewConfig;
-    const { closeIcon: contextCloseIcon } = contextPreviewConfig ?? {};
-
-    return {
-      // Can be replaced
-      motionName: getTransitionName(`${prefixCls}-preview`, 'fade'),
-
-      ...previewConfig,
-      icons,
-      getContainer: getContainer ?? getContextPopupContainer,
-
-      zIndex,
-      closeIcon: closeIcon ?? contextCloseIcon,
-      rootClassName: classnames(mergedRootClassName, previewRootClassName),
-      classNames: mergedPreviewClassNames,
-      styles: mergedPreviewStyles,
-    };
-  }, [preview]);
+    // MISC
+    prefixCls,
+    mergedRootClassName,
+    mergedPreviewClassNames,
+    mergedPreviewStyles,
+    getContextPopupContainer,
+    icons,
+  );
 
   return (
     <RcImage.PreviewGroup
