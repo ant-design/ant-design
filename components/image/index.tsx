@@ -2,7 +2,7 @@ import * as React from 'react';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import RcImage from '@rc-component/image';
 import type { PreviewConfig as ImagePreviewType, ImageProps } from '@rc-component/image';
-import classNames from 'classnames';
+import classnames from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
@@ -20,6 +20,7 @@ import usePreviewConfig from './usePreviewConfig';
 // - visible
 // - preview.rootClassName
 // - mask -> cover
+// - forceRender
 
 export interface CompositionImage<P> extends React.FC<P> {
   PreviewGroup: typeof PreviewGroup;
@@ -78,9 +79,9 @@ const Image: CompositionImage<ImageProps> = (props) => {
     [contextStyles, styles || {}],
   );
 
-  const mergedRootClassName = classNames(rootClassName, hashId, cssVarCls, rootCls);
+  const mergedRootClassName = classnames(rootClassName, hashId, cssVarCls, rootCls);
 
-  const mergedClassName = classNames(className, hashId, contextClassName);
+  const mergedClassName = classnames(className, hashId, contextClassName);
 
   // ============================= Preview ==============================
   const previewConfig = usePreviewConfig(preview);
@@ -103,10 +104,13 @@ const Image: CompositionImage<ImageProps> = (props) => {
       return previewConfig;
     }
 
-    const { cover, getContainer, closeIcon } = previewConfig;
+    const { cover, getContainer, closeIcon, rootClassName: previewRootClassName } = previewConfig;
     const { closeIcon: contextCloseIcon } = contextPreviewConfig ?? {};
 
     return {
+      // Can be replaced
+      motionName: getTransitionName(`${prefixCls}-preview`, 'fade'),
+
       ...previewConfig,
       cover: cover ?? (
         <div className={`${prefixCls}-cover-info`}>
@@ -116,10 +120,9 @@ const Image: CompositionImage<ImageProps> = (props) => {
       ),
       icons,
       getContainer: getContainer ?? getContextPopupContainer,
-      motionName: getTransitionName(`${prefixCls}-preview`, 'fade'),
       zIndex,
       closeIcon: closeIcon ?? contextCloseIcon,
-      rootClassName: mergedRootClassName,
+      rootClassName: classnames(mergedRootClassName, previewRootClassName),
       classNames: mergedPreviewClassNames,
       styles: mergedPreviewStyles,
     };

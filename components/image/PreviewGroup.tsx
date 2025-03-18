@@ -9,7 +9,7 @@ import ZoomInOutlined from '@ant-design/icons/ZoomInOutlined';
 import ZoomOutOutlined from '@ant-design/icons/ZoomOutOutlined';
 import RcImage from '@rc-component/image';
 import type { GroupConsumerProps } from '@rc-component/image/lib/PreviewGroup';
-import classNames from 'classnames';
+import classnames from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
@@ -51,7 +51,7 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const mergedRootClassName = classNames(hashId, cssVarCls, rootCls);
+  const mergedRootClassName = classnames(hashId, cssVarCls, rootCls);
 
   // ============================= Preview ==============================
   const previewConfig = usePreviewConfig(preview);
@@ -70,17 +70,20 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
       return previewConfig;
     }
 
-    const { getContainer, closeIcon } = previewConfig;
+    const { getContainer, closeIcon, rootClassName: previewRootClassName } = previewConfig;
     const { closeIcon: contextCloseIcon } = contextPreviewConfig ?? {};
 
     return {
+      // Can be replaced
+      motionName: getTransitionName(`${prefixCls}-preview`, 'fade'),
+
       ...previewConfig,
       icons,
       getContainer: getContainer ?? getContextPopupContainer,
-      motionName: getTransitionName(`${prefixCls}-preview`, 'fade'),
+
       zIndex,
       closeIcon: closeIcon ?? contextCloseIcon,
-      rootClassName: mergedRootClassName,
+      rootClassName: classnames(mergedRootClassName, previewRootClassName),
       classNames: mergedPreviewClassNames,
       styles: mergedPreviewStyles,
     };

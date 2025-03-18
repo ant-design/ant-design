@@ -31,59 +31,41 @@ describe('Image', () => {
   });
 
   it('Default preview props', () => {
-    const { container, baseElement } = render(<Image src={src} preview={{ visible: true }} />);
-
-    fireEvent.click(container.querySelector('.ant-image')!);
-
-    expect(baseElement.querySelector('.ant-image-preview-mask')).toHaveClass('ant-fade');
-    expect(baseElement.querySelector('.ant-image-preview')).toHaveClass('ant-zoom');
+    render(<Image src={src} preview={{ open: true }} />);
+    expect(document.querySelector('.ant-image-preview')).toHaveClass('ant-image-preview-fade');
   });
   it('Default Group preview props', () => {
-    const { container, baseElement } = render(
-      <Image.PreviewGroup preview={{ visible: true }}>
+    render(
+      <Image.PreviewGroup preview={{ open: true }}>
         <Image src={src} />
       </Image.PreviewGroup>,
     );
 
-    fireEvent.click(container.querySelector('.ant-image')!);
-
-    expect(baseElement.querySelector('.ant-image-preview-mask')).toHaveClass('ant-fade');
-    expect(baseElement.querySelector('.ant-image-preview')).toHaveClass('ant-zoom');
-    expect(baseElement).toMatchSnapshot();
+    expect(document.querySelector('.ant-image-preview')).toHaveClass('ant-image-preview-fade');
   });
   it('Customize preview props', () => {
-    const { container, baseElement } = render(
+    render(
       <Image
         src={src}
         preview={{
-          visible: true,
-          transitionName: 'abc',
-          maskTransitionName: 'def',
+          open: true,
+          motionName: 'abc',
           getContainer: false,
         }}
       />,
     );
 
-    fireEvent.click(container.querySelector('.ant-image')!);
-
-    expect(container.querySelector('.ant-image-preview-root')).not.toBe(null);
-
-    expect(baseElement.querySelector('.ant-image-preview')).toHaveClass('abc');
-    expect(baseElement.querySelector('.ant-image-preview-mask')).toHaveClass('def');
+    expect(document.querySelector('.ant-image-preview')).not.toBe(null);
+    expect(document.querySelector('.ant-image-preview')).toHaveClass('abc');
   });
   it('Customize Group preview props', () => {
-    const { container, baseElement } = render(
-      <Image.PreviewGroup
-        preview={{ visible: true, transitionName: 'abc', maskTransitionName: 'def' }}
-      >
+    render(
+      <Image.PreviewGroup preview={{ open: true, motionName: 'abc' }}>
         <Image src={src} />
       </Image.PreviewGroup>,
     );
 
-    fireEvent.click(container.querySelector('.ant-image')!);
-
-    expect(baseElement.querySelector('.ant-image-preview')).toHaveClass('abc');
-    expect(baseElement.querySelector('.ant-image-preview-mask')).toHaveClass('def');
+    expect(document.querySelector('.ant-image-preview')).toHaveClass('abc');
   });
   it('ConfigProvider getPopupContainer', () => {
     const { container, baseElement } = render(
@@ -97,31 +79,12 @@ describe('Image', () => {
     fireEvent.click(container.querySelector('.ant-image')!);
     expect(baseElement.querySelector('.container')?.children.length).not.toBe(0);
   });
-  it('Preview forceRender props', async () => {
-    const onLoadCb = jest.fn();
-    const PreviewImage: React.FC = () => (
-      <Image
-        preview={{
-          visible: false,
-          src,
-          forceRender: true,
-        }}
-      />
-    );
-    const { baseElement } = render(<PreviewImage />);
-    expect(baseElement.querySelector('.ant-image-preview-root')).not.toBe(null);
-    baseElement.querySelector('.ant-image-preview-img')?.addEventListener('load', onLoadCb);
-    fireEvent.load(baseElement.querySelector('.ant-image-preview-img')!);
-    expect(onLoadCb).toHaveBeenCalled();
-  });
   it('Preview should support rootClassName', () => {
-    const { container, baseElement } = render(
-      <Image.PreviewGroup preview={{ visible: true, rootClassName: 'test-root-class' }}>
+    const { baseElement } = render(
+      <Image.PreviewGroup preview={{ open: true, rootClassName: 'test-root-class' }}>
         <Image src={src} />
       </Image.PreviewGroup>,
     );
-
-    fireEvent.click(container.querySelector('.ant-image')!);
 
     expect(baseElement.querySelector('.test-root-class')).toBeTruthy();
   });
@@ -134,11 +97,13 @@ describe('Image', () => {
               width={200}
               src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
               preview={{
+                open: true,
                 rootClassName: 'test-image-preview-class',
               }}
             />
             <Image.PreviewGroup
               preview={{
+                open: true,
                 rootClassName: 'test-image-preview-group-class',
               }}
             >
@@ -155,41 +120,15 @@ describe('Image', () => {
         </Modal>
       </Modal>
     );
-    const { baseElement } = render(<App />);
+    render(<App />);
 
-    fireEvent.click(baseElement.querySelector('.ant-image')!);
+    expect(document.querySelector('.test-image-preview-class') as HTMLElement).toHaveStyle({
+      zIndex: '1301',
+    });
 
-    expect(
-      (
-        baseElement.querySelector(
-          '.test-image-preview-class .ant-image-preview-wrap',
-        ) as HTMLElement
-      ).style.zIndex,
-    ).toBe('1301');
-    expect(
-      (
-        baseElement.querySelector(
-          '.test-image-preview-class.ant-image-preview-operations-wrapper',
-        ) as HTMLElement
-      ).style.zIndex,
-    ).toBe('1302');
-
-    fireEvent.click(baseElement.querySelectorAll('.ant-image')[1]!);
-
-    expect(
-      (
-        baseElement.querySelector(
-          '.test-image-preview-group-class .ant-image-preview-wrap',
-        ) as HTMLElement
-      ).style.zIndex,
-    ).toBe('1301');
-    expect(
-      (
-        baseElement.querySelector(
-          '.test-image-preview-group-class.ant-image-preview-operations-wrapper',
-        ) as HTMLElement
-      ).style.zIndex,
-    ).toBe('1302');
+    expect(document.querySelector('.test-image-preview-group-class') as HTMLElement).toHaveStyle({
+      zIndex: '1301',
+    });
   });
 
   it('support classnames and styles', () => {
