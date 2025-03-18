@@ -113,7 +113,7 @@ const App: React.FC = () => {
       </Upload>
       {previewImage && (
         <Image
-          wrapperStyle={{ display: 'none' }}
+          styles={{ root: { display: 'none' } }}
           preview={{
             open: previewOpen,
             onOpenChange: (visible) => setPreviewOpen(visible),
