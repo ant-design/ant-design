@@ -63,7 +63,7 @@ export interface Locale {
 }
 
 export interface A11yLocale {
-  sortableColumnHeaderAriaDescription?: string;
+  sortable?: string;
 }
 
 export interface LocaleProviderProps {

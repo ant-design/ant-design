@@ -10,7 +10,7 @@ const typeTemplate = '${label} is not a valid ${type}';
 const localeValues: Locale = {
   locale: 'en',
   a11y: {
-    sortableColumnHeaderAriaDescription: 'sortable column',
+    sortable: 'sortable',
   },
   Pagination,
   DatePicker,

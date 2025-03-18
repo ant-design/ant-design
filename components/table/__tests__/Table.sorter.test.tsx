@@ -1331,7 +1331,7 @@ describe('Table.sorter', () => {
     const getNameColumn = () => container.querySelectorAll<HTMLElement>('th')[0];
     const getAgeColumn = () => container.querySelectorAll<HTMLElement>('th')[1];
 
-    expect(getNameColumn()).toHaveAttribute('aria-description', 'sortable column');
+    expect(getNameColumn()).toHaveAttribute('aria-description', 'sortable');
     expect(getAgeColumn()).not.toHaveAttribute('aria-description');
   });
 });

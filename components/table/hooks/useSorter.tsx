@@ -250,7 +250,7 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
             cell['aria-sort'] = sortOrder === 'ascend' ? 'ascending' : 'descending';
           }
           // Inform the screen-reader so it can tell the visually impaired user that this column can be sorted
-          cell['aria-description'] = a11yLocale?.sortableColumnHeaderAriaDescription;
+          cell['aria-description'] = a11yLocale?.sortable;
           cell['aria-label'] = displayTitle || '';
           cell.className = classNames(cell.className, `${prefixCls}-column-has-sorters`);
           cell.tabIndex = 0;
