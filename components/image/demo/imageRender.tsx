@@ -5,7 +5,6 @@ const App: React.FC = () => (
   <Image
     width={200}
     preview={{
-      destroyOnClose: true,
       imageRender: () => (
         <video
           muted
@@ -14,7 +13,7 @@ const App: React.FC = () => (
           src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*uYT7SZwhJnUAAAAAAAAAAAAADgCCAQ"
         />
       ),
-      toolbarRender: () => null,
+      actionsRender: () => null,
     }}
     src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
   />

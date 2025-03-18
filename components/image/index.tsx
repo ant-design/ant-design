@@ -22,6 +22,7 @@ import useStyle from './style';
 // - forceRender
 // - toolbarRender
 // - wrapperStyle
+// - destroyOnClose
 
 export interface CompositionImage<P> extends React.FC<P> {
   PreviewGroup: typeof PreviewGroup;
