@@ -77,7 +77,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | styles | 自定义语义化结构样式 | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | ~~toolbarRender~~ | 自定义工具栏，请使用 `actionsRender` 替换 | (originalNode: React.ReactElement, info: Omit<ToolbarRenderInfoType, 'current' \| 'total'>) => React.ReactNode | - |  |
 | ~~visible~~ | 是否显示，请使用 `open` 替换 | boolean | - |  |
-| onOpenChange | 预览打开状态变化的回调 | (visible: boolean, prevVisible: boolean) => void | - |  |
+| onOpenChange | 预览打开状态变化的回调 | (visible: boolean) => void | - |  |
 | onTransform | 预览图 transform 变化的回调 | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - |  |
 | ~~onVisibleChange~~ | 当 `visible` 发生改变时的回调，请使用 `onOpenChange` 替换 | (visible: boolean, prevVisible: boolean) => void | - |  |
 
@@ -112,7 +112,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | scaleStep | `1 + scaleStep` 为缩放放大的每步倍数 | number | 0.5 |  |
 | ~~toolbarRender~~ | 自定义工具栏，请使用 `actionsRender` 替换 | (originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode | - |  |
 | ~~visible~~ | 是否显示，请使用 `open` 替换 | boolean | - |  |
-| onOpenChange | 预览打开状态变化回调，额外携带当前预览图索引 | (visible: boolean, prevVisible: boolean, current: number) => void | - |  |
+| onOpenChange | 预览打开状态变化回调，额外携带当前预览图索引 | (visible: boolean, info: { current: number }) => void | - |  |
 | onChange | 切换预览图的回调 | (current: number, prevCurrent: number) => void | - |  |
 | onTransform | 预览图 transform 变化的回调 | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - |  |
 | ~~onVisibleChange~~ | 当 `visible` 发生改变时的回调，请使用 `onOpenChange` 替换 | (visible: boolean, prevVisible: boolean, current: number) => void | - |  |
