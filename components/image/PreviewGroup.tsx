@@ -8,10 +8,11 @@ import SwapOutlined from '@ant-design/icons/SwapOutlined';
 import ZoomInOutlined from '@ant-design/icons/ZoomInOutlined';
 import ZoomOutOutlined from '@ant-design/icons/ZoomOutOutlined';
 import RcImage from '@rc-component/image';
-import type { GroupConsumerProps } from '@rc-component/image/lib/PreviewGroup';
 import classnames from 'classnames';
 
+import type { DeprecatedPreviewConfig } from '.';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import { GetProps } from '../_util/type';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useMergedPreviewConfig from './hooks/useMergedPreviewConfig';
@@ -30,7 +31,21 @@ export const icons = {
   flipY: <SwapOutlined rotate={90} />,
 };
 
-const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
+type RcPreviewGroupProps = GetProps<typeof RcImage.PreviewGroup>;
+
+type OriginPreviewConfig = NonNullable<Exclude<RcPreviewGroupProps['preview'], boolean>>;
+
+export type GroupPreviewConfig = OriginPreviewConfig &
+  DeprecatedPreviewConfig & {
+    /** @deprecated Use `onOpenChange` instead */
+    onVisibleChange?: (visible: boolean, prevVisible: boolean, current: number) => void;
+  };
+
+export interface PreviewGroupProps extends Omit<RcPreviewGroupProps, 'preview'> {
+  preview?: boolean | GroupPreviewConfig;
+}
+
+const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
   previewPrefixCls: customizePrefixCls,
   preview,
   ...otherProps

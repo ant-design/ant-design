@@ -1,7 +1,7 @@
 import * as React from 'react';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import RcImage from '@rc-component/image';
-import type { PreviewConfig as ImagePreviewType, ImageProps } from '@rc-component/image';
+import type { ImageProps as RcImageProps } from '@rc-component/image';
 import classnames from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
@@ -14,18 +14,45 @@ import usePreviewConfig from './hooks/usePreviewConfig';
 import PreviewGroup, { icons } from './PreviewGroup';
 import useStyle from './style';
 
-// TODO: 兼容 API，合并前完成：
-// - onVisibleChange
-// - visible
-// - preview.rootClassName
-// - mask -> cover
-// - forceRender
-// - toolbarRender
-// - wrapperStyle
-// - destroyOnClose
+type OriginPreviewConfig = NonNullable<Exclude<RcImageProps['preview'], boolean>>;
+
+export type DeprecatedPreviewConfig = {
+  /** @deprecated Use `open` instead */
+  visible?: boolean;
+  /** @deprecated Use `classNames.root` instead */
+  rootClassName?: string;
+  /**
+   * @deprecated This has been removed.
+   * Preview will always be rendered after show.
+   */
+  forceRender?: boolean;
+  /**
+   * @deprecated This has been removed.
+   * Preview will always be rendered after show.
+   */
+  destroyOnClose?: boolean;
+  /** @deprecated Use `actionsRender` instead */
+  toolbarRender?: OriginPreviewConfig['actionsRender'];
+};
+
+export type PreviewConfig = OriginPreviewConfig &
+  DeprecatedPreviewConfig & {
+    /** @deprecated Use `onOpenChange` instead */
+    onVisibleChange?: (visible: boolean, prevVisible: boolean) => void;
+    /** @deprecated Use `classNames.cover` instead */
+    maskClassName?: string;
+    /** @deprecated Use `cover` instead */
+    mask?: React.ReactNode;
+  };
 
 export interface CompositionImage<P> extends React.FC<P> {
   PreviewGroup: typeof PreviewGroup;
+}
+
+export interface ImageProps extends Omit<RcImageProps, 'preview'> {
+  preview?: boolean | PreviewConfig;
+  /** @deprecated Use `styles.root` instead */
+  wrapperStyle?: React.CSSProperties;
 }
 
 const Image: CompositionImage<ImageProps> = (props) => {
@@ -37,6 +64,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
     style,
     styles,
     classNames: imageClassNames,
+    wrapperStyle,
     ...otherProps
   } = props;
 
@@ -52,29 +80,30 @@ const Image: CompositionImage<ImageProps> = (props) => {
     classNames: contextClassNames,
   } = useComponentConfig('image');
 
-  // ============================= Warning ==============================
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('image');
-
-    [['maskClassName', 'classNames: { mask: "" }']].forEach(([deprecatedName, newName]) => {
-      if (typeof preview === 'object') {
-        warning.deprecated(!(deprecatedName in preview), deprecatedName, newName);
-      }
-    });
-  }
-
   // ============================== Locale ==============================
   const [imageLocale] = useLocale('Image');
 
   const prefixCls = getPrefixCls('image', customizePrefixCls);
+
+  // ============================= Warning ==============================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Image');
+    warning.deprecated(!wrapperStyle, 'wrapperStyle', 'styles.root');
+  }
 
   // ============================== Styles ==============================
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, imageClassNames || {}],
-    [contextStyles, styles || {}],
+    [contextClassNames, imageClassNames],
+    [
+      contextStyles,
+      {
+        root: wrapperStyle,
+      },
+      styles,
+    ],
   );
 
   const mergedRootClassName = classnames(rootClassName, hashId, cssVarCls, rootCls);
@@ -127,7 +156,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
   );
 };
 
-export type { ImageProps, ImagePreviewType };
+export type { PreviewConfig as ImagePreviewType };
 
 Image.PreviewGroup = PreviewGroup;
 

@@ -23,10 +23,12 @@ function useSemanticClassNames<T extends string>(
 function useSemanticStyles<T extends string>(...styles: (SemanticStyles<T> | undefined)[]) {
   return React.useMemo(() => {
     return styles.reduce(
-      (acc, cur = {}) => ({
-        ...acc,
-        ...cur,
-      }),
+      (acc, cur = {}) => {
+        Object.keys(cur).forEach((key) => {
+          acc[key] = { ...acc[key], ...(cur as Record<string, React.CSSProperties>)[key] };
+        });
+        return acc;
+      },
       {} as Record<string, React.CSSProperties>,
     ) as SemanticStyles<T>;
   }, [styles]);

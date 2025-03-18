@@ -1,10 +1,10 @@
 import React from 'react';
-import type { PreviewConfig } from '@rc-component/image';
-import type { GroupPreviewConfig } from '@rc-component/image/lib/PreviewGroup';
 import classnames from 'classnames';
 
+import type { PreviewConfig } from '..';
 import { useZIndex } from '../../_util/hooks/useZIndex';
 import { getTransitionName } from '../../_util/motion';
+import type { GroupPreviewConfig } from '../PreviewGroup';
 
 export default function useMergedPreviewConfig<T extends PreviewConfig | GroupPreviewConfig>(
   previewConfig: T,
