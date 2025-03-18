@@ -10,7 +10,7 @@ const App: React.FC = () => (
       classNames: {
         mask: 'customize-mask',
       },
-      mask: (
+      cover: (
         <Space direction="vertical" align="center">
           <ZoomInOutlined />
           示例

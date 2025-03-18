@@ -21,6 +21,7 @@ import usePreviewConfig from './usePreviewConfig';
 // - preview.rootClassName
 // - mask -> cover
 // - forceRender
+// - toolbarRender
 
 export interface CompositionImage<P> extends React.FC<P> {
   PreviewGroup: typeof PreviewGroup;
