@@ -342,8 +342,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         '&-disabled, &-readonly': {
           [`${componentCls}-handler-wrap`]: {
             display: 'none',
-            width: 0,
-            overflow: 'hidden',
           },
 
           [`${componentCls}-input`]: {

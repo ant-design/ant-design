@@ -29,8 +29,10 @@ describe('suffix', () => {
     const { container } = render(<InputNumber suffix="RMB" style={{ width: '100%' }} disabled />);
     const suffix = container.querySelector('.ant-input-number-suffix')!;
     const prevMarginInlineEnd = window.getComputedStyle(suffix).marginInlineEnd;
+    console.log('prevMarginInlineEnd', prevMarginInlineEnd);
     fireEvent.mouseEnter(container.querySelector('.ant-input-number-affix-wrapper')!);
     const currentMarginInlineEnd = window.getComputedStyle(suffix).marginInlineEnd;
+    console.log('currentMarginInlineEnd', currentMarginInlineEnd);
     expect(currentMarginInlineEnd).toEqual(prevMarginInlineEnd);
   });
 });
