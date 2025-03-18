@@ -332,14 +332,14 @@
   },
   "pnpm": {
     "overrides": {
-      "nwsapi": "2.2.16"
+      "nwsapi": "2.2.19"
     }
   },
   "overrides": {
-    "nwsapi": "2.2.16"
+    "nwsapi": "2.2.19"
   },
   "resolutions": {
-    "nwsapi": "2.2.16"
+    "nwsapi": "2.2.19"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
