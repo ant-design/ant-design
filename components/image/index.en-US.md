@@ -37,71 +37,84 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### Image
 
-| Property | Description | Type | Default | Version |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| alt | Image description | string | - | 4.6.0 |
-| fallback | Load failure fault-tolerant src | string | - | 4.6.0 |
-| height | Image height | string \| number | - | 4.6.0 |
-| placeholder | Load placeholder, use default placeholder when set `true` | ReactNode | - | 4.6.0 |
-| preview | preview config, disabled when `false` | boolean \| [PreviewType](#previewtype) | true | 4.6.0 [PreviewType](#previewtype):4.7.0 |
-| src | Image path | string | - | 4.6.0 |
-| width | Image width | string \| number | - | 4.6.0 |
-| onError | Load failed callback | (event: Event) => void | - | 4.12.0 |
+| alt | 图像描述 | string | - |  |
+| classNames | 自定义语义化结构类名 | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| fallback | 加载失败容错地址 | string | - |  |
+| height | 图像高度 | string \| number | - |  |
+| placeholder | 加载占位，为 `true` 时使用默认占位 | ReactNode | - |  |
+| preview | 预览参数，为 `false` 时禁用 | boolean \| [PreviewType](#previewtype) | true |  |
+| src | 图片地址 | string | - |  |
+| styles | 自定义语义化结构样式 | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| width | 图像宽度 | string \| number | - |  |
+| onError | 加载错误回调 | (event: Event) => void | - |  |
 
-Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)
+其他属性见 [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)
 
 ### PreviewType
 
-| Property | Description | Type | Default | Version |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| closeIcon | Custom close icon | React.ReactNode | - | 5.7.0 |
-| destroyOnClose | Destroy child elements when closing preview | boolean | false |  |
-| forceRender | Force render preview dialog | boolean | - | - |
-| getContainer | The mounted node for preview dialog but still display at fullScreen | string \| HTMLElement \| (() => HTMLElement) \| false | - | 4.8.0 |
-| imageRender | Custom preview content | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo) }) => React.ReactNode | - | 5.7.0, image: 5.18.0 |
-| mask | Thumbnail mask | ReactNode | - | 4.9.0 |
-| ~~maskClassName~~ | The className of the mask, please use `classNames.mask` instead | string | - | 4.11.0 |
-| maxScale | Max scale | number | 50 | 5.7.0 |
-| minScale | Min scale | number | 1 | 5.7.0 |
-| movable | whether can be moved | boolean | true | 5.8.0 |
-| rootClassName | Add on both root of image and preview element. | string | - | 5.4.0 |
-| scaleStep | `1 + scaleStep` is the step to increase or decrease the scale | number | 0.5 | - |
-| src | Custom preview src | string | - | 4.10.0 |
-| toolbarRender | Custom toolbar render | (originalNode: React.ReactElement, info: Omit<[ToolbarRenderInfoType](#toolbarrenderinfotype), 'current' \| 'total'>) => React.ReactNode | - | 5.7.0, `info.image`: 5.18.0 |
-| visible | Whether the preview dialog is visible or not | boolean | - | - |
-| onTransform | Callback when the transform of image changed | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - | 5.7.0 |
-| onVisibleChange | Callback when `visible` changed | (visible: boolean, prevVisible: boolean) => void | - | - |
+| actionsRender | 自定义工具栏渲染 | (originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode | - |  |
+| classNames | 自定义语义化结构类名 | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| closeIcon | 自定义关闭 Icon | React.ReactNode | - |  |
+| cover | 自定义预览遮罩 | React.ReactNode | - |  |
+| ~~destroyOnClose~~ | 关闭预览时销毁子元素，已移除，不再支持 | boolean | false |  |
+| ~~forceRender~~ | 强制渲染预览图，已移除，不再支持 | boolean | - |  |
+| getContainer | 指定预览挂载的节点，但依旧为全屏展示，false 为挂载在当前位置 | string \| HTMLElement \| (() => HTMLElement) \| false | - |  |
+| imageRender | 自定义预览内容 | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo) }) => React.ReactNode | - |  |
+| ~~mask~~ | 缩略图遮罩，请使用 `cover` 替换 | ReactNode | - |  |
+| ~~maskClassName~~ | 缩略图遮罩类名，请使用 `classNames.cover` 替换 | string | - |  |
+| maxScale | 最大缩放倍数 | number | 50 |  |
+| minScale | 最小缩放倍数 | number | 1 |  |
+| movable | 是否可移动 | boolean | true |  |
+| open | 是否显示预览 | boolean | - |  |
+| rootClassName | 预览图的根 DOM 类名，会同时作用在图片和预览层最外侧 | string | - |  |
+| scaleStep | `1 + scaleStep` 为缩放放大的每步倍数 | number | 0.5 |  |
+| src | 自定义预览 src | string | - |  |
+| styles | 自定义语义化结构样式 | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| ~~toolbarRender~~ | 自定义工具栏，请使用 `actionsRender` 替换 | (originalNode: React.ReactElement, info: Omit<ToolbarRenderInfoType, 'current' \| 'total'>) => React.ReactNode | - |  |
+| ~~visible~~ | 是否显示，请使用 `open` 替换 | boolean | - |  |
+| onOpenChange | 预览打开状态变化的回调 | (visible: boolean, prevVisible: boolean) => void | - |  |
+| onTransform | 预览图 transform 变化的回调 | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - |  |
+| ~~onVisibleChange~~ | 当 `visible` 发生改变时的回调，请使用 `onOpenChange` 替换 | (visible: boolean, prevVisible: boolean) => void | - |  |
 
-## PreviewGroup
+### PreviewGroup
 
-| Property | Description | Type | Default | Version |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| fallback | Load failure fault-tolerant src | string | - | 5.7.0 |
-| items | Preview items | string[] \| { src: string, crossOrigin: string, ... }[] | - | 5.7.0 |
-| preview | Preview config, `disabled` when false | boolean \| [PreviewGroupType](#previewgrouptype) | true | 4.6.0 [PreviewGroupType](#previewgrouptype):4.7.0 |
+| fallback | 加载失败容错地址 | string | - |  |
+| items | 预览数组 | string[] \| { src: string, crossOrigin: string, ... }[] | - |  |
+| preview | 预览参数，为 `false` 时禁用 | boolean \| [PreviewGroupType](#previewgrouptype) | true |  |
 
 ### PreviewGroupType
 
-| Property | Description | Type | Default | Version |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| closeIcon | Custom close icon | React.ReactNode | - | 5.7.0 |
-| countRender | Custom preview count content | (current: number, total: number) => React.ReactNode | - | 4.20.0 |
-| current | The index of the current preview | number | - | 4.12.0 |
-| forceRender | Force render preview dialog | boolean | - | - |
-| getContainer | The mounted node for preview dialog but still display at fullScreen | string \| HTMLElement \| (() => HTMLElement) \| false | - | 4.8.0 |
-| imageRender | Custom preview content | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo), current: number }) => React.ReactNode | - | 5.7.0, image: 5.18.0 |
-| mask | Thumbnail mask | ReactNode | - | 4.9.0 |
-| maskClassName | The className of the mask | string | - | 4.11.0 |
-| maxScale | Max scale | number | 50 | 5.7.0 |
-| minScale | Min scale | number | 1 | 5.7.0 |
-| movable | whether can be moved | boolean | true | 5.8.0 |
-| rootClassName | The classname of the preview root DOM | string | - | 5.4.0 |
-| scaleStep | `1 + scaleStep` is the step to increase or decrease the scale | number | 0.5 | - |
-| toolbarRender | Custom toolbar render | (originalNode: React.ReactElement, info: [ToolbarRenderInfoType](#toolbarrenderinfotype)) => React.ReactNode | - | 5.7.0, `info.image`: 5.18.0 |
-| visible | Whether the preview dialog is visible or not | boolean | - | - |
-| onChange | Callback when switch preview image | (current: number, prevCurrent: number) => void | - | 5.3.0 |
-| onTransform | Callback when the transform of image changed | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - | 5.7.0 |
-| onVisibleChange | Callback when `visible` changed | (visible: boolean, prevVisible: boolean, current: number) => void | - | current Property 5.3.0 |
+| actionsRender | 自定义工具栏渲染 | (originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode | - |  |
+| classNames | 自定义预览类名对象 | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| closeIcon | 自定义关闭 Icon | React.ReactNode | - |  |
+| countRender | 自定义预览计数内容 | (current: number, total: number) => React.ReactNode | - |  |
+| current | 当前预览图的 index | number | - |  |
+| ~~forceRender~~ | 强制渲染预览图，已移除，不再支持 | boolean | - |  |
+| getContainer | 指定预览挂载的节点，但依旧为全屏展示，false 为挂载在当前位置 | string \| HTMLElement \| (() => HTMLElement) \| false | - |  |
+| imageRender | 自定义预览内容 | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo), current: number }) => React.ReactNode | - |  |
+| ~~mask~~ | 缩略图遮罩，请使用 `cover` 替换 | ReactNode | - |  |
+| ~~maskClassName~~ | 缩略图遮罩类名，请使用 `classNames.cover` 替换 | string | - |  |
+| minScale | 最小缩放倍数 | number | 1 |  |
+| maxScale | 最大放大倍数 | number | 50 |  |
+| movable | 是否可移动 | boolean | true |  |
+| open | 是否显示预览 | boolean | - |  |
+| ~~rootClassName~~ | 预览图的根 DOM 类名，会同时作用在图片和预览层最外侧，请使用 `classNames.root` 替换 | string | - |  |
+| styles | 自定义语义化结构样式 | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| scaleStep | `1 + scaleStep` 为缩放放大的每步倍数 | number | 0.5 |  |
+| ~~toolbarRender~~ | 自定义工具栏，请使用 `actionsRender` 替换 | (originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode | - |  |
+| ~~visible~~ | 是否显示，请使用 `open` 替换 | boolean | - |  |
+| onOpenChange | 预览打开状态变化回调，额外携带当前预览图索引 | (visible: boolean, prevVisible: boolean, current: number) => void | - |  |
+| onChange | 切换预览图的回调 | (current: number, prevCurrent: number) => void | - |  |
+| onTransform | 预览图 transform 变化的回调 | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - |  |
+| ~~onVisibleChange~~ | 当 `visible` 发生改变时的回调，请使用 `onOpenChange` 替换 | (visible: boolean, prevVisible: boolean, current: number) => void | - |  |
 
 ## Interface
 
