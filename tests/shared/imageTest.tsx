@@ -120,6 +120,7 @@ export default function imageTest(
           request.continue();
         }
       };
+      
       const { openTriggerClassName } = options;
 
       const requestListener = (request: any) => onRequestHandle(request as HTTPRequest);
