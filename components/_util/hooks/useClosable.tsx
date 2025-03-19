@@ -104,7 +104,7 @@ export default function useClosable(
      */
     closeIconRender?: (closeIcon: ReactNode) => ReactNode;
   } = EmptyFallbackCloseCollection,
-): [closable: boolean, closeIcon: React.ReactNode, closeBtnIsDisabled: boolean] {
+): [closable: boolean, closeIcon: React.ReactNode, closeBtnIsDisabled: boolean, ariaProps: {}] {
   // Align the `props`, `context` `fallback` to config object first
   const propCloseConfig = useClosableConfig(propCloseCollection);
   const contextCloseConfig = useClosableConfig(contextCloseCollection);
@@ -151,13 +151,14 @@ export default function useClosable(
   // Calculate the final closeIcon
   return React.useMemo(() => {
     if (mergedClosableConfig === false) {
-      return [false, null, closeBtnIsDisabled];
+      return [false, null, closeBtnIsDisabled, {}];
     }
 
     const { closeIconRender } = mergedFallbackCloseCollection;
     const { closeIcon } = mergedClosableConfig;
 
     let mergedCloseIcon: ReactNode = closeIcon;
+    const ariaProps = pickAttrs(mergedClosableConfig, true);
     if (mergedCloseIcon !== null && mergedCloseIcon !== undefined) {
       // Wrap the closeIcon if needed
       if (closeIconRender) {
@@ -165,7 +166,6 @@ export default function useClosable(
       }
 
       // Wrap the closeIcon with aria props
-      const ariaProps = pickAttrs(mergedClosableConfig, true);
       if (Object.keys(ariaProps).length) {
         mergedCloseIcon = React.isValidElement(mergedCloseIcon) ? (
           React.cloneElement(mergedCloseIcon, ariaProps)
@@ -175,6 +175,6 @@ export default function useClosable(
       }
     }
 
-    return [true, mergedCloseIcon, closeBtnIsDisabled];
+    return [true, mergedCloseIcon, closeBtnIsDisabled, ariaProps];
   }, [mergedClosableConfig, mergedFallbackCloseCollection]);
 }
