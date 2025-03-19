@@ -15,14 +15,14 @@ const locales = {
   cn: {
     root: '根元素',
     item: '条目元素',
-    title: '标题元素',
-    icon: '图标元素',
+    itemTitle: '标题元素',
+    itemIcon: '图标元素',
   },
   en: {
     root: 'Root element',
     item: 'Item element',
-    title: 'title element',
-    icon: 'Icon element',
+    itemTitle: 'title element',
+    itemIcon: 'Icon element',
   },
 };
 
@@ -52,8 +52,8 @@ const App: React.FC = () => {
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'item', desc: locale.item, version: '6.0.0' },
-        { name: 'icon', desc: locale.icon, version: '6.0.0' },
-        { name: 'title', desc: locale.title, version: '6.0.0' },
+        { name: 'itemIcon', desc: locale.itemIcon, version: '6.0.0' },
+        { name: 'itemTitle', desc: locale.itemTitle, version: '6.0.0' },
       ]}
     >
       <Tree

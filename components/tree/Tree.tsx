@@ -109,7 +109,7 @@ interface DraggableConfig {
   nodeDraggable?: DraggableFn;
 }
 
-type SemanticName = 'root' | 'item' | 'icon' | 'title';
+type SemanticName = 'root' | 'item' | 'itemIcon' | 'itemTitle';
 
 export interface TreeProps<T extends BasicDataNode = DataNode>
   extends Omit<
@@ -283,13 +283,13 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
       rootStyle={{ ...contextStyles.root, ...styles?.root, ...rootStyle }}
       classNames={{
         item: classNames(contextClassNames.item, treeClassNames?.item),
-        icon: classNames(contextClassNames.icon, treeClassNames?.icon),
-        title: classNames(contextClassNames.title, treeClassNames?.title),
+        itemIcon: classNames(contextClassNames.itemIcon, treeClassNames?.itemIcon),
+        itemTitle: classNames(contextClassNames.itemTitle, treeClassNames?.itemTitle),
       }}
       styles={{
         item: { ...contextStyles.item, ...styles?.item },
-        icon: { ...contextStyles.icon, ...styles?.icon },
-        title: { ...contextStyles.title, ...styles?.title },
+        itemIcon: { ...contextStyles.itemIcon, ...styles?.itemIcon },
+        itemTitle: { ...contextStyles.itemTitle, ...styles?.itemTitle },
       }}
       direction={direction}
       checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
