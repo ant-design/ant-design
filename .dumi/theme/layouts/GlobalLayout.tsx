@@ -1,4 +1,6 @@
+// prettier-ignore
 import { scan } from 'react-scan'; // import this BEFORE react
+
 import React, { Suspense, useCallback, useEffect } from 'react';
 import {
   createCache,
@@ -46,10 +48,14 @@ if (typeof window !== 'undefined') {
       location.hash = `#${hashId.replace(/^components-/, '')}`;
     }
   }
-  scan({
-    enabled: process.env.NODE_ENV !== 'production',
-    log: true, // logs render info to console (default: false)
-  });
+
+  if (process.env.NODE_ENV !== 'production') {
+    scan({
+      enabled: false,
+      showToolbar: true,
+      log: true, // logs render info to console (default: false)
+    });
+  }
 }
 
 const getAlgorithm = (themes: ThemeName[] = []) =>

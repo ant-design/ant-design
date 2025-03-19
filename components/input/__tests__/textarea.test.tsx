@@ -1,5 +1,6 @@
 import type { ChangeEventHandler, TextareaHTMLAttributes } from 'react';
 import React, { useState } from 'react';
+import type { TextAreaRef as RcTextAreaRef } from '@rc-component/textarea';
 import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 
 import Input from '..';
@@ -14,9 +15,8 @@ import {
   waitFakeTimer,
   waitFakeTimer19,
 } from '../../../tests/utils';
-import type { TextAreaRef } from '../TextArea';
 import useHandleResizeWrapper from '../hooks/useHandleResizeWrapper';
-import type { TextAreaRef as RcTextAreaRef } from 'rc-textarea';
+import type { TextAreaRef } from '../TextArea';
 
 const { TextArea } = Input;
 
@@ -555,13 +555,13 @@ describe('TextArea useHandleResizeWrapper', () => {
   });
 
   it('does nothing when rcTextArea is null', () => {
-    const { result } = renderHook(() => useHandleResizeWrapper());
+    const { result } = renderHook(useHandleResizeWrapper);
     // Calling with null should not throw or change anything.
-    expect(() => result.current?.handleResizeWrapper(null)).not.toThrow();
+    expect(() => result.current?.(null)).not.toThrow();
   });
 
   it('does nothing when style width does not include "px"', () => {
-    const { result } = renderHook(() => useHandleResizeWrapper());
+    const { result } = renderHook(useHandleResizeWrapper);
 
     const fakeRcTextArea = {
       resizableTextArea: {
@@ -573,11 +573,11 @@ describe('TextArea useHandleResizeWrapper', () => {
       },
       nativeElement: {
         offsetWidth: 110,
-        style: {} as any,
+        style: {},
       },
     } as unknown as RcTextAreaRef;
 
-    result.current?.handleResizeWrapper(fakeRcTextArea);
+    result.current?.(fakeRcTextArea);
 
     // Fast-forward time to see if any scheduled callback would execute.
     jest.advanceTimersByTime(16);
@@ -586,7 +586,7 @@ describe('TextArea useHandleResizeWrapper', () => {
   });
 
   it('adjusts width correctly when offsetWidth is slightly greater than the textArea width (increased scenario)', () => {
-    const { result } = renderHook(() => useHandleResizeWrapper());
+    const { result } = renderHook(useHandleResizeWrapper);
 
     const fakeRcTextArea = {
       resizableTextArea: {
@@ -599,14 +599,14 @@ describe('TextArea useHandleResizeWrapper', () => {
       // offsetWidth is 101 so the difference is 1 (< ELEMENT_GAP of 2)
       nativeElement: {
         offsetWidth: 101,
-        style: {} as any,
+        style: {},
       },
     } as unknown as RcTextAreaRef;
 
     // Immediately after calling handleResizeWrapper, the update is scheduled.
     expect(fakeRcTextArea.nativeElement.style.width).toBeUndefined();
 
-    result.current?.handleResizeWrapper(fakeRcTextArea);
+    result.current?.(fakeRcTextArea);
 
     // Fast-forward time to trigger the requestAnimationFrame callback.
     jest.advanceTimersByTime(16);
@@ -615,7 +615,7 @@ describe('TextArea useHandleResizeWrapper', () => {
   });
 
   it('adjusts width correctly when offsetWidth is significantly greater than the textArea width (decreased scenario)', () => {
-    const { result } = renderHook(() => useHandleResizeWrapper());
+    const { result } = renderHook(useHandleResizeWrapper);
 
     const fakeRcTextArea = {
       resizableTextArea: {
@@ -628,14 +628,14 @@ describe('TextArea useHandleResizeWrapper', () => {
       // offsetWidth is 105 so the difference is 5 (> ELEMENT_GAP of 2)
       nativeElement: {
         offsetWidth: 105,
-        style: {} as any,
+        style: {},
       },
     } as unknown as RcTextAreaRef;
 
     // Immediately after calling handleResizeWrapper, the update is scheduled.
     expect(fakeRcTextArea.nativeElement.style.width).toBeUndefined();
 
-    result.current?.handleResizeWrapper(fakeRcTextArea);
+    result.current?.(fakeRcTextArea);
 
     // Fast-forward time to trigger the requestAnimationFrame callback.
     jest.advanceTimersByTime(16);
