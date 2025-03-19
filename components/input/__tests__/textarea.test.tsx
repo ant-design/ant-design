@@ -1,5 +1,6 @@
 import type { ChangeEventHandler, TextareaHTMLAttributes } from 'react';
 import React, { useState } from 'react';
+import type { TextAreaRef as RcTextAreaRef } from '@rc-component/textarea';
 import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 
 import Input from '..';
