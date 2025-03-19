@@ -174,7 +174,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     <ResizeObserver onResize={onContainerResize}>
       <div style={mergedStyle} className={containerClassName}>
         {items.map((item, idx) => {
-          const pannelProps = {
+          const panelProps = {
             ...item,
             className: cls(contextClassNames.panel, classNames?.panel, item.className),
             style: { ...contextStyles.panel, ...styles?.panel, ...item.style },
