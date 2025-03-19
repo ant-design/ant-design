@@ -236,7 +236,7 @@
     "dekko": "^0.2.1",
     "dotenv": "^16.4.5",
     "dumi": "~2.4.17",
-    "dumi-plugin-color-chunk": "^1.1.2",
+    "dumi-plugin-color-chunk": "^2.1.0",
     "env-paths": "^3.0.0",
     "eslint": "^9.15.0",
     "eslint-plugin-compat": "^6.0.1",
