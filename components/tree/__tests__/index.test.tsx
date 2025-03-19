@@ -261,14 +261,14 @@ describe('Tree', () => {
     ];
     const testClassNames = {
       item: 'test-item',
-      icon: 'test-icon',
-      title: 'test-title',
+      itemIcon: 'test-icon',
+      itemTitle: 'test-title',
       root: 'test-root',
     };
     const testStyles = {
       item: { background: 'red' },
-      icon: { color: 'blue' },
-      title: { color: 'yellow' },
+      itemIcon: { color: 'blue' },
+      itemTitle: { color: 'yellow' },
       root: { color: 'green' },
     };
     const { container } = render(
@@ -287,10 +287,10 @@ describe('Tree', () => {
 
     expect(root).toHaveStyle(testStyles.root);
     expect(root).toHaveClass(testClassNames.root);
-    expect(icon).toHaveStyle(testStyles.icon);
-    expect(icon).toHaveClass(testClassNames.icon);
-    expect(title).toHaveStyle(testStyles.title);
-    expect(title).toHaveClass(testClassNames.title);
+    expect(icon).toHaveStyle(testStyles.itemIcon);
+    expect(icon).toHaveClass(testClassNames.itemIcon);
+    expect(title).toHaveStyle(testStyles.itemTitle);
+    expect(title).toHaveClass(testClassNames.itemTitle);
     expect(item).toHaveStyle(testStyles.item);
   });
 });

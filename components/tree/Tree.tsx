@@ -7,6 +7,7 @@ import RcTree from '@rc-component/tree';
 import type { DataNode, Key } from '@rc-component/tree/lib/interface';
 import classNames from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import initCollapseMotion from '../_util/motion';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -194,10 +195,14 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     motion: customMotion,
     style,
     rootClassName,
-    rootStyle,
     classNames: treeClassNames,
     styles,
   } = props;
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, treeClassNames],
+    [contextStyles, styles],
+  );
 
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
@@ -279,18 +284,10 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
         cssVarCls,
       )}
       style={{ ...contextStyle, ...style }}
-      rootClassName={classNames(contextClassNames.root, treeClassNames?.root, rootClassName)}
-      rootStyle={{ ...contextStyles.root, ...styles?.root, ...rootStyle }}
-      classNames={{
-        item: classNames(contextClassNames.item, treeClassNames?.item),
-        itemIcon: classNames(contextClassNames.itemIcon, treeClassNames?.itemIcon),
-        itemTitle: classNames(contextClassNames.itemTitle, treeClassNames?.itemTitle),
-      }}
-      styles={{
-        item: { ...contextStyles.item, ...styles?.item },
-        itemIcon: { ...contextStyles.itemIcon, ...styles?.itemIcon },
-        itemTitle: { ...contextStyles.itemTitle, ...styles?.itemTitle },
-      }}
+      rootClassName={classNames(mergedClassNames?.root, rootClassName)}
+      rootStyle={mergedStyles?.root}
+      classNames={mergedClassNames}
+      styles={mergedStyles}
       direction={direction}
       checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
       selectable={selectable}
