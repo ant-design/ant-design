@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.24.3",
+  "version": "5.24.4",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -130,7 +130,7 @@
     "rc-drawer": "~7.2.0",
     "rc-dropdown": "~4.2.1",
     "rc-field-form": "~2.7.0",
-    "rc-image": "~7.11.0",
+    "rc-image": "~7.11.1",
     "rc-input": "~1.7.3",
     "rc-input-number": "~9.4.0",
     "rc-mentions": "~2.19.1",
@@ -242,7 +242,7 @@
     "eslint-plugin-compat": "^6.0.1",
     "eslint-plugin-jest": "^28.9.0",
     "eslint-plugin-jsx-a11y": "^6.10.0",
-    "eslint-plugin-react-hooks": "^5.2.0-canary-6907aa2a-20241220",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.14",
     "fast-glob": "^3.3.2",
     "fs-extra": "^11.2.0",
@@ -299,7 +299,7 @@
     "react-intersection-observer": "^9.13.1",
     "react-resizable": "^3.0.5",
     "react-router-dom": "^7.0.1",
-    "react-scan": "^0.2.0",
+    "react-scan": "^0.3.0",
     "react-sticky-box": "^2.0.5",
     "regenerator-runtime": "^0.14.1",
     "rehype-stringify": "^10.0.1",
@@ -322,24 +322,13 @@
     "tar-fs": "^3.0.6",
     "terser": "^5.36.0",
     "tsx": "^4.19.2",
-    "typedoc": "^0.27.0",
+    "typedoc": "^0.28.0",
     "typescript": "~5.8.2",
     "vanilla-jsoneditor": "^3.0.0",
     "vanilla-tilt": "^1.8.1",
     "webpack": "^5.97.1",
     "webpack-bundle-analyzer": "^4.10.2",
     "xhr-mock": "^2.5.1"
-  },
-  "pnpm": {
-    "overrides": {
-      "nwsapi": "2.2.16"
-    }
-  },
-  "overrides": {
-    "nwsapi": "2.2.16"
-  },
-  "resolutions": {
-    "nwsapi": "2.2.16"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
