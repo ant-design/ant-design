@@ -36,7 +36,7 @@ const Block = (prop: any) => {
         placement="bottomLeft"
         suffixIcon={<SmileOutlined />}
         defaultValue="thinkasany"
-        style={{ width: 200 }}
+        styles={{ root: { zIndex: 1000, width: 200 } }}
         getPopupContainer={() => divRef.current}
         options={[
           { value: 'thinkasany', label: 'thinkasany' },

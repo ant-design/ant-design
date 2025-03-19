@@ -37,7 +37,7 @@ const Block = (prop: any) => {
         {...prop}
         open
         placement="bottomLeft"
-        style={{ width: 200 }}
+        styles={{ root: { zIndex: 1000, width: 200 } }}
         getPopupContainer={() => divRef.current}
         onSearch={(text) => setOptions(getPanelValue(text))}
         placeholder="input here"

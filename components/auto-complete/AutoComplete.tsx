@@ -38,14 +38,12 @@ export interface AutoCompleteProps<
   /** @deprecated Please use `options` instead */
   dataSource?: DataSourceItemType[];
   status?: InputStatus;
-  /** @deprecated Please use `classNames: {{ popup: ""}}` instead */
+  /** @deprecated Please use `classNames.popup` instead */
   popupClassName?: string;
-  /** @deprecated Please use `classNames: {{ popup: ""}}` instead */
+  /** @deprecated Please use `classNames.popup` instead */
   dropdownClassName?: string;
-  /** @deprecated Please use `styles: {{ popup: {}}}` instead */
+  /** @deprecated Please use `styles.popup` instead */
   dropdownStyle?: React.CSSProperties;
-  /** @deprecated Please use `styles: {{ popup: {}}}` instead */
-  popupStyle?: React.CSSProperties;
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
@@ -67,7 +65,6 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     style,
     popupClassName,
     dropdownClassName,
-    popupStyle,
     dropdownStyle,
     children,
     dataSource,
@@ -128,10 +125,9 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     const warning = devUseWarning('AutoComplete');
 
     [
-      ['dropdownClassName', 'classNames: {{ popup: ""}}'],
-      ['popupClassName', 'classNames: {{ popup: ""}}'],
-      ['dropdownStyle', 'styles: {{ popup: {}}}'],
-      ['popupStyle', 'styles: {{ popup: {}}}'],
+      ['dropdownClassName', 'classNames.popup'],
+      ['popupClassName', 'classNames.popup}'],
+      ['dropdownStyle', 'styles.popup'],
       ['dataSource', 'options'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
@@ -147,10 +143,9 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
 
   const prefixCls = getPrefixCls('select', customizePrefixCls);
-  const mergedPopupStyle = popupStyle ?? dropdownStyle;
 
   // ============================ zIndex ============================
-  const [zIndex] = useZIndex('SelectLike', mergedPopupStyle?.zIndex as number);
+  const [zIndex] = useZIndex('SelectLike', dropdownStyle?.zIndex as number);
 
   const mergedClassNames = {
     root: classNames(
@@ -167,7 +162,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
 
   const mergedStyles = {
     root: { ...styles?.root, ...style },
-    popup: { ...styles?.popup, ...mergedPopupStyle, zIndex },
+    popup: { ...styles?.popup, ...dropdownStyle, zIndex },
     list: styles?.list,
     listItem: styles?.listItem,
     input: styles?.input,
