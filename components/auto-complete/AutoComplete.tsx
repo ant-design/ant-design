@@ -4,7 +4,6 @@ import toArray from '@rc-component/util/lib/Children/toArray';
 import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
 
-import { useZIndex } from '../_util/hooks/useZIndex';
 import type { InputStatus } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -42,8 +41,6 @@ export interface AutoCompleteProps<
   popupClassName?: string;
   /** @deprecated Please use `classNames.popup` instead */
   dropdownClassName?: string;
-  /** @deprecated Please use `styles.popup` instead */
-  dropdownStyle?: React.CSSProperties;
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
@@ -65,7 +62,6 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     style,
     popupClassName,
     dropdownClassName,
-    dropdownStyle,
     children,
     dataSource,
     rootClassName,
@@ -143,9 +139,6 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
 
   const prefixCls = getPrefixCls('select', customizePrefixCls);
 
-  // ============================ zIndex ============================
-  const [zIndex] = useZIndex('SelectLike', dropdownStyle?.zIndex as number);
-
   const mergedClassNames = {
     root: classNames(
       `${prefixCls}-auto-complete`,
@@ -161,7 +154,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
 
   const mergedStyles = {
     root: { ...styles?.root, ...style },
-    popup: { ...styles?.popup, ...dropdownStyle, zIndex },
+    popup: { ...styles?.popup },
     list: styles?.list,
     listItem: styles?.listItem,
     input: styles?.input,
