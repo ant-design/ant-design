@@ -17,6 +17,9 @@ const useStyle = createStyles(({ token }, markPos: [number, number, number, numb
     padding: ${token.paddingMD}px;
     overflow: hidden;
   `,
+  colWrapPaddingLess: css`
+    padding: 0;
+  `,
   listWrap: css`
     display: flex;
     flex-direction: column;
@@ -68,15 +71,16 @@ export interface SemanticPreviewProps {
   semantics: { name: string; desc: string; version?: string }[];
   children: React.ReactElement<any>;
   height?: number;
+  padding?: false;
 }
 
 const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
-  const { semantics = [], children, height } = props;
+  const { semantics = [], children, height, padding } = props;
   const { token } = theme.useToken();
 
   // ======================= Semantic =======================
   const getMarkClassName = React.useCallback(
-    (semanticKey: string) => `semantic-mark-${semanticKey}`,
+    (semanticKey: string) => `semantic-mark-${semanticKey}`.replace(/\./g, '-'),
     [],
   );
 
@@ -89,10 +93,6 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
 
     return classNames;
   }, [semantics]);
-
-  const cloneNode = React.cloneElement(children, {
-    classNames: semanticClassNames,
-  });
 
   // ======================== Hover =========================
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -134,11 +134,29 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
     };
   }, [hoverSemantic]);
 
+  const hoveredSemanticClassNames = React.useMemo(() => {
+    if (!hoverSemantic) {
+      return semanticClassNames;
+    }
+
+    const clone = { ...semanticClassNames };
+    clone[hoverSemantic] = classnames(clone[hoverSemantic], getMarkClassName('active'));
+
+    return clone;
+  }, [semanticClassNames, hoverSemantic]);
+
   // ======================== Render ========================
+  const cloneNode = React.cloneElement(children, {
+    classNames: hoveredSemanticClassNames,
+  });
+
   return (
     <div className={classnames(styles.container)} ref={containerRef}>
       <Row style={{ minHeight: height }}>
-        <Col span={16} className={classnames(styles.colWrap)}>
+        <Col
+          span={16}
+          className={classnames(styles.colWrap, padding === false && styles.colWrapPaddingLess)}
+        >
           <ConfigProvider theme={{ token: { motion: false } }}>{cloneNode}</ConfigProvider>
         </Col>
         <Col span={8}>

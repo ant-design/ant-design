@@ -11,10 +11,10 @@ exports[`renders components/image/demo/basic.tsx extend context correctly 1`] = 
     width="200"
   />
   <div
-    class="ant-image-mask"
+    class="ant-image-cover"
   >
     <div
-      class="ant-image-mask-info"
+      class="ant-image-cover-info"
     >
       <span
         aria-label="eye"
@@ -55,10 +55,10 @@ Array [
       width="150"
     />
     <div
-      class="ant-image-mask"
+      class="ant-image-cover"
     >
       <div
-        class="ant-image-mask-info"
+        class="ant-image-cover-info"
       >
         <span
           aria-label="eye"
@@ -93,10 +93,10 @@ Array [
       width="150"
     />
     <div
-      class="ant-image-mask"
+      class="ant-image-cover"
     >
       <div
-        class="ant-image-mask-info"
+        class="ant-image-cover-info"
       >
         <span
           aria-label="eye"
@@ -227,11 +227,11 @@ Array [
       width="200"
     />
     <div
-      class="ant-image-mask"
+      class="ant-image-cover"
       style="display: none;"
     >
       <div
-        class="ant-image-mask-info"
+        class="ant-image-cover-info"
       >
         <span
           aria-label="eye"
@@ -274,10 +274,10 @@ exports[`renders components/image/demo/fallback.tsx extend context correctly 1`]
     width="200"
   />
   <div
-    class="ant-image-mask"
+    class="ant-image-cover"
   >
     <div
-      class="ant-image-mask-info"
+      class="ant-image-cover-info"
     >
       <span
         aria-label="eye"
@@ -317,10 +317,10 @@ exports[`renders components/image/demo/imageRender.tsx extend context correctly 
     width="200"
   />
   <div
-    class="ant-image-mask"
+    class="ant-image-cover"
   >
     <div
-      class="ant-image-mask-info"
+      class="ant-image-cover-info"
     >
       <span
         aria-label="eye"
@@ -395,10 +395,10 @@ exports[`renders components/image/demo/placeholder.tsx extend context correctly 
         </div>
       </div>
       <div
-        class="ant-image-mask"
+        class="ant-image-cover"
       >
         <div
-          class="ant-image-mask-info"
+          class="ant-image-cover-info"
         >
           <span
             aria-label="eye"
@@ -453,10 +453,10 @@ Array [
       width="200"
     />
     <div
-      class="ant-image-mask"
+      class="ant-image-cover"
     >
       <div
-        class="ant-image-mask-info"
+        class="ant-image-cover-info"
       >
         <span
           aria-label="eye"
@@ -491,10 +491,10 @@ Array [
       width="200"
     />
     <div
-      class="ant-image-mask"
+      class="ant-image-cover"
     >
       <div
-        class="ant-image-mask-info"
+        class="ant-image-cover-info"
       >
         <span
           aria-label="eye"
@@ -536,10 +536,10 @@ Array [
       width="150"
     />
     <div
-      class="ant-image-mask"
+      class="ant-image-cover"
     >
       <div
-        class="ant-image-mask-info"
+        class="ant-image-cover-info"
       >
         <span
           aria-label="eye"
@@ -574,10 +574,10 @@ Array [
       width="150"
     />
     <div
-      class="ant-image-mask"
+      class="ant-image-cover"
     >
       <div
-        class="ant-image-mask-info"
+        class="ant-image-cover-info"
       >
         <span
           aria-label="eye"
@@ -612,10 +612,10 @@ Array [
       width="150"
     />
     <div
-      class="ant-image-mask"
+      class="ant-image-cover"
     >
       <div
-        class="ant-image-mask-info"
+        class="ant-image-cover-info"
       >
         <span
           aria-label="eye"
@@ -656,10 +656,10 @@ exports[`renders components/image/demo/preview-group-visible.tsx extend context 
     width="200"
   />
   <div
-    class="ant-image-mask"
+    class="ant-image-cover"
   >
     <div
-      class="ant-image-mask-info"
+      class="ant-image-cover-info"
     >
       <span
         aria-label="eye"
@@ -702,10 +702,10 @@ exports[`renders components/image/demo/preview-imgInfo.tsx extend context correc
     width="200px"
   />
   <div
-    class="ant-image-mask"
+    class="ant-image-cover"
   >
     <div
-      class="ant-image-mask-info"
+      class="ant-image-cover-info"
     >
       <span
         aria-label="eye"
@@ -745,7 +745,7 @@ exports[`renders components/image/demo/preview-mask.tsx extend context correctly
     width="96"
   />
   <div
-    class="ant-image-mask customize-mask"
+    class="ant-image-cover"
   >
     <div
       class="ant-space ant-space-vertical ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -796,10 +796,10 @@ exports[`renders components/image/demo/previewSrc.tsx extend context correctly 1
     width="200"
   />
   <div
-    class="ant-image-mask"
+    class="ant-image-cover"
   >
     <div
-      class="ant-image-mask-info"
+      class="ant-image-cover-info"
     >
       <span
         aria-label="eye"
@@ -840,10 +840,10 @@ Array [
       width="200"
     />
     <div
-      class="ant-image-mask"
+      class="ant-image-cover"
     >
       <div
-        class="ant-image-mask-info"
+        class="ant-image-cover-info"
       >
         <span
           aria-label="eye"
@@ -878,10 +878,10 @@ Array [
       width="200"
     />
     <div
-      class="ant-image-mask"
+      class="ant-image-cover"
     >
       <div
-        class="ant-image-mask-info"
+        class="ant-image-cover-info"
       >
         <span
           aria-label="eye"

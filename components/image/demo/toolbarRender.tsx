@@ -46,7 +46,7 @@ const App: React.FC = () => {
   return (
     <Image.PreviewGroup
       preview={{
-        toolbarRender: (
+        actionsRender: (
           _,
           {
             transform: { scale },

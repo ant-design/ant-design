@@ -31,59 +31,41 @@ describe('Image', () => {
   });
 
   it('Default preview props', () => {
-    const { container, baseElement } = render(<Image src={src} preview={{ visible: true }} />);
-
-    fireEvent.click(container.querySelector('.ant-image')!);
-
-    expect(baseElement.querySelector('.ant-image-preview-mask')).toHaveClass('ant-fade');
-    expect(baseElement.querySelector('.ant-image-preview')).toHaveClass('ant-zoom');
+    render(<Image src={src} preview={{ open: true }} />);
+    expect(document.querySelector('.ant-image-preview')).toHaveClass('ant-image-preview-fade');
   });
   it('Default Group preview props', () => {
-    const { container, baseElement } = render(
-      <Image.PreviewGroup preview={{ visible: true }}>
+    render(
+      <Image.PreviewGroup preview={{ open: true }}>
         <Image src={src} />
       </Image.PreviewGroup>,
     );
 
-    fireEvent.click(container.querySelector('.ant-image')!);
-
-    expect(baseElement.querySelector('.ant-image-preview-mask')).toHaveClass('ant-fade');
-    expect(baseElement.querySelector('.ant-image-preview')).toHaveClass('ant-zoom');
-    expect(baseElement).toMatchSnapshot();
+    expect(document.querySelector('.ant-image-preview')).toHaveClass('ant-image-preview-fade');
   });
   it('Customize preview props', () => {
-    const { container, baseElement } = render(
+    render(
       <Image
         src={src}
         preview={{
-          visible: true,
-          transitionName: 'abc',
-          maskTransitionName: 'def',
+          open: true,
+          motionName: 'abc',
           getContainer: false,
         }}
       />,
     );
 
-    fireEvent.click(container.querySelector('.ant-image')!);
-
-    expect(container.querySelector('.ant-image-preview-root')).not.toBe(null);
-
-    expect(baseElement.querySelector('.ant-image-preview')).toHaveClass('abc');
-    expect(baseElement.querySelector('.ant-image-preview-mask')).toHaveClass('def');
+    expect(document.querySelector('.ant-image-preview')).not.toBe(null);
+    expect(document.querySelector('.ant-image-preview')).toHaveClass('abc');
   });
   it('Customize Group preview props', () => {
-    const { container, baseElement } = render(
-      <Image.PreviewGroup
-        preview={{ visible: true, transitionName: 'abc', maskTransitionName: 'def' }}
-      >
+    render(
+      <Image.PreviewGroup preview={{ open: true, motionName: 'abc' }}>
         <Image src={src} />
       </Image.PreviewGroup>,
     );
 
-    fireEvent.click(container.querySelector('.ant-image')!);
-
-    expect(baseElement.querySelector('.ant-image-preview')).toHaveClass('abc');
-    expect(baseElement.querySelector('.ant-image-preview-mask')).toHaveClass('def');
+    expect(document.querySelector('.ant-image-preview')).toHaveClass('abc');
   });
   it('ConfigProvider getPopupContainer', () => {
     const { container, baseElement } = render(
@@ -97,31 +79,12 @@ describe('Image', () => {
     fireEvent.click(container.querySelector('.ant-image')!);
     expect(baseElement.querySelector('.container')?.children.length).not.toBe(0);
   });
-  it('Preview forceRender props', async () => {
-    const onLoadCb = jest.fn();
-    const PreviewImage: React.FC = () => (
-      <Image
-        preview={{
-          visible: false,
-          src,
-          forceRender: true,
-        }}
-      />
-    );
-    const { baseElement } = render(<PreviewImage />);
-    expect(baseElement.querySelector('.ant-image-preview-root')).not.toBe(null);
-    baseElement.querySelector('.ant-image-preview-img')?.addEventListener('load', onLoadCb);
-    fireEvent.load(baseElement.querySelector('.ant-image-preview-img')!);
-    expect(onLoadCb).toHaveBeenCalled();
-  });
   it('Preview should support rootClassName', () => {
-    const { container, baseElement } = render(
-      <Image.PreviewGroup preview={{ visible: true, rootClassName: 'test-root-class' }}>
+    const { baseElement } = render(
+      <Image.PreviewGroup preview={{ open: true, rootClassName: 'test-root-class' }}>
         <Image src={src} />
       </Image.PreviewGroup>,
     );
-
-    fireEvent.click(container.querySelector('.ant-image')!);
 
     expect(baseElement.querySelector('.test-root-class')).toBeTruthy();
   });
@@ -134,11 +97,13 @@ describe('Image', () => {
               width={200}
               src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
               preview={{
+                open: true,
                 rootClassName: 'test-image-preview-class',
               }}
             />
             <Image.PreviewGroup
               preview={{
+                open: true,
                 rootClassName: 'test-image-preview-group-class',
               }}
             >
@@ -155,40 +120,86 @@ describe('Image', () => {
         </Modal>
       </Modal>
     );
-    const { baseElement } = render(<App />);
+    render(<App />);
 
-    fireEvent.click(baseElement.querySelector('.ant-image')!);
+    expect(document.querySelector('.test-image-preview-class') as HTMLElement).toHaveStyle({
+      zIndex: '1301',
+    });
 
-    expect(
-      (
-        baseElement.querySelector(
-          '.test-image-preview-class .ant-image-preview-wrap',
-        ) as HTMLElement
-      ).style.zIndex,
-    ).toBe('1301');
-    expect(
-      (
-        baseElement.querySelector(
-          '.test-image-preview-class.ant-image-preview-operations-wrapper',
-        ) as HTMLElement
-      ).style.zIndex,
-    ).toBe('1302');
+    expect(document.querySelector('.test-image-preview-group-class') as HTMLElement).toHaveStyle({
+      zIndex: '1301',
+    });
+  });
 
-    fireEvent.click(baseElement.querySelectorAll('.ant-image')[1]!);
+  it('support classnames and styles', () => {
+    const customClassNames = {
+      root: 'props-root',
+      image: 'props-image',
+      cover: 'props-cover',
+    };
+    const customStyles = {
+      root: { color: 'red' },
+      image: { color: 'yellow' },
+      cover: { color: 'blue' },
+    };
+    const previewClassNames = {
+      cover: 'preview-cover',
+      root: 'preview-root',
+      mask: 'preview-mask',
+      body: 'preview-body',
+      footer: 'preview-footer',
+      actions: 'preview-actions',
+    };
+    const previewStyles = {
+      cover: { color: 'red' },
+      root: { color: 'yellow' },
+      mask: { color: 'blue' },
+      body: { color: 'green' },
+      footer: { color: 'black' },
+      actions: { color: 'white' },
+    };
 
-    expect(
-      (
-        baseElement.querySelector(
-          '.test-image-preview-group-class .ant-image-preview-wrap',
-        ) as HTMLElement
-      ).style.zIndex,
-    ).toBe('1301');
-    expect(
-      (
-        baseElement.querySelector(
-          '.test-image-preview-group-class.ant-image-preview-operations-wrapper',
-        ) as HTMLElement
-      ).style.zIndex,
-    ).toBe('1302');
+    render(
+      <Image
+        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+        classNames={customClassNames}
+        styles={customStyles}
+        preview={{
+          classNames: previewClassNames,
+          styles: previewStyles,
+          open: true,
+        }}
+      />,
+    );
+
+    // Match classnames and styles: Image
+    expect(document.querySelector('.ant-image')).toHaveClass(customClassNames.root);
+    expect(document.querySelector('.ant-image')).toHaveStyle(customStyles.root);
+
+    expect(document.querySelector('.ant-image-img')).toHaveClass(customClassNames.image);
+    expect(document.querySelector('.ant-image-img')).toHaveStyle(customStyles.image);
+
+    expect(document.querySelector('.ant-image-cover')).toHaveClass(previewClassNames.cover);
+    expect(document.querySelector('.ant-image-cover')).toHaveStyle(previewStyles.cover);
+
+    // Match classnames and styles: Preview
+    expect(document.querySelector('.ant-image-preview')).toHaveClass(previewClassNames.root);
+    expect(document.querySelector('.ant-image-preview')).toHaveStyle(previewStyles.root);
+
+    expect(document.querySelector('.ant-image-preview-mask')).toHaveClass(previewClassNames.mask);
+    expect(document.querySelector('.ant-image-preview-mask')).toHaveStyle(previewStyles.mask);
+
+    expect(document.querySelector('.ant-image-preview-body')).toHaveClass(previewClassNames.body);
+    expect(document.querySelector('.ant-image-preview-body')).toHaveStyle(previewStyles.body);
+
+    expect(document.querySelector('.ant-image-preview-footer')).toHaveClass(
+      previewClassNames.footer,
+    );
+    expect(document.querySelector('.ant-image-preview-footer')).toHaveStyle(previewStyles.footer);
+
+    expect(document.querySelector('.ant-image-preview-actions')).toHaveClass(
+      previewClassNames.actions,
+    );
+    expect(document.querySelector('.ant-image-preview-actions')).toHaveStyle(previewStyles.actions);
   });
 });

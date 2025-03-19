@@ -7,14 +7,16 @@ import RotateRightOutlined from '@ant-design/icons/RotateRightOutlined';
 import SwapOutlined from '@ant-design/icons/SwapOutlined';
 import ZoomInOutlined from '@ant-design/icons/ZoomInOutlined';
 import ZoomOutOutlined from '@ant-design/icons/ZoomOutOutlined';
-import classNames from 'classnames';
 import RcImage from '@rc-component/image';
-import type { GroupConsumerProps } from '@rc-component/image/lib/PreviewGroup';
+import classnames from 'classnames';
 
-import { useZIndex } from '../_util/hooks/useZIndex';
-import { getTransitionName } from '../_util/motion';
-import { ConfigContext } from '../config-provider';
+import type { DeprecatedPreviewConfig } from '.';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import { GetProps } from '../_util/type';
+import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import useMergedPreviewConfig from './hooks/useMergedPreviewConfig';
+import usePreviewConfig from './hooks/usePreviewConfig';
 import useStyle from './style';
 
 export const icons = {
@@ -29,44 +31,65 @@ export const icons = {
   flipY: <SwapOutlined rotate={90} />,
 };
 
-const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
+type RcPreviewGroupProps = GetProps<typeof RcImage.PreviewGroup>;
+
+type OriginPreviewConfig = NonNullable<Exclude<RcPreviewGroupProps['preview'], boolean>>;
+
+export type GroupPreviewConfig = OriginPreviewConfig &
+  DeprecatedPreviewConfig & {
+    /** @deprecated Use `onOpenChange` instead */
+    onVisibleChange?: (visible: boolean, prevVisible: boolean, current: number) => void;
+  };
+
+export interface PreviewGroupProps extends Omit<RcPreviewGroupProps, 'preview'> {
+  preview?: boolean | GroupPreviewConfig;
+}
+
+const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
   previewPrefixCls: customizePrefixCls,
   preview,
   ...otherProps
 }) => {
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  // =============================== MISC ===============================
+  // Context
+  const {
+    getPrefixCls,
+    getPopupContainer: getContextPopupContainer,
+    preview: contextPreview,
+  } = useComponentConfig('image');
+
   const prefixCls = getPrefixCls('image', customizePrefixCls);
   const previewPrefixCls = `${prefixCls}-preview`;
-  const rootPrefixCls = getPrefixCls();
 
+  // ============================== Style ===============================
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const [zIndex] = useZIndex(
-    'ImagePreview',
-    typeof preview === 'object' ? preview.zIndex : undefined,
+  const mergedRootClassName = classnames(hashId, cssVarCls, rootCls);
+
+  // ============================= Preview ==============================
+  const previewConfig = usePreviewConfig(preview);
+  const contextPreviewConfig = usePreviewConfig(contextPreview);
+
+  // Preview semantic
+  const [mergedPreviewClassNames, mergedPreviewStyles] = useMergeSemantic(
+    [contextPreviewConfig?.classNames, previewConfig?.classNames],
+    [contextPreviewConfig?.styles, previewConfig?.styles],
   );
 
-  const mergedPreview = React.useMemo<GroupConsumerProps['preview']>(() => {
-    if (preview === false) {
-      return preview;
-    }
-    const _preview = typeof preview === 'object' ? preview : {};
-    const mergedRootClassName = classNames(
-      hashId,
-      cssVarCls,
-      rootCls,
-      _preview.rootClassName ?? '',
-    );
+  const mergedPreview = useMergedPreviewConfig(
+    // Preview config
+    previewConfig,
+    contextPreviewConfig,
 
-    return {
-      ..._preview,
-      transitionName: getTransitionName(rootPrefixCls, 'zoom', _preview.transitionName),
-      maskTransitionName: getTransitionName(rootPrefixCls, 'fade', _preview.maskTransitionName),
-      rootClassName: mergedRootClassName,
-      zIndex,
-    };
-  }, [preview]);
+    // MISC
+    prefixCls,
+    mergedRootClassName,
+    mergedPreviewClassNames,
+    mergedPreviewStyles,
+    getContextPopupContainer,
+    icons,
+  );
 
   return (
     <RcImage.PreviewGroup
