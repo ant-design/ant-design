@@ -1,6 +1,6 @@
 import React from 'react';
-import type { TextAreaRef } from 'rc-textarea';
-import raf from 'rc-util/lib/raf';
+import type { TextAreaRef } from '@rc-component/textarea';
+import raf from '@rc-component/util/lib/raf';
 
 type ResizeWrapperHandler = (rcTextArea: TextAreaRef | null) => void;
 
