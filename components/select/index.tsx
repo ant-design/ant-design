@@ -83,6 +83,15 @@ export interface SelectProps<
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
+  /** @deprecated Please use `popupRender` instead */
+  dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
+  popupRender?: (menu: React.ReactElement) => React.ReactElement;
+  /** @deprecated Please use `popupStyle` instead */
+  dropdownStyle?: React.CSSProperties;
+  popupStyle?: React.CSSProperties;
+  /** @deprecated Please use `onPopupVisibleChange` instead */
+  onDropdownVisibleChange?: (visible: boolean) => void;
+  onPopupVisibleChange?: (visible: boolean) => void;
 }
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
@@ -117,6 +126,11 @@ const InternalSelect = <
     allowClear,
     variant: customizeVariant,
     dropdownStyle,
+    popupStyle,
+    onDropdownVisibleChange,
+    dropdownRender,
+    popupRender,
+    onPopupVisibleChange,
     transitionName,
     tagRender,
     maxCount,
@@ -171,6 +185,10 @@ const InternalSelect = <
 
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
+
+  const mergedPopupStyle = popupStyle || dropdownStyle;
+  const mergedPopupRender = popupRender || dropdownRender;
+  const mergedOnPopupVisibleChange = onPopupVisibleChange || onDropdownVisibleChange;
 
   // ===================== Form Status =====================
   const {
@@ -253,13 +271,18 @@ const InternalSelect = <
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Select');
 
-    warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
+    // v5 deprecated dropdown api
+    const deprecatedProps = {
+      dropdownMatchSelectWidth: 'popupMatchSelectWidth',
+      dropdownStyle: 'popupStyle',
+      dropdownClassName: 'popupClassName',
+      dropdownRender: 'popupRender',
+      onDropdownVisibleChange: 'onPopupVisibleChange',
+    };
 
-    warning.deprecated(
-      dropdownMatchSelectWidth === undefined,
-      'dropdownMatchSelectWidth',
-      'popupMatchSelectWidth',
-    );
+    Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
+      warning.deprecated(!(oldProp in props), oldProp, newProp);
+    });
 
     warning(
       !('showArrow' in props),
@@ -277,7 +300,7 @@ const InternalSelect = <
   }
 
   // ====================== zIndex =========================
-  const [zIndex] = useZIndex('SelectLike', dropdownStyle?.zIndex as number);
+  const [zIndex] = useZIndex('SelectLike', mergedPopupStyle?.zIndex as number);
 
   // ====================== Render =======================
   return wrapCSSVar(
@@ -306,7 +329,9 @@ const InternalSelect = <
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       dropdownClassName={mergedPopupClassName}
       disabled={mergedDisabled}
-      dropdownStyle={{ ...dropdownStyle, zIndex }}
+      dropdownStyle={{ ...mergedPopupStyle, zIndex }}
+      dropdownRender={mergedPopupRender}
+      onDropdownVisibleChange={mergedOnPopupVisibleChange}
       maxCount={isMultiple ? maxCount : undefined}
       tagRender={isMultiple ? tagRender : undefined}
     />,

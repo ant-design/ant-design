@@ -62,7 +62,7 @@ demo:
 | tagRender | 自定义 tag 内容 render，仅在多选时生效 | ({ label: string, onClose: function, value: string }) => ReactNode | - |  |
 | popupClassName | 自定义浮层类名 | string | - | 4.23.0 |
 | ~~dropdownRender~~ | 自定义下拉框内容，请使用 `popupRender` 替换 | (menus: ReactNode) => ReactNode | - | 4.4.0 |
-| popupRender | 自定义下拉框内容 | (menus: ReactNode) => ReactNode | - |  |
+| popupRender | 自定义弹出框内容 | (menus: ReactNode) => ReactNode | - | 5.25.0 |
 | expandIcon | 自定义次级菜单展开图标 | ReactNode | - | 4.4.0 |
 | expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | string | `click` |  |
 | fieldNames | 自定义 options 中 label value children 的字段 | object | { label: `label`, value: `value`, children: `children` } |  |
@@ -71,7 +71,7 @@ demo:
 | maxTagCount | 最多显示多少个 tag，响应式模式会对性能产生损耗 | number \| `responsive` | - | 4.17.0 |
 | maxTagPlaceholder | 隐藏 tag 时显示的内容 | ReactNode \| function(omittedValues) | - | 4.17.0 |
 | maxTagTextLength | 最大显示的 tag 文本长度 | number | - | 4.17.0 |
-| notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | `Not Found` |  |
+| notFoundContent | 当弹出框为空时显示的内容 | ReactNode | `Not Found` |  |
 | open | 控制浮层显隐 | boolean | - | 4.17.0 |
 | options | 可选项数据源 | [Option](#option)\[] | - |  |
 | placeholder | 输入框占位文本 | string | - |  |
@@ -86,15 +86,15 @@ demo:
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | onChange | 选择完成后的回调 | (value, selectedOptions) => void | - |  |
 | ~~onDropdownVisibleChange~~ | 显示/隐藏浮层的回调，请使用 `onPopupVisibleChange` 替换 | (value) => void | - | 4.17.0 |
-| onPopupVisibleChange | 显示/隐藏浮层的回调 | (value) => void | - |  |
+| onPopupVisibleChange | 显示/隐藏浮层的回调 | (value) => void | - | 5.25.0 |
 | multiple | 支持多选节点 | boolean | - | 4.17.0 |
 | showCheckedStrategy | 定义选中项回填的方式。`Cascader.SHOW_CHILD`: 只显示选中的子节点。`Cascader.SHOW_PARENT`: 只显示父节点（当父节点下所有子节点都选中时）。 | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | 4.20.0 |
 | removeIcon | 自定义的多选框清除图标 | ReactNode | - |  |
 | searchValue | 设置搜索的值，需要与 `showSearch` 配合使用 | string | - | 4.17.0 |
 | onSearch | 监听搜索，返回输入的值 | (search: string) => void | - | 4.17.0 |
 | ~~dropdownMenuColumnStyle~~ | 下拉菜单列的样式，请使用 `popupMenuColumnStyle` 替换 | CSSProperties | - |  |
-| popupMenuColumnStyle | 下拉菜单列的样式 | CSSProperties | - |  |
-| optionRender | 自定义渲染下拉选项 | (option: Option) => React.ReactNode | - | 5.16.0 |
+| popupMenuColumnStyle | 弹出菜单列的样式 | CSSProperties | - | 5.25.0 |
+| optionRender | 自定义渲染弹出菜单选项 | (option: Option) => React.ReactNode | - | 5.16.0 |
 
 ### showSearch
 
