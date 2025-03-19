@@ -119,7 +119,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
 
   const mergedAllowClear = getAllowClear(allowClear ?? contextAllowClear);
 
-  const { handleResizeWrapper } = useHandleResizeWrapper();
+  const handleResizeWrapper = useHandleResizeWrapper();
 
   return (
     <RcTextArea
