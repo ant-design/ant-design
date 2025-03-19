@@ -13,7 +13,7 @@ const locales = {
   },
   en: {
     root: 'Root element',
-    panel: 'Pannle element',
+    panel: 'Panel element',
     dragger: 'Panel control element',
   },
 };
