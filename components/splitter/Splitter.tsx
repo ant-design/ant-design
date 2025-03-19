@@ -196,8 +196,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
             const ariaMaxStart = (stackSizes[idx - 1] || 0) + itemPtgMaxSizes[idx];
             const ariaMaxEnd = (stackSizes[idx + 1] || 100) - itemPtgMinSizes[idx + 1];
 
-            const meargedStyles = { ...contextStyles.dragger, ...styles?.dragger };
-            const meargedClssNames = { ...contextClassNames?.dragger, ...classNames?.dragger };
+            const mergedStyles = { ...contextStyles.dragger, ...styles?.dragger };
+            const mergedClassNames = { ...contextClassNames?.dragger, ...classNames?.dragger };
 
             splitBar = (
               <SplitBar
