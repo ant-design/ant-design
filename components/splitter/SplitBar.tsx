@@ -6,7 +6,7 @@ import UpOutlined from '@ant-design/icons/UpOutlined';
 import useEvent from '@rc-component/util/lib/hooks/useEvent';
 import classNames from 'classnames';
 
-import { covertToSemanticObj } from '../_util/hooks/useMergeSemantic';
+import { convertToSemanticObj } from '../_util/hooks/useMergeSemantic';
 import type { SplitterProps, SplitterSemanticClassNames } from './interface';
 
 export interface SplitBarProps {
@@ -65,7 +65,9 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   // ======================== Styles ========================
   const mergedDraggerClassNames = React.useMemo(
     () =>
-      covertToSemanticObj<Exclude<SplitterSemanticClassNames['dragger'], string>>(draggerClassName),
+      convertToSemanticObj<Exclude<SplitterSemanticClassNames['dragger'], string>>(
+        draggerClassName,
+      ),
     [draggerClassName],
   );
 
