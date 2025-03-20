@@ -122,7 +122,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
 
     [
       ['dropdownClassName', 'classNames.popup'],
-      ['popupClassName', 'classNames.popup}'],
+      ['popupClassName', 'classNames.popup'],
       ['dataSource', 'options'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
