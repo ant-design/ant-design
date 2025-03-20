@@ -6,7 +6,7 @@ import UpOutlined from '@ant-design/icons/UpOutlined';
 import useEvent from '@rc-component/util/lib/hooks/useEvent';
 import classNames from 'classnames';
 
-import type { DraggerConf, SplitterProps } from './interface';
+import type { SplitterProps } from './interface';
 
 export interface SplitBarProps {
   index: number;

@@ -4,6 +4,7 @@ import ResizeObserver from '@rc-component/resize-observer';
 import useEvent from '@rc-component/util/lib/hooks/useEvent';
 import cls from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -132,6 +133,11 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   });
 
   // ======================== Styles ========================
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+  );
+
   const containerClassName = cls(
     prefixCls,
     className,
@@ -140,9 +146,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
       [`${prefixCls}-rtl`]: isRTL,
     },
     rootClassName,
-    contextClassNames.root,
+    mergedClassNames.root,
     contextClassName,
-    classNames?.root,
     cssVarCls,
     rootCls,
     hashId,
@@ -164,8 +169,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   }, [itemPtgSizes]);
 
   const mergedStyle: React.CSSProperties = {
-    ...contextStyles.root,
-    ...styles?.root,
+    ...mergedStyles.root,
     ...contextStyle,
     ...style,
   };
@@ -176,8 +180,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
         {items.map((item, idx) => {
           const panelProps = {
             ...item,
-            className: cls(contextClassNames.panel, classNames?.panel, item.className),
-            style: { ...contextStyles.panel, ...styles?.panel, ...item.style },
+            className: cls(mergedClassNames.panel, item.className),
+            style: { ...mergedStyles.panel, ...item.style },
           };
 
           // Panel
@@ -196,9 +200,6 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
             const ariaMaxStart = (stackSizes[idx - 1] || 0) + itemPtgMaxSizes[idx];
             const ariaMaxEnd = (stackSizes[idx + 1] || 100) - itemPtgMinSizes[idx + 1];
 
-            const mergedStyles = { ...contextStyles.dragger, ...styles?.dragger };
-            const mergedClassNames = { ...contextClassNames?.dragger, ...classNames?.dragger };
-
             splitBar = (
               <SplitBar
                 lazy={lazy}
@@ -207,8 +208,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 prefixCls={prefixCls}
                 vertical={isVertical}
                 resizable={resizableInfo.resizable}
-                draggerStyle={mergedStyles}
-                draggerClassName={mergedClassNames}
+                draggerStyle={mergedStyles.dragger}
+                draggerClassName={mergedClassNames.dragger}
                 draggerIcon={draggerIcon}
                 collapsibleIcon={collapsibleIcon}
                 ariaNow={stackSizes[idx] * 100}

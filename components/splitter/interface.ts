@@ -1,22 +1,21 @@
 // ================ outside ================
-export interface DraggerConf<T = string> {
-  default?: T;
-  active?: T;
-}
-interface SemanticType<T = string> {
-  root: T;
-  panel: T;
-  dragger: DraggerConf<T>;
+interface SplitterSemanticClassNames {
+  root?: string;
+  panel?: string;
+  dragger:
+    | string
+    | {
+        default?: string;
+        active?: string;
+      };
 }
 
 export interface SplitterProps {
   prefixCls?: string;
   className?: string;
-  classNames?: Partial<SemanticType>;
+  classNames?: SplitterSemanticClassNames;
   style?: React.CSSProperties;
-  styles?: Partial<
-    Omit<SemanticType<React.CSSProperties>, 'dragger'> & { dragger?: React.CSSProperties }
-  >;
+  styles?: Partial<Record<keyof SplitterSemanticClassNames, React.CSSProperties>>;
   rootClassName?: string;
   layout?: 'horizontal' | 'vertical';
   draggerIcon?: React.ReactNode;
