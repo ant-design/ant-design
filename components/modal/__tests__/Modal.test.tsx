@@ -232,4 +232,17 @@ describe('Modal', () => {
     );
     expect(document.querySelector('.ant-modal-centered')).toBeFalsy();
   });
+
+  it('Should not close modal when confirmLoading is false ', () => {
+    const onCancel = jest.fn();
+    const { queryByText } = render(
+      <Modal open confirmLoading={false} onCancel={onCancel}>
+        <p>Modal Content</p>
+      </Modal>,
+    );
+    fireEvent.click(document.body.querySelectorAll('.ant-btn')[0]);
+    fireEvent.click(document.body.querySelectorAll('.ant-modal-close')[0]);
+    expect(onCancel).toHaveBeenCalledTimes(2);
+    expect(queryByText('Modal Content')).toBeInTheDocument();
+  });
 });

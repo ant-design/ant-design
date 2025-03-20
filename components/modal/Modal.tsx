@@ -48,28 +48,6 @@ const Modal: React.FC<ModalProps> = (props) => {
     modal: modalContext,
   } = React.useContext(ConfigContext);
 
-  const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const { onCancel } = props;
-    onCancel?.(e);
-  };
-
-  const handleOk = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const { onOk } = props;
-    onOk?.(e);
-  };
-
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Modal');
-
-    [
-      ['visible', 'open'],
-      ['bodyStyle', 'styles.body'],
-      ['maskStyle', 'styles.mask'],
-    ].forEach(([deprecatedName, newName]) => {
-      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
-    });
-  }
-
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -89,8 +67,34 @@ const Modal: React.FC<ModalProps> = (props) => {
     styles: modalStyles,
     children,
     loading,
+    confirmLoading,
+    onCancel,
+    onOk,
     ...restProps
   } = props;
+
+  const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (confirmLoading) {
+      return;
+    }
+    onCancel?.(e);
+  };
+
+  const handleOk = (e: React.MouseEvent<HTMLButtonElement>) => {
+    onOk?.(e);
+  };
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Modal');
+
+    [
+      ['visible', 'open'],
+      ['bodyStyle', 'styles.body'],
+      ['maskStyle', 'styles.mask'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
+  }
 
   const prefixCls = getPrefixCls('modal', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
