@@ -27,3 +27,5 @@
 按照 Cursor 的最新规范，将 .cursorrules 文件迁移到 .cursor/rules 目录下，并拆分为多个 Markdown 文件以便于维护。
 
 同时添加了 Git 提交规范，包括分支管理、命名规则和 PR 提交规范。
+
+Submitted by Cursor

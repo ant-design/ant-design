@@ -58,6 +58,13 @@
 
 ## Pull Request 规范
 
+### PR 标题
+
+- PR 标题始终使用英文
+- 遵循格式：`类型: 简短描述`
+- 例如：`fix: fix button style issues in Safari browser`
+- 例如：`feat: add dark mode support`
+
 ### PR 模板
 
 提交 PR 时请使用项目中提供的模板：
@@ -79,7 +86,11 @@
    - 解决所有 Code Review 中提出的问题
 
 3. **PR 质量要求**：
+
    - 确保代码符合项目代码风格
    - 添加必要的测试用例
    - 更新相关文档
    - 大型改动需要更详细的说明和更多的审核者参与
+
+4. **工具标注**：
+   - 如果是用 Cursor 提交的代码，请在 PR body 末尾进行标注：`Submitted by Cursor`
