@@ -87,11 +87,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
     return mergedWrapper;
   }, [wrapperCol, formContext]);
 
-  const className = classNames(
-    `${baseClassName}-control`,
-    mergedWrapperCol.className,
-    contextClassNames?.content,
-  );
+  const className = classNames(`${baseClassName}-control`, mergedWrapperCol.className);
 
   // Pass to sub FormItem should not with col info
   const subFormContext = React.useMemo(() => {
@@ -111,7 +107,12 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
 
   const inputDom: React.ReactNode = (
     <div className={`${baseClassName}-control-input`}>
-      <div className={`${baseClassName}-control-input-content`}>{children}</div>
+      <div
+        className={classNames(`${baseClassName}-control-input-content`, contextClassNames?.content)}
+        style={contextStyles?.content}
+      >
+        {children}
+      </div>
     </div>
   );
   const formItemContext = React.useMemo(() => ({ prefixCls, status }), [prefixCls, status]);
@@ -166,7 +167,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
     );
   return (
     <FormContext.Provider value={subFormContext}>
-      <Col {...mergedWrapperCol} className={className} style={contextStyles?.content}>
+      <Col {...mergedWrapperCol} className={className}>
         {dom}
       </Col>
       <FallbackCmp prefixCls={prefixCls} />

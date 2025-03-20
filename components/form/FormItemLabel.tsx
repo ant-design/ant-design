@@ -68,7 +68,6 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   const labelClsBasic = `${prefixCls}-item-label`;
   const labelColClassName = classNames(
     labelClsBasic,
-    contextClassNames?.label,
     mergedLabelAlign === 'left' && `${labelClsBasic}-left`,
     mergedLabelCol.className,
     {
@@ -141,17 +140,18 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
     markType = 'optional';
   }
 
-  const labelClassName = classNames({
+  const labelClassName = classNames(contextClassNames?.label, {
     [`${prefixCls}-item-required`]: required,
     [`${prefixCls}-item-required-mark-${markType}`]: markType,
     [`${prefixCls}-item-no-colon`]: !computedColon,
   });
 
   return (
-    <Col {...mergedLabelCol} className={labelColClassName} style={contextStyles?.label}>
+    <Col {...mergedLabelCol} className={labelColClassName}>
       <label
         htmlFor={htmlFor}
         className={labelClassName}
+        style={contextStyles?.label}
         title={typeof label === 'string' ? label : ''}
       >
         {labelChildren}

@@ -2565,8 +2565,8 @@ describe('Form', () => {
       </Form>,
     );
     const root = container.querySelector('.ant-form');
-    const label = container.querySelector('.ant-form-item-label');
-    const content = container.querySelector('.ant-form-item-control');
+    const label = container.querySelector('.ant-form-item-required');
+    const content = container.querySelector('.ant-form-item-control-input-content');
     expect(root).toHaveClass(customClassNames.root);
     expect(label).toHaveClass(customClassNames.label);
     expect(content).toHaveClass(customClassNames.content);
