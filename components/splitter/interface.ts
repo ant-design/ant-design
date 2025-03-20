@@ -1,5 +1,5 @@
 // ================ outside ================
-interface SplitterSemanticClassNames {
+export interface SplitterSemanticClassNames {
   root?: string;
   panel?: string;
   dragger:

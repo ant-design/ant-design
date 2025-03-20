@@ -11,34 +11,38 @@ function isObjectStructure(value: any): value is Record<string, any> {
   return value && typeof value === 'object';
 }
 
-function covertToObjectStructure(value: string | NestClassNames): NestClassNames {
+export function covertToSemanticObj<T extends { default?: string }>(value?: string | T): T;
+export function covertToSemanticObj(value: string | NestClassNames): NestClassNames;
+export function covertToSemanticObj(value: string | NestClassNames): NestClassNames {
   return typeof value === 'string' ? { default: value } : value;
 }
 
 interface NestClassNames {
-  [key: string]: string | NestClassNames;
+  [key: string]: string | NestClassNames | undefined;
 }
 
-function mergeClassNames<T extends NestClassNames>(...classNamesList: T[]) {
+function mergeClassNames<T extends NestClassNames>(...classNamesList: (T | undefined)[]) {
   // Init array for performance saving
   const keyList: string[] = [];
 
   classNamesList.forEach((classNames) => {
-    keyList.push(...Object.keys(classNames));
+    if (classNames) {
+      keyList.push(...Object.keys(classNames));
+    }
   });
 
   const filledClassNames: NestClassNames = {};
 
   new Set(keyList).forEach((key) => {
-    const value1 = classNames1[key];
-    const value2 = classNames2[key];
-
-    if (!isObjectStructure(value1) && !isObjectStructure(value2)) {
-      filledClassNames[key] = classnames(value1, value2);
+    const valueList = classNamesList.map((classNames) => (classNames || ({} as T))[key]) as (
+      | string
+      | NestClassNames
+    )[];
+    if (valueList.some((value) => isObjectStructure(value))) {
+      const valueObjList = valueList.map((value) => covertToSemanticObj(value));
+      filledClassNames[key] = mergeClassNames(...valueObjList);
     } else {
-      const valueObj1 = covertToObjectStructure(value1);
-      const valueObj2 = covertToObjectStructure(value2);
-      filledClassNames[key] = mergeClassNames(valueObj1, valueObj2);
+      filledClassNames[key] = classnames(...valueList);
     }
   });
 
@@ -50,20 +54,7 @@ function useSemanticClassNames<
   SemanticClassNames extends Partial<Record<T, any>> = TemplateSemanticClassNames<T>,
 >(...classNames: (SemanticClassNames | undefined)[]): SemanticClassNames {
   return React.useMemo(() => {
-    // return classNames.reduce(
-    //   (acc, cur) => {
-    //     const filledCur = cur || ({} as SemanticClassNames);
-    //     Object.keys(filledCur).forEach((key) => {
-    //       const oriValue = acc[key];
-    //       const curValue = (filledCur as Record<string, string>)[key];
-    //       // acc[key] = classnames(acc[key], (filledCur as Record<string, string>)[key]);
-    //       if (isObjectStructure(oriValue) || isObjectStructure(curValue)) {
-    //       }
-    //     });
-    //     return acc;
-    //   },
-    //   {} as Record<string, string>,
-    // ) as SemanticClassNames;
+    return mergeClassNames(...classNames) as SemanticClassNames;
   }, [classNames]);
 }
 
