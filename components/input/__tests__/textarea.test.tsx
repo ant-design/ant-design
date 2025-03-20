@@ -542,5 +542,9 @@ describe('TextArea allowClear', () => {
     expect(container.querySelector('.ant-input-textarea-affix-wrapper')).toHaveClass(
       'ant-input-textarea-affix-wrapper-resize-dirty',
     );
+    expect(container.querySelector('.ant-input-mouse-active')).toBeTruthy();
+
+    fireEvent.mouseUp(container.querySelector('textarea')!);
+    expect(container.querySelector('.ant-input-mouse-active')).toBeFalsy();
   });
 });
