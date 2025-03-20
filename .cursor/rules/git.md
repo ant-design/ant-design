@@ -1,0 +1,85 @@
+# Git 提交规范
+
+## 分支管理
+
+- 禁止直接提交到以下保护分支：
+  - `master`：主分支，用于发布
+  - `feature`：特性分支，用于开发新版本
+  - `next`：下一个版本分支
+
+## 开发流程
+
+1. 从保护分支（通常是 `master`）创建新的功能分支
+2. 在新分支上进行开发
+3. 提交 Pull Request 到目标分支
+4. 等待 Code Review 和 CI 通过
+5. 合并到目标分支
+
+## 分支命名规范
+
+- 功能开发：`feat/description-of-feature`
+  - 例如：`feat/add-dark-mode`
+  - 例如：`feat/improve-table-performance`
+- 问题修复：`fix/issue-number-or-description`
+  - 例如：`fix/button-style-issue`
+  - 例如：`fix/issue-1234`
+- 文档更新：`docs/what-is-changed`
+  - 例如：`docs/update-api-reference`
+  - 例如：`docs/fix-typos`
+- 代码重构：`refactor/what-is-changed`
+  - 例如：`refactor/button-component`
+  - 例如：`refactor/remove-deprecated-api`
+- 样式修改：`style/what-is-changed`
+  - 例如：`style/update-button-tokens`
+  - 例如：`style/improve-mobile-layout`
+- 测试相关：`test/what-is-changed`
+  - 例如：`test/add-button-test`
+  - 例如：`test/improve-coverage`
+- 构建相关：`build/what-is-changed`
+  - 例如：`build/upgrade-webpack`
+  - 例如：`build/fix-ts-config`
+- 持续集成：`ci/what-is-changed`
+  - 例如：`ci/add-e2e-test`
+  - 例如：`ci/fix-deploy-script`
+- 性能优化：`perf/what-is-changed`
+  - 例如：`perf/optimize-render`
+  - 例如：`perf/reduce-bundle-size`
+- 依赖升级：`deps/package-name-version`
+  - 例如：`deps/upgrade-react-18`
+  - 例如：`deps/update-dependencies`
+
+## 分支命名注意事项
+
+1. 使用小写字母
+2. 使用连字符（-）分隔单词
+3. 简短但具有描述性
+4. 避免使用下划线或其他特殊字符
+5. 如果与 Issue 关联，可以包含 Issue 编号
+
+## Pull Request 规范
+
+### PR 模板
+
+提交 PR 时请使用项目中提供的模板：
+
+- 中文模板：[PULL_REQUEST_TEMPLATE_CN.md](/.github/PULL_REQUEST_TEMPLATE_CN.md)
+- 英文模板：[PULL_REQUEST_TEMPLATE.md](/.github/PULL_REQUEST_TEMPLATE.md)
+
+### PR 提交注意事项
+
+1. **合并策略**：
+
+   - 新特性请提交至 `feature` 分支
+   - 其余可提交至 `master` 分支
+
+2. **审核流程**：
+
+   - PR 需要由至少一名维护者审核通过后才能合并
+   - 确保所有 CI 检查都通过
+   - 解决所有 Code Review 中提出的问题
+
+3. **PR 质量要求**：
+   - 确保代码符合项目代码风格
+   - 添加必要的测试用例
+   - 更新相关文档
+   - 大型改动需要更详细的说明和更多的审核者参与

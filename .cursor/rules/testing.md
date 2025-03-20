@@ -1,0 +1,5 @@
+# 测试规范
+
+- 使用 Jest 和 React Testing Library 编写单元测试
+- 对 UI 组件使用快照测试 (Snapshot Testing)
+- 测试覆盖率要求 100%

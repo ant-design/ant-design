@@ -1,0 +1,19 @@
+# 项目背景
+
+这是 ant-design/ant-design（antd）的源代码仓库，是一个 React 组件库，发布为 npm 包 antd 。
+
+## 技术栈
+
+- TypeScript + React (16-19)
+- @ant-design/cssinjs
+- @ant-design/icons
+- Jest + React Testing Library
+
+## 编码规范
+
+- 使用函数式组件和 hooks，避免类组件
+- 尽可能使用提前返回（early returns）以提高代码的可读性
+- 避免引入新的依赖，严控打包体积
+- demo 代码尽可能简洁，避免冗余代码，方便用户复制到应用项目里直接可用
+- 兼容 chrome 80+ 浏览器
+- 修改时请保持向下兼容，避免制造 break change
