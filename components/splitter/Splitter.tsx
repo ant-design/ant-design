@@ -174,7 +174,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     <ResizeObserver onResize={onContainerResize}>
       <div style={mergedStyle} className={containerClassName}>
         {items.map((item, idx) => {
-          const pannelProps = {
+          const panelProps = {
             ...item,
             className: cls(contextClassNames.panel, classNames?.panel, item.className),
             style: { ...contextStyles.panel, ...styles?.panel, ...item.style },
@@ -182,7 +182,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
           // Panel
           const panel = (
-            <InternalPanel {...pannelProps} prefixCls={prefixCls} size={panelSizes[idx]} />
+            <InternalPanel {...panelProps} prefixCls={prefixCls} size={panelSizes[idx]} />
           );
 
           // Split Bar
@@ -196,8 +196,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
             const ariaMaxStart = (stackSizes[idx - 1] || 0) + itemPtgMaxSizes[idx];
             const ariaMaxEnd = (stackSizes[idx + 1] || 100) - itemPtgMinSizes[idx + 1];
 
-            const meargedStyles = { ...contextStyles.dragger, ...styles?.dragger };
-            const meargedClssNames = { ...contextClassNames?.dragger, ...classNames?.dragger };
+            const mergedStyles = { ...contextStyles.dragger, ...styles?.dragger };
+            const mergedClssNames = { ...contextClassNames?.dragger, ...classNames?.dragger };
 
             splitBar = (
               <SplitBar
@@ -207,8 +207,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 prefixCls={prefixCls}
                 vertical={isVertical}
                 resizable={resizableInfo.resizable}
-                draggerStyle={meargedStyles}
-                draggerClassName={meargedClssNames}
+                draggerStyle={mergedStyles}
+                draggerClassName={mergedClssNames}
                 draggerIcon={draggerIcon}
                 collapsibleIcon={collapsibleIcon}
                 ariaNow={stackSizes[idx] * 100}
