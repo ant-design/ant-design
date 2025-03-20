@@ -53,6 +53,8 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
     labelCol: contextLabelCol,
     labelWrap,
     colon: contextColon,
+    classNames: contextClassNames,
+    styles: contextStyles,
   } = React.useContext<FormContextProps>(FormContext);
 
   if (!label) {
@@ -66,6 +68,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   const labelClsBasic = `${prefixCls}-item-label`;
   const labelColClassName = classNames(
     labelClsBasic,
+    contextClassNames?.label,
     mergedLabelAlign === 'left' && `${labelClsBasic}-left`,
     mergedLabelCol.className,
     {
@@ -145,7 +148,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   });
 
   return (
-    <Col {...mergedLabelCol} className={labelColClassName}>
+    <Col {...mergedLabelCol} className={labelColClassName} style={contextStyles?.label}>
       <label
         htmlFor={htmlFor}
         className={labelClassName}

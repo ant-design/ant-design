@@ -7,12 +7,14 @@ import omit from '@rc-component/util/lib/omit';
 
 import type { Variant } from '../config-provider';
 import type { ColProps } from '../grid/col';
-import type { FormInstance, RequiredMark } from './Form';
+import type { FormInstance, RequiredMark, SemanticName } from './Form';
 import type { FeedbackIcons, ValidateStatus } from './FormItem';
 import type { FormLabelAlign } from './interface';
 
 /** Form Context. Set top form style and pass to Form Item usage. */
 export interface FormContextProps {
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   vertical: boolean;
   name?: string;
   colon?: boolean;

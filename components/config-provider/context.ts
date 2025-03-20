@@ -148,7 +148,7 @@ export interface TableConfig extends ComponentStyleConfig {
 export type ImageConfig = ComponentStyleConfig &
   Pick<ImageProps, 'classNames' | 'styles'> & {
     preview?: Partial<Record<'closeIcon', React.ReactNode>> &
-    Pick<ImagePreviewType, 'classNames' | 'styles'>;
+      Pick<ImagePreviewType, 'classNames' | 'styles'>;
   };
 
 export type CollapseConfig = ComponentStyleConfig &
@@ -224,7 +224,16 @@ export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>;
 export type TransferConfig = ComponentStyleConfig & Pick<TransferProps, 'selectionsIcon'>;
 
 export type FormConfig = ComponentStyleConfig &
-  Pick<FormProps, 'requiredMark' | 'colon' | 'scrollToFirstError' | 'validateMessages' | 'variant'>;
+  Pick<
+    FormProps,
+    | 'requiredMark'
+    | 'colon'
+    | 'scrollToFirstError'
+    | 'validateMessages'
+    | 'variant'
+    | 'classNames'
+    | 'styles'
+  >;
 
 export type FloatButtonGroupConfig = Pick<FloatButtonGroupProps, 'closeIcon'>;
 

@@ -2542,4 +2542,36 @@ describe('Form', () => {
     await changeValue(0, '100');
     expectErrors([]);
   });
+  it('support classNames and styles', () => {
+    const customClassNames = {
+      root: 'test-root',
+      label: 'test-label',
+      content: 'test-content',
+    };
+    const customStyles = {
+      root: { color: 'red' },
+      label: { color: 'green' },
+      content: { color: 'blue' },
+    };
+    const { container } = render(
+      <Form classNames={customClassNames} styles={customStyles}>
+        <Form.Item
+          label="Username"
+          name="username"
+          rules={[{ required: true, message: 'Please input your username!' }]}
+        >
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+    const root = container.querySelector('.ant-form');
+    const label = container.querySelector('.ant-form-item-label');
+    const content = container.querySelector('.ant-form-item-control');
+    expect(root).toHaveClass(customClassNames.root);
+    expect(label).toHaveClass(customClassNames.label);
+    expect(content).toHaveClass(customClassNames.content);
+    expect(root).toHaveStyle(customStyles.root);
+    expect(label).toHaveStyle(customStyles.label);
+    expect(content).toHaveStyle(customStyles.content);
+  });
 });
