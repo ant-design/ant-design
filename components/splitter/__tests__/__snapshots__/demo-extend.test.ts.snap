@@ -355,7 +355,7 @@ Array [
       role="separator"
     >
       <div
-        class="ant-splitter-bar-dragger acss-13lz4mh ant-splitter-bar-dragger-disabled ant-splitter-bar-dragger-customize"
+        class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled ant-splitter-bar-dragger-customize acss-13lz4mh"
       >
         <div
           class="ant-splitter-bar-dragger-icon"
