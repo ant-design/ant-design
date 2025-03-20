@@ -65,12 +65,18 @@
 - 例如：`fix: fix button style issues in Safari browser`
 - 例如：`feat: add dark mode support`
 
+### PR 内容
+
+- PR 内容默认使用英文
+- 尽量简洁清晰地描述改动内容和目的
+- 可以视需要在英文描述后附上中文说明
+
 ### PR 模板
 
 提交 PR 时请使用项目中提供的模板：
 
+- 英文模板（推荐）：[PULL_REQUEST_TEMPLATE.md](/.github/PULL_REQUEST_TEMPLATE.md)
 - 中文模板：[PULL_REQUEST_TEMPLATE_CN.md](/.github/PULL_REQUEST_TEMPLATE_CN.md)
-- 英文模板：[PULL_REQUEST_TEMPLATE.md](/.github/PULL_REQUEST_TEMPLATE.md)
 
 ### PR 提交注意事项
 

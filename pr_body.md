@@ -1,38 +1,38 @@
-### 🤔 这个变动的性质是？
+### 🤔 What kind of change does this PR introduce?
 
-- [ ] 🆕 新特性提交
-- [ ] 🐞 Bug 修复
-- [ ] 📝 站点、文档改进
-- [ ] 📽️ 演示代码改进
-- [ ] 💄 组件样式/交互改进
-- [ ] 🤖 TypeScript 定义更新
-- [ ] 📦 包体积优化
-- [ ] ⚡️ 性能优化
-- [ ] ⭐️ 功能增强
-- [ ] 🌐 国际化改进
-- [x] 🛠 重构
-- [ ] 🎨 代码风格优化
-- [ ] ✅ 测试用例
-- [ ] 🔀 分支合并
-- [ ] ⏩ 工作流程
-- [ ] ⌨️ 无障碍改进
-- [ ] ❓ 其他改动
+- [ ] 🆕 New feature
+- [ ] 🐞 Bug fix
+- [ ] 📝 Documentation improvement
+- [ ] 📽️ Demo improvement
+- [ ] 💄 UI/UX improvement
+- [ ] 🤖 TypeScript definition update
+- [ ] 📦 Bundle size optimization
+- [ ] ⚡️ Performance improvement
+- [ ] ⭐️ Feature enhancement
+- [ ] 🌐 Internationalization
+- [x] 🛠 Refactoring
+- [ ] 🎨 Code style optimization
+- [ ] ✅ Test case
+- [ ] 🔀 Branch merge
+- [ ] ⏩ Workflow
+- [ ] ⌨️ Accessibility improvement
+- [ ] ❓ Other
 
-### 🔗 相关 Issue
+### 🔗 Related Issue
 
-无
+None
 
-### 💡 需求背景和解决方案
+### 💡 Background and Solution
 
-按照 Cursor 的最新规范，将 .cursorrules 文件迁移到 .cursor/rules 目录下，并拆分为多个 Markdown 文件以便于维护。
+Following the latest Cursor specification, migrated the `.cursorrules` file to the `.cursor/rules` directory, splitting it into multiple Markdown files for easier maintenance.
 
-同时添加了 Git 提交规范，包括分支管理、命名规则和 PR 提交规范。
+Also added Git submission guidelines, including branch management, naming rules, and PR submission specifications.
 
-### 📝 更新日志
+### 📝 Changelog
 
-| 语言    | 更新描述 |
-| ------- | -------- |
-| 🇺🇸 英文 | -        |
-| 🇨🇳 中文 | -        |
+| Language   | Changelog |
+| ---------- | --------- |
+| 🇺🇸 English | -         |
+| 🇨🇳 Chinese | -         |
 
 > Submitted by Cursor
