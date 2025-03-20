@@ -58,7 +58,7 @@ ComponentRef {
 
 All component tokens should follow the structure above, and should not conflict with Global Token.
 * `variant` means this token only works in certain variant, like `horizontal` `borderless`.  
-* `semantic part` means the typical element of component, like `item` `header`. If there's.
+* `semantic part` means the typical element of component, like `item` `header`. If there's a need to name a specific part of a component, use these semantic terms consistently.
 * `semantic part status` means the variant of the semantic part before it, like `hover` `selected`.
 * `css property` means the exact property where the token is used, like `fontSize` `width`.  
 
