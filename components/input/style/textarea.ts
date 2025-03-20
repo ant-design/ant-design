@@ -22,7 +22,7 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
       resize: 'vertical',
 
       [`&${componentCls}-mouse-active`]: {
-        transition: 'none',
+        transition: `all ${token.motionDurationSlow}, height 0s, width 0s`,
       },
     },
 
