@@ -197,7 +197,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
             const ariaMaxEnd = (stackSizes[idx + 1] || 100) - itemPtgMinSizes[idx + 1];
 
             const mergedStyles = { ...contextStyles.dragger, ...styles?.dragger };
-            const mergedClssNames = { ...contextClassNames?.dragger, ...classNames?.dragger };
+            const mergedClassNames = { ...contextClassNames?.dragger, ...classNames?.dragger };
 
             splitBar = (
               <SplitBar
@@ -208,7 +208,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 vertical={isVertical}
                 resizable={resizableInfo.resizable}
                 draggerStyle={mergedStyles}
-                draggerClassName={mergedClssNames}
+                draggerClassName={mergedClassNames}
                 draggerIcon={draggerIcon}
                 collapsibleIcon={collapsibleIcon}
                 ariaNow={stackSizes[idx] * 100}
