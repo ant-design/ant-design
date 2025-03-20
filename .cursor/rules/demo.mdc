@@ -1,3 +1,8 @@
+---
+description: 
+globs: components/*/demo/**
+alwaysApply: false
+---
 # Demo 规范
 
 - demo 代码尽可能简洁

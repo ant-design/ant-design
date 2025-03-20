@@ -1,3 +1,8 @@
+---
+description: 
+globs: components/*/style/**
+alwaysApply: false
+---
 # 样式规范
 
 ## 样式方案
