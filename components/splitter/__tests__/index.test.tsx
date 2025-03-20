@@ -645,7 +645,7 @@ describe('Splitter', () => {
       const customClassNames = {
         root: 'custom-root',
         panel: 'custom-panel',
-        dragger: { default: 'custom-dragger' },
+        dragger: { default: 'custom-dragger', active: 'custom-dragger-active' },
       };
 
       const { container } = render(
@@ -663,6 +663,12 @@ describe('Splitter', () => {
       const dragger = container.querySelector('.ant-splitter-bar-dragger');
       expect(dragger).toHaveStyle(customStyles.dragger);
       expect(dragger).toHaveClass(customClassNames.dragger.default);
+      expect(dragger).not.toHaveClass(customClassNames.dragger.active);
+
+      // Dragging
+      fireEvent.mouseDown(dragger!);
+      expect(dragger).toHaveClass(customClassNames.dragger.default);
+      expect(dragger).toHaveClass(customClassNames.dragger.active);
     });
   });
 });
