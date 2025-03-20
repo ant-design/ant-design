@@ -14,7 +14,7 @@ function isObjectStructure(value: any): value is Record<string, any> {
 export function covertToSemanticObj<T extends { default?: string }>(value?: string | T): T;
 export function covertToSemanticObj(value: string | NestClassNames): NestClassNames;
 export function covertToSemanticObj(value: string | NestClassNames): NestClassNames {
-  return typeof value === 'string' ? { default: value } : value;
+  return typeof value === 'string' ? { default: value } : value || {};
 }
 
 interface NestClassNames {
