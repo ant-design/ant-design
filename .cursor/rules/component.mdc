@@ -45,7 +45,6 @@ alwaysApply: false
 - 使用 `React.memo` 避免不必要的重渲染
 - 使用 `useCallback` 和 `useMemo` 优化性能
 - 避免在渲染过程中创建新函数或对象
-- 大型列表使用虚拟化技术
 
 ## Token 设计
 

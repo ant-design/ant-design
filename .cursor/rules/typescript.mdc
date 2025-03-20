@@ -1,8 +1,3 @@
----
-description: 
-globs: 
-alwaysApply: false
----
 # TypeScript 规范
 
 ## 基本原则

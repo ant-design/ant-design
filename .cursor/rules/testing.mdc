@@ -1,8 +1,3 @@
----
-description: 
-globs: 
-alwaysApply: false
----
  # 测试规范
 
 - 使用 Jest 和 React Testing Library 编写单元测试
