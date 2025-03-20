@@ -21,7 +21,7 @@ alwaysApply: false
 ### 示例
 
 - 不好的例子：修复组件 Typography 的 dom 结构问题
-- 好的例子：重构并简化了 List Item 的 dom 结构，并且修复了 Item 中内容空格丢失的问题
+- 好的例子：修复了 List.Item 中内容空格丢失的问题
 
 ### 其他要求
 
