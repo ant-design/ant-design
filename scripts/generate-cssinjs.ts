@@ -7,7 +7,7 @@ type StyleFn = (prefix?: string) => void;
 
 interface GenCssinjsOptions {
   key: string;
-  render: (component: React.FC) => void;
+  render: (Component: React.FC, filepath: string) => void;
   beforeRender?: (componentName: string) => void;
 }
 
@@ -43,6 +43,6 @@ export const generateCssinjs = ({ key, beforeRender, render }: GenCssinjsOptions
         return React.createElement('div');
       };
       beforeRender?.(componentName);
-      render?.(Demo);
+      render?.(Demo, path.relative(process.cwd(), file));
     }),
   );

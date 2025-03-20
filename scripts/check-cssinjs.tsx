@@ -1,5 +1,7 @@
 import React from 'react';
 import {
+  createCache,
+  extractStyle,
   legacyNotSelectorLinter,
   logicalPropertiesLinter,
   NaNLinter,
@@ -7,6 +9,9 @@ import {
   StyleProvider,
 } from '@ant-design/cssinjs';
 import chalk from 'chalk';
+import { parse } from 'css-tree';
+import type { SyntaxParseError } from 'css-tree';
+import { validate } from 'csstree-validator';
 import ReactDOMServer from 'react-dom/server';
 
 import { ConfigProvider } from '../components';
@@ -25,6 +30,20 @@ console.error = (msg: any) => {
   }
 };
 
+// https://github.com/csstree/validator/blob/7df8ca/lib/validate.js#L187
+function cssValidate(css: string, filename: string) {
+  const errors: SyntaxParseError[] = [];
+  const ast = parse(css, {
+    filename,
+    positions: true,
+    onParseError(error) {
+      errors.push(error);
+    },
+  });
+
+  return errors.concat(validate(ast));
+}
+
 async function checkCSSVar() {
   await generateCssinjs({
     key: 'check',
@@ -38,6 +57,31 @@ async function checkCSSVar() {
       );
     },
   });
+}
+async function checkCSSStr() {
+  const errors = new Map();
+  await generateCssinjs({
+    key: 'css-validate',
+    render(Component: any, filePath: string) {
+      const cache = createCache();
+      ReactDOMServer.renderToString(
+        <StyleProvider cache={cache}>
+          <Component />
+        </StyleProvider>,
+      );
+
+      const css = extractStyle(cache, { types: 'style', plain: true });
+      errors.set(filePath, cssValidate(css, filePath));
+    },
+  });
+
+  for (const [filePath, error] of errors) {
+    if (error.length > 0) {
+      errorCount += error.length;
+      console.log(chalk.red(`❌  ${filePath} has ${error.length} errors:`));
+      console.log(error);
+    }
+  }
 }
 
 (async () => {
@@ -55,6 +99,7 @@ async function checkCSSVar() {
   });
 
   await checkCSSVar();
+  await checkCSSStr();
 
   if (errorCount > 0) {
     console.log(chalk.red(`❌  CSS-in-JS check failed with ${errorCount} errors.`));
