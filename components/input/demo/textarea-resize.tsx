@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Input } from 'antd';
+import { Button, Flex, Input } from 'antd';
 
 const { TextArea } = Input;
 
@@ -10,13 +10,19 @@ const App: React.FC = () => {
   const [autoResize, setAutoResize] = useState(false);
 
   return (
-    <>
+    <Flex vertical gap="small">
       <Button onClick={() => setAutoResize(!autoResize)} style={{ marginBottom: 16 }}>
         Auto Resize: {String(autoResize)}
       </Button>
       <TextArea rows={4} autoSize={autoResize} defaultValue={defaultValue} />
       <TextArea allowClear style={{ width: 93 }} />
-    </>
+      <TextArea
+        style={{
+          resize: 'both',
+        }}
+        showCount
+      />
+    </Flex>
   );
 };
 

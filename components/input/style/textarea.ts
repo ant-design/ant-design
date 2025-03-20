@@ -11,6 +11,21 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
   const textareaPrefixCls = `${componentCls}-textarea`;
 
   return {
+    // Raw Textarea
+    [`textarea${componentCls}`]: {
+      maxWidth: '100%', // prevent textarea resize from coming out of its container
+      height: 'auto',
+      minHeight: token.controlHeight,
+      lineHeight: token.lineHeight,
+      verticalAlign: 'bottom',
+      transition: `all ${token.motionDurationSlow}`,
+      resize: 'vertical',
+
+      [`&${componentCls}-mouse-active`]: {
+        transition: 'none',
+      },
+    },
+
     [textareaPrefixCls]: {
       position: 'relative',
 

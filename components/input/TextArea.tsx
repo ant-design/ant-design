@@ -57,6 +57,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     styles,
     variant: customVariant,
     showCount,
+    onMouseDown,
     ...rest
   } = props;
 
@@ -76,11 +77,11 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     styles: contextStyles,
   } = useComponentConfig('textArea');
 
-  // ===================== Disabled =====================
+  // =================== Disabled ===================
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
 
-  // ===================== Status =====================
+  // ==================== Status ====================
   const {
     status: contextStatus,
     hasFeedback,
@@ -88,7 +89,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   } = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
-  // ===================== Ref =====================
+  // ===================== Ref ======================
   const innerRef = React.useRef<RcTextAreaRef>(null);
 
   React.useImperativeHandle(ref, () => ({
@@ -101,12 +102,12 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('input', customizePrefixCls);
 
-  // ===================== Style =====================
+  // ==================== Style =====================
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapSharedCSSVar, hashId, cssVarCls] = useSharedStyle(prefixCls, rootClassName);
   const [wrapCSSVar] = useStyle(prefixCls, rootCls);
 
-  // ===================== Compact Item =====================
+  // ================= Compact Item =================
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   // ===================== Size =====================
@@ -118,6 +119,23 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
 
   const handleResizeWrapper = useHandleResizeWrapper();
 
+  // ==================== Resize ====================
+  // https://github.com/ant-design/ant-design/issues/51594
+  const [isMouseDown, setIsMouseDown] = React.useState(false);
+
+  const onInternalMouseDown: typeof onMouseDown = (e) => {
+    setIsMouseDown(true);
+    onMouseDown?.(e);
+
+    const onMouseUp = () => {
+      setIsMouseDown(false);
+      document.removeEventListener('mouseup', onMouseUp);
+    };
+
+    document.addEventListener('mouseup', onMouseUp);
+  };
+
+  // ==================== Render ====================
   return wrapSharedCSSVar(
     wrapCSSVar(
       <RcTextArea
@@ -146,6 +164,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
             hashId,
             classes?.textarea,
             contextClassNames.textarea,
+            isMouseDown && `${prefixCls}-mouse-active`,
           ),
           variant: classNames(
             {
@@ -174,6 +193,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
           rest.onResize?.(size);
           showCount && handleResizeWrapper(innerRef.current);
         }}
+        onMouseDown={onInternalMouseDown}
       />,
     ),
   );
