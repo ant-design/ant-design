@@ -21,6 +21,45 @@ const resizeSplitter = async () => {
   await waitFakeTimer();
 };
 
+function mockDrag(draggerEle: HTMLElement, offset: number) {
+  // Down
+  const downEvent = createEvent.mouseDown(draggerEle);
+  (downEvent as any).pageX = 0;
+  (downEvent as any).pageY = 0;
+
+  fireEvent(draggerEle, downEvent);
+
+  // Move
+  const moveEvent = createEvent.mouseMove(draggerEle);
+  (moveEvent as any).pageX = offset;
+  (moveEvent as any).pageY = offset;
+  fireEvent(draggerEle, moveEvent);
+
+  // Up
+  fireEvent.mouseUp(draggerEle);
+}
+
+function mockTouchDrag(draggerEle: HTMLElement, offset: number) {
+  // Down
+  const touchStart = createEvent.touchStart(draggerEle, {
+    touches: [{}],
+  });
+  (touchStart as any).touches[0].pageX = 0;
+  (touchStart as any).touches[0].pageY = 0;
+  fireEvent(draggerEle, touchStart);
+
+  // Move
+  const touchMove = createEvent.touchMove(draggerEle, {
+    touches: [{}],
+  });
+  (touchMove as any).touches[0].pageX = offset;
+  (touchMove as any).touches[0].pageY = offset;
+  fireEvent(draggerEle, touchMove);
+
+  // Up
+  fireEvent.touchEnd(draggerEle);
+}
+
 const SplitterDemo = ({ items = [{}, {}], ...props }: { items?: PanelProps[] } & SplitterProps) => (
   <Splitter {...props}>
     {items?.map((item, idx) => {
@@ -104,45 +143,6 @@ describe('Splitter', () => {
 
   // ============================== Resizable ==============================
   describe('drag', () => {
-    function mockDrag(draggerEle: HTMLElement, offset: number) {
-      // Down
-      const downEvent = createEvent.mouseDown(draggerEle);
-      (downEvent as any).pageX = 0;
-      (downEvent as any).pageY = 0;
-
-      fireEvent(draggerEle, downEvent);
-
-      // Move
-      const moveEvent = createEvent.mouseMove(draggerEle);
-      (moveEvent as any).pageX = offset;
-      (moveEvent as any).pageY = offset;
-      fireEvent(draggerEle, moveEvent);
-
-      // Up
-      fireEvent.mouseUp(draggerEle);
-    }
-
-    function mockTouchDrag(draggerEle: HTMLElement, offset: number) {
-      // Down
-      const touchStart = createEvent.touchStart(draggerEle, {
-        touches: [{}],
-      });
-      (touchStart as any).touches[0].pageX = 0;
-      (touchStart as any).touches[0].pageY = 0;
-      fireEvent(draggerEle, touchStart);
-
-      // Move
-      const touchMove = createEvent.touchMove(draggerEle, {
-        touches: [{}],
-      });
-      (touchMove as any).touches[0].pageX = offset;
-      (touchMove as any).touches[0].pageY = offset;
-      fireEvent(draggerEle, touchMove);
-
-      // Up
-      fireEvent.touchEnd(draggerEle);
-    }
-
     it('The mousemove should work fine', async () => {
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
@@ -634,6 +634,41 @@ describe('Splitter', () => {
 
       expect(startEle).toHaveStyle({ background: 'transparent' });
       expect(endEle).toHaveStyle({ background: 'transparent' });
+    });
+
+    it('styles', () => {
+      const customStyles = {
+        root: { background: 'red' },
+        panel: { background: 'blue' },
+        dragger: { background: 'green' },
+      };
+      const customClassNames = {
+        root: 'custom-root',
+        panel: 'custom-panel',
+        dragger: { default: 'custom-dragger', active: 'custom-dragger-active' },
+      };
+
+      const { container } = render(
+        <SplitterDemo styles={customStyles} classNames={customClassNames} />,
+      );
+
+      const root = container.querySelector('.ant-splitter');
+      expect(root).toHaveStyle(customStyles.root);
+      expect(root).toHaveClass(customClassNames.root);
+
+      const panel = container.querySelector('.ant-splitter-panel');
+      expect(panel).toHaveStyle(customStyles.panel);
+      expect(panel).toHaveClass(customClassNames.panel);
+
+      const dragger = container.querySelector('.ant-splitter-bar-dragger');
+      expect(dragger).toHaveStyle(customStyles.dragger);
+      expect(dragger).toHaveClass(customClassNames.dragger.default);
+      expect(dragger).not.toHaveClass(customClassNames.dragger.active);
+
+      // Dragging
+      fireEvent.mouseDown(dragger!);
+      expect(dragger).toHaveClass(customClassNames.dragger.default);
+      expect(dragger).toHaveClass(customClassNames.dragger.active);
     });
   });
 });

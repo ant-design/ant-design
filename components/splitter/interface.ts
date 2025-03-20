@@ -1,8 +1,21 @@
 // ================ outside ================
+export interface SplitterSemanticClassNames {
+  root?: string;
+  panel?: string;
+  dragger:
+    | string
+    | {
+        default?: string;
+        active?: string;
+      };
+}
+
 export interface SplitterProps {
   prefixCls?: string;
   className?: string;
+  classNames?: SplitterSemanticClassNames;
   style?: React.CSSProperties;
+  styles?: Partial<Record<keyof SplitterSemanticClassNames, React.CSSProperties>>;
   rootClassName?: string;
   layout?: 'horizontal' | 'vertical';
   draggerIcon?: React.ReactNode;

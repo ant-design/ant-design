@@ -48,6 +48,8 @@ tag: 5.21.0
 | lazy | 延迟渲染模式 | `boolean` | `false` | 5.23.0 |
 | collapsibleIcon | 折叠图标 | `{start?: ReactNode; end?: ReactNode}` | - | 6.0.0 |
 | draggerIcon | 拖拽图标 | `ReactNode` | - | 6.0.0 |
+| classNames | 语义化结构 className | [Record<SemanticDOM, string>](#semantic-dom) | - | 6.0.0 |
+| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 6.0.0 |
 
 ### Panel
 
@@ -59,6 +61,10 @@ tag: 5.21.0
 | size | 受控面板大小，支持数字 px 或者文字 '百分比%' 类型 | `number \| string` | - | - |
 | collapsible | 快速折叠 | `boolean \| { start?: boolean; end?: boolean }` | `false` | - |
 | resizable | 是否开启拖拽伸缩 | `boolean` | `true` | - |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 
