@@ -26,6 +26,11 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
       },
     },
 
+    // Wrapper for resize
+    [`${componentCls}-textarea-affix-wrapper-resize-dirty`]: {
+      width: 'auto',
+    },
+
     [textareaPrefixCls]: {
       position: 'relative',
 
