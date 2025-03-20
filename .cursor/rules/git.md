@@ -93,4 +93,4 @@
    - 大型改动需要更详细的说明和更多的审核者参与
 
 4. **工具标注**：
-   - 如果是用 Cursor 提交的代码，请在 PR body 末尾进行标注：`Submitted by Cursor`
+   - 如果是用 Cursor 提交的代码，请在 PR body 末尾进行标注：`> Submitted by Cursor`

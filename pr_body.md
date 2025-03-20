@@ -28,4 +28,4 @@
 
 同时添加了 Git 提交规范，包括分支管理、命名规则和 PR 提交规范。
 
-Submitted by Cursor
+> Submitted by Cursor
