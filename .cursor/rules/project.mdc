@@ -1,3 +1,8 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
 # 项目背景
 
 这是 ant-design/ant-design（antd）的源代码仓库，是一个 React 组件库，发布为 npm 包 antd 。

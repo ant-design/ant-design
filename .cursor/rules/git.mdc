@@ -1,3 +1,8 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
 # Git 提交规范
 
 ## 分支管理
@@ -75,8 +80,8 @@
 
 提交 PR 时请使用项目中提供的模板：
 
-- 英文模板（推荐）：[PULL_REQUEST_TEMPLATE.md](/.github/PULL_REQUEST_TEMPLATE.md)
-- 中文模板：[PULL_REQUEST_TEMPLATE_CN.md](/.github/PULL_REQUEST_TEMPLATE_CN.md)
+- 英文模板（推荐）：[PULL_REQUEST_TEMPLATE.md](mdc:.github/PULL_REQUEST_TEMPLATE.md)
+- 中文模板：[PULL_REQUEST_TEMPLATE_CN.md](mdc:.github/PULL_REQUEST_TEMPLATE_CN.md)
 
 ### PR 提交注意事项
 
