@@ -43,7 +43,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       display: 'inline-block',
       minWidth: cellHeight,
       height: cellHeight,
-      lineHeight: cellHeight,
+      lineHeight: unit(cellHeight),
       borderRadius: borderRadiusSM,
       transition: `background ${motionDurationMid}`,
     },
@@ -256,7 +256,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         button: {
           padding: 0,
           color: colorIcon,
-          lineHeight: textHeight,
+          lineHeight: unit(textHeight),
           background: 'transparent',
           border: 0,
           cursor: 'pointer',
@@ -288,7 +288,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         '&-view': {
           flex: 'auto',
           fontWeight: fontWeightStrong,
-          lineHeight: textHeight,
+          lineHeight: unit(textHeight),
 
           '> button': {
             color: 'inherit',
@@ -605,7 +605,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
                 paddingInlineEnd: 0,
                 paddingInlineStart: token.calc(timeColumnWidth).sub(timeCellHeight).div(2).equal(),
                 color: colorText,
-                lineHeight: timeCellHeight,
+                lineHeight: unit(timeCellHeight),
                 borderRadius: borderRadiusSM,
                 cursor: 'pointer',
                 transition: `background ${motionDurationMid}`,
