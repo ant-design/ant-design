@@ -53,6 +53,8 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
     labelCol: contextLabelCol,
     labelWrap,
     colon: contextColon,
+    classNames: contextClassNames,
+    styles: contextStyles,
   } = React.useContext<FormContextProps>(FormContext);
 
   if (!label) {
@@ -138,7 +140,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
     markType = 'optional';
   }
 
-  const labelClassName = classNames({
+  const labelClassName = classNames(contextClassNames?.label, {
     [`${prefixCls}-item-required`]: required,
     [`${prefixCls}-item-required-mark-${markType}`]: markType,
     [`${prefixCls}-item-no-colon`]: !computedColon,
@@ -149,6 +151,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
       <label
         htmlFor={htmlFor}
         className={labelClassName}
+        style={contextStyles?.label}
         title={typeof label === 'string' ? label : ''}
       >
         {labelChildren}

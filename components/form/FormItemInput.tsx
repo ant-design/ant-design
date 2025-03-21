@@ -63,6 +63,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   const baseClassName = `${prefixCls}-item`;
 
   const formContext = React.useContext(FormContext);
+  const { classNames: contextClassNames, styles: contextStyles } = formContext;
 
   const mergedWrapperCol = React.useMemo(() => {
     let mergedWrapper: ColProps = { ...(wrapperCol || formContext.wrapperCol || {}) };
@@ -106,7 +107,12 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
 
   const inputDom: React.ReactNode = (
     <div className={`${baseClassName}-control-input`}>
-      <div className={`${baseClassName}-control-input-content`}>{children}</div>
+      <div
+        className={classNames(`${baseClassName}-control-input-content`, contextClassNames?.content)}
+        style={contextStyles?.content}
+      >
+        {children}
+      </div>
     </div>
   );
   const formItemContext = React.useMemo(() => ({ prefixCls, status }), [prefixCls, status]);

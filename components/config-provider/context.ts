@@ -225,7 +225,16 @@ export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>;
 export type TransferConfig = ComponentStyleConfig & Pick<TransferProps, 'selectionsIcon'>;
 
 export type FormConfig = ComponentStyleConfig &
-  Pick<FormProps, 'requiredMark' | 'colon' | 'scrollToFirstError' | 'validateMessages' | 'variant'>;
+  Pick<
+    FormProps,
+    | 'requiredMark'
+    | 'colon'
+    | 'scrollToFirstError'
+    | 'validateMessages'
+    | 'variant'
+    | 'classNames'
+    | 'styles'
+  >;
 
 export type FloatButtonGroupConfig = Pick<FloatButtonGroupProps, 'closeIcon'>;
 
