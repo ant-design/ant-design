@@ -1,5 +1,5 @@
 import React from 'react';
-import { AudioOutlined } from '@ant-design/icons';
+import { AudioOutlined, QuestionOutlined } from '@ant-design/icons';
 import { Input, Space } from 'antd';
 import type { GetProps } from 'antd';
 
@@ -21,6 +21,12 @@ const onSearch: SearchProps['onSearch'] = (value, _e, info) => console.log(info?
 const App: React.FC = () => (
   <Space direction="vertical">
     <Search placeholder="input search text" onSearch={onSearch} style={{ width: 200 }} />
+    <Search
+      placeholder="input search text"
+      icon={<QuestionOutlined />}
+      onSearch={onSearch}
+      style={{ width: 200 }}
+    />
     <Search placeholder="input search text" allowClear onSearch={onSearch} style={{ width: 200 }} />
     <Search
       addonBefore="https://"
