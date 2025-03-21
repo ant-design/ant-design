@@ -66,12 +66,14 @@ Same props from Dropdown. And includes additional props:
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | buttonsRender | Custom buttons inside Dropdown.Button | (buttons: ReactNode\[]) => ReactNode\[] | - |  |
+| color | Color of the button, the same as [Button](/components/button/#api) | `default` \| `primary` \| `danger` \| [PresetColors](/components/button/#presetcolors) | - | 5.25.0 |
 | loading | Set the loading status of button, the same as [Button](/components/button/#api) | boolean \| { delay: number, icon: ReactNode } | false | icon: 5.23.0 |
 | danger | Set the danger status of button | boolean | - | 4.23.0 |
 | icon | Icon (appears on the right) | ReactNode | - |  |
 | size | Size of the button, the same as [Button](/components/button/#api) | `large` \| `middle` \| `small` | `middle` |  |
 | type | Type of the button, the same as [Button](/components/button/#api) | `primary` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |
 | onClick | The same as [Button](/components/button/#api): called when you click the button on the left | (event: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
+| variant | Variant of the button, the same as [Button](/components/button/#api) | `outlined` \| `dashed` \| `solid` \| `filled` \| `text` \| `link` | - | 5.25.0 |
 
 ## Note
 
