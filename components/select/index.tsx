@@ -191,7 +191,7 @@ const InternalSelect = <
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
 
-  const mergedPopupStyle = contextSelect?.styles?.popup || styles?.popup || dropdownStyle;
+  const mergedPopupStyle = styles?.popup || contextSelect?.styles?.popup || dropdownStyle;
   const mergedPopupRender = popupRender || dropdownRender;
   const mergedOnPopupVisibleChange = onPopupVisibleChange || onDropdownVisibleChange;
 
@@ -230,7 +230,7 @@ const InternalSelect = <
   const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
 
   const mergedPopupClassName = cls(
-    contextSelect?.classNames?.popup || classNames?.popup || popupClassName || dropdownClassName,
+    classNames?.popup || contextSelect?.classNames?.popup || popupClassName || dropdownClassName,
     {
       [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
     },
