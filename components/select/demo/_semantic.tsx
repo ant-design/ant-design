@@ -13,28 +13,34 @@ const locales = {
   },
 };
 
+const Block = (prop: any) => {
+  const divRef = React.useRef<HTMLDivElement>(null);
+  return (
+    <div ref={divRef} style={{ position: 'absolute', marginBottom: 80 }}>
+      <Select
+        {...prop}
+        open
+        placement="bottomLeft"
+        defaultValue="aojunhao123"
+        getPopupContainer={() => divRef.current}
+        options={[
+          { value: 'aojunhao123', label: 'aojunhao123' },
+          { value: 'thinkasany', label: 'thinkasany' },
+        ]}
+      />
+    </div>
+  );
+};
+
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
-  const divRef = React.useRef<HTMLDivElement>(null);
 
   return (
     <SemanticPreview
       semantics={[{ name: 'popup', desc: locale.popup, version: '5.25.0' }]}
       height={200}
     >
-      <div ref={divRef} style={{ marginBottom: 80 }}>
-        <Select
-          open
-          defaultValue="aojunhao123"
-          options={[
-            { value: 'aojunhao123', label: 'aojunhao123' },
-            { value: 'thinkasany', label: 'thinkasany' },
-          ]}
-          placement="bottomLeft"
-          getPopupContainer={() => divRef.current!}
-          styles={{ popup: { zIndex: 1 } }}
-        />
-      </div>
+      <Block />
     </SemanticPreview>
   );
 };
