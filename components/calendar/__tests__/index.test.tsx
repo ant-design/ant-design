@@ -588,7 +588,7 @@ describe('Calendar', () => {
     const { container } = render(<Calendar styles={customStyles} classNames={customClassNames} />);
     const root = container.querySelector('.ant-picker-calendar');
     const header = container.querySelector('.ant-picker-calendar-header');
-    const item = container.querySelector('.ant-picker-cell-inner');
+    const item = container.querySelector('.ant-picker-cell');
     const body = container.querySelector('.ant-picker-body');
     const content = container.querySelector('.ant-picker-content');
     expect(root).toHaveStyle(customStyles.root);

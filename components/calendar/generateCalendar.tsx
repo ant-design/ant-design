@@ -111,15 +111,16 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
     } = useComponentConfig('calendar');
 
     const [
-      { content: popupContent, body: popupBody, ...restClassNames },
-      { content: popupContentStyle, body: popupBodyStyle, ...restStyles },
+      { content: popupContent, body: popupBody, item: popupItem, ...restClassNames },
+      { content: popupContentStyle, body: popupBodyStyle, item: popupItemStyle, ...restStyles },
     ] = useMergeSemantic([contextClassNames, calendarClassNames], [contextStyles, styles]);
-    const mergedClassNames = { ...restClassNames, popupContent, popupBody };
+    const mergedClassNames = { ...restClassNames, popupContent, popupBody, popupItem };
 
     const mergedStyles = {
       ...restStyles,
       popupContent: popupContentStyle,
       popupBody: popupBodyStyle,
+      popupItem: popupItemStyle,
     };
 
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
@@ -215,15 +216,9 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
 
         return (
           <div
-            className={classNames(
-              `${prefixCls}-cell-inner`,
-              `${calendarPrefixCls}-date`,
-              mergedClassNames?.item,
-              {
-                [`${calendarPrefixCls}-date-today`]: isSameDate(today, date, generateConfig),
-              },
-            )}
-            style={mergedStyles?.item}
+            className={classNames(`${prefixCls}-cell-inner`, `${calendarPrefixCls}-date`, {
+              [`${calendarPrefixCls}-date-today`]: isSameDate(today, date, generateConfig),
+            })}
           >
             <div className={`${calendarPrefixCls}-date-value`}>
               {String(generateConfig.getDate(date)).padStart(2, '0')}
@@ -251,15 +246,9 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
 
         return (
           <div
-            className={classNames(
-              `${prefixCls}-cell-inner`,
-              `${calendarPrefixCls}-date`,
-              mergedClassNames?.item,
-              {
-                [`${calendarPrefixCls}-date-today`]: isSameMonth(today, date, generateConfig),
-              },
-            )}
-            style={mergedStyles?.item}
+            className={classNames(`${prefixCls}-cell-inner`, `${calendarPrefixCls}-date`, {
+              [`${calendarPrefixCls}-date-today`]: isSameMonth(today, date, generateConfig),
+            })}
           >
             <div className={`${calendarPrefixCls}-date-value`}>
               {months[generateConfig.getMonth(date)]}
