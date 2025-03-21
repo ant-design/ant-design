@@ -1,3 +1,4 @@
+import path from 'path';
 import React from 'react';
 import {
   createCache,
@@ -10,12 +11,17 @@ import {
 } from '@ant-design/cssinjs';
 import chalk from 'chalk';
 import { parse } from 'css-tree';
+import isCI from 'is-ci';
 import type { SyntaxParseError } from 'css-tree';
 import { validate } from 'csstree-validator';
+import fs from 'fs-extra';
 import ReactDOMServer from 'react-dom/server';
 
 import { ConfigProvider } from '../components';
 import { generateCssinjs } from './generate-cssinjs';
+
+const tmpDir = path.join(`${__filename}.tmp`);
+fs.emptyDirSync(tmpDir);
 
 console.log(chalk.green(`🔥 Checking CSS-in-JS...`));
 
@@ -71,7 +77,14 @@ async function checkCSSStr() {
       );
 
       const css = extractStyle(cache, { types: 'style', plain: true });
-      errors.set(filePath, cssValidate(css, filePath));
+      let showPath = filePath;
+      if (process.env.LOCAL || !isCI) {
+        const [, name] = filePath.split(path.sep);
+        const writeLocalPath = path.join(tmpDir, `${name}.css`);
+        showPath = path.relative(process.cwd(), writeLocalPath);
+        fs.writeFileSync(writeLocalPath, css);
+      }
+      errors.set(filePath, cssValidate(css, showPath));
     },
   });
 
