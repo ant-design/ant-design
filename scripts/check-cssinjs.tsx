@@ -64,7 +64,7 @@ async function checkCSSVar() {
     },
   });
 }
-async function checkCSSStr() {
+async function checkCSSContent() {
   const errors = new Map();
   await generateCssinjs({
     key: 'css-validate',
@@ -112,7 +112,7 @@ async function checkCSSStr() {
   });
 
   await checkCSSVar();
-  await checkCSSStr();
+  await checkCSSContent();
 
   if (errorCount > 0) {
     console.log(chalk.red(`❌  CSS-in-JS check failed with ${errorCount} errors.`));
