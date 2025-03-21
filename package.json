@@ -110,7 +110,7 @@
     "@ant-design/cssinjs": "^2.0.0-alpha.5",
     "@ant-design/cssinjs-utils": "^2.0.0-alpha.1",
     "@ant-design/fast-color": "^3.0.0",
-    "@ant-design/icons": "^5.6.1",
+    "@ant-design/icons": "^6.0.0",
     "@ant-design/react-slick": "~1.1.2",
     "@rc-component/cascader": "~1.1.0",
     "@rc-component/collapse": "~1.0.1",
