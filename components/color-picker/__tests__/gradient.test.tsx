@@ -340,4 +340,45 @@ describe('ColorPicker.gradient', () => {
       backgroundColor: 'rgb(255,0,0)',
     });
   });
+
+  it('preset color', () => {
+    const onChange = jest.fn();
+
+    render(
+      <ColorPicker
+        mode={['gradient']}
+        open
+        presets={[
+          {
+            label: 'Liner',
+            colors: [
+              [
+                {
+                  color: '#FF0000',
+                  percent: 0,
+                },
+                {
+                  color: '#0000FF',
+                  percent: 100,
+                },
+              ],
+            ],
+          },
+        ]}
+        onChange={onChange}
+      />,
+    );
+
+    expect(document.querySelector('.ant-color-picker-presets-color-checked')).toBeFalsy();
+
+    // Select preset
+    fireEvent.click(
+      document.querySelector('.ant-color-picker-presets .ant-color-picker-color-block-inner')!,
+    );
+    const color = onChange.mock.calls[0][0];
+    expect(color.toCssString()).toEqual(
+      'linear-gradient(90deg, rgb(255,0,0) 0%, rgb(0,0,255) 100%)',
+    );
+    expect(document.querySelector('.ant-color-picker-presets-color-checked')).toBeTruthy();
+  });
 });
