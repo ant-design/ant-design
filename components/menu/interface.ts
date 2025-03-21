@@ -9,6 +9,7 @@ export interface MenuItemType extends RcMenuItemType {
   danger?: boolean;
   icon?: React.ReactNode;
   title?: string;
+  [key: string]: any;
 }
 
 export interface SubMenuType<T extends MenuItemType = MenuItemType>
