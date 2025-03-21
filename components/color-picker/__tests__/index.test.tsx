@@ -998,4 +998,11 @@ describe('ColorPicker', () => {
       expect(container.querySelector('.ant-color-picker-input-container .ant-select')).toBeFalsy();
     });
   });
+
+  it('default value with preset name color', () => {
+    const { container } = render(<ColorPicker defaultValue="red" />);
+    expect(container.querySelector('.ant-color-picker-color-block-inner')).toHaveStyle({
+      background: 'rgb(255, 0, 0)',
+    });
+  });
 });
