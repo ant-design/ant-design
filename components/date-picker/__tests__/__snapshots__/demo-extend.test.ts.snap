@@ -6,7 +6,7 @@ Array [
     class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker-input ant-picker-input-start"
     >
       <input
         aria-invalid="false"
@@ -46,7 +46,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-picker-input"
+      class="ant-picker-input ant-picker-input-end"
     >
       <input
         aria-invalid="false"
@@ -9351,7 +9351,7 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
       class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -9391,7 +9391,7 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -12211,7 +12211,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
       class="ant-picker ant-picker-range ant-picker-disabled ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -12252,7 +12252,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -13413,7 +13413,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
       class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -13453,7 +13453,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -17640,7 +17640,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
       class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -17680,7 +17680,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -18840,7 +18840,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
       class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -18880,7 +18880,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -23210,7 +23210,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
       class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -23250,7 +23250,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -24419,7 +24419,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
       class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -24459,7 +24459,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -27694,7 +27694,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
       class="ant-picker ant-picker-range ant-picker-disabled ant-picker-filled css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -27735,7 +27735,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -28896,7 +28896,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
       class="ant-picker ant-picker-range ant-picker-filled css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -28936,7 +28936,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -31384,7 +31384,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
       style="width: 100%;"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -31424,7 +31424,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -32585,7 +32585,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
       style="width: 100%;"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -32625,7 +32625,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -36044,7 +36044,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
       class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -36084,7 +36084,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -40731,7 +40731,7 @@ exports[`renders components/date-picker/demo/mode.tsx extend context correctly 1
       class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -40771,7 +40771,7 @@ exports[`renders components/date-picker/demo/mode.tsx extend context correctly 1
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -47942,7 +47942,7 @@ Array [
     class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker-input ant-picker-input-start"
     >
       <input
         aria-invalid="false"
@@ -47982,7 +47982,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-picker-input"
+      class="ant-picker-input ant-picker-input-end"
     >
       <input
         aria-invalid="false"
@@ -49783,7 +49783,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
       class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -49823,7 +49823,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -51001,7 +51001,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
       class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -51041,7 +51041,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -53184,7 +53184,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
       class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -53224,7 +53224,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -54384,7 +54384,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
       class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -54424,7 +54424,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -56532,7 +56532,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
       class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -56572,7 +56572,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -57878,7 +57878,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
       class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -57918,7 +57918,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -58362,7 +58362,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
       class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -58402,7 +58402,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -58674,7 +58674,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
       class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -58715,7 +58715,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -59801,7 +59801,7 @@ exports[`renders components/date-picker/demo/select-in-range.tsx extend context 
       class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -59841,7 +59841,7 @@ exports[`renders components/date-picker/demo/select-in-range.tsx extend context 
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -61010,7 +61010,7 @@ exports[`renders components/date-picker/demo/select-in-range.tsx extend context 
       class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -61050,7 +61050,7 @@ exports[`renders components/date-picker/demo/select-in-range.tsx extend context 
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -62438,7 +62438,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
       class="ant-picker ant-picker-range ant-picker-middle ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -62478,7 +62478,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -69776,7 +69776,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
       style="width: 100%;"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -69816,7 +69816,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -70977,7 +70977,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
       style="width: 100%;"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -71017,7 +71017,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -73046,7 +73046,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
       class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -73086,7 +73086,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -75741,7 +75741,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
       class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -75781,7 +75781,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -78972,7 +78972,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -79012,7 +79012,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -80323,7 +80323,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
         Event Period
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -80363,7 +80363,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -85572,7 +85572,7 @@ exports[`renders components/date-picker/demo/time.tsx extend context correctly 1
       class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -85612,7 +85612,7 @@ exports[`renders components/date-picker/demo/time.tsx extend context correctly 1
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -87739,7 +87739,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
       class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -87779,7 +87779,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -89553,7 +89553,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
       class="ant-picker ant-picker-range ant-picker-filled css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -89593,7 +89593,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -91367,7 +91367,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
       class="ant-picker ant-picker-range ant-picker-borderless css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -91407,7 +91407,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -93181,7 +93181,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
       class="ant-picker ant-picker-range ant-picker-underlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -93221,7 +93221,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"

@@ -1551,7 +1551,7 @@ Array [
                             style="width: 100%;"
                           >
                             <div
-                              class="ant-picker-input"
+                              class="ant-picker-input ant-picker-input-start"
                             >
                               <input
                                 aria-invalid="false"
@@ -1593,7 +1593,7 @@ Array [
                               </span>
                             </div>
                             <div
-                              class="ant-picker-input"
+                              class="ant-picker-input ant-picker-input-end"
                             >
                               <input
                                 aria-invalid="false"

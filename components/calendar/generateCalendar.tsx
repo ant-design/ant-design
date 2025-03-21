@@ -1,11 +1,12 @@
 import * as React from 'react';
-import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
-import classNames from 'classnames';
 import type { BasePickerPanelProps as RcBasePickerPanelProps } from '@rc-component/picker';
 import { PickerPanel as RCPickerPanel } from '@rc-component/picker';
 import type { GenerateConfig } from '@rc-component/picker/lib/generate';
 import type { CellRenderInfo } from '@rc-component/picker/lib/interface';
+import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
+import classNames from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -26,11 +27,14 @@ export interface SelectInfo {
   source: 'year' | 'month' | 'date' | 'customize';
 }
 
+type SemanticName = 'root' | 'header' | 'body' | 'content' | 'item';
 export interface CalendarProps<DateType> {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   locale?: typeof enUS;
   validRange?: [DateType, DateType];
   disabledDate?: (date: DateType) => boolean;
@@ -94,13 +98,31 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       onChange,
       onPanelChange,
       onSelect,
+      styles,
+      classNames: calendarClassNames,
     } = props;
     const {
       getPrefixCls,
       direction,
       className: contextClassName,
       style: contextStyle,
+      classNames: contextClassNames,
+      styles: contextStyles,
     } = useComponentConfig('calendar');
+
+    const [
+      { content: popupContent, body: popupBody, item: popupItem, ...restClassNames },
+      { content: popupContentStyle, body: popupBodyStyle, item: popupItemStyle, ...restStyles },
+    ] = useMergeSemantic([contextClassNames, calendarClassNames], [contextStyles, styles]);
+    const mergedClassNames = { ...restClassNames, popupContent, popupBody, popupItem };
+
+    const mergedStyles = {
+      ...restStyles,
+      popupContent: popupContentStyle,
+      popupBody: popupBodyStyle,
+      popupItem: popupItemStyle,
+    };
+
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const calendarPrefixCls = `${prefixCls}-calendar`;
 
@@ -269,10 +291,11 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
           contextClassName,
           className,
           rootClassName,
+          mergedClassNames?.root,
           hashId,
           cssVarCls,
         )}
-        style={{ ...contextStyle, ...style }}
+        style={{ ...mergedStyles?.root, ...contextStyle, ...style }}
       >
         {headerRender ? (
           headerRender({
@@ -285,6 +308,8 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
           })
         ) : (
           <CalendarHeader
+            className={mergedClassNames?.header}
+            style={mergedStyles?.header}
             prefixCls={calendarPrefixCls}
             value={mergedValue}
             generateConfig={generateConfig}
@@ -297,6 +322,8 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
           />
         )}
         <RCPickerPanel
+          classNames={mergedClassNames}
+          styles={mergedStyles}
           value={mergedValue}
           prefixCls={prefixCls}
           locale={locale?.lang}

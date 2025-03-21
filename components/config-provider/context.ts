@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { AnyObject } from '../_util/type';
 import type { WarningContextProps } from '../_util/warning';
 import type { ShowWaveEffect } from '../_util/wave/interface';
 import type { AlertProps } from '../alert';
@@ -8,6 +9,7 @@ import type { BadgeProps } from '../badge';
 import type { RibbonProps } from '../badge/Ribbon';
 import type { BreadcrumbProps } from '../breadcrumb';
 import type { ButtonProps } from '../button';
+import type { CalendarProps } from '../calendar';
 import type { CardProps } from '../card';
 import type { CardMetaProps } from '../card/Meta';
 import type { CascaderProps } from '../cascader';
@@ -215,6 +217,9 @@ export type TagConfig = ComponentStyleConfig &
 export type CardConfig = ComponentStyleConfig &
   Pick<CardProps, 'classNames' | 'styles' | 'variant'>;
 
+export type CalendarConfig = ComponentStyleConfig &
+  Pick<CalendarProps<AnyObject>, 'classNames' | 'styles'>;
+
 export type CardMetaConfig = ComponentStyleConfig & Pick<CardMetaProps, 'classNames' | 'styles'>;
 
 export type DrawerConfig = ComponentStyleConfig &
@@ -340,7 +345,7 @@ export interface ConfigComponentProps {
   button?: ButtonConfig;
   divider?: ComponentStyleConfig;
   drawer?: DrawerConfig;
-  calendar?: ComponentStyleConfig;
+  calendar?: CalendarConfig;
   carousel?: ComponentStyleConfig;
   cascader?: CascaderConfig;
   treeSelect?: TreeSelectConfig;

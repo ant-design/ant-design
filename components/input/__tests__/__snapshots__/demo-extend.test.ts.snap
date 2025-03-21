@@ -3805,7 +3805,7 @@ Array [
     class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker-input ant-picker-input-start"
     >
       <input
         aria-invalid="false"
@@ -3845,7 +3845,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-picker-input"
+      class="ant-picker-input ant-picker-input-end"
     >
       <input
         aria-invalid="false"
@@ -8057,7 +8057,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       style="width: 70%;"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -8097,7 +8097,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
