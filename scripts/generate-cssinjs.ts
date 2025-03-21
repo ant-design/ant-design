@@ -35,6 +35,10 @@ export const generateCssinjs = ({ key, beforeRender, render }: GenCssinjsOptions
           useRowStyle(prefixCls);
           useColStyle(prefixCls);
         };
+      } else if (file.includes('tree-select')) {
+        const originalUseStyle = (await import(absPath)).default;
+        useStyle = (prefixCls, treePrefixCls = `${prefixCls}-tree`) =>
+          originalUseStyle(prefixCls, treePrefixCls);
       } else {
         useStyle = (await import(absPath)).default;
       }

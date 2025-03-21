@@ -11,10 +11,10 @@ import {
 } from '@ant-design/cssinjs';
 import chalk from 'chalk';
 import { parse } from 'css-tree';
-import isCI from 'is-ci';
 import type { SyntaxParseError } from 'css-tree';
 import { validate } from 'csstree-validator';
 import fs from 'fs-extra';
+import isCI from 'is-ci';
 import ReactDOMServer from 'react-dom/server';
 
 import { ConfigProvider } from '../components';
@@ -82,7 +82,7 @@ async function checkCSSContent() {
         const [, name] = filePath.split(path.sep);
         const writeLocalPath = path.join(tmpDir, `${name}.css`);
         showPath = path.relative(process.cwd(), writeLocalPath);
-        fs.writeFileSync(writeLocalPath, css);
+        fs.writeFileSync(writeLocalPath, `/* ${filePath} */\n${css}`);
       }
       errors.set(filePath, cssValidate(css, showPath));
     },
