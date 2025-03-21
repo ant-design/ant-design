@@ -6,6 +6,7 @@ import type { CellRenderInfo } from '@rc-component/picker/lib/interface';
 import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
 import classNames from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -109,27 +110,17 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       styles: contextStyles,
     } = useComponentConfig('calendar');
 
-    const mergedStyles = React.useMemo(
-      () => ({
-        root: { ...contextStyles.root, ...styles?.root },
-        header: { ...contextStyles.header, ...styles?.header },
-        body: { ...contextStyles.body, ...styles?.body },
-        content: { ...contextStyles.content, ...styles?.content },
-        item: { ...contextStyles.item, ...styles?.item },
-      }),
-      [contextStyles, styles],
-    );
+    const [
+      { content: popupContent, body: popupBody, ...restClassNames },
+      { content: popupContentStyle, body: popupBodyStyle, ...restStyles },
+    ] = useMergeSemantic([contextClassNames, calendarClassNames], [contextStyles, styles]);
+    const mergedClassNames = { ...restClassNames, popupContent, popupBody };
 
-    const mergedClassNames = React.useMemo(
-      () => ({
-        root: classNames(contextClassNames.root, calendarClassNames?.root),
-        header: classNames(contextClassNames.header, calendarClassNames?.header),
-        body: classNames(contextClassNames.body, calendarClassNames?.body),
-        content: classNames(contextClassNames.content, calendarClassNames?.content),
-        item: classNames(contextClassNames.item, calendarClassNames?.item),
-      }),
-      [contextClassNames, calendarClassNames],
-    );
+    const mergedStyles = {
+      ...restStyles,
+      popupContent: popupContentStyle,
+      popupBody: popupBodyStyle,
+    };
 
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const calendarPrefixCls = `${prefixCls}-calendar`;
@@ -342,6 +333,8 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
           />
         )}
         <RCPickerPanel
+          classNames={mergedClassNames}
+          styles={mergedStyles}
           value={mergedValue}
           prefixCls={prefixCls}
           locale={locale?.lang}

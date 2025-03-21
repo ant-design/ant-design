@@ -142,8 +142,8 @@ function ModeSwitch<DateType>(props: ModeSwitchProps<DateType>) {
 }
 
 export interface CalendarHeaderProps<DateType> {
-  className: string;
-  style: React.CSSProperties;
+  className?: string;
+  style?: React.CSSProperties;
   prefixCls: string;
   value: DateType;
   validRange?: [DateType, DateType];

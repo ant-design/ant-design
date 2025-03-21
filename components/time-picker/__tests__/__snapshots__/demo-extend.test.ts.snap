@@ -14637,7 +14637,7 @@ Array [
     class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker-input ant-picker-input-start"
     >
       <input
         aria-invalid="false"
@@ -14677,7 +14677,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-picker-input"
+      class="ant-picker-input ant-picker-input-end"
     >
       <input
         aria-invalid="false"
@@ -25727,7 +25727,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
       class="ant-picker ant-picker-range ant-picker-outlined ant-picker-status-error css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -25767,7 +25767,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -27331,7 +27331,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
       class="ant-picker ant-picker-range ant-picker-outlined ant-picker-status-warning css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -27371,7 +27371,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -32109,7 +32109,7 @@ exports[`renders components/time-picker/demo/suffix.tsx extend context correctly
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -32149,7 +32149,7 @@ exports[`renders components/time-picker/demo/suffix.tsx extend context correctly
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -36845,7 +36845,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
       class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -36885,7 +36885,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -40007,7 +40007,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
       class="ant-picker ant-picker-range ant-picker-filled css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -40047,7 +40047,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -43169,7 +43169,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
       class="ant-picker ant-picker-range ant-picker-borderless css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -43209,7 +43209,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -46331,7 +46331,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
       class="ant-picker ant-picker-range ant-picker-underlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -46371,7 +46371,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"

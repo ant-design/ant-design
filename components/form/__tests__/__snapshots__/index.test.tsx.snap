@@ -644,7 +644,7 @@ exports[`Form form should support disabled 1`] = `
               class="ant-picker ant-picker-range ant-picker-disabled ant-picker-outlined css-var-root ant-picker-css-var"
             >
               <div
-                class="ant-picker-input"
+                class="ant-picker-input ant-picker-input-start"
               >
                 <input
                   aria-invalid="false"
@@ -685,7 +685,7 @@ exports[`Form form should support disabled 1`] = `
                 </span>
               </div>
               <div
-                class="ant-picker-input"
+                class="ant-picker-input ant-picker-input-end"
               >
                 <input
                   aria-invalid="false"
