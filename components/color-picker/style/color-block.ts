@@ -9,10 +9,10 @@ import type { ColorPickerToken } from './index';
  */
 export const getTransBg = (size: string, colorFill: string): CSSObject => ({
   backgroundImage: `conic-gradient(
-    ${colorFill} 0.25turn,
-    transparent 0.25turn 0.5turn,
-    ${colorFill} 0.5turn 0.75turn,
-    transparent 0.75turn 1turn
+    ${colorFill} 25%,
+    transparent 25% 50%,
+    ${colorFill} 50% 75%,
+    transparent 75% 100%
   )`,
   backgroundSize: `${size} ${size}`,
 });
