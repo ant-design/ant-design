@@ -5,9 +5,15 @@ import type { ColorPickerToken } from './index';
 
 /**
  * @private Internal usage only
+ * see: https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/conic-gradient#checkerboard
  */
 export const getTransBg = (size: string, colorFill: string): CSSObject => ({
-  backgroundImage: `conic-gradient(${colorFill} 0 25%, transparent 0 50%, ${colorFill} 0 75%, transparent 0)`,
+  backgroundImage: `conic-gradient(
+    ${colorFill} 0.25turn,
+    transparent 0.25turn 0.5turn,
+    ${colorFill} 0.5turn 0.75turn,
+    transparent 0.75turn 1turn
+  )`,
   backgroundSize: `${size} ${size}`,
 });
 
