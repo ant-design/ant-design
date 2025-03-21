@@ -196,7 +196,6 @@ const genArrowsStyle: GenerateStyle<CarouselToken> = (token) => {
           border: `0 solid currentcolor`,
           borderInlineStartWidth: 2,
           borderBlockStartWidth: 2,
-          background: 'red',
           borderRadius: 1,
           content: '""',
         },

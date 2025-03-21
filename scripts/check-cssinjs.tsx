@@ -78,7 +78,7 @@ async function checkCSSContent() {
 
       const css = extractStyle(cache, { types: 'style', plain: true });
       let showPath = filePath;
-      if (process.env.LOCAL || !isCI) {
+      if (!isCI) {
         const [, name] = filePath.split(path.sep);
         const writeLocalPath = path.join(tmpDir, `${name}.css`);
         showPath = path.relative(process.cwd(), writeLocalPath);
