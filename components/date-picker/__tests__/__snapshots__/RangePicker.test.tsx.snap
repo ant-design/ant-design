@@ -5,7 +5,7 @@ exports[`RangePicker customize separator 1`] = `
   class="ant-picker ant-picker-range ant-picker-outlined css-var-root ant-picker-css-var"
 >
   <div
-    class="ant-picker-input"
+    class="ant-picker-input ant-picker-input-start"
   >
     <input
       aria-invalid="false"
@@ -22,7 +22,7 @@ exports[`RangePicker customize separator 1`] = `
     test
   </div>
   <div
-    class="ant-picker-input"
+    class="ant-picker-input ant-picker-input-end"
   >
     <input
       aria-invalid="false"
@@ -69,7 +69,7 @@ Array [
     class="ant-picker ant-picker-range ant-picker-outlined css-var-root ant-picker-css-var"
   >
     <div
-      class="ant-picker-input ant-picker-input-active"
+      class="ant-picker-input ant-picker-input-active ant-picker-input-start"
     >
       <input
         aria-invalid="false"
@@ -109,7 +109,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-picker-input"
+      class="ant-picker-input ant-picker-input-end"
     >
       <input
         aria-invalid="false"

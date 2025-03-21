@@ -13272,7 +13272,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider 1`] = `
     class="config-picker config-picker-range config-picker-outlined css-var-root config-picker-css-var"
   >
     <div
-      class="config-picker-input"
+      class="config-picker-input config-picker-input-start"
     >
       <input
         aria-invalid="false"
@@ -13312,7 +13312,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider 1`] = `
       </span>
     </div>
     <div
-      class="config-picker-input"
+      class="config-picker-input config-picker-input-end"
     >
       <input
         aria-invalid="false"
@@ -13360,7 +13360,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
     class="config-picker config-picker-range config-picker-disabled config-picker-outlined css-var-root config-picker-css-var"
   >
     <div
-      class="config-picker-input"
+      class="config-picker-input config-picker-input-start"
     >
       <input
         aria-invalid="false"
@@ -13401,7 +13401,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
       </span>
     </div>
     <div
-      class="config-picker-input"
+      class="config-picker-input config-picker-input-end"
     >
       <input
         aria-invalid="false"
@@ -13450,7 +13450,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
     class="config-picker config-picker-range config-picker-large config-picker-outlined css-var-root config-picker-css-var"
   >
     <div
-      class="config-picker-input"
+      class="config-picker-input config-picker-input-start"
     >
       <input
         aria-invalid="false"
@@ -13490,7 +13490,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
       </span>
     </div>
     <div
-      class="config-picker-input"
+      class="config-picker-input config-picker-input-end"
     >
       <input
         aria-invalid="false"
@@ -13538,7 +13538,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
     class="config-picker config-picker-range config-picker-middle config-picker-outlined css-var-root config-picker-css-var"
   >
     <div
-      class="config-picker-input"
+      class="config-picker-input config-picker-input-start"
     >
       <input
         aria-invalid="false"
@@ -13578,7 +13578,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
       </span>
     </div>
     <div
-      class="config-picker-input"
+      class="config-picker-input config-picker-input-end"
     >
       <input
         aria-invalid="false"
@@ -13626,7 +13626,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
     class="config-picker config-picker-range config-picker-small config-picker-outlined css-var-root config-picker-css-var"
   >
     <div
-      class="config-picker-input"
+      class="config-picker-input config-picker-input-start"
     >
       <input
         aria-invalid="false"
@@ -13666,7 +13666,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
       </span>
     </div>
     <div
-      class="config-picker-input"
+      class="config-picker-input config-picker-input-end"
     >
       <input
         aria-invalid="false"
@@ -13714,7 +13714,7 @@ exports[`ConfigProvider components DatePicker RangePicker normal 1`] = `
     class="ant-picker ant-picker-range ant-picker-outlined css-var-root ant-picker-css-var"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker-input ant-picker-input-start"
     >
       <input
         aria-invalid="false"
@@ -13754,7 +13754,7 @@ exports[`ConfigProvider components DatePicker RangePicker normal 1`] = `
       </span>
     </div>
     <div
-      class="ant-picker-input"
+      class="ant-picker-input ant-picker-input-end"
     >
       <input
         aria-invalid="false"
@@ -13802,7 +13802,7 @@ exports[`ConfigProvider components DatePicker RangePicker prefixCls 1`] = `
     class="prefix-RangePicker prefix-RangePicker-range prefix-RangePicker-outlined css-var-root prefix-RangePicker-css-var"
   >
     <div
-      class="prefix-RangePicker-input"
+      class="prefix-RangePicker-input prefix-RangePicker-input-start"
     >
       <input
         aria-invalid="false"
@@ -13842,7 +13842,7 @@ exports[`ConfigProvider components DatePicker RangePicker prefixCls 1`] = `
       </span>
     </div>
     <div
-      class="prefix-RangePicker-input"
+      class="prefix-RangePicker-input prefix-RangePicker-input-end"
     >
       <input
         aria-invalid="false"

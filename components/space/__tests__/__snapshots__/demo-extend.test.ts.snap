@@ -1941,7 +1941,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         style="width: 70%;"
       >
         <div
-          class="ant-picker-input"
+          class="ant-picker-input ant-picker-input-start"
         >
           <input
             aria-invalid="false"
@@ -1981,7 +1981,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           </span>
         </div>
         <div
-          class="ant-picker-input"
+          class="ant-picker-input ant-picker-input-end"
         >
           <input
             aria-invalid="false"
@@ -3166,7 +3166,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         style="width: 70%;"
       >
         <div
-          class="ant-picker-input"
+          class="ant-picker-input ant-picker-input-start"
         >
           <input
             aria-invalid="false"
@@ -3206,7 +3206,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           </span>
         </div>
         <div
-          class="ant-picker-input"
+          class="ant-picker-input ant-picker-input-end"
         >
           <input
             aria-invalid="false"
@@ -6817,7 +6817,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         class="ant-picker ant-picker-range ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item css-var-test-id ant-picker-css-var"
       >
         <div
-          class="ant-picker-input"
+          class="ant-picker-input ant-picker-input-start"
         >
           <input
             aria-invalid="false"
@@ -6857,7 +6857,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           </span>
         </div>
         <div
-          class="ant-picker-input"
+          class="ant-picker-input ant-picker-input-end"
         >
           <input
             aria-invalid="false"
@@ -12860,7 +12860,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         style="width: 70%;"
       >
         <div
-          class="ant-picker-input"
+          class="ant-picker-input ant-picker-input-start"
         >
           <input
             aria-invalid="false"
@@ -12900,7 +12900,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           </span>
         </div>
         <div
-          class="ant-picker-input"
+          class="ant-picker-input ant-picker-input-end"
         >
           <input
             aria-invalid="false"

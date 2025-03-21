@@ -3694,7 +3694,7 @@ Array [
                 class="ant-picker ant-picker-range ant-picker-disabled ant-picker-outlined css-var-test-id ant-picker-css-var"
               >
                 <div
-                  class="ant-picker-input"
+                  class="ant-picker-input ant-picker-input-start"
                 >
                   <input
                     aria-invalid="false"
@@ -3735,7 +3735,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  class="ant-picker-input"
+                  class="ant-picker-input ant-picker-input-end"
                 >
                   <input
                     aria-invalid="false"
@@ -16171,7 +16171,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
               class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
             >
               <div
-                class="ant-picker-input"
+                class="ant-picker-input ant-picker-input-start"
               >
                 <input
                   aria-invalid="false"
@@ -16213,7 +16213,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                 </span>
               </div>
               <div
-                class="ant-picker-input"
+                class="ant-picker-input ant-picker-input-end"
               >
                 <input
                   aria-invalid="false"
@@ -17401,7 +17401,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
               class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
             >
               <div
-                class="ant-picker-input"
+                class="ant-picker-input ant-picker-input-start"
               >
                 <input
                   aria-invalid="false"
@@ -17443,7 +17443,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                 </span>
               </div>
               <div
-                class="ant-picker-input"
+                class="ant-picker-input ant-picker-input-end"
               >
                 <input
                   aria-invalid="false"
@@ -26678,7 +26678,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               style="width: 100%;"
             >
               <div
-                class="ant-picker-input"
+                class="ant-picker-input ant-picker-input-start"
               >
                 <input
                   aria-invalid="false"
@@ -26718,7 +26718,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 </span>
               </div>
               <div
-                class="ant-picker-input"
+                class="ant-picker-input ant-picker-input-end"
               >
                 <input
                   aria-invalid="false"
@@ -32287,7 +32287,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
               class="ant-picker ant-picker-range ant-picker-filled css-var-test-id ant-picker-css-var"
             >
               <div
-                class="ant-picker-input"
+                class="ant-picker-input ant-picker-input-start"
               >
                 <input
                   aria-invalid="false"
@@ -32329,7 +32329,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                 </span>
               </div>
               <div
-                class="ant-picker-input"
+                class="ant-picker-input ant-picker-input-end"
               >
                 <input
                   aria-invalid="false"
