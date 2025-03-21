@@ -27,6 +27,9 @@ const Block = (prop: any) => {
           { value: 'aojunhao123', label: 'aojunhao123' },
           { value: 'thinkasany', label: 'thinkasany' },
         ]}
+        styles={{
+          popup: { zIndex: 1 },
+        }}
       />
     </div>
   );
