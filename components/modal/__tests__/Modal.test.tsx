@@ -5,7 +5,7 @@ import Modal from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { createEvent, fireEvent, render } from '../../../tests/utils';
+import { createEvent, fireEvent, render, screen } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 jest.mock('rc-util/lib/Portal');
@@ -233,16 +233,16 @@ describe('Modal', () => {
     expect(document.querySelector('.ant-modal-centered')).toBeFalsy();
   });
 
-  it('Should not close modal when confirmLoading is false ', () => {
+  it('Should not close modal when confirmLoading is loading', () => {
     const onCancel = jest.fn();
-    const { queryByText } = render(
-      <Modal open confirmLoading={false} onCancel={onCancel}>
+    render(
+      <Modal open confirmLoading onCancel={onCancel}>
         <p>Modal Content</p>
       </Modal>,
     );
     fireEvent.click(document.body.querySelectorAll('.ant-btn')[0]);
     fireEvent.click(document.body.querySelectorAll('.ant-modal-close')[0]);
-    expect(onCancel).toHaveBeenCalledTimes(2);
-    expect(queryByText('Modal Content')).toBeInTheDocument();
+    expect(onCancel).toHaveBeenCalledTimes(0);
+    expect(screen.queryByText('Modal Content')).toBeInTheDocument();
   });
 });
