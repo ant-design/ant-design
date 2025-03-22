@@ -6,6 +6,7 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 
+import { addMediaQueryListener, removeMediaQueryListener } from '../_util/mediaQueryUtil';
 import { ConfigContext } from '../config-provider';
 import { LayoutContext } from './context';
 import useStyle from './style/sider';
@@ -118,28 +119,16 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
 
   useEffect(() => {
     function responsiveHandler(mql: MediaQueryListEvent | MediaQueryList) {
-      return responsiveHandlerRef.current!(mql);
+      return responsiveHandlerRef.current?.(mql);
     }
-
     let mql: MediaQueryList;
-    if (typeof window !== 'undefined') {
-      const { matchMedia } = window;
-      if (matchMedia! && breakpoint && breakpoint in dimensionMaxMap) {
-        mql = matchMedia(`screen and (max-width: ${dimensionMaxMap[breakpoint]})`);
-        try {
-          mql.addEventListener('change', responsiveHandler);
-        } catch {
-          mql.addListener(responsiveHandler);
-        }
-        responsiveHandler(mql);
-      }
+    if (typeof window?.matchMedia !== 'undefined' && breakpoint && breakpoint in dimensionMaxMap) {
+      mql = window.matchMedia(`screen and (max-width: ${dimensionMaxMap[breakpoint]})`);
+      addMediaQueryListener(mql, responsiveHandler);
+      responsiveHandler(mql);
     }
     return () => {
-      try {
-        mql?.removeEventListener('change', responsiveHandler);
-      } catch {
-        mql?.removeListener(responsiveHandler);
-      }
+      removeMediaQueryListener(mql, responsiveHandler);
     };
   }, [breakpoint]); // in order to accept dynamic 'breakpoint' property, we need to add 'breakpoint' into dependency array.
 
