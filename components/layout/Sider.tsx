@@ -122,7 +122,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     }
     let mql: MediaQueryList;
     if (typeof window?.matchMedia !== 'undefined' && breakpoint && breakpoint in dimensionMaxMap) {
-      mql = matchMedia(`screen and (max-width: ${dimensionMaxMap[breakpoint]})`);
+      mql = window.matchMedia(`screen and (max-width: ${dimensionMaxMap[breakpoint]})`);
       // Don't modify here, please keep the code compatible
       if (typeof mql?.addEventListener !== 'undefined') {
         mql?.addEventListener<'change'>('change', responsiveHandler);
