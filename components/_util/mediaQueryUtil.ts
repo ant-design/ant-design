@@ -2,9 +2,9 @@ type MQListenerHandler = (mql: MediaQueryList, handler: (e: MediaQueryListEvent)
 
 export const addMediaQueryListener: MQListenerHandler = (mql, handler) => {
   // Don't delete here, please keep the code compatible
-  if (typeof mql.addEventListener !== 'undefined') {
+  if (typeof mql?.addEventListener !== 'undefined') {
     mql.addEventListener('change', handler);
-  } else if (typeof mql.addListener !== 'undefined') {
+  } else if (typeof mql?.addListener !== 'undefined') {
     mql.addListener(handler);
   } else {
     // mql.onchange = handler;
@@ -13,9 +13,9 @@ export const addMediaQueryListener: MQListenerHandler = (mql, handler) => {
 
 export const removeMediaQueryListener: MQListenerHandler = (mql, handler) => {
   // Don't delete here, please keep the code compatible
-  if (typeof mql.removeEventListener !== 'undefined') {
+  if (typeof mql?.removeEventListener !== 'undefined') {
     mql.removeEventListener('change', handler);
-  } else if (typeof mql.removeListener !== 'undefined') {
+  } else if (typeof mql?.removeListener !== 'undefined') {
     mql.removeListener(handler);
   } else {
     // mql.onchange = null;
