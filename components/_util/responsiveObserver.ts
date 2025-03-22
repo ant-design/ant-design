@@ -106,9 +106,9 @@ export default function useResponsiveObserver() {
           };
           const mql = window.matchMedia(mediaQuery);
           // Don't delete here, please keep the code compatible
-          if (typeof mql.addEventListener !== 'undefined') {
+          if (typeof mql?.addEventListener !== 'undefined') {
             mql.addEventListener('change', listener);
-          } else if (typeof mql.addListener !== 'undefined') {
+          } else if (typeof mql?.addListener !== 'undefined') {
             mql.addListener(listener);
           } else {
             mql.onchange = listener;

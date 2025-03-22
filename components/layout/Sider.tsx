@@ -124,9 +124,9 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     if (typeof window?.matchMedia !== 'undefined' && breakpoint && breakpoint in dimensionMaxMap) {
       mql = window.matchMedia(`screen and (max-width: ${dimensionMaxMap[breakpoint]})`);
       // Don't delete here, please keep the code compatible
-      if (typeof mql.addEventListener !== 'undefined') {
+      if (typeof mql?.addEventListener !== 'undefined') {
         mql.addEventListener('change', responsiveHandler);
-      } else if (typeof mql.addListener !== 'undefined') {
+      } else if (typeof mql?.addListener !== 'undefined') {
         mql.addListener(responsiveHandler);
       } else {
         mql.onchange = responsiveHandler;
@@ -135,9 +135,9 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     }
     return () => {
       // Don't delete here, please keep the code compatible
-      if (typeof mql.removeEventListener !== 'undefined') {
+      if (typeof mql?.removeEventListener !== 'undefined') {
         mql.removeEventListener('change', responsiveHandler);
-      } else if (typeof mql.removeListener !== 'undefined') {
+      } else if (typeof mql?.removeListener !== 'undefined') {
         mql.removeListener(responsiveHandler);
       } else {
         mql.onchange = null;
