@@ -127,7 +127,9 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
       addMediaQueryListener(mql, responsiveHandler);
       responsiveHandler(mql);
     }
-    return () => removeMediaQueryListener(mql, responsiveHandler);
+    return () => {
+      removeMediaQueryListener(mql, responsiveHandler);
+    };
   }, [breakpoint]); // in order to accept dynamic 'breakpoint' property, we need to add 'breakpoint' into dependency array.
 
   useEffect(() => {
