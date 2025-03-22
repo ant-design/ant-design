@@ -24,4 +24,13 @@ describe('suffix', () => {
       container.querySelector('.ant-input-number-affix-wrapper-without-controls'),
     ).toBeTruthy();
   });
+
+  it('should not show the control buttons when inputNumber is disabled', () => {
+    // Since the hover effect cannot be tested in the jsdom environment
+    // Just to make sure whether there is a corresponding classname
+    const { container } = render(<InputNumber suffix="RMB" style={{ width: '100%' }} disabled />);
+    expect(container.querySelector('.ant-input-number-affix-wrapper')).toHaveClass(
+      'ant-input-number-affix-wrapper-without-controls',
+    );
+  });
 });
