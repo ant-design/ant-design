@@ -16,6 +16,13 @@ const App: React.FC = () => {
       </Button>
       <TextArea rows={4} autoSize={autoResize} defaultValue={defaultValue} />
       <TextArea allowClear style={{ width: 93 }} />
+      <br />
+      <TextArea
+        style={{
+          resize: 'both',
+        }}
+        showCount
+      />
     </>
   );
 };
