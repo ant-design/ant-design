@@ -49,13 +49,6 @@ exports[`Grid when typeof gutter is object array in large screen 0 1`] = `
 />
 `;
 
-exports[`Grid when typeof gutter is object array in large screen 1`] = `
-<div
-  class="ant-row"
-  style="margin-left: -20px; margin-right: -20px; row-gap: 400px;"
-/>
-`;
-
 exports[`Grid when typeof gutter is object array in large screen 1 1`] = `
 <div
   class="ant-row"
