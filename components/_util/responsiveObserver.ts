@@ -2,7 +2,6 @@ import React from 'react';
 
 import type { GlobalToken } from '../theme/internal';
 import { useToken } from '../theme/internal';
-import { addMediaQueryListener, removeMediaQueryListener } from './mediaQueryUtils';
 
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type BreakpointMap = Record<Breakpoint, string>;
@@ -106,7 +105,14 @@ export default function useResponsiveObserver() {
             this.dispatch({ ...screens, [screen]: matches });
           };
           const mql = window.matchMedia(mediaQuery);
-          addMediaQueryListener(mql, listener);
+          // Don't delete here, please keep the code compatible
+          if (typeof mql.addEventListener !== 'undefined') {
+            mql.addEventListener('change', listener);
+          } else if (typeof mql.addListener !== 'undefined') {
+            mql.addListener(listener);
+          } else {
+            mql.onchange = listener;
+          }
           this.matchHandlers[mediaQuery] = { mql, listener };
           listener(mql);
         });
@@ -114,7 +120,14 @@ export default function useResponsiveObserver() {
       unregister() {
         Object.values(responsiveMap).forEach((mediaQuery) => {
           const handler = this.matchHandlers[mediaQuery];
-          removeMediaQueryListener(handler?.mql, handler?.listener);
+          // Don't delete here, please keep the code compatible
+          if (typeof handler?.mql.removeEventListener !== 'undefined') {
+            handler.mql.removeEventListener('change', handler?.listener);
+          } else if (typeof handler?.mql.removeListener !== 'undefined') {
+            handler.mql.removeListener(handler?.listener);
+          } else {
+            handler.mql.onchange = null;
+          }
         });
         subscribers.clear();
       },
