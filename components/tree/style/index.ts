@@ -433,7 +433,8 @@ export const genTreeStyle = (
   prefixCls: string,
   token: AliasToken & TreeSharedToken & CSSUtil,
   /**
-   * 是否启用目录树样式
+   * @descCN 是否启用目录树样式
+   * @descEN Whether to enable directory style
    * @default true
    */
   enableDirectory = true,
