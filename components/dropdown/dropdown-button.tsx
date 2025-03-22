@@ -3,7 +3,7 @@ import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import classNames from 'classnames';
 
 import Button from '../button';
-import type { ButtonHTMLType, ButtonProps } from '../button';
+import type { ButtonColorType, ButtonHTMLType, ButtonProps, ButtonVariantType } from '../button';
 import type { ButtonGroupProps } from '../button/button-group';
 import { ConfigContext } from '../config-provider';
 import Space from '../space';
@@ -15,6 +15,8 @@ export type DropdownButtonType = 'default' | 'primary' | 'dashed' | 'link' | 'te
 
 export interface DropdownButtonProps extends ButtonGroupProps, DropdownProps {
   type?: DropdownButtonType;
+  color?: ButtonColorType;
+  variant?: ButtonVariantType;
   htmlType?: ButtonHTMLType;
   danger?: boolean;
   disabled?: boolean;
@@ -43,6 +45,8 @@ const DropdownButton: CompoundedComponent = (props) => {
     prefixCls: customizePrefixCls,
     type = 'default',
     danger,
+    color,
+    variant,
     disabled,
     loading,
     onClick,
@@ -114,6 +118,8 @@ const DropdownButton: CompoundedComponent = (props) => {
     <Button
       type={type}
       danger={danger}
+      color={color}
+      variant={variant}
       disabled={disabled}
       loading={loading}
       onClick={onClick}
@@ -125,7 +131,9 @@ const DropdownButton: CompoundedComponent = (props) => {
     </Button>
   );
 
-  const rightButton = <Button type={type} danger={danger} icon={icon} />;
+  const rightButton = (
+    <Button type={type} danger={danger} color={color} variant={variant} icon={icon} />
+  );
 
   const [leftButtonToRender, rightButtonToRender] = buttonsRender([leftButton, rightButton]);
 

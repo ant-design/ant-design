@@ -70,12 +70,14 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | buttonsRender | 自定义左右两个按钮 | (buttons: ReactNode\[]) => ReactNode\[] | - |  |
+| color | 按钮颜色，和 [Button](/components/button-cn#api) 一致 | `default` \| `primary` \| `danger` \| [PresetColors](/components/button/#presetcolors) | - | 5.25.0 |
 | loading | 设置按钮载入状态，和 [Button](/components/button-cn#api) 一致 | boolean \| { delay: number, icon: ReactNode } | false | icon: 5.23.0 |
 | danger | 设置危险按钮 | boolean | - | 4.23.0 |
 | icon | 右侧的 icon | ReactNode | - |  |
 | size | 按钮大小，和 [Button](/components/button-cn#api) 一致 | `large` \| `middle` \| `small` | `middle` |  |
 | type | 按钮类型，和 [Button](/components/button-cn#api) 一致 | `primary` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |
 | onClick | 点击左侧按钮的回调，和 [Button](/components/button-cn#api) 一致 | (event: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
+| variant | 按钮变体，和 [Button](/components/button-cn#api) 一致 | `outlined` \| `dashed` \| `solid` \| `filled` \| `text` \| `link` | - | 5.25.0 |
 
 ## 注意
 
