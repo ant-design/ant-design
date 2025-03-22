@@ -23,6 +23,7 @@ export interface SearchProps extends InputProps {
       source?: 'clear' | 'input';
     },
   ) => void;
+  icon?: React.ReactNode;
   enterButton?: React.ReactNode;
   loading?: boolean;
 }
@@ -34,6 +35,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     className,
     size: customizeSize,
     suffix,
+    icon = <SearchOutlined />,
     enterButton = false,
     addonAfter,
     loading,
@@ -87,7 +89,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     onSearch(e);
   };
 
-  const searchIcon = typeof enterButton === 'boolean' ? <SearchOutlined /> : null;
+  const searchIcon = typeof enterButton === 'boolean' ? icon : null;
   const btnClassName = `${prefixCls}-button`;
 
   let button: React.ReactNode;
