@@ -400,7 +400,7 @@ export const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 
       '&[type="search"]::-webkit-search-cancel-button, &[type="search"]::-webkit-search-decoration':
         {
-          '-webkit-appearance': 'none',
+          appearance: 'none',
         },
     },
   };
