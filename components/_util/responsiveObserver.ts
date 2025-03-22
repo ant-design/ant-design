@@ -2,6 +2,7 @@ import React from 'react';
 
 import type { GlobalToken } from '../theme/internal';
 import { useToken } from '../theme/internal';
+import { addMediaQueryListener, removeMediaQueryListener } from './mediaQueryUtils';
 
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type BreakpointMap = Record<Breakpoint, string>;
@@ -63,7 +64,7 @@ const validateBreakpoints = (token: GlobalToken) => {
 
 export default function useResponsiveObserver() {
   const [, token] = useToken();
-  const responsiveMap: BreakpointMap = getResponsiveMap(validateBreakpoints(token));
+  const responsiveMap = getResponsiveMap(validateBreakpoints(token));
 
   // To avoid repeat create instance, we add `useMemo` here.
   return React.useMemo(() => {
@@ -105,12 +106,7 @@ export default function useResponsiveObserver() {
             this.dispatch({ ...screens, [screen]: matches });
           };
           const mql = window.matchMedia(mediaQuery);
-          // Don't modify here, please keep the code compatible
-          if (typeof mql?.addEventListener !== 'undefined') {
-            mql.addEventListener('change', listener);
-          } else {
-            mql.addListener(listener);
-          }
+          addMediaQueryListener(mql, listener);
           this.matchHandlers[mediaQuery] = { mql, listener };
           listener(mql);
         });
@@ -118,12 +114,7 @@ export default function useResponsiveObserver() {
       unregister() {
         Object.values(responsiveMap).forEach((mediaQuery) => {
           const handler = this.matchHandlers[mediaQuery];
-          // Don't modify here, please keep the code compatible
-          if (typeof handler?.mql?.removeEventListener !== 'undefined') {
-            handler?.mql.removeEventListener('change', handler?.listener);
-          } else {
-            handler?.mql.removeListener(handler?.listener);
-          }
+          removeMediaQueryListener(handler?.mql, handler?.listener);
         });
         subscribers.clear();
       },
