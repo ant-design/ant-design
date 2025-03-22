@@ -52,8 +52,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | defaultOpen | Initial open state of dropdown | boolean | - |  |
 | defaultValue | Initial selected option | string | - |  |
 | disabled | Whether disabled select | boolean | false |  |
-| dropdownRender | Customize dropdown content | (menus: ReactNode) => ReactNode | - | 4.24.0 |
-| popupClassName | The className of dropdown menu | string | - | 4.23.0 |
+| ~~dropdownRender~~ | Customize dropdown content, use `popupRender` instead | (originNode: ReactNode) => ReactNode | - | 4.24.0 |
+| popupRender | Customize dropdown content | (originNode: ReactNode) => ReactNode | - |  |
+| ~~dropdownStyle~~ | The style of dropdown menu, use `styles.popup` instead | CSSProperties | - |  |
+| ~~popupClassName~~ | The className of dropdown menu, use `classNames.popup` instead | string | - | 4.23.0 |
 | popupMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true |  |
 | filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns true, the option will be included in the filtered set; Otherwise, it will be excluded | boolean \| function(inputValue, option) | true |  |
 | getPopupContainer | Parent node of the dropdown. Default to body, if you encountered positioning problems during scroll, try changing to the scrollable area and position relative to it. [Example](https://codesandbox.io/s/4j168r7jw0) | function(triggerNode) | () => document.body |  |
@@ -68,7 +70,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
 | onBlur | Called when leaving the component | function() | - |  |
 | onChange | Called when selecting an option or changing an input value | function(value) | - |  |
-| onDropdownVisibleChange | Call when dropdown open | function(open) | - |  |
+| ~~onDropdownVisibleChange~~ | Called when dropdown open, use `onPopupVisibleChange` instead | (open: boolean) => void | - |  |
+| onPopupVisibleChange | Called when dropdown open | (open: boolean) => void | - |  |
 | onFocus | Called when entering the component | function() | - |  |
 | onSearch | Called when searching items | function(value) | - |  |
 | onSelect | Called when a option is selected. param is option's value and option instance | function(value, option) | - |  |
@@ -82,6 +85,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | ------- | ------------ | ------- |
 | blur()  | Remove focus |         |
 | focus() | Get focus    |         |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 
