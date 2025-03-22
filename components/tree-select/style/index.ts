@@ -39,6 +39,7 @@ const genBaseStyle: GenerateStyle<TreeSelectToken> = (token) => {
           mergeToken<AliasToken & TreeSharedToken & CSSUtil>(token, {
             colorBgContainer: colorBgElevated,
           }),
+          false, // 不需要 directory tree 的样式
         ),
         {
           [treeCls]: {

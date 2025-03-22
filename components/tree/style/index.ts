@@ -432,6 +432,11 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
 export const genTreeStyle = (
   prefixCls: string,
   token: AliasToken & TreeSharedToken & CSSUtil,
+  /**
+   * 是否启用目录树样式
+   * @default true
+   */
+  enableDirectory = true,
 ): CSSInterpolation => {
   const treeCls = `.${prefixCls}`;
   const treeNodeCls = `${treeCls}-treenode`;
@@ -448,8 +453,8 @@ export const genTreeStyle = (
     // Basic
     genBaseStyle(prefixCls, treeToken),
     // Directory
-    genDirectoryStyle(treeToken),
-  ];
+    enableDirectory && genDirectoryStyle(treeToken),
+  ].filter(Boolean);
 };
 
 export const initComponentToken = (token: AliasToken): TreeSharedToken => {
