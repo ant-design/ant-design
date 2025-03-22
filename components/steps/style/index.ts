@@ -419,7 +419,7 @@ export const prepareComponentToken: GetDefaultToken<'Steps'> = (token) => ({
   dotSize: token.controlHeight / 4,
   dotCurrentSize: token.controlHeightLG / 4,
   navArrowColor: token.colorTextDisabled,
-  navContentMaxWidth: 'auto',
+  navContentMaxWidth: 'unset',
   descriptionMaxWidth: 140,
   waitIconColor: token.wireframe ? token.colorTextDisabled : token.colorTextLabel,
   waitIconBgColor: token.wireframe ? token.colorBgContainer : token.colorFillContent,

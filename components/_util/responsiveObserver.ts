@@ -72,6 +72,7 @@ export default function useResponsiveObserver() {
     let screens: Partial<Record<Breakpoint, boolean>> = {};
 
     return {
+      responsiveMap,
       matchHandlers: {} as {
         [prop: string]: {
           mql: MediaQueryList;
@@ -130,8 +131,6 @@ export default function useResponsiveObserver() {
         });
         subscribers.clear();
       },
-
-      responsiveMap,
     };
   }, [token]);
 }

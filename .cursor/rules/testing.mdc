@@ -1,0 +1,11 @@
+---
+description: 
+globs: **/__tests__/**,**/*.test.tsx,**/*.test.ts
+alwaysApply: false
+---
+ # 测试规范
+
+- 使用 Jest 和 React Testing Library 编写单元测试
+- 对 UI 组件使用快照测试 (Snapshot Testing)
+- 测试覆盖率要求 100%
+- 测试文件放在 __tests__ 目录，命名格式为：index.test.tsx 或 xxx.test.tsx

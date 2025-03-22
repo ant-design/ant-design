@@ -11956,6 +11956,26 @@ Array [
       </button>
     </span>
   </span>,
+  <br />,
+  <span
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-outlined"
+    data-count="0"
+    style="resize: both;"
+  >
+    <textarea
+      class="ant-input"
+      style="resize: both;"
+    />
+    <span
+      class="ant-input-suffix"
+    >
+      <span
+        class="ant-input-data-count"
+      >
+        0
+      </span>
+    </span>
+  </span>,
 ]
 `;
 
