@@ -129,7 +129,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
       } else if (typeof mql?.addListener !== 'undefined') {
         mql.addListener(responsiveHandler);
       } else {
-        mql.onchange = responsiveHandler;
+        // mql.onchange = responsiveHandler;
       }
       responsiveHandler(mql);
     }
@@ -140,7 +140,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
       } else if (typeof mql?.removeListener !== 'undefined') {
         mql.removeListener(responsiveHandler);
       } else {
-        mql.onchange = null;
+        // mql.onchange = null;
       }
     };
   }, [breakpoint]); // in order to accept dynamic 'breakpoint' property, we need to add 'breakpoint' into dependency array.

@@ -111,7 +111,7 @@ export default function useResponsiveObserver() {
           } else if (typeof mql?.addListener !== 'undefined') {
             mql.addListener(listener);
           } else {
-            mql.onchange = listener;
+            // mql.onchange = listener;
           }
           this.matchHandlers[mediaQuery] = { mql, listener };
           listener(mql);
@@ -126,7 +126,7 @@ export default function useResponsiveObserver() {
           } else if (typeof handler?.mql?.removeListener !== 'undefined') {
             handler.mql.removeListener(handler?.listener);
           } else {
-            handler.mql.onchange = null;
+            // handler.mql.onchange = null;
           }
         });
         subscribers.clear();
