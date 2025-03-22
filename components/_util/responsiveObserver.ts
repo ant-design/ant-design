@@ -121,9 +121,9 @@ export default function useResponsiveObserver() {
         Object.values(responsiveMap).forEach((mediaQuery) => {
           const handler = this.matchHandlers[mediaQuery];
           // Don't delete here, please keep the code compatible
-          if (typeof handler?.mql.removeEventListener !== 'undefined') {
+          if (typeof handler?.mql?.removeEventListener !== 'undefined') {
             handler.mql.removeEventListener('change', handler?.listener);
-          } else if (typeof handler?.mql.removeListener !== 'undefined') {
+          } else if (typeof handler?.mql?.removeListener !== 'undefined') {
             handler.mql.removeListener(handler?.listener);
           } else {
             handler.mql.onchange = null;
