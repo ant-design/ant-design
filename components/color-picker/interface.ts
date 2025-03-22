@@ -25,7 +25,7 @@ export type ColorFormatType = typeof FORMAT_HEX | typeof FORMAT_RGB | typeof FOR
 
 export interface PresetsItem {
   label: ReactNode;
-  colors: (string | AggregationColor)[];
+  colors: (string | AggregationColor | LineGradientType)[];
   /**
    * Whether the initial state is collapsed
    * @since 5.11.0
@@ -45,13 +45,12 @@ export type TriggerPlacement = TooltipPlacement; // Alias, to prevent breaking c
 
 export type SingleValueType = AggregationColor | string;
 
-export type ColorValueType =
-  | SingleValueType
-  | null
-  | {
-      color: SingleValueType;
-      percent: number;
-    }[];
+export type LineGradientType = {
+  color: SingleValueType;
+  percent: number;
+}[];
+
+export type ColorValueType = SingleValueType | null | LineGradientType;
 
 export type ModeType = 'single' | 'gradient';
 
