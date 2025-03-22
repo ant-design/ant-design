@@ -1,7 +1,7 @@
 import React from 'react';
 import { CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
 
-import Tag from '..';
+import Tag, { CheckableTagGroup } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
@@ -281,5 +281,26 @@ describe('Tag', () => {
     const iconElement = container.querySelector('svg');
     expect(container).not.toBeNull();
     expect(iconElement).toBeNull();
+  });
+
+  it('should check single tag in group', async () => {
+    const { container } = render(<CheckableTagGroup defaultValue="foo" options={['foo', 'bar']} />);
+    const checked = container.querySelector('.ant-tag-checkable-checked');
+    expect(checked).not.toBeNull();
+  });
+
+  it('should check multiple tag in group', async () => {
+    const { container } = render(
+      <CheckableTagGroup
+        multiple
+        defaultValue={['foo', 'bar']}
+        options={[
+          { value: 'foo', label: 'Foo' },
+          { value: 'bar', label: 'Bar' },
+        ]}
+      />,
+    );
+    const checked = container.querySelector('.ant-tag-checkable-checked');
+    expect(checked).not.toBeNull();
   });
 });

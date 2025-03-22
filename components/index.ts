@@ -146,8 +146,8 @@ export type {
 } from './table';
 export { default as Tabs } from './tabs';
 export type { TabPaneProps, TabsProps } from './tabs';
-export { default as Tag } from './tag';
-export type { TagProps, TagType } from './tag';
+export { default as Tag, CheckableTagGroup } from './tag';
+export type { TagProps, TagType, CheckableTagGroupProps } from './tag';
 export { default as theme } from './theme';
 export type { GlobalToken, MappingAlgorithm } from './theme';
 export { default as TimePicker } from './time-picker';

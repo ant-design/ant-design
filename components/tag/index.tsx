@@ -18,6 +18,8 @@ import PresetCmp from './style/presetCmp';
 import StatusCmp from './style/statusCmp';
 
 export type { CheckableTagProps } from './CheckableTag';
+export type { CheckableTagGroupProps } from './CheckableTagGroup';
+export { CheckableTagGroup } from './CheckableTagGroup';
 
 type SemanticName = 'root' | 'icon' | 'content';
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
