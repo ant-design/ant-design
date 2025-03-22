@@ -100,26 +100,24 @@ export default function useResponsiveObserver() {
         }
       },
       register() {
-        Object.keys(responsiveMap).forEach((screen) => {
-          const matchMediaQuery = responsiveMap[screen as Breakpoint];
+        Object.entries(responsiveMap).forEach(([screen, mediaQuery]) => {
           const listener = ({ matches }: { matches: boolean }) => {
             this.dispatch({ ...screens, [screen]: matches });
           };
-          const mql = window.matchMedia(matchMediaQuery);
+          const mql = window.matchMedia(mediaQuery);
           // Don't modify here, please keep the code compatible
           if (typeof mql?.addEventListener !== 'undefined') {
             mql.addEventListener('change', listener);
           } else {
             mql.addListener(listener);
           }
-          this.matchHandlers[matchMediaQuery] = { mql, listener };
+          this.matchHandlers[mediaQuery] = { mql, listener };
           listener(mql);
         });
       },
       unregister() {
-        Object.keys(responsiveMap).forEach((screen) => {
-          const matchMediaQuery = responsiveMap[screen as Breakpoint];
-          const handler = this.matchHandlers[matchMediaQuery];
+        Object.values(responsiveMap).forEach((mediaQuery) => {
+          const handler = this.matchHandlers[mediaQuery];
           // Don't modify here, please keep the code compatible
           if (typeof handler?.mql?.removeEventListener !== 'undefined') {
             handler?.mql.removeEventListener('change', handler?.listener);

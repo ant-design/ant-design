@@ -78,8 +78,10 @@ describe('Grid', () => {
     jest.spyOn(window, 'matchMedia').mockImplementation(
       (query) =>
         ({
-          addListener: (cb: (e: { matches: boolean }) => void) => {
-            cb({ matches: query === '(min-width: 1200px)' });
+          addEventListener: (type: string, cb: (e: { matches: boolean }) => void) => {
+            if (type === 'change') {
+              cb({ matches: query === '(min-width: 1200px)' });
+            }
           },
           removeListener: jest.fn(),
           matches: query === '(min-width: 1200px)',
@@ -145,8 +147,10 @@ describe('Grid', () => {
     matchMediaSpy.mockImplementation(
       (query) =>
         ({
-          addListener: (cb: (e: { matches: boolean }) => void) => {
-            cb({ matches: query === '(max-width: 575px)' });
+          addEventListener: (type: string, cb: (e: { matches: boolean }) => void) => {
+            if (type === 'change') {
+              cb({ matches: query === '(max-width: 575px)' });
+            }
           },
           removeListener: jest.fn(),
           matches: query === '(max-width: 575px)',
@@ -176,8 +180,10 @@ describe('Grid', () => {
     matchMediaSpy.mockImplementation(
       (query) =>
         ({
-          addListener: (cb: (e: { matches: boolean }) => void) => {
-            cb({ matches: query === '(max-width: 575px)' });
+          addEventListener: (type: string, cb: (e: { matches: boolean }) => void) => {
+            if (type === 'change') {
+              cb({ matches: query === '(max-width: 575px)' });
+            }
           },
           removeListener: jest.fn(),
           matches: query === '(max-width: 575px)',
@@ -196,8 +202,10 @@ describe('Grid', () => {
     matchMediaSpy.mockImplementation(
       (query) =>
         ({
-          addListener: (cb: (e: { matches: boolean }) => void) => {
-            cb({ matches: query === '(max-width: 575px)' });
+          addEventListener: (type: string, cb: (e: { matches: boolean }) => void) => {
+            if (type === 'change') {
+              cb({ matches: query === '(max-width: 575px)' });
+            }
           },
           removeListener: jest.fn(),
           matches: query === '(max-width: 575px)',
