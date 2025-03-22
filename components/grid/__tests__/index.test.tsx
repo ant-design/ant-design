@@ -83,7 +83,7 @@ describe('Grid', () => {
               cb({ matches: query === '(min-width: 1200px)' });
             }
           },
-          removeListener: jest.fn(),
+          removeEventListener: jest.fn(),
           matches: query === '(min-width: 1200px)',
         }) as any,
     );
@@ -152,7 +152,7 @@ describe('Grid', () => {
               cb({ matches: query === '(max-width: 575px)' });
             }
           },
-          removeListener: jest.fn(),
+          removeEventListener: jest.fn(),
           matches: query === '(max-width: 575px)',
         }) as any,
     );
@@ -185,7 +185,7 @@ describe('Grid', () => {
               cb({ matches: query === '(max-width: 575px)' });
             }
           },
-          removeListener: jest.fn(),
+          removeEventListener: jest.fn(),
           matches: query === '(max-width: 575px)',
         }) as any,
     );
@@ -207,7 +207,7 @@ describe('Grid', () => {
               cb({ matches: query === '(max-width: 575px)' });
             }
           },
-          removeListener: jest.fn(),
+          removeEventListener: jest.fn(),
           matches: query === '(max-width: 575px)',
         }) as any,
     );
