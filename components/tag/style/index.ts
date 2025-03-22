@@ -1,6 +1,6 @@
 import type React from 'react';
 import { unit } from '@ant-design/cssinjs';
-import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { FastColor } from '@ant-design/fast-color';
 
 import { resetComponent } from '../../style';
@@ -35,21 +35,6 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
   const paddingInline = calc(tagPaddingHorizontal).sub(lineWidth).equal();
   const iconMarginInline = calc(paddingXXS).sub(lineWidth).equal();
 
-  const disabledStyle: CSSObject = {
-    color: token.colorTextDisabled,
-    cursor: 'not-allowed',
-    backgroundColor: token.colorBgContainerDisabled,
-    borderColor: token.colorBorderDisabled,
-    a: {
-      cursor: 'not-allowed',
-      pointerEvents: 'none',
-      color: token.colorTextDisabled,
-      '&:hover': {
-        color: token.colorTextDisabled,
-      },
-    },
-  };
-
   return {
     // Result
     [componentCls]: {
@@ -60,7 +45,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       fontSize: token.tagFontSize,
       lineHeight: token.tagLineHeight,
       whiteSpace: 'nowrap',
-      background: token.defaultBg,
+      backgroundColor: token.defaultBg,
       border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
       borderRadius: token.borderRadiusSM,
       opacity: 1,
@@ -86,22 +71,6 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 
         '&:hover': {
           color: token.colorTextHeading,
-        },
-      },
-
-      [`&${componentCls}-has-color`]: {
-        borderColor: 'transparent',
-
-        [`&${componentCls}-disabled`]: {
-          backgroundColor: `${token.colorBgContainerDisabled} !important`,
-          color: token.colorTextDisabled,
-          [`${componentCls}-close-icon`]: {
-            color: token.colorTextDisabled,
-          },
-        },
-
-        [`&, a, a:hover, ${token.iconCls}-close, ${token.iconCls}-close:hover`]: {
-          color: token.colorTextLightSolid,
         },
       },
 
@@ -165,13 +134,30 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         marginInlineStart: paddingInline,
       },
     },
+
+    [`&${token.componentCls}-filled`]: {
+      borderColor: 'transparent',
+      color: token.colorTextLightSolid,
+      backgroundColor: token.colorBgSolid,
+    },
+
     [`${componentCls}-borderless`]: {
       borderColor: 'transparent',
-      background: token.tagBorderlessBg,
+      backgroundColor: token.tagBorderlessBg,
     },
 
     [`&${componentCls}-disabled`]: {
-      ...disabledStyle,
+      color: token.colorTextDisabled,
+      cursor: 'not-allowed',
+      backgroundColor: token.colorBgContainerDisabled,
+      a: {
+        cursor: 'not-allowed',
+        pointerEvents: 'none',
+        color: token.colorTextDisabled,
+        '&:hover': {
+          color: token.colorTextDisabled,
+        },
+      },
 
       'a&': {
         '&:hover, &:active': {
@@ -179,9 +165,15 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         },
       },
 
-      [`&${componentCls}-borderless, &${componentCls}-has-color`]: {
-        borderColor: 'transparent',
+      [`&${componentCls}-outlined`]: {
+        borderColor: token.colorBorderDisabled,
+      },
+
+      [`&${componentCls}-filled, &${componentCls}-borderless`]: {
         color: token.colorTextDisabled,
+        [`${componentCls}-close-icon`]: {
+          color: token.colorTextDisabled,
+        },
       },
 
       [`${componentCls}-close-icon`]: {
