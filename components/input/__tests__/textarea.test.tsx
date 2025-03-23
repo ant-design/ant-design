@@ -9,14 +9,11 @@ import {
   fireEvent,
   pureRender,
   render,
-  renderHook,
   triggerResize,
   waitFakeTimer,
   waitFakeTimer19,
 } from '../../../tests/utils';
 import type { TextAreaRef } from '../TextArea';
-import useHandleResizeWrapper from '../hooks/useHandleResizeWrapper';
-import type { TextAreaRef as RcTextAreaRef } from 'rc-textarea';
 
 const { TextArea } = Input;
 
@@ -533,113 +530,21 @@ describe('TextArea allowClear', () => {
     expect(errSpy).toHaveBeenCalledWith(expect.stringContaining('`bordered` is deprecated'));
     errSpy.mockRestore();
   });
-});
 
-describe('TextArea useHandleResizeWrapper', () => {
-  let requestAnimationFrameSpy: jest.SpyInstance;
+  it('resize: both', async () => {
+    const { container } = render(<TextArea showCount style={{ resize: 'both' }} />);
 
-  beforeAll(() => {
-    // Use fake timers to control requestAnimationFrame.
-    jest.useFakeTimers();
-    // Override requestAnimationFrame to simulate a 16ms delay.
-    requestAnimationFrameSpy = jest
-      .spyOn(window, 'requestAnimationFrame')
-      .mockImplementation((cb: FrameRequestCallback) => {
-        return window.setTimeout(() => cb(performance.now()), 16);
-      });
-  });
+    fireEvent.mouseDown(container.querySelector('textarea')!);
 
-  afterAll(() => {
-    jest.useRealTimers();
-    requestAnimationFrameSpy.mockRestore();
-  });
+    triggerResize(container.querySelector('textarea')!);
+    await waitFakeTimer();
 
-  it('does nothing when rcTextArea is null', () => {
-    const { result } = renderHook(() => useHandleResizeWrapper());
-    // Calling with null should not throw or change anything.
-    expect(() => result.current?.handleResizeWrapper(null)).not.toThrow();
-  });
+    expect(container.querySelector('.ant-input-textarea-affix-wrapper')).toHaveClass(
+      'ant-input-textarea-affix-wrapper-resize-dirty',
+    );
+    expect(container.querySelector('.ant-input-mouse-active')).toBeTruthy();
 
-  it('does nothing when style width does not include "px"', () => {
-    const { result } = renderHook(() => useHandleResizeWrapper());
-
-    const fakeRcTextArea = {
-      resizableTextArea: {
-        textArea: {
-          style: {
-            width: '100', // missing 'px'
-          },
-        },
-      },
-      nativeElement: {
-        offsetWidth: 110,
-        style: {} as any,
-      },
-    } as unknown as RcTextAreaRef;
-
-    result.current?.handleResizeWrapper(fakeRcTextArea);
-
-    // Fast-forward time to see if any scheduled callback would execute.
-    jest.advanceTimersByTime(16);
-    // nativeElement.style.width remains unchanged.
-    expect(fakeRcTextArea.nativeElement.style.width).toBeUndefined();
-  });
-
-  it('adjusts width correctly when offsetWidth is slightly greater than the textArea width (increased scenario)', () => {
-    const { result } = renderHook(() => useHandleResizeWrapper());
-
-    const fakeRcTextArea = {
-      resizableTextArea: {
-        textArea: {
-          style: {
-            width: '100px', // valid width with px
-          },
-        },
-      },
-      // offsetWidth is 101 so the difference is 1 (< ELEMENT_GAP of 2)
-      nativeElement: {
-        offsetWidth: 101,
-        style: {} as any,
-      },
-    } as unknown as RcTextAreaRef;
-
-    // Immediately after calling handleResizeWrapper, the update is scheduled.
-    expect(fakeRcTextArea.nativeElement.style.width).toBeUndefined();
-
-    result.current?.handleResizeWrapper(fakeRcTextArea);
-
-    // Fast-forward time to trigger the requestAnimationFrame callback.
-    jest.advanceTimersByTime(16);
-    // Expected new width: 100 + 2 = 102px.
-    expect(fakeRcTextArea.nativeElement.style.width).toBe('102px');
-  });
-
-  it('adjusts width correctly when offsetWidth is significantly greater than the textArea width (decreased scenario)', () => {
-    const { result } = renderHook(() => useHandleResizeWrapper());
-
-    const fakeRcTextArea = {
-      resizableTextArea: {
-        textArea: {
-          style: {
-            width: '100px',
-          },
-        },
-      },
-      // offsetWidth is 105 so the difference is 5 (> ELEMENT_GAP of 2)
-      nativeElement: {
-        offsetWidth: 105,
-        style: {} as any,
-      },
-    } as unknown as RcTextAreaRef;
-
-    // Immediately after calling handleResizeWrapper, the update is scheduled.
-    expect(fakeRcTextArea.nativeElement.style.width).toBeUndefined();
-
-    result.current?.handleResizeWrapper(fakeRcTextArea);
-
-    // Fast-forward time to trigger the requestAnimationFrame callback.
-    jest.advanceTimersByTime(16);
-    // Expected new width remains: 100 + 2 = 102px.
-    expect(fakeRcTextArea.nativeElement.style.width).toBe('102px');
+    fireEvent.mouseUp(container.querySelector('textarea')!);
+    expect(container.querySelector('.ant-input-mouse-active')).toBeFalsy();
   });
 });
