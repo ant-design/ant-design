@@ -1,0 +1,27 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+ # 项目背景
+
+这是 ant-design/ant-design（antd）的源代码仓库，是一个 React 组件库，发布为 npm 包 antd。
+
+- 使用 TypeScript 和 React 开发
+- 兼容 React 16 ~ 19 版本
+- 组件库设计精美，功能完善，广泛应用于企业级中后台产品
+- 遵循 Ant Design 设计规范
+- 支持国际化
+
+# 编码规范
+
+- 使用 TypeScript 和 React 书写
+- 使用函数式组件和 hooks，避免类组件
+- 使用提前返回（early returns）提高代码可读性
+- 避免引入新依赖，严控打包体积
+- 兼容 Chrome 80+ 浏览器
+- 支持服务端渲染
+- 保持向下兼容，避免 breaking change
+- 组件名使用大驼峰（PascalCase）
+- 属性名使用小驼峰（camelCase）
+- 合理使用 React.memo、useMemo 和 useCallback 优化性能
