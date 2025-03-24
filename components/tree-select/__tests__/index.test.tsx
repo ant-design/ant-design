@@ -124,7 +124,7 @@ describe('TreeSelect', () => {
       popup: 'test-popup',
     };
     const customStyles = {
-      root: { color: 'red' },
+      root: { backgroundColor: 'red' },
       prefix: { color: 'green' },
       input: { color: 'blue' },
       suffix: { color: 'yellow' },
@@ -150,21 +150,21 @@ describe('TreeSelect', () => {
     const suffix = container.querySelector('.ant-select-arrow');
     const popup = container.querySelector('.ant-tree-select-dropdown');
     const itemTitle = container.querySelector('.ant-select-tree-title');
-    // const root = container.querySelector('.ant-select');
+    const root = container.querySelector('.ant-tree-select-dropdown');
     const item = container.querySelector(`.${customClassNames.item}`);
     expect(prefix).toHaveClass(customClassNames.prefix);
     expect(input).toHaveClass(customClassNames.input);
     expect(suffix).toHaveClass(customClassNames.suffix);
     expect(popup).toHaveClass(customClassNames.popup);
     expect(itemTitle).toHaveClass(customClassNames.itemTitle);
-    // expect(root).toHaveClass(customClassNames.root);
+    expect(root).toHaveClass(customClassNames.root);
 
     expect(prefix).toHaveStyle(customStyles.prefix);
     expect(input).toHaveStyle(customStyles.input);
     expect(suffix).toHaveStyle(customStyles.suffix);
     expect(popup).toHaveStyle(customStyles.popup);
     expect(itemTitle).toHaveStyle(customStyles.itemTitle);
-    // expect(root).toHaveStyle(customStyles.root);
+    expect(root).toHaveStyle(customStyles.root);
     expect(item).toHaveStyle(customStyles.item);
   });
 });

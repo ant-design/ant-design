@@ -127,6 +127,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     maxCount,
     showCheckedStrategy,
     treeCheckStrictly,
+    style,
     classNames: treeSelectClassNames,
     styles,
     ...restProps
@@ -320,6 +321,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
       ref={ref}
       prefixCls={prefixCls}
       className={mergedClassName}
+      style={{ ...mergedStyles?.root, ...style }}
       listHeight={listHeight}
       listItemHeight={listItemHeight}
       treeCheckable={
