@@ -93,7 +93,7 @@ export interface SelectProps<
   dropdownClassName?: string;
   /** @deprecated Please use `styles: {{ popup: {}}}` instead */
   dropdownStyle?: React.CSSProperties;
-  /** @deprecated Please use `onPopupVisibleChange` instead */
+  /** @deprecated Please use `popupRender` instead */
   dropdownRender?: SelectProps['popupRender'];
   /** @deprecated Please use `onPopupVisibleChange` instead */
   onDropdownVisibleChange?: SelectProps['onPopupVisibleChange'];

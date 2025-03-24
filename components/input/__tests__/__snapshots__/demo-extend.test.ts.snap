@@ -11958,7 +11958,7 @@ Array [
   </span>,
   <br />,
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-outlined"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-outlined css-var-test-id ant-input-css-var"
     data-count="0"
     style="resize: both;"
   >

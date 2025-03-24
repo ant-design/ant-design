@@ -1,5 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import type { DefaultRecordType } from '@rc-component/table/lib/interface';
+import React, { useEffect, useState } from 'react';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 
 import type { SelectAllLabel, TransferProps } from '..';
@@ -864,6 +863,10 @@ describe('Transfer', () => {
   });
 });
 
+const ButtonRender = ({ onClick }: { onClick: () => void }) => (
+  <Button onClick={onClick}>Right button reload</Button>
+);
+
 describe('immutable data', () => {
   // https://github.com/ant-design/ant-design/issues/28662
   it('dataSource is frozen', () => {
@@ -904,11 +907,6 @@ describe('immutable data', () => {
         setTargetKeys(newTargetKeys);
       };
 
-      const ButtonRender = useCallback(
-        () => <Button onClick={getMock}>Right button reload</Button>,
-        [getMock],
-      );
-
       return (
         <Transfer
           dataSource={mockData}
@@ -916,7 +914,7 @@ describe('immutable data', () => {
           targetKeys={targetKeys}
           onChange={handleChange}
           render={(item) => `test-${item}`}
-          footer={ButtonRender}
+          footer={() => <ButtonRender onClick={getMock} />}
         />
       );
     };
