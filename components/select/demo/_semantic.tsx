@@ -40,12 +40,13 @@ const Block = (prop: any) => {
         getPopupContainer={() => divRef.current}
         options={[
           { value: 'thinkasany', label: 'thinkasany' },
-          { value: 'lucy', label: 'Lucy' },
+          { value: 'aojunhao123', label: 'aojunhao123' },
         ]}
       />
     </div>
   );
 };
+
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
 
@@ -56,7 +57,7 @@ const App: React.FC = () => {
         { name: 'prefix', desc: locale.prefix, version: '6.0.0' },
         { name: 'input', desc: locale.input, version: '6.0.0' },
         { name: 'suffix', desc: locale.suffix, version: '6.0.0' },
-        { name: 'popup', desc: locale.popup, version: '6.0.0' },
+        { name: 'popup', desc: locale.popup, version: '5.25.0' },
         { name: 'list', desc: locale.list, version: '6.0.0' },
         { name: 'listItem', desc: locale.listItem, version: '6.0.0' },
       ]}
