@@ -57,6 +57,17 @@ demo:
 | checked  | 设置标签的选中状态   | boolean           | false  |
 | onChange | 点击标签时触发的回调 | (checked) => void | -      |
 
+### Tag.CheckableTagGroup
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| value | 选中值 | `string \| number \| Array<string \| number> \| null` | - | 6.0.0 |
+| defaultValue | 初始选中值 | `string \| number \| Array<string \| number> \| null` | - | 6.0.0 |
+| onChange | 点击标签时触发的回调 | `(value: string \| number \| Array<string \| number> \| null) => void` | - | 6.0.0 |
+| options | 选项列表 | `Array<{ label: ReactNode; value: string \| number } \| string \| number>` | - | 6.0.0 |
+| multiple | 多选模式 | `boolean` | - | 6.0.0 |
+| disabled | 禁用选中 | `boolean` | - | 6.0.0 |
+
 ## Semantic DOM
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>

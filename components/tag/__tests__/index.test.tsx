@@ -282,4 +282,27 @@ describe('Tag', () => {
     expect(container).not.toBeNull();
     expect(iconElement).toBeNull();
   });
+
+  it('should check single tag in group', async () => {
+    const { container } = render(
+      <Tag.CheckableTagGroup defaultValue="foo" options={['foo', 'bar']} />,
+    );
+    const checked = container.querySelector('.ant-tag-checkable-checked');
+    expect(checked).not.toBeNull();
+  });
+
+  it('should check multiple tag in group', async () => {
+    const { container } = render(
+      <Tag.CheckableTagGroup
+        multiple
+        defaultValue={['foo', 'bar']}
+        options={[
+          { value: 'foo', label: 'Foo' },
+          { value: 'bar', label: 'Bar' },
+        ]}
+      />,
+    );
+    const checked = container.querySelector('.ant-tag-checkable-checked');
+    expect(checked).not.toBeNull();
+  });
 });
