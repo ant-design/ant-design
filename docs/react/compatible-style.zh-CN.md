@@ -220,6 +220,8 @@ export default () => (
 
 ### TailwindCSS 排布 `@layer`
 
+在开始以下配置前，你需要先启用 [`@layer`](#layer-样式优先级降权) 功能。
+
 #### TailwindCSS v3
 
 在 global.css 中，调整 `@layer` 来控制样式的覆盖顺序。让 `tailwind-base` 置于 `antd` 之前：

@@ -5,7 +5,7 @@ import RcSelect, { OptGroup, Option } from '@rc-component/select';
 import type { OptionProps } from '@rc-component/select/lib/Option';
 import type { BaseOptionType, DefaultOptionType } from '@rc-component/select/lib/Select';
 import omit from '@rc-component/util/lib/omit';
-import classNames from 'classnames';
+import cls from 'classnames';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';
@@ -65,6 +65,8 @@ export interface InternalSelectProps<
    * @default "outlined"
    */
   variant?: Variant;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 type SemanticName = 'root' | 'prefix' | 'suffix' | 'popup' | 'listItem' | 'input' | 'list';
@@ -85,12 +87,16 @@ export interface SelectProps<
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   status?: InputStatus;
-  /** @deprecated Please use `classNames: {{ popup: ''}}` instead */
+  /** @deprecated Please use `classNames.popup` instead */
   popupClassName?: string;
-  /** @deprecated Please use `classNames: {{ popup: ''}}` instead */
+  /** @deprecated Please use `classNames.popup` instead */
   dropdownClassName?: string;
   /** @deprecated Please use `styles: {{ popup: {}}}` instead */
   dropdownStyle?: React.CSSProperties;
+  /** @deprecated Please use `onPopupVisibleChange` instead */
+  dropdownRender?: SelectProps['popupRender'];
+  /** @deprecated Please use `onPopupVisibleChange` instead */
+  onDropdownVisibleChange?: SelectProps['onPopupVisibleChange'];
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
@@ -114,6 +120,7 @@ const InternalSelect = <
     rootClassName,
     getPopupContainer,
     popupClassName,
+    dropdownClassName,
     listHeight = 256,
     placement,
     listItemHeight: customListItemHeight,
@@ -134,8 +141,12 @@ const InternalSelect = <
     tagRender,
     maxCount,
     prefix,
-    classNames: selectClassNames,
+    dropdownRender,
+    popupRender,
+    onDropdownVisibleChange,
+    onPopupVisibleChange,
     styles,
+    classNames,
     ...rest
   } = props;
 
@@ -193,6 +204,9 @@ const InternalSelect = <
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
 
+  const mergedPopupRender = popupRender || dropdownRender;
+  const mergedOnPopupVisibleChange = onPopupVisibleChange || onDropdownVisibleChange;
+
   // ===================== Form Status =====================
   const {
     status: contextStatus,
@@ -241,19 +255,20 @@ const InternalSelect = <
 
   const mergedClassNames = React.useMemo(
     () => ({
-      popup: classNames(contextClassNames.popup, selectClassNames?.popup),
-      prefix: classNames(contextClassNames.prefix, selectClassNames?.prefix),
-      suffix: classNames(contextClassNames.suffix, selectClassNames?.suffix),
-      input: classNames(contextClassNames.input, selectClassNames?.input),
-      list: classNames(contextClassNames.list, selectClassNames?.list),
-      listItem: classNames(contextClassNames.listItem, selectClassNames?.listItem),
+      popup: cls(contextClassNames.popup, classNames?.popup),
+      prefix: cls(contextClassNames.prefix, classNames?.prefix),
+      suffix: cls(contextClassNames.suffix, classNames?.suffix),
+      input: cls(contextClassNames.input, classNames?.input),
+      list: cls(contextClassNames.list, classNames?.list),
+      listItem: cls(contextClassNames.listItem, classNames?.listItem),
     }),
-    [selectClassNames, contextClassNames],
+    [classNames, contextClassNames],
   );
 
-  const mergedPopupClassName = classNames(
+  const mergedPopupClassName = cls(
     mergedClassNames?.popup,
     popupClassName,
+    dropdownClassName,
     {
       [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
     },
@@ -271,7 +286,7 @@ const InternalSelect = <
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
 
-  const mergedClassName = classNames(
+  const mergedClassName = cls(
     {
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-sm`]: mergedSize === 'small',
@@ -284,7 +299,7 @@ const InternalSelect = <
     contextClassName,
     className,
     rootClassName,
-    selectClassNames?.root,
+    classNames?.root,
     contextClassNames.root,
     cssVarCls,
     rootCls,
@@ -303,12 +318,18 @@ const InternalSelect = <
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Select');
 
-    [
-      ['dropdownMatchSelectWidth', 'popupMatchSelectWidth'],
-      ['popupClassName', 'classNames: {{ popup: ""}}'],
-      ['dropdownStyle', 'styles: {{ popup: {}}}'],
-    ].forEach(([deprecatedName, newName]) => {
-      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    const deprecatedProps = {
+      dropdownMatchSelectWidth: 'popupMatchSelectWidth',
+      dropdownStyle: 'styles.popup',
+      dropdownClassName: 'classNames.popup',
+      popupClassName: 'classNames.popup',
+      dropdownRender: 'popupRender',
+      onDropdownVisibleChange: 'onPopupVisibleChange',
+      bordered: 'variant',
+    };
+
+    Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
+      warning.deprecated(!(oldProp in props), oldProp, newProp);
     });
 
     warning(
@@ -316,8 +337,6 @@ const InternalSelect = <
       'deprecated',
       '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
     );
-
-    warning.deprecated(!('bordered' in props), 'bordered', 'variant');
 
     warning(
       !(typeof maxCount !== 'undefined' && !isMultiple),
@@ -364,6 +383,8 @@ const InternalSelect = <
       popupStyle={{ ...mergedStyles?.popup, ...mergedPopupStyle, zIndex }}
       maxCount={isMultiple ? maxCount : undefined}
       tagRender={isMultiple ? tagRender : undefined}
+      popupRender={mergedPopupRender}
+      onPopupVisibleChange={mergedOnPopupVisibleChange}
     />
   );
 };
