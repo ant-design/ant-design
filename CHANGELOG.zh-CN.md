@@ -22,7 +22,7 @@ tag: vVERSION
 - 🐞 修复 InputNumber 在禁用状态下鼠标划入后suffix出现左移的问题。[#53184](https://github.com/ant-design/ant-design/pull/53184) [@yellowryan](https://github.com/yellowryan)
 - 💄 修复 Form 组件样式选择器语法错误。[#53236](https://github.com/ant-design/ant-design/pull/53236) [@Wxh16144](https://github.com/Wxh16144)
 - 💄 重构 TextArea 对 `resize: both` 时处理尺寸的逻辑以更符合 React 生命周期。[#53235](https://github.com/ant-design/ant-design/pull/53235) [@zombieJ](https://github.com/zombieJ)
-- 🌐 添加缺失的波斯语 (fa_IR) 翻译并修正拼写错误。[#53251](https://github.com/ant-design/ant-design/pull/53251) [@AliReza-Kamkar](https://github.com/AliReza-Kamkar)
+- 🇮🇷 添加缺失的波斯语 (fa_IR) 翻译并修正拼写错误。[#53251](https://github.com/ant-design/ant-design/pull/53251) [@AliReza-Kamkar](https://github.com/AliReza-Kamkar)
 
 ## 5.24.4
 
