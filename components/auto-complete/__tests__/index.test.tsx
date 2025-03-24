@@ -203,7 +203,7 @@ describe('AutoComplete', () => {
       />,
     );
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: AutoComplete] `onDropdownVisibleChange` is deprecated. Please use `onPopupVisibleChange` instead.',
+      'Warning: [antd: AutoComplete] `onDropdownVisibleChange` is deprecated. Please use `onOpenChange` instead.',
     );
 
     errSpy.mockRestore();

@@ -93,9 +93,9 @@ export interface SelectProps<
   popupRender?: (menu: React.ReactElement) => React.ReactElement;
   /** @deprecated Please use `styles.popup` instead */
   dropdownStyle?: React.CSSProperties;
-  /** @deprecated Please use `onPopupVisibleChange` instead */
+  /** @deprecated Please use `onOpenChange` instead */
   onDropdownVisibleChange?: (visible: boolean) => void;
-  onPopupVisibleChange?: (visible: boolean) => void;
+  onOpenChange?: (visible: boolean) => void;
 }
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
@@ -137,7 +137,7 @@ const InternalSelect = <
     dropdownRender,
     popupRender,
     onDropdownVisibleChange,
-    onPopupVisibleChange,
+    onOpenChange,
     styles,
     classNames,
     ...rest
@@ -193,7 +193,7 @@ const InternalSelect = <
 
   const mergedPopupStyle = styles?.popup || contextSelect?.styles?.popup || dropdownStyle;
   const mergedPopupRender = popupRender || dropdownRender;
-  const mergedOnPopupVisibleChange = onPopupVisibleChange || onDropdownVisibleChange;
+  const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
 
   // ===================== Form Status =====================
   const {
@@ -282,7 +282,7 @@ const InternalSelect = <
       dropdownClassName: 'classNames.popup',
       popupClassName: 'classNames.popup',
       dropdownRender: 'popupRender',
-      onDropdownVisibleChange: 'onPopupVisibleChange',
+      onDropdownVisibleChange: 'onOpenChange',
       bordered: 'variant',
     };
 
@@ -337,7 +337,7 @@ const InternalSelect = <
       maxCount={isMultiple ? maxCount : undefined}
       tagRender={isMultiple ? tagRender : undefined}
       dropdownRender={mergedPopupRender}
-      onDropdownVisibleChange={mergedOnPopupVisibleChange}
+      onDropdownVisibleChange={mergedOnOpenChange}
     />,
   );
 };

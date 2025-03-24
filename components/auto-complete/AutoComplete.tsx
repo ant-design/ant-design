@@ -48,9 +48,9 @@ export interface AutoCompleteProps<
   popupRender?: (menu: React.ReactElement) => React.ReactElement;
   /** @deprecated Please use `styles.popup` instead */
   dropdownStyle?: React.CSSProperties;
-  /** @deprecated Please use `onPopupVisibleChange` instead */
+  /** @deprecated Please use `onOpenChange` instead */
   onDropdownVisibleChange?: (visible: boolean) => void;
-  onPopupVisibleChange?: (visible: boolean) => void;
+  onOpenChange?: (visible: boolean) => void;
 }
 
 function isSelectOptionOrSelectOptGroup(child: any): boolean {
@@ -72,7 +72,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     dropdownRender,
     popupRender,
     onDropdownVisibleChange,
-    onPopupVisibleChange,
+    onOpenChange,
     styles,
     classNames,
   } = props;
@@ -81,7 +81,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   const mergedPopupStyle = styles?.popup || dropdownStyle;
   const mergedPopupClassName = classNames?.popup || popupClassName || dropdownClassName;
   const mergedPopupRender = popupRender || dropdownRender;
-  const mergedOnPopupVisibleChange = onPopupVisibleChange || onDropdownVisibleChange;
+  const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
 
   // ============================= Input =============================
   let customizeInput: React.ReactElement | undefined;
@@ -145,7 +145,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       dropdownClassName: 'classNames.popup',
       popupClassName: 'classNames.popup',
       dropdownRender: 'popupRender',
-      onDropdownVisibleChange: 'onPopupVisibleChange',
+      onDropdownVisibleChange: 'onOpenChange',
       dataSource: 'options',
     };
 
@@ -179,7 +179,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       className={cls(`${prefixCls}-auto-complete`, className)}
       mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']}
       popupRender={mergedPopupRender}
-      onPopupVisibleChange={mergedOnPopupVisibleChange}
+      onOpenChange={mergedOnOpenChange}
       {...{
         // Internal api
         getInputElement,
