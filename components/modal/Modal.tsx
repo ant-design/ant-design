@@ -108,7 +108,7 @@ const Modal: React.FC<ModalProps> = (props) => {
       <Footer {...props} onOk={handleOk} onCancel={handleCancel} />
     ) : null;
 
-  const [mergedClosable, mergedCloseIcon, closeBtnIsDisabled] = useClosable(
+  const [mergedClosable, mergedCloseIcon, closeBtnIsDisabled, ariaProps] = useClosable(
     pickClosable(props),
     pickClosable(modalContext),
     {
@@ -166,7 +166,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           onClose={handleCancel as any}
           closable={
             mergedClosable
-              ? { disabled: closeBtnIsDisabled, closeIcon: mergedCloseIcon }
+              ? { disabled: closeBtnIsDisabled, closeIcon: mergedCloseIcon, ...ariaProps }
               : mergedClosable
           }
           closeIcon={mergedCloseIcon}
