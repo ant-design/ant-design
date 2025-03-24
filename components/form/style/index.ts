@@ -283,7 +283,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
             marginInlineStart: token.marginXXS,
             color: token.colorTextDescription,
 
-            [`&.${formItemCls}-required-mark-hidden`]: {
+            [`&${formItemCls}-required-mark-hidden`]: {
               display: 'none',
             },
           },
