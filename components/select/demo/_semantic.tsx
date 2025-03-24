@@ -4,7 +4,7 @@ import { Select } from 'antd';
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
 
-const locales = {
+export const locales = {
   cn: {
     popup: '弹出菜单元素',
   },
@@ -13,20 +13,29 @@ const locales = {
   },
 };
 
-const Block = (prop: any) => {
+interface BlockProps {
+  component: React.ComponentType<any>;
+  options: { value: string; label: string }[];
+  defaultValue?: string;
+  [key: string]: any;
+}
+
+export const Block: React.FC<BlockProps> = ({
+  component: Component,
+  options,
+  defaultValue,
+  ...props
+}) => {
   const divRef = React.useRef<HTMLDivElement>(null);
   return (
     <div ref={divRef} style={{ position: 'absolute', marginBottom: 80 }}>
-      <Select
-        {...prop}
+      <Component
+        {...props}
         open
         placement="bottomLeft"
-        defaultValue="aojunhao123"
+        defaultValue={defaultValue}
         getPopupContainer={() => divRef.current}
-        options={[
-          { value: 'aojunhao123', label: 'aojunhao123' },
-          { value: 'thinkasany', label: 'thinkasany' },
-        ]}
+        options={options}
         styles={{
           popup: { zIndex: 1 },
         }}
@@ -43,7 +52,14 @@ const App: React.FC = () => {
       semantics={[{ name: 'popup', desc: locale.popup, version: '5.25.0' }]}
       height={200}
     >
-      <Block />
+      <Block
+        component={Select}
+        defaultValue="aojunhao123"
+        options={[
+          { value: 'aojunhao123', label: 'aojunhao123' },
+          { value: 'thinkasany', label: 'thinkasany' },
+        ]}
+      />
     </SemanticPreview>
   );
 };
