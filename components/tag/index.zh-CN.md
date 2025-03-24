@@ -70,7 +70,13 @@ demo:
 
 ## Semantic DOM
 
+### Tag
+
 <code src="./demo/_semantic.tsx" simplify="true"></code>
+
+### Tag.CheckableTagGroup
+
+<code src="./demo/_semantic_group.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

@@ -35,14 +35,15 @@ export type CheckableTagGroupProps<CheckableTagValue> = {
   rootClassName?: string;
   classNames?: Partial<Record<SemanticName, string>>;
   styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  className?: string;
+  style?: React.CSSProperties;
 
   options?: (CheckableTagOption<CheckableTagValue> | CheckableTagValue)[];
   disabled?: boolean;
 } & (
   | CheckableTagGroupSingleProps<CheckableTagValue>
   | CheckableTagGroupMultipleProps<CheckableTagValue>
-) &
-  Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'value' | 'defaultValue'>;
+);
 
 export interface CheckableTagGroupRef {
   nativeElement: HTMLDivElement;
@@ -66,8 +67,6 @@ function CheckableTagGroup<CheckableTagValue extends string | number>(
     defaultValue,
     onChange,
     multiple,
-
-    ...rest
   } = props;
 
   const { getPrefixCls, direction } = useComponentConfig('tag');
@@ -127,7 +126,6 @@ function CheckableTagGroup<CheckableTagValue extends string | number>(
   // =============================== Render ===============================
   return (
     <div
-      {...rest}
       className={classnames(
         groupPrefixCls,
         rootClassName,
@@ -149,7 +147,8 @@ function CheckableTagGroup<CheckableTagValue extends string | number>(
       {parsedOptions.map((option) => (
         <CheckableTag
           key={option.value}
-          className={`${groupPrefixCls}-item`}
+          className={classnames(`${groupPrefixCls}-item`, mergedClassNames.item)}
+          style={mergedStyles.item}
           checked={
             multiple
               ? ((mergedValue as CheckableTagValue[]) || []).includes(option.value)
@@ -165,10 +164,16 @@ function CheckableTagGroup<CheckableTagValue extends string | number>(
   );
 }
 
-const ForwardCheckableTagGroup = React.forwardRef(CheckableTagGroup) as <
+const ForwardCheckableTagGroup = React.forwardRef(CheckableTagGroup) as (<
   CheckableTagValue extends string | number,
 >(
   props: CheckableTagGroupProps<CheckableTagValue> & { ref?: React.Ref<CheckableTagGroupRef> },
-) => React.ReactElement;
+) => React.ReactElement) & {
+  displayName?: string;
+};
+
+if (process.env.NODE_ENV !== 'production') {
+  ForwardCheckableTagGroup.displayName = 'CheckableTagGroup';
+}
 
 export default ForwardCheckableTagGroup;

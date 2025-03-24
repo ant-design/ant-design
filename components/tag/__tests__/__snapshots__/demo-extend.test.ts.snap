@@ -538,9 +538,9 @@ exports[`renders components/tag/demo/checkable.tsx extend context correctly 1`] 
       >
         <label
           class=""
-          title="Single select"
+          title="Single"
         >
-          Single select
+          Single
         </label>
       </div>
       <div
@@ -592,9 +592,9 @@ exports[`renders components/tag/demo/checkable.tsx extend context correctly 1`] 
       >
         <label
           class=""
-          title="Multiple select"
+          title="Multiple"
         >
-          Multiple select
+          Multiple
         </label>
       </div>
       <div

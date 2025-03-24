@@ -15,14 +15,14 @@ const App: React.FC = () => {
           Yes
         </Tag.CheckableTag>
       </Form.Item>
-      <Form.Item label="Single select">
+      <Form.Item label="Single">
         <Tag.CheckableTagGroup
           options={tagsData}
           value={singleSelected}
           onChange={(val) => setSingleSelected(val)}
         />
       </Form.Item>
-      <Form.Item label="Multiple select">
+      <Form.Item label="Multiple">
         <Tag.CheckableTagGroup
           multiple
           options={tagsData}
