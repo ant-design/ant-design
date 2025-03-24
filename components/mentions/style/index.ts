@@ -1,6 +1,11 @@
 import { unit } from '@ant-design/cssinjs';
 
-import { genBasicInputStyle, genPlaceholderStyle, initComponentToken, initInputToken } from '../../input/style';
+import {
+  genBasicInputStyle,
+  genPlaceholderStyle,
+  initComponentToken,
+  initInputToken,
+} from '../../input/style';
 import type { SharedComponentToken, SharedInputToken } from '../../input/style/token';
 import {
   genBorderlessStyle,
@@ -163,7 +168,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
         [`> textarea, ${componentCls}-measure`]: {
           color: colorText,
           boxSizing: 'border-box',
-          minHeight: token.calc(controlHeight).sub(2),
+          minHeight: token.calc(controlHeight).sub(2).equal(),
           margin: 0,
           padding: `${unit(paddingBlock)} ${unit(paddingInline)}`,
           overflow: 'inherit',

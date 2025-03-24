@@ -72,6 +72,7 @@ export default function useResponsiveObserver() {
     let screens: Partial<Record<Breakpoint, boolean>> = {};
 
     return {
+      responsiveMap,
       matchHandlers: {} as {
         [prop: string]: {
           mql: MediaQueryList;
@@ -98,6 +99,18 @@ export default function useResponsiveObserver() {
           this.unregister();
         }
       },
+      register() {
+        Object.keys(responsiveMap).forEach((screen) => {
+          const matchMediaQuery = responsiveMap[screen as Breakpoint];
+          const listener = ({ matches }: { matches: boolean }) => {
+            this.dispatch({ ...screens, [screen]: matches });
+          };
+          const mql = window.matchMedia(matchMediaQuery);
+          mql.addListener(listener);
+          this.matchHandlers[matchMediaQuery] = { mql, listener };
+          listener(mql);
+        });
+      },
       unregister() {
         Object.keys(responsiveMap).forEach((screen) => {
           const matchMediaQuery = responsiveMap[screen as Breakpoint];
@@ -106,25 +119,6 @@ export default function useResponsiveObserver() {
         });
         subscribers.clear();
       },
-      register() {
-        Object.keys(responsiveMap).forEach((screen) => {
-          const matchMediaQuery = responsiveMap[screen as Breakpoint];
-          const listener = ({ matches }: { matches: boolean }) => {
-            this.dispatch({
-              ...screens,
-              [screen]: matches,
-            });
-          };
-          const mql = window.matchMedia(matchMediaQuery);
-          mql.addListener(listener);
-          this.matchHandlers[matchMediaQuery] = {
-            mql,
-            listener,
-          };
-          listener(mql);
-        });
-      },
-      responsiveMap,
     };
   }, [token]);
 }

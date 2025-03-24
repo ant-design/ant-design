@@ -223,7 +223,7 @@ const genBaseFilledStyle = (
   borderColor: 'transparent',
 
   'input&, & input, textarea&, & textarea': {
-    color: options?.inputColor,
+    color: options?.inputColor ?? 'unset',
   },
 
   '&:hover': {
