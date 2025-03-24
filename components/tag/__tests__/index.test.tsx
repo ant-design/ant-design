@@ -306,27 +306,35 @@ describe('Tag', () => {
     expect(checked).not.toBeNull();
   });
 
-  it('semantic classNames and styles', () => {
-    const { container } = render(
-      <Tag.CheckableTagGroup
-        classNames={{
-          root: 'customize-root',
-          item: 'customize-item',
-        }}
-        styles={{
-          root: { backgroundColor: 'green' },
-          item: { color: 'red' },
-        }}
-        options={['Bamboo']}
-      />,
-    );
+  describe('CheckableTagGroup', () => {
+    it('semantic classNames and styles', () => {
+      const { container } = render(
+        <Tag.CheckableTagGroup
+          classNames={{
+            root: 'customize-root',
+            item: 'customize-item',
+          }}
+          styles={{
+            root: { backgroundColor: 'green' },
+            item: { color: 'red' },
+          }}
+          options={['Bamboo']}
+        />,
+      );
 
-    expect(container.querySelector('.ant-tag-checkable-group')).toHaveClass('customize-root');
-    expect(container.querySelector('.ant-tag-checkable-group')).toHaveStyle({
-      backgroundColor: 'green',
+      expect(container.querySelector('.ant-tag-checkable-group')).toHaveClass('customize-root');
+      expect(container.querySelector('.ant-tag-checkable-group')).toHaveStyle({
+        backgroundColor: 'green',
+      });
+
+      expect(container.querySelector('.ant-tag-checkable')).toHaveClass('customize-item');
+      expect(container.querySelector('.ant-tag-checkable')).toHaveStyle({ color: 'red' });
     });
 
-    expect(container.querySelector('.ant-tag-checkable')).toHaveClass('customize-item');
-    expect(container.querySelector('.ant-tag-checkable')).toHaveStyle({ color: 'red' });
+    it('id', () => {
+      const { container } = render(<Tag.CheckableTagGroup id="test-id" />);
+
+      expect(container.querySelector('.ant-tag-checkable-group')?.id).toBe('test-id');
+    });
   });
 });

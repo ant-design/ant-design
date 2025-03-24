@@ -35,15 +35,14 @@ export type CheckableTagGroupProps<CheckableTagValue> = {
   rootClassName?: string;
   classNames?: Partial<Record<SemanticName, string>>;
   styles?: Partial<Record<SemanticName, React.CSSProperties>>;
-  className?: string;
-  style?: React.CSSProperties;
 
   options?: (CheckableTagOption<CheckableTagValue> | CheckableTagValue)[];
   disabled?: boolean;
 } & (
   | CheckableTagGroupSingleProps<CheckableTagValue>
   | CheckableTagGroupMultipleProps<CheckableTagValue>
-);
+) &
+  Pick<React.HTMLAttributes<HTMLDivElement>, 'className' | 'style' | 'id'>;
 
 export interface CheckableTagGroupRef {
   nativeElement: HTMLDivElement;
@@ -54,6 +53,8 @@ function CheckableTagGroup<CheckableTagValue extends string | number>(
   ref: React.Ref<CheckableTagGroupRef>,
 ) {
   const {
+    id,
+
     prefixCls: customizePrefixCls,
     rootClassName,
     className,
@@ -142,6 +143,7 @@ function CheckableTagGroup<CheckableTagValue extends string | number>(
         ...mergedStyles.root,
         ...style,
       }}
+      id={id}
       ref={divRef}
     >
       {parsedOptions.map((option) => (
