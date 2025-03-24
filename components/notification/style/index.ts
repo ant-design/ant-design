@@ -196,7 +196,9 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-
+      background: 'none',
+      border: 'none',
+      
       '&:hover': {
         color: token.colorIconHover,
         backgroundColor: token.colorBgTextHover,
