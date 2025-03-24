@@ -1,7 +1,9 @@
-import React, { ReactNode, useMemo, useState } from 'react';
-import classNames from 'classnames';
+import React, { useImperativeHandle, useMemo } from 'react';
+import type { ReactNode } from 'react';
+import { useMergedState } from '@rc-component/util';
+import classnames from 'classnames';
 
-import { ConfigContext } from '../config-provider/context';
+import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import CheckableTag from './CheckableTag';
 import useStyle from './style';
@@ -25,9 +27,16 @@ interface CheckableTagGroupMultipleProps<CheckableTagValue> {
   onChange?: (value: CheckableTagValue[]) => void;
 }
 
+export type SemanticName = 'root' | 'item';
+
 export type CheckableTagGroupProps<CheckableTagValue> = {
-  options?: (CheckableTagOption<CheckableTagValue> | CheckableTagValue)[];
+  // style
   prefixCls?: string;
+  rootClassName?: string;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+
+  options?: (CheckableTagOption<CheckableTagValue> | CheckableTagValue)[];
   disabled?: boolean;
 } & (
   | CheckableTagGroupSingleProps<CheckableTagValue>
@@ -35,63 +44,107 @@ export type CheckableTagGroupProps<CheckableTagValue> = {
 ) &
   Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'value' | 'defaultValue'>;
 
-export default function CheckableTagGroup<CheckableTagValue extends string | number>(
+export interface CheckableTagGroupRef {
+  nativeElement: HTMLDivElement;
+}
+
+function CheckableTagGroup<CheckableTagValue extends string | number>(
   props: CheckableTagGroupProps<CheckableTagValue>,
+  ref: React.Ref<CheckableTagGroupRef>,
 ) {
   const {
+    prefixCls: customizePrefixCls,
+    rootClassName,
     className,
+    style,
+    classNames,
+    styles,
+
     disabled,
     options,
     value,
     defaultValue,
     onChange,
     multiple,
-    prefixCls: customizePrefixCls,
+
     ...rest
   } = props;
-  const { getPrefixCls } = React.useContext(ConfigContext);
+
+  const { getPrefixCls, direction } = useComponentConfig('tag');
+
   const prefixCls = getPrefixCls('tag', customizePrefixCls);
   const groupPrefixCls = `${prefixCls}-checkable-group`;
 
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
+  const mergedClassNames = classNames || {};
+  const mergedStyles = styles || {};
+
+  // =============================== Option ===============================
   const parsedOptions = useMemo(
     () =>
-      options?.map((option) => ({
-        value: typeof option === 'object' ? option.value : option,
-        label: typeof option === 'object' ? option.label : option,
-      })) || [],
+      (options || []).map((option) => {
+        if (option && typeof option === 'object') {
+          return option;
+        }
+        return {
+          value: option,
+          label: option,
+        };
+      }),
     [options],
   );
 
-  const [internalValue, setInternalValue] = useState(defaultValue);
-  const mergedValue = value ?? internalValue;
+  // =============================== Values ===============================
+  const [mergedValue, setMergedValue] = useMergedState(defaultValue, {
+    value,
+  });
 
   const handleChange = (checked: boolean, option: CheckableTagOption<CheckableTagValue>) => {
+    let newValue: CheckableTagValue | CheckableTagValue[] | null = null;
+
     if (multiple) {
-      const newValue = checked
-        ? [...(value || []), option.value]
-        : (value || [])?.filter((item) => item !== option.value);
-      setInternalValue(newValue);
-      onChange?.(newValue);
+      const valueList = (value || []) as CheckableTagValue[];
+      newValue = checked
+        ? [...valueList, option.value]
+        : valueList.filter((item) => item !== option.value);
     } else {
-      const newValue = checked ? option.value : null;
-      setInternalValue(newValue);
-      onChange?.(newValue);
+      newValue = checked ? option.value : null;
     }
+
+    setMergedValue(newValue);
+    onChange?.(newValue as any); // TS not support generic type in function call
   };
 
+  // ================================ Refs ================================
+  const divRef = React.useRef<HTMLDivElement>(null);
+
+  useImperativeHandle(ref, () => ({
+    nativeElement: divRef.current!,
+  }));
+
+  // =============================== Render ===============================
   return (
     <div
       {...rest}
-      className={classNames(
+      className={classnames(
         groupPrefixCls,
-        { [`${groupPrefixCls}-disabled`]: disabled },
+        rootClassName,
+        {
+          [`${groupPrefixCls}-disabled`]: disabled,
+          [`${groupPrefixCls}-rtl`]: direction === 'rtl',
+        },
         hashId,
         cssVarCls,
         className,
+        mergedClassNames.root,
       )}
+      style={{
+        ...mergedStyles.root,
+        ...style,
+      }}
+      ref={divRef}
     >
       {parsedOptions.map((option) => (
         <CheckableTag
@@ -111,3 +164,11 @@ export default function CheckableTagGroup<CheckableTagValue extends string | num
     </div>
   );
 }
+
+const ForwardCheckableTagGroup = React.forwardRef(CheckableTagGroup) as <
+  CheckableTagValue extends string | number,
+>(
+  props: CheckableTagGroupProps<CheckableTagValue> & { ref?: React.Ref<CheckableTagGroupRef> },
+) => React.ReactElement;
+
+export default ForwardCheckableTagGroup;
