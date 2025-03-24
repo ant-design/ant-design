@@ -51,7 +51,7 @@ export interface LabeledValue {
 
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 
-type SemanticName = 'root' | 'prefix' | 'input' | 'suffix' | 'item' | 'itemTitle' | 'itemIcon';
+type SemanticName = 'root' | 'prefix' | 'input' | 'suffix' | 'item' | 'itemTitle' | 'popup';
 export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = DataNode>
   extends Omit<
     RcTreeSelectProps<ValueType, OptionType>,
@@ -123,7 +123,6 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     popupMatchSelectWidth,
     allowClear,
     variant: customVariant,
-    popupStyle,
     tagRender,
     maxCount,
     showCheckedStrategy,
@@ -137,8 +136,6 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     getPrefixCls,
     getPopupContainer: getContextPopupContainer,
     direction,
-    // className: contextClassName,
-    // style: contextStyle,
     styles: contextStyles,
     classNames: contextClassNames,
   } = useComponentConfig('treeSelect');
@@ -202,6 +199,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     },
     rootClassName,
     mergedClassNames?.root,
+    mergedClassNames?.popup,
     cssVarCls,
     rootCls,
     treeSelectRootCls,
@@ -308,7 +306,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
   );
 
   // ============================ zIndex ============================
-  const [zIndex] = useZIndex('SelectLike', popupStyle?.zIndex as number);
+  const [zIndex] = useZIndex('SelectLike', mergedStyles?.popup?.zIndex as number);
 
   return (
     <RcTreeSelect
@@ -339,7 +337,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       treeMotion={null}
       popupClassName={mergedDropdownClassName}
-      popupStyle={{ ...popupStyle, zIndex }}
+      popupStyle={{ ...mergedStyles?.root, ...mergedStyles?.popup, zIndex }}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       treeExpandAction={treeExpandAction}

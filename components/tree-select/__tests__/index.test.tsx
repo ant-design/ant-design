@@ -1,4 +1,5 @@
 import React from 'react';
+import { SmileOutlined } from '@ant-design/icons';
 
 import TreeSelect, { TreeNode } from '..';
 import { resetWarned } from '../../_util/warning';
@@ -89,5 +90,81 @@ describe('TreeSelect', () => {
     expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
 
     errSpy.mockRestore();
+  });
+  it('support classNames and styles', () => {
+    const treeData = [
+      {
+        value: 'parent 1',
+        title: 'parent 1',
+        children: [
+          {
+            value: 'parent 1-0',
+            title: 'parent 1-0',
+            children: [
+              {
+                value: 'leaf1',
+                title: 'my leaf',
+              },
+              {
+                value: 'leaf2',
+                title: 'your leaf',
+              },
+            ],
+          },
+        ],
+      },
+    ];
+    const customClassNames = {
+      root: 'test-root',
+      prefix: 'test-prefix',
+      input: 'test-input',
+      suffix: 'test-suffix',
+      item: 'test-item',
+      itemTitle: 'test-item-title',
+      popup: 'test-popup',
+    };
+    const customStyles = {
+      root: { color: 'red' },
+      prefix: { color: 'green' },
+      input: { color: 'blue' },
+      suffix: { color: 'yellow' },
+      item: { color: 'black' },
+      itemTitle: { color: 'purple' },
+      popup: { color: 'orange' },
+    };
+    const { container } = render(
+      <TreeSelect
+        classNames={customClassNames}
+        styles={customStyles}
+        showSearch
+        prefix="Prefix"
+        open
+        suffixIcon={<SmileOutlined />}
+        placeholder="Please select"
+        treeDefaultExpandAll
+        treeData={treeData}
+      />,
+    );
+    const prefix = container.querySelector('.ant-select-prefix');
+    const input = container.querySelector('.ant-select-selection-search-input');
+    const suffix = container.querySelector('.ant-select-arrow');
+    const popup = container.querySelector('.ant-tree-select-dropdown');
+    const itemTitle = container.querySelector('.ant-select-tree-title');
+    // const root = container.querySelector('.ant-select');
+    const item = container.querySelector(`.${customClassNames.item}`);
+    expect(prefix).toHaveClass(customClassNames.prefix);
+    expect(input).toHaveClass(customClassNames.input);
+    expect(suffix).toHaveClass(customClassNames.suffix);
+    expect(popup).toHaveClass(customClassNames.popup);
+    expect(itemTitle).toHaveClass(customClassNames.itemTitle);
+    // expect(root).toHaveClass(customClassNames.root);
+
+    expect(prefix).toHaveStyle(customStyles.prefix);
+    expect(input).toHaveStyle(customStyles.input);
+    expect(suffix).toHaveStyle(customStyles.suffix);
+    expect(popup).toHaveStyle(customStyles.popup);
+    expect(itemTitle).toHaveStyle(customStyles.itemTitle);
+    // expect(root).toHaveStyle(customStyles.root);
+    expect(item).toHaveStyle(customStyles.item);
   });
 });

@@ -13,7 +13,7 @@ const locales = {
     suffix: '后缀元素',
     item: '条目元素',
     itemTitle: '标题元素',
-    itemIcon: '图标元素',
+    popup: '弹出菜单元素',
   },
   en: {
     root: 'Root element',
@@ -22,7 +22,7 @@ const locales = {
     suffix: 'Suffix element',
     item: 'Item element',
     itemTitle: 'title element',
-    itemIcon: 'Icon element',
+    popup: 'Popup element',
   },
 };
 const icon = <SmileOutlined />;
@@ -53,7 +53,6 @@ const Block = (props: any) => {
   const divRef = React.useRef<HTMLDivElement>(null);
   const [value, setValue] = React.useState<string>();
   const onChange = (newValue: string) => {
-    console.log(newValue);
     setValue(newValue);
   };
   return (
@@ -62,12 +61,18 @@ const Block = (props: any) => {
         {...props}
         getPopupContainer={() => divRef.current}
         showSearch
+        placement="bottomLeft"
         prefix="Prefix"
         open
         suffixIcon={icon}
-        style={{ width: '100%' }}
+        styles={{
+          input: { zIndex: 1000 },
+          popup: {
+            maxHeight: 400,
+            overflow: 'auto',
+          },
+        }}
         value={value}
-        popupStyle={{ maxHeight: 400, overflow: 'auto' }}
         placeholder="Please select"
         allowClear
         treeDefaultExpandAll
@@ -87,9 +92,9 @@ const App: React.FC = () => {
         { name: 'prefix', desc: locale.prefix, version: '6.0.0' },
         { name: 'input', desc: locale.input, version: '6.0.0' },
         { name: 'suffix', desc: locale.suffix, version: '6.0.0' },
+        { name: 'popup', desc: locale.popup, version: '6.0.0' },
         { name: 'item', desc: locale.item, version: '6.0.0' },
         { name: 'itemTitle', desc: locale.itemTitle, version: '6.0.0' },
-        { name: 'itemIcon', desc: locale.itemIcon, version: '6.0.0' },
       ]}
     >
       <Block />
