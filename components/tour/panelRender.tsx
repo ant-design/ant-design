@@ -2,7 +2,6 @@ import type { ReactNode } from 'react';
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
-import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import type { ButtonProps } from '../button';
 import Button from '../button';
@@ -44,15 +43,8 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
   } = stepProps;
 
   const mergedType = stepType ?? type;
-  const ariaProps = pickAttrs(closable || {}, true);
   const mergedCloseIcon = (
-    <button
-      type="button"
-      onClick={onClose}
-      className={`${prefixCls}-close`}
-      aria-label="Close"
-      {...ariaProps}
-    >
+    <button type="button" onClick={onClose} className={`${prefixCls}-close`}>
       {closable?.closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
     </button>
   );

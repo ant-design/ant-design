@@ -707,36 +707,4 @@ describe('Tour', () => {
       expect(container.querySelector('.little')).toBeTruthy();
     });
   });
-
-  it('Closable object configuration aria - *', () => {
-    const gap = { offset: 10 };
-    const pos = { x: 100, y: 200, width: 230, height: 180 };
-    mockBtnRect(pos);
-    const App: React.FC = () => {
-      const ref = useRef<HTMLButtonElement>(null);
-      const [show, setShow] = React.useState<boolean>();
-      const steps: TourProps['steps'] = [
-        {
-          title: 'Show in Center',
-          description: 'Here is the content of Tour.',
-          target: () => ref.current!,
-        },
-      ];
-
-      return (
-        <>
-          <button type="button" onClick={() => setShow(true)} ref={ref}>
-            Show
-          </button>
-
-          <Tour steps={steps} gap={gap} open={show} closable={{ 'aria-label': 'xxx' }} />
-        </>
-      );
-    };
-
-    const { baseElement } = render(<App />);
-    const targetBtn = screen.getByRole('button', { name: 'Show' });
-    fireEvent.click(targetBtn);
-    expect(baseElement.querySelector('button.ant-tour-close')).toHaveAttribute('aria-label', 'xxx');
-  });
 });
