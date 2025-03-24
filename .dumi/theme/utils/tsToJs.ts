@@ -14,6 +14,10 @@ import { format } from '@prettier/sync';
  * 2. 保留 JSX 语法
  * 3. 删除类型导入
  * 4. 转换 ES6+ 语法为更兼容的语法（如空值合并运算符）
+ * 5. 保留原始代码风格和注释
+ * 6. 使用 Prettier 格式化输出代码，提高可读性
+ * 7. 处理 React 组件和 hooks 的转换
+ * 8. 支持 TypeScript 特有语法（如装饰器、枚举等）的转换
  *
  * @param tsCode TypeScript 代码字符串
  * @returns 转换后的 JavaScript 代码
@@ -56,4 +60,16 @@ export default function (tsCode: string): string {
     console.warn('Prettier 格式化出错:', error);
     return result.outputText;
   }
+}
+
+/**
+ * 将 TypeScript 代码转换为 JavaScript 代码
+ *
+ * 这是一个公开的 API，供测试和外部调用使用
+ *
+ * @param tsCode TypeScript 代码字符串
+ * @returns 转换后的 JavaScript 代码
+ */
+export function parseText(tsCode: string): string {
+  return exports.default(tsCode);
 }

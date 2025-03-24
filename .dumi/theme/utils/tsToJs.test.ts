@@ -187,26 +187,87 @@ const App = () => {
 export default App;
 `;
 
-// 转换普通 TypeScript 代码
-const jsCode = parseText(tsCode);
+// 加入Jest测试用例
+describe('tsToJs函数测试', () => {
+  // 转换普通 TypeScript 代码
+  it('应该能正确转换普通TypeScript代码', () => {
+    const jsCode = parseText(tsCode);
 
-console.log('转换前的 TypeScript 代码：');
-console.log(tsCode);
-console.log('\n转换后的 JavaScript 代码：');
-console.log(jsCode);
+    // 验证类型注解被移除
+    expect(jsCode).not.toContain('interface Person');
+    expect(jsCode).not.toContain(': string');
+    expect(jsCode).not.toContain(': number');
 
-// 转换包含 JSX 的 TypeScript 代码
-const jsxCode = parseText(tsxCode);
+    // 验证类实现被保留
+    expect(jsCode).toContain('class Employee');
+    expect(jsCode).toContain('constructor(name, age, department)');
+    expect(jsCode).toContain('getInfo()');
 
-console.log('\n\n转换前的 TSX 代码：');
-console.log(tsxCode);
-console.log('\n转换后的 JSX 代码：');
-console.log(jsxCode);
+    // 验证实例创建
+    expect(jsCode).toContain("new Employee('张三', 30, '研发部')");
 
-// 转换复杂 TypeScript 代码
-const complexJsCode = parseText(complexTsCode);
+    console.log('转换前的 TypeScript 代码：');
+    console.log(tsCode);
+    console.log('\n转换后的 JavaScript 代码：');
+    console.log(jsCode);
+  });
 
-console.log('\n\n转换前的复杂 TypeScript 代码：');
-console.log(complexTsCode);
-console.log('\n转换后的 JavaScript 代码：');
-console.log(complexJsCode);
+  // 转换包含 JSX 的 TypeScript 代码
+  it('应该能正确转换TSX代码', () => {
+    const jsxCode = parseText(tsxCode);
+
+    // 验证React导入被保留
+    expect(jsxCode).toContain('import React');
+
+    // 验证类型注解和类型导入被移除
+    expect(jsxCode).not.toContain('FC<');
+    expect(jsxCode).not.toContain('interface CounterProps');
+    expect(jsxCode).not.toContain('<number>');
+    expect(jsxCode).not.toContain(': void');
+
+    // 验证JSX结构被保留
+    expect(jsxCode).toContain('<div className="counter">');
+    expect(jsxCode).toContain('<Button type="primary"');
+
+    // 验证默认参数被保留
+    expect(jsxCode).toContain('initialCount = 0');
+
+    console.log('\n\n转换前的 TSX 代码：');
+    console.log(tsxCode);
+    console.log('\n转换后的 JSX 代码：');
+    console.log(jsxCode);
+  });
+
+  // 转换复杂 TypeScript 代码
+  it('应该能正确转换复杂TypeScript代码', () => {
+    const complexJsCode = parseText(complexTsCode);
+
+    // 验证类型导入被移除
+    expect(complexJsCode).not.toContain('import type');
+
+    // 验证泛型被移除
+    expect(complexJsCode).not.toContain('<T>');
+    expect(complexJsCode).not.toContain('<T extends string>');
+
+    // 验证类型别名和接口被移除
+    expect(complexJsCode).not.toContain('type Status');
+    expect(complexJsCode).not.toContain('interface DataItem');
+
+    // 验证函数和组件结构被保留
+    expect(complexJsCode).toContain('function assertIsDataItem');
+    expect(complexJsCode).toContain('const DataTable = ');
+    expect(complexJsCode).toContain('const createDataItem = ');
+
+    // 验证JSX结构被保留
+    expect(complexJsCode).toContain('<Table');
+    expect(complexJsCode).toContain('<span style=');
+
+    // 验证空值合并运算符的处理
+    expect(complexJsCode).toContain('_a = item.id'); // TypeScript会将 ?? 转换为更兼容的语法
+
+    console.log('\n\n转换前的复杂 TypeScript 代码：');
+    console.log(complexTsCode);
+    console.log('\n转换后的 JavaScript 代码：');
+    console.log(complexJsCode);
+  });
+});
