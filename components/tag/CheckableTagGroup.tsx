@@ -111,7 +111,7 @@ function CheckableTagGroup<CheckableTagValue extends string | number>(
     let newValue: CheckableTagValue | CheckableTagValue[] | null = null;
 
     if (multiple) {
-      const valueList = (value || []) as CheckableTagValue[];
+      const valueList = (mergedValue || []) as CheckableTagValue[];
       newValue = checked
         ? [...valueList, option.value]
         : valueList.filter((item) => item !== option.value);

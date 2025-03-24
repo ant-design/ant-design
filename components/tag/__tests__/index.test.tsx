@@ -283,30 +283,51 @@ describe('Tag', () => {
     expect(iconElement).toBeNull();
   });
 
-  it('should check single tag in group', async () => {
-    const { container } = render(
-      <Tag.CheckableTagGroup defaultValue="foo" options={['foo', 'bar']} />,
-    );
-    const checked = container.querySelector('.ant-tag-checkable-checked');
-    expect(checked).not.toBeNull();
-  });
-
-  it('should check multiple tag in group', async () => {
-    const { container } = render(
-      <Tag.CheckableTagGroup
-        multiple
-        defaultValue={['foo', 'bar']}
-        options={[
-          { value: 'foo', label: 'Foo' },
-          { value: 'bar', label: 'Bar' },
-        ]}
-      />,
-    );
-    const checked = container.querySelector('.ant-tag-checkable-checked');
-    expect(checked).not.toBeNull();
-  });
-
   describe('CheckableTagGroup', () => {
+    it('should check single tag in group', async () => {
+      const onChange = jest.fn();
+
+      const { container } = render(
+        <Tag.CheckableTagGroup defaultValue="foo" options={['foo', 'bar']} onChange={onChange} />,
+      );
+      const checked = container.querySelector('.ant-tag-checkable-checked');
+      expect(checked).not.toBeNull();
+
+      // Click
+      fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[1]);
+      expect(onChange).toHaveBeenCalledWith('bar');
+
+      // Click again
+      fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[1]);
+      expect(onChange).toHaveBeenCalledWith(null);
+    });
+
+    it('should check multiple tag in group', async () => {
+      const onChange = jest.fn();
+
+      const { container } = render(
+        <Tag.CheckableTagGroup
+          multiple
+          defaultValue={['foo', 'bar']}
+          options={[
+            { value: 'foo', label: 'Foo' },
+            { value: 'bar', label: 'Bar' },
+          ]}
+          onChange={onChange}
+        />,
+      );
+      const checked = container.querySelector('.ant-tag-checkable-checked');
+      expect(checked).not.toBeNull();
+
+      // Click
+      fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[1]);
+      expect(onChange).toHaveBeenCalledWith(['foo']);
+
+      // Click again
+      fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[1]);
+      expect(onChange).toHaveBeenCalledWith(['foo', 'bar']);
+    });
+
     it('semantic classNames and styles', () => {
       const { container } = render(
         <Tag.CheckableTagGroup
