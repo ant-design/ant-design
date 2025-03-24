@@ -282,4 +282,80 @@ describe('Tag', () => {
     expect(container).not.toBeNull();
     expect(iconElement).toBeNull();
   });
+
+  describe('CheckableTagGroup', () => {
+    it('should check single tag in group', async () => {
+      const onChange = jest.fn();
+
+      const { container } = render(
+        <Tag.CheckableTagGroup defaultValue="foo" options={['foo', 'bar']} onChange={onChange} />,
+      );
+      const checked = container.querySelector('.ant-tag-checkable-checked');
+      expect(checked).not.toBeNull();
+
+      // Click
+      fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[1]);
+      expect(onChange).toHaveBeenCalledWith('bar');
+
+      // Click again
+      fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[1]);
+      expect(onChange).toHaveBeenCalledWith(null);
+    });
+
+    it('should check multiple tag in group', async () => {
+      const onChange = jest.fn();
+
+      const { container } = render(
+        <Tag.CheckableTagGroup
+          multiple
+          defaultValue={['foo', 'bar']}
+          options={[
+            { value: 'foo', label: 'Foo' },
+            { value: 'bar', label: 'Bar' },
+          ]}
+          onChange={onChange}
+        />,
+      );
+      const checked = container.querySelector('.ant-tag-checkable-checked');
+      expect(checked).not.toBeNull();
+
+      // Click
+      fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[1]);
+      expect(onChange).toHaveBeenCalledWith(['foo']);
+
+      // Click again
+      fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[1]);
+      expect(onChange).toHaveBeenCalledWith(['foo', 'bar']);
+    });
+
+    it('semantic classNames and styles', () => {
+      const { container } = render(
+        <Tag.CheckableTagGroup
+          classNames={{
+            root: 'customize-root',
+            item: 'customize-item',
+          }}
+          styles={{
+            root: { backgroundColor: 'green' },
+            item: { color: 'red' },
+          }}
+          options={['Bamboo']}
+        />,
+      );
+
+      expect(container.querySelector('.ant-tag-checkable-group')).toHaveClass('customize-root');
+      expect(container.querySelector('.ant-tag-checkable-group')).toHaveStyle({
+        backgroundColor: 'green',
+      });
+
+      expect(container.querySelector('.ant-tag-checkable')).toHaveClass('customize-item');
+      expect(container.querySelector('.ant-tag-checkable')).toHaveStyle({ color: 'red' });
+    });
+
+    it('id', () => {
+      const { container } = render(<Tag.CheckableTagGroup id="test-id" />);
+
+      expect(container.querySelector('.ant-tag-checkable-group')?.id).toBe('test-id');
+    });
+  });
 });

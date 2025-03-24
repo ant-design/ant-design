@@ -41,14 +41,16 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | closeIcon | 自定义关闭按钮。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | ReactNode | false | 4.4.0 |
 | color | 标签色 | string | - |  |
 | icon | 设置图标 | ReactNode | - |  |
 | bordered | 是否有边框 | boolean | true | 5.4.0 |
-| onClose | 关闭时的回调（可通过 `e.preventDefault()` 来阻止默认行为） | (e: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
 | disabled | 是否禁用标签 | boolean | false | 6.0.0 |
 | href | 点击跳转的地址，指定此属性`tag`组件会渲染成 `<a>` 标签 | string | - | 6.0.0 |
+| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
 | target | 相当于 a 标签的 target 属性，href 存在时生效 | string | - | 6.0.0 |
+| onClose | 关闭时的回调（可通过 `e.preventDefault()` 来阻止默认行为） | (e: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
 
 ### Tag.CheckableTag
 
@@ -57,9 +59,27 @@ demo:
 | checked  | 设置标签的选中状态   | boolean           | false  |
 | onChange | 点击标签时触发的回调 | (checked) => void | -      |
 
+### Tag.CheckableTagGroup
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| defaultValue | 初始选中值 | `string \| number \| Array<string \| number> \| null` | - |  |
+| disabled | 禁用选中 | `boolean` | - |  |
+| multiple | 多选模式 | `boolean` | - |  |
+| value | 选中值 | `string \| number \| Array<string \| number> \| null` | - |  |
+| options | 选项列表 | `Array<{ label: ReactNode; value: string \| number } \| string \| number>` | - |  |
+| onChange | 点击标签时触发的回调 | `(value: string \| number \| Array<string \| number> \| null) => void` | - |  |
+
 ## Semantic DOM
 
+### Tag
+
 <code src="./demo/_semantic.tsx" simplify="true"></code>
+
+### Tag.CheckableTagGroup
+
+<code src="./demo/_semantic_group.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 
