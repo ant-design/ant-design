@@ -136,11 +136,10 @@ const Dropdown: CompoundedComponent = (props) => {
     });
 
     if (placement.includes('Center')) {
-      const newPlacement = placement.slice(0, placement.indexOf('Center')) as DropdownPlacement;
-      warning(
+      warning.deprecated(
         !placement.includes('Center'),
-        'deprecated',
-        `You are using '${placement}' placement in Dropdown, which is deprecated. Try to use '${newPlacement}' instead.`,
+        `placement: ${placement}`,
+        `placement: ${placement.slice(0, placement.indexOf('Center'))}`,
       );
     }
   }

@@ -130,10 +130,14 @@ describe('Dropdown', () => {
       </div>,
     );
     expect(error).toHaveBeenCalledWith(
-      expect.stringContaining("[antd: Dropdown] You are using 'bottomCenter'"),
+      expect.stringContaining(
+        '[antd: Dropdown] `placement: bottomCenter` is deprecated. Please use `placement: bottom` instead.',
+      ),
     );
     expect(error).toHaveBeenCalledWith(
-      expect.stringContaining("[antd: Dropdown] You are using 'topCenter'"),
+      expect.stringContaining(
+        '[antd: Dropdown] `placement: topCenter` is deprecated. Please use `placement: top` instead.',
+      ),
     );
     error.mockRestore();
   });
