@@ -112,8 +112,7 @@ describe('Grid', () => {
         />,
       );
       expect(asFragment().firstChild).toMatchSnapshot();
-      expect(container.querySelector('div')?.style.marginLeft).toBe('-20px');
-      expect(container.querySelector('div')?.style.marginRight).toBe('-20px');
+      expect(container.querySelector('div')?.style.marginInline).toBe('-20px');
       expect(container.querySelector('div')?.style.marginTop).toBe('');
       expect(container.querySelector('div')?.style.marginBottom).toBe('');
     });

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import type { DefaultRecordType } from '@rc-component/table/lib/interface';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 
 import type { SelectAllLabel, TransferProps } from '..';
