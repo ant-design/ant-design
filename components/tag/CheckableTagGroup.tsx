@@ -1,6 +1,7 @@
 import React, { useImperativeHandle, useMemo } from 'react';
 import type { ReactNode } from 'react';
 import { useMergedState } from '@rc-component/util';
+import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import classnames from 'classnames';
 
 import { useComponentConfig } from '../config-provider/context';
@@ -42,7 +43,10 @@ export type CheckableTagGroupProps<CheckableTagValue> = {
   | CheckableTagGroupSingleProps<CheckableTagValue>
   | CheckableTagGroupMultipleProps<CheckableTagValue>
 ) &
-  Pick<React.HTMLAttributes<HTMLDivElement>, 'className' | 'style' | 'id'>;
+  Pick<React.HTMLAttributes<HTMLDivElement>, 'className' | 'style' | 'id' | 'role'> & {
+    [key: `data-${string}`]: any;
+    [key: `aria-${string}`]: any;
+  };
 
 export interface CheckableTagGroupRef {
   nativeElement: HTMLDivElement;
@@ -68,6 +72,8 @@ function CheckableTagGroup<CheckableTagValue extends string | number>(
     defaultValue,
     onChange,
     multiple,
+
+    ...restProps
   } = props;
 
   const { getPrefixCls, direction } = useComponentConfig('tag');
@@ -124,9 +130,16 @@ function CheckableTagGroup<CheckableTagValue extends string | number>(
     nativeElement: divRef.current!,
   }));
 
+  // ================================ ARIA ================================
+  const ariaProps = pickAttrs(restProps, {
+    aria: true,
+    data: true,
+  });
+
   // =============================== Render ===============================
   return (
     <div
+      {...ariaProps}
       className={classnames(
         groupPrefixCls,
         rootClassName,
