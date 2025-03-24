@@ -57,6 +57,17 @@ Common props ref：[Common props](/docs/react/common-props)
 | checked  | Checked status of Tag                           | boolean           | false   |
 | onChange | Callback executed when Tag is checked/unchecked | (checked) => void | -       |
 
+### Tag.CheckableTagGroup
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| value | Value of checked tag(s) | `string \| number \| Array<string \| number> \| null` | - | 6.0.0 |
+| defaultValue | Initial value | `string \| number \| Array<string \| number> \| null` | - | 6.0.0 |
+| onChange | Callback when Tag is checked/unchecked | `(value: string \| number \| Array<string \| number> \| null) => void` | - | 6.0.0 |
+| options | Option list | `Array<{ label: ReactNode; value: string \| number } \| string \| number>` | - | 6.0.0 |
+| multiple | Multiple select mode | `boolean` | - | 6.0.0 |
+| disabled | Disable check/uncheck | `boolean` | - | 6.0.0 |
+
 ## Semantic DOM
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
