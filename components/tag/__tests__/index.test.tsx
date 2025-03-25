@@ -1,4 +1,6 @@
 import React from 'react';
+import { darkAlgorithm } from '@ant-design/compatible';
+import { createCache, StyleProvider } from '@ant-design/cssinjs';
 import { CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
 
 import Tag from '..';
@@ -373,5 +375,25 @@ describe('Tag', () => {
 
       expect(container.querySelector('.ant-tag-checkable-group')?.id).toBe('test-id');
     });
+  });
+
+  it('dark theme default', () => {
+    document.head.innerHTML = '';
+
+    render(
+      <StyleProvider cache={createCache()}>
+        <ConfigProvider
+          theme={{
+            algorithm: darkAlgorithm,
+          }}
+        >
+          <Tag variant="solid" color="default">
+            Tag
+          </Tag>
+        </ConfigProvider>
+      </StyleProvider>,
+    );
+
+    expect(document.head.innerHTML).toContain('--ant-tag-solid-text-color:#000;');
   });
 });
