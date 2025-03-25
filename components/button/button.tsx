@@ -130,17 +130,27 @@ const InternalCompoundedButton = React.forwardRef<
   const { button } = React.useContext(ConfigContext);
 
   const [mergedColor, mergedVariant] = useMemo<ColorVariantPairType>(() => {
-    if ((color || button?.color) && (variant || button?.variant)) {
-      return [color || button?.color, variant || button?.variant];
+    // >>>>> Local
+    // Color & Variant
+    if (color && variant) {
+      return [color, variant];
     }
 
-    const colorVariantPair = ButtonTypeMap[mergedType] || [];
-
-    if (danger) {
-      return ['danger', colorVariantPair[1]];
+    // Sugar syntax
+    if (type) {
+      const colorVariantPair = ButtonTypeMap[type] || [];
+      if (danger) {
+        return ['danger', colorVariantPair[1]];
+      }
+      return colorVariantPair;
     }
 
-    return colorVariantPair;
+    // >>> Context fallback
+    if (button?.color && button?.variant) {
+      return [button?.color, button?.variant];
+    }
+
+    return ['default', 'outlined'];
   }, [type, color, variant, danger]);
 
   const isDanger = mergedColor === 'danger';

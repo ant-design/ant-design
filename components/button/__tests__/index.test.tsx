@@ -537,4 +537,17 @@ describe('Button', () => {
     expect(container.firstChild).toHaveClass('ant-btn-variant-filled');
     expect(container.firstChild).toHaveClass('ant-btn-color-green');
   });
+
+  it('button type win the context', () => {
+    const { container } = render(
+      <ConfigProvider button={{ variant: 'dashed', color: 'green' }}>
+        <Button type="primary" danger>
+          Button
+        </Button>
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-btn-variant-solid')).toBeTruthy();
+    expect(container.querySelector('.ant-btn-color-dangerous')).toBeTruthy();
+  });
 });
