@@ -13,12 +13,12 @@ const genPresetStyle = (token: TagToken) =>
           borderColor: lightBorderColor,
           color: textColor,
         },
-        [`&${token.componentCls}-filled`]: {
+        [`&${token.componentCls}-solid`]: {
           backgroundColor: darkColor,
           borderColor: darkColor,
           color: token.colorTextLightSolid,
         },
-        [`&${token.componentCls}-borderless`]: {
+        [`&${token.componentCls}-filled`]: {
           backgroundColor: lightColor,
           color: textColor,
         },

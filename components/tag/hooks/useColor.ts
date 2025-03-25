@@ -25,13 +25,13 @@ export default function useColor(
       nextVariant = variant;
     } else if (isInverseColor) {
       // Fallback if using inverse color
-      nextVariant = 'filled';
+      nextVariant = 'solid';
     } else if (bordered === false) {
-      // Fallback if using borderless
-      nextVariant = 'borderless';
+      // Fallback if using filled
+      nextVariant = 'filled';
     } else {
       // Finally not conflict, use context
-      nextVariant = contextVariant || 'borderless';
+      nextVariant = contextVariant || 'filled';
     }
 
     // ==================== Color ====================
@@ -47,7 +47,7 @@ export default function useColor(
     const tagStyle: React.CSSProperties = {};
 
     if (!nextIsPreset && !nextIsStatus && nextColor) {
-      if (nextVariant === 'filled') {
+      if (nextVariant === 'solid') {
         tagStyle.backgroundColor = color;
       } else {
         const hsl = new FastColor(nextColor).toHsl();

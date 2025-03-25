@@ -285,18 +285,18 @@ describe('Tag', () => {
 
   it('should have variant className', () => {
     const { container } = render(
-      <Tag color="#66ccff" variant="filled">
+      <Tag color="#66ccff" variant="solid">
         tag
       </Tag>,
     );
-    const tagElement = container.querySelector('.ant-tag-filled');
+    const tagElement = container.querySelector('.ant-tag-solid');
     expect(tagElement).not.toBeNull();
   });
 
   it('legacy color inverse', () => {
     const { container } = render(<Tag color="green-inverse">tag</Tag>);
 
-    expect(container.querySelector('.ant-tag-green')).toHaveClass('ant-tag-filled');
+    expect(container.querySelector('.ant-tag-green')).toHaveClass('ant-tag-solid');
   });
 
   describe('CheckableTagGroup', () => {

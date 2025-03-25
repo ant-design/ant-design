@@ -8,7 +8,7 @@ import {
 } from '@ant-design/icons';
 import { Divider, Flex, Tag } from 'antd';
 
-const variants = ['borderless', 'filled', 'outlined'] as const;
+const variants = ['filled', 'solid', 'outlined'] as const;
 const presets = [
   { status: 'success', icon: <CheckCircleOutlined /> },
   { status: 'processing', icon: <SyncOutlined spin /> },

@@ -22,11 +22,11 @@ const genTagStatusStyle = (
         borderColor: token[`color${capitalizedCssVariableType}Border`],
         color: token[`color${cssVariableType}`],
       },
-      [`&${token.componentCls}-filled`]: {
+      [`&${token.componentCls}-solid`]: {
         backgroundColor: token[`color${cssVariableType}`],
         borderColor: token[`color${cssVariableType}`],
       },
-      [`&${token.componentCls}-borderless`]: {
+      [`&${token.componentCls}-filled`]: {
         backgroundColor: token[`color${capitalizedCssVariableType}Bg`],
         color: token[`color${cssVariableType}`],
       },

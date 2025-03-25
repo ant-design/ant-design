@@ -141,13 +141,13 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       },
     },
 
-    [`&${token.componentCls}-filled`]: {
+    [`&${token.componentCls}-solid`]: {
       borderColor: 'transparent',
       color: token.colorTextLightSolid,
-      backgroundColor: token.colorBgSolid,
+      backgroundColor: token.colorFillTertiary,
     },
 
-    [`${componentCls}-borderless`]: {
+    [`${componentCls}-filled`]: {
       borderColor: 'transparent',
       backgroundColor: token.tagBorderlessBg,
     },
@@ -175,7 +175,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         borderColor: token.colorBorderDisabled,
       },
 
-      [`&${componentCls}-filled, &${componentCls}-borderless`]: {
+      [`&${componentCls}-solid, &${componentCls}-filled`]: {
         color: token.colorTextDisabled,
         [`${componentCls}-close-icon`]: {
           color: token.colorTextDisabled,

@@ -42,10 +42,10 @@ const App: React.FC = () => {
         <Tag disabled color="#f50">
           Custom Color #f50 Outlined
         </Tag>
-        <Tag disabled color="#f50" variant="filled">
+        <Tag disabled color="#f50" variant="solid">
           Custom Color #f50 Filled
         </Tag>
-        <Tag disabled color="#f50" variant="borderless">
+        <Tag disabled color="#f50" variant="filled">
           Custom Color #f50 Borderless
         </Tag>
         <Tag disabled color="success">

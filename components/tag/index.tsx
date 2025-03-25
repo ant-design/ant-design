@@ -28,14 +28,14 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   className?: string;
   rootClassName?: string;
   color?: LiteralUnion<PresetColorType | PresetStatusColorType>;
-  variant?: 'borderless' | 'filled' | 'outlined';
+  variant?: 'filled' | 'solid' | 'outlined';
   /** Advised to use closeIcon instead. */
   closable?: ClosableType;
   closeIcon?: React.ReactNode;
   onClose?: (e: React.MouseEvent<HTMLElement>) => void;
   style?: React.CSSProperties;
   icon?: React.ReactNode;
-  /** @deprecated Please use `variant="borderless"` instead */
+  /** @deprecated Please use `variant="filled"` instead */
   bordered?: boolean;
   href?: string;
   target?: string;
@@ -78,8 +78,8 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     // ===================== Warnings =====================
     if (process.env.NODE_ENV !== 'production') {
       const warning = devUseWarning('Tag');
-      warning.deprecated(bordered !== false, 'bordered={false}', 'variant="borderless"');
-      warning.deprecated(!color?.endsWith('-inverse'), 'color="xxx-inverse"', 'variant="filled"');
+      warning.deprecated(bordered !== false, 'bordered={false}', 'variant="filled"');
+      warning.deprecated(!color?.endsWith('-inverse'), 'color="xxx-inverse"', 'variant="solid"');
     }
 
     // ====================== Colors ======================

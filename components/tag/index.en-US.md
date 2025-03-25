@@ -41,7 +41,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | ReactNode | false | 4.4.0 |
 | color | Color of the Tag | string | - |  |
-| variant | Variant of the tag | `'borderless' \| 'filled' \| 'outlined'` | `'borderless'` | 6.0.0 |
+| variant | Variant of the tag | `'filled' \| 'solid' \| 'outlined'` | `'filled'` | 6.0.0 |
 | icon | Set the icon of tag | ReactNode | - |  |
 | disabled | Whether the tag is disabled | boolean | false | 6.0.0 |
 | href | The address to jump when clicking, when this property is specified, the `tag` component will be rendered as an `<a>` tag | string | - | 6.0.0 |

@@ -41,7 +41,7 @@ demo:
 | classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | closeIcon | 自定义关闭按钮。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | ReactNode | false | 4.4.0 |
 | color | 标签色 | string | - |  |
-| variant | 标签变体 | `'borderless' \| 'filled' \| 'outlined'` | `'borderless'` | 6.0.0 |
+| variant | 标签变体 | `'filled' \| 'solid' \| 'outlined'` | `'filled'` | 6.0.0 |
 | icon | 设置图标 | ReactNode | - |  |
 | disabled | 是否禁用标签 | boolean | false | 6.0.0 |
 | href | 点击跳转的地址，指定此属性`tag`组件会渲染成 `<a>` 标签 | string | - | 6.0.0 |
