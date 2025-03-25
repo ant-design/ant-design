@@ -87,7 +87,7 @@ demo:
 | blur()  | 移除焦点 |      |
 | focus() | 获取焦点 |      |
 
-## 语义化DOM（Semantic DOM）
+## 语义化 DOM（Semantic DOM）
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
