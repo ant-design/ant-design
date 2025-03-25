@@ -194,7 +194,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
               [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
               [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
               [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
-              [`${prefixCls}-textarea-show-count`]: props.showCount || props.count?.show,
+              [`${prefixCls}-textarea-show-count`]: showCount || props.count?.show,
             },
             hashId,
           ),
