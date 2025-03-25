@@ -43,7 +43,7 @@ const Block = (props: any) => {
         showSearch
         placement="bottomLeft"
         open
-        style={{ marginBottom: 80, width: 200 }}
+        style={{ marginBottom: 100, width: 200 }}
         styles={{
           popup: {
             zIndex: 1,
