@@ -1,10 +1,8 @@
 import * as React from 'react';
-import { FastColor } from '@ant-design/fast-color';
 import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
 
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
-import { isPresetColor, isPresetStatusColor } from '../_util/colors';
 import type { ClosableType } from '../_util/hooks/useClosable';
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
 import { cloneElement, replaceElement } from '../_util/reactNode';
@@ -16,6 +14,7 @@ import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import CheckableTag from './CheckableTag';
 import CheckableTagGroup from './CheckableTagGroup';
+import useColor from './hooks/useColor';
 import useStyle from './style';
 import PresetCmp from './style/presetCmp';
 import StatusCmp from './style/statusCmp';
@@ -46,7 +45,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagProps>(
-  (tagProps, ref) => {
+  (props, ref) => {
     const {
       prefixCls: customizePrefixCls,
       className,
@@ -63,8 +62,8 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       target,
       styles,
       classNames: tagClassNames,
-      ...props
-    } = tagProps;
+      ...restProps
+    } = props;
 
     const {
       getPrefixCls,
@@ -76,21 +75,20 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       styles: contextStyles,
     } = useComponentConfig('tag');
 
-    const isInverseColor = color?.endsWith('-inverse');
-
-    const mergedVariant =
-      variant ||
-      contextVariant ||
-      (bordered === false && 'borderless') ||
-      (isInverseColor ? 'filled' : 'borderless');
-
-    const mergedColor = isInverseColor ? color?.replace('-inverse', '') : color;
-
+    // ===================== Warnings =====================
     if (process.env.NODE_ENV !== 'production') {
       const warning = devUseWarning('Tag');
       warning.deprecated(bordered !== false, 'bordered={false}', 'variant="borderless"');
-      warning.deprecated(!isInverseColor, 'color="xxx-inverse"', 'variant="filled"');
+      warning.deprecated(!color?.endsWith('-inverse'), 'color="xxx-inverse"', 'variant="filled"');
     }
+
+    // ====================== Colors ======================
+    const [mergedVariant, mergedColor, isPreset, isStatus, customTagStyle] = useColor(
+      props,
+      contextVariant,
+    );
+
+    const isInternalColor = isPreset || isStatus;
 
     // ===================== Disabled =====================
     const disabled = React.useContext(DisabledContext);
@@ -99,36 +97,30 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     const { tag: tagContext } = React.useContext(ConfigContext);
     const [visible, setVisible] = React.useState(true);
 
-    const domProps = omit(props, ['closeIcon', 'closable']);
+    const domProps = omit(restProps, ['closeIcon', 'closable']);
 
-    const isPreset = isPresetColor(color);
-    const isStatus = isPresetStatusColor(color);
-    const isInternalColor = isPreset || isStatus;
+    // ====================== Styles ======================
+    const tagStyle = React.useMemo(() => {
+      let nextTagStyle: React.CSSProperties = {
+        ...contextStyles.root,
+        ...styles?.root,
+        ...contextStyle,
+        ...style,
+      };
 
-    const tagStyle: React.CSSProperties = {
-      ...contextStyles.root,
-      ...styles?.root,
-      ...contextStyle,
-      ...style,
-    };
-
-    if (color && !isInternalColor && !mergedDisabled) {
-      if (mergedVariant === 'filled') {
-        tagStyle.backgroundColor = color;
-      } else {
-        const hsl = new FastColor(color).toHsl();
-        hsl.l = 0.95;
-        tagStyle.backgroundColor = new FastColor(hsl).toHexString();
-        tagStyle.color = color;
-        if (mergedVariant === 'outlined') {
-          tagStyle.borderColor = color;
-        }
+      if (!mergedDisabled) {
+        nextTagStyle = {
+          ...customTagStyle,
+          ...nextTagStyle,
+        };
       }
-    }
+
+      return nextTagStyle;
+    }, [contextStyles.root, styles?.root, contextStyle, style, customTagStyle, mergedDisabled]);
 
     const prefixCls = getPrefixCls('tag', customizePrefixCls);
     const [hashId, cssVarCls] = useStyle(prefixCls);
-    // Style
+
     const tagClassName = classNames(
       prefixCls,
       contextClassName,
@@ -147,6 +139,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       cssVarCls,
     );
 
+    // ===================== Closable =====================
     const handleCloseClick = (e: React.MouseEvent<HTMLElement>) => {
       if (mergedDisabled) {
         return;
@@ -160,7 +153,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       setVisible(false);
     };
 
-    const [, mergedCloseIcon] = useClosable(pickClosable(tagProps), pickClosable(tagContext), {
+    const [, mergedCloseIcon] = useClosable(pickClosable(props), pickClosable(tagContext), {
       closable: false,
       closeIconRender: (iconNode: React.ReactNode) => {
         const replacement = (
@@ -178,8 +171,9 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       },
     });
 
+    // ====================== Render ======================
     const isNeedWave =
-      typeof props.onClick === 'function' ||
+      typeof restProps.onClick === 'function' ||
       (children && (children as React.ReactElement<any>).type === 'a');
 
     const iconNode: React.ReactNode = cloneElement(icon, {
