@@ -123,6 +123,12 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
             color: token.colorTextDisabled,
           },
         },
+
+        '&-group': {
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: token.paddingXS,
+        },
       },
 
       '&-hidden': {

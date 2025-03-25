@@ -15,11 +15,13 @@ import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import CheckableTag from './CheckableTag';
+import CheckableTagGroup from './CheckableTagGroup';
 import useStyle from './style';
 import PresetCmp from './style/presetCmp';
 import StatusCmp from './style/statusCmp';
 
 export type { CheckableTagProps } from './CheckableTag';
+export type { CheckableTagGroupProps } from './CheckableTagGroup';
 
 type SemanticName = 'root' | 'icon' | 'content';
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
@@ -234,6 +236,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
 
 export type TagType = typeof InternalTag & {
   CheckableTag: typeof CheckableTag;
+  CheckableTagGroup: typeof CheckableTagGroup;
 };
 
 const Tag = InternalTag as TagType;
@@ -243,5 +246,6 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 Tag.CheckableTag = CheckableTag;
+Tag.CheckableTagGroup = CheckableTagGroup;
 
 export default Tag;
