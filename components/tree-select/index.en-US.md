@@ -115,6 +115,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | title | Content showed on the treeNodes | ReactNode | `---` |  |
 | value | Will be treated as `treeNodeFilterProp` by default, should be unique in the tree | string | - |  |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="TreeSelect"></ComponentTokenTable>

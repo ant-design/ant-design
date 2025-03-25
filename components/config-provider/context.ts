@@ -287,7 +287,8 @@ export type InputNumberConfig = ComponentStyleConfig & Pick<InputNumberProps, 'v
 
 export type CascaderConfig = ComponentStyleConfig & Pick<CascaderProps, 'variant'>;
 
-export type TreeSelectConfig = ComponentStyleConfig & Pick<TreeSelectProps, 'variant'>;
+export type TreeSelectConfig = ComponentStyleConfig &
+  Pick<TreeSelectProps, 'variant' | 'classNames' | 'styles'>;
 
 export type TreeConfig = ComponentStyleConfig & Pick<TreeProps, 'classNames' | 'styles'>;
 
