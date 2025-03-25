@@ -130,8 +130,8 @@ return (
 | onChange | 选中 option，或 input 的 value 变化时，调用此函数 | function(value, option:Option \| Array&lt;Option>) | - |  |
 | onClear | 清除内容时回调 | function | - | 4.6.0 |
 | onDeselect | 取消选中时调用，参数为选中项的 value (或 key) 值，仅在 `multiple` 或 `tags` 模式下生效 | function(value: string \| number \| LabeledValue) | - |  |
-| ~~onDropdownVisibleChange~~ | 展开下拉菜单的回调，使用 `onPopupVisibleChange` 替换 | (open: boolean) => void | - |  |
-| onPopupVisibleChange | 展开下拉菜单的回调 | (open: boolean) => void | - |  |
+| ~~onDropdownVisibleChange~~ | 展开下拉菜单的回调，使用 `onOpenChange` 替换 | (open: boolean) => void | - |  |
+| onOpenChange | 展开下拉菜单的回调 | (open: boolean) => void | - |  |
 | onFocus | 获得焦点时回调 | (event: FocusEvent) => void | - |  |
 | onInputKeyDown | 按键按下时回调 | (event: KeyboardEvent) => void | - |  |
 | onPopupScroll | 下拉列表滚动时的回调 | (event: UIEvent) => void | - |  |

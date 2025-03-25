@@ -129,8 +129,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | onChange | Called when select an option or input value change | function(value, option:Option \| Array&lt;Option>) | - |  |
 | onClear | Called when clear | function | - | 4.6.0 |
 | onDeselect | Called when an option is deselected, param is the selected option's value. Only called for `multiple` or `tags`, effective in multiple or tags mode only | function(value: string \| number \| LabeledValue) | - |  |
-| ~~onDropdownVisibleChange~~ | Called when dropdown open, use `onPopupVisibleChange` instead | (open: boolean) => void | - |  |
-| onPopupVisibleChange | Called when dropdown open | (open: boolean) => void | - |  |
+| ~~onDropdownVisibleChange~~ | Called when dropdown open, use `onOpenChange` instead | (open: boolean) => void | - |  |
+| onOpenChange | Called when dropdown open | (open: boolean) => void | - |  |
 | onFocus | Called when focus | (event: FocusEvent) => void | - |  |
 | onInputKeyDown | Called when key pressed | (event: KeyboardEvent) => void | - |  |
 | onPopupScroll | Called when dropdown scrolls | (event: UIEvent) => void | - |  |
