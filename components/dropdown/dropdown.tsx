@@ -49,10 +49,6 @@ export interface DropdownProps {
   trigger?: ('click' | 'hover' | 'contextMenu')[];
   /** @deprecated Please use `popupRender` instead */
   dropdownRender?: (originNode: React.ReactNode) => React.ReactNode;
-  /** @deprecated Please use `open` instead */
-  visible?: boolean;
-  /** @deprecated Please use `open` instead */
-  onVisibleChange?: (visible: boolean) => void;
   popupRender?: (originNode: React.ReactNode) => React.ReactNode;
   onOpenChange?: (open: boolean, info: { source: 'trigger' | 'menu' }) => void;
   open?: boolean;
@@ -96,9 +92,6 @@ const Dropdown: CompoundedComponent = (props) => {
     overlayStyle,
     open,
     onOpenChange,
-    // Deprecated
-    visible,
-    onVisibleChange,
     mouseEnterDelay = 0.15,
     mouseLeaveDelay = 0.1,
     autoAdjustOverflow = true,
@@ -118,9 +111,6 @@ const Dropdown: CompoundedComponent = (props) => {
   const warning = devUseWarning('Dropdown');
   if (process.env.NODE_ENV !== 'production') {
     const deprecatedProps = {
-      visible: 'open',
-      onVisibleChange: 'onOpenChange',
-      overlay: 'menu',
       dropdownRender: 'popupRender',
     };
 
@@ -190,12 +180,11 @@ const Dropdown: CompoundedComponent = (props) => {
 
   // =========================== Open ============================
   const [mergedOpen, setOpen] = useMergedState(false, {
-    value: open ?? visible,
+    value: open,
   });
 
   const onInnerOpenChange = useEvent((nextOpen: boolean) => {
     onOpenChange?.(nextOpen, { source: 'trigger' });
-    onVisibleChange?.(nextOpen);
     setOpen(nextOpen);
   });
 
