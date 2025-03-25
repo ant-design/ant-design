@@ -233,9 +233,9 @@ describe('Modal', () => {
     expect(document.querySelector('.ant-modal-centered')).toBeFalsy();
   });
 
-  it('Should not close modal when confirmLoading is loading', () => {
+  it('Should not close modal when confirmLoading is loading', async () => {
     const onCancel = jest.fn();
-    const onOk = jest.fn();
+    const onOk = jest.fn(() => new Promise((resolve) => setTimeout(resolve, 1000)));
 
     render(<Modal open onCancel={onCancel} onOk={onOk} />);
 
@@ -243,8 +243,8 @@ describe('Modal', () => {
     fireEvent.click(okButton);
     expect(okButton).not.toHaveClass('ant-btn-loading');
 
-    fireEvent.click(document.body.querySelectorAll('.ant-modal-close')[0]);
-    fireEvent.click(document.body.querySelectorAll('.ant-modal-wrap')[0]);
+    fireEvent.click(document.body.querySelector('.ant-modal-close')!);
+    fireEvent.click(document.body.querySelector('.ant-modal-wrap')!);
     expect(onCancel).toHaveBeenCalled();
 
     onOk.mockReset();
