@@ -3,6 +3,8 @@ import { unit } from '@ant-design/cssinjs';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { FastColor } from '@ant-design/fast-color';
 
+import { AggregationColor } from '../../color-picker/color';
+import { isBright } from '../../color-picker/components/ColorPresets';
 import { resetComponent } from '../../style';
 import type { FullToken, GenStyleFn, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
@@ -18,6 +20,12 @@ export interface ComponentToken {
    * @descEN Default text color
    */
   defaultColor: string;
+
+  /**
+   * @desc 默认实心标签的文本色
+   * @descEN Default text color for solid tag.
+   */
+  solidTextColor: string;
 }
 
 export interface TagToken extends FullToken<'Tag'> {
@@ -144,7 +152,11 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
     [`&${token.componentCls}-solid`]: {
       borderColor: 'transparent',
       color: token.colorTextLightSolid,
-      backgroundColor: token.colorFillTertiary,
+      backgroundColor: token.colorBgSolid,
+
+      [`&${componentCls}-default`]: {
+        color: token.solidTextColor,
+      },
     },
 
     [`${componentCls}-filled`]: {
@@ -207,12 +219,19 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Tag'>>[0]) => TagToken
   return tagToken;
 };
 
-export const prepareComponentToken: GetDefaultToken<'Tag'> = (token) => ({
-  defaultBg: new FastColor(token.colorFillQuaternary)
-    .onBackground(token.colorBgContainer)
-    .toHexString(),
-  defaultColor: token.colorText,
-});
+export const prepareComponentToken: GetDefaultToken<'Tag'> = (token) => {
+  const solidTextColor = isBright(new AggregationColor(token.colorBgSolid), '#fff')
+    ? '#000'
+    : '#fff';
+
+  return {
+    defaultBg: new FastColor(token.colorFillQuaternary)
+      .onBackground(token.colorBgContainer)
+      .toHexString(),
+    defaultColor: token.colorText,
+    solidTextColor,
+  };
+};
 
 export default genStyleHooks<'Tag'>(
   'Tag',
