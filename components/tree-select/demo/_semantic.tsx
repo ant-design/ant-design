@@ -28,22 +28,16 @@ const locales = {
 const icon = <SmileOutlined />;
 const treeData = [
   {
-    value: 'parent 1',
-    title: 'parent 1',
+    value: 'contributors',
+    title: 'contributors',
     children: [
       {
-        value: 'parent 1-0',
-        title: 'parent 1-0',
-        children: [
-          {
-            value: 'leaf1',
-            title: 'my leaf',
-          },
-          {
-            value: 'leaf2',
-            title: 'your leaf',
-          },
-        ],
+        value: 'aojunhao123',
+        title: 'aojunhao123',
+      },
+      {
+        value: 'thinkasany',
+        title: 'thinkasany',
       },
     ],
   },

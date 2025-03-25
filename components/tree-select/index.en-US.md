@@ -42,10 +42,11 @@ Common props ref：[Common props](/docs/react/common-props)
 | autoClearSearchValue | If auto clear search input value when multiple select is selected/deselected | boolean | true |  |
 | defaultValue | To set the initial selected treeNode(s) | string \| string\[] | - |  |
 | disabled | Disabled or not | boolean | false |  |
-| popupClassName | The className of dropdown menu | string | - | 4.23.0 |
+| ~~popupClassName~~ | The className of dropdown menu, use `classNames.popup` instead | string | - | 4.23.0 |
 | popupMatchSelectWidth | Determine whether the popup menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true | 5.5.0 |
-| dropdownRender | Customize dropdown content | (originNode: ReactNode, props) => ReactNode | - |  |
-| dropdownStyle | To set the style of the dropdown menu | CSSProperties | - |  |
+| ~~dropdownRender~~ | Customize dropdown content, use `popupRender` instead | (originNode: ReactNode, props) => ReactNode | - |  |
+| popupRender | Customize dropdown content | (originNode: ReactNode, props) => ReactNode | - |  |
+| ~~dropdownStyle~~ | To set the style of the dropdown menu, use `styles.popup` instead | CSSProperties | - |  |
 | fieldNames | Customize node label, value, children field name | object | { label: `label`, value: `value`, children: `children` } | 4.17.0 |
 | filterTreeNode | Whether to filter treeNodes by input value. The value of `treeNodeFilterProp` is used for filtering by default | boolean \| function(inputValue: string, treeNode: TreeNode) (should return boolean) | function |  |
 | getPopupContainer | To set the container of the dropdown menu. The default is to create a `div` element in `body`, you can reset it to the scrolling area and make a relative reposition. [example](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | function(triggerNode) | () => document.body |  |
@@ -87,7 +88,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | variant | Variants of selector | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
 | onChange | A callback function, can be executed when selected treeNodes or input value change | function(value, label, extra) | - |  |
-| onDropdownVisibleChange | Called when dropdown open | function(open) | - |  |
+| ~~onDropdownVisibleChange~~ | Called when dropdown open, use `onOpenChange` instead | function(open) | - |  |
 | onSearch | A callback function, can be executed when the search input changes | function(value: string) | - |  |
 | onSelect | A callback function, can be executed when you select a treeNode | function(value, node, extra) | - |  |
 | onTreeExpand | A callback function, can be executed when treeNode expanded | function(expandedKeys) | - |  |
