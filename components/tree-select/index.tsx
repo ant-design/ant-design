@@ -291,6 +291,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     compactItemClassnames,
     className,
     rootClassName,
+    mergedClassNames?.root,
     cssVarCls,
     rootCls,
     treeSelectRootCls,
