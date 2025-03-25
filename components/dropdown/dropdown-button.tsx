@@ -68,11 +68,14 @@ const DropdownButton: CompoundedComponent = (props) => {
     overlayStyle,
     destroyPopupOnHide,
     dropdownRender,
+    popupRender,
     ...restProps
   } = props;
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
   const buttonPrefixCls = `${prefixCls}-button`;
+
+  const mergedPopupRender = popupRender || dropdownRender;
 
   const dropdownProps: DropdownProps = {
     menu,
@@ -88,7 +91,7 @@ const DropdownButton: CompoundedComponent = (props) => {
     overlayClassName,
     overlayStyle,
     destroyPopupOnHide,
-    dropdownRender,
+    popupRender: mergedPopupRender,
   };
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);

@@ -1,12 +1,13 @@
 import React from 'react';
 import type { TriggerProps } from '@rc-component/trigger';
-import ConfigProvider from '../../config-provider';
 
 import type { DropDownProps } from '..';
 import Dropdown from '..';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 let triggerProps: TriggerProps;
 
@@ -120,10 +121,14 @@ describe('Dropdown', () => {
       </div>,
     );
     expect(error).toHaveBeenCalledWith(
-      expect.stringContaining("[antd: Dropdown] You are using 'bottomCenter'"),
+      expect.stringContaining(
+        '[antd: Dropdown] `placement: bottomCenter` is deprecated. Please use `placement: bottom` instead.',
+      ),
     );
     expect(error).toHaveBeenCalledWith(
-      expect.stringContaining("[antd: Dropdown] You are using 'topCenter'"),
+      expect.stringContaining(
+        '[antd: Dropdown] `placement: topCenter` is deprecated. Please use `placement: top` instead.',
+      ),
     );
     error.mockRestore();
   });
@@ -194,6 +199,46 @@ describe('Dropdown', () => {
     expect(container.querySelector('.ant-dropdown-hidden')).toBeTruthy();
 
     jest.useRealTimers();
+  });
+
+  it('legacy dropdownRender', () => {
+    resetWarned();
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const dropdownRender = jest.fn((menu) => (
+      <div className="custom-dropdown">
+        {menu}
+        <div className="extra-content">Extra Content</div>
+      </div>
+    ));
+
+    const { container } = render(
+      <Dropdown
+        open
+        dropdownRender={dropdownRender}
+        menu={{
+          items: [
+            {
+              label: <div className="menu-item">Menu Item</div>,
+              key: 'item',
+            },
+          ],
+        }}
+      >
+        <a className="trigger" />
+      </Dropdown>,
+    );
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Dropdown] `dropdownRender` is deprecated. Please use `popupRender` instead.',
+    );
+
+    expect(dropdownRender).toHaveBeenCalled();
+    expect(container.querySelector('.custom-dropdown')).toBeTruthy();
+    expect(container.querySelector('.menu-item')).toBeTruthy();
+    expect(container.querySelector('.extra-content')).toBeTruthy();
+    expect(container.querySelector('.extra-content')?.textContent).toBe('Extra Content');
+
+    errorSpy.mockRestore();
   });
 
   it('not block ref', () => {
