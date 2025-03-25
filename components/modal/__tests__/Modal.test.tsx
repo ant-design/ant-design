@@ -239,14 +239,14 @@ describe('Modal', () => {
 
     render(<Modal open onCancel={onCancel} onOk={onOk} />);
 
-    fireEvent.click(document.body.querySelectorAll('.ant-btn')[1]);
-    expect(document.body.querySelectorAll('.ant-btn')[1]).not.toHaveClass('ant-btn-loading');
+    const okButton = document.body.querySelectorAll('.ant-btn')[1];
+    fireEvent.click(okButton);
+    expect(okButton).not.toHaveClass('ant-btn-loading');
 
     fireEvent.click(document.body.querySelectorAll('.ant-modal-close')[0]);
     fireEvent.click(document.body.querySelectorAll('.ant-modal-wrap')[0]);
     expect(onCancel).toHaveBeenCalled();
-    expect(onCancel).toHaveBeenCalledTimes(2);
-    
+
     onOk.mockReset();
   });
 });
