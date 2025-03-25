@@ -232,4 +232,10 @@ describe('Modal', () => {
     );
     expect(document.querySelector('.ant-modal-centered')).toBeFalsy();
   });
+
+  it('closable have aria', () => {
+    render(<Modal open closable={{ 'aria-label': 'xxx' }} />);
+    const element = document.body.querySelector('.ant-modal-close');
+    expect(element).toHaveAttribute('aria-label', 'xxx');
+  });
 });
