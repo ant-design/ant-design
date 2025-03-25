@@ -296,7 +296,7 @@ describe('Tag', () => {
   it('legacy color inverse', () => {
     const { container } = render(<Tag color="green-inverse">tag</Tag>);
 
-    console.log('>>>', container.innerHTML);
+    expect(container.querySelector('.ant-tag-green')).toHaveClass('ant-tag-filled');
   });
 
   describe('CheckableTagGroup', () => {
