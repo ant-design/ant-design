@@ -43,7 +43,9 @@ const App: React.FC = () => {
       treeDataSimpleMode
       style={{ width: '100%' }}
       value={value}
-      dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
+      styles={{
+        popup: { maxHeight: 400, overflow: 'auto' },
+      }}
       placeholder="Please select"
       onChange={onChange}
       loadData={onLoadData}
