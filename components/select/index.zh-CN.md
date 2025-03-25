@@ -165,7 +165,7 @@ return (
 | className | Option 器类名           | string          | -      |      |
 | title     | 选项上的原生 title 提示 | string          | -      |      |
 
-## Semantic DOM
+## 语义化DOM（Semantic DOM）
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 

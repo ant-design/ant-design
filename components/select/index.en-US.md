@@ -164,6 +164,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | className | The additional class to option     | string          | -       |         |
 | title     | `title` attribute of Select Option | string          | -       |         |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Select"></ComponentTokenTable>
