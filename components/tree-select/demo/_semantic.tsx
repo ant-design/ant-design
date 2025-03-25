@@ -14,12 +14,16 @@ const locales = {
 };
 const treeData = [
   {
-    value: 'aojunhao123',
-    title: 'aojunhao123',
+    value: 'contributors',
+    title: 'contributors',
     children: [
       {
         value: 'thinkasany',
         title: 'thinkasany',
+      },
+      {
+        value: 'aojunhao123',
+        title: 'aojunhao123',
       },
     ],
   },
