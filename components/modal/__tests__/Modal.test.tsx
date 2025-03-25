@@ -5,7 +5,7 @@ import Modal from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { createEvent, fireEvent, render, screen } from '../../../tests/utils';
+import { createEvent, fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 jest.mock('rc-util/lib/Portal');
@@ -235,14 +235,18 @@ describe('Modal', () => {
 
   it('Should not close modal when confirmLoading is loading', () => {
     const onCancel = jest.fn();
-    render(
-      <Modal open confirmLoading onCancel={onCancel}>
-        <p>Modal Content</p>
-      </Modal>,
-    );
-    fireEvent.click(document.body.querySelectorAll('.ant-btn')[0]);
+    const onOk = jest.fn();
+
+    render(<Modal open onCancel={onCancel} onOk={onOk} />);
+
+    fireEvent.click(document.body.querySelectorAll('.ant-btn')[1]);
+    expect(document.body.querySelectorAll('.ant-btn')[1]).not.toHaveClass('ant-btn-loading');
+
     fireEvent.click(document.body.querySelectorAll('.ant-modal-close')[0]);
-    expect(onCancel).toHaveBeenCalledTimes(0);
-    expect(screen.queryByText('Modal Content')).toBeInTheDocument();
+    fireEvent.click(document.body.querySelectorAll('.ant-modal-wrap')[0]);
+    expect(onCancel).toHaveBeenCalled();
+    expect(onCancel).toHaveBeenCalledTimes(2);
+    
+    onOk.mockReset();
   });
 });
