@@ -92,9 +92,6 @@ const Modal: React.FC<ModalProps> = (props) => {
     styles: modalStyles,
     children,
     loading,
-    confirmLoading,
-    onCancel,
-    onOk,
     ...restProps
   } = props;
 
