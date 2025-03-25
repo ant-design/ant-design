@@ -70,8 +70,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
 | onBlur | Called when leaving the component | function() | - |  |
 | onChange | Called when selecting an option or changing an input value | function(value) | - |  |
-| ~~onDropdownVisibleChange~~ | Called when dropdown open, use `onPopupVisibleChange` instead | (open: boolean) => void | - |  |
-| onPopupVisibleChange | Called when dropdown open | (open: boolean) => void | - |  |
+| ~~onDropdownVisibleChange~~ | Called when dropdown open, use `onOpenChange` instead | (open: boolean) => void | - |  |
+| onOpenChange | Called when dropdown open | (open: boolean) => void | - |  |
 | onFocus | Called when entering the component | function() | - |  |
 | onSearch | Called when searching items | function(value) | - |  |
 | onSelect | Called when a option is selected. param is option's value and option instance | function(value, option) | - |  |
