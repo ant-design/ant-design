@@ -151,6 +151,8 @@ describe('TreeSelect', () => {
     const popup = container.querySelector('.ant-tree-select-dropdown');
     const itemTitle = container.querySelector('.ant-select-tree-title');
     const root = container.querySelector('.ant-tree-select-dropdown');
+    const selectRoot = container.querySelector('.ant-tree-select');
+
     const item = container.querySelector(`.${customClassNames.item}`);
     expect(prefix).toHaveClass(customClassNames.prefix);
     expect(input).toHaveClass(customClassNames.input);
@@ -158,6 +160,7 @@ describe('TreeSelect', () => {
     expect(popup).toHaveClass(customClassNames.popup);
     expect(itemTitle).toHaveClass(customClassNames.itemTitle);
     expect(root).toHaveClass(customClassNames.root);
+    expect(selectRoot).toHaveClass(customClassNames.root);
 
     expect(prefix).toHaveStyle(customStyles.prefix);
     expect(input).toHaveStyle(customStyles.input);
@@ -165,6 +168,7 @@ describe('TreeSelect', () => {
     expect(popup).toHaveStyle(customStyles.popup);
     expect(itemTitle).toHaveStyle(customStyles.itemTitle);
     expect(root).toHaveStyle(customStyles.root);
+    expect(selectRoot).toHaveStyle(customStyles.root);
     expect(item).toHaveStyle(customStyles.item);
   });
 });
