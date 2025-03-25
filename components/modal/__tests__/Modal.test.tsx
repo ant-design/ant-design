@@ -233,20 +233,47 @@ describe('Modal', () => {
     expect(document.querySelector('.ant-modal-centered')).toBeFalsy();
   });
 
-  it('Should not close modal when confirmLoading is loading', () => {
+  it('Should not close modal when confirmLoading is loading', async () => {
+    // Demo component to control loading
+    const Demo: React.FC<ModalProps> = ({ onCancel = () => {}, onOk = () => {} }) => {
+      const [loading, setLoading] = React.useState<boolean>(false);
+      const handleOk = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setLoading(true);
+        return new Promise<void>((resolve) => {
+          setTimeout(() => {
+            setLoading(false);
+            onOk(event);
+            resolve();
+          }, 1000);
+        });
+      };
+
+      return <Modal open confirmLoading={loading} onCancel={onCancel} onOk={handleOk} />;
+    };
+
+    // Mock function for handling modal onCancel and onOk
     const onCancel = jest.fn();
     const onOk = jest.fn();
 
-    render(<Modal open onCancel={onCancel} onOk={onOk} />);
+    // Render the Demo component
+    render(<Demo onCancel={onCancel} onOk={onOk} />);
 
     const okButton = document.body.querySelectorAll('.ant-btn')[1];
     fireEvent.click(okButton);
-    expect(okButton).not.toHaveClass('ant-btn-loading');
+    expect(okButton).toHaveClass('ant-btn-loading');
 
+    // Attempting to close modal
     fireEvent.click(document.body.querySelectorAll('.ant-modal-close')[0]);
     fireEvent.click(document.body.querySelectorAll('.ant-modal-wrap')[0]);
-    expect(onCancel).toHaveBeenCalled();
 
-    onOk.mockReset();
+    // Expectations after clicking to close while loading
+    expect(onCancel).not.toHaveBeenCalled();
+    expect(onCancel).toHaveBeenCalledTimes(0);
+
+    // Optionally, you might want to wait for the promise to resolve
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    // Ensure onOk was called after loading finished
+    expect(onOk).toHaveBeenCalled();
   });
 });
