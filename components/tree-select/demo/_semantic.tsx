@@ -66,8 +66,9 @@ const Block = (props: any) => {
         open
         suffixIcon={icon}
         styles={{
-          root: { zIndex: 1000 },
+          root: { zIndex: 1 },
           popup: {
+            zIndex: 1,
             maxHeight: 400,
             overflow: 'auto',
           },
