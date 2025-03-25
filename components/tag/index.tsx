@@ -1,10 +1,11 @@
 import * as React from 'react';
 import omit from '@rc-component/util/lib/omit';
-import classNames from 'classnames';
+import classnames from 'classnames';
 
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import type { ClosableType } from '../_util/hooks/useClosable';
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { cloneElement, replaceElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -61,7 +62,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       href,
       target,
       styles,
-      classNames: tagClassNames,
+      classNames,
       ...restProps
     } = props;
 
@@ -100,10 +101,14 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     const domProps = omit(restProps, ['closeIcon', 'closable']);
 
     // ====================== Styles ======================
+    const [mergedClassNames, mergedStyles] = useMergeSemantic(
+      [contextClassNames, classNames],
+      [contextStyles, styles],
+    );
+
     const tagStyle = React.useMemo(() => {
       let nextTagStyle: React.CSSProperties = {
-        ...contextStyles.root,
-        ...styles?.root,
+        ...mergedStyles.root,
         ...contextStyle,
         ...style,
       };
@@ -116,16 +121,15 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       }
 
       return nextTagStyle;
-    }, [contextStyles.root, styles?.root, contextStyle, style, customTagStyle, mergedDisabled]);
+    }, [mergedStyles.root, contextStyle, style, customTagStyle, mergedDisabled]);
 
     const prefixCls = getPrefixCls('tag', customizePrefixCls);
     const [hashId, cssVarCls] = useStyle(prefixCls);
 
-    const tagClassName = classNames(
+    const tagClassName = classnames(
       prefixCls,
       contextClassName,
-      contextClassNames.root,
-      tagClassNames?.root,
+      mergedClassNames.root,
       `${prefixCls}-${mergedVariant}`,
       {
         [`${prefixCls}-${mergedColor}`]: isInternalColor,
@@ -166,7 +170,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
             originProps?.onClick?.(e);
             handleCloseClick(e);
           },
-          className: classNames(originProps?.className, `${prefixCls}-close-icon`),
+          className: classnames(originProps?.className, `${prefixCls}-close-icon`),
         }));
       },
     });
@@ -177,24 +181,20 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       (children && (children as React.ReactElement<any>).type === 'a');
 
     const iconNode: React.ReactNode = cloneElement(icon, {
-      className: classNames(
+      className: classnames(
         React.isValidElement(icon)
           ? (icon as React.ReactElement<{ className?: string }>).props?.className
           : '',
-        contextClassNames.icon,
-        tagClassNames?.icon,
+        mergedClassNames.icon,
       ),
-      style: { ...contextStyles.icon, ...styles?.icon },
+      style: mergedStyles.icon,
     });
 
     const child: React.ReactNode = iconNode ? (
       <>
         {iconNode}
         {children && (
-          <span
-            className={classNames(contextClassNames.content, tagClassNames?.content)}
-            style={{ ...contextStyles.content, ...styles?.content }}
-          >
+          <span className={mergedClassNames.content} style={mergedStyles.content}>
             {children}
           </span>
         )}

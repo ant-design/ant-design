@@ -6,7 +6,7 @@ Array [
     style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;"
   >
     <span
-      class="ant-tag ant-tag-borderless css-var-test-id"
+      class="ant-tag ant-tag-filled css-var-test-id"
     >
       Tag 1
       <span
@@ -32,7 +32,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-tag ant-tag-borderless css-var-test-id"
+      class="ant-tag ant-tag-filled css-var-test-id"
     >
       Tag 2
       <span
@@ -58,7 +58,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-tag ant-tag-borderless css-var-test-id"
+      class="ant-tag ant-tag-filled css-var-test-id"
     >
       Tag 3
       <span
@@ -85,7 +85,7 @@ Array [
     </span>
   </div>,
   <span
-    class="ant-tag ant-tag-borderless css-var-test-id"
+    class="ant-tag ant-tag-filled css-var-test-id"
     style="background: rgb(255, 255, 255); border-style: dashed;"
   >
     <span
@@ -122,12 +122,12 @@ exports[`renders components/tag/demo/basic.tsx extend context correctly 1`] = `
   class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
 >
   <span
-    class="ant-tag ant-tag-borderless css-var-test-id"
+    class="ant-tag ant-tag-filled css-var-test-id"
   >
     Tag 1
   </span>
   <span
-    class="ant-tag ant-tag-borderless css-var-test-id"
+    class="ant-tag ant-tag-filled css-var-test-id"
   >
     <a
       href="https://github.com/ant-design/ant-design/issues/1862"
@@ -138,7 +138,7 @@ exports[`renders components/tag/demo/basic.tsx extend context correctly 1`] = `
     </a>
   </span>
   <span
-    class="ant-tag ant-tag-borderless css-var-test-id"
+    class="ant-tag ant-tag-filled css-var-test-id"
   >
     Prevent Default
     <span
@@ -164,7 +164,7 @@ exports[`renders components/tag/demo/basic.tsx extend context correctly 1`] = `
     </span>
   </span>
   <span
-    class="ant-tag ant-tag-borderless css-var-test-id"
+    class="ant-tag ant-tag-filled css-var-test-id"
   >
     Tag 2
     <span
@@ -356,77 +356,6 @@ Array [
       <span
         class="ant-divider-inner-text"
       >
-        Presets (borderless)
-      </span>
-    </div>
-    <div
-      class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
-    >
-      <span
-        class="ant-tag ant-tag-borderless ant-tag-magenta css-var-test-id"
-      >
-        magenta
-      </span>
-      <span
-        class="ant-tag ant-tag-borderless ant-tag-red css-var-test-id"
-      >
-        red
-      </span>
-      <span
-        class="ant-tag ant-tag-borderless ant-tag-volcano css-var-test-id"
-      >
-        volcano
-      </span>
-      <span
-        class="ant-tag ant-tag-borderless ant-tag-orange css-var-test-id"
-      >
-        orange
-      </span>
-      <span
-        class="ant-tag ant-tag-borderless ant-tag-gold css-var-test-id"
-      >
-        gold
-      </span>
-      <span
-        class="ant-tag ant-tag-borderless ant-tag-lime css-var-test-id"
-      >
-        lime
-      </span>
-      <span
-        class="ant-tag ant-tag-borderless ant-tag-green css-var-test-id"
-      >
-        green
-      </span>
-      <span
-        class="ant-tag ant-tag-borderless ant-tag-cyan css-var-test-id"
-      >
-        cyan
-      </span>
-      <span
-        class="ant-tag ant-tag-borderless ant-tag-blue css-var-test-id"
-      >
-        blue
-      </span>
-      <span
-        class="ant-tag ant-tag-borderless ant-tag-geekblue css-var-test-id"
-      >
-        geekblue
-      </span>
-      <span
-        class="ant-tag ant-tag-borderless ant-tag-purple css-var-test-id"
-      >
-        purple
-      </span>
-    </div>
-  </div>,
-  <div>
-    <div
-      class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
-      role="separator"
-    >
-      <span
-        class="ant-divider-inner-text"
-      >
         Presets (filled)
       </span>
     </div>
@@ -485,6 +414,77 @@ Array [
       </span>
       <span
         class="ant-tag ant-tag-filled ant-tag-purple css-var-test-id"
+      >
+        purple
+      </span>
+    </div>
+  </div>,
+  <div>
+    <div
+      class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+      role="separator"
+    >
+      <span
+        class="ant-divider-inner-text"
+      >
+        Presets (solid)
+      </span>
+    </div>
+    <div
+      class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
+    >
+      <span
+        class="ant-tag ant-tag-solid ant-tag-magenta css-var-test-id"
+      >
+        magenta
+      </span>
+      <span
+        class="ant-tag ant-tag-solid ant-tag-red css-var-test-id"
+      >
+        red
+      </span>
+      <span
+        class="ant-tag ant-tag-solid ant-tag-volcano css-var-test-id"
+      >
+        volcano
+      </span>
+      <span
+        class="ant-tag ant-tag-solid ant-tag-orange css-var-test-id"
+      >
+        orange
+      </span>
+      <span
+        class="ant-tag ant-tag-solid ant-tag-gold css-var-test-id"
+      >
+        gold
+      </span>
+      <span
+        class="ant-tag ant-tag-solid ant-tag-lime css-var-test-id"
+      >
+        lime
+      </span>
+      <span
+        class="ant-tag ant-tag-solid ant-tag-green css-var-test-id"
+      >
+        green
+      </span>
+      <span
+        class="ant-tag ant-tag-solid ant-tag-cyan css-var-test-id"
+      >
+        cyan
+      </span>
+      <span
+        class="ant-tag ant-tag-solid ant-tag-blue css-var-test-id"
+      >
+        blue
+      </span>
+      <span
+        class="ant-tag ant-tag-solid ant-tag-geekblue css-var-test-id"
+      >
+        geekblue
+      </span>
+      <span
+        class="ant-tag ant-tag-solid ant-tag-purple css-var-test-id"
       >
         purple
       </span>
@@ -569,32 +569,32 @@ Array [
       <span
         class="ant-divider-inner-text"
       >
-        Custom (borderless)
+        Custom (filled)
       </span>
     </div>
     <div
       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
     >
       <span
-        class="ant-tag ant-tag-borderless css-var-test-id"
+        class="ant-tag ant-tag-filled css-var-test-id"
         style="background-color: rgb(255, 238, 229); color: rgb(255, 85, 0);"
       >
         #f50
       </span>
       <span
-        class="ant-tag ant-tag-borderless css-var-test-id"
+        class="ant-tag ant-tag-filled css-var-test-id"
         style="background-color: rgb(232, 246, 253); color: rgb(45, 183, 245);"
       >
         #2db7f5
       </span>
       <span
-        class="ant-tag ant-tag-borderless css-var-test-id"
+        class="ant-tag ant-tag-filled css-var-test-id"
         style="background-color: rgb(240, 249, 236); color: rgb(135, 208, 104);"
       >
         #87d068
       </span>
       <span
-        class="ant-tag ant-tag-borderless css-var-test-id"
+        class="ant-tag ant-tag-filled css-var-test-id"
         style="background-color: rgb(230, 244, 254); color: rgb(16, 142, 233);"
       >
         #108ee9
@@ -609,32 +609,32 @@ Array [
       <span
         class="ant-divider-inner-text"
       >
-        Custom (filled)
+        Custom (solid)
       </span>
     </div>
     <div
       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
     >
       <span
-        class="ant-tag ant-tag-filled css-var-test-id"
+        class="ant-tag ant-tag-solid css-var-test-id"
         style="background-color: rgb(255, 85, 0);"
       >
         #f50
       </span>
       <span
-        class="ant-tag ant-tag-filled css-var-test-id"
+        class="ant-tag ant-tag-solid css-var-test-id"
         style="background-color: rgb(45, 183, 245);"
       >
         #2db7f5
       </span>
       <span
-        class="ant-tag ant-tag-filled css-var-test-id"
+        class="ant-tag ant-tag-solid css-var-test-id"
         style="background-color: rgb(135, 208, 104);"
       >
         #87d068
       </span>
       <span
-        class="ant-tag ant-tag-filled css-var-test-id"
+        class="ant-tag ant-tag-solid css-var-test-id"
         style="background-color: rgb(16, 142, 233);"
       >
         #108ee9
@@ -691,7 +691,7 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = 
   class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
 >
   <span
-    class="ant-tag ant-tag-borderless css-var-test-id"
+    class="ant-tag ant-tag-filled css-var-test-id"
     style="user-select: none;"
   >
     <span>
@@ -699,7 +699,7 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = 
     </span>
   </span>
   <span
-    class="ant-tag ant-tag-borderless css-var-test-id"
+    class="ant-tag ant-tag-filled css-var-test-id"
     style="user-select: none;"
   >
     <span>
@@ -728,7 +728,7 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = 
     </span>
   </span>
   <span
-    class="ant-tag ant-tag-borderless css-var-test-id"
+    class="ant-tag ant-tag-filled css-var-test-id"
     style="user-select: none;"
   >
     <span>
@@ -757,7 +757,7 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = 
     </span>
   </span>
   <span
-    class="ant-tag ant-tag-borderless css-var-test-id"
+    class="ant-tag ant-tag-filled css-var-test-id"
     style="height: 22px; background: rgb(255, 255, 255); border-style: dashed;"
   >
     <span
@@ -782,9 +782,7 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = 
         />
       </svg>
     </span>
-    <span
-      class=""
-    >
+    <span>
       New Tag
     </span>
   </span>
@@ -798,7 +796,7 @@ exports[`renders components/tag/demo/customize.tsx extend context correctly 1`] 
   class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
 >
   <span
-    class="ant-tag ant-tag-borderless css-var-test-id"
+    class="ant-tag ant-tag-filled css-var-test-id"
   >
     Tag1
     <span
@@ -808,7 +806,7 @@ exports[`renders components/tag/demo/customize.tsx extend context correctly 1`] 
     </span>
   </span>
   <span
-    class="ant-tag ant-tag-borderless css-var-test-id"
+    class="ant-tag ant-tag-filled css-var-test-id"
   >
     Tag2
     <span
@@ -846,12 +844,12 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
     class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <span
-      class="ant-tag ant-tag-borderless ant-tag-disabled css-var-test-id"
+      class="ant-tag ant-tag-filled ant-tag-disabled css-var-test-id"
     >
       Basic Tag
     </span>
     <span
-      class="ant-tag ant-tag-borderless ant-tag-disabled css-var-test-id"
+      class="ant-tag ant-tag-filled ant-tag-disabled css-var-test-id"
     >
       <a
         href="https://ant.design"
@@ -861,12 +859,12 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
     </span>
     <a
       aria-disabled="true"
-      class="ant-tag ant-tag-borderless ant-tag-disabled css-var-test-id"
+      class="ant-tag ant-tag-filled ant-tag-disabled css-var-test-id"
     >
       Href Tag
     </a>
     <span
-      class="ant-tag ant-tag-borderless ant-tag-success ant-tag-disabled css-var-test-id"
+      class="ant-tag ant-tag-filled ant-tag-success ant-tag-disabled css-var-test-id"
     >
       <span
         aria-label="check-circle"
@@ -890,9 +888,7 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
           />
         </svg>
       </span>
-      <span
-        class=""
-      >
+      <span>
         Icon Tag
       </span>
     </span>
@@ -901,27 +897,27 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
     class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <span
-      class="ant-tag ant-tag-borderless ant-tag-red ant-tag-disabled css-var-test-id"
+      class="ant-tag ant-tag-filled ant-tag-red ant-tag-disabled css-var-test-id"
     >
       Preset Color Red
     </span>
     <span
-      class="ant-tag ant-tag-borderless ant-tag-disabled css-var-test-id"
+      class="ant-tag ant-tag-filled ant-tag-disabled css-var-test-id"
     >
       Custom Color #f50 Outlined
     </span>
     <span
-      class="ant-tag ant-tag-filled ant-tag-disabled css-var-test-id"
+      class="ant-tag ant-tag-solid ant-tag-disabled css-var-test-id"
     >
       Custom Color #f50 Filled
     </span>
     <span
-      class="ant-tag ant-tag-borderless ant-tag-disabled css-var-test-id"
+      class="ant-tag ant-tag-filled ant-tag-disabled css-var-test-id"
     >
       Custom Color #f50 Borderless
     </span>
     <span
-      class="ant-tag ant-tag-borderless ant-tag-success ant-tag-disabled css-var-test-id"
+      class="ant-tag ant-tag-filled ant-tag-success ant-tag-disabled css-var-test-id"
     >
       Preset Status Success
     </span>
@@ -949,7 +945,7 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
     class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <span
-      class="ant-tag ant-tag-borderless ant-tag-disabled css-var-test-id"
+      class="ant-tag ant-tag-filled ant-tag-disabled css-var-test-id"
     >
       Closable Tag
       <span
@@ -975,7 +971,7 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
       </span>
     </span>
     <span
-      class="ant-tag ant-tag-borderless ant-tag-success ant-tag-disabled css-var-test-id"
+      class="ant-tag ant-tag-filled ant-tag-success ant-tag-disabled css-var-test-id"
     >
       <span
         aria-label="check-circle"
@@ -999,9 +995,7 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
           />
         </svg>
       </span>
-      <span
-        class=""
-      >
+      <span>
         Closable with Icon
       </span>
       <span
@@ -1027,7 +1021,7 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
       </span>
     </span>
     <span
-      class="ant-tag ant-tag-borderless ant-tag-disabled css-var-test-id"
+      class="ant-tag ant-tag-filled ant-tag-disabled css-var-test-id"
     >
       Closable with Custom Icon
       <span
@@ -1057,12 +1051,12 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
     class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <span
-      class="ant-tag ant-tag-borderless ant-tag-disabled css-var-test-id"
+      class="ant-tag ant-tag-filled ant-tag-disabled css-var-test-id"
     >
       Borderless Basic
     </span>
     <span
-      class="ant-tag ant-tag-borderless ant-tag-success ant-tag-disabled css-var-test-id"
+      class="ant-tag ant-tag-filled ant-tag-success ant-tag-disabled css-var-test-id"
     >
       <span
         aria-label="check-circle"
@@ -1086,14 +1080,12 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
           />
         </svg>
       </span>
-      <span
-        class=""
-      >
+      <span>
         Borderless with Icon
       </span>
     </span>
     <span
-      class="ant-tag ant-tag-borderless ant-tag-disabled css-var-test-id"
+      class="ant-tag ant-tag-filled ant-tag-disabled css-var-test-id"
     >
       Borderless Closable
       <span
@@ -1124,7 +1116,7 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
 
 exports[`renders components/tag/demo/disabled.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Tag] \`bordered={false}\` is deprecated. Please use \`variant="borderless"\` instead.",
+  "Warning: [antd: Tag] \`bordered={false}\` is deprecated. Please use \`variant="filled"\` instead.",
 ]
 `;
 
@@ -1178,7 +1170,7 @@ exports[`renders components/tag/demo/icon.tsx extend context correctly 1`] = `
   class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
 >
   <span
-    class="ant-tag ant-tag-borderless css-var-test-id"
+    class="ant-tag ant-tag-filled css-var-test-id"
     style="background-color: rgb(234, 243, 250); color: rgb(85, 172, 238);"
   >
     <span
@@ -1200,14 +1192,12 @@ exports[`renders components/tag/demo/icon.tsx extend context correctly 1`] = `
         />
       </svg>
     </span>
-    <span
-      class=""
-    >
+    <span>
       Twitter
     </span>
   </span>
   <span
-    class="ant-tag ant-tag-borderless css-var-test-id"
+    class="ant-tag ant-tag-filled css-var-test-id"
     style="background-color: rgb(253, 231, 231); color: rgb(205, 32, 31);"
   >
     <span
@@ -1229,14 +1219,12 @@ exports[`renders components/tag/demo/icon.tsx extend context correctly 1`] = `
         />
       </svg>
     </span>
-    <span
-      class=""
-    >
+    <span>
       Youtube
     </span>
   </span>
   <span
-    class="ant-tag ant-tag-borderless css-var-test-id"
+    class="ant-tag ant-tag-filled css-var-test-id"
     style="background-color: rgb(234, 239, 250); color: rgb(59, 89, 153);"
   >
     <span
@@ -1258,14 +1246,12 @@ exports[`renders components/tag/demo/icon.tsx extend context correctly 1`] = `
         />
       </svg>
     </span>
-    <span
-      class=""
-    >
+    <span>
       Facebook
     </span>
   </span>
   <span
-    class="ant-tag ant-tag-borderless css-var-test-id"
+    class="ant-tag ant-tag-filled css-var-test-id"
     style="background-color: rgb(234, 243, 250); color: rgb(85, 172, 238);"
   >
     <span
@@ -1287,9 +1273,7 @@ exports[`renders components/tag/demo/icon.tsx extend context correctly 1`] = `
         />
       </svg>
     </span>
-    <span
-      class=""
-    >
+    <span>
       LinkedIn
     </span>
   </span>
@@ -1300,172 +1284,6 @@ exports[`renders components/tag/demo/icon.tsx extend context correctly 2`] = `[]
 
 exports[`renders components/tag/demo/status.tsx extend context correctly 1`] = `
 Array [
-  <div>
-    <div
-      class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
-      role="separator"
-    >
-      <span
-        class="ant-divider-inner-text"
-      >
-        Status (borderless)
-      </span>
-    </div>
-    <div
-      class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
-    >
-      <span
-        class="ant-tag ant-tag-borderless ant-tag-success css-var-test-id"
-      >
-        <span
-          aria-label="check-circle"
-          class="anticon anticon-check-circle"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="check-circle"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0051.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-            <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-            />
-          </svg>
-        </span>
-        <span
-          class=""
-        >
-          success
-        </span>
-      </span>
-      <span
-        class="ant-tag ant-tag-borderless ant-tag-processing css-var-test-id"
-      >
-        <span
-          aria-label="sync"
-          class="anticon anticon-sync anticon-spin"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="sync"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M168 504.2c1-43.7 10-86.1 26.9-126 17.3-41 42.1-77.7 73.7-109.4S337 212.3 378 195c42.4-17.9 87.4-27 133.9-27s91.5 9.1 133.8 27A341.5 341.5 0 01755 268.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.7 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c0-6.7-7.7-10.5-12.9-6.3l-56.4 44.1C765.8 155.1 646.2 92 511.8 92 282.7 92 96.3 275.6 92 503.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8zm756 7.8h-60c-4.4 0-7.9 3.5-8 7.8-1 43.7-10 86.1-26.9 126-17.3 41-42.1 77.8-73.7 109.4A342.45 342.45 0 01512.1 856a342.24 342.24 0 01-243.2-100.8c-9.9-9.9-19.2-20.4-27.8-31.4l60.2-47a8 8 0 00-3-14.1l-175.7-43c-5-1.2-9.9 2.6-9.9 7.7l-.7 181c0 6.7 7.7 10.5 12.9 6.3l56.4-44.1C258.2 868.9 377.8 932 512.2 932c229.2 0 415.5-183.7 419.8-411.8a8 8 0 00-8-8.2z"
-            />
-          </svg>
-        </span>
-        <span
-          class=""
-        >
-          processing
-        </span>
-      </span>
-      <span
-        class="ant-tag ant-tag-borderless ant-tag-warning css-var-test-id"
-      >
-        <span
-          aria-label="exclamation-circle"
-          class="anticon anticon-exclamation-circle"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="exclamation-circle"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-            />
-            <path
-              d="M464 688a48 48 0 1096 0 48 48 0 10-96 0zm24-112h48c4.4 0 8-3.6 8-8V296c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8z"
-            />
-          </svg>
-        </span>
-        <span
-          class=""
-        >
-          warning
-        </span>
-      </span>
-      <span
-        class="ant-tag ant-tag-borderless ant-tag-error css-var-test-id"
-      >
-        <span
-          aria-label="close-circle"
-          class="anticon anticon-close-circle"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="close-circle"
-            fill="currentColor"
-            fill-rule="evenodd"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm0 76c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zm128.01 198.83c.03 0 .05.01.09.06l45.02 45.01a.2.2 0 01.05.09.12.12 0 010 .07c0 .02-.01.04-.05.08L557.25 512l127.87 127.86a.27.27 0 01.05.06v.02a.12.12 0 010 .07c0 .03-.01.05-.05.09l-45.02 45.02a.2.2 0 01-.09.05.12.12 0 01-.07 0c-.02 0-.04-.01-.08-.05L512 557.25 384.14 685.12c-.04.04-.06.05-.08.05a.12.12 0 01-.07 0c-.03 0-.05-.01-.09-.05l-45.02-45.02a.2.2 0 01-.05-.09.12.12 0 010-.07c0-.02.01-.04.06-.08L466.75 512 338.88 384.14a.27.27 0 01-.05-.06l-.01-.02a.12.12 0 010-.07c0-.03.01-.05.05-.09l45.02-45.02a.2.2 0 01.09-.05.12.12 0 01.07 0c.02 0 .04.01.08.06L512 466.75l127.86-127.86c.04-.05.06-.06.08-.06a.12.12 0 01.07 0z"
-            />
-          </svg>
-        </span>
-        <span
-          class=""
-        >
-          error
-        </span>
-      </span>
-      <span
-        class="ant-tag ant-tag-borderless ant-tag-default css-var-test-id"
-      >
-        <span
-          aria-label="clock-circle"
-          class="anticon anticon-clock-circle"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="clock-circle"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-            />
-            <path
-              d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
-            />
-          </svg>
-        </span>
-        <span
-          class=""
-        >
-          default
-        </span>
-      </span>
-    </div>
-  </div>,
   <div>
     <div
       class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
@@ -1505,9 +1323,7 @@ Array [
             />
           </svg>
         </span>
-        <span
-          class=""
-        >
+        <span>
           success
         </span>
       </span>
@@ -1533,9 +1349,7 @@ Array [
             />
           </svg>
         </span>
-        <span
-          class=""
-        >
+        <span>
           processing
         </span>
       </span>
@@ -1564,9 +1378,7 @@ Array [
             />
           </svg>
         </span>
-        <span
-          class=""
-        >
+        <span>
           warning
         </span>
       </span>
@@ -1593,9 +1405,7 @@ Array [
             />
           </svg>
         </span>
-        <span
-          class=""
-        >
+        <span>
           error
         </span>
       </span>
@@ -1624,9 +1434,163 @@ Array [
             />
           </svg>
         </span>
+        <span>
+          default
+        </span>
+      </span>
+    </div>
+  </div>,
+  <div>
+    <div
+      class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+      role="separator"
+    >
+      <span
+        class="ant-divider-inner-text"
+      >
+        Status (solid)
+      </span>
+    </div>
+    <div
+      class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
+    >
+      <span
+        class="ant-tag ant-tag-solid ant-tag-success css-var-test-id"
+      >
         <span
-          class=""
+          aria-label="check-circle"
+          class="anticon anticon-check-circle"
+          role="img"
         >
+          <svg
+            aria-hidden="true"
+            data-icon="check-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0051.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+            />
+          </svg>
+        </span>
+        <span>
+          success
+        </span>
+      </span>
+      <span
+        class="ant-tag ant-tag-solid ant-tag-processing css-var-test-id"
+      >
+        <span
+          aria-label="sync"
+          class="anticon anticon-sync anticon-spin"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="sync"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M168 504.2c1-43.7 10-86.1 26.9-126 17.3-41 42.1-77.7 73.7-109.4S337 212.3 378 195c42.4-17.9 87.4-27 133.9-27s91.5 9.1 133.8 27A341.5 341.5 0 01755 268.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.7 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c0-6.7-7.7-10.5-12.9-6.3l-56.4 44.1C765.8 155.1 646.2 92 511.8 92 282.7 92 96.3 275.6 92 503.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8zm756 7.8h-60c-4.4 0-7.9 3.5-8 7.8-1 43.7-10 86.1-26.9 126-17.3 41-42.1 77.8-73.7 109.4A342.45 342.45 0 01512.1 856a342.24 342.24 0 01-243.2-100.8c-9.9-9.9-19.2-20.4-27.8-31.4l60.2-47a8 8 0 00-3-14.1l-175.7-43c-5-1.2-9.9 2.6-9.9 7.7l-.7 181c0 6.7 7.7 10.5 12.9 6.3l56.4-44.1C258.2 868.9 377.8 932 512.2 932c229.2 0 415.5-183.7 419.8-411.8a8 8 0 00-8-8.2z"
+            />
+          </svg>
+        </span>
+        <span>
+          processing
+        </span>
+      </span>
+      <span
+        class="ant-tag ant-tag-solid ant-tag-warning css-var-test-id"
+      >
+        <span
+          aria-label="exclamation-circle"
+          class="anticon anticon-exclamation-circle"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="exclamation-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+            />
+            <path
+              d="M464 688a48 48 0 1096 0 48 48 0 10-96 0zm24-112h48c4.4 0 8-3.6 8-8V296c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8z"
+            />
+          </svg>
+        </span>
+        <span>
+          warning
+        </span>
+      </span>
+      <span
+        class="ant-tag ant-tag-solid ant-tag-error css-var-test-id"
+      >
+        <span
+          aria-label="close-circle"
+          class="anticon anticon-close-circle"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="close-circle"
+            fill="currentColor"
+            fill-rule="evenodd"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm0 76c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zm128.01 198.83c.03 0 .05.01.09.06l45.02 45.01a.2.2 0 01.05.09.12.12 0 010 .07c0 .02-.01.04-.05.08L557.25 512l127.87 127.86a.27.27 0 01.05.06v.02a.12.12 0 010 .07c0 .03-.01.05-.05.09l-45.02 45.02a.2.2 0 01-.09.05.12.12 0 01-.07 0c-.02 0-.04-.01-.08-.05L512 557.25 384.14 685.12c-.04.04-.06.05-.08.05a.12.12 0 01-.07 0c-.03 0-.05-.01-.09-.05l-45.02-45.02a.2.2 0 01-.05-.09.12.12 0 010-.07c0-.02.01-.04.06-.08L466.75 512 338.88 384.14a.27.27 0 01-.05-.06l-.01-.02a.12.12 0 010-.07c0-.03.01-.05.05-.09l45.02-45.02a.2.2 0 01.09-.05.12.12 0 01.07 0c.02 0 .04.01.08.06L512 466.75l127.86-127.86c.04-.05.06-.06.08-.06a.12.12 0 01.07 0z"
+            />
+          </svg>
+        </span>
+        <span>
+          error
+        </span>
+      </span>
+      <span
+        class="ant-tag ant-tag-solid ant-tag-default css-var-test-id"
+      >
+        <span
+          aria-label="clock-circle"
+          class="anticon anticon-clock-circle"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="clock-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+            />
+            <path
+              d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+            />
+          </svg>
+        </span>
+        <span>
           default
         </span>
       </span>
@@ -1671,9 +1635,7 @@ Array [
             />
           </svg>
         </span>
-        <span
-          class=""
-        >
+        <span>
           success
         </span>
       </span>
@@ -1699,9 +1661,7 @@ Array [
             />
           </svg>
         </span>
-        <span
-          class=""
-        >
+        <span>
           processing
         </span>
       </span>
@@ -1730,9 +1690,7 @@ Array [
             />
           </svg>
         </span>
-        <span
-          class=""
-        >
+        <span>
           warning
         </span>
       </span>
@@ -1759,9 +1717,7 @@ Array [
             />
           </svg>
         </span>
-        <span
-          class=""
-        >
+        <span>
           error
         </span>
       </span>
@@ -1790,9 +1746,7 @@ Array [
             />
           </svg>
         </span>
-        <span
-          class=""
-        >
+        <span>
           default
         </span>
       </span>
