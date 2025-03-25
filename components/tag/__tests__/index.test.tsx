@@ -293,6 +293,12 @@ describe('Tag', () => {
     expect(tagElement).not.toBeNull();
   });
 
+  it('legacy color inverse', () => {
+    const { container } = render(<Tag color="green-inverse">tag</Tag>);
+
+    console.log('>>>', container.innerHTML);
+  });
+
   describe('CheckableTagGroup', () => {
     it('should check single tag in group', async () => {
       const onChange = jest.fn();
