@@ -1,4 +1,6 @@
 import React from 'react';
+import { darkAlgorithm } from '@ant-design/compatible';
+import { createCache, StyleProvider } from '@ant-design/cssinjs';
 import { CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
 
 import Tag from '..';
@@ -283,6 +285,22 @@ describe('Tag', () => {
     expect(iconElement).toBeNull();
   });
 
+  it('should have variant className', () => {
+    const { container } = render(
+      <Tag color="#66ccff" variant="solid">
+        tag
+      </Tag>,
+    );
+    const tagElement = container.querySelector('.ant-tag-solid');
+    expect(tagElement).not.toBeNull();
+  });
+
+  it('legacy color inverse', () => {
+    const { container } = render(<Tag color="green-inverse">tag</Tag>);
+
+    expect(container.querySelector('.ant-tag-green')).toHaveClass('ant-tag-solid');
+  });
+
   describe('CheckableTagGroup', () => {
     it('should check single tag in group', async () => {
       const onChange = jest.fn();
@@ -357,5 +375,25 @@ describe('Tag', () => {
 
       expect(container.querySelector('.ant-tag-checkable-group')?.id).toBe('test-id');
     });
+  });
+
+  it('dark theme default', () => {
+    document.head.innerHTML = '';
+
+    render(
+      <StyleProvider cache={createCache()}>
+        <ConfigProvider
+          theme={{
+            algorithm: darkAlgorithm,
+          }}
+        >
+          <Tag variant="solid" color="default">
+            Tag
+          </Tag>
+        </ConfigProvider>
+      </StyleProvider>,
+    );
+
+    expect(document.head.innerHTML).toContain('--ant-tag-solid-text-color:#000;');
   });
 });

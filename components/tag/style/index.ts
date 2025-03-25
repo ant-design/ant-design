@@ -1,8 +1,10 @@
 import type React from 'react';
 import { unit } from '@ant-design/cssinjs';
-import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { FastColor } from '@ant-design/fast-color';
 
+import { AggregationColor } from '../../color-picker/color';
+import { isBright } from '../../color-picker/components/ColorPresets';
 import { resetComponent } from '../../style';
 import type { FullToken, GenStyleFn, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
@@ -18,6 +20,12 @@ export interface ComponentToken {
    * @descEN Default text color
    */
   defaultColor: string;
+
+  /**
+   * @desc 默认实心标签的文本色
+   * @descEN Default text color for solid tag.
+   */
+  solidTextColor: string;
 }
 
 export interface TagToken extends FullToken<'Tag'> {
@@ -35,21 +43,6 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
   const paddingInline = calc(tagPaddingHorizontal).sub(lineWidth).equal();
   const iconMarginInline = calc(paddingXXS).sub(lineWidth).equal();
 
-  const disabledStyle: CSSObject = {
-    color: token.colorTextDisabled,
-    cursor: 'not-allowed',
-    backgroundColor: token.colorBgContainerDisabled,
-    borderColor: token.colorBorderDisabled,
-    a: {
-      cursor: 'not-allowed',
-      pointerEvents: 'none',
-      color: token.colorTextDisabled,
-      '&:hover': {
-        color: token.colorTextDisabled,
-      },
-    },
-  };
-
   return {
     // Result
     [componentCls]: {
@@ -60,7 +53,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       fontSize: token.tagFontSize,
       lineHeight: token.tagLineHeight,
       whiteSpace: 'nowrap',
-      background: token.defaultBg,
+      backgroundColor: token.defaultBg,
       border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
       borderRadius: token.borderRadiusSM,
       opacity: 1,
@@ -86,22 +79,6 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 
         '&:hover': {
           color: token.colorTextHeading,
-        },
-      },
-
-      [`&${componentCls}-has-color`]: {
-        borderColor: 'transparent',
-
-        [`&${componentCls}-disabled`]: {
-          backgroundColor: `${token.colorBgContainerDisabled} !important`,
-          color: token.colorTextDisabled,
-          [`${componentCls}-close-icon`]: {
-            color: token.colorTextDisabled,
-          },
-        },
-
-        [`&, a, a:hover, ${token.iconCls}-close, ${token.iconCls}-close:hover`]: {
-          color: token.colorTextLightSolid,
         },
       },
 
@@ -171,13 +148,34 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         marginInlineStart: paddingInline,
       },
     },
-    [`${componentCls}-borderless`]: {
+
+    [`&${token.componentCls}-solid`]: {
       borderColor: 'transparent',
-      background: token.tagBorderlessBg,
+      color: token.colorTextLightSolid,
+      backgroundColor: token.colorBgSolid,
+
+      [`&${componentCls}-default`]: {
+        color: token.solidTextColor,
+      },
+    },
+
+    [`${componentCls}-filled`]: {
+      borderColor: 'transparent',
+      backgroundColor: token.tagBorderlessBg,
     },
 
     [`&${componentCls}-disabled`]: {
-      ...disabledStyle,
+      color: token.colorTextDisabled,
+      cursor: 'not-allowed',
+      backgroundColor: token.colorBgContainerDisabled,
+      a: {
+        cursor: 'not-allowed',
+        pointerEvents: 'none',
+        color: token.colorTextDisabled,
+        '&:hover': {
+          color: token.colorTextDisabled,
+        },
+      },
 
       'a&': {
         '&:hover, &:active': {
@@ -185,9 +183,15 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         },
       },
 
-      [`&${componentCls}-borderless, &${componentCls}-has-color`]: {
-        borderColor: 'transparent',
+      [`&${componentCls}-outlined`]: {
+        borderColor: token.colorBorderDisabled,
+      },
+
+      [`&${componentCls}-solid, &${componentCls}-filled`]: {
         color: token.colorTextDisabled,
+        [`${componentCls}-close-icon`]: {
+          color: token.colorTextDisabled,
+        },
       },
 
       [`${componentCls}-close-icon`]: {
@@ -215,12 +219,19 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Tag'>>[0]) => TagToken
   return tagToken;
 };
 
-export const prepareComponentToken: GetDefaultToken<'Tag'> = (token) => ({
-  defaultBg: new FastColor(token.colorFillQuaternary)
-    .onBackground(token.colorBgContainer)
-    .toHexString(),
-  defaultColor: token.colorText,
-});
+export const prepareComponentToken: GetDefaultToken<'Tag'> = (token) => {
+  const solidTextColor = isBright(new AggregationColor(token.colorBgSolid), '#fff')
+    ? '#000'
+    : '#fff';
+
+  return {
+    defaultBg: new FastColor(token.colorFillQuaternary)
+      .onBackground(token.colorBgContainer)
+      .toHexString(),
+    defaultColor: token.colorText,
+    solidTextColor,
+  };
+};
 
 export default genStyleHooks<'Tag'>(
   'Tag',
