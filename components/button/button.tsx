@@ -137,8 +137,8 @@ const InternalCompoundedButton = React.forwardRef<
     }
 
     // Sugar syntax
-    if (type) {
-      const colorVariantPair = ButtonTypeMap[type] || [];
+    if (type || danger) {
+      const colorVariantPair = ButtonTypeMap[mergedType] || [];
       if (danger) {
         return ['danger', colorVariantPair[1]];
       }
