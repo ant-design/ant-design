@@ -518,10 +518,9 @@ exports[`renders components/notification/demo/render-panel.tsx extend context co
         </div>
       </div>
     </div>
-    <a
+    <button
       aria-label="Close"
       class="ant-notification-notice-close"
-      tabindex="0"
     >
       <span
         aria-label="close"
@@ -543,7 +542,7 @@ exports[`renders components/notification/demo/render-panel.tsx extend context co
           />
         </svg>
       </span>
-    </a>
+    </button>
   </div>
 </div>
 `;
