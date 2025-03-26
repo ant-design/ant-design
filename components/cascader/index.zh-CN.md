@@ -63,6 +63,7 @@ demo:
 | popupClassName | 自定义浮层类名 | string | - | 4.23.0 |
 | ~~dropdownRender~~ | 自定义下拉框内容，请使用 `popupRender` 替换 | (menus: ReactNode) => ReactNode | - | 4.4.0 |
 | popupRender | 自定义下拉框内容 | (menus: ReactNode) => ReactNode | - |  |
+| ~~dropdownStyle~~ | 下拉菜单的 style 属性，使用 `styles.popup` 替换 | CSSProperties | - |  |
 | expandIcon | 自定义次级菜单展开图标 | ReactNode | - | 4.4.0 |
 | expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | string | `click` |  |
 | fieldNames | 自定义 options 中 label value children 的字段 | object | { label: `label`, value: `value`, children: `children` } |  |
@@ -85,8 +86,8 @@ demo:
 | value | 指定选中项 | string\[] \| number\[] | - |  |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | onChange | 选择完成后的回调 | (value, selectedOptions) => void | - |  |
-| ~~onDropdownVisibleChange~~ | 显示/隐藏浮层的回调，请使用 `onPopupVisibleChange` 替换 | (value) => void | - | 4.17.0 |
-| onPopupVisibleChange | 显示/隐藏浮层的回调 | (value) => void | - |  |
+| ~~onDropdownVisibleChange~~ | 显示/隐藏浮层的回调，请使用 `onOpenChange` 替换 | (value) => void | - | 4.17.0 |
+| onOpenChange | 显示/隐藏浮层的回调 | (value) => void | - |  |
 | multiple | 支持多选节点 | boolean | - | 4.17.0 |
 | showCheckedStrategy | 定义选中项回填的方式。`Cascader.SHOW_CHILD`: 只显示选中的子节点。`Cascader.SHOW_PARENT`: 只显示父节点（当父节点下所有子节点都选中时）。 | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | 4.20.0 |
 | removeIcon | 自定义的多选框清除图标 | ReactNode | - |  |
@@ -130,6 +131,10 @@ interface Option {
 | focus() | 获取焦点 |      |
 
 > 注意，如果需要获得中国省市区数据，可以参考 [china-division](https://gist.github.com/afc163/7582f35654fd03d5be7009444345ea17)。
+
+## 语义化 DOM（Semantic DOM）
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

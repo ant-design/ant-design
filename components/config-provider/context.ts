@@ -204,7 +204,8 @@ export type SpinConfig = ComponentStyleConfig & Pick<SpinProps, 'indicator'>;
 
 export type InputNumberConfig = ComponentStyleConfig & Pick<InputNumberProps, 'variant'>;
 
-export type CascaderConfig = ComponentStyleConfig & Pick<CascaderProps, 'variant'>;
+export type CascaderConfig = ComponentStyleConfig &
+  Pick<CascaderProps, 'variant' | 'styles' | 'classNames'>;
 
 export type TreeSelectConfig = ComponentStyleConfig & Pick<TreeSelectProps, 'variant'>;
 
