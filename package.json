@@ -147,7 +147,6 @@
     "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.11",
     "rc-checkbox": "~3.5.0",
-    "rc-notification": "~5.6.3",
     "rc-progress": "~4.0.0",
     "rc-rate": "~2.13.1",
     "rc-slider": "~11.1.8",

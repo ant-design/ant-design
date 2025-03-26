@@ -5,11 +5,13 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import { Notice } from '@rc-component/notification';
+import type { NoticeProps } from '@rc-component/notification/lib/Notice';
 import classNames from 'classnames';
-import { Notice } from 'rc-notification';
-import type { NoticeProps } from 'rc-notification/lib/Notice';
 
+import useClosable, { pickClosable } from '../_util/hooks/useClosable';
 import { devUseWarning } from '../_util/warning';
+import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { IconType, SemanticName } from './interface';
@@ -120,6 +122,7 @@ export interface PurePanelProps
   prefixCls?: string;
   classNames?: Record<SemanticName, string>;
   styles?: Record<SemanticName, React.CSSProperties>;
+  closeIcon?: React.ReactNode;
 }
 
 /** @private Internal Component. Do not use in your production. */
@@ -133,7 +136,6 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     description,
     btn,
     actions,
-    closable = true,
     closeIcon,
     className: notificationClassName,
     style,
@@ -148,6 +150,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     classNames: contextClassNames,
     styles: contextStyles,
   } = useComponentConfig('notification');
+  const { notification: notificationContext } = React.useContext(ConfigContext);
   const mergedActions = actions ?? btn;
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Notification');
@@ -164,6 +167,16 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
 
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+
+  const [mergedClosable, mergedCloseIcon, , ariaProps] = useClosable(
+    pickClosable(props),
+    pickClosable(notificationContext),
+    {
+      closable: true,
+      closeIcon: <CloseOutlined className={`${prefixCls}-close-icon`} />,
+      closeIconRender: (icon) => getCloseIcon(prefixCls, icon),
+    },
+  );
 
   return (
     <div
@@ -185,9 +198,8 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         prefixCls={prefixCls}
         eventKey="pure"
         duration={null}
-        closable={closable}
+        closable={mergedClosable ? { closeIcon: mergedCloseIcon, ...ariaProps } : mergedClosable}
         className={classNames(notificationClassName, contextClassName)}
-        closeIcon={getCloseIcon(prefixCls, closeIcon)}
         content={
           <PureContent
             classNames={{

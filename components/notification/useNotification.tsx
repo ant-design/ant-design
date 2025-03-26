@@ -1,8 +1,14 @@
 import React, { useContext } from 'react';
 import type { FC, PropsWithChildren } from 'react';
+import {
+  NotificationProvider,
+  useNotification as useRcNotification,
+} from '@rc-component/notification';
+import type {
+  NotificationAPI,
+  NotificationConfig as RcNotificationConfig,
+} from '@rc-component/notification';
 import classNames from 'classnames';
-import { NotificationProvider, useNotification as useRcNotification } from 'rc-notification';
-import type { NotificationAPI, NotificationConfig as RcNotificationConfig } from 'rc-notification';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
@@ -90,8 +96,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     style: getStyle,
     className: getClassName,
     motion: getNotificationMotion,
-    closable: true,
-    closeIcon: getCloseIcon(prefixCls),
+    closable: { closeIcon: getCloseIcon(prefixCls) },
     duration: duration ?? DEFAULT_DURATION,
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
@@ -179,6 +184,16 @@ export function useInternalNotification(
         getCloseIconConfig(closeIcon, notificationConfig, notification),
       );
 
+      const mergedClosable = () => {
+        if (typeof closable === 'object' && closable !== null) {
+          return { closeIcon: realCloseIcon, ...closable };
+        }
+        if (closable === undefined || closable === true) {
+          return { closeIcon: realCloseIcon };
+        }
+        return closable;
+      };
+
       return originOpen({
         // use placement from props instead of hard-coding "topRight"
         placement: notificationConfig?.placement ?? DEFAULT_PLACEMENT,
@@ -214,8 +229,7 @@ export function useInternalNotification(
           contextClassNames.root,
         ),
         style: { ...contextStyle, ...style, ...contextStyles.root, ...styles?.root },
-        closeIcon: realCloseIcon,
-        closable: closable ?? !!realCloseIcon,
+        closable: mergedClosable(),
       });
     };
 
