@@ -30,6 +30,7 @@ const Visualizer: React.FC<VisualizerProps> = (props) => {
 
   return (
     <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
+      <title>Cubic Bezier Visualizer</title>
       {/* 背景 */}
       <rect width="100%" height="100%" fill={token.colorBgContainer} />
 
