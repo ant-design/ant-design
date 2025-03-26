@@ -140,12 +140,13 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   }, [expand]);
 
   const mergedChildren = !iframe && clientOnly ? <ClientOnly>{children}</ClientOnly> : children;
+  const demoUrlWithTheme = `${demoUrl}${theme.includes('dark') ? '?theme=dark' : ''}`;
 
   if (!previewDemo.current) {
     previewDemo.current = iframe ? (
       <BrowserFrame>
         <iframe
-          src={demoUrl}
+          src={demoUrlWithTheme}
           height={iframe === true ? undefined : iframe}
           title="demo"
           className="iframe-demo"
@@ -445,7 +446,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 aria-label="open in new tab"
                 target="_blank"
                 rel="noreferrer"
-                href={demoUrl}
+                href={demoUrlWithTheme}
               >
                 <ExternalLinkIcon className="code-box-separate" />
               </a>
@@ -515,12 +516,12 @@ createRoot(document.getElementById('container')).render(<Demo />);
     const styleTag = document.createElement('style') as HTMLStyleElement;
     styleTag.type = 'text/css';
     styleTag.innerHTML = style;
-    (styleTag as any)['data-demo-url'] = demoUrl;
+    (styleTag as any)['data-demo-url'] = demoUrlWithTheme;
     document.head.appendChild(styleTag);
     return () => {
       document.head.removeChild(styleTag);
     };
-  }, [style, demoUrl]);
+  }, [style, demoUrlWithTheme]);
 
   if (version) {
     return (
