@@ -4,7 +4,7 @@ import type { ModalProps } from '..';
 import Modal from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { createEvent, fireEvent, render } from '../../../tests/utils';
+import { act, createEvent, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 jest.mock('@rc-component/util/lib/Portal');
