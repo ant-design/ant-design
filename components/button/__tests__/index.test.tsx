@@ -585,4 +585,41 @@ describe('Button', () => {
       '--ant-button-dashed-bg-disabled': 'rgba(0, 0, 0, 0.2)',
     });
   });
+
+  it('ConfigProvider support button variant', () => {
+    const { container } = render(
+      <ConfigProvider button={{ variant: 'dashed', color: 'blue' }}>
+        <Button>Button</Button>
+      </ConfigProvider>,
+    );
+
+    expect(container.firstChild).toHaveClass('ant-btn-variant-dashed');
+    expect(container.firstChild).toHaveClass('ant-btn-color-blue');
+  });
+
+  it('should show the component internal properties', () => {
+    const { container } = render(
+      <ConfigProvider button={{ variant: 'dashed', color: 'blue' }}>
+        <Button variant="filled" color="green">
+          Button
+        </Button>
+      </ConfigProvider>,
+    );
+
+    expect(container.firstChild).toHaveClass('ant-btn-variant-filled');
+    expect(container.firstChild).toHaveClass('ant-btn-color-green');
+  });
+
+  it('button type win the context', () => {
+    const { container } = render(
+      <ConfigProvider button={{ variant: 'dashed', color: 'green' }}>
+        <Button type="primary" danger>
+          Button
+        </Button>
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-btn-variant-solid')).toBeTruthy();
+    expect(container.querySelector('.ant-btn-color-dangerous')).toBeTruthy();
+  });
 });
