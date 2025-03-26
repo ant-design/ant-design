@@ -15,6 +15,7 @@ import type { CardMetaProps } from '../card/Meta';
 import type { CascaderProps } from '../cascader';
 import type { CheckboxProps } from '../checkbox';
 import type { CollapseProps } from '../collapse';
+import type { ColorPickerProps } from '../color-picker';
 import type { DatePickerProps, RangePickerProps } from '../date-picker';
 import type { DescriptionsProps } from '../descriptions';
 import type { DrawerProps } from '../drawer';
@@ -217,6 +218,9 @@ export type TagConfig = ComponentStyleConfig &
 export type CardConfig = ComponentStyleConfig &
   Pick<CardProps, 'classNames' | 'styles' | 'variant'>;
 
+export type ColorPickerConfig = ComponentStyleConfig &
+  Pick<ColorPickerProps, 'classNames' | 'styles'>;
+
 export type CalendarConfig = ComponentStyleConfig &
   Pick<CalendarProps<AnyObject>, 'classNames' | 'styles'>;
 
@@ -393,7 +397,7 @@ export interface ConfigComponentProps {
   upload?: UploadConfig;
   notification?: NotificationConfig;
   tree?: TreeConfig;
-  colorPicker?: ComponentStyleConfig;
+  colorPicker?: ColorPickerConfig;
   datePicker?: DatePickerConfig;
   rangePicker?: RangePickerConfig;
   ribbon?: RibbonConfig;
