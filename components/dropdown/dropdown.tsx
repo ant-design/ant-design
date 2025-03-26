@@ -1,12 +1,12 @@
 import * as React from 'react';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
+import RcDropdown from '@rc-component/dropdown';
 import type { AlignType } from '@rc-component/trigger';
 import useEvent from '@rc-component/util/lib/hooks/useEvent';
 import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
 import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import RcDropdown from '@rc-component/dropdown';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import isPrimitive from '../_util/isPrimitive';
@@ -47,7 +47,9 @@ export interface DropdownProps {
   autoFocus?: boolean;
   arrow?: boolean | DropdownArrowOptions;
   trigger?: ('click' | 'hover' | 'contextMenu')[];
+  /** @deprecated Please use `popupRender` instead */
   dropdownRender?: (originNode: React.ReactNode) => React.ReactNode;
+  popupRender?: (originNode: React.ReactNode) => React.ReactNode;
   onOpenChange?: (open: boolean, info: { source: 'trigger' | 'menu' }) => void;
   open?: boolean;
   disabled?: boolean;
@@ -82,6 +84,7 @@ const Dropdown: CompoundedComponent = (props) => {
     trigger,
     disabled,
     dropdownRender,
+    popupRender,
     getPopupContainer,
     className,
     overlayClassName,
@@ -89,7 +92,6 @@ const Dropdown: CompoundedComponent = (props) => {
     overlayStyle,
     open,
     onOpenChange,
-    // Deprecated
     mouseEnterDelay = 0.15,
     mouseLeaveDelay = 0.1,
     autoAdjustOverflow = true,
@@ -103,8 +105,27 @@ const Dropdown: CompoundedComponent = (props) => {
     dropdown,
   } = React.useContext(ConfigContext);
 
-  // Warning for deprecated usage
+  const mergedPopupRender = popupRender || dropdownRender;
+
+  // =================== Warning =====================
   const warning = devUseWarning('Dropdown');
+  if (process.env.NODE_ENV !== 'production') {
+    const deprecatedProps = {
+      dropdownRender: 'popupRender',
+    };
+
+    Object.entries(deprecatedProps).forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
+
+    if (placement.includes('Center')) {
+      warning.deprecated(
+        !placement.includes('Center'),
+        `placement: ${placement}`,
+        `placement: ${placement.slice(0, placement.indexOf('Center'))}`,
+      );
+    }
+  }
 
   const memoTransitionName = React.useMemo<string>(() => {
     const rootPrefixCls = getPrefixCls();
@@ -130,17 +151,6 @@ const Dropdown: CompoundedComponent = (props) => {
     return placement as DropdownPlacement;
   }, [placement, direction]);
 
-  if (process.env.NODE_ENV !== 'production') {
-    if (placement.includes('Center')) {
-      const newPlacement = placement.slice(0, placement.indexOf('Center')) as DropdownPlacement;
-      warning(
-        !placement.includes('Center'),
-        'deprecated',
-        `You are using '${placement}' placement in Dropdown, which is deprecated. Try to use '${newPlacement}' instead.`,
-      );
-    }
-  }
-
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
@@ -154,7 +164,7 @@ const Dropdown: CompoundedComponent = (props) => {
     disabled?: boolean;
   }>;
 
-  const dropdownTrigger = cloneElement(child, {
+  const popupTrigger = cloneElement(child, {
     className: classNames(
       `${prefixCls}-trigger`,
       {
@@ -213,8 +223,8 @@ const Dropdown: CompoundedComponent = (props) => {
     if (menu?.items) {
       overlayNode = <Menu {...menu} />;
     }
-    if (dropdownRender) {
-      overlayNode = dropdownRender(overlayNode);
+    if (mergedPopupRender) {
+      overlayNode = mergedPopupRender(overlayNode);
     }
     overlayNode = React.Children.only(
       typeof overlayNode === 'string' ? <span>{overlayNode}</span> : overlayNode,
@@ -272,7 +282,7 @@ const Dropdown: CompoundedComponent = (props) => {
       onVisibleChange={onInnerOpenChange}
       overlayStyle={{ ...dropdown?.style, ...overlayStyle, zIndex }}
     >
-      {dropdownTrigger}
+      {popupTrigger}
     </RcDropdown>
   );
 

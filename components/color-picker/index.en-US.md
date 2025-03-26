@@ -104,6 +104,10 @@ type PresetColorType = {
 | toRgb | Convert to `rgb` object  | `() => ({ r: number, g: number, b: number, a number })` | - |
 | toRgbString | Convert to `rgb` format color string, the return type like: `rgb(22, 119, 255)` | `() => string` | - |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## FAQ
 
 ### Questions about color assignment

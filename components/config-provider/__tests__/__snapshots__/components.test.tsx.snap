@@ -29528,7 +29528,7 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
 exports[`ConfigProvider components Tags configProvider 1`] = `
 <div>
   <span
-    class="config-tag css-var-root"
+    class="config-tag config-tag-filled css-var-root"
   >
     Bamboo
   </span>
@@ -29543,7 +29543,7 @@ exports[`ConfigProvider components Tags configProvider 1`] = `
 exports[`ConfigProvider components Tags configProvider componentDisabled 1`] = `
 <div>
   <span
-    class="config-tag config-tag-disabled css-var-root"
+    class="config-tag config-tag-filled config-tag-disabled css-var-root"
   >
     Bamboo
   </span>
@@ -29558,7 +29558,7 @@ exports[`ConfigProvider components Tags configProvider componentDisabled 1`] = `
 exports[`ConfigProvider components Tags configProvider componentSize large 1`] = `
 <div>
   <span
-    class="config-tag css-var-root"
+    class="config-tag config-tag-filled css-var-root"
   >
     Bamboo
   </span>
@@ -29573,7 +29573,7 @@ exports[`ConfigProvider components Tags configProvider componentSize large 1`] =
 exports[`ConfigProvider components Tags configProvider componentSize middle 1`] = `
 <div>
   <span
-    class="config-tag css-var-root"
+    class="config-tag config-tag-filled css-var-root"
   >
     Bamboo
   </span>
@@ -29588,7 +29588,7 @@ exports[`ConfigProvider components Tags configProvider componentSize middle 1`] 
 exports[`ConfigProvider components Tags configProvider componentSize small 1`] = `
 <div>
   <span
-    class="config-tag css-var-root"
+    class="config-tag config-tag-filled css-var-root"
   >
     Bamboo
   </span>
@@ -29603,7 +29603,7 @@ exports[`ConfigProvider components Tags configProvider componentSize small 1`] =
 exports[`ConfigProvider components Tags normal 1`] = `
 <div>
   <span
-    class="ant-tag css-var-root"
+    class="ant-tag ant-tag-filled css-var-root"
   >
     Bamboo
   </span>
@@ -29618,7 +29618,7 @@ exports[`ConfigProvider components Tags normal 1`] = `
 exports[`ConfigProvider components Tags prefixCls 1`] = `
 <div>
   <span
-    class="prefix-Tags css-var-root"
+    class="prefix-Tags prefix-Tags-filled css-var-root"
   >
     Bamboo
   </span>

@@ -76,7 +76,6 @@ const genPurePanel = <ComponentProps extends BaseProps = BaseProps>(
         margin: 0,
       },
       open,
-      visible: open,
       getPopupContainer: () => holderRef.current!,
     };
 

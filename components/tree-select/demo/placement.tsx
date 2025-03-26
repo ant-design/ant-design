@@ -56,7 +56,7 @@ const App: React.FC = () => {
 
       <TreeSelect
         showSearch
-        popupStyle={{ maxHeight: 400, overflow: 'auto', minWidth: 300 }}
+        styles={{ popup: { maxHeight: 400, overflow: 'auto', minWidth: 300 } }}
         placeholder="Please select"
         popupMatchSelectWidth={false}
         placement={placement}

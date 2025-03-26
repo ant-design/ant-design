@@ -1,11 +1,12 @@
 import React from 'react';
+import { SmileOutlined } from '@ant-design/icons';
 
 import TreeSelect, { TreeNode } from '..';
 import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render } from '../../../tests/utils';
+import { render, fireEvent } from '../../../tests/utils';
 
 describe('TreeSelect', () => {
   focusTest(TreeSelect, { refFocus: true });
@@ -54,7 +55,33 @@ describe('TreeSelect', () => {
     expect(container.querySelector('.ant-select-empty')?.innerHTML).toBe(content);
   });
 
-  it('warning for legacy dropdownMatchSelectWidth', () => {
+  it('legacy popupClassName', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<TreeSelect popupClassName="legacy" open />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: TreeSelect] `popupClassName` is deprecated. Please use `classNames.popup` instead.',
+    );
+    expect(container.querySelector('.legacy')).toBeTruthy();
+
+    errSpy.mockRestore();
+  });
+
+  it('legacy dropdownClassName', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<TreeSelect dropdownClassName="legacy" open />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: TreeSelect] `dropdownClassName` is deprecated. Please use `classNames.popup` instead.',
+    );
+    expect(container.querySelector('.legacy')).toBeTruthy();
+
+    errSpy.mockRestore();
+  });
+
+  it('legacy dropdownMatchSelectWidth', () => {
     resetWarned();
 
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -62,6 +89,52 @@ describe('TreeSelect', () => {
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: TreeSelect] `dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
     );
+
+    errSpy.mockRestore();
+  });
+
+  it('legacy dropdownStyle', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<TreeSelect dropdownStyle={{ color: 'red' }} open />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: TreeSelect] `dropdownStyle` is deprecated. Please use `styles.popup` instead.',
+    );
+    expect(container.querySelector('.ant-select-dropdown')).toBeTruthy();
+
+    errSpy.mockRestore();
+  });
+
+  it('legacy dropdownRender', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(
+      <TreeSelect dropdownRender={(menu) => <div className="custom-dropdown">{menu}</div>} open />,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: TreeSelect] `dropdownRender` is deprecated. Please use `popupRender` instead.',
+    );
+    expect(container.querySelector('.custom-dropdown')).toBeTruthy();
+
+    errSpy.mockRestore();
+  });
+
+  it('legacy onDropdownVisibleChange', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const onDropdownVisibleChange = jest.fn();
+
+    const { container } = render(<TreeSelect onDropdownVisibleChange={onDropdownVisibleChange} />);
+
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: TreeSelect] `onDropdownVisibleChange` is deprecated. Please use `onOpenChange` instead.',
+    );
+
+    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    expect(onDropdownVisibleChange).toHaveBeenCalled();
 
     errSpy.mockRestore();
   });
@@ -89,5 +162,85 @@ describe('TreeSelect', () => {
     expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
 
     errSpy.mockRestore();
+  });
+  it('support classNames and styles', () => {
+    const treeData = [
+      {
+        value: 'parent 1',
+        title: 'parent 1',
+        children: [
+          {
+            value: 'parent 1-0',
+            title: 'parent 1-0',
+            children: [
+              {
+                value: 'leaf1',
+                title: 'my leaf',
+              },
+              {
+                value: 'leaf2',
+                title: 'your leaf',
+              },
+            ],
+          },
+        ],
+      },
+    ];
+    const customClassNames = {
+      root: 'test-root',
+      prefix: 'test-prefix',
+      input: 'test-input',
+      suffix: 'test-suffix',
+      item: 'test-item',
+      itemTitle: 'test-item-title',
+      popup: 'test-popup',
+    };
+    const customStyles = {
+      root: { backgroundColor: 'red' },
+      prefix: { color: 'green' },
+      input: { color: 'blue' },
+      suffix: { color: 'yellow' },
+      item: { color: 'black' },
+      itemTitle: { color: 'purple' },
+      popup: { color: 'orange' },
+    };
+    const { container } = render(
+      <TreeSelect
+        classNames={customClassNames}
+        styles={customStyles}
+        showSearch
+        prefix="Prefix"
+        open
+        suffixIcon={<SmileOutlined />}
+        placeholder="Please select"
+        treeDefaultExpandAll
+        treeData={treeData}
+      />,
+    );
+    const prefix = container.querySelector('.ant-select-prefix');
+    const input = container.querySelector('.ant-select-selection-search-input');
+    const suffix = container.querySelector('.ant-select-arrow');
+    const popup = container.querySelector('.ant-tree-select-dropdown');
+    const itemTitle = container.querySelector('.ant-select-tree-title');
+    const root = container.querySelector('.ant-tree-select-dropdown');
+    const selectRoot = container.querySelector('.ant-tree-select');
+
+    const item = container.querySelector(`.${customClassNames.item}`);
+    expect(prefix).toHaveClass(customClassNames.prefix);
+    expect(input).toHaveClass(customClassNames.input);
+    expect(suffix).toHaveClass(customClassNames.suffix);
+    expect(popup).toHaveClass(customClassNames.popup);
+    expect(itemTitle).toHaveClass(customClassNames.itemTitle);
+    expect(root).toHaveClass(customClassNames.root);
+    expect(selectRoot).toHaveClass(customClassNames.root);
+
+    expect(prefix).toHaveStyle(customStyles.prefix);
+    expect(input).toHaveStyle(customStyles.input);
+    expect(suffix).toHaveStyle(customStyles.suffix);
+    expect(popup).toHaveStyle(customStyles.popup);
+    expect(itemTitle).toHaveStyle(customStyles.itemTitle);
+    expect(root).toHaveStyle(customStyles.root);
+    expect(selectRoot).toHaveStyle(customStyles.root);
+    expect(item).toHaveStyle(customStyles.item);
   });
 });
