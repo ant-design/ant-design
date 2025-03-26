@@ -49,7 +49,10 @@ const Modal: React.FC<ModalProps> = (props) => {
   } = React.useContext(ConfigContext);
 
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const { onCancel } = props;
+    const { onCancel, confirmLoading } = props;
+    if (confirmLoading) {
+      return;
+    }
     onCancel?.(e);
   };
 
