@@ -147,11 +147,11 @@ const InternalCompoundedButton = React.forwardRef<
 
     // >>> Context fallback
     if (button?.color && button?.variant) {
-      return [button?.color, button?.variant];
+      return [button.color, button.variant];
     }
 
     return ['default', 'outlined'];
-  }, [type, color, variant, danger]);
+  }, [type, color, variant, danger, button?.variant, button?.color]);
 
   const isDanger = mergedColor === 'danger';
   const mergedColorText = isDanger ? 'dangerous' : mergedColor;
@@ -302,9 +302,10 @@ const InternalCompoundedButton = React.forwardRef<
     cssVarCls,
     {
       [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
-      // line(253 - 254): Compatible with versions earlier than 5.21.0
+      // Compatible with versions earlier than 5.21.0
       [`${prefixCls}-${mergedType}`]: mergedType,
       [`${prefixCls}-dangerous`]: danger,
+
       [`${prefixCls}-color-${mergedColorText}`]: mergedColorText,
       [`${prefixCls}-variant-${mergedVariant}`]: mergedVariant,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
