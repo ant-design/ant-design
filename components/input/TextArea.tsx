@@ -55,6 +55,9 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     style,
     styles,
     variant: customVariant,
+    showCount,
+    onMouseDown,
+    onResize,
     ...rest
   } = props;
 
@@ -74,11 +77,11 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     styles: contextStyles,
   } = useComponentConfig('textArea');
 
-  // ===================== Disabled =====================
+  // =================== Disabled ===================
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
 
-  // ===================== Status =====================
+  // ==================== Status ====================
   const {
     status: contextStatus,
     hasFeedback,
@@ -86,7 +89,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   } = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
-  // ===================== Ref =====================
+  // ===================== Ref ======================
   const innerRef = React.useRef<RcTextAreaRef>(null);
 
   React.useImperativeHandle(ref, () => ({
@@ -99,12 +102,12 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('input', customizePrefixCls);
 
-  // ===================== Style =====================
+  // ==================== Style =====================
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapSharedCSSVar, hashId, cssVarCls] = useSharedStyle(prefixCls, rootClassName);
   const [wrapCSSVar] = useStyle(prefixCls, rootCls);
 
-  // ===================== Compact Item =====================
+  // ================= Compact Item =================
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   // ===================== Size =====================
@@ -114,6 +117,39 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
 
   const mergedAllowClear = getAllowClear(allowClear ?? contextAllowClear);
 
+  // ==================== Resize ====================
+  // https://github.com/ant-design/ant-design/issues/51594
+  const [isMouseDown, setIsMouseDown] = React.useState(false);
+
+  // When has wrapper, resize will make as dirty for `resize: both` style
+  const [resizeDirty, setResizeDirty] = React.useState(false);
+
+  const onInternalMouseDown: typeof onMouseDown = (e) => {
+    setIsMouseDown(true);
+    onMouseDown?.(e);
+
+    const onMouseUp = () => {
+      setIsMouseDown(false);
+      document.removeEventListener('mouseup', onMouseUp);
+    };
+
+    document.addEventListener('mouseup', onMouseUp);
+  };
+
+  const onInternalResize: RcTextAreaProps['onResize'] = (size) => {
+    onResize?.(size);
+
+    // Change to dirty since this maybe from the `resize: both` style
+    if (isMouseDown && typeof getComputedStyle === 'function') {
+      const ele = innerRef.current?.nativeElement?.querySelector('textarea');
+
+      if (ele && getComputedStyle(ele).resize === 'both') {
+        setResizeDirty(true);
+      }
+    }
+  };
+
+  // ==================== Render ====================
   return wrapSharedCSSVar(
     wrapCSSVar(
       <RcTextArea
@@ -130,6 +166,8 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
           rootClassName,
           compactItemClassnames,
           contextClassName,
+          // Only for wrapper
+          resizeDirty && `${prefixCls}-textarea-affix-wrapper-resize-dirty`,
         )}
         classNames={{
           ...classes,
@@ -142,6 +180,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
             hashId,
             classes?.textarea,
             contextClassNames.textarea,
+            isMouseDown && `${prefixCls}-mouse-active`,
           ),
           variant: classNames(
             {
@@ -155,7 +194,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
               [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
               [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
               [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
-              [`${prefixCls}-textarea-show-count`]: props.showCount || props.count?.show,
+              [`${prefixCls}-textarea-show-count`]: showCount || props.count?.show,
             },
             hashId,
           ),
@@ -164,7 +203,10 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
         suffix={
           hasFeedback && <span className={`${prefixCls}-textarea-suffix`}>{feedbackIcon}</span>
         }
+        showCount={showCount}
         ref={innerRef}
+        onResize={onInternalResize}
+        onMouseDown={onInternalMouseDown}
       />,
     ),
   );

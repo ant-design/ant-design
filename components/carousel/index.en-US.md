@@ -23,7 +23,7 @@ demo:
 <code src="./demo/autoplay.tsx">Scroll automatically</code>
 <code src="./demo/fade.tsx">Fade in</code>
 <code src="./demo/arrows.tsx" version="5.17.0">Arrows for switching</code>
-<code src="./demo/dot-duration.tsx">Progress of dots</code>
+<code src="./demo/dot-duration.tsx" version="5.24.0">Progress of dots</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
@@ -33,7 +33,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | arrows | Whether to show switch arrows | boolean | false | 5.17.0 |
-| autoplay | Whether to scroll automatically, you can specify `autoplay={{ dotDuration: true }}` to display the progress bar | boolean \| { dotDuration?: boolean } | false |  |
+| autoplay | Whether to scroll automatically, you can specify `autoplay={{ dotDuration: true }}` to display the progress bar | boolean \| { dotDuration?: boolean } | false | dotDuration: 5.24.0 |
 | autoplaySpeed | Delay between each auto scroll (in milliseconds) | number | 3000 |  |
 | adaptiveHeight | Adjust the slide's height automatically | boolean | false |  |
 | dotPosition | The position of the dots, which can be one of `top` `bottom` `left` `right` | string | `bottom` |  |

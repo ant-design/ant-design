@@ -32,7 +32,7 @@ const useLazyKVMap = <RecordType extends AnyObject = AnyObject>(
           kvMap.set(rowKey, record);
 
           if (record && typeof record === 'object' && childrenColumnName in record) {
-            dig((record as any)[childrenColumnName] || []);
+            dig(record[childrenColumnName] || []);
           }
         });
       }

@@ -679,6 +679,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
             >
               <button
                 class="ant-input-clear-icon"
+                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2664,7 +2665,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-compact-item"
+        class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-compact-item"
         type="button"
       >
         <span>
@@ -4682,7 +4683,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+        class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link"
         type="button"
       >
         <span>
