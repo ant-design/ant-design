@@ -234,6 +234,8 @@ describe('Modal', () => {
   });
 
   it('Should not close modal when confirmLoading is loading', async () => {
+    jest.useFakeTimers();
+
     // Demo component to control loading
     const Demo: React.FC<ModalProps> = ({ onCancel = () => {}, onOk = () => {} }) => {
       const [loading, setLoading] = React.useState<boolean>(false);
@@ -262,6 +264,9 @@ describe('Modal', () => {
     fireEvent.click(okButton);
     expect(okButton).toHaveClass('ant-btn-loading');
 
+    jest.runAllTimers();
+    await Promise.resolve();
+
     // Attempting to close modal
     fireEvent.click(document.body.querySelectorAll('.ant-modal-close')[0]);
     fireEvent.click(document.body.querySelectorAll('.ant-modal-wrap')[0]);
@@ -270,8 +275,7 @@ describe('Modal', () => {
     expect(onCancel).not.toHaveBeenCalled();
     expect(onCancel).toHaveBeenCalledTimes(0);
 
-    // Optionally, you might want to wait for the promise to resolve
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    jest.useRealTimers();
 
     // Ensure onOk was called after loading finished
     expect(onOk).toHaveBeenCalled();
