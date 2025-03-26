@@ -40,6 +40,7 @@ import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
 import type { TreeSelectProps } from '../tree-select';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
+import { AutoCompleteProps } from '../auto-complete';
 
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
@@ -216,6 +217,9 @@ export type TimePickerConfig = ComponentStyleConfig & Pick<TimePickerProps, 'var
 
 export type MentionsConfig = ComponentStyleConfig & Pick<MentionsProps, 'variant'>;
 
+export type AutoCompleteConfig = ComponentStyleConfig &
+  Pick<AutoCompleteProps, 'styles' | 'classNames'>;
+
 export type PopupOverflow = 'viewport' | 'scroll';
 
 export interface ListConfig extends ComponentStyleConfig {
@@ -304,6 +308,7 @@ export interface ConfigComponentProps {
   rangePicker?: RangePickerConfig;
   dropdown?: ComponentStyleConfig;
   flex?: FlexConfig;
+  autoComplete?: AutoCompleteConfig;
   wave?: WaveConfig;
 }
 

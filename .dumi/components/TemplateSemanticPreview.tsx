@@ -52,12 +52,9 @@ export interface TemplateSemanticPreviewProps {
 const TemplateSemanticPreview: React.FC<TemplateSemanticPreviewProps> = ({
   component,
   defaultValue,
-  options = [
-    { value: 'aojunhao123', label: 'aojunhao123' },
-    { value: 'thinkasany', label: 'thinkasany' },
-  ],
-  height = 200,
-  style = { width: 200 },
+  options,
+  height,
+  style,
   ...restProps
 }) => {
   const [locale] = useLocale(locales);
