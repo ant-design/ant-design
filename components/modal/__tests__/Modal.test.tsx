@@ -4,7 +4,7 @@ import type { ModalProps } from '..';
 import Modal from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { createEvent, fireEvent, render } from '../../../tests/utils';
+import { act, createEvent, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 jest.mock('@rc-component/util/lib/Portal');
@@ -265,5 +265,58 @@ describe('Modal', () => {
     expect(titleElement.style.fontSize).toBe('20px');
     expect(bodyElement.style.color).toBe('green');
     expect(footerElement.style.color).toBe('yellow');
+  });
+
+  it('Should not close modal when confirmLoading is loading', async () => {
+    jest.useFakeTimers();
+
+    const Demo: React.FC<ModalProps> = ({ onCancel = () => {}, onOk = () => {} }) => {
+      const [loading, setLoading] = React.useState<boolean>(false);
+      const handleOk = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setLoading(true);
+        return new Promise<void>((resolve) => {
+          setTimeout(() => {
+            setLoading(false);
+            onOk(event);
+            resolve();
+          }, 1000);
+        });
+      };
+
+      return <Modal open confirmLoading={loading} onCancel={onCancel} onOk={handleOk} />;
+    };
+
+    const onCancel = jest.fn();
+    const onOk = jest.fn();
+
+    render(<Demo onCancel={onCancel} onOk={onOk} />);
+
+    const okButton = document.body.querySelectorAll('.ant-btn')[1];
+    fireEvent.click(okButton);
+    expect(okButton).toHaveClass('ant-btn-loading');
+
+    const closeButton = document.body.querySelectorAll('.ant-modal-close')[0];
+    const modalWrap = document.body.querySelectorAll('.ant-modal-wrap')[0];
+
+    fireEvent.click(closeButton);
+    fireEvent.click(modalWrap);
+
+    await act(async () => {
+      await waitFakeTimer(500);
+    });
+
+    expect(onCancel).not.toHaveBeenCalled();
+
+    await act(async () => {
+      await waitFakeTimer(1000);
+    });
+
+    fireEvent.click(closeButton);
+    fireEvent.click(modalWrap);
+
+    expect(onCancel).toHaveBeenCalled();
+    expect(onOk).toHaveBeenCalled();
+
+    jest.useRealTimers();
   });
 });
