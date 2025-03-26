@@ -139,7 +139,6 @@ const genPaginationDisabledStyle: GenerateStyle<PaginationToken, CSSObject> = (t
       cursor: 'not-allowed',
       [`${componentCls}-item`]: {
         cursor: 'not-allowed',
-
         backgroundColor: 'transparent',
 
         '&:hover, &:active': {
