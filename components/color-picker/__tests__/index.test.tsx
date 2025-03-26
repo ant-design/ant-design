@@ -1005,4 +1005,24 @@ describe('ColorPicker', () => {
       background: 'rgb(255, 0, 0)',
     });
   });
+
+  it('support classNames and styles', () => {
+    const testClassNames = {
+      root: 'test-root',
+      popup: 'test-popup',
+    };
+    const testStyles = {
+      root: { color: 'red' },
+      popup: { color: 'green' },
+    };
+    const { container } = render(
+      <ColorPicker defaultValue="red" open classNames={testClassNames} styles={testStyles} />,
+    );
+    const root = container.querySelector('.ant-color-picker-trigger');
+    const popup = container.querySelector('.ant-color-picker');
+    expect(root).toHaveClass(testClassNames.root);
+    expect(popup).toHaveClass(testClassNames.popup);
+    expect(root).toHaveStyle(testStyles.root);
+    expect(popup).toHaveStyle(testStyles.popup);
+  });
 });
