@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import isValidNode from '../_util/isValidNode';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
-import { useComponentConfig } from '../config-provider/context';
+import { ConfigContext, useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -129,20 +129,31 @@ const InternalCompoundedButton = React.forwardRef<
   // https://github.com/ant-design/ant-design/issues/47605
   // Compatible with original `type` behavior
   const mergedType = type || 'default';
+  const { button } = React.useContext(ConfigContext);
 
   const [mergedColor, mergedVariant] = useMemo<ColorVariantPairType>(() => {
+    // >>>>> Local
+    // Color & Variant
     if (color && variant) {
       return [color, variant];
     }
 
-    const colorVariantPair = ButtonTypeMap[mergedType] || [];
-
-    if (danger) {
-      return ['danger', colorVariantPair[1]];
+    // Sugar syntax
+    if (type || danger) {
+      const colorVariantPair = ButtonTypeMap[mergedType] || [];
+      if (danger) {
+        return ['danger', colorVariantPair[1]];
+      }
+      return colorVariantPair;
     }
 
-    return colorVariantPair;
-  }, [type, color, variant, danger]);
+    // >>> Context fallback
+    if (button?.color && button?.variant) {
+      return [button.color, button.variant];
+    }
+
+    return ['default', 'outlined'];
+  }, [type, color, variant, danger, button?.variant, button?.color]);
 
   const isDanger = mergedColor === 'danger';
   const mergedColorText = isDanger ? 'dangerous' : mergedColor;
@@ -293,9 +304,10 @@ const InternalCompoundedButton = React.forwardRef<
     cssVarCls,
     {
       [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
-      // line(253 - 254): Compatible with versions earlier than 5.21.0
+      // Compatible with versions earlier than 5.21.0
       [`${prefixCls}-${mergedType}`]: mergedType,
       [`${prefixCls}-dangerous`]: danger,
+
       [`${prefixCls}-color-${mergedColorText}`]: mergedColorText,
       [`${prefixCls}-variant-${mergedVariant}`]: mergedVariant,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
