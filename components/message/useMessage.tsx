@@ -1,6 +1,4 @@
 import * as React from 'react';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import classNames from 'classnames';
 import {
   NotificationProvider,
   useNotification as useRcNotification,
@@ -9,6 +7,7 @@ import type {
   NotificationAPI,
   NotificationConfig as RcNotificationConfig,
 } from '@rc-component/notification';
+import classNames from 'classnames';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
@@ -94,12 +93,11 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const getNotificationMotion = () => getMotion(prefixCls, transitionName);
 
   // ============================ Close Icon =============================
-  const mergedCloseIcon = (
-    <span className={`${prefixCls}-close-x`}>
-      <CloseOutlined className={`${prefixCls}-close-icon`} />
-    </span>
-  );
-
+  // const mergedCloseIcon = (
+  //   <span className={`${prefixCls}-close-x`}>
+  //     <CloseOutlined className={`${prefixCls}-close-icon`} />
+  //   </span>
+  // );
   // ============================== Origin ===============================
   const [api, holder] = useRcNotification({
     prefixCls,
@@ -107,7 +105,6 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     className: getClassName,
     motion: getNotificationMotion,
     closable: false,
-    closeIcon: mergedCloseIcon,
     duration,
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
