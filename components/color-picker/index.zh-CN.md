@@ -47,12 +47,12 @@ group:
 | arrow | 配置弹出的箭头 | `boolean \| { pointAtCenter: boolean }` | true | |
 | children | 颜色选择器的触发器 | React.ReactNode | - | |
 | defaultValue | 颜色默认的值 | string \| `Color` | - | |
-| defaultFormat | 颜色格式默认的值 | `rgb` \| `hex` \| `hsb` | - | 5.9.0 |
+| defaultFormat | 颜色格式默认的值 | `rgb` \| `hex` \| `hsb` | `hex` | 5.9.0 |
 | disabled | 禁用颜色选择器 | boolean | - | |
 | disabledAlpha | 禁用透明度 | boolean | - | 5.8.0 |
-| disabledFormat | 禁用选择颜色格式 | boolean | - |
+| disabledFormat | 禁用选择颜色格式 | boolean | - | |
 | destroyTooltipOnHide | 关闭后是否销毁弹窗 | `boolean` | false | 5.7.0 |
-| format | 颜色格式 | `rgb` \| `hex` \| `hsb` | `hex` | |
+| format | 颜色格式 | `rgb` \| `hex` \| `hsb` | - | |
 | mode | 选择器模式，用于配置单色与渐变 | `'single' \| 'gradient' \| ('single' \| 'gradient')[]` | `single` | 5.20.0 |
 | open | 是否显示弹出窗口 | boolean | - | |
 | presets | 预设的颜色 | `{ label: ReactNode, colors: Array<string \| Color>, defaultOpen?: boolean, key?: React.Key }[]` | - | `defaultOpen: 5.11.0, key: 5.23.0` |
