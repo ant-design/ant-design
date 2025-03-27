@@ -6,9 +6,11 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 
 const locales = {
   cn: {
+    root: '根元素',
     popup: '弹出菜单元素',
   },
   en: {
+    root: 'Root element',
     popup: 'Popup element',
   },
 };
@@ -36,14 +38,14 @@ const Block = (props: any) => {
     setValue(newValue);
   };
   return (
-    <div ref={divRef} style={{ marginBottom: 100 }}>
+    <div ref={divRef} style={{ marginBottom: 60 }}>
       <Cascader
         {...props}
         open
         styles={{
           popup: {
             zIndex: 1,
-            height: 100,
+            height: 70,
           },
         }}
         getPopupContainer={() => divRef.current}
@@ -60,8 +62,11 @@ const App: React.FC = () => {
 
   return (
     <SemanticPreview
-      semantics={[{ name: 'popup', desc: locale.popup, version: '5.25.0' }]}
-      height={200}
+      semantics={[
+        { name: 'root', desc: locale.root, version: '5.25.0' },
+        { name: 'popup', desc: locale.popup, version: '5.25.0' },
+      ]}
+      // height={200}
     >
       <Block />
     </SemanticPreview>

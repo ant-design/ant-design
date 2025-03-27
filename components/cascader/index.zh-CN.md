@@ -96,8 +96,8 @@ demo:
 | ~~dropdownMenuColumnStyle~~ | 下拉菜单列的样式，请使用 `popupMenuColumnStyle` 替换 | CSSProperties | - |  |
 | popupMenuColumnStyle | 下拉菜单列的样式 | CSSProperties | - |  |
 | optionRender | 自定义渲染下拉选项 | (option: Option) => React.ReactNode | - | 5.16.0 |
-| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#语义化-domsemantic-dom) | - | 5.25.0 |
-| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#语义化-domsemantic-dom) | - | 5.25.0 |
+| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |
+| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
 
 ### showSearch
 
@@ -134,7 +134,7 @@ interface Option {
 
 > 注意，如果需要获得中国省市区数据，可以参考 [china-division](https://gist.github.com/afc163/7582f35654fd03d5be7009444345ea17)。
 
-## 语义化 DOM（Semantic DOM）
+## Semantic DOM
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 

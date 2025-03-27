@@ -50,7 +50,7 @@ export type FieldNamesType = FieldNames;
 
 export type FilledFieldNamesType = Required<FieldNamesType>;
 
-type SemanticName = 'popup';
+type SemanticName = 'root' | 'popup';
 
 const { SHOW_CHILD, SHOW_PARENT } = RcCascader;
 
@@ -366,13 +366,15 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
         contextClassName,
         className,
         rootClassName,
+        classNames?.root,
+        contextClassNames.root,
         rootCls,
         cascaderRootCls,
         hashId,
         cssVarCls,
       )}
       disabled={mergedDisabled}
-      style={{ ...contextStyle, ...style }}
+      style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
       {...(restProps as any)}
       builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
       direction={mergedDirection}
