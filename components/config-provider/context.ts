@@ -40,7 +40,6 @@ import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
 import type { TreeSelectProps } from '../tree-select';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
-import { AutoCompleteProps } from '../auto-complete';
 
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
@@ -207,7 +206,8 @@ export type InputNumberConfig = ComponentStyleConfig & Pick<InputNumberProps, 'v
 
 export type CascaderConfig = ComponentStyleConfig & Pick<CascaderProps, 'variant'>;
 
-export type TreeSelectConfig = ComponentStyleConfig & Pick<TreeSelectProps, 'variant'>;
+export type TreeSelectConfig = ComponentStyleConfig &
+  Pick<TreeSelectProps, 'variant' | 'styles' | 'classNames'>;
 
 export type DatePickerConfig = ComponentStyleConfig & Pick<DatePickerProps, 'variant'>;
 
@@ -216,9 +216,6 @@ export type RangePickerConfig = ComponentStyleConfig & Pick<RangePickerProps, 'v
 export type TimePickerConfig = ComponentStyleConfig & Pick<TimePickerProps, 'variant'>;
 
 export type MentionsConfig = ComponentStyleConfig & Pick<MentionsProps, 'variant'>;
-
-export type AutoCompleteConfig = ComponentStyleConfig &
-  Pick<AutoCompleteProps, 'styles' | 'classNames'>;
 
 export type PopupOverflow = 'viewport' | 'scroll';
 
@@ -308,7 +305,6 @@ export interface ConfigComponentProps {
   rangePicker?: RangePickerConfig;
   dropdown?: ComponentStyleConfig;
   flex?: FlexConfig;
-  autoComplete?: AutoCompleteConfig;
   wave?: WaveConfig;
 }
 

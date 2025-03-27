@@ -21,6 +21,7 @@ const App: React.FC = () => {
     <TemplateSemanticPreview
       component={AutoComplete}
       style={{ width: 200 }}
+      height={200}
       options={options}
       onSearch={(text: string) => setOptions(getPanelValue(text))}
       placeholder="input here"

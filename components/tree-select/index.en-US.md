@@ -93,6 +93,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | onSelect | A callback function, can be executed when you select a treeNode | function(value, node, extra) | - |  |
 | onTreeExpand | A callback function, can be executed when treeNode expanded | function(expandedKeys) | - |  |
 | onPopupScroll | Called when dropdown scrolls | (event: UIEvent) => void | - | 5.17.0 |
+| classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |
+| styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
 
 ### Tree Methods
 

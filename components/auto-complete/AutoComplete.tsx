@@ -17,7 +17,6 @@ import type {
   SelectProps,
 } from '../select';
 import Select from '../select';
-import { useComponentConfig } from '../config-provider/context';
 
 const { Option } = Select;
 
@@ -79,12 +78,8 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   } = props;
   const childNodes: React.ReactElement[] = toArray(children);
 
-  const { styles: contextStyles, classNames: contextClassNames } =
-    useComponentConfig('autoComplete');
-
-  const mergedPopupStyle = styles?.popup || contextStyles.popup || dropdownStyle;
-  const mergedPopupClassName =
-    classNames?.popup || contextClassNames.popup || popupClassName || dropdownClassName;
+  const mergedPopupStyle = styles?.popup || dropdownStyle;
+  const mergedPopupClassName = classNames?.popup || popupClassName || dropdownClassName;
   const mergedPopupRender = popupRender || dropdownRender;
   const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
 

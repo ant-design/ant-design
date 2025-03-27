@@ -33,6 +33,7 @@ import type { AntTreeNodeProps, TreeProps } from '../tree';
 import type { SwitcherIcon } from '../tree/Tree';
 import SwitcherIconCom from '../tree/utils/iconUtil';
 import useStyle from './style';
+import { useComponentConfig } from '../config-provider/context';
 
 type RawValue = string | number;
 
@@ -152,6 +153,8 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     popupOverflow,
   } = React.useContext(ConfigContext);
 
+  const { styles: contextStyles, classNames: contextClassNames } = useComponentConfig('treeSelect');
+
   const [, token] = useToken();
   const listItemHeight = customListItemHeight ?? token?.controlHeightSM + token?.paddingXXS;
 
@@ -199,7 +202,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
   const [variant, enableVariantCls] = useVariant('treeSelect', customVariant, bordered);
 
   const mergedPopupClassName = cls(
-    classNames?.popup || popupClassName || dropdownClassName,
+    classNames?.popup || contextClassNames?.popup || popupClassName || dropdownClassName,
     `${treeSelectPrefixCls}-dropdown`,
     {
       [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',
@@ -211,7 +214,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     hashId,
   );
 
-  const mergedPopupStyle = styles?.popup || dropdownStyle;
+  const mergedPopupStyle = styles?.popup || contextStyles?.popup || dropdownStyle;
   const mergedPopupRender = popupRender || dropdownRender;
   const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
 

@@ -78,6 +78,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | onClear | Called when clear | function | - | 4.6.0 |
 | onInputKeyDown | Called when key pressed | (event: KeyboardEvent) => void | - |  |
 | onPopupScroll | Called when dropdown scrolls | (event: UIEvent) => void | - |  |
+| classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |
+| styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
 
 ## Methods
 
