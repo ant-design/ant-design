@@ -96,6 +96,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | popupMenuColumnStyle | The style of the drop-down menu column | CSSProperties | - |  |
 | loadingIcon | The appearance of lazy loading (now is useless) | ReactNode | - |  |
 | optionRender | Customize the rendering dropdown options | (option: Option) => React.ReactNode | - | 5.16.0 |
+| classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |
+| styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
 
 ### showSearch
 
