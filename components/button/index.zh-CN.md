@@ -102,7 +102,7 @@ group:
 
 ## FAQ
 
-### 类型和颜色与变体如何选择？ {#type-color-variant}
+### 类型和颜色与变体如何选择？ {#faq-type-color-variant}
 
 类型本质上是颜色与变体的语法糖，内部为其提供了一组颜色与变体的映射关系。如果两者同时存在，优先使用颜色与变体。
 
@@ -118,7 +118,7 @@ group:
 </Button>
 ```
 
-### 如何关闭点击波纹效果？ {#close-wave-effect}
+### 如何关闭点击波纹效果？ {#faq-close-wave-effect}
 
 如果你不需要这个特性，可以设置 [ConfigProvider](/components/config-provider-cn#api) 的 `wave` 的 `disabled` 为 `true`。
 
