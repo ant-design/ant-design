@@ -2,7 +2,7 @@ import React from 'react';
 import { Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
-
+import omit from 'rc-util/lib/omit';
 export interface LangBtnProps {
   label1: React.ReactNode;
   label2: React.ReactNode;
@@ -12,6 +12,7 @@ export interface LangBtnProps {
   pure?: boolean;
   onClick?: React.MouseEventHandler;
   'aria-label'?: string;
+  className?: string;
 }
 
 const BASE_SIZE = '1.2em';
@@ -88,7 +89,7 @@ const useStyle = createStyles(({ token, css }) => {
 });
 
 const LangBtn: React.FC<LangBtnProps> = (props) => {
-  const { label1, label2, tooltip1, tooltip2, value, pure, onClick } = props;
+  const { label1, label2, tooltip1, tooltip2, value, pure, onClick, ...rest } = props;
 
   const {
     styles: { btn, innerDiv, labelStyle, label1Style, label2Style },
@@ -100,7 +101,7 @@ const LangBtn: React.FC<LangBtnProps> = (props) => {
       onClick={onClick}
       className={btn}
       key="lang-button"
-      aria-label={props['aria-label']}
+      {...(omit(rest, ['className']))}
     >
       <div className="btn-inner">
         {pure && (value === 1 ? label1 : label2)}
