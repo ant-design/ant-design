@@ -175,7 +175,6 @@ export default function useClosable(
 function createClosableConfig(closableCollection?: ClosableCollection | null) {
   const { closable, closeIcon } = closableCollection || {};
 
-  // 移除useMemo，直接计算
   if (!closable && (closable === false || closeIcon === false || closeIcon === null)) {
     return false;
   }
@@ -205,11 +204,9 @@ export function computeClosable(
     closeIconRender?: (closeIcon: ReactNode) => ReactNode;
   } = { closable: true, closeIcon: <CloseOutlined /> },
 ): [boolean, React.ReactNode, boolean, React.AriaAttributes] {
-  // 同步计算配置
   const propCloseConfig = createClosableConfig(propCloseCollection);
   const contextCloseConfig = createClosableConfig(contextCloseCollection);
 
-  // 计算fallback
   const mergedFallback = {
     closeIcon: <CloseOutlined />,
     ...fallbackCloseCollection,
@@ -218,7 +215,6 @@ export function computeClosable(
   const closeBtnIsDisabled =
     typeof propCloseConfig !== 'boolean' ? !!propCloseConfig?.disabled : false;
 
-  // 合并配置逻辑
   let mergedClosableConfig: any;
 
   if (propCloseConfig === false) {
@@ -237,7 +233,6 @@ export function computeClosable(
     mergedClosableConfig = !mergedFallback.closable ? false : mergedFallback;
   }
 
-  // 处理最终结果
   if (mergedClosableConfig === false) {
     return [false, null, closeBtnIsDisabled, {}];
   }

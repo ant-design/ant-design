@@ -165,6 +165,33 @@ describe('hooks test', () => {
         expect(container.querySelector(`${res[1]}`)).toBeTruthy();
       }
     });
+
+    it(`computeClosable with closable=${params[0]},closeIcon=${
+      React.isValidElement(params[1]) ? 'element' : params[1]
+    },defaultClosable=${params[2]}. the result should be ${res}`, () => {
+      const App = () => {
+        const [closable, closeIcon] = computeClosable(
+          {
+            closable: params[0],
+            closeIcon: params[1],
+          },
+          null,
+          {
+            closable: params[2],
+          },
+        );
+        useEffect(() => {
+          expect(closable).toBe(res[0]);
+        }, [closable]);
+        return <div>hooks test {closeIcon}</div>;
+      };
+      const { container } = render(<App />);
+      if (res[1] === '') {
+        expect(container.querySelector('.anticon-close')).toBeFalsy();
+      } else {
+        expect(container.querySelector(`${res[1]}`)).toBeTruthy();
+      }
+    });
   });
 
   closableFnList.forEach((item) => {
@@ -228,32 +255,31 @@ describe('hooks test', () => {
     });
   });
 
-  useClosableParams.forEach(({ params, res }) => {
-    it(`computeClosable with closable=${params[0]},closeIcon=${
-      React.isValidElement(params[1]) ? 'element' : params[1]
-    },defaultClosable=${params[2]}. the result should be ${res}`, () => {
-      const App = () => {
-        const [closable, closeIcon] = computeClosable(
-          {
-            closable: params[0],
-            closeIcon: params[1],
-          },
-          null,
-          {
-            closable: params[2],
-          },
-        );
-        useEffect(() => {
-          expect(closable).toBe(res[0]);
-        }, [closable]);
-        return <div>hooks test {closeIcon}</div>;
-      };
-      const { container } = render(<App />);
-      if (res[1] === '') {
-        expect(container.querySelector('.anticon-close')).toBeFalsy();
-      } else {
-        expect(container.querySelector(`${res[1]}`)).toBeTruthy();
-      }
-    });
+  it(`computeClosable with contextCloseCollection.closable=false . the result should be [true, '.anticon-close']`, () => {
+    const App = () => {
+      const [closable, closeIcon] = computeClosable(undefined, {
+        closable: true,
+      });
+      useEffect(() => {
+        expect(closable).toBe(true);
+      }, [closable]);
+      return <div>hooks test {closeIcon}</div>;
+    };
+    const { container } = render(<App />);
+    expect(container.querySelector('.anticon-close')).toBeTruthy();
+  });
+
+  it(`computeClosable with contextCloseCollection.closable=false. the result should be [false, '']`, () => {
+    const App = () => {
+      const [closable, closeIcon] = computeClosable(undefined, {
+        closable: false,
+      });
+      useEffect(() => {
+        expect(closable).toBe(false);
+      }, [closable]);
+      return <div>hooks test {closeIcon}</div>;
+    };
+    const { container } = render(<App />);
+    expect(container.querySelector('.anticon-close')).toBeFalsy();
   });
 });
