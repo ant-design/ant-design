@@ -280,6 +280,8 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     },
     rootClassName,
     rootCls,
+    contextClassNames.root,
+    classNames?.root,
     cascaderRootCls,
     hashId,
     cssVarCls,
