@@ -382,15 +382,21 @@ describe('notification', () => {
       notification.open({
         title: 'Notification Title',
         duration: 0,
-        closable: false,
+        closeIcon: null,
         className: 'with-null',
+      });
+      notification.open({
+        title: 'Notification Title',
+        duration: 0,
+        closeIcon: false,
+        className: 'with-false',
       });
     });
     await awaitPromise();
     expect(document.querySelectorAll('.normal .ant-notification-notice-close').length).toBe(1);
     expect(document.querySelectorAll('.custom .custom-close-icon').length).toBe(1);
     expect(document.querySelectorAll('.with-null .ant-notification-notice-close').length).toBe(0);
-    // expect(document.querySelectorAll('.with-false .ant-notification-notice-close').length).toBe(0);
+    expect(document.querySelectorAll('.with-false .ant-notification-notice-close').length).toBe(0);
   });
 
   it('style.width could be override', async () => {
