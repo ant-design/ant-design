@@ -66,7 +66,6 @@ const App: React.FC = () => {
         { name: 'root', desc: locale.root, version: '5.25.0' },
         { name: 'popup', desc: locale.popup, version: '5.25.0' },
       ]}
-      // height={200}
     >
       <Block />
     </SemanticPreview>
