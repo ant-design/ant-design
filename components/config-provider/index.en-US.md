@@ -117,7 +117,7 @@ const {
 | card | Set Card common props | { className?: string, style?: React.CSSProperties, classNames?: [CardProps\["classNames"\]](/components/card#api), styles?: [CardProps\["styles"\]](/components/card#api) } | - | 5.7.0, `classNames` and `styles`: 5.14.0 |
 | calendar | Set Calendar common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | carousel | Set Carousel common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| cascader | Set Cascader common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| cascader | Set Cascader common props | { className?: string, style?: React.CSSProperties, classNames?: [CascaderProps\["classNames"\]](/components/cascader#semantic-dom), styles?: [CascaderProps\["styles"\]](/components/cascader#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 5.25.0 |
 | checkbox | Set Checkbox common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | collapse | Set Collapse common props | { className?: string, style?: React.CSSProperties, expandIcon?: (props) => ReactNode } | - | 5.7.0, `expandIcon`: 5.15.0 |
 | colorPicker | Set ColorPicker common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
