@@ -3,7 +3,7 @@ import { CloseOutlined } from '@ant-design/icons';
 import { render } from '@testing-library/react';
 
 import type { UseClosableParams } from '../hooks/useClosable';
-import useClosable from '../hooks/useClosable';
+import useClosable, { computeClosable } from '../hooks/useClosable';
 
 type ParamsOfUseClosable = [
   closable: UseClosableParams['closable'],
@@ -136,6 +136,7 @@ describe('hooks test', () => {
       res: [true, '*[aria-label="Close Btn"]'],
     },
   ];
+  const closableFnList = [useClosable, computeClosable];
 
   useClosableParams.forEach(({ params, res }) => {
     it(`useClosable with closable=${params[0]},closeIcon=${
@@ -165,63 +166,151 @@ describe('hooks test', () => {
       }
     });
   });
+  closableFnList.forEach((item) => {
+    it(`${item.name} with defaultCloseIcon`, () => {
+      const App = () => {
+        const [closable, closeIcon] = item(
+          {
+            closable: true,
+          },
+          null,
+          {
+            closeIcon: <CloseOutlined className="custom-close-icon" />,
+          },
+        );
+        useEffect(() => {
+          expect(closable).toBe(true);
+        }, [closable]);
+        return <div>hooks test {closeIcon}</div>;
+      };
+      const { container } = render(<App />);
+      expect(container.querySelector('.custom-close-icon')).toBeTruthy();
+    });
+    it(` ${item.name} without defaultCloseIcon`, () => {
+      const App = () => {
+        const [closable, closeIcon] = item(
+          {
+            closable: true,
+          },
+          null,
+        );
+        useEffect(() => {
+          expect(closable).toBe(true);
+        }, [closable]);
+        return <div>hooks test {closeIcon}</div>;
+      };
+      const { container } = render(<App />);
+      expect(container.querySelector('.anticon-close')).toBeTruthy();
+    });
 
-  it('useClosable with defaultCloseIcon', () => {
-    const App = () => {
-      const [closable, closeIcon] = useClosable(
-        {
-          closable: true,
-        },
-        null,
-        {
-          closeIcon: <CloseOutlined className="custom-close-icon" />,
-        },
-      );
-      useEffect(() => {
-        expect(closable).toBe(true);
-      }, [closable]);
-      return <div>hooks test {closeIcon}</div>;
-    };
-    const { container } = render(<App />);
-    expect(container.querySelector('.custom-close-icon')).toBeTruthy();
+    it(`${item.name}  with customCloseIconRender`, () => {
+      const App = () => {
+        const customCloseIconRender = (icon: React.ReactNode) => (
+          <span className="custom-close-wrapper">{icon}</span>
+        );
+        const [closable, closeIcon] = item(
+          {
+            closable: true,
+          },
+          null,
+          {
+            closeIconRender: customCloseIconRender,
+          },
+        );
+        useEffect(() => {
+          expect(closable).toBe(true);
+        }, [closable]);
+        return <div>hooks test {closeIcon}</div>;
+      };
+      const { container } = render(<App />);
+      expect(container.querySelector('.custom-close-wrapper')).toBeTruthy();
+    });
   });
-  it('useClosable without defaultCloseIcon', () => {
-    const App = () => {
-      const [closable, closeIcon] = useClosable(
-        {
-          closable: true,
-        },
-        null,
-      );
-      useEffect(() => {
-        expect(closable).toBe(true);
-      }, [closable]);
-      return <div>hooks test {closeIcon}</div>;
-    };
-    const { container } = render(<App />);
-    expect(container.querySelector('.anticon-close')).toBeTruthy();
-  });
+  // it('useClosable with defaultCloseIcon', () => {
+  //   const App = () => {
+  //     const [closable, closeIcon] = useClosable(
+  //       {
+  //         closable: true,
+  //       },
+  //       null,
+  //       {
+  //         closeIcon: <CloseOutlined className="custom-close-icon" />,
+  //       },
+  //     );
+  //     useEffect(() => {
+  //       expect(closable).toBe(true);
+  //     }, [closable]);
+  //     return <div>hooks test {closeIcon}</div>;
+  //   };
+  //   const { container } = render(<App />);
+  //   expect(container.querySelector('.custom-close-icon')).toBeTruthy();
+  // });
+  // it('useClosable without defaultCloseIcon', () => {
+  //   const App = () => {
+  //     const [closable, closeIcon] = useClosable(
+  //       {
+  //         closable: true,
+  //       },
+  //       null,
+  //     );
+  //     useEffect(() => {
+  //       expect(closable).toBe(true);
+  //     }, [closable]);
+  //     return <div>hooks test {closeIcon}</div>;
+  //   };
+  //   const { container } = render(<App />);
+  //   expect(container.querySelector('.anticon-close')).toBeTruthy();
+  // });
 
-  it('useClosable with customCloseIconRender', () => {
-    const App = () => {
-      const customCloseIconRender = (icon: React.ReactNode) => (
-        <span className="custom-close-wrapper">{icon}</span>
-      );
-      const [closable, closeIcon] = useClosable(
-        {
-          closable: true,
-        },
-        null,
-        {
-          closeIconRender: customCloseIconRender,
-        },
-      );
-      useEffect(() => {
-        expect(closable).toBe(true);
-      }, [closable]);
-      return <div>hooks test {closeIcon}</div>;
-    };
-    const { container } = render(<App />);
-    expect(container.querySelector('.custom-close-wrapper')).toBeTruthy();
+  // it('useClosable with customCloseIconRender', () => {
+  //   const App = () => {
+  //     const customCloseIconRender = (icon: React.ReactNode) => (
+  //       <span className="custom-close-wrapper">{icon}</span>
+  //     );
+  //     const [closable, closeIcon] = useClosable(
+  //       {
+  //         closable: true,
+  //       },
+  //       null,
+  //       {
+  //         closeIconRender: customCloseIconRender,
+  //       },
+  //     );
+  //     useEffect(() => {
+  //       expect(closable).toBe(true);
+  //     }, [closable]);
+  //     return <div>hooks test {closeIcon}</div>;
+  //   };
+  //   const { container } = render(<App />);
+  //   expect(container.querySelector('.custom-close-wrapper')).toBeTruthy();
+  // });
+
+  useClosableParams.forEach(({ params, res }) => {
+    it(`computeClosable with closable=${params[0]},closeIcon=${
+      React.isValidElement(params[1]) ? 'element' : params[1]
+    },defaultClosable=${params[2]}. the result should be ${res}`, () => {
+      const App = () => {
+        const [closable, closeIcon] = computeClosable(
+          {
+            closable: params[0],
+            closeIcon: params[1],
+          },
+          null,
+          {
+            closable: params[2],
+          },
+        );
+        useEffect(() => {
+          expect(closable).toBe(res[0]);
+        }, [closable]);
+        return <div>hooks test {closeIcon}</div>;
+      };
+      const { container } = render(<App />);
+      if (res[1] === '') {
+        expect(container.querySelector('.anticon-close')).toBeFalsy();
+      } else {
+        expect(container.querySelector(`${res[1]}`)).toBeTruthy();
+      }
+    });
   });
 });
