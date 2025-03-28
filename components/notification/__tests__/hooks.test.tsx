@@ -257,8 +257,8 @@ describe('notification.hooks', () => {
         <>
           {Holder('normal')}
           {Holder('custom', <span className="custom-close-icon">Close</span>)}
-          {/* {Holder('with-null', null)}
-          {Holder('with-false', false)} */}
+          {Holder('with-null', null)}
+          {Holder('with-false', false)}
         </>
       );
     };
@@ -268,7 +268,7 @@ describe('notification.hooks', () => {
 
     expect(document.querySelectorAll('.normal .ant-notification-notice-close').length).toBe(1);
     expect(document.querySelectorAll('.custom .custom-close-icon').length).toBe(1);
-    // expect(document.querySelectorAll('.with-null .ant-notification-notice-close').length).toBe(0);
-    // expect(document.querySelectorAll('.with-false .ant-notification-notice-close').length).toBe(0);
+    expect(document.querySelectorAll('.with-null .ant-notification-notice-close').length).toBe(0);
+    expect(document.querySelectorAll('.with-false .ant-notification-notice-close').length).toBe(0);
   });
 });

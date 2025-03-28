@@ -92,18 +92,14 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls, transitionName);
 
-  // ============================ Close Icon =============================
-  // const mergedCloseIcon = (
-  //   <span className={`${prefixCls}-close-x`}>
-  //     <CloseOutlined className={`${prefixCls}-close-icon`} />
-  //   </span>
-  // );
   // ============================== Origin ===============================
   const [api, holder] = useRcNotification({
     prefixCls,
     style: getStyle,
     className: getClassName,
     motion: getNotificationMotion,
+
+    // closable=false requires-no closeIcon
     closable: false,
     duration,
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,

@@ -171,3 +171,96 @@ export default function useClosable(
     return [true, mergedCloseIcon, closeBtnIsDisabled, ariaOrDataProps];
   }, [mergedClosableConfig, mergedFallbackCloseCollection]);
 }
+
+function createClosableConfig(closableCollection?: ClosableCollection | null) {
+  const { closable, closeIcon } = closableCollection || {};
+
+  // 移除useMemo，直接计算
+  if (!closable && (closable === false || closeIcon === false || closeIcon === null)) {
+    return false;
+  }
+
+  if (closable === undefined && closeIcon === undefined) {
+    return null;
+  }
+
+  let closableConfig: ClosableType = {
+    closeIcon: typeof closeIcon !== 'boolean' && closeIcon !== null ? closeIcon : undefined,
+  };
+
+  if (closable && typeof closable === 'object') {
+    closableConfig = {
+      ...closableConfig,
+      ...closable,
+    };
+  }
+
+  return closableConfig;
+}
+
+export function computeClosable(
+  propCloseCollection?: ClosableCollection,
+  contextCloseCollection?: ClosableCollection | null,
+  fallbackCloseCollection: ClosableCollection & {
+    closeIconRender?: (closeIcon: ReactNode) => ReactNode;
+  } = { closable: true, closeIcon: <CloseOutlined /> },
+): [boolean, React.ReactNode, boolean, React.AriaAttributes] {
+  // 同步计算配置
+  const propCloseConfig = createClosableConfig(propCloseCollection);
+  const contextCloseConfig = createClosableConfig(contextCloseCollection);
+
+  // 计算fallback
+  const mergedFallback = {
+    closeIcon: <CloseOutlined />,
+    ...fallbackCloseCollection,
+  };
+
+  const closeBtnIsDisabled =
+    typeof propCloseConfig !== 'boolean' ? !!propCloseConfig?.disabled : false;
+
+  // 合并配置逻辑
+  let mergedClosableConfig: any;
+
+  if (propCloseConfig === false) {
+    mergedClosableConfig = false;
+  } else if (propCloseConfig) {
+    mergedClosableConfig = assignWithoutUndefined(
+      mergedFallback,
+      contextCloseConfig,
+      propCloseConfig,
+    );
+  } else if (contextCloseConfig === false) {
+    mergedClosableConfig = false;
+  } else if (contextCloseConfig) {
+    mergedClosableConfig = assignWithoutUndefined(mergedFallback, contextCloseConfig);
+  } else {
+    mergedClosableConfig = !mergedFallback.closable ? false : mergedFallback;
+  }
+
+  // 处理最终结果
+  if (mergedClosableConfig === false) {
+    return [false, null, closeBtnIsDisabled, {}];
+  }
+
+  const { closeIconRender } = mergedFallback;
+  const { closeIcon } = mergedClosableConfig;
+
+  let mergedCloseIcon: ReactNode = closeIcon;
+  const ariaProps = pickAttrs(mergedClosableConfig, true);
+
+  if (mergedCloseIcon !== null && mergedCloseIcon !== undefined) {
+    if (closeIconRender) {
+      mergedCloseIcon = closeIconRender(closeIcon);
+    }
+
+    if (Object.keys(ariaProps).length) {
+      mergedCloseIcon = React.isValidElement(mergedCloseIcon) ? (
+        React.cloneElement(mergedCloseIcon, ariaProps)
+      ) : (
+        <span {...ariaProps}>{mergedCloseIcon}</span>
+      );
+    }
+  }
+
+  return [true, mergedCloseIcon, closeBtnIsDisabled, ariaProps];
+}
