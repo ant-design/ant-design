@@ -83,7 +83,7 @@ const useStyle = () => {
       block: css`
         position: absolute;
         inset-inline-end: -60px;
-        top: -38px;
+        top: -24px;
       `,
       child: css`
         position: relative;
