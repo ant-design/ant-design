@@ -10,6 +10,7 @@ import type {
 } from '@rc-component/notification';
 import classNames from 'classnames';
 
+import { computeClosable, pickClosable } from '../_util/hooks/useClosable';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -128,7 +129,7 @@ export function useInternalNotification(
 ): readonly [NotificationInstance, React.ReactElement] {
   const holderRef = React.useRef<HolderRef>(null);
   const warning = devUseWarning('Notification');
-
+  const { notification: notificationContext } = React.useContext(ConfigContext);
   // ================================ API ================================
   const wrapAPI = React.useMemo<NotificationInstance>(() => {
     // Wrap with notification content
@@ -184,15 +185,14 @@ export function useInternalNotification(
         getCloseIconConfig(closeIcon, notificationConfig, notification),
       );
 
-      const mergedClosable = () => {
-        if (typeof closable === 'object' && closable !== null) {
-          return { closeIcon: realCloseIcon, ...closable };
-        }
-        if (closable === undefined || closable === true) {
-          return { closeIcon: realCloseIcon };
-        }
-        return closable;
-      };
+      const [mergedClosable, mergedCloseIcon, , ariaProps] = computeClosable(
+        pickClosable({ ...(notificationConfig || {}), ...config }),
+        pickClosable(notificationContext),
+        {
+          closable: true,
+          closeIcon: realCloseIcon,
+        },
+      );
 
       return originOpen({
         // use placement from props instead of hard-coding "topRight"
@@ -229,7 +229,7 @@ export function useInternalNotification(
           contextClassNames.root,
         ),
         style: { ...contextStyle, ...style, ...contextStyles.root, ...styles?.root },
-        closable: mergedClosable(),
+        closable: mergedClosable ? { closeIcon: mergedCloseIcon, ...ariaProps } : mergedClosable,
       });
     };
 
