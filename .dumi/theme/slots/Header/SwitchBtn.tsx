@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tooltip } from 'antd';
+import { Tooltip, Button } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
@@ -18,43 +18,17 @@ export interface LangBtnProps {
 const BASE_SIZE = '1.2em';
 
 const useStyle = createStyles(({ token, css }) => {
-  const {
-    colorText,
-    colorBorder,
-    colorBgContainer,
-    colorBgTextHover,
-    borderRadius,
-    controlHeight,
-    motionDurationMid,
-  } = token;
+  const { colorText, controlHeight, colorBgContainer, motionDurationMid } = token;
 
   return {
     btn: css`
-      color: ${colorText};
-      border-color: ${colorBorder};
-      padding: 0 !important;
       width: ${controlHeight}px;
-      height: ${controlHeight}px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: none;
-      background: transparent;
-      border-radius: ${borderRadius}px;
-      transition: all ${motionDurationMid};
-      cursor: pointer;
       .btn-inner {
         transition: all ${motionDurationMid};
-      }
-      &:hover {
-        background: ${colorBgTextHover};
       }
       img {
         width: ${BASE_SIZE};
         height: ${BASE_SIZE};
-      }
-      .anticon {
-        font-size: ${BASE_SIZE};
       }
     `,
     innerDiv: css`
@@ -96,12 +70,12 @@ const LangBtn: React.FC<LangBtnProps> = (props) => {
   } = useStyle();
 
   const node = (
-    <button
-      type="button"
+    <Button
+      type="text"
       onClick={onClick}
       className={btn}
       key="lang-button"
-      {...(omit(rest, ['className']))}
+      {...omit(rest, ['className'])}
     >
       <div className="btn-inner">
         {pure && (value === 1 ? label1 : label2)}
@@ -116,7 +90,7 @@ const LangBtn: React.FC<LangBtnProps> = (props) => {
           </div>
         )}
       </div>
-    </button>
+    </Button>
   );
 
   if (tooltip1 || tooltip2) {
