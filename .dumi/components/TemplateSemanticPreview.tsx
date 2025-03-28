@@ -4,9 +4,11 @@ import SemanticPreview from './SemanticPreview';
 
 export const locales = {
   cn: {
+    root: '根元素',
     popup: '弹出菜单元素',
   },
   en: {
+    root: 'Root element',
     popup: 'Popup element',
   },
 };
@@ -61,7 +63,10 @@ const TemplateSemanticPreview: React.FC<TemplateSemanticPreviewProps> = ({
 
   return (
     <SemanticPreview
-      semantics={[{ name: 'popup', desc: locale.popup, version: '5.25.0' }]}
+      semantics={[
+        { name: 'root', desc: locale.root, version: '5.25.0' },
+        { name: 'popup', desc: locale.popup, version: '5.25.0' },
+      ]}
       height={height}
     >
       <Block

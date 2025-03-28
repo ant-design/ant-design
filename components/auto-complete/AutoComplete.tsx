@@ -169,12 +169,14 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       prefixCls={prefixCls}
       classNames={{
         popup: mergedPopupClassName,
+        root: classNames?.root,
       }}
       styles={{
         popup: {
           ...mergedPopupStyle,
           zIndex,
         },
+        root: styles?.root,
       }}
       className={cls(`${prefixCls}-auto-complete`, className)}
       mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']}

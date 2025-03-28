@@ -79,8 +79,8 @@ demo:
 | onClear | 清除内容时的回调 | function | - | 4.6.0 |
 | onInputKeyDown | 按键按下时回调 | (event: KeyboardEvent) => void | - |  |
 | onPopupScroll | 下拉列表滚动时的回调 | (event: UIEvent) => void | - |  |
-| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#语义化-domsemantic-dom) | - | 5.25.0 |
-| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#语义化-domsemantic-dom) | - | 5.25.0 |
+| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |
+| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
 
 ## 方法
 
@@ -89,7 +89,7 @@ demo:
 | blur()  | 移除焦点 |      |
 | focus() | 获取焦点 |      |
 
-## 语义化 DOM（Semantic DOM）
+## Semantic DOM
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 

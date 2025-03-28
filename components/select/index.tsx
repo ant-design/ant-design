@@ -33,7 +33,7 @@ import useShowArrow from './useShowArrow';
 
 type RawValue = string | number;
 
-type SemanticName = 'popup';
+type SemanticName = 'root' | 'popup';
 
 export type { BaseOptionType, DefaultOptionType, OptionProps, BaseSelectRef as RefSelectProps };
 
@@ -153,7 +153,13 @@ const InternalSelect = <
     popupOverflow,
   } = React.useContext(ConfigContext);
 
-  const contextSelect = useComponentConfig('select');
+  const {
+    showSearch,
+    style: contextStyle,
+    styles: contextStyles,
+    className: contextClassName,
+    classNames: contextClassNames,
+  } = useComponentConfig('select');
 
   const [, token] = useToken();
 
@@ -191,7 +197,7 @@ const InternalSelect = <
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
 
-  const mergedPopupStyle = styles?.popup || contextSelect?.styles?.popup || dropdownStyle;
+  const mergedPopupStyle = styles?.popup || contextStyles.popup || dropdownStyle;
   const mergedPopupRender = popupRender || dropdownRender;
   const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
 
@@ -230,11 +236,13 @@ const InternalSelect = <
   const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
 
   const mergedPopupClassName = cls(
-    classNames?.popup || contextSelect?.classNames?.popup || popupClassName || dropdownClassName,
+    classNames?.popup || contextClassNames?.popup || popupClassName || dropdownClassName,
     {
       [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
     },
     rootClassName,
+    contextClassNames.root,
+    classNames?.root,
     cssVarCls,
     rootCls,
     hashId,
@@ -256,8 +264,10 @@ const InternalSelect = <
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     compactItemClassnames,
-    contextSelect.className,
+    contextClassName,
     className,
+    contextClassNames.root,
+    classNames?.root,
     rootClassName,
     cssVarCls,
     rootCls,
@@ -311,9 +321,9 @@ const InternalSelect = <
     <RcSelect<ValueType, OptionType>
       ref={ref}
       virtual={virtual}
-      showSearch={contextSelect.showSearch}
+      showSearch={showSearch}
       {...selectProps}
-      style={{ ...contextSelect.style, ...style }}
+      style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
       dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}

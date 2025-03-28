@@ -95,8 +95,8 @@ demo:
 | onSelect | 被选中时调用 | function(value, node, extra) | - |  |
 | onTreeExpand | 展示节点时调用 | function(expandedKeys) | - |  |
 | onPopupScroll | 下拉列表滚动时的回调 | (event: UIEvent) => void | - | 5.17.0 |
-| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#语义化-domsemantic-dom) | - | 5.25.0 |
-| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#语义化-domsemantic-dom) | - | 5.25.0 |
+| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |
+| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
 
 ### Tree 方法
 
@@ -120,7 +120,7 @@ demo:
 | title           | 树节点显示的内容                                   | ReactNode | `---`  |      |
 | value           | 默认根据此属性值进行筛选（其值在整个树范围内唯一） | string    | -      |      |
 
-## 语义化 DOM（Semantic DOM）
+## Semantic DOM
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
