@@ -147,6 +147,10 @@ Menu will render fully item in flex layout and then collapse it. You need tell f
 </div>
 ```
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Menu"></ComponentTokenTable>
