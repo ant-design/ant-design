@@ -14,7 +14,6 @@ export interface ThemeSwitchProps {
 }
 
 const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
-  // const { value = ['light'] } = props;
   const { pathname, search } = useLocation();
 
   // const isHappyWork = value.includes('happy-work');
