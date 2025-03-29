@@ -1,5 +1,5 @@
-import React, { useContext, useLayoutEffect, useMemo, useState } from 'react';
-import { Col, Flex, Space, Typography, Skeleton } from 'antd';
+import React, { useLayoutEffect, useMemo, useState } from 'react';
+import { Col, Flex, Skeleton, Space, Typography } from 'antd';
 import classNames from 'classnames';
 import { FormattedMessage, useRouteMeta } from 'dumi';
 
@@ -9,8 +9,8 @@ import ComponentMeta from '../../builtins/ComponentMeta';
 import type { DemoContextProps } from '../DemoContext';
 import DemoContext from '../DemoContext';
 import SiteContext from '../SiteContext';
-import InViewSuspense from './InViewSuspense';
 import { useStyle } from './DocAnchor';
+import InViewSuspense from './InViewSuspense';
 
 const Contributors = React.lazy(() => import('./Contributors'));
 const ColumnCard = React.lazy(() => import('./ColumnCard'));
@@ -28,7 +28,7 @@ const AvatarPlaceholder: React.FC<{ num?: number }> = ({ num = 6 }) =>
 const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
   const meta = useRouteMeta();
   const { pathname, hash } = useLocation();
-  const { direction } = useContext(SiteContext);
+  const { direction } = React.use(SiteContext);
   const { styles } = useStyle();
 
   const [showDebug, setShowDebug] = useLayoutState(false);
@@ -52,7 +52,7 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
   const isRTL = direction === 'rtl';
 
   return (
-    <DemoContext.Provider value={contextValue}>
+    <DemoContext value={contextValue}>
       <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
         <InViewSuspense fallback={null}>
           <DocAnchor showDebug={showDebug} debugDemos={debugDemos} />
@@ -110,7 +110,7 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
         </InViewSuspense>
         <Footer />
       </Col>
-    </DemoContext.Provider>
+    </DemoContext>
   );
 };
 
