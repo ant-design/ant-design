@@ -62,15 +62,16 @@ const validateBreakpoints = (token: GlobalToken) => {
 };
 
 export const matchScreen = (screens: ScreenMap, screenSizes?: ScreenSizeMap) => {
-  if (screenSizes && typeof screenSizes === 'object') {
-    for (let i = 0; i < responsiveArray.length; i++) {
-      const breakpoint = responsiveArray[i];
-      if (screens[breakpoint] && screenSizes[breakpoint] !== undefined) {
-        return screenSizes[breakpoint];
-      }
+  if (!screenSizes) {
+    return;
+  }
+  for (const breakpoint of responsiveArray) {
+    if (screens[breakpoint] && screenSizes?.[breakpoint] !== undefined) {
+      return screenSizes[breakpoint];
     }
   }
 };
+
 
 interface ResponsiveObserverType {
   responsiveMap: BreakpointMap;
