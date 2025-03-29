@@ -28,7 +28,7 @@ const validateBreakpoints = (token: GlobalToken) => {
   const indexableToken: any = token;
   const revBreakpoints = [...responsiveArray].reverse();
 
-  revBreakpoints.forEach((breakpoint: Breakpoint, i: number) => {
+  revBreakpoints.forEach((breakpoint, i) => {
     const breakpointUpper = breakpoint.toUpperCase();
     const screenMin = `screen${breakpointUpper}Min`;
     const screen = `screen${breakpointUpper}`;
@@ -48,7 +48,7 @@ const validateBreakpoints = (token: GlobalToken) => {
         );
       }
 
-      const nextBreakpointUpperMin: string = revBreakpoints[i + 1].toUpperCase();
+      const nextBreakpointUpperMin = revBreakpoints[i + 1].toUpperCase();
       const nextScreenMin = `screen${nextBreakpointUpperMin}Min`;
 
       if (!(indexableToken[screenMax] <= indexableToken[nextScreenMin])) {
@@ -61,24 +61,46 @@ const validateBreakpoints = (token: GlobalToken) => {
   return token;
 };
 
-export default function useResponsiveObserver() {
+export const matchScreen = (screens: ScreenMap, screenSizes?: ScreenSizeMap) => {
+  if (!screenSizes) {
+    return;
+  }
+  for (const breakpoint of responsiveArray) {
+    if (screens[breakpoint] && screenSizes?.[breakpoint] !== undefined) {
+      return screenSizes[breakpoint];
+    }
+  }
+};
+
+
+interface ResponsiveObserverType {
+  responsiveMap: BreakpointMap;
+  dispatch: (map: ScreenMap) => boolean;
+  subscribe: (func: SubscribeFunc) => number;
+  unsubscribe: (token: number) => void;
+  register: () => void;
+  unregister: () => void;
+  matchHandlers: Record<
+    PropertyKey,
+    {
+      mql: MediaQueryList;
+      listener: (this: MediaQueryList, ev: MediaQueryListEvent) => void;
+    }
+  >;
+}
+
+const useResponsiveObserver = () => {
   const [, token] = useToken();
-  const responsiveMap: BreakpointMap = getResponsiveMap(validateBreakpoints(token));
+  const responsiveMap = getResponsiveMap(validateBreakpoints(token));
 
   // To avoid repeat create instance, we add `useMemo` here.
-  return React.useMemo(() => {
+  return React.useMemo<ResponsiveObserverType>(() => {
     const subscribers = new Map<number, SubscribeFunc>();
     let subUid = -1;
     let screens: Partial<Record<Breakpoint, boolean>> = {};
-
     return {
       responsiveMap,
-      matchHandlers: {} as {
-        [prop: string]: {
-          mql: MediaQueryList;
-          listener: (this: MediaQueryList, ev: MediaQueryListEvent) => void;
-        };
-      },
+      matchHandlers: {},
       dispatch(pointMap: ScreenMap) {
         screens = pointMap;
         subscribers.forEach((func) => func(screens));
@@ -121,15 +143,6 @@ export default function useResponsiveObserver() {
       },
     };
   }, [token]);
-}
-
-export const matchScreen = (screens: ScreenMap, screenSizes?: ScreenSizeMap) => {
-  if (screenSizes && typeof screenSizes === 'object') {
-    for (let i = 0; i < responsiveArray.length; i++) {
-      const breakpoint = responsiveArray[i];
-      if (screens[breakpoint] && screenSizes[breakpoint] !== undefined) {
-        return screenSizes[breakpoint];
-      }
-    }
-  }
 };
+
+export default useResponsiveObserver;
