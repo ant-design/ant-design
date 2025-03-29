@@ -1,3 +1,5 @@
+import React from 'react';
+
 import type { WatermarkProps } from '.';
 import toList from '../_util/toList';
 
