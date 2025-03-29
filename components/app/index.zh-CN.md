@@ -11,7 +11,7 @@ demo:
 tag: 5.1.0
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 提供可消费 React context 的 `message.xxx`、`Modal.xxx`、`notification.xxx` 的静态方法，可以简化 useMessage 等方法需要手动植入 `contextHolder` 的问题。
 - 提供基于 `.ant-app` 的默认重置样式，解决原生元素没有 antd 规范样式的问题。

@@ -8,7 +8,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ZiJ3SbOH9SUAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAAAAAAAAAAAADrJ8AQ/original
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 避免组件紧贴在一起，拉开统一的空间。
 
