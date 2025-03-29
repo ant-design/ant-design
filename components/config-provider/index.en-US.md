@@ -148,7 +148,7 @@ const {
 | result | Set Result common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | skeleton | Set Skeleton common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | segmented | Set Segmented common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| select | Set Select common props | { className?: string, showSearch?: boolean, style?: React.CSSProperties } | - | 5.7.0 |
+| select | Set Select common props | { className?: string, showSearch?: boolean, style?: React.CSSProperties, classNames?: [SelectProps\["classNames"\]](/components/select#api), styles?: [SelectProps\["styles"\]](/components/select#api) } | - | 5.7.0, `classNames` and `styles`: 5.25.0 |
 | slider | Set Slider common props | { className?: string, style?: React.CSSProperties, classNames?: [SliderProps\["classNames"\]](/components/slider#api), styles?: [SliderProps\["styles"\]](/components/slider#api) } | - | 5.7.0, `classNames` and `styles`: 5.23.0 |
 | switch | Set Switch common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | space | Set Space common props, ref [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number`, className?: string, style?: React.CSSProperties, classNames?: [SpaceProps\["classNames"\]](/components/space#api), styles?: [SpaceProps\["styles"\]](/components/space#api) } | - | 5.6.0 |
@@ -167,6 +167,7 @@ const {
 | popconfirm | Set Popconfirm common props | { className?: string, style?: React.CSSProperties, classNames?:[Popconfirm\["classNames"\]](/components/popconfirm#api), styles?: [Popconfirm\["styles"\]](/components/popconfirm#api) } | - | 5.23.0 |
 | transfer | Set Transfer common props | { className?: string, style?: React.CSSProperties, selectionsIcon?: React.ReactNode } | - | 5.7.0, `selectionsIcon`: 5.14.0 |
 | tree | Set Tree common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| treeSelect | Set TreeSelect common props | { classNames?:[TreeSelect\["classNames"\]](/components/tree-select#api), styles?: [TreeSelect\["styles"\]](/components/tree-select#api) } | - | 5.25.0 |
 | typography | Set Typography common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | upload | Set Upload common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | wave | Config wave effect | { disabled?: boolean, showEffect?: (node: HTMLElement, info: { className, token, component }) => void } | - | 5.8.0 |

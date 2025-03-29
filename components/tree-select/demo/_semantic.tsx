@@ -6,9 +6,11 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 
 const locales = {
   cn: {
+    root: '根元素',
     popup: '弹出菜单元素',
   },
   en: {
+    root: 'Root element',
     popup: 'Popup element',
   },
 };
@@ -43,10 +45,11 @@ const Block = (props: any) => {
         showSearch
         placement="bottomLeft"
         open
-        style={{ marginBottom: 100, width: 200 }}
+        style={{ width: 200, marginBottom: 80, marginTop: -10 }}
         styles={{
           popup: {
             zIndex: 1,
+            height: 90,
           },
         }}
         value={value}
@@ -63,8 +66,10 @@ const App: React.FC = () => {
 
   return (
     <SemanticPreview
-      semantics={[{ name: 'popup', desc: locale.popup, version: '5.25.0' }]}
-      height={200}
+      semantics={[
+        { name: 'root', desc: locale.root, version: '5.25.0' },
+        { name: 'popup', desc: locale.popup, version: '5.25.0' },
+      ]}
     >
       <Block />
     </SemanticPreview>
