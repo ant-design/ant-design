@@ -67,8 +67,8 @@ import { ConfigProvider } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useButtonStyle = createStyles(({ css }) => {
-  const btnPrefixCls = getPrefixCls('btn');
   const { getPrefixCls } = React.use(ConfigProvider.ConfigContext);
+  const btnPrefixCls = getPrefixCls('btn');
   return {
     btn: css`
       background: red;
