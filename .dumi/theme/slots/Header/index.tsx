@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
-import { Alert, Col, ConfigProvider, Popover, Row, Select } from 'antd';
+import { Alert, Col, ConfigProvider, Popover, Row, Select, Button, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
@@ -18,6 +18,7 @@ import type { SharedProps } from './interface';
 import Logo from './Logo';
 import Navigation from './Navigation';
 import SwitchBtn from './SwitchBtn';
+import ThemeSwitch from '../../common/ThemeSwitch';
 
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
@@ -302,6 +303,7 @@ const Header: React.FC = () => {
     <Select
       key="version"
       size="small"
+      variant="filled"
       className={styles.versionSelect}
       defaultValue={pkg.version}
       onChange={handleVersionChange}
@@ -330,13 +332,16 @@ const Header: React.FC = () => {
       pure
       aria-label="RTL Switch Button"
     />,
+    <ThemeSwitch key="theme" />,
     <a
       key="github"
       href="https://github.com/ant-design/ant-design"
       target="_blank"
       rel="noreferrer"
     >
-      <SwitchBtn value={1} label1={<GithubOutlined />} tooltip1="Github" label2={null} pure />
+      <Tooltip title="GitHub">
+        <Button type="text" icon={<GithubOutlined />} style={{ fontSize: 16 }} />
+      </Tooltip>
     </a>,
   ];
 
