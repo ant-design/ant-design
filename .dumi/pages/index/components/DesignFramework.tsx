@@ -7,7 +7,7 @@ import useLocale from '../../../hooks/useLocale';
 import Link from '../../../theme/common/Link';
 import SiteContext from '../../../theme/slots/SiteContext';
 import * as utils from '../../../theme/utils';
-import { DarkContext } from '.dumi/hooks/useDark';
+import { DarkContext } from './../../../hooks/useDark';
 
 const SECONDARY_LIST = [
   {

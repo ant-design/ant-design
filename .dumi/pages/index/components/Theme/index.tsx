@@ -32,6 +32,7 @@ import SiteContext from '../../../../theme/slots/SiteContext';
 import { getLocalizedPathname } from '../../../../theme/utils';
 import Group from '../Group';
 import { getCarouselStyle } from '../util';
+import { DarkContext } from './../../../../hooks/useDark';
 import BackgroundImage from './BackgroundImage';
 import ColorPicker from './ColorPicker';
 import { DEFAULT_COLOR, getAvatarURL, getClosetColor, PINK_COLOR } from './colorUtil';
@@ -39,7 +40,6 @@ import MobileCarousel from './MobileCarousel';
 import RadiusPicker from './RadiusPicker';
 import type { THEME } from './ThemePicker';
 import ThemePicker from './ThemePicker';
-import { DarkContext } from '.dumi/hooks/useDark';
 
 type Color = Extract<GetProp<ColorPickerProps, 'value'>, string | { cleared: any }>;
 
