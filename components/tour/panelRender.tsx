@@ -3,6 +3,7 @@ import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 
+import { getAriaDataAttrs } from '../_util/aria-data-attrs';
 import type { ButtonProps } from '../button';
 import Button from '../button';
 import { useLocale } from '../locale';
@@ -44,8 +45,16 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
 
   const mergedType = stepType ?? type;
 
+  const ariaProps = getAriaDataAttrs(closable);
+
   const mergedCloseIcon = (
-    <button type="button" onClick={onClose} className={`${prefixCls}-close`}>
+    <button
+      type="button"
+      onClick={onClose}
+      className={`${prefixCls}-close`}
+      aria-label="Close"
+      {...ariaProps}
+    >
       {closable?.closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
     </button>
   );
