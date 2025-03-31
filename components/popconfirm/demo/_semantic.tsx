@@ -17,7 +17,7 @@ const locales = {
 };
 
 const BlockList: React.FC<React.PropsWithChildren<PopconfirmProps>> = (props) => {
-  const { children, title } = props;
+  const { children, ...rest } = props;
   const divRef = React.useRef<HTMLDivElement>(null);
   return (
     <div ref={divRef} style={{ position: 'absolute', marginTop: 60 }}>
@@ -26,8 +26,7 @@ const BlockList: React.FC<React.PropsWithChildren<PopconfirmProps>> = (props) =>
         placement="top"
         autoAdjustOverflow={false}
         getPopupContainer={() => divRef.current!}
-        {...props}
-        title={title}
+        {...rest}
       >
         {children}
       </Popconfirm>
