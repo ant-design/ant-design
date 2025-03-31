@@ -43,6 +43,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="Collapse"
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'header', desc: locale.header, version: '5.21.0' },

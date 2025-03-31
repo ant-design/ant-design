@@ -1,4 +1,4 @@
-import React, { Suspense, useContext } from 'react';
+import React, { Suspense } from 'react';
 import { BugOutlined, CodeOutlined } from '@ant-design/icons';
 import { css, Global } from '@emotion/react';
 import { Button, Tooltip } from 'antd';
@@ -9,7 +9,7 @@ import DemoContext from '../../slots/DemoContext';
 import DemoFallback from '../Previewer/DemoFallback';
 
 const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
-  const { showDebug, setShowDebug } = useContext(DemoContext);
+  const { showDebug, setShowDebug } = React.use(DemoContext);
 
   const [expandAll, setExpandAll] = useLayoutState(false);
 

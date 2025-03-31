@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Col, Row, Typography } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { useLocation } from 'dumi';
 
-import useDark from '../../../hooks/useDark';
 import useLocale from '../../../hooks/useLocale';
 import Link from '../../../theme/common/Link';
 import SiteContext from '../../../theme/slots/SiteContext';
 import * as utils from '../../../theme/utils';
+import { DarkContext } from './../../../hooks/useDark';
 
 const SECONDARY_LIST = [
   {
@@ -63,14 +63,13 @@ const locales = {
   },
 };
 
-const useStyle = () => {
-  const isRootDark = useDark();
-
-  return createStyles(({ token, css }) => ({
+const useStyle = createStyles(({ token, css }) => {
+  const isDark = React.use(DarkContext);
+  return {
     card: css`
       padding: ${token.paddingSM}px;
       border-radius: ${token.borderRadius * 2}px;
-      background: ${isRootDark ? 'rgba(0, 0, 0, 0.45)' : token.colorBgElevated};
+      background: ${isDark ? 'rgba(0, 0, 0, 0.45)' : token.colorBgElevated};
       box-shadow:
         0 1px 2px rgba(0, 0, 0, 0.03),
         0 1px 6px -1px rgba(0, 0, 0, 0.02),
@@ -87,15 +86,15 @@ const useStyle = () => {
       display: block;
       border-radius: ${token.borderRadius * 2}px;
       padding: ${token.paddingMD}px ${token.paddingLG}px;
-      background: ${isRootDark ? 'rgba(0, 0, 0, 0.25)' : 'rgba(0, 0, 0, 0.02)'};
-      border: 1px solid ${isRootDark ? 'rgba(255, 255, 255, 0.45)' : 'rgba(0, 0, 0, 0.06)'};
+      background: ${isDark ? 'rgba(0, 0, 0, 0.25)' : 'rgba(0, 0, 0, 0.02)'};
+      border: 1px solid ${isDark ? 'rgba(255, 255, 255, 0.45)' : 'rgba(0, 0, 0, 0.06)'};
 
       img {
         height: 48px;
       }
     `,
-  }))();
-};
+  };
+});
 
 const DesignFramework: React.FC = () => {
   const [locale] = useLocale(locales);
@@ -103,7 +102,7 @@ const DesignFramework: React.FC = () => {
   const { styles } = useStyle();
   const { pathname, search } = useLocation();
   const isZhCN = utils.isZhCN(pathname);
-  const { isMobile } = useContext(SiteContext);
+  const { isMobile } = React.use(SiteContext);
   const colSpan = isMobile ? 24 : 8;
 
   const MAINLY_LIST = [
