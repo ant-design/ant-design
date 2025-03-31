@@ -2,7 +2,6 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 import extendsObject from '../_util/extendsObject';
-import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -69,9 +68,9 @@ export interface ListLocale {
   emptyText: React.ReactNode;
 }
 
-function InternalList<T>(
-  {
-    pagination = false as ListProps<T>['pagination'],
+function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivElement>) {
+  const {
+    pagination = false,
     prefixCls: customizePrefixCls,
     bordered = false,
     split = true,
@@ -91,9 +90,8 @@ function InternalList<T>(
     renderItem,
     locale,
     ...rest
-  }: ListProps<T>,
-  ref: React.ForwardedRef<HTMLDivElement>,
-) {
+  } = props;
+
   const paginationObj = pagination && typeof pagination === 'object' ? pagination : {};
 
   const [paginationCurrent, setPaginationCurrent] = React.useState(
@@ -242,9 +240,10 @@ function InternalList<T>(
     ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].includes(key),
   );
   const screens = useBreakpoint(needResponsive);
+
   const currentBreakpoint = React.useMemo(() => {
     for (let i = 0; i < responsiveArray.length; i += 1) {
-      const breakpoint: Breakpoint = responsiveArray[i];
+      const breakpoint = responsiveArray[i];
       if (screens[breakpoint]) {
         return breakpoint;
       }
@@ -268,7 +267,7 @@ function InternalList<T>(
 
   let childrenContent: React.ReactNode = isLoading && <div style={{ minHeight: 53 }} />;
   if (splitDataSource.length > 0) {
-    const items = splitDataSource.map((item: T, index: number) => renderInnerItem(item, index));
+    const items = splitDataSource.map(renderInnerItem);
     childrenContent = grid ? (
       <Row gutter={grid.gutter}>
         {React.Children.map(items, (child) => (
