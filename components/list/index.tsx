@@ -56,7 +56,7 @@ export interface ListProps<T> {
   pagination?: PaginationConfig | false;
   prefixCls?: string;
   rowKey?: ((item: T) => React.Key) | keyof T;
-  renderItem?: React.ReactNode | ((item: T, index: number) => React.ReactNode);
+  renderItem?: React.ReactNode /* 👈 5.25.0+ */ | ((item: T, index: number) => React.ReactNode);
   size?: ListSize;
   split?: boolean;
   header?: React.ReactNode;
