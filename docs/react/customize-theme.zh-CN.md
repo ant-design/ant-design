@@ -290,17 +290,20 @@ const App: React.FC = () => {
   const { token } = useToken();
 
   return (
-    <div
-      style={{
-        backgroundColor: token.colorPrimaryBg,
-        padding: token.padding,
-        borderRadius: token.borderRadius,
-        color: token.colorPrimaryText,
-        fontSize: token.fontSize,
-      }}
-    >
-      使用 Design Token
-    </div>
+    <>
+      <Button
+        style={{
+          backgroundColor: token.colorPrimaryBg,
+          padding: token.padding,
+          borderRadius: token.borderRadius,
+          color: token.colorPrimaryText,
+          fontSize: token.fontSize,
+        }}
+      >
+        使用 Design Token
+      </Button>
+      <Button>未使用 Design Token</Button>
+    </>
   );
 };
 
