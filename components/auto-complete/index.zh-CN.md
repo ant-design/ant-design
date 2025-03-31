@@ -49,6 +49,7 @@ demo:
 | backfill | 使用键盘选择选项的时候把选中项回填到输入框中 | boolean | false |  |
 | children (自动完成的数据源) | 自动完成的数据源，不能和自定义输入框同时配置 | React.ReactElement&lt;OptionProps> \| Array&lt;React.ReactElement&lt;OptionProps>> | - |  |
 | children (自定义输入框) | 自定义输入框，不能和自动完成的数据源同时配置 | HTMLInputElement \| HTMLTextAreaElement \| React.ReactElement&lt;InputProps> | &lt;Input /> |  |
+| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |
 | defaultActiveFirstOption | 是否默认高亮第一个选项 | boolean | true |  |
 | defaultOpen | 是否默认展开下拉菜单 | boolean | - |  |
 | defaultValue | 指定默认选中的条目 | string | - |  |
@@ -66,6 +67,7 @@ demo:
 | placeholder | 输入框提示 | string | - |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | size | 控件大小 | `large` \| `middle` \| `small` | - |  |
+| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
 | value | 指定当前选中的条目 | string | - |  |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
@@ -79,8 +81,6 @@ demo:
 | onClear | 清除内容时的回调 | function | - | 4.6.0 |
 | onInputKeyDown | 按键按下时回调 | (event: KeyboardEvent) => void | - |  |
 | onPopupScroll | 下拉列表滚动时的回调 | (event: UIEvent) => void | - |  |
-| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |
-| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
 
 ## 方法
 

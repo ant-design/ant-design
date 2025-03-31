@@ -40,6 +40,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | allowClear | Customize clear icon | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: Support object type |
 | autoClearSearchValue | If auto clear search input value when multiple select is selected/deselected | boolean | true |  |
+| classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |
 | defaultValue | To set the initial selected treeNode(s) | string \| string\[] | - |  |
 | disabled | Disabled or not | boolean | false |  |
 | ~~popupClassName~~ | The className of dropdown menu, use `classNames.popup` instead | string | - | 4.23.0 |
@@ -69,6 +70,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | The custom suffix icon | ReactNode | `<DownOutlined />` |  |
 | switcherIcon | Customize collapse/expand icon of tree node | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |
+| styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
 | tagRender | Customize tag render when `multiple` | (props) => ReactNode | - |  |
 | treeCheckable | Whether to show checkbox on the treeNodes | boolean | false |  |
 | treeCheckStrictly | Whether to check nodes precisely (in the `checkable` mode), means parent and child nodes are not associated, and it will make `labelInValue` be true | boolean | false |  |
@@ -93,8 +95,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | onSelect | A callback function, can be executed when you select a treeNode | function(value, node, extra) | - |  |
 | onTreeExpand | A callback function, can be executed when treeNode expanded | function(expandedKeys) | - |  |
 | onPopupScroll | Called when dropdown scrolls | (event: UIEvent) => void | - | 5.17.0 |
-| classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |
-| styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
 
 ### Tree Methods
 

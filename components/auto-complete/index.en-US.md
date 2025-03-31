@@ -48,6 +48,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | backfill | If backfill selected item the input when using keyboard | boolean | false |  |
 | children (for customize input element) | Customize input element | HTMLInputElement \| HTMLTextAreaElement \| React.ReactElement&lt;InputProps> | &lt;Input /> |  |
 | children (for dataSource) | Data source to auto complete | React.ReactElement&lt;OptionProps> \| Array&lt;React.ReactElement&lt;OptionProps>> | - |  |
+| classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |  |
 | defaultOpen | Initial open state of dropdown | boolean | - |  |
 | defaultValue | Initial selected option | string | - |  |
@@ -66,6 +67,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | size | The size of the input box | `large` \| `middle` \| `small` | - |  |
 | value | Selected option | string | - |  |
+| styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
 | variant | Variants of input | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
 | onBlur | Called when leaving the component | function() | - |  |
@@ -78,8 +80,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | onClear | Called when clear | function | - | 4.6.0 |
 | onInputKeyDown | Called when key pressed | (event: KeyboardEvent) => void | - |  |
 | onPopupScroll | Called when dropdown scrolls | (event: UIEvent) => void | - |  |
-| classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |
-| styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
 
 ## Methods
 

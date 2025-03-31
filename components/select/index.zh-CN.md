@@ -83,6 +83,7 @@ return (
 | allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: 支持对象类型 |
 | autoClearSearchValue | 是否在选中项后清空搜索框，只在 `mode` 为 `multiple` 或 `tags` 时有效 | boolean | true |  |
 | autoFocus | 默认获取焦点 | boolean | false |  |
+| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |
 | defaultActiveFirstOption | 是否默认高亮第一个选项 | boolean | true |  |
 | defaultOpen | 是否默认展开下拉菜单 | boolean | - |  |
 | defaultValue | 指定默认选中的条目 | string \| string\[] \|<br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
@@ -120,6 +121,7 @@ return (
 | size | 选择框大小 | `large` \| `middle` \| `small` | `middle` |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | 自定义的选择框后缀图标。以防止图标被用于其他交互，替换的图标默认不会响应展开、收缩事件，可以通过添加 `pointer-events: none` 样式透传。 | ReactNode | `<DownOutlined />` |  |
+| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
 | tagRender | 自定义 tag 内容 render，仅在 `mode` 为 `multiple` 或 `tags` 时生效 | (props) => ReactNode | - |  |
 | labelRender | 自定义当前选中的 label 内容 render （LabelInValueType的定义见 [LabelInValueType](https://github.com/react-component/select/blob/b39c28aa2a94e7754ebc570f200ab5fd33bd31e7/src/Select.tsx#L70)） | (props: LabelInValueType) => ReactNode | - | 5.15.0 |
 | tokenSeparators | 自动分词的分隔符，仅在 `mode="tags"` 时生效 | string\[] | - |  |
@@ -137,8 +139,6 @@ return (
 | onPopupScroll | 下拉列表滚动时的回调 | (event: UIEvent) => void | - |  |
 | onSearch | 文本框值变化时回调 | function(value: string) | - |  |
 | onSelect | 被选中时调用，参数为选中项的 value (或 key) 值 | function(value: string \| number \| LabeledValue, option: Option) | - |  |
-| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |
-| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
 
 > 注意，如果发现下拉菜单跟随页面滚动，或者需要在其他弹层中触发 Select，请尝试使用 `getPopupContainer={triggerNode => triggerNode.parentElement}` 将下拉弹层渲染节点固定在触发器的父元素中。
 

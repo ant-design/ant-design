@@ -41,6 +41,7 @@ demo:
 | --- | --- | --- | --- | --- |
 | allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: 支持对象形式 |
 | autoClearSearchValue | 当多选模式下值被选择，自动清空搜索框 | boolean | true |  |
+| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |
 | defaultValue | 指定默认选中的条目 | string \| string\[] | - |  |
 | disabled | 是否禁用 | boolean | false |  |
 | ~~popupClassName~~ | 下拉菜单的 className 属性，使用 `classNames.popup` 替换 | string | - | 4.23.0 |
@@ -70,6 +71,7 @@ demo:
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | `<DownOutlined />` |  |
 | switcherIcon | 自定义树节点的展开/折叠图标 | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |
+| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
 | tagRender | 自定义 tag 内容，多选时生效 | (props) => ReactNode | - |  |
 | treeCheckable | 显示 Checkbox | boolean | false |  |
 | treeCheckStrictly | `checkable` 状态下节点选择完全受控（父子节点选中状态不再关联），会使得 `labelInValue` 强制为 true | boolean | false |  |
@@ -95,8 +97,6 @@ demo:
 | onSelect | 被选中时调用 | function(value, node, extra) | - |  |
 | onTreeExpand | 展示节点时调用 | function(expandedKeys) | - |  |
 | onPopupScroll | 下拉列表滚动时的回调 | (event: UIEvent) => void | - | 5.17.0 |
-| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |
-| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
 
 ### Tree 方法
 
