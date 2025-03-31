@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { FastColor } from '@ant-design/fast-color';
 import {
   AntDesignOutlined,
   BgColorsOutlined,
@@ -13,7 +14,6 @@ import {
   UsergroupAddOutlined,
   ZhihuOutlined,
 } from '@ant-design/icons';
-import { FastColor } from '@ant-design/fast-color';
 import { createStyles } from 'antd-style';
 import getAlphaColor from 'antd/es/theme/util/getAlphaColor';
 import { FormattedMessage, Link } from 'dumi';
@@ -34,59 +34,52 @@ const locales = {
   },
 };
 
-const useStyle = () => {
-  const { isMobile } = useContext(SiteContext);
-  return createStyles(({ token, css }) => {
-    const background = new FastColor(getAlphaColor('#f0f3fa', '#fff'))
-      .onBackground(token.colorBgContainer)
-      .toHexString();
+const useStyle = createStyles(({ token, css }) => {
+  const { isMobile } = React.use(SiteContext);
+  const background = new FastColor(getAlphaColor('#f0f3fa', '#fff'))
+    .onBackground(token.colorBgContainer)
+    .toHexString();
+  return {
+    holder: css`
+      background: ${background};
+    `,
 
-    return {
-      holder: css`
-        background: ${background};
-      `,
+    footer: css`
+      background: ${background};
+      color: ${token.colorTextSecondary};
+      box-shadow: inset 0 106px 36px -116px rgba(0, 0, 0, 0.14);
 
-      footer: css`
-        background: ${background};
-        color: ${token.colorTextSecondary};
+      * {
+        box-sizing: border-box;
+      }
+
+      h2,
+      a {
+        color: ${token.colorText};
+      }
+      .rc-footer-column {
+        margin-bottom: ${isMobile ? 60 : 0}px;
+        :last-child {
+          margin-bottom: ${isMobile ? 20 : 0}px;
+        }
+      }
+      .rc-footer-item-icon {
+        top: -1.5px;
+      }
+      .rc-footer-container {
+        max-width: 1208px;
+        margin-inline: auto;
+        padding-inline: ${token.marginXXL}px;
+      }
+      .rc-footer-bottom {
         box-shadow: inset 0 106px 36px -116px rgba(0, 0, 0, 0.14);
-
-        * {
-          box-sizing: border-box;
+        .rc-footer-bottom-container {
+          font-size: ${token.fontSize}px;
         }
-
-        h2,
-        a {
-          color: ${token.colorText};
-        }
-
-        .rc-footer-column {
-          margin-bottom: ${isMobile ? 60 : 0}px;
-          :last-child {
-            margin-bottom: ${isMobile ? 20 : 0}px;
-          }
-        }
-
-        .rc-footer-item-icon {
-          top: -1.5px;
-        }
-
-        .rc-footer-container {
-          max-width: 1208px;
-          margin-inline: auto;
-          padding-inline: ${token.marginXXL}px;
-        }
-
-        .rc-footer-bottom {
-          box-shadow: inset 0 106px 36px -116px rgba(0, 0, 0, 0.14);
-          .rc-footer-bottom-container {
-            font-size: ${token.fontSize}px;
-          }
-        }
-      `,
-    };
-  })();
-};
+      }
+    `,
+  };
+});
 
 const Footer: React.FC = () => {
   const location = useLocation();

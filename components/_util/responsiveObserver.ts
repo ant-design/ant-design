@@ -73,7 +73,6 @@ export const matchScreen = (screens: ScreenMap, screenSizes?: ScreenSizeMap) => 
   }
 };
 
-
 interface ResponsiveObserverType {
   responsiveMap: BreakpointMap;
   dispatch: (map: ScreenMap) => boolean;

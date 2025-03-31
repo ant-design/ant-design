@@ -1,17 +1,19 @@
 import React, { use } from 'react';
-import { BgColorsOutlined, SmileOutlined, SunOutlined, LinkOutlined } from '@ant-design/icons';
-import { Dropdown, Button, Badge } from 'antd';
+import { BgColorsOutlined, LinkOutlined, SmileOutlined, SunOutlined } from '@ant-design/icons';
+import { Badge, Button, Dropdown } from 'antd';
 import type { MenuProps } from 'antd';
 import { CompactTheme, DarkTheme } from 'antd-token-previewer/es/icons';
 import { FormattedMessage, useLocation } from 'dumi';
+
+import useThemeAnimation from '../../../hooks/useThemeAnimation';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
-import useThemeAnimation from '../../../hooks/useThemeAnimation';
 import { getLocalizedPathname, isZhCN } from '../../utils';
 import Link from '../Link';
 import ThemeIcon from './ThemeIcon';
 
 export type ThemeName = 'light' | 'dark' | 'compact' | 'motion-off' | 'happy-work';
+
 export interface ThemeSwitchProps {
   value?: ThemeName[];
 }

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Badge, Carousel, Flex, Skeleton, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
@@ -110,7 +110,7 @@ const RecommendItem: React.FC<RecommendItemProps> = ({ extra, index, icons, clas
 };
 
 export const BannerRecommendsFallback: React.FC = () => {
-  const { isMobile } = useContext(SiteContext);
+  const { isMobile } = React.use(SiteContext);
   const { styles } = useStyle();
 
   const list = Array.from({ length: 3 });
@@ -137,7 +137,7 @@ export const BannerRecommendsFallback: React.FC = () => {
 const BannerRecommends: React.FC = () => {
   const { styles } = useStyle();
   const [, lang] = useLocale();
-  const { isMobile } = React.useContext(SiteContext);
+  const { isMobile } = React.use(SiteContext);
   const data = useSiteData();
   const extras = data?.extras?.[lang];
   const icons = data?.icons || [];
