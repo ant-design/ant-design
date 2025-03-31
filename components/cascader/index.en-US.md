@@ -71,6 +71,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | maxTagTextLength | Max tag text length to show | number | - | 4.17.0 |
 | notFoundContent | Specify content to show when no result matches | ReactNode | `Not Found` |  |
 | open | Set visible of cascader popup | boolean | - | 4.17.0 |
+| defaultOpen | Initial visible of cascader popup | boolean | - | 4.17.0 |
 | options | The data options of cascade | [Option](#option)\[] | - |  |
 | placeholder | The input placeholder | string | - |  |
 | placement | Use preset popup align config from builtinPlacements | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 |

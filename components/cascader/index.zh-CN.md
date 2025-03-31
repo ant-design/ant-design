@@ -72,6 +72,7 @@ demo:
 | maxTagTextLength | 最大显示的 tag 文本长度 | number | - | 4.17.0 |
 | notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | `Not Found` |  |
 | open | 控制浮层显隐 | boolean | - | 4.17.0 |
+| defaultOpen | 是否默认展示浮层 | boolean | - | 4.17.0 |
 | options | 可选项数据源 | [Option](#option)\[] | - |  |
 | placeholder | 输入框占位文本 | string | - |  |
 | placement | 浮层预设位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 |

@@ -112,6 +112,7 @@ dayjs.locale('zh-cn');
 | mode | 日期面板的状态（[设置后无法选择年份/月份？](/docs/react/faq#当我指定了-datepickerrangepicker-的-mode-属性后点击后无法选择年份月份)） | `time` \| `date` \| `month` \| `year` \| `decade` | - |  |
 | needConfirm | 是否需要确认按钮，为 `false` 时失去焦点即代表选择。当设置 `multiple` 时默认为 `false` | boolean | - | 5.14.0 |
 | nextIcon | 自定义下一个图标 | ReactNode | - | 4.17.0 |
+| defaultOpen | 是否默认展开控制弹层 | boolean | - |  |
 | open | 控制弹层是否展开 | boolean | - |  |
 | panelRender | 自定义渲染面板 | (panelNode) => ReactNode | - | 4.5.0 |
 | picker | 设置选择器类型 | `date` \| `week` \| `month` \| `quarter` \| `year` | `date` | `quarter`: 4.1.0 |
