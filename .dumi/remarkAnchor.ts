@@ -27,6 +27,7 @@ interface Options {
 }
 
 const remarkAnchor = (opt: Options = {}): UnifiedTransformer<any> => {
+  // https://regex101.com/r/WDjkK0/1
   const RE = /\s*\{#([^}]+)\}$/;
 
   const realOpt = {
