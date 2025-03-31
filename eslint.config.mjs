@@ -126,7 +126,7 @@ export default antfu(
       'react/no-array-index-key': 'off',
       'react-dom/no-missing-iframe-sandbox': 'off',
       'no-restricted-globals': 'off',
-      'react/no-use-context': 'on',
+      'react/no-use-context': 'warn',
     },
     settings: {
       polyfills: ['Promise', 'URL', 'URLSearchParams'],
