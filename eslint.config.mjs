@@ -64,6 +64,7 @@ export default antfu(
       /* turn off React 19 only rules */
       'react/no-forward-ref': 'off',
       'react/no-context-provider': 'off',
+      'react/no-use-context': 'off',
     },
   },
   compat.configs['flat/recommended'],
