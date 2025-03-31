@@ -50,15 +50,17 @@ const uploadProps: UploadProps = {
   ],
 };
 
-const Block: React.FC = (props: any) => (
+const Block: React.FC<Readonly<UploadProps<any>>> = (props) => (
   <Upload {...uploadProps} {...props}>
     <Button icon={<UploadOutlined />}>Upload</Button>
   </Upload>
 );
+
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="Upload"
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'list', desc: locale.list, version: '6.0.0' },

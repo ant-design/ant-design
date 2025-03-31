@@ -108,6 +108,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="Image"
       padding={false}
       semantics={[
         { name: 'root', desc: locale.root },

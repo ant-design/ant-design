@@ -19,6 +19,7 @@ import ConfigProvider from '../../config-provider';
 import DatePicker from '../../date-picker';
 import Drawer from '../../drawer';
 import Input from '../../input';
+import type { InputProps } from '../../input';
 import InputNumber from '../../input-number';
 import zhCN from '../../locale/zh_CN';
 import Modal from '../../modal';
@@ -565,7 +566,9 @@ describe('Form', () => {
         return <input {...props} ref={internalRef} />;
       });
 
-      const NormalInput = (props: any) => <input {...props} />;
+      const NormalInput: React.FC<Readonly<React.DOMAttributes<HTMLInputElement>>> = (props) => (
+        <input {...props} />
+      );
 
       const { getByRole, getAllByRole } = render(
         <Form scrollToFirstError>
@@ -2249,7 +2252,7 @@ describe('Form', () => {
   it('validate status should be change in order', async () => {
     const onChange = jest.fn();
 
-    const CustomInput = (props: any) => {
+    const CustomInput: React.FC<Readonly<InputProps>> = (props) => {
       const { status } = Form.Item.useStatus();
       useEffect(() => {
         onChange(status);

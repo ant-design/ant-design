@@ -1,5 +1,6 @@
 import React from 'react';
 import { Badge, Card } from 'antd';
+import type { RibbonProps } from 'antd/es/badge/Ribbon';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -17,7 +18,7 @@ const locales = {
   },
 };
 
-const BlockList = (props: any) => {
+const BlockList: React.FC<Readonly<RibbonProps>> = (props) => {
   return (
     <div style={{ width: '100%' }}>
       <Badge.Ribbon {...props} text="Hippies" color="pink">
@@ -33,6 +34,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="Badge"
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'indicator', desc: locale.indicator, version: '6.0.0' },

@@ -24,6 +24,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="Masonry"
       semantics={[
         { name: 'root', desc: locale.root },
         { name: 'item', desc: locale.item },

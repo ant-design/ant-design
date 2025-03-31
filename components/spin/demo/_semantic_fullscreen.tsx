@@ -1,5 +1,6 @@
 import React from 'react';
 import { Spin } from 'antd';
+import type { SpinProps } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -15,16 +16,14 @@ const locales = {
   },
 };
 
-const SpinBlock = (props: any) => {
+const SpinBlock: React.FC<Readonly<SpinProps>> = (props) => {
   return (
     <div style={{ position: 'absolute', inset: 0 }}>
       <div style={{ position: 'relative', width: '100%', height: 150 }}>
         <Spin
           percent={0}
           fullscreen
-          styles={{
-            mask: { position: 'absolute', height: '100%', width: '100%' },
-          }}
+          styles={{ mask: { position: 'absolute', height: '100%', width: '100%' } }}
           {...props}
         />
       </div>
@@ -34,9 +33,9 @@ const SpinBlock = (props: any) => {
 
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
-
   return (
     <SemanticPreview
+      componentName="Spin"
       semantics={[
         { name: 'mask', desc: locale.mask, version: '6.0.0' },
         { name: 'indicator', desc: locale.indicator, version: '6.0.0' },

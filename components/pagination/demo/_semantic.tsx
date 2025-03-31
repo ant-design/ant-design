@@ -19,6 +19,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="Pagination"
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'item', desc: locale.item, version: '6.0.0' },

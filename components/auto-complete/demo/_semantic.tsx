@@ -51,6 +51,7 @@ const App: React.FC = () => {
 
   return (
     <SemanticPreview
+      componentName="AutoComplete"
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'input', desc: locale.input, version: '6.0.0' },

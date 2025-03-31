@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Tour } from 'antd';
+import type { TourProps } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -33,7 +34,7 @@ const locales = {
   },
 };
 
-const BlockList: React.FC<React.PropsWithChildren> = (props: any) => {
+const BlockList: React.FC<React.PropsWithChildren<TourProps>> = (props) => {
   const [open, setOpen] = React.useState(true);
   const createBtnRef = React.useRef<HTMLButtonElement>(null);
   return (
@@ -48,12 +49,7 @@ const BlockList: React.FC<React.PropsWithChildren> = (props: any) => {
         overflow: 'hidden',
       }}
     >
-      <Button
-        ref={createBtnRef}
-        onClick={() => {
-          setOpen(true);
-        }}
-      >
+      <Button ref={createBtnRef} onClick={() => setOpen(true)}>
         Show
       </Button>
       <Tour
@@ -61,7 +57,7 @@ const BlockList: React.FC<React.PropsWithChildren> = (props: any) => {
         zIndex={1}
         open={open}
         defaultCurrent={0}
-        getPopupContainer={false}
+        getPopupContainer={false as unknown as TourProps['getPopupContainer']}
         onClose={() => setOpen(false)}
         steps={[
           {
@@ -73,13 +69,13 @@ const BlockList: React.FC<React.PropsWithChildren> = (props: any) => {
                 src="https://user-images.githubusercontent.com/5378891/197385811-55df8480-7ff4-44bd-9d43-a7dade598d70.png"
               />
             ),
-            target: () => createBtnRef.current,
+            target: () => createBtnRef.current!,
             mask: true,
           },
           {
             title: 'Save',
             description: 'Save your changes.',
-            target: () => createBtnRef.current,
+            target: () => createBtnRef.current!,
           },
         ]}
       />
@@ -89,9 +85,9 @@ const BlockList: React.FC<React.PropsWithChildren> = (props: any) => {
 
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
-
   return (
     <SemanticPreview
+      componentName="Tour"
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'mask', desc: locale.mask, version: '6.0.0' },

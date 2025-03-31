@@ -19,6 +19,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="Switch"
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'content', desc: locale.content, version: '6.0.0' },

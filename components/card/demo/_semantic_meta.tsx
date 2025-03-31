@@ -25,7 +25,6 @@ const locales = {
 
 const BlockCard: React.FC<React.PropsWithChildren> = (props) => {
   const divRef = React.useRef<HTMLDivElement>(null);
-
   return (
     <div ref={divRef} style={{ position: 'absolute' }}>
       <Card style={{ width: 300 }}>
@@ -44,6 +43,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="Card.Meta"
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'section', desc: locale.section, version: '6.0.0' },
