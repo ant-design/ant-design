@@ -204,20 +204,20 @@ const GlobalLayout: React.FC = () => {
   ));
 
   return (
-    <DarkContext.Provider value={theme.includes('dark')}>
+    <DarkContext value={theme.includes('dark')}>
       <StyleProvider
         cache={styleCache}
         linters={[legacyNotSelectorLinter, parentSelectorLinter, NaNLinter]}
       >
-        <SiteContext.Provider value={siteContextValue}>
+        <SiteContext value={siteContextValue}>
           <SiteThemeProvider theme={themeConfig}>
             <HappyProvider disabled={!theme.includes('happy-work')}>
               <App>{outlet}</App>
             </HappyProvider>
           </SiteThemeProvider>
-        </SiteContext.Provider>
+        </SiteContext>
       </StyleProvider>
-    </DarkContext.Provider>
+    </DarkContext>
   );
 };
 

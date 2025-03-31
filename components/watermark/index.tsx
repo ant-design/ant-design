@@ -193,8 +193,8 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
           gapY,
         ] as const;
 
-        const result = getClipsCache(params, () => getClips(...params));
-        const [nextClips, clipWidth] = result;
+        const [nextClips, clipWidth] = getClipsCache(params, () => getClips(...params));
+
         setWatermarkInfo([nextClips, clipWidth]);
       };
 
