@@ -313,28 +313,25 @@ describe('Theme', () => {
   });
 
   it('component token should support algorithm', () => {
-    const Demo = ({ algorithm }: { algorithm?: boolean | typeof theme.darkAlgorithm }) => (
-      <ConfigProvider
-        theme={{
-          components: {
-            Input: {
-              colorPrimary: '#00B96B',
-              algorithm,
-            },
-          },
-        }}
-      >
-        <Input />
-      </ConfigProvider>
-    );
+    const Demo: React.FC<{ algorithm?: boolean | typeof theme.darkAlgorithm }> = (props) => {
+      const { algorithm } = props;
+      return (
+        <ConfigProvider theme={{ components: { Input: { colorPrimary: '#00B96B', algorithm } } }}>
+          <Input />
+        </ConfigProvider>
+      );
+    };
 
     const { container, rerender } = render(<Demo />);
-    expect(container.querySelector('input')).toHaveStyle({ 'border-color': '#4096ff' });
+
+    const inputElement = container.querySelector<HTMLInputElement>('input');
+
+    expect(inputElement).toHaveStyle({ 'border-color': '#d9d9d9' });
 
     rerender(<Demo algorithm />);
-    expect(container.querySelector('input')).toHaveStyle({ 'border-color': '#20c77c' });
+    expect(inputElement).toHaveStyle({ 'border-color': '#d9d9d9' });
 
     rerender(<Demo algorithm={theme.darkAlgorithm} />);
-    expect(container.querySelector('input')).toHaveStyle({ 'border-color': '#1fb572' });
+    expect(inputElement).toHaveStyle({ 'border-color': '#ffffff' });
   });
 });

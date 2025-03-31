@@ -19,6 +19,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="TextArea"
       semantics={[
         { name: 'textarea', desc: locale.textarea, version: '5.4.0' },
         { name: 'count', desc: locale.count, version: '5.4.0' },

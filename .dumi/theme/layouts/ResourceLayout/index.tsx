@@ -4,10 +4,10 @@ import { ConfigProvider, Layout, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import { FormattedMessage, useRouteMeta } from 'dumi';
 
-import useDark from '../../../hooks/useDark';
 import CommonHelmet from '../../common/CommonHelmet';
 import EditButton from '../../common/EditButton';
 import Footer from '../../slots/Footer';
+import { DarkContext } from './../../../hooks/useDark';
 import AffixTabs from './AffixTabs';
 
 export type ResourceLayoutProps = PropsWithChildren<NonNullable<any>>;
@@ -16,85 +16,77 @@ const resourcePadding = 40;
 const articleMaxWidth = 1208;
 const resourcePaddingXS = 24;
 
-const useStyle = () => {
-  const isRootDark = useDark();
-
-  return createStyles((config) => {
-    const { token, css } = config;
-    const { antCls } = token;
-
-    return {
-      resourcePage: css`
-        footer {
-          margin-top: 176px;
-
-          .rc-footer-container {
-            max-width: ${articleMaxWidth}px;
-            margin: 0 auto;
-            padding-inline-end: 0;
-            padding-inline-start: 0;
-          }
-        }
-      `,
-      resourceContent: css`
-        padding: 0 ${resourcePadding}px;
-        max-width: ${articleMaxWidth}px;
-        margin: 0 auto;
-        box-sizing: content-box;
-        min-height: 100vh;
-
-        @media only screen and (max-width: 767.99px) {
-          & {
-            article {
-              padding: 0 ${resourcePaddingXS}px;
-            }
-            ${antCls}-col {
-              padding-top: ${token.padding}px !important;
-              padding-bottom: ${token.padding}px !important;
-            }
-          }
-        }
-      `,
-      banner: css`
-        padding: 0 ${resourcePadding}px;
-        overflow: hidden;
-        ${
-          isRootDark
-            ? ``
-            : `background: url('https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*y_r7RogIG1wAAAAAAAAAAABkARQnAQ');`
-        }
-        background-size: cover;
-
-        h1 {
-          box-sizing: content-box;
+const useStyle = createStyles(({ token, css }) => {
+  const isDark = React.use(DarkContext);
+  return {
+    resourcePage: css`
+      footer {
+        margin-top: 176px;
+        .rc-footer-container {
           max-width: ${articleMaxWidth}px;
-          margin: 56px auto 16px;
+          margin: 0 auto;
+          padding-inline-end: 0;
+          padding-inline-start: 0;
         }
+      }
+    `,
+    resourceContent: css`
+      padding: 0 ${resourcePadding}px;
+      max-width: ${articleMaxWidth}px;
+      margin: 0 auto;
+      box-sizing: content-box;
+      min-height: 100vh;
 
-        section {
-          max-width: ${articleMaxWidth}px;
-          margin: 0 auto 56px;
-          font-weight: 200;
-          font-size: ${token.fontSizeLG}px;
-          line-height: 24px;
-        }
-
-        @media only screen and (max-width: 767.99px) {
-          & {
-            margin: 0 -${resourcePaddingXS}px;
+      @media only screen and (max-width: 767.99px) {
+        & {
+          article {
             padding: 0 ${resourcePaddingXS}px;
           }
+          ${token.antCls}-col {
+            padding-top: ${token.padding}px !important;
+            padding-bottom: ${token.padding}px !important;
+          }
         }
-      `,
-    };
-  })();
-};
+      }
+    `,
+    banner: css`
+      padding: 0 ${resourcePadding}px;
+      overflow: hidden;
+      ${
+        isDark
+          ? ``
+          : `background: url('https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*y_r7RogIG1wAAAAAAAAAAABkARQnAQ');`
+      }
+      background-size: cover;
+
+      h1 {
+        box-sizing: content-box;
+        max-width: ${articleMaxWidth}px;
+        margin: 56px auto 16px;
+      }
+
+      section {
+        max-width: ${articleMaxWidth}px;
+        margin: 0 auto 56px;
+        font-weight: 200;
+        font-size: ${token.fontSizeLG}px;
+        line-height: 24px;
+      }
+
+      @media only screen and (max-width: 767.99px) {
+        & {
+          margin: 0 -${resourcePaddingXS}px;
+          padding: 0 ${resourcePaddingXS}px;
+        }
+      }
+    `,
+  };
+});
 
 const ResourceLayout: React.FC<ResourceLayoutProps> = ({ children }) => {
   const { styles } = useStyle();
   const meta = useRouteMeta();
-  const isRootDark = useDark();
-
+  const isDark = React.use(DarkContext);
   const node = (
     <Layout>
       <CommonHelmet />
@@ -116,7 +108,7 @@ const ResourceLayout: React.FC<ResourceLayoutProps> = ({ children }) => {
     </Layout>
   );
 
-  if (!isRootDark) {
+  if (!isDark) {
     return <ConfigProvider theme={{ token: { colorBgLayout: '#fff' } }}>{node}</ConfigProvider>;
   }
 
