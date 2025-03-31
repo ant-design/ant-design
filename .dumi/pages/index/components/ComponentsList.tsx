@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
 import {
   Alert,
@@ -16,9 +16,9 @@ import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
 
-import useDark from '../../../hooks/useDark';
 import useLocale from '../../../hooks/useLocale';
 import SiteContext from '../../../theme/slots/SiteContext';
+import { DarkContext } from './../../../hooks/useDark';
 import { getCarouselStyle } from './util';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: ModalDoNotUseOrYouWillBeFired } = Modal;
@@ -61,66 +61,62 @@ const locales = {
   },
 };
 
-const useStyle = () => {
-  const isRootDark = useDark();
+const useStyle = createStyles(({ token }) => {
+  const { carousel } = getCarouselStyle();
+  const isDark = React.use(DarkContext);
+  return {
+    card: css`
+      border-radius: ${token.borderRadius}px;
+      border: 1px solid ${isDark ? token.colorBorder : 'transparent'};
+      background-color: ${isDark ? token.colorBgContainer : '#f5f8ff'};
+      padding: ${token.paddingXL}px;
+      flex: none;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
 
-  return createStyles(({ token }) => {
-    const { carousel } = getCarouselStyle();
-
-    return {
-      card: css`
-        border-radius: ${token.borderRadius}px;
-        border: 1px solid ${isRootDark ? token.colorBorder : 'transparent'};
-        background: ${isRootDark ? token.colorBgContainer : '#f5f8ff'};
-        padding: ${token.paddingXL}px;
+      > * {
         flex: none;
-        overflow: hidden;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-
-        > * {
-          flex: none;
-        }
-      `,
-      cardCircle: css`
-        position: absolute;
-        width: 120px;
-        height: 120px;
-        background: #1677ff;
-        border-radius: 50%;
-        filter: blur(40px);
-        opacity: 0.1;
-      `,
-      mobileCard: css`
-        height: 395px;
-      `,
-      nodeWrap: css`
-        margin-top: ${token.paddingLG}px;
-        flex: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      `,
-      carousel,
-      componentsList: css`
-        width: 100%;
-        overflow: hidden;
-      `,
-      mobileComponentsList: css`
-        margin: 0 ${token.margin}px;
-      `,
-    };
-  })();
-};
+      }
+    `,
+    cardCircle: css`
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: #1677ff;
+      border-radius: 50%;
+      filter: blur(40px);
+      opacity: 0.1;
+    `,
+    mobileCard: css`
+      height: 395px;
+    `,
+    nodeWrap: css`
+      margin-top: ${token.paddingLG}px;
+      flex: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    `,
+    carousel,
+    componentsList: css`
+      width: 100%;
+      overflow: hidden;
+    `,
+    mobileComponentsList: css`
+      margin: 0 ${token.margin}px;
+    `,
+  };
+});
 
 const ComponentItem: React.FC<ComponentItemProps> = ({ title, node, type, index }) => {
   const tagColor = type === 'new' ? 'processing' : 'warning';
   const [locale] = useLocale(locales);
   const tagText = type === 'new' ? locale.new : locale.update;
   const { styles } = useStyle();
-  const { isMobile } = useContext(SiteContext);
+  const { isMobile } = React.use(SiteContext);
   return (
     <div className={classNames(styles.card, isMobile && styles.mobileCard)}>
       {/* Decorator */}
@@ -151,7 +147,7 @@ interface ComponentItemProps {
 const ComponentsList: React.FC = () => {
   const { styles } = useStyle();
   const [locale] = useLocale(locales);
-  const { isMobile } = useContext(SiteContext);
+  const { isMobile } = React.use(SiteContext);
   const COMPONENTS = React.useMemo<Omit<ComponentItemProps, 'index'>[]>(
     () => [
       {

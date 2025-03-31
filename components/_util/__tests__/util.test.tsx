@@ -1,6 +1,7 @@
 import { waitFakeTimer } from '../../../tests/utils';
 import { isStyleSupport } from '../styleChecker';
 import throttleByAnimationFrame from '../throttleByAnimationFrame';
+import toList from '../toList';
 
 describe('Test utils function', () => {
   describe('throttle', () => {
@@ -54,6 +55,14 @@ describe('Test utils function', () => {
       expect(isStyleSupport('color')).toBe(false);
       expect(isStyleSupport('not-existed')).toBe(false);
       spy.mockRestore();
+    });
+  });
+  describe('toList', () => {
+    it('toList should work', () => {
+      expect(toList(123)).toEqual([123]);
+      expect(toList([123])).toEqual([123]);
+      expect(toList(null, true)).toEqual([]);
+      expect(toList(undefined, true)).toEqual([]);
     });
   });
 });

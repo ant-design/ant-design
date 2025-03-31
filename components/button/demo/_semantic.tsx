@@ -22,6 +22,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="Button"
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'icon', desc: locale.icon, version: '5.5.0' },

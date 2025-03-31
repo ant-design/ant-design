@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Col, ConfigProvider, Menu } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { useSidebarData } from 'dumi';
@@ -109,7 +109,7 @@ const useStyle = createStyles(({ token, css }) => {
 
 const Sidebar: React.FC = () => {
   const sidebarData = useSidebarData();
-  const { isMobile, theme } = useContext(SiteContext);
+  const { isMobile, theme } = React.use(SiteContext);
   const { styles } = useStyle();
 
   const [menuItems, selectedKey] = useMenu();

@@ -84,7 +84,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
 
 export interface TransferCustomListBodyProps<T> extends TransferListBodyProps<T> {}
 
-const useShowSearchOption = (showSearch: boolean | TransferSearchOption) => {
+const getShowSearchOption = (showSearch: boolean | TransferSearchOption) => {
   if (showSearch && typeof showSearch === 'object') {
     return {
       ...showSearch,
@@ -133,7 +133,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     filterOption,
     render = defaultRender,
   } = props;
-  const searchOptions = useShowSearchOption(showSearch);
+  const searchOptions = getShowSearchOption(showSearch);
   const [filterValue, setFilterValue] = useState<string>(searchOptions.defaultValue);
   const listBodyRef = useRef<ListBodyRef<RecordType>>({});
 
