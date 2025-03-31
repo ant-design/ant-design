@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
 import React from 'react';
-import { Col, ConfigProvider, Flex, Row, Tag, theme, Typography } from 'antd';
+import { Col, ConfigProvider, Flex, Popover, Row, Tag, theme, Typography } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classnames from 'classnames';
 
@@ -65,13 +66,14 @@ const useStyle = createStyles(({ token }, markPos: [number, number, number, numb
 }));
 
 export interface SemanticPreviewProps {
+  componentName?: string;
   semantics: { name: string; desc: string; version?: string }[];
   children: React.ReactElement<any>;
   height?: number;
 }
 
 const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
-  const { semantics = [], children, height } = props;
+  const { semantics = [], children, height, componentName = 'Component' } = props;
   const { token } = theme.useToken();
 
   // ======================= Semantic =======================
@@ -144,24 +146,45 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
         <Col span={8}>
           <ul className={classnames(styles.listWrap)}>
             {semantics.map<React.ReactNode>((semantic) => (
-              <li
+              <Popover
                 key={semantic.name}
-                className={classnames(styles.listItem)}
-                onMouseEnter={() => setHoverSemantic(semantic.name)}
-                onMouseLeave={() => setHoverSemantic(null)}
+                content={
+                  <Typography style={{ fontSize: 12, minWidth: 300 }}>
+                    <pre dir="ltr">
+                      <code dir="ltr">
+                        {`<${componentName}
+  classNames={{
+    ${semantic.name}: 'my-${componentName.toLowerCase()}',
+  }}
+  styles={{
+    ${semantic.name}: { color: 'red' },
+  }}
+>
+  ...
+</${componentName}>`}
+                      </code>
+                    </pre>
+                  </Typography>
+                }
               >
-                <Flex vertical gap="small">
-                  <Flex gap="small" align="center">
-                    <Typography.Title level={5} style={{ margin: 0 }}>
-                      {semantic.name}
-                    </Typography.Title>
-                    {semantic.version && <Tag color="blue">{semantic.version}</Tag>}
+                <li
+                  className={classnames(styles.listItem)}
+                  onMouseEnter={() => setHoverSemantic(semantic.name)}
+                  onMouseLeave={() => setHoverSemantic(null)}
+                >
+                  <Flex vertical gap="small">
+                    <Flex gap="small" align="center">
+                      <Typography.Title level={5} style={{ margin: 0 }}>
+                        {semantic.name}
+                      </Typography.Title>
+                      {semantic.version && <Tag color="blue">{semantic.version}</Tag>}
+                    </Flex>
+                    <Typography.Paragraph style={{ margin: 0, fontSize: token.fontSizeSM }}>
+                      {semantic.desc}
+                    </Typography.Paragraph>
                   </Flex>
-                  <Typography.Paragraph style={{ margin: 0, fontSize: token.fontSizeSM }}>
-                    {semantic.desc}
-                  </Typography.Paragraph>
-                </Flex>
-              </li>
+                </li>
+              </Popover>
             ))}
           </ul>
         </Col>
