@@ -43,6 +43,32 @@ if (canUseDocElement()) {
 
 const Modal: React.FC<ModalProps> = (props) => {
   const {
+    prefixCls: customizePrefixCls,
+    className,
+    rootClassName,
+    open,
+    wrapClassName,
+    centered,
+    getContainer,
+    focusTriggerAfterClose = true,
+    style,
+    // Deprecated
+    visible,
+    width = 520,
+    footer,
+    classNames: modalClassNames,
+    styles: modalStyles,
+    children,
+    loading,
+    confirmLoading,
+    zIndex: customizeZIndex,
+    mousePosition: customizeMousePosition,
+    onOk,
+    onCancel,
+    ...restProps
+  } = props;
+
+  const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     direction,
@@ -55,7 +81,6 @@ const Modal: React.FC<ModalProps> = (props) => {
   const { modal: modalContext } = React.useContext(ConfigContext);
 
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const { onCancel, confirmLoading } = props;
     if (confirmLoading) {
       return;
     }
@@ -63,7 +88,6 @@ const Modal: React.FC<ModalProps> = (props) => {
   };
 
   const handleOk = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const { onOk } = props;
     onOk?.(e);
   };
 
@@ -77,27 +101,6 @@ const Modal: React.FC<ModalProps> = (props) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
   }
-
-  const {
-    prefixCls: customizePrefixCls,
-    className,
-    rootClassName,
-    rootStyle,
-    open,
-    wrapClassName,
-    centered,
-    getContainer,
-    focusTriggerAfterClose = true,
-    style,
-
-    width = 520,
-    footer,
-    classNames: modalClassNames,
-    styles: modalStyles,
-    children,
-    loading,
-    ...restProps
-  } = props;
 
   const prefixCls = getPrefixCls('modal', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
@@ -130,7 +133,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   const panelRef = usePanelRef(`.${prefixCls}-section`);
 
   // ============================ zIndex ============================
-  const [zIndex, contextZIndex] = useZIndex('Modal', restProps.zIndex);
+  const [zIndex, contextZIndex] = useZIndex('Modal', customizeZIndex);
 
   // =========================== Width ============================
   const [numWidth, responsiveWidth] = React.useMemo<
@@ -180,7 +183,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           }}
           footer={dialogFooter}
           visible={open}
-          mousePosition={restProps.mousePosition ?? mousePosition}
+          mousePosition={customizeMousePosition ?? mousePosition}
           onClose={handleCancel as any}
           closable={
             mergedClosable

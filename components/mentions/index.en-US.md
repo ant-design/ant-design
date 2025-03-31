@@ -13,7 +13,7 @@ demo:
 
 When you need to mention someone or something.
 
-### Usage upgrade after 5.1.0
+### Usage upgrade <Badge>5.1.0+</Badge>
 
 <!-- prettier-ignore -->
 :::info{title="Upgrade Tip"}
