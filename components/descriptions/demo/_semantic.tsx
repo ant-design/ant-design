@@ -58,6 +58,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="Descriptions"
       semantics={[
         { name: 'root', desc: locale.root, version: '5.23.0' },
         { name: 'header', desc: locale.header, version: '5.23.0' },

@@ -25,6 +25,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="Slider"
       semantics={[
         { name: 'root', desc: locale.root, version: '5.23.0' },
         { name: 'track', desc: locale.track, version: '5.10.0' },
