@@ -1,5 +1,6 @@
 import React from 'react';
 import { Anchor } from 'antd';
+import type { AnchorProps } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -19,7 +20,7 @@ const locales = {
   },
 };
 
-const Block = (props: any) => {
+const Block: React.FC<Readonly<AnchorProps>> = (props) => {
   return (
     <Anchor
       {...props}
@@ -61,6 +62,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="Anchor"
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'item', desc: locale.item, version: '6.0.0' },

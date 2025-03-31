@@ -1,4 +1,5 @@
 import React from 'react';
+import type { ColorPickerProps } from 'antd';
 import { ColorPicker } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
@@ -15,7 +16,7 @@ const locales = {
   },
 };
 
-const Block: React.FC = (props: any) => {
+const Block: React.FC<Readonly<ColorPickerProps>> = (props) => {
   const divRef = React.useRef<HTMLDivElement>(null);
   return (
     <div ref={divRef} style={{ height: 300 }}>
@@ -34,6 +35,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="ColorPicker"
       semantics={[
         { name: 'root', desc: locale.root },
         { name: 'popup', desc: locale.popup },

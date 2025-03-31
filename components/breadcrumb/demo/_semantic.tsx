@@ -1,6 +1,7 @@
 import React from 'react';
 import { HomeOutlined, UserOutlined } from '@ant-design/icons';
 import { Breadcrumb } from 'antd';
+import type { BreadcrumbProps } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -18,7 +19,7 @@ const locales = {
   },
 };
 
-const Block = (props: any) => {
+const Block: React.FC<Readonly<BreadcrumbProps>> = (props) => {
   return (
     <Breadcrumb
       {...props}
@@ -48,6 +49,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="Breadcrumb"
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'item', desc: locale.item, version: '6.0.0' },

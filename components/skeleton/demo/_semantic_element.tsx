@@ -75,6 +75,7 @@ const App: React.FC = () => {
 
   return (
     <SemanticPreview
+      componentName="Skeleton.Element"
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'content', desc: locale.content, version: '6.0.0' },

@@ -1,6 +1,7 @@
 import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import { TreeSelect } from 'antd';
+import type { TreeSelectProps } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -43,7 +44,7 @@ const treeData = [
   },
 ];
 
-const Block = (props: any) => {
+const Block: React.FC<Readonly<TreeSelectProps>> = (props) => {
   const divRef = React.useRef<HTMLDivElement>(null);
   const [value, setValue] = React.useState<string>();
   const onChange = (newValue: string) => {
@@ -53,7 +54,7 @@ const Block = (props: any) => {
     <div ref={divRef}>
       <TreeSelect
         {...props}
-        getPopupContainer={() => divRef.current}
+        getPopupContainer={() => divRef.current!}
         showSearch
         placement="bottomLeft"
         prefix="Prefix"
@@ -77,11 +78,12 @@ const Block = (props: any) => {
     </div>
   );
 };
+
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
-
   return (
     <SemanticPreview
+      componentName="TreeSelect"
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'prefix', desc: locale.prefix, version: '6.0.0' },

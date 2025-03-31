@@ -1,5 +1,6 @@
 import React from 'react';
 import { Tabs } from 'antd';
+import type { TabsProps } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -22,7 +23,8 @@ const locales = {
     popup: 'Popup element',
   },
 };
-const Block = (props: any) => {
+
+const Block: React.FC<Readonly<TabsProps>> = (props) => {
   return (
     <Tabs
       {...props}
@@ -46,6 +48,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="Tabs"
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'header', desc: locale.root, version: '6.0.0' },

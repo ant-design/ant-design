@@ -1,5 +1,6 @@
 import React from 'react';
 import { Popconfirm } from 'antd';
+import type { PopconfirmProps } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -15,19 +16,21 @@ const locales = {
   },
 };
 
-const BlockList: React.FC<React.PropsWithChildren> = (props: any) => {
+const BlockList: React.FC<React.PropsWithChildren<PopconfirmProps>> = (props) => {
+  const { children, title } = props;
   const divRef = React.useRef<HTMLDivElement>(null);
-
   return (
     <div ref={divRef} style={{ position: 'absolute', marginTop: 60 }}>
       <Popconfirm
-        title="prompt text"
         open
         placement="top"
         autoAdjustOverflow={false}
-        getPopupContainer={() => divRef.current}
+        getPopupContainer={() => divRef.current!}
         {...props}
-      />
+        title={title}
+      >
+        {children}
+      </Popconfirm>
     </div>
   );
 };
@@ -42,7 +45,7 @@ const App: React.FC = () => {
         { name: 'body', desc: locale.body, version: '5.23.0' },
       ]}
     >
-      <BlockList />
+      <BlockList title="popconfirm prompt text" />
     </SemanticPreview>
   );
 };

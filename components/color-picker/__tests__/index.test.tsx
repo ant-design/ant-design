@@ -698,7 +698,7 @@ describe('ColorPicker', () => {
   });
 
   it('Controlled string value should work with allowClear correctly', async () => {
-    const Demo = (props: any) => {
+    const Demo: React.FC<Readonly<ColorPickerProps>> = (props) => {
       const [color, setColor] = useState<ColorValueType>(generateColor('#FF0000'));
 
       useEffect(() => {
@@ -737,7 +737,7 @@ describe('ColorPicker', () => {
   });
 
   it('Controlled value should work with allowClear correctly', async () => {
-    const Demo = (props: any) => {
+    const Demo: React.FC<Readonly<ColorPickerProps>> = (props) => {
       const [color, setColor] = useState<ColorValueType>(generateColor('red'));
 
       useEffect(() => {

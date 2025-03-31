@@ -1,5 +1,6 @@
 import React from 'react';
 import { Cascader } from 'antd';
+import type { CascaderProps } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -31,12 +32,9 @@ const options = [
   },
 ];
 
-const Block = (props: any) => {
+const Block: React.FC<Readonly<CascaderProps<any, any, any>>> = (props) => {
   const divRef = React.useRef<HTMLDivElement>(null);
   const [value, setValue] = React.useState<string[]>(['contributors', 'aojunhao123']);
-  const onChange = (newValue: string[]) => {
-    setValue(newValue);
-  };
   return (
     <div ref={divRef} style={{ marginBottom: 60 }}>
       <Cascader
@@ -48,20 +46,21 @@ const Block = (props: any) => {
             height: 70,
           },
         }}
-        getPopupContainer={() => divRef.current}
+        getPopupContainer={() => divRef.current!}
         value={value}
-        onChange={onChange}
+        onChange={setValue}
         options={options}
         placement="bottomLeft"
       />
     </div>
   );
 };
+
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
-
   return (
     <SemanticPreview
+      componentName="Cascader"
       semantics={[
         { name: 'root', desc: locale.root, version: '5.25.0' },
         { name: 'popup', desc: locale.popup, version: '5.25.0' },

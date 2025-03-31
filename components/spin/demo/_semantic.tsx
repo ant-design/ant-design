@@ -1,5 +1,6 @@
 import React from 'react';
 import { Spin } from 'antd';
+import type { SpinProps } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -15,7 +16,7 @@ const locales = {
   },
 };
 
-const SpinBlock = (props: any) => {
+const SpinBlock: React.FC<Readonly<SpinProps>> = (props) => {
   return (
     <div
       style={{
@@ -37,6 +38,7 @@ const App: React.FC = () => {
 
   return (
     <SemanticPreview
+      componentName="Spin"
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'indicator', desc: locale.indicator, version: '6.0.0' },

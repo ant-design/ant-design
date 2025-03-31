@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUpOutlined } from '@ant-design/icons';
 import { Statistic } from 'antd';
+import type { StatisticProps } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -24,9 +25,8 @@ const locales = {
   },
 };
 
-const BlockList: React.FC<React.PropsWithChildren> = (props: any) => {
+const BlockList: React.FC<React.PropsWithChildren<StatisticProps>> = (props) => {
   const divRef = React.useRef<HTMLDivElement>(null);
-
   return (
     <div ref={divRef} style={{ position: 'absolute' }}>
       <Statistic
@@ -46,6 +46,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="Statistic"
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'header', desc: locale.header, version: '6.0.0' },

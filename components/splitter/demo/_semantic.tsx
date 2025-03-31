@@ -1,5 +1,6 @@
 import React from 'react';
 import { Splitter } from 'antd';
+import type { SplitterProps } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -18,7 +19,7 @@ const locales = {
   },
 };
 
-const Block: React.FC = (props: any) => {
+const Block: React.FC<Readonly<SplitterProps>> = (props) => {
   return (
     <Splitter
       {...props}
@@ -28,7 +29,6 @@ const Block: React.FC = (props: any) => {
       <Splitter.Panel>
         <Desc text="First" />
       </Splitter.Panel>
-
       <Splitter.Panel>
         <Desc text="Second" />
       </Splitter.Panel>
@@ -38,9 +38,9 @@ const Block: React.FC = (props: any) => {
 
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
-
   return (
     <SemanticPreview
+      componentName="Splitter"
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'panel', desc: locale.panel, version: '6.0.0' },

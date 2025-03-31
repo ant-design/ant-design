@@ -52,6 +52,7 @@ const App: React.FC = () => {
 
   return (
     <SemanticPreview
+      componentName="Select"
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'prefix', desc: locale.prefix, version: '6.0.0' },
