@@ -1,7 +1,7 @@
 // prettier-ignore
 import { scan } from 'react-scan'; // import this BEFORE react
 
-import React, { Suspense, useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import {
   createCache,
   extractStyle,
@@ -19,15 +19,12 @@ import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML }
 
 import { DarkContext } from '../../hooks/useDark';
 import useLayoutState from '../../hooks/useLayoutState';
-import useLocation from '../../hooks/useLocation';
 import type { ThemeName } from '../common/ThemeSwitch';
 import SiteThemeProvider from '../SiteThemeProvider';
 import type { SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
 
 import '@ant-design/v5-patch-for-react-19';
-
-const ThemeSwitch = React.lazy(() => import('../common/ThemeSwitch'));
 
 type Entries<T> = { [K in keyof T]: [K, T[K]] }[keyof T][];
 type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
@@ -72,7 +69,6 @@ const getAlgorithm = (themes: ThemeName[] = []) =>
 
 const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
-  const { pathname } = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const [{ theme = [], direction, isMobile, bannerVisible = false }, setSiteState] =
     useLayoutState<SiteState>({
@@ -203,26 +199,6 @@ const GlobalLayout: React.FC = () => {
     />
   ));
 
-  const demoPage = pathname.startsWith('/~demos');
-
-  // ============================ Render ============================
-  let content: React.ReactNode = outlet;
-
-  // Demo page should not contain App component
-  if (!demoPage) {
-    content = (
-      <App>
-        {outlet}
-        <Suspense>
-          <ThemeSwitch
-            value={theme}
-            onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
-          />
-        </Suspense>
-      </App>
-    );
-  }
-
   return (
     <DarkContext.Provider value={theme.includes('dark')}>
       <StyleProvider
@@ -231,7 +207,9 @@ const GlobalLayout: React.FC = () => {
       >
         <SiteContext.Provider value={siteContextValue}>
           <SiteThemeProvider theme={themeConfig}>
-            <HappyProvider disabled={!theme.includes('happy-work')}>{content}</HappyProvider>
+            <HappyProvider disabled={!theme.includes('happy-work')}>
+              <App>{outlet}</App>
+            </HappyProvider>
           </SiteThemeProvider>
         </SiteContext.Provider>
       </StyleProvider>

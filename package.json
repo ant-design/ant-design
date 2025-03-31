@@ -331,10 +331,6 @@
     "webpack-bundle-analyzer": "^4.10.2",
     "xhr-mock": "^2.5.1"
   },
-  "overrides": {
-    "@ant-design/cssinjs": "^2.0.0-alpha.5",
-    "@ant-design/cssinjs-utils": "^2.0.0-alpha.1"
-  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
@@ -353,5 +349,18 @@
   "title": "Ant Design",
   "tnpm": {
     "mode": "npm"
+  },
+  "pnpm":{
+    "overrides": {
+      "nwsapi":"2.2.19"
+    }
+  },
+  "overrides": {
+    "@ant-design/cssinjs": "^2.0.0-alpha.5",
+    "@ant-design/cssinjs-utils": "^2.0.0-alpha.1",
+    "nwsapi": "2.2.19"
+  },
+  "resolutions": {
+    "nwsapi": "2.2.19"
   }
 }
