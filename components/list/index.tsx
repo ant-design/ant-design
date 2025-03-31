@@ -57,7 +57,7 @@ export interface ListProps<T> {
   pagination?: PaginationConfig | false;
   prefixCls?: string;
   rowKey?: ((item: T) => React.Key) | keyof T;
-  renderItem?: (item: T, index: number) => React.ReactNode;
+  renderItem?: React.ReactNode | ((item: T, index: number) => React.ReactNode);
   size?: ListSize;
   split?: boolean;
   header?: React.ReactNode;
@@ -128,7 +128,9 @@ function InternalList<T>(
   const onPaginationShowSizeChange = triggerPaginationEvent('onShowSizeChange');
 
   const renderInnerItem = (item: T, index: number) => {
-    if (!renderItem) return null;
+    if (renderItem === null || renderItem === undefined) {
+      return null;
+    }
 
     let key: any;
 
@@ -144,10 +146,14 @@ function InternalList<T>(
       key = `list-item-${index}`;
     }
 
-    return <React.Fragment key={key}>{renderItem(item, index)}</React.Fragment>;
+    return (
+      <React.Fragment key={key}>
+        {typeof renderItem === 'function' ? renderItem(item, index) : renderItem}
+      </React.Fragment>
+    );
   };
 
-  const isSomethingAfterLastItem = () => !!(loadMore || pagination || footer);
+  const isSomethingAfterLastItem = !!(loadMore || pagination || footer);
 
   const prefixCls = getPrefixCls('list', customizePrefixCls);
 
@@ -187,7 +193,7 @@ function InternalList<T>(
       [`${prefixCls}-bordered`]: bordered,
       [`${prefixCls}-loading`]: isLoading,
       [`${prefixCls}-grid`]: !!grid,
-      [`${prefixCls}-something-after-last-item`]: isSomethingAfterLastItem(),
+      [`${prefixCls}-something-after-last-item`]: isSomethingAfterLastItem,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     contextClassName,
