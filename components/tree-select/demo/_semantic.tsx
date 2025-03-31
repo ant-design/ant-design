@@ -60,9 +60,9 @@ const Block = (props: any) => {
 };
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
-
   return (
     <SemanticPreview
+      componentName="TreeSelect"
       semantics={[{ name: 'popup', desc: locale.popup, version: '5.25.0' }]}
       height={200}
     >
