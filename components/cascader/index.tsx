@@ -111,7 +111,10 @@ export interface CascaderProps<
   OptionType extends DefaultOptionType = DefaultOptionType,
   ValueField extends keyof OptionType = keyof OptionType,
   Multiple extends boolean = boolean,
-> extends Omit<RcCascaderProps<OptionType, ValueField, Multiple>, 'checkable'> {
+> extends Omit<
+    RcCascaderProps<OptionType, ValueField, Multiple>,
+    'checkable' | 'classNames' | 'styles'
+  > {
   multiple?: Multiple;
   size?: SizeType;
   /**
@@ -143,6 +146,8 @@ export interface CascaderProps<
   popupMenuColumnStyle?: React.CSSProperties;
   /** @deprecated Please use `onOpenChange` instead */
   onDropdownVisibleChange?: (visible: boolean) => void;
+  /** @deprecated Please use `onOpenChange` instead */
+  onPopupVisibleChange?: (visible: boolean) => void;
   onOpenChange?: (visible: boolean) => void;
   /**
    * @since 5.13.0
@@ -191,6 +196,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     dropdownClassName,
     dropdownRender,
     onDropdownVisibleChange,
+    onPopupVisibleChange,
     dropdownMenuColumnStyle,
     popupRender,
     dropdownStyle,
@@ -234,6 +240,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       dropdownRender: 'popupRender',
       dropdownMenuColumnStyle: 'popupMenuColumnStyle',
       onDropdownVisibleChange: 'onOpenChange',
+      onPopupVisibleChange: 'onOpenChange',
       bordered: 'variant',
     };
 
@@ -289,7 +296,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   const mergedPopupRender = popupRender || dropdownRender;
   const mergedPopupMenuColumnStyle = popupMenuColumnStyle || dropdownMenuColumnStyle;
-  const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
+  const mergedOnOpenChange = onOpenChange || onPopupVisibleChange || onDropdownVisibleChange;
   const mergedPopupStyle = styles?.popup || contextStyles.popup || dropdownStyle;
 
   // ==================== Search =====================
@@ -391,7 +398,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       checkable={checkable}
       popupClassName={mergedPopupClassName}
       popupPrefixCls={customizePrefixCls || cascaderPrefixCls}
-      popupStyle={{ ...restProps.popupStyle, zIndex }}
+      popupStyle={{ ...mergedPopupStyle, zIndex }}
       popupRender={mergedPopupRender}
       popupMenuColumnStyle={mergedPopupMenuColumnStyle}
       onPopupVisibleChange={mergedOnOpenChange}

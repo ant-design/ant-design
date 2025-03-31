@@ -109,7 +109,7 @@ const ComponentsBlock: React.FC = () => {
 
   return (
     <Tilt options={{ max: 4, glare: false, scale: 0.98 }} className={styles.holder}>
-      <ModalPanel title="Ant Design 5.0" width="100%">
+      <ModalPanel title="Ant Design" width="100%">
         {locale.text}
       </ModalPanel>
       <Alert title={locale.infoText} type="info" />

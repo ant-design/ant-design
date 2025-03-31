@@ -52,8 +52,6 @@ const Modal: React.FC<ModalProps> = (props) => {
     getContainer,
     focusTriggerAfterClose = true,
     style,
-    // Deprecated
-    visible,
     width = 520,
     footer,
     classNames: modalClassNames,
