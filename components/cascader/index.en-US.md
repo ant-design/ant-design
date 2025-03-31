@@ -55,6 +55,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | autoFocus | If get focus when component mounted | boolean | false |  |
 | changeOnSelect | Change value on each selection if set to true, see above demo for details | boolean | false |  |
 | className | The additional css class | string | - |  |
+| defaultOpen | Initial visible of cascader popup | boolean | - |  |
 | defaultValue | Initial selected value | string\[] \| number\[] | \[] |  |
 | disabled | Whether disabled select | boolean | false |  |
 | displayRender | The render function of displaying selected options | (label, selectedOptions) => ReactNode | label => label.join(`/`) | `multiple`: 4.18.0 |
@@ -71,7 +72,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | maxTagTextLength | Max tag text length to show | number | - | 4.17.0 |
 | notFoundContent | Specify content to show when no result matches | ReactNode | `Not Found` |  |
 | open | Set visible of cascader popup | boolean | - | 4.17.0 |
-| defaultOpen | Initial visible of cascader popup | boolean | - | 4.17.0 |
 | options | The data options of cascade | [Option](#option)\[] | - |  |
 | placeholder | The input placeholder | string | - |  |
 | placement | Use preset popup align config from builtinPlacements | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 |

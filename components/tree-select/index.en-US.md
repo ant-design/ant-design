@@ -40,6 +40,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | allowClear | Customize clear icon | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: Support object type |
 | autoClearSearchValue | If auto clear search input value when multiple select is selected/deselected | boolean | true |  |
+| defaultOpen | Initial open state of dropdown | boolean | - |  |
 | defaultValue | To set the initial selected treeNode(s) | string \| string\[] | - |  |
 | disabled | Disabled or not | boolean | false |  |
 | popupClassName | The className of dropdown menu | string | - | 4.23.0 |
@@ -58,6 +59,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | maxTagTextLength | Max tag text length to show | number | - |  |
 | multiple | Support multiple or not, will be `true` when enable `treeCheckable` | boolean | false |  |
 | notFoundContent | Specify content to show when no result matches | ReactNode | `Not Found` |  |
+| open | Controlled open state of dropdown | boolean | - |  |
 | placeholder | Placeholder of the select input | string | - |  |
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | prefix | The custom prefix | ReactNode | - | 5.22.0 |
@@ -74,11 +76,9 @@ Common props ref：[Common props](/docs/react/common-props)
 | treeData | Data of the treeNodes, manual construction work is no longer needed if this property has been set(ensure the Uniqueness of each value) | array&lt;{ value, title, children, \[disabled, disableCheckbox, selectable, checkable] }> | \[] |  |
 | treeDataSimpleMode | Enable simple mode of treeData. Changes the `treeData` schema to: \[{id:1, pId:0, value:'1', title:"test1",...},...] where pId is parent node's id). It is possible to replace the default `id` and `pId` keys by providing object to `treeDataSimpleMode` | boolean \| object&lt;{ id: string, pId: string, rootPId: string }> | false |  |
 | treeTitleRender | Customize tree node title render | (nodeData) => ReactNode | - | 5.12.0 |
-| defaultOpen | Initial open state of dropdown | boolean | - |  |
 | treeDefaultExpandAll | Whether to expand all treeNodes by default | boolean | false |  |
 | treeDefaultExpandedKeys | Default expanded treeNodes | string\[] | - |  |
 | treeExpandAction | Tree title open logic when click, optional: false \| `click` \| `doubleClick` | string \| boolean | false | 4.21.0 |
-| open | Controlled open state of dropdown | boolean | - |  |
 | treeExpandedKeys | Set expanded keys | string\[] | - |  |
 | treeIcon | Shows the icon before a TreeNode's title. There is no default style; you must set a custom style for it if set to `true` | boolean | false |  |
 | treeLoadedKeys | (Controlled) Set loaded tree nodes, work with `loadData` only | string[] | [] |  |

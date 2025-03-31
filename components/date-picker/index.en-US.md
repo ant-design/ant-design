@@ -97,6 +97,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | dateRender | Custom rendering function for date cells, >= 5.4.0 use `cellRender` instead. | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 |
 | cellRender | Custom rendering function for picker cells | (current: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
 | components | Custom panels | Record<Panel \| 'input', React.ComponentType> | - | 5.14.0 |
+| defaultOpen | Initial open state of picker | boolean | - |  |
 | disabled | Determine whether the DatePicker is disabled | boolean | false |  |
 | disabledDate | Specify the date that cannot be selected | (currentDate: dayjs, info: { from?: dayjs, type: Picker }) => boolean | - | `info`: 5.14.0 |
 | format | To set the date format, support multi-format matching when it is an array, display the first one shall prevail. refer to [dayjs#format](https://day.js.org/docs/en/display/format). for example: [Custom Format](#date-picker-demo-format) | [formatType](#formattype) | [rc-picker](https://github.com/react-component/picker/blob/f512f18ed59d6791280d1c3d7d37abbb9867eb0b/src/utils/uiUtil.ts#L155-L177) |  |
@@ -111,7 +112,6 @@ The following APIs are shared by DatePicker, RangePicker.
 | mode | The picker panel mode（ [Cannot select year or month anymore?](/docs/react/faq#when-set-mode-to-datepickerrangepicker-cannot-select-year-or-month-anymore) ) | `time` \| `date` \| `month` \| `year` \| `decade` | - |  |
 | needConfirm | Need click confirm button to trigger value change. Default `false` when `multiple` | boolean | - | 5.14.0 |
 | nextIcon | The custom next icon | ReactNode | - | 4.17.0 |
-| defaultOpen | Initial open state of picker | boolean | - |  |
 | open | The open state of picker | boolean | - |  |
 | panelRender | Customize panel render | (panelNode) => ReactNode | - | 4.5.0 |
 | picker | Set picker type | `date` \| `week` \| `month` \| `quarter` \| `year` | `date` | `quarter`: 4.1.0 |

@@ -56,6 +56,7 @@ demo:
 | autoFocus | 自动获取焦点 | boolean | false |  |
 | changeOnSelect | 单选时生效（multiple 下始终都可以选择），点选每级菜单选项值都会发生变化。 | boolean | false |  |
 | className | 自定义类名 | string | - |  |
+| defaultOpen | 是否默认展示浮层 | boolean | - |  |
 | defaultValue | 默认的选中项 | string\[] \| number\[] | \[] |  |
 | disabled | 禁用 | boolean | false |  |
 | displayRender | 选择后展示的渲染函数 | (label, selectedOptions) => ReactNode | label => label.join(`/`) | `multiple`: 4.18.0 |
@@ -72,7 +73,6 @@ demo:
 | maxTagTextLength | 最大显示的 tag 文本长度 | number | - | 4.17.0 |
 | notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | `Not Found` |  |
 | open | 控制浮层显隐 | boolean | - | 4.17.0 |
-| defaultOpen | 是否默认展示浮层 | boolean | - | 4.17.0 |
 | options | 可选项数据源 | [Option](#option)\[] | - |  |
 | placeholder | 输入框占位文本 | string | - |  |
 | placement | 浮层预设位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 |
