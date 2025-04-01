@@ -1,12 +1,13 @@
+/* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
 import * as React from 'react';
 import { defaultAlgorithm, defaultTheme } from '@ant-design/compatible';
+import { FastColor } from '@ant-design/fast-color';
 import {
   BellOutlined,
   FolderOutlined,
   HomeOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons';
-import { FastColor } from '@ant-design/fast-color';
 import type { ColorPickerProps, GetProp, MenuProps, ThemeConfig } from 'antd';
 import {
   Breadcrumb,
@@ -25,13 +26,13 @@ import { generateColor } from 'antd/es/color-picker/util';
 import classNames from 'classnames';
 import { useLocation } from 'dumi';
 
-import useDark from '../../../../hooks/useDark';
 import useLocale from '../../../../hooks/useLocale';
 import LinkButton from '../../../../theme/common/LinkButton';
 import SiteContext from '../../../../theme/slots/SiteContext';
 import { getLocalizedPathname } from '../../../../theme/utils';
 import Group from '../Group';
 import { getCarouselStyle } from '../util';
+import { DarkContext } from './../../../../hooks/useDark';
 import BackgroundImage from './BackgroundImage';
 import ColorPicker from './ColorPicker';
 import { DEFAULT_COLOR, getAvatarURL, getClosetColor, PINK_COLOR } from './colorUtil';
@@ -360,7 +361,7 @@ const Theme: React.FC = () => {
   const { compact, themeType, colorPrimary, ...themeToken } = themeData;
   const isLight = themeType !== 'dark';
   const [form] = Form.useForm();
-  const { isMobile } = React.useContext(SiteContext);
+  const { isMobile } = React.use(SiteContext);
   const colorPrimaryValue = React.useMemo(
     () => (typeof colorPrimary === 'string' ? colorPrimary : colorPrimary.toHexString()),
     [colorPrimary],
@@ -393,11 +394,11 @@ const Theme: React.FC = () => {
     form.setFieldsValue(mergedData);
   }, [themeType]);
 
-  const isRootDark = useDark();
+  const isDark = React.use(DarkContext);
 
   React.useEffect(() => {
-    onThemeChange({}, { ...themeData, themeType: isRootDark ? 'dark' : 'default' });
-  }, [isRootDark]);
+    onThemeChange({}, { ...themeData, themeType: isDark ? 'dark' : 'default' });
+  }, [isDark]);
 
   // ================================ Tokens ================================
   const closestColor = getClosetColor(colorPrimaryValue);

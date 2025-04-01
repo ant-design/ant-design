@@ -1,5 +1,5 @@
-import React, { Suspense } from 'react';
-import { ConfigProvider, Flex, Typography } from 'antd';
+import React, { Suspense, use } from 'react';
+import { Flex, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 import { useLocation } from 'dumi';
@@ -26,101 +26,104 @@ const locales = {
   },
 };
 
-const useStyle = () => {
-  const { direction } = React.useContext(ConfigProvider.ConfigContext);
-  const { isMobile } = React.useContext(SiteContext);
-  const isRTL = direction === 'rtl';
-  return createStyles(({ token, css, cx }) => {
-    const textShadow = `0 0 4px ${token.colorBgContainer}`;
+const useStyle = createStyles(({ token, css, cx }) => {
+  const textShadow = `0 0 4px ${token.colorBgContainer}`;
+  const { isMobile, theme } = use(SiteContext);
+  const isDark = theme.includes('dark');
+  const mask = cx(css`
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(2px);
+    opacity: 1;
+    background-color: ${isDark ? 'rgba(0, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.2)'};
+    transition: all 1s ease;
+    pointer-events: none;
+  `);
 
-    const mask = cx(css`
-      position: absolute;
-      inset: 0;
-      backdrop-filter: blur(4px);
-      opacity: 1;
-      background-color: rgba(255, 255, 255, 0.2);
-      transition: all 1s ease;
-      pointer-events: none;
-    `);
+  const block = cx(css`
+    position: absolute;
+    inset-inline-end: -60px;
+    top: -24px;
+    transition: all 1s cubic-bezier(0.03, 0.98, 0.52, 0.99);
+  `);
 
-    return {
-      holder: css`
-        height: 640px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        overflow: hidden;
-        perspective: 800px;
-        /* fix safari bug by removing blur style */
-        transform: translateZ(1000px);
-        row-gap: ${token.marginXL}px;
+  return {
+    holder: css`
+      height: 640px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      perspective: 800px;
+      /* fix safari bug by removing blur style */
+      transform: translateZ(1000px);
+      row-gap: ${token.marginXL}px;
 
-        &:hover .${mask} {
+      &:hover {
+        .${mask} {
           opacity: 0;
         }
-      `,
 
-      mask,
-
-      typography: css`
-        text-align: center;
-        position: relative;
-        z-index: 1;
-        padding-inline: ${token.paddingXL}px;
-        text-shadow: ${Array.from({ length: 5 }, () => textShadow).join(', ')};
-        h1 {
-          font-family: AliPuHui, ${token.fontFamily} !important;
-          font-weight: 900 !important;
-          font-size: ${token.fontSizeHeading2 * 2}px !important;
-          line-height: ${token.lineHeightHeading2} !important;
+        .${block} {
+          transform: scale(0.96);
         }
+      }
+    `,
 
-        p {
-          font-size: ${token.fontSizeLG}px !important;
-          font-weight: normal !important;
-          margin-bottom: 0;
-        }
-      `,
+    mask,
 
-      block: css`
-        position: absolute;
-        inset-inline-end: 0;
-        top: -38px;
-        transform: ${isRTL ? 'rotate3d(24, 83, -45, 57deg)' : 'rotate3d(24, -83, 45, 57deg)'};
-      `,
-      child: css`
-        position: relative;
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        z-index: 1;
-      `,
-      btnWrap: css`
-        margin-bottom: ${token.marginXL}px;
-      `,
-      bgImg: css`
-        position: absolute;
-        width: 240px;
-      `,
-      bgImgTop: css`
-        top: 0;
-        inset-inline-start: ${isMobile ? '-120px' : 0};
-      `,
-      bgImgBottom: css`
-        bottom: 120px;
-        inset-inline-end: ${isMobile ? 0 : '40%'};
-      `,
-    };
-  })();
-};
+    typography: css`
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      padding-inline: ${token.paddingXL}px;
+      text-shadow: ${Array.from({ length: 5 }, () => textShadow).join(', ')};
+      h1 {
+        font-family: AliPuHui, ${token.fontFamily} !important;
+        font-weight: 900 !important;
+        font-size: ${token.fontSizeHeading2 * 2}px !important;
+        line-height: ${token.lineHeightHeading2} !important;
+      }
+
+      p {
+        font-size: ${token.fontSizeLG}px !important;
+        font-weight: normal !important;
+        margin-bottom: 0;
+      }
+    `,
+    block,
+    child: css`
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      z-index: 1;
+    `,
+    btnWrap: css`
+      margin-bottom: ${token.marginXL}px;
+    `,
+    bgImg: css`
+      position: absolute;
+      width: 240px;
+    `,
+    bgImgTop: css`
+      top: 0;
+      inset-inline-start: ${isMobile ? '-120px' : 0};
+    `,
+    bgImgBottom: css`
+      bottom: 120px;
+      inset-inline-end: ${isMobile ? 0 : '40%'};
+    `,
+  };
+});
 
 const PreviewBanner: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
   const { children } = props;
   const [locale] = useLocale(locales);
   const { styles } = useStyle();
-  const { isMobile } = React.useContext(SiteContext);
+  const { isMobile } = use(SiteContext);
   const { pathname, search } = useLocation();
   const isZhCN = utils.isZhCN(pathname);
 

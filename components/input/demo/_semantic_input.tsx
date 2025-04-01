@@ -24,6 +24,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="Input"
       semantics={[
         { name: 'input', desc: locale.input, version: '5.4.0' },
         { name: 'prefix', desc: locale.prefix, version: '5.4.0' },

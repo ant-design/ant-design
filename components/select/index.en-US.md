@@ -15,7 +15,7 @@ demo:
 - Utilizing [Radio](/components/radio/) is recommended when there are fewer total options (less than 5).
 - You probably need [AutoComplete](/components/auto-complete/) if you're looking for an input box that can be typed or selected.
 
-### Usage upgrade after 5.11.0
+### Usage upgrade <Badge>5.11.0+</Badge>
 
 <!-- prettier-ignore -->
 :::info{title="Upgrade Tip"}

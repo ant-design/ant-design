@@ -50,7 +50,7 @@ group:
 
 > Tip：你可以设置 `icon` 或 `children` 作为图片加载失败的默认 fallback 行为，优先级为 `icon` > `children`
 
-### Avatar.Group (4.5.0+)
+### Avatar.Group <Badge>4.5.0+</Badge>
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
