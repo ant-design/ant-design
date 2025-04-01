@@ -20,6 +20,7 @@ Tree selection control.
 | allowClear | Whether allow clear | boolean | false |  |
 | autoClearSearchValue | If auto clear search input value when multiple select is selected/deselected | boolean | true |  |
 | bordered | Whether has border style | boolean | true |  |
+| defaultOpen | Initial open state of dropdown | boolean | - |  |
 | defaultValue | To set the initial selected treeNode(s) | string \| string\[] | - |  |
 | disabled | Disabled or not | boolean | false |  |
 | popupClassName | The className of dropdown menu | string | - | 4.23.0 |
@@ -36,6 +37,7 @@ Tree selection control.
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode \| function(omittedValues) | - |  |
 | multiple | Support multiple or not, will be `true` when enable `treeCheckable` | boolean | false |  |
 | notFoundContent | Specify content to show when no result matches | ReactNode | `Not Found` |  |
+| open | Controlled open state of dropdown | boolean | - |  |
 | placeholder | Placeholder of the select input | string | - |  |
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | searchValue | Work with `onSearch` to make search value controlled | string | - |  |

@@ -94,6 +94,7 @@ import locale from 'antd/es/locale/zh_CN';
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | defaultPickerValue | 默认面板日期 | [moment](http://momentjs.com/) | - |  |
+| defaultOpen | 是否默认展开控制弹层 | boolean | - |  |
 | defaultValue | 默认日期，如果开始时间或结束时间为 `null` 或者 `undefined`，日期范围将是一个开区间 | [moment](http://momentjs.com/) | - |  |
 | disabledTime | 不可选择的时间 | function(date) | - |  |
 | format | 设置日期格式，为数组时支持多格式匹配，展示以第一个为准。配置参考 [moment.js](http://momentjs.com/)，支持[自定义格式](#components-date-picker-demo-format) | string \| (value: moment) => string \| (string \| (value: moment) => string)\[] | `YYYY-MM-DD` |  |
