@@ -40,6 +40,7 @@ const App: React.FC = () => {
 
   return (
     <SemanticPreview
+      componentName="Select"
       semantics={[{ name: 'popup', desc: locale.popup, version: '5.25.0' }]}
       height={200}
     >
