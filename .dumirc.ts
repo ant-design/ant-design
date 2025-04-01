@@ -196,5 +196,12 @@ export default defineConfig({
       async: true,
       content: fs.readFileSync(path.join(__dirname, '.dumi', 'scripts', 'clarity.js')).toString(),
     },
-  ],
+    process.env.NODE_ENV !== 'production'
+      ? {
+          content: fs
+            .readFileSync(path.join(__dirname, '.dumi', 'scripts', 'checkDuplicateIds.dev.js'))
+            .toString(),
+        }
+      : '',
+  ].filter(Boolean),
 });
