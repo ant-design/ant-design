@@ -5,6 +5,7 @@ import { Descriptions, Flex, theme, Tooltip, Typography } from 'antd';
 import { createStyles, css } from 'antd-style';
 import kebabCase from 'lodash/kebabCase';
 import CopyToClipboard from 'react-copy-to-clipboard';
+import Link from '../../common/Link';
 
 import useLocale from '../../../hooks/useLocale';
 import ComponentChangelog from '../../common/ComponentChangelog';
@@ -167,10 +168,12 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
                   <EditOutlined className={styles.icon} />
                   <span>{locale.edit}</span>
                 </Typography.Link>
-                <Typography.Link className={styles.code} href={designUrl}>
-                  <CompassOutlined className={styles.icon} />
-                  <span>{locale.design}</span>
-                </Typography.Link>
+                {designUrl && (
+                  <Link className={styles.code} to={designUrl}>
+                    <CompassOutlined className={styles.icon} />
+                    <span>{locale.design}</span>
+                  </Link>
+                )}
                 <ComponentChangelog>
                   <Typography.Link className={styles.code}>
                     <HistoryOutlined className={styles.icon} />
