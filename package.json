@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.24.5",
+  "version": "5.24.6",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -148,7 +148,7 @@
     "rc-steps": "~6.0.1",
     "rc-switch": "~4.1.0",
     "rc-table": "~7.50.4",
-    "rc-tabs": "~15.5.1",
+    "rc-tabs": "~15.5.2",
     "rc-textarea": "~1.9.0",
     "rc-tooltip": "~6.4.0",
     "rc-tree": "~5.13.1",
@@ -239,7 +239,7 @@
     "cypress-image-diff-html-report": "2.2.0",
     "dekko": "^0.2.1",
     "dotenv": "^16.4.5",
-    "dumi": "~2.4.17",
+    "dumi": "~2.4.20",
     "dumi-plugin-color-chunk": "^2.1.0",
     "env-paths": "^3.0.0",
     "eslint": "^9.23.0",
@@ -251,6 +251,7 @@
     "fast-glob": "^3.3.2",
     "fs-extra": "^11.2.0",
     "gh-pages": "^6.2.0",
+    "github-slugger": "^2.0.0",
     "glob": "^11.0.0",
     "html2sketch": "^1.0.2",
     "http-server": "^14.1.1",

@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
 import React from 'react';
-import { Col, ConfigProvider, Flex, Row, Tag, theme, Typography, Popover } from 'antd';
+import { Col, ConfigProvider, Flex, Popover, Row, Tag, theme, Typography } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classnames from 'classnames';
 
@@ -66,7 +66,7 @@ const useStyle = createStyles(({ token }, markPos: [number, number, number, numb
 }));
 
 export interface SemanticPreviewProps {
-  componentName: string;
+  componentName?: string;
   semantics: { name: string; desc: string; version?: string }[];
   children: React.ReactElement<any>;
   height?: number;
