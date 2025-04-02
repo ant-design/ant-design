@@ -47,7 +47,7 @@ const CodeBlockButton: React.FC<CodeBlockButtonProps> = ({ title, dependencies =
 
   const codeBlockPrefillConfig = {
     title: `${title} - antd@${dependencies.antd}`,
-    js: `import '@ant-design/v5-patch-for-react-19';\n${
+    js: `${
       /import React(\D*)from 'react';/.test(jsx) ? '' : `import React from 'react';\n`
     }import { createRoot } from 'react-dom/client';\n${jsx.replace(
       /export default/,

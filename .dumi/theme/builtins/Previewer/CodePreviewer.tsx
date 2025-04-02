@@ -211,7 +211,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   );
 
   dependencies['@ant-design/icons'] = 'latest';
-  dependencies['@ant-design/v5-patch-for-react-19']='latest'
 
   if (suffix === 'tsx') {
     dependencies['@types/react'] = '^18.0.0';
@@ -280,7 +279,6 @@ ${parsedSourceCode}
 
   const indexJsContent = `import React from 'react';
 import { createRoot } from 'react-dom/client';
-import '@ant-design/v5-patch-for-react-19';
 import Demo from './demo';
 
 createRoot(document.getElementById('container')).render(<Demo />);
@@ -330,11 +328,12 @@ createRoot(document.getElementById('container')).render(<Demo />);
       'react-dom': '^19.0.0',
       '@types/react' :'^19.0.0',
       '@types/react-dom' : '^19.0.0',
+      '@ant-design/v5-patch-for-react-19':'latest'
     },
     description: '',
     files: {
       'index.css': indexCssContent,
-      [`index.${suffix}`]: indexJsContent,
+      [`index.${suffix}`]: `import '@ant-design/v5-patch-for-react-19';\n${indexJsContent}`,
       [`demo.${suffix}`]: demoJsContent,
       'index.html': html,
     },
