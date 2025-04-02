@@ -321,7 +321,6 @@ createRoot(document.getElementById('container')).render(<Demo />);
   const stackblitzPrefillConfig: Project = {
     title: `${localizedTitle} - antd@${dependencies.antd}`,
     template: 'create-react-app',
-    // dependencies,
     dependencies:{
       ...dependencies,
       react: '^19.0.0',
