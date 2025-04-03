@@ -466,6 +466,52 @@ exports[`renders components/statistic/demo/countdown.tsx extend context correctl
     </div>
   </div>
   <div
+    class="ant-col ant-col-12"
+    style="padding-left: 8px; padding-right: 8px;"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Countdown
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          00:00:10
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left: 8px; padding-right: 8px;"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Countdown Reverse
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          47:59:30
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
     class="ant-col ant-col-24"
     style="padding-left: 8px; padding-right: 8px; margin-top: 32px;"
   >
@@ -489,8 +535,8 @@ exports[`renders components/statistic/demo/countdown.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-col ant-col-12"
-    style="padding-left: 8px; padding-right: 8px;"
+    class="ant-col ant-col-24"
+    style="padding-left: 8px; padding-right: 8px; margin-top: 32px;"
   >
     <div
       class="ant-statistic"
@@ -498,7 +544,7 @@ exports[`renders components/statistic/demo/countdown.tsx extend context correctl
       <div
         class="ant-statistic-title"
       >
-        Countdown
+        Day Level (Reverse)
       </div>
       <div
         class="ant-statistic-content"
@@ -506,7 +552,7 @@ exports[`renders components/statistic/demo/countdown.tsx extend context correctl
         <span
           class="ant-statistic-content-value"
         >
-          00:00:10
+          1 天 23 时 59 分 30 秒
         </span>
       </div>
     </div>

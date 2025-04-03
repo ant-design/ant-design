@@ -10,6 +10,7 @@ import { formatCountdown } from './utils';
 const REFRESH_INTERVAL = 1000 / 30;
 
 export interface CountdownProps extends StatisticProps {
+  reverse?: boolean;
   format?: string;
   onFinish?: () => void;
   onChange?: (value?: valueType) => void;
@@ -20,7 +21,7 @@ function getTime(value?: valueType) {
 }
 
 const Countdown: React.FC<CountdownProps> = (props) => {
-  const { value, format = 'HH:mm:ss', onChange, onFinish, ...rest } = props;
+  const { value, format = 'HH:mm:ss', onChange, onFinish, reverse = false, ...rest } = props;
 
   const forceUpdate = useForceUpdate();
 
@@ -36,11 +37,12 @@ const Countdown: React.FC<CountdownProps> = (props) => {
 
   const syncTimer = () => {
     const timestamp = getTime(value);
-    if (timestamp >= Date.now()) {
+    if ((!reverse && timestamp >= Date.now()) || (reverse && timestamp <= Date.now())) {
       countdown.current = setInterval(() => {
         forceUpdate();
-        onChange?.(timestamp - Date.now());
-        if (timestamp < Date.now()) {
+        const timeDiff = reverse ? Date.now() - timestamp : timestamp - Date.now();
+        onChange?.(timeDiff);
+        if ((!reverse && timestamp < Date.now()) || (reverse && timestamp > Date.now())) {
           stopTimer();
         }
       }, REFRESH_INTERVAL);
@@ -58,7 +60,7 @@ const Countdown: React.FC<CountdownProps> = (props) => {
   }, [value]);
 
   const formatter: StatisticProps['formatter'] = (formatValue, config) =>
-    formatCountdown(formatValue, { ...config, format });
+    formatCountdown(formatValue, { ...config, format }, reverse);
 
   const valueRender: StatisticProps['valueRender'] = (node) =>
     cloneElement(node, { title: undefined });

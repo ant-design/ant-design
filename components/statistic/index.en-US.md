@@ -55,6 +55,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | valueStyle | Set value section style | CSSProperties | - |  |
 | onFinish | Trigger when time's up | () => void | - |  |
 | onChange | Trigger when time's changing | (value: number) => void | - | 4.16.0 |
+| reverse | reverse time counter | boolean | false | 5.24.7 |
 
 ## Design Token
 

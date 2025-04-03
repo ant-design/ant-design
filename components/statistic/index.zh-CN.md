@@ -56,6 +56,7 @@ demo:
 | valueStyle | 设置数值区域的样式 | CSSProperties | - |  |
 | onFinish | 倒计时完成时触发 | () => void | - |  |
 | onChange | 倒计时时间变化时触发 | (value: number) => void | - | 4.16.0 |
+| reverse | 翻转计时 | boolean | false | 5.24.7 |
 
 ## 主题变量（Design Token）
 
