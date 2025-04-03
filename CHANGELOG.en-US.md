@@ -15,6 +15,10 @@ tag: vVERSION
 
 ---
 
+## Unreleased
+
+- 🆕 Transfer `operations` property now supports passing an array of ReactNode, allowing for custom operation buttons. [#53121](https://github.com/ant-design/ant-design/pull/53121) [@afc163](https://github.com/afc163)
+
 ## 5.24.5
 
 `2025-03-24`

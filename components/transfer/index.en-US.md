@@ -26,6 +26,7 @@ One or more elements can be selected from either column, one click on the proper
 <code src="./demo/search.tsx">Search</code>
 <code src="./demo/advanced.tsx">Advanced</code>
 <code src="./demo/custom-item.tsx">Custom datasource</code>
+<code src="./demo/custom-operations.tsx">Custom Operations</code>
 <code src="./demo/large-data.tsx">Pagination</code>
 <code src="./demo/table-transfer.tsx">Table Transfer</code>
 <code src="./demo/tree-transfer.tsx">Tree Transfer</code>
@@ -47,7 +48,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | listStyle | A custom CSS style used for rendering the transfer columns | object \| ({direction: `left` \| `right`}) => object | - |  |
 | locale | The i18n text including filter, empty text, item unit, etc | { itemUnit: string; itemsUnit: string; searchPlaceholder: string; notFoundContent: ReactNode \| ReactNode[]; } | { itemUnit: `item`, itemsUnit: `items`, notFoundContent: `The list is empty`, searchPlaceholder: `Search here` } |  |
 | oneWay | Display as single direction style | boolean | false | 4.3.0 |
-| operations | A set of operations that are sorted from top to bottom | string\[] | \[`>`, `<`] |  |
+| operations | A set of operations that are sorted from top to bottom. When array of string provided, default buttons will be used, when array of ReactNode provided, custom elements will be used | ReactNode\[] | \[`>`, `<`] |  |
 | operationStyle | A custom CSS style used for rendering the operations column | object | - |  |
 | pagination | Use pagination. Not work in render props | boolean \| { pageSize: number, simple: boolean, showSizeChanger?: boolean, showLessItems?: boolean } | false | 4.3.0 |
 | render | The function to generate the item shown on a column. Based on an record (element of the dataSource array), this function should return a React element which is generated from that record. Also, it can return a plain object with `value` and `label`, `label` is a React element and `value` is for title | (record) => ReactNode | - |  |
