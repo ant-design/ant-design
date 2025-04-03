@@ -37,12 +37,14 @@ const Countdown: React.FC<CountdownProps> = (props) => {
 
   const syncTimer = () => {
     const timestamp = getTime(value);
-    if ((!reverse && timestamp >= Date.now()) || (reverse && timestamp <= Date.now())) {
+    const now = Date.now();
+    if ((!reverse && timestamp >= now) || (reverse && timestamp <= now)) {
       countdown.current = setInterval(() => {
+        const now = Date.now();
         forceUpdate();
-        const timeDiff = reverse ? Date.now() - timestamp : timestamp - Date.now();
+        const timeDiff = reverse ? now - timestamp : timestamp - now;
         onChange?.(timeDiff);
-        if ((!reverse && timestamp < Date.now()) || (reverse && timestamp > Date.now())) {
+        if ((!reverse && timestamp < now) || (reverse && timestamp > now)) {
           stopTimer();
         }
       }, REFRESH_INTERVAL);
