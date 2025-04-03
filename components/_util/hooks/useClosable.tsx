@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import type { DialogProps } from '@rc-component/dialog';
+import pickAttrs from '@rc-component/util/lib/pickAttrs';
 
 export type ClosableType = DialogProps['closable'];
 
@@ -93,7 +93,9 @@ interface ClosableCollection {
 
 /** Use same object to support `useMemo` optimization */
 const EmptyFallbackCloseCollection: ClosableCollection = {};
-
+type DataAttributes = {
+  [key: `data-${string}`]: string;
+};
 export default function useClosable(
   propCloseCollection?: ClosableCollection,
   contextCloseCollection?: ClosableCollection | null,
@@ -108,7 +110,7 @@ export default function useClosable(
   closable: boolean,
   closeIcon: React.ReactNode,
   closeBtnIsDisabled: boolean,
-  ariaProps: React.AriaAttributes,
+  ariaOrDataProps: React.AriaAttributes & DataAttributes,
 ] {
   // Align the `props`, `context` `fallback` to config object first
   const propCloseConfig = useClosableConfig(propCloseCollection);
@@ -164,22 +166,22 @@ export default function useClosable(
 
     let mergedCloseIcon: ReactNode = closeIcon;
     // Wrap the closeIcon with aria props
-    const ariaProps = pickAttrs(mergedClosableConfig, true);
+    const ariaOrDataProps = pickAttrs(mergedClosableConfig, true);
     if (mergedCloseIcon !== null && mergedCloseIcon !== undefined) {
       // Wrap the closeIcon if needed
       if (closeIconRender) {
         mergedCloseIcon = closeIconRender(closeIcon);
       }
 
-      if (Object.keys(ariaProps).length) {
+      if (Object.keys(ariaOrDataProps).length) {
         mergedCloseIcon = React.isValidElement(mergedCloseIcon) ? (
-          React.cloneElement(mergedCloseIcon, ariaProps)
+          React.cloneElement(mergedCloseIcon, ariaOrDataProps)
         ) : (
-          <span {...ariaProps}>{mergedCloseIcon}</span>
+          <span {...ariaOrDataProps}>{mergedCloseIcon}</span>
         );
       }
     }
 
-    return [true, mergedCloseIcon, closeBtnIsDisabled, ariaProps];
+    return [true, mergedCloseIcon, closeBtnIsDisabled, ariaOrDataProps];
   }, [mergedClosableConfig, mergedFallbackCloseCollection]);
 }
