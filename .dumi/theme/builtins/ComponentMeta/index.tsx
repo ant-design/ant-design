@@ -1,10 +1,11 @@
 import React from 'react';
-import { EditOutlined, GithubOutlined, HistoryOutlined } from '@ant-design/icons';
+import { EditOutlined, GithubOutlined, HistoryOutlined, CompassOutlined } from '@ant-design/icons';
 import type { GetProp } from 'antd';
 import { Descriptions, Flex, theme, Tooltip, Typography } from 'antd';
 import { createStyles, css } from 'antd-style';
 import kebabCase from 'lodash/kebabCase';
 import CopyToClipboard from 'react-copy-to-clipboard';
+import Link from '../../common/Link';
 
 import useLocale from '../../../hooks/useLocale';
 import ComponentChangelog from '../../common/ComponentChangelog';
@@ -18,6 +19,7 @@ const locales = {
     docs: '文档',
     edit: '编辑此页',
     changelog: '更新日志',
+    design: '设计指南',
     version: '版本',
   },
   en: {
@@ -28,6 +30,7 @@ const locales = {
     docs: 'Docs',
     edit: 'Edit this page',
     changelog: 'Changelog',
+    design: 'Design',
     version: 'Version',
   },
 };
@@ -57,24 +60,8 @@ const useStyle = createStyles(({ token }) => ({
       text-decoration: underline !important;
     }
   `,
-  import: css`
-    color: ${token.magenta8};
-  `,
-  component: css`
-    color: ${token.colorText};
-  `,
-  from: css`
-    color: ${token.magenta8};
-    margin-inline-end: 0.5em;
-  `,
-  antd: css`
-    color: ${token.green8};
-  `,
-  semicolon: css`
-    color: ${token.colorText};
-  `,
   icon: css`
-    margin-inline-end: ${token.marginXXS}px;
+    margin-inline-end: 3px;
   `,
 }));
 
@@ -83,10 +70,11 @@ export interface ComponentMetaProps {
   source: string | true;
   filename?: string;
   version?: string;
+  designUrl?: string;
 }
 
 const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
-  const { component, source, filename, version } = props;
+  const { component, source, filename, version, designUrl } = props;
   const { token } = theme.useToken();
   const [locale, lang] = useLocale(locales);
   const isZhCN = lang === 'cn';
@@ -130,23 +118,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
   };
 
   // ======================== Render ========================
-  const importList = [
-    <span key="import" className={styles.import}>
-      import
-    </span>,
-    <span key="component" className={styles.component}>{`{ ${transformComponentName(
-      component,
-    )} }`}</span>,
-    <span key="from" className={styles.from}>
-      from
-    </span>,
-    <span key="antd" className={styles.antd}>
-      {`"antd"`}
-    </span>,
-    <span key="semicolon" className={styles.semicolon}>
-      ;
-    </span>,
-  ];
+  const importList = `import { ${transformComponentName(component)} } from "antd";`;
 
   return (
     <Descriptions
@@ -187,7 +159,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
           filename && {
             label: locale.docs,
             children: (
-              <Flex justify="flex-start" align="center" gap="middle">
+              <Flex justify="flex-start" align="center" gap="small">
                 <Typography.Link
                   className={styles.code}
                   href={`${branchUrl}${filename}`}
@@ -196,6 +168,12 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
                   <EditOutlined className={styles.icon} />
                   <span>{locale.edit}</span>
                 </Typography.Link>
+                {designUrl && (
+                  <Link className={styles.code} to={designUrl}>
+                    <CompassOutlined className={styles.icon} />
+                    <span>{locale.design}</span>
+                  </Link>
+                )}
                 <ComponentChangelog>
                   <Typography.Link className={styles.code}>
                     <HistoryOutlined className={styles.icon} />
