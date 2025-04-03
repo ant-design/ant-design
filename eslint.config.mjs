@@ -65,6 +65,7 @@ export default antfu(
       'react/no-forward-ref': 'off',
       'react/no-context-provider': 'off',
       'react/no-use-context': 'off',
+      'react-hooks-extra/no-unnecessary-use-prefix': 'off',
     },
   },
   compat.configs['flat/recommended'],

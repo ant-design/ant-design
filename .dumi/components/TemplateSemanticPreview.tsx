@@ -1,4 +1,5 @@
 import React from 'react';
+
 import useLocale from '../hooks/useLocale';
 import SemanticPreview from './SemanticPreview';
 
@@ -42,6 +43,7 @@ const Block: React.FC<BlockProps> = ({ component: Component, options, defaultVal
 
 export interface TemplateSemanticPreviewProps {
   component: React.ComponentType<any>;
+  componentName: string;
   defaultValue?: string;
   options?: { value: string; label: string }[];
   height?: number;
@@ -57,12 +59,14 @@ const TemplateSemanticPreview: React.FC<TemplateSemanticPreviewProps> = ({
   options,
   height,
   style,
+  componentName,
   ...restProps
 }) => {
   const [locale] = useLocale(locales);
 
   return (
     <SemanticPreview
+      componentName={componentName}
       semantics={[
         { name: 'root', desc: locale.root, version: '5.25.0' },
         { name: 'popup', desc: locale.popup, version: '5.25.0' },

@@ -9,7 +9,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8yArQ43EGccAAA
 tag: 5.10.0
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 适合设置元素之间的间距。
 - 适合设置各种水平、垂直对齐方式。

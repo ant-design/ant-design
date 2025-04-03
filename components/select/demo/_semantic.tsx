@@ -7,6 +7,7 @@ const App: React.FC = () => {
   return (
     <TemplateSemanticPreview
       component={Select}
+      componentName="Select"
       style={{ width: 200 }}
       defaultValue="aojunhao123"
       options={[
