@@ -59,7 +59,7 @@ demo:
 | confirmLoading | 确定按钮 loading | boolean | false |  |
 | destroyOnClose | 关闭时销毁 Modal 里的子元素 | boolean | false |  |
 | focusTriggerAfterClose | 对话框关闭后是否需要聚焦触发元素 | boolean | true | 4.9.0 |
-| footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | ReactNode \| (originNode: ReactNode, extra: [extraParams](/components/modal-cn#extraparams)) => ReactNode | (确定取消按钮) | renderFunction: 5.9.0 |
+| footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | ReactNode \| (originNode: ReactNode, extra: { OkBtn: React.FC, CancelBtn: React.FC }) => ReactNode | (确定取消按钮) | renderFunction: 5.9.0 |
 | forceRender | 强制渲染 Modal | boolean | false |  |
 | getContainer | 指定 Modal 挂载的节点，但依旧为全屏展示，`false` 为挂载在当前位置 | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
@@ -184,14 +184,6 @@ return <div>{contextHolder}</div>;
 //点击 `onOk` 时返回 `true`，点击 `onCancel` 时返回 `false`
 const confirmed = await modal.confirm({ ... });
 ```
-
-#### extraParams
-
-<!-- prettier-ignore -->
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| OkBtn | 确认按钮 | FC | - |
-| CancelBtn | 取消按钮 | FC | - |
 
 ## Semantic DOM
 
