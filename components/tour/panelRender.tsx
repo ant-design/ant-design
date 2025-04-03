@@ -2,8 +2,8 @@ import type { ReactNode } from 'react';
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
+import pickAttrs from 'rc-util/lib/pickAttrs';
 
-import { getAriaDataAttrs } from '../_util/aria-data-attrs';
 import type { ButtonProps } from '../button';
 import Button from '../button';
 import { useLocale } from '../locale';
@@ -45,7 +45,7 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
 
   const mergedType = stepType ?? type;
 
-  const ariaProps = getAriaDataAttrs(closable);
+  const ariaProps = pickAttrs(closable ?? {}, true);
 
   const mergedCloseIcon = (
     <button
