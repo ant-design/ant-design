@@ -44,7 +44,7 @@ const Countdown: React.FC<CountdownProps> = (props) => {
         forceUpdate();
         const timeDiff = reverse ? now - timestamp : timestamp - now;
         onChange?.(timeDiff);
-        if ((!reverse && timestamp < now) || (reverse && timestamp > now)) {
+        if (!reverse && timestamp < now) {
           stopTimer();
         }
       }, REFRESH_INTERVAL);
