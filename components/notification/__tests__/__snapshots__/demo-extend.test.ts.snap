@@ -523,7 +523,7 @@ exports[`renders components/notification/demo/render-panel.tsx extend context co
       class="ant-notification-notice-close"
     >
       <span
-        aria-label="close"
+        aria-label="Close"
         class="anticon anticon-close ant-notification-close-icon"
         role="img"
       >
