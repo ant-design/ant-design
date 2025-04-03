@@ -162,7 +162,8 @@ export type CheckboxConfig = ComponentStyleConfig & Pick<CheckboxProps, 'classNa
 
 export type MasonryConfig = ComponentStyleConfig & Pick<MasonryProps, 'classNames' | 'styles'>;
 
-export type MenuConfig = ComponentStyleConfig & Pick<MenuProps, 'expandIcon'>;
+export type MenuConfig = ComponentStyleConfig &
+  Pick<MenuProps, 'expandIcon' | 'classNames' | 'styles'>;
 
 export type TourConfig = ComponentStyleConfig &
   Pick<TourProps, 'closeIcon' | 'classNames' | 'styles'>;

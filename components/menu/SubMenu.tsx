@@ -1,7 +1,7 @@
 import * as React from 'react';
-import omit from '@rc-component/util/lib/omit';
-import classNames from 'classnames';
 import { SubMenu as RcSubMenu, useFullPath } from '@rc-component/menu';
+import omit from '@rc-component/util/lib/omit';
+import cls from 'classnames';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { cloneElement } from '../_util/reactNode';
@@ -17,7 +17,7 @@ export interface SubMenuProps extends Omit<SubMenuType, 'ref' | 'key' | 'childre
 const SubMenu: React.FC<SubMenuProps> = (props) => {
   const { popupClassName, icon, title, theme: customTheme } = props;
   const context = React.useContext(MenuContext);
-  const { prefixCls, inlineCollapsed, theme: contextTheme } = context;
+  const { prefixCls, inlineCollapsed, theme: contextTheme, classNames, styles } = context;
 
   const parentPath = useFullPath();
 
@@ -36,14 +36,10 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
     const titleIsSpan = React.isValidElement(title) && title.type === 'span';
     titleNode = (
       <>
-        {cloneElement(icon, {
-          className: classNames(
-            React.isValidElement(icon)
-              ? (icon as React.ReactElement<{ className?: string }>).props?.className
-              : '',
-            `${prefixCls}-item-icon`,
-          ),
-        })}
+        {cloneElement(icon, (oriProps) => ({
+          className: cls(oriProps.className, `${prefixCls}-item-icon`, classNames?.itemIcon),
+          style: { ...oriProps.style, ...styles?.itemIcon },
+        }))}
         {titleIsSpan ? title : <span className={`${prefixCls}-title-content`}>{title}</span>}
       </>
     );
@@ -62,7 +58,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
       <RcSubMenu
         {...omit(props, ['icon'])}
         title={titleNode}
-        popupClassName={classNames(
+        popupClassName={cls(
           prefixCls,
           popupClassName,
           `${prefixCls}-${customTheme || contextTheme}`,

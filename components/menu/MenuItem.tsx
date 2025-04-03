@@ -1,9 +1,9 @@
 import * as React from 'react';
-import toArray from '@rc-component/util/lib/Children/toArray';
-import omit from '@rc-component/util/lib/omit';
-import classNames from 'classnames';
 import type { MenuItemProps as RcMenuItemProps } from '@rc-component/menu';
 import { Item } from '@rc-component/menu';
+import toArray from '@rc-component/util/lib/Children/toArray';
+import omit from '@rc-component/util/lib/omit';
+import cls from 'classnames';
 
 import { cloneElement } from '../_util/reactNode';
 import type { SiderContextProps } from '../layout/Sider';
@@ -43,15 +43,18 @@ const MenuItem: GenericComponent = (props) => {
     direction,
     disableMenuItemTitleTooltip,
     inlineCollapsed: isInlineCollapsed,
+    styles,
+    classNames,
   } = React.useContext<MenuContextProps>(MenuContext);
   const renderItemChildren = (inlineCollapsed: boolean) => {
     const label = (children as React.ReactNode[])?.[0];
 
     const wrapNode = (
       <span
-        className={classNames(`${prefixCls}-title-content`, {
+        className={cls(`${prefixCls}-title-content`, classNames?.itemContent, {
           [`${prefixCls}-title-content-with-extra`]: !!extra || extra === 0,
         })}
+        style={styles?.itemContent}
       >
         {children}
       </span>
@@ -90,23 +93,21 @@ const MenuItem: GenericComponent = (props) => {
   let returnNode = (
     <Item
       {...omit(props, ['title', 'icon', 'danger'])}
-      className={classNames(
+      className={cls(
         {
           [`${prefixCls}-item-danger`]: danger,
           [`${prefixCls}-item-only-child`]: (icon ? childrenLength + 1 : childrenLength) === 1,
         },
         className,
+        classNames?.item,
       )}
+      style={styles?.item}
       title={typeof title === 'string' ? title : undefined}
     >
-      {cloneElement(icon, {
-        className: classNames(
-          React.isValidElement(icon)
-            ? (icon as React.ReactElement<{ className?: string }>).props?.className
-            : '',
-          `${prefixCls}-item-icon`,
-        ),
-      })}
+      {cloneElement(icon, (oriProps) => ({
+        className: cls(oriProps.className, `${prefixCls}-item-icon`, classNames?.itemIcon),
+        style: { ...oriProps.style, ...styles?.itemIcon },
+      }))}
       {renderItemChildren(isInlineCollapsed)}
     </Item>
   );
