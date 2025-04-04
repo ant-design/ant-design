@@ -25,6 +25,15 @@ const App: React.FC = () => (
     <Tag closeIcon={<CloseCircleOutlined />} onClose={console.log}>
       Tag 2
     </Tag>
+    <Tag
+      closable={{
+        closeIcon: <CloseCircleOutlined />,
+        'aria-label': 'Close Button',
+      }}
+      onClose={console.log}
+    >
+      Tag 3
+    </Tag>
   </>
 );
 
