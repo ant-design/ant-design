@@ -4,12 +4,18 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import type { DialogProps } from 'rc-dialog';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
+import { HTMLAriaDataAttributes } from '../aria-data-attrs';
+
 export type ClosableType = DialogProps['closable'];
 
 export type BaseContextClosable = { closable?: ClosableType; closeIcon?: ReactNode };
 export type ContextClosable<T extends BaseContextClosable = any> = Partial<
   Pick<T, 'closable' | 'closeIcon'>
 >;
+
+export function getObject(obj: unknown): object {
+  return typeof obj === 'object' && obj !== null ? (obj as object) : {};
+}
 
 export function pickClosable<T extends BaseContextClosable>(
   context?: ContextClosable<T>,
@@ -58,7 +64,6 @@ function useClosableConfig(closableCollection?: ClosableCollection | null) {
         ...closable,
       };
     }
-
     return closableConfig;
   }, [closable, closeIcon]);
 }
@@ -104,7 +109,13 @@ export default function useClosable(
      */
     closeIconRender?: (closeIcon: ReactNode) => ReactNode;
   } = EmptyFallbackCloseCollection,
-): [closable: boolean, closeIcon: React.ReactNode, closeBtnIsDisabled: boolean] {
+  needInjectAriaProps = true,
+): [
+  closable: boolean,
+  closeIcon: React.ReactNode,
+  closeBtnIsDisabled: boolean,
+  ariaProps?: HTMLAriaDataAttributes,
+] {
   // Align the `props`, `context` `fallback` to config object first
   const propCloseConfig = useClosableConfig(propCloseCollection);
   const contextCloseConfig = useClosableConfig(contextCloseCollection);
@@ -157,24 +168,26 @@ export default function useClosable(
     const { closeIconRender } = mergedFallbackCloseCollection;
     const { closeIcon } = mergedClosableConfig;
 
+    // export aria props
+    const ariaProps = pickAttrs(mergedClosableConfig, true);
+
     let mergedCloseIcon: ReactNode = closeIcon;
     if (mergedCloseIcon !== null && mergedCloseIcon !== undefined) {
       // Wrap the closeIcon if needed
       if (closeIconRender) {
         mergedCloseIcon = closeIconRender(closeIcon);
       }
-
-      // Wrap the closeIcon with aria props
-      const ariaProps = pickAttrs(mergedClosableConfig, true);
-      if (Object.keys(ariaProps).length) {
-        mergedCloseIcon = React.isValidElement(mergedCloseIcon) ? (
-          React.cloneElement(mergedCloseIcon, ariaProps)
-        ) : (
-          <span {...ariaProps}>{mergedCloseIcon}</span>
-        );
+      if (needInjectAriaProps) {
+        if (Object.keys(ariaProps).length) {
+          mergedCloseIcon = React.isValidElement(mergedCloseIcon) ? (
+            React.cloneElement(mergedCloseIcon, ariaProps)
+          ) : (
+            <span {...ariaProps}>{mergedCloseIcon}</span>
+          );
+        }
       }
     }
 
-    return [true, mergedCloseIcon, closeBtnIsDisabled];
+    return [true, mergedCloseIcon, closeBtnIsDisabled, ariaProps];
   }, [mergedClosableConfig, mergedFallbackCloseCollection]);
 }

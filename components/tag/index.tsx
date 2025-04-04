@@ -5,7 +5,7 @@ import omit from 'rc-util/lib/omit';
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { isPresetColor, isPresetStatusColor } from '../_util/colors';
 import type { ClosableType } from '../_util/hooks/useClosable';
-import useClosable, { pickClosable } from '../_util/hooks/useClosable';
+import useClosable, { getObject, pickClosable } from '../_util/hooks/useClosable';
 import { replaceElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -15,6 +15,7 @@ import CheckableTag from './CheckableTag';
 import useStyle from './style';
 import PresetCmp from './style/presetCmp';
 import StatusCmp from './style/statusCmp';
+import pickAttrs from 'rc-util/lib/pickAttrs';
 
 export type { CheckableTagProps } from './CheckableTag';
 
@@ -109,6 +110,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
   const [, mergedCloseIcon] = useClosable(pickClosable(tagProps), pickClosable(tagContext), {
     closable: false,
     closeIconRender: (iconNode: React.ReactNode) => {
+      const ariaProps = pickAttrs(getObject(tagProps.closable), true);
       const replacement = (
         <span className={`${prefixCls}-close-icon`} onClick={handleCloseClick}>
           {iconNode}
@@ -120,6 +122,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
           handleCloseClick(e);
         },
         className: classNames(originProps?.className, `${prefixCls}-close-icon`),
+        ...ariaProps,
       }));
     },
   });
