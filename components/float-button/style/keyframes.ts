@@ -31,7 +31,7 @@ const floatButtonGroupMotion = (token: FloatButtonToken) => {
   });
   const moveRightIn = new Keyframes('antFloatButtonMoveRightIn', {
     '0%': {
-      transform: `translate3d(${calc(floatButtonSize).mul(-1).equal()}, 0, 0)`,
+      transform: `translate3d(${unit(calc(floatButtonSize).mul(-1).equal())}, 0, 0)`,
       transformOrigin: '0 0',
       opacity: 0,
     },
@@ -48,14 +48,14 @@ const floatButtonGroupMotion = (token: FloatButtonToken) => {
       opacity: 1,
     },
     '100%': {
-      transform: `translate3d(${calc(floatButtonSize).mul(-1).equal()}, 0, 0)`,
+      transform: `translate3d(${unit(calc(floatButtonSize).mul(-1).equal())}, 0, 0)`,
       transformOrigin: '0 0',
       opacity: 0,
     },
   });
   const moveBottomIn = new Keyframes('antFloatButtonMoveBottomIn', {
     '0%': {
-      transform: `translate3d(0, ${calc(floatButtonSize).mul(-1).equal()}, 0)`,
+      transform: `translate3d(0, ${unit(calc(floatButtonSize).mul(-1).equal())}, 0)`,
       transformOrigin: '0 0',
       opacity: 0,
     },
@@ -72,7 +72,7 @@ const floatButtonGroupMotion = (token: FloatButtonToken) => {
       opacity: 1,
     },
     '100%': {
-      transform: `translate3d(0, ${calc(floatButtonSize).mul(-1).equal()}, 0)`,
+      transform: `translate3d(0, ${unit(calc(floatButtonSize).mul(-1).equal())}, 0)`,
       transformOrigin: '0 0',
       opacity: 0,
     },

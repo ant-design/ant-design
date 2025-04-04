@@ -86,6 +86,7 @@ Array [
       href="https://ant.design/index-cn"
     >
       <span
+        aria-describedby="test-id"
         class="ant-badge"
       >
         <div
@@ -151,6 +152,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             <div>
@@ -430,6 +432,7 @@ Array [
       class="ant-slider-step"
     />
     <div
+      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="20"
@@ -453,6 +456,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           0
@@ -2039,6 +2043,7 @@ exports[`renders components/float-button/demo/tooltip.tsx extend context correct
   type="button"
 >
   <div
+    aria-describedby="test-id"
     class="ant-float-btn-body"
   >
     <div
@@ -2082,6 +2087,7 @@ exports[`renders components/float-button/demo/tooltip.tsx extend context correct
     >
       <div
         class="ant-tooltip-inner"
+        id="test-id"
         role="tooltip"
       >
         <div>

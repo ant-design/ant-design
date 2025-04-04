@@ -822,11 +822,9 @@ exports[`renders components/splitter/demo/nested-in-tabs.tsx extend context corr
         aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-hidden="true"
         class="ant-tabs-nav-more"
         id="rc-tabs-test-more"
         style="visibility: hidden; order: 1;"
-        tabindex="-1"
         type="button"
       >
         <span

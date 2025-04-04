@@ -21,7 +21,7 @@ const localeValues: Locale = {
     filterConfirm: '確定',
     filterReset: '重置',
     filterEmptyText: '無篩選項',
-    filterCheckall: '全選',
+    filterCheckAll: '全選',
     filterSearchPlaceholder: '在篩選項中搜尋',
     emptyText: '暫無數據',
     selectAll: '全部選取',

@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import type { MenuProps } from 'antd';
-import { Space, Tag, version } from 'antd';
+import { Flex, Tag, version } from 'antd';
 import { createStyles } from 'antd-style';
 import classnames from 'classnames';
 import { useFullSidebarData, useSidebarData } from 'dumi';
@@ -11,6 +11,22 @@ import useLocation from './useLocation';
 function isVersionNumber(value?: string) {
   return value && /^\d+\.\d+\.\d+$/.test(value);
 }
+
+const getTagColor = (val?: string) => {
+  if (isVersionNumber(val)) {
+    return 'success';
+  }
+  if (val?.toUpperCase() === 'NEW') {
+    return 'success';
+  }
+  if (val?.toUpperCase() === 'UPDATED') {
+    return 'processing';
+  }
+  if (val?.toUpperCase() === 'DEPRECATED') {
+    return 'red';
+  }
+  return 'success';
+};
 
 const useStyle = createStyles(({ css, token }) => ({
   link: css`
@@ -42,20 +58,17 @@ interface MenuItemLabelProps {
 const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
   const { styles } = useStyle();
   const { before, after, link, title, subtitle, search, tag, className } = props;
+
   if (!before && !after) {
     return (
       <Link to={`${link}${search}`} className={classnames(className, { [styles.link]: tag })}>
-        <Space>
+        <Flex justify="flex-start" align="center" gap="small">
           <span>{title}</span>
           {subtitle && <span className={styles.subtitle}>{subtitle}</span>}
-        </Space>
+        </Flex>
         {tag && (
-          <Tag
-            bordered={false}
-            className={classnames(styles.tag)}
-            color={isVersionNumber(tag) || tag === 'New' ? 'success' : 'processing'}
-          >
-            {tag.replace('VERSION', version)}
+          <Tag bordered={false} className={classnames(styles.tag)} color={getTagColor(tag)}>
+            {tag.replace(/VERSION/i, version)}
           </Tag>
         )}
       </Link>

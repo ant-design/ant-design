@@ -26,7 +26,7 @@ const localeValues: Locale = {
     filterConfirm: 'OK',
     filterReset: 'Bekor qilish',
     filterEmptyText: 'Filtrlarsiz',
-    filterCheckall: 'Barcha elementlarni tanlash',
+    filterCheckAll: 'Barcha elementlarni tanlash',
     filterSearchPlaceholder: 'Filtrlarda qidiruv',
     emptyText: "Ma'lumotlar topilmadi",
     selectAll: 'Barchasini tanlash',

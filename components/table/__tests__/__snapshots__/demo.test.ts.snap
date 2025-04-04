@@ -1415,7 +1415,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Large
                   </span>
                 </label>
@@ -1435,7 +1437,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Middle
                   </span>
                 </label>
@@ -1455,7 +1459,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Small
                   </span>
                 </label>
@@ -1510,7 +1516,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Unset
                   </span>
                 </label>
@@ -1530,7 +1538,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Scroll
                   </span>
                 </label>
@@ -1550,7 +1560,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Fixed Columns
                   </span>
                 </label>
@@ -1605,7 +1617,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Unset
                   </span>
                 </label>
@@ -1625,7 +1639,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Fixed
                   </span>
                 </label>
@@ -1679,7 +1695,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     TopLeft
                   </span>
                 </label>
@@ -1699,7 +1717,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     TopCenter
                   </span>
                 </label>
@@ -1719,7 +1739,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     TopRight
                   </span>
                 </label>
@@ -1740,7 +1762,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     None
                   </span>
                 </label>
@@ -1794,7 +1818,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     BottomLeft
                   </span>
                 </label>
@@ -1814,7 +1840,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     BottomCenter
                   </span>
                 </label>
@@ -1835,7 +1863,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     BottomRight
                   </span>
                 </label>
@@ -1855,7 +1885,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     None
                   </span>
                 </label>
@@ -1940,6 +1972,7 @@ Array [
                       tabindex="0"
                     >
                       <div
+                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -2042,6 +2075,7 @@ Array [
                       tabindex="0"
                     >
                       <div
+                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -3628,6 +3662,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx correctly 1`] = `
                         class="ant-table-column-title"
                       >
                         <div
+                          aria-describedby="test-id"
                           class="ant-table-column-sorters"
                         >
                           <span
@@ -5303,7 +5338,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Large
                   </span>
                 </label>
@@ -5323,7 +5360,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Middle
                   </span>
                 </label>
@@ -5343,7 +5382,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Small
                   </span>
                 </label>
@@ -5398,7 +5439,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Unset
                   </span>
                 </label>
@@ -5418,7 +5461,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Scroll
                   </span>
                 </label>
@@ -5438,7 +5483,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Fixed Columns
                   </span>
                 </label>
@@ -5493,7 +5540,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Unset
                   </span>
                 </label>
@@ -5513,7 +5562,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Fixed
                   </span>
                 </label>
@@ -5567,7 +5618,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     TopLeft
                   </span>
                 </label>
@@ -5587,7 +5640,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     TopCenter
                   </span>
                 </label>
@@ -5607,7 +5662,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     TopRight
                   </span>
                 </label>
@@ -5628,7 +5685,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     None
                   </span>
                 </label>
@@ -5682,7 +5741,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     BottomLeft
                   </span>
                 </label>
@@ -5702,7 +5763,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     BottomCenter
                   </span>
                 </label>
@@ -5723,7 +5786,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     BottomRight
                   </span>
                 </label>
@@ -5743,7 +5808,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     None
                   </span>
                 </label>
@@ -5828,6 +5895,7 @@ Array [
                       tabindex="0"
                     >
                       <div
+                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -5930,6 +5998,7 @@ Array [
                       tabindex="0"
                     >
                       <div
+                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -7203,7 +7272,9 @@ exports[`renders components/table/demo/edit-cell.tsx correctly 1`] = `
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
+                      <a
+                        aria-describedby="test-id"
+                      >
                         Delete
                       </a>
                     </td>
@@ -7235,7 +7306,9 @@ exports[`renders components/table/demo/edit-cell.tsx correctly 1`] = `
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
+                      <a
+                        aria-describedby="test-id"
+                      >
                         Delete
                       </a>
                     </td>
@@ -8323,28 +8396,36 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`]
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       New York No. 1 Lake Park, New York No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       New York No. 1 Lake Park, New York No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       New York No. 1 Lake Park, New York No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       New York No. 1 Lake Park, New York No. 1 Lake Park
                     </span>
                   </td>
@@ -8368,28 +8449,36 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`]
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       London No. 2 Lake Park, London No. 2 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       London No. 2 Lake Park, London No. 2 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       London No. 2 Lake Park, London No. 2 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       London No. 2 Lake Park, London No. 2 Lake Park
                     </span>
                   </td>
@@ -8413,28 +8502,36 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`]
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                   </td>
@@ -8909,6 +9006,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -9259,6 +9357,7 @@ exports[`renders components/table/demo/filter-search.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -9601,6 +9700,7 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -14239,6 +14339,7 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -15212,6 +15313,7 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
                         class="ant-table-column-title"
                       >
                         <div
+                          aria-describedby="test-id"
                           class="ant-table-column-sorters"
                         >
                           <span
@@ -15277,6 +15379,7 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
                     </div>
                   </th>
                   <th
+                    aria-label="Age"
                     aria-sort="descending"
                     class="ant-table-cell ant-table-column-sort ant-table-column-has-sorters"
                     scope="col"
@@ -15291,6 +15394,7 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
                         Age
                       </span>
                       <span
+                        aria-describedby="test-id"
                         class="ant-table-column-sorter ant-table-column-sorter-full"
                       >
                         <span
@@ -15583,7 +15687,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Column 1
       </span>
     </label>
@@ -15603,7 +15709,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Column 2
       </span>
     </label>
@@ -15623,7 +15731,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Column 3
       </span>
     </label>
@@ -15643,7 +15753,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Column 4
       </span>
     </label>
@@ -15663,7 +15775,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Column 5
       </span>
     </label>
@@ -15683,7 +15797,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Column 6
       </span>
     </label>
@@ -15703,7 +15819,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Column 7
       </span>
     </label>
@@ -15723,7 +15841,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Column 8
       </span>
     </label>
@@ -16382,6 +16502,7 @@ exports[`renders components/table/demo/multiple-sorter.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -16445,6 +16566,7 @@ exports[`renders components/table/demo/multiple-sorter.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -16508,6 +16630,7 @@ exports[`renders components/table/demo/multiple-sorter.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -20130,7 +20253,9 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
             class="ant-radio-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-label"
+        >
           topLeft
         </span>
       </label>
@@ -20150,7 +20275,9 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
             class="ant-radio-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-label"
+        >
           topCenter
         </span>
       </label>
@@ -20170,7 +20297,9 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
             class="ant-radio-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-label"
+        >
           topRight
         </span>
       </label>
@@ -20190,7 +20319,9 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
             class="ant-radio-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-label"
+        >
           none
         </span>
       </label>
@@ -20216,7 +20347,9 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         bottomLeft
       </span>
     </label>
@@ -20236,7 +20369,9 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         bottomCenter
       </span>
     </label>
@@ -20257,7 +20392,9 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         bottomRight
       </span>
     </label>
@@ -20277,7 +20414,9 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         none
       </span>
     </label>
@@ -20776,6 +20915,7 @@ Array [
                           class="ant-table-column-title"
                         >
                           <div
+                            aria-describedby="test-id"
                             class="ant-table-column-sorters"
                           >
                             <span
@@ -20867,6 +21007,7 @@ Array [
                       title="Age"
                     >
                       <div
+                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -20937,6 +21078,7 @@ Array [
                           class="ant-table-column-title"
                         >
                           <div
+                            aria-describedby="test-id"
                             class="ant-table-column-sorters"
                           >
                             <span
@@ -21263,6 +21405,7 @@ exports[`renders components/table/demo/resizable-column.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -21697,7 +21840,9 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         Checkbox
       </span>
     </label>
@@ -21717,7 +21862,9 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         radio
       </span>
     </label>

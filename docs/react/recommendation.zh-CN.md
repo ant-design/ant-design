@@ -46,7 +46,7 @@ title: 社区精选组件
 | 应用程序框架 | [umi](https://github.com/umijs/umi) [remix](https://github.com/remix-run/remix) [refine](https://github.com/pankod/refine) |
 | Flow 流 | [pro-flow](https://github.com/ant-design/pro-flow) [react-flow](https://github.com/wbkd/react-flow) [x6](https://github.com/antvis/x6) |
 | 电话输入 | [react-phone-number-input](https://gitlab.com/catamphetamine/react-phone-number-input) [antd-phone-input](https://github.com/ArtyomVancyan/antd-phone-input/) |
-| AI 对话界面 | [pro-chat](https://github.com/ant-design/pro-chat) |
+| AI 对话应用 | [Ant Design X](https://github.com/ant-design/x) |
 | PDF | [react-pdf](https://github.com/diegomura/react-pdf) [@react-pdf/renderer](https://github.com/diegomura/react-pdf) |
 | React 手势库 | [use-gesture](https://use-gesture.netlify.app) |
 

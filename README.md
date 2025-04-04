@@ -81,6 +81,10 @@ yarn add antd
 pnpm add antd
 ```
 
+```bash
+bun add antd
+```
+
 ## 🔨 Usage
 
 ```tsx

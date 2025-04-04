@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import ContributorsList from '@qixian.cs/github-contributors-list';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
@@ -40,7 +40,7 @@ interface ContributorsProps {
 const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
   const { formatMessage } = useIntl();
   const { styles } = useStyle();
-  const { isMobile } = useContext(SiteContext);
+  const { isMobile } = React.use(SiteContext);
 
   if (!filename) {
     return null;

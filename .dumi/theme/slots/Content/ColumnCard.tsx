@@ -130,7 +130,7 @@ const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink, juejinLink }) => {
     return null;
   }
   return (
-    <Card className={card} bordered={false}>
+    <Card className={card} variant="borderless">
       <h3 className={bigTitle}>{locale.bigTitle}</h3>
       {zhihuLink && (
         <>

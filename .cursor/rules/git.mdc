@@ -1,0 +1,128 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Git 规范
+
+## 分支管理
+
+- 禁止直接提交到以下保护分支：
+  - `master`：主分支，用于发布
+  - `feature`：特性分支，用于开发新版本
+  - `next`：下一个版本分支
+
+## 开发流程
+
+1. 从保护分支（通常是 `master`）创建新的功能分支
+2. 在新分支上进行开发
+3. 提交 Pull Request 到目标分支
+4. 等待 Code Review 和 CI 通过
+5. 合并到目标分支
+
+## 分支命名规范
+
+- 功能开发：`feat/description-of-feature`
+  - 例如：`feat/add-dark-mode`
+  - 例如：`feat/improve-table-performance`
+- 问题修复：`fix/issue-number-or-description`
+  - 例如：`fix/button-style-issue`
+  - 例如：`fix/issue-1234`
+- 文档更新：`docs/what-is-changed`
+  - 例如：`docs/update-api-reference`
+  - 例如：`docs/fix-typos`
+- 代码重构：`refactor/what-is-changed`
+  - 例如：`refactor/button-component`
+  - 例如：`refactor/remove-deprecated-api`
+- 样式修改：`style/what-is-changed`
+  - 例如：`style/update-button-tokens`
+  - 例如：`style/improve-mobile-layout`
+- 测试相关：`test/what-is-changed`
+  - 例如：`test/add-button-test`
+  - 例如：`test/improve-coverage`
+- 构建相关：`build/what-is-changed`
+  - 例如：`build/upgrade-webpack`
+  - 例如：`build/fix-ts-config`
+- 持续集成：`ci/what-is-changed`
+  - 例如：`ci/add-e2e-test`
+  - 例如：`ci/fix-deploy-script`
+- 性能优化：`perf/what-is-changed`
+  - 例如：`perf/optimize-render`
+  - 例如：`perf/reduce-bundle-size`
+- 依赖升级：`deps/package-name-version`
+  - 例如：`deps/upgrade-react-18`
+  - 例如：`deps/update-dependencies`
+
+## 分支命名注意事项
+
+1. 使用小写字母
+2. 使用连字符（-）分隔单词
+3. 简短但具有描述性
+4. 避免使用下划线或其他特殊字符
+5. 如果与 Issue 关联，可以包含 Issue 编号
+
+## Pull Request 规范
+
+### PR 标题
+
+- PR 标题始终使用英文
+- 遵循格式：`类型: 简短描述`
+- 例如：`fix: fix button style issues in Safari browser`
+- 例如：`feat: add dark mode support`
+
+### PR 内容
+
+- PR 内容默认使用英文
+- 尽量简洁清晰地描述改动内容和目的
+- 可以视需要在英文描述后附上中文说明
+
+### PR 模板
+
+提交 PR 时请使用项目中提供的模板：
+
+- 英文模板（推荐）：[PULL_REQUEST_TEMPLATE.md](mdc:.github/PULL_REQUEST_TEMPLATE.md)
+- 中文模板：[PULL_REQUEST_TEMPLATE_CN.md](mdc:.github/PULL_REQUEST_TEMPLATE_CN.md)
+
+### PR 提交注意事项
+
+1. **合并策略**：
+
+   - 新特性请提交至 `feature` 分支
+   - 其余可提交至 `master` 分支
+
+2. **审核流程**：
+
+   - PR 需要由至少一名维护者审核通过后才能合并
+   - 确保所有 CI 检查都通过
+   - 解决所有 Code Review 中提出的问题
+
+3. **PR 质量要求**：
+
+   - 确保代码符合项目代码风格
+   - 添加必要的测试用例
+   - 更新相关文档
+   - 大型改动需要更详细的说明和更多的审核者参与
+
+4. **工具标注**：
+   - 如果是用 Cursor 提交的代码，请在 PR body 末尾进行标注：`> Submitted by Cursor`
+
+## 新增内容
+
+- Pull Request 标题格式：[组件名]: 描述
+- 从 master 分支创建新分支
+- 分支命名规范：
+  - feature/xxx：新特性
+  - fix/xxx：Bug 修复
+  - docs/xxx：文档更新
+- PR 说明中选择改动类型：
+  - 🆕 新特性提交
+  - 🐞 Bug 修复
+  - 📝 文档改进
+  - 📽️ 演示代码改进
+  - 💄 样式/交互改进
+  - 🤖 TypeScript 更新
+  - 📦 包体积优化
+  - ⚡️ 性能优化
+  - 🌐 国际化改进
+- 提供改动背景和解决方案
+- 更新日志同时提供英文和中文版本
