@@ -207,7 +207,8 @@ export type TextAreaConfig = ComponentStyleConfig &
 export type ButtonConfig = ComponentStyleConfig &
   Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace' | 'variant' | 'color'>;
 
-export type MessageConfig = ComponentStyleConfig & Pick<MessageProps, 'classNames' | 'styles'>;
+export type MessageConfig = ComponentStyleConfig &
+  Pick<MessageProps, 'classNames' | 'icons' | 'styles'>;
 
 export type NotificationConfig = ComponentStyleConfig &
   Pick<NotificationProps, 'closeIcon' | 'classNames' | 'styles'>;
