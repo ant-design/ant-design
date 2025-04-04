@@ -62,6 +62,7 @@ const App: React.FC = () => {
 
   return (
     <SemanticPreview
+      componentName="Cascader"
       semantics={[
         { name: 'root', desc: locale.root, version: '5.25.0' },
         { name: 'popup', desc: locale.popup, version: '5.25.0' },

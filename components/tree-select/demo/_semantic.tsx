@@ -1,14 +1,17 @@
 import React from 'react';
 import { TreeSelect } from 'antd';
+import type { TreeSelectProps } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
 
 const locales = {
   cn: {
+    root: '根元素',
     popup: '弹出菜单元素',
   },
   en: {
+    root: 'Root element',
     popup: 'Popup element',
   },
 };
@@ -29,42 +32,38 @@ const treeData = [
   },
 ];
 
-const Block = (props: any) => {
+const Block: React.FC<Readonly<TreeSelectProps>> = (props) => {
   const divRef = React.useRef<HTMLDivElement>(null);
   const [value, setValue] = React.useState<string>();
-  const onChange = (newValue: string) => {
-    setValue(newValue);
-  };
   return (
     <div ref={divRef}>
       <TreeSelect
         {...props}
-        getPopupContainer={() => divRef.current}
+        getPopupContainer={() => divRef.current!}
         showSearch
         placement="bottomLeft"
         open
-        style={{ marginBottom: 100, width: 200 }}
-        styles={{
-          popup: {
-            zIndex: 1,
-          },
-        }}
+        style={{ width: 200, marginBottom: 80, marginTop: -10 }}
+        styles={{ popup: { zIndex: 1, height: 90 } }}
         value={value}
         placeholder="Please select"
         treeDefaultExpandAll
-        onChange={onChange}
+        onChange={setValue}
         treeData={treeData}
       />
     </div>
   );
 };
+
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
-
   return (
     <SemanticPreview
-      semantics={[{ name: 'popup', desc: locale.popup, version: '5.25.0' }]}
-      height={200}
+      componentName="TreeSelect"
+      semantics={[
+        { name: 'root', desc: locale.root, version: '5.25.0' },
+        { name: 'popup', desc: locale.popup, version: '5.25.0' },
+      ]}
     >
       <Block />
     </SemanticPreview>

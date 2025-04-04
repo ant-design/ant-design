@@ -1,8 +1,8 @@
-import React, { Suspense, useContext } from 'react';
+import React, { Suspense } from 'react';
 import { BugOutlined, CodeOutlined, ExperimentOutlined } from '@ant-design/icons';
-import { ConfigProvider, Tooltip, Button } from 'antd';
-import { DumiDemoGrid, FormattedMessage, DumiDemo } from 'dumi';
 import { css, Global } from '@emotion/react';
+import { Button, ConfigProvider, Tooltip } from 'antd';
+import { DumiDemo, DumiDemoGrid, FormattedMessage } from 'dumi';
 
 import useLayoutState from '../../../hooks/useLayoutState';
 import useLocale from '../../../hooks/useLocale';
@@ -21,7 +21,7 @@ const locales = {
 };
 
 const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
-  const { showDebug, setShowDebug } = useContext(DemoContext);
+  const { showDebug, setShowDebug } = React.use(DemoContext);
   const [locale] = useLocale(locales);
 
   const [expandAll, setExpandAll] = useLayoutState(false);

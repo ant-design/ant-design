@@ -1,4 +1,5 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+/* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
+import React, { useEffect, useRef, useState } from 'react';
 import { LinkOutlined, ThunderboltOutlined, UpOutlined } from '@ant-design/icons';
 import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
@@ -17,7 +18,6 @@ import CodePenIcon from '../../icons/CodePenIcon';
 import CodeSandboxIcon from '../../icons/CodeSandboxIcon';
 import ExternalLinkIcon from '../../icons/ExternalLinkIcon';
 import DemoContext from '../../slots/DemoContext';
-import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
 import CodeBlockButton from './CodeBlockButton';
 import type { AntdPreviewerProps } from './Previewer';
@@ -86,7 +86,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     clientOnly,
     pkgDependencyList,
   } = props;
-  const { codeType } = useContext(DemoContext);
+  const { codeType } = React.use(DemoContext);
 
   const { pkg } = useSiteData();
   const location = useLocation();
@@ -110,7 +110,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const codeSandboxIconRef = useRef<HTMLFormElement>(null);
   const codepenIconRef = useRef<HTMLFormElement>(null);
   const [codeExpand, setCodeExpand] = useState<boolean>(false);
-  const { theme } = useContext<SiteContextProps>(SiteContext);
+  const { theme } = React.use(SiteContext);
 
   const { hash, pathname, search } = location;
   const docsOnlineUrl = `https://ant.design${pathname}${search}#${asset.id}`;

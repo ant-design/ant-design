@@ -10,7 +10,7 @@ demo:
   cols: 2
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 当系统拥有超过两级以上的层级结构时；
 - 当需要告知用户『你在哪里』时；
@@ -129,7 +129,7 @@ function itemRender(currentRoute, params, items, paths) {
   return isLast ? (
     <span>{currentRoute.title}</span>
   ) : (
-    <Link to={`/${paths.join("/")}`}>{currentRoute.title}</Link>
+    <Link to={`/${paths.join('/')}`}>{currentRoute.title}</Link>
   );
 }
 
