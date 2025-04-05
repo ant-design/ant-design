@@ -19,7 +19,13 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
   const internalValue = value && typeof mask === 'string' ? mask : value;
 
   const onInternalChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    onChange(index, e.target.value);
+    if (
+      e.target.value === '' ||
+      restProps.type !== 'number' ||
+      (restProps.type === 'number' && !isNaN(parseInt(e.target.value)))
+    ) {
+      onChange(index, e.target.value);
+    }
   };
 
   // ========================== Ref ===========================
@@ -59,11 +65,21 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
     syncSelection();
   };
 
+  const setInputType = () => {
+    let type = restProps.type;
+    if (mask === true) {
+      type = 'password';
+    } else if (typeof mask === 'string') {
+      type = 'text';
+    }
+    return type;
+  };
+
   // ========================= Render =========================
   return (
     <Input
-      type={mask === true ? 'password' : 'text'}
       {...restProps}
+      type={setInputType()}
       ref={inputRef}
       value={internalValue}
       onInput={onInternalChange}

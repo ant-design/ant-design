@@ -150,6 +150,12 @@ describe('Input.OTP', () => {
     // support emoji
     rerender(<OTP defaultValue="bamboo" mask="🔒" />);
     expect(getText(container)).toBe('🔒🔒🔒🔒🔒🔒');
+
+    // support emoji with type number field
+    rerender(<OTP defaultValue="123456" type="number" mask="🔒" />);
+    expect(container.querySelector('input')).toHaveAttribute('type', 'text');
+    expect(getText(container)).toBe('🔒🔒🔒🔒🔒🔒');
+    //check number value should be number
   });
 
   it('should throw Error when mask.length > 1', () => {
