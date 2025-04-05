@@ -15,6 +15,7 @@ const SECONDARY_LIST = [
     key: 'mobile',
     url: 'https://mobile.ant.design/',
     imgScale: 1.5,
+    scaleOrigin: '15px',
   },
   {
     img: 'https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/antv.png',
@@ -63,8 +64,7 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token, css }) => {
-  const isDark = React.use(DarkContext);
+const useStyle = createStyles(({ token, css }, isDark: boolean) => {
   return {
     card: css`
       padding: ${token.paddingSM}px;
@@ -99,10 +99,12 @@ const useStyle = createStyles(({ token, css }) => {
 const DesignFramework: React.FC = () => {
   const [locale] = useLocale(locales);
   const token = useTheme();
-  const { styles } = useStyle();
+  const { isMobile } = React.use(SiteContext);
+  const isDark = React.use(DarkContext);
+  const { styles } = useStyle(isDark);
   const { pathname, search } = useLocation();
   const isZhCN = utils.isZhCN(pathname);
-  const { isMobile } = React.use(SiteContext);
+
   const colSpan = isMobile ? 24 : 8;
 
   const MAINLY_LIST = [
@@ -150,7 +152,7 @@ const DesignFramework: React.FC = () => {
         );
       })}
 
-      {SECONDARY_LIST.map(({ img, key, url, imgScale = 1 }, index) => {
+      {SECONDARY_LIST.map(({ img, key, url, imgScale = 1, scaleOrigin }, index) => {
         const title = locale[key as keyof typeof locale];
         const desc = locale[`${key}Desc` as keyof typeof locale];
 
@@ -161,7 +163,7 @@ const DesignFramework: React.FC = () => {
                 draggable={false}
                 alt={title}
                 src={img}
-                style={{ transform: `scale(${imgScale})` }}
+                style={{ transform: `scale(${imgScale})`, transformOrigin: scaleOrigin }}
               />
 
               <Typography.Title

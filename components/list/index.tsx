@@ -2,7 +2,6 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 import extendsObject from '../_util/extendsObject';
-import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -69,9 +68,9 @@ export interface ListLocale {
   emptyText: React.ReactNode;
 }
 
-function InternalList<T>(
-  {
-    pagination = false as ListProps<T>['pagination'],
+function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivElement>) {
+  const {
+    pagination = false,
     prefixCls: customizePrefixCls,
     bordered = false,
     split = true,
@@ -91,9 +90,8 @@ function InternalList<T>(
     renderItem,
     locale,
     ...rest
-  }: ListProps<T>,
-  ref: React.ForwardedRef<HTMLDivElement>,
-) {
+  } = props;
+
   const paginationObj = pagination && typeof pagination === 'object' ? pagination : {};
 
   const [paginationCurrent, setPaginationCurrent] = React.useState(
@@ -127,8 +125,10 @@ function InternalList<T>(
 
   const onPaginationShowSizeChange = triggerPaginationEvent('onShowSizeChange');
 
-  const renderInnerItem = (item: T, index: number) => {
-    if (!renderItem) return null;
+  const renderInternalItem = (item: T, index: number) => {
+    if (!renderItem) {
+      return null;
+    }
 
     let key: any;
 
@@ -147,7 +147,7 @@ function InternalList<T>(
     return <React.Fragment key={key}>{renderItem(item, index)}</React.Fragment>;
   };
 
-  const isSomethingAfterLastItem = () => !!(loadMore || pagination || footer);
+  const isSomethingAfterLastItem = !!(loadMore || pagination || footer);
 
   const prefixCls = getPrefixCls('list', customizePrefixCls);
 
@@ -187,7 +187,7 @@ function InternalList<T>(
       [`${prefixCls}-bordered`]: bordered,
       [`${prefixCls}-loading`]: isLoading,
       [`${prefixCls}-grid`]: !!grid,
-      [`${prefixCls}-something-after-last-item`]: isSomethingAfterLastItem(),
+      [`${prefixCls}-something-after-last-item`]: isSomethingAfterLastItem,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     contextClassName,
@@ -208,9 +208,9 @@ function InternalList<T>(
   );
 
   const largestPage = Math.ceil(paginationProps.total / paginationProps.pageSize);
-  if (paginationProps.current > largestPage) {
-    paginationProps.current = largestPage;
-  }
+
+  paginationProps.current = Math.min(paginationProps.current, largestPage);
+
   const paginationContent = pagination && (
     <div className={classNames(`${prefixCls}-pagination`)}>
       <Pagination
@@ -238,7 +238,7 @@ function InternalList<T>(
   const screens = useBreakpoint(needResponsive);
   const currentBreakpoint = React.useMemo(() => {
     for (let i = 0; i < responsiveArray.length; i += 1) {
-      const breakpoint: Breakpoint = responsiveArray[i];
+      const breakpoint = responsiveArray[i];
       if (screens[breakpoint]) {
         return breakpoint;
       }
@@ -262,7 +262,7 @@ function InternalList<T>(
 
   let childrenContent: React.ReactNode = isLoading && <div style={{ minHeight: 53 }} />;
   if (splitDataSource.length > 0) {
-    const items = splitDataSource.map((item: T, index: number) => renderInnerItem(item, index));
+    const items = splitDataSource.map(renderInternalItem);
     childrenContent = grid ? (
       <Row gutter={grid.gutter}>
         {React.Children.map(items, (child) => (
