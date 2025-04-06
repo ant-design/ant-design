@@ -161,7 +161,7 @@
   "devDependencies": {
     "@ant-design/compatible": "^5.1.3",
     "@ant-design/happy-work-theme": "^1.0.0",
-    "@ant-design/tools": "^18.0.3",
+    "@ant-design/tools": "^19.0.0",
     "@ant-design/v5-patch-for-react-19": "^1.0.2",
     "@antfu/eslint-config": "^4.0.0",
     "@antv/g6": "^4.8.24",
