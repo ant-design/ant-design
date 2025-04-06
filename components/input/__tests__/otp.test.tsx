@@ -155,6 +155,10 @@ describe('Input.OTP', () => {
     rerender(<OTP defaultValue="123456" type="number" mask="🔒" />);
     expect(container.querySelector('input')).toHaveAttribute('type', 'text');
     expect(getText(container)).toBe('🔒🔒🔒🔒🔒🔒');
+
+    // support boolean
+    rerender(<OTP defaultValue="123456" mask={true} />);
+    expect(container.querySelector('input')).toHaveAttribute('type', 'password');
   });
 
   it('should throw Error when mask.length > 1', () => {
