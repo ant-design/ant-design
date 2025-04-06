@@ -318,7 +318,7 @@
     "rimraf": "^6.0.1",
     "runes2": "^1.1.4",
     "semver": "^7.6.3",
-    "sharp": "^0.33.5",
+    "sharp": "^0.34.0",
     "simple-git": "^3.27.0",
     "size-limit": "^11.1.6",
     "spinnies": "^0.5.1",
