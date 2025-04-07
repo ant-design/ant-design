@@ -85,7 +85,7 @@ const Footer: React.FC = () => {
   const location = useLocation();
   const [locale, lang] = useLocale(locales);
   const { isMobile } = React.use(SiteContext);
-  const styles = useStyle(isMobile);
+  const styles = useStyle(isMobile)();
 
   const { getLink } = location;
 
