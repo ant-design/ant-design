@@ -477,7 +477,7 @@ Array [
         class="ant-transfer css-var-test-id"
       >
         <div
-          class="ant-transfer-list"
+          class="ant-transfer-section"
         >
           <div
             class="ant-transfer-list-header"
@@ -641,7 +641,7 @@ Array [
           </div>
         </div>
         <div
-          class="ant-transfer-operation"
+          class="ant-transfer-actions"
         >
           <button
             class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -703,7 +703,7 @@ Array [
           </button>
         </div>
         <div
-          class="ant-transfer-list"
+          class="ant-transfer-section"
         >
           <div
             class="ant-transfer-list-header"
