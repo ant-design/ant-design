@@ -187,7 +187,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       styles={mergedStyles}
       mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']}
       popupRender={mergedPopupRender}
-      onOpenChange={mergedOnOpenChange}
+      onPopupVisibleChange={mergedOnOpenChange}
       {...{
         // Internal api
         getInputElement,
