@@ -28,6 +28,8 @@ export type { TransferListProps } from './list';
 export type { TransferOperationProps } from './operation';
 export type { TransferSearchProps } from './search';
 
+export type SemanticName = 'root' | 'section' | 'header' | 'body' | 'list' | 'listItem' | 'actions';
+
 export type TransferDirection = 'left' | 'right';
 
 export interface RenderResultObject {
