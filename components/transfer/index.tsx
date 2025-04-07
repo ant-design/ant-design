@@ -220,12 +220,6 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     TransferKey
   >((item) => item.key);
 
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Transfer');
-
-    warning(!pagination || !children, 'usage', '`pagination` not support customize render list.');
-  }
-
   const setStateKeys = useCallback(
     (
       direction: TransferDirection,
@@ -481,8 +475,13 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   // ===================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Transfer');
+
+    warning(!pagination || !children, 'usage', '`pagination` not support customize render list.');
+
     [
-      // TODO: fill this
+      ['listStyle', 'styles.section'],
+      ['operationStyle', 'styles.actions'],
+      ['operations', 'actions'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
