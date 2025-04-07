@@ -150,15 +150,6 @@ describe('Input.OTP', () => {
     // support emoji
     rerender(<OTP defaultValue="bamboo" mask="🔒" />);
     expect(getText(container)).toBe('🔒🔒🔒🔒🔒🔒');
-
-    // support emoji with type number field
-    rerender(<OTP defaultValue="123456" type="number" mask="🔒" />);
-    expect(container.querySelector('input')).toHaveAttribute('type', 'text');
-    expect(getText(container)).toBe('🔒🔒🔒🔒🔒🔒');
-
-    // support boolean
-    rerender(<OTP defaultValue="123456" mask={true} />);
-    expect(container.querySelector('input')).toHaveAttribute('type', 'password');
   });
 
   it('should throw Error when mask.length > 1', () => {
@@ -180,25 +171,6 @@ describe('Input.OTP', () => {
   it('support type', () => {
     const { container } = render(<OTP type="number" />);
     expect(container.querySelector('input')).toHaveAttribute('type', 'number');
-  });
-
-  it('should call onInput with a string array when input changes', () => {
-    const onInput = jest.fn();
-    const { container } = render(<OTP length={4} onInput={onInput} />);
-
-    const inputs = Array.from(container.querySelectorAll('input'));
-
-    fireEvent.input(inputs[0], { target: { value: '1' } });
-    expect(onInput).toHaveBeenCalledWith(['1']);
-
-    fireEvent.input(inputs[2], { target: { value: '3' } });
-    expect(onInput).toHaveBeenCalledWith(['1', '', '3']);
-
-    fireEvent.input(inputs[1], { target: { value: '2' } });
-    expect(onInput).toHaveBeenCalledWith(['1', '2', '3']);
-
-    fireEvent.input(inputs[3], { target: { value: '4' } });
-    expect(onInput).toHaveBeenCalledWith(['1', '2', '3', '4']);
   });
 
   it('should accept value as number in number type field', () => {

@@ -14,6 +14,21 @@ const genOTPStyle: GenerateStyle<InputToken> = (token) => {
       flexWrap: 'nowrap',
       columnGap: paddingXS,
 
+      [`${componentCls}-mask-number`]: {
+        color: 'transparent',
+        caretColor: 'var(--ant-color-text)',
+        transition: 'none',
+        textAlign: 'center',
+        letterSpacing: '10px',
+      },
+      [`${componentCls}-mask-number::-webkit-inner-spin-button`]: {
+        '-webkit-appearance': 'none',
+        margin: 0,
+      },
+      [`${componentCls}-mask-number[type=number]`]: {
+        '-moz-appearance': 'textfield',
+      },
+
       '&-rtl': {
         direction: 'rtl',
       },

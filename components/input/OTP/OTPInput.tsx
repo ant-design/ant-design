@@ -1,6 +1,8 @@
 import * as React from 'react';
+import classNames from 'classnames';
 import raf from 'rc-util/lib/raf';
 
+import { ConfigContext } from '../../config-provider';
 import Input from '../Input';
 import type { InputProps, InputRef } from '../Input';
 
@@ -14,23 +16,28 @@ export interface OTPInputProps extends Omit<InputProps, 'onChange'> {
 }
 
 const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
-  const { value, onChange, onActiveChange, index, mask, ...restProps } = props;
-
-  const internalValue = value && typeof mask === 'string' ? mask : value;
-
-  const onInternalChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    if (
-      e.target.value === '' ||
-      restProps.type !== 'number' ||
-      (restProps.type === 'number' && !isNaN(parseInt(e.target.value)))
-    ) {
-      onChange(index, e.target.value);
-    }
-  };
+  const { className, value, onChange, onActiveChange, index, mask, ...restProps } = props;
+  const { getPrefixCls } = React.useContext(ConfigContext);
+  const prefixCls = getPrefixCls('otp');
+  const maskValue = typeof mask === 'string' ? mask : value;
+  const internalValue = value && maskValue;
 
   // ========================== Ref ===========================
   const inputRef = React.useRef<InputRef>(null);
   React.useImperativeHandle(ref, () => inputRef.current!);
+
+  // ========================= Input ==========================
+  const onInternalChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    if (inputRef.current?.input) {
+      const inputBackgroundStyle = inputRef.current.input.style;
+      if (e.target.value && restProps.type === 'number' && typeof mask === 'string') {
+        inputBackgroundStyle.background = `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20'><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle'>${maskValue}</text></svg>") center center / 26px no-repeat #fff`;
+      } else {
+        inputBackgroundStyle.background = '';
+      }
+    }
+    onChange(index, e.target.value);
+  };
 
   // ========================= Focus ==========================
   const syncSelection = () => {
@@ -65,29 +72,22 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
     syncSelection();
   };
 
-  const setInputType = () => {
-    let type = restProps.type;
-    if (mask === true) {
-      type = 'password';
-    } else if (typeof mask === 'string') {
-      type = 'text';
-    }
-    return type;
-  };
-
   // ========================= Render =========================
   return (
     <Input
+      type={mask === true ? 'password' : 'text'}
       {...restProps}
-      type={setInputType()}
       ref={inputRef}
-      value={internalValue}
+      value={restProps.type === 'number' ? value : internalValue}
       onInput={onInternalChange}
       onFocus={syncSelection}
       onKeyDown={onInternalKeyDown}
       onKeyUp={onInternalKeyUp}
       onMouseDown={syncSelection}
       onMouseUp={syncSelection}
+      className={classNames(className, {
+        [`${prefixCls}-mask-number`]: restProps.type === 'number' && mask,
+      })}
     />
   );
 });
