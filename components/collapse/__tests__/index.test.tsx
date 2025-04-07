@@ -276,13 +276,13 @@ describe('Collapse', () => {
     );
   });
 
-  it('should support borderLessContentBg component token', () => {
+  it('should support borderlessContentBg component token', () => {
     const { container } = render(
       <ConfigProvider
         theme={{
           components: {
             Collapse: {
-              borderLessContentBg: 'red',
+              borderlessContentBg: 'red',
             },
           },
         }}
