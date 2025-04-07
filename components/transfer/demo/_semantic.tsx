@@ -12,7 +12,7 @@ const locales = {
     body: '内容元素',
     list: '列表元素',
     listItem: '列表项元素',
-    footer: '页脚',
+    footer: '页脚元素',
     actions: '操作元素',
   },
   en: {
@@ -22,7 +22,7 @@ const locales = {
     body: 'Body element',
     list: 'List element',
     listItem: 'List Item element',
-    footer: 'Footer',
+    footer: 'Footer element',
     actions: 'Actions element',
   },
 };
