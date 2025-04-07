@@ -1,11 +1,12 @@
 import React from 'react';
 import { LikeOutlined, SmileOutlined } from '@ant-design/icons';
-import * as copyObj from 'copy-to-clipboard';
 
+import copyObj from '../../_util/copy';
 import { fireEvent, render, renderHook, waitFakeTimer, waitFor } from '../../../tests/utils';
 import Base from '../Base';
 import useCopyClick from '../hooks/useCopyClick';
 
+jest.mock('../../_util/copy');
 describe('Typography copy', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
@@ -238,7 +239,7 @@ describe('Typography copy', () => {
 
     it('copy to clipboard', async () => {
       jest.useFakeTimers();
-      const spy = jest.spyOn(copyObj, 'default');
+      // const spy = jest.spyOn(copyObj, 'default');
       const originText = 'origin text.';
       const nextText = 'next text.';
       const Test = () => {
@@ -257,17 +258,18 @@ describe('Typography copy', () => {
       const { container: wrapper } = render(<Test />);
       const copyBtn = wrapper.querySelectorAll('.ant-typography-copy')[0];
       fireEvent.click(copyBtn);
-      expect(spy.mock.calls[0][0]).toEqual(originText);
+      expect((copyObj as any).mock.cells[0][0]).toEqual(originText);
       await waitFakeTimer();
-      spy.mockReset();
+      // spy.mockReset();
       fireEvent.click(copyBtn);
-      expect(spy.mock.calls[0][0]).toEqual(nextText);
+      // expect(spy.mock.calls[0][0]).toEqual(nextText);
+      expect((copyObj as any).mock.cells[0][0]).toEqual(nextText);
       jest.useRealTimers();
-      spy.mockReset();
+      // spy.mockReset();
     });
 
     it('copy by async', async () => {
-      const spy = jest.spyOn(copyObj, 'default');
+      // const spy = jest.spyOn(copyObj, 'default');
       const { container: wrapper } = render(
         <Base
           component="p"
@@ -281,8 +283,8 @@ describe('Typography copy', () => {
       fireEvent.click(wrapper.querySelectorAll('.ant-typography-copy')[0]);
       expect(wrapper.querySelectorAll('.anticon-loading')[0]).toBeTruthy();
       await waitFakeTimer();
-      expect(spy.mock.calls[0][0]).toEqual('Request text');
-      spy.mockReset();
+      expect((copyObj as any).mock.calls[0][0]).toEqual('Request text');
+      // spy.mockReset();
       expect(wrapper.querySelectorAll('.anticon-loading')[0]).toBeFalsy();
     });
 
@@ -300,7 +302,7 @@ describe('Typography copy', () => {
   });
 
   it('not block copy text change', () => {
-    const spy = jest.spyOn(copyObj, 'default');
+    // const spy = jest.spyOn(copyObj, 'default');
 
     const renderDemo = (text: string) => (
       <Base copyable={{ text }} component="p">
@@ -312,9 +314,10 @@ describe('Typography copy', () => {
     rerender(renderDemo('Light'));
 
     fireEvent.click(container.querySelector('.ant-typography-copy')!);
-    expect(spy.mock.calls[0][0]).toBe('Light');
 
-    spy.mockRestore();
+    expect((copyObj as any).mock.calls[0][0]).toBe('Light');
+
+    // spy.mockRestore();
   });
 
   it('dynamic set editable', () => {
@@ -353,7 +356,7 @@ describe('Typography copy', () => {
   });
 
   it('copy array children', () => {
-    const spy = jest.spyOn(copyObj, 'default');
+    // const spy = jest.spyOn(copyObj, 'default');
 
     const bamboo = 'bamboo';
     const little = 'little';
@@ -367,8 +370,8 @@ describe('Typography copy', () => {
     fireEvent.click(container.querySelector('.ant-typography-copy')!);
 
     // Check copy content
-    expect(spy.mock.calls[0][0]).toBe(`${bamboo}${little}`);
+    expect((copyObj as any).mock.calls[0][0]).toBe(`${bamboo}${little}`);
 
-    spy.mockRestore();
+    // spy.mockRestore();
   });
 });

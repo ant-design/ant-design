@@ -2,15 +2,14 @@ function fallbackCopy(text: string, debug?: any) {
   try {
     const textarea = document.createElement('textarea');
     textarea.value = text;
-    textarea.style.position = 'fixed'; // 避免滚动跳动
+    textarea.style.position = 'fixed';
     document.body.appendChild(textarea);
     textarea.select();
 
-    // 扩展选中范围 (兼容 iOS)
     if (textarea.setSelectionRange) {
       const range = document.createRange();
       range.selectNodeContents(textarea);
-      const selection = window.getSelection();
+      const selection = window.getSelection() as Selection;
       selection.removeAllRanges();
       selection.addRange(range);
       textarea.setSelectionRange(0, 999999);
@@ -29,48 +28,45 @@ function fallbackCopy(text: string, debug?: any) {
   }
 }
 
-export default (
-  text: string,
-  config?: { debug?: boolean; format?: 'text/plain' | 'text/html' },
-) => {
+function copy(text: string, config?: { debug?: boolean; format?: 'text/plain' | 'text/html' }) {
   const debug = config?.debug || true;
   const format = config?.format;
 
   if (typeof text !== 'string') {
     if (debug) {
-      console.warn('剪贴板内容必须是字符串类型');
+      console.warn('The clipboard content must be of string type');
     }
     return false;
   }
-
-  if (navigator.clipboard?.writeText) {
-    if (format === 'text/html') {
-      const item = new ClipboardItem({
-        [format]: new Blob([text], { type: format }),
-        'text/plain': new Blob([text], { type: 'text/plain' }),
-      });
-
-      navigator.clipboard
-        .write([item])
-        .then(() => {
-          if (debug) console.warn('copy success');
-        })
-        .catch((err) => {
-          if (debug) console.warn('copy failed:', err);
+  const isHtmlFormat = format === 'text/html';
+  try {
+    if (isHtmlFormat) {
+      if (navigator.clipboard?.write) {
+        const item = new ClipboardItem({
+          [format]: new Blob([text], { type: format }),
+          'text/plain': new Blob([text], { type: 'text/plain' }),
         });
-      return true;
-    }
-    navigator.clipboard
-      .writeText(text)
-      .then(() => {
-        if (debug) console.warn('copy success');
-      })
-      .catch((err) => {
-        if (debug) console.warn('copy failed:', err);
-        fallbackCopy(text, debug);
-      });
-    return true;
-  }
 
+        navigator.clipboard.write([item]).then(() => {
+          if (debug) console.warn('copy success');
+        });
+
+        return true;
+      }
+      return fallbackCopy(text, debug);
+    } else {
+      if (navigator.clipboard?.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          if (debug) console.warn('copy success');
+        });
+        return true;
+      }
+      return fallbackCopy(text, debug);
+    }
+  } catch (err) {
+    if (debug) console.error('Clipboard API failed:', err);
+  }
   return fallbackCopy(text, debug);
-};
+}
+
+export default copy;
