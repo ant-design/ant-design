@@ -46,10 +46,11 @@ Common props ref：[Common props](/docs/react/common-props)
 | selectionsIcon | custom dropdown icon | React.ReactNode |  | 5.8.0 |
 | filterOption | A function to determine whether an item should show in search result list, only works when searching, (add `direction` support since 5.9.0+) | (inputValue, option, direction: `left` \| `right`): boolean | - |  |
 | footer | A function used for rendering the footer | (props, { direction }) => ReactNode | - | direction: 4.17.0 |
-| listStyle | A custom CSS style used for rendering the transfer columns | object \| ({direction: `left` \| `right`}) => object | - |  |
+| ~~listStyle~~ | A custom CSS style used for rendering the transfer columns. Use `styles.section` instead | object \| ({direction: `left` \| `right`}) => object | - |  |
 | locale | The i18n text including filter, empty text, item unit, etc | { itemUnit: string; itemsUnit: string; searchPlaceholder: string; notFoundContent: ReactNode \| ReactNode[]; } | { itemUnit: `item`, itemsUnit: `items`, notFoundContent: `The list is empty`, searchPlaceholder: `Search here` } |  |
 | oneWay | Display as single direction style | boolean | false | 4.3.0 |
-| operationStyle | A custom CSS style used for rendering the operations column | object | - |  |
+| ~~operations~~ | A set of operations that are sorted from top to bottom. Use `actions` instead. | string\[] | \[`>`, `<`] |  |
+| ~~operationStyle~~ | A custom CSS style used for rendering the operations column. Use `styles.actions` instead. | object | - |  |
 | pagination | Use pagination. Not work in render props | boolean \| { pageSize: number, simple: boolean, showSizeChanger?: boolean, showLessItems?: boolean } | false | 4.3.0 |
 | render | The function to generate the item shown on a column. Based on an record (element of the dataSource array), this function should return a React element which is generated from that record. Also, it can return a plain object with `value` and `label`, `label` is a React element and `value` is for title | (record) => ReactNode | - |  |
 | selectAllLabels | A set of customized labels for select all checkboxes on the header | (ReactNode \| (info: { selectedCount: number, totalCount: number }) => ReactNode)\[] | - |  |
