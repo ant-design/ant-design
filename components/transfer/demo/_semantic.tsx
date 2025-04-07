@@ -12,6 +12,7 @@ const locales = {
     body: '内容元素',
     list: '列表元素',
     listItem: '列表项元素',
+    footer: '页脚',
     actions: '操作元素',
   },
   en: {
@@ -21,6 +22,7 @@ const locales = {
     body: 'Body element',
     list: 'List element',
     listItem: 'List Item element',
+    footer: 'Footer',
     actions: 'Actions element',
   },
 };
@@ -34,7 +36,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
-      componentName="Button"
+      componentName="Transfer"
       semantics={[
         { name: 'root', desc: locale.root },
         { name: 'section', desc: locale.section },
@@ -42,14 +44,22 @@ const App: React.FC = () => {
         { name: 'body', desc: locale.body },
         { name: 'list', desc: locale.list },
         { name: 'listItem', desc: locale.listItem },
+        { name: 'footer', desc: locale.footer },
         { name: 'actions', desc: locale.actions },
       ]}
     >
       <Transfer
+        showSearch
         dataSource={mockData}
         selectedKeys={[]}
         targetKeys={[3, 9]}
         render={(item) => item.title}
+        footer={() => <div style={{ padding: 8 }}>Custom Footer</div>}
+        styles={{
+          section: {
+            height: 250,
+          },
+        }}
       />
     </SemanticPreview>
   );

@@ -51,8 +51,8 @@ const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
   const inputCls = `${antCls}-input`;
 
   return {
-    [`${componentCls}-customize-list`]: {
-      [`${componentCls}-list`]: {
+    [`${componentCls}-customize-section`]: {
+      [`${componentCls}-section`]: {
         flex: '1 1 50%',
         width: 'auto',
         height: 'auto',
@@ -88,7 +88,7 @@ const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
 const genTransferStatusColor = (token: TransferToken, color: string): CSSObject => {
   const { componentCls, colorBorder } = token;
   return {
-    [`${componentCls}-list`]: {
+    [`${componentCls}-section`]: {
       borderColor: color,
 
       '&-search:not([disabled])': {
@@ -253,13 +253,13 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
           },
         },
 
-        [`&:not(${componentCls}-list-content-item-disabled)`]: {
+        [`&:not(${componentCls}-section-content-item-disabled)`]: {
           '&:hover': {
             backgroundColor: controlItemBgHover,
             cursor: 'pointer',
           },
 
-          [`&${componentCls}-list-content-item-checked:hover`]: {
+          [`&${componentCls}-section-content-item-checked:hover`]: {
             backgroundColor: controlItemBgActiveHover,
           },
         },
@@ -275,7 +275,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       },
 
       // Do not change hover style when `oneWay` mode
-      [`&-show-remove ${componentCls}-list-content-item:not(${componentCls}-list-content-item-disabled):hover`]:
+      [`&-show-remove ${componentCls}-section-content-item:not(${componentCls}-section-content-item-disabled):hover`]:
         {
           background: 'transparent',
           cursor: 'default',
@@ -331,12 +331,12 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
       alignItems: 'stretch',
 
       [`${componentCls}-disabled`]: {
-        [`${componentCls}-list`]: {
+        [`${componentCls}-section`]: {
           background: colorBgContainerDisabled,
         },
       },
 
-      [`${componentCls}-list`]: genTransferListStyle(token),
+      [`${componentCls}-section`]: genTransferListStyle(token),
 
       [`${componentCls}-operation`]: {
         display: 'flex',

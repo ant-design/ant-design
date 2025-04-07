@@ -1,7 +1,7 @@
 import React, { useMemo, useRef, useState } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import omit from '@rc-component/util/lib/omit';
-import classNames from 'classnames';
+import classnames from 'classnames';
 
 import { groupKeysMap } from '../_util/transKeys';
 import Checkbox from '../checkbox';
@@ -14,6 +14,7 @@ import type {
   SelectAllLabel,
   TransferDirection,
   TransferLocale,
+  TransferProps,
   TransferSearchOption,
 } from './index';
 import type { PaginationType, TransferKey } from './interface';
@@ -47,10 +48,13 @@ type RenderListFunction<T> = (props: TransferListBodyProps<T>) => React.ReactNod
 
 export interface TransferListProps<RecordType> extends TransferLocale {
   prefixCls: string;
+  style?: React.CSSProperties;
+  classNames: NonNullable<TransferProps['classNames']>;
+  styles: NonNullable<TransferProps['styles']>;
+
   titleText: React.ReactNode;
   dataSource: RecordType[];
   filterOption?: (filterText: string, item: RecordType, direction: TransferDirection) => boolean;
-  style?: React.CSSProperties;
   checkedKeys: TransferKey[];
   handleFilter: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onItemSelect: (
@@ -102,12 +106,15 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
 ) => {
   const {
     prefixCls,
+    style,
+    classNames,
+    styles,
+
     dataSource = [],
     titleText = '',
     checkedKeys,
     disabled,
     showSearch = false,
-    style,
     searchPlaceholder,
     notFoundContent,
     selectAll,
@@ -216,6 +223,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     return 'part';
   }, [checkedKeys, checkedActiveItems]);
 
+  // ====================== Render ======================
   const listBody = useMemo<React.ReactNode>(() => {
     const search = showSearch ? (
       <div className={`${prefixCls}-body-search-wrapper`}>
@@ -235,6 +243,8 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
       filteredItems,
       filteredRenderItems,
       selectedKeys: checkedKeys,
+      classNames,
+      styles,
     });
 
     let bodyNode: React.ReactNode;
@@ -250,9 +260,14 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     }
     return (
       <div
-        className={classNames(`${prefixCls}-body`, {
-          [`${prefixCls}-body-with-search`]: showSearch,
-        })}
+        className={classnames(
+          `${prefixCls}-body`,
+          {
+            [`${prefixCls}-body-with-search`]: showSearch,
+          },
+          classNames.body,
+        )}
+        style={styles.body}
       >
         {search}
         {bodyNode}
@@ -303,14 +318,12 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
   // Custom Layout
   const footerDom = footer && (footer.length < 2 ? footer(props) : footer(props, { direction }));
 
-  const listCls = classNames(prefixCls, {
-    [`${prefixCls}-with-pagination`]: !!pagination,
-    [`${prefixCls}-with-footer`]: !!footerDom,
-  });
-
-  // ====================== Get filtered, checked item list ======================
-
-  const listFooter = footerDom ? <div className={`${prefixCls}-footer`}>{footerDom}</div> : null;
+  // Get filtered, checked item list
+  const listFooter = footerDom ? (
+    <div className={classnames(`${prefixCls}-footer`, classNames.footer)} style={styles.footer}>
+      {footerDom}
+    </div>
+  ) : null;
 
   const checkAllCheckbox = !showRemove && !pagination && checkBox;
 
@@ -388,9 +401,18 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
   );
 
   return (
-    <div className={listCls} style={style}>
+    <div
+      className={classnames(prefixCls, classNames.section, {
+        [`${prefixCls}-with-pagination`]: !!pagination,
+        [`${prefixCls}-with-footer`]: !!footerDom,
+      })}
+      style={{
+        ...styles.section,
+        ...style,
+      }}
+    >
       {/* Header */}
-      <div className={`${prefixCls}-header`}>
+      <div className={classnames(`${prefixCls}-header`, classNames.header)} style={styles.header}>
         {showSelectAll ? (
           <>
             {checkAllCheckbox}
@@ -409,7 +431,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
 };
 
 if (process.env.NODE_ENV !== 'production') {
-  TransferList.displayName = 'TransferList';
+  TransferList.displayName = 'TransferSection';
 }
 
 export default TransferList;

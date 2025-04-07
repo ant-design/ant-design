@@ -8,11 +8,14 @@ import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
 
 type ListItemProps<RecordType> = {
+  prefixCls: string;
+  className?: string;
+  style?: React.CSSProperties;
+
   renderedText?: string | number;
   renderedEl: React.ReactNode;
   disabled?: boolean;
   checked?: boolean;
-  prefixCls: string;
   onClick: (item: RecordType, e: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
   onRemove?: (item: RecordType) => void;
   item: RecordType;
@@ -21,18 +24,21 @@ type ListItemProps<RecordType> = {
 
 const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<RecordType>) => {
   const {
+    prefixCls,
+    className,
+    style,
+
     renderedText,
     renderedEl,
     item,
     checked,
     disabled,
-    prefixCls,
     onClick,
     onRemove,
     showRemove,
   } = props;
 
-  const className = classNames(`${prefixCls}-content-item`, {
+  const cls = classNames(`${prefixCls}-content-item`, className, {
     [`${prefixCls}-content-item-disabled`]: disabled || item.disabled,
     [`${prefixCls}-content-item-checked`]: checked && !item.disabled,
   });
@@ -44,7 +50,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
 
   const [contextLocale] = useLocale('Transfer', defaultLocale.Transfer);
 
-  const liProps: React.HTMLAttributes<HTMLLIElement> = { className, title };
+  const liProps: React.HTMLAttributes<HTMLLIElement> = { className: cls, style, title };
 
   const labelNode = <span className={`${prefixCls}-content-item-text`}>{renderedEl}</span>;
 
