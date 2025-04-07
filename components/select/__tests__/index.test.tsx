@@ -239,7 +239,7 @@ describe('Select', () => {
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       render(<Select onDropdownVisibleChange={() => {}} open />);
       expect(errSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Select] `onDropdownVisibleChange` is deprecated. Please use `onPopupVisibleChange` instead.',
+        'Warning: [antd: Select] `onDropdownVisibleChange` is deprecated. Please use `onOpenChange` instead.',
       );
       errSpy.mockRestore();
     });

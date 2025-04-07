@@ -15,6 +15,13 @@ tag: vVERSION
 
 ---
 
+## 5.24.6
+
+`2025-04-01`
+
+- 🐞 Fix Modal show loading with async call, still can close with click outer space. [#53227](https://github.com/ant-design/ant-design/pull/53227) [@jin19980928](https://github.com/jin19980928)
+- 🐞 Fix when Table `size` is `small`, the theme config will take effect on the sub Pagination. [#52829](https://github.com/ant-design/ant-design/pull/52829) [@Can-Chen](https://github.com/Can-Chen)
+
 ## 5.24.5
 
 `2025-03-24`

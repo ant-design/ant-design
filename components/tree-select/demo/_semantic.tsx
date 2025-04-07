@@ -47,9 +47,6 @@ const treeData = [
 const Block: React.FC<Readonly<TreeSelectProps>> = (props) => {
   const divRef = React.useRef<HTMLDivElement>(null);
   const [value, setValue] = React.useState<string>();
-  const onChange = (newValue: string) => {
-    setValue(newValue);
-  };
   return (
     <div ref={divRef}>
       <TreeSelect
@@ -72,7 +69,7 @@ const Block: React.FC<Readonly<TreeSelectProps>> = (props) => {
         placeholder="Please select"
         allowClear
         treeDefaultExpandAll
-        onChange={onChange}
+        onChange={setValue}
         treeData={treeData}
       />
     </div>

@@ -91,17 +91,18 @@ export interface SelectProps<
   popupClassName?: string;
   /** @deprecated Please use `classNames.popup` instead */
   dropdownClassName?: string;
-  /** @deprecated Please use `styles: {{ popup: {}}}` instead */
+  /** @deprecated Please use `styles.popup` instead */
   dropdownStyle?: React.CSSProperties;
   /** @deprecated Please use `popupRender` instead */
   dropdownRender?: SelectProps['popupRender'];
-  /** @deprecated Please use `onPopupVisibleChange` instead */
+  /** @deprecated Please use `onOpenChange` instead */
   onDropdownVisibleChange?: SelectProps['onPopupVisibleChange'];
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
   classNames?: Partial<Record<SemanticName, string>>;
   styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  onOpenChange?: (visible: boolean) => void;
 }
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
@@ -144,7 +145,7 @@ const InternalSelect = <
     dropdownRender,
     popupRender,
     onDropdownVisibleChange,
-    onPopupVisibleChange,
+    onOpenChange,
     styles,
     classNames,
     ...rest
@@ -161,7 +162,7 @@ const InternalSelect = <
   } = React.useContext(ConfigContext);
 
   const {
-    showSearch: contextShowSearch,
+    showSearch,
     style: contextStyle,
     styles: contextStyles,
     className: contextClassName,
@@ -205,7 +206,7 @@ const InternalSelect = <
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
 
   const mergedPopupRender = popupRender || dropdownRender;
-  const mergedOnPopupVisibleChange = onPopupVisibleChange || onDropdownVisibleChange;
+  const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
 
   // ===================== Form Status =====================
   const {
@@ -273,6 +274,8 @@ const InternalSelect = <
       [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
     },
     rootClassName,
+    contextClassNames.root,
+    classNames?.root,
     cssVarCls,
     rootCls,
     hashId,
@@ -298,6 +301,8 @@ const InternalSelect = <
     compactItemClassnames,
     contextClassName,
     className,
+    contextClassNames.root,
+    classNames?.root,
     rootClassName,
     classNames?.root,
     contextClassNames.root,
@@ -324,7 +329,7 @@ const InternalSelect = <
       dropdownClassName: 'classNames.popup',
       popupClassName: 'classNames.popup',
       dropdownRender: 'popupRender',
-      onDropdownVisibleChange: 'onPopupVisibleChange',
+      onDropdownVisibleChange: 'onOpenChange',
       bordered: 'variant',
     };
 
@@ -358,7 +363,7 @@ const InternalSelect = <
       virtual={virtual}
       classNames={mergedClassNames}
       styles={mergedStyles}
-      showSearch={contextShowSearch}
+      showSearch={showSearch}
       {...selectProps}
       style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
       popupMatchSelectWidth={mergedPopupMatchSelectWidth}
@@ -384,7 +389,7 @@ const InternalSelect = <
       maxCount={isMultiple ? maxCount : undefined}
       tagRender={isMultiple ? tagRender : undefined}
       popupRender={mergedPopupRender}
-      onPopupVisibleChange={mergedOnPopupVisibleChange}
+      onPopupVisibleChange={mergedOnOpenChange}
     />
   );
 };

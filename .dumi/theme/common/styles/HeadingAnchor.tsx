@@ -34,6 +34,8 @@ export default () => {
             > .icon-link::before {
               font-size: ${token.fontSizeXL}px;
               content: '#';
+              color: ${token.colorTextSecondary};
+              font-family: ${token.codeFamily};
             }
           }
 
