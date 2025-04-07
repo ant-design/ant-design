@@ -17,7 +17,7 @@ describe('Test copy', () => {
 
     document.execCommand = jest.fn();
 
-    global.ClipboardItem = class {
+    (global as any).ClipboardItem = class {
       static supports(): boolean {
         return true;
       }
@@ -39,7 +39,7 @@ describe('Test copy', () => {
     };
   });
 
-  test('format!=text/html use navigator.clipboard.writeText', async () => {
+  it('format!=text/html use navigator.clipboard.writeText', async () => {
     const mockWriteText = jest.fn().mockImplementation(() => Promise.resolve());
 
     global.navigator.clipboard.writeText = mockWriteText;
@@ -65,7 +65,7 @@ describe('Test copy', () => {
     expect(result).toBe(true);
   });
 
-  test('use function fallbackCopy success', async () => {
+  it('use function fallbackCopy success', async () => {
     delete (global.navigator as any).clipboard;
 
     const execCommandSpy = jest.spyOn(document, 'execCommand').mockReturnValue(true);
@@ -81,6 +81,21 @@ describe('Test copy', () => {
     expect(console.warn).toHaveBeenLastCalledWith('copy success');
 
     execCommandSpy.mockRestore();
+    createElementSpy.mockRestore();
+  });
+
+  it('use function fallbackCopy fail', async () => {
+    delete (global.navigator as any).clipboard;
+    delete (document as any).execCommand;
+
+    const createElementSpy = jest.spyOn(document, 'createElement');
+
+    const result = await copy('Test Text', {});
+
+    expect(createElementSpy).toHaveBeenCalled();
+    expect(result).toBe(false);
+    expect((console.warn as any).mock.lastCall[0]).toContain('copy error');
+
     createElementSpy.mockRestore();
   });
 
