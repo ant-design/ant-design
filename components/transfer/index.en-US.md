@@ -93,6 +93,10 @@ If there's no `key` in your data, you should use `rowKey` to specify the key tha
 return <Transfer rowKey={(record) => record.uid} />;
 ```
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Transfer"></ComponentTokenTable>
