@@ -3,10 +3,12 @@ import React from 'react';
 import type { KeyWiseTransferItem } from '..';
 import { fireEvent, render } from '../../../tests/utils';
 import type { TransferListProps } from '../Section';
-import List from '../Section';
+import Section from '../Section';
 
 const listCommonProps: TransferListProps<KeyWiseTransferItem> = {
-  prefixCls: 'ant-transfer-list',
+  classNames: {},
+  styles: {},
+  prefixCls: 'ant-transfer',
   dataSource: [
     { key: 'a', title: 'a' },
     { key: 'b', title: 'b' },
@@ -28,12 +30,12 @@ const emptyListProps: TransferListProps<KeyWiseTransferItem> = {
 
 describe('Transfer.List', () => {
   it('should render correctly', () => {
-    const { container } = render(<List {...listCommonProps} />);
+    const { container } = render(<Section {...listCommonProps} />);
     expect(container.firstChild).toMatchSnapshot();
   });
 
   it('should check top Checkbox while all available items are checked', () => {
-    const { container } = render(<List {...listCommonProps} checkedKeys={['a', 'b']} />);
+    const { container } = render(<Section {...listCommonProps} checkedKeys={['a', 'b']} />);
     expect(
       container.querySelector<HTMLInputElement>('.ant-transfer-list-header input[type="checkbox"]')
         ?.checked,
@@ -42,12 +44,12 @@ describe('Transfer.List', () => {
 
   it('should render correctly when dataSource is not exists', () => {
     expect(() => {
-      render(<List {...listProps} />);
+      render(<Section {...listProps} />);
     }).not.toThrow();
   });
 
   it('Checkbox should disabled when dataSource is empty', () => {
-    const { container } = render(<List {...emptyListProps} />);
+    const { container } = render(<Section {...emptyListProps} />);
     expect(container.querySelector<HTMLLabelElement>('label.ant-checkbox-wrapper')).toHaveClass(
       'ant-checkbox-wrapper-disabled',
     );
@@ -57,7 +59,7 @@ describe('Transfer.List', () => {
   });
 
   it('Checkbox should not disabled when dataSource not is empty', () => {
-    const { container } = render(<List {...listCommonProps} />);
+    const { container } = render(<Section {...listCommonProps} />);
     expect(container.querySelector<HTMLLabelElement>('label.ant-checkbox-wrapper')).not.toHaveClass(
       'ant-checkbox-wrapper-disabled',
     );
@@ -74,7 +76,7 @@ describe('Transfer.List', () => {
         disabled: true,
       })),
     };
-    const { container } = render(<List {...allDisabledListProps} />);
+    const { container } = render(<Section {...allDisabledListProps} />);
     expect(container.querySelector<HTMLLabelElement>('label.ant-checkbox-wrapper')).toHaveClass(
       'ant-checkbox-wrapper-disabled',
     );
@@ -85,14 +87,14 @@ describe('Transfer.List', () => {
 
   it('support custom dropdown Icon', () => {
     const { container } = render(
-      <List
+      <Section
         {...listCommonProps}
         selectionsIcon={<span className="test-dropdown-icon">test</span>}
       />,
     );
     expect(
       container?.querySelector<HTMLSpanElement>(
-        '.ant-transfer-list .ant-transfer-list-header .test-dropdown-icon',
+        '.ant-transfer-section .ant-transfer-list-header .test-dropdown-icon',
       ),
     ).toBeTruthy();
   });
@@ -100,7 +102,7 @@ describe('Transfer.List', () => {
   it('onItemSelect should be called correctly', () => {
     const onItemSelect = jest.fn();
     const { container } = render(
-      <List
+      <Section
         {...listCommonProps}
         onItemSelect={onItemSelect}
         renderList={(props) => (

@@ -451,7 +451,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     prefixCls,
     {
       [`${prefixCls}-disabled`]: disabled,
-      [`${prefixCls}-customize-section`]: !!children,
+      [`${prefixCls}-customize-list`]: !!children,
       [`${prefixCls}-rtl`]: dir === 'rtl',
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
@@ -491,7 +491,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   return (
     <div className={cls} style={{ ...contextStyle, ...mergedStyles.root, ...style }}>
       <Section<KeyWise<RecordType>>
-        prefixCls={`${prefixCls}-section`}
+        prefixCls={prefixCls}
         style={handleListStyle('left')}
         classNames={mergedClassNames}
         styles={mergedStyles}
@@ -533,7 +533,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         oneWay={oneWay}
       />
       <Section<KeyWise<RecordType>>
-        prefixCls={`${prefixCls}-section`}
+        prefixCls={prefixCls}
         style={handleListStyle('right')}
         classNames={mergedClassNames}
         styles={mergedStyles}

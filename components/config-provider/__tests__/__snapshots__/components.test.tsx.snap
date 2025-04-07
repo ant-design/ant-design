@@ -39419,7 +39419,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
   class="config-transfer css-var-root"
 >
   <div
-    class="config-transfer-list"
+    class="config-transfer-section"
   >
     <div
       class="config-transfer-list-header"
@@ -39527,7 +39527,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
     </div>
   </div>
   <div
-    class="config-transfer-operation"
+    class="config-transfer-actions"
   >
     <button
       class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm config-btn-icon-only"
@@ -39589,7 +39589,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
     </button>
   </div>
   <div
-    class="config-transfer-list"
+    class="config-transfer-section"
   >
     <div
       class="config-transfer-list-header"
@@ -39704,7 +39704,7 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
   class="config-transfer css-var-root"
 >
   <div
-    class="config-transfer-list"
+    class="config-transfer-section"
   >
     <div
       class="config-transfer-list-header"
@@ -39812,7 +39812,7 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
     </div>
   </div>
   <div
-    class="config-transfer-operation"
+    class="config-transfer-actions"
   >
     <button
       class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm config-btn-icon-only"
@@ -39874,7 +39874,7 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
     </button>
   </div>
   <div
-    class="config-transfer-list"
+    class="config-transfer-section"
   >
     <div
       class="config-transfer-list-header"
@@ -39989,7 +39989,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
   class="config-transfer css-var-root"
 >
   <div
-    class="config-transfer-list"
+    class="config-transfer-section"
   >
     <div
       class="config-transfer-list-header"
@@ -40097,7 +40097,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
     </div>
   </div>
   <div
-    class="config-transfer-operation"
+    class="config-transfer-actions"
   >
     <button
       class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm config-btn-icon-only"
@@ -40159,7 +40159,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
     </button>
   </div>
   <div
-    class="config-transfer-list"
+    class="config-transfer-section"
   >
     <div
       class="config-transfer-list-header"
@@ -40274,7 +40274,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
   class="config-transfer css-var-root"
 >
   <div
-    class="config-transfer-list"
+    class="config-transfer-section"
   >
     <div
       class="config-transfer-list-header"
@@ -40382,7 +40382,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
     </div>
   </div>
   <div
-    class="config-transfer-operation"
+    class="config-transfer-actions"
   >
     <button
       class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm config-btn-icon-only"
@@ -40444,7 +40444,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
     </button>
   </div>
   <div
-    class="config-transfer-list"
+    class="config-transfer-section"
   >
     <div
       class="config-transfer-list-header"
@@ -40559,7 +40559,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize small 1
   class="config-transfer css-var-root"
 >
   <div
-    class="config-transfer-list"
+    class="config-transfer-section"
   >
     <div
       class="config-transfer-list-header"
@@ -40667,7 +40667,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize small 1
     </div>
   </div>
   <div
-    class="config-transfer-operation"
+    class="config-transfer-actions"
   >
     <button
       class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm config-btn-icon-only"
@@ -40729,7 +40729,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize small 1
     </button>
   </div>
   <div
-    class="config-transfer-list"
+    class="config-transfer-section"
   >
     <div
       class="config-transfer-list-header"
@@ -40844,7 +40844,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
   class="ant-transfer css-var-root"
 >
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
@@ -40952,7 +40952,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
     </div>
   </div>
   <div
-    class="ant-transfer-operation"
+    class="ant-transfer-actions"
   >
     <button
       class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -41014,7 +41014,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
     </button>
   </div>
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
@@ -41129,7 +41129,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
   class="prefix-Transfer css-var-root"
 >
   <div
-    class="prefix-Transfer-list"
+    class="prefix-Transfer-section"
   >
     <div
       class="prefix-Transfer-list-header"
@@ -41237,7 +41237,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
     </div>
   </div>
   <div
-    class="prefix-Transfer-operation"
+    class="prefix-Transfer-actions"
   >
     <button
       class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -41299,7 +41299,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
     </button>
   </div>
   <div
-    class="prefix-Transfer-list"
+    class="prefix-Transfer-section"
   >
     <div
       class="prefix-Transfer-list-header"

@@ -5,7 +5,7 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
   class="ant-transfer css-var-test-id"
 >
   <div
-    class="ant-transfer-list ant-transfer-list-with-footer"
+    class="ant-transfer-section ant-transfer-section-with-footer"
     style="width:250px;height:300px"
   >
     <div
@@ -196,10 +196,10 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-transfer-operation"
+    class="ant-transfer-actions"
   >
     <button
-      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -226,12 +226,9 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
           </svg>
         </span>
       </span>
-      <span>
-        to right
-      </span>
     </button>
     <button
-      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -258,13 +255,10 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
           </svg>
         </span>
       </span>
-      <span>
-        to left
-      </span>
     </button>
   </div>
   <div
-    class="ant-transfer-list ant-transfer-list-with-footer"
+    class="ant-transfer-section ant-transfer-section-with-footer"
     style="width:250px;height:300px"
   >
     <div
@@ -462,7 +456,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
   class="ant-transfer css-var-test-id"
 >
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
@@ -800,7 +794,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-transfer-operation"
+    class="ant-transfer-actions"
   >
     <button
       class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -862,7 +856,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
     </button>
   </div>
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
@@ -1158,7 +1152,7 @@ Array [
     class="ant-transfer css-var-test-id"
   >
     <div
-      class="ant-transfer-list"
+      class="ant-transfer-section"
     >
       <div
         class="ant-transfer-list-header"
@@ -1499,7 +1493,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-transfer-operation"
+      class="ant-transfer-actions"
     >
       <button
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -1561,7 +1555,7 @@ Array [
       </button>
     </div>
     <div
-      class="ant-transfer-list"
+      class="ant-transfer-section"
     >
       <div
         class="ant-transfer-list-header"
@@ -1855,7 +1849,7 @@ Array [
     class="ant-transfer ant-transfer-status-error css-var-test-id"
   >
     <div
-      class="ant-transfer-list"
+      class="ant-transfer-section"
     >
       <div
         class="ant-transfer-list-header"
@@ -1965,7 +1959,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-transfer-operation"
+      class="ant-transfer-actions"
     >
       <button
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -2027,7 +2021,7 @@ Array [
       </button>
     </div>
     <div
-      class="ant-transfer-list"
+      class="ant-transfer-section"
     >
       <div
         class="ant-transfer-list-header"
@@ -2141,7 +2135,7 @@ Array [
     class="ant-transfer ant-transfer-status-warning css-var-test-id"
   >
     <div
-      class="ant-transfer-list"
+      class="ant-transfer-section"
     >
       <div
         class="ant-transfer-list-header"
@@ -2318,7 +2312,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-transfer-operation"
+      class="ant-transfer-actions"
     >
       <button
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -2380,7 +2374,7 @@ Array [
       </button>
     </div>
     <div
-      class="ant-transfer-list"
+      class="ant-transfer-section"
     >
       <div
         class="ant-transfer-list-header"
@@ -2561,7 +2555,7 @@ Array [
     class="ant-transfer ant-transfer-customize-list css-var-test-id"
   >
     <div
-      class="ant-transfer-list"
+      class="ant-transfer-section"
     >
       <div
         class="ant-transfer-list-header"
@@ -3231,7 +3225,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-transfer-operation"
+      class="ant-transfer-actions"
     >
       <button
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -3293,7 +3287,7 @@ Array [
       </button>
     </div>
     <div
-      class="ant-transfer-list"
+      class="ant-transfer-section"
     >
       <div
         class="ant-transfer-list-header"
@@ -3839,7 +3833,7 @@ exports[`renders components/transfer/demo/custom-item.tsx correctly 1`] = `
   class="ant-transfer css-var-test-id"
 >
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
     style="width:300px;height:300px"
   >
     <div
@@ -3950,7 +3944,7 @@ exports[`renders components/transfer/demo/custom-item.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-transfer-operation"
+    class="ant-transfer-actions"
   >
     <button
       class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -4012,7 +4006,7 @@ exports[`renders components/transfer/demo/custom-item.tsx correctly 1`] = `
     </button>
   </div>
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
     style="width:300px;height:300px"
   >
     <div
@@ -4130,7 +4124,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
   class="ant-transfer css-var-test-id"
 >
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
@@ -4363,7 +4357,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
     </div>
   </div>
   <div
-    class="ant-transfer-operation"
+    class="ant-transfer-actions"
   >
     <button
       class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -4425,7 +4419,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
     </button>
   </div>
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
@@ -4566,7 +4560,7 @@ Array [
     class="ant-transfer css-var-test-id"
   >
     <div
-      class="ant-transfer-list ant-transfer-list-with-pagination"
+      class="ant-transfer-section ant-transfer-section-with-pagination"
     >
       <div
         class="ant-transfer-list-header"
@@ -4660,7 +4654,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-transfer-operation"
+      class="ant-transfer-actions"
     >
       <button
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -4722,7 +4716,7 @@ Array [
       </button>
     </div>
     <div
-      class="ant-transfer-list ant-transfer-list-with-pagination"
+      class="ant-transfer-section ant-transfer-section-with-pagination"
     >
       <div
         class="ant-transfer-list-header"
@@ -4851,7 +4845,7 @@ Array [
     style="margin-bottom:16px"
   >
     <div
-      class="ant-transfer-list"
+      class="ant-transfer-section"
     >
       <div
         class="ant-transfer-list-header"
@@ -5271,7 +5265,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-transfer-operation"
+      class="ant-transfer-actions"
     >
       <button
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -5304,7 +5298,7 @@ Array [
       </button>
     </div>
     <div
-      class="ant-transfer-list"
+      class="ant-transfer-section"
     >
       <div
         class="ant-transfer-list-header"
@@ -5594,7 +5588,7 @@ exports[`renders components/transfer/demo/search.tsx correctly 1`] = `
   class="ant-transfer css-var-test-id"
 >
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
@@ -5771,7 +5765,7 @@ exports[`renders components/transfer/demo/search.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-transfer-operation"
+    class="ant-transfer-actions"
   >
     <button
       class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -5833,7 +5827,7 @@ exports[`renders components/transfer/demo/search.tsx correctly 1`] = `
     </button>
   </div>
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
@@ -6020,7 +6014,7 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
     class="ant-transfer ant-transfer-status-error css-var-test-id"
   >
     <div
-      class="ant-transfer-list"
+      class="ant-transfer-section"
     >
       <div
         class="ant-transfer-list-header"
@@ -6130,7 +6124,7 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-transfer-operation"
+      class="ant-transfer-actions"
     >
       <button
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -6192,7 +6186,7 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
       </button>
     </div>
     <div
-      class="ant-transfer-list"
+      class="ant-transfer-section"
     >
       <div
         class="ant-transfer-list-header"
@@ -6306,7 +6300,7 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
     class="ant-transfer ant-transfer-status-warning css-var-test-id"
   >
     <div
-      class="ant-transfer-list"
+      class="ant-transfer-section"
     >
       <div
         class="ant-transfer-list-header"
@@ -6483,7 +6477,7 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-transfer-operation"
+      class="ant-transfer-actions"
     >
       <button
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -6545,7 +6539,7 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
       </button>
     </div>
     <div
-      class="ant-transfer-list"
+      class="ant-transfer-section"
     >
       <div
         class="ant-transfer-list-header"
@@ -6734,7 +6728,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
     style="width:100%"
   >
     <div
-      class="ant-transfer-list"
+      class="ant-transfer-section"
     >
       <div
         class="ant-transfer-list-header"
@@ -7471,7 +7465,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-transfer-operation"
+      class="ant-transfer-actions"
     >
       <button
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -7533,7 +7527,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
       </button>
     </div>
     <div
-      class="ant-transfer-list"
+      class="ant-transfer-section"
     >
       <div
         class="ant-transfer-list-header"
@@ -7830,7 +7824,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx correctly 1`] = `
   class="ant-transfer ant-transfer-customize-list tree-transfer css-var-test-id"
 >
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
@@ -8169,7 +8163,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-transfer-operation"
+    class="ant-transfer-actions"
   >
     <button
       class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -8231,7 +8225,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx correctly 1`] = `
     </button>
   </div>
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"

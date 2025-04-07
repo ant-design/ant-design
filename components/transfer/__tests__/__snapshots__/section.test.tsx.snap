@@ -2,7 +2,7 @@
 
 exports[`Transfer.List should render correctly 1`] = `
 <div
-  class="ant-transfer-list"
+  class="ant-transfer-section"
 >
   <div
     class="ant-transfer-list-header"

@@ -101,7 +101,7 @@ const getShowSearchOption = (showSearch: boolean | TransferSearchOption) => {
   };
 };
 
-const TransferList = <RecordType extends KeyWiseTransferItem>(
+const TransferSection = <RecordType extends KeyWiseTransferItem>(
   props: TransferListProps<RecordType>,
 ) => {
   const {
@@ -140,6 +140,10 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     filterOption,
     render = defaultRender,
   } = props;
+
+  const sectionPrefixCls = `${prefixCls}-section`;
+  const listPrefixCls = `${prefixCls}-list`;
+
   const searchOptions = getShowSearchOption(showSearch);
   const [filterValue, setFilterValue] = useState<string>(searchOptions.defaultValue);
   const listBodyRef = useRef<ListBodyRef<RecordType>>({});
@@ -171,7 +175,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     const customize: boolean = !!bodyContent;
     if (!customize) {
       // @ts-ignore
-      bodyContent = <DefaultListBody ref={listBodyRef} {...listProps} />;
+      bodyContent = <DefaultListBody ref={listBodyRef} {...listProps} prefixCls={listPrefixCls} />;
     }
     return { customize, bodyContent };
   };
@@ -226,9 +230,9 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
   // ====================== Render ======================
   const listBody = useMemo<React.ReactNode>(() => {
     const search = showSearch ? (
-      <div className={`${prefixCls}-body-search-wrapper`}>
+      <div className={`${listPrefixCls}-body-search-wrapper`}>
         <Search
-          prefixCls={`${prefixCls}-search`}
+          prefixCls={`${listPrefixCls}-search`}
           onChange={internalHandleFilter}
           handleClear={internalHandleClear}
           placeholder={searchOptions.placeholder || searchPlaceholder}
@@ -250,20 +254,20 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     let bodyNode: React.ReactNode;
     // We should wrap customize list body in a classNamed div to use flex layout.
     if (customize) {
-      bodyNode = <div className={`${prefixCls}-body-customize-wrapper`}>{bodyContent}</div>;
+      bodyNode = <div className={`${listPrefixCls}-body-customize-wrapper`}>{bodyContent}</div>;
     } else {
       bodyNode = filteredItems.length ? (
         bodyContent
       ) : (
-        <div className={`${prefixCls}-body-not-found`}>{notFoundContentEle}</div>
+        <div className={`${listPrefixCls}-body-not-found`}>{notFoundContentEle}</div>
       );
     }
     return (
       <div
         className={classnames(
-          `${prefixCls}-body`,
+          `${listPrefixCls}-body`,
           {
-            [`${prefixCls}-body-with-search`]: showSearch,
+            [`${listPrefixCls}-body-with-search`]: showSearch,
           },
           classNames.body,
         )}
@@ -290,7 +294,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
       disabled={dataSource.filter((d) => !d.disabled).length === 0 || disabled}
       checked={checkStatus === 'all'}
       indeterminate={checkStatus === 'part'}
-      className={`${prefixCls}-checkbox`}
+      className={`${listPrefixCls}-checkbox`}
       onChange={() => {
         // Only select enabled items
         onItemSelectAll?.(
@@ -320,7 +324,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
 
   // Get filtered, checked item list
   const listFooter = footerDom ? (
-    <div className={classnames(`${prefixCls}-footer`, classNames.footer)} style={styles.footer}>
+    <div className={classnames(`${listPrefixCls}-footer`, classNames.footer)} style={styles.footer}>
       {footerDom}
     </div>
   ) : null;
@@ -395,31 +399,34 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     ];
   }
   const dropdown: React.ReactNode = (
-    <Dropdown className={`${prefixCls}-header-dropdown`} menu={{ items }} disabled={disabled}>
+    <Dropdown className={`${listPrefixCls}-header-dropdown`} menu={{ items }} disabled={disabled}>
       {isValidIcon(selectionsIcon) ? selectionsIcon : <DownOutlined />}
     </Dropdown>
   );
 
   return (
     <div
-      className={classnames(prefixCls, classNames.section, {
-        [`${prefixCls}-with-pagination`]: !!pagination,
-        [`${prefixCls}-with-footer`]: !!footerDom,
+      className={classnames(sectionPrefixCls, classNames.section, {
+        [`${sectionPrefixCls}-with-pagination`]: !!pagination,
+        [`${sectionPrefixCls}-with-footer`]: !!footerDom,
       })}
       style={{ ...style, ...styles.section }}
     >
       {/* Header */}
-      <div className={classnames(`${prefixCls}-header`, classNames.header)} style={styles.header}>
+      <div
+        className={classnames(`${listPrefixCls}-header`, classNames.header)}
+        style={styles.header}
+      >
         {showSelectAll ? (
           <>
             {checkAllCheckbox}
             {dropdown}
           </>
         ) : null}
-        <span className={`${prefixCls}-header-selected`}>
+        <span className={`${listPrefixCls}-header-selected`}>
           {getSelectAllLabel(checkedActiveItems.length, filteredItems.length)}
         </span>
-        <span className={`${prefixCls}-header-title`}>{titleText}</span>
+        <span className={`${listPrefixCls}-header-title`}>{titleText}</span>
       </div>
       {listBody}
       {listFooter}
@@ -428,7 +435,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
 };
 
 if (process.env.NODE_ENV !== 'production') {
-  TransferList.displayName = 'TransferSection';
+  TransferSection.displayName = 'TransferSection';
 }
 
-export default TransferList;
+export default TransferSection;
