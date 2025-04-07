@@ -7,7 +7,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-lcdS5Qm1bsAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-## When to use
+## When to use {#when-to-use}
 
 - When you need to create an instance or collect information.
 - When you need to validate fields in certain rules.

@@ -112,8 +112,8 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     size: customizeSize,
     disabled: customDisabled,
     bordered = true,
-    className,
     style,
+    className,
     rootClassName,
     treeCheckable,
     multiple,
@@ -216,7 +216,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
   );
 
   const mergedPopupClassName = cls(
-    classNames?.popup || popupClassName || dropdownClassName,
+    classNames?.popup || contextClassNames?.popup || popupClassName || dropdownClassName,
     `${treeSelectPrefixCls}-dropdown`,
     {
       [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',
@@ -288,6 +288,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     'clearIcon',
     'itemIcon' as any,
     'switcherIcon' as any,
+    'style',
   ]);
 
   // ===================== Placement =====================

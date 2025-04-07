@@ -10,7 +10,7 @@ demo:
   cols: 2
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 弹出一个下拉菜单给用户选择操作，用于代替原生的选择器，或者需要一个更优雅的多选器时。
 - 当选项少时（少于 5 项），建议直接将选项平铺，使用 [Radio](/components/radio-cn/) 是更好的选择。
@@ -83,6 +83,7 @@ return (
 | allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: 支持对象类型 |
 | autoClearSearchValue | 是否在选中项后清空搜索框，只在 `mode` 为 `multiple` 或 `tags` 时有效 | boolean | true |  |
 | autoFocus | 默认获取焦点 | boolean | false |  |
+| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |
 | defaultActiveFirstOption | 是否默认高亮第一个选项 | boolean | true |  |
 | defaultOpen | 是否默认展开下拉菜单 | boolean | - |  |
 | defaultValue | 指定默认选中的条目 | string \| string\[] \|<br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
@@ -120,6 +121,7 @@ return (
 | size | 选择框大小 | `large` \| `middle` \| `small` | `middle` |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | 自定义的选择框后缀图标。以防止图标被用于其他交互，替换的图标默认不会响应展开、收缩事件，可以通过添加 `pointer-events: none` 样式透传。 | ReactNode | `<DownOutlined />` |  |
+| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
 | tagRender | 自定义 tag 内容 render，仅在 `mode` 为 `multiple` 或 `tags` 时生效 | (props) => ReactNode | - |  |
 | labelRender | 自定义当前选中的 label 内容 render （LabelInValueType的定义见 [LabelInValueType](https://github.com/react-component/select/blob/b39c28aa2a94e7754ebc570f200ab5fd33bd31e7/src/Select.tsx#L70)） | (props: LabelInValueType) => ReactNode | - | 5.15.0 |
 | tokenSeparators | 自动分词的分隔符，仅在 `mode="tags"` 时生效 | string\[] | - |  |
@@ -130,8 +132,8 @@ return (
 | onChange | 选中 option，或 input 的 value 变化时，调用此函数 | function(value, option:Option \| Array&lt;Option>) | - |  |
 | onClear | 清除内容时回调 | function | - | 4.6.0 |
 | onDeselect | 取消选中时调用，参数为选中项的 value (或 key) 值，仅在 `multiple` 或 `tags` 模式下生效 | function(value: string \| number \| LabeledValue) | - |  |
-| ~~onDropdownVisibleChange~~ | 展开下拉菜单的回调，使用 `onPopupVisibleChange` 替换 | (open: boolean) => void | - |  |
-| onPopupVisibleChange | 展开下拉菜单的回调 | (open: boolean) => void | - |  |
+| ~~onDropdownVisibleChange~~ | 展开下拉菜单的回调，使用 `onOpenChange` 替换 | (open: boolean) => void | - |  |
+| onOpenChange | 展开下拉菜单的回调 | (open: boolean) => void | - |  |
 | onFocus | 获得焦点时回调 | (event: FocusEvent) => void | - |  |
 | onInputKeyDown | 按键按下时回调 | (event: KeyboardEvent) => void | - |  |
 | onPopupScroll | 下拉列表滚动时的回调 | (event: UIEvent) => void | - |  |
