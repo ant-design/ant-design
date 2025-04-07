@@ -7,13 +7,21 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 const locales = {
   cn: {
     root: '根元素',
-    content: '内容元素',
-    icon: '图标元素',
+    section: '区域元素',
+    header: '头部元素',
+    body: '内容元素',
+    list: '列表元素',
+    listItem: '列表项元素',
+    actions: '操作元素',
   },
   en: {
     root: 'Root element',
-    content: 'Content element',
-    icon: 'Icon element',
+    section: 'Section element',
+    header: 'Header element',
+    body: 'Body element',
+    list: 'List element',
+    listItem: 'List Item element',
+    actions: 'Actions element',
   },
 };
 
@@ -28,9 +36,13 @@ const App: React.FC = () => {
     <SemanticPreview
       componentName="Button"
       semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'icon', desc: locale.icon, version: '5.5.0' },
-        { name: 'content', desc: locale.content, version: '6.0.0' },
+        { name: 'root', desc: locale.root },
+        { name: 'section', desc: locale.section },
+        { name: 'header', desc: locale.header },
+        { name: 'body', desc: locale.body },
+        { name: 'list', desc: locale.list },
+        { name: 'listItem', desc: locale.listItem },
+        { name: 'actions', desc: locale.actions },
       ]}
     >
       <Transfer

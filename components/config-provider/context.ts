@@ -231,7 +231,8 @@ export type DrawerConfig = ComponentStyleConfig &
 
 export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>;
 
-export type TransferConfig = ComponentStyleConfig & Pick<TransferProps, 'selectionsIcon'>;
+export type TransferConfig = ComponentStyleConfig &
+  Pick<TransferProps, 'selectionsIcon' | 'classNames' | 'styles'>;
 
 export type FormConfig = ComponentStyleConfig &
   Pick<

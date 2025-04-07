@@ -85,6 +85,14 @@ export interface TransferProps<RecordType = any> {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
+  style?: React.CSSProperties;
+  /** @deprecated Please use `styles.section` instead. */
+  listStyle?: ((style: ListStyle) => CSSProperties) | CSSProperties;
+  /** @deprecated Please use `styles.actions` instead. */
+  operationStyle?: CSSProperties;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+
   disabled?: boolean;
   dataSource?: RecordType[];
   targetKeys?: TransferKey[];
@@ -96,9 +104,7 @@ export interface TransferProps<RecordType = any> {
     moveKeys: TransferKey[],
   ) => void;
   onSelectChange?: (sourceSelectedKeys: TransferKey[], targetSelectedKeys: TransferKey[]) => void;
-  style?: React.CSSProperties;
-  listStyle?: ((style: ListStyle) => CSSProperties) | CSSProperties;
-  operationStyle?: CSSProperties;
+
   titles?: React.ReactNode[];
   operations?: string[];
   showSearch?: boolean | TransferSearchOption;
