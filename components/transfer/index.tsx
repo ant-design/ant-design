@@ -15,17 +15,17 @@ import type { FormItemStatusContextProps } from '../form/context';
 import { FormItemInputContext } from '../form/context';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
+import Actions from './Actions';
 import useData from './hooks/useData';
 import useSelection from './hooks/useSelection';
 import type { PaginationType, TransferKey } from './interface';
-import Operation from './operation';
 import Search from './search';
 import type { TransferCustomListBodyProps, TransferListProps } from './Section';
 import Section from './Section';
 import useStyle from './style';
 
 export type { TransferListProps } from './Section';
-export type { TransferOperationProps } from './operation';
+export type { TransferOperationProps } from './Actions';
 export type { TransferSearchProps } from './search';
 
 export type SemanticName =
@@ -114,7 +114,9 @@ export interface TransferProps<RecordType = any> {
   onSelectChange?: (sourceSelectedKeys: TransferKey[], targetSelectedKeys: TransferKey[]) => void;
 
   titles?: React.ReactNode[];
+  /** @deprecated Please use `actions` instead. */
   operations?: string[];
+  actions?: string[];
   showSearch?: boolean | TransferSearchOption;
   filterOption?: (inputValue: string, item: RecordType, direction: TransferDirection) => boolean;
   locale?: Partial<TransferLocale>;
@@ -138,27 +140,31 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   props: TransferProps<RecordType>,
 ) => {
   const {
-    dataSource,
-    targetKeys = [],
-    selectedKeys,
-    selectAllLabels = [],
-    operations = [],
-    style = {},
-    listStyle = {},
-    locale = {},
-    titles,
-    disabled,
-    showSearch = false,
-    operationStyle,
-    showSelectAll,
-    oneWay,
-    pagination,
-    status: customStatus,
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
     classNames,
     styles,
+    style,
+    listStyle,
+    operationStyle,
+
+    operations = [],
+    actions = [],
+
+    dataSource,
+    targetKeys = [],
+    selectedKeys,
+    selectAllLabels = [],
+    locale = {},
+    titles,
+    disabled,
+    showSearch = false,
+
+    showSelectAll,
+    oneWay,
+    pagination,
+    status: customStatus,
     selectionsIcon,
     filterOption,
     render,
@@ -185,6 +191,8 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const prefixCls = getPrefixCls('transfer', customizePrefixCls);
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
+
+  const mergedActions = actions || operations;
 
   // Fill record with `key`
   const [mergedDataSource, leftDataSource, rightDataSource] = useData(
@@ -470,6 +478,16 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const mergedSelectionsIcon = selectionsIcon ?? contextSelectionsIcon;
 
+  // ===================== Warning ======================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Transfer');
+    [
+      // TODO: fill this
+    ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
+  }
+
   // ====================== Render ======================
   return (
     <div className={cls} style={{ ...contextStyle, ...mergedStyles.root, ...style }}>
@@ -499,15 +517,18 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         selectionsIcon={mergedSelectionsIcon}
         {...listLocale}
       />
-      <Operation
-        className={`${prefixCls}-operation`}
+      <Actions
+        className={classnames(`${prefixCls}-actions`, mergedClassNames.actions)}
         rightActive={rightActive}
-        rightArrowText={operations[0]}
+        rightArrowText={mergedActions[0]}
         moveToRight={moveToRight}
         leftActive={leftActive}
-        leftArrowText={operations[1]}
+        leftArrowText={mergedActions[1]}
         moveToLeft={moveToLeft}
-        style={operationStyle}
+        style={{
+          ...operationStyle,
+          ...mergedStyles.actions,
+        }}
         disabled={disabled}
         direction={dir}
         oneWay={oneWay}
@@ -550,6 +571,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 Transfer.List = Section;
 Transfer.Search = Search;
-Transfer.Operation = Operation;
+Transfer.Operation = Actions;
 
 export default Transfer;

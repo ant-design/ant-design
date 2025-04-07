@@ -338,7 +338,7 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
 
       [`${componentCls}-section`]: genTransferListStyle(token),
 
-      [`${componentCls}-operation`]: {
+      [`${componentCls}-actions`]: {
         display: 'flex',
         flex: 'none',
         flexDirection: 'column',

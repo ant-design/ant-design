@@ -19,7 +19,7 @@ export interface TransferOperationProps {
   oneWay?: boolean;
 }
 
-const Operation: React.FC<TransferOperationProps> = (props) => {
+const Actions: React.FC<TransferOperationProps> = (props) => {
   const {
     disabled,
     moveToLeft,
@@ -60,7 +60,7 @@ const Operation: React.FC<TransferOperationProps> = (props) => {
 };
 
 if (process.env.NODE_ENV !== 'production') {
-  Operation.displayName = 'Operation';
+  Actions.displayName = 'Actions';
 }
 
-export default Operation;
+export default Actions;

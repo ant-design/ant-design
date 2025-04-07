@@ -406,10 +406,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
         [`${prefixCls}-with-pagination`]: !!pagination,
         [`${prefixCls}-with-footer`]: !!footerDom,
       })}
-      style={{
-        ...styles.section,
-        ...style,
-      }}
+      style={{ ...style, ...styles.section }}
     >
       {/* Header */}
       <div className={classnames(`${prefixCls}-header`, classNames.header)} style={styles.header}>
