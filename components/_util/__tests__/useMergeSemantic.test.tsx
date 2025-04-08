@@ -19,14 +19,15 @@ describe('useMergeSemantic', () => {
           active: 'dragger-b-active',
         },
       },
+      {
+        dragger: 'dragger-c',
+      },
     );
-
-    console.log(result);
 
     expect(result).toEqual({
       root: 'root-a root-b',
       dragger: {
-        default: 'dragger-a dragger-b-default',
+        default: 'dragger-a dragger-b-default dragger-c',
         active: 'dragger-b-active',
       },
     });

@@ -6,14 +6,13 @@ import UpOutlined from '@ant-design/icons/UpOutlined';
 import useEvent from '@rc-component/util/lib/hooks/useEvent';
 import classNames from 'classnames';
 
-import { convertToSemanticObj } from '../_util/hooks/useMergeSemantic';
-import type { SplitterProps, SplitterSemanticClassNames } from './interface';
+import type { SplitterProps, SplitterSemanticDraggerClassNames } from './interface';
 
 export interface SplitBarProps {
   index: number;
   active: boolean;
   draggerStyle?: React.CSSProperties;
-  draggerClassName?: SplitterSemanticClassNames['dragger'];
+  draggerClassName?: SplitterSemanticDraggerClassNames;
   prefixCls: string;
   resizable: boolean;
   startCollapsible: boolean;
@@ -61,15 +60,6 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   } = props;
 
   const splitBarPrefixCls = `${prefixCls}-bar`;
-
-  // ======================== Styles ========================
-  const mergedDraggerClassNames = React.useMemo(
-    () =>
-      convertToSemanticObj<Exclude<SplitterSemanticClassNames['dragger'], string>>(
-        draggerClassName,
-      ),
-    [draggerClassName],
-  );
 
   // ======================== Resize ========================
   const [startPos, setStartPos] = useState<[x: number, y: number] | null>(null);
@@ -223,8 +213,8 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
             [`${splitBarPrefixCls}-dragger-active`]: active,
             [`${splitBarPrefixCls}-dragger-customize`]: draggerIcon !== undefined,
           },
-          mergedDraggerClassNames.default,
-          active && mergedDraggerClassNames.active,
+          draggerClassName?.default,
+          active && draggerClassName?.active,
         )}
         onMouseDown={onMouseDown}
         onTouchStart={onTouchStart}

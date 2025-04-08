@@ -26,9 +26,8 @@ export function mergeClassNames<
 
       if (keySchema && typeof keySchema === 'object') {
         if (curVal && typeof curVal === 'object') {
-          console.log('>>>', keySchema, curVal, acc[key]);
-
-          // TODO: Loop fill
+          // Loop fill
+          acc[key] = mergeClassNames(keySchema, acc[key], curVal);
         } else {
           // Covert string to object structure
           const { _default: defaultField } = keySchema;
