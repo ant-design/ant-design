@@ -44,7 +44,7 @@ demo:
 | value            | 数值内容           | string \| number     | -      |       |
 | valueStyle       | 设置数值区域的样式 | CSSProperties        | -      |       |
 
-#### Statistic.Timer
+#### Statistic.Countdown[废弃]
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -55,8 +55,21 @@ demo:
 | value | 数值内容 | number | - |  |
 | valueStyle | 设置数值区域的样式 | CSSProperties | - |  |
 | onFinish | 倒计时完成时触发 | () => void | - |  |
-| onChange | 倒计时时间变化时触发 | (value: number) => void | - | 4.16.0 |
-| type | 计时类型，正计时或者倒计时 | `countdown` `countup` | - | 5.25.0 |
+| onChange | 倒计时时间变化时触发 | (value: number) => void | - |  |
+
+#### Statistic.Timer[替代 Countdown]
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| format | 格式化倒计时展示，参考 [dayjs](https://day.js.org/) | string | `HH:mm:ss` |  |
+| prefix | 设置数值的前缀 | ReactNode | - |  |
+| suffix | 设置数值的后缀 | ReactNode | - |  |
+| title | 数值的标题 | ReactNode | - |  |
+| value | 数值内容 | number | - |  |
+| valueStyle | 设置数值区域的样式 | CSSProperties | - |  |
+| onFinish | 倒计时完成时触发 | () => void | - |  |
+| onChange | 倒计时时间变化时触发 | (value: number) => void | - |  |
+| type | 计时类型，正计时或者倒计时 | `countdown` `countup` | - |  |
 
 ## 主题变量（Design Token）
 

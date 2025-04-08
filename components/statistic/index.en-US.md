@@ -43,7 +43,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | value            | Display value                 | string \| number     | -       |         |
 | valueStyle       | Set value section style       | CSSProperties        | -       |         |
 
-#### Statistic.Timer
+#### Statistic.Countdown[deprecated]
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -55,7 +55,20 @@ Common props ref：[Common props](/docs/react/common-props)
 | valueStyle | Set value section style | CSSProperties | - |  |
 | onFinish | Trigger when time's up | () => void | - |  |
 | onChange | Trigger when time's changing | (value: number) => void | - | 4.16.0 |
-| type | time counter down or up | `countdown` `countup` | - | 5.25.0 |
+
+#### Statistic.Timer[new]
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| format | Format as [dayjs](https://day.js.org/) | string | `HH:mm:ss` |  |
+| prefix | The prefix node of value | ReactNode | - |  |
+| suffix | The suffix node of value | ReactNode | - |  |
+| title | Display title | ReactNode | - |  |
+| value | Set target countdown time | number | - |  |
+| valueStyle | Set value section style | CSSProperties | - |  |
+| onFinish | Trigger when time's up | () => void | - |  |
+| onChange | Trigger when time's changing | (value: number) => void | - |  |
+| type | time counter down or up | `countdown` `countup` | - |  |
 
 ## Design Token
 
