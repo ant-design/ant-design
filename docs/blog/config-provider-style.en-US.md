@@ -66,13 +66,11 @@ import React from 'react';
 import { ConfigProvider } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useButtonStyle = createStyles(({ css }) => {
-  const { getPrefixCls } = React.use(ConfigProvider.ConfigContext);
-  const btnPrefixCls = getPrefixCls('btn');
+const useButtonStyle = createStyles(({ css }, prefixCls: string) => {
   return {
     btn: css`
       background: red;
-      .${btnPrefixCls}-icon {
+      .${prefixCls}-icon {
         color: green;
       }
     `,
@@ -80,7 +78,9 @@ const useButtonStyle = createStyles(({ css }) => {
 });
 
 const GeekProvider: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
-  const { styles } = useButtonStyle();
+  const { getPrefixCls } = React.use(ConfigProvider.ConfigContext);
+  const btnPrefixCls = getPrefixCls('btn');
+  const { styles } = useButtonStyle(btnPrefixCls);
   return <ConfigProvider button={{ className: styles.btn }}>{props.children}</ConfigProvider>;
 };
 
