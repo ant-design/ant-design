@@ -61,9 +61,8 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token }) => {
+const useStyle = createStyles(({ token }, isDark: boolean) => {
   const { carousel } = getCarouselStyle();
-  const isDark = React.use(DarkContext);
   return {
     card: css`
       border-radius: ${token.borderRadius}px;
@@ -115,8 +114,9 @@ const ComponentItem: React.FC<ComponentItemProps> = ({ title, node, type, index 
   const tagColor = type === 'new' ? 'processing' : 'warning';
   const [locale] = useLocale(locales);
   const tagText = type === 'new' ? locale.new : locale.update;
-  const { styles } = useStyle();
+  const isDark = React.use(DarkContext);
   const { isMobile } = React.use(SiteContext);
+  const { styles } = useStyle(isDark);
   return (
     <div className={classNames(styles.card, isMobile && styles.mobileCard)}>
       {/* Decorator */}

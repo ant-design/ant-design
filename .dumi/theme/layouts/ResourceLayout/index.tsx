@@ -16,8 +16,7 @@ const resourcePadding = 40;
 const articleMaxWidth = 1208;
 const resourcePaddingXS = 24;
 
-const useStyle = createStyles(({ token, css }) => {
-  const isDark = React.use(DarkContext);
+const useStyle = createStyles(({ token, css }, isDark: boolean) => {
   return {
     resourcePage: css`
       footer {
@@ -84,9 +83,9 @@ const useStyle = createStyles(({ token, css }) => {
 });
 
 const ResourceLayout: React.FC<ResourceLayoutProps> = ({ children }) => {
-  const { styles } = useStyle();
-  const meta = useRouteMeta();
   const isDark = React.use(DarkContext);
+  const { styles } = useStyle(isDark);
+  const meta = useRouteMeta();
   const node = (
     <Layout>
       <CommonHelmet />

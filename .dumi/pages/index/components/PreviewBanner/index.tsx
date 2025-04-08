@@ -7,8 +7,11 @@ import { useLocation } from 'dumi';
 import useLocale from '../../../../hooks/useLocale';
 import LinkButton from '../../../../theme/common/LinkButton';
 import SiteContext from '../../../../theme/slots/SiteContext';
+import type { SiteContextProps } from '../../../../theme/slots/SiteContext';
 import * as utils from '../../../../theme/utils';
 import GroupMaskLayer from '../GroupMaskLayer';
+
+import '../SiteContext';
 
 const ComponentsBlock = React.lazy(() => import('./ComponentsBlock'));
 
@@ -26,10 +29,9 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token, css, cx }) => {
+const useStyle = createStyles(({ token, css, cx }, siteConfig: SiteContextProps) => {
   const textShadow = `0 0 4px ${token.colorBgContainer}`;
-  const { isMobile, theme } = use(SiteContext);
-  const isDark = theme.includes('dark');
+  const isDark = siteConfig.theme.includes('dark');
   const mask = cx(css`
     position: absolute;
     inset: 0;
@@ -110,11 +112,11 @@ const useStyle = createStyles(({ token, css, cx }) => {
     `,
     bgImgTop: css`
       top: 0;
-      inset-inline-start: ${isMobile ? '-120px' : 0};
+      inset-inline-start: ${siteConfig.isMobile ? '-120px' : 0};
     `,
     bgImgBottom: css`
       bottom: 120px;
-      inset-inline-end: ${isMobile ? 0 : '40%'};
+      inset-inline-end: ${siteConfig.isMobile ? 0 : '40%'};
     `,
   };
 });
@@ -122,8 +124,8 @@ const useStyle = createStyles(({ token, css, cx }) => {
 const PreviewBanner: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
   const { children } = props;
   const [locale] = useLocale(locales);
-  const { styles } = useStyle();
-  const { isMobile } = use(SiteContext);
+  const siteConfig = use(SiteContext);
+  const { styles } = useStyle(siteConfig);
   const { pathname, search } = useLocation();
   const isZhCN = utils.isZhCN(pathname);
 
@@ -147,7 +149,7 @@ const PreviewBanner: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
       <div className={styles.holder}>
         {/* Mobile not show the component preview */}
         <Suspense fallback={null}>
-          {isMobile ? null : (
+          {siteConfig.isMobile ? null : (
             <div className={styles.block}>
               <ComponentsBlock />
             </div>

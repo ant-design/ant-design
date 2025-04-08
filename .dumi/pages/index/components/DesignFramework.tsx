@@ -63,8 +63,7 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token, css }) => {
-  const isDark = React.use(DarkContext);
+const useStyle = createStyles(({ token, css }, isDark: boolean) => {
   return {
     card: css`
       padding: ${token.paddingSM}px;
@@ -99,10 +98,12 @@ const useStyle = createStyles(({ token, css }) => {
 const DesignFramework: React.FC = () => {
   const [locale] = useLocale(locales);
   const token = useTheme();
-  const { styles } = useStyle();
+  const { isMobile } = React.use(SiteContext);
+  const isDark = React.use(DarkContext);
+  const { styles } = useStyle(isDark);
   const { pathname, search } = useLocation();
   const isZhCN = utils.isZhCN(pathname);
-  const { isMobile } = React.use(SiteContext);
+
   const colSpan = isMobile ? 24 : 8;
 
   const MAINLY_LIST = [
