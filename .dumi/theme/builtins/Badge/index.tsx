@@ -15,7 +15,7 @@ const colorMap = {
 
 export default ({ type = 'info', ...props }: BadgeProps) => (
   <Tag
-    bordered={false}
+    variant="filled"
     color={colorMap[type]}
     {...props}
     style={{ verticalAlign: 'top', ...props.style }}

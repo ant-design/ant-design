@@ -1114,11 +1114,7 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders components/tag/demo/disabled.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Tag] \`bordered={false}\` is deprecated. Please use \`variant="filled"\` instead.",
-]
-`;
+exports[`renders components/tag/demo/disabled.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tag/demo/draggable.tsx extend context correctly 1`] = `
 Array [
