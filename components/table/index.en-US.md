@@ -265,6 +265,7 @@ Properties for row selection.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| align | Set the alignment of selection column | `left` \| `right` \| `center` | `left` | 5.25.0 |
 | checkStrictly | Check table row precisely; parent row and children rows are not associated | boolean | true | 4.4.0 |
 | columnTitle | Set the title of the selection column | ReactNode \| (originalNode: ReactNode) => ReactNode | - |  |
 | columnWidth | Set the width of the selection column | string \| number | `32px` |  |

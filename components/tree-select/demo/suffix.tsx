@@ -51,7 +51,9 @@ const App: React.FC = () => {
         suffixIcon={icon}
         style={{ width: '100%' }}
         value={value}
-        dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
+        styles={{
+          popup: { maxHeight: 400, overflow: 'auto' },
+        }}
         placeholder="Please select"
         allowClear
         treeDefaultExpandAll
@@ -65,7 +67,9 @@ const App: React.FC = () => {
         prefix="Prefix"
         style={{ width: '100%' }}
         value={value}
-        dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
+        styles={{
+          popup: { maxHeight: 400, overflow: 'auto' },
+        }}
         placeholder="Please select"
         allowClear
         treeDefaultExpandAll

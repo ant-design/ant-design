@@ -174,16 +174,71 @@ describe('Select', () => {
       expect(asFragment().firstChild).toMatchSnapshot();
     });
 
-    it('dropdownClassName', () => {
+    it('legacy popupClassName', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Select popupClassName="legacy" open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `popupClassName` is deprecated. Please use `classNames.popup` instead.',
+      );
+      expect(container.querySelector('.legacy')).toBeTruthy();
+
+      errSpy.mockRestore();
+    });
+
+    it('legacy dropdownClassName', () => {
       resetWarned();
 
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(<Select dropdownClassName="legacy" open />);
       expect(errSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Select] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
+        'Warning: [antd: Select] `dropdownClassName` is deprecated. Please use `classNames.popup` instead.',
       );
       expect(container.querySelector('.legacy')).toBeTruthy();
 
+      errSpy.mockRestore();
+    });
+
+    it('legacy dropdownStyle', () => {
+      resetWarned();
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Select dropdownStyle={{ background: 'red' }} open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `dropdownStyle` is deprecated. Please use `styles.popup` instead.',
+      );
+      const dropdown = container.querySelector('.ant-select-dropdown');
+      expect(dropdown?.getAttribute('style')).toMatch(/background:\s*red/);
+      errSpy.mockRestore();
+    });
+
+    it('legacy dropdownRender', () => {
+      resetWarned();
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(
+        <Select
+          dropdownRender={(menu) => <div className="custom-dropdown">{menu} custom render</div>}
+          open
+        >
+          <Select.Option value="1">1</Select.Option>
+        </Select>,
+      );
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `dropdownRender` is deprecated. Please use `popupRender` instead.',
+      );
+      const customDropdown = container.querySelector('.custom-dropdown');
+      expect(customDropdown).toBeTruthy();
+      expect(customDropdown?.textContent).toContain('custom render');
+      errSpy.mockRestore();
+    });
+
+    it('legacy onDropdownVisibleChange', () => {
+      resetWarned();
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      render(<Select onDropdownVisibleChange={() => {}} open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `onDropdownVisibleChange` is deprecated. Please use `onOpenChange` instead.',
+      );
       errSpy.mockRestore();
     });
 
