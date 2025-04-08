@@ -11,7 +11,7 @@ export interface CountdownProps extends StatisticProps {
 }
 
 /**
- * @deprecated Countdown 已被废弃，请使用 Statistic.Timer 替代。
+ * @deprecated Please use `Statistic.Timer` instead
  */
 const Countdown: React.FC<CountdownProps> = (props) => {
   return <StatisticTimer type="countdown" {...props} />;
