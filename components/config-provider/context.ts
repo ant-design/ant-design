@@ -231,7 +231,8 @@ export type DrawerConfig = ComponentStyleConfig &
 
 export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>;
 
-export type TransferConfig = ComponentStyleConfig & Pick<TransferProps, 'selectionsIcon'>;
+export type TransferConfig = ComponentStyleConfig &
+  Pick<TransferProps, 'selectionsIcon' | 'classNames' | 'styles'>;
 
 export type FormConfig = ComponentStyleConfig &
   Pick<
@@ -471,6 +472,7 @@ type ComponentReturnType<T extends keyof ConfigComponentProps> = Omit<
   getPrefixCls: ConfigConsumerProps['getPrefixCls'];
   direction: ConfigConsumerProps['direction'];
   getPopupContainer: ConfigConsumerProps['getPopupContainer'];
+  renderEmpty: ConfigConsumerProps['renderEmpty'];
 };
 
 /**
@@ -483,7 +485,7 @@ type ComponentReturnType<T extends keyof ConfigComponentProps> = Omit<
  */
 export function useComponentConfig<T extends keyof ConfigComponentProps>(propName: T) {
   const context = React.useContext(ConfigContext);
-  const { getPrefixCls, direction, getPopupContainer } = context;
+  const { getPrefixCls, direction, getPopupContainer, renderEmpty } = context;
 
   const propValue = context[propName];
   return {
@@ -493,5 +495,6 @@ export function useComponentConfig<T extends keyof ConfigComponentProps>(propNam
     getPrefixCls,
     direction,
     getPopupContainer,
+    renderEmpty,
   } as ComponentReturnType<T>;
 }

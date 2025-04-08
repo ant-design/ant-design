@@ -5,7 +5,7 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
   class="ant-transfer ant-transfer-rtl css-var-root"
 >
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
@@ -113,7 +113,7 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
     </div>
   </div>
   <div
-    class="ant-transfer-operation"
+    class="ant-transfer-actions"
   >
     <button
       class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only ant-btn-rtl"
@@ -175,7 +175,7 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
     </button>
   </div>
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
@@ -290,7 +290,7 @@ exports[`Transfer should render correctly 1`] = `
   class="ant-transfer css-var-root"
 >
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
@@ -396,7 +396,7 @@ exports[`Transfer should render correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-transfer-operation"
+    class="ant-transfer-actions"
   >
     <button
       class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -457,7 +457,7 @@ exports[`Transfer should render correctly 1`] = `
     </button>
   </div>
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
@@ -545,7 +545,7 @@ exports[`Transfer should show sorted targetKey 1`] = `
   class="ant-transfer css-var-root"
 >
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
@@ -629,7 +629,7 @@ exports[`Transfer should show sorted targetKey 1`] = `
     </div>
   </div>
   <div
-    class="ant-transfer-operation"
+    class="ant-transfer-actions"
   >
     <button
       class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -691,7 +691,7 @@ exports[`Transfer should show sorted targetKey 1`] = `
     </button>
   </div>
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
@@ -807,7 +807,7 @@ exports[`Transfer should support render value and label in item 1`] = `
   class="ant-transfer css-var-root"
 >
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
@@ -891,7 +891,7 @@ exports[`Transfer should support render value and label in item 1`] = `
     </div>
   </div>
   <div
-    class="ant-transfer-operation"
+    class="ant-transfer-actions"
   >
     <button
       class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -953,7 +953,7 @@ exports[`Transfer should support render value and label in item 1`] = `
     </button>
   </div>
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
@@ -1068,7 +1068,7 @@ exports[`immutable data dataSource is frozen 1`] = `
   class="ant-transfer css-var-root"
 >
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
@@ -1149,7 +1149,7 @@ exports[`immutable data dataSource is frozen 1`] = `
     </div>
   </div>
   <div
-    class="ant-transfer-operation"
+    class="ant-transfer-actions"
   >
     <button
       class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -1211,7 +1211,7 @@ exports[`immutable data dataSource is frozen 1`] = `
     </button>
   </div>
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-section"
   >
     <div
       class="ant-transfer-list-header"
