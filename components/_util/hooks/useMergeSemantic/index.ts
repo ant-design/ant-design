@@ -12,6 +12,7 @@ export type SemanticSchema = {
   [key: `${ValidChar}${string}`]: SemanticSchema;
 };
 
+// ========================= ClassNames =========================
 export function mergeClassNames<
   T extends string,
   SemanticClassNames extends Partial<Record<T, any>> = TemplateSemanticClassNames<T>,
@@ -53,10 +54,8 @@ function useSemanticClassNames<
   return React.useMemo(() => mergeClassNames(schema, ...classNames), [classNames]);
 }
 
-function useSemanticStyles<T extends string>(
-  schema: SemanticSchema | undefined,
-  ...styles: (SemanticStyles<T> | undefined)[]
-) {
+// =========================== Styles ===========================
+function useSemanticStyles<T extends string>(...styles: (SemanticStyles<T> | undefined)[]) {
   return React.useMemo(() => {
     return styles.reduce(
       (acc, cur = {}) => {
@@ -70,6 +69,7 @@ function useSemanticStyles<T extends string>(
   }, [styles]);
 }
 
+// =========================== Export ===========================
 export default function useMergeSemantic<
   T extends string,
   SemanticClassNames extends Partial<Record<T, any>> = TemplateSemanticClassNames<T>,
@@ -79,7 +79,7 @@ export default function useMergeSemantic<
   schema?: SemanticSchema,
 ) {
   const mergedClassNames = useSemanticClassNames(schema, ...classNamesList);
-  const mergedStyles = useSemanticStyles(schema, ...stylesList);
+  const mergedStyles = useSemanticStyles(...stylesList);
 
   return [mergedClassNames, mergedStyles] as const;
 }
