@@ -83,7 +83,7 @@ describe('Statistic', () => {
     expect(container.querySelectorAll('.ant-statistic-content')).toHaveLength(0);
   });
 
-  it('data attrs', () => {
+  it('data attrs timer', () => {
     const { container } = render(
       <Statistic value={1128} data-abc="1" aria-label="label" role="status" />,
     );
@@ -93,6 +93,28 @@ describe('Statistic', () => {
 
     const { container: countdownContainer } = render(
       <Statistic.Timer type="countdown" data-xyz="x" aria-label="y" role="contentinfo" />,
+    );
+    expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('data-xyz')).toEqual(
+      'x',
+    );
+    expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('aria-label')).toEqual(
+      'y',
+    );
+    expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('role')).toEqual(
+      'contentinfo',
+    );
+  });
+
+  it('data attrs countdown', () => {
+    const { container } = render(
+      <Statistic value={1128} data-abc="1" aria-label="label" role="status" />,
+    );
+    expect(container.querySelector('.ant-statistic')!.getAttribute('data-abc')).toEqual('1');
+    expect(container.querySelector('.ant-statistic')!.getAttribute('aria-label')).toEqual('label');
+    expect(container.querySelector('.ant-statistic')!.getAttribute('role')).toEqual('status');
+
+    const { container: countdownContainer } = render(
+      <Statistic.Countdown data-xyz="x" aria-label="y" role="contentinfo" />,
     );
     expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('data-xyz')).toEqual(
       'x',
@@ -120,9 +142,7 @@ describe('Statistic', () => {
         ['HH:mm:ss:SSS', '59:28:09:003'],
         ['DD-HH:mm:ss', '02-11:28:09'],
       ].forEach(([format, value]) => {
-        const { container } = render(
-          <Statistic.Timer type="countdown" format={format} value={now} />,
-        );
+        const { container } = render(<Statistic.Countdown format={format} value={now} />);
         expect(container.querySelector('.ant-statistic-content-value')!.textContent).toEqual(value);
       });
     });
@@ -132,9 +152,7 @@ describe('Statistic', () => {
       const now = Date.now() + 1000;
       const onFinish = jest.fn();
 
-      const { unmount } = render(
-        <Statistic.Timer type="countdown" value={now} onFinish={onFinish} />,
-      );
+      const { unmount } = render(<Statistic.Countdown value={now} onFinish={onFinish} />);
 
       await waitFakeTimer(10);
 
@@ -181,7 +199,7 @@ describe('Statistic', () => {
         const onChange: StatisticTimerProps['onChange'] = (value) => {
           remainingTime = value;
         };
-        render(<Statistic.Timer type="countdown" value={deadline} onChange={onChange} />);
+        render(<Statistic.Countdown value={deadline} onChange={onChange} />);
         // container.update();
         await waitFakeTimer(100);
         expect(remainingTime).toBeGreaterThan(0);
@@ -194,7 +212,7 @@ describe('Statistic', () => {
       it('not call if time already passed', () => {
         const now = Date.now() - 1000;
         const onFinish = jest.fn();
-        render(<Statistic.Timer type="countdown" value={now} onFinish={onFinish} />);
+        render(<Statistic.Countdown value={now} onFinish={onFinish} />);
 
         expect(onFinish).not.toHaveBeenCalled();
       });
@@ -203,7 +221,7 @@ describe('Statistic', () => {
         jest.useFakeTimers();
         const now = Date.now() + 10;
         const onFinish = jest.fn();
-        render(<Statistic.Timer type="countdown" value={now} onFinish={onFinish} />);
+        render(<Statistic.Countdown value={now} onFinish={onFinish} />);
         await waitFakeTimer();
         expect(onFinish).toHaveBeenCalled();
         jest.clearAllTimers();
