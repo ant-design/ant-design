@@ -136,6 +136,13 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
+    {
+      // Convert `classNames.dragger: 'a'` to
+      // `classNames.dragger: { default: 'a' }`
+      dragger: {
+        _default: 'default',
+      },
+    },
   );
 
   const containerClassName = cls(
