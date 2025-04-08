@@ -199,7 +199,7 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
     class="ant-transfer-actions"
   >
     <button
-      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
       disabled=""
       type="button"
     >
@@ -226,9 +226,12 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
           </svg>
         </span>
       </span>
+      <span>
+        to right
+      </span>
     </button>
     <button
-      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
       disabled=""
       type="button"
     >
@@ -254,6 +257,9 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
             />
           </svg>
         </span>
+      </span>
+      <span>
+        to left
       </span>
     </button>
   </div>

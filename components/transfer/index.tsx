@@ -150,8 +150,8 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     listStyle,
     operationStyle,
 
-    operations = [],
-    actions = [],
+    operations,
+    actions,
 
     dataSource,
     targetKeys = [],
@@ -193,7 +193,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const mergedActions = actions || operations;
+  const mergedActions = actions || operations || [];
 
   // Fill record with `key`
   const [mergedDataSource, leftDataSource, rightDataSource] = useData(
