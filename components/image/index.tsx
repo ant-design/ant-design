@@ -104,6 +104,11 @@ const Image: CompositionImage<ImageProps> = (props) => {
       },
       styles,
     ],
+    {
+      popup: {
+        _default: 'root',
+      },
+    },
   );
 
   const mergedRootClassName = classnames(rootClassName, hashId, cssVarCls, rootCls);
@@ -115,10 +120,10 @@ const Image: CompositionImage<ImageProps> = (props) => {
   const contextPreviewConfig = usePreviewConfig(contextPreview);
 
   // Preview semantic
-  const [mergedPreviewClassNames, mergedPreviewStyles] = useMergeSemantic(
-    [contextPreviewConfig?.classNames, previewConfig?.classNames],
-    [contextPreviewConfig?.styles, previewConfig?.styles],
-  );
+  // const [mergedPreviewClassNames, mergedPreviewStyles] = useMergeSemantic(
+  //   [contextPreviewConfig?.classNames, previewConfig?.classNames],
+  //   [contextPreviewConfig?.styles, previewConfig?.styles],
+  // );
 
   const mergedPreviewConfig = useMergedPreviewConfig(
     // Preview config
@@ -128,8 +133,6 @@ const Image: CompositionImage<ImageProps> = (props) => {
     // MISC
     prefixCls,
     mergedRootClassName,
-    mergedPreviewClassNames,
-    mergedPreviewStyles,
     getContextPopupContainer,
     icons,
 
@@ -149,9 +152,9 @@ const Image: CompositionImage<ImageProps> = (props) => {
       rootClassName={mergedRootClassName}
       className={mergedClassName}
       style={mergedStyle}
+      {...otherProps}
       classNames={mergedClassNames}
       styles={mergedStyles}
-      {...otherProps}
     />
   );
 };

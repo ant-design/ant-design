@@ -152,7 +152,7 @@ export interface TableConfig extends ComponentStyleConfig {
 export type ImageConfig = ComponentStyleConfig &
   Pick<ImageProps, 'classNames' | 'styles'> & {
     preview?: Partial<Record<'closeIcon', React.ReactNode>> &
-      Pick<ImagePreviewType, 'classNames' | 'styles'>;
+      Pick<ImageProps, 'classNames' | 'styles'>;
   };
 
 export type CollapseConfig = ComponentStyleConfig &

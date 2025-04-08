@@ -48,6 +48,8 @@ export interface PreviewGroupProps extends Omit<RcPreviewGroupProps, 'preview'> 
 const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
   previewPrefixCls: customizePrefixCls,
   preview,
+  classNames,
+  styles,
   ...otherProps
 }) => {
   // =============================== MISC ===============================
@@ -56,6 +58,8 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
     getPrefixCls,
     getPopupContainer: getContextPopupContainer,
     preview: contextPreview,
+    classNames: contextClassNames,
+    styles: contextStyles,
   } = useComponentConfig('image');
 
   const prefixCls = getPrefixCls('image', customizePrefixCls);
@@ -72,9 +76,9 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
   const contextPreviewConfig = usePreviewConfig(contextPreview);
 
   // Preview semantic
-  const [mergedPreviewClassNames, mergedPreviewStyles] = useMergeSemantic(
-    [contextPreviewConfig?.classNames, previewConfig?.classNames],
-    [contextPreviewConfig?.styles, previewConfig?.styles],
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
   );
 
   const mergedPreview = useMergedPreviewConfig(
@@ -85,8 +89,6 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
     // MISC
     prefixCls,
     mergedRootClassName,
-    mergedPreviewClassNames,
-    mergedPreviewStyles,
     getContextPopupContainer,
     icons,
   );
@@ -97,6 +99,8 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
       previewPrefixCls={previewPrefixCls}
       icons={icons}
       {...otherProps}
+      classNames={mergedClassNames}
+      styles={mergedStyles}
     />
   );
 };
