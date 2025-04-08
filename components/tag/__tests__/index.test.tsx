@@ -396,4 +396,8 @@ describe('Tag', () => {
 
     expect(document.head.innerHTML).toContain('--ant-tag-solid-text-color:#000;');
   });
+  it('legacy bordered={false}', () => {
+    const { container } = render(<Tag bordered={false}>Tag</Tag>);
+    expect(container.querySelector('.ant-tag-filled')).toBeTruthy();
+  });
 });

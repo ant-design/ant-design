@@ -57,7 +57,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       color,
       variant,
       onClose,
-      bordered = true,
+      bordered,
       disabled: customDisabled,
       href,
       target,

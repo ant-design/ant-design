@@ -85,13 +85,13 @@ const App: React.FC = () => {
       </Flex>
 
       <Flex gap="small" wrap>
-        <Tag disabled bordered={false}>
+        <Tag disabled variant="filled">
           Borderless Basic
         </Tag>
-        <Tag disabled bordered={false} color="success" icon={<CheckCircleOutlined />}>
+        <Tag disabled variant="filled" color="success" icon={<CheckCircleOutlined />}>
           Borderless with Icon
         </Tag>
-        <Tag disabled bordered={false} closable onClose={() => handleClose('Borderless Closable')}>
+        <Tag disabled variant="filled" closable onClose={() => handleClose('Borderless Closable')}>
           Borderless Closable
         </Tag>
       </Flex>
