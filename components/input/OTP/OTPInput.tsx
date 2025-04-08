@@ -67,7 +67,11 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
   return (
     <span className={`${prefixCls}-wrapper`}>
       {/* mask value */}
-      {mask && value && <span className={`${prefixCls}-mask-icon`}>{maskValue}</span>}
+      {mask && value && (
+        <span className={`${prefixCls}-mask-icon`} aria-label="Masked value">
+          {maskValue}
+        </span>
+      )}
 
       <Input
         type={mask === true ? 'password' : 'text'}
