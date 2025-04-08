@@ -14,19 +14,29 @@ const genOTPStyle: GenerateStyle<InputToken> = (token) => {
       flexWrap: 'nowrap',
       columnGap: paddingXS,
 
-      [`${componentCls}-mask-number`]: {
-        color: 'transparent',
-        caretColor: 'var(--ant-color-text)',
-        transition: 'none',
-        textAlign: 'center',
-        letterSpacing: '10px',
-      },
-      [`${componentCls}-mask-number::-webkit-inner-spin-button`]: {
-        '-webkit-appearance': 'none',
-        margin: 0,
-      },
-      [`${componentCls}-mask-number[type=number]`]: {
-        '-moz-appearance': 'textfield',
+      [`${componentCls}-wrapper`]: {
+        position: 'relative',
+        [`${componentCls}-mask-icon`]: {
+          position: 'absolute',
+          zIndex: '1',
+          top: '50%',
+          right: '50%',
+          transform: 'translate(50%, -50%)',
+        },
+        [`${componentCls}-mask-input`]: {
+          color: 'transparent',
+          caretColor: 'var(--ant-color-text)',
+          transition: 'none',
+          textAlign: 'center',
+          letterSpacing: '10px',
+        },
+        [`${componentCls}-mask-input[type=number]::-webkit-inner-spin-button`]: {
+          '-webkit-appearance': 'none',
+          margin: 0,
+        },
+        [`${componentCls}-mask-input[type=number]`]: {
+          '-moz-appearance': 'textfield',
+        },
       },
 
       '&-rtl': {

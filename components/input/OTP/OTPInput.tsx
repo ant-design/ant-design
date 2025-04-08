@@ -20,7 +20,6 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('otp');
   const maskValue = typeof mask === 'string' ? mask : value;
-  const internalValue = value && maskValue;
 
   // ========================== Ref ===========================
   const inputRef = React.useRef<InputRef>(null);
@@ -28,21 +27,6 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
 
   // ========================= Input ==========================
   const onInternalChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    if (inputRef.current?.input && maskValue) {
-      const escapedMaskValue = maskValue
-        .toString()
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&apos;');
-      const inputBackgroundStyle = inputRef.current.input.style;
-      if (e.target.value && restProps.type === 'number' && typeof mask === 'string') {
-        inputBackgroundStyle.background = `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20'><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle'>${escapedMaskValue}</text></svg>") center center / 26px no-repeat #fff`;
-      } else {
-        inputBackgroundStyle.background = '';
-      }
-    }
     onChange(index, e.target.value);
   };
 
@@ -81,21 +65,26 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
 
   // ========================= Render =========================
   return (
-    <Input
-      type={mask === true ? 'password' : 'text'}
-      {...restProps}
-      ref={inputRef}
-      value={restProps.type === 'number' ? value : internalValue}
-      onInput={onInternalChange}
-      onFocus={syncSelection}
-      onKeyDown={onInternalKeyDown}
-      onKeyUp={onInternalKeyUp}
-      onMouseDown={syncSelection}
-      onMouseUp={syncSelection}
-      className={classNames(className, {
-        [`${prefixCls}-mask-number`]: restProps.type === 'number' && mask,
-      })}
-    />
+    <span className={`${prefixCls}-wrapper`}>
+      {/* mask value */}
+      {mask && value && <span className={`${prefixCls}-mask-icon`}>{maskValue}</span>}
+
+      <Input
+        type={mask === true ? 'password' : 'text'}
+        {...restProps}
+        ref={inputRef}
+        value={value}
+        onInput={onInternalChange}
+        onFocus={syncSelection}
+        onKeyDown={onInternalKeyDown}
+        onKeyUp={onInternalKeyUp}
+        onMouseDown={syncSelection}
+        onMouseUp={syncSelection}
+        className={classNames(className, {
+          [`${prefixCls}-mask-input`]: mask,
+        })}
+      />
+    </span>
   );
 });
 
