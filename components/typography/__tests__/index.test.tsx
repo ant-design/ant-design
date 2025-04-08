@@ -144,6 +144,7 @@ describe('Typography', () => {
           // Click to copy
           fireEvent.click(container.querySelector('.ant-typography-copy')!);
           await waitFakeTimer(1);
+
           expect((copy as any).mock.lastCall[0]).toEqual(target);
           expect((copy as any).mock.lastCall[1].format).toEqual(format);
 
