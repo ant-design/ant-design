@@ -63,7 +63,9 @@ export function formatCounter(value: valueType, config: CountdownFormatConfig, d
   const { format = '' } = config;
   const target = new Date(value).getTime();
   const current = Date.now();
-  const diff = Math.max(!down ? current - target : target - current, 0);
+  const diff = down 
+    ? Math.max(target - current, 0) 
+    : Math.max(current - target, 0);
 
   return formatTimeStr(diff, format);
 }
