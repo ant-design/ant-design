@@ -22,7 +22,7 @@ demo:
 <code src="./demo/unit.tsx">单位</code>
 <code src="./demo/animated.tsx">动画效果</code>
 <code src="./demo/card.tsx" background="grey">在卡片中使用</code>
-<code src="./demo/countdown.tsx">倒计时</code>
+<code src="./demo/timer.tsx">计时</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
@@ -44,7 +44,7 @@ demo:
 | value            | 数值内容           | string \| number     | -      |       |
 | valueStyle       | 设置数值区域的样式 | CSSProperties        | -      |       |
 
-#### Statistic.Countdown
+#### Statistic.Timer
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -56,7 +56,7 @@ demo:
 | valueStyle | 设置数值区域的样式 | CSSProperties | - |  |
 | onFinish | 倒计时完成时触发 | () => void | - |  |
 | onChange | 倒计时时间变化时触发 | (value: number) => void | - | 4.16.0 |
-| reverse | 翻转计时 | boolean | false | 5.24.7 |
+| type | 计时类型，正计时或者倒计时 | `countdown` `countup` | - | 5.25.0 |
 
 ## 主题变量（Design Token）
 

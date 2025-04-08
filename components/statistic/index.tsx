@@ -1,16 +1,16 @@
-import type { CountdownProps } from './Countdown';
-import Countdown from './Countdown';
+import type { StatisticTimerProps } from './Timer';
+import Timer from './Timer';
 import type { StatisticProps } from './Statistic';
 import Statistic from './Statistic';
 
-export type { CountdownProps, StatisticProps };
+export type { StatisticTimerProps, StatisticProps };
 
 type CompoundedComponent = {
-  Countdown: typeof Countdown;
+  Timer: typeof Timer;
 };
 
 export type CompoundedStatistic = typeof Statistic & CompoundedComponent;
 
-(Statistic as CompoundedStatistic).Countdown = Countdown;
+(Statistic as CompoundedStatistic).Timer = Timer;
 
 export default Statistic as CompoundedStatistic;

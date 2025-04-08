@@ -2,7 +2,7 @@ import React from 'react';
 import dayjs from 'dayjs';
 import MockDate from 'mockdate';
 
-import type { CountdownProps } from '..';
+import type { StatisticTimerProps } from '..';
 import Statistic from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -11,7 +11,7 @@ import { formatTimeStr } from '../utils';
 
 describe('Statistic', () => {
   mountTest(Statistic);
-  mountTest(Statistic.Countdown);
+  mountTest(() => <Statistic.Timer type="countdown" />);
   rtlTest(Statistic);
 
   beforeAll(() => {
@@ -92,7 +92,7 @@ describe('Statistic', () => {
     expect(container.querySelector('.ant-statistic')!.getAttribute('role')).toEqual('status');
 
     const { container: countdownContainer } = render(
-      <Statistic.Countdown data-xyz="x" aria-label="y" role="contentinfo" />,
+      <Statistic.Timer type="countdown" data-xyz="x" aria-label="y" role="contentinfo" />,
     );
     expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('data-xyz')).toEqual(
       'x',
@@ -120,7 +120,9 @@ describe('Statistic', () => {
         ['HH:mm:ss:SSS', '59:28:09:003'],
         ['DD-HH:mm:ss', '02-11:28:09'],
       ].forEach(([format, value]) => {
-        const { container } = render(<Statistic.Countdown format={format} value={now} />);
+        const { container } = render(
+          <Statistic.Timer type="countdown" format={format} value={now} />,
+        );
         expect(container.querySelector('.ant-statistic-content-value')!.textContent).toEqual(value);
       });
     });
@@ -130,7 +132,9 @@ describe('Statistic', () => {
       const now = Date.now() + 1000;
       const onFinish = jest.fn();
 
-      const { unmount } = render(<Statistic.Countdown value={now} onFinish={onFinish} />);
+      const { unmount } = render(
+        <Statistic.Timer type="countdown" value={now} onFinish={onFinish} />,
+      );
 
       await waitFakeTimer(10);
 
@@ -156,7 +160,11 @@ describe('Statistic', () => {
       const onMouseEnter = jest.fn();
       const onMouseLeave = jest.fn();
       const { container } = render(
-        <Statistic.Countdown onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />,
+        <Statistic.Timer
+          type="countdown"
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+        />,
       );
       fireEvent.mouseEnter(container.firstChild!);
       expect(onMouseEnter).toHaveBeenCalled();
@@ -170,10 +178,10 @@ describe('Statistic', () => {
         const deadline = Date.now() + 10 * 1000;
         let remainingTime;
 
-        const onChange: CountdownProps['onChange'] = (value) => {
+        const onChange: StatisticTimerProps['onChange'] = (value) => {
           remainingTime = value;
         };
-        render(<Statistic.Countdown value={deadline} onChange={onChange} />);
+        render(<Statistic.Timer type="countdown" value={deadline} onChange={onChange} />);
         // container.update();
         await waitFakeTimer(100);
         expect(remainingTime).toBeGreaterThan(0);
@@ -186,7 +194,7 @@ describe('Statistic', () => {
       it('not call if time already passed', () => {
         const now = Date.now() - 1000;
         const onFinish = jest.fn();
-        render(<Statistic.Countdown value={now} onFinish={onFinish} />);
+        render(<Statistic.Timer type="countdown" value={now} onFinish={onFinish} />);
 
         expect(onFinish).not.toHaveBeenCalled();
       });
@@ -195,7 +203,7 @@ describe('Statistic', () => {
         jest.useFakeTimers();
         const now = Date.now() + 10;
         const onFinish = jest.fn();
-        render(<Statistic.Countdown value={now} onFinish={onFinish} />);
+        render(<Statistic.Timer type="countdown" value={now} onFinish={onFinish} />);
         await waitFakeTimer();
         expect(onFinish).toHaveBeenCalled();
         jest.clearAllTimers();

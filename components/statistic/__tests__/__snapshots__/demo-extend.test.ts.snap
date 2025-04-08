@@ -414,7 +414,7 @@ exports[`renders components/statistic/demo/component-token.tsx extend context co
 
 exports[`renders components/statistic/demo/component-token.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders components/statistic/demo/countdown.tsx extend context correctly 1`] = `
+exports[`renders components/statistic/demo/timer.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
   style="margin-left: -8px; margin-right: -8px;"
@@ -498,7 +498,7 @@ exports[`renders components/statistic/demo/countdown.tsx extend context correctl
       <div
         class="ant-statistic-title"
       >
-        Countdown Reverse
+        Countup
       </div>
       <div
         class="ant-statistic-content"
@@ -521,7 +521,7 @@ exports[`renders components/statistic/demo/countdown.tsx extend context correctl
       <div
         class="ant-statistic-title"
       >
-        Day Level
+        Day Level (Countdown)
       </div>
       <div
         class="ant-statistic-content"
@@ -544,7 +544,7 @@ exports[`renders components/statistic/demo/countdown.tsx extend context correctl
       <div
         class="ant-statistic-title"
       >
-        Day Level (Reverse)
+        Day Level (Countup)
       </div>
       <div
         class="ant-statistic-content"
@@ -560,7 +560,7 @@ exports[`renders components/statistic/demo/countdown.tsx extend context correctl
 </div>
 `;
 
-exports[`renders components/statistic/demo/countdown.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/statistic/demo/timer.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/statistic/demo/unit.tsx extend context correctly 1`] = `
 <div

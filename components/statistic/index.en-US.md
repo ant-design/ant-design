@@ -21,7 +21,7 @@ demo:
 <code src="./demo/unit.tsx">Unit</code>
 <code src="./demo/animated.tsx">Animated number</code>
 <code src="./demo/card.tsx" background="grey">In Card</code>
-<code src="./demo/countdown.tsx">Countdown</code>
+<code src="./demo/timer.tsx">Timer</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
@@ -43,7 +43,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | value            | Display value                 | string \| number     | -       |         |
 | valueStyle       | Set value section style       | CSSProperties        | -       |         |
 
-#### Statistic.Countdown
+#### Statistic.Timer
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -55,7 +55,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | valueStyle | Set value section style | CSSProperties | - |  |
 | onFinish | Trigger when time's up | () => void | - |  |
 | onChange | Trigger when time's changing | (value: number) => void | - | 4.16.0 |
-| reverse | reverse time counter | boolean | false | 5.24.7 |
+| type | time counter down or up | `countdown` `countup` | - | 5.25.0 |
 
 ## Design Token
 
