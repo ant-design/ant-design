@@ -27,7 +27,7 @@ export interface FloatButtonProps extends React.DOMAttributes<FloatButtonElement
   description?: React.ReactNode;
   type?: FloatButtonType;
   shape?: FloatButtonShape;
-  tooltip?: TooltipProps['title'];
+  tooltip?: React.ReactNode | TooltipProps;
   href?: string;
   target?: React.HTMLAttributeAnchorTarget;
   badge?: FloatButtonBadgeProps;

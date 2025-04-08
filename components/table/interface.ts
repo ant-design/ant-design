@@ -242,6 +242,8 @@ export interface TableRowSelection<T = AnyObject> {
   columnWidth?: string | number;
   columnTitle?: React.ReactNode | ((checkboxNode: React.ReactNode) => React.ReactNode);
   checkStrictly?: boolean;
+  /** Set the alignment of the selection column */
+  align?: 'left' | 'center' | 'right';
   renderCell?: (
     value: boolean,
     record: T,
