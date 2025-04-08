@@ -9,6 +9,7 @@ const locales = {
     root: '根元素',
     section: '区域元素',
     header: '头部元素',
+    title: '标题元素',
     body: '内容元素',
     list: '列表元素',
     listItem: '列表项元素',
@@ -19,6 +20,7 @@ const locales = {
     root: 'Root element',
     section: 'Section element',
     header: 'Header element',
+    title: 'Title element',
     body: 'Body element',
     list: 'List element',
     listItem: 'List Item element',
@@ -41,6 +43,7 @@ const App: React.FC = () => {
         { name: 'root', desc: locale.root },
         { name: 'section', desc: locale.section },
         { name: 'header', desc: locale.header },
+        { name: 'title', desc: locale.title },
         { name: 'body', desc: locale.body },
         { name: 'list', desc: locale.list },
         { name: 'listItem', desc: locale.listItem },
@@ -50,6 +53,7 @@ const App: React.FC = () => {
     >
       <Transfer
         showSearch
+        titles={['Source', 'Target']}
         dataSource={mockData}
         selectedKeys={[]}
         targetKeys={[3, 9]}
@@ -58,6 +62,7 @@ const App: React.FC = () => {
         styles={{
           section: {
             height: 250,
+            width: 200,
           },
         }}
       />

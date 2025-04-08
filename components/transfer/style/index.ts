@@ -185,8 +185,9 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
 
         '&-title': {
           ...textEllipsis,
-          flex: 'auto',
+          flex: 'none',
           textAlign: 'end',
+          marginInlineStart: 'auto',
         },
 
         '&-dropdown': {

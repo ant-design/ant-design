@@ -426,7 +426,12 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
         <span className={`${listPrefixCls}-header-selected`}>
           {getSelectAllLabel(checkedActiveItems.length, filteredItems.length)}
         </span>
-        <span className={`${listPrefixCls}-header-title`}>{titleText}</span>
+        <span
+          className={classnames(`${listPrefixCls}-header-title`, classNames.title)}
+          style={styles.title}
+        >
+          {titleText}
+        </span>
       </div>
       {listBody}
       {listFooter}

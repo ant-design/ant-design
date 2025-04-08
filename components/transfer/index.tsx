@@ -32,6 +32,7 @@ export type SemanticName =
   | 'root'
   | 'section'
   | 'header'
+  | 'title'
   | 'body'
   | 'list'
   | 'listItem'
