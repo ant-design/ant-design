@@ -47,7 +47,7 @@ demo:
 #### Statistic.Countdown
 
 <!-- prettier-ignore -->
-:::info{title=已废弃}
+:::warning{title=已废弃}
 请使用 Statistic.Timer 作为替代方案。
 :::
 

@@ -46,7 +46,7 @@ Common props ref：[Common props](/docs/react/common-props)
 #### Statistic.Countdown
 
 <!-- prettier-ignore -->
-:::info{title=Deprecated}
+:::warning{title=Deprecated}
 Please use Statistic.Timer instead.
 :::
 
