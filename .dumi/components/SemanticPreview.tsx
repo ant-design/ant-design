@@ -3,6 +3,7 @@ import React from 'react';
 import { Col, ConfigProvider, Flex, Popover, Row, Tag, theme, Typography } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classnames from 'classnames';
+import { InfoCircleOutlined } from '@ant-design/icons';
 
 const MARK_BORDER_SIZE = 2;
 
@@ -66,7 +67,7 @@ const useStyle = createStyles(({ token }, markPos: [number, number, number, numb
 }));
 
 export interface SemanticPreviewProps {
-  componentName?: string;
+  componentName: string;
   semantics: { name: string; desc: string; version?: string }[];
   children: React.ReactElement<any>;
   height?: number;
@@ -146,13 +147,26 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
         <Col span={8}>
           <ul className={classnames(styles.listWrap)}>
             {semantics.map<React.ReactNode>((semantic) => (
-              <Popover
+              <li
                 key={semantic.name}
-                content={
-                  <Typography style={{ fontSize: 12, minWidth: 300 }}>
-                    <pre dir="ltr">
-                      <code dir="ltr">
-                        {`<${componentName}
+                className={classnames(styles.listItem)}
+                onMouseEnter={() => setHoverSemantic(semantic.name)}
+                onMouseLeave={() => setHoverSemantic(null)}
+              >
+                <Flex vertical gap="small">
+                  <Flex gap="small" align="center" justify="space-between">
+                    <Flex gap="small" align="center">
+                      <Typography.Title level={5} style={{ margin: 0 }}>
+                        {semantic.name}
+                      </Typography.Title>
+                      {semantic.version && <Tag color="blue">{semantic.version}</Tag>}
+                    </Flex>
+                    <Popover
+                      content={
+                        <Typography style={{ fontSize: 12, minWidth: 300 }}>
+                          <pre dir="ltr">
+                            <code dir="ltr">
+                              {`<${componentName}
   classNames={{
     ${semantic.name}: 'my-${componentName.toLowerCase()}',
   }}
@@ -162,29 +176,21 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
 >
   ...
 </${componentName}>`}
-                      </code>
-                    </pre>
-                  </Typography>
-                }
-              >
-                <li
-                  className={classnames(styles.listItem)}
-                  onMouseEnter={() => setHoverSemantic(semantic.name)}
-                  onMouseLeave={() => setHoverSemantic(null)}
-                >
-                  <Flex vertical gap="small">
-                    <Flex gap="small" align="center">
-                      <Typography.Title level={5} style={{ margin: 0 }}>
-                        {semantic.name}
-                      </Typography.Title>
-                      {semantic.version && <Tag color="blue">{semantic.version}</Tag>}
-                    </Flex>
-                    <Typography.Paragraph style={{ margin: 0, fontSize: token.fontSizeSM }}>
-                      {semantic.desc}
-                    </Typography.Paragraph>
+                            </code>
+                          </pre>
+                        </Typography>
+                      }
+                    >
+                      <InfoCircleOutlined
+                        style={{ cursor: 'pointer', color: token.colorTextSecondary }}
+                      />
+                    </Popover>
                   </Flex>
-                </li>
-              </Popover>
+                  <Typography.Paragraph style={{ margin: 0, fontSize: token.fontSizeSM }}>
+                    {semantic.desc}
+                  </Typography.Paragraph>
+                </Flex>
+              </li>
             ))}
           </ul>
         </Col>

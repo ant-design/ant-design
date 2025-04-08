@@ -34,8 +34,7 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token, css }) => {
-  const { isMobile } = React.use(SiteContext);
+const useStyle = createStyles(({ token, css }, isMobile: boolean) => {
   const background = new FastColor(getAlphaColor('#f0f3fa', '#fff'))
     .onBackground(token.colorBgContainer)
     .toHexString();
@@ -84,7 +83,8 @@ const useStyle = createStyles(({ token, css }) => {
 const Footer: React.FC = () => {
   const location = useLocation();
   const [locale, lang] = useLocale(locales);
-  const { styles } = useStyle();
+  const { isMobile } = React.use(SiteContext);
+  const { styles } = useStyle(isMobile);
 
   const { getLink } = location;
 
