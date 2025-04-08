@@ -13,7 +13,6 @@ describe('Test copy', () => {
       writable: true,
     });
 
-    jest.spyOn(global.console, 'warn');
     jest.spyOn(global.console, 'error');
 
     (global as any).ClipboardItem = class {
@@ -68,7 +67,9 @@ describe('Test copy', () => {
     const mockWrite = jest.fn().mockImplementation(() => Promise.resolve());
     navigator.clipboard.write = mockWrite;
     const result = copy(0 as any);
-    expect(console.warn).toHaveBeenLastCalledWith('The clipboard content must be of string type');
+    expect((console.error as any).mock.lastCall[0]).toContain(
+      'The clipboard content must be of string type',
+    );
     expect(result).toBe(false);
   });
 
