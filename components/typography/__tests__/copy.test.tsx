@@ -258,7 +258,6 @@ describe('Typography copy', () => {
       const copyBtn = wrapper.querySelectorAll('.ant-typography-copy')[0];
       fireEvent.click(copyBtn);
       expect(spy.mock.calls[0][0]).toEqual(originText);
-
       await waitFakeTimer();
       spy.mockReset();
       fireEvent.click(copyBtn);
@@ -369,6 +368,7 @@ describe('Typography copy', () => {
 
     // Check copy content
     expect(spy.mock.calls[0][0]).toBe(`${bamboo}${little}`);
+
     spy.mockRestore();
   });
 });
