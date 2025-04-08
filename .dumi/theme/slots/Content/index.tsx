@@ -89,6 +89,7 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
                 component={meta.frontmatter.title}
                 filename={meta.frontmatter.filename}
                 version={meta.frontmatter.tag}
+                designUrl={meta.frontmatter.designUrl}
               />
             )}
           <div style={{ minHeight: 'calc(100vh - 64px)' }}>{children}</div>

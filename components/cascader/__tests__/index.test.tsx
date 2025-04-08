@@ -93,13 +93,11 @@ describe('Cascader', () => {
   });
 
   it('popup correctly when panel is open', () => {
-    const onPopupVisibleChange = jest.fn();
-    const { container } = render(
-      <Cascader options={options} onPopupVisibleChange={onPopupVisibleChange} />,
-    );
+    const onOpenChange = jest.fn();
+    const { container } = render(<Cascader options={options} onOpenChange={onOpenChange} />);
     toggleOpen(container);
     expect(isOpen(container)).toBeTruthy();
-    expect(onPopupVisibleChange).toHaveBeenCalledWith(true);
+    expect(onOpenChange).toHaveBeenCalledWith(true);
   });
 
   it('support controlled mode', () => {

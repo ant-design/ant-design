@@ -321,11 +321,18 @@ createRoot(document.getElementById('container')).render(<Demo />);
   const stackblitzPrefillConfig: Project = {
     title: `${localizedTitle} - antd@${dependencies.antd}`,
     template: 'create-react-app',
-    dependencies,
+    dependencies:{
+      ...dependencies,
+      react: '^19.0.0',
+      'react-dom': '^19.0.0',
+      '@types/react': '^19.0.0',
+      '@types/react-dom': '^19.0.0',
+      '@ant-design/v5-patch-for-react-19': '^1.0.3'
+    },
     description: '',
     files: {
       'index.css': indexCssContent,
-      [`index.${suffix}`]: indexJsContent,
+      [`index.${suffix}`]: `import '@ant-design/v5-patch-for-react-19';\n${indexJsContent}`,
       [`demo.${suffix}`]: demoJsContent,
       'index.html': html,
     },
