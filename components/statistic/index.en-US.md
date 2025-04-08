@@ -43,7 +43,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | value            | Display value                 | string \| number     | -       |         |
 | valueStyle       | Set value section style       | CSSProperties        | -       |         |
 
-#### Statistic.Countdown[deprecated]
+#### Statistic.Countdown-deprecated
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -56,7 +56,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onFinish | Trigger when time's up | () => void | - |  |
 | onChange | Trigger when time's changing | (value: number) => void | - | 4.16.0 |
 
-#### Statistic.Timer[new]
+#### Statistic.Timer-new
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |

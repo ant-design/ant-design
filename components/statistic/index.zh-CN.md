@@ -44,7 +44,7 @@ demo:
 | value            | 数值内容           | string \| number     | -      |       |
 | valueStyle       | 设置数值区域的样式 | CSSProperties        | -      |       |
 
-#### Statistic.Countdown[废弃]
+#### Statistic.Countdown-废弃
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -57,7 +57,7 @@ demo:
 | onFinish | 倒计时完成时触发 | () => void | - |  |
 | onChange | 倒计时时间变化时触发 | (value: number) => void | - |  |
 
-#### Statistic.Timer[替代 Countdown]
+#### Statistic.Timer-替代 Countdown
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |

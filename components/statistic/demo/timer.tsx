@@ -20,7 +20,7 @@ const onChange: StatisticTimerProps['onChange'] = (val) => {
 const App: React.FC = () => (
   <Row gutter={16}>
     <Col span={12}>
-      <Timer type="countdown" title="Countdown" value={deadline} onFinish={onFinish} />
+      <Timer type="countdown" value={deadline} onFinish={onFinish} />
     </Col>
     <Col span={12}>
       <Timer type="countdown" title="Million Seconds" value={deadline} format="HH:mm:ss:SSS" />

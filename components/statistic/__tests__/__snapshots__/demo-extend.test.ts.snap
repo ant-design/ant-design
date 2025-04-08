@@ -529,11 +529,6 @@ exports[`renders components/statistic/demo/timer.tsx extend context correctly 1`
       class="ant-statistic"
     >
       <div
-        class="ant-statistic-title"
-      >
-        Countdown
-      </div>
-      <div
         class="ant-statistic-content"
       >
         <span
