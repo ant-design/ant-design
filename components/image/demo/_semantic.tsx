@@ -23,7 +23,7 @@ const locales = {
     'popup.mask': '预览遮罩元素',
     'popup.body': '预览内容元素',
     'popup.footer': '预览页脚元素',
-    'popup.actions': '预览操作组',
+    'popup.actions': '预览操作组元素',
   },
   en: {
     root: 'Root element',
@@ -33,7 +33,7 @@ const locales = {
     'popup.mask': 'Preview mask element',
     'popup.body': 'Preview body element',
     'popup.footer': 'Preview footer element',
-    'popup.actions': 'Preview actions group',
+    'popup.actions': 'Preview actions group element',
   },
 };
 
