@@ -143,7 +143,6 @@ describe('Image', () => {
       cover: { color: 'blue' },
     };
     const previewClassNames = {
-      cover: 'preview-cover',
       root: 'preview-root',
       mask: 'preview-mask',
       body: 'preview-body',
@@ -151,7 +150,6 @@ describe('Image', () => {
       actions: 'preview-actions',
     };
     const previewStyles = {
-      cover: { color: 'red' },
       root: { color: 'yellow' },
       mask: { color: 'blue' },
       body: { color: 'green' },
@@ -162,11 +160,15 @@ describe('Image', () => {
     render(
       <Image
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-        classNames={customClassNames}
-        styles={customStyles}
+        classNames={{
+          ...customClassNames,
+          popup: previewClassNames,
+        }}
+        styles={{
+          ...customStyles,
+          popup: previewStyles,
+        }}
         preview={{
-          classNames: previewClassNames,
-          styles: previewStyles,
           open: true,
         }}
       />,
@@ -179,8 +181,8 @@ describe('Image', () => {
     expect(document.querySelector('.ant-image-img')).toHaveClass(customClassNames.image);
     expect(document.querySelector('.ant-image-img')).toHaveStyle(customStyles.image);
 
-    expect(document.querySelector('.ant-image-cover')).toHaveClass(previewClassNames.cover);
-    expect(document.querySelector('.ant-image-cover')).toHaveStyle(previewStyles.cover);
+    expect(document.querySelector('.ant-image-cover')).toHaveClass(customClassNames.cover);
+    expect(document.querySelector('.ant-image-cover')).toHaveStyle(customStyles.cover);
 
     // Match classnames and styles: Preview
     expect(document.querySelector('.ant-image-preview')).toHaveClass(previewClassNames.root);

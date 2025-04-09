@@ -1,9 +1,12 @@
 /* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
 import React from 'react';
+import { InfoCircleOutlined } from '@ant-design/icons';
+import get from '@rc-component/util/lib/utils/get';
+import set from '@rc-component/util/lib/utils/set';
 import { Col, ConfigProvider, Flex, Popover, Row, Tag, theme, Typography } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classnames from 'classnames';
-import { InfoCircleOutlined } from '@ant-design/icons';
+import Prism from 'prismjs';
 
 const MARK_BORDER_SIZE = 2;
 
@@ -69,6 +72,48 @@ const useStyle = createStyles(({ token }, markPos: [number, number, number, numb
   `,
 }));
 
+function getSemanticCells(semanticPath: string) {
+  return semanticPath.split('.');
+}
+
+function HighlightExample(props: { componentName: string; semanticName: string }) {
+  const { componentName, semanticName } = props;
+
+  const highlightCode = React.useMemo(() => {
+    const classNames = set({}, getSemanticCells(semanticName), `my-classname`);
+    const styles = set({}, getSemanticCells(semanticName), { color: 'red' });
+
+    function format(obj: object) {
+      const str = JSON.stringify(obj, null, 2);
+      return (
+        str
+          // Add space
+          .split('\n')
+          .map((line) => `  ${line}`)
+          .join('\n')
+          .trim()
+          // Replace quotes
+          .replace(/"/g, "'")
+          // Remove key quotes
+          .replace(/'([^']+)':/g, '$1:')
+      );
+    }
+
+    const code = `
+<${componentName}
+  classNames={${format(classNames)}}
+  styles={${format(styles)}}
+/>`.trim();
+
+    return Prism.highlight(code, Prism.languages.javascript, 'jsx');
+  }, [componentName, semanticName]);
+
+  return (
+    // biome-ignore lint: lint/security/noDangerouslySetInnerHtml
+    <div dangerouslySetInnerHTML={{ __html: highlightCode }} />
+  );
+}
+
 export interface SemanticPreviewProps {
   componentName: string;
   semantics: { name: string; desc: string; version?: string }[];
@@ -88,10 +133,11 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
   );
 
   const semanticClassNames = React.useMemo<Record<string, string>>(() => {
-    const classNames: Record<string, string> = {};
+    let classNames: Record<string, string> = {};
 
     semantics.forEach((semantic) => {
-      classNames[semantic.name] = getMarkClassName(semantic.name);
+      const pathCell = getSemanticCells(semantic.name);
+      classNames = set(classNames, pathCell, getMarkClassName(semantic.name));
     });
 
     return classNames;
@@ -142,8 +188,12 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
       return semanticClassNames;
     }
 
-    const clone = { ...semanticClassNames };
-    clone[hoverSemantic] = classnames(clone[hoverSemantic], getMarkClassName('active'));
+    const hoverCell = getSemanticCells(hoverSemantic);
+    const clone = set(
+      semanticClassNames,
+      hoverCell,
+      classnames(get(semanticClassNames, hoverCell), getMarkClassName('active')),
+    );
 
     return clone;
   }, [semanticClassNames, hoverSemantic]);
@@ -184,16 +234,10 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
                         <Typography style={{ fontSize: 12, minWidth: 300 }}>
                           <pre dir="ltr">
                             <code dir="ltr">
-                              {`<${componentName}
-  classNames={{
-    ${semantic.name}: 'my-${componentName.toLowerCase()}',
-  }}
-  styles={{
-    ${semantic.name}: { color: 'red' },
-  }}
->
-  ...
-</${componentName}>`}
+                              <HighlightExample
+                                componentName={componentName}
+                                semanticName={semantic.name}
+                              />
                             </code>
                           </pre>
                         </Typography>

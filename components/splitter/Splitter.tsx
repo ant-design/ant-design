@@ -13,7 +13,7 @@ import useItems from './hooks/useItems';
 import useResizable from './hooks/useResizable';
 import useResize from './hooks/useResize';
 import useSizes from './hooks/useSizes';
-import type { SplitterProps } from './interface';
+import type { SplitterProps, SplitterSemanticDraggerClassNames } from './interface';
 import { InternalPanel } from './Panel';
 import SplitBar from './SplitBar';
 import useStyle from './style';
@@ -136,6 +136,13 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
+    {
+      // Convert `classNames.dragger: 'a'` to
+      // `classNames.dragger: { default: 'a' }`
+      dragger: {
+        _default: 'default',
+      },
+    },
   );
 
   const containerClassName = cls(
@@ -209,7 +216,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 vertical={isVertical}
                 resizable={resizableInfo.resizable}
                 draggerStyle={mergedStyles.dragger}
-                draggerClassName={mergedClassNames.dragger}
+                draggerClassName={mergedClassNames.dragger as SplitterSemanticDraggerClassNames}
                 draggerIcon={draggerIcon}
                 collapsibleIcon={collapsibleIcon}
                 ariaNow={stackSizes[idx] * 100}

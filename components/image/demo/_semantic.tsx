@@ -18,22 +18,22 @@ const locales = {
   cn: {
     root: '根元素',
     image: '图片元素',
-    'preview.cover': '悬浮提示元素',
-    'preview.root': '预览根元素',
-    'preview.mask': '预览遮罩元素',
-    'preview.body': '预览内容元素',
-    'preview.footer': '预览页脚元素',
-    'preview.actions': '预览操作组',
+    cover: '悬浮图片显示的提示元素',
+    'popup.root': '预览根元素',
+    'popup.mask': '预览遮罩元素',
+    'popup.body': '预览内容元素',
+    'popup.footer': '预览页脚元素',
+    'popup.actions': '预览操作组元素',
   },
   en: {
     root: 'Root element',
     image: 'Image element',
-    'preview.cover': 'Cover element',
-    'preview.root': 'Preview root element',
-    'preview.mask': 'Preview mask element',
-    'preview.body': 'Preview body element',
-    'preview.footer': 'Preview footer element',
-    'preview.actions': 'Preview actions group',
+    cover: 'Image hover display prompt element',
+    'popup.root': 'Preview root element',
+    'popup.mask': 'Preview mask element',
+    'popup.body': 'Preview body element',
+    'popup.footer': 'Preview footer element',
+    'popup.actions': 'Preview actions group element',
   },
 };
 
@@ -43,22 +43,6 @@ const Block = ({ classNames, ...restProps }: any) => {
   const { token } = theme.useToken();
 
   const { styles } = useStyle();
-
-  const [propClassNames, previewClassNames] = React.useMemo(() => {
-    const previewPrefix = 'preview.';
-    const nextPropClassNames: Record<string, string> = {};
-    const nextPreviewClassNames: Record<string, string> = {};
-    if (classNames) {
-      Object.keys(classNames).forEach((key) => {
-        if (key.startsWith(previewPrefix)) {
-          nextPreviewClassNames[key.replace(previewPrefix, '')] = classNames[key];
-        } else {
-          nextPropClassNames[key] = classNames[key];
-        }
-      });
-    }
-    return [nextPropClassNames, nextPreviewClassNames];
-  }, [classNames]);
 
   return (
     <Flex
@@ -73,13 +57,12 @@ const Block = ({ classNames, ...restProps }: any) => {
         <Image
           width={200}
           src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-          classNames={propClassNames}
+          classNames={{
+            ...classNames,
+            cover: classnames(classNames.cover, styles.cover),
+          }}
           preview={{
             getContainer: () => holderRef.current,
-            classNames: {
-              ...previewClassNames,
-              cover: classnames(previewClassNames.cover, styles.cover),
-            },
           }}
           {...restProps}
         />
@@ -90,13 +73,15 @@ const Block = ({ classNames, ...restProps }: any) => {
             'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
             'https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg',
           ]}
+          classNames={classNames}
+          styles={{
+            popup: {
+              root: { position: 'absolute' },
+            },
+          }}
           preview={{
             getContainer: () => holderRef.current!,
             open: true,
-            styles: {
-              root: { position: 'absolute' },
-            },
-            classNames: previewClassNames,
           }}
         />
       </div>
@@ -113,12 +98,12 @@ const App: React.FC = () => {
       semantics={[
         { name: 'root', desc: locale.root },
         { name: 'image', desc: locale.image },
-        { name: 'preview.cover', desc: locale['preview.cover'] },
-        { name: 'preview.root', desc: locale['preview.root'] },
-        { name: 'preview.mask', desc: locale['preview.mask'] },
-        { name: 'preview.body', desc: locale['preview.body'] },
-        { name: 'preview.footer', desc: locale['preview.footer'] },
-        { name: 'preview.actions', desc: locale['preview.actions'] },
+        { name: 'cover', desc: locale.cover },
+        { name: 'popup.root', desc: locale['popup.root'] },
+        { name: 'popup.mask', desc: locale['popup.mask'] },
+        { name: 'popup.body', desc: locale['popup.body'] },
+        { name: 'popup.footer', desc: locale['popup.footer'] },
+        { name: 'popup.actions', desc: locale['popup.actions'] },
       ]}
     >
       <Block />

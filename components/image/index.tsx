@@ -95,30 +95,14 @@ const Image: CompositionImage<ImageProps> = (props) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, imageClassNames],
-    [
-      contextStyles,
-      {
-        root: wrapperStyle,
-      },
-      styles,
-    ],
-  );
-
   const mergedRootClassName = classnames(rootClassName, hashId, cssVarCls, rootCls);
 
   const mergedClassName = classnames(className, hashId, contextClassName);
 
   // ============================= Preview ==============================
-  const previewConfig = usePreviewConfig(preview);
-  const contextPreviewConfig = usePreviewConfig(contextPreview);
-
-  // Preview semantic
-  const [mergedPreviewClassNames, mergedPreviewStyles] = useMergeSemantic(
-    [contextPreviewConfig?.classNames, previewConfig?.classNames],
-    [contextPreviewConfig?.styles, previewConfig?.styles],
-  );
+  const [previewConfig, previewRootClassName, previewMaskClassName] = usePreviewConfig(preview);
+  const [contextPreviewConfig, contextPreviewRootClassName, contextPreviewMaskClassName] =
+    usePreviewConfig(contextPreview);
 
   const mergedPreviewConfig = useMergedPreviewConfig(
     // Preview config
@@ -128,8 +112,6 @@ const Image: CompositionImage<ImageProps> = (props) => {
     // MISC
     prefixCls,
     mergedRootClassName,
-    mergedPreviewClassNames,
-    mergedPreviewStyles,
     getContextPopupContainer,
     icons,
 
@@ -140,8 +122,41 @@ const Image: CompositionImage<ImageProps> = (props) => {
     </div>,
   );
 
+  // ============================= Semantic =============================
+  const mergedLegacyClassNames = React.useMemo(
+    () => ({
+      cover: classnames(contextPreviewMaskClassName, previewMaskClassName),
+      popup: {
+        root: classnames(contextPreviewRootClassName, previewRootClassName),
+      },
+    }),
+    [
+      previewRootClassName,
+      previewMaskClassName,
+      contextPreviewRootClassName,
+      contextPreviewMaskClassName,
+    ],
+  );
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, imageClassNames, mergedLegacyClassNames],
+    [
+      contextStyles,
+      {
+        root: wrapperStyle,
+      },
+      styles,
+    ],
+    {
+      popup: {
+        _default: 'root',
+      },
+    },
+  );
+
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
+  // ============================== Render ==============================
   return (
     <RcImage
       prefixCls={prefixCls}
@@ -149,9 +164,9 @@ const Image: CompositionImage<ImageProps> = (props) => {
       rootClassName={mergedRootClassName}
       className={mergedClassName}
       style={mergedStyle}
+      {...otherProps}
       classNames={mergedClassNames}
       styles={mergedStyles}
-      {...otherProps}
     />
   );
 };

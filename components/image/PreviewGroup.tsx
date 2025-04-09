@@ -48,6 +48,8 @@ export interface PreviewGroupProps extends Omit<RcPreviewGroupProps, 'preview'> 
 const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
   previewPrefixCls: customizePrefixCls,
   preview,
+  classNames,
+  styles,
   ...otherProps
 }) => {
   // =============================== MISC ===============================
@@ -56,6 +58,8 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
     getPrefixCls,
     getPopupContainer: getContextPopupContainer,
     preview: contextPreview,
+    classNames: contextClassNames,
+    styles: contextStyles,
   } = useComponentConfig('image');
 
   const prefixCls = getPrefixCls('image', customizePrefixCls);
@@ -68,13 +72,34 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
   const mergedRootClassName = classnames(hashId, cssVarCls, rootCls);
 
   // ============================= Preview ==============================
-  const previewConfig = usePreviewConfig(preview);
-  const contextPreviewConfig = usePreviewConfig(contextPreview);
+  const [previewConfig, previewRootClassName, previewMaskClassName] = usePreviewConfig(preview);
+  const [contextPreviewConfig, contextPreviewRootClassName, contextPreviewMaskClassName] =
+    usePreviewConfig(contextPreview);
 
-  // Preview semantic
-  const [mergedPreviewClassNames, mergedPreviewStyles] = useMergeSemantic(
-    [contextPreviewConfig?.classNames, previewConfig?.classNames],
-    [contextPreviewConfig?.styles, previewConfig?.styles],
+  // ============================ Semantics =============================
+  const mergedLegacyClassNames = React.useMemo(
+    () => ({
+      cover: classnames(contextPreviewMaskClassName, previewMaskClassName),
+      popup: {
+        root: classnames(contextPreviewRootClassName, previewRootClassName),
+      },
+    }),
+    [
+      previewRootClassName,
+      previewMaskClassName,
+      contextPreviewRootClassName,
+      contextPreviewMaskClassName,
+    ],
+  );
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames, mergedLegacyClassNames],
+    [contextStyles, styles],
+    {
+      popup: {
+        _default: 'root',
+      },
+    },
   );
 
   const mergedPreview = useMergedPreviewConfig(
@@ -85,8 +110,6 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
     // MISC
     prefixCls,
     mergedRootClassName,
-    mergedPreviewClassNames,
-    mergedPreviewStyles,
     getContextPopupContainer,
     icons,
   );
@@ -97,6 +120,8 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
       previewPrefixCls={previewPrefixCls}
       icons={icons}
       {...otherProps}
+      classNames={mergedClassNames}
+      styles={mergedStyles}
     />
   );
 };

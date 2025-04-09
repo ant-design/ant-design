@@ -1,13 +1,13 @@
 // ================ outside ================
+export interface SplitterSemanticDraggerClassNames {
+  default?: string;
+  active?: string;
+}
+
 export interface SplitterSemanticClassNames {
   root?: string;
   panel?: string;
-  dragger:
-    | string
-    | {
-        default?: string;
-        active?: string;
-      };
+  dragger: string | SplitterSemanticDraggerClassNames;
 }
 
 export interface SplitterProps {

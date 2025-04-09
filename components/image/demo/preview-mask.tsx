@@ -6,10 +6,12 @@ const App: React.FC = () => (
   <Image
     width={96}
     src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-    preview={{
-      classNames: {
+    classNames={{
+      popup: {
         mask: 'customize-mask',
       },
+    }}
+    preview={{
       cover: (
         <Space direction="vertical" align="center">
           <ZoomInOutlined />
