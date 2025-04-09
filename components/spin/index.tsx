@@ -11,7 +11,7 @@ import usePercent from './usePercent';
 const _SpinSizes = ['small', 'default', 'large'] as const;
 export type SpinSize = (typeof _SpinSizes)[number];
 export type SpinIndicator = React.ReactElement<HTMLElement>;
-type SemanticName = 'root' | 'mask' | 'indicator';
+type SemanticName = 'root' | 'wrap' | 'mask' | 'indicator';
 export interface SpinProps {
   /** Customize prefix class name */
   prefixCls?: string;
@@ -147,6 +147,7 @@ const Spin: SpinType = (props) => {
   const mergedIndicator = indicator ?? contextIndicator ?? defaultIndicator;
 
   const rootStyle: React.CSSProperties = { ...contextStyles.root, ...styles?.root };
+  const wrapStyle: React.CSSProperties = { ...contextStyles.wrap, ...styles?.wrap };
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
   const spinElement: React.ReactNode = (
@@ -175,6 +176,7 @@ const Spin: SpinType = (props) => {
       <div
         {...restProps}
         className={classNames(`${prefixCls}-nested-loading`, wrapperClassName, hashId, cssVarCls)}
+        style={wrapStyle}
       >
         {spinning && <div key="loading">{spinElement}</div>}
         <div className={containerClassName} key="container">
