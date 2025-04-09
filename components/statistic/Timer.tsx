@@ -24,48 +24,39 @@ function getTime(value?: valueType) {
 
 const StatisticTimer: React.FC<StatisticTimerProps> = (props) => {
   const { value, format = 'HH:mm:ss', onChange, onFinish, type, ...rest } = props;
+  const down = type === 'countdown';
 
   const forceUpdate = useForceUpdate();
 
-  const counter = React.useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const stopTimer = () => {
-    onFinish?.();
-    if (counter.current) {
-      clearInterval(counter.current);
-      counter.current = null;
-    }
-  };
-
-  const syncTimer = () => {
+  React.useEffect(() => {
     const timestamp = getTime(value);
     const now = Date.now();
-    const down = type === 'countdown';
+    let counter: NodeJS.Timeout;
+
     if ((down && timestamp >= now) || (!down && timestamp <= now)) {
-      counter.current = setInterval(() => {
+      counter = setInterval(() => {
         const now = Date.now();
         forceUpdate();
         const timeDiff = !down ? now - timestamp : timestamp - now;
         onChange?.(timeDiff);
         if (down && timestamp < now) {
-          stopTimer();
+          onFinish?.();
+          if (counter) {
+            clearInterval(counter);
+          }
         }
       }, REFRESH_INTERVAL);
     }
-  };
 
-  React.useEffect(() => {
-    syncTimer();
     return () => {
-      if (counter.current) {
-        clearInterval(counter.current);
-        counter.current = null;
+      if (counter) {
+        clearInterval(counter);
       }
     };
   }, [value]);
 
   const formatter: StatisticProps['formatter'] = (formatValue, config) =>
-    formatCounter(formatValue, { ...config, format }, type === 'countdown');
+    formatCounter(formatValue, { ...config, format }, down);
 
   const valueRender: StatisticProps['valueRender'] = (node) =>
     cloneElement(node, { title: undefined });
