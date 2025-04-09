@@ -28,6 +28,19 @@ const StatisticTimer: React.FC<StatisticTimerProps> = (props) => {
 
   const forceUpdate = useForceUpdate();
 
+  const interval = (timestamp: number, counter: NodeJS.Timeout) => {
+    const now = Date.now();
+    forceUpdate();
+    const timeDiff = !down ? now - timestamp : timestamp - now;
+    onChange?.(timeDiff);
+    if (down && timestamp < now) {
+      onFinish?.();
+      if (counter) {
+        clearInterval(counter);
+      }
+    }
+  };
+
   React.useEffect(() => {
     const timestamp = getTime(value);
     const now = Date.now();
@@ -35,16 +48,7 @@ const StatisticTimer: React.FC<StatisticTimerProps> = (props) => {
 
     if ((down && timestamp >= now) || (!down && timestamp <= now)) {
       counter = setInterval(() => {
-        const now = Date.now();
-        forceUpdate();
-        const timeDiff = !down ? now - timestamp : timestamp - now;
-        onChange?.(timeDiff);
-        if (down && timestamp < now) {
-          onFinish?.();
-          if (counter) {
-            clearInterval(counter);
-          }
-        }
+        interval(timestamp, counter);
       }, REFRESH_INTERVAL);
     }
 
