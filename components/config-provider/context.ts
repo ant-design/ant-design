@@ -23,7 +23,7 @@ import type { EmptyProps } from '../empty';
 import type { FlexProps } from '../flex/interface';
 import type { FloatButtonGroupProps } from '../float-button/interface';
 import type { FormProps } from '../form/Form';
-import type { ImagePreviewType, ImageProps } from '../image';
+import type { ImageProps } from '../image';
 import type { InputProps, TextAreaProps } from '../input';
 import type { InputNumberProps } from '../input-number';
 import type { ListItemProps } from '../list';
