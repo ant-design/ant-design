@@ -4,7 +4,7 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import type { DialogProps } from 'rc-dialog';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
-import { HTMLAriaDataAttributes } from '../aria-data-attrs';
+import type { HTMLAriaDataAttributes } from '../aria-data-attrs';
 
 export type ClosableType = DialogProps['closable'];
 
