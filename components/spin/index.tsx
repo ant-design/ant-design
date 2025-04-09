@@ -11,7 +11,7 @@ import usePercent from './usePercent';
 const _SpinSizes = ['small', 'default', 'large'] as const;
 export type SpinSize = (typeof _SpinSizes)[number];
 export type SpinIndicator = React.ReactElement<HTMLElement>;
-type SemanticName = 'root' | 'wrap' | 'mask' | 'indicator';
+type SemanticName = 'root' | 'wrapper' | 'mask' | 'indicator';
 export interface SpinProps {
   /** Customize prefix class name */
   prefixCls?: string;
@@ -147,7 +147,7 @@ const Spin: SpinType = (props) => {
   const mergedIndicator = indicator ?? contextIndicator ?? defaultIndicator;
 
   const rootStyle: React.CSSProperties = { ...contextStyles.root, ...styles?.root };
-  const wrapStyle: React.CSSProperties = { ...contextStyles.wrap, ...styles?.wrap };
+  const wrapStyle: React.CSSProperties = { ...contextStyles.wrapper, ...styles?.wrapper };
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
   const spinElement: React.ReactNode = (
