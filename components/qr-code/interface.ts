@@ -19,7 +19,7 @@ export type StatusRenderInfo = {
   onRefresh?: () => void;
 };
 
-type SemanticName = 'root' | 'mask';
+type SemanticName = 'root' | 'cover';
 export interface QRCodeProps extends QRProps, React.HTMLAttributes<HTMLDivElement> {
   type?: 'canvas' | 'svg';
   className?: string;

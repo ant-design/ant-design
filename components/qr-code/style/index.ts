@@ -40,7 +40,7 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
       position: 'relative',
       overflow: 'hidden',
 
-      [`& > ${componentCls}-mask`]: {
+      [`& > ${componentCls}-cover`]: {
         position: 'absolute',
         insetBlockStart: 0,
         insetInlineStart: 0,
