@@ -7,7 +7,7 @@ exports[`QRCode test custom status render 1`] = `
     style="background-color: transparent; width: 160px; height: 160px;"
   >
     <div
-      class="ant-qrcode-mask"
+      class="ant-qrcode-cover"
     >
       <div
         class="custom-expired"
@@ -34,7 +34,7 @@ exports[`QRCode test custom status render 1`] = `
     style="background-color: transparent; width: 160px; height: 160px;"
   >
     <div
-      class="ant-qrcode-mask"
+      class="ant-qrcode-cover"
     >
       <div
         class="custom-loading"
@@ -53,7 +53,7 @@ exports[`QRCode test custom status render 1`] = `
     style="background-color: transparent; width: 160px; height: 160px;"
   >
     <div
-      class="ant-qrcode-mask"
+      class="ant-qrcode-cover"
     >
       <div
         class="custom-scanned"

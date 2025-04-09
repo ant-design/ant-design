@@ -221,7 +221,7 @@ exports[`renders components/qr-code/demo/customStatusRender.tsx extend context c
     style="background-color: transparent; width: 160px; height: 160px;"
   >
     <div
-      class="ant-qrcode-mask"
+      class="ant-qrcode-cover"
     >
       <div
         class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -276,7 +276,7 @@ exports[`renders components/qr-code/demo/customStatusRender.tsx extend context c
     style="background-color: transparent; width: 160px; height: 160px;"
   >
     <div
-      class="ant-qrcode-mask"
+      class="ant-qrcode-cover"
     >
       <div>
         <span
@@ -343,7 +343,7 @@ exports[`renders components/qr-code/demo/customStatusRender.tsx extend context c
     style="background-color: transparent; width: 160px; height: 160px;"
   >
     <div
-      class="ant-qrcode-mask"
+      class="ant-qrcode-cover"
     >
       <div>
         <span
@@ -595,7 +595,7 @@ exports[`renders components/qr-code/demo/status.tsx extend context correctly 1`]
     style="background-color: transparent; width: 160px; height: 160px;"
   >
     <div
-      class="ant-qrcode-mask"
+      class="ant-qrcode-cover"
     >
       <div
         aria-busy="true"
@@ -635,7 +635,7 @@ exports[`renders components/qr-code/demo/status.tsx extend context correctly 1`]
     style="background-color: transparent; width: 160px; height: 160px;"
   >
     <div
-      class="ant-qrcode-mask"
+      class="ant-qrcode-cover"
     >
       <p
         class="ant-qrcode-expired"
@@ -685,7 +685,7 @@ exports[`renders components/qr-code/demo/status.tsx extend context correctly 1`]
     style="background-color: transparent; width: 160px; height: 160px;"
   >
     <div
-      class="ant-qrcode-mask"
+      class="ant-qrcode-cover"
     >
       <p
         class="ant-qrcode-scanned"

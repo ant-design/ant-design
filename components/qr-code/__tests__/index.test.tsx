@@ -193,12 +193,12 @@ describe('QRCode test', () => {
   it('should apply custom styles to QRCode', () => {
     const customClassNames = {
       root: 'custom-root',
-      mask: 'custom-mask',
+      cover: 'custom-cover',
     };
 
     const customStyles = {
-      root: { borderRadius: '50px' },
-      mask: { backgroundColor: 'blue' },
+      root: { color: 'red' },
+      cover: { color: 'blue' },
     };
 
     const { container } = render(
@@ -206,14 +206,14 @@ describe('QRCode test', () => {
     );
 
     const QRCodeElement = container.querySelector('.ant-qrcode') as HTMLElement;
-    const QRCodeMaskElement = container.querySelector('.ant-qrcode-mask') as HTMLElement;
+    const QRCodeCoverElement = container.querySelector('.ant-qrcode-cover') as HTMLElement;
 
     // check classNames
     expect(QRCodeElement.classList).toContain('custom-root');
-    expect(QRCodeMaskElement.classList).toContain('custom-mask');
+    expect(QRCodeCoverElement.classList).toContain('custom-cover');
 
     // check styles
-    expect(QRCodeElement.style.borderRadius).toBe('50px');
-    expect(QRCodeMaskElement.style.backgroundColor).toBe('blue');
+    expect(QRCodeElement.style.color).toBe('red');
+    expect(QRCodeCoverElement.style.color).toBe('blue');
   });
 });
