@@ -1,9 +1,11 @@
 /* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
 import React from 'react';
+import { InfoCircleOutlined } from '@ant-design/icons';
+import set from '@rc-component/util/lib/utils/set';
+import get from '@rc-component/util/lib/utils/get';
 import { Col, ConfigProvider, Flex, Popover, Row, Tag, theme, Typography } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classnames from 'classnames';
-import { InfoCircleOutlined } from '@ant-design/icons';
 
 const MARK_BORDER_SIZE = 2;
 
@@ -88,10 +90,11 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
   );
 
   const semanticClassNames = React.useMemo<Record<string, string>>(() => {
-    const classNames: Record<string, string> = {};
+    let classNames: Record<string, string> = {};
 
     semantics.forEach((semantic) => {
-      classNames[semantic.name] = getMarkClassName(semantic.name);
+      const pathCell = semantic.name.split('.');
+      classNames = set(classNames, pathCell, getMarkClassName(semantic.name));
     });
 
     return classNames;
@@ -142,8 +145,12 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
       return semanticClassNames;
     }
 
-    const clone = { ...semanticClassNames };
-    clone[hoverSemantic] = classnames(clone[hoverSemantic], getMarkClassName('active'));
+    const hoverCell = hoverSemantic.split('.');
+    const clone = set(
+      semanticClassNames,
+      hoverCell,
+      classnames(get(semanticClassNames, hoverCell), getMarkClassName('active')),
+    );
 
     return clone;
   }, [semanticClassNames, hoverSemantic]);

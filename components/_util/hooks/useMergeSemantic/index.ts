@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import { ValidChar } from './interface';
 
 type TemplateSemanticClassNames<T extends string> = Partial<Record<T, string>>;
-type SemanticStyles<T extends string> = Partial<Record<T, React.CSSProperties>>;
 
 export type SemanticSchema = {
   _default?: string;
@@ -44,18 +43,20 @@ export function mergeClassNames<
   }, {} as SemanticClassNames) as SemanticClassNames;
 }
 
-function useSemanticClassNames<
-  T extends string,
-  SemanticClassNames extends Partial<Record<T, any>> = TemplateSemanticClassNames<T>,
->(
+function useSemanticClassNames<ClassNamesType extends object>(
   schema: SemanticSchema | undefined,
-  ...classNames: (SemanticClassNames | undefined)[]
-): SemanticClassNames {
-  return React.useMemo(() => mergeClassNames(schema, ...classNames), [classNames]);
+  ...classNames: (Partial<ClassNamesType> | undefined)[]
+): Partial<ClassNamesType> {
+  return React.useMemo(
+    () => mergeClassNames(schema, ...classNames),
+    [classNames],
+  ) as ClassNamesType;
 }
 
 // =========================== Styles ===========================
-function useSemanticStyles<T extends string>(...styles: (SemanticStyles<T> | undefined)[]) {
+function useSemanticStyles<StylesType extends object>(
+  ...styles: (Partial<StylesType> | undefined)[]
+) {
   return React.useMemo(() => {
     return styles.reduce(
       (acc, cur = {}) => {
@@ -65,21 +66,18 @@ function useSemanticStyles<T extends string>(...styles: (SemanticStyles<T> | und
         return acc;
       },
       {} as Record<string, React.CSSProperties>,
-    ) as SemanticStyles<T>;
-  }, [styles]);
+    );
+  }, [styles]) as StylesType;
 }
 
 // =========================== Export ===========================
-export default function useMergeSemantic<
-  T extends string,
-  SemanticClassNames extends Partial<Record<T, any>> = TemplateSemanticClassNames<T>,
->(
-  classNamesList: (SemanticClassNames | undefined)[],
-  stylesList: (SemanticStyles<T> | undefined)[],
+export default function useMergeSemantic<ClassNamesType extends object, StylesType extends object>(
+  classNamesList: (ClassNamesType | undefined)[],
+  stylesList: (StylesType | undefined)[],
   schema?: SemanticSchema,
 ) {
-  const mergedClassNames = useSemanticClassNames(schema, ...classNamesList);
-  const mergedStyles = useSemanticStyles(...stylesList);
+  const mergedClassNames = useSemanticClassNames(schema, ...classNamesList) as ClassNamesType;
+  const mergedStyles = useSemanticStyles(...stylesList) as StylesType;
 
   return [mergedClassNames, mergedStyles] as const;
 }

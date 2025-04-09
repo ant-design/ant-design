@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import classnames from 'classnames';
 
 import type { PreviewConfig } from '..';
 import { devUseWarning } from '../../_util/warning';
@@ -7,7 +6,7 @@ import type { GroupPreviewConfig } from '../PreviewGroup';
 
 export default function usePreviewConfig<T extends PreviewConfig | GroupPreviewConfig>(
   preview?: boolean | T,
-): T {
+): [previewConfig: T, rootClassName: string, maskClassName: string] {
   // Get origin preview config
   const rawPreviewConfig = useMemo(() => {
     if (typeof preview === 'boolean') {
@@ -17,15 +16,14 @@ export default function usePreviewConfig<T extends PreviewConfig | GroupPreviewC
     return preview && typeof preview === 'object' ? preview : {};
   }, [preview]) as T;
 
-  const previewConfig = useMemo(() => {
+  const splittedPreviewConfig = useMemo(() => {
     if (!rawPreviewConfig) {
-      return rawPreviewConfig;
+      return [rawPreviewConfig, '', ''];
     }
 
     const {
       open,
       onOpenChange,
-      classNames = {},
       cover,
       actionsRender,
 
@@ -40,7 +38,7 @@ export default function usePreviewConfig<T extends PreviewConfig | GroupPreviewC
 
       ...restPreviewConfig
     } = rawPreviewConfig as GroupPreviewConfig &
-      Pick<PreviewConfig, 'cover' | 'mask' | 'maskClassName' | 'classNames'>;
+      Pick<PreviewConfig, 'cover' | 'mask' | 'maskClassName'>;
 
     let onInternalOpenChange: typeof onOpenChange;
     if (onOpenChange) {
@@ -56,21 +54,18 @@ export default function usePreviewConfig<T extends PreviewConfig | GroupPreviewC
       };
     }
 
-    const cloneClassNames = {
-      ...classNames,
-      root: classnames(classNames.root, rootClassName),
-      cover: classnames(classNames.cover, maskClassName),
-    };
-
-    return {
-      ...restPreviewConfig,
-      open: open ?? visible,
-      onOpenChange: onInternalOpenChange,
-      cover: cover ?? mask,
-      actionsRender: actionsRender ?? toolbarRender,
-      classNames: cloneClassNames,
-    };
-  }, [rawPreviewConfig]) as T;
+    return [
+      {
+        ...restPreviewConfig,
+        open: open ?? visible,
+        onOpenChange: onInternalOpenChange,
+        cover: cover ?? mask,
+        actionsRender: actionsRender ?? toolbarRender,
+      },
+      rootClassName,
+      maskClassName,
+    ];
+  }, [rawPreviewConfig]) as [T, string, string];
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Image');
@@ -100,5 +95,5 @@ export default function usePreviewConfig<T extends PreviewConfig | GroupPreviewC
     }
   }
 
-  return previewConfig;
+  return splittedPreviewConfig;
 }

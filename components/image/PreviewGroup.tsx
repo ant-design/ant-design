@@ -72,13 +72,34 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
   const mergedRootClassName = classnames(hashId, cssVarCls, rootCls);
 
   // ============================= Preview ==============================
-  const previewConfig = usePreviewConfig(preview);
-  const contextPreviewConfig = usePreviewConfig(contextPreview);
+  const [previewConfig, previewRootClassName, previewMaskClassName] = usePreviewConfig(preview);
+  const [contextPreviewConfig, contextPreviewRootClassName, contextPreviewMaskClassName] =
+    usePreviewConfig(contextPreview);
 
-  // Preview semantic
+  // ============================ Semantics =============================
+  const mergedLegacyClassNames = React.useMemo(
+    () => ({
+      cover: classnames(contextPreviewMaskClassName, previewMaskClassName),
+      popup: {
+        root: classnames(contextPreviewRootClassName, previewRootClassName),
+      },
+    }),
+    [
+      previewRootClassName,
+      previewMaskClassName,
+      contextPreviewRootClassName,
+      contextPreviewMaskClassName,
+    ],
+  );
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
+    [contextClassNames, classNames, mergedLegacyClassNames],
     [contextStyles, styles],
+    {
+      popup: {
+        _default: 'root',
+      },
+    },
   );
 
   const mergedPreview = useMergedPreviewConfig(
