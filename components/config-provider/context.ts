@@ -37,6 +37,7 @@ import type { ArgsProps as NotificationProps } from '../notification';
 import type { PaginationProps } from '../pagination';
 import type { PopconfirmProps } from '../popconfirm';
 import type { PopoverProps } from '../popover';
+import type { QRCodeProps } from '../qr-code';
 import type { RadioProps } from '../radio';
 import type { ResultProps } from '../result';
 import type { SegmentedProps } from '../segmented';
@@ -271,6 +272,8 @@ export type PopconfirmConfig = Pick<
   'className' | 'style' | 'styles' | 'classNames' | 'arrow'
 >;
 
+export type QRcodeConfig = ComponentStyleConfig & Pick<QRCodeProps, 'classNames' | 'styles'>;
+
 export type SliderConfig = ComponentStyleConfig & Pick<SliderProps, 'styles' | 'classNames'>;
 
 export type SkeletonConfig = ComponentStyleConfig & Pick<SkeletonProps, 'styles' | 'classNames'>;
@@ -406,6 +409,7 @@ export interface ConfigComponentProps {
   dropdown?: ComponentStyleConfig;
   flex?: FlexConfig;
   wave?: WaveConfig;
+  qrcode?: QRcodeConfig;
   watermark?: ComponentStyleConfig;
 }
 

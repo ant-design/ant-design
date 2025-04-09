@@ -1,17 +1,19 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { QRCodeCanvas, QRCodeSVG } from '@rc-component/qrcode';
 import omit from '@rc-component/util/lib/omit';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
-import classNames from 'classnames';
+import cls from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import { useLocale } from '../locale';
 import { useToken } from '../theme/internal';
 import type { QRCodeProps, QRProps } from './interface';
 import QRcodeStatus from './QrcodeStatus';
 import useStyle from './style/index';
+
+export type { QRCodeProps, QRProps };
 
 const QRCode: React.FC<QRCodeProps> = (props) => {
   const [, token] = useToken();
@@ -32,9 +34,24 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     prefixCls: customizePrefixCls,
     bgColor = 'transparent',
     statusRender,
+    classNames: qrcodeClassNames,
+    styles,
     ...rest
   } = props;
-  const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
+
+  const {
+    getPrefixCls,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('qrcode');
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, qrcodeClassNames],
+    [contextStyles, styles],
+  );
+
   const prefixCls = getPrefixCls('qrcode', customizePrefixCls);
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
@@ -85,21 +102,32 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     return null;
   }
 
-  const mergedCls = classNames(prefixCls, className, rootClassName, hashId, cssVarCls, {
-    [`${prefixCls}-borderless`]: !bordered,
-  });
+  const rootClassNames = cls(
+    prefixCls,
+    className,
+    rootClassName,
+    hashId,
+    cssVarCls,
+    contextClassName,
+    mergedClassNames.root,
+    {
+      [`${prefixCls}-borderless`]: !bordered,
+    },
+  );
 
-  const mergedStyle: React.CSSProperties = {
+  const rootStyle: React.CSSProperties = {
     backgroundColor: bgColor,
+    ...mergedStyles.root,
+    ...contextStyle,
     ...style,
     width: style?.width ?? size,
     height: style?.height ?? size,
   };
 
   return (
-    <div {...restProps} className={mergedCls} style={mergedStyle}>
+    <div {...restProps} className={rootClassNames} style={rootStyle}>
       {status !== 'active' && (
-        <div className={`${prefixCls}-mask`}>
+        <div className={cls(`${prefixCls}-mask`, mergedClassNames.mask)} style={mergedStyles.mask}>
           <QRcodeStatus
             prefixCls={prefixCls}
             locale={locale}
