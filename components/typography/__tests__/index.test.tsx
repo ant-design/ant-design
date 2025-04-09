@@ -3,8 +3,8 @@ import { CheckOutlined, HighlightOutlined, LikeOutlined, SmileOutlined } from '@
 import KeyCode from '@rc-component/util/lib/KeyCode';
 import { resetWarned } from '@rc-component/util/lib/warning';
 import userEvent from '@testing-library/user-event';
-import copy from 'copy-to-clipboard';
 
+import copy from '../../_util/copy';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
@@ -15,7 +15,7 @@ import Text from '../Text';
 import type { TitleProps } from '../Title';
 import Title from '../Title';
 
-jest.mock('copy-to-clipboard');
+jest.mock('../../_util/copy');
 
 describe('Typography', () => {
   mountTest(Paragraph);
@@ -145,8 +145,9 @@ describe('Typography', () => {
           fireEvent.click(container.querySelector('.ant-typography-copy')!);
           await waitFakeTimer(1);
 
-          expect((copy as any).lastStr).toEqual(target);
-          expect((copy as any).lastOptions.format).toEqual(format);
+          expect((copy as any).mock.lastCall[0]).toEqual(target);
+          expect((copy as any).mock.lastCall[1].format).toEqual(format);
+
           expect(onCopy).toHaveBeenCalled();
 
           let copiedIcon = '.anticon-check';
