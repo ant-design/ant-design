@@ -22,7 +22,7 @@ demo:
 <code src="./demo/unit.tsx">单位</code>
 <code src="./demo/animated.tsx">动画效果</code>
 <code src="./demo/card.tsx" background="grey">在卡片中使用</code>
-<code src="./demo/timer.tsx">计时</code>
+<code src="./demo/timer.tsx" version="5.25.0">计时器</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
