@@ -5,7 +5,9 @@ exports[`Input.OTP rtl render component should be rendered correctly in RTL dire
   class="ant-otp ant-otp-rtl"
 >
   <span
+    aria-label="Otp input"
     class="ant-otp-input-wrapper"
+    role="group"
   >
     <input
       class="ant-input ant-input-rtl ant-input-outlined ant-otp-input"
@@ -15,7 +17,9 @@ exports[`Input.OTP rtl render component should be rendered correctly in RTL dire
     />
   </span>
   <span
+    aria-label="Otp input"
     class="ant-otp-input-wrapper"
+    role="group"
   >
     <input
       class="ant-input ant-input-rtl ant-input-outlined ant-otp-input"
@@ -25,7 +29,9 @@ exports[`Input.OTP rtl render component should be rendered correctly in RTL dire
     />
   </span>
   <span
+    aria-label="Otp input"
     class="ant-otp-input-wrapper"
+    role="group"
   >
     <input
       class="ant-input ant-input-rtl ant-input-outlined ant-otp-input"
@@ -35,7 +41,9 @@ exports[`Input.OTP rtl render component should be rendered correctly in RTL dire
     />
   </span>
   <span
+    aria-label="Otp input"
     class="ant-otp-input-wrapper"
+    role="group"
   >
     <input
       class="ant-input ant-input-rtl ant-input-outlined ant-otp-input"
@@ -45,7 +53,9 @@ exports[`Input.OTP rtl render component should be rendered correctly in RTL dire
     />
   </span>
   <span
+    aria-label="Otp input"
     class="ant-otp-input-wrapper"
+    role="group"
   >
     <input
       class="ant-input ant-input-rtl ant-input-outlined ant-otp-input"
@@ -55,7 +65,9 @@ exports[`Input.OTP rtl render component should be rendered correctly in RTL dire
     />
   </span>
   <span
+    aria-label="Otp input"
     class="ant-otp-input-wrapper"
+    role="group"
   >
     <input
       class="ant-input ant-input-rtl ant-input-outlined ant-otp-input"
