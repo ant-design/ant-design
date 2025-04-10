@@ -61,9 +61,9 @@ async function generateLLms() {
     docsBody.push(fullContent);
   }
   const docsIndexContent = [
-    '# Ant Design - 企业级 React 组件库',
+    '# Ant Design - Enterprise-class React UI library',
     '',
-    '- Ant Design 由蚂蚁集团开发，是一个基于 React 的 UI 组件库，旨在为企业级后台管理系统提供一套高质量的设计语言和开发框架。提供了丰富的组件以及设计指南，帮助开发者快速构建现代化、响应式、高性能的 Web 应用程序。',
+    '- Ant Design, developed by Ant Group, is a React UI library that aims to provide a high-quality design language and development framework for enterprise-level backend management systems. It offers a rich set of components and design guidelines, helping developers build modern, responsive, and high-performance web applications.',
     '',
     '## Docs',
     '',
