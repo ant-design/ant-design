@@ -198,7 +198,7 @@ describe('Statistic', () => {
       const onMouseEnter = jest.fn();
       const onMouseLeave = jest.fn();
       const { container } = render(
-        <Statistic.Countdown onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />,
+        <Statistic onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />,
       );
       fireEvent.mouseEnter(container.firstChild!);
       expect(onMouseEnter).toHaveBeenCalled();
@@ -210,11 +210,7 @@ describe('Statistic', () => {
       const onMouseEnter = jest.fn();
       const onMouseLeave = jest.fn();
       const { container } = render(
-        <Statistic.Timer
-          type="countdown"
-          onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave}
-        />,
+        <Statistic.Countdown onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />,
       );
       fireEvent.mouseEnter(container.firstChild!);
       expect(onMouseEnter).toHaveBeenCalled();
