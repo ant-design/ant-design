@@ -73,8 +73,8 @@ async function generateLLms() {
 
   const docsBodyContent = docsBody.join('\n');
 
-  fs.writeFileSync(path.join(siteDir, 'llms.txt'), docsIndexContent);
-  fs.writeFileSync(path.join(siteDir, 'llms-full.txt'), docsBodyContent);
+  await fs.writeFile(path.join(siteDir, 'llms.txt'), docsIndexContent);
+  await fs.writeFile(path.join(siteDir, 'llms-full.txt'), docsBodyContent);
   console.log('Generated llms.txt and llms-full.txt');
 }
 (async () => {
