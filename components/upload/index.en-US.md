@@ -27,7 +27,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 <code src="./demo/picture-circle.tsx">Pictures with picture-circle type</code>
 <code src="./demo/fileList.tsx">Complete control over file list</code>
 <code src="./demo/drag.tsx">Drag and Drop</code>
-<code src="./demo/paste.tsx">Paste</code>
+<code src="./demo/paste.tsx" version="5.25.0"">Paste</code>
 <code src="./demo/directory.tsx">Upload directory</code>
 <code src="./demo/upload-manually.tsx">Upload manually</code>
 <code src="./demo/upload-png-only.tsx">Upload png file only</code>
@@ -73,7 +73,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | progress | Custom progress bar | [ProgressProps](/components/progress/#api) (support `type="line"` only) | { strokeWidth: 2, showInfo: false } | 4.3.0 |
 | showUploadList | Whether to show default upload list, could be an object to specify `extra`, `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` and `downloadIcon` individually | boolean \| { extra?: ReactNode \| (file: UploadFile) => ReactNode, showPreviewIcon?: boolean \| (file: UploadFile) => boolean, showDownloadIcon?: boolean \| (file: UploadFile) => boolean, showRemoveIcon?: boolean \| (file: UploadFile) => boolean, previewIcon?: ReactNode \| (file: UploadFile) => ReactNode, removeIcon?: ReactNode \| (file: UploadFile) => ReactNode, downloadIcon?: ReactNode \| (file: UploadFile) => ReactNode } | true | `extra`: 5.20.0, `showPreviewIcon` function: 5.21.0, `showRemoveIcon` function: 5.21.0, `showDownloadIcon` function: 5.21.0 |
 | withCredentials | The ajax upload with cookie sent | boolean | false |  |
-| pastable | Support paste file | boolean | false | 5.21.0 |
+| pastable | Support paste file | boolean | false | 5.25.0 |
 | onChange | A callback function, can be executed when uploading state is changing. It will trigger by every uploading phase. see [onChange](#onchange) | function | - |  |
 | onDrop | A callback function executed when files are dragged and dropped into the upload area | (event: React.DragEvent) => void | - | 4.16.0 |
 | onDownload | Click the method to download the file, pass the method to perform the method logic, and do not pass the default jump to the new TAB | function(file): void | (Jump to new TAB) |  |
