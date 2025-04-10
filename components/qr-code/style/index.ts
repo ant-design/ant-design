@@ -20,7 +20,7 @@ interface QRCodeToken extends FullToken<'QRCode'> {
   QRCodeTextColor: string;
   /**
    * @desc QRCode 遮罩背景颜色
-   * @descEN Mask background color of QRCode
+   * @descEN Cover background color of QRCode
    */
   QRCodeCoverBackgroundColor: string;
 }
