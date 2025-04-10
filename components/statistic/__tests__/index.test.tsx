@@ -1,7 +1,7 @@
 import React from 'react';
 import dayjs from 'dayjs';
 
-import type { StatisticTimerProps } from '..';
+import type { CountdownProps } from '..';
 import Statistic from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -198,7 +198,7 @@ describe('Statistic', () => {
       const onMouseEnter = jest.fn();
       const onMouseLeave = jest.fn();
       const { container } = render(
-        <Statistic onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />,
+        <Statistic.Countdown onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />,
       );
       fireEvent.mouseEnter(container.firstChild!);
       expect(onMouseEnter).toHaveBeenCalled();
@@ -228,7 +228,7 @@ describe('Statistic', () => {
         const deadline = Date.now() + 10 * 1000;
         let remainingTime;
 
-        const onChange: StatisticTimerProps['onChange'] = (value) => {
+        const onChange: CountdownProps['onChange'] = (value) => {
           remainingTime = value;
         };
         render(<Statistic.Countdown value={deadline} onChange={onChange} />);
