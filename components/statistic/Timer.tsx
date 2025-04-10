@@ -1,15 +1,15 @@
 import * as React from 'react';
+import { useEvent } from 'rc-util';
+import raf from 'rc-util/lib/raf';
 
 import useForceUpdate from '../_util/hooks/useForceUpdate';
-import type { FormatConfig, valueType } from './utils';
-import type { StatisticProps } from './Statistic';
-import { formatCounter } from './utils';
 import { cloneElement } from '../_util/reactNode';
+import type { StatisticProps } from './Statistic';
 import Statistic from './Statistic';
+import type { FormatConfig, valueType } from './utils';
+import { formatCounter } from './utils';
 
 export type TimerType = 'countdown' | 'countup';
-
-const REFRESH_INTERVAL = 1000 / 30;
 
 export interface StatisticTimerProps extends FormatConfig, StatisticProps {
   type: TimerType;
@@ -28,43 +28,51 @@ const StatisticTimer: React.FC<StatisticTimerProps> = (props) => {
 
   const forceUpdate = useForceUpdate();
 
-  const interval = (timestamp: number, counter: NodeJS.Timeout) => {
+  // ======================== Update ========================
+  const update = useEvent(() => {
     const now = Date.now();
+    const timestamp = getTime(value);
+
     forceUpdate();
     const timeDiff = !down ? now - timestamp : timestamp - now;
+
     onChange?.(timeDiff);
+
+    // Only countdown will trigger `onFinish`
     if (down && timestamp < now) {
       onFinish?.();
-      if (counter) {
-        clearInterval(counter);
-      }
+      return false;
     }
-  };
+    return true;
+  });
 
+  // Effect trigger
   React.useEffect(() => {
-    const timestamp = getTime(value);
-    const now = Date.now();
-    let counter: NodeJS.Timeout;
+    let rafId: number;
 
-    if ((down && timestamp >= now) || (!down && timestamp <= now)) {
-      counter = setInterval(() => {
-        interval(timestamp, counter);
-      }, REFRESH_INTERVAL);
-    }
+    const clear = () => raf.cancel(rafId!);
 
-    return () => {
-      if (counter) {
-        clearInterval(counter);
-      }
+    const rafUpdate = () => {
+      rafId = raf(() => {
+        if (update()) {
+          rafUpdate();
+        }
+      });
     };
-  }, [value]);
 
+    rafUpdate();
+
+    return clear;
+  }, [value, down]);
+
+  // ======================== Format ========================
   const formatter: StatisticProps['formatter'] = (formatValue, config) =>
     formatCounter(formatValue, { ...config, format }, down);
 
   const valueRender: StatisticProps['valueRender'] = (node) =>
     cloneElement(node, { title: undefined });
 
+  // ======================== Render ========================
   return <Statistic {...rest} value={value} valueRender={valueRender} formatter={formatter} />;
 };
 
