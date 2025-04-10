@@ -14,7 +14,4 @@ const Countdown: React.FC<CountdownProps> = (props) => {
   return <StatisticTimer type="countdown" {...props} />;
 };
 
-/**
- * @deprecated Please use `Statistic.Timer` instead
- */
 export default React.memo(Countdown);

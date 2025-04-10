@@ -1,12 +1,11 @@
 import React from 'react';
 import dayjs from 'dayjs';
-import MockDate from 'mockdate';
 
 import type { StatisticTimerProps } from '..';
 import Statistic from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import { formatTimeStr } from '../utils';
 
 describe('Statistic', () => {
@@ -14,12 +13,13 @@ describe('Statistic', () => {
   mountTest(() => <Statistic.Timer type="countdown" />);
   rtlTest(Statistic);
 
-  beforeAll(() => {
-    MockDate.set(dayjs('2018-11-28 00:00:00').valueOf());
+  beforeEach(() => {
+    jest.useFakeTimers();
   });
 
-  afterAll(() => {
-    MockDate.reset();
+  afterEach(() => {
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   it('`-` is not a number', () => {
@@ -83,51 +83,61 @@ describe('Statistic', () => {
     expect(container.querySelectorAll('.ant-statistic-content')).toHaveLength(0);
   });
 
-  it('data attrs timer', () => {
-    const { container } = render(
-      <Statistic value={1128} data-abc="1" aria-label="label" role="status" />,
-    );
-    expect(container.querySelector('.ant-statistic')!.getAttribute('data-abc')).toEqual('1');
-    expect(container.querySelector('.ant-statistic')!.getAttribute('aria-label')).toEqual('label');
-    expect(container.querySelector('.ant-statistic')!.getAttribute('role')).toEqual('status');
+  describe('Timer', () => {
+    it('countdown', async () => {
+      const onChange = jest.fn();
+      const onFinish = jest.fn();
 
-    const { container: countdownContainer } = render(
-      <Statistic.Timer type="countdown" data-xyz="x" aria-label="y" role="contentinfo" />,
-    );
-    expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('data-xyz')).toEqual(
-      'x',
-    );
-    expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('aria-label')).toEqual(
-      'y',
-    );
-    expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('role')).toEqual(
-      'contentinfo',
-    );
+      const { container } = render(
+        <Statistic.Timer
+          type="countdown"
+          data-xyz="x"
+          aria-label="y"
+          role="contentinfo"
+          value={Date.now() + 1500}
+          onChange={onChange}
+          onFinish={onFinish}
+        />,
+      );
+
+      // Data attributes
+      expect(container.querySelector('.ant-statistic')!).toHaveAttribute('data-xyz', 'x');
+      expect(container.querySelector('.ant-statistic')!).toHaveAttribute('aria-label', 'y');
+      expect(container.querySelector('.ant-statistic')!).toHaveAttribute('role', 'contentinfo');
+
+      // Now value
+      expect(container.querySelector('.ant-statistic-content-value')!.textContent).toEqual(
+        '00:00:01',
+      );
+
+      // Pass 0.5s
+      act(() => {
+        jest.advanceTimersByTime(500);
+      });
+      expect(onChange).toHaveBeenCalled();
+      expect(onFinish).not.toHaveBeenCalled();
+
+      // Pass time
+      act(() => {
+        jest.advanceTimersByTime(5000);
+      });
+      // Call twice to confirm `onFinish` is called only once
+      act(() => {
+        jest.advanceTimersByTime(5000);
+      });
+      expect(container.querySelector('.ant-statistic-content-value')!.textContent).toEqual(
+        '00:00:00',
+      );
+      expect(onFinish).toHaveBeenCalled();
+      expect(onFinish).toHaveBeenCalledTimes(1);
+    });
+
+    it('countup', async () => {
+      // TODO:
+    });
   });
 
-  it('data attrs countdown', () => {
-    const { container } = render(
-      <Statistic value={1128} data-abc="1" aria-label="label" role="status" />,
-    );
-    expect(container.querySelector('.ant-statistic')!.getAttribute('data-abc')).toEqual('1');
-    expect(container.querySelector('.ant-statistic')!.getAttribute('aria-label')).toEqual('label');
-    expect(container.querySelector('.ant-statistic')!.getAttribute('role')).toEqual('status');
-
-    const { container: countdownContainer } = render(
-      <Statistic.Countdown data-xyz="x" aria-label="y" role="contentinfo" />,
-    );
-    expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('data-xyz')).toEqual(
-      'x',
-    );
-    expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('aria-label')).toEqual(
-      'y',
-    );
-    expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('role')).toEqual(
-      'contentinfo',
-    );
-  });
-
-  describe('Countdown', () => {
+  describe('Deprecated Countdown', () => {
     it('render correctly', () => {
       const now = dayjs()
         .add(2, 'd')
