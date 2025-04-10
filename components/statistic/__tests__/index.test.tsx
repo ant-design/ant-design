@@ -83,6 +83,28 @@ describe('Statistic', () => {
     expect(container.querySelectorAll('.ant-statistic-content')).toHaveLength(0);
   });
 
+  it('data attrs', () => {
+    const { container } = render(
+      <Statistic value={1128} data-abc="1" aria-label="label" role="status" />,
+    );
+    expect(container.querySelector('.ant-statistic')!.getAttribute('data-abc')).toEqual('1');
+    expect(container.querySelector('.ant-statistic')!.getAttribute('aria-label')).toEqual('label');
+    expect(container.querySelector('.ant-statistic')!.getAttribute('role')).toEqual('status');
+
+    const { container: countdownContainer } = render(
+      <Statistic.Countdown data-xyz="x" aria-label="y" role="contentinfo" />,
+    );
+    expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('data-xyz')).toEqual(
+      'x',
+    );
+    expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('aria-label')).toEqual(
+      'y',
+    );
+    expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('role')).toEqual(
+      'contentinfo',
+    );
+  });
+
   describe('Timer', () => {
     it('countdown', async () => {
       const onChange = jest.fn();
