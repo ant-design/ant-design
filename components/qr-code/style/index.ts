@@ -23,8 +23,6 @@ interface QRCodeToken extends FullToken<'QRCode'> {
    * @descEN Mask background color of QRCode
    */
   QRCodeCoverBackgroundColor: string;
-  /** @deprecated Please use `QRCodeCoverBackgroundColor` instead */
-  QRCodeMaskBackgroundColor: string;
 }
 
 const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
