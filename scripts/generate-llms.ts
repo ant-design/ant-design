@@ -4,48 +4,66 @@ import { glob } from 'glob';
 
 async function generateLLms() {
   const cwd = process.cwd();
-  const llmsDir = path.resolve(cwd, '..');
-  const docsDir = path.join(cwd, 'docs');
+  const siteDir = path.resolve(cwd, '_site');
+  const docsDir = ['components', 'docs'];
 
-  const docs = await glob('**/*.md', { cwd: docsDir });
+  const matchSuffix = '.en-US.md';
+
+  // Ensure siteDir
+  await fs.ensureDir(siteDir);
+
+  const docs = await glob(`{${docsDir.join(',')}}/**/*.md`);
+  const filteredDocs = docs.filter((doc) => doc.includes(matchSuffix));
 
   const docsIndex: Array<{ title: string; url: string }> = [];
   const docsBody: string[] = [];
 
-  for (const markdown of docs) {
-    const mdPath = path.join(docsDir, markdown);
-    const isEnUS = mdPath.includes('en-US');
+  for (const markdown of filteredDocs) {
+    const mdPath = path.join(cwd, markdown);
 
-    if (!isEnUS) {
-      const mdContent = fs.readFileSync(mdPath, 'utf-8');
-      const mdName = markdown.replace(/\.md$/, '');
-      const url = `https://umijs.org/${mdName}`; // 文档访问路径
-      const regex = /^# (.+)$/m; // 匹配文档一级标题
-      let title = mdName;
-      let contentFromHeading = ''; // frontmatter 之后的文档内容
+    const fsContent = (await fs.readFile(mdPath, 'utf-8')).trim();
 
-      const match = regex.exec(mdContent);
-      if (match) {
-        const heading = match[1].trim(); // 文档一级标题
-        const startIndex = match.index;
-        contentFromHeading = mdContent.slice(startIndex);
-        title = heading;
+    // e.g. title: Button -> Button
+    const title = fsContent.match(/title:\s*(.*)/)?.[1].trim();
 
-        docsIndex.push({
-          title,
-          url,
-        });
-
-        docsBody.push(
-          ['---', `Title: ${title}`, `URL: ${url}`, '---', '', `${contentFromHeading}`].join('\n'),
-        );
-      }
+    if (!title) {
+      console.log('MISS title, ignore:', mdPath);
+      continue;
     }
+
+    // URL
+    let url = `https://ant.design/${markdown.replace(matchSuffix, '')}`;
+    if (url.includes('/components/')) {
+      url = url.replace('/index', '');
+    }
+
+    // Docs: title
+    docsIndex.push({
+      title,
+      url,
+    });
+
+    // Docs: content
+    const parsedContent = fsContent.replace(/^---[\s\S]*?---\n/, '').trim();
+
+    const fullContent = [
+      // Title
+      '---',
+      `Title: ${title}`,
+      `URL: ${url}`,
+      '---',
+      '',
+      // Content
+      parsedContent,
+      '',
+    ].join('\n');
+
+    docsBody.push(fullContent);
   }
   const docsIndexContent = [
-    '# Umi JS - 插件化的企业级前端应用框架',
+    '# Ant Design - 企业级 React 组件库',
     '',
-    '- Umi是可扩展的企业级前端应用框架。Umi 以路由为基础的，同时支持配置式路由和约定式路由，保证路由的功能完备，并以此进行功能扩展。然后配以生命周期完善的插件体系，覆盖从源码到构建产物的每个生命周期，支持各种功能扩展和业务需求。',
+    '- Ant Design 由蚂蚁集团开发，是一个基于 React 的 UI 组件库，旨在为企业级后台管理系统提供一套高质量的设计语言和开发框架。提供了丰富的组件以及设计指南，帮助开发者快速构建现代化、响应式、高性能的 Web 应用程序。',
     '',
     '## Docs',
     '',
@@ -55,8 +73,8 @@ async function generateLLms() {
 
   const docsBodyContent = docsBody.join('\n');
 
-  fs.writeFileSync(path.join(llmsDir, '_site/llms.txt'), docsIndexContent);
-  fs.writeFileSync(path.join(llmsDir, '_site/llms-full.txt'), docsBodyContent);
+  fs.writeFileSync(path.join(siteDir, 'llms.txt'), docsIndexContent);
+  fs.writeFileSync(path.join(siteDir, 'llms-full.txt'), docsBodyContent);
   console.log('Generated llms.txt and llms-full.txt');
 }
 (async () => {
