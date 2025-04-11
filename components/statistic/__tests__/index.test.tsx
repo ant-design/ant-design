@@ -155,7 +155,6 @@ describe('Statistic', () => {
     });
     it('should show warning when using countdown', () => {
       const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-      console.log(errorSpy);
       render(<Statistic.Countdown />);
       expect(errorSpy).toHaveBeenCalledWith(
         'Warning: [antd: Countdown] `<Statistic.Countdown />` is deprecated. Please use `<Statistic.Timer type="countdown" />` instead.',
