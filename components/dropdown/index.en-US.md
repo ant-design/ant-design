@@ -78,6 +78,10 @@ Same props from Dropdown. And includes additional props:
 
 Please ensure that the child node of `Dropdown` accepts `onMouseEnter`, `onMouseLeave`, `onFocus`, `onClick` events.
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Dropdown"></ComponentTokenTable>

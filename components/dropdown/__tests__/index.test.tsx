@@ -395,4 +395,24 @@ describe('Dropdown', () => {
       ),
     ).toHaveClass('anticon-left');
   });
+  it('support classNames and styles', () => {
+    const testClassNames = {
+      root: 'test-root',
+      popup: 'test-popup',
+    };
+    const testStyles = {
+      root: { color: 'red' },
+      popup: { backgroundColor: 'blue' },
+    };
+    const { container } = render(
+      <Dropdown menu={{ items }} open classNames={testClassNames} styles={testStyles}>
+        <button type="button">button</button>
+      </Dropdown>,
+    );
+    const dropdown = container.querySelector('.ant-dropdown') as HTMLElement;
+    expect(dropdown).toHaveClass(testClassNames.root);
+    expect(dropdown).toHaveStyle(testStyles.root);
+    expect(dropdown).toHaveClass(testClassNames.popup);
+    expect(dropdown).toHaveStyle(testStyles.popup);
+  });
 });

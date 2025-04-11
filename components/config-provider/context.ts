@@ -19,6 +19,7 @@ import type { ColorPickerProps } from '../color-picker';
 import type { DatePickerProps, RangePickerProps } from '../date-picker';
 import type { DescriptionsProps } from '../descriptions';
 import type { DrawerProps } from '../drawer';
+import type { DropdownProps } from '../dropdown';
 import type { EmptyProps } from '../empty';
 import type { FlexProps } from '../flex/interface';
 import type { FloatButtonGroupProps } from '../float-button/interface';
@@ -230,6 +231,8 @@ export type CardMetaConfig = ComponentStyleConfig & Pick<CardMetaProps, 'classNa
 export type DrawerConfig = ComponentStyleConfig &
   Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon' | 'closable'>;
 
+export type DropdownConfig = ComponentStyleConfig & Pick<DropdownProps, 'classNames' | 'styles'>;
+
 export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>;
 
 export type TransferConfig = ComponentStyleConfig &
@@ -406,7 +409,7 @@ export interface ConfigComponentProps {
   datePicker?: DatePickerConfig;
   rangePicker?: RangePickerConfig;
   ribbon?: RibbonConfig;
-  dropdown?: ComponentStyleConfig;
+  dropdown?: DropdownConfig;
   flex?: FlexConfig;
   wave?: WaveConfig;
   qrcode?: QRcodeConfig;
