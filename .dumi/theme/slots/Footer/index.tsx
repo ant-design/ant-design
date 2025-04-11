@@ -34,7 +34,7 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token, css }, isMobile) => {
+const useStyle = createStyles(({ token, css }, isMobile: boolean) => {
   const background = new FastColor(getAlphaColor('#f0f3fa', '#fff'))
     .onBackground(token.colorBgContainer)
     .toHexString();

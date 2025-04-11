@@ -1083,4 +1083,30 @@ describe('Upload', () => {
     expect(ref.current?.nativeElement).toBeTruthy();
     expect(ref.current?.nativeElement instanceof HTMLElement).toBeTruthy();
   });
+
+  it('should support paste', async () => {
+    const done = jest.fn();
+
+    const { container } = render(
+      <Upload
+        pastable
+        onChange={({ file }) => {
+          if (file.status !== 'uploading') {
+            done();
+          }
+        }}
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+
+    fireEvent.paste(container.querySelector('input')!, {
+      clipboardData: {
+        files: [{ name: 'success.jpg' }],
+      },
+    });
+
+    await waitFakeTimer();
+    expect(done).toHaveBeenCalled();
+  });
 });

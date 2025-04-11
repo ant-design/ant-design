@@ -79,6 +79,7 @@ const localeValues: Locale = {
     copy: '複製',
     copied: '複製成功',
     expand: '展開',
+    collapse: '收起',
   },
   Form: {
     defaultValidateMessages: {
@@ -136,6 +137,12 @@ const localeValues: Locale = {
     expired: '二維碼過期',
     refresh: '點擊刷新',
     scanned: '已掃描',
+  },
+  ColorPicker: {
+    presetEmpty: '暫無',
+    transparent: '透明',
+    singleColor: '單色',
+    gradientColor: '漸變色',
   },
 };
 
