@@ -14,6 +14,29 @@ const genOTPStyle: GenerateStyle<InputToken> = (token) => {
       flexWrap: 'nowrap',
       columnGap: paddingXS,
 
+      [`${componentCls}-input-wrapper`]: {
+        position: 'relative',
+        [`${componentCls}-mask-icon`]: {
+          position: 'absolute',
+          zIndex: '1',
+          top: '50%',
+          right: '50%',
+          transform: 'translate(50%, -50%)',
+          pointerEvents: 'none',
+        },
+        [`${componentCls}-mask-input`]: {
+          color: 'transparent',
+          caretColor: 'var(--ant-color-text)',
+        },
+        [`${componentCls}-mask-input[type=number]::-webkit-inner-spin-button`]: {
+          '-webkit-appearance': 'none',
+          margin: 0,
+        },
+        [`${componentCls}-mask-input[type=number]`]: {
+          '-moz-appearance': 'textfield',
+        },
+      },
+
       '&-rtl': {
         direction: 'rtl',
       },

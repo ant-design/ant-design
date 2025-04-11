@@ -145,11 +145,11 @@ describe('Input.OTP', () => {
 
     // support string
     rerender(<OTP defaultValue="bamboo" mask="*" />);
-    expect(getText(container)).toBe('******');
+    expect(getText(container)).toBe('bamboo');
 
     // support emoji
     rerender(<OTP defaultValue="bamboo" mask="🔒" />);
-    expect(getText(container)).toBe('🔒🔒🔒🔒🔒🔒');
+    expect(getText(container)).toBe('bamboo');
   });
 
   it('should throw Error when mask.length > 1', () => {

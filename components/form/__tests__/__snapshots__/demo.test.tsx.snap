@@ -12615,42 +12615,78 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             <div
               class="ant-otp"
             >
-              <input
-                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
+              <span
+                aria-label="Otp input"
+                class="ant-otp-input-wrapper"
+                role="group"
+              >
+                <input
+                  class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                aria-label="Otp input"
+                class="ant-otp-input-wrapper"
+                role="group"
+              >
+                <input
+                  class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                aria-label="Otp input"
+                class="ant-otp-input-wrapper"
+                role="group"
+              >
+                <input
+                  class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                aria-label="Otp input"
+                class="ant-otp-input-wrapper"
+                role="group"
+              >
+                <input
+                  class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                aria-label="Otp input"
+                class="ant-otp-input-wrapper"
+                role="group"
+              >
+                <input
+                  class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                aria-label="Otp input"
+                class="ant-otp-input-wrapper"
+                role="group"
+              >
+                <input
+                  class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
             </div>
           </div>
         </div>
@@ -12685,42 +12721,78 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             <div
               class="ant-otp"
             >
-              <input
-                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
+              <span
+                aria-label="Otp input"
+                class="ant-otp-input-wrapper"
+                role="group"
+              >
+                <input
+                  class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                aria-label="Otp input"
+                class="ant-otp-input-wrapper"
+                role="group"
+              >
+                <input
+                  class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                aria-label="Otp input"
+                class="ant-otp-input-wrapper"
+                role="group"
+              >
+                <input
+                  class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                aria-label="Otp input"
+                class="ant-otp-input-wrapper"
+                role="group"
+              >
+                <input
+                  class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                aria-label="Otp input"
+                class="ant-otp-input-wrapper"
+                role="group"
+              >
+                <input
+                  class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                aria-label="Otp input"
+                class="ant-otp-input-wrapper"
+                role="group"
+              >
+                <input
+                  class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
             </div>
           </div>
         </div>
@@ -12755,42 +12827,78 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             <div
               class="ant-otp"
             >
-              <input
-                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
+              <span
+                aria-label="Otp input"
+                class="ant-otp-input-wrapper"
+                role="group"
+              >
+                <input
+                  class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                aria-label="Otp input"
+                class="ant-otp-input-wrapper"
+                role="group"
+              >
+                <input
+                  class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                aria-label="Otp input"
+                class="ant-otp-input-wrapper"
+                role="group"
+              >
+                <input
+                  class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                aria-label="Otp input"
+                class="ant-otp-input-wrapper"
+                role="group"
+              >
+                <input
+                  class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                aria-label="Otp input"
+                class="ant-otp-input-wrapper"
+                role="group"
+              >
+                <input
+                  class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                aria-label="Otp input"
+                class="ant-otp-input-wrapper"
+                role="group"
+              >
+                <input
+                  class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
             </div>
           </div>
         </div>
