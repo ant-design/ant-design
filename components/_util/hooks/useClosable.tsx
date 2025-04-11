@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import type { DialogProps } from '@rc-component/dialog';
+import pickAttrs from '@rc-component/util/lib/pickAttrs';
 
 export type ClosableType = DialogProps['closable'];
 
@@ -93,7 +93,9 @@ interface ClosableCollection {
 
 /** Use same object to support `useMemo` optimization */
 const EmptyFallbackCloseCollection: ClosableCollection = {};
-
+type DataAttributes = {
+  [key: `data-${string}`]: string;
+};
 export default function useClosable(
   propCloseCollection?: ClosableCollection,
   contextCloseCollection?: ClosableCollection | null,
@@ -104,7 +106,12 @@ export default function useClosable(
      */
     closeIconRender?: (closeIcon: ReactNode) => ReactNode;
   } = EmptyFallbackCloseCollection,
-): [closable: boolean, closeIcon: React.ReactNode, closeBtnIsDisabled: boolean] {
+): [
+  closable: boolean,
+  closeIcon: React.ReactNode,
+  closeBtnIsDisabled: boolean,
+  ariaOrDataProps: React.AriaAttributes & DataAttributes,
+] {
   // Align the `props`, `context` `fallback` to config object first
   const propCloseConfig = useClosableConfig(propCloseCollection);
   const contextCloseConfig = useClosableConfig(contextCloseCollection);
@@ -151,30 +158,30 @@ export default function useClosable(
   // Calculate the final closeIcon
   return React.useMemo(() => {
     if (mergedClosableConfig === false) {
-      return [false, null, closeBtnIsDisabled];
+      return [false, null, closeBtnIsDisabled, {}];
     }
 
     const { closeIconRender } = mergedFallbackCloseCollection;
     const { closeIcon } = mergedClosableConfig;
 
     let mergedCloseIcon: ReactNode = closeIcon;
+    // Wrap the closeIcon with aria props
+    const ariaOrDataProps = pickAttrs(mergedClosableConfig, true);
     if (mergedCloseIcon !== null && mergedCloseIcon !== undefined) {
       // Wrap the closeIcon if needed
       if (closeIconRender) {
         mergedCloseIcon = closeIconRender(closeIcon);
       }
 
-      // Wrap the closeIcon with aria props
-      const ariaProps = pickAttrs(mergedClosableConfig, true);
-      if (Object.keys(ariaProps).length) {
+      if (Object.keys(ariaOrDataProps).length) {
         mergedCloseIcon = React.isValidElement(mergedCloseIcon) ? (
-          React.cloneElement(mergedCloseIcon, ariaProps)
+          React.cloneElement(mergedCloseIcon, ariaOrDataProps)
         ) : (
-          <span {...ariaProps}>{mergedCloseIcon}</span>
+          <span {...ariaOrDataProps}>{mergedCloseIcon}</span>
         );
       }
     }
 
-    return [true, mergedCloseIcon, closeBtnIsDisabled];
+    return [true, mergedCloseIcon, closeBtnIsDisabled, ariaOrDataProps];
   }, [mergedClosableConfig, mergedFallbackCloseCollection]);
 }
