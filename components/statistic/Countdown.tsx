@@ -15,12 +15,7 @@ const Countdown: React.FC<CountdownProps> = (props) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Countdown');
 
-    warning.deprecated(
-      true,
-      'Statistic.Countdown',
-      'Statistic.Timer type="countdown"',
-      'When using version >= 5.25.0, Please use Statistic.Timer instead',
-    );
+    warning.deprecated(false, '<Statistic.Countdown />', '<Statistic.Timer type="countdown" />');
   }
   return <StatisticTimer type="countdown" {...props} />;
 };
