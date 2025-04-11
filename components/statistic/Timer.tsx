@@ -14,6 +14,9 @@ export type TimerType = 'countdown' | 'countup';
 export interface StatisticTimerProps extends FormatConfig, StatisticProps {
   type: TimerType;
   format?: string;
+  /**
+   * Only to be called when the type is `countdown`.
+   */
   onFinish?: () => void;
   onChange?: (value?: valueType) => void;
 }

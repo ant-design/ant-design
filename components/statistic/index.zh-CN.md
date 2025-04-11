@@ -73,7 +73,7 @@ demo:
 | title | 数值的标题 | ReactNode | - |  |
 | value | 数值内容 | number | - |  |
 | valueStyle | 设置数值区域的样式 | CSSProperties | - |  |
-| onFinish | 倒计时完成时触发 | () => void | - |  |
+| onFinish | 倒计时完成时触发, 指定为 `countup` 此属性不生效 | () => void | - |  |
 | onChange | 倒计时时间变化时触发 | (value: number) => void | - |  |
 
 ## 主题变量（Design Token）

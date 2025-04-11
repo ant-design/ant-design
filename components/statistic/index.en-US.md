@@ -72,7 +72,7 @@ Please use Statistic.Timer instead.
 | title | Display title | ReactNode | - |  |
 | value | Set target countdown time | number | - |  |
 | valueStyle | Set value section style | CSSProperties | - |  |
-| onFinish | Trigger when time's up | () => void | - |  |
+| onFinish | Trigger when time's up, only to be called when type is `countdown` | () => void | - |  |
 | onChange | Trigger when time's changing | (value: number) => void | - |  |
 
 ## Design Token

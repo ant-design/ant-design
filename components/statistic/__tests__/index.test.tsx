@@ -156,6 +156,43 @@ describe('Statistic', () => {
 
     it('countup', async () => {
       // TODO:
+      const onChange = jest.fn();
+      const onFinish = jest.fn();
+      const before = dayjs().add(-30, 'minute').valueOf();
+
+      const { container } = render(
+        <Statistic.Timer
+          type="countup"
+          data-xyz="x"
+          aria-label="y"
+          role="contentinfo"
+          value={before}
+          onChange={onChange}
+          onFinish={onFinish}
+        />,
+      );
+
+      // Data attributes
+      expect(container.querySelector('.ant-statistic')!).toHaveAttribute('data-xyz', 'x');
+      expect(container.querySelector('.ant-statistic')!).toHaveAttribute('aria-label', 'y');
+      expect(container.querySelector('.ant-statistic')!).toHaveAttribute('role', 'contentinfo');
+
+      // Now value
+      expect(container.querySelector('.ant-statistic-content-value')!.textContent).toEqual(
+        '00:30:00',
+      );
+
+      // Pass 1s
+      act(() => {
+        jest.advanceTimersByTime(1000);
+      });
+      expect(onChange).toHaveBeenCalled();
+      expect(onFinish).not.toHaveBeenCalled();
+
+      // Now value
+      expect(container.querySelector('.ant-statistic-content-value')!.textContent).toEqual(
+        '00:30:01',
+      );
     });
   });
 
