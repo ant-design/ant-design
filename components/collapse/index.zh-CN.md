@@ -109,7 +109,7 @@ const items: CollapseProps['items'] = [
 ### Collapse.Panel
 
 <!-- prettier-ignore -->
-:::info{title=已废弃}
+:::warning{title=已废弃}
 版本 >= 5.6.0 时请使用 items 方式配置面板。
 :::
 
