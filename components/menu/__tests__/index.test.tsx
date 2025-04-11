@@ -1193,4 +1193,75 @@ describe('Menu', () => {
       cursor: 'not-allowed',
     });
   });
+  it('support classNames and styles', () => {
+    const items = [
+      {
+        label: 'Navigation One',
+        key: 'mail',
+        icon: <MailOutlined />,
+      },
+      {
+        key: 'SubMenu',
+        label: 'Navigation One',
+        icon: <MailOutlined />,
+        children: [
+          {
+            key: 'g1',
+            label: 'Item 1',
+            type: 'group',
+            children: [
+              { key: '1', label: 'Option 1' },
+              { key: '2', label: 'Option 2' },
+            ],
+          },
+        ],
+      },
+    ];
+    const testClassNames = {
+      root: 'test-root',
+      item: 'test-item',
+      itemIcon: 'test-item-icon',
+      itemContent: 'test-item-content',
+      popup: {
+        root: 'test-popup-root',
+        list: 'test-list',
+        listTitle: 'test-list-title',
+        listItem: 'test-list-item',
+      },
+    };
+    const testStyles = {
+      root: { fontSize: '12px' },
+      item: { backgroundColor: 'red' },
+      itemIcon: { backgroundColor: 'blue' },
+      itemContent: { backgroundColor: 'green' },
+      popup: {
+        root: { fontSize: '14px' },
+        list: { color: 'red' },
+        listTitle: { color: 'blue' },
+        listItem: { color: 'green' },
+      },
+    };
+    const { container } = render(
+      <Menu
+        selectedKeys={['mail']}
+        mode="horizontal"
+        items={items}
+        openKeys={['SubMenu']}
+        classNames={testClassNames}
+        styles={testStyles}
+      />,
+    );
+    const root = container.querySelector('.ant-menu');
+    const item = container.querySelectorAll('.ant-menu-item')[0];
+    const itemIcon = container.querySelector('.ant-menu-item-icon');
+    const itemContent = container.querySelector('.ant-menu-title-content');
+    expect(root).toHaveClass(testClassNames.root);
+    expect(root).toHaveStyle(testStyles.root);
+    expect(item).toHaveClass(testClassNames.item);
+    expect(item).toHaveStyle(testStyles.item);
+    expect(itemIcon).toHaveClass(testClassNames.itemIcon);
+    expect(itemIcon).toHaveStyle(testStyles.itemIcon);
+    expect(itemContent).toHaveClass(testClassNames.itemContent);
+    expect(itemContent).toHaveStyle(testStyles.itemContent);
+  });
 });
