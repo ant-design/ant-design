@@ -1,11 +1,12 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import type { DrawerProps as RCDrawerProps } from 'rc-drawer';
+import pickAttrs from 'rc-util/lib/pickAttrs';
 
-import useClosable, { pickClosable } from '../_util/hooks/useClosable';
+import useClosable, { getObject, pickClosable } from '../_util/hooks/useClosable';
 import type { ClosableType } from '../_util/hooks/useClosable';
-import Skeleton from '../skeleton';
 import { useComponentConfig } from '../config-provider/context';
+import Skeleton from '../skeleton';
 
 export interface DrawerClassNames extends NonNullable<RCDrawerProps['classNames']> {
   header?: string;
@@ -72,9 +73,17 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
   } = props;
   const drawerContext = useComponentConfig('drawer');
 
+  const ariaProps = pickAttrs(getObject(props.closable), true);
+
   const customCloseIconRender = React.useCallback(
     (icon: React.ReactNode) => (
-      <button type="button" onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
+      <button
+        type="button"
+        onClick={onClose}
+        aria-label="Close"
+        {...ariaProps}
+        className={`${prefixCls}-close`}
+      >
         {icon}
       </button>
     ),
