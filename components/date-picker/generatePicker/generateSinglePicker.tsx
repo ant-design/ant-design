@@ -213,6 +213,22 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
             }}
             allowClear={mergedAllowClear}
             removeIcon={removeIcon}
+            panelRender={(originPanel: React.ReactNode) => {
+              const panelRender = restProps?.panelRender;
+              if (typeof panelRender === 'function') {
+                return panelRender(
+                  <div
+                    style={{
+                      position: 'initial',
+                    }}
+                    className={classNames(hashId, cssVarCls, rootCls, `${prefixCls}-dropdown`)}
+                  >
+                    {originPanel}
+                  </div>,
+                );
+              }
+              return originPanel;
+            }}
           />
         </ContextIsolator>,
       );
