@@ -29,6 +29,11 @@ export interface ComponentToken {
    * @descEN Background of content
    */
   contentBg: string;
+  /**
+   * @desc 简约风格折叠面板的内容背景
+   * @descEN Background of content in borderless style
+   */
+  borderlessContentBg: string;
 }
 
 type CollapseToken = FullToken<'Collapse'> & {
@@ -275,6 +280,7 @@ const genBorderlessStyle: GenerateStyle<CollapseToken> = (token) => {
     componentCls,
     headerBg,
     paddingXXS,
+    borderlessContentBg,
 
     colorBorder,
   } = token;
@@ -300,7 +306,7 @@ const genBorderlessStyle: GenerateStyle<CollapseToken> = (token) => {
       },
 
       [`> ${componentCls}-item > ${componentCls}-content`]: {
-        backgroundColor: 'transparent',
+        backgroundColor: borderlessContentBg,
         borderTop: 0,
       },
 
@@ -337,6 +343,7 @@ export const prepareComponentToken: GetDefaultToken<'Collapse'> = (token) => ({
   headerBg: token.colorFillAlter,
   contentPadding: `${token.padding}px 16px`, // Fixed Value
   contentBg: token.colorBgContainer,
+  borderlessContentBg: 'transparent',
 });
 
 export default genStyleHooks(
