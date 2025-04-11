@@ -33,12 +33,13 @@ const collectFilterStates = <RecordType extends AnyObject = AnyObject>(
 
   (columns || []).forEach((column, index) => {
     const columnPos = getColumnPos(index, pos);
+    const filterDropdownIsDefined = column.filterDropdown !== undefined;
 
-    if (column.filters || 'filterDropdown' in column || 'onFilter' in column) {
+    if (column.filters || filterDropdownIsDefined || 'onFilter' in column) {
       if ('filteredValue' in column) {
         // Controlled
         let filteredValues = column.filteredValue;
-        if (!('filterDropdown' in column)) {
+        if (!filterDropdownIsDefined) {
           filteredValues = filteredValues?.map(String) ?? filteredValues;
         }
         filterStates.push({
