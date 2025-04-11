@@ -155,7 +155,6 @@ describe('Statistic', () => {
     });
 
     it('countup', async () => {
-      // TODO:
       const onChange = jest.fn();
       const onFinish = jest.fn();
       const before = dayjs().add(-30, 'minute').valueOf();

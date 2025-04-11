@@ -47,7 +47,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 <!-- prettier-ignore -->
 :::warning{title=Deprecated}
-Please use Statistic.Timer instead.
+When using version >= 5.25.0, Please use Statistic.Timer instead.
 :::
 
 | Property | Description | Type | Default | Version |

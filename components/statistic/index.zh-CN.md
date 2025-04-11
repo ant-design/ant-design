@@ -48,7 +48,7 @@ demo:
 
 <!-- prettier-ignore -->
 :::warning{title=已废弃}
-请使用 Statistic.Timer 作为替代方案。
+版本 >= 5.25.0 时请使用 Statistic.Timer 作为替代方案。
 :::
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
