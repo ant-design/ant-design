@@ -3040,7 +3040,7 @@ exports[`renders components/upload/demo/max-count.tsx extend context correctly 2
 
 exports[`renders components/upload/demo/paste.tsx extend context correctly 1`] = `
 <span
-  class="ant-upload-wrapper"
+  class="ant-upload-wrapper css-var-test-id"
 >
   <div
     class="ant-upload ant-upload-select"
@@ -3055,7 +3055,7 @@ exports[`renders components/upload/demo/paste.tsx extend context correctly 1`] =
         type="file"
       />
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span
