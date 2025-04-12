@@ -48,6 +48,7 @@ const localeValues: Locale = {
     Next: 'अर्को पाइला',
     Previous: 'अघिल्लो',
     Finish: 'भ्रमण अन्त्य गर्नुहोस्',
+    Close: 'बन्द गर्नुहोस्',
   },
   Transfer: {
     titles: ['', ''],

@@ -34,4 +34,5 @@ export interface TourLocale {
   Next: string;
   Previous: string;
   Finish: string;
+  Close: string;
 }

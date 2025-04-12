@@ -20,6 +20,12 @@ const localeValues: Locale = {
     selectAll: 'Velja allt',
     selectInvert: 'Viðsnúa vali',
   },
+  Tour: {
+    Next: 'Áfram',
+    Previous: 'Til baka',
+    Finish: 'Lokið',
+    Close: 'Loka',
+  },
   Modal: {
     okText: 'Áfram',
     cancelText: 'Hætta við',

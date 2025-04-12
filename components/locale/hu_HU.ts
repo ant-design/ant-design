@@ -44,6 +44,12 @@ const localeValues: Locale = {
   Empty: {
     description: 'Nincs adat',
   },
+  Tour: {
+    Next: 'Következő',
+    Previous: 'Előző',
+    Finish: 'Befejezés',
+    Close: 'Bezárás',
+  },
 };
 
 export default localeValues;

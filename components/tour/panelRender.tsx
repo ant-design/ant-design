@@ -47,12 +47,14 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
 
   const ariaProps = pickAttrs(closable ?? {}, true);
 
+  const [contextLocale] = useLocale('Tour', defaultLocale.Tour);
+
   const mergedCloseIcon = (
     <button
       type="button"
       onClick={onClose}
       className={`${prefixCls}-close`}
-      aria-label="Close"
+      aria-label={contextLocale?.Close}
       {...ariaProps}
     >
       {closable?.closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
@@ -111,8 +113,6 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     type: 'default',
     ghost: mergedType === 'primary',
   };
-
-  const [contextLocale] = useLocale('Tour', defaultLocale.Tour);
 
   return (
     <div className={`${prefixCls}-content`}>

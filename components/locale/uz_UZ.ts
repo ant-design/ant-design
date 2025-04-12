@@ -44,6 +44,7 @@ const localeValues: Locale = {
     Next: "So'ngra",
     Previous: 'Ortga',
     Finish: 'Tugatish',
+    Close: 'Yopish',
   },
   Modal: {
     okText: 'OK',

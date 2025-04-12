@@ -39,6 +39,7 @@ const localeValues: Locale = {
     Next: 'Hurrengoa',
     Previous: 'Aurrekoa',
     Finish: 'Bukatu',
+    Close: 'Itxi',
   },
   Modal: {
     okText: 'Onartu',

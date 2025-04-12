@@ -34,6 +34,12 @@ const localeValues: Locale = {
     triggerAsc: 'ஏறுவரிசையில் வரிசைப்படுத்த கிளிக் செய்யவும்',
     cancelSort: 'வரிசையாக்கத்தை ரத்து செய்ய கிளிக் செய்யவும்',
   },
+  Tour: {
+    Next: 'அடுத்தது',
+    Previous: 'முந்தையது',
+    Finish: 'முடிக்கவும்',
+    Close: 'மூடு',
+  },
   Modal: {
     okText: 'சரி',
     cancelText: 'ரத்து செய்யவும்',

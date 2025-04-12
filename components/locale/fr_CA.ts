@@ -32,6 +32,12 @@ const localeValues: Locale = {
     triggerAsc: 'Trier par ordre croissant',
     cancelSort: 'Annuler le tri',
   },
+  Tour: {
+    Next: 'Suivant',
+    Previous: 'Précédent',
+    Finish: 'Terminer',
+    Close: 'Fermer',
+  },
   Modal: {
     okText: 'OK',
     cancelText: 'Annuler',

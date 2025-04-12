@@ -34,6 +34,7 @@ const localeValues: Locale = {
     Next: 'הבא',
     Previous: 'הקודם',
     Finish: 'סיום',
+    Close: 'סגור',
   },
   Modal: {
     okText: 'אישור',

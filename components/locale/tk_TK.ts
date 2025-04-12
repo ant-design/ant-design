@@ -33,6 +33,12 @@ const localeValues: Locale = {
     triggerAsc: 'Artýan tertipde tertiple',
     cancelSort: 'Tertipleri arassala',
   },
+  Tour: {
+    Next: 'Indiki',
+    Previous: 'Öňki',
+    Finish: 'Tamamla',
+    Close: 'Bagla',
+  },
   Modal: {
     okText: 'Bolýar',
     cancelText: 'Ýatyr',

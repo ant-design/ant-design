@@ -31,6 +31,12 @@ const localeValues: Locale = {
     triggerAsc: 'Ordre ascendent',
     cancelSort: 'Desactivar l’ordre',
   },
+  Tour: {
+    Next: 'Següent',
+    Previous: 'Anterior',
+    Finish: 'Finalitzar',
+    Close: 'Tancar',
+  },
   Modal: {
     okText: 'D’acord',
     cancelText: 'Cancel·lar',

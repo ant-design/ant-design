@@ -39,6 +39,7 @@ const localeValues: Locale = {
     Next: 'Kitas',
     Previous: 'Ankstesnis',
     Finish: 'Baigti',
+    Close: 'Uždaryti',
   },
   Modal: {
     okText: 'Taip',

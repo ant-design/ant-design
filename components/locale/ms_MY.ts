@@ -44,6 +44,7 @@ const localeValues: Locale = {
     Next: 'Seterusnya',
     Previous: 'Sebelumnya',
     Finish: 'Tamat',
+    Close: 'Tutup',
   },
   Popconfirm: {
     okText: 'OK',

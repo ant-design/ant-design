@@ -39,6 +39,7 @@ const localeValues: Locale = {
     Next: 'Siguiente',
     Previous: 'Anterior',
     Finish: 'Finalizar',
+    Close: 'Cerrar',
   },
   Modal: {
     okText: 'Aceptar',

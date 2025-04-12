@@ -32,6 +32,12 @@ const localeValues: Locale = {
     triggerAsc: 'Өсу ретімен сұрыптау үшін басыңыз',
     cancelSort: 'Сұрыптаудан бас тарту үшін басыңыз',
   },
+  Tour: {
+    Next: 'Келесі',
+    Previous: 'Алдыңғы',
+    Finish: 'Аяқтау',
+    Close: 'Жабу',
+  },
   Modal: {
     okText: 'Жарайды',
     cancelText: 'Болдырмау',

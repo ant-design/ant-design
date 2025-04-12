@@ -35,6 +35,12 @@ const localeValues: Locale = {
     triggerAsc: 'Kliknutím zoradíš vzostupne',
     cancelSort: 'Kliknutím zrušíš zoradenie',
   },
+  Tour: {
+    Next: 'Ďalej',
+    Previous: 'Späť',
+    Finish: 'Dokončiť',
+    Close: 'Zavrieť',
+  },
   Modal: {
     okText: 'OK',
     cancelText: 'Zrušiť',

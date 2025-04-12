@@ -37,6 +37,7 @@ const localeValues: Locale = {
     Next: 'Volgende',
     Previous: 'Vorige',
     Finish: 'Voltooien',
+    Close: 'Sluiten',
   },
   Modal: {
     okText: 'OK',

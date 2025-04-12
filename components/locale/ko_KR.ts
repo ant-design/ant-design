@@ -39,6 +39,7 @@ const localeValues: Locale = {
     Next: '다음',
     Previous: '이전',
     Finish: '종료',
+    Close: '닫기',
   },
   Modal: {
     okText: '확인',

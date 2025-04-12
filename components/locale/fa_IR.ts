@@ -39,6 +39,7 @@ const localeValues: Locale = {
     Next: 'بعدی',
     Previous: 'قبلی',
     Finish: 'پایان',
+    Close: 'بستن',
   },
   Modal: {
     okText: 'تایید',

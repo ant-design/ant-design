@@ -44,7 +44,8 @@ const localeValues: Locale = {
   Tour: {
     Next: '下一步',
     Previous: '上一步',
-    Finish: '结束导览',
+    Finish: '完成导览',
+    Close: '关闭',
   },
   Popconfirm: {
     cancelText: '取消',

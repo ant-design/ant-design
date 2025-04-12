@@ -18,6 +18,12 @@ const localeValues: Locale = {
     selectAll: 'Izberi vse na trenutni strani',
     selectInvert: 'Obrni izbor na trenutni strani',
   },
+  Tour: {
+    Next: 'Naprej',
+    Previous: 'Prejšnje',
+    Finish: 'Končaj',
+    Close: 'Zapri',
+  },
   Modal: {
     okText: 'V redu',
     cancelText: 'Prekliči',

@@ -33,6 +33,12 @@ const localeValues: Locale = {
     triggerAsc: 'আরোহী বাছাই করতে ক্লিক করুন',
     cancelSort: 'বাছাই বাতিল করতে ক্লিক করুন',
   },
+  Tour: {
+    Next: 'পরবর্তী',
+    Previous: 'পূর্ববর্তী',
+    Finish: 'সমাপ্ত',
+    Close: 'বন্ধ',
+  },
   Modal: {
     okText: 'ঠিক',
     cancelText: 'বাতিল',

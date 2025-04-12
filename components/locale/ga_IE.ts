@@ -30,6 +30,12 @@ const localeValues: Locale = {
     triggerAsc: 'Click to sort ascending',
     cancelSort: 'Click to cancel sorting',
   },
+  Tour: {
+    Next: 'Aghaidh',
+    Previous: 'Roimh',
+    Finish: 'Dhéanamh',
+    Close: 'Dún',
+  },
   Modal: {
     okText: 'OK',
     cancelText: 'Cancel',

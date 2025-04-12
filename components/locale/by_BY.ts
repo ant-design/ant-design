@@ -35,6 +35,12 @@ const localeValues: Locale = {
     triggerAsc: 'Націсніце для сартавання па ўзрастанні',
     cancelSort: 'Націсніце, каб адмяніць сартаванне',
   },
+  Tour: {
+    Next: 'Наступны',
+    Previous: 'Папярэдняя',
+    Finish: 'Завяршыць',
+    Close: 'Закрыць',
+  },
   Modal: {
     okText: 'OK',
     cancelText: 'Адмена',

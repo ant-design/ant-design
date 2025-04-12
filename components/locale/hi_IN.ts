@@ -33,6 +33,12 @@ const localeValues: Locale = {
     triggerAsc: 'आरोही क्रमित करने के लिए क्लिक करें',
     cancelSort: 'छँटाई रद्द करने के लिए क्लिक करें',
   },
+  Tour: {
+    Next: 'अगाड़ा',
+    Previous: 'पिछला',
+    Finish: 'समाप्त करें',
+    Close: 'बंद करें',
+  },
   Modal: {
     okText: 'अच्छी तरह से',
     cancelText: 'रद्द करना',

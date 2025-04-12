@@ -37,6 +37,7 @@ const localeValues: Locale = {
     Next: 'နောက်တစ်ခု',
     Previous: 'အရင်',
     Finish: 'ပြီးအောင်',
+    Close: 'ပိတ်ပါ။',
   },
   Modal: {
     okText: 'အိုကေ',

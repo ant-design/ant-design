@@ -38,6 +38,7 @@ const localeValues: Locale = {
     Next: 'Weiter',
     Previous: 'Zurück',
     Finish: 'Fertig',
+    Close: 'Schließen',
   },
   Modal: {
     okText: 'OK',

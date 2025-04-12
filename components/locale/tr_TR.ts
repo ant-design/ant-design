@@ -36,6 +36,7 @@ const localeValues: Locale = {
     Next: 'Sonraki',
     Previous: 'Önceki',
     Finish: 'Bitir',
+    Close: 'Kapat',
   },
   Modal: {
     okText: 'Tamam',

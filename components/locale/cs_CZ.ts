@@ -35,6 +35,12 @@ const localeValues: Locale = {
     triggerAsc: 'Klikni pro vzestupné řazení',
     cancelSort: 'Klikni pro zrušení řazení',
   },
+  Tour: {
+    Next: 'Další',
+    Previous: 'Předchozí',
+    Finish: 'Dokončit',
+    Close: 'Zavřít',
+  },
   Modal: {
     okText: 'OK',
     cancelText: 'Zrušit',

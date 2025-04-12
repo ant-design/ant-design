@@ -39,6 +39,7 @@ const localeValues: Locale = {
     Next: 'Tiếp',
     Previous: 'Trước',
     Finish: 'Hoàn thành',
+    Close: 'Đóng',
   },
   Modal: {
     okText: 'Đồng ý',

@@ -33,6 +33,12 @@ const localeValues: Locale = {
     triggerAsc: 'Apasă pentru ordonare crescătoare',
     cancelSort: 'Apasă pentru a anula ordonarea',
   },
+  Tour: {
+    Next: 'Următorul',
+    Previous: 'Înapoi',
+    Finish: 'Finalizare',
+    Close: 'Închide',
+  },
   Modal: {
     okText: 'OK',
     cancelText: 'Anulare',

@@ -18,6 +18,12 @@ const localeValues: Locale = {
     selectAll: 'Hemî hilbijêre',
     selectInvert: 'Hilbijartinan veguhere',
   },
+  Tour: {
+    Next: 'Temam',
+    Previous: 'Betal ke',
+    Finish: 'Temam',
+    Close: 'Betal ke',
+  },
   Modal: {
     okText: 'Temam',
     cancelText: 'Betal ke',

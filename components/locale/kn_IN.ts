@@ -36,6 +36,12 @@ const localeValues: Locale = {
     triggerAsc: 'ಏರೋಹಣ ಕ್ರಮದಲ್ಲಿ ವಿಂಗಡಿಸಲು ಕ್ಲಿಕ್ ಮಾಡಿ',
     cancelSort: 'ವಿಂಗಡಣೆಯನ್ನು ರದ್ದುಗೊಳಿಸಲು ಕ್ಲಿಕ್ ಮಾಡಿ',
   },
+  Tour: {
+    Next: 'ಮುಂದುವರೆಸಿ',
+    Previous: 'ಹಿಂದೆಯಾಗಿ',
+    Finish: 'ಮುಗಿಸಿ',
+    Close: 'ಮುಚ್ಚಿ',
+  },
   Modal: {
     okText: 'ಸರಿ',
     cancelText: 'ರದ್ದು',

@@ -33,6 +33,12 @@ const localeValues: Locale = {
     triggerAsc: 'აღმავალი დალაგება',
     cancelSort: 'დალაგების გაუქმება',
   },
+  Tour: {
+    Next: 'მომდევნო',
+    Previous: 'წინა',
+    Finish: 'დასრულება',
+    Close: 'დახურვა',
+  },
   Modal: {
     okText: 'კარგი',
     cancelText: 'გაუქმება',
