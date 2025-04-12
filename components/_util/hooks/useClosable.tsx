@@ -4,6 +4,8 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import type { DialogProps } from 'rc-dialog';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
+import { useLocale } from '../../locale';
+import defaultLocale from '../../locale/en_US';
 import type { HTMLAriaDataAttributes } from '../aria-data-attrs';
 
 export type ClosableType = DialogProps['closable'];
@@ -109,7 +111,6 @@ export default function useClosable(
      */
     closeIconRender?: (closeIcon: ReactNode) => ReactNode;
   } = EmptyFallbackCloseCollection,
-  needInjectAriaProps = true,
 ): [
   closable: boolean,
   closeIcon: React.ReactNode,
@@ -119,6 +120,8 @@ export default function useClosable(
   // Align the `props`, `context` `fallback` to config object first
   const propCloseConfig = useClosableConfig(propCloseCollection);
   const contextCloseConfig = useClosableConfig(contextCloseCollection);
+
+  const [contextLocale] = useLocale('global', defaultLocale.global);
   const closeBtnIsDisabled =
     typeof propCloseConfig !== 'boolean' ? !!propCloseConfig?.disabled : false;
   const mergedFallbackCloseCollection = React.useMemo(
@@ -177,15 +180,14 @@ export default function useClosable(
       if (closeIconRender) {
         mergedCloseIcon = closeIconRender(closeIcon);
       }
-      if (needInjectAriaProps) {
-        if (Object.keys(ariaProps).length) {
-          mergedCloseIcon = React.isValidElement(mergedCloseIcon) ? (
-            React.cloneElement(mergedCloseIcon, ariaProps)
-          ) : (
-            <span {...ariaProps}>{mergedCloseIcon}</span>
-          );
-        }
-      }
+      mergedCloseIcon = React.isValidElement(mergedCloseIcon) ? (
+        React.cloneElement(mergedCloseIcon, {
+          'aria-label': contextLocale.close,
+          ...ariaProps,
+        } as HTMLAriaDataAttributes)
+      ) : (
+        <span {...ariaProps}>{mergedCloseIcon}</span>
+      );
     }
 
     return [true, mergedCloseIcon, closeBtnIsDisabled, ariaProps];

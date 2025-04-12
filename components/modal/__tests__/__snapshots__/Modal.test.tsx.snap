@@ -78,6 +78,7 @@ exports[`Modal render correctly 1`] = `
                 type="button"
               >
                 <span
+                  aria-label="Close"
                   class="ant-modal-close-x"
                 >
                   <span
@@ -172,6 +173,7 @@ exports[`Modal render without footer 1`] = `
                 type="button"
               >
                 <span
+                  aria-label="Close"
                   class="ant-modal-close-x"
                 >
                   <span
@@ -246,6 +248,7 @@ exports[`Modal support closeIcon 1`] = `
             type="button"
           >
             <span
+              aria-label="Close"
               class="ant-modal-close-x"
             >
               <a>

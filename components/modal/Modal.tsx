@@ -121,7 +121,6 @@ const Modal: React.FC<ModalProps> = (props) => {
       closeIcon: <CloseOutlined className={`${prefixCls}-close-icon`} />,
       closeIconRender: (icon) => renderCloseIcon(prefixCls, icon),
     },
-    false,
   );
 
   // ============================ Refs ============================

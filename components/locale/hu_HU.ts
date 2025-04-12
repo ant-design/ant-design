@@ -11,6 +11,9 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    close: 'Bezárás',
+  },
   Table: {
     filterTitle: 'Szűrők',
     filterConfirm: 'Alkalmazás',

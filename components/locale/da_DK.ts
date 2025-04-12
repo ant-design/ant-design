@@ -12,6 +12,9 @@ const localeValues: Locale = {
   TimePicker,
   Calendar,
   Pagination,
+  global: {
+    close: 'Luk',
+  },
   Table: {
     filterTitle: 'Filtermenu',
     filterConfirm: 'OK',

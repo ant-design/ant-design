@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Aukeratu',
+    close: 'Itxi',
   },
   Table: {
     filterTitle: 'Iragazi menua',

@@ -14,7 +14,7 @@ Array [
         >
           Tag 1
           <span
-            aria-label="close"
+            aria-label="Close"
             class="anticon anticon-close ant-tag-close-icon"
             role="img"
             tabindex="-1"
@@ -44,7 +44,7 @@ Array [
         >
           Tag 2
           <span
-            aria-label="close"
+            aria-label="Close"
             class="anticon anticon-close ant-tag-close-icon"
             role="img"
             tabindex="-1"
@@ -74,7 +74,7 @@ Array [
         >
           Tag 3
           <span
-            aria-label="close"
+            aria-label="Close"
             class="anticon anticon-close ant-tag-close-icon"
             role="img"
             tabindex="-1"
@@ -154,7 +154,7 @@ Array [
   >
     Prevent Default
     <span
-      aria-label="close"
+      aria-label="Close"
       class="anticon anticon-close ant-tag-close-icon"
       role="img"
       tabindex="-1"
@@ -180,7 +180,7 @@ Array [
   >
     Tag 2
     <span
-      aria-label="close-circle"
+      aria-label="Close"
       class="anticon anticon-close-circle ant-tag-close-icon"
       role="img"
       tabindex="-1"
@@ -253,7 +253,7 @@ Array [
     >
       Tag 3
       <span
-        aria-label="close"
+        aria-label="Close"
         class="anticon anticon-close ant-tag-close-icon"
         role="img"
         tabindex="-1"
@@ -279,7 +279,7 @@ Array [
     >
       Tag 4
       <span
-        aria-label="close"
+        aria-label="Close"
         class="anticon anticon-close ant-tag-close-icon"
         role="img"
         tabindex="-1"
@@ -413,7 +413,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
     >
       Tag 3
       <span
-        aria-label="close"
+        aria-label="Close"
         class="anticon anticon-close ant-tag-close-icon"
         role="img"
         tabindex="-1"
@@ -439,7 +439,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
     >
       Tag 4
       <span
-        aria-label="close"
+        aria-label="Close"
         class="anticon anticon-close ant-tag-close-icon"
         role="img"
         tabindex="-1"
@@ -765,7 +765,7 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = 
       Tag 2
     </span>
     <span
-      aria-label="close"
+      aria-label="Close"
       class="anticon anticon-close ant-tag-close-icon"
       role="img"
       tabindex="-1"
@@ -794,7 +794,7 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = 
       Tag 3
     </span>
     <span
-      aria-label="close"
+      aria-label="Close"
       class="anticon anticon-close ant-tag-close-icon"
       role="img"
       tabindex="-1"
@@ -860,6 +860,7 @@ exports[`renders components/tag/demo/customize.tsx extend context correctly 1`] 
   >
     Tag1
     <span
+      aria-label="Close"
       class="ant-tag-close-icon"
     >
       关 闭
@@ -870,7 +871,7 @@ exports[`renders components/tag/demo/customize.tsx extend context correctly 1`] 
   >
     Tag2
     <span
-      aria-label="close-circle"
+      aria-label="Close"
       class="anticon anticon-close-circle ant-tag-close-icon"
       role="img"
       tabindex="-1"
