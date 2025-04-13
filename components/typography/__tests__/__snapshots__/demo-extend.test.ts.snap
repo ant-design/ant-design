@@ -218,218 +218,225 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
 exports[`renders components/typography/demo/basic.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/typography/demo/componentToken-debug.tsx extend context correctly 1`] = `
-<article
-  class="ant-typography"
->
-  <h1
+Array [
+  <article
     class="ant-typography"
   >
-    Introduction
-  </h1>
-  <div
-    class="ant-typography"
-  >
-    In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
-  </div>
-  <div
-    class="ant-typography"
-  >
-    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to 
-    <span
+    <h1
       class="ant-typography"
     >
-      <strong>
-        uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development
-      </strong>
-    </span>
-    .
-  </div>
-  <h2
-    class="ant-typography"
-  >
-    Guidelines and Resources
-  </h2>
-  <div
-    class="ant-typography"
-  >
-    We supply a series of design principles, practical patterns and high quality design resources (
-    <span
+      Introduction
+    </h1>
+    <div
       class="ant-typography"
     >
-      <code>
-        Sketch
-      </code>
-    </span>
-     and 
-    <span
+      After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to 
+      <span
+        class="ant-typography"
+      >
+        <strong>
+          uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development
+        </strong>
+      </span>
+      .
+    </div>
+    <h2
       class="ant-typography"
     >
-      <code>
-        Axure
-      </code>
-    </span>
-    ), to help people create their product prototypes beautifully and efficiently.
-  </div>
-  <div
-    class="ant-typography"
-  >
-    <ul>
-      <li>
-        <a
-          class="ant-typography"
-          href="/docs/spec/proximity"
-        >
-          Principles
-        </a>
-      </li>
-      <li>
-        <a
-          class="ant-typography"
-          href="/docs/spec/overview"
-        >
-          Patterns
-        </a>
-      </li>
-      <li>
-        <a
-          class="ant-typography"
-          href="/docs/resources"
-        >
-          Resource Download
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div
-    class="ant-typography"
-  >
-    Press 
-    <span
+      Guidelines and Resources
+    </h2>
+    <div
       class="ant-typography"
     >
-      <kbd>
-        Esc
-      </kbd>
-    </span>
-     to exit...
-  </div>
-  <div
-    class="ant-divider ant-divider-horizontal"
-    role="separator"
-  />
-  <h1
-    class="ant-typography"
-  >
-    介绍
-  </h1>
-  <div
-    class="ant-typography"
-  >
-    蚂蚁的企业级产品是一个庞大且复杂的体系。这类产品不仅量级巨大且功能复杂，而且变动和并发频繁，常常需要设计与开发能够快速的做出响应。同时这类产品中有存在很多类似的页面以及组件，可以通过抽象得到一些稳定且高复用性的内容。
-  </div>
-  <div
-    class="ant-typography"
-  >
-    随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁集团体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 Ant Design。基于
-    <span
+      We supply a series of design principles, practical patterns and high quality design resources (
+      <span
+        class="ant-typography"
+      >
+        <code>
+          Sketch
+        </code>
+      </span>
+       and 
+      <span
+        class="ant-typography"
+      >
+        <code>
+          Axure
+        </code>
+      </span>
+      ), to help people create their product prototypes beautifully and efficiently.
+    </div>
+    <div
       class="ant-typography"
     >
-      <mark>
-        『确定』和『自然』
-      </mark>
-    </span>
-    的设计价值观，通过模块化的解决方案，降低冗余的生产成本，让设计者专注于
-    <span
+      <ul>
+        <li>
+          <a
+            class="ant-typography"
+            href="/docs/spec/proximity"
+          >
+            Principles
+          </a>
+        </li>
+        <li>
+          <a
+            class="ant-typography"
+            href="/docs/spec/overview"
+          >
+            Patterns
+          </a>
+        </li>
+        <li>
+          <a
+            class="ant-typography"
+            href="/docs/resources"
+          >
+            Resource Download
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div
       class="ant-typography"
     >
-      <strong>
-        更好的用户体验
-      </strong>
-    </span>
-    。
-  </div>
-  <h2
-    class="ant-typography"
-  >
-    设计资源
-  </h2>
-  <div
-    class="ant-typography"
-  >
-    我们提供完善的设计原则、最佳实践和设计资源文件（
-    <span
+      Press 
+      <span
+        class="ant-typography"
+      >
+        <kbd>
+          Esc
+        </kbd>
+      </span>
+       to exit...
+    </div>
+    <div
+      class="ant-divider ant-divider-horizontal"
+      role="separator"
+    />
+    <h1
       class="ant-typography"
     >
-      <code>
-        Sketch
-      </code>
-    </span>
-     和
-    <span
+      介绍
+    </h1>
+    <div
       class="ant-typography"
     >
-      <code>
-        Axure
-      </code>
-    </span>
-    ），来帮助业务快速设计出高质量的产品原型。
-  </div>
-  <div
-    class="ant-typography"
-  >
-    <ul>
-      <li>
-        <a
-          class="ant-typography"
-          href="/docs/spec/proximity-cn"
-        >
-          设计原则
-        </a>
-      </li>
-      <li>
-        <a
-          class="ant-typography"
-          href="/docs/spec/overview-cn"
-        >
-          设计模式
-        </a>
-      </li>
-      <li>
-        <a
-          class="ant-typography"
-          href="/docs/resources-cn"
-        >
-          设计资源
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div
-    class="ant-typography"
-  >
-    <blockquote>
-      AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
+      随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁集团体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 Ant Design。基于
+      <span
+        class="ant-typography"
+      >
+        <mark>
+          『确定』和『自然』
+        </mark>
+      </span>
+      的设计价值观，通过模块化的解决方案，降低冗余的生产成本，让设计者专注于
+      <span
+        class="ant-typography"
+      >
+        <strong>
+          更好的用户体验
+        </strong>
+      </span>
+      。
+    </div>
+    <h2
+      class="ant-typography"
+    >
+      设计资源
+    </h2>
+    <div
+      class="ant-typography"
+    >
+      我们提供完善的设计原则、最佳实践和设计资源文件（
+      <span
+        class="ant-typography"
+      >
+        <code>
+          Sketch
+        </code>
+      </span>
+       和
+      <span
+        class="ant-typography"
+      >
+        <code>
+          Axure
+        </code>
+      </span>
+      ），来帮助业务快速设计出高质量的产品原型。
+    </div>
+    <div
+      class="ant-typography"
+    >
+      <ul>
+        <li>
+          <a
+            class="ant-typography"
+            href="/docs/spec/proximity-cn"
+          >
+            设计原则
+          </a>
+        </li>
+        <li>
+          <a
+            class="ant-typography"
+            href="/docs/spec/overview-cn"
+          >
+            设计模式
+          </a>
+        </li>
+        <li>
+          <a
+            class="ant-typography"
+            href="/docs/resources-cn"
+          >
+            设计资源
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="ant-typography"
+    >
+      <blockquote>
+        AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
 我们正在基础图表，图分析，图编辑，地理空间可视化，智能可视化等各个可视化的领域耕耘，欢迎同路人一起前行。
-    </blockquote>
-    <pre>
-      AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
+      </blockquote>
+      <pre>
+        AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
 我们正在基础图表，图分析，图编辑，地理空间可视化，智能可视化等各个可视化的领域耕耘，欢迎同路人一起前行。
-    </pre>
-  </div>
-  <div
-    class="ant-typography"
-  >
-    按
-    <span
+      </pre>
+    </div>
+    <div
       class="ant-typography"
     >
-      <kbd>
-        Esc
-      </kbd>
-    </span>
-    键退出阅读……
-  </div>
-</article>
+      按
+      <span
+        class="ant-typography"
+      >
+        <kbd>
+          Esc
+        </kbd>
+      </span>
+      键退出阅读……
+    </div>
+  </article>,
+  <span
+    class="ant-typography ant-typography-success"
+  >
+    Success but red
+  </span>,
+  <span
+    class="ant-typography ant-typography-warning"
+  >
+    Warning but green
+  </span>,
+  <span
+    class="ant-typography ant-typography-danger"
+  >
+    Danger but blue
+  </span>,
+]
 `;
 
 exports[`renders components/typography/demo/componentToken-debug.tsx extend context correctly 2`] = `[]`;
@@ -441,6 +448,7 @@ Array [
   >
     This is a copyable text.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -478,6 +486,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Copy
@@ -490,6 +499,7 @@ Array [
   >
     Replace copy text.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -527,6 +537,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Copy
@@ -539,6 +550,7 @@ Array [
   >
     Custom Copy icon and replace tooltips text.
     <button
+      aria-describedby="test-id"
       aria-label="click here"
       class="ant-typography-copy"
       type="button"
@@ -576,6 +588,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           click here
@@ -588,6 +601,7 @@ Array [
   >
     Hide Copy tooltips.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -625,6 +639,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         />
       </div>
@@ -635,6 +650,7 @@ Array [
   >
     Request copy text.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -672,6 +688,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Copy
@@ -683,6 +700,7 @@ Array [
     class="ant-typography"
   >
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy ant-typography-copy-icon-only"
       type="button"
@@ -720,6 +738,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Copy
@@ -739,6 +758,7 @@ Array [
   >
     This is an editable text.
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -776,6 +796,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Edit
@@ -789,6 +810,7 @@ Array [
   >
     This is a loooooooooooooooooooooooooooooooong editable text with suffix.
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -826,6 +848,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Edit
@@ -838,6 +861,7 @@ Array [
   >
     Custom Edit icon and replace tooltip text.
     <button
+      aria-describedby="test-id"
       aria-label="click to edit text"
       class="ant-typography-edit"
       type="button"
@@ -875,6 +899,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           click to edit text
@@ -903,7 +928,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         icon
       </span>
     </label>
@@ -923,7 +950,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         text
       </span>
     </label>
@@ -943,7 +972,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         both
       </span>
     </label>
@@ -953,6 +984,7 @@ Array [
   >
     Text or icon as trigger - click to start editing.
     <button
+      aria-describedby="test-id"
       aria-label="click to edit text"
       class="ant-typography-edit"
       type="button"
@@ -990,6 +1022,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           click to edit text
@@ -1002,6 +1035,7 @@ Array [
   >
     Editable text with a custom enter icon in edit field.
     <button
+      aria-describedby="test-id"
       aria-label="click to edit text"
       class="ant-typography-edit"
       type="button"
@@ -1039,6 +1073,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           click to edit text
@@ -1051,6 +1086,7 @@ Array [
   >
     Editable text with no enter icon in edit field.
     <button
+      aria-describedby="test-id"
       aria-label="click to edit text"
       class="ant-typography-edit"
       type="button"
@@ -1088,6 +1124,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           click to edit text
@@ -1100,6 +1137,7 @@ Array [
   >
     Hide Edit tooltip.
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -1137,6 +1175,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         />
       </div>
@@ -1147,6 +1186,7 @@ Array [
   >
     This is an editable text with limited length.
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -1184,6 +1224,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Edit
@@ -1197,6 +1238,7 @@ Array [
   >
     h1. Ant Design
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -1234,6 +1276,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Edit
@@ -1247,6 +1290,7 @@ Array [
   >
     h2. Ant Design
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -1284,6 +1328,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Edit
@@ -1297,6 +1342,7 @@ Array [
   >
     h3. Ant Design
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -1334,6 +1380,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Edit
@@ -1347,6 +1394,7 @@ Array [
   >
     h4. Ant Design
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -1384,6 +1432,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Edit
@@ -1397,6 +1446,7 @@ Array [
   >
     h5. Ant Design
     <button
+      aria-describedby="test-id"
       aria-label="Edit"
       class="ant-typography-edit"
       type="button"
@@ -1434,6 +1484,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Edit
@@ -1480,6 +1531,7 @@ Array [
     Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
   </div>,
   <span
+    aria-describedby="test-id"
     class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
     style="width: 200px;"
   >
@@ -1498,6 +1550,7 @@ Array [
     >
       <div
         class="ant-tooltip-inner"
+        id="test-id"
         role="tooltip"
       >
         I am ellipsis now!
@@ -1505,6 +1558,7 @@ Array [
     </div>
   </div>,
   <span
+    aria-describedby="test-id"
     class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
     style="width: 200px;"
   >
@@ -1525,6 +1579,7 @@ Array [
     >
       <div
         class="ant-tooltip-inner"
+        id="test-id"
         role="tooltip"
       >
         I am ellipsis now!
@@ -1581,6 +1636,7 @@ exports[`renders components/typography/demo/ellipsis-controlled.tsx extend conte
         class="ant-slider-step"
       />
       <div
+        aria-describedby="test-id"
         aria-disabled="false"
         aria-orientation="horizontal"
         aria-valuemax="20"
@@ -1604,6 +1660,7 @@ exports[`renders components/typography/demo/ellipsis-controlled.tsx extend conte
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             2
@@ -1618,6 +1675,7 @@ exports[`renders components/typography/demo/ellipsis-controlled.tsx extend conte
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -1655,6 +1713,7 @@ exports[`renders components/typography/demo/ellipsis-controlled.tsx extend conte
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Copy
@@ -1765,6 +1824,7 @@ Array [
       class="ant-slider-step"
     />
     <div
+      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="10"
@@ -1788,6 +1848,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           1
@@ -1819,6 +1880,7 @@ Array [
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -1856,6 +1918,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Copy
@@ -1871,6 +1934,7 @@ Array [
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -1908,6 +1972,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Copy
@@ -1923,6 +1988,7 @@ Array [
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -1960,6 +2026,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Copy
@@ -1975,6 +2042,7 @@ Array [
   >
     Ant Design is a design language for background applications, is refined by Ant UED Team.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -2012,6 +2080,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Copy
@@ -2032,6 +2101,7 @@ Array [
     style="display: none;"
   >
     <span
+      aria-describedby="test-id"
       class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
       style="width: 100px;"
     >
@@ -2050,6 +2120,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           I am ellipsis now!
@@ -2095,6 +2166,7 @@ Array [
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
     <button
+      aria-describedby="test-id"
       aria-label="Copy"
       class="ant-typography-copy"
       type="button"
@@ -2132,6 +2204,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Copy
@@ -2375,6 +2448,7 @@ Array [
       class="ant-slider-step"
     />
     <div
+      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="10"
@@ -2398,6 +2472,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           1

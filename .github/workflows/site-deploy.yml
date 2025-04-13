@@ -117,7 +117,7 @@ jobs:
           cd ..
 
       - name: Upload to Release
-        uses: softprops/action-gh-release@01570a1f39cb168c169c802c3bceb9e93fb10974 # v2.1.0
+        uses: softprops/action-gh-release@c95fe1489396fe8a9eb87c0abf8aa5b2ef267fda # v2.2.1
         with:
           fail_on_unmatched_files: true
           files: website.tar.gz

@@ -246,6 +246,7 @@ exports[`Table should render title 1`] = `
                       tabindex="0"
                     >
                       <div
+                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -316,6 +317,7 @@ exports[`Table should render title 1`] = `
                       tabindex="0"
                     >
                       <div
+                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -381,6 +383,7 @@ exports[`Table should render title 1`] = `
                       tabindex="0"
                     >
                       <div
+                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -451,6 +454,7 @@ exports[`Table should render title 1`] = `
                       tabindex="0"
                     >
                       <div
+                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -514,6 +518,7 @@ exports[`Table should render title 1`] = `
                       tabindex="0"
                     >
                       <div
+                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span

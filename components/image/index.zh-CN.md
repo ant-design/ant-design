@@ -9,7 +9,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*FbOCS6aFMeUAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 需要展示图片时使用。
 - 加载显示大图或加载失败时容错处理。
@@ -91,7 +91,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | current | 当前预览图的 index | number | - | 4.12.0 |
 | mask | 缩略图遮罩 | ReactNode | - | 4.9.0 |
 | maskClassName | 缩略图遮罩类名 | string | - | 4.11.0 |
-| rootClassName | 预览图的根 DOM 类名 | string | - | 5.4.0 |
+| ~~rootClassName~~ | 预览图的根 DOM 类名，不做推荐了，v6 会移到根组件上 | string | - | 5.4.0 |
 | scaleStep | `1 + scaleStep` 为缩放放大的每步倍数 | number | 0.5 | - |
 | minScale | 最小缩放倍数 | number | 1 | 5.7.0 |
 | maxScale | 最大放大倍数 | number | 50 | 5.7.0 |

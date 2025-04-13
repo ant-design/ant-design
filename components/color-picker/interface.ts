@@ -17,13 +17,11 @@ export type Colors<T> = {
   percent: number;
 }[];
 
-export enum ColorFormat {
-  hex = 'hex',
-  rgb = 'rgb',
-  hsb = 'hsb',
-}
+export const FORMAT_HEX = 'hex';
+export const FORMAT_RGB = 'rgb';
+export const FORMAT_HSB = 'hsb';
 
-export type ColorFormatType = keyof typeof ColorFormat;
+export type ColorFormatType = typeof FORMAT_HEX | typeof FORMAT_RGB | typeof FORMAT_HSB;
 
 export interface PresetsItem {
   label: ReactNode;

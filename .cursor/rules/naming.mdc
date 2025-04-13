@@ -1,0 +1,108 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Basically, antd naming requires **FULL NAME** instead of Abbreviation.
+
+## Props
+* Initialize prop: `default` + `PropName`
+* Force render: `forceRender`
+  * Force render sub component: `force` + `Sub Component Name` + `Render`
+* Sub Component Render: `Sub Component Name` + `Render`. e.g.
+> panelRender(originNode, info: { SubComponent1, SubComponent2, [somePassedProps]: someValue })
+* Sub Item Render: `Sub Item Name` + `Render`. e.g.
+> cellRender(date, info: { [somePassedProps]: someValue })
+* Data Source: `dataSource`
+* Panel open: popup & dropdown `open`, additional popup `popupName` + `Open` like `tooltipOpen`
+  * Do not use `visible` to make sure all the visible api align
+* `children`:
+  * Mainly display content. To avoid additional prop name.
+  * Option list like `Select.Option` or `Tree.TreeNode`.
+  * Customize wrapped component can consider use `component` prop if `children` may have other usage in future.
+* Display related naming: `show` + `PropName`
+* Functional: `PropName` + `able`
+* Disable: `disabled`
+  * sub component: `disabled` + `Sub Component Name`
+* Extra: `extra`
+  * sub component: `Sub Component Name` + `extra`. e.g. `titleExtra`
+* mainly icon: `icon`
+  * Merge with function first: `functionName: { icon }`. e.g. `expandable: { icon: <Smile /> }`
+  * Multiple icons: `FunctionName` + `Icon`
+* Trigger: `trigger`
+  * Sub function trigger: `Sub Function` + `Trigger`
+  * Trigger on the time point: `xxx` + `On` + `EventName` (e.g. `destroyOnClose`)
+* Component use other component config. Naming as component.(e.g. `<Table pagination={{...}} />`)
+* ClassName: `className`
+  * Additional classes should be merged into `classes` (e.g. `<Button classes={{ inner: 'custom-inner' }} />`)
+* Format
+  * Not modify value when blur: `preserveInvalidOnBlur`
+
+## Event
+* Trigger event: `on` + `EventName`
+  * Trigger sub component event: `on` + `SubComponentName` + `EventName` (e.g.`onSearchChange`)
+  * Trigger prop event: `on` + `PropName` + `EventName` (e.g.`onDragStart`)
+* Before trigger event: `before` + `EventName`
+* After trigger event: `after` + `EventName`
+* After continuous action, such as drag Slider: `on` + `EventName` + `Complete`
+
+## Reference
+
+Component should have `ref` prop. Which should provide the structure:
+
+```tsx
+ComponentRef {
+  nativeElement: HTMLElement;
+  // Other function
+  focus: VoidFunction;
+}
+```
+
+## Component Token
+`variant (optional)` + `semantic part` + `semantic part variant (optional)` + `css property` + `size/disabled (optional)`
+
+All component tokens should follow the structure above, and should not conflict with Global Token.
+* `variant` means this token only works in certain variant, like `horizontal` `borderless`.  
+* `semantic part` means the typical element of component, like `item` `header`. If there's.
+* `semantic part status` means the variant of the semantic part before it, like `hover` `selected`.
+* `css property` means the exact property where the token is used, like `fontSize` `width`.  
+
+For example:
+| v4 | v5 | Note |
+| --- | --- | --- |
+| `@menu-item-color` | `itemColor` | Remove the component prefix | 
+| `@select-item-selected-bg` | `itemSelectedBg` | `selected` is variant of item |
+| `@select-single-item-height-lg` | `itemHeightLG` | `single` is variant of Select (by default), `LG` is size of Select |
+
+> Note: If there's no semantic part for one component token, for example, the root borderRadius of Button, it is not suitable to add it. Because we could modify it easily with `className` and `style`.
+
+## Current listing api & Chinese version
+ref: [#16048](mdc:https:/github.com/ant-design/ant-design/issues/16048)
+
+## API standard in the document
+
+### Examples
+
+| Property      | Description                   | Type                           | Default |
+| --------- | ---------------------- | ------------------------------ | ------ |
+| htmlType | xxx        | string                               | `button `      |
+| type          | xxx           | `horizontal ` \| `vertical `  | `horizontal` | 
+| disabled  | xxx           | boolean                            | false  |
+| minLength      | xxx                         | number                           | 0      |
+|  style      | xxx                    | CSSProperties                  | -   |
+| character | xxx | (props) => ReactNode | - |
+| offset | xxx| \[number, number] | \[0, 0] |
+| value     | xxx         | string \| number | `small`      | 
+
+### Promise
+- When string type, the **Default** use ` `` `.
+- Can also list string optional values ​​in **Type**.
+- When boolean type, the **Default** value is true or false.
+- When number type, the **Default** value use numbers directly.
+- When function type, use an arrow function expression in **Type**.
+- No default value use - .
+- Capitalize the first letter in **Description** apart from `someProp`.
+- No period at the end of the **Description**.
+- API order is arranged in alphabetical order, and can be put together under special circumstances (such as: xs sm md).
+
+ref: [#25066](mdc:https:/github.com/ant-design/ant-design/issues/25066)

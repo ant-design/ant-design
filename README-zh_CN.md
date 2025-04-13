@@ -83,6 +83,10 @@ yarn add antd
 pnpm add antd
 ```
 
+```bash
+bun add antd
+```
+
 ## 🔨 示例
 
 ```tsx
@@ -105,7 +109,7 @@ export default App;
 
 ### 🛡 TypeScript
 
-`antd` 使用 TypeScript 编写，具有完整的类型定义，参考 [在 create-react-app 中使用](https://ant.design/docs/react/use-with-create-react-app-cn)。
+`antd` 使用 TypeScript 编写，具有完整的类型定义，参考 [在 Next.js 中使用](https://ant.design/docs/react/use-with-next-cn)。
 
 ## 🌍 国际化
 
