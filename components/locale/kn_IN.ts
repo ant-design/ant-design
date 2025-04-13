@@ -26,7 +26,7 @@ const localeValues: Locale = {
     selectInvert: 'ಪ್ರಸ್ತುತ ಪುಟವನ್ನು ತಿರುಗಿಸಿ',
     sortTitle: 'ವಿಂಗಡಿಸಿ',
     filterEmptyText: 'ಫಿಲ್ಟರ್ ಇಲ್ಲ',
-    filterCheckall: 'ಎಲ್ಲಾ ಐಟಂಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ',
+    filterCheckAll: 'ಎಲ್ಲಾ ಐಟಂಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ',
     filterSearchPlaceholder: 'ಫಿಲ್ಟರ್‌ಗಳೊಂದಿಗೆ ಹುಡುಕಿ',
     selectNone: 'ಯಾವುದನ್ನೂ ಆಯ್ಕೆ ಮಾಡಬೇಡಿ',
     selectionAll: 'ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ಆಯ್ಕೆಮಾಡಿ',

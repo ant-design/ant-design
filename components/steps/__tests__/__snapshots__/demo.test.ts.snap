@@ -964,6 +964,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx correctly 1`]
           class="ant-steps-icon"
         >
           <span
+            aria-describedby="test-id"
             class="ant-steps-icon-dot"
           />
         </span>
@@ -1000,6 +1001,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx correctly 1`]
           class="ant-steps-icon"
         >
           <span
+            aria-describedby="test-id"
             class="ant-steps-icon-dot"
           />
         </span>
@@ -1036,6 +1038,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx correctly 1`]
           class="ant-steps-icon"
         >
           <span
+            aria-describedby="test-id"
             class="ant-steps-icon-dot"
           />
         </span>
@@ -1072,6 +1075,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx correctly 1`]
           class="ant-steps-icon"
         >
           <span
+            aria-describedby="test-id"
             class="ant-steps-icon-dot"
           />
         </span>
@@ -1491,6 +1495,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
               style="margin-top:8px"
             >
               <div
+                aria-describedby="test-id"
                 class="ant-steps-item ant-steps-item-process ant-steps-item-active"
               >
                 <div
@@ -1527,6 +1532,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
                 </div>
               </div>
               <div
+                aria-describedby="test-id"
                 class="ant-steps-item ant-steps-item-wait"
               >
                 <div
@@ -1563,6 +1569,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
                 </div>
               </div>
               <div
+                aria-describedby="test-id"
                 class="ant-steps-item ant-steps-item-wait"
               >
                 <div
@@ -1641,6 +1648,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
               style="margin-top:8px"
             >
               <div
+                aria-describedby="test-id"
                 class="ant-steps-item ant-steps-item-finish ant-steps-next-error"
               >
                 <div
@@ -1677,6 +1685,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
                 </div>
               </div>
               <div
+                aria-describedby="test-id"
                 class="ant-steps-item ant-steps-item-error ant-steps-item-active"
               >
                 <div
@@ -1713,6 +1722,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
                 </div>
               </div>
               <div
+                aria-describedby="test-id"
                 class="ant-steps-item ant-steps-item-wait"
               >
                 <div
@@ -1791,6 +1801,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
               style="margin-top:8px"
             >
               <div
+                aria-describedby="test-id"
                 class="ant-steps-item ant-steps-item-finish"
               >
                 <div
@@ -1827,6 +1838,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
                 </div>
               </div>
               <div
+                aria-describedby="test-id"
                 class="ant-steps-item ant-steps-item-finish"
               >
                 <div
@@ -1863,6 +1875,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
                 </div>
               </div>
               <div
+                aria-describedby="test-id"
                 class="ant-steps-item ant-steps-item-process ant-steps-item-active"
               >
                 <div
@@ -1941,6 +1954,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
               style="margin-top:8px"
             >
               <div
+                aria-describedby="test-id"
                 class="ant-steps-item ant-steps-item-finish"
               >
                 <div
@@ -1977,6 +1991,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
                 </div>
               </div>
               <div
+                aria-describedby="test-id"
                 class="ant-steps-item ant-steps-item-process ant-steps-item-active"
               >
                 <div
@@ -2013,6 +2028,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
                 </div>
               </div>
               <div
+                aria-describedby="test-id"
                 class="ant-steps-item ant-steps-item-wait"
               >
                 <div
@@ -4991,7 +5007,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         Small
       </span>
     </label>
@@ -5012,7 +5030,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         Default
       </span>
     </label>

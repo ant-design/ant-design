@@ -6,6 +6,7 @@ const App: React.FC = () => (
     <Mentions placeholder="Outlined" />
     <Mentions placeholder="Filled" variant="filled" />
     <Mentions placeholder="Borderless" variant="borderless" />
+    <Mentions placeholder="Underlined" variant="underlined" />
   </Flex>
 );
 

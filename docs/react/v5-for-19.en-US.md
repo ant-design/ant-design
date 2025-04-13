@@ -28,9 +28,7 @@ You can choose one of the following methods, and it is recommended to use the co
 
 Install the compatibility package
 
-```bash
-npm install --save-dev @ant-design/v5-patch-for-react-19
-```
+<InstallDependencies npm='npm install @ant-design/v5-patch-for-react-19 --save' yarn='yarn add @ant-design/v5-patch-for-react-19' pnpm='pnpm add @ant-design/v5-patch-for-react-19 --save' bun='bun add @ant-design/v5-patch-for-react-19'></InstallDependencies>
 
 Import the compatibility package at the application entry
 

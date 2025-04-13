@@ -6,7 +6,7 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 
 const locales = {
   cn: {
-    root: '根节点 (包含箭头、内容元素)',
+    root: '根元素 (包含箭头、内容元素)',
     body: '内容元素',
   },
   en: {
@@ -36,6 +36,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="Tooltip"
       semantics={[
         { name: 'root', desc: locale.root, version: '5.23.0' },
         { name: 'body', desc: locale.body, version: '5.23.0' },

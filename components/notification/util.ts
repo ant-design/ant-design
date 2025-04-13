@@ -1,7 +1,8 @@
 import type * as React from 'react';
 import type { CSSMotionProps } from 'rc-motion';
 
-import type { NotificationPlacement } from './interface';
+import type { NotificationConfig, NotificationPlacement } from './interface';
+import type { NotificationConfig as CPNotificationConfig } from '../config-provider/context';
 
 export function getPlacementStyle(placement: NotificationPlacement, top: number, bottom: number) {
   let style: React.CSSProperties;
@@ -66,4 +67,18 @@ export function getMotion(prefixCls: string): CSSMotionProps {
   return {
     motionName: `${prefixCls}-fade`,
   };
+}
+
+export function getCloseIconConfig(
+  closeIcon: React.ReactNode,
+  notificationConfig?: NotificationConfig,
+  notification?: CPNotificationConfig,
+) {
+  if (typeof closeIcon !== 'undefined') {
+    return closeIcon;
+  }
+  if (typeof notificationConfig?.closeIcon !== 'undefined') {
+    return notificationConfig.closeIcon;
+  }
+  return notification?.closeIcon;
 }

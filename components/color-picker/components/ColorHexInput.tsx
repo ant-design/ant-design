@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import React, { useEffect, useState } from 'react';
 
-import Input from '../../input';
+import Input from '../../input/Input';
 import type { AggregationColor } from '../color';
 import { toHexFormat } from '../color';
 import { generateColor } from '../util';

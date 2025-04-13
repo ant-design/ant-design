@@ -1,6 +1,7 @@
-import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+/* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
-import { Alert, Col, ConfigProvider, Popover, Row, Select } from 'antd';
+import { Alert, Button, Col, ConfigProvider, Popover, Row, Select, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
@@ -8,11 +9,11 @@ import { useLocation, useSiteData } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
 
 import useLocale from '../../../hooks/useLocale';
+import ThemeSwitch from '../../common/ThemeSwitch';
 import DirectionIcon from '../../icons/DirectionIcon';
 import { ANT_DESIGN_NOT_SHOW_BANNER } from '../../layouts/GlobalLayout';
 import * as utils from '../../utils';
 import { getThemeConfig } from '../../utils';
-import type { SiteContextProps } from '../SiteContext';
 import SiteContext from '../SiteContext';
 import type { SharedProps } from './interface';
 import Logo from './Logo';
@@ -168,8 +169,7 @@ const Header: React.FC = () => {
     windowWidth: 1400,
     searching: false,
   });
-  const { direction, isMobile, bannerVisible, updateSiteConfig } =
-    useContext<SiteContextProps>(SiteContext);
+  const { direction, isMobile, bannerVisible, updateSiteConfig } = React.use(SiteContext);
   const pingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
   const { pathname, search } = location;
@@ -302,6 +302,7 @@ const Header: React.FC = () => {
     <Select
       key="version"
       size="small"
+      variant="filled"
       className={styles.versionSelect}
       defaultValue={pkg.version}
       onChange={handleVersionChange}
@@ -330,13 +331,16 @@ const Header: React.FC = () => {
       pure
       aria-label="RTL Switch Button"
     />,
+    <ThemeSwitch key="theme" />,
     <a
       key="github"
       href="https://github.com/ant-design/ant-design"
       target="_blank"
       rel="noreferrer"
     >
-      <SwitchBtn value={1} label1={<GithubOutlined />} tooltip1="Github" label2={null} pure />
+      <Tooltip title="GitHub" destroyTooltipOnHide>
+        <Button type="text" icon={<GithubOutlined />} style={{ fontSize: 16 }} />
+      </Tooltip>
     </a>,
   ];
 
