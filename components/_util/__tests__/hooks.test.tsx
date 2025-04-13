@@ -3,7 +3,7 @@ import { CloseOutlined } from '@ant-design/icons';
 import { render } from '@testing-library/react';
 
 import type { UseClosableParams } from '../hooks/useClosable';
-import useClosable from '../hooks/useClosable';
+import useClosable, { getObject } from '../hooks/useClosable';
 
 type ParamsOfUseClosable = [
   closable: UseClosableParams['closable'],
@@ -224,4 +224,16 @@ describe('hooks test', () => {
     const { container } = render(<App />);
     expect(container.querySelector('.custom-close-wrapper')).toBeTruthy();
   });
+
+  it("getObject", () => {
+    const match = [
+      [{name: "test"}, {name: "test"}],
+      [null, {}],
+      [false, {}],
+      [undefined, {}],
+    ];
+    match.forEach(([src, expectVal]) => {
+      expect(getObject(src)).toMatchObject(expectVal as any);
+    })
+  })
 });
