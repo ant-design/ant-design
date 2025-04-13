@@ -137,9 +137,9 @@ const ParseChangelog: React.FC<{ changelog: string }> = (props) => {
       } else {
         let node: React.ReactNode = lastStr;
         if (isQuota) {
-          node = <code>{node}</code>;
+          node = <code key={`code-${i}`}>{node}</code>;
         } else if (isBold) {
-          node = <strong>{node}</strong>;
+          node = <strong key={`strong-${i}`}>{node}</strong>;
         }
 
         nodes.push(node);

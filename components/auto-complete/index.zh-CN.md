@@ -12,7 +12,7 @@ demo:
   cols: 2
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 需要一个输入框而不是选择器。
 - 需要输入建议/辅助提示。
@@ -35,6 +35,7 @@ demo:
 <code src="./demo/variant.tsx" version="5.13.0">多种形态</code>
 <code src="./demo/allowClear.tsx">自定义清除按钮</code>
 <code src="./demo/form-debug.tsx" debug>在 Form 中 Debug</code>
+<code src="./demo/AutoComplete-and-Select.tsx" debug>AutoComplete 和 Select</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API

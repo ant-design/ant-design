@@ -530,4 +530,21 @@ describe('TextArea allowClear', () => {
     expect(errSpy).toHaveBeenCalledWith(expect.stringContaining('`bordered` is deprecated'));
     errSpy.mockRestore();
   });
+
+  it('resize: both', async () => {
+    const { container } = render(<TextArea showCount style={{ resize: 'both' }} />);
+
+    fireEvent.mouseDown(container.querySelector('textarea')!);
+
+    triggerResize(container.querySelector('textarea')!);
+    await waitFakeTimer();
+
+    expect(container.querySelector('.ant-input-textarea-affix-wrapper')).toHaveClass(
+      'ant-input-textarea-affix-wrapper-resize-dirty',
+    );
+    expect(container.querySelector('.ant-input-mouse-active')).toBeTruthy();
+
+    fireEvent.mouseUp(container.querySelector('textarea')!);
+    expect(container.querySelector('.ant-input-mouse-active')).toBeFalsy();
+  });
 });

@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useContext } from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 
@@ -13,12 +13,7 @@ import type BackTop from './BackTop';
 import FloatButtonGroupContext from './context';
 import Content from './FloatButtonContent';
 import type FloatButtonGroup from './FloatButtonGroup';
-import type {
-  FloatButtonContentProps,
-  FloatButtonElement,
-  FloatButtonProps,
-  FloatButtonShape,
-} from './interface';
+import type { FloatButtonElement, FloatButtonProps, FloatButtonShape } from './interface';
 import type PurePanel from './PurePanel';
 import useStyle from './style';
 
@@ -69,14 +64,9 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
   // 虽然在 ts 中已经 omit 过了，但是为了防止多余的属性被透传进来，这里再 omit 一遍，以防万一
   const badgeProps = omit(badge, ['title', 'children', 'status', 'text'] as any[]);
 
-  const contentProps = useMemo<FloatButtonContentProps>(
-    () => ({ prefixCls, description, icon, type }),
-    [prefixCls, description, icon, type],
-  );
-
   let buttonNode = (
     <div className={`${prefixCls}-body`}>
-      <Content {...contentProps} />
+      <Content prefixCls={prefixCls} description={description} icon={icon} />
     </div>
   );
 

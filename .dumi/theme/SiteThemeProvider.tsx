@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { theme as antdTheme, ConfigProvider } from 'antd';
 import type { ThemeConfig } from 'antd';
 import type { ThemeProviderProps } from 'antd-style';
@@ -31,10 +31,10 @@ const headerHeight = 64;
 const bannerHeight = 38;
 
 const SiteThemeProvider: React.FC<ThemeProviderProps<any>> = ({ children, theme, ...rest }) => {
-  const { getPrefixCls, iconPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls, iconPrefixCls } = React.use(ConfigProvider.ConfigContext);
   const rootPrefixCls = getPrefixCls();
   const { token } = antdTheme.useToken();
-  const { bannerVisible } = useContext(SiteContext);
+  const { bannerVisible } = React.use(SiteContext);
   React.useEffect(() => {
     // 需要注意与 components/config-provider/demo/holderRender.tsx 配置冲突
     ConfigProvider.config({ theme: theme as ThemeConfig });

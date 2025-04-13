@@ -10,7 +10,7 @@ demo:
   cols: 2
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 需要从一组相关联的数据集合进行选择，例如省市区，公司层级，事物分类等。
 - 从一个较大的数据集合中进行选择时，用多级分类进行分隔，方便选择。
@@ -35,6 +35,7 @@ demo:
 <code src="./demo/suffix.tsx" version="5.22.0">前后缀</code>
 <code src="./demo/custom-dropdown.tsx">扩展菜单</code>
 <code src="./demo/placement.tsx">弹出位置</code>
+<code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/panel.tsx" version=">= 5.10.0">面板使用</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -55,6 +56,7 @@ demo:
 | autoFocus | 自动获取焦点 | boolean | false |  |
 | changeOnSelect | 单选时生效（multiple 下始终都可以选择），点选每级菜单选项值都会发生变化。 | boolean | false |  |
 | className | 自定义类名 | string | - |  |
+| defaultOpen | 是否默认展示浮层 | boolean | - |  |
 | defaultValue | 默认的选中项 | string\[] \| number\[] | \[] |  |
 | disabled | 禁用 | boolean | false |  |
 | displayRender | 选择后展示的渲染函数 | (label, selectedOptions) => ReactNode | label => label.join(`/`) | `multiple`: 4.18.0 |
@@ -81,7 +83,7 @@ demo:
 | style | 自定义样式 | CSSProperties | - |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | value | 指定选中项 | string\[] \| number\[] | - |  |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | onChange | 选择完成后的回调 | (value, selectedOptions) => void | - |  |
 | onDropdownVisibleChange | 显示/隐藏浮层的回调 | (value) => void | - | 4.17.0 |
 | multiple | 支持多选节点 | boolean | - | 4.17.0 |

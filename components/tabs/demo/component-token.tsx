@@ -36,7 +36,7 @@ const App: React.FC = () => (
         defaultActiveKey="1"
         tabBarExtraContent={<Button>Extra Action</Button>}
         style={{ marginBottom: 32 }}
-        items={new Array(3).fill(null).map((_, i) => {
+        items={Array.from({ length: 3 }).map((_, i) => {
           const id = String(i + 1);
           return {
             label: `Tab ${id}`,
@@ -50,7 +50,7 @@ const App: React.FC = () => (
         defaultActiveKey="1"
         tabBarExtraContent={<Button>Extra Action</Button>}
         style={{ marginBottom: 32 }}
-        items={new Array(3).fill(null).map((_, i) => {
+        items={Array.from({ length: 3 }).map((_, i) => {
           const id = String(i + 1);
           return {
             label: `Tab ${id}`,
@@ -64,7 +64,7 @@ const App: React.FC = () => (
         defaultActiveKey="1"
         tabBarExtraContent={<Button>Extra Action</Button>}
         style={{ marginBottom: 32 }}
-        items={new Array(3).fill(null).map((_, i) => {
+        items={Array.from({ length: 3 }).map((_, i) => {
           const id = String(i + 1);
           return {
             label: `Tab ${id}`,
@@ -78,7 +78,7 @@ const App: React.FC = () => (
         defaultActiveKey="1"
         tabBarExtraContent={<Button>Extra Action</Button>}
         style={{ marginBottom: 32 }}
-        items={new Array(3).fill(null).map((_, i) => {
+        items={Array.from({ length: 3 }).map((_, i) => {
           const id = String(i + 1);
           return {
             label: `Tab ${id}`,
@@ -91,7 +91,7 @@ const App: React.FC = () => (
         defaultActiveKey="1"
         centered
         type="card"
-        items={new Array(3).fill(null).map((_, i) => {
+        items={Array.from({ length: 3 }).map((_, i) => {
           const id = String(i + 1);
           return {
             disabled: i === 2,
@@ -106,7 +106,7 @@ const App: React.FC = () => (
         defaultActiveKey="1"
         centered
         type="card"
-        items={new Array(3).fill(null).map((_, i) => {
+        items={Array.from({ length: 3 }).map((_, i) => {
           const id = String(i + 1);
           return {
             disabled: i === 2,
@@ -121,7 +121,7 @@ const App: React.FC = () => (
         defaultActiveKey="1"
         centered
         type="card"
-        items={new Array(3).fill(null).map((_, i) => {
+        items={Array.from({ length: 3 }).map((_, i) => {
           const id = String(i + 1);
           return {
             disabled: i === 2,
