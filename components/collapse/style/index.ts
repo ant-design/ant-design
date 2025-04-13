@@ -30,6 +30,11 @@ export interface ComponentToken {
    */
   contentBg: string;
   /**
+   * @desc 简约风格折叠面板的内容内边距
+   * @descEN Padding of content in borderless style
+   */
+  borderlessContentPadding: CSSProperties['padding'];
+  /**
    * @desc 简约风格折叠面板的内容背景
    * @descEN Background of content in borderless style
    */
@@ -276,15 +281,8 @@ const genArrowStyle: GenerateStyle<CollapseToken> = (token) => {
 };
 
 const genBorderlessStyle: GenerateStyle<CollapseToken> = (token) => {
-  const {
-    componentCls,
-    headerBg,
-    padding,
-    paddingXXS,
-    borderlessContentBg,
-
-    colorBorder,
-  } = token;
+  const { componentCls, headerBg, borderlessContentPadding, borderlessContentBg, colorBorder } =
+    token;
 
   return {
     [`${componentCls}-borderless`]: {
@@ -310,8 +308,9 @@ const genBorderlessStyle: GenerateStyle<CollapseToken> = (token) => {
         backgroundColor: borderlessContentBg,
         borderTop: 0,
       },
-      [`${componentCls}-content-box`]: {
-        padding: `${paddingXXS} ${padding} ${padding}`,
+
+      [`> ${componentCls}-item > ${componentCls}-content > ${componentCls}-content-box`]: {
+        padding: borderlessContentPadding,
       },
     },
   };
@@ -343,6 +342,7 @@ export const prepareComponentToken: GetDefaultToken<'Collapse'> = (token) => ({
   headerBg: token.colorFillAlter,
   contentPadding: `${token.padding}px 16px`, // Fixed Value
   contentBg: token.colorBgContainer,
+  borderlessContentPadding: `${token.paddingXXS}px ${token.padding}px ${token.padding}px`,
   borderlessContentBg: 'transparent',
 });
 
