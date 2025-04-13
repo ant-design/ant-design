@@ -1,4 +1,5 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+/* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
+import React, { useEffect, useRef, useState } from 'react';
 import { LinkOutlined, ThunderboltOutlined, UpOutlined } from '@ant-design/icons';
 import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
@@ -17,7 +18,6 @@ import CodePenIcon from '../../icons/CodePenIcon';
 import CodeSandboxIcon from '../../icons/CodeSandboxIcon';
 import ExternalLinkIcon from '../../icons/ExternalLinkIcon';
 import DemoContext from '../../slots/DemoContext';
-import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
 import CodeBlockButton from './CodeBlockButton';
 import type { AntdPreviewerProps } from './Previewer';
@@ -86,7 +86,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     clientOnly,
     pkgDependencyList,
   } = props;
-  const { codeType } = useContext(DemoContext);
+  const { codeType } = React.use(DemoContext);
 
   const { pkg } = useSiteData();
   const location = useLocation();
@@ -110,7 +110,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const codeSandboxIconRef = useRef<HTMLFormElement>(null);
   const codepenIconRef = useRef<HTMLFormElement>(null);
   const [codeExpand, setCodeExpand] = useState<boolean>(false);
-  const { theme } = useContext<SiteContextProps>(SiteContext);
+  const { theme } = React.use(SiteContext);
 
   const { hash, pathname, search } = location;
   const docsOnlineUrl = `https://ant.design${pathname}${search}#${asset.id}`;
@@ -140,12 +140,13 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   }, [expand]);
 
   const mergedChildren = !iframe && clientOnly ? <ClientOnly>{children}</ClientOnly> : children;
+  const demoUrlWithTheme = `${demoUrl}${theme.includes('dark') ? '?theme=dark' : ''}`;
 
   if (!previewDemo.current) {
     previewDemo.current = iframe ? (
       <BrowserFrame>
         <iframe
-          src={demoUrl}
+          src={demoUrlWithTheme}
           height={iframe === true ? undefined : iframe}
           title="demo"
           className="iframe-demo"
@@ -320,11 +321,18 @@ createRoot(document.getElementById('container')).render(<Demo />);
   const stackblitzPrefillConfig: Project = {
     title: `${localizedTitle} - antd@${dependencies.antd}`,
     template: 'create-react-app',
-    dependencies,
+    dependencies:{
+      ...dependencies,
+      react: '^19.0.0',
+      'react-dom': '^19.0.0',
+      '@types/react': '^19.0.0',
+      '@types/react-dom': '^19.0.0',
+      '@ant-design/v5-patch-for-react-19': '^1.0.3'
+    },
     description: '',
     files: {
       'index.css': indexCssContent,
-      [`index.${suffix}`]: indexJsContent,
+      [`index.${suffix}`]: `import '@ant-design/v5-patch-for-react-19';\n${indexJsContent}`,
       [`demo.${suffix}`]: demoJsContent,
       'index.html': html,
     },
@@ -445,7 +453,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 aria-label="open in new tab"
                 target="_blank"
                 rel="noreferrer"
-                href={demoUrl}
+                href={demoUrlWithTheme}
               >
                 <ExternalLinkIcon className="code-box-separate" />
               </a>
@@ -515,12 +523,12 @@ createRoot(document.getElementById('container')).render(<Demo />);
     const styleTag = document.createElement('style') as HTMLStyleElement;
     styleTag.type = 'text/css';
     styleTag.innerHTML = style;
-    (styleTag as any)['data-demo-url'] = demoUrl;
+    (styleTag as any)['data-demo-url'] = demoUrlWithTheme;
     document.head.appendChild(styleTag);
     return () => {
       document.head.removeChild(styleTag);
     };
-  }, [style, demoUrl]);
+  }, [style, demoUrlWithTheme]);
 
   if (version) {
     return (

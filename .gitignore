@@ -68,7 +68,6 @@ __image_snapshots__/
 /imageDiffSnapshots
 /visualRegressionReport*
 
-.devcontainer*
 .husky/prepare-commit-msg
 
 .eslintcache
