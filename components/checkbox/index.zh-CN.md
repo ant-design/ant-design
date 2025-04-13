@@ -10,7 +10,7 @@ demo:
   cols: 2
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 在一组可选项中进行多项选择时；
 - 单独使用可以表示两种状态之间的切换，和 `switch` 类似。区别在于切换 `switch` 会直接触发状态改变，而 `checkbox` 一般用于状态标记，需要和提交操作配合。
@@ -45,7 +45,7 @@ demo:
 | onBlur | 失去焦点时的回调 | function() | - |  |
 | onFocus | 获得焦点时的回调 | function() | - |  |
 
-#### Checkbox Group
+#### Checkbox.Group
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -54,6 +54,9 @@ demo:
 | name | CheckboxGroup 下所有 `input[type="checkbox"]` 的 `name` 属性 | string | - |  |
 | options | 指定可选项 | string\[] \| number\[] \| Option\[] | \[] |  |
 | value | 指定选中的选项 | (string \| number \| boolean)\[] | \[] |  |
+| title | 选项的 title | `string` | - |  |
+| className | 选项的类名 | `string` | - | 5.25.0 |
+| style | 选项的样式 | `React.CSSProperties` | - |  |
 | onChange | 变化时的回调函数 | (checkedValue: T[]) => void | - |  |
 
 ##### Option

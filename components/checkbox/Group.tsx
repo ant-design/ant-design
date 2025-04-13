@@ -14,6 +14,7 @@ export interface CheckboxOptionType<T = any> {
   label: React.ReactNode;
   value: T;
   style?: React.CSSProperties;
+  className?: string; // 👈 5.25.0+
   disabled?: boolean;
   title?: string;
   id?: string;
@@ -67,7 +68,7 @@ const CheckboxGroup = React.forwardRef(
       }
     }, [restProps.value]);
 
-    const memoOptions = React.useMemo<CheckboxOptionType<T>[]>(
+    const memoizedOptions = React.useMemo<CheckboxOptionType<T>[]>(
       () =>
         options.map<CheckboxOptionType<T>>((option: any) => {
           if (typeof option === 'string' || typeof option === 'number') {
@@ -101,8 +102,8 @@ const CheckboxGroup = React.forwardRef(
         newValue
           .filter((val) => registeredValues.includes(val))
           .sort((a, b) => {
-            const indexA = memoOptions.findIndex((opt) => opt.value === a);
-            const indexB = memoOptions.findIndex((opt) => opt.value === b);
+            const indexA = memoizedOptions.findIndex((opt) => opt.value === a);
+            const indexB = memoizedOptions.findIndex((opt) => opt.value === b);
             return indexA - indexB;
           }),
       );
@@ -117,7 +118,7 @@ const CheckboxGroup = React.forwardRef(
     const domProps = omit(restProps, ['value', 'disabled']);
 
     const childrenNode = options.length
-      ? memoOptions.map<React.ReactNode>((option) => (
+      ? memoizedOptions.map<React.ReactNode>((option) => (
           <Checkbox
             prefixCls={prefixCls}
             key={option.value.toString()}
@@ -125,7 +126,7 @@ const CheckboxGroup = React.forwardRef(
             value={option.value}
             checked={value.includes(option.value)}
             onChange={option.onChange}
-            className={`${groupPrefixCls}-item`}
+            className={classNames(`${groupPrefixCls}-item`, option.className)}
             style={option.style}
             title={option.title}
             id={option.id}
@@ -145,6 +146,7 @@ const CheckboxGroup = React.forwardRef(
       registerValue,
       cancelValue,
     };
+
     const classString = classNames(
       groupPrefixCls,
       {
@@ -156,6 +158,7 @@ const CheckboxGroup = React.forwardRef(
       rootCls,
       hashId,
     );
+
     return wrapCSSVar(
       <div className={classString} style={style} {...domProps} ref={ref}>
         <GroupContext.Provider value={context}>{childrenNode}</GroupContext.Provider>

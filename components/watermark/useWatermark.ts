@@ -49,6 +49,7 @@ export default function useWatermark(
       );
       // Prevents using the browser `Hide Element` to hide watermarks
       watermarkEle.removeAttribute('class');
+      watermarkEle.removeAttribute('hidden');
 
       if (watermarkEle.parentElement !== container) {
         container.append(watermarkEle);

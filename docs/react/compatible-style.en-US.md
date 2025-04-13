@@ -220,6 +220,8 @@ export default () => (
 
 ### TailwindCSS Arrange `@layer`
 
+Before starting the following configuration, you need to enable [`@layer`](#layer) feature.
+
 #### TailwindCSS v3
 
 In global.css, adjust `@layer` to control the order of style override. Place `tailwind-base` before `antd`:
